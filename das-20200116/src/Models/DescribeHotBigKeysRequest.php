@@ -12,18 +12,20 @@ class DescribeHotBigKeysRequest extends Model
      * @var string
      */
     public $consoleContext;
+
     /**
      * @var string
      */
     public $instanceId;
+
     /**
      * @var string
      */
     public $nodeId;
     protected $_name = [
         'consoleContext' => 'ConsoleContext',
-        'instanceId'     => 'InstanceId',
-        'nodeId'         => 'NodeId',
+        'instanceId' => 'InstanceId',
+        'nodeId' => 'NodeId',
     ];
 
     public function validate()

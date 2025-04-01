@@ -13,33 +13,38 @@ class cacheAnalysisJob extends Model
      * @var bigKeys
      */
     public $bigKeys;
+
     /**
      * @var string
      */
     public $instanceId;
+
     /**
      * @var string
      */
     public $jobId;
+
     /**
      * @var string
      */
     public $message;
+
     /**
      * @var string
      */
     public $nodeId;
+
     /**
      * @var string
      */
     public $taskState;
     protected $_name = [
-        'bigKeys'    => 'BigKeys',
+        'bigKeys' => 'BigKeys',
         'instanceId' => 'InstanceId',
-        'jobId'      => 'JobId',
-        'message'    => 'Message',
-        'nodeId'     => 'NodeId',
-        'taskState'  => 'TaskState',
+        'jobId' => 'JobId',
+        'message' => 'Message',
+        'nodeId' => 'NodeId',
+        'taskState' => 'TaskState',
     ];
 
     public function validate()

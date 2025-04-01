@@ -14,38 +14,44 @@ class data extends Model
      * @var int
      */
     public $enableAutoThrottleCount;
+
     /**
      * @var enableAutoThrottleList[]
      */
     public $enableAutoThrottleList;
+
     /**
      * @var int
      */
     public $neverEnableAutoThrottleOrReleasedInstanceCount;
+
     /**
      * @var string[]
      */
     public $neverEnableAutoThrottleOrReleasedInstanceIdList;
+
     /**
      * @var int
      */
     public $totalAutoThrottleRulesCount;
+
     /**
      * @var int
      */
     public $turnOffAutoThrottleCount;
+
     /**
      * @var turnOffAutoThrottleList[]
      */
     public $turnOffAutoThrottleList;
     protected $_name = [
-        'enableAutoThrottleCount'                         => 'EnableAutoThrottleCount',
-        'enableAutoThrottleList'                          => 'EnableAutoThrottleList',
-        'neverEnableAutoThrottleOrReleasedInstanceCount'  => 'NeverEnableAutoThrottleOrReleasedInstanceCount',
+        'enableAutoThrottleCount' => 'EnableAutoThrottleCount',
+        'enableAutoThrottleList' => 'EnableAutoThrottleList',
+        'neverEnableAutoThrottleOrReleasedInstanceCount' => 'NeverEnableAutoThrottleOrReleasedInstanceCount',
         'neverEnableAutoThrottleOrReleasedInstanceIdList' => 'NeverEnableAutoThrottleOrReleasedInstanceIdList',
-        'totalAutoThrottleRulesCount'                     => 'TotalAutoThrottleRulesCount',
-        'turnOffAutoThrottleCount'                        => 'TurnOffAutoThrottleCount',
-        'turnOffAutoThrottleList'                         => 'TurnOffAutoThrottleList',
+        'totalAutoThrottleRulesCount' => 'TotalAutoThrottleRulesCount',
+        'turnOffAutoThrottleCount' => 'TurnOffAutoThrottleCount',
+        'turnOffAutoThrottleList' => 'TurnOffAutoThrottleList',
     ];
 
     public function validate()
@@ -72,7 +78,7 @@ class data extends Model
         if (null !== $this->enableAutoThrottleList) {
             if (\is_array($this->enableAutoThrottleList)) {
                 $res['EnableAutoThrottleList'] = [];
-                $n1                            = 0;
+                $n1 = 0;
                 foreach ($this->enableAutoThrottleList as $item1) {
                     $res['EnableAutoThrottleList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -86,7 +92,7 @@ class data extends Model
         if (null !== $this->neverEnableAutoThrottleOrReleasedInstanceIdList) {
             if (\is_array($this->neverEnableAutoThrottleOrReleasedInstanceIdList)) {
                 $res['NeverEnableAutoThrottleOrReleasedInstanceIdList'] = [];
-                $n1                                                     = 0;
+                $n1 = 0;
                 foreach ($this->neverEnableAutoThrottleOrReleasedInstanceIdList as $item1) {
                     $res['NeverEnableAutoThrottleOrReleasedInstanceIdList'][$n1++] = $item1;
                 }
@@ -104,7 +110,7 @@ class data extends Model
         if (null !== $this->turnOffAutoThrottleList) {
             if (\is_array($this->turnOffAutoThrottleList)) {
                 $res['TurnOffAutoThrottleList'] = [];
-                $n1                             = 0;
+                $n1 = 0;
                 foreach ($this->turnOffAutoThrottleList as $item1) {
                     $res['TurnOffAutoThrottleList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -129,7 +135,7 @@ class data extends Model
         if (isset($map['EnableAutoThrottleList'])) {
             if (!empty($map['EnableAutoThrottleList'])) {
                 $model->enableAutoThrottleList = [];
-                $n1                            = 0;
+                $n1 = 0;
                 foreach ($map['EnableAutoThrottleList'] as $item1) {
                     $model->enableAutoThrottleList[$n1++] = enableAutoThrottleList::fromMap($item1);
                 }
@@ -143,7 +149,7 @@ class data extends Model
         if (isset($map['NeverEnableAutoThrottleOrReleasedInstanceIdList'])) {
             if (!empty($map['NeverEnableAutoThrottleOrReleasedInstanceIdList'])) {
                 $model->neverEnableAutoThrottleOrReleasedInstanceIdList = [];
-                $n1                                                     = 0;
+                $n1 = 0;
                 foreach ($map['NeverEnableAutoThrottleOrReleasedInstanceIdList'] as $item1) {
                     $model->neverEnableAutoThrottleOrReleasedInstanceIdList[$n1++] = $item1;
                 }
@@ -161,7 +167,7 @@ class data extends Model
         if (isset($map['TurnOffAutoThrottleList'])) {
             if (!empty($map['TurnOffAutoThrottleList'])) {
                 $model->turnOffAutoThrottleList = [];
-                $n1                             = 0;
+                $n1 = 0;
                 foreach ($map['TurnOffAutoThrottleList'] as $item1) {
                     $model->turnOffAutoThrottleList[$n1++] = turnOffAutoThrottleList::fromMap($item1);
                 }

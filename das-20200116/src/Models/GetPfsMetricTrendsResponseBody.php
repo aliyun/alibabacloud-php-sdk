@@ -12,28 +12,32 @@ class GetPfsMetricTrendsResponseBody extends Model
      * @var int
      */
     public $code;
+
     /**
      * @var DataValue[][]
      */
     public $data;
+
     /**
      * @var string
      */
     public $message;
+
     /**
      * @var string
      */
     public $requestId;
+
     /**
      * @var bool
      */
     public $success;
     protected $_name = [
-        'code'      => 'Code',
-        'data'      => 'Data',
-        'message'   => 'Message',
+        'code' => 'Code',
+        'data' => 'Data',
+        'message' => 'Message',
         'requestId' => 'RequestId',
-        'success'   => 'Success',
+        'success' => 'Success',
     ];
 
     public function validate()
@@ -57,7 +61,7 @@ class GetPfsMetricTrendsResponseBody extends Model
                 foreach ($this->data as $key1 => $value1) {
                     if (\is_array($value1)) {
                         $res['Data'][$key1] = [];
-                        $n2                 = 0;
+                        $n2 = 0;
                         foreach ($value1 as $item2) {
                             $res['Data'][$key1][$n2++] = null !== $item2 ? $item2->toArray($noStream) : $item2;
                         }
@@ -99,7 +103,7 @@ class GetPfsMetricTrendsResponseBody extends Model
                 foreach ($map['Data'] as $key1 => $value1) {
                     if (!empty($value1)) {
                         $model->data[$key1] = [];
-                        $n2                 = 0;
+                        $n2 = 0;
                         foreach ($value1 as $item2) {
                             $model->data[$key1][$n2++] = DataValue::fromMap($item2);
                         }

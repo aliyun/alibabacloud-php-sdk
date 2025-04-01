@@ -12,13 +12,14 @@ class GetDasProServiceUsageRequest extends Model
      * @var string
      */
     public $instanceId;
+
     /**
      * @var string
      */
     public $userId;
     protected $_name = [
         'instanceId' => 'InstanceId',
-        'userId'     => 'UserId',
+        'userId' => 'UserId',
     ];
 
     public function validate()

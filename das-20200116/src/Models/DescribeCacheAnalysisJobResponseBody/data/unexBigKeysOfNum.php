@@ -31,7 +31,7 @@ class unexBigKeysOfNum extends Model
         if (null !== $this->keyInfo) {
             if (\is_array($this->keyInfo)) {
                 $res['KeyInfo'] = [];
-                $n1             = 0;
+                $n1 = 0;
                 foreach ($this->keyInfo as $item1) {
                     $res['KeyInfo'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -52,7 +52,7 @@ class unexBigKeysOfNum extends Model
         if (isset($map['KeyInfo'])) {
             if (!empty($map['KeyInfo'])) {
                 $model->keyInfo = [];
-                $n1             = 0;
+                $n1 = 0;
                 foreach ($map['KeyInfo'] as $item1) {
                     $model->keyInfo[$n1++] = keyInfo::fromMap($item1);
                 }

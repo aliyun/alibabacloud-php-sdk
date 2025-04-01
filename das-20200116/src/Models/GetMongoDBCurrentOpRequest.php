@@ -12,23 +12,26 @@ class GetMongoDBCurrentOpRequest extends Model
      * @var string
      */
     public $filterDoc;
+
     /**
      * @var string
      */
     public $instanceId;
+
     /**
      * @var string
      */
     public $nodeId;
+
     /**
      * @var string
      */
     public $role;
     protected $_name = [
-        'filterDoc'  => 'FilterDoc',
+        'filterDoc' => 'FilterDoc',
         'instanceId' => 'InstanceId',
-        'nodeId'     => 'NodeId',
-        'role'       => 'Role',
+        'nodeId' => 'NodeId',
+        'role' => 'Role',
     ];
 
     public function validate()

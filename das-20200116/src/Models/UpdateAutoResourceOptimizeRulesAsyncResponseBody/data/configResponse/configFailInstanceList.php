@@ -12,18 +12,20 @@ class configFailInstanceList extends Model
      * @var bool
      */
     public $configSuccess;
+
     /**
      * @var string
      */
     public $errorMessage;
+
     /**
      * @var string
      */
     public $instanceId;
     protected $_name = [
         'configSuccess' => 'ConfigSuccess',
-        'errorMessage'  => 'ErrorMessage',
-        'instanceId'    => 'InstanceId',
+        'errorMessage' => 'ErrorMessage',
+        'instanceId' => 'InstanceId',
     ];
 
     public function validate()

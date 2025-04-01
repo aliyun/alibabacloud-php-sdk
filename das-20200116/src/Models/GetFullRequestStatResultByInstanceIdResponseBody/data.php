@@ -13,32 +13,37 @@ class data extends Model
      * @var bool
      */
     public $fail;
+
     /**
      * @var bool
      */
     public $isFinish;
+
     /**
      * @var result
      */
     public $result;
+
     /**
      * @var string
      */
     public $resultId;
+
     /**
      * @var string
      */
     public $state;
+
     /**
      * @var int
      */
     public $timestamp;
     protected $_name = [
-        'fail'      => 'Fail',
-        'isFinish'  => 'IsFinish',
-        'result'    => 'Result',
-        'resultId'  => 'ResultId',
-        'state'     => 'State',
+        'fail' => 'Fail',
+        'isFinish' => 'IsFinish',
+        'result' => 'Result',
+        'resultId' => 'ResultId',
+        'state' => 'State',
         'timestamp' => 'Timestamp',
     ];
 

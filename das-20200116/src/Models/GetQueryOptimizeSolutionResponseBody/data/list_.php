@@ -12,22 +12,25 @@ class list_ extends Model
      * @var string
      */
     public $level;
+
     /**
      * @var string
      */
     public $ruleId;
+
     /**
      * @var string
      */
     public $solution;
+
     /**
      * @var string
      */
     public $solutionExt;
     protected $_name = [
-        'level'       => 'Level',
-        'ruleId'      => 'RuleId',
-        'solution'    => 'Solution',
+        'level' => 'Level',
+        'ruleId' => 'RuleId',
+        'solution' => 'Solution',
         'solutionExt' => 'SolutionExt',
     ];
 

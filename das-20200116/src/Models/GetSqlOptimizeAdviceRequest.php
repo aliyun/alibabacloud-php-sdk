@@ -12,33 +12,38 @@ class GetSqlOptimizeAdviceRequest extends Model
      * @var string
      */
     public $consoleContext;
+
     /**
      * @var string
      */
     public $endDt;
+
     /**
      * @var string
      */
     public $engine;
+
     /**
      * @var string
      */
     public $instanceIds;
+
     /**
      * @var string
      */
     public $region;
+
     /**
      * @var string
      */
     public $startDt;
     protected $_name = [
         'consoleContext' => 'ConsoleContext',
-        'endDt'          => 'EndDt',
-        'engine'         => 'Engine',
-        'instanceIds'    => 'InstanceIds',
-        'region'         => 'Region',
-        'startDt'        => 'StartDt',
+        'endDt' => 'EndDt',
+        'engine' => 'Engine',
+        'instanceIds' => 'InstanceIds',
+        'region' => 'Region',
+        'startDt' => 'StartDt',
     ];
 
     public function validate()

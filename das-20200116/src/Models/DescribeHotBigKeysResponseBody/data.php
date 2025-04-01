@@ -14,23 +14,26 @@ class data extends Model
      * @var string
      */
     public $bigKeyMsg;
+
     /**
      * @var bigKeys
      */
     public $bigKeys;
+
     /**
      * @var string
      */
     public $hotKeyMsg;
+
     /**
      * @var hotKeys
      */
     public $hotKeys;
     protected $_name = [
         'bigKeyMsg' => 'BigKeyMsg',
-        'bigKeys'   => 'BigKeys',
+        'bigKeys' => 'BigKeys',
         'hotKeyMsg' => 'HotKeyMsg',
-        'hotKeys'   => 'HotKeys',
+        'hotKeys' => 'HotKeys',
     ];
 
     public function validate()

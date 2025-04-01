@@ -14,10 +14,12 @@ class data extends Model
      * @var sessionList[]
      */
     public $sessionList;
+
     /**
      * @var sessionStat
      */
     public $sessionStat;
+
     /**
      * @var int
      */
@@ -25,7 +27,7 @@ class data extends Model
     protected $_name = [
         'sessionList' => 'SessionList',
         'sessionStat' => 'SessionStat',
-        'timestamp'   => 'Timestamp',
+        'timestamp' => 'Timestamp',
     ];
 
     public function validate()
@@ -45,7 +47,7 @@ class data extends Model
         if (null !== $this->sessionList) {
             if (\is_array($this->sessionList)) {
                 $res['SessionList'] = [];
-                $n1                 = 0;
+                $n1 = 0;
                 foreach ($this->sessionList as $item1) {
                     $res['SessionList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -74,7 +76,7 @@ class data extends Model
         if (isset($map['SessionList'])) {
             if (!empty($map['SessionList'])) {
                 $model->sessionList = [];
-                $n1                 = 0;
+                $n1 = 0;
                 foreach ($map['SessionList'] as $item1) {
                     $model->sessionList[$n1++] = sessionList::fromMap($item1);
                 }

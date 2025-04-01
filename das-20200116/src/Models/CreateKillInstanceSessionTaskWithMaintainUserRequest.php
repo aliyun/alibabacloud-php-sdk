@@ -12,28 +12,32 @@ class CreateKillInstanceSessionTaskWithMaintainUserRequest extends Model
      * @var string
      */
     public $ignoredUsers;
+
     /**
      * @var string
      */
     public $instanceId;
+
     /**
      * @var bool
      */
     public $killAllSessions;
+
     /**
      * @var string
      */
     public $nodeId;
+
     /**
      * @var string
      */
     public $sessionIds;
     protected $_name = [
-        'ignoredUsers'    => 'IgnoredUsers',
-        'instanceId'      => 'InstanceId',
+        'ignoredUsers' => 'IgnoredUsers',
+        'instanceId' => 'InstanceId',
         'killAllSessions' => 'KillAllSessions',
-        'nodeId'          => 'NodeId',
-        'sessionIds'      => 'SessionIds',
+        'nodeId' => 'NodeId',
+        'sessionIds' => 'SessionIds',
     ];
 
     public function validate()

@@ -12,42 +12,49 @@ class GetHDMAliyunResourceSyncResultRequest extends Model
      * @var string
      */
     public $taskId;
+
     /**
      * @var string
      */
     public $uid;
+
     /**
      * @var string
      */
     public $userId;
+
     /**
      * @var string
      */
     public $context;
+
     /**
      * @var string
      */
     public $accessKey;
+
     /**
      * @var string
      */
     public $signature;
+
     /**
      * @var string
      */
     public $skipAuth;
+
     /**
      * @var string
      */
     public $timestamp;
     protected $_name = [
-        'taskId'    => 'TaskId',
-        'uid'       => 'Uid',
-        'userId'    => 'UserId',
-        'context'   => '__context',
+        'taskId' => 'TaskId',
+        'uid' => 'Uid',
+        'userId' => 'UserId',
+        'context' => '__context',
         'accessKey' => 'accessKey',
         'signature' => 'signature',
-        'skipAuth'  => 'skipAuth',
+        'skipAuth' => 'skipAuth',
         'timestamp' => 'timestamp',
     ];
 

@@ -12,28 +12,32 @@ class GetPfsSqlSampleRequest extends Model
      * @var int
      */
     public $endTime;
+
     /**
      * @var string
      */
     public $instanceId;
+
     /**
      * @var string
      */
     public $nodeId;
+
     /**
      * @var string
      */
     public $sqlId;
+
     /**
      * @var int
      */
     public $startTime;
     protected $_name = [
-        'endTime'    => 'EndTime',
+        'endTime' => 'EndTime',
         'instanceId' => 'InstanceId',
-        'nodeId'     => 'NodeId',
-        'sqlId'      => 'SqlId',
-        'startTime'  => 'StartTime',
+        'nodeId' => 'NodeId',
+        'sqlId' => 'SqlId',
+        'startTime' => 'StartTime',
     ];
 
     public function validate()

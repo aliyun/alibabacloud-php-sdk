@@ -9,46 +9,53 @@ use AlibabaCloud\Dara\Model;
 class data extends Model
 {
     /**
-     * @var \AlibabaCloud\SDK\DAS\V20200116\Models\DescribeSlowLogStatisticResponseBody\data\data
+     * @var data\data
      */
     public $data;
+
     /**
      * @var int
      */
     public $errorCode;
+
     /**
      * @var bool
      */
     public $isFinish;
+
     /**
      * @var string
      */
     public $message;
+
     /**
      * @var string
      */
     public $requestKey;
+
     /**
      * @var string
      */
     public $resultId;
+
     /**
      * @var string
      */
     public $state;
+
     /**
      * @var int
      */
     public $timestamp;
     protected $_name = [
-        'data'       => 'Data',
-        'errorCode'  => 'ErrorCode',
-        'isFinish'   => 'IsFinish',
-        'message'    => 'Message',
+        'data' => 'Data',
+        'errorCode' => 'ErrorCode',
+        'isFinish' => 'IsFinish',
+        'message' => 'Message',
         'requestKey' => 'RequestKey',
-        'resultId'   => 'ResultId',
-        'state'      => 'State',
-        'timestamp'  => 'Timestamp',
+        'resultId' => 'ResultId',
+        'state' => 'State',
+        'timestamp' => 'Timestamp',
     ];
 
     public function validate()
@@ -106,7 +113,7 @@ class data extends Model
     {
         $model = new self();
         if (isset($map['Data'])) {
-            $model->data = \AlibabaCloud\SDK\DAS\V20200116\Models\DescribeSlowLogStatisticResponseBody\data\data::fromMap($map['Data']);
+            $model->data = data\data::fromMap($map['Data']);
         }
 
         if (isset($map['ErrorCode'])) {

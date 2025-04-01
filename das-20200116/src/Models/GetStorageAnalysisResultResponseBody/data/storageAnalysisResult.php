@@ -14,48 +14,56 @@ class storageAnalysisResult extends Model
      * @var string
      */
     public $analysisErrorType;
+
     /**
      * @var bool
      */
     public $analysisSuccess;
+
     /**
      * @var int
      */
     public $dailyIncrement;
+
     /**
      * @var int
      */
     public $estimateAvailableDays;
+
     /**
      * @var needOptimizeItemList[]
      */
     public $needOptimizeItemList;
+
     /**
      * @var tableStats[]
      */
     public $tableStats;
+
     /**
      * @var int
      */
     public $totalFreeStorageSize;
+
     /**
      * @var int
      */
     public $totalStorageSize;
+
     /**
      * @var int
      */
     public $totalUsedStorageSize;
     protected $_name = [
-        'analysisErrorType'     => 'AnalysisErrorType',
-        'analysisSuccess'       => 'AnalysisSuccess',
-        'dailyIncrement'        => 'DailyIncrement',
+        'analysisErrorType' => 'AnalysisErrorType',
+        'analysisSuccess' => 'AnalysisSuccess',
+        'dailyIncrement' => 'DailyIncrement',
         'estimateAvailableDays' => 'EstimateAvailableDays',
-        'needOptimizeItemList'  => 'NeedOptimizeItemList',
-        'tableStats'            => 'TableStats',
-        'totalFreeStorageSize'  => 'TotalFreeStorageSize',
-        'totalStorageSize'      => 'TotalStorageSize',
-        'totalUsedStorageSize'  => 'TotalUsedStorageSize',
+        'needOptimizeItemList' => 'NeedOptimizeItemList',
+        'tableStats' => 'TableStats',
+        'totalFreeStorageSize' => 'TotalFreeStorageSize',
+        'totalStorageSize' => 'TotalStorageSize',
+        'totalUsedStorageSize' => 'TotalUsedStorageSize',
     ];
 
     public function validate()
@@ -91,7 +99,7 @@ class storageAnalysisResult extends Model
         if (null !== $this->needOptimizeItemList) {
             if (\is_array($this->needOptimizeItemList)) {
                 $res['NeedOptimizeItemList'] = [];
-                $n1                          = 0;
+                $n1 = 0;
                 foreach ($this->needOptimizeItemList as $item1) {
                     $res['NeedOptimizeItemList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -101,7 +109,7 @@ class storageAnalysisResult extends Model
         if (null !== $this->tableStats) {
             if (\is_array($this->tableStats)) {
                 $res['TableStats'] = [];
-                $n1                = 0;
+                $n1 = 0;
                 foreach ($this->tableStats as $item1) {
                     $res['TableStats'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -150,7 +158,7 @@ class storageAnalysisResult extends Model
         if (isset($map['NeedOptimizeItemList'])) {
             if (!empty($map['NeedOptimizeItemList'])) {
                 $model->needOptimizeItemList = [];
-                $n1                          = 0;
+                $n1 = 0;
                 foreach ($map['NeedOptimizeItemList'] as $item1) {
                     $model->needOptimizeItemList[$n1++] = needOptimizeItemList::fromMap($item1);
                 }
@@ -160,7 +168,7 @@ class storageAnalysisResult extends Model
         if (isset($map['TableStats'])) {
             if (!empty($map['TableStats'])) {
                 $model->tableStats = [];
-                $n1                = 0;
+                $n1 = 0;
                 foreach ($map['TableStats'] as $item1) {
                     $model->tableStats[$n1++] = tableStats::fromMap($item1);
                 }

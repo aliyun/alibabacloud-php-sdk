@@ -31,7 +31,7 @@ class subResults extends Model
         if (null !== $this->resourceSyncSubResult) {
             if (\is_array($this->resourceSyncSubResult)) {
                 $res['ResourceSyncSubResult'] = [];
-                $n1                           = 0;
+                $n1 = 0;
                 foreach ($this->resourceSyncSubResult as $item1) {
                     $res['ResourceSyncSubResult'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -52,7 +52,7 @@ class subResults extends Model
         if (isset($map['ResourceSyncSubResult'])) {
             if (!empty($map['ResourceSyncSubResult'])) {
                 $model->resourceSyncSubResult = [];
-                $n1                           = 0;
+                $n1 = 0;
                 foreach ($map['ResourceSyncSubResult'] as $item1) {
                     $model->resourceSyncSubResult[$n1++] = resourceSyncSubResult::fromMap($item1);
                 }

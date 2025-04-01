@@ -12,163 +12,194 @@ class data extends Model
      * @var int
      */
     public $createTmpDiskTables;
+
     /**
      * @var int
      */
     public $createTmpTables;
+
     /**
      * @var string
      */
     public $db;
+
     /**
      * @var int
      */
     public $endEventId;
+
     /**
      * @var int
      */
     public $errors;
+
     /**
      * @var int
      */
     public $eventId;
+
     /**
      * @var string
      */
     public $eventName;
+
     /**
      * @var string
      */
     public $instanceId;
+
     /**
      * @var float
      */
     public $latency;
+
     /**
      * @var float
      */
     public $lockLatency;
+
     /**
      * @var string
      */
     public $logicId;
+
     /**
      * @var int
      */
     public $noGoodIndexUsed;
+
     /**
      * @var int
      */
     public $noIndexUsed;
+
     /**
      * @var string
      */
     public $nodeId;
+
     /**
      * @var int
      */
     public $rowsAffected;
+
     /**
      * @var int
      */
     public $rowsExamined;
+
     /**
      * @var int
      */
     public $rowsSent;
+
     /**
      * @var int
      */
     public $selectFullJoin;
+
     /**
      * @var int
      */
     public $selectFullRangeJoin;
+
     /**
      * @var int
      */
     public $selectRange;
+
     /**
      * @var int
      */
     public $selectRangeCheck;
+
     /**
      * @var int
      */
     public $selectScan;
+
     /**
      * @var int
      */
     public $sortMergePasses;
+
     /**
      * @var int
      */
     public $sortRange;
+
     /**
      * @var int
      */
     public $sortRows;
+
     /**
      * @var int
      */
     public $sortScan;
+
     /**
      * @var string
      */
     public $sql;
+
     /**
      * @var string
      */
     public $sqlId;
+
     /**
      * @var int
      */
     public $threadId;
+
     /**
      * @var int
      */
     public $timestamp;
+
     /**
      * @var string
      */
     public $userId;
+
     /**
      * @var int
      */
     public $warnings;
     protected $_name = [
         'createTmpDiskTables' => 'CreateTmpDiskTables',
-        'createTmpTables'     => 'CreateTmpTables',
-        'db'                  => 'Db',
-        'endEventId'          => 'EndEventId',
-        'errors'              => 'Errors',
-        'eventId'             => 'EventId',
-        'eventName'           => 'EventName',
-        'instanceId'          => 'InstanceId',
-        'latency'             => 'Latency',
-        'lockLatency'         => 'LockLatency',
-        'logicId'             => 'LogicId',
-        'noGoodIndexUsed'     => 'NoGoodIndexUsed',
-        'noIndexUsed'         => 'NoIndexUsed',
-        'nodeId'              => 'NodeId',
-        'rowsAffected'        => 'RowsAffected',
-        'rowsExamined'        => 'RowsExamined',
-        'rowsSent'            => 'RowsSent',
-        'selectFullJoin'      => 'SelectFullJoin',
+        'createTmpTables' => 'CreateTmpTables',
+        'db' => 'Db',
+        'endEventId' => 'EndEventId',
+        'errors' => 'Errors',
+        'eventId' => 'EventId',
+        'eventName' => 'EventName',
+        'instanceId' => 'InstanceId',
+        'latency' => 'Latency',
+        'lockLatency' => 'LockLatency',
+        'logicId' => 'LogicId',
+        'noGoodIndexUsed' => 'NoGoodIndexUsed',
+        'noIndexUsed' => 'NoIndexUsed',
+        'nodeId' => 'NodeId',
+        'rowsAffected' => 'RowsAffected',
+        'rowsExamined' => 'RowsExamined',
+        'rowsSent' => 'RowsSent',
+        'selectFullJoin' => 'SelectFullJoin',
         'selectFullRangeJoin' => 'SelectFullRangeJoin',
-        'selectRange'         => 'SelectRange',
-        'selectRangeCheck'    => 'SelectRangeCheck',
-        'selectScan'          => 'SelectScan',
-        'sortMergePasses'     => 'SortMergePasses',
-        'sortRange'           => 'SortRange',
-        'sortRows'            => 'SortRows',
-        'sortScan'            => 'SortScan',
-        'sql'                 => 'Sql',
-        'sqlId'               => 'SqlId',
-        'threadId'            => 'ThreadId',
-        'timestamp'           => 'Timestamp',
-        'userId'              => 'UserId',
-        'warnings'            => 'Warnings',
+        'selectRange' => 'SelectRange',
+        'selectRangeCheck' => 'SelectRangeCheck',
+        'selectScan' => 'SelectScan',
+        'sortMergePasses' => 'SortMergePasses',
+        'sortRange' => 'SortRange',
+        'sortRows' => 'SortRows',
+        'sortScan' => 'SortScan',
+        'sql' => 'Sql',
+        'sqlId' => 'SqlId',
+        'threadId' => 'ThreadId',
+        'timestamp' => 'Timestamp',
+        'userId' => 'UserId',
+        'warnings' => 'Warnings',
     ];
 
     public function validate()

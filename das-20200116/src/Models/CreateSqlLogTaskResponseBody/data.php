@@ -12,38 +12,44 @@ class data extends Model
      * @var int
      */
     public $createTime;
+
     /**
      * @var int
      */
     public $end;
+
     /**
      * @var string
      */
     public $instanceId;
+
     /**
      * @var string
      */
     public $name;
+
     /**
      * @var int
      */
     public $start;
+
     /**
      * @var string
      */
     public $status;
+
     /**
      * @var string
      */
     public $taskId;
     protected $_name = [
         'createTime' => 'CreateTime',
-        'end'        => 'End',
+        'end' => 'End',
         'instanceId' => 'InstanceId',
-        'name'       => 'Name',
-        'start'      => 'Start',
-        'status'     => 'Status',
-        'taskId'     => 'TaskId',
+        'name' => 'Name',
+        'start' => 'Start',
+        'status' => 'Status',
+        'taskId' => 'TaskId',
     ];
 
     public function validate()

@@ -13,28 +13,32 @@ class data extends Model
      * @var string
      */
     public $extra;
+
     /**
      * @var list_
      */
     public $list;
+
     /**
      * @var int
      */
     public $pageNo;
+
     /**
      * @var int
      */
     public $pageSize;
+
     /**
      * @var int
      */
     public $total;
     protected $_name = [
-        'extra'    => 'Extra',
-        'list'     => 'List',
-        'pageNo'   => 'PageNo',
+        'extra' => 'Extra',
+        'list' => 'List',
+        'pageNo' => 'PageNo',
         'pageSize' => 'PageSize',
-        'total'    => 'Total',
+        'total' => 'Total',
     ];
 
     public function validate()

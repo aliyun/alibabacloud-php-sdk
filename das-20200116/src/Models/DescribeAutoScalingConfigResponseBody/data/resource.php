@@ -12,28 +12,32 @@ class resource extends Model
      * @var int
      */
     public $cpuStep;
+
     /**
      * @var int
      */
     public $cpuUsageUpperThreshold;
+
     /**
      * @var string
      */
     public $downgradeObservationWindowSize;
+
     /**
      * @var bool
      */
     public $enable;
+
     /**
      * @var string
      */
     public $upgradeObservationWindowSize;
     protected $_name = [
-        'cpuStep'                        => 'CpuStep',
-        'cpuUsageUpperThreshold'         => 'CpuUsageUpperThreshold',
+        'cpuStep' => 'CpuStep',
+        'cpuUsageUpperThreshold' => 'CpuUsageUpperThreshold',
         'downgradeObservationWindowSize' => 'DowngradeObservationWindowSize',
-        'enable'                         => 'Enable',
-        'upgradeObservationWindowSize'   => 'UpgradeObservationWindowSize',
+        'enable' => 'Enable',
+        'upgradeObservationWindowSize' => 'UpgradeObservationWindowSize',
     ];
 
     public function validate()

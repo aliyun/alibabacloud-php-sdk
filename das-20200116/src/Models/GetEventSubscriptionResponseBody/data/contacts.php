@@ -12,38 +12,44 @@ class contacts extends Model
      * @var string
      */
     public $dingtalkHook;
+
     /**
      * @var string
      */
     public $email;
+
     /**
      * @var string[]
      */
     public $groups;
+
     /**
      * @var bool
      */
     public $isCmsReduplicated;
+
     /**
      * @var string
      */
     public $name;
+
     /**
      * @var string
      */
     public $phone;
+
     /**
      * @var string
      */
     public $userId;
     protected $_name = [
-        'dingtalkHook'      => 'dingtalkHook',
-        'email'             => 'email',
-        'groups'            => 'groups',
+        'dingtalkHook' => 'dingtalkHook',
+        'email' => 'email',
+        'groups' => 'groups',
         'isCmsReduplicated' => 'isCmsReduplicated',
-        'name'              => 'name',
-        'phone'             => 'phone',
-        'userId'            => 'userId',
+        'name' => 'name',
+        'phone' => 'phone',
+        'userId' => 'userId',
     ];
 
     public function validate()
@@ -68,7 +74,7 @@ class contacts extends Model
         if (null !== $this->groups) {
             if (\is_array($this->groups)) {
                 $res['groups'] = [];
-                $n1            = 0;
+                $n1 = 0;
                 foreach ($this->groups as $item1) {
                     $res['groups'][$n1++] = $item1;
                 }
@@ -113,7 +119,7 @@ class contacts extends Model
         if (isset($map['groups'])) {
             if (!empty($map['groups'])) {
                 $model->groups = [];
-                $n1            = 0;
+                $n1 = 0;
                 foreach ($map['groups'] as $item1) {
                     $model->groups[$n1++] = $item1;
                 }

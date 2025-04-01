@@ -12,43 +12,50 @@ class keyInfo extends Model
      * @var int
      */
     public $bytes;
+
     /**
      * @var int
      */
     public $count;
+
     /**
      * @var int
      */
     public $db;
+
     /**
      * @var string
      */
     public $encoding;
+
     /**
      * @var int
      */
     public $expirationTimeMillis;
+
     /**
      * @var string
      */
     public $key;
+
     /**
      * @var string
      */
     public $nodeId;
+
     /**
      * @var string
      */
     public $type;
     protected $_name = [
-        'bytes'                => 'Bytes',
-        'count'                => 'Count',
-        'db'                   => 'Db',
-        'encoding'             => 'Encoding',
+        'bytes' => 'Bytes',
+        'count' => 'Count',
+        'db' => 'Db',
+        'encoding' => 'Encoding',
         'expirationTimeMillis' => 'ExpirationTimeMillis',
-        'key'                  => 'Key',
-        'nodeId'               => 'NodeId',
-        'type'                 => 'Type',
+        'key' => 'Key',
+        'nodeId' => 'NodeId',
+        'type' => 'Type',
     ];
 
     public function validate()

@@ -12,17 +12,19 @@ class insItems extends Model
      * @var int[]
      */
     public $count;
+
     /**
      * @var string
      */
     public $insId;
+
     /**
      * @var string
      */
     public $insRole;
     protected $_name = [
-        'count'   => 'Count',
-        'insId'   => 'InsId',
+        'count' => 'Count',
+        'insId' => 'InsId',
         'insRole' => 'InsRole',
     ];
 
@@ -40,7 +42,7 @@ class insItems extends Model
         if (null !== $this->count) {
             if (\is_array($this->count)) {
                 $res['Count'] = [];
-                $n1           = 0;
+                $n1 = 0;
                 foreach ($this->count as $item1) {
                     $res['Count'][$n1++] = $item1;
                 }
@@ -69,7 +71,7 @@ class insItems extends Model
         if (isset($map['Count'])) {
             if (!empty($map['Count'])) {
                 $model->count = [];
-                $n1           = 0;
+                $n1 = 0;
                 foreach ($map['Count'] as $item1) {
                     $model->count[$n1++] = $item1;
                 }

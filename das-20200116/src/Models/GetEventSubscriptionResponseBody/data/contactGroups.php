@@ -12,23 +12,26 @@ class contactGroups extends Model
      * @var string
      */
     public $contacts;
+
     /**
      * @var string
      */
     public $description;
+
     /**
      * @var string
      */
     public $name;
+
     /**
      * @var string
      */
     public $userId;
     protected $_name = [
-        'contacts'    => 'contacts',
+        'contacts' => 'contacts',
         'description' => 'description',
-        'name'        => 'name',
-        'userId'      => 'userId',
+        'name' => 'name',
+        'userId' => 'userId',
     ];
 
     public function validate()

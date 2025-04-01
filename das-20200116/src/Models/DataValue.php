@@ -12,13 +12,14 @@ class DataValue extends Model
      * @var string
      */
     public $timestamp;
+
     /**
      * @var mixed
      */
     public $value;
     protected $_name = [
         'timestamp' => 'Timestamp',
-        'value'     => 'Value',
+        'value' => 'Value',
     ];
 
     public function validate()

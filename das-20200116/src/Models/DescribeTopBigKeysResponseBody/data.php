@@ -31,7 +31,7 @@ class data extends Model
         if (null !== $this->bigKey) {
             if (\is_array($this->bigKey)) {
                 $res['BigKey'] = [];
-                $n1            = 0;
+                $n1 = 0;
                 foreach ($this->bigKey as $item1) {
                     $res['BigKey'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -52,7 +52,7 @@ class data extends Model
         if (isset($map['BigKey'])) {
             if (!empty($map['BigKey'])) {
                 $model->bigKey = [];
-                $n1            = 0;
+                $n1 = 0;
                 foreach ($map['BigKey'] as $item1) {
                     $model->bigKey[$n1++] = bigKey::fromMap($item1);
                 }

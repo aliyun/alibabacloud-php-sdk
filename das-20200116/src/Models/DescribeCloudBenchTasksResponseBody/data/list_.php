@@ -31,7 +31,7 @@ class list_ extends Model
         if (null !== $this->cloudbenchTasks) {
             if (\is_array($this->cloudbenchTasks)) {
                 $res['cloudbenchTasks'] = [];
-                $n1                     = 0;
+                $n1 = 0;
                 foreach ($this->cloudbenchTasks as $item1) {
                     $res['cloudbenchTasks'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -52,7 +52,7 @@ class list_ extends Model
         if (isset($map['cloudbenchTasks'])) {
             if (!empty($map['cloudbenchTasks'])) {
                 $model->cloudbenchTasks = [];
-                $n1                     = 0;
+                $n1 = 0;
                 foreach ($map['cloudbenchTasks'] as $item1) {
                     $model->cloudbenchTasks[$n1++] = cloudbenchTasks::fromMap($item1);
                 }

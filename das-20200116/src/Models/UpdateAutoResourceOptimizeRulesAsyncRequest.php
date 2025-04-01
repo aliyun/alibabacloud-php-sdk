@@ -12,28 +12,32 @@ class UpdateAutoResourceOptimizeRulesAsyncRequest extends Model
      * @var string
      */
     public $consoleContext;
+
     /**
      * @var string
      */
     public $instanceIds;
+
     /**
      * @var string
      */
     public $resultId;
+
     /**
      * @var float
      */
     public $tableFragmentationRatio;
+
     /**
      * @var float
      */
     public $tableSpaceSize;
     protected $_name = [
-        'consoleContext'          => 'ConsoleContext',
-        'instanceIds'             => 'InstanceIds',
-        'resultId'                => 'ResultId',
+        'consoleContext' => 'ConsoleContext',
+        'instanceIds' => 'InstanceIds',
+        'resultId' => 'ResultId',
         'tableFragmentationRatio' => 'TableFragmentationRatio',
-        'tableSpaceSize'          => 'TableSpaceSize',
+        'tableSpaceSize' => 'TableSpaceSize',
     ];
 
     public function validate()

@@ -12,28 +12,32 @@ class GetRequestDiagnosisResultRequest extends Model
      * @var string
      */
     public $instanceId;
+
     /**
      * @var string
      */
     public $messageId;
+
     /**
      * @var string
      */
     public $nodeId;
+
     /**
      * @var string
      */
     public $source;
+
     /**
      * @var string
      */
     public $sqlId;
     protected $_name = [
         'instanceId' => 'InstanceId',
-        'messageId'  => 'MessageId',
-        'nodeId'     => 'NodeId',
-        'source'     => 'Source',
-        'sqlId'      => 'SqlId',
+        'messageId' => 'MessageId',
+        'nodeId' => 'NodeId',
+        'source' => 'Source',
+        'sqlId' => 'SqlId',
     ];
 
     public function validate()

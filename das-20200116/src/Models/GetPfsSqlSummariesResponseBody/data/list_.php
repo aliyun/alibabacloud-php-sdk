@@ -12,318 +12,380 @@ class list_ extends Model
      * @var float
      */
     public $avgLatency;
+
     /**
      * @var int
      */
     public $count;
+
     /**
      * @var float
      */
     public $countRate;
+
     /**
      * @var float
      */
     public $cpuRate;
+
     /**
      * @var float
      */
     public $cpuTime;
+
     /**
      * @var float
      */
     public $dataReadTime;
+
     /**
      * @var int
      */
     public $dataReads;
+
     /**
      * @var float
      */
     public $dataWriteTime;
+
     /**
      * @var int
      */
     public $dataWrites;
+
     /**
      * @var string
      */
     public $db;
+
     /**
      * @var float
      */
     public $elapsedTime;
+
     /**
      * @var int
      */
     public $errCount;
+
     /**
      * @var int
      */
     public $firstTime;
+
     /**
      * @var bool
      */
     public $fullScan;
+
     /**
      * @var int
      */
     public $id;
+
     /**
      * @var string
      */
     public $instanceId;
+
     /**
      * @var int
      */
     public $lastTime;
+
     /**
      * @var float
      */
     public $lockLatencyAvg;
+
     /**
      * @var int
      */
     public $logicId;
+
     /**
      * @var int
      */
     public $logicReads;
+
     /**
      * @var float
      */
     public $maxLatency;
+
     /**
      * @var int
      */
     public $mutexSpins;
+
     /**
      * @var int
      */
     public $mutexWaits;
+
     /**
      * @var string
      */
     public $nodeId;
+
     /**
      * @var int
      */
     public $physicalAsyncReads;
+
     /**
      * @var int
      */
     public $physicalReads;
+
     /**
      * @var string
      */
     public $psql;
+
     /**
      * @var int
      */
     public $redoWrites;
+
     /**
      * @var int
      */
     public $rowsAffected;
+
     /**
      * @var float
      */
     public $rowsAffectedAvg;
+
     /**
      * @var int
      */
     public $rowsExamined;
+
     /**
      * @var float
      */
     public $rowsExaminedAvg;
+
     /**
      * @var float
      */
     public $rowsSendAvg;
+
     /**
      * @var int
      */
     public $rowsSent;
+
     /**
      * @var float
      */
     public $rowsSentAvg;
+
     /**
      * @var int
      */
     public $rowsSorted;
+
     /**
      * @var float
      */
     public $rtRate;
+
     /**
      * @var int
      */
     public $rwlockOsWaits;
+
     /**
      * @var int
      */
     public $rwlockSpinRounds;
+
     /**
      * @var int
      */
     public $rwlockSpinWaits;
+
     /**
      * @var float
      */
     public $selectFullJoinAvg;
+
     /**
      * @var float
      */
     public $selectFullRangeJoinAvg;
+
     /**
      * @var float
      */
     public $selectRangeAvg;
+
     /**
      * @var float
      */
     public $selectScanAvg;
+
     /**
      * @var float
      */
     public $semisyncDelayTime;
+
     /**
      * @var float
      */
     public $serverLockTime;
+
     /**
      * @var int
      */
     public $sortMergePasses;
+
     /**
      * @var float
      */
     public $sortRangeAvg;
+
     /**
      * @var float
      */
     public $sortRowsAvg;
+
     /**
      * @var float
      */
     public $sortScanAvg;
+
     /**
      * @var string
      */
     public $sqlId;
+
     /**
      * @var string
      */
     public $sqlType;
+
     /**
      * @var string[]
      */
     public $tables;
+
     /**
      * @var float
      */
     public $timerWaitAvg;
+
     /**
      * @var int
      */
     public $timestamp;
+
     /**
      * @var int
      */
     public $tmpDiskTables;
+
     /**
      * @var float
      */
     public $tmpDiskTablesAvg;
+
     /**
      * @var int
      */
     public $tmpTables;
+
     /**
      * @var float
      */
     public $tmpTablesAvg;
+
     /**
      * @var float
      */
     public $totalLatency;
+
     /**
      * @var float
      */
     public $transactionLockTime;
+
     /**
      * @var string
      */
     public $userId;
+
     /**
      * @var int
      */
     public $warnCount;
     protected $_name = [
-        'avgLatency'             => 'AvgLatency',
-        'count'                  => 'Count',
-        'countRate'              => 'CountRate',
-        'cpuRate'                => 'CpuRate',
-        'cpuTime'                => 'CpuTime',
-        'dataReadTime'           => 'DataReadTime',
-        'dataReads'              => 'DataReads',
-        'dataWriteTime'          => 'DataWriteTime',
-        'dataWrites'             => 'DataWrites',
-        'db'                     => 'Db',
-        'elapsedTime'            => 'ElapsedTime',
-        'errCount'               => 'ErrCount',
-        'firstTime'              => 'FirstTime',
-        'fullScan'               => 'FullScan',
-        'id'                     => 'Id',
-        'instanceId'             => 'InstanceId',
-        'lastTime'               => 'LastTime',
-        'lockLatencyAvg'         => 'LockLatencyAvg',
-        'logicId'                => 'LogicId',
-        'logicReads'             => 'LogicReads',
-        'maxLatency'             => 'MaxLatency',
-        'mutexSpins'             => 'MutexSpins',
-        'mutexWaits'             => 'MutexWaits',
-        'nodeId'                 => 'NodeId',
-        'physicalAsyncReads'     => 'PhysicalAsyncReads',
-        'physicalReads'          => 'PhysicalReads',
-        'psql'                   => 'Psql',
-        'redoWrites'             => 'RedoWrites',
-        'rowsAffected'           => 'RowsAffected',
-        'rowsAffectedAvg'        => 'RowsAffectedAvg',
-        'rowsExamined'           => 'RowsExamined',
-        'rowsExaminedAvg'        => 'RowsExaminedAvg',
-        'rowsSendAvg'            => 'RowsSendAvg',
-        'rowsSent'               => 'RowsSent',
-        'rowsSentAvg'            => 'RowsSentAvg',
-        'rowsSorted'             => 'RowsSorted',
-        'rtRate'                 => 'RtRate',
-        'rwlockOsWaits'          => 'RwlockOsWaits',
-        'rwlockSpinRounds'       => 'RwlockSpinRounds',
-        'rwlockSpinWaits'        => 'RwlockSpinWaits',
-        'selectFullJoinAvg'      => 'SelectFullJoinAvg',
+        'avgLatency' => 'AvgLatency',
+        'count' => 'Count',
+        'countRate' => 'CountRate',
+        'cpuRate' => 'CpuRate',
+        'cpuTime' => 'CpuTime',
+        'dataReadTime' => 'DataReadTime',
+        'dataReads' => 'DataReads',
+        'dataWriteTime' => 'DataWriteTime',
+        'dataWrites' => 'DataWrites',
+        'db' => 'Db',
+        'elapsedTime' => 'ElapsedTime',
+        'errCount' => 'ErrCount',
+        'firstTime' => 'FirstTime',
+        'fullScan' => 'FullScan',
+        'id' => 'Id',
+        'instanceId' => 'InstanceId',
+        'lastTime' => 'LastTime',
+        'lockLatencyAvg' => 'LockLatencyAvg',
+        'logicId' => 'LogicId',
+        'logicReads' => 'LogicReads',
+        'maxLatency' => 'MaxLatency',
+        'mutexSpins' => 'MutexSpins',
+        'mutexWaits' => 'MutexWaits',
+        'nodeId' => 'NodeId',
+        'physicalAsyncReads' => 'PhysicalAsyncReads',
+        'physicalReads' => 'PhysicalReads',
+        'psql' => 'Psql',
+        'redoWrites' => 'RedoWrites',
+        'rowsAffected' => 'RowsAffected',
+        'rowsAffectedAvg' => 'RowsAffectedAvg',
+        'rowsExamined' => 'RowsExamined',
+        'rowsExaminedAvg' => 'RowsExaminedAvg',
+        'rowsSendAvg' => 'RowsSendAvg',
+        'rowsSent' => 'RowsSent',
+        'rowsSentAvg' => 'RowsSentAvg',
+        'rowsSorted' => 'RowsSorted',
+        'rtRate' => 'RtRate',
+        'rwlockOsWaits' => 'RwlockOsWaits',
+        'rwlockSpinRounds' => 'RwlockSpinRounds',
+        'rwlockSpinWaits' => 'RwlockSpinWaits',
+        'selectFullJoinAvg' => 'SelectFullJoinAvg',
         'selectFullRangeJoinAvg' => 'SelectFullRangeJoinAvg',
-        'selectRangeAvg'         => 'SelectRangeAvg',
-        'selectScanAvg'          => 'SelectScanAvg',
-        'semisyncDelayTime'      => 'SemisyncDelayTime',
-        'serverLockTime'         => 'ServerLockTime',
-        'sortMergePasses'        => 'SortMergePasses',
-        'sortRangeAvg'           => 'SortRangeAvg',
-        'sortRowsAvg'            => 'SortRowsAvg',
-        'sortScanAvg'            => 'SortScanAvg',
-        'sqlId'                  => 'SqlId',
-        'sqlType'                => 'SqlType',
-        'tables'                 => 'Tables',
-        'timerWaitAvg'           => 'TimerWaitAvg',
-        'timestamp'              => 'Timestamp',
-        'tmpDiskTables'          => 'TmpDiskTables',
-        'tmpDiskTablesAvg'       => 'TmpDiskTablesAvg',
-        'tmpTables'              => 'TmpTables',
-        'tmpTablesAvg'           => 'TmpTablesAvg',
-        'totalLatency'           => 'TotalLatency',
-        'transactionLockTime'    => 'TransactionLockTime',
-        'userId'                 => 'UserId',
-        'warnCount'              => 'WarnCount',
+        'selectRangeAvg' => 'SelectRangeAvg',
+        'selectScanAvg' => 'SelectScanAvg',
+        'semisyncDelayTime' => 'SemisyncDelayTime',
+        'serverLockTime' => 'ServerLockTime',
+        'sortMergePasses' => 'SortMergePasses',
+        'sortRangeAvg' => 'SortRangeAvg',
+        'sortRowsAvg' => 'SortRowsAvg',
+        'sortScanAvg' => 'SortScanAvg',
+        'sqlId' => 'SqlId',
+        'sqlType' => 'SqlType',
+        'tables' => 'Tables',
+        'timerWaitAvg' => 'TimerWaitAvg',
+        'timestamp' => 'Timestamp',
+        'tmpDiskTables' => 'TmpDiskTables',
+        'tmpDiskTablesAvg' => 'TmpDiskTablesAvg',
+        'tmpTables' => 'TmpTables',
+        'tmpTablesAvg' => 'TmpTablesAvg',
+        'totalLatency' => 'TotalLatency',
+        'transactionLockTime' => 'TransactionLockTime',
+        'userId' => 'UserId',
+        'warnCount' => 'WarnCount',
     ];
 
     public function validate()
@@ -548,7 +610,7 @@ class list_ extends Model
         if (null !== $this->tables) {
             if (\is_array($this->tables)) {
                 $res['Tables'] = [];
-                $n1            = 0;
+                $n1 = 0;
                 foreach ($this->tables as $item1) {
                     $res['Tables'][$n1++] = $item1;
                 }
@@ -817,7 +879,7 @@ class list_ extends Model
         if (isset($map['Tables'])) {
             if (!empty($map['Tables'])) {
                 $model->tables = [];
-                $n1            = 0;
+                $n1 = 0;
                 foreach ($map['Tables'] as $item1) {
                     $model->tables[$n1++] = $item1;
                 }

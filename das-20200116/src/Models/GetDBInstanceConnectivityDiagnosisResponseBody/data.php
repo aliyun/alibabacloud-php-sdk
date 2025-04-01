@@ -12,28 +12,32 @@ class data extends Model
      * @var string
      */
     public $connCheckErrorCode;
+
     /**
      * @var string
      */
     public $connCheckErrorMessage;
+
     /**
      * @var string
      */
     public $failType;
+
     /**
      * @var string
      */
     public $instanceId;
+
     /**
      * @var bool
      */
     public $success;
     protected $_name = [
-        'connCheckErrorCode'    => 'connCheckErrorCode',
+        'connCheckErrorCode' => 'connCheckErrorCode',
         'connCheckErrorMessage' => 'connCheckErrorMessage',
-        'failType'              => 'failType',
-        'instanceId'            => 'instanceId',
-        'success'               => 'success',
+        'failType' => 'failType',
+        'instanceId' => 'instanceId',
+        'success' => 'success',
     ];
 
     public function validate()

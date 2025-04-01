@@ -12,23 +12,26 @@ class GetDeadLockDetailRequest extends Model
      * @var string
      */
     public $instanceId;
+
     /**
      * @var string
      */
     public $nodeId;
+
     /**
      * @var string
      */
     public $source;
+
     /**
      * @var string
      */
     public $textId;
     protected $_name = [
         'instanceId' => 'InstanceId',
-        'nodeId'     => 'NodeId',
-        'source'     => 'Source',
-        'textId'     => 'TextId',
+        'nodeId' => 'NodeId',
+        'source' => 'Source',
+        'textId' => 'TextId',
     ];
 
     public function validate()

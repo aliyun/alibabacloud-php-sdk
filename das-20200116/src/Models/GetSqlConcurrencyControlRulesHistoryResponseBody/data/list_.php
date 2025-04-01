@@ -31,7 +31,7 @@ class list_ extends Model
         if (null !== $this->rules) {
             if (\is_array($this->rules)) {
                 $res['rules'] = [];
-                $n1           = 0;
+                $n1 = 0;
                 foreach ($this->rules as $item1) {
                     $res['rules'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -52,7 +52,7 @@ class list_ extends Model
         if (isset($map['rules'])) {
             if (!empty($map['rules'])) {
                 $model->rules = [];
-                $n1           = 0;
+                $n1 = 0;
                 foreach ($map['rules'] as $item1) {
                     $model->rules[$n1++] = rules::fromMap($item1);
                 }

@@ -12,23 +12,26 @@ class GetQueryOptimizeRuleListRequest extends Model
      * @var string
      */
     public $engine;
+
     /**
      * @var string
      */
     public $instanceIds;
+
     /**
      * @var string
      */
     public $region;
+
     /**
      * @var string
      */
     public $tagNames;
     protected $_name = [
-        'engine'      => 'Engine',
+        'engine' => 'Engine',
         'instanceIds' => 'InstanceIds',
-        'region'      => 'Region',
-        'tagNames'    => 'TagNames',
+        'region' => 'Region',
+        'tagNames' => 'TagNames',
     ];
 
     public function validate()

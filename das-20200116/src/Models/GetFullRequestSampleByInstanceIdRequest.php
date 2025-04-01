@@ -12,33 +12,38 @@ class GetFullRequestSampleByInstanceIdRequest extends Model
      * @var int
      */
     public $end;
+
     /**
      * @var string
      */
     public $instanceId;
+
     /**
      * @var string
      */
     public $role;
+
     /**
      * @var string
      */
     public $sqlId;
+
     /**
      * @var int
      */
     public $start;
+
     /**
      * @var string
      */
     public $userId;
     protected $_name = [
-        'end'        => 'End',
+        'end' => 'End',
         'instanceId' => 'InstanceId',
-        'role'       => 'Role',
-        'sqlId'      => 'SqlId',
-        'start'      => 'Start',
-        'userId'     => 'UserId',
+        'role' => 'Role',
+        'sqlId' => 'SqlId',
+        'start' => 'Start',
+        'userId' => 'UserId',
     ];
 
     public function validate()

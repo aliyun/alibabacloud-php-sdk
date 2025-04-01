@@ -12,18 +12,20 @@ class CreateDiagnosticReportRequest extends Model
      * @var string
      */
     public $DBInstanceId;
+
     /**
      * @var string
      */
     public $endTime;
+
     /**
      * @var string
      */
     public $startTime;
     protected $_name = [
         'DBInstanceId' => 'DBInstanceId',
-        'endTime'      => 'EndTime',
-        'startTime'    => 'StartTime',
+        'endTime' => 'EndTime',
+        'startTime' => 'StartTime',
     ];
 
     public function validate()

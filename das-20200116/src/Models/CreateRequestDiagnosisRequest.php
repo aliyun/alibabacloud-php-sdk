@@ -12,23 +12,26 @@ class CreateRequestDiagnosisRequest extends Model
      * @var string
      */
     public $database;
+
     /**
      * @var string
      */
     public $instanceId;
+
     /**
      * @var string
      */
     public $nodeId;
+
     /**
      * @var string
      */
     public $sql;
     protected $_name = [
-        'database'   => 'Database',
+        'database' => 'Database',
         'instanceId' => 'InstanceId',
-        'nodeId'     => 'NodeId',
-        'sql'        => 'Sql',
+        'nodeId' => 'NodeId',
+        'sql' => 'Sql',
     ];
 
     public function validate()

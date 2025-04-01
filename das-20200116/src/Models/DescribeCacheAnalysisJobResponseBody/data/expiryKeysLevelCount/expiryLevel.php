@@ -12,23 +12,26 @@ class expiryLevel extends Model
      * @var int
      */
     public $analysisTs;
+
     /**
      * @var int
      */
     public $level;
+
     /**
      * @var int
      */
     public $totalBytes;
+
     /**
      * @var int
      */
     public $totalKeys;
     protected $_name = [
         'analysisTs' => 'AnalysisTs',
-        'level'      => 'Level',
+        'level' => 'Level',
         'totalBytes' => 'TotalBytes',
-        'totalKeys'  => 'TotalKeys',
+        'totalKeys' => 'TotalKeys',
     ];
 
     public function validate()

@@ -12,62 +12,73 @@ class sessionList extends Model
      * @var string
      */
     public $client;
+
     /**
      * @var string
      */
     public $command;
+
     /**
      * @var string
      */
     public $dbName;
+
     /**
      * @var int
      */
     public $sessionId;
+
     /**
      * @var string
      */
     public $sqlTemplateId;
+
     /**
      * @var string
      */
     public $sqlText;
+
     /**
      * @var string
      */
     public $state;
+
     /**
      * @var int
      */
     public $time;
+
     /**
      * @var int
      */
     public $trxDuration;
+
     /**
      * @var string
      */
     public $trxId;
+
     /**
      * @var string
      */
     public $user;
+
     /**
      * @var string
      */
     public $userClientAlias;
     protected $_name = [
-        'client'          => 'Client',
-        'command'         => 'Command',
-        'dbName'          => 'DbName',
-        'sessionId'       => 'SessionId',
-        'sqlTemplateId'   => 'SqlTemplateId',
-        'sqlText'         => 'SqlText',
-        'state'           => 'State',
-        'time'            => 'Time',
-        'trxDuration'     => 'TrxDuration',
-        'trxId'           => 'TrxId',
-        'user'            => 'User',
+        'client' => 'Client',
+        'command' => 'Command',
+        'dbName' => 'DbName',
+        'sessionId' => 'SessionId',
+        'sqlTemplateId' => 'SqlTemplateId',
+        'sqlText' => 'SqlText',
+        'state' => 'State',
+        'time' => 'Time',
+        'trxDuration' => 'TrxDuration',
+        'trxId' => 'TrxId',
+        'user' => 'User',
         'userClientAlias' => 'UserClientAlias',
     ];
 

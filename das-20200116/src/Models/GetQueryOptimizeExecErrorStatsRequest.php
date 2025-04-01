@@ -12,58 +12,68 @@ class GetQueryOptimizeExecErrorStatsRequest extends Model
      * @var string
      */
     public $asc;
+
     /**
      * @var string
      */
     public $dbNames;
+
     /**
      * @var string
      */
     public $engine;
+
     /**
      * @var string
      */
     public $instanceIds;
+
     /**
      * @var string
      */
     public $keywords;
+
     /**
      * @var string
      */
     public $logicalOperator;
+
     /**
      * @var string
      */
     public $orderBy;
+
     /**
      * @var string
      */
     public $pageNo;
+
     /**
      * @var string
      */
     public $pageSize;
+
     /**
      * @var string
      */
     public $region;
+
     /**
      * @var string
      */
     public $time;
     protected $_name = [
-        'asc'             => 'Asc',
-        'dbNames'         => 'DbNames',
-        'engine'          => 'Engine',
-        'instanceIds'     => 'InstanceIds',
-        'keywords'        => 'Keywords',
+        'asc' => 'Asc',
+        'dbNames' => 'DbNames',
+        'engine' => 'Engine',
+        'instanceIds' => 'InstanceIds',
+        'keywords' => 'Keywords',
         'logicalOperator' => 'LogicalOperator',
-        'orderBy'         => 'OrderBy',
-        'pageNo'          => 'PageNo',
-        'pageSize'        => 'PageSize',
-        'region'          => 'Region',
-        'time'            => 'Time',
+        'orderBy' => 'OrderBy',
+        'pageNo' => 'PageNo',
+        'pageSize' => 'PageSize',
+        'region' => 'Region',
+        'time' => 'Time',
     ];
 
     public function validate()

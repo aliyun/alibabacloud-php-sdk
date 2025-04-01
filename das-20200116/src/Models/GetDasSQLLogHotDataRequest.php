@@ -12,143 +12,170 @@ class GetDasSQLLogHotDataRequest extends Model
      * @var string
      */
     public $accountName;
+
     /**
      * @var string
      */
     public $childDBInstanceIDs;
+
     /**
      * @var string
      */
     public $DBName;
+
     /**
      * @var int
      */
     public $end;
+
     /**
      * @var string
      */
     public $fail;
+
     /**
      * @var string
      */
     public $hostAddress;
+
     /**
      * @var string
      */
     public $instanceId;
+
     /**
      * @var string
      */
     public $logicalOperator;
+
     /**
      * @var int
      */
     public $maxLatancy;
+
     /**
      * @var int
      */
     public $maxRecordsPerPage;
+
     /**
      * @var int
      */
     public $maxRows;
+
     /**
      * @var int
      */
     public $maxScanRows;
+
     /**
      * @var int
      */
     public $maxSpillCnt;
+
     /**
      * @var int
      */
     public $minLatancy;
+
     /**
      * @var int
      */
     public $minRows;
+
     /**
      * @var int
      */
     public $minScanRows;
+
     /**
      * @var int
      */
     public $minSpillCnt;
+
     /**
      * @var int
      */
     public $pageNumbers;
+
     /**
      * @var string
      */
     public $queryKeyword;
+
     /**
      * @var string
      */
     public $role;
+
     /**
      * @var string
      */
     public $sortKey;
+
     /**
      * @var string
      */
     public $sortMethod;
+
     /**
      * @var string
      */
     public $sqlType;
+
     /**
      * @var int
      */
     public $start;
+
     /**
      * @var string
      */
     public $state;
+
     /**
      * @var string
      */
     public $threadID;
+
     /**
      * @var string
      */
     public $traceId;
+
     /**
      * @var string
      */
     public $transactionId;
     protected $_name = [
-        'accountName'        => 'AccountName',
+        'accountName' => 'AccountName',
         'childDBInstanceIDs' => 'ChildDBInstanceIDs',
-        'DBName'             => 'DBName',
-        'end'                => 'End',
-        'fail'               => 'Fail',
-        'hostAddress'        => 'HostAddress',
-        'instanceId'         => 'InstanceId',
-        'logicalOperator'    => 'LogicalOperator',
-        'maxLatancy'         => 'MaxLatancy',
-        'maxRecordsPerPage'  => 'MaxRecordsPerPage',
-        'maxRows'            => 'MaxRows',
-        'maxScanRows'        => 'MaxScanRows',
-        'maxSpillCnt'        => 'MaxSpillCnt',
-        'minLatancy'         => 'MinLatancy',
-        'minRows'            => 'MinRows',
-        'minScanRows'        => 'MinScanRows',
-        'minSpillCnt'        => 'MinSpillCnt',
-        'pageNumbers'        => 'PageNumbers',
-        'queryKeyword'       => 'QueryKeyword',
-        'role'               => 'Role',
-        'sortKey'            => 'SortKey',
-        'sortMethod'         => 'SortMethod',
-        'sqlType'            => 'SqlType',
-        'start'              => 'Start',
-        'state'              => 'State',
-        'threadID'           => 'ThreadID',
-        'traceId'            => 'TraceId',
-        'transactionId'      => 'TransactionId',
+        'DBName' => 'DBName',
+        'end' => 'End',
+        'fail' => 'Fail',
+        'hostAddress' => 'HostAddress',
+        'instanceId' => 'InstanceId',
+        'logicalOperator' => 'LogicalOperator',
+        'maxLatancy' => 'MaxLatancy',
+        'maxRecordsPerPage' => 'MaxRecordsPerPage',
+        'maxRows' => 'MaxRows',
+        'maxScanRows' => 'MaxScanRows',
+        'maxSpillCnt' => 'MaxSpillCnt',
+        'minLatancy' => 'MinLatancy',
+        'minRows' => 'MinRows',
+        'minScanRows' => 'MinScanRows',
+        'minSpillCnt' => 'MinSpillCnt',
+        'pageNumbers' => 'PageNumbers',
+        'queryKeyword' => 'QueryKeyword',
+        'role' => 'Role',
+        'sortKey' => 'SortKey',
+        'sortMethod' => 'SortMethod',
+        'sqlType' => 'SqlType',
+        'start' => 'Start',
+        'state' => 'State',
+        'threadID' => 'ThreadID',
+        'traceId' => 'TraceId',
+        'transactionId' => 'TransactionId',
     ];
 
     public function validate()

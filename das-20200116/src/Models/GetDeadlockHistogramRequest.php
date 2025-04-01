@@ -12,28 +12,32 @@ class GetDeadlockHistogramRequest extends Model
      * @var int
      */
     public $endTime;
+
     /**
      * @var string
      */
     public $instanceId;
+
     /**
      * @var string
      */
     public $nodeId;
+
     /**
      * @var int
      */
     public $startTime;
+
     /**
      * @var string
      */
     public $status;
     protected $_name = [
-        'endTime'    => 'EndTime',
+        'endTime' => 'EndTime',
         'instanceId' => 'InstanceId',
-        'nodeId'     => 'NodeId',
-        'startTime'  => 'StartTime',
-        'status'     => 'Status',
+        'nodeId' => 'NodeId',
+        'startTime' => 'StartTime',
+        'status' => 'Status',
     ];
 
     public function validate()

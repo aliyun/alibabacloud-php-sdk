@@ -12,33 +12,38 @@ class EnableDasProResponseBody extends Model
      * @var string
      */
     public $code;
+
     /**
      * @var string
      */
     public $data;
+
     /**
      * @var string
      */
     public $message;
+
     /**
      * @var string
      */
     public $requestId;
+
     /**
      * @var string
      */
     public $success;
+
     /**
      * @var string
      */
     public $synchro;
     protected $_name = [
-        'code'      => 'Code',
-        'data'      => 'Data',
-        'message'   => 'Message',
+        'code' => 'Code',
+        'data' => 'Data',
+        'message' => 'Message',
         'requestId' => 'RequestId',
-        'success'   => 'Success',
-        'synchro'   => 'Synchro',
+        'success' => 'Success',
+        'synchro' => 'Synchro',
     ];
 
     public function validate()

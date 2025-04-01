@@ -12,13 +12,14 @@ class configSuccessInstanceList extends Model
      * @var bool
      */
     public $configSuccess;
+
     /**
      * @var string
      */
     public $instanceId;
     protected $_name = [
         'configSuccess' => 'ConfigSuccess',
-        'instanceId'    => 'InstanceId',
+        'instanceId' => 'InstanceId',
     ];
 
     public function validate()

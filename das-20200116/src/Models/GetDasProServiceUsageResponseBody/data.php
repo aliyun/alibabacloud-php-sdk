@@ -12,88 +12,104 @@ class data extends Model
      * @var string
      */
     public $commodityInstanceId;
+
     /**
      * @var string
      */
     public $engine;
+
     /**
      * @var int
      */
     public $expireTime;
+
     /**
      * @var string
      */
     public $instanceAlias;
+
     /**
      * @var string
      */
     public $instanceId;
+
     /**
      * @var string
      */
     public $ip;
+
     /**
      * @var bool
      */
     public $isSpare;
+
     /**
      * @var int
      */
     public $migrationPredictRemainingTime;
+
     /**
      * @var int
      */
     public $port;
+
     /**
      * @var string
      */
     public $region;
+
     /**
      * @var string
      */
     public $serviceUnitId;
+
     /**
      * @var string
      */
     public $sqlRetention;
+
     /**
      * @var int
      */
     public $startTime;
+
     /**
      * @var float
      */
     public $storageFreeQuotaInMB;
+
     /**
      * @var int
      */
     public $storageUsed;
+
     /**
      * @var string
      */
     public $userId;
+
     /**
      * @var string
      */
     public $vpcId;
     protected $_name = [
-        'commodityInstanceId'           => 'commodityInstanceId',
-        'engine'                        => 'engine',
-        'expireTime'                    => 'expireTime',
-        'instanceAlias'                 => 'instanceAlias',
-        'instanceId'                    => 'instanceId',
-        'ip'                            => 'ip',
-        'isSpare'                       => 'isSpare',
+        'commodityInstanceId' => 'commodityInstanceId',
+        'engine' => 'engine',
+        'expireTime' => 'expireTime',
+        'instanceAlias' => 'instanceAlias',
+        'instanceId' => 'instanceId',
+        'ip' => 'ip',
+        'isSpare' => 'isSpare',
         'migrationPredictRemainingTime' => 'migrationPredictRemainingTime',
-        'port'                          => 'port',
-        'region'                        => 'region',
-        'serviceUnitId'                 => 'serviceUnitId',
-        'sqlRetention'                  => 'sqlRetention',
-        'startTime'                     => 'startTime',
-        'storageFreeQuotaInMB'          => 'storageFreeQuotaInMB',
-        'storageUsed'                   => 'storageUsed',
-        'userId'                        => 'userId',
-        'vpcId'                         => 'vpcId',
+        'port' => 'port',
+        'region' => 'region',
+        'serviceUnitId' => 'serviceUnitId',
+        'sqlRetention' => 'sqlRetention',
+        'startTime' => 'startTime',
+        'storageFreeQuotaInMB' => 'storageFreeQuotaInMB',
+        'storageUsed' => 'storageUsed',
+        'userId' => 'userId',
+        'vpcId' => 'vpcId',
     ];
 
     public function validate()

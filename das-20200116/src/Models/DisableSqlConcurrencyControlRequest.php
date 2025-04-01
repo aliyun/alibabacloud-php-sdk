@@ -12,18 +12,20 @@ class DisableSqlConcurrencyControlRequest extends Model
      * @var string
      */
     public $consoleContext;
+
     /**
      * @var string
      */
     public $instanceId;
+
     /**
      * @var int
      */
     public $itemId;
     protected $_name = [
         'consoleContext' => 'ConsoleContext',
-        'instanceId'     => 'InstanceId',
-        'itemId'         => 'ItemId',
+        'instanceId' => 'InstanceId',
+        'itemId' => 'ItemId',
     ];
 
     public function validate()

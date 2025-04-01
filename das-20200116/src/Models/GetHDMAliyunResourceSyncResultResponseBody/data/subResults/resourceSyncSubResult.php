@@ -12,23 +12,26 @@ class resourceSyncSubResult extends Model
      * @var string
      */
     public $errMsg;
+
     /**
      * @var string
      */
     public $resourceType;
+
     /**
      * @var bool
      */
     public $success;
+
     /**
      * @var int
      */
     public $syncCount;
     protected $_name = [
-        'errMsg'       => 'ErrMsg',
+        'errMsg' => 'ErrMsg',
         'resourceType' => 'ResourceType',
-        'success'      => 'Success',
-        'syncCount'    => 'SyncCount',
+        'success' => 'Success',
+        'syncCount' => 'SyncCount',
     ];
 
     public function validate()

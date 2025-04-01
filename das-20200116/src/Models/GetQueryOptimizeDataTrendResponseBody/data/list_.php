@@ -12,18 +12,20 @@ class list_ extends Model
      * @var string
      */
     public $kpi;
+
     /**
      * @var int
      */
     public $timestamp;
+
     /**
      * @var float
      */
     public $value;
     protected $_name = [
-        'kpi'       => 'Kpi',
+        'kpi' => 'Kpi',
         'timestamp' => 'Timestamp',
-        'value'     => 'Value',
+        'value' => 'Value',
     ];
 
     public function validate()

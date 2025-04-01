@@ -12,13 +12,14 @@ class result extends Model
      * @var string
      */
     public $instanceId;
+
     /**
      * @var string
      */
     public $sqlId;
     protected $_name = [
         'instanceId' => 'instanceId',
-        'sqlId'      => 'sqlId',
+        'sqlId' => 'sqlId',
     ];
 
     public function validate()

@@ -12,18 +12,20 @@ class DataResultValue extends Model
      * @var string
      */
     public $sqlId;
+
     /**
      * @var string
      */
     public $instanceId;
+
     /**
      * @var int
      */
     public $count;
     protected $_name = [
-        'sqlId'      => 'sqlId',
+        'sqlId' => 'sqlId',
         'instanceId' => 'instanceId',
-        'count'      => 'count',
+        'count' => 'count',
     ];
 
     public function validate()

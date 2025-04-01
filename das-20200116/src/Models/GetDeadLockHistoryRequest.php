@@ -12,38 +12,44 @@ class GetDeadLockHistoryRequest extends Model
      * @var int
      */
     public $endTime;
+
     /**
      * @var string
      */
     public $instanceId;
+
     /**
      * @var string
      */
     public $nodeId;
+
     /**
      * @var int
      */
     public $pageNo;
+
     /**
      * @var int
      */
     public $pageSize;
+
     /**
      * @var string
      */
     public $source;
+
     /**
      * @var int
      */
     public $startTime;
     protected $_name = [
-        'endTime'    => 'EndTime',
+        'endTime' => 'EndTime',
         'instanceId' => 'InstanceId',
-        'nodeId'     => 'NodeId',
-        'pageNo'     => 'PageNo',
-        'pageSize'   => 'PageSize',
-        'source'     => 'Source',
-        'startTime'  => 'StartTime',
+        'nodeId' => 'NodeId',
+        'pageNo' => 'PageNo',
+        'pageSize' => 'PageSize',
+        'source' => 'Source',
+        'startTime' => 'StartTime',
     ];
 
     public function validate()

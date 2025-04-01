@@ -12,98 +12,116 @@ class list_ extends Model
      * @var float
      */
     public $avgTotalUserCost;
+
     /**
      * @var float
      */
     public $avgUserImpact;
+
     /**
      * @var string
      */
     public $createIndex;
+
     /**
      * @var string
      */
     public $databaseName;
+
     /**
      * @var string
      */
     public $equalityColumns;
+
     /**
      * @var string
      */
     public $includedColumns;
+
     /**
      * @var int
      */
     public $indexCount;
+
     /**
      * @var string
      */
     public $inequalityColumns;
+
     /**
      * @var int
      */
     public $lastUserSeek;
+
     /**
      * @var string
      */
     public $objectName;
+
     /**
      * @var int
      */
     public $reservedPages;
+
     /**
      * @var float
      */
     public $reservedSize;
+
     /**
      * @var int
      */
     public $rowCount;
+
     /**
      * @var string
      */
     public $schemaName;
+
     /**
      * @var int
      */
     public $systemScans;
+
     /**
      * @var int
      */
     public $systemSeeks;
+
     /**
      * @var int
      */
     public $uniqueCompiles;
+
     /**
      * @var int
      */
     public $userScans;
+
     /**
      * @var int
      */
     public $userSeeks;
     protected $_name = [
-        'avgTotalUserCost'  => 'AvgTotalUserCost',
-        'avgUserImpact'     => 'AvgUserImpact',
-        'createIndex'       => 'CreateIndex',
-        'databaseName'      => 'DatabaseName',
-        'equalityColumns'   => 'EqualityColumns',
-        'includedColumns'   => 'IncludedColumns',
-        'indexCount'        => 'IndexCount',
+        'avgTotalUserCost' => 'AvgTotalUserCost',
+        'avgUserImpact' => 'AvgUserImpact',
+        'createIndex' => 'CreateIndex',
+        'databaseName' => 'DatabaseName',
+        'equalityColumns' => 'EqualityColumns',
+        'includedColumns' => 'IncludedColumns',
+        'indexCount' => 'IndexCount',
         'inequalityColumns' => 'InequalityColumns',
-        'lastUserSeek'      => 'LastUserSeek',
-        'objectName'        => 'ObjectName',
-        'reservedPages'     => 'ReservedPages',
-        'reservedSize'      => 'ReservedSize',
-        'rowCount'          => 'RowCount',
-        'schemaName'        => 'SchemaName',
-        'systemScans'       => 'SystemScans',
-        'systemSeeks'       => 'SystemSeeks',
-        'uniqueCompiles'    => 'UniqueCompiles',
-        'userScans'         => 'UserScans',
-        'userSeeks'         => 'UserSeeks',
+        'lastUserSeek' => 'LastUserSeek',
+        'objectName' => 'ObjectName',
+        'reservedPages' => 'ReservedPages',
+        'reservedSize' => 'ReservedSize',
+        'rowCount' => 'RowCount',
+        'schemaName' => 'SchemaName',
+        'systemScans' => 'SystemScans',
+        'systemSeeks' => 'SystemSeeks',
+        'uniqueCompiles' => 'UniqueCompiles',
+        'userScans' => 'UserScans',
+        'userSeeks' => 'UserSeeks',
     ];
 
     public function validate()

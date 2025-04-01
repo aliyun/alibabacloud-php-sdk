@@ -12,138 +12,164 @@ class CreateCloudBenchTasksRequest extends Model
      * @var string
      */
     public $amount;
+
     /**
      * @var string
      */
     public $backupId;
+
     /**
      * @var string
      */
     public $backupTime;
+
     /**
      * @var string
      */
     public $clientType;
+
     /**
      * @var string
      */
     public $description;
+
     /**
      * @var string
      */
     public $dstConnectionString;
+
     /**
      * @var string
      */
     public $dstInstanceId;
+
     /**
      * @var string
      */
     public $dstPort;
+
     /**
      * @var string
      */
     public $dstSuperAccount;
+
     /**
      * @var string
      */
     public $dstSuperPassword;
+
     /**
      * @var string
      */
     public $dstType;
+
     /**
      * @var string
      */
     public $dtsJobClass;
+
     /**
      * @var string
      */
     public $dtsJobId;
+
     /**
      * @var string
      */
     public $endState;
+
     /**
      * @var string
      */
     public $gatewayVpcId;
+
     /**
      * @var string
      */
     public $gatewayVpcIp;
+
     /**
      * @var string
      */
     public $rate;
+
     /**
      * @var string
      */
     public $requestDuration;
+
     /**
      * @var string
      */
     public $requestEndTime;
+
     /**
      * @var string
      */
     public $requestStartTime;
+
     /**
      * @var string
      */
     public $smartPressureTime;
+
     /**
      * @var string
      */
     public $srcInstanceId;
+
     /**
      * @var string
      */
     public $srcPublicIp;
+
     /**
      * @var string
      */
     public $srcSuperAccount;
+
     /**
      * @var string
      */
     public $srcSuperPassword;
+
     /**
      * @var string
      */
     public $taskType;
+
     /**
      * @var string
      */
     public $workDir;
     protected $_name = [
-        'amount'              => 'Amount',
-        'backupId'            => 'BackupId',
-        'backupTime'          => 'BackupTime',
-        'clientType'          => 'ClientType',
-        'description'         => 'Description',
+        'amount' => 'Amount',
+        'backupId' => 'BackupId',
+        'backupTime' => 'BackupTime',
+        'clientType' => 'ClientType',
+        'description' => 'Description',
         'dstConnectionString' => 'DstConnectionString',
-        'dstInstanceId'       => 'DstInstanceId',
-        'dstPort'             => 'DstPort',
-        'dstSuperAccount'     => 'DstSuperAccount',
-        'dstSuperPassword'    => 'DstSuperPassword',
-        'dstType'             => 'DstType',
-        'dtsJobClass'         => 'DtsJobClass',
-        'dtsJobId'            => 'DtsJobId',
-        'endState'            => 'EndState',
-        'gatewayVpcId'        => 'GatewayVpcId',
-        'gatewayVpcIp'        => 'GatewayVpcIp',
-        'rate'                => 'Rate',
-        'requestDuration'     => 'RequestDuration',
-        'requestEndTime'      => 'RequestEndTime',
-        'requestStartTime'    => 'RequestStartTime',
-        'smartPressureTime'   => 'SmartPressureTime',
-        'srcInstanceId'       => 'SrcInstanceId',
-        'srcPublicIp'         => 'SrcPublicIp',
-        'srcSuperAccount'     => 'SrcSuperAccount',
-        'srcSuperPassword'    => 'SrcSuperPassword',
-        'taskType'            => 'TaskType',
-        'workDir'             => 'WorkDir',
+        'dstInstanceId' => 'DstInstanceId',
+        'dstPort' => 'DstPort',
+        'dstSuperAccount' => 'DstSuperAccount',
+        'dstSuperPassword' => 'DstSuperPassword',
+        'dstType' => 'DstType',
+        'dtsJobClass' => 'DtsJobClass',
+        'dtsJobId' => 'DtsJobId',
+        'endState' => 'EndState',
+        'gatewayVpcId' => 'GatewayVpcId',
+        'gatewayVpcIp' => 'GatewayVpcIp',
+        'rate' => 'Rate',
+        'requestDuration' => 'RequestDuration',
+        'requestEndTime' => 'RequestEndTime',
+        'requestStartTime' => 'RequestStartTime',
+        'smartPressureTime' => 'SmartPressureTime',
+        'srcInstanceId' => 'SrcInstanceId',
+        'srcPublicIp' => 'SrcPublicIp',
+        'srcSuperAccount' => 'SrcSuperAccount',
+        'srcSuperPassword' => 'SrcSuperPassword',
+        'taskType' => 'TaskType',
+        'workDir' => 'WorkDir',
     ];
 
     public function validate()

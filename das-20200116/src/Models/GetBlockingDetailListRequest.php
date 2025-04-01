@@ -12,38 +12,44 @@ class GetBlockingDetailListRequest extends Model
      * @var string
      */
     public $dbNameList;
+
     /**
      * @var string
      */
     public $endTime;
+
     /**
      * @var string
      */
     public $instanceId;
+
     /**
      * @var string
      */
     public $pageNo;
+
     /**
      * @var string
      */
     public $pageSize;
+
     /**
      * @var string
      */
     public $queryHash;
+
     /**
      * @var string
      */
     public $startTime;
     protected $_name = [
         'dbNameList' => 'DbNameList',
-        'endTime'    => 'EndTime',
+        'endTime' => 'EndTime',
         'instanceId' => 'InstanceId',
-        'pageNo'     => 'PageNo',
-        'pageSize'   => 'PageSize',
-        'queryHash'  => 'QueryHash',
-        'startTime'  => 'StartTime',
+        'pageNo' => 'PageNo',
+        'pageSize' => 'PageSize',
+        'queryHash' => 'QueryHash',
+        'startTime' => 'StartTime',
     ];
 
     public function validate()

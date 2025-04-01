@@ -12,38 +12,44 @@ class data extends Model
      * @var string
      */
     public $accountId;
+
     /**
      * @var int
      */
     public $dbLinkId;
+
     /**
      * @var string
      */
     public $errMsg;
+
     /**
      * @var string
      */
     public $oriUuid;
+
     /**
      * @var string
      */
     public $status;
+
     /**
      * @var string
      */
     public $taskId;
+
     /**
      * @var string
      */
     public $uuid;
     protected $_name = [
         'accountId' => 'AccountId',
-        'dbLinkId'  => 'DbLinkId',
-        'errMsg'    => 'ErrMsg',
-        'oriUuid'   => 'OriUuid',
-        'status'    => 'Status',
-        'taskId'    => 'TaskId',
-        'uuid'      => 'Uuid',
+        'dbLinkId' => 'DbLinkId',
+        'errMsg' => 'ErrMsg',
+        'oriUuid' => 'OriUuid',
+        'status' => 'Status',
+        'taskId' => 'TaskId',
+        'uuid' => 'Uuid',
     ];
 
     public function validate()

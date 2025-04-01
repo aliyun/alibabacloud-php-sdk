@@ -12,163 +12,194 @@ class list_ extends Model
      * @var float
      */
     public $avgExaminedRows;
+
     /**
      * @var int
      */
     public $avgFetchRows;
+
     /**
      * @var float
      */
     public $avgLockWaitTime;
+
     /**
      * @var float
      */
     public $avgLogicalRead;
+
     /**
      * @var int
      */
     public $avgPhysicalAsyncRead;
+
     /**
      * @var float
      */
     public $avgPhysicalSyncRead;
+
     /**
      * @var float
      */
     public $avgReturnedRows;
+
     /**
      * @var int
      */
     public $avgRows;
+
     /**
      * @var float
      */
     public $avgRt;
+
     /**
      * @var int
      */
     public $avgSqlCount;
+
     /**
      * @var float
      */
     public $avgUpdatedRows;
+
     /**
      * @var int
      */
     public $count;
+
     /**
      * @var float
      */
     public $countRate;
+
     /**
      * @var string
      */
     public $database;
+
     /**
      * @var int
      */
     public $errorCount;
+
     /**
      * @var int
      */
     public $examinedRows;
+
     /**
      * @var int
      */
     public $fetchRows;
+
     /**
      * @var string
      */
     public $ip;
+
     /**
      * @var string
      */
     public $key;
+
     /**
      * @var float
      */
     public $lockWaitTime;
+
     /**
      * @var int
      */
     public $logicalRead;
+
     /**
      * @var string
      */
     public $originHost;
+
     /**
      * @var int
      */
     public $physicalAsyncRead;
+
     /**
      * @var int
      */
     public $physicalSyncRead;
+
     /**
      * @var int
      */
     public $port;
+
     /**
      * @var int
      */
     public $rows;
+
     /**
      * @var int
      */
     public $rtGreaterThanOneSecondCount;
+
     /**
      * @var float
      */
     public $rtRate;
+
     /**
      * @var int
      */
     public $sqlCount;
+
     /**
      * @var int
      */
     public $sumUpdatedRows;
+
     /**
      * @var int
      */
     public $version;
+
     /**
      * @var string
      */
     public $vpcId;
     protected $_name = [
-        'avgExaminedRows'             => 'AvgExaminedRows',
-        'avgFetchRows'                => 'AvgFetchRows',
-        'avgLockWaitTime'             => 'AvgLockWaitTime',
-        'avgLogicalRead'              => 'AvgLogicalRead',
-        'avgPhysicalAsyncRead'        => 'AvgPhysicalAsyncRead',
-        'avgPhysicalSyncRead'         => 'AvgPhysicalSyncRead',
-        'avgReturnedRows'             => 'AvgReturnedRows',
-        'avgRows'                     => 'AvgRows',
-        'avgRt'                       => 'AvgRt',
-        'avgSqlCount'                 => 'AvgSqlCount',
-        'avgUpdatedRows'              => 'AvgUpdatedRows',
-        'count'                       => 'Count',
-        'countRate'                   => 'CountRate',
-        'database'                    => 'Database',
-        'errorCount'                  => 'ErrorCount',
-        'examinedRows'                => 'ExaminedRows',
-        'fetchRows'                   => 'FetchRows',
-        'ip'                          => 'Ip',
-        'key'                         => 'Key',
-        'lockWaitTime'                => 'LockWaitTime',
-        'logicalRead'                 => 'LogicalRead',
-        'originHost'                  => 'OriginHost',
-        'physicalAsyncRead'           => 'PhysicalAsyncRead',
-        'physicalSyncRead'            => 'PhysicalSyncRead',
-        'port'                        => 'Port',
-        'rows'                        => 'Rows',
+        'avgExaminedRows' => 'AvgExaminedRows',
+        'avgFetchRows' => 'AvgFetchRows',
+        'avgLockWaitTime' => 'AvgLockWaitTime',
+        'avgLogicalRead' => 'AvgLogicalRead',
+        'avgPhysicalAsyncRead' => 'AvgPhysicalAsyncRead',
+        'avgPhysicalSyncRead' => 'AvgPhysicalSyncRead',
+        'avgReturnedRows' => 'AvgReturnedRows',
+        'avgRows' => 'AvgRows',
+        'avgRt' => 'AvgRt',
+        'avgSqlCount' => 'AvgSqlCount',
+        'avgUpdatedRows' => 'AvgUpdatedRows',
+        'count' => 'Count',
+        'countRate' => 'CountRate',
+        'database' => 'Database',
+        'errorCount' => 'ErrorCount',
+        'examinedRows' => 'ExaminedRows',
+        'fetchRows' => 'FetchRows',
+        'ip' => 'Ip',
+        'key' => 'Key',
+        'lockWaitTime' => 'LockWaitTime',
+        'logicalRead' => 'LogicalRead',
+        'originHost' => 'OriginHost',
+        'physicalAsyncRead' => 'PhysicalAsyncRead',
+        'physicalSyncRead' => 'PhysicalSyncRead',
+        'port' => 'Port',
+        'rows' => 'Rows',
         'rtGreaterThanOneSecondCount' => 'RtGreaterThanOneSecondCount',
-        'rtRate'                      => 'RtRate',
-        'sqlCount'                    => 'SqlCount',
-        'sumUpdatedRows'              => 'SumUpdatedRows',
-        'version'                     => 'Version',
-        'vpcId'                       => 'VpcId',
+        'rtRate' => 'RtRate',
+        'sqlCount' => 'SqlCount',
+        'sumUpdatedRows' => 'SumUpdatedRows',
+        'version' => 'Version',
+        'vpcId' => 'VpcId',
     ];
 
     public function validate()

@@ -12,18 +12,20 @@ class GetMySQLAllSessionAsyncRequest extends Model
      * @var string
      */
     public $instanceId;
+
     /**
      * @var string
      */
     public $nodeId;
+
     /**
      * @var string
      */
     public $resultId;
     protected $_name = [
         'instanceId' => 'InstanceId',
-        'nodeId'     => 'NodeId',
-        'resultId'   => 'ResultId',
+        'nodeId' => 'NodeId',
+        'resultId' => 'ResultId',
     ];
 
     public function validate()

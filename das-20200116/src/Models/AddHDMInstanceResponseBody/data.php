@@ -12,63 +12,74 @@ class data extends Model
      * @var string
      */
     public $callerUid;
+
     /**
      * @var int
      */
     public $code;
+
     /**
      * @var string
      */
     public $error;
+
     /**
      * @var string
      */
     public $instanceId;
+
     /**
      * @var string
      */
     public $ip;
+
     /**
      * @var string
      */
     public $ownerId;
+
     /**
      * @var int
      */
     public $port;
+
     /**
      * @var string
      */
     public $role;
+
     /**
      * @var string
      */
     public $tenantId;
+
     /**
      * @var string
      */
     public $token;
+
     /**
      * @var string
      */
     public $uuid;
+
     /**
      * @var string
      */
     public $vpcId;
     protected $_name = [
-        'callerUid'  => 'CallerUid',
-        'code'       => 'Code',
-        'error'      => 'Error',
+        'callerUid' => 'CallerUid',
+        'code' => 'Code',
+        'error' => 'Error',
         'instanceId' => 'InstanceId',
-        'ip'         => 'Ip',
-        'ownerId'    => 'OwnerId',
-        'port'       => 'Port',
-        'role'       => 'Role',
-        'tenantId'   => 'TenantId',
-        'token'      => 'Token',
-        'uuid'       => 'Uuid',
-        'vpcId'      => 'VpcId',
+        'ip' => 'Ip',
+        'ownerId' => 'OwnerId',
+        'port' => 'Port',
+        'role' => 'Role',
+        'tenantId' => 'TenantId',
+        'token' => 'Token',
+        'uuid' => 'Uuid',
+        'vpcId' => 'VpcId',
     ];
 
     public function validate()

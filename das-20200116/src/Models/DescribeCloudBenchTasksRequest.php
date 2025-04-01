@@ -12,33 +12,38 @@ class DescribeCloudBenchTasksRequest extends Model
      * @var string
      */
     public $endTime;
+
     /**
      * @var string
      */
     public $pageNo;
+
     /**
      * @var string
      */
     public $pageSize;
+
     /**
      * @var string
      */
     public $startTime;
+
     /**
      * @var string
      */
     public $status;
+
     /**
      * @var string
      */
     public $taskType;
     protected $_name = [
-        'endTime'   => 'EndTime',
-        'pageNo'    => 'PageNo',
-        'pageSize'  => 'PageSize',
+        'endTime' => 'EndTime',
+        'pageNo' => 'PageNo',
+        'pageSize' => 'PageSize',
         'startTime' => 'StartTime',
-        'status'    => 'Status',
-        'taskType'  => 'TaskType',
+        'status' => 'Status',
+        'taskType' => 'TaskType',
     ];
 
     public function validate()

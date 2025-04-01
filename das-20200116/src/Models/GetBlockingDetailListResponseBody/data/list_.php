@@ -12,63 +12,74 @@ class list_ extends Model
      * @var int
      */
     public $batchId;
+
     /**
      * @var string
      */
     public $clientAppName;
+
     /**
      * @var int
      */
     public $currentCollectionTime;
+
     /**
      * @var string
      */
     public $dataBase;
+
     /**
      * @var string
      */
     public $hostName;
+
     /**
      * @var string
      */
     public $loginId;
+
     /**
      * @var string
      */
     public $queryHash;
+
     /**
      * @var string
      */
     public $spid;
+
     /**
      * @var string
      */
     public $sqlText;
+
     /**
      * @var string
      */
     public $startTime;
+
     /**
      * @var int
      */
     public $waitTimeMs;
+
     /**
      * @var string
      */
     public $waitType;
     protected $_name = [
-        'batchId'               => 'BatchId',
-        'clientAppName'         => 'ClientAppName',
+        'batchId' => 'BatchId',
+        'clientAppName' => 'ClientAppName',
         'currentCollectionTime' => 'CurrentCollectionTime',
-        'dataBase'              => 'DataBase',
-        'hostName'              => 'HostName',
-        'loginId'               => 'LoginId',
-        'queryHash'             => 'QueryHash',
-        'spid'                  => 'Spid',
-        'sqlText'               => 'SqlText',
-        'startTime'             => 'StartTime',
-        'waitTimeMs'            => 'WaitTimeMs',
-        'waitType'              => 'WaitType',
+        'dataBase' => 'DataBase',
+        'hostName' => 'HostName',
+        'loginId' => 'LoginId',
+        'queryHash' => 'QueryHash',
+        'spid' => 'Spid',
+        'sqlText' => 'SqlText',
+        'startTime' => 'StartTime',
+        'waitTimeMs' => 'WaitTimeMs',
+        'waitType' => 'WaitType',
     ];
 
     public function validate()

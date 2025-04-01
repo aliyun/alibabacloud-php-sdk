@@ -13,43 +13,50 @@ class data extends Model
      * @var int
      */
     public $analyzedDbCount;
+
     /**
      * @var storageAnalysisResult
      */
     public $storageAnalysisResult;
+
     /**
      * @var bool
      */
     public $taskFinish;
+
     /**
      * @var string
      */
     public $taskId;
+
     /**
      * @var int
      */
     public $taskProgress;
+
     /**
      * @var string
      */
     public $taskState;
+
     /**
      * @var bool
      */
     public $taskSuccess;
+
     /**
      * @var int
      */
     public $totalDbCount;
     protected $_name = [
-        'analyzedDbCount'       => 'AnalyzedDbCount',
+        'analyzedDbCount' => 'AnalyzedDbCount',
         'storageAnalysisResult' => 'StorageAnalysisResult',
-        'taskFinish'            => 'TaskFinish',
-        'taskId'                => 'TaskId',
-        'taskProgress'          => 'TaskProgress',
-        'taskState'             => 'TaskState',
-        'taskSuccess'           => 'TaskSuccess',
-        'totalDbCount'          => 'TotalDbCount',
+        'taskFinish' => 'TaskFinish',
+        'taskId' => 'TaskId',
+        'taskProgress' => 'TaskProgress',
+        'taskState' => 'TaskState',
+        'taskSuccess' => 'TaskSuccess',
+        'totalDbCount' => 'TotalDbCount',
     ];
 
     public function validate()

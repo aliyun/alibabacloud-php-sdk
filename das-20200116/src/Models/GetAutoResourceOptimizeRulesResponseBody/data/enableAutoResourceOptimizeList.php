@@ -12,33 +12,38 @@ class enableAutoResourceOptimizeList extends Model
      * @var bool
      */
     public $autoDefragment;
+
     /**
      * @var bool
      */
     public $dasProOn;
+
     /**
      * @var string
      */
     public $instanceId;
+
     /**
      * @var float
      */
     public $tableFragmentationRatio;
+
     /**
      * @var float
      */
     public $tableSpaceSize;
+
     /**
      * @var string
      */
     public $userId;
     protected $_name = [
-        'autoDefragment'          => 'AutoDefragment',
-        'dasProOn'                => 'DasProOn',
-        'instanceId'              => 'InstanceId',
+        'autoDefragment' => 'AutoDefragment',
+        'dasProOn' => 'DasProOn',
+        'instanceId' => 'InstanceId',
         'tableFragmentationRatio' => 'TableFragmentationRatio',
-        'tableSpaceSize'          => 'TableSpaceSize',
-        'userId'                  => 'UserId',
+        'tableSpaceSize' => 'TableSpaceSize',
+        'userId' => 'UserId',
     ];
 
     public function validate()

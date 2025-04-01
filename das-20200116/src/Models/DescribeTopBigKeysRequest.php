@@ -12,28 +12,32 @@ class DescribeTopBigKeysRequest extends Model
      * @var string
      */
     public $consoleContext;
+
     /**
      * @var string
      */
     public $endTime;
+
     /**
      * @var string
      */
     public $instanceId;
+
     /**
      * @var string
      */
     public $nodeId;
+
     /**
      * @var string
      */
     public $startTime;
     protected $_name = [
         'consoleContext' => 'ConsoleContext',
-        'endTime'        => 'EndTime',
-        'instanceId'     => 'InstanceId',
-        'nodeId'         => 'NodeId',
-        'startTime'      => 'StartTime',
+        'endTime' => 'EndTime',
+        'instanceId' => 'InstanceId',
+        'nodeId' => 'NodeId',
+        'startTime' => 'StartTime',
     ];
 
     public function validate()

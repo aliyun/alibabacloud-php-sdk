@@ -15,453 +15,548 @@ class logs extends Model
      * @var string
      */
     public $accountName;
+
     /**
      * @var float
      */
     public $avgCPUTime;
+
     /**
      * @var float
      */
     public $avgCPUTimeSeconds;
+
     /**
      * @var float
      */
     public $avgDocExamined;
+
     /**
      * @var float
      */
     public $avgFrows;
+
     /**
      * @var float
      */
     public $avgIOWrites;
+
     /**
      * @var float
      */
     public $avgKeysExamined;
+
     /**
      * @var float
      */
     public $avgLastRowsCountAffected;
+
     /**
      * @var float
      */
     public $avgLockTime;
+
     /**
      * @var float
      */
     public $avgLockTimeSeconds;
+
     /**
      * @var float
      */
     public $avgLogicalIOReads;
+
     /**
      * @var float
      */
     public $avgPhysicalIOReads;
+
     /**
      * @var float
      */
     public $avgQueryTime;
+
     /**
      * @var float
      */
     public $avgQueryTimeSeconds;
+
     /**
      * @var float
      */
     public $avgReturnNum;
+
     /**
      * @var float
      */
     public $avgRows;
+
     /**
      * @var float
      */
     public $avgRowsCountAffected;
+
     /**
      * @var float
      */
     public $avgRowsExamined;
+
     /**
      * @var float
      */
     public $avgRowsSent;
+
     /**
      * @var float
      */
     public $avgScnt;
+
     /**
      * @var float
      */
     public $CPUTime;
+
     /**
      * @var float
      */
     public $CPUTimeSeconds;
+
     /**
      * @var string
      */
     public $command;
+
     /**
      * @var int
      */
     public $count;
+
     /**
      * @var float
      */
     public $countRate;
+
     /**
      * @var string
      */
     public $DBName;
+
     /**
      * @var string
      */
     public $database;
+
     /**
      * @var string
      */
     public $dbInstanceName;
+
     /**
      * @var int
      */
     public $docExamined;
+
     /**
      * @var int
      */
     public $docsExamined;
+
     /**
      * @var int
      */
     public $frows;
+
     /**
      * @var histogram
      */
     public $histogram;
+
     /**
      * @var string
      */
     public $hostAddress;
+
     /**
      * @var string
      */
     public $hostInsId;
+
     /**
      * @var int
      */
     public $IOWrites;
+
     /**
      * @var string
      */
     public $insName;
+
     /**
      * @var string
      */
     public $insRole;
+
     /**
      * @var int
      */
     public $keysExamined;
+
     /**
      * @var int
      */
     public $lastRowsCountAffected;
+
     /**
      * @var float
      */
     public $lockTime;
+
     /**
      * @var float
      */
     public $lockTimeSeconds;
+
     /**
      * @var int
      */
     public $logicalIOReads;
+
     /**
      * @var float
      */
     public $maxCPUTime;
+
     /**
      * @var float
      */
     public $maxCPUTimeSeconds;
+
     /**
      * @var int
      */
     public $maxDocExamined;
+
     /**
      * @var int
      */
     public $maxFrows;
+
     /**
      * @var int
      */
     public $maxIOWrites;
+
     /**
      * @var int
      */
     public $maxKeysExamined;
+
     /**
      * @var int
      */
     public $maxLastRowsCountAffected;
+
     /**
      * @var float
      */
     public $maxLockTime;
+
     /**
      * @var float
      */
     public $maxLockTimeSeconds;
+
     /**
      * @var int
      */
     public $maxLogicalIOReads;
+
     /**
      * @var int
      */
     public $maxPhysicalIOReads;
+
     /**
      * @var float
      */
     public $maxQueryTime;
+
     /**
      * @var float
      */
     public $maxQueryTimeSeconds;
+
     /**
      * @var int
      */
     public $maxReturnNum;
+
     /**
      * @var int
      */
     public $maxRows;
+
     /**
      * @var int
      */
     public $maxRowsCountAffected;
+
     /**
      * @var int
      */
     public $maxRowsExamined;
+
     /**
      * @var int
      */
     public $maxRowsSent;
+
     /**
      * @var int
      */
     public $maxScnt;
+
     /**
      * @var string
      */
     public $namespace;
+
     /**
      * @var string
      */
     public $nodeType;
+
     /**
      * @var string
      */
     public $opType;
+
     /**
      * @var string
      */
     public $originAlias;
+
     /**
      * @var int
      */
     public $physicalIOReads;
+
     /**
      * @var string
      */
     public $psql;
+
     /**
      * @var string
      */
     public $queryId;
+
     /**
      * @var string
      */
     public $queryStartTime;
+
     /**
      * @var int
      */
     public $queryTime;
+
     /**
      * @var float
      */
     public $queryTimeRate;
+
     /**
      * @var float
      */
     public $queryTimeSeconds;
+
     /**
      * @var string
      */
     public $returnItemNumbers;
+
     /**
      * @var int
      */
     public $returnNum;
+
     /**
      * @var int
      */
     public $rows;
+
     /**
      * @var int
      */
     public $rowsCountAffected;
+
     /**
      * @var int
      */
     public $rowsExamined;
+
     /**
      * @var int
      */
     public $rowsSent;
+
+    /**
+     * @var string
+     */
+    public $ruleId;
+
     /**
      * @var string
      */
     public $SQLText;
+
     /**
      * @var string
      */
     public $scheme;
+
     /**
      * @var int
      */
     public $scnt;
+
     /**
      * @var string
      */
     public $sqlId;
+
     /**
      * @var sqlTag
      */
     public $sqlTag;
+
     /**
      * @var string
      */
     public $sqlType;
+
     /**
      * @var string
      */
     public $subInstanceId;
+
     /**
      * @var string
      */
     public $tableName;
+
     /**
      * @var string
      */
     public $threadId;
+
     /**
      * @var int
      */
     public $timestamp;
+
     /**
      * @var trend[]
      */
     public $trend;
+
     /**
      * @var string
      */
     public $user;
     protected $_name = [
-        'accountName'              => 'AccountName',
-        'avgCPUTime'               => 'AvgCPUTime',
-        'avgCPUTimeSeconds'        => 'AvgCPUTimeSeconds',
-        'avgDocExamined'           => 'AvgDocExamined',
-        'avgFrows'                 => 'AvgFrows',
-        'avgIOWrites'              => 'AvgIOWrites',
-        'avgKeysExamined'          => 'AvgKeysExamined',
+        'accountName' => 'AccountName',
+        'avgCPUTime' => 'AvgCPUTime',
+        'avgCPUTimeSeconds' => 'AvgCPUTimeSeconds',
+        'avgDocExamined' => 'AvgDocExamined',
+        'avgFrows' => 'AvgFrows',
+        'avgIOWrites' => 'AvgIOWrites',
+        'avgKeysExamined' => 'AvgKeysExamined',
         'avgLastRowsCountAffected' => 'AvgLastRowsCountAffected',
-        'avgLockTime'              => 'AvgLockTime',
-        'avgLockTimeSeconds'       => 'AvgLockTimeSeconds',
-        'avgLogicalIOReads'        => 'AvgLogicalIOReads',
-        'avgPhysicalIOReads'       => 'AvgPhysicalIOReads',
-        'avgQueryTime'             => 'AvgQueryTime',
-        'avgQueryTimeSeconds'      => 'AvgQueryTimeSeconds',
-        'avgReturnNum'             => 'AvgReturnNum',
-        'avgRows'                  => 'AvgRows',
-        'avgRowsCountAffected'     => 'AvgRowsCountAffected',
-        'avgRowsExamined'          => 'AvgRowsExamined',
-        'avgRowsSent'              => 'AvgRowsSent',
-        'avgScnt'                  => 'AvgScnt',
-        'CPUTime'                  => 'CPUTime',
-        'CPUTimeSeconds'           => 'CPUTimeSeconds',
-        'command'                  => 'Command',
-        'count'                    => 'Count',
-        'countRate'                => 'CountRate',
-        'DBName'                   => 'DBName',
-        'database'                 => 'Database',
-        'dbInstanceName'           => 'DbInstanceName',
-        'docExamined'              => 'DocExamined',
-        'docsExamined'             => 'DocsExamined',
-        'frows'                    => 'Frows',
-        'histogram'                => 'Histogram',
-        'hostAddress'              => 'HostAddress',
-        'hostInsId'                => 'HostInsId',
-        'IOWrites'                 => 'IOWrites',
-        'insName'                  => 'InsName',
-        'insRole'                  => 'InsRole',
-        'keysExamined'             => 'KeysExamined',
-        'lastRowsCountAffected'    => 'LastRowsCountAffected',
-        'lockTime'                 => 'LockTime',
-        'lockTimeSeconds'          => 'LockTimeSeconds',
-        'logicalIOReads'           => 'LogicalIOReads',
-        'maxCPUTime'               => 'MaxCPUTime',
-        'maxCPUTimeSeconds'        => 'MaxCPUTimeSeconds',
-        'maxDocExamined'           => 'MaxDocExamined',
-        'maxFrows'                 => 'MaxFrows',
-        'maxIOWrites'              => 'MaxIOWrites',
-        'maxKeysExamined'          => 'MaxKeysExamined',
+        'avgLockTime' => 'AvgLockTime',
+        'avgLockTimeSeconds' => 'AvgLockTimeSeconds',
+        'avgLogicalIOReads' => 'AvgLogicalIOReads',
+        'avgPhysicalIOReads' => 'AvgPhysicalIOReads',
+        'avgQueryTime' => 'AvgQueryTime',
+        'avgQueryTimeSeconds' => 'AvgQueryTimeSeconds',
+        'avgReturnNum' => 'AvgReturnNum',
+        'avgRows' => 'AvgRows',
+        'avgRowsCountAffected' => 'AvgRowsCountAffected',
+        'avgRowsExamined' => 'AvgRowsExamined',
+        'avgRowsSent' => 'AvgRowsSent',
+        'avgScnt' => 'AvgScnt',
+        'CPUTime' => 'CPUTime',
+        'CPUTimeSeconds' => 'CPUTimeSeconds',
+        'command' => 'Command',
+        'count' => 'Count',
+        'countRate' => 'CountRate',
+        'DBName' => 'DBName',
+        'database' => 'Database',
+        'dbInstanceName' => 'DbInstanceName',
+        'docExamined' => 'DocExamined',
+        'docsExamined' => 'DocsExamined',
+        'frows' => 'Frows',
+        'histogram' => 'Histogram',
+        'hostAddress' => 'HostAddress',
+        'hostInsId' => 'HostInsId',
+        'IOWrites' => 'IOWrites',
+        'insName' => 'InsName',
+        'insRole' => 'InsRole',
+        'keysExamined' => 'KeysExamined',
+        'lastRowsCountAffected' => 'LastRowsCountAffected',
+        'lockTime' => 'LockTime',
+        'lockTimeSeconds' => 'LockTimeSeconds',
+        'logicalIOReads' => 'LogicalIOReads',
+        'maxCPUTime' => 'MaxCPUTime',
+        'maxCPUTimeSeconds' => 'MaxCPUTimeSeconds',
+        'maxDocExamined' => 'MaxDocExamined',
+        'maxFrows' => 'MaxFrows',
+        'maxIOWrites' => 'MaxIOWrites',
+        'maxKeysExamined' => 'MaxKeysExamined',
         'maxLastRowsCountAffected' => 'MaxLastRowsCountAffected',
-        'maxLockTime'              => 'MaxLockTime',
-        'maxLockTimeSeconds'       => 'MaxLockTimeSeconds',
-        'maxLogicalIOReads'        => 'MaxLogicalIOReads',
-        'maxPhysicalIOReads'       => 'MaxPhysicalIOReads',
-        'maxQueryTime'             => 'MaxQueryTime',
-        'maxQueryTimeSeconds'      => 'MaxQueryTimeSeconds',
-        'maxReturnNum'             => 'MaxReturnNum',
-        'maxRows'                  => 'MaxRows',
-        'maxRowsCountAffected'     => 'MaxRowsCountAffected',
-        'maxRowsExamined'          => 'MaxRowsExamined',
-        'maxRowsSent'              => 'MaxRowsSent',
-        'maxScnt'                  => 'MaxScnt',
-        'namespace'                => 'Namespace',
-        'nodeType'                 => 'NodeType',
-        'opType'                   => 'OpType',
-        'originAlias'              => 'OriginAlias',
-        'physicalIOReads'          => 'PhysicalIOReads',
-        'psql'                     => 'Psql',
-        'queryId'                  => 'QueryId',
-        'queryStartTime'           => 'QueryStartTime',
-        'queryTime'                => 'QueryTime',
-        'queryTimeRate'            => 'QueryTimeRate',
-        'queryTimeSeconds'         => 'QueryTimeSeconds',
-        'returnItemNumbers'        => 'ReturnItemNumbers',
-        'returnNum'                => 'ReturnNum',
-        'rows'                     => 'Rows',
-        'rowsCountAffected'        => 'RowsCountAffected',
-        'rowsExamined'             => 'RowsExamined',
-        'rowsSent'                 => 'RowsSent',
-        'SQLText'                  => 'SQLText',
-        'scheme'                   => 'Scheme',
-        'scnt'                     => 'Scnt',
-        'sqlId'                    => 'SqlId',
-        'sqlTag'                   => 'SqlTag',
-        'sqlType'                  => 'SqlType',
-        'subInstanceId'            => 'SubInstanceId',
-        'tableName'                => 'TableName',
-        'threadId'                 => 'ThreadId',
-        'timestamp'                => 'Timestamp',
-        'trend'                    => 'Trend',
-        'user'                     => 'User',
+        'maxLockTime' => 'MaxLockTime',
+        'maxLockTimeSeconds' => 'MaxLockTimeSeconds',
+        'maxLogicalIOReads' => 'MaxLogicalIOReads',
+        'maxPhysicalIOReads' => 'MaxPhysicalIOReads',
+        'maxQueryTime' => 'MaxQueryTime',
+        'maxQueryTimeSeconds' => 'MaxQueryTimeSeconds',
+        'maxReturnNum' => 'MaxReturnNum',
+        'maxRows' => 'MaxRows',
+        'maxRowsCountAffected' => 'MaxRowsCountAffected',
+        'maxRowsExamined' => 'MaxRowsExamined',
+        'maxRowsSent' => 'MaxRowsSent',
+        'maxScnt' => 'MaxScnt',
+        'namespace' => 'Namespace',
+        'nodeType' => 'NodeType',
+        'opType' => 'OpType',
+        'originAlias' => 'OriginAlias',
+        'physicalIOReads' => 'PhysicalIOReads',
+        'psql' => 'Psql',
+        'queryId' => 'QueryId',
+        'queryStartTime' => 'QueryStartTime',
+        'queryTime' => 'QueryTime',
+        'queryTimeRate' => 'QueryTimeRate',
+        'queryTimeSeconds' => 'QueryTimeSeconds',
+        'returnItemNumbers' => 'ReturnItemNumbers',
+        'returnNum' => 'ReturnNum',
+        'rows' => 'Rows',
+        'rowsCountAffected' => 'RowsCountAffected',
+        'rowsExamined' => 'RowsExamined',
+        'rowsSent' => 'RowsSent',
+        'ruleId' => 'RuleId',
+        'SQLText' => 'SQLText',
+        'scheme' => 'Scheme',
+        'scnt' => 'Scnt',
+        'sqlId' => 'SqlId',
+        'sqlTag' => 'SqlTag',
+        'sqlType' => 'SqlType',
+        'subInstanceId' => 'SubInstanceId',
+        'tableName' => 'TableName',
+        'threadId' => 'ThreadId',
+        'timestamp' => 'Timestamp',
+        'trend' => 'Trend',
+        'user' => 'User',
     ];
 
     public function validate()
@@ -793,6 +888,10 @@ class logs extends Model
             $res['RowsSent'] = $this->rowsSent;
         }
 
+        if (null !== $this->ruleId) {
+            $res['RuleId'] = $this->ruleId;
+        }
+
         if (null !== $this->SQLText) {
             $res['SQLText'] = $this->SQLText;
         }
@@ -836,7 +935,7 @@ class logs extends Model
         if (null !== $this->trend) {
             if (\is_array($this->trend)) {
                 $res['Trend'] = [];
-                $n1           = 0;
+                $n1 = 0;
                 foreach ($this->trend as $item1) {
                     $res['Trend'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -1170,6 +1269,10 @@ class logs extends Model
             $model->rowsSent = $map['RowsSent'];
         }
 
+        if (isset($map['RuleId'])) {
+            $model->ruleId = $map['RuleId'];
+        }
+
         if (isset($map['SQLText'])) {
             $model->SQLText = $map['SQLText'];
         }
@@ -1213,7 +1316,7 @@ class logs extends Model
         if (isset($map['Trend'])) {
             if (!empty($map['Trend'])) {
                 $model->trend = [];
-                $n1           = 0;
+                $n1 = 0;
                 foreach ($map['Trend'] as $item1) {
                     $model->trend[$n1++] = trend::fromMap($item1);
                 }

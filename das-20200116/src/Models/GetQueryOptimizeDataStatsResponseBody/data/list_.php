@@ -13,98 +13,116 @@ class list_ extends Model
      * @var float
      */
     public $avgLockTime;
+
     /**
      * @var float
      */
     public $avgQueryTime;
+
     /**
      * @var float
      */
     public $avgRowsAffected;
+
     /**
      * @var float
      */
     public $avgRowsExamined;
+
     /**
      * @var float
      */
     public $avgRowsSent;
+
     /**
      * @var int
      */
     public $count;
+
     /**
      * @var string
      */
     public $dbname;
+
     /**
      * @var string
      */
     public $instanceId;
+
     /**
      * @var float
      */
     public $maxLockTime;
+
     /**
      * @var float
      */
     public $maxQueryTime;
+
     /**
      * @var int
      */
     public $maxRowsAffected;
+
     /**
      * @var int
      */
     public $maxRowsExamined;
+
     /**
      * @var int
      */
     public $maxRowsSent;
+
     /**
      * @var string
      */
     public $psql;
+
     /**
      * @var ruleList[]
      */
     public $ruleList;
+
     /**
      * @var string
      */
     public $sqlId;
+
     /**
      * @var string
      */
     public $sqlSample;
+
     /**
      * @var string
      */
     public $sqlType;
+
     /**
      * @var string
      */
     public $user;
     protected $_name = [
-        'avgLockTime'     => 'AvgLockTime',
-        'avgQueryTime'    => 'AvgQueryTime',
+        'avgLockTime' => 'AvgLockTime',
+        'avgQueryTime' => 'AvgQueryTime',
         'avgRowsAffected' => 'AvgRowsAffected',
         'avgRowsExamined' => 'AvgRowsExamined',
-        'avgRowsSent'     => 'AvgRowsSent',
-        'count'           => 'Count',
-        'dbname'          => 'Dbname',
-        'instanceId'      => 'InstanceId',
-        'maxLockTime'     => 'MaxLockTime',
-        'maxQueryTime'    => 'MaxQueryTime',
+        'avgRowsSent' => 'AvgRowsSent',
+        'count' => 'Count',
+        'dbname' => 'Dbname',
+        'instanceId' => 'InstanceId',
+        'maxLockTime' => 'MaxLockTime',
+        'maxQueryTime' => 'MaxQueryTime',
         'maxRowsAffected' => 'MaxRowsAffected',
         'maxRowsExamined' => 'MaxRowsExamined',
-        'maxRowsSent'     => 'MaxRowsSent',
-        'psql'            => 'Psql',
-        'ruleList'        => 'RuleList',
-        'sqlId'           => 'SqlId',
-        'sqlSample'       => 'SqlSample',
-        'sqlType'         => 'SqlType',
-        'user'            => 'User',
+        'maxRowsSent' => 'MaxRowsSent',
+        'psql' => 'Psql',
+        'ruleList' => 'RuleList',
+        'sqlId' => 'SqlId',
+        'sqlSample' => 'SqlSample',
+        'sqlType' => 'SqlType',
+        'user' => 'User',
     ];
 
     public function validate()
@@ -177,7 +195,7 @@ class list_ extends Model
         if (null !== $this->ruleList) {
             if (\is_array($this->ruleList)) {
                 $res['RuleList'] = [];
-                $n1              = 0;
+                $n1 = 0;
                 foreach ($this->ruleList as $item1) {
                     $res['RuleList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -270,7 +288,7 @@ class list_ extends Model
         if (isset($map['RuleList'])) {
             if (!empty($map['RuleList'])) {
                 $model->ruleList = [];
-                $n1              = 0;
+                $n1 = 0;
                 foreach ($map['RuleList'] as $item1) {
                     $model->ruleList[$n1++] = ruleList::fromMap($item1);
                 }

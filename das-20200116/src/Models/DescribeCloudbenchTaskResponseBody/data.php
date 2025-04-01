@@ -12,208 +12,248 @@ class data extends Model
      * @var string
      */
     public $archiveJobId;
+
     /**
      * @var string
      */
     public $archiveOssTableName;
+
     /**
      * @var int
      */
     public $archiveState;
+
     /**
      * @var string
      */
     public $backupId;
+
     /**
      * @var string
      */
     public $backupType;
+
     /**
      * @var string
      */
     public $benchStep;
+
     /**
      * @var string
      */
     public $benchStepStatus;
+
     /**
      * @var string
      */
     public $clientGatewayId;
+
     /**
      * @var string
      */
     public $clientType;
+
     /**
      * @var string
      */
     public $description;
+
     /**
      * @var string
      */
     public $dstInstanceUuid;
+
     /**
      * @var string
      */
     public $dstIp;
+
     /**
      * @var int
      */
     public $dstPort;
+
     /**
      * @var string
      */
     public $dstType;
+
     /**
      * @var string
      */
     public $dtsJobClass;
+
     /**
      * @var string
      */
     public $dtsJobId;
+
     /**
      * @var string
      */
     public $dtsJobName;
+
     /**
      * @var int
      */
     public $dtsJobState;
+
     /**
      * @var string
      */
     public $dtsJobStatus;
+
     /**
      * @var string
      */
     public $ecsInstanceId;
+
     /**
      * @var string
      */
     public $endState;
+
     /**
      * @var string
      */
     public $errorCode;
+
     /**
      * @var string
      */
     public $errorMessage;
+
     /**
      * @var string
      */
     public $external;
+
     /**
      * @var int
      */
     public $rate;
+
     /**
      * @var int
      */
     public $requestDuration;
+
     /**
      * @var int
      */
     public $smartPressureTime;
+
     /**
      * @var string
      */
     public $source;
+
     /**
      * @var string
      */
     public $sqlCompleteReuse;
+
     /**
      * @var string
      */
     public $srcInstanceArea;
+
     /**
      * @var string
      */
     public $srcInstanceUuid;
+
     /**
      * @var string
      */
     public $srcPublicIp;
+
     /**
      * @var string
      */
     public $state;
+
     /**
      * @var string
      */
     public $status;
+
     /**
      * @var string
      */
     public $tableSchema;
+
     /**
      * @var string
      */
     public $taskId;
+
     /**
      * @var string
      */
     public $taskType;
+
     /**
      * @var string
      */
     public $topic;
+
     /**
      * @var string
      */
     public $userId;
+
     /**
      * @var string
      */
     public $version;
+
     /**
      * @var string
      */
     public $workDir;
     protected $_name = [
-        'archiveJobId'        => 'ArchiveJobId',
+        'archiveJobId' => 'ArchiveJobId',
         'archiveOssTableName' => 'ArchiveOssTableName',
-        'archiveState'        => 'ArchiveState',
-        'backupId'            => 'BackupId',
-        'backupType'          => 'BackupType',
-        'benchStep'           => 'BenchStep',
-        'benchStepStatus'     => 'BenchStepStatus',
-        'clientGatewayId'     => 'ClientGatewayId',
-        'clientType'          => 'ClientType',
-        'description'         => 'Description',
-        'dstInstanceUuid'     => 'DstInstanceUuid',
-        'dstIp'               => 'DstIp',
-        'dstPort'             => 'DstPort',
-        'dstType'             => 'DstType',
-        'dtsJobClass'         => 'DtsJobClass',
-        'dtsJobId'            => 'DtsJobId',
-        'dtsJobName'          => 'DtsJobName',
-        'dtsJobState'         => 'DtsJobState',
-        'dtsJobStatus'        => 'DtsJobStatus',
-        'ecsInstanceId'       => 'EcsInstanceId',
-        'endState'            => 'EndState',
-        'errorCode'           => 'ErrorCode',
-        'errorMessage'        => 'ErrorMessage',
-        'external'            => 'External',
-        'rate'                => 'Rate',
-        'requestDuration'     => 'RequestDuration',
-        'smartPressureTime'   => 'SmartPressureTime',
-        'source'              => 'Source',
-        'sqlCompleteReuse'    => 'SqlCompleteReuse',
-        'srcInstanceArea'     => 'SrcInstanceArea',
-        'srcInstanceUuid'     => 'SrcInstanceUuid',
-        'srcPublicIp'         => 'SrcPublicIp',
-        'state'               => 'State',
-        'status'              => 'Status',
-        'tableSchema'         => 'TableSchema',
-        'taskId'              => 'TaskId',
-        'taskType'            => 'TaskType',
-        'topic'               => 'Topic',
-        'userId'              => 'UserId',
-        'version'             => 'Version',
-        'workDir'             => 'WorkDir',
+        'archiveState' => 'ArchiveState',
+        'backupId' => 'BackupId',
+        'backupType' => 'BackupType',
+        'benchStep' => 'BenchStep',
+        'benchStepStatus' => 'BenchStepStatus',
+        'clientGatewayId' => 'ClientGatewayId',
+        'clientType' => 'ClientType',
+        'description' => 'Description',
+        'dstInstanceUuid' => 'DstInstanceUuid',
+        'dstIp' => 'DstIp',
+        'dstPort' => 'DstPort',
+        'dstType' => 'DstType',
+        'dtsJobClass' => 'DtsJobClass',
+        'dtsJobId' => 'DtsJobId',
+        'dtsJobName' => 'DtsJobName',
+        'dtsJobState' => 'DtsJobState',
+        'dtsJobStatus' => 'DtsJobStatus',
+        'ecsInstanceId' => 'EcsInstanceId',
+        'endState' => 'EndState',
+        'errorCode' => 'ErrorCode',
+        'errorMessage' => 'ErrorMessage',
+        'external' => 'External',
+        'rate' => 'Rate',
+        'requestDuration' => 'RequestDuration',
+        'smartPressureTime' => 'SmartPressureTime',
+        'source' => 'Source',
+        'sqlCompleteReuse' => 'SqlCompleteReuse',
+        'srcInstanceArea' => 'SrcInstanceArea',
+        'srcInstanceUuid' => 'SrcInstanceUuid',
+        'srcPublicIp' => 'SrcPublicIp',
+        'state' => 'State',
+        'status' => 'Status',
+        'tableSchema' => 'TableSchema',
+        'taskId' => 'TaskId',
+        'taskType' => 'TaskType',
+        'topic' => 'Topic',
+        'userId' => 'UserId',
+        'version' => 'Version',
+        'workDir' => 'WorkDir',
     ];
 
     public function validate()

@@ -12,28 +12,32 @@ class GetAsyncErrorRequestListByCodeRequest extends Model
      * @var int
      */
     public $end;
+
     /**
      * @var string
      */
     public $errorCode;
+
     /**
      * @var string
      */
     public $instanceId;
+
     /**
      * @var string
      */
     public $nodeId;
+
     /**
      * @var int
      */
     public $start;
     protected $_name = [
-        'end'        => 'End',
-        'errorCode'  => 'ErrorCode',
+        'end' => 'End',
+        'errorCode' => 'ErrorCode',
         'instanceId' => 'InstanceId',
-        'nodeId'     => 'NodeId',
-        'start'      => 'Start',
+        'nodeId' => 'NodeId',
+        'start' => 'Start',
     ];
 
     public function validate()

@@ -13,38 +13,44 @@ class ModifySqlLogConfigRequest extends Model
      * @var bool
      */
     public $enable;
+
     /**
      * @var bool
      */
     public $enableAudit;
+
     /**
      * @var filters[]
      */
     public $filters;
+
     /**
      * @var int
      */
     public $hotRetention;
+
     /**
      * @var string
      */
     public $instanceId;
+
     /**
      * @var bool
      */
     public $requestEnable;
+
     /**
      * @var int
      */
     public $retention;
     protected $_name = [
-        'enable'        => 'Enable',
-        'enableAudit'   => 'EnableAudit',
-        'filters'       => 'Filters',
-        'hotRetention'  => 'HotRetention',
-        'instanceId'    => 'InstanceId',
+        'enable' => 'Enable',
+        'enableAudit' => 'EnableAudit',
+        'filters' => 'Filters',
+        'hotRetention' => 'HotRetention',
+        'instanceId' => 'InstanceId',
         'requestEnable' => 'RequestEnable',
-        'retention'     => 'Retention',
+        'retention' => 'Retention',
     ];
 
     public function validate()
@@ -69,7 +75,7 @@ class ModifySqlLogConfigRequest extends Model
         if (null !== $this->filters) {
             if (\is_array($this->filters)) {
                 $res['Filters'] = [];
-                $n1             = 0;
+                $n1 = 0;
                 foreach ($this->filters as $item1) {
                     $res['Filters'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -114,7 +120,7 @@ class ModifySqlLogConfigRequest extends Model
         if (isset($map['Filters'])) {
             if (!empty($map['Filters'])) {
                 $model->filters = [];
-                $n1             = 0;
+                $n1 = 0;
                 foreach ($map['Filters'] as $item1) {
                     $model->filters[$n1++] = filters::fromMap($item1);
                 }

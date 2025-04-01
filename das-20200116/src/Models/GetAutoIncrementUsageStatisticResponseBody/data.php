@@ -13,28 +13,32 @@ class data extends Model
      * @var autoIncrementUsageList[]
      */
     public $autoIncrementUsageList;
+
     /**
      * @var string
      */
     public $errorInfo;
+
     /**
      * @var bool
      */
     public $finish;
+
     /**
      * @var string
      */
     public $taskStatus;
+
     /**
      * @var int
      */
     public $timestamp;
     protected $_name = [
         'autoIncrementUsageList' => 'AutoIncrementUsageList',
-        'errorInfo'              => 'ErrorInfo',
-        'finish'                 => 'Finish',
-        'taskStatus'             => 'TaskStatus',
-        'timestamp'              => 'Timestamp',
+        'errorInfo' => 'ErrorInfo',
+        'finish' => 'Finish',
+        'taskStatus' => 'TaskStatus',
+        'timestamp' => 'Timestamp',
     ];
 
     public function validate()
@@ -51,7 +55,7 @@ class data extends Model
         if (null !== $this->autoIncrementUsageList) {
             if (\is_array($this->autoIncrementUsageList)) {
                 $res['AutoIncrementUsageList'] = [];
-                $n1                            = 0;
+                $n1 = 0;
                 foreach ($this->autoIncrementUsageList as $item1) {
                     $res['AutoIncrementUsageList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -88,7 +92,7 @@ class data extends Model
         if (isset($map['AutoIncrementUsageList'])) {
             if (!empty($map['AutoIncrementUsageList'])) {
                 $model->autoIncrementUsageList = [];
-                $n1                            = 0;
+                $n1 = 0;
                 foreach ($map['AutoIncrementUsageList'] as $item1) {
                     $model->autoIncrementUsageList[$n1++] = autoIncrementUsageList::fromMap($item1);
                 }

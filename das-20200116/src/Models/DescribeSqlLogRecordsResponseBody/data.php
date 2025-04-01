@@ -13,32 +13,37 @@ class data extends Model
      * @var int
      */
     public $endTime;
+
     /**
      * @var string
      */
     public $finish;
+
     /**
      * @var items
      */
     public $items;
+
     /**
      * @var string
      */
     public $jobId;
+
     /**
      * @var int
      */
     public $startTime;
+
     /**
      * @var int
      */
     public $totalRecords;
     protected $_name = [
-        'endTime'      => 'EndTime',
-        'finish'       => 'Finish',
-        'items'        => 'Items',
-        'jobId'        => 'JobId',
-        'startTime'    => 'StartTime',
+        'endTime' => 'EndTime',
+        'finish' => 'Finish',
+        'items' => 'Items',
+        'jobId' => 'JobId',
+        'startTime' => 'StartTime',
         'totalRecords' => 'TotalRecords',
     ];
 

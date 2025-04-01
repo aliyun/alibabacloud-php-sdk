@@ -12,48 +12,56 @@ class shard extends Model
      * @var bool
      */
     public $apply;
+
     /**
      * @var bool
      */
     public $downgrade;
+
     /**
      * @var string
      */
     public $downgradeObservationWindowSize;
+
     /**
      * @var int
      */
     public $maxShards;
+
     /**
      * @var int
      */
     public $memUsageLowerThreshold;
+
     /**
      * @var int
      */
     public $memUsageUpperThreshold;
+
     /**
      * @var int
      */
     public $minShards;
+
     /**
      * @var bool
      */
     public $upgrade;
+
     /**
      * @var string
      */
     public $upgradeObservationWindowSize;
     protected $_name = [
-        'apply'                          => 'Apply',
-        'downgrade'                      => 'Downgrade',
+        'apply' => 'Apply',
+        'downgrade' => 'Downgrade',
         'downgradeObservationWindowSize' => 'DowngradeObservationWindowSize',
-        'maxShards'                      => 'MaxShards',
-        'memUsageLowerThreshold'         => 'MemUsageLowerThreshold',
-        'memUsageUpperThreshold'         => 'MemUsageUpperThreshold',
-        'minShards'                      => 'MinShards',
-        'upgrade'                        => 'Upgrade',
-        'upgradeObservationWindowSize'   => 'UpgradeObservationWindowSize',
+        'maxShards' => 'MaxShards',
+        'memUsageLowerThreshold' => 'MemUsageLowerThreshold',
+        'memUsageUpperThreshold' => 'MemUsageUpperThreshold',
+        'minShards' => 'MinShards',
+        'upgrade' => 'Upgrade',
+        'upgradeObservationWindowSize' => 'UpgradeObservationWindowSize',
     ];
 
     public function validate()

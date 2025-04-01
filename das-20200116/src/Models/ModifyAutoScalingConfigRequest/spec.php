@@ -12,48 +12,56 @@ class spec extends Model
      * @var bool
      */
     public $apply;
+
     /**
      * @var string
      */
     public $coolDownTime;
+
     /**
      * @var int
      */
     public $cpuUsageUpperThreshold;
+
     /**
      * @var bool
      */
     public $downgrade;
+
     /**
      * @var int
      */
     public $maxReadOnlyNodes;
+
     /**
      * @var string
      */
     public $maxSpec;
+
     /**
      * @var int
      */
     public $memUsageUpperThreshold;
+
     /**
      * @var string
      */
     public $observationWindowSize;
+
     /**
      * @var bool
      */
     public $upgrade;
     protected $_name = [
-        'apply'                  => 'Apply',
-        'coolDownTime'           => 'CoolDownTime',
+        'apply' => 'Apply',
+        'coolDownTime' => 'CoolDownTime',
         'cpuUsageUpperThreshold' => 'CpuUsageUpperThreshold',
-        'downgrade'              => 'Downgrade',
-        'maxReadOnlyNodes'       => 'MaxReadOnlyNodes',
-        'maxSpec'                => 'MaxSpec',
+        'downgrade' => 'Downgrade',
+        'maxReadOnlyNodes' => 'MaxReadOnlyNodes',
+        'maxSpec' => 'MaxSpec',
         'memUsageUpperThreshold' => 'MemUsageUpperThreshold',
-        'observationWindowSize'  => 'ObservationWindowSize',
-        'upgrade'                => 'Upgrade',
+        'observationWindowSize' => 'ObservationWindowSize',
+        'upgrade' => 'Upgrade',
     ];
 
     public function validate()

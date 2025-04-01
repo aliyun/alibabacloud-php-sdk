@@ -12,18 +12,20 @@ class list_ extends Model
      * @var string
      */
     public $name;
+
     /**
      * @var string
      */
     public $ruleId;
+
     /**
      * @var string
      */
     public $type;
     protected $_name = [
-        'name'   => 'Name',
+        'name' => 'Name',
         'ruleId' => 'RuleId',
-        'type'   => 'Type',
+        'type' => 'Type',
     ];
 
     public function validate()

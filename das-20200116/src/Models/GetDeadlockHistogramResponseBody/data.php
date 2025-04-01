@@ -12,43 +12,50 @@ class data extends Model
      * @var string
      */
     public $endTime;
+
     /**
      * @var string
      */
     public $instanceId;
+
     /**
      * @var int
      */
     public $lockNumber;
+
     /**
      * @var string
      */
     public $nodeId;
+
     /**
      * @var string
      */
     public $startTime;
+
     /**
      * @var string
      */
     public $status;
+
     /**
      * @var string
      */
     public $taskId;
+
     /**
      * @var string
      */
     public $userId;
     protected $_name = [
-        'endTime'    => 'EndTime',
+        'endTime' => 'EndTime',
         'instanceId' => 'InstanceId',
         'lockNumber' => 'LockNumber',
-        'nodeId'     => 'NodeId',
-        'startTime'  => 'StartTime',
-        'status'     => 'Status',
-        'taskId'     => 'TaskId',
-        'userId'     => 'UserId',
+        'nodeId' => 'NodeId',
+        'startTime' => 'StartTime',
+        'status' => 'Status',
+        'taskId' => 'TaskId',
+        'userId' => 'UserId',
     ];
 
     public function validate()

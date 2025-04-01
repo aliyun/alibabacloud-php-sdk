@@ -13,38 +13,44 @@ class data extends Model
      * @var bool
      */
     public $complete;
+
     /**
      * @var configResponse
      */
     public $configResponse;
+
     /**
      * @var bool
      */
     public $fail;
+
     /**
      * @var bool
      */
     public $isFinish;
+
     /**
      * @var string
      */
     public $resultId;
+
     /**
      * @var string
      */
     public $state;
+
     /**
      * @var int
      */
     public $timestamp;
     protected $_name = [
-        'complete'       => 'Complete',
+        'complete' => 'Complete',
         'configResponse' => 'ConfigResponse',
-        'fail'           => 'Fail',
-        'isFinish'       => 'IsFinish',
-        'resultId'       => 'ResultId',
-        'state'          => 'State',
-        'timestamp'      => 'Timestamp',
+        'fail' => 'Fail',
+        'isFinish' => 'IsFinish',
+        'resultId' => 'ResultId',
+        'state' => 'State',
+        'timestamp' => 'Timestamp',
     ];
 
     public function validate()

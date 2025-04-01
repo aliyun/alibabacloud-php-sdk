@@ -12,33 +12,38 @@ class CreateQueryOptimizeTagRequest extends Model
      * @var string
      */
     public $comments;
+
     /**
      * @var string
      */
     public $engine;
+
     /**
      * @var string
      */
     public $instanceId;
+
     /**
      * @var string
      */
     public $sqlIds;
+
     /**
      * @var int
      */
     public $status;
+
     /**
      * @var string
      */
     public $tags;
     protected $_name = [
-        'comments'   => 'Comments',
-        'engine'     => 'Engine',
+        'comments' => 'Comments',
+        'engine' => 'Engine',
         'instanceId' => 'InstanceId',
-        'sqlIds'     => 'SqlIds',
-        'status'     => 'Status',
-        'tags'       => 'Tags',
+        'sqlIds' => 'SqlIds',
+        'status' => 'Status',
+        'tags' => 'Tags',
     ];
 
     public function validate()

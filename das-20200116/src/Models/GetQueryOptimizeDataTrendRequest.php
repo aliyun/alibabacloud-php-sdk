@@ -12,33 +12,38 @@ class GetQueryOptimizeDataTrendRequest extends Model
      * @var string
      */
     public $end;
+
     /**
      * @var string
      */
     public $engine;
+
     /**
      * @var string
      */
     public $instanceIds;
+
     /**
      * @var string
      */
     public $region;
+
     /**
      * @var string
      */
     public $start;
+
     /**
      * @var string
      */
     public $tagNames;
     protected $_name = [
-        'end'         => 'End',
-        'engine'      => 'Engine',
+        'end' => 'End',
+        'engine' => 'Engine',
         'instanceIds' => 'InstanceIds',
-        'region'      => 'Region',
-        'start'       => 'Start',
-        'tagNames'    => 'TagNames',
+        'region' => 'Region',
+        'start' => 'Start',
+        'tagNames' => 'TagNames',
     ];
 
     public function validate()

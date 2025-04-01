@@ -12,88 +12,104 @@ class data extends Model
      * @var string
      */
     public $archiveFolder;
+
     /**
      * @var string
      */
     public $benchCmd;
+
     /**
      * @var string
      */
     public $clientJarPath;
+
     /**
      * @var string
      */
     public $jarOnOss;
+
     /**
      * @var string
      */
     public $loadCmd;
+
     /**
      * @var string
      */
     public $metaFileName;
+
     /**
      * @var string
      */
     public $metaFileOnOss;
+
     /**
      * @var string
      */
     public $metaFilePath;
+
     /**
      * @var string
      */
     public $parseCmd;
+
     /**
      * @var string
      */
     public $parseFilePath;
+
     /**
      * @var string
      */
     public $rocksDbPath;
+
     /**
      * @var string
      */
     public $sqlFileName;
+
     /**
      * @var string
      */
     public $sqlFileOnOss;
+
     /**
      * @var string
      */
     public $sqlFilePath;
+
     /**
      * @var string
      */
     public $taskId;
+
     /**
      * @var string
      */
     public $userId;
+
     /**
      * @var string
      */
     public $workDir;
     protected $_name = [
         'archiveFolder' => 'ArchiveFolder',
-        'benchCmd'      => 'BenchCmd',
+        'benchCmd' => 'BenchCmd',
         'clientJarPath' => 'ClientJarPath',
-        'jarOnOss'      => 'JarOnOss',
-        'loadCmd'       => 'LoadCmd',
-        'metaFileName'  => 'MetaFileName',
+        'jarOnOss' => 'JarOnOss',
+        'loadCmd' => 'LoadCmd',
+        'metaFileName' => 'MetaFileName',
         'metaFileOnOss' => 'MetaFileOnOss',
-        'metaFilePath'  => 'MetaFilePath',
-        'parseCmd'      => 'ParseCmd',
+        'metaFilePath' => 'MetaFilePath',
+        'parseCmd' => 'ParseCmd',
         'parseFilePath' => 'ParseFilePath',
-        'rocksDbPath'   => 'RocksDbPath',
-        'sqlFileName'   => 'SqlFileName',
-        'sqlFileOnOss'  => 'SqlFileOnOss',
-        'sqlFilePath'   => 'SqlFilePath',
-        'taskId'        => 'TaskId',
-        'userId'        => 'UserId',
-        'workDir'       => 'WorkDir',
+        'rocksDbPath' => 'RocksDbPath',
+        'sqlFileName' => 'SqlFileName',
+        'sqlFileOnOss' => 'SqlFileOnOss',
+        'sqlFilePath' => 'SqlFilePath',
+        'taskId' => 'TaskId',
+        'userId' => 'UserId',
+        'workDir' => 'WorkDir',
     ];
 
     public function validate()

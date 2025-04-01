@@ -12,83 +12,98 @@ class instance extends Model
      * @var string
      */
     public $accountId;
+
     /**
      * @var string
      */
     public $category;
+
     /**
      * @var string
      */
     public $cpu;
+
     /**
      * @var string
      */
     public $engine;
+
     /**
      * @var string
      */
     public $engineVersion;
+
     /**
      * @var string
      */
     public $instanceAlias;
+
     /**
      * @var string
      */
     public $instanceArea;
+
     /**
      * @var string
      */
     public $instanceClass;
+
     /**
      * @var string
      */
     public $instanceId;
+
     /**
      * @var int
      */
     public $memory;
+
     /**
      * @var string
      */
     public $networkType;
+
     /**
      * @var string
      */
     public $nodeId;
+
     /**
      * @var string
      */
     public $region;
+
     /**
      * @var int
      */
     public $storage;
+
     /**
      * @var string
      */
     public $uuid;
+
     /**
      * @var string
      */
     public $vpcId;
     protected $_name = [
-        'accountId'     => 'AccountId',
-        'category'      => 'Category',
-        'cpu'           => 'Cpu',
-        'engine'        => 'Engine',
+        'accountId' => 'AccountId',
+        'category' => 'Category',
+        'cpu' => 'Cpu',
+        'engine' => 'Engine',
         'engineVersion' => 'EngineVersion',
         'instanceAlias' => 'InstanceAlias',
-        'instanceArea'  => 'InstanceArea',
+        'instanceArea' => 'InstanceArea',
         'instanceClass' => 'InstanceClass',
-        'instanceId'    => 'InstanceId',
-        'memory'        => 'Memory',
-        'networkType'   => 'NetworkType',
-        'nodeId'        => 'NodeId',
-        'region'        => 'Region',
-        'storage'       => 'Storage',
-        'uuid'          => 'Uuid',
-        'vpcId'         => 'VpcId',
+        'instanceId' => 'InstanceId',
+        'memory' => 'Memory',
+        'networkType' => 'NetworkType',
+        'nodeId' => 'NodeId',
+        'region' => 'Region',
+        'storage' => 'Storage',
+        'uuid' => 'Uuid',
+        'vpcId' => 'VpcId',
     ];
 
     public function validate()

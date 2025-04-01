@@ -12,18 +12,20 @@ class list_ extends Model
      * @var string
      */
     public $instanceId;
+
     /**
      * @var string
      */
     public $type;
+
     /**
      * @var float
      */
     public $value;
     protected $_name = [
         'instanceId' => 'InstanceId',
-        'type'       => 'Type',
-        'value'      => 'Value',
+        'type' => 'Type',
+        'value' => 'Value',
     ];
 
     public function validate()

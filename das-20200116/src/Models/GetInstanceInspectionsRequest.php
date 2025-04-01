@@ -12,43 +12,50 @@ class GetInstanceInspectionsRequest extends Model
      * @var string
      */
     public $endTime;
+
     /**
      * @var string
      */
     public $engine;
+
     /**
      * @var string
      */
     public $instanceArea;
+
     /**
      * @var string
      */
     public $pageNo;
+
     /**
      * @var string
      */
     public $pageSize;
+
     /**
      * @var string
      */
     public $resourceGroupId;
+
     /**
      * @var string
      */
     public $searchMap;
+
     /**
      * @var string
      */
     public $startTime;
     protected $_name = [
-        'endTime'         => 'EndTime',
-        'engine'          => 'Engine',
-        'instanceArea'    => 'InstanceArea',
-        'pageNo'          => 'PageNo',
-        'pageSize'        => 'PageSize',
+        'endTime' => 'EndTime',
+        'engine' => 'Engine',
+        'instanceArea' => 'InstanceArea',
+        'pageNo' => 'PageNo',
+        'pageSize' => 'PageSize',
         'resourceGroupId' => 'ResourceGroupId',
-        'searchMap'       => 'SearchMap',
-        'startTime'       => 'StartTime',
+        'searchMap' => 'SearchMap',
+        'startTime' => 'StartTime',
     ];
 
     public function validate()

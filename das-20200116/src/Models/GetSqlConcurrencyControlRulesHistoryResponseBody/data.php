@@ -13,12 +13,13 @@ class data extends Model
      * @var list_
      */
     public $list;
+
     /**
      * @var int
      */
     public $total;
     protected $_name = [
-        'list'  => 'List',
+        'list' => 'List',
         'total' => 'Total',
     ];
 

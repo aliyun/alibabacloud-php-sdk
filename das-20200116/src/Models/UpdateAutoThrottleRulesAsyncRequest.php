@@ -12,58 +12,68 @@ class UpdateAutoThrottleRulesAsyncRequest extends Model
      * @var float
      */
     public $abnormalDuration;
+
     /**
      * @var int
      */
     public $activeSessions;
+
     /**
      * @var string
      */
     public $allowThrottleEndTime;
+
     /**
      * @var string
      */
     public $allowThrottleStartTime;
+
     /**
      * @var bool
      */
     public $autoKillSession;
+
     /**
      * @var string
      */
     public $consoleContext;
+
     /**
      * @var string
      */
     public $cpuSessionRelation;
+
     /**
      * @var float
      */
     public $cpuUsage;
+
     /**
      * @var string
      */
     public $instanceIds;
+
     /**
      * @var float
      */
     public $maxThrottleTime;
+
     /**
      * @var string
      */
     public $resultId;
     protected $_name = [
-        'abnormalDuration'       => 'AbnormalDuration',
-        'activeSessions'         => 'ActiveSessions',
-        'allowThrottleEndTime'   => 'AllowThrottleEndTime',
+        'abnormalDuration' => 'AbnormalDuration',
+        'activeSessions' => 'ActiveSessions',
+        'allowThrottleEndTime' => 'AllowThrottleEndTime',
         'allowThrottleStartTime' => 'AllowThrottleStartTime',
-        'autoKillSession'        => 'AutoKillSession',
-        'consoleContext'         => 'ConsoleContext',
-        'cpuSessionRelation'     => 'CpuSessionRelation',
-        'cpuUsage'               => 'CpuUsage',
-        'instanceIds'            => 'InstanceIds',
-        'maxThrottleTime'        => 'MaxThrottleTime',
-        'resultId'               => 'ResultId',
+        'autoKillSession' => 'AutoKillSession',
+        'consoleContext' => 'ConsoleContext',
+        'cpuSessionRelation' => 'CpuSessionRelation',
+        'cpuUsage' => 'CpuUsage',
+        'instanceIds' => 'InstanceIds',
+        'maxThrottleTime' => 'MaxThrottleTime',
+        'resultId' => 'ResultId',
     ];
 
     public function validate()

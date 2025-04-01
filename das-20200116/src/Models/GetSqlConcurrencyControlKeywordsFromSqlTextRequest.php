@@ -12,18 +12,20 @@ class GetSqlConcurrencyControlKeywordsFromSqlTextRequest extends Model
      * @var string
      */
     public $consoleContext;
+
     /**
      * @var string
      */
     public $instanceId;
+
     /**
      * @var string
      */
     public $sqlText;
     protected $_name = [
         'consoleContext' => 'ConsoleContext',
-        'instanceId'     => 'InstanceId',
-        'sqlText'        => 'SqlText',
+        'instanceId' => 'InstanceId',
+        'sqlText' => 'SqlText',
     ];
 
     public function validate()

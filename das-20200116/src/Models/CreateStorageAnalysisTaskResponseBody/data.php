@@ -12,18 +12,20 @@ class data extends Model
      * @var bool
      */
     public $createTaskSuccess;
+
     /**
      * @var string
      */
     public $errorMessage;
+
     /**
      * @var string
      */
     public $taskId;
     protected $_name = [
         'createTaskSuccess' => 'CreateTaskSuccess',
-        'errorMessage'      => 'ErrorMessage',
-        'taskId'            => 'TaskId',
+        'errorMessage' => 'ErrorMessage',
+        'taskId' => 'TaskId',
     ];
 
     public function validate()

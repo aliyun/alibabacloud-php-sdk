@@ -13,21 +13,24 @@ class data extends Model
      * @var string
      */
     public $errorMsg;
+
     /**
      * @var string
      */
     public $results;
+
     /**
      * @var subResults
      */
     public $subResults;
+
     /**
      * @var string
      */
     public $syncStatus;
     protected $_name = [
-        'errorMsg'   => 'ErrorMsg',
-        'results'    => 'Results',
+        'errorMsg' => 'ErrorMsg',
+        'results' => 'Results',
         'subResults' => 'SubResults',
         'syncStatus' => 'SyncStatus',
     ];

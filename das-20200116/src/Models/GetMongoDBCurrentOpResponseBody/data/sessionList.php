@@ -12,93 +12,110 @@ class sessionList extends Model
      * @var bool
      */
     public $active;
+
     /**
      * @var string
      */
     public $client;
+
     /**
      * @var string
      */
     public $command;
+
     /**
      * @var int
      */
     public $connectionId;
+
     /**
      * @var string
      */
     public $desc;
+
     /**
      * @var string
      */
     public $driver;
+
     /**
      * @var string
      */
     public $host;
+
     /**
      * @var bool
      */
     public $killPending;
+
     /**
      * @var string
      */
     public $ns;
+
     /**
      * @var string
      */
     public $op;
+
     /**
      * @var string
      */
     public $opId;
+
     /**
      * @var string
      */
     public $osArch;
+
     /**
      * @var string
      */
     public $osName;
+
     /**
      * @var string
      */
     public $osType;
+
     /**
      * @var string
      */
     public $planSummary;
+
     /**
      * @var string
      */
     public $platform;
+
     /**
      * @var int
      */
     public $secsRunning;
+
     /**
      * @var string
      */
     public $shard;
     protected $_name = [
-        'active'       => 'Active',
-        'client'       => 'Client',
-        'command'      => 'Command',
+        'active' => 'Active',
+        'client' => 'Client',
+        'command' => 'Command',
         'connectionId' => 'ConnectionId',
-        'desc'         => 'Desc',
-        'driver'       => 'Driver',
-        'host'         => 'Host',
-        'killPending'  => 'KillPending',
-        'ns'           => 'Ns',
-        'op'           => 'Op',
-        'opId'         => 'OpId',
-        'osArch'       => 'OsArch',
-        'osName'       => 'OsName',
-        'osType'       => 'OsType',
-        'planSummary'  => 'PlanSummary',
-        'platform'     => 'Platform',
-        'secsRunning'  => 'SecsRunning',
-        'shard'        => 'Shard',
+        'desc' => 'Desc',
+        'driver' => 'Driver',
+        'host' => 'Host',
+        'killPending' => 'KillPending',
+        'ns' => 'Ns',
+        'op' => 'Op',
+        'opId' => 'OpId',
+        'osArch' => 'OsArch',
+        'osName' => 'OsName',
+        'osType' => 'OsType',
+        'planSummary' => 'PlanSummary',
+        'platform' => 'Platform',
+        'secsRunning' => 'SecsRunning',
+        'shard' => 'Shard',
     ];
 
     public function validate()

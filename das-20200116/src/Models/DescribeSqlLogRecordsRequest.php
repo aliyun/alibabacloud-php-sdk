@@ -13,43 +13,50 @@ class DescribeSqlLogRecordsRequest extends Model
      * @var int
      */
     public $endTime;
+
     /**
      * @var filters[]
      */
     public $filters;
+
     /**
      * @var string
      */
     public $instanceId;
+
     /**
      * @var string
      */
     public $nodeId;
+
     /**
      * @var int
      */
     public $pageNo;
+
     /**
      * @var int
      */
     public $pageSize;
+
     /**
      * @var string
      */
     public $role;
+
     /**
      * @var int
      */
     public $startTime;
     protected $_name = [
-        'endTime'    => 'EndTime',
-        'filters'    => 'Filters',
+        'endTime' => 'EndTime',
+        'filters' => 'Filters',
         'instanceId' => 'InstanceId',
-        'nodeId'     => 'NodeId',
-        'pageNo'     => 'PageNo',
-        'pageSize'   => 'PageSize',
-        'role'       => 'Role',
-        'startTime'  => 'StartTime',
+        'nodeId' => 'NodeId',
+        'pageNo' => 'PageNo',
+        'pageSize' => 'PageSize',
+        'role' => 'Role',
+        'startTime' => 'StartTime',
     ];
 
     public function validate()
@@ -70,7 +77,7 @@ class DescribeSqlLogRecordsRequest extends Model
         if (null !== $this->filters) {
             if (\is_array($this->filters)) {
                 $res['Filters'] = [];
-                $n1             = 0;
+                $n1 = 0;
                 foreach ($this->filters as $item1) {
                     $res['Filters'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -119,7 +126,7 @@ class DescribeSqlLogRecordsRequest extends Model
         if (isset($map['Filters'])) {
             if (!empty($map['Filters'])) {
                 $model->filters = [];
-                $n1             = 0;
+                $n1 = 0;
                 foreach ($map['Filters'] as $item1) {
                     $model->filters[$n1++] = filters::fromMap($item1);
                 }

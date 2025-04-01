@@ -216,7 +216,7 @@ class DAS extends OpenApiClient
     {
         parent::__construct($config);
         $this->_endpointRule = 'central';
-        $this->_endpointMap  = [
+        $this->_endpointMap = [
             'cn-shanghai' => 'das.cn-shanghai.aliyuncs.com',
         ];
         $this->checkConfig($config);
@@ -257,6 +257,7 @@ class DAS extends OpenApiClient
      *
      * @param request - AddHDMInstanceRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns AddHDMInstanceResponse
      *
      * @param AddHDMInstanceRequest $request
@@ -324,15 +325,15 @@ class DAS extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'AddHDMInstance',
-            'version'     => '2020-01-16',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'AddHDMInstance',
+            'version' => '2020-01-16',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return AddHDMInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -350,6 +351,7 @@ class DAS extends OpenApiClient
      * *   If you use an SDK to call DAS, you must set the region to cn-shanghai.
      *
      * @param request - AddHDMInstanceRequest
+     *
      * @returns AddHDMInstanceResponse
      *
      * @param AddHDMInstanceRequest $request
@@ -376,6 +378,7 @@ class DAS extends OpenApiClient
      *
      * @param request - CreateCacheAnalysisJobRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns CreateCacheAnalysisJobResponse
      *
      * @param CreateCacheAnalysisJobRequest $request
@@ -407,15 +410,15 @@ class DAS extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'CreateCacheAnalysisJob',
-            'version'     => '2020-01-16',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CreateCacheAnalysisJob',
+            'version' => '2020-01-16',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return CreateCacheAnalysisJobResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -436,6 +439,7 @@ class DAS extends OpenApiClient
      * *   Tair ESSD/SSD-based instances are not supported.
      *
      * @param request - CreateCacheAnalysisJobRequest
+     *
      * @returns CreateCacheAnalysisJobResponse
      *
      * @param CreateCacheAnalysisJobRequest $request
@@ -461,6 +465,7 @@ class DAS extends OpenApiClient
      *
      * @param request - CreateCloudBenchTasksRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns CreateCloudBenchTasksResponse
      *
      * @param CreateCloudBenchTasksRequest $request
@@ -584,15 +589,15 @@ class DAS extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'CreateCloudBenchTasks',
-            'version'     => '2020-01-16',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CreateCloudBenchTasks',
+            'version' => '2020-01-16',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return CreateCloudBenchTasksResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -612,6 +617,7 @@ class DAS extends OpenApiClient
      * *   DAS Enterprise Edition is enabled for the source and destination database instances. For more information, see [Overview](https://help.aliyun.com/document_detail/190912.html).
      *
      * @param request - CreateCloudBenchTasksRequest
+     *
      * @returns CreateCloudBenchTasksResponse
      *
      * @param CreateCloudBenchTasksRequest $request
@@ -640,6 +646,7 @@ class DAS extends OpenApiClient
      *
      * @param request - CreateDiagnosticReportRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns CreateDiagnosticReportResponse
      *
      * @param CreateDiagnosticReportRequest $request
@@ -667,15 +674,15 @@ class DAS extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'CreateDiagnosticReport',
-            'version'     => '2020-01-16',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CreateDiagnosticReport',
+            'version' => '2020-01-16',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return CreateDiagnosticReportResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -698,6 +705,7 @@ class DAS extends OpenApiClient
      *     *   Redis
      *
      * @param request - CreateDiagnosticReportRequest
+     *
      * @returns CreateDiagnosticReportResponse
      *
      * @param CreateDiagnosticReportRequest $request
@@ -721,6 +729,7 @@ class DAS extends OpenApiClient
      *
      * @param request - CreateKillInstanceSessionTaskRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns CreateKillInstanceSessionTaskResponse
      *
      * @param CreateKillInstanceSessionTaskRequest $request
@@ -764,15 +773,15 @@ class DAS extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'CreateKillInstanceSessionTask',
-            'version'     => '2020-01-16',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CreateKillInstanceSessionTask',
+            'version' => '2020-01-16',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return CreateKillInstanceSessionTaskResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -790,6 +799,7 @@ class DAS extends OpenApiClient
      * *   If you use an SDK to call operations of DAS, you must set the region ID to cn-shanghai.
      *
      * @param request - CreateKillInstanceSessionTaskRequest
+     *
      * @returns CreateKillInstanceSessionTaskResponse
      *
      * @param CreateKillInstanceSessionTaskRequest $request
@@ -808,6 +818,7 @@ class DAS extends OpenApiClient
      *
      * @param request - CreateKillInstanceSessionTaskWithMaintainUserRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns CreateKillInstanceSessionTaskWithMaintainUserResponse
      *
      * @param CreateKillInstanceSessionTaskWithMaintainUserRequest $request
@@ -843,15 +854,15 @@ class DAS extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'CreateKillInstanceSessionTaskWithMaintainUser',
-            'version'     => '2020-01-16',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CreateKillInstanceSessionTaskWithMaintainUser',
+            'version' => '2020-01-16',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return CreateKillInstanceSessionTaskWithMaintainUserResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -864,6 +875,7 @@ class DAS extends OpenApiClient
      * 创建结束会话的任务
      *
      * @param request - CreateKillInstanceSessionTaskWithMaintainUserRequest
+     *
      * @returns CreateKillInstanceSessionTaskWithMaintainUserResponse
      *
      * @param CreateKillInstanceSessionTaskWithMaintainUserRequest $request
@@ -882,6 +894,7 @@ class DAS extends OpenApiClient
      *
      * @param request - CreateLatestDeadLockAnalysisRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns CreateLatestDeadLockAnalysisResponse
      *
      * @param CreateLatestDeadLockAnalysisRequest $request
@@ -905,15 +918,15 @@ class DAS extends OpenApiClient
             'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'CreateLatestDeadLockAnalysis',
-            'version'     => '2020-01-16',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CreateLatestDeadLockAnalysis',
+            'version' => '2020-01-16',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return CreateLatestDeadLockAnalysisResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -926,6 +939,7 @@ class DAS extends OpenApiClient
      * 创建最近死锁分析任务
      *
      * @param request - CreateLatestDeadLockAnalysisRequest
+     *
      * @returns CreateLatestDeadLockAnalysisResponse
      *
      * @param CreateLatestDeadLockAnalysisRequest $request
@@ -952,6 +966,7 @@ class DAS extends OpenApiClient
      *
      * @param request - CreateQueryOptimizeTagRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns CreateQueryOptimizeTagResponse
      *
      * @param CreateQueryOptimizeTagRequest $request
@@ -991,15 +1006,15 @@ class DAS extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'CreateQueryOptimizeTag',
-            'version'     => '2020-01-16',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CreateQueryOptimizeTag',
+            'version' => '2020-01-16',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return CreateQueryOptimizeTagResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -1020,6 +1035,7 @@ class DAS extends OpenApiClient
      *     *   ApsaraDB RDS for PostgreSQL
      *
      * @param request - CreateQueryOptimizeTagRequest
+     *
      * @returns CreateQueryOptimizeTagResponse
      *
      * @param CreateQueryOptimizeTagRequest $request
@@ -1050,6 +1066,7 @@ class DAS extends OpenApiClient
      *
      * @param request - CreateRequestDiagnosisRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns CreateRequestDiagnosisResponse
      *
      * @param CreateRequestDiagnosisRequest $request
@@ -1081,15 +1098,15 @@ class DAS extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'CreateRequestDiagnosis',
-            'version'     => '2020-01-16',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CreateRequestDiagnosis',
+            'version' => '2020-01-16',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return CreateRequestDiagnosisResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -1114,6 +1131,7 @@ class DAS extends OpenApiClient
      * >  The minor engine version of ApsaraDB RDS for PostgreSQL instances must be 20221230 or later. For more information about how to check and update the minor engine version of an ApsaraDB RDS for PostgreSQL instance, see [Update the minor engine version of an ApsaraDB RDS for PostgreSQL instance](https://help.aliyun.com/document_detail/146895.html).
      *
      * @param request - CreateRequestDiagnosisRequest
+     *
      * @returns CreateRequestDiagnosisResponse
      *
      * @param CreateRequestDiagnosisRequest $request
@@ -1138,6 +1156,7 @@ class DAS extends OpenApiClient
      *
      * @param request - CreateSqlLogTaskRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns CreateSqlLogTaskResponse
      *
      * @param CreateSqlLogTaskRequest $request
@@ -1184,18 +1203,18 @@ class DAS extends OpenApiClient
 
         $req = new OpenApiRequest([
             'query' => Utils::query($query),
-            'body'  => Utils::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'CreateSqlLogTask',
-            'version'     => '2020-01-16',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CreateSqlLogTask',
+            'version' => '2020-01-16',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return CreateSqlLogTaskResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -1214,6 +1233,7 @@ class DAS extends OpenApiClient
      * *   You can create an offline task only for database instances for which DAS Enterprise Edition V2 or V3 is enabled. For more information about the databases and regions that are supported by various versions of DAS Enterprise Edition, see [Editions and supported features](https://help.aliyun.com/document_detail/156204.html).
      *
      * @param request - CreateSqlLogTaskRequest
+     *
      * @returns CreateSqlLogTaskResponse
      *
      * @param CreateSqlLogTaskRequest $request
@@ -1238,6 +1258,7 @@ class DAS extends OpenApiClient
      *
      * @param request - CreateStorageAnalysisTaskRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns CreateStorageAnalysisTaskResponse
      *
      * @param CreateStorageAnalysisTaskRequest $request
@@ -1269,15 +1290,15 @@ class DAS extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'CreateStorageAnalysisTask',
-            'version'     => '2020-01-16',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CreateStorageAnalysisTask',
+            'version' => '2020-01-16',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return CreateStorageAnalysisTaskResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -1296,6 +1317,7 @@ class DAS extends OpenApiClient
      * *   If you use an SDK to call operations of DAS, you must set the region ID to cn-shanghai.
      *
      * @param request - CreateStorageAnalysisTaskRequest
+     *
      * @returns CreateStorageAnalysisTaskResponse
      *
      * @param CreateStorageAnalysisTaskRequest $request
@@ -1317,6 +1339,7 @@ class DAS extends OpenApiClient
      *
      * @param request - DeleteCloudBenchTaskRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DeleteCloudBenchTaskResponse
      *
      * @param DeleteCloudBenchTaskRequest $request
@@ -1336,15 +1359,15 @@ class DAS extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DeleteCloudBenchTask',
-            'version'     => '2020-01-16',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DeleteCloudBenchTask',
+            'version' => '2020-01-16',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DeleteCloudBenchTaskResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -1360,6 +1383,7 @@ class DAS extends OpenApiClient
      * Database Autonomy Service (DAS) provides the intelligent stress testing feature. This feature helps you check whether your instance needs to be scaled up to handle traffic spikes in an effective manner. For more information, see [Intelligent stress testing](https://help.aliyun.com/document_detail/155068.html).
      *
      * @param request - DeleteCloudBenchTaskRequest
+     *
      * @returns DeleteCloudBenchTaskResponse
      *
      * @param DeleteCloudBenchTaskRequest $request
@@ -1383,6 +1407,7 @@ class DAS extends OpenApiClient
      *
      * @param request - DeleteStopGatewayRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DeleteStopGatewayResponse
      *
      * @param DeleteStopGatewayRequest $request
@@ -1402,15 +1427,15 @@ class DAS extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DeleteStopGateway',
-            'version'     => '2020-01-16',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DeleteStopGateway',
+            'version' => '2020-01-16',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DeleteStopGatewayResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -1428,6 +1453,7 @@ class DAS extends OpenApiClient
      * >  If the heartbeat is lost between a DBGateway and the access point for more than 20 seconds, the DBGateway is considered stopped.
      *
      * @param request - DeleteStopGatewayRequest
+     *
      * @returns DeleteStopGatewayResponse
      *
      * @param DeleteStopGatewayRequest $request
@@ -1451,6 +1477,7 @@ class DAS extends OpenApiClient
      *
      * @param request - DescribeAutoScalingConfigRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribeAutoScalingConfigResponse
      *
      * @param DescribeAutoScalingConfigRequest $request
@@ -1470,15 +1497,15 @@ class DAS extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeAutoScalingConfig',
-            'version'     => '2020-01-16',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeAutoScalingConfig',
+            'version' => '2020-01-16',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DescribeAutoScalingConfigResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -1496,6 +1523,7 @@ class DAS extends OpenApiClient
      * *   If you use an SDK to call operations of DAS, you must set the region ID to cn-shanghai.
      *
      * @param request - DescribeAutoScalingConfigRequest
+     *
      * @returns DescribeAutoScalingConfigResponse
      *
      * @param DescribeAutoScalingConfigRequest $request
@@ -1519,6 +1547,7 @@ class DAS extends OpenApiClient
      *
      * @param request - DescribeAutoScalingHistoryRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribeAutoScalingHistoryResponse
      *
      * @param DescribeAutoScalingHistoryRequest $request
@@ -1530,19 +1559,19 @@ class DAS extends OpenApiClient
     {
         $request->validate();
         $query = Utils::query($request->toMap());
-        $req   = new OpenApiRequest([
+        $req = new OpenApiRequest([
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeAutoScalingHistory',
-            'version'     => '2020-01-16',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeAutoScalingHistory',
+            'version' => '2020-01-16',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DescribeAutoScalingHistoryResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -1560,6 +1589,7 @@ class DAS extends OpenApiClient
      * *   If you use an SDK to call operations of DAS, you must set the region ID to cn-shanghai.
      *
      * @param request - DescribeAutoScalingHistoryRequest
+     *
      * @returns DescribeAutoScalingHistoryResponse
      *
      * @param DescribeAutoScalingHistoryRequest $request
@@ -1585,6 +1615,7 @@ class DAS extends OpenApiClient
      *
      * @param request - DescribeCacheAnalysisJobRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribeCacheAnalysisJobResponse
      *
      * @param DescribeCacheAnalysisJobRequest $request
@@ -1608,15 +1639,15 @@ class DAS extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeCacheAnalysisJob',
-            'version'     => '2020-01-16',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeCacheAnalysisJob',
+            'version' => '2020-01-16',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DescribeCacheAnalysisJobResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -1636,6 +1667,7 @@ class DAS extends OpenApiClient
      * >  You can call this operation to query the top 500 keys in a cache analysis task.
      *
      * @param request - DescribeCacheAnalysisJobRequest
+     *
      * @returns DescribeCacheAnalysisJobResponse
      *
      * @param DescribeCacheAnalysisJobRequest $request
@@ -1660,6 +1692,7 @@ class DAS extends OpenApiClient
      *
      * @param request - DescribeCacheAnalysisJobsRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribeCacheAnalysisJobsResponse
      *
      * @param DescribeCacheAnalysisJobsRequest $request
@@ -1695,15 +1728,15 @@ class DAS extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeCacheAnalysisJobs',
-            'version'     => '2020-01-16',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeCacheAnalysisJobs',
+            'version' => '2020-01-16',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DescribeCacheAnalysisJobsResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -1722,6 +1755,7 @@ class DAS extends OpenApiClient
      * *   This operation is applicable only to ApsaraDB for Redis.
      *
      * @param request - DescribeCacheAnalysisJobsRequest
+     *
      * @returns DescribeCacheAnalysisJobsResponse
      *
      * @param DescribeCacheAnalysisJobsRequest $request
@@ -1743,6 +1777,7 @@ class DAS extends OpenApiClient
      *
      * @param request - DescribeCloudBenchTasksRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribeCloudBenchTasksResponse
      *
      * @param DescribeCloudBenchTasksRequest $request
@@ -1782,15 +1817,15 @@ class DAS extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeCloudBenchTasks',
-            'version'     => '2020-01-16',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeCloudBenchTasks',
+            'version' => '2020-01-16',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DescribeCloudBenchTasksResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -1806,6 +1841,7 @@ class DAS extends OpenApiClient
      * Database Autonomy Service (DAS) provides the intelligent stress testing feature. This feature helps you check whether your instance needs to be scaled up to effectively handle traffic spikes. For more information, see [Intelligent stress testing](https://help.aliyun.com/document_detail/155068.html).
      *
      * @param request - DescribeCloudBenchTasksRequest
+     *
      * @returns DescribeCloudBenchTasksResponse
      *
      * @param DescribeCloudBenchTasksRequest $request
@@ -1827,6 +1863,7 @@ class DAS extends OpenApiClient
      *
      * @param request - DescribeCloudbenchTaskRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribeCloudbenchTaskResponse
      *
      * @param DescribeCloudbenchTaskRequest $request
@@ -1846,15 +1883,15 @@ class DAS extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeCloudbenchTask',
-            'version'     => '2020-01-16',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeCloudbenchTask',
+            'version' => '2020-01-16',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DescribeCloudbenchTaskResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -1870,6 +1907,7 @@ class DAS extends OpenApiClient
      * Database Autonomy Service (DAS) provides the intelligent stress testing feature. This feature helps you check whether you need to scale up your database instance to handle workloads during peak hours. For more information, see [Intelligent stress testing](https://help.aliyun.com/document_detail/155068.html).
      *
      * @param request - DescribeCloudbenchTaskRequest
+     *
      * @returns DescribeCloudbenchTaskResponse
      *
      * @param DescribeCloudbenchTaskRequest $request
@@ -1891,6 +1929,7 @@ class DAS extends OpenApiClient
      *
      * @param request - DescribeCloudbenchTaskConfigRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribeCloudbenchTaskConfigResponse
      *
      * @param DescribeCloudbenchTaskConfigRequest $request
@@ -1910,15 +1949,15 @@ class DAS extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeCloudbenchTaskConfig',
-            'version'     => '2020-01-16',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeCloudbenchTaskConfig',
+            'version' => '2020-01-16',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DescribeCloudbenchTaskConfigResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -1934,6 +1973,7 @@ class DAS extends OpenApiClient
      * Database Autonomy Service (DAS) provides the intelligent stress testing feature. This feature helps you check whether your instance needs to be scaled up to effectively handle traffic spikes. For more information, see [Intelligent stress testing](https://help.aliyun.com/document_detail/155068.html).
      *
      * @param request - DescribeCloudbenchTaskConfigRequest
+     *
      * @returns DescribeCloudbenchTaskConfigResponse
      *
      * @param DescribeCloudbenchTaskConfigRequest $request
@@ -1961,6 +2001,7 @@ class DAS extends OpenApiClient
      *
      * @param request - DescribeDiagnosticReportListRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribeDiagnosticReportListResponse
      *
      * @param DescribeDiagnosticReportListRequest $request
@@ -1996,15 +2037,15 @@ class DAS extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeDiagnosticReportList',
-            'version'     => '2020-01-16',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeDiagnosticReportList',
+            'version' => '2020-01-16',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DescribeDiagnosticReportListResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -2026,6 +2067,7 @@ class DAS extends OpenApiClient
      *     *   ApsaraDB for Redis
      *
      * @param request - DescribeDiagnosticReportListRequest
+     *
      * @returns DescribeDiagnosticReportListResponse
      *
      * @param DescribeDiagnosticReportListRequest $request
@@ -2053,6 +2095,7 @@ class DAS extends OpenApiClient
      *
      * @param request - DescribeHotBigKeysRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribeHotBigKeysResponse
      *
      * @param DescribeHotBigKeysRequest $request
@@ -2080,15 +2123,15 @@ class DAS extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeHotBigKeys',
-            'version'     => '2020-01-16',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeHotBigKeys',
+            'version' => '2020-01-16',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DescribeHotBigKeysResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -2110,6 +2153,7 @@ class DAS extends OpenApiClient
      *     *   The ApsaraDB for Redis instance is updated to the latest minor version.
      *
      * @param request - DescribeHotBigKeysRequest
+     *
      * @returns DescribeHotBigKeysResponse
      *
      * @param DescribeHotBigKeysRequest $request
@@ -2137,6 +2181,7 @@ class DAS extends OpenApiClient
      *
      * @param request - DescribeHotKeysRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribeHotKeysResponse
      *
      * @param DescribeHotKeysRequest $request
@@ -2160,15 +2205,15 @@ class DAS extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeHotKeys',
-            'version'     => '2020-01-16',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeHotKeys',
+            'version' => '2020-01-16',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DescribeHotKeysResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -2190,6 +2235,7 @@ class DAS extends OpenApiClient
      *     *   The ApsaraDB for Redis instance is updated to the latest minor version.
      *
      * @param request - DescribeHotKeysRequest
+     *
      * @returns DescribeHotKeysResponse
      *
      * @param DescribeHotKeysRequest $request
@@ -2214,6 +2260,7 @@ class DAS extends OpenApiClient
      *
      * @param request - DescribeInstanceDasProRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribeInstanceDasProResponse
      *
      * @param DescribeInstanceDasProRequest $request
@@ -2233,15 +2280,15 @@ class DAS extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeInstanceDasPro',
-            'version'     => '2020-01-16',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeInstanceDasPro',
+            'version' => '2020-01-16',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DescribeInstanceDasProResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -2260,6 +2307,7 @@ class DAS extends OpenApiClient
      * >  We recommend that you call the [DescribeSqlLogConfig](https://help.aliyun.com/document_detail/2778837.html) operation to query the DAS Enterprise Edition configurations of a database instance.
      *
      * @param request - DescribeInstanceDasProRequest
+     *
      * @returns DescribeInstanceDasProResponse
      *
      * @param DescribeInstanceDasProRequest $request
@@ -2278,6 +2326,7 @@ class DAS extends OpenApiClient
      *
      * @param request - DescribeSlowLogHistogramAsyncRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribeSlowLogHistogramAsyncResponse
      *
      * @param DescribeSlowLogHistogramAsyncRequest $request
@@ -2313,15 +2362,15 @@ class DAS extends OpenApiClient
             'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'DescribeSlowLogHistogramAsync',
-            'version'     => '2020-01-16',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeSlowLogHistogramAsync',
+            'version' => '2020-01-16',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DescribeSlowLogHistogramAsyncResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -2334,6 +2383,7 @@ class DAS extends OpenApiClient
      * DescribeSlowLogHistogramAsync.
      *
      * @param request - DescribeSlowLogHistogramAsyncRequest
+     *
      * @returns DescribeSlowLogHistogramAsyncResponse
      *
      * @param DescribeSlowLogHistogramAsyncRequest $request
@@ -2352,6 +2402,7 @@ class DAS extends OpenApiClient
      *
      * @param request - DescribeSlowLogStatisticRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribeSlowLogStatisticResponse
      *
      * @param DescribeSlowLogStatisticRequest $request
@@ -2411,15 +2462,15 @@ class DAS extends OpenApiClient
             'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'DescribeSlowLogStatistic',
-            'version'     => '2020-01-16',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeSlowLogStatistic',
+            'version' => '2020-01-16',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DescribeSlowLogStatisticResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -2432,6 +2483,7 @@ class DAS extends OpenApiClient
      * 慢日志统计信息.
      *
      * @param request - DescribeSlowLogStatisticRequest
+     *
      * @returns DescribeSlowLogStatisticResponse
      *
      * @param DescribeSlowLogStatisticRequest $request
@@ -2455,6 +2507,7 @@ class DAS extends OpenApiClient
      *
      * @param request - DescribeSqlLogConfigRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribeSqlLogConfigResponse
      *
      * @param DescribeSqlLogConfigRequest $request
@@ -2474,15 +2527,15 @@ class DAS extends OpenApiClient
             'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'DescribeSqlLogConfig',
-            'version'     => '2020-01-16',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeSqlLogConfig',
+            'version' => '2020-01-16',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DescribeSqlLogConfigResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -2500,6 +2553,7 @@ class DAS extends OpenApiClient
      * *   If you use an SDK to call operations of DAS, you must set the region ID to cn-shanghai.
      *
      * @param request - DescribeSqlLogConfigRequest
+     *
      * @returns DescribeSqlLogConfigResponse
      *
      * @param DescribeSqlLogConfigRequest $request
@@ -2523,6 +2577,7 @@ class DAS extends OpenApiClient
      *
      * @param request - DescribeSqlLogRecordsRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribeSqlLogRecordsResponse
      *
      * @param DescribeSqlLogRecordsRequest $request
@@ -2569,18 +2624,18 @@ class DAS extends OpenApiClient
 
         $req = new OpenApiRequest([
             'query' => Utils::query($query),
-            'body'  => Utils::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'DescribeSqlLogRecords',
-            'version'     => '2020-01-16',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeSqlLogRecords',
+            'version' => '2020-01-16',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DescribeSqlLogRecordsResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -2598,6 +2653,7 @@ class DAS extends OpenApiClient
      * *   If you use an SDK to call operations of DAS, you must set the region ID to cn-shanghai.
      *
      * @param request - DescribeSqlLogRecordsRequest
+     *
      * @returns DescribeSqlLogRecordsResponse
      *
      * @param DescribeSqlLogRecordsRequest $request
@@ -2621,6 +2677,7 @@ class DAS extends OpenApiClient
      *
      * @param request - DescribeSqlLogStatisticRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribeSqlLogStatisticResponse
      *
      * @param DescribeSqlLogStatisticRequest $request
@@ -2640,15 +2697,15 @@ class DAS extends OpenApiClient
             'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'DescribeSqlLogStatistic',
-            'version'     => '2020-01-16',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeSqlLogStatistic',
+            'version' => '2020-01-16',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DescribeSqlLogStatisticResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -2666,6 +2723,7 @@ class DAS extends OpenApiClient
      * *   If you use an SDK to call operations of DAS, you must set the region ID to cn-shanghai.
      *
      * @param request - DescribeSqlLogStatisticRequest
+     *
      * @returns DescribeSqlLogStatisticResponse
      *
      * @param DescribeSqlLogStatisticRequest $request
@@ -2689,6 +2747,7 @@ class DAS extends OpenApiClient
      *
      * @param request - DescribeSqlLogTaskRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribeSqlLogTaskResponse
      *
      * @param DescribeSqlLogTaskRequest $request
@@ -2720,15 +2779,15 @@ class DAS extends OpenApiClient
             'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'DescribeSqlLogTask',
-            'version'     => '2020-01-16',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeSqlLogTask',
+            'version' => '2020-01-16',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DescribeSqlLogTaskResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -2746,6 +2805,7 @@ class DAS extends OpenApiClient
      * *   If you use an SDK to call the API operations of DAS, you must set the region ID to cn-shanghai.
      *
      * @param request - DescribeSqlLogTaskRequest
+     *
      * @returns DescribeSqlLogTaskResponse
      *
      * @param DescribeSqlLogTaskRequest $request
@@ -2769,6 +2829,7 @@ class DAS extends OpenApiClient
      *
      * @param request - DescribeSqlLogTasksRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribeSqlLogTasksResponse
      *
      * @param DescribeSqlLogTasksRequest $request
@@ -2812,15 +2873,15 @@ class DAS extends OpenApiClient
             'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'DescribeSqlLogTasks',
-            'version'     => '2020-01-16',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeSqlLogTasks',
+            'version' => '2020-01-16',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DescribeSqlLogTasksResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -2838,6 +2899,7 @@ class DAS extends OpenApiClient
      * *   If you use an SDK to call operations of DAS, you must set the region ID to cn-shanghai.
      *
      * @param request - DescribeSqlLogTasksRequest
+     *
      * @returns DescribeSqlLogTasksResponse
      *
      * @param DescribeSqlLogTasksRequest $request
@@ -2865,6 +2927,7 @@ class DAS extends OpenApiClient
      *
      * @param request - DescribeTopBigKeysRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribeTopBigKeysResponse
      *
      * @param DescribeTopBigKeysRequest $request
@@ -2900,15 +2963,15 @@ class DAS extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeTopBigKeys',
-            'version'     => '2020-01-16',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeTopBigKeys',
+            'version' => '2020-01-16',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DescribeTopBigKeysResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -2930,6 +2993,7 @@ class DAS extends OpenApiClient
      *     *   The ApsaraDB for Redis instance is updated to the latest minor version.
      *
      * @param request - DescribeTopBigKeysRequest
+     *
      * @returns DescribeTopBigKeysResponse
      *
      * @param DescribeTopBigKeysRequest $request
@@ -2957,6 +3021,7 @@ class DAS extends OpenApiClient
      *
      * @param request - DescribeTopHotKeysRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribeTopHotKeysResponse
      *
      * @param DescribeTopHotKeysRequest $request
@@ -2992,15 +3057,15 @@ class DAS extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeTopHotKeys',
-            'version'     => '2020-01-16',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeTopHotKeys',
+            'version' => '2020-01-16',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DescribeTopHotKeysResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -3022,6 +3087,7 @@ class DAS extends OpenApiClient
      *     *   The ApsaraDB for Redis instance is updated to the latest minor version.
      *
      * @param request - DescribeTopHotKeysRequest
+     *
      * @returns DescribeTopHotKeysResponse
      *
      * @param DescribeTopHotKeysRequest $request
@@ -3045,6 +3111,7 @@ class DAS extends OpenApiClient
      *
      * @param request - DisableAllSqlConcurrencyControlRulesRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DisableAllSqlConcurrencyControlRulesResponse
      *
      * @param DisableAllSqlConcurrencyControlRulesRequest $request
@@ -3068,15 +3135,15 @@ class DAS extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DisableAllSqlConcurrencyControlRules',
-            'version'     => '2020-01-16',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DisableAllSqlConcurrencyControlRules',
+            'version' => '2020-01-16',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DisableAllSqlConcurrencyControlRulesResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -3094,6 +3161,7 @@ class DAS extends OpenApiClient
      * *   PolarDB for MySQL
      *
      * @param request - DisableAllSqlConcurrencyControlRulesRequest
+     *
      * @returns DisableAllSqlConcurrencyControlRulesResponse
      *
      * @param DisableAllSqlConcurrencyControlRulesRequest $request
@@ -3115,6 +3183,7 @@ class DAS extends OpenApiClient
      *
      * @param request - DisableAutoResourceOptimizeRulesRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DisableAutoResourceOptimizeRulesResponse
      *
      * @param DisableAutoResourceOptimizeRulesRequest $request
@@ -3138,15 +3207,15 @@ class DAS extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DisableAutoResourceOptimizeRules',
-            'version'     => '2020-01-16',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DisableAutoResourceOptimizeRules',
+            'version' => '2020-01-16',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DisableAutoResourceOptimizeRulesResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -3162,6 +3231,7 @@ class DAS extends OpenApiClient
      * If you use an SDK to call API operations of Database Autonomy Service (DAS), you must set the region ID to cn-shanghai.
      *
      * @param request - DisableAutoResourceOptimizeRulesRequest
+     *
      * @returns DisableAutoResourceOptimizeRulesResponse
      *
      * @param DisableAutoResourceOptimizeRulesRequest $request
@@ -3183,6 +3253,7 @@ class DAS extends OpenApiClient
      *
      * @param request - DisableAutoThrottleRulesRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DisableAutoThrottleRulesResponse
      *
      * @param DisableAutoThrottleRulesRequest $request
@@ -3206,15 +3277,15 @@ class DAS extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DisableAutoThrottleRules',
-            'version'     => '2020-01-16',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DisableAutoThrottleRules',
+            'version' => '2020-01-16',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DisableAutoThrottleRulesResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -3230,6 +3301,7 @@ class DAS extends OpenApiClient
      * If you use an SDK to call operations of Database Autonomy Service (DAS), you must set the region ID to cn-shanghai.
      *
      * @param request - DisableAutoThrottleRulesRequest
+     *
      * @returns DisableAutoThrottleRulesResponse
      *
      * @param DisableAutoThrottleRulesRequest $request
@@ -3254,6 +3326,7 @@ class DAS extends OpenApiClient
      *
      * @param request - DisableDasProRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DisableDasProResponse
      *
      * @param DisableDasProRequest $request
@@ -3277,15 +3350,15 @@ class DAS extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DisableDasPro',
-            'version'     => '2020-01-16',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DisableDasPro',
+            'version' => '2020-01-16',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DisableDasProResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -3304,6 +3377,7 @@ class DAS extends OpenApiClient
      * >  We recommend that you call the [ModifySqlLogConfig](https://help.aliyun.com/document_detail/2778835.html) operation to enable or disable DAS Enterprise Edition for a database instance. For more information about the databases and regions supported by each version of DAS Enterprise Edition, see [Editions and supported features](https://help.aliyun.com/document_detail/156204.html).
      *
      * @param request - DisableDasProRequest
+     *
      * @returns DisableDasProResponse
      *
      * @param DisableDasProRequest $request
@@ -3328,6 +3402,7 @@ class DAS extends OpenApiClient
      *
      * @param request - DisableInstanceDasConfigRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DisableInstanceDasConfigResponse
      *
      * @param DisableInstanceDasConfigRequest $request
@@ -3355,15 +3430,15 @@ class DAS extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DisableInstanceDasConfig',
-            'version'     => '2020-01-16',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DisableInstanceDasConfig',
+            'version' => '2020-01-16',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DisableInstanceDasConfigResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -3382,6 +3457,7 @@ class DAS extends OpenApiClient
      * *   This operation is applicable only to ApsaraDB for Redis instances.
      *
      * @param request - DisableInstanceDasConfigRequest
+     *
      * @returns DisableInstanceDasConfigResponse
      *
      * @param DisableInstanceDasConfigRequest $request
@@ -3405,6 +3481,7 @@ class DAS extends OpenApiClient
      *
      * @param request - DisableSqlConcurrencyControlRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DisableSqlConcurrencyControlResponse
      *
      * @param DisableSqlConcurrencyControlRequest $request
@@ -3432,15 +3509,15 @@ class DAS extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DisableSqlConcurrencyControl',
-            'version'     => '2020-01-16',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DisableSqlConcurrencyControl',
+            'version' => '2020-01-16',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DisableSqlConcurrencyControlResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -3458,6 +3535,7 @@ class DAS extends OpenApiClient
      * *   PolarDB for MySQL
      *
      * @param request - DisableSqlConcurrencyControlRequest
+     *
      * @returns DisableSqlConcurrencyControlResponse
      *
      * @param DisableSqlConcurrencyControlRequest $request
@@ -3481,6 +3559,7 @@ class DAS extends OpenApiClient
      *
      * @param request - EnableDasProRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns EnableDasProResponse
      *
      * @param EnableDasProRequest $request
@@ -3508,15 +3587,15 @@ class DAS extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'EnableDasPro',
-            'version'     => '2020-01-16',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'EnableDasPro',
+            'version' => '2020-01-16',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return EnableDasProResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -3534,6 +3613,7 @@ class DAS extends OpenApiClient
      * >  We recommend that you call the [ModifySqlLogConfig](https://help.aliyun.com/document_detail/2778835.html) operation to activate or deactivate DAS Enterprise Edition for a database instance. For more information about the databases and regions supported by each version of DAS Enterprise Edition, see [DAS editions and supported features](https://help.aliyun.com/document_detail/156204.html).
      *
      * @param request - EnableDasProRequest
+     *
      * @returns EnableDasProResponse
      *
      * @param EnableDasProRequest $request
@@ -3557,6 +3637,7 @@ class DAS extends OpenApiClient
      *
      * @param request - EnableSqlConcurrencyControlRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns EnableSqlConcurrencyControlResponse
      *
      * @param EnableSqlConcurrencyControlRequest $request
@@ -3596,15 +3677,15 @@ class DAS extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'EnableSqlConcurrencyControl',
-            'version'     => '2020-01-16',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'EnableSqlConcurrencyControl',
+            'version' => '2020-01-16',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return EnableSqlConcurrencyControlResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -3622,6 +3703,7 @@ class DAS extends OpenApiClient
      * *   PolarDB for MySQL
      *
      * @param request - EnableSqlConcurrencyControlRequest
+     *
      * @returns EnableSqlConcurrencyControlResponse
      *
      * @param EnableSqlConcurrencyControlRequest $request
@@ -3646,6 +3728,7 @@ class DAS extends OpenApiClient
      *
      * @param request - GetAsyncErrorRequestListByCodeRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns GetAsyncErrorRequestListByCodeResponse
      *
      * @param GetAsyncErrorRequestListByCodeRequest $request
@@ -3681,15 +3764,15 @@ class DAS extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'GetAsyncErrorRequestListByCode',
-            'version'     => '2020-01-16',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetAsyncErrorRequestListByCode',
+            'version' => '2020-01-16',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return GetAsyncErrorRequestListByCodeResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -3708,6 +3791,7 @@ class DAS extends OpenApiClient
      * *   When you call this operation, the value of the SqlId parameter changes due to the optimization of the SQL template algorithm starting from September 1, 2024. For more information, see [[Notice\\] Optimization of the SQL template algorithm](~~2845725~~).
      *
      * @param request - GetAsyncErrorRequestListByCodeRequest
+     *
      * @returns GetAsyncErrorRequestListByCodeResponse
      *
      * @param GetAsyncErrorRequestListByCodeRequest $request
@@ -3731,6 +3815,7 @@ class DAS extends OpenApiClient
      *
      * @param request - GetAsyncErrorRequestStatByCodeRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns GetAsyncErrorRequestStatByCodeResponse
      *
      * @param GetAsyncErrorRequestStatByCodeRequest $request
@@ -3766,15 +3851,15 @@ class DAS extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'GetAsyncErrorRequestStatByCode',
-            'version'     => '2020-01-16',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetAsyncErrorRequestStatByCode',
+            'version' => '2020-01-16',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return GetAsyncErrorRequestStatByCodeResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -3792,6 +3877,7 @@ class DAS extends OpenApiClient
      * *   If you use an SDK to call API operations of DAS, you must set the region ID to cn-shanghai.
      *
      * @param request - GetAsyncErrorRequestStatByCodeRequest
+     *
      * @returns GetAsyncErrorRequestStatByCodeResponse
      *
      * @param GetAsyncErrorRequestStatByCodeRequest $request
@@ -3815,6 +3901,7 @@ class DAS extends OpenApiClient
      *
      * @param request - GetAsyncErrorRequestStatResultRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns GetAsyncErrorRequestStatResultResponse
      *
      * @param GetAsyncErrorRequestStatResultRequest $request
@@ -3854,15 +3941,15 @@ class DAS extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'GetAsyncErrorRequestStatResult',
-            'version'     => '2020-01-16',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetAsyncErrorRequestStatResult',
+            'version' => '2020-01-16',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return GetAsyncErrorRequestStatResultResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -3880,6 +3967,7 @@ class DAS extends OpenApiClient
      * *   If you use an SDK to call API operations of DAS, you must set the region ID to cn-shanghai.
      *
      * @param request - GetAsyncErrorRequestStatResultRequest
+     *
      * @returns GetAsyncErrorRequestStatResultResponse
      *
      * @param GetAsyncErrorRequestStatResultRequest $request
@@ -3903,6 +3991,7 @@ class DAS extends OpenApiClient
      *
      * @param request - GetAutoIncrementUsageStatisticRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns GetAutoIncrementUsageStatisticResponse
      *
      * @param GetAutoIncrementUsageStatisticRequest $request
@@ -3934,15 +4023,15 @@ class DAS extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'GetAutoIncrementUsageStatistic',
-            'version'     => '2020-01-16',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetAutoIncrementUsageStatistic',
+            'version' => '2020-01-16',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return GetAutoIncrementUsageStatisticResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -3960,6 +4049,7 @@ class DAS extends OpenApiClient
      * *   If you use an SDK to call DAS, you must set the region to cn-shanghai.
      *
      * @param request - GetAutoIncrementUsageStatisticRequest
+     *
      * @returns GetAutoIncrementUsageStatisticResponse
      *
      * @param GetAutoIncrementUsageStatisticRequest $request
@@ -3984,6 +4074,7 @@ class DAS extends OpenApiClient
      *
      * @param request - GetAutoResourceOptimizeRulesRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns GetAutoResourceOptimizeRulesResponse
      *
      * @param GetAutoResourceOptimizeRulesRequest $request
@@ -4007,15 +4098,15 @@ class DAS extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'GetAutoResourceOptimizeRules',
-            'version'     => '2020-01-16',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetAutoResourceOptimizeRules',
+            'version' => '2020-01-16',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return GetAutoResourceOptimizeRulesResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -4034,6 +4125,7 @@ class DAS extends OpenApiClient
      * *   The database instance has four or more cores, and **innodb_file_per_table** is set to **ON**.
      *
      * @param request - GetAutoResourceOptimizeRulesRequest
+     *
      * @returns GetAutoResourceOptimizeRulesResponse
      *
      * @param GetAutoResourceOptimizeRulesRequest $request
@@ -4059,6 +4151,7 @@ class DAS extends OpenApiClient
      *
      * @param request - GetAutoThrottleRulesRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns GetAutoThrottleRulesResponse
      *
      * @param GetAutoThrottleRulesRequest $request
@@ -4082,15 +4175,15 @@ class DAS extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'GetAutoThrottleRules',
-            'version'     => '2020-01-16',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetAutoThrottleRules',
+            'version' => '2020-01-16',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return GetAutoThrottleRulesResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -4110,6 +4203,7 @@ class DAS extends OpenApiClient
      *     *   PolarDB for MySQL Cluster Edition that runs MySQL 5.6, MySQL 5.7, or MySQL 8.0
      *
      * @param request - GetAutoThrottleRulesRequest
+     *
      * @returns GetAutoThrottleRulesResponse
      *
      * @param GetAutoThrottleRulesRequest $request
@@ -4135,6 +4229,7 @@ class DAS extends OpenApiClient
      *
      * @param request - GetAutonomousNotifyEventContentRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns GetAutonomousNotifyEventContentResponse
      *
      * @param GetAutonomousNotifyEventContentRequest $request
@@ -4162,15 +4257,15 @@ class DAS extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'GetAutonomousNotifyEventContent',
-            'version'     => '2020-01-16',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetAutonomousNotifyEventContent',
+            'version' => '2020-01-16',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return GetAutonomousNotifyEventContentResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -4190,6 +4285,7 @@ class DAS extends OpenApiClient
      * >  You can query the details of notification events only if the autonomy center is enabled. For more information, see [Autonomy center](https://help.aliyun.com/document_detail/152139.html).
      *
      * @param request - GetAutonomousNotifyEventContentRequest
+     *
      * @returns GetAutonomousNotifyEventContentResponse
      *
      * @param GetAutonomousNotifyEventContentRequest $request
@@ -4215,6 +4311,7 @@ class DAS extends OpenApiClient
      *
      * @param request - GetAutonomousNotifyEventsInRangeRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns GetAutonomousNotifyEventsInRangeResponse
      *
      * @param GetAutonomousNotifyEventsInRangeRequest $request
@@ -4270,15 +4367,15 @@ class DAS extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'GetAutonomousNotifyEventsInRange',
-            'version'     => '2020-01-16',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetAutonomousNotifyEventsInRange',
+            'version' => '2020-01-16',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return GetAutonomousNotifyEventsInRangeResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -4298,6 +4395,7 @@ class DAS extends OpenApiClient
      * >  You can query the details of notification events only if the autonomy center is enabled. For more information, see [Autonomy center](https://help.aliyun.com/document_detail/152139.html).
      *
      * @param request - GetAutonomousNotifyEventsInRangeRequest
+     *
      * @returns GetAutonomousNotifyEventsInRangeResponse
      *
      * @param GetAutonomousNotifyEventsInRangeRequest $request
@@ -4321,6 +4419,7 @@ class DAS extends OpenApiClient
      *
      * @param request - GetBlockingDetailListRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns GetBlockingDetailListResponse
      *
      * @param GetBlockingDetailListRequest $request
@@ -4364,15 +4463,15 @@ class DAS extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'GetBlockingDetailList',
-            'version'     => '2020-01-16',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetBlockingDetailList',
+            'version' => '2020-01-16',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return GetBlockingDetailListResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -4390,6 +4489,7 @@ class DAS extends OpenApiClient
      * *   If you use an SDK to call the API operations of DAS, you must set the region ID to cn-shanghai.
      *
      * @param request - GetBlockingDetailListRequest
+     *
      * @returns GetBlockingDetailListResponse
      *
      * @param GetBlockingDetailListRequest $request
@@ -4414,6 +4514,7 @@ class DAS extends OpenApiClient
      *
      * @param request - GetDBInstanceConnectivityDiagnosisRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns GetDBInstanceConnectivityDiagnosisResponse
      *
      * @param GetDBInstanceConnectivityDiagnosisRequest $request
@@ -4437,15 +4538,15 @@ class DAS extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'GetDBInstanceConnectivityDiagnosis',
-            'version'     => '2020-01-16',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetDBInstanceConnectivityDiagnosis',
+            'version' => '2020-01-16',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return GetDBInstanceConnectivityDiagnosisResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -4464,6 +4565,7 @@ class DAS extends OpenApiClient
      * *   The database instance that you want to manage is connected to DAS.
      *
      * @param request - GetDBInstanceConnectivityDiagnosisRequest
+     *
      * @returns GetDBInstanceConnectivityDiagnosisResponse
      *
      * @param GetDBInstanceConnectivityDiagnosisRequest $request
@@ -4489,6 +4591,7 @@ class DAS extends OpenApiClient
      *
      * @param request - GetDasProServiceUsageRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns GetDasProServiceUsageResponse
      *
      * @param GetDasProServiceUsageRequest $request
@@ -4512,15 +4615,15 @@ class DAS extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'GetDasProServiceUsage',
-            'version'     => '2020-01-16',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetDasProServiceUsage',
+            'version' => '2020-01-16',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return GetDasProServiceUsageResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -4540,6 +4643,7 @@ class DAS extends OpenApiClient
      * >  We recommend that you call the [DescribeSqlLogStatistic](https://help.aliyun.com/document_detail/2778836.html) operation to query the data statistics of a database instance for which DAS Enterprise Edition is enabled.
      *
      * @param request - GetDasProServiceUsageRequest
+     *
      * @returns GetDasProServiceUsageResponse
      *
      * @param GetDasProServiceUsageRequest $request
@@ -4565,6 +4669,7 @@ class DAS extends OpenApiClient
      *
      * @param request - GetDasSQLLogHotDataRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns GetDasSQLLogHotDataResponse
      *
      * @param GetDasSQLLogHotDataRequest $request
@@ -4692,15 +4797,15 @@ class DAS extends OpenApiClient
             'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'GetDasSQLLogHotData',
-            'version'     => '2020-01-16',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetDasSQLLogHotData',
+            'version' => '2020-01-16',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return GetDasSQLLogHotDataResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -4720,6 +4825,7 @@ class DAS extends OpenApiClient
      * >  The beginning of the time range to query can be up to seven days earlier than the current time. The interval between the start time and the end time cannot exceed one day. This operation can return a maximum of 10,000 entries.
      *
      * @param request - GetDasSQLLogHotDataRequest
+     *
      * @returns GetDasSQLLogHotDataResponse
      *
      * @param GetDasSQLLogHotDataRequest $request
@@ -4738,6 +4844,7 @@ class DAS extends OpenApiClient
      *
      * @param request - GetDeadLockDetailRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns GetDeadLockDetailResponse
      *
      * @param GetDeadLockDetailRequest $request
@@ -4769,15 +4876,15 @@ class DAS extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'GetDeadLockDetail',
-            'version'     => '2020-01-16',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetDeadLockDetail',
+            'version' => '2020-01-16',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return GetDeadLockDetailResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -4790,6 +4897,7 @@ class DAS extends OpenApiClient
      * 查询单个死锁详情.
      *
      * @param request - GetDeadLockDetailRequest
+     *
      * @returns GetDeadLockDetailResponse
      *
      * @param GetDeadLockDetailRequest $request
@@ -4813,6 +4921,7 @@ class DAS extends OpenApiClient
      *
      * @param request - GetDeadLockDetailListRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns GetDeadLockDetailListResponse
      *
      * @param GetDeadLockDetailListRequest $request
@@ -4852,15 +4961,15 @@ class DAS extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'GetDeadLockDetailList',
-            'version'     => '2020-01-16',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetDeadLockDetailList',
+            'version' => '2020-01-16',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return GetDeadLockDetailListResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -4878,6 +4987,7 @@ class DAS extends OpenApiClient
      * *   If you use an SDK to call the API operations of DAS, you must set the region ID to cn-shanghai.
      *
      * @param request - GetDeadLockDetailListRequest
+     *
      * @returns GetDeadLockDetailListResponse
      *
      * @param GetDeadLockDetailListRequest $request
@@ -4896,6 +5006,7 @@ class DAS extends OpenApiClient
      *
      * @param request - GetDeadLockHistoryRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns GetDeadLockHistoryResponse
      *
      * @param GetDeadLockHistoryRequest $request
@@ -4939,15 +5050,15 @@ class DAS extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'GetDeadLockHistory',
-            'version'     => '2020-01-16',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetDeadLockHistory',
+            'version' => '2020-01-16',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return GetDeadLockHistoryResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -4960,6 +5071,7 @@ class DAS extends OpenApiClient
      * 获取历史死锁记录.
      *
      * @param request - GetDeadLockHistoryRequest
+     *
      * @returns GetDeadLockHistoryResponse
      *
      * @param GetDeadLockHistoryRequest $request
@@ -4978,6 +5090,7 @@ class DAS extends OpenApiClient
      *
      * @param request - GetDeadlockHistogramRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns GetDeadlockHistogramResponse
      *
      * @param GetDeadlockHistogramRequest $request
@@ -5013,15 +5126,15 @@ class DAS extends OpenApiClient
             'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'GetDeadlockHistogram',
-            'version'     => '2020-01-16',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetDeadlockHistogram',
+            'version' => '2020-01-16',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return GetDeadlockHistogramResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -5034,6 +5147,7 @@ class DAS extends OpenApiClient
      * 查询时间范围内基于错误日志分析的死锁数量.
      *
      * @param request - GetDeadlockHistogramRequest
+     *
      * @returns GetDeadlockHistogramResponse
      *
      * @param GetDeadlockHistogramRequest $request
@@ -5050,6 +5164,7 @@ class DAS extends OpenApiClient
     /**
      * @param request - GetEndpointSwitchTaskRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns GetEndpointSwitchTaskResponse
      *
      * @param GetEndpointSwitchTaskRequest $request
@@ -5097,15 +5212,15 @@ class DAS extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'GetEndpointSwitchTask',
-            'version'     => '2020-01-16',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetEndpointSwitchTask',
+            'version' => '2020-01-16',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return GetEndpointSwitchTaskResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -5116,6 +5231,7 @@ class DAS extends OpenApiClient
 
     /**
      * @param request - GetEndpointSwitchTaskRequest
+     *
      * @returns GetEndpointSwitchTaskResponse
      *
      * @param GetEndpointSwitchTaskRequest $request
@@ -5139,6 +5255,7 @@ class DAS extends OpenApiClient
      *
      * @param request - GetErrorRequestSampleRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns GetErrorRequestSampleResponse
      *
      * @param GetErrorRequestSampleRequest $request
@@ -5178,15 +5295,15 @@ class DAS extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'GetErrorRequestSample',
-            'version'     => '2020-01-16',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetErrorRequestSample',
+            'version' => '2020-01-16',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return GetErrorRequestSampleResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -5204,6 +5321,7 @@ class DAS extends OpenApiClient
      * *   If you use an SDK to call API operations of DAS, you must set the region ID to cn-shanghai.
      *
      * @param request - GetErrorRequestSampleRequest
+     *
      * @returns GetErrorRequestSampleResponse
      *
      * @param GetErrorRequestSampleRequest $request
@@ -5228,6 +5346,7 @@ class DAS extends OpenApiClient
      *
      * @param request - GetEventSubscriptionRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns GetEventSubscriptionResponse
      *
      * @param GetEventSubscriptionRequest $request
@@ -5247,15 +5366,15 @@ class DAS extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'GetEventSubscription',
-            'version'     => '2020-01-16',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetEventSubscription',
+            'version' => '2020-01-16',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return GetEventSubscriptionResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -5274,6 +5393,7 @@ class DAS extends OpenApiClient
      * *   The database instance that you want to manage is connected to DAS.
      *
      * @param request - GetEventSubscriptionRequest
+     *
      * @returns GetEventSubscriptionResponse
      *
      * @param GetEventSubscriptionRequest $request
@@ -5297,6 +5417,7 @@ class DAS extends OpenApiClient
      *
      * @param request - GetFullRequestOriginStatByInstanceIdRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns GetFullRequestOriginStatByInstanceIdResponse
      *
      * @param GetFullRequestOriginStatByInstanceIdRequest $request
@@ -5356,15 +5477,15 @@ class DAS extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'GetFullRequestOriginStatByInstanceId',
-            'version'     => '2020-01-16',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetFullRequestOriginStatByInstanceId',
+            'version' => '2020-01-16',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return GetFullRequestOriginStatByInstanceIdResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -5382,6 +5503,7 @@ class DAS extends OpenApiClient
      * *   If you use an SDK to call API operations of Database Autonomy Service (DAS), you must set the region ID to cn-shanghai.
      *
      * @param request - GetFullRequestOriginStatByInstanceIdRequest
+     *
      * @returns GetFullRequestOriginStatByInstanceIdResponse
      *
      * @param GetFullRequestOriginStatByInstanceIdRequest $request
@@ -5405,6 +5527,7 @@ class DAS extends OpenApiClient
      *
      * @param request - GetFullRequestSampleByInstanceIdRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns GetFullRequestSampleByInstanceIdResponse
      *
      * @param GetFullRequestSampleByInstanceIdRequest $request
@@ -5443,18 +5566,18 @@ class DAS extends OpenApiClient
 
         $req = new OpenApiRequest([
             'query' => Utils::query($query),
-            'body'  => Utils::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'GetFullRequestSampleByInstanceId',
-            'version'     => '2020-01-16',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetFullRequestSampleByInstanceId',
+            'version' => '2020-01-16',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return GetFullRequestSampleByInstanceIdResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -5472,6 +5595,7 @@ class DAS extends OpenApiClient
      * *   If you use an SDK to call API operations of DAS, you must set the region ID to cn-shanghai.
      *
      * @param request - GetFullRequestSampleByInstanceIdRequest
+     *
      * @returns GetFullRequestSampleByInstanceIdResponse
      *
      * @param GetFullRequestSampleByInstanceIdRequest $request
@@ -5497,6 +5621,7 @@ class DAS extends OpenApiClient
      *
      * @param request - GetFullRequestStatResultByInstanceIdRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns GetFullRequestStatResultByInstanceIdResponse
      *
      * @param GetFullRequestStatResultByInstanceIdRequest $request
@@ -5572,15 +5697,15 @@ class DAS extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'GetFullRequestStatResultByInstanceId',
-            'version'     => '2020-01-16',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetFullRequestStatResultByInstanceId',
+            'version' => '2020-01-16',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return GetFullRequestStatResultByInstanceIdResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -5600,6 +5725,7 @@ class DAS extends OpenApiClient
      * *   When you call this operation, the value of the SqlId parameter changes due to the optimization of the SQL template algorithm starting from September 1, 2024. For more information, see [[Notice\\] Optimization of the SQL template algorithm](~~2845725~~).
      *
      * @param request - GetFullRequestStatResultByInstanceIdRequest
+     *
      * @returns GetFullRequestStatResultByInstanceIdResponse
      *
      * @param GetFullRequestStatResultByInstanceIdRequest $request
@@ -5616,6 +5742,7 @@ class DAS extends OpenApiClient
     /**
      * @param request - GetHDMAliyunResourceSyncResultRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns GetHDMAliyunResourceSyncResultResponse
      *
      * @param GetHDMAliyunResourceSyncResultRequest $request
@@ -5663,15 +5790,15 @@ class DAS extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'GetHDMAliyunResourceSyncResult',
-            'version'     => '2020-01-16',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetHDMAliyunResourceSyncResult',
+            'version' => '2020-01-16',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return GetHDMAliyunResourceSyncResultResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -5682,6 +5809,7 @@ class DAS extends OpenApiClient
 
     /**
      * @param request - GetHDMAliyunResourceSyncResultRequest
+     *
      * @returns GetHDMAliyunResourceSyncResultResponse
      *
      * @param GetHDMAliyunResourceSyncResultRequest $request
@@ -5698,6 +5826,7 @@ class DAS extends OpenApiClient
     /**
      * @param request - GetHDMLastAliyunResourceSyncResultRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns GetHDMLastAliyunResourceSyncResultResponse
      *
      * @param GetHDMLastAliyunResourceSyncResultRequest $request
@@ -5741,15 +5870,15 @@ class DAS extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'GetHDMLastAliyunResourceSyncResult',
-            'version'     => '2020-01-16',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetHDMLastAliyunResourceSyncResult',
+            'version' => '2020-01-16',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return GetHDMLastAliyunResourceSyncResultResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -5760,6 +5889,7 @@ class DAS extends OpenApiClient
 
     /**
      * @param request - GetHDMLastAliyunResourceSyncResultRequest
+     *
      * @returns GetHDMLastAliyunResourceSyncResultResponse
      *
      * @param GetHDMLastAliyunResourceSyncResultRequest $request
@@ -5786,6 +5916,7 @@ class DAS extends OpenApiClient
      *
      * @param request - GetInstanceInspectionsRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns GetInstanceInspectionsResponse
      *
      * @param GetInstanceInspectionsRequest $request
@@ -5833,15 +5964,15 @@ class DAS extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'GetInstanceInspections',
-            'version'     => '2020-01-16',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetInstanceInspections',
+            'version' => '2020-01-16',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return GetInstanceInspectionsResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -5862,6 +5993,7 @@ class DAS extends OpenApiClient
      * *   If you use an SDK to call operations of DAS, you must set the region ID to cn-shanghai.
      *
      * @param request - GetInstanceInspectionsRequest
+     *
      * @returns GetInstanceInspectionsResponse
      *
      * @param GetInstanceInspectionsRequest $request
@@ -5885,6 +6017,7 @@ class DAS extends OpenApiClient
      *
      * @param request - GetInstanceMissingIndexListRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns GetInstanceMissingIndexListResponse
      *
      * @param GetInstanceMissingIndexListRequest $request
@@ -5960,15 +6093,15 @@ class DAS extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'GetInstanceMissingIndexList',
-            'version'     => '2020-01-16',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetInstanceMissingIndexList',
+            'version' => '2020-01-16',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return GetInstanceMissingIndexListResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -5986,6 +6119,7 @@ class DAS extends OpenApiClient
      * *   If you use an SDK to call the API operations of DAS, you must set the region ID to cn-shanghai.
      *
      * @param request - GetInstanceMissingIndexListRequest
+     *
      * @returns GetInstanceMissingIndexListResponse
      *
      * @param GetInstanceMissingIndexListRequest $request
@@ -6010,6 +6144,7 @@ class DAS extends OpenApiClient
      *
      * @param request - GetInstanceSqlOptimizeStatisticRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns GetInstanceSqlOptimizeStatisticResponse
      *
      * @param GetInstanceSqlOptimizeStatisticRequest $request
@@ -6053,15 +6188,15 @@ class DAS extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'GetInstanceSqlOptimizeStatistic',
-            'version'     => '2020-01-16',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetInstanceSqlOptimizeStatistic',
+            'version' => '2020-01-16',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return GetInstanceSqlOptimizeStatisticResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -6080,6 +6215,7 @@ class DAS extends OpenApiClient
      * *   The database engine is ApsaraDB RDS for MySQL or PolarDB for MySQL.
      *
      * @param request - GetInstanceSqlOptimizeStatisticRequest
+     *
      * @returns GetInstanceSqlOptimizeStatisticResponse
      *
      * @param GetInstanceSqlOptimizeStatisticRequest $request
@@ -6103,6 +6239,7 @@ class DAS extends OpenApiClient
      *
      * @param request - GetKillInstanceSessionTaskResultRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns GetKillInstanceSessionTaskResultResponse
      *
      * @param GetKillInstanceSessionTaskResultRequest $request
@@ -6130,15 +6267,15 @@ class DAS extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'GetKillInstanceSessionTaskResult',
-            'version'     => '2020-01-16',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetKillInstanceSessionTaskResult',
+            'version' => '2020-01-16',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return GetKillInstanceSessionTaskResultResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -6156,6 +6293,7 @@ class DAS extends OpenApiClient
      * *   If you use an SDK to call operations of DAS, you must set the region ID to cn-shanghai.
      *
      * @param request - GetKillInstanceSessionTaskResultRequest
+     *
      * @returns GetKillInstanceSessionTaskResultResponse
      *
      * @param GetKillInstanceSessionTaskResultRequest $request
@@ -6179,6 +6317,7 @@ class DAS extends OpenApiClient
      *
      * @param request - GetMongoDBCurrentOpRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns GetMongoDBCurrentOpResponse
      *
      * @param GetMongoDBCurrentOpRequest $request
@@ -6210,15 +6349,15 @@ class DAS extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'GetMongoDBCurrentOp',
-            'version'     => '2020-01-16',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetMongoDBCurrentOp',
+            'version' => '2020-01-16',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return GetMongoDBCurrentOpResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -6236,6 +6375,7 @@ class DAS extends OpenApiClient
      * *   If you use an SDK to call API operations of DAS, you must set the region to cn-shanghai.
      *
      * @param request - GetMongoDBCurrentOpRequest
+     *
      * @returns GetMongoDBCurrentOpResponse
      *
      * @param GetMongoDBCurrentOpRequest $request
@@ -6260,6 +6400,7 @@ class DAS extends OpenApiClient
      *
      * @param request - GetMySQLAllSessionAsyncRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns GetMySQLAllSessionAsyncResponse
      *
      * @param GetMySQLAllSessionAsyncRequest $request
@@ -6287,15 +6428,15 @@ class DAS extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'GetMySQLAllSessionAsync',
-            'version'     => '2020-01-16',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetMySQLAllSessionAsync',
+            'version' => '2020-01-16',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return GetMySQLAllSessionAsyncResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -6314,6 +6455,7 @@ class DAS extends OpenApiClient
      * *   If you use an SDK to call operations of DAS, you must set the region ID to cn-shanghai.
      *
      * @param request - GetMySQLAllSessionAsyncRequest
+     *
      * @returns GetMySQLAllSessionAsyncResponse
      *
      * @param GetMySQLAllSessionAsyncRequest $request
@@ -6335,6 +6477,7 @@ class DAS extends OpenApiClient
      *
      * @param request - GetPartitionsHeatmapRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns GetPartitionsHeatmapResponse
      *
      * @param GetPartitionsHeatmapRequest $request
@@ -6366,15 +6509,15 @@ class DAS extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'GetPartitionsHeatmap',
-            'version'     => '2020-01-16',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetPartitionsHeatmap',
+            'version' => '2020-01-16',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return GetPartitionsHeatmapResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -6390,6 +6533,7 @@ class DAS extends OpenApiClient
      * We recommend that you do not call this operation. The data is returned in a special format and is complex to parse. You can use the [heatmap](https://help.aliyun.com/document_detail/470302.html) feature of Database Autonomy Service (DAS) to query the data.
      *
      * @param request - GetPartitionsHeatmapRequest
+     *
      * @returns GetPartitionsHeatmapResponse
      *
      * @param GetPartitionsHeatmapRequest $request
@@ -6415,6 +6559,7 @@ class DAS extends OpenApiClient
      *
      * @param request - GetPfsMetricTrendsRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns GetPfsMetricTrendsResponse
      *
      * @param GetPfsMetricTrendsRequest $request
@@ -6450,15 +6595,15 @@ class DAS extends OpenApiClient
             'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'GetPfsMetricTrends',
-            'version'     => '2020-01-16',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetPfsMetricTrends',
+            'version' => '2020-01-16',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return GetPfsMetricTrendsResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -6478,6 +6623,7 @@ class DAS extends OpenApiClient
      * *   The new version of the performance insight feature is enabled for the database instance. For more information, see [Performance insight (new version)](https://help.aliyun.com/document_detail/469117.html).
      *
      * @param request - GetPfsMetricTrendsRequest
+     *
      * @returns GetPfsMetricTrendsResponse
      *
      * @param GetPfsMetricTrendsRequest $request
@@ -6503,6 +6649,7 @@ class DAS extends OpenApiClient
      *
      * @param request - GetPfsSqlSampleRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns GetPfsSqlSampleResponse
      *
      * @param GetPfsSqlSampleRequest $request
@@ -6538,15 +6685,15 @@ class DAS extends OpenApiClient
             'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'GetPfsSqlSample',
-            'version'     => '2020-01-16',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetPfsSqlSample',
+            'version' => '2020-01-16',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return GetPfsSqlSampleResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -6566,6 +6713,7 @@ class DAS extends OpenApiClient
      * *   The new version of the performance insight feature is enabled for the database instance. For more information, see [Performance insight (new version)](https://help.aliyun.com/document_detail/469117.html).
      *
      * @param request - GetPfsSqlSampleRequest
+     *
      * @returns GetPfsSqlSampleResponse
      *
      * @param GetPfsSqlSampleRequest $request
@@ -6591,6 +6739,7 @@ class DAS extends OpenApiClient
      *
      * @param request - GetPfsSqlSummariesRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns GetPfsSqlSummariesResponse
      *
      * @param GetPfsSqlSummariesRequest $request
@@ -6646,15 +6795,15 @@ class DAS extends OpenApiClient
             'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'GetPfsSqlSummaries',
-            'version'     => '2020-01-16',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetPfsSqlSummaries',
+            'version' => '2020-01-16',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return GetPfsSqlSummariesResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -6674,6 +6823,7 @@ class DAS extends OpenApiClient
      * *   The new version of the performance insight feature is enabled for the database instance. For more information, see [Performance insight (new version)](https://help.aliyun.com/document_detail/469117.html).
      *
      * @param request - GetPfsSqlSummariesRequest
+     *
      * @returns GetPfsSqlSummariesResponse
      *
      * @param GetPfsSqlSummariesRequest $request
@@ -6701,6 +6851,7 @@ class DAS extends OpenApiClient
      *
      * @param request - GetQueryOptimizeDataStatsRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns GetQueryOptimizeDataStatsResponse
      *
      * @param GetQueryOptimizeDataStatsRequest $request
@@ -6712,19 +6863,19 @@ class DAS extends OpenApiClient
     {
         $request->validate();
         $query = Utils::query($request->toMap());
-        $req   = new OpenApiRequest([
+        $req = new OpenApiRequest([
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'GetQueryOptimizeDataStats',
-            'version'     => '2020-01-16',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetQueryOptimizeDataStats',
+            'version' => '2020-01-16',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return GetQueryOptimizeDataStatsResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -6746,6 +6897,7 @@ class DAS extends OpenApiClient
      *     *   ApsaraDB RDS for PostgreSQL
      *
      * @param request - GetQueryOptimizeDataStatsRequest
+     *
      * @returns GetQueryOptimizeDataStatsResponse
      *
      * @param GetQueryOptimizeDataStatsRequest $request
@@ -6773,6 +6925,7 @@ class DAS extends OpenApiClient
      *
      * @param request - GetQueryOptimizeDataTopRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns GetQueryOptimizeDataTopResponse
      *
      * @param GetQueryOptimizeDataTopRequest $request
@@ -6784,19 +6937,19 @@ class DAS extends OpenApiClient
     {
         $request->validate();
         $query = Utils::query($request->toMap());
-        $req   = new OpenApiRequest([
+        $req = new OpenApiRequest([
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'GetQueryOptimizeDataTop',
-            'version'     => '2020-01-16',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetQueryOptimizeDataTop',
+            'version' => '2020-01-16',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return GetQueryOptimizeDataTopResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -6818,6 +6971,7 @@ class DAS extends OpenApiClient
      *     *   ApsaraDB RDS for PostgreSQL
      *
      * @param request - GetQueryOptimizeDataTopRequest
+     *
      * @returns GetQueryOptimizeDataTopResponse
      *
      * @param GetQueryOptimizeDataTopRequest $request
@@ -6845,6 +6999,7 @@ class DAS extends OpenApiClient
      *
      * @param request - GetQueryOptimizeDataTrendRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns GetQueryOptimizeDataTrendResponse
      *
      * @param GetQueryOptimizeDataTrendRequest $request
@@ -6856,19 +7011,19 @@ class DAS extends OpenApiClient
     {
         $request->validate();
         $query = Utils::query($request->toMap());
-        $req   = new OpenApiRequest([
+        $req = new OpenApiRequest([
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'GetQueryOptimizeDataTrend',
-            'version'     => '2020-01-16',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetQueryOptimizeDataTrend',
+            'version' => '2020-01-16',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return GetQueryOptimizeDataTrendResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -6890,6 +7045,7 @@ class DAS extends OpenApiClient
      *     *   ApsaraDB RDS for PostgreSQL
      *
      * @param request - GetQueryOptimizeDataTrendRequest
+     *
      * @returns GetQueryOptimizeDataTrendResponse
      *
      * @param GetQueryOptimizeDataTrendRequest $request
@@ -6917,6 +7073,7 @@ class DAS extends OpenApiClient
      *
      * @param request - GetQueryOptimizeExecErrorSampleRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns GetQueryOptimizeExecErrorSampleResponse
      *
      * @param GetQueryOptimizeExecErrorSampleRequest $request
@@ -6928,19 +7085,19 @@ class DAS extends OpenApiClient
     {
         $request->validate();
         $query = Utils::query($request->toMap());
-        $req   = new OpenApiRequest([
+        $req = new OpenApiRequest([
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'GetQueryOptimizeExecErrorSample',
-            'version'     => '2020-01-16',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetQueryOptimizeExecErrorSample',
+            'version' => '2020-01-16',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return GetQueryOptimizeExecErrorSampleResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -6962,6 +7119,7 @@ class DAS extends OpenApiClient
      *     *   ApsaraDB RDS for PostgreSQL
      *
      * @param request - GetQueryOptimizeExecErrorSampleRequest
+     *
      * @returns GetQueryOptimizeExecErrorSampleResponse
      *
      * @param GetQueryOptimizeExecErrorSampleRequest $request
@@ -6988,6 +7146,7 @@ class DAS extends OpenApiClient
      *
      * @param request - GetQueryOptimizeExecErrorStatsRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns GetQueryOptimizeExecErrorStatsResponse
      *
      * @param GetQueryOptimizeExecErrorStatsRequest $request
@@ -6999,19 +7158,19 @@ class DAS extends OpenApiClient
     {
         $request->validate();
         $query = Utils::query($request->toMap());
-        $req   = new OpenApiRequest([
+        $req = new OpenApiRequest([
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'GetQueryOptimizeExecErrorStats',
-            'version'     => '2020-01-16',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetQueryOptimizeExecErrorStats',
+            'version' => '2020-01-16',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return GetQueryOptimizeExecErrorStatsResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -7032,6 +7191,7 @@ class DAS extends OpenApiClient
      *     *   ApsaraDB RDS for PostgreSQL
      *
      * @param request - GetQueryOptimizeExecErrorStatsRequest
+     *
      * @returns GetQueryOptimizeExecErrorStatsResponse
      *
      * @param GetQueryOptimizeExecErrorStatsRequest $request
@@ -7059,6 +7219,7 @@ class DAS extends OpenApiClient
      *
      * @param request - GetQueryOptimizeRuleListRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns GetQueryOptimizeRuleListResponse
      *
      * @param GetQueryOptimizeRuleListRequest $request
@@ -7070,19 +7231,19 @@ class DAS extends OpenApiClient
     {
         $request->validate();
         $query = Utils::query($request->toMap());
-        $req   = new OpenApiRequest([
+        $req = new OpenApiRequest([
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'GetQueryOptimizeRuleList',
-            'version'     => '2020-01-16',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetQueryOptimizeRuleList',
+            'version' => '2020-01-16',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return GetQueryOptimizeRuleListResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -7104,6 +7265,7 @@ class DAS extends OpenApiClient
      *     *   ApsaraDB RDS for PostgreSQL
      *
      * @param request - GetQueryOptimizeRuleListRequest
+     *
      * @returns GetQueryOptimizeRuleListResponse
      *
      * @param GetQueryOptimizeRuleListRequest $request
@@ -7130,6 +7292,7 @@ class DAS extends OpenApiClient
      *
      * @param request - GetQueryOptimizeShareUrlRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns GetQueryOptimizeShareUrlResponse
      *
      * @param GetQueryOptimizeShareUrlRequest $request
@@ -7141,19 +7304,19 @@ class DAS extends OpenApiClient
     {
         $request->validate();
         $query = Utils::query($request->toMap());
-        $req   = new OpenApiRequest([
+        $req = new OpenApiRequest([
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'GetQueryOptimizeShareUrl',
-            'version'     => '2020-01-16',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetQueryOptimizeShareUrl',
+            'version' => '2020-01-16',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return GetQueryOptimizeShareUrlResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -7174,6 +7337,7 @@ class DAS extends OpenApiClient
      *     *   ApsaraDB RDS for PostgreSQL
      *
      * @param request - GetQueryOptimizeShareUrlRequest
+     *
      * @returns GetQueryOptimizeShareUrlResponse
      *
      * @param GetQueryOptimizeShareUrlRequest $request
@@ -7200,6 +7364,7 @@ class DAS extends OpenApiClient
      *
      * @param request - GetQueryOptimizeSolutionRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns GetQueryOptimizeSolutionResponse
      *
      * @param GetQueryOptimizeSolutionRequest $request
@@ -7211,19 +7376,19 @@ class DAS extends OpenApiClient
     {
         $request->validate();
         $query = Utils::query($request->toMap());
-        $req   = new OpenApiRequest([
+        $req = new OpenApiRequest([
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'GetQueryOptimizeSolution',
-            'version'     => '2020-01-16',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetQueryOptimizeSolution',
+            'version' => '2020-01-16',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return GetQueryOptimizeSolutionResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -7244,6 +7409,7 @@ class DAS extends OpenApiClient
      *     *   ApsaraDB RDS for PostgreSQL
      *
      * @param request - GetQueryOptimizeSolutionRequest
+     *
      * @returns GetQueryOptimizeSolutionResponse
      *
      * @param GetQueryOptimizeSolutionRequest $request
@@ -7270,6 +7436,7 @@ class DAS extends OpenApiClient
      *
      * @param request - GetQueryOptimizeTagRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns GetQueryOptimizeTagResponse
      *
      * @param GetQueryOptimizeTagRequest $request
@@ -7281,19 +7448,19 @@ class DAS extends OpenApiClient
     {
         $request->validate();
         $query = Utils::query($request->toMap());
-        $req   = new OpenApiRequest([
+        $req = new OpenApiRequest([
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'GetQueryOptimizeTag',
-            'version'     => '2020-01-16',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetQueryOptimizeTag',
+            'version' => '2020-01-16',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return GetQueryOptimizeTagResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -7314,6 +7481,7 @@ class DAS extends OpenApiClient
      *     *   ApsaraDB RDS for PostgreSQL
      *
      * @param request - GetQueryOptimizeTagRequest
+     *
      * @returns GetQueryOptimizeTagResponse
      *
      * @param GetQueryOptimizeTagRequest $request
@@ -7337,6 +7505,7 @@ class DAS extends OpenApiClient
      *
      * @param request - GetRedisAllSessionRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns GetRedisAllSessionResponse
      *
      * @param GetRedisAllSessionRequest $request
@@ -7360,15 +7529,15 @@ class DAS extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'GetRedisAllSession',
-            'version'     => '2020-01-16',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetRedisAllSession',
+            'version' => '2020-01-16',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return GetRedisAllSessionResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -7386,6 +7555,7 @@ class DAS extends OpenApiClient
      * >  This operation cannot be used to query sessions generated in direct connection mode on ApsaraDB for Redis cluster instances.
      *
      * @param request - GetRedisAllSessionRequest
+     *
      * @returns GetRedisAllSessionResponse
      *
      * @param GetRedisAllSessionRequest $request
@@ -7416,6 +7586,7 @@ class DAS extends OpenApiClient
      *
      * @param request - GetRequestDiagnosisPageRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns GetRequestDiagnosisPageResponse
      *
      * @param GetRequestDiagnosisPageRequest $request
@@ -7455,15 +7626,15 @@ class DAS extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'GetRequestDiagnosisPage',
-            'version'     => '2020-01-16',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetRequestDiagnosisPage',
+            'version' => '2020-01-16',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return GetRequestDiagnosisPageResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -7488,6 +7659,7 @@ class DAS extends OpenApiClient
      * >  The minor engine version of the Apsara RDS for PostgreSQL instance must be 20220130 or later. For more information about how to check and update the minor engine version of an ApsaraDB RDS for PostgreSQL instance, see [Update the minor engine version of an ApsaraDB RDS for PostgreSQL instance](https://help.aliyun.com/document_detail/146895.html).
      *
      * @param request - GetRequestDiagnosisPageRequest
+     *
      * @returns GetRequestDiagnosisPageResponse
      *
      * @param GetRequestDiagnosisPageRequest $request
@@ -7519,6 +7691,7 @@ class DAS extends OpenApiClient
      *
      * @param request - GetRequestDiagnosisResultRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns GetRequestDiagnosisResultResponse
      *
      * @param GetRequestDiagnosisResultRequest $request
@@ -7554,15 +7727,15 @@ class DAS extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'GetRequestDiagnosisResult',
-            'version'     => '2020-01-16',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetRequestDiagnosisResult',
+            'version' => '2020-01-16',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return GetRequestDiagnosisResultResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -7588,6 +7761,7 @@ class DAS extends OpenApiClient
      * >  If your instance is an ApsaraDB RDS for PostgreSQL instance, make sure that the minor engine version of your instance is 20220130 or later. For more information about how to check and update the minor engine version of an ApsaraDB RDS for PostgreSQL instance, see [Update the minor engine version of an ApsaraDB RDS for PostgreSQL instance](https://help.aliyun.com/document_detail/146895.html).
      *
      * @param request - GetRequestDiagnosisResultRequest
+     *
      * @returns GetRequestDiagnosisResultResponse
      *
      * @param GetRequestDiagnosisResultRequest $request
@@ -7611,6 +7785,7 @@ class DAS extends OpenApiClient
      *
      * @param request - GetRunningSqlConcurrencyControlRulesRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns GetRunningSqlConcurrencyControlRulesResponse
      *
      * @param GetRunningSqlConcurrencyControlRulesRequest $request
@@ -7642,15 +7817,15 @@ class DAS extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'GetRunningSqlConcurrencyControlRules',
-            'version'     => '2020-01-16',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetRunningSqlConcurrencyControlRules',
+            'version' => '2020-01-16',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return GetRunningSqlConcurrencyControlRulesResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -7668,6 +7843,7 @@ class DAS extends OpenApiClient
      * *   PolarDB for MySQL
      *
      * @param request - GetRunningSqlConcurrencyControlRulesRequest
+     *
      * @returns GetRunningSqlConcurrencyControlRulesResponse
      *
      * @param GetRunningSqlConcurrencyControlRulesRequest $request
@@ -7691,6 +7867,7 @@ class DAS extends OpenApiClient
      *
      * @param request - GetSqlConcurrencyControlKeywordsFromSqlTextRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns GetSqlConcurrencyControlKeywordsFromSqlTextResponse
      *
      * @param GetSqlConcurrencyControlKeywordsFromSqlTextRequest $request
@@ -7718,15 +7895,15 @@ class DAS extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'GetSqlConcurrencyControlKeywordsFromSqlText',
-            'version'     => '2020-01-16',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetSqlConcurrencyControlKeywordsFromSqlText',
+            'version' => '2020-01-16',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return GetSqlConcurrencyControlKeywordsFromSqlTextResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -7744,6 +7921,7 @@ class DAS extends OpenApiClient
      * *   PolarDB for MySQL
      *
      * @param request - GetSqlConcurrencyControlKeywordsFromSqlTextRequest
+     *
      * @returns GetSqlConcurrencyControlKeywordsFromSqlTextResponse
      *
      * @param GetSqlConcurrencyControlKeywordsFromSqlTextRequest $request
@@ -7767,6 +7945,7 @@ class DAS extends OpenApiClient
      *
      * @param request - GetSqlConcurrencyControlRulesHistoryRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns GetSqlConcurrencyControlRulesHistoryResponse
      *
      * @param GetSqlConcurrencyControlRulesHistoryRequest $request
@@ -7798,15 +7977,15 @@ class DAS extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'GetSqlConcurrencyControlRulesHistory',
-            'version'     => '2020-01-16',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetSqlConcurrencyControlRulesHistory',
+            'version' => '2020-01-16',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return GetSqlConcurrencyControlRulesHistoryResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -7824,6 +8003,7 @@ class DAS extends OpenApiClient
      * *   PolarDB for MySQL
      *
      * @param request - GetSqlConcurrencyControlRulesHistoryRequest
+     *
      * @returns GetSqlConcurrencyControlRulesHistoryResponse
      *
      * @param GetSqlConcurrencyControlRulesHistoryRequest $request
@@ -7850,6 +8030,7 @@ class DAS extends OpenApiClient
      *
      * @param request - GetSqlOptimizeAdviceRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns GetSqlOptimizeAdviceResponse
      *
      * @param GetSqlOptimizeAdviceRequest $request
@@ -7889,15 +8070,15 @@ class DAS extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'GetSqlOptimizeAdvice',
-            'version'     => '2020-01-16',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetSqlOptimizeAdvice',
+            'version' => '2020-01-16',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return GetSqlOptimizeAdviceResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -7918,6 +8099,7 @@ class DAS extends OpenApiClient
      * *   If you use an SDK to call operations of DAS, you must set the region ID to cn-shanghai.
      *
      * @param request - GetSqlOptimizeAdviceRequest
+     *
      * @returns GetSqlOptimizeAdviceResponse
      *
      * @param GetSqlOptimizeAdviceRequest $request
@@ -7943,6 +8125,7 @@ class DAS extends OpenApiClient
      *
      * @param request - GetStorageAnalysisResultRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns GetStorageAnalysisResultResponse
      *
      * @param GetStorageAnalysisResultRequest $request
@@ -7970,15 +8153,15 @@ class DAS extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'GetStorageAnalysisResult',
-            'version'     => '2020-01-16',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetStorageAnalysisResult',
+            'version' => '2020-01-16',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return GetStorageAnalysisResultResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -7998,6 +8181,7 @@ class DAS extends OpenApiClient
      * *   If you use an SDK to call operations of DAS, you must set the region ID to cn-shanghai.
      *
      * @param request - GetStorageAnalysisResultRequest
+     *
      * @returns GetStorageAnalysisResultResponse
      *
      * @param GetStorageAnalysisResultRequest $request
@@ -8022,6 +8206,7 @@ class DAS extends OpenApiClient
      *
      * @param request - KillInstanceAllSessionRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns KillInstanceAllSessionResponse
      *
      * @param KillInstanceAllSessionRequest $request
@@ -8045,15 +8230,15 @@ class DAS extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'KillInstanceAllSession',
-            'version'     => '2020-01-16',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'KillInstanceAllSession',
+            'version' => '2020-01-16',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return KillInstanceAllSessionResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -8072,6 +8257,7 @@ class DAS extends OpenApiClient
      * *   If you use an SDK to call operations of DAS, you must set the region ID to cn-shanghai.
      *
      * @param request - KillInstanceAllSessionRequest
+     *
      * @returns KillInstanceAllSessionResponse
      *
      * @param KillInstanceAllSessionRequest $request
@@ -8104,6 +8290,7 @@ class DAS extends OpenApiClient
      *
      * @param request - ModifyAutoScalingConfigRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ModifyAutoScalingConfigResponse
      *
      * @param ModifyAutoScalingConfigRequest $request
@@ -8143,15 +8330,15 @@ class DAS extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ModifyAutoScalingConfig',
-            'version'     => '2020-01-16',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ModifyAutoScalingConfig',
+            'version' => '2020-01-16',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return ModifyAutoScalingConfigResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -8178,6 +8365,7 @@ class DAS extends OpenApiClient
      * *   If you use an SDK to call operations of DAS, you must set the region ID to cn-shanghai.
      *
      * @param request - ModifyAutoScalingConfigRequest
+     *
      * @returns ModifyAutoScalingConfigResponse
      *
      * @param ModifyAutoScalingConfigRequest $request
@@ -8202,6 +8390,7 @@ class DAS extends OpenApiClient
      *
      * @param request - ModifySqlLogConfigRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ModifySqlLogConfigResponse
      *
      * @param ModifySqlLogConfigRequest $request
@@ -8244,18 +8433,18 @@ class DAS extends OpenApiClient
 
         $req = new OpenApiRequest([
             'query' => Utils::query($query),
-            'body'  => Utils::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'ModifySqlLogConfig',
-            'version'     => '2020-01-16',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ModifySqlLogConfig',
+            'version' => '2020-01-16',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return ModifySqlLogConfigResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -8274,6 +8463,7 @@ class DAS extends OpenApiClient
      * *   By default, the latest version of DAS Enterprise Edition that supports the database instance is enabled. For information about the databases and regions that are supported by different versions of DAS Enterprise Edition, see [Editions and supported features](https://help.aliyun.com/document_detail/156204.html).
      *
      * @param request - ModifySqlLogConfigRequest
+     *
      * @returns ModifySqlLogConfigResponse
      *
      * @param ModifySqlLogConfigRequest $request
@@ -8295,6 +8485,7 @@ class DAS extends OpenApiClient
      *
      * @param request - RunCloudBenchTaskRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns RunCloudBenchTaskResponse
      *
      * @param RunCloudBenchTaskRequest $request
@@ -8314,15 +8505,15 @@ class DAS extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'RunCloudBenchTask',
-            'version'     => '2020-01-16',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'RunCloudBenchTask',
+            'version' => '2020-01-16',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return RunCloudBenchTaskResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -8338,6 +8529,7 @@ class DAS extends OpenApiClient
      * Database Autonomy Service (DAS) provides the intelligent stress testing feature. This feature helps you check whether your instance needs to be scaled up to effectively handle traffic spikes. For more information, see [Intelligent stress testing](https://help.aliyun.com/document_detail/155068.html).
      *
      * @param request - RunCloudBenchTaskRequest
+     *
      * @returns RunCloudBenchTaskResponse
      *
      * @param RunCloudBenchTaskRequest $request
@@ -8362,6 +8554,7 @@ class DAS extends OpenApiClient
      *
      * @param request - SetEventSubscriptionRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns SetEventSubscriptionResponse
      *
      * @param SetEventSubscriptionRequest $request
@@ -8421,15 +8614,15 @@ class DAS extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'SetEventSubscription',
-            'version'     => '2020-01-16',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'SetEventSubscription',
+            'version' => '2020-01-16',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return SetEventSubscriptionResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -8448,6 +8641,7 @@ class DAS extends OpenApiClient
      * *   Make sure that the database instance that you want to manage is connected to DAS.
      *
      * @param request - SetEventSubscriptionRequest
+     *
      * @returns SetEventSubscriptionResponse
      *
      * @param SetEventSubscriptionRequest $request
@@ -8474,6 +8668,7 @@ class DAS extends OpenApiClient
      *
      * @param request - UpdateAutoResourceOptimizeRulesAsyncRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns UpdateAutoResourceOptimizeRulesAsyncResponse
      *
      * @param UpdateAutoResourceOptimizeRulesAsyncRequest $request
@@ -8509,15 +8704,15 @@ class DAS extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'UpdateAutoResourceOptimizeRulesAsync',
-            'version'     => '2020-01-16',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'UpdateAutoResourceOptimizeRulesAsync',
+            'version' => '2020-01-16',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return UpdateAutoResourceOptimizeRulesAsyncResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -8538,6 +8733,7 @@ class DAS extends OpenApiClient
      * *   The database instance has four or more CPU cores, and **innodb_file_per_table** is set to **ON**.
      *
      * @param request - UpdateAutoResourceOptimizeRulesAsyncRequest
+     *
      * @returns UpdateAutoResourceOptimizeRulesAsyncResponse
      *
      * @param UpdateAutoResourceOptimizeRulesAsyncRequest $request
@@ -8565,6 +8761,7 @@ class DAS extends OpenApiClient
      *
      * @param request - UpdateAutoSqlOptimizeStatusRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns UpdateAutoSqlOptimizeStatusResponse
      *
      * @param UpdateAutoSqlOptimizeStatusRequest $request
@@ -8588,15 +8785,15 @@ class DAS extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'UpdateAutoSqlOptimizeStatus',
-            'version'     => '2020-01-16',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'UpdateAutoSqlOptimizeStatus',
+            'version' => '2020-01-16',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return UpdateAutoSqlOptimizeStatusResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -8618,6 +8815,7 @@ class DAS extends OpenApiClient
      *     *   PolarDB for MySQL Cluster Edition
      *
      * @param request - UpdateAutoSqlOptimizeStatusRequest
+     *
      * @returns UpdateAutoSqlOptimizeStatusResponse
      *
      * @param UpdateAutoSqlOptimizeStatusRequest $request
@@ -8645,6 +8843,7 @@ class DAS extends OpenApiClient
      *
      * @param request - UpdateAutoThrottleRulesAsyncRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns UpdateAutoThrottleRulesAsyncResponse
      *
      * @param UpdateAutoThrottleRulesAsyncRequest $request
@@ -8704,15 +8903,15 @@ class DAS extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'UpdateAutoThrottleRulesAsync',
-            'version'     => '2020-01-16',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'UpdateAutoThrottleRulesAsync',
+            'version' => '2020-01-16',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return UpdateAutoThrottleRulesAsyncResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -8734,6 +8933,7 @@ class DAS extends OpenApiClient
      *     *   PolarDB for MySQL Cluster Edition that runs MySQL 5.6, MySQL 5.7, or MySQL 8.0
      *
      * @param request - UpdateAutoThrottleRulesAsyncRequest
+     *
      * @returns UpdateAutoThrottleRulesAsyncResponse
      *
      * @param UpdateAutoThrottleRulesAsyncRequest $request

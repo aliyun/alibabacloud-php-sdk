@@ -12,33 +12,38 @@ class preCheckItem extends Model
      * @var int
      */
     public $code;
+
     /**
      * @var string
      */
     public $details;
+
     /**
      * @var string
      */
     public $message;
+
     /**
      * @var string
      */
     public $name;
+
     /**
      * @var int
      */
     public $order;
+
     /**
      * @var string
      */
     public $status;
     protected $_name = [
-        'code'    => 'Code',
+        'code' => 'Code',
         'details' => 'Details',
         'message' => 'Message',
-        'name'    => 'Name',
-        'order'   => 'Order',
-        'status'  => 'Status',
+        'name' => 'Name',
+        'order' => 'Order',
+        'status' => 'Status',
     ];
 
     public function validate()

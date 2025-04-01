@@ -12,12 +12,13 @@ class data extends Model
      * @var int
      */
     public $count;
+
     /**
      * @var float
      */
     public $improvement;
     protected $_name = [
-        'count'       => 'count',
+        'count' => 'count',
         'improvement' => 'improvement',
     ];
 

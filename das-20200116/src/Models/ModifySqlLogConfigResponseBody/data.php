@@ -12,88 +12,104 @@ class data extends Model
      * @var bool
      */
     public $coldEnable;
+
     /**
      * @var int
      */
     public $coldRetention;
+
     /**
      * @var int
      */
     public $coldStartTime;
+
     /**
      * @var string
      */
     public $collectorVersion;
+
     /**
      * @var bool
      */
     public $hotEnable;
+
     /**
      * @var int
      */
     public $hotRetention;
+
     /**
      * @var int
      */
     public $hotStartTime;
+
     /**
      * @var string
      */
     public $logFilter;
+
     /**
      * @var bool
      */
     public $requestEnable;
+
     /**
      * @var int
      */
     public $requestStartTime;
+
     /**
      * @var int
      */
     public $requestStopTime;
+
     /**
      * @var int
      */
     public $retention;
+
     /**
      * @var bool
      */
     public $sqlLogEnable;
+
     /**
      * @var string
      */
     public $sqlLogState;
+
     /**
      * @var int
      */
     public $sqlLogVisibleTime;
+
     /**
      * @var string
      */
     public $supportVersion;
+
     /**
      * @var string
      */
     public $version;
     protected $_name = [
-        'coldEnable'        => 'ColdEnable',
-        'coldRetention'     => 'ColdRetention',
-        'coldStartTime'     => 'ColdStartTime',
-        'collectorVersion'  => 'CollectorVersion',
-        'hotEnable'         => 'HotEnable',
-        'hotRetention'      => 'HotRetention',
-        'hotStartTime'      => 'HotStartTime',
-        'logFilter'         => 'LogFilter',
-        'requestEnable'     => 'RequestEnable',
-        'requestStartTime'  => 'RequestStartTime',
-        'requestStopTime'   => 'RequestStopTime',
-        'retention'         => 'Retention',
-        'sqlLogEnable'      => 'SqlLogEnable',
-        'sqlLogState'       => 'SqlLogState',
+        'coldEnable' => 'ColdEnable',
+        'coldRetention' => 'ColdRetention',
+        'coldStartTime' => 'ColdStartTime',
+        'collectorVersion' => 'CollectorVersion',
+        'hotEnable' => 'HotEnable',
+        'hotRetention' => 'HotRetention',
+        'hotStartTime' => 'HotStartTime',
+        'logFilter' => 'LogFilter',
+        'requestEnable' => 'RequestEnable',
+        'requestStartTime' => 'RequestStartTime',
+        'requestStopTime' => 'RequestStopTime',
+        'retention' => 'Retention',
+        'sqlLogEnable' => 'SqlLogEnable',
+        'sqlLogState' => 'SqlLogState',
         'sqlLogVisibleTime' => 'SqlLogVisibleTime',
-        'supportVersion'    => 'SupportVersion',
-        'version'           => 'Version',
+        'supportVersion' => 'SupportVersion',
+        'version' => 'Version',
     ];
 
     public function validate()

@@ -12,58 +12,68 @@ class GetFullRequestOriginStatByInstanceIdRequest extends Model
      * @var bool
      */
     public $asc;
+
     /**
      * @var int
      */
     public $end;
+
     /**
      * @var string
      */
     public $instanceId;
+
     /**
      * @var string
      */
     public $nodeId;
+
     /**
      * @var string
      */
     public $orderBy;
+
     /**
      * @var int
      */
     public $pageNo;
+
     /**
      * @var int
      */
     public $pageSize;
+
     /**
      * @var string
      */
     public $role;
+
     /**
      * @var string
      */
     public $sqlType;
+
     /**
      * @var int
      */
     public $start;
+
     /**
      * @var string
      */
     public $userId;
     protected $_name = [
-        'asc'        => 'Asc',
-        'end'        => 'End',
+        'asc' => 'Asc',
+        'end' => 'End',
         'instanceId' => 'InstanceId',
-        'nodeId'     => 'NodeId',
-        'orderBy'    => 'OrderBy',
-        'pageNo'     => 'PageNo',
-        'pageSize'   => 'PageSize',
-        'role'       => 'Role',
-        'sqlType'    => 'SqlType',
-        'start'      => 'Start',
-        'userId'     => 'UserId',
+        'nodeId' => 'NodeId',
+        'orderBy' => 'OrderBy',
+        'pageNo' => 'PageNo',
+        'pageSize' => 'PageSize',
+        'role' => 'Role',
+        'sqlType' => 'SqlType',
+        'start' => 'Start',
+        'userId' => 'UserId',
     ];
 
     public function validate()

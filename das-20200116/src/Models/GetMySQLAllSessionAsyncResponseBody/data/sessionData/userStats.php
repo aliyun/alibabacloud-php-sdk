@@ -12,28 +12,32 @@ class userStats extends Model
      * @var int
      */
     public $activeCount;
+
     /**
      * @var string
      */
     public $key;
+
     /**
      * @var int[]
      */
     public $threadIdList;
+
     /**
      * @var int
      */
     public $totalCount;
+
     /**
      * @var string[]
      */
     public $userList;
     protected $_name = [
-        'activeCount'  => 'ActiveCount',
-        'key'          => 'Key',
+        'activeCount' => 'ActiveCount',
+        'key' => 'Key',
         'threadIdList' => 'ThreadIdList',
-        'totalCount'   => 'TotalCount',
-        'userList'     => 'UserList',
+        'totalCount' => 'TotalCount',
+        'userList' => 'UserList',
     ];
 
     public function validate()
@@ -61,7 +65,7 @@ class userStats extends Model
         if (null !== $this->threadIdList) {
             if (\is_array($this->threadIdList)) {
                 $res['ThreadIdList'] = [];
-                $n1                  = 0;
+                $n1 = 0;
                 foreach ($this->threadIdList as $item1) {
                     $res['ThreadIdList'][$n1++] = $item1;
                 }
@@ -75,7 +79,7 @@ class userStats extends Model
         if (null !== $this->userList) {
             if (\is_array($this->userList)) {
                 $res['UserList'] = [];
-                $n1              = 0;
+                $n1 = 0;
                 foreach ($this->userList as $item1) {
                     $res['UserList'][$n1++] = $item1;
                 }
@@ -104,7 +108,7 @@ class userStats extends Model
         if (isset($map['ThreadIdList'])) {
             if (!empty($map['ThreadIdList'])) {
                 $model->threadIdList = [];
-                $n1                  = 0;
+                $n1 = 0;
                 foreach ($map['ThreadIdList'] as $item1) {
                     $model->threadIdList[$n1++] = $item1;
                 }
@@ -118,7 +122,7 @@ class userStats extends Model
         if (isset($map['UserList'])) {
             if (!empty($map['UserList'])) {
                 $model->userList = [];
-                $n1              = 0;
+                $n1 = 0;
                 foreach ($map['UserList'] as $item1) {
                     $model->userList[$n1++] = $item1;
                 }

@@ -14,63 +14,74 @@ class data extends Model
      * @var int
      */
     public $createTime;
+
     /**
      * @var int
      */
     public $end;
+
     /**
      * @var bool
      */
     public $expire;
+
     /**
      * @var string
      */
     public $export;
+
     /**
      * @var filters[]
      */
     public $filters;
+
     /**
      * @var string
      */
     public $name;
+
     /**
      * @var queries[]
      */
     public $queries;
+
     /**
      * @var int
      */
     public $start;
+
     /**
      * @var string
      */
     public $status;
+
     /**
      * @var string
      */
     public $taskId;
+
     /**
      * @var string
      */
     public $taskType;
+
     /**
      * @var int
      */
     public $total;
     protected $_name = [
         'createTime' => 'CreateTime',
-        'end'        => 'End',
-        'expire'     => 'Expire',
-        'export'     => 'Export',
-        'filters'    => 'Filters',
-        'name'       => 'Name',
-        'queries'    => 'Queries',
-        'start'      => 'Start',
-        'status'     => 'Status',
-        'taskId'     => 'TaskId',
-        'taskType'   => 'TaskType',
-        'total'      => 'Total',
+        'end' => 'End',
+        'expire' => 'Expire',
+        'export' => 'Export',
+        'filters' => 'Filters',
+        'name' => 'Name',
+        'queries' => 'Queries',
+        'start' => 'Start',
+        'status' => 'Status',
+        'taskId' => 'TaskId',
+        'taskType' => 'TaskType',
+        'total' => 'Total',
     ];
 
     public function validate()
@@ -106,7 +117,7 @@ class data extends Model
         if (null !== $this->filters) {
             if (\is_array($this->filters)) {
                 $res['Filters'] = [];
-                $n1             = 0;
+                $n1 = 0;
                 foreach ($this->filters as $item1) {
                     $res['Filters'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -120,7 +131,7 @@ class data extends Model
         if (null !== $this->queries) {
             if (\is_array($this->queries)) {
                 $res['Queries'] = [];
-                $n1             = 0;
+                $n1 = 0;
                 foreach ($this->queries as $item1) {
                     $res['Queries'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -177,7 +188,7 @@ class data extends Model
         if (isset($map['Filters'])) {
             if (!empty($map['Filters'])) {
                 $model->filters = [];
-                $n1             = 0;
+                $n1 = 0;
                 foreach ($map['Filters'] as $item1) {
                     $model->filters[$n1++] = filters::fromMap($item1);
                 }
@@ -191,7 +202,7 @@ class data extends Model
         if (isset($map['Queries'])) {
             if (!empty($map['Queries'])) {
                 $model->queries = [];
-                $n1             = 0;
+                $n1 = 0;
                 foreach ($map['Queries'] as $item1) {
                     $model->queries[$n1++] = queries::fromMap($item1);
                 }

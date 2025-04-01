@@ -12,12 +12,13 @@ class filters extends Model
      * @var string
      */
     public $key;
+
     /**
      * @var mixed
      */
     public $value;
     protected $_name = [
-        'key'   => 'Key',
+        'key' => 'Key',
         'value' => 'Value',
     ];
 

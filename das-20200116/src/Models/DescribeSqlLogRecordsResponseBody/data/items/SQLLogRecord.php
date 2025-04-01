@@ -12,168 +12,200 @@ class SQLLogRecord extends Model
      * @var string
      */
     public $accountName;
+
     /**
      * @var string
      */
     public $collection;
+
     /**
      * @var int
      */
     public $consume;
+
     /**
      * @var int
      */
     public $cpuTime;
+
     /**
      * @var string
      */
     public $DBName;
+
     /**
      * @var string
      */
     public $executeTime;
+
     /**
      * @var string
      */
     public $ext;
+
     /**
      * @var int
      */
     public $frows;
+
     /**
      * @var string
      */
     public $hostAddress;
+
     /**
      * @var int
      */
     public $lockTime;
+
     /**
      * @var int
      */
     public $logicRead;
+
     /**
      * @var string
      */
     public $nodeId;
+
     /**
      * @var int
      */
     public $originTime;
+
     /**
      * @var string
      */
     public $parallelDegree;
+
     /**
      * @var string
      */
     public $parallelQueueTime;
+
     /**
      * @var int
      */
     public $physicAsyncRead;
+
     /**
      * @var int
      */
     public $physicRead;
+
     /**
      * @var int
      */
     public $physicSyncRead;
+
     /**
      * @var int
      */
     public $returnRows;
+
     /**
      * @var int
      */
     public $rows;
+
     /**
      * @var int
      */
     public $scanRows;
+
     /**
      * @var int
      */
     public $scnt;
+
     /**
      * @var string
      */
     public $sqlId;
+
     /**
      * @var string
      */
     public $sqlText;
+
     /**
      * @var string
      */
     public $sqlType;
+
     /**
      * @var string
      */
     public $state;
+
     /**
      * @var int
      */
     public $threadId;
+
     /**
      * @var string
      */
     public $traceId;
+
     /**
      * @var string
      */
     public $trxId;
+
     /**
      * @var int
      */
     public $updateRows;
+
     /**
      * @var string
      */
     public $useImciEngine;
+
     /**
      * @var string
      */
     public $vip;
+
     /**
      * @var int
      */
     public $writes;
     protected $_name = [
-        'accountName'       => 'AccountName',
-        'collection'        => 'Collection',
-        'consume'           => 'Consume',
-        'cpuTime'           => 'CpuTime',
-        'DBName'            => 'DBName',
-        'executeTime'       => 'ExecuteTime',
-        'ext'               => 'Ext',
-        'frows'             => 'Frows',
-        'hostAddress'       => 'HostAddress',
-        'lockTime'          => 'LockTime',
-        'logicRead'         => 'LogicRead',
-        'nodeId'            => 'NodeId',
-        'originTime'        => 'OriginTime',
-        'parallelDegree'    => 'ParallelDegree',
+        'accountName' => 'AccountName',
+        'collection' => 'Collection',
+        'consume' => 'Consume',
+        'cpuTime' => 'CpuTime',
+        'DBName' => 'DBName',
+        'executeTime' => 'ExecuteTime',
+        'ext' => 'Ext',
+        'frows' => 'Frows',
+        'hostAddress' => 'HostAddress',
+        'lockTime' => 'LockTime',
+        'logicRead' => 'LogicRead',
+        'nodeId' => 'NodeId',
+        'originTime' => 'OriginTime',
+        'parallelDegree' => 'ParallelDegree',
         'parallelQueueTime' => 'ParallelQueueTime',
-        'physicAsyncRead'   => 'PhysicAsyncRead',
-        'physicRead'        => 'PhysicRead',
-        'physicSyncRead'    => 'PhysicSyncRead',
-        'returnRows'        => 'ReturnRows',
-        'rows'              => 'Rows',
-        'scanRows'          => 'ScanRows',
-        'scnt'              => 'Scnt',
-        'sqlId'             => 'SqlId',
-        'sqlText'           => 'SqlText',
-        'sqlType'           => 'SqlType',
-        'state'             => 'State',
-        'threadId'          => 'ThreadId',
-        'traceId'           => 'TraceId',
-        'trxId'             => 'TrxId',
-        'updateRows'        => 'UpdateRows',
-        'useImciEngine'     => 'UseImciEngine',
-        'vip'               => 'Vip',
-        'writes'            => 'Writes',
+        'physicAsyncRead' => 'PhysicAsyncRead',
+        'physicRead' => 'PhysicRead',
+        'physicSyncRead' => 'PhysicSyncRead',
+        'returnRows' => 'ReturnRows',
+        'rows' => 'Rows',
+        'scanRows' => 'ScanRows',
+        'scnt' => 'Scnt',
+        'sqlId' => 'SqlId',
+        'sqlText' => 'SqlText',
+        'sqlType' => 'SqlType',
+        'state' => 'State',
+        'threadId' => 'ThreadId',
+        'traceId' => 'TraceId',
+        'trxId' => 'TrxId',
+        'updateRows' => 'UpdateRows',
+        'useImciEngine' => 'UseImciEngine',
+        'vip' => 'Vip',
+        'writes' => 'Writes',
     ];
 
     public function validate()

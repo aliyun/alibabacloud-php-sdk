@@ -12,33 +12,38 @@ class data extends Model
      * @var string
      */
     public $createTime;
+
     /**
      * @var string
      */
     public $downloadUrl;
+
     /**
      * @var string
      */
     public $expireTime;
+
     /**
      * @var string
      */
     public $status;
+
     /**
      * @var string
      */
     public $statusCode;
+
     /**
      * @var string
      */
     public $taskId;
     protected $_name = [
-        'createTime'  => 'CreateTime',
+        'createTime' => 'CreateTime',
         'downloadUrl' => 'DownloadUrl',
-        'expireTime'  => 'ExpireTime',
-        'status'      => 'Status',
-        'statusCode'  => 'StatusCode',
-        'taskId'      => 'TaskId',
+        'expireTime' => 'ExpireTime',
+        'status' => 'Status',
+        'statusCode' => 'StatusCode',
+        'taskId' => 'TaskId',
     ];
 
     public function validate()

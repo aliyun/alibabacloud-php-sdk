@@ -30,7 +30,7 @@ class list_ extends Model
         if (null !== $this->t) {
             if (\is_array($this->t)) {
                 $res['T'] = [];
-                $n1       = 0;
+                $n1 = 0;
                 foreach ($this->t as $item1) {
                     $res['T'][$n1++] = $item1;
                 }
@@ -51,7 +51,7 @@ class list_ extends Model
         if (isset($map['T'])) {
             if (!empty($map['T'])) {
                 $model->t = [];
-                $n1       = 0;
+                $n1 = 0;
                 foreach ($map['T'] as $item1) {
                     $model->t[$n1++] = $item1;
                 }

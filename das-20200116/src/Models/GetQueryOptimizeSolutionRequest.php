@@ -12,23 +12,26 @@ class GetQueryOptimizeSolutionRequest extends Model
      * @var string
      */
     public $engine;
+
     /**
      * @var string
      */
     public $instanceId;
+
     /**
      * @var string
      */
     public $ruleIds;
+
     /**
      * @var string
      */
     public $sqlId;
     protected $_name = [
-        'engine'     => 'Engine',
+        'engine' => 'Engine',
         'instanceId' => 'InstanceId',
-        'ruleIds'    => 'RuleIds',
-        'sqlId'      => 'SqlId',
+        'ruleIds' => 'RuleIds',
+        'sqlId' => 'SqlId',
     ];
 
     public function validate()

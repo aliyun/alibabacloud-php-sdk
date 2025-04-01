@@ -12,58 +12,68 @@ class result extends Model
      * @var bool
      */
     public $active;
+
     /**
      * @var string
      */
     public $command;
+
     /**
      * @var string
      */
     public $db;
+
     /**
      * @var string
      */
     public $host;
+
     /**
      * @var int
      */
     public $id;
+
     /**
      * @var string
      */
     public $info;
+
     /**
      * @var string
      */
     public $reason;
+
     /**
      * @var string
      */
     public $state;
+
     /**
      * @var string
      */
     public $taskId;
+
     /**
      * @var int
      */
     public $time;
+
     /**
      * @var string
      */
     public $user;
     protected $_name = [
-        'active'  => 'Active',
+        'active' => 'Active',
         'command' => 'Command',
-        'db'      => 'Db',
-        'host'    => 'Host',
-        'id'      => 'Id',
-        'info'    => 'Info',
-        'reason'  => 'Reason',
-        'state'   => 'State',
-        'taskId'  => 'TaskId',
-        'time'    => 'Time',
-        'user'    => 'User',
+        'db' => 'Db',
+        'host' => 'Host',
+        'id' => 'Id',
+        'info' => 'Info',
+        'reason' => 'Reason',
+        'state' => 'State',
+        'taskId' => 'TaskId',
+        'time' => 'Time',
+        'user' => 'User',
     ];
 
     public function validate()

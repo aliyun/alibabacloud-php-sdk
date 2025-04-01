@@ -12,23 +12,26 @@ class DescribeAutoScalingHistoryRequest extends Model
      * @var string
      */
     public $autoScalingTaskType;
+
     /**
      * @var int
      */
     public $endTime;
+
     /**
      * @var string
      */
     public $instanceId;
+
     /**
      * @var int
      */
     public $startTime;
     protected $_name = [
         'autoScalingTaskType' => 'AutoScalingTaskType',
-        'endTime'             => 'EndTime',
-        'instanceId'          => 'InstanceId',
-        'startTime'           => 'StartTime',
+        'endTime' => 'EndTime',
+        'instanceId' => 'InstanceId',
+        'startTime' => 'StartTime',
     ];
 
     public function validate()

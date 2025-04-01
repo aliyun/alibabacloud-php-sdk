@@ -12,18 +12,20 @@ class EnableDasProRequest extends Model
      * @var string
      */
     public $instanceId;
+
     /**
      * @var int
      */
     public $sqlRetention;
+
     /**
      * @var string
      */
     public $userId;
     protected $_name = [
-        'instanceId'   => 'InstanceId',
+        'instanceId' => 'InstanceId',
         'sqlRetention' => 'SqlRetention',
-        'userId'       => 'UserId',
+        'userId' => 'UserId',
     ];
 
     public function validate()

@@ -12,53 +12,62 @@ class runningRules extends Model
      * @var int
      */
     public $concurrencyControlTime;
+
     /**
      * @var string
      */
     public $instanceId;
+
     /**
      * @var int
      */
     public $itemId;
+
     /**
      * @var string
      */
     public $keywordsHash;
+
     /**
      * @var string
      */
     public $maxConcurrency;
+
     /**
      * @var string
      */
     public $sqlKeywords;
+
     /**
      * @var string
      */
     public $sqlType;
+
     /**
      * @var int
      */
     public $startTime;
+
     /**
      * @var string
      */
     public $status;
+
     /**
      * @var string
      */
     public $userId;
     protected $_name = [
         'concurrencyControlTime' => 'ConcurrencyControlTime',
-        'instanceId'             => 'InstanceId',
-        'itemId'                 => 'ItemId',
-        'keywordsHash'           => 'KeywordsHash',
-        'maxConcurrency'         => 'MaxConcurrency',
-        'sqlKeywords'            => 'SqlKeywords',
-        'sqlType'                => 'SqlType',
-        'startTime'              => 'StartTime',
-        'status'                 => 'Status',
-        'userId'                 => 'UserId',
+        'instanceId' => 'InstanceId',
+        'itemId' => 'ItemId',
+        'keywordsHash' => 'KeywordsHash',
+        'maxConcurrency' => 'MaxConcurrency',
+        'sqlKeywords' => 'SqlKeywords',
+        'sqlType' => 'SqlType',
+        'startTime' => 'StartTime',
+        'status' => 'Status',
+        'userId' => 'UserId',
     ];
 
     public function validate()

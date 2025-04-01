@@ -12,18 +12,20 @@ class sourceStats extends Model
      * @var string
      */
     public $count;
+
     /**
      * @var int[]
      */
     public $ids;
+
     /**
      * @var string
      */
     public $key;
     protected $_name = [
         'count' => 'Count',
-        'ids'   => 'Ids',
-        'key'   => 'Key',
+        'ids' => 'Ids',
+        'key' => 'Key',
     ];
 
     public function validate()
@@ -44,7 +46,7 @@ class sourceStats extends Model
         if (null !== $this->ids) {
             if (\is_array($this->ids)) {
                 $res['Ids'] = [];
-                $n1         = 0;
+                $n1 = 0;
                 foreach ($this->ids as $item1) {
                     $res['Ids'][$n1++] = $item1;
                 }
@@ -73,7 +75,7 @@ class sourceStats extends Model
         if (isset($map['Ids'])) {
             if (!empty($map['Ids'])) {
                 $model->ids = [];
-                $n1         = 0;
+                $n1 = 0;
                 foreach ($map['Ids'] as $item1) {
                     $model->ids[$n1++] = $item1;
                 }

@@ -12,18 +12,20 @@ class GetAutonomousNotifyEventContentRequest extends Model
      * @var string
      */
     public $instanceId;
+
     /**
      * @var string
      */
     public $spanId;
+
     /**
      * @var string
      */
     public $context;
     protected $_name = [
         'instanceId' => 'InstanceId',
-        'spanId'     => 'SpanId',
-        'context'    => '__context',
+        'spanId' => 'SpanId',
+        'context' => '__context',
     ];
 
     public function validate()

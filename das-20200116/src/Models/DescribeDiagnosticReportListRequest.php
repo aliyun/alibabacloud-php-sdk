@@ -12,28 +12,32 @@ class DescribeDiagnosticReportListRequest extends Model
      * @var string
      */
     public $DBInstanceId;
+
     /**
      * @var string
      */
     public $endTime;
+
     /**
      * @var string
      */
     public $pageNo;
+
     /**
      * @var string
      */
     public $pageSize;
+
     /**
      * @var string
      */
     public $startTime;
     protected $_name = [
         'DBInstanceId' => 'DBInstanceId',
-        'endTime'      => 'EndTime',
-        'pageNo'       => 'PageNo',
-        'pageSize'     => 'PageSize',
-        'startTime'    => 'StartTime',
+        'endTime' => 'EndTime',
+        'pageNo' => 'PageNo',
+        'pageSize' => 'PageSize',
+        'startTime' => 'StartTime',
     ];
 
     public function validate()

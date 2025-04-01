@@ -12,163 +12,194 @@ class list_ extends Model
      * @var float
      */
     public $avgExaminedRows;
+
     /**
      * @var int
      */
     public $avgFetchRows;
+
     /**
      * @var float
      */
     public $avgLockWaitTime;
+
     /**
      * @var float
      */
     public $avgLogicalRead;
+
     /**
      * @var int
      */
     public $avgPhysicalAsyncRead;
+
     /**
      * @var int
      */
     public $avgPhysicalSyncRead;
+
     /**
      * @var float
      */
     public $avgReturnedRows;
+
     /**
      * @var float
      */
     public $avgRt;
+
     /**
      * @var int
      */
     public $avgSqlCount;
+
     /**
      * @var int
      */
     public $avgUpdatedRows;
+
     /**
      * @var int
      */
     public $count;
+
     /**
      * @var float
      */
     public $countRate;
+
     /**
      * @var string
      */
     public $database;
+
     /**
      * @var int
      */
     public $errorCount;
+
     /**
      * @var int
      */
     public $examinedRows;
+
     /**
      * @var int
      */
     public $fetchRows;
+
     /**
      * @var string
      */
     public $ip;
+
     /**
      * @var float
      */
     public $lockWaitTime;
+
     /**
      * @var int
      */
     public $logicalRead;
+
     /**
      * @var int
      */
     public $physicalAsyncRead;
+
     /**
      * @var int
      */
     public $physicalSyncRead;
+
     /**
      * @var int
      */
     public $port;
+
     /**
      * @var string
      */
     public $psql;
+
     /**
      * @var int
      */
     public $rows;
+
     /**
      * @var int
      */
     public $rtGreaterThanOneSecondCount;
+
     /**
      * @var float
      */
     public $rtRate;
+
     /**
      * @var int
      */
     public $sqlCount;
+
     /**
      * @var string
      */
     public $sqlId;
+
     /**
      * @var int
      */
     public $sumUpdatedRows;
+
     /**
      * @var string[]
      */
     public $tables;
+
     /**
      * @var int
      */
     public $version;
+
     /**
      * @var string
      */
     public $vpcId;
     protected $_name = [
-        'avgExaminedRows'             => 'AvgExaminedRows',
-        'avgFetchRows'                => 'AvgFetchRows',
-        'avgLockWaitTime'             => 'AvgLockWaitTime',
-        'avgLogicalRead'              => 'AvgLogicalRead',
-        'avgPhysicalAsyncRead'        => 'AvgPhysicalAsyncRead',
-        'avgPhysicalSyncRead'         => 'AvgPhysicalSyncRead',
-        'avgReturnedRows'             => 'AvgReturnedRows',
-        'avgRt'                       => 'AvgRt',
-        'avgSqlCount'                 => 'AvgSqlCount',
-        'avgUpdatedRows'              => 'AvgUpdatedRows',
-        'count'                       => 'Count',
-        'countRate'                   => 'CountRate',
-        'database'                    => 'Database',
-        'errorCount'                  => 'ErrorCount',
-        'examinedRows'                => 'ExaminedRows',
-        'fetchRows'                   => 'FetchRows',
-        'ip'                          => 'Ip',
-        'lockWaitTime'                => 'LockWaitTime',
-        'logicalRead'                 => 'LogicalRead',
-        'physicalAsyncRead'           => 'PhysicalAsyncRead',
-        'physicalSyncRead'            => 'PhysicalSyncRead',
-        'port'                        => 'Port',
-        'psql'                        => 'Psql',
-        'rows'                        => 'Rows',
+        'avgExaminedRows' => 'AvgExaminedRows',
+        'avgFetchRows' => 'AvgFetchRows',
+        'avgLockWaitTime' => 'AvgLockWaitTime',
+        'avgLogicalRead' => 'AvgLogicalRead',
+        'avgPhysicalAsyncRead' => 'AvgPhysicalAsyncRead',
+        'avgPhysicalSyncRead' => 'AvgPhysicalSyncRead',
+        'avgReturnedRows' => 'AvgReturnedRows',
+        'avgRt' => 'AvgRt',
+        'avgSqlCount' => 'AvgSqlCount',
+        'avgUpdatedRows' => 'AvgUpdatedRows',
+        'count' => 'Count',
+        'countRate' => 'CountRate',
+        'database' => 'Database',
+        'errorCount' => 'ErrorCount',
+        'examinedRows' => 'ExaminedRows',
+        'fetchRows' => 'FetchRows',
+        'ip' => 'Ip',
+        'lockWaitTime' => 'LockWaitTime',
+        'logicalRead' => 'LogicalRead',
+        'physicalAsyncRead' => 'PhysicalAsyncRead',
+        'physicalSyncRead' => 'PhysicalSyncRead',
+        'port' => 'Port',
+        'psql' => 'Psql',
+        'rows' => 'Rows',
         'rtGreaterThanOneSecondCount' => 'RtGreaterThanOneSecondCount',
-        'rtRate'                      => 'RtRate',
-        'sqlCount'                    => 'SqlCount',
-        'sqlId'                       => 'SqlId',
-        'sumUpdatedRows'              => 'SumUpdatedRows',
-        'tables'                      => 'Tables',
-        'version'                     => 'Version',
-        'vpcId'                       => 'VpcId',
+        'rtRate' => 'RtRate',
+        'sqlCount' => 'SqlCount',
+        'sqlId' => 'SqlId',
+        'sumUpdatedRows' => 'SumUpdatedRows',
+        'tables' => 'Tables',
+        'version' => 'Version',
+        'vpcId' => 'VpcId',
     ];
 
     public function validate()
@@ -301,7 +332,7 @@ class list_ extends Model
         if (null !== $this->tables) {
             if (\is_array($this->tables)) {
                 $res['Tables'] = [];
-                $n1            = 0;
+                $n1 = 0;
                 foreach ($this->tables as $item1) {
                     $res['Tables'][$n1++] = $item1;
                 }
@@ -446,7 +477,7 @@ class list_ extends Model
         if (isset($map['Tables'])) {
             if (!empty($map['Tables'])) {
                 $model->tables = [];
-                $n1            = 0;
+                $n1 = 0;
                 foreach ($map['Tables'] as $item1) {
                     $model->tables[$n1++] = $item1;
                 }

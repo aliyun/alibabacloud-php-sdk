@@ -31,7 +31,7 @@ class expiryKeysLevelCount extends Model
         if (null !== $this->expiryLevel) {
             if (\is_array($this->expiryLevel)) {
                 $res['ExpiryLevel'] = [];
-                $n1                 = 0;
+                $n1 = 0;
                 foreach ($this->expiryLevel as $item1) {
                     $res['ExpiryLevel'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -52,7 +52,7 @@ class expiryKeysLevelCount extends Model
         if (isset($map['ExpiryLevel'])) {
             if (!empty($map['ExpiryLevel'])) {
                 $model->expiryLevel = [];
-                $n1                 = 0;
+                $n1 = 0;
                 foreach ($map['ExpiryLevel'] as $item1) {
                     $model->expiryLevel[$n1++] = expiryLevel::fromMap($item1);
                 }

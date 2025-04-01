@@ -12,17 +12,19 @@ class result extends Model
      * @var int
      */
     public $count;
+
     /**
      * @var string
      */
     public $errorCode;
+
     /**
      * @var string
      */
     public $instanceId;
     protected $_name = [
-        'count'      => 'count',
-        'errorCode'  => 'errorCode',
+        'count' => 'count',
+        'errorCode' => 'errorCode',
         'instanceId' => 'instanceId',
     ];
 

@@ -12,28 +12,32 @@ class DescribeCacheAnalysisJobsRequest extends Model
      * @var string
      */
     public $endTime;
+
     /**
      * @var string
      */
     public $instanceId;
+
     /**
      * @var string
      */
     public $pageNo;
+
     /**
      * @var string
      */
     public $pageSize;
+
     /**
      * @var string
      */
     public $startTime;
     protected $_name = [
-        'endTime'    => 'EndTime',
+        'endTime' => 'EndTime',
         'instanceId' => 'InstanceId',
-        'pageNo'     => 'PageNo',
-        'pageSize'   => 'PageSize',
-        'startTime'  => 'StartTime',
+        'pageNo' => 'PageNo',
+        'pageSize' => 'PageSize',
+        'startTime' => 'StartTime',
     ];
 
     public function validate()

@@ -14,28 +14,32 @@ class configResponse extends Model
      * @var int
      */
     public $configFailInstanceCount;
+
     /**
      * @var configFailInstanceList[]
      */
     public $configFailInstanceList;
+
     /**
      * @var int
      */
     public $configSuccessInstanceCount;
+
     /**
      * @var configSuccessInstanceList[]
      */
     public $configSuccessInstanceList;
+
     /**
      * @var int
      */
     public $totalInstanceCount;
     protected $_name = [
-        'configFailInstanceCount'    => 'ConfigFailInstanceCount',
-        'configFailInstanceList'     => 'ConfigFailInstanceList',
+        'configFailInstanceCount' => 'ConfigFailInstanceCount',
+        'configFailInstanceList' => 'ConfigFailInstanceList',
         'configSuccessInstanceCount' => 'ConfigSuccessInstanceCount',
-        'configSuccessInstanceList'  => 'ConfigSuccessInstanceList',
-        'totalInstanceCount'         => 'TotalInstanceCount',
+        'configSuccessInstanceList' => 'ConfigSuccessInstanceList',
+        'totalInstanceCount' => 'TotalInstanceCount',
     ];
 
     public function validate()
@@ -59,7 +63,7 @@ class configResponse extends Model
         if (null !== $this->configFailInstanceList) {
             if (\is_array($this->configFailInstanceList)) {
                 $res['ConfigFailInstanceList'] = [];
-                $n1                            = 0;
+                $n1 = 0;
                 foreach ($this->configFailInstanceList as $item1) {
                     $res['ConfigFailInstanceList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -73,7 +77,7 @@ class configResponse extends Model
         if (null !== $this->configSuccessInstanceList) {
             if (\is_array($this->configSuccessInstanceList)) {
                 $res['ConfigSuccessInstanceList'] = [];
-                $n1                               = 0;
+                $n1 = 0;
                 foreach ($this->configSuccessInstanceList as $item1) {
                     $res['ConfigSuccessInstanceList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -102,7 +106,7 @@ class configResponse extends Model
         if (isset($map['ConfigFailInstanceList'])) {
             if (!empty($map['ConfigFailInstanceList'])) {
                 $model->configFailInstanceList = [];
-                $n1                            = 0;
+                $n1 = 0;
                 foreach ($map['ConfigFailInstanceList'] as $item1) {
                     $model->configFailInstanceList[$n1++] = configFailInstanceList::fromMap($item1);
                 }
@@ -116,7 +120,7 @@ class configResponse extends Model
         if (isset($map['ConfigSuccessInstanceList'])) {
             if (!empty($map['ConfigSuccessInstanceList'])) {
                 $model->configSuccessInstanceList = [];
-                $n1                               = 0;
+                $n1 = 0;
                 foreach ($map['ConfigSuccessInstanceList'] as $item1) {
                     $model->configSuccessInstanceList[$n1++] = configSuccessInstanceList::fromMap($item1);
                 }

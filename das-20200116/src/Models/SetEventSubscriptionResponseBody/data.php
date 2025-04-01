@@ -12,53 +12,62 @@ class data extends Model
      * @var int
      */
     public $active;
+
     /**
      * @var string
      */
     public $channelType;
+
     /**
      * @var string
      */
     public $contactGroupName;
+
     /**
      * @var string
      */
     public $contactName;
+
     /**
      * @var string
      */
     public $eventContext;
+
     /**
      * @var string
      */
     public $instanceId;
+
     /**
      * @var string
      */
     public $lang;
+
     /**
      * @var string
      */
     public $level;
+
     /**
      * @var int
      */
     public $minInterval;
+
     /**
      * @var string
      */
     public $userId;
     protected $_name = [
-        'active'           => 'active',
-        'channelType'      => 'channelType',
+        'active' => 'active',
+        'channelType' => 'channelType',
         'contactGroupName' => 'contactGroupName',
-        'contactName'      => 'contactName',
-        'eventContext'     => 'eventContext',
-        'instanceId'       => 'instanceId',
-        'lang'             => 'lang',
-        'level'            => 'level',
-        'minInterval'      => 'minInterval',
-        'userId'           => 'userId',
+        'contactName' => 'contactName',
+        'eventContext' => 'eventContext',
+        'instanceId' => 'instanceId',
+        'lang' => 'lang',
+        'level' => 'level',
+        'minInterval' => 'minInterval',
+        'userId' => 'userId',
     ];
 
     public function validate()

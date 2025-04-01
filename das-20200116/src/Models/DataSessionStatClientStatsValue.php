@@ -12,13 +12,14 @@ class DataSessionStatClientStatsValue extends Model
      * @var int
      */
     public $activeCount;
+
     /**
      * @var int
      */
     public $totalCount;
     protected $_name = [
         'activeCount' => 'ActiveCount',
-        'totalCount'  => 'TotalCount',
+        'totalCount' => 'TotalCount',
     ];
 
     public function validate()

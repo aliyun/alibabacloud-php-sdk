@@ -12,33 +12,38 @@ class GetQueryOptimizeDataTopRequest extends Model
      * @var string
      */
     public $engine;
+
     /**
      * @var string
      */
     public $instanceIds;
+
     /**
      * @var string
      */
     public $region;
+
     /**
      * @var string
      */
     public $tagNames;
+
     /**
      * @var string
      */
     public $time;
+
     /**
      * @var string
      */
     public $type;
     protected $_name = [
-        'engine'      => 'Engine',
+        'engine' => 'Engine',
         'instanceIds' => 'InstanceIds',
-        'region'      => 'Region',
-        'tagNames'    => 'TagNames',
-        'time'        => 'Time',
-        'type'        => 'Type',
+        'region' => 'Region',
+        'tagNames' => 'TagNames',
+        'time' => 'Time',
+        'type' => 'Type',
     ];
 
     public function validate()

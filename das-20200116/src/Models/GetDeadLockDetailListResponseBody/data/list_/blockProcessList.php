@@ -12,87 +12,103 @@ class blockProcessList extends Model
      * @var string
      */
     public $clientApp;
+
     /**
      * @var string
      */
     public $databaseName;
+
     /**
      * @var string
      */
     public $hostName;
+
     /**
      * @var int
      */
     public $lastTranStarted;
+
     /**
      * @var string
      */
     public $lockMode;
+
     /**
      * @var int
      */
     public $logUsed;
+
     /**
      * @var string
      */
     public $loginName;
+
     /**
      * @var string
      */
     public $objectOwned;
+
     /**
      * @var string
      */
     public $objectRequested;
+
     /**
      * @var string
      */
     public $ownMode;
+
     /**
      * @var int
      */
     public $spid;
+
     /**
      * @var string
      */
     public $sqlText;
+
     /**
      * @var string
      */
     public $status;
+
     /**
      * @var int
      */
     public $victim;
+
     /**
      * @var string
      */
     public $waitMode;
+
     /**
      * @var string
      */
     public $waitResource;
+
     /**
      * @var string
      */
     public $waitResourceDescription;
     protected $_name = [
-        'clientApp'               => 'ClientApp',
-        'databaseName'            => 'DatabaseName',
-        'hostName'                => 'HostName',
-        'lastTranStarted'         => 'LastTranStarted',
-        'lockMode'                => 'LockMode',
-        'logUsed'                 => 'LogUsed',
-        'loginName'               => 'LoginName',
-        'objectOwned'             => 'ObjectOwned',
-        'objectRequested'         => 'ObjectRequested',
-        'ownMode'                 => 'OwnMode',
-        'spid'                    => 'Spid',
-        'sqlText'                 => 'SqlText',
-        'status'                  => 'Status',
-        'victim'                  => 'Victim',
-        'waitMode'                => 'WaitMode',
-        'waitResource'            => 'WaitResource',
+        'clientApp' => 'ClientApp',
+        'databaseName' => 'DatabaseName',
+        'hostName' => 'HostName',
+        'lastTranStarted' => 'LastTranStarted',
+        'lockMode' => 'LockMode',
+        'logUsed' => 'LogUsed',
+        'loginName' => 'LoginName',
+        'objectOwned' => 'ObjectOwned',
+        'objectRequested' => 'ObjectRequested',
+        'ownMode' => 'OwnMode',
+        'spid' => 'Spid',
+        'sqlText' => 'SqlText',
+        'status' => 'Status',
+        'victim' => 'Victim',
+        'waitMode' => 'WaitMode',
+        'waitResource' => 'WaitResource',
         'waitResourceDescription' => 'WaitResourceDescription',
     ];
 

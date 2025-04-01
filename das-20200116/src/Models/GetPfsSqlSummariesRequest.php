@@ -12,53 +12,62 @@ class GetPfsSqlSummariesRequest extends Model
      * @var bool
      */
     public $asc;
+
     /**
      * @var int
      */
     public $endTime;
+
     /**
      * @var string
      */
     public $instanceId;
+
     /**
      * @var string
      */
     public $keywords;
+
     /**
      * @var string
      */
     public $nodeId;
+
     /**
      * @var string
      */
     public $orderBy;
+
     /**
      * @var int
      */
     public $pageNo;
+
     /**
      * @var int
      */
     public $pageSize;
+
     /**
      * @var string
      */
     public $sqlId;
+
     /**
      * @var int
      */
     public $startTime;
     protected $_name = [
-        'asc'        => 'Asc',
-        'endTime'    => 'EndTime',
+        'asc' => 'Asc',
+        'endTime' => 'EndTime',
         'instanceId' => 'InstanceId',
-        'keywords'   => 'Keywords',
-        'nodeId'     => 'NodeId',
-        'orderBy'    => 'OrderBy',
-        'pageNo'     => 'PageNo',
-        'pageSize'   => 'PageSize',
-        'sqlId'      => 'SqlId',
-        'startTime'  => 'StartTime',
+        'keywords' => 'Keywords',
+        'nodeId' => 'NodeId',
+        'orderBy' => 'OrderBy',
+        'pageNo' => 'PageNo',
+        'pageSize' => 'PageSize',
+        'sqlId' => 'SqlId',
+        'startTime' => 'StartTime',
     ];
 
     public function validate()

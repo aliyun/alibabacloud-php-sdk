@@ -12,28 +12,32 @@ class autoFunction extends Model
      * @var int
      */
     public $autoIndex;
+
     /**
      * @var int
      */
     public $autoLimitedSql;
+
     /**
      * @var int
      */
     public $autoResourceOptimize;
+
     /**
      * @var int
      */
     public $autoScale;
+
     /**
      * @var int
      */
     public $eventSubscription;
     protected $_name = [
-        'autoIndex'            => 'AutoIndex',
-        'autoLimitedSql'       => 'AutoLimitedSql',
+        'autoIndex' => 'AutoIndex',
+        'autoLimitedSql' => 'AutoLimitedSql',
         'autoResourceOptimize' => 'AutoResourceOptimize',
-        'autoScale'            => 'AutoScale',
-        'eventSubscription'    => 'EventSubscription',
+        'autoScale' => 'AutoScale',
+        'eventSubscription' => 'EventSubscription',
     ];
 
     public function validate()

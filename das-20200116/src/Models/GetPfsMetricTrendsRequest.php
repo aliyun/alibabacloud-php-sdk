@@ -12,28 +12,32 @@ class GetPfsMetricTrendsRequest extends Model
      * @var int
      */
     public $endTime;
+
     /**
      * @var string
      */
     public $instanceId;
+
     /**
      * @var string
      */
     public $metric;
+
     /**
      * @var string
      */
     public $nodeId;
+
     /**
      * @var int
      */
     public $startTime;
     protected $_name = [
-        'endTime'    => 'EndTime',
+        'endTime' => 'EndTime',
         'instanceId' => 'InstanceId',
-        'metric'     => 'Metric',
-        'nodeId'     => 'NodeId',
-        'startTime'  => 'StartTime',
+        'metric' => 'Metric',
+        'nodeId' => 'NodeId',
+        'startTime' => 'StartTime',
     ];
 
     public function validate()

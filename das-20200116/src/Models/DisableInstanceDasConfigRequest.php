@@ -12,18 +12,20 @@ class DisableInstanceDasConfigRequest extends Model
      * @var string
      */
     public $engine;
+
     /**
      * @var string
      */
     public $instanceId;
+
     /**
      * @var string
      */
     public $scaleType;
     protected $_name = [
-        'engine'     => 'Engine',
+        'engine' => 'Engine',
         'instanceId' => 'InstanceId',
-        'scaleType'  => 'ScaleType',
+        'scaleType' => 'ScaleType',
     ];
 
     public function validate()

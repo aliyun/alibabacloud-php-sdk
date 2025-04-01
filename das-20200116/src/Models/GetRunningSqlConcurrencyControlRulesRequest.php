@@ -12,23 +12,26 @@ class GetRunningSqlConcurrencyControlRulesRequest extends Model
      * @var string
      */
     public $consoleContext;
+
     /**
      * @var string
      */
     public $instanceId;
+
     /**
      * @var int
      */
     public $pageNo;
+
     /**
      * @var int
      */
     public $pageSize;
     protected $_name = [
         'consoleContext' => 'ConsoleContext',
-        'instanceId'     => 'InstanceId',
-        'pageNo'         => 'PageNo',
-        'pageSize'       => 'PageSize',
+        'instanceId' => 'InstanceId',
+        'pageNo' => 'PageNo',
+        'pageSize' => 'PageSize',
     ];
 
     public function validate()

@@ -12,33 +12,38 @@ class autoIncrementUsageList extends Model
      * @var int
      */
     public $autoIncrementCurrentValue;
+
     /**
      * @var float
      */
     public $autoIncrementRatio;
+
     /**
      * @var string
      */
     public $columnName;
+
     /**
      * @var string
      */
     public $dbName;
+
     /**
      * @var int
      */
     public $maximumValue;
+
     /**
      * @var string
      */
     public $tableName;
     protected $_name = [
         'autoIncrementCurrentValue' => 'AutoIncrementCurrentValue',
-        'autoIncrementRatio'        => 'AutoIncrementRatio',
-        'columnName'                => 'ColumnName',
-        'dbName'                    => 'DbName',
-        'maximumValue'              => 'MaximumValue',
-        'tableName'                 => 'TableName',
+        'autoIncrementRatio' => 'AutoIncrementRatio',
+        'columnName' => 'ColumnName',
+        'dbName' => 'DbName',
+        'maximumValue' => 'MaximumValue',
+        'tableName' => 'TableName',
     ];
 
     public function validate()

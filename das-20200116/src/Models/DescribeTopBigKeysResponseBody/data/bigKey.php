@@ -12,28 +12,32 @@ class bigKey extends Model
      * @var int
      */
     public $db;
+
     /**
      * @var string
      */
     public $key;
+
     /**
      * @var string
      */
     public $keyType;
+
     /**
      * @var string
      */
     public $nodeId;
+
     /**
      * @var int
      */
     public $size;
     protected $_name = [
-        'db'      => 'Db',
-        'key'     => 'Key',
+        'db' => 'Db',
+        'key' => 'Key',
         'keyType' => 'KeyType',
-        'nodeId'  => 'NodeId',
-        'size'    => 'Size',
+        'nodeId' => 'NodeId',
+        'size' => 'Size',
     ];
 
     public function validate()

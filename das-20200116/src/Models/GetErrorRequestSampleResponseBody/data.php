@@ -12,48 +12,56 @@ class data extends Model
      * @var string
      */
     public $database;
+
     /**
      * @var string
      */
     public $errorCode;
+
     /**
      * @var string
      */
     public $instanceId;
+
     /**
      * @var string
      */
     public $originHost;
+
     /**
      * @var string
      */
     public $sql;
+
     /**
      * @var string
      */
     public $sqlId;
+
     /**
      * @var string[]
      */
     public $tables;
+
     /**
      * @var int
      */
     public $timestamp;
+
     /**
      * @var string
      */
     public $user;
     protected $_name = [
-        'database'   => 'database',
-        'errorCode'  => 'errorCode',
+        'database' => 'database',
+        'errorCode' => 'errorCode',
         'instanceId' => 'instanceId',
         'originHost' => 'originHost',
-        'sql'        => 'sql',
-        'sqlId'      => 'sqlId',
-        'tables'     => 'tables',
-        'timestamp'  => 'timestamp',
-        'user'       => 'user',
+        'sql' => 'sql',
+        'sqlId' => 'sqlId',
+        'tables' => 'tables',
+        'timestamp' => 'timestamp',
+        'user' => 'user',
     ];
 
     public function validate()
@@ -94,7 +102,7 @@ class data extends Model
         if (null !== $this->tables) {
             if (\is_array($this->tables)) {
                 $res['tables'] = [];
-                $n1            = 0;
+                $n1 = 0;
                 foreach ($this->tables as $item1) {
                     $res['tables'][$n1++] = $item1;
                 }
@@ -147,7 +155,7 @@ class data extends Model
         if (isset($map['tables'])) {
             if (!empty($map['tables'])) {
                 $model->tables = [];
-                $n1            = 0;
+                $n1 = 0;
                 foreach ($map['tables'] as $item1) {
                     $model->tables[$n1++] = $item1;
                 }

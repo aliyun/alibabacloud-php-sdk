@@ -12,23 +12,26 @@ class DescribeSqlLogTaskRequest extends Model
      * @var string
      */
     public $instanceId;
+
     /**
      * @var int
      */
     public $pageNo;
+
     /**
      * @var int
      */
     public $pageSize;
+
     /**
      * @var string
      */
     public $taskId;
     protected $_name = [
         'instanceId' => 'InstanceId',
-        'pageNo'     => 'PageNo',
-        'pageSize'   => 'PageSize',
-        'taskId'     => 'TaskId',
+        'pageNo' => 'PageNo',
+        'pageSize' => 'PageSize',
+        'taskId' => 'TaskId',
     ];
 
     public function validate()

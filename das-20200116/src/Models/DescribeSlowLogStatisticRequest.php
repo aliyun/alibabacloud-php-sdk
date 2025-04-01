@@ -13,58 +13,68 @@ class DescribeSlowLogStatisticRequest extends Model
      * @var bool
      */
     public $asc;
+
     /**
      * @var int
      */
     public $endTime;
+
     /**
      * @var filters[]
      */
     public $filters;
+
     /**
      * @var string
      */
     public $instanceId;
+
     /**
      * @var string
      */
     public $nodeId;
+
     /**
      * @var string
      */
     public $orderBy;
+
     /**
      * @var int
      */
     public $pageNumber;
+
     /**
      * @var int
      */
     public $pageSize;
+
     /**
      * @var int
      */
     public $startTime;
+
     /**
      * @var string
      */
     public $templateId;
+
     /**
      * @var string
      */
     public $type;
     protected $_name = [
-        'asc'        => 'Asc',
-        'endTime'    => 'EndTime',
-        'filters'    => 'Filters',
+        'asc' => 'Asc',
+        'endTime' => 'EndTime',
+        'filters' => 'Filters',
         'instanceId' => 'InstanceId',
-        'nodeId'     => 'NodeId',
-        'orderBy'    => 'OrderBy',
+        'nodeId' => 'NodeId',
+        'orderBy' => 'OrderBy',
         'pageNumber' => 'PageNumber',
-        'pageSize'   => 'PageSize',
-        'startTime'  => 'StartTime',
+        'pageSize' => 'PageSize',
+        'startTime' => 'StartTime',
         'templateId' => 'TemplateId',
-        'type'       => 'Type',
+        'type' => 'Type',
     ];
 
     public function validate()
@@ -89,7 +99,7 @@ class DescribeSlowLogStatisticRequest extends Model
         if (null !== $this->filters) {
             if (\is_array($this->filters)) {
                 $res['Filters'] = [];
-                $n1             = 0;
+                $n1 = 0;
                 foreach ($this->filters as $item1) {
                     $res['Filters'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -150,7 +160,7 @@ class DescribeSlowLogStatisticRequest extends Model
         if (isset($map['Filters'])) {
             if (!empty($map['Filters'])) {
                 $model->filters = [];
-                $n1             = 0;
+                $n1 = 0;
                 foreach ($map['Filters'] as $item1) {
                     $model->filters[$n1++] = filters::fromMap($item1);
                 }

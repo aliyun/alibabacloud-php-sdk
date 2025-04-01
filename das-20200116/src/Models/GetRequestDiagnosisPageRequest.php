@@ -12,33 +12,38 @@ class GetRequestDiagnosisPageRequest extends Model
      * @var int
      */
     public $endTime;
+
     /**
      * @var string
      */
     public $instanceId;
+
     /**
      * @var string
      */
     public $nodeId;
+
     /**
      * @var int
      */
     public $pageNo;
+
     /**
      * @var int
      */
     public $pageSize;
+
     /**
      * @var int
      */
     public $startTime;
     protected $_name = [
-        'endTime'    => 'EndTime',
+        'endTime' => 'EndTime',
         'instanceId' => 'InstanceId',
-        'nodeId'     => 'NodeId',
-        'pageNo'     => 'PageNo',
-        'pageSize'   => 'PageSize',
-        'startTime'  => 'StartTime',
+        'nodeId' => 'NodeId',
+        'pageNo' => 'PageNo',
+        'pageSize' => 'PageSize',
+        'startTime' => 'StartTime',
     ];
 
     public function validate()

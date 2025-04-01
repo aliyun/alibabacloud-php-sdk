@@ -12,18 +12,20 @@ class data extends Model
      * @var string
      */
     public $comments;
+
     /**
      * @var string
      */
     public $sqlId;
+
     /**
      * @var string
      */
     public $tags;
     protected $_name = [
         'comments' => 'Comments',
-        'sqlId'    => 'SqlId',
-        'tags'     => 'Tags',
+        'sqlId' => 'SqlId',
+        'tags' => 'Tags',
     ];
 
     public function validate()

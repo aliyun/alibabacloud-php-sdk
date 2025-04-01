@@ -12,58 +12,68 @@ class SetEventSubscriptionRequest extends Model
      * @var string
      */
     public $active;
+
     /**
      * @var string
      */
     public $channelType;
+
     /**
      * @var string
      */
     public $contactGroupName;
+
     /**
      * @var string
      */
     public $contactName;
+
     /**
      * @var string
      */
     public $dispatchRule;
+
     /**
      * @var string
      */
     public $eventContext;
+
     /**
      * @var string
      */
     public $instanceId;
+
     /**
      * @var string
      */
     public $lang;
+
     /**
      * @var string
      */
     public $level;
+
     /**
      * @var string
      */
     public $minInterval;
+
     /**
      * @var string
      */
     public $severity;
     protected $_name = [
-        'active'           => 'Active',
-        'channelType'      => 'ChannelType',
+        'active' => 'Active',
+        'channelType' => 'ChannelType',
         'contactGroupName' => 'ContactGroupName',
-        'contactName'      => 'ContactName',
-        'dispatchRule'     => 'DispatchRule',
-        'eventContext'     => 'EventContext',
-        'instanceId'       => 'InstanceId',
-        'lang'             => 'Lang',
-        'level'            => 'Level',
-        'minInterval'      => 'MinInterval',
-        'severity'         => 'Severity',
+        'contactName' => 'ContactName',
+        'dispatchRule' => 'DispatchRule',
+        'eventContext' => 'EventContext',
+        'instanceId' => 'InstanceId',
+        'lang' => 'Lang',
+        'level' => 'Level',
+        'minInterval' => 'MinInterval',
+        'severity' => 'Severity',
     ];
 
     public function validate()

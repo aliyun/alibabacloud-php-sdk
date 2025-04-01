@@ -12,98 +12,116 @@ class data extends Model
      * @var string
      */
     public $database;
+
     /**
      * @var int
      */
     public $frows;
+
     /**
      * @var float
      */
     public $lockWaitTime;
+
     /**
      * @var float
      */
     public $logicalRead;
+
     /**
      * @var string
      */
     public $originHost;
+
     /**
      * @var float
      */
     public $physicalAsyncRead;
+
     /**
      * @var float
      */
     public $physicalSyncRead;
+
     /**
      * @var int
      */
     public $rows;
+
     /**
      * @var int
      */
     public $rowsExamined;
+
     /**
      * @var int
      */
     public $rowsReturned;
+
     /**
      * @var float
      */
     public $rt;
+
     /**
      * @var int
      */
     public $scanRows;
+
     /**
      * @var int
      */
     public $scnt;
+
     /**
      * @var string
      */
     public $sql;
+
     /**
      * @var string
      */
     public $sqlId;
+
     /**
      * @var string
      */
     public $sqlType;
+
     /**
      * @var int
      */
     public $timestamp;
+
     /**
      * @var int
      */
     public $updateRows;
+
     /**
      * @var string
      */
     public $user;
     protected $_name = [
-        'database'          => 'Database',
-        'frows'             => 'Frows',
-        'lockWaitTime'      => 'LockWaitTime',
-        'logicalRead'       => 'LogicalRead',
-        'originHost'        => 'OriginHost',
+        'database' => 'Database',
+        'frows' => 'Frows',
+        'lockWaitTime' => 'LockWaitTime',
+        'logicalRead' => 'LogicalRead',
+        'originHost' => 'OriginHost',
         'physicalAsyncRead' => 'PhysicalAsyncRead',
-        'physicalSyncRead'  => 'PhysicalSyncRead',
-        'rows'              => 'Rows',
-        'rowsExamined'      => 'RowsExamined',
-        'rowsReturned'      => 'RowsReturned',
-        'rt'                => 'Rt',
-        'scanRows'          => 'ScanRows',
-        'scnt'              => 'Scnt',
-        'sql'               => 'Sql',
-        'sqlId'             => 'SqlId',
-        'sqlType'           => 'SqlType',
-        'timestamp'         => 'Timestamp',
-        'updateRows'        => 'UpdateRows',
-        'user'              => 'User',
+        'physicalSyncRead' => 'PhysicalSyncRead',
+        'rows' => 'Rows',
+        'rowsExamined' => 'RowsExamined',
+        'rowsReturned' => 'RowsReturned',
+        'rt' => 'Rt',
+        'scanRows' => 'ScanRows',
+        'scnt' => 'Scnt',
+        'sql' => 'Sql',
+        'sqlId' => 'SqlId',
+        'sqlType' => 'SqlType',
+        'timestamp' => 'Timestamp',
+        'updateRows' => 'UpdateRows',
+        'user' => 'User',
     ];
 
     public function validate()

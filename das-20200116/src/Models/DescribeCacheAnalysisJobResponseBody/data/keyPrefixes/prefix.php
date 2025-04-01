@@ -12,28 +12,32 @@ class prefix extends Model
      * @var int
      */
     public $bytes;
+
     /**
      * @var int
      */
     public $count;
+
     /**
      * @var int
      */
     public $keyNum;
+
     /**
      * @var string
      */
     public $prefix;
+
     /**
      * @var string
      */
     public $type;
     protected $_name = [
-        'bytes'  => 'Bytes',
-        'count'  => 'Count',
+        'bytes' => 'Bytes',
+        'count' => 'Count',
         'keyNum' => 'KeyNum',
         'prefix' => 'Prefix',
-        'type'   => 'Type',
+        'type' => 'Type',
     ];
 
     public function validate()

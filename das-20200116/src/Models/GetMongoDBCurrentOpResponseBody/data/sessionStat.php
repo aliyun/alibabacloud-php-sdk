@@ -14,28 +14,32 @@ class sessionStat extends Model
      * @var int
      */
     public $activeCount;
+
     /**
      * @var DataSessionStatClientStatsValue[]
      */
     public $clientStats;
+
     /**
      * @var DataSessionStatDbStatsValue[]
      */
     public $dbStats;
+
     /**
      * @var int
      */
     public $longestSecsRunning;
+
     /**
      * @var int
      */
     public $totalCount;
     protected $_name = [
-        'activeCount'        => 'ActiveCount',
-        'clientStats'        => 'ClientStats',
-        'dbStats'            => 'DbStats',
+        'activeCount' => 'ActiveCount',
+        'clientStats' => 'ClientStats',
+        'dbStats' => 'DbStats',
         'longestSecsRunning' => 'LongestSecsRunning',
-        'totalCount'         => 'TotalCount',
+        'totalCount' => 'TotalCount',
     ];
 
     public function validate()

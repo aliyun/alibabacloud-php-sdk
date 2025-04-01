@@ -31,7 +31,7 @@ class hotKeys extends Model
         if (null !== $this->hotKey) {
             if (\is_array($this->hotKey)) {
                 $res['HotKey'] = [];
-                $n1            = 0;
+                $n1 = 0;
                 foreach ($this->hotKey as $item1) {
                     $res['HotKey'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -52,7 +52,7 @@ class hotKeys extends Model
         if (isset($map['HotKey'])) {
             if (!empty($map['HotKey'])) {
                 $model->hotKey = [];
-                $n1            = 0;
+                $n1 = 0;
                 foreach ($map['HotKey'] as $item1) {
                     $model->hotKey[$n1++] = hotKey::fromMap($item1);
                 }

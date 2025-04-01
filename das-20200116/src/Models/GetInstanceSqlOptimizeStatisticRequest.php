@@ -12,38 +12,44 @@ class GetInstanceSqlOptimizeStatisticRequest extends Model
      * @var string
      */
     public $endTime;
+
     /**
      * @var string
      */
     public $filterEnable;
+
     /**
      * @var string
      */
     public $instanceId;
+
     /**
      * @var string
      */
     public $nodeId;
+
     /**
      * @var string
      */
     public $startTime;
+
     /**
      * @var string
      */
     public $threshold;
+
     /**
      * @var string
      */
     public $useMerging;
     protected $_name = [
-        'endTime'      => 'EndTime',
+        'endTime' => 'EndTime',
         'filterEnable' => 'FilterEnable',
-        'instanceId'   => 'InstanceId',
-        'nodeId'       => 'NodeId',
-        'startTime'    => 'StartTime',
-        'threshold'    => 'Threshold',
-        'useMerging'   => 'UseMerging',
+        'instanceId' => 'InstanceId',
+        'nodeId' => 'NodeId',
+        'startTime' => 'StartTime',
+        'threshold' => 'Threshold',
+        'useMerging' => 'UseMerging',
     ];
 
     public function validate()

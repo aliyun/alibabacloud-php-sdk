@@ -12,68 +12,80 @@ class tableStats extends Model
      * @var int
      */
     public $avgRowLength;
+
     /**
      * @var int
      */
     public $dataFree;
+
     /**
      * @var int
      */
     public $dataSize;
+
     /**
      * @var string
      */
     public $dbName;
+
     /**
      * @var string
      */
     public $engine;
+
     /**
      * @var int
      */
     public $fragmentSize;
+
     /**
      * @var int
      */
     public $indexSize;
+
     /**
      * @var int
      */
     public $phyTotalSize;
+
     /**
      * @var int
      */
     public $physicalFileSize;
+
     /**
      * @var string
      */
     public $tableName;
+
     /**
      * @var int
      */
     public $tableRows;
+
     /**
      * @var string
      */
     public $tableType;
+
     /**
      * @var int
      */
     public $totalSize;
     protected $_name = [
-        'avgRowLength'     => 'AvgRowLength',
-        'dataFree'         => 'DataFree',
-        'dataSize'         => 'DataSize',
-        'dbName'           => 'DbName',
-        'engine'           => 'Engine',
-        'fragmentSize'     => 'FragmentSize',
-        'indexSize'        => 'IndexSize',
-        'phyTotalSize'     => 'PhyTotalSize',
+        'avgRowLength' => 'AvgRowLength',
+        'dataFree' => 'DataFree',
+        'dataSize' => 'DataSize',
+        'dbName' => 'DbName',
+        'engine' => 'Engine',
+        'fragmentSize' => 'FragmentSize',
+        'indexSize' => 'IndexSize',
+        'phyTotalSize' => 'PhyTotalSize',
         'physicalFileSize' => 'PhysicalFileSize',
-        'tableName'        => 'TableName',
-        'tableRows'        => 'TableRows',
-        'tableType'        => 'TableType',
-        'totalSize'        => 'TotalSize',
+        'tableName' => 'TableName',
+        'tableRows' => 'TableRows',
+        'tableType' => 'TableType',
+        'totalSize' => 'TotalSize',
     ];
 
     public function validate()

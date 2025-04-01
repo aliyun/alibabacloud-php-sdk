@@ -12,98 +12,116 @@ class list_ extends Model
      * @var string
      */
     public $accountName;
+
     /**
      * @var string
      */
     public $DBName;
+
     /**
      * @var string
      */
     public $executeTime;
+
     /**
      * @var string
      */
     public $ext;
+
     /**
      * @var string
      */
     public $hostAddress;
+
     /**
      * @var int
      */
     public $latancy;
+
     /**
      * @var int
      */
     public $lockTime;
+
     /**
      * @var int
      */
     public $logicRead;
+
     /**
      * @var string
      */
     public $originTime;
+
     /**
      * @var int
      */
     public $physicAsyncRead;
+
     /**
      * @var int
      */
     public $physicSyncRead;
+
     /**
      * @var int
      */
     public $returnRows;
+
     /**
      * @var string
      */
     public $SQLText;
+
     /**
      * @var int
      */
     public $scanRows;
+
     /**
      * @var string
      */
     public $sqlType;
+
     /**
      * @var string
      */
     public $state;
+
     /**
      * @var int
      */
     public $threadID;
+
     /**
      * @var string
      */
     public $transactionId;
+
     /**
      * @var int
      */
     public $updateRows;
     protected $_name = [
-        'accountName'     => 'AccountName',
-        'DBName'          => 'DBName',
-        'executeTime'     => 'ExecuteTime',
-        'ext'             => 'Ext',
-        'hostAddress'     => 'HostAddress',
-        'latancy'         => 'Latancy',
-        'lockTime'        => 'LockTime',
-        'logicRead'       => 'LogicRead',
-        'originTime'      => 'OriginTime',
+        'accountName' => 'AccountName',
+        'DBName' => 'DBName',
+        'executeTime' => 'ExecuteTime',
+        'ext' => 'Ext',
+        'hostAddress' => 'HostAddress',
+        'latancy' => 'Latancy',
+        'lockTime' => 'LockTime',
+        'logicRead' => 'LogicRead',
+        'originTime' => 'OriginTime',
         'physicAsyncRead' => 'PhysicAsyncRead',
-        'physicSyncRead'  => 'PhysicSyncRead',
-        'returnRows'      => 'ReturnRows',
-        'SQLText'         => 'SQLText',
-        'scanRows'        => 'ScanRows',
-        'sqlType'         => 'SqlType',
-        'state'           => 'State',
-        'threadID'        => 'ThreadID',
-        'transactionId'   => 'TransactionId',
-        'updateRows'      => 'UpdateRows',
+        'physicSyncRead' => 'PhysicSyncRead',
+        'returnRows' => 'ReturnRows',
+        'SQLText' => 'SQLText',
+        'scanRows' => 'ScanRows',
+        'sqlType' => 'SqlType',
+        'state' => 'State',
+        'threadID' => 'ThreadID',
+        'transactionId' => 'TransactionId',
+        'updateRows' => 'UpdateRows',
     ];
 
     public function validate()

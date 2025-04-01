@@ -12,13 +12,14 @@ class CreateLatestDeadLockAnalysisRequest extends Model
      * @var string
      */
     public $instanceId;
+
     /**
      * @var string
      */
     public $nodeId;
     protected $_name = [
         'instanceId' => 'InstanceId',
-        'nodeId'     => 'NodeId',
+        'nodeId' => 'NodeId',
     ];
 
     public function validate()

@@ -12,13 +12,14 @@ class GetDBInstanceConnectivityDiagnosisRequest extends Model
      * @var string
      */
     public $instanceId;
+
     /**
      * @var string
      */
     public $srcIp;
     protected $_name = [
         'instanceId' => 'InstanceId',
-        'srcIp'      => 'SrcIp',
+        'srcIp' => 'SrcIp',
     ];
 
     public function validate()

@@ -12,28 +12,32 @@ class needOptimizeItemList extends Model
      * @var string
      */
     public $associatedData;
+
     /**
      * @var string
      */
     public $dbName;
+
     /**
      * @var string
      */
     public $optimizeAdvice;
+
     /**
      * @var string
      */
     public $optimizeItemName;
+
     /**
      * @var string
      */
     public $tableName;
     protected $_name = [
-        'associatedData'   => 'AssociatedData',
-        'dbName'           => 'DbName',
-        'optimizeAdvice'   => 'OptimizeAdvice',
+        'associatedData' => 'AssociatedData',
+        'dbName' => 'DbName',
+        'optimizeAdvice' => 'OptimizeAdvice',
         'optimizeItemName' => 'OptimizeItemName',
-        'tableName'        => 'TableName',
+        'tableName' => 'TableName',
     ];
 
     public function validate()

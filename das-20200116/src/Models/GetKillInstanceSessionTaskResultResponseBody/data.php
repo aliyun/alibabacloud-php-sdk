@@ -13,53 +13,62 @@ class data extends Model
      * @var int
      */
     public $ignoredUserSessionCount;
+
     /**
      * @var string
      */
     public $instanceId;
+
     /**
      * @var int
      */
     public $killFailCount;
+
     /**
      * @var int
      */
     public $killSuccessCount;
+
     /**
      * @var string
      */
     public $nodeId;
+
     /**
      * @var result[]
      */
     public $result;
+
     /**
      * @var int[]
      */
     public $sessions;
+
     /**
      * @var string
      */
     public $taskId;
+
     /**
      * @var string
      */
     public $taskState;
+
     /**
      * @var string
      */
     public $userId;
     protected $_name = [
         'ignoredUserSessionCount' => 'IgnoredUserSessionCount',
-        'instanceId'              => 'InstanceId',
-        'killFailCount'           => 'KillFailCount',
-        'killSuccessCount'        => 'KillSuccessCount',
-        'nodeId'                  => 'NodeId',
-        'result'                  => 'Result',
-        'sessions'                => 'Sessions',
-        'taskId'                  => 'TaskId',
-        'taskState'               => 'TaskState',
-        'userId'                  => 'UserId',
+        'instanceId' => 'InstanceId',
+        'killFailCount' => 'KillFailCount',
+        'killSuccessCount' => 'KillSuccessCount',
+        'nodeId' => 'NodeId',
+        'result' => 'Result',
+        'sessions' => 'Sessions',
+        'taskId' => 'TaskId',
+        'taskState' => 'TaskState',
+        'userId' => 'UserId',
     ];
 
     public function validate()
@@ -99,7 +108,7 @@ class data extends Model
         if (null !== $this->result) {
             if (\is_array($this->result)) {
                 $res['Result'] = [];
-                $n1            = 0;
+                $n1 = 0;
                 foreach ($this->result as $item1) {
                     $res['Result'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -109,7 +118,7 @@ class data extends Model
         if (null !== $this->sessions) {
             if (\is_array($this->sessions)) {
                 $res['Sessions'] = [];
-                $n1              = 0;
+                $n1 = 0;
                 foreach ($this->sessions as $item1) {
                     $res['Sessions'][$n1++] = $item1;
                 }
@@ -162,7 +171,7 @@ class data extends Model
         if (isset($map['Result'])) {
             if (!empty($map['Result'])) {
                 $model->result = [];
-                $n1            = 0;
+                $n1 = 0;
                 foreach ($map['Result'] as $item1) {
                     $model->result[$n1++] = result::fromMap($item1);
                 }
@@ -172,7 +181,7 @@ class data extends Model
         if (isset($map['Sessions'])) {
             if (!empty($map['Sessions'])) {
                 $model->sessions = [];
-                $n1              = 0;
+                $n1 = 0;
                 foreach ($map['Sessions'] as $item1) {
                     $model->sessions[$n1++] = $item1;
                 }

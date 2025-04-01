@@ -12,38 +12,44 @@ class list_ extends Model
      * @var string
      */
     public $dbname;
+
     /**
      * @var string
      */
     public $errorCode;
+
     /**
      * @var string
      */
     public $origHost;
+
     /**
      * @var string
      */
     public $sqlId;
+
     /**
      * @var string
      */
     public $sqlText;
+
     /**
      * @var int
      */
     public $timestamp;
+
     /**
      * @var string
      */
     public $user;
     protected $_name = [
-        'dbname'    => 'Dbname',
+        'dbname' => 'Dbname',
         'errorCode' => 'ErrorCode',
-        'origHost'  => 'OrigHost',
-        'sqlId'     => 'SqlId',
-        'sqlText'   => 'SqlText',
+        'origHost' => 'OrigHost',
+        'sqlId' => 'SqlId',
+        'sqlText' => 'SqlText',
         'timestamp' => 'Timestamp',
-        'user'      => 'User',
+        'user' => 'User',
     ];
 
     public function validate()

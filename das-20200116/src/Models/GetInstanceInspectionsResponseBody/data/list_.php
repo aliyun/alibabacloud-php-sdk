@@ -14,58 +14,68 @@ class list_ extends Model
      * @var autoFunction
      */
     public $autoFunction;
+
     /**
      * @var mixed[]
      */
     public $data;
+
     /**
      * @var int
      */
     public $enableDasPro;
+
     /**
      * @var int
      */
     public $endTime;
+
     /**
      * @var int
      */
     public $gmtCreate;
+
     /**
      * @var instance
      */
     public $instance;
+
     /**
      * @var int
      */
     public $score;
+
     /**
      * @var mixed[]
      */
     public $scoreMap;
+
     /**
      * @var int
      */
     public $startTime;
+
     /**
      * @var int
      */
     public $state;
+
     /**
      * @var int
      */
     public $taskType;
     protected $_name = [
         'autoFunction' => 'AutoFunction',
-        'data'         => 'Data',
+        'data' => 'Data',
         'enableDasPro' => 'EnableDasPro',
-        'endTime'      => 'EndTime',
-        'gmtCreate'    => 'GmtCreate',
-        'instance'     => 'Instance',
-        'score'        => 'Score',
-        'scoreMap'     => 'ScoreMap',
-        'startTime'    => 'StartTime',
-        'state'        => 'State',
-        'taskType'     => 'TaskType',
+        'endTime' => 'EndTime',
+        'gmtCreate' => 'GmtCreate',
+        'instance' => 'Instance',
+        'score' => 'Score',
+        'scoreMap' => 'ScoreMap',
+        'startTime' => 'StartTime',
+        'state' => 'State',
+        'taskType' => 'TaskType',
     ];
 
     public function validate()

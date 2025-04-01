@@ -12,37 +12,43 @@ class GetHDMLastAliyunResourceSyncResultRequest extends Model
      * @var string
      */
     public $uid;
+
     /**
      * @var string
      */
     public $userId;
+
     /**
      * @var string
      */
     public $context;
+
     /**
      * @var string
      */
     public $accessKey;
+
     /**
      * @var string
      */
     public $signature;
+
     /**
      * @var string
      */
     public $skipAuth;
+
     /**
      * @var string
      */
     public $timestamp;
     protected $_name = [
-        'uid'       => 'Uid',
-        'userId'    => 'UserId',
-        'context'   => '__context',
+        'uid' => 'Uid',
+        'userId' => 'UserId',
+        'context' => '__context',
         'accessKey' => 'accessKey',
         'signature' => 'signature',
-        'skipAuth'  => 'skipAuth',
+        'skipAuth' => 'skipAuth',
         'timestamp' => 'timestamp',
     ];
 

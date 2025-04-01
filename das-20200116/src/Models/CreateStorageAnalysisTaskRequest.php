@@ -12,23 +12,26 @@ class CreateStorageAnalysisTaskRequest extends Model
      * @var string
      */
     public $dbName;
+
     /**
      * @var string
      */
     public $instanceId;
+
     /**
      * @var string
      */
     public $nodeId;
+
     /**
      * @var string
      */
     public $tableName;
     protected $_name = [
-        'dbName'     => 'DbName',
+        'dbName' => 'DbName',
         'instanceId' => 'InstanceId',
-        'nodeId'     => 'NodeId',
-        'tableName'  => 'TableName',
+        'nodeId' => 'NodeId',
+        'tableName' => 'TableName',
     ];
 
     public function validate()

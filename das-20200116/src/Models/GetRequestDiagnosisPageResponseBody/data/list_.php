@@ -12,58 +12,68 @@ class list_ extends Model
      * @var string
      */
     public $accountId;
+
     /**
      * @var string
      */
     public $dbSchema;
+
     /**
      * @var string
      */
     public $engine;
+
     /**
      * @var string
      */
     public $gmtCreate;
+
     /**
      * @var string
      */
     public $gmtModified;
+
     /**
      * @var string
      */
     public $messageId;
+
     /**
      * @var string
      */
     public $param;
+
     /**
      * @var string
      */
     public $result;
+
     /**
      * @var string
      */
     public $sqlId;
+
     /**
      * @var int
      */
     public $state;
+
     /**
      * @var string
      */
     public $uuid;
     protected $_name = [
-        'accountId'   => 'accountId',
-        'dbSchema'    => 'dbSchema',
-        'engine'      => 'engine',
-        'gmtCreate'   => 'gmtCreate',
+        'accountId' => 'accountId',
+        'dbSchema' => 'dbSchema',
+        'engine' => 'engine',
+        'gmtCreate' => 'gmtCreate',
         'gmtModified' => 'gmtModified',
-        'messageId'   => 'messageId',
-        'param'       => 'param',
-        'result'      => 'result',
-        'sqlId'       => 'sqlId',
-        'state'       => 'state',
-        'uuid'        => 'uuid',
+        'messageId' => 'messageId',
+        'param' => 'param',
+        'result' => 'result',
+        'sqlId' => 'sqlId',
+        'state' => 'state',
+        'uuid' => 'uuid',
     ];
 
     public function validate()

@@ -12,58 +12,68 @@ class turnOffAutoThrottleList extends Model
      * @var float
      */
     public $abnormalDuration;
+
     /**
      * @var int
      */
     public $activeSessions;
+
     /**
      * @var string
      */
     public $allowThrottleEndTime;
+
     /**
      * @var string
      */
     public $allowThrottleStartTime;
+
     /**
      * @var bool
      */
     public $autoKillSession;
+
     /**
      * @var string
      */
     public $cpuSessionRelation;
+
     /**
      * @var float
      */
     public $cpuUsage;
+
     /**
      * @var string
      */
     public $instanceId;
+
     /**
      * @var float
      */
     public $maxThrottleTime;
+
     /**
      * @var string
      */
     public $userId;
+
     /**
      * @var bool
      */
     public $visible;
     protected $_name = [
-        'abnormalDuration'       => 'AbnormalDuration',
-        'activeSessions'         => 'ActiveSessions',
-        'allowThrottleEndTime'   => 'AllowThrottleEndTime',
+        'abnormalDuration' => 'AbnormalDuration',
+        'activeSessions' => 'ActiveSessions',
+        'allowThrottleEndTime' => 'AllowThrottleEndTime',
         'allowThrottleStartTime' => 'AllowThrottleStartTime',
-        'autoKillSession'        => 'AutoKillSession',
-        'cpuSessionRelation'     => 'CpuSessionRelation',
-        'cpuUsage'               => 'CpuUsage',
-        'instanceId'             => 'InstanceId',
-        'maxThrottleTime'        => 'MaxThrottleTime',
-        'userId'                 => 'UserId',
-        'visible'                => 'Visible',
+        'autoKillSession' => 'AutoKillSession',
+        'cpuSessionRelation' => 'CpuSessionRelation',
+        'cpuUsage' => 'CpuUsage',
+        'instanceId' => 'InstanceId',
+        'maxThrottleTime' => 'MaxThrottleTime',
+        'userId' => 'UserId',
+        'visible' => 'Visible',
     ];
 
     public function validate()

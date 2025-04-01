@@ -12,33 +12,38 @@ class data extends Model
      * @var int
      */
     public $coldSqlSize;
+
     /**
      * @var int
      */
     public $freeColdSqlSize;
+
     /**
      * @var int
      */
     public $freeHotSqlSize;
+
     /**
      * @var int
      */
     public $hotSqlSize;
+
     /**
      * @var int
      */
     public $importSqlSize;
+
     /**
      * @var int
      */
     public $timestamp;
     protected $_name = [
-        'coldSqlSize'     => 'ColdSqlSize',
+        'coldSqlSize' => 'ColdSqlSize',
         'freeColdSqlSize' => 'FreeColdSqlSize',
-        'freeHotSqlSize'  => 'FreeHotSqlSize',
-        'hotSqlSize'      => 'HotSqlSize',
-        'importSqlSize'   => 'ImportSqlSize',
-        'timestamp'       => 'Timestamp',
+        'freeHotSqlSize' => 'FreeHotSqlSize',
+        'hotSqlSize' => 'HotSqlSize',
+        'importSqlSize' => 'ImportSqlSize',
+        'timestamp' => 'Timestamp',
     ];
 
     public function validate()

@@ -13,37 +13,43 @@ class data extends Model
      * @var bool
      */
     public $complete;
+
     /**
      * @var bool
      */
     public $fail;
+
     /**
      * @var bool
      */
     public $isFinish;
+
     /**
      * @var DataResultValue[]
      */
     public $result;
+
     /**
      * @var string
      */
     public $resultId;
+
     /**
      * @var string
      */
     public $state;
+
     /**
      * @var int
      */
     public $timestamp;
     protected $_name = [
-        'complete'  => 'complete',
-        'fail'      => 'fail',
-        'isFinish'  => 'isFinish',
-        'result'    => 'result',
-        'resultId'  => 'resultId',
-        'state'     => 'state',
+        'complete' => 'complete',
+        'fail' => 'fail',
+        'isFinish' => 'isFinish',
+        'result' => 'result',
+        'resultId' => 'resultId',
+        'state' => 'state',
         'timestamp' => 'timestamp',
     ];
 

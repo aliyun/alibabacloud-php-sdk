@@ -12,33 +12,38 @@ class EnableSqlConcurrencyControlRequest extends Model
      * @var int
      */
     public $concurrencyControlTime;
+
     /**
      * @var string
      */
     public $consoleContext;
+
     /**
      * @var string
      */
     public $instanceId;
+
     /**
      * @var int
      */
     public $maxConcurrency;
+
     /**
      * @var string
      */
     public $sqlKeywords;
+
     /**
      * @var string
      */
     public $sqlType;
     protected $_name = [
         'concurrencyControlTime' => 'ConcurrencyControlTime',
-        'consoleContext'         => 'ConsoleContext',
-        'instanceId'             => 'InstanceId',
-        'maxConcurrency'         => 'MaxConcurrency',
-        'sqlKeywords'            => 'SqlKeywords',
-        'sqlType'                => 'SqlType',
+        'consoleContext' => 'ConsoleContext',
+        'instanceId' => 'InstanceId',
+        'maxConcurrency' => 'MaxConcurrency',
+        'sqlKeywords' => 'SqlKeywords',
+        'sqlType' => 'SqlType',
     ];
 
     public function validate()

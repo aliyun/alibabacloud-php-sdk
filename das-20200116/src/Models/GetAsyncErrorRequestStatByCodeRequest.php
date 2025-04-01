@@ -12,28 +12,32 @@ class GetAsyncErrorRequestStatByCodeRequest extends Model
      * @var string
      */
     public $dbName;
+
     /**
      * @var int
      */
     public $end;
+
     /**
      * @var string
      */
     public $instanceId;
+
     /**
      * @var string
      */
     public $nodeId;
+
     /**
      * @var int
      */
     public $start;
     protected $_name = [
-        'dbName'     => 'DbName',
-        'end'        => 'End',
+        'dbName' => 'DbName',
+        'end' => 'End',
         'instanceId' => 'InstanceId',
-        'nodeId'     => 'NodeId',
-        'start'      => 'Start',
+        'nodeId' => 'NodeId',
+        'start' => 'Start',
     ];
 
     public function validate()

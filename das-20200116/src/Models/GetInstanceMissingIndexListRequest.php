@@ -12,78 +12,92 @@ class GetInstanceMissingIndexListRequest extends Model
      * @var string
      */
     public $avgTotalUserCost;
+
     /**
      * @var string
      */
     public $avgUserImpact;
+
     /**
      * @var string
      */
     public $endTime;
+
     /**
      * @var string
      */
     public $indexCount;
+
     /**
      * @var string
      */
     public $instanceId;
+
     /**
      * @var string
      */
     public $objectName;
+
     /**
      * @var string
      */
     public $pageNo;
+
     /**
      * @var string
      */
     public $pageSize;
+
     /**
      * @var string
      */
     public $reservedPages;
+
     /**
      * @var string
      */
     public $reservedSize;
+
     /**
      * @var string
      */
     public $rowCount;
+
     /**
      * @var string
      */
     public $startTime;
+
     /**
      * @var string
      */
     public $uniqueCompiles;
+
     /**
      * @var string
      */
     public $userScans;
+
     /**
      * @var string
      */
     public $userSeeks;
     protected $_name = [
         'avgTotalUserCost' => 'AvgTotalUserCost',
-        'avgUserImpact'    => 'AvgUserImpact',
-        'endTime'          => 'EndTime',
-        'indexCount'       => 'IndexCount',
-        'instanceId'       => 'InstanceId',
-        'objectName'       => 'ObjectName',
-        'pageNo'           => 'PageNo',
-        'pageSize'         => 'PageSize',
-        'reservedPages'    => 'ReservedPages',
-        'reservedSize'     => 'ReservedSize',
-        'rowCount'         => 'RowCount',
-        'startTime'        => 'StartTime',
-        'uniqueCompiles'   => 'UniqueCompiles',
-        'userScans'        => 'UserScans',
-        'userSeeks'        => 'UserSeeks',
+        'avgUserImpact' => 'AvgUserImpact',
+        'endTime' => 'EndTime',
+        'indexCount' => 'IndexCount',
+        'instanceId' => 'InstanceId',
+        'objectName' => 'ObjectName',
+        'pageNo' => 'PageNo',
+        'pageSize' => 'PageSize',
+        'reservedPages' => 'ReservedPages',
+        'reservedSize' => 'ReservedSize',
+        'rowCount' => 'RowCount',
+        'startTime' => 'StartTime',
+        'uniqueCompiles' => 'UniqueCompiles',
+        'userScans' => 'UserScans',
+        'userSeeks' => 'UserSeeks',
     ];
 
     public function validate()

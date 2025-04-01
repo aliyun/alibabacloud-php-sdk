@@ -12,13 +12,14 @@ class KillInstanceAllSessionRequest extends Model
      * @var string
      */
     public $consoleContext;
+
     /**
      * @var string
      */
     public $instanceId;
     protected $_name = [
         'consoleContext' => 'ConsoleContext',
-        'instanceId'     => 'InstanceId',
+        'instanceId' => 'InstanceId',
     ];
 
     public function validate()

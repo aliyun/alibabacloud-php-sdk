@@ -12,53 +12,62 @@ class GetAutonomousNotifyEventsInRangeRequest extends Model
      * @var string
      */
     public $endTime;
+
     /**
      * @var string
      */
     public $eventContext;
+
     /**
      * @var string
      */
     public $instanceId;
+
     /**
      * @var string
      */
     public $level;
+
     /**
      * @var string
      */
     public $minLevel;
+
     /**
      * @var string
      */
     public $nodeId;
+
     /**
      * @var string
      */
     public $pageOffset;
+
     /**
      * @var string
      */
     public $pageSize;
+
     /**
      * @var string
      */
     public $startTime;
+
     /**
      * @var string
      */
     public $context;
     protected $_name = [
-        'endTime'      => 'EndTime',
+        'endTime' => 'EndTime',
         'eventContext' => 'EventContext',
-        'instanceId'   => 'InstanceId',
-        'level'        => 'Level',
-        'minLevel'     => 'MinLevel',
-        'nodeId'       => 'NodeId',
-        'pageOffset'   => 'PageOffset',
-        'pageSize'     => 'PageSize',
-        'startTime'    => 'StartTime',
-        'context'      => '__context',
+        'instanceId' => 'InstanceId',
+        'level' => 'Level',
+        'minLevel' => 'MinLevel',
+        'nodeId' => 'NodeId',
+        'pageOffset' => 'PageOffset',
+        'pageSize' => 'PageSize',
+        'startTime' => 'StartTime',
+        'context' => '__context',
     ];
 
     public function validate()

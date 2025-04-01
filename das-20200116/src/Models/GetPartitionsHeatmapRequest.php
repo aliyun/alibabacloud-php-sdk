@@ -12,23 +12,26 @@ class GetPartitionsHeatmapRequest extends Model
      * @var string
      */
     public $consoleContext;
+
     /**
      * @var string
      */
     public $instanceId;
+
     /**
      * @var string
      */
     public $timeRange;
+
     /**
      * @var string
      */
     public $type;
     protected $_name = [
         'consoleContext' => 'ConsoleContext',
-        'instanceId'     => 'InstanceId',
-        'timeRange'      => 'TimeRange',
-        'type'           => 'Type',
+        'instanceId' => 'InstanceId',
+        'timeRange' => 'TimeRange',
+        'type' => 'Type',
     ];
 
     public function validate()

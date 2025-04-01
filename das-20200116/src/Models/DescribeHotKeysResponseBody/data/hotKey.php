@@ -12,28 +12,32 @@ class hotKey extends Model
      * @var int
      */
     public $db;
+
     /**
      * @var string
      */
     public $hot;
+
     /**
      * @var string
      */
     public $key;
+
     /**
      * @var string
      */
     public $keyType;
+
     /**
      * @var int
      */
     public $size;
     protected $_name = [
-        'db'      => 'Db',
-        'hot'     => 'Hot',
-        'key'     => 'Key',
+        'db' => 'Db',
+        'hot' => 'Hot',
+        'key' => 'Key',
         'keyType' => 'KeyType',
-        'size'    => 'Size',
+        'size' => 'Size',
     ];
 
     public function validate()

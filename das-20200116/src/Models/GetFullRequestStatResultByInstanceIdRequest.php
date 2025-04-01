@@ -12,78 +12,92 @@ class GetFullRequestStatResultByInstanceIdRequest extends Model
      * @var bool
      */
     public $asc;
+
     /**
      * @var string
      */
     public $dbName;
+
     /**
      * @var int
      */
     public $end;
+
     /**
      * @var string
      */
     public $instanceId;
+
     /**
      * @var string
      */
     public $keyword;
+
     /**
      * @var string
      */
     public $nodeId;
+
     /**
      * @var string
      */
     public $orderBy;
+
     /**
      * @var string
      */
     public $originHost;
+
     /**
      * @var int
      */
     public $pageNo;
+
     /**
      * @var int
      */
     public $pageSize;
+
     /**
      * @var string
      */
     public $role;
+
     /**
      * @var string
      */
     public $sqlId;
+
     /**
      * @var string
      */
     public $sqlType;
+
     /**
      * @var int
      */
     public $start;
+
     /**
      * @var string
      */
     public $userId;
     protected $_name = [
-        'asc'        => 'Asc',
-        'dbName'     => 'DbName',
-        'end'        => 'End',
+        'asc' => 'Asc',
+        'dbName' => 'DbName',
+        'end' => 'End',
         'instanceId' => 'InstanceId',
-        'keyword'    => 'Keyword',
-        'nodeId'     => 'NodeId',
-        'orderBy'    => 'OrderBy',
+        'keyword' => 'Keyword',
+        'nodeId' => 'NodeId',
+        'orderBy' => 'OrderBy',
         'originHost' => 'OriginHost',
-        'pageNo'     => 'PageNo',
-        'pageSize'   => 'PageSize',
-        'role'       => 'Role',
-        'sqlId'      => 'SqlId',
-        'sqlType'    => 'SqlType',
-        'start'      => 'Start',
-        'userId'     => 'UserId',
+        'pageNo' => 'PageNo',
+        'pageSize' => 'PageSize',
+        'role' => 'Role',
+        'sqlId' => 'SqlId',
+        'sqlType' => 'SqlType',
+        'start' => 'Start',
+        'userId' => 'UserId',
     ];
 
     public function validate()

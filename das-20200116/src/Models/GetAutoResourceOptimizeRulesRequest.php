@@ -12,13 +12,14 @@ class GetAutoResourceOptimizeRulesRequest extends Model
      * @var string
      */
     public $consoleContext;
+
     /**
      * @var string
      */
     public $instanceIds;
     protected $_name = [
         'consoleContext' => 'ConsoleContext',
-        'instanceIds'    => 'InstanceIds',
+        'instanceIds' => 'InstanceIds',
     ];
 
     public function validate()

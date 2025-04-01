@@ -12,18 +12,20 @@ class GetStorageAnalysisResultRequest extends Model
      * @var string
      */
     public $instanceId;
+
     /**
      * @var string
      */
     public $nodeId;
+
     /**
      * @var string
      */
     public $taskId;
     protected $_name = [
         'instanceId' => 'InstanceId',
-        'nodeId'     => 'NodeId',
-        'taskId'     => 'TaskId',
+        'nodeId' => 'NodeId',
+        'taskId' => 'TaskId',
     ];
 
     public function validate()

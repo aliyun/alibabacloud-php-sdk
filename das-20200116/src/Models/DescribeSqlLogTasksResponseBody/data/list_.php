@@ -13,83 +13,98 @@ class list_ extends Model
      * @var int
      */
     public $analysisTaskFinishTime;
+
     /**
      * @var string
      */
     public $analysisTaskStatus;
+
     /**
      * @var int
      */
     public $createTime;
+
     /**
      * @var int
      */
     public $end;
+
     /**
      * @var bool
      */
     public $expire;
+
     /**
      * @var filters[]
      */
     public $filters;
+
     /**
      * @var string
      */
     public $instanceId;
+
     /**
      * @var int
      */
     public $logCount;
+
     /**
      * @var string
      */
     public $name;
+
     /**
      * @var int
      */
     public $progress;
+
     /**
      * @var string
      */
     public $result;
+
     /**
      * @var int
      */
     public $scanFileSize;
+
     /**
      * @var int
      */
     public $start;
+
     /**
      * @var string
      */
     public $status;
+
     /**
      * @var string
      */
     public $taskId;
+
     /**
      * @var string
      */
     public $taskType;
     protected $_name = [
         'analysisTaskFinishTime' => 'AnalysisTaskFinishTime',
-        'analysisTaskStatus'     => 'AnalysisTaskStatus',
-        'createTime'             => 'CreateTime',
-        'end'                    => 'End',
-        'expire'                 => 'Expire',
-        'filters'                => 'Filters',
-        'instanceId'             => 'InstanceId',
-        'logCount'               => 'LogCount',
-        'name'                   => 'Name',
-        'progress'               => 'Progress',
-        'result'                 => 'Result',
-        'scanFileSize'           => 'ScanFileSize',
-        'start'                  => 'Start',
-        'status'                 => 'Status',
-        'taskId'                 => 'TaskId',
-        'taskType'               => 'TaskType',
+        'analysisTaskStatus' => 'AnalysisTaskStatus',
+        'createTime' => 'CreateTime',
+        'end' => 'End',
+        'expire' => 'Expire',
+        'filters' => 'Filters',
+        'instanceId' => 'InstanceId',
+        'logCount' => 'LogCount',
+        'name' => 'Name',
+        'progress' => 'Progress',
+        'result' => 'Result',
+        'scanFileSize' => 'ScanFileSize',
+        'start' => 'Start',
+        'status' => 'Status',
+        'taskId' => 'TaskId',
+        'taskType' => 'TaskType',
     ];
 
     public function validate()
@@ -126,7 +141,7 @@ class list_ extends Model
         if (null !== $this->filters) {
             if (\is_array($this->filters)) {
                 $res['Filters'] = [];
-                $n1             = 0;
+                $n1 = 0;
                 foreach ($this->filters as $item1) {
                     $res['Filters'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -207,7 +222,7 @@ class list_ extends Model
         if (isset($map['Filters'])) {
             if (!empty($map['Filters'])) {
                 $model->filters = [];
-                $n1             = 0;
+                $n1 = 0;
                 foreach ($map['Filters'] as $item1) {
                     $model->filters[$n1++] = filters::fromMap($item1);
                 }

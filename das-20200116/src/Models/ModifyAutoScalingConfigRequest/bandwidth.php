@@ -12,33 +12,38 @@ class bandwidth extends Model
      * @var bool
      */
     public $apply;
+
     /**
      * @var int
      */
     public $bandwidthUsageLowerThreshold;
+
     /**
      * @var int
      */
     public $bandwidthUsageUpperThreshold;
+
     /**
      * @var bool
      */
     public $downgrade;
+
     /**
      * @var string
      */
     public $observationWindowSize;
+
     /**
      * @var bool
      */
     public $upgrade;
     protected $_name = [
-        'apply'                        => 'Apply',
+        'apply' => 'Apply',
         'bandwidthUsageLowerThreshold' => 'BandwidthUsageLowerThreshold',
         'bandwidthUsageUpperThreshold' => 'BandwidthUsageUpperThreshold',
-        'downgrade'                    => 'Downgrade',
-        'observationWindowSize'        => 'ObservationWindowSize',
-        'upgrade'                      => 'Upgrade',
+        'downgrade' => 'Downgrade',
+        'observationWindowSize' => 'ObservationWindowSize',
+        'upgrade' => 'Upgrade',
     ];
 
     public function validate()

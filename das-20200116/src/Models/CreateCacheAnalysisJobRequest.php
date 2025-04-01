@@ -12,23 +12,26 @@ class CreateCacheAnalysisJobRequest extends Model
      * @var string
      */
     public $backupSetId;
+
     /**
      * @var string
      */
     public $instanceId;
+
     /**
      * @var string
      */
     public $nodeId;
+
     /**
      * @var string
      */
     public $separators;
     protected $_name = [
         'backupSetId' => 'BackupSetId',
-        'instanceId'  => 'InstanceId',
-        'nodeId'      => 'NodeId',
-        'separators'  => 'Separators',
+        'instanceId' => 'InstanceId',
+        'nodeId' => 'NodeId',
+        'separators' => 'Separators',
     ];
 
     public function validate()

@@ -18,58 +18,68 @@ class data extends Model
      * @var bigKeys
      */
     public $bigKeys;
+
     /**
      * @var bigKeysOfNum
      */
     public $bigKeysOfNum;
+
     /**
      * @var expiryKeysLevelCount
      */
     public $expiryKeysLevelCount;
+
     /**
      * @var string
      */
     public $instanceId;
+
     /**
      * @var string
      */
     public $jobId;
+
     /**
      * @var keyPrefixes
      */
     public $keyPrefixes;
+
     /**
      * @var string
      */
     public $message;
+
     /**
      * @var string
      */
     public $nodeId;
+
     /**
      * @var string
      */
     public $taskState;
+
     /**
      * @var unexBigKeysOfBytes
      */
     public $unexBigKeysOfBytes;
+
     /**
      * @var unexBigKeysOfNum
      */
     public $unexBigKeysOfNum;
     protected $_name = [
-        'bigKeys'              => 'BigKeys',
-        'bigKeysOfNum'         => 'BigKeysOfNum',
+        'bigKeys' => 'BigKeys',
+        'bigKeysOfNum' => 'BigKeysOfNum',
         'expiryKeysLevelCount' => 'ExpiryKeysLevelCount',
-        'instanceId'           => 'InstanceId',
-        'jobId'                => 'JobId',
-        'keyPrefixes'          => 'KeyPrefixes',
-        'message'              => 'Message',
-        'nodeId'               => 'NodeId',
-        'taskState'            => 'TaskState',
-        'unexBigKeysOfBytes'   => 'UnexBigKeysOfBytes',
-        'unexBigKeysOfNum'     => 'UnexBigKeysOfNum',
+        'instanceId' => 'InstanceId',
+        'jobId' => 'JobId',
+        'keyPrefixes' => 'KeyPrefixes',
+        'message' => 'Message',
+        'nodeId' => 'NodeId',
+        'taskState' => 'TaskState',
+        'unexBigKeysOfBytes' => 'UnexBigKeysOfBytes',
+        'unexBigKeysOfNum' => 'UnexBigKeysOfNum',
     ];
 
     public function validate()

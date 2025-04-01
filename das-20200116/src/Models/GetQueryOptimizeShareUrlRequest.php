@@ -12,83 +12,98 @@ class GetQueryOptimizeShareUrlRequest extends Model
      * @var bool
      */
     public $asc;
+
     /**
      * @var string
      */
     public $dbNames;
+
     /**
      * @var string
      */
     public $engine;
+
     /**
      * @var string
      */
     public $instanceIds;
+
     /**
      * @var string
      */
     public $keywords;
+
     /**
      * @var string
      */
     public $logicalOperator;
+
     /**
      * @var bool
      */
     public $onlyOptimizedSql;
+
     /**
      * @var string
      */
     public $orderBy;
+
     /**
      * @var int
      */
     public $pageNo;
+
     /**
      * @var int
      */
     public $pageSize;
+
     /**
      * @var string
      */
     public $region;
+
     /**
      * @var string
      */
     public $rules;
+
     /**
      * @var string
      */
     public $sqlIds;
+
     /**
      * @var string
      */
     public $tagNames;
+
     /**
      * @var int
      */
     public $time;
+
     /**
      * @var string
      */
     public $user;
     protected $_name = [
-        'asc'              => 'Asc',
-        'dbNames'          => 'DbNames',
-        'engine'           => 'Engine',
-        'instanceIds'      => 'InstanceIds',
-        'keywords'         => 'Keywords',
-        'logicalOperator'  => 'LogicalOperator',
+        'asc' => 'Asc',
+        'dbNames' => 'DbNames',
+        'engine' => 'Engine',
+        'instanceIds' => 'InstanceIds',
+        'keywords' => 'Keywords',
+        'logicalOperator' => 'LogicalOperator',
         'onlyOptimizedSql' => 'OnlyOptimizedSql',
-        'orderBy'          => 'OrderBy',
-        'pageNo'           => 'PageNo',
-        'pageSize'         => 'PageSize',
-        'region'           => 'Region',
-        'rules'            => 'Rules',
-        'sqlIds'           => 'SqlIds',
-        'tagNames'         => 'TagNames',
-        'time'             => 'Time',
-        'user'             => 'User',
+        'orderBy' => 'OrderBy',
+        'pageNo' => 'PageNo',
+        'pageSize' => 'PageSize',
+        'region' => 'Region',
+        'rules' => 'Rules',
+        'sqlIds' => 'SqlIds',
+        'tagNames' => 'TagNames',
+        'time' => 'Time',
+        'user' => 'User',
     ];
 
     public function validate()

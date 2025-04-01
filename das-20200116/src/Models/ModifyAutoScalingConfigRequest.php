@@ -17,33 +17,38 @@ class ModifyAutoScalingConfigRequest extends Model
      * @var bandwidth
      */
     public $bandwidth;
+
     /**
      * @var string
      */
     public $instanceId;
+
     /**
      * @var resource
      */
     public $resource;
+
     /**
      * @var shard
      */
     public $shard;
+
     /**
      * @var spec
      */
     public $spec;
+
     /**
      * @var storage
      */
     public $storage;
     protected $_name = [
-        'bandwidth'  => 'Bandwidth',
+        'bandwidth' => 'Bandwidth',
         'instanceId' => 'InstanceId',
-        'resource'   => 'Resource',
-        'shard'      => 'Shard',
-        'spec'       => 'Spec',
-        'storage'    => 'Storage',
+        'resource' => 'Resource',
+        'shard' => 'Shard',
+        'spec' => 'Spec',
+        'storage' => 'Storage',
     ];
 
     public function validate()

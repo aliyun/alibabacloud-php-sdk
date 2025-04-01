@@ -12,108 +12,128 @@ class sessions extends Model
      * @var string
      */
     public $addr;
+
     /**
      * @var string
      */
     public $age;
+
     /**
      * @var string
      */
     public $client;
+
     /**
      * @var string
      */
     public $clientDesc;
+
     /**
      * @var string
      */
     public $cmd;
+
     /**
      * @var int
      */
     public $db;
+
     /**
      * @var string
      */
     public $events;
+
     /**
      * @var int
      */
     public $fd;
+
     /**
      * @var string
      */
     public $flags;
+
     /**
      * @var int
      */
     public $id;
+
     /**
      * @var int
      */
     public $idle;
+
     /**
      * @var int
      */
     public $multi;
+
     /**
      * @var string
      */
     public $name;
+
     /**
      * @var string
      */
     public $nodeId;
+
     /**
      * @var int
      */
     public $obl;
+
     /**
      * @var int
      */
     public $oll;
+
     /**
      * @var int
      */
     public $omem;
+
     /**
      * @var int
      */
     public $psub;
+
     /**
      * @var int
      */
     public $qbuf;
+
     /**
      * @var int
      */
     public $qbufFree;
+
     /**
      * @var int
      */
     public $sub;
     protected $_name = [
-        'addr'       => 'Addr',
-        'age'        => 'Age',
-        'client'     => 'Client',
+        'addr' => 'Addr',
+        'age' => 'Age',
+        'client' => 'Client',
         'clientDesc' => 'ClientDesc',
-        'cmd'        => 'Cmd',
-        'db'         => 'Db',
-        'events'     => 'Events',
-        'fd'         => 'Fd',
-        'flags'      => 'Flags',
-        'id'         => 'Id',
-        'idle'       => 'Idle',
-        'multi'      => 'Multi',
-        'name'       => 'Name',
-        'nodeId'     => 'NodeId',
-        'obl'        => 'Obl',
-        'oll'        => 'Oll',
-        'omem'       => 'Omem',
-        'psub'       => 'Psub',
-        'qbuf'       => 'Qbuf',
-        'qbufFree'   => 'QbufFree',
-        'sub'        => 'Sub',
+        'cmd' => 'Cmd',
+        'db' => 'Db',
+        'events' => 'Events',
+        'fd' => 'Fd',
+        'flags' => 'Flags',
+        'id' => 'Id',
+        'idle' => 'Idle',
+        'multi' => 'Multi',
+        'name' => 'Name',
+        'nodeId' => 'NodeId',
+        'obl' => 'Obl',
+        'oll' => 'Oll',
+        'omem' => 'Omem',
+        'psub' => 'Psub',
+        'qbuf' => 'Qbuf',
+        'qbufFree' => 'QbufFree',
+        'sub' => 'Sub',
     ];
 
     public function validate()

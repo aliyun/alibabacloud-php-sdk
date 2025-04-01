@@ -12,53 +12,62 @@ class specHistory extends Model
      * @var string
      */
     public $errorCode;
+
     /**
      * @var int
      */
     public $originCore;
+
     /**
      * @var string
      */
     public $originInstanceClass;
+
     /**
      * @var float
      */
     public $originMemory;
+
     /**
      * @var string
      */
     public $scaleType;
+
     /**
      * @var int
      */
     public $targetCore;
+
     /**
      * @var string
      */
     public $targetInstanceClass;
+
     /**
      * @var float
      */
     public $targetMemory;
+
     /**
      * @var bool
      */
     public $taskExcuteStatus;
+
     /**
      * @var int
      */
     public $taskTime;
     protected $_name = [
-        'errorCode'           => 'ErrorCode',
-        'originCore'          => 'OriginCore',
+        'errorCode' => 'ErrorCode',
+        'originCore' => 'OriginCore',
         'originInstanceClass' => 'OriginInstanceClass',
-        'originMemory'        => 'OriginMemory',
-        'scaleType'           => 'ScaleType',
-        'targetCore'          => 'TargetCore',
+        'originMemory' => 'OriginMemory',
+        'scaleType' => 'ScaleType',
+        'targetCore' => 'TargetCore',
         'targetInstanceClass' => 'TargetInstanceClass',
-        'targetMemory'        => 'TargetMemory',
-        'taskExcuteStatus'    => 'TaskExcuteStatus',
-        'taskTime'            => 'TaskTime',
+        'targetMemory' => 'TargetMemory',
+        'taskExcuteStatus' => 'TaskExcuteStatus',
+        'taskTime' => 'TaskTime',
     ];
 
     public function validate()

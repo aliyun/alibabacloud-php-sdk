@@ -15,48 +15,56 @@ class data extends Model
      * @var int
      */
     public $enableAutoResourceOptimizeCount;
+
     /**
      * @var enableAutoResourceOptimizeList[]
      */
     public $enableAutoResourceOptimizeList;
+
     /**
      * @var int
      */
     public $hasEnableRuleButNotDasProCount;
+
     /**
      * @var hasEnableRuleButNotDasProList[]
      */
     public $hasEnableRuleButNotDasProList;
+
     /**
      * @var int
      */
     public $neverEnableAutoResourceOptimizeOrReleasedInstanceCount;
+
     /**
      * @var string[]
      */
     public $neverEnableAutoResourceOptimizeOrReleasedInstanceIdList;
+
     /**
      * @var int
      */
     public $totalAutoResourceOptimizeRulesCount;
+
     /**
      * @var int
      */
     public $turnOffAutoResourceOptimizeCount;
+
     /**
      * @var turnOffAutoResourceOptimizeList[]
      */
     public $turnOffAutoResourceOptimizeList;
     protected $_name = [
-        'enableAutoResourceOptimizeCount'                         => 'EnableAutoResourceOptimizeCount',
-        'enableAutoResourceOptimizeList'                          => 'EnableAutoResourceOptimizeList',
-        'hasEnableRuleButNotDasProCount'                          => 'HasEnableRuleButNotDasProCount',
-        'hasEnableRuleButNotDasProList'                           => 'HasEnableRuleButNotDasProList',
-        'neverEnableAutoResourceOptimizeOrReleasedInstanceCount'  => 'NeverEnableAutoResourceOptimizeOrReleasedInstanceCount',
+        'enableAutoResourceOptimizeCount' => 'EnableAutoResourceOptimizeCount',
+        'enableAutoResourceOptimizeList' => 'EnableAutoResourceOptimizeList',
+        'hasEnableRuleButNotDasProCount' => 'HasEnableRuleButNotDasProCount',
+        'hasEnableRuleButNotDasProList' => 'HasEnableRuleButNotDasProList',
+        'neverEnableAutoResourceOptimizeOrReleasedInstanceCount' => 'NeverEnableAutoResourceOptimizeOrReleasedInstanceCount',
         'neverEnableAutoResourceOptimizeOrReleasedInstanceIdList' => 'NeverEnableAutoResourceOptimizeOrReleasedInstanceIdList',
-        'totalAutoResourceOptimizeRulesCount'                     => 'TotalAutoResourceOptimizeRulesCount',
-        'turnOffAutoResourceOptimizeCount'                        => 'TurnOffAutoResourceOptimizeCount',
-        'turnOffAutoResourceOptimizeList'                         => 'TurnOffAutoResourceOptimizeList',
+        'totalAutoResourceOptimizeRulesCount' => 'TotalAutoResourceOptimizeRulesCount',
+        'turnOffAutoResourceOptimizeCount' => 'TurnOffAutoResourceOptimizeCount',
+        'turnOffAutoResourceOptimizeList' => 'TurnOffAutoResourceOptimizeList',
     ];
 
     public function validate()
@@ -86,7 +94,7 @@ class data extends Model
         if (null !== $this->enableAutoResourceOptimizeList) {
             if (\is_array($this->enableAutoResourceOptimizeList)) {
                 $res['EnableAutoResourceOptimizeList'] = [];
-                $n1                                    = 0;
+                $n1 = 0;
                 foreach ($this->enableAutoResourceOptimizeList as $item1) {
                     $res['EnableAutoResourceOptimizeList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -100,7 +108,7 @@ class data extends Model
         if (null !== $this->hasEnableRuleButNotDasProList) {
             if (\is_array($this->hasEnableRuleButNotDasProList)) {
                 $res['HasEnableRuleButNotDasProList'] = [];
-                $n1                                   = 0;
+                $n1 = 0;
                 foreach ($this->hasEnableRuleButNotDasProList as $item1) {
                     $res['HasEnableRuleButNotDasProList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -114,7 +122,7 @@ class data extends Model
         if (null !== $this->neverEnableAutoResourceOptimizeOrReleasedInstanceIdList) {
             if (\is_array($this->neverEnableAutoResourceOptimizeOrReleasedInstanceIdList)) {
                 $res['NeverEnableAutoResourceOptimizeOrReleasedInstanceIdList'] = [];
-                $n1                                                             = 0;
+                $n1 = 0;
                 foreach ($this->neverEnableAutoResourceOptimizeOrReleasedInstanceIdList as $item1) {
                     $res['NeverEnableAutoResourceOptimizeOrReleasedInstanceIdList'][$n1++] = $item1;
                 }
@@ -132,7 +140,7 @@ class data extends Model
         if (null !== $this->turnOffAutoResourceOptimizeList) {
             if (\is_array($this->turnOffAutoResourceOptimizeList)) {
                 $res['TurnOffAutoResourceOptimizeList'] = [];
-                $n1                                     = 0;
+                $n1 = 0;
                 foreach ($this->turnOffAutoResourceOptimizeList as $item1) {
                     $res['TurnOffAutoResourceOptimizeList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -157,7 +165,7 @@ class data extends Model
         if (isset($map['EnableAutoResourceOptimizeList'])) {
             if (!empty($map['EnableAutoResourceOptimizeList'])) {
                 $model->enableAutoResourceOptimizeList = [];
-                $n1                                    = 0;
+                $n1 = 0;
                 foreach ($map['EnableAutoResourceOptimizeList'] as $item1) {
                     $model->enableAutoResourceOptimizeList[$n1++] = enableAutoResourceOptimizeList::fromMap($item1);
                 }
@@ -171,7 +179,7 @@ class data extends Model
         if (isset($map['HasEnableRuleButNotDasProList'])) {
             if (!empty($map['HasEnableRuleButNotDasProList'])) {
                 $model->hasEnableRuleButNotDasProList = [];
-                $n1                                   = 0;
+                $n1 = 0;
                 foreach ($map['HasEnableRuleButNotDasProList'] as $item1) {
                     $model->hasEnableRuleButNotDasProList[$n1++] = hasEnableRuleButNotDasProList::fromMap($item1);
                 }
@@ -185,7 +193,7 @@ class data extends Model
         if (isset($map['NeverEnableAutoResourceOptimizeOrReleasedInstanceIdList'])) {
             if (!empty($map['NeverEnableAutoResourceOptimizeOrReleasedInstanceIdList'])) {
                 $model->neverEnableAutoResourceOptimizeOrReleasedInstanceIdList = [];
-                $n1                                                             = 0;
+                $n1 = 0;
                 foreach ($map['NeverEnableAutoResourceOptimizeOrReleasedInstanceIdList'] as $item1) {
                     $model->neverEnableAutoResourceOptimizeOrReleasedInstanceIdList[$n1++] = $item1;
                 }
@@ -203,7 +211,7 @@ class data extends Model
         if (isset($map['TurnOffAutoResourceOptimizeList'])) {
             if (!empty($map['TurnOffAutoResourceOptimizeList'])) {
                 $model->turnOffAutoResourceOptimizeList = [];
-                $n1                                     = 0;
+                $n1 = 0;
                 foreach ($map['TurnOffAutoResourceOptimizeList'] as $item1) {
                     $model->turnOffAutoResourceOptimizeList[$n1++] = turnOffAutoResourceOptimizeList::fromMap($item1);
                 }

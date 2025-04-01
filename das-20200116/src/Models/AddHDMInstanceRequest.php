@@ -12,68 +12,80 @@ class AddHDMInstanceRequest extends Model
      * @var string
      */
     public $engine;
+
     /**
      * @var string
      */
     public $flushAccount;
+
     /**
      * @var string
      */
     public $instanceAlias;
+
     /**
      * @var string
      */
     public $instanceArea;
+
     /**
      * @var string
      */
     public $instanceId;
+
     /**
      * @var string
      */
     public $ip;
+
     /**
      * @var string
      */
     public $networkType;
+
     /**
      * @var string
      */
     public $password;
+
     /**
      * @var string
      */
     public $port;
+
     /**
      * @var string
      */
     public $region;
+
     /**
      * @var string
      */
     public $username;
+
     /**
      * @var string
      */
     public $vpcId;
+
     /**
      * @var string
      */
     public $context;
     protected $_name = [
-        'engine'        => 'Engine',
-        'flushAccount'  => 'FlushAccount',
+        'engine' => 'Engine',
+        'flushAccount' => 'FlushAccount',
         'instanceAlias' => 'InstanceAlias',
-        'instanceArea'  => 'InstanceArea',
-        'instanceId'    => 'InstanceId',
-        'ip'            => 'Ip',
-        'networkType'   => 'NetworkType',
-        'password'      => 'Password',
-        'port'          => 'Port',
-        'region'        => 'Region',
-        'username'      => 'Username',
-        'vpcId'         => 'VpcId',
-        'context'       => '__context',
+        'instanceArea' => 'InstanceArea',
+        'instanceId' => 'InstanceId',
+        'ip' => 'Ip',
+        'networkType' => 'NetworkType',
+        'password' => 'Password',
+        'port' => 'Port',
+        'region' => 'Region',
+        'username' => 'Username',
+        'vpcId' => 'VpcId',
+        'context' => '__context',
     ];
 
     public function validate()

@@ -13,53 +13,62 @@ class data extends Model
      * @var int
      */
     public $dbInstanceId;
+
     /**
      * @var string
      */
     public $dbInstanceName;
+
     /**
      * @var string
      */
     public $endTime;
+
     /**
      * @var int
      */
     public $itemsNumbers;
+
     /**
      * @var logs[]
      */
     public $logs;
+
     /**
      * @var int
      */
     public $maxRecordsPerPage;
+
     /**
      * @var string
      */
     public $nodeId;
+
     /**
      * @var int
      */
     public $pageNumbers;
+
     /**
      * @var string
      */
     public $startTime;
+
     /**
      * @var int
      */
     public $totalRecords;
     protected $_name = [
-        'dbInstanceId'      => 'DbInstanceId',
-        'dbInstanceName'    => 'DbInstanceName',
-        'endTime'           => 'EndTime',
-        'itemsNumbers'      => 'ItemsNumbers',
-        'logs'              => 'Logs',
+        'dbInstanceId' => 'DbInstanceId',
+        'dbInstanceName' => 'DbInstanceName',
+        'endTime' => 'EndTime',
+        'itemsNumbers' => 'ItemsNumbers',
+        'logs' => 'Logs',
         'maxRecordsPerPage' => 'MaxRecordsPerPage',
-        'nodeId'            => 'NodeId',
-        'pageNumbers'       => 'PageNumbers',
-        'startTime'         => 'StartTime',
-        'totalRecords'      => 'TotalRecords',
+        'nodeId' => 'NodeId',
+        'pageNumbers' => 'PageNumbers',
+        'startTime' => 'StartTime',
+        'totalRecords' => 'TotalRecords',
     ];
 
     public function validate()
@@ -92,7 +101,7 @@ class data extends Model
         if (null !== $this->logs) {
             if (\is_array($this->logs)) {
                 $res['Logs'] = [];
-                $n1          = 0;
+                $n1 = 0;
                 foreach ($this->logs as $item1) {
                     $res['Logs'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -149,7 +158,7 @@ class data extends Model
         if (isset($map['Logs'])) {
             if (!empty($map['Logs'])) {
                 $model->logs = [];
-                $n1          = 0;
+                $n1 = 0;
                 foreach ($map['Logs'] as $item1) {
                     $model->logs[$n1++] = logs::fromMap($item1);
                 }

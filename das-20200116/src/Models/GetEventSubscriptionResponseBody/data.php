@@ -14,83 +14,98 @@ class data extends Model
      * @var int
      */
     public $active;
+
     /**
      * @var string
      */
     public $channelType;
+
     /**
      * @var string
      */
     public $contactGroupName;
+
     /**
      * @var contactGroups[]
      */
     public $contactGroups;
+
     /**
      * @var string
      */
     public $contactName;
+
     /**
      * @var contacts[]
      */
     public $contacts;
+
     /**
      * @var string
      */
     public $eventContext;
+
     /**
      * @var string[]
      */
     public $eventSendGroup;
+
     /**
      * @var int
      */
     public $gmtCreate;
+
     /**
      * @var int
      */
     public $gmtModified;
+
     /**
      * @var int
      */
     public $id;
+
     /**
      * @var string
      */
     public $instanceId;
+
     /**
      * @var string
      */
     public $lang;
+
     /**
      * @var string
      */
     public $level;
+
     /**
      * @var string
      */
     public $minInterval;
+
     /**
      * @var string
      */
     public $userId;
     protected $_name = [
-        'active'           => 'active',
-        'channelType'      => 'channelType',
+        'active' => 'active',
+        'channelType' => 'channelType',
         'contactGroupName' => 'contactGroupName',
-        'contactGroups'    => 'contactGroups',
-        'contactName'      => 'contactName',
-        'contacts'         => 'contacts',
-        'eventContext'     => 'eventContext',
-        'eventSendGroup'   => 'eventSendGroup',
-        'gmtCreate'        => 'gmtCreate',
-        'gmtModified'      => 'gmtModified',
-        'id'               => 'id',
-        'instanceId'       => 'instanceId',
-        'lang'             => 'lang',
-        'level'            => 'level',
-        'minInterval'      => 'minInterval',
-        'userId'           => 'userId',
+        'contactGroups' => 'contactGroups',
+        'contactName' => 'contactName',
+        'contacts' => 'contacts',
+        'eventContext' => 'eventContext',
+        'eventSendGroup' => 'eventSendGroup',
+        'gmtCreate' => 'gmtCreate',
+        'gmtModified' => 'gmtModified',
+        'id' => 'id',
+        'instanceId' => 'instanceId',
+        'lang' => 'lang',
+        'level' => 'level',
+        'minInterval' => 'minInterval',
+        'userId' => 'userId',
     ];
 
     public function validate()
@@ -125,7 +140,7 @@ class data extends Model
         if (null !== $this->contactGroups) {
             if (\is_array($this->contactGroups)) {
                 $res['contactGroups'] = [];
-                $n1                   = 0;
+                $n1 = 0;
                 foreach ($this->contactGroups as $item1) {
                     $res['contactGroups'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -139,7 +154,7 @@ class data extends Model
         if (null !== $this->contacts) {
             if (\is_array($this->contacts)) {
                 $res['contacts'] = [];
-                $n1              = 0;
+                $n1 = 0;
                 foreach ($this->contacts as $item1) {
                     $res['contacts'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -153,7 +168,7 @@ class data extends Model
         if (null !== $this->eventSendGroup) {
             if (\is_array($this->eventSendGroup)) {
                 $res['eventSendGroup'] = [];
-                $n1                    = 0;
+                $n1 = 0;
                 foreach ($this->eventSendGroup as $item1) {
                     $res['eventSendGroup'][$n1++] = $item1;
                 }
@@ -218,7 +233,7 @@ class data extends Model
         if (isset($map['contactGroups'])) {
             if (!empty($map['contactGroups'])) {
                 $model->contactGroups = [];
-                $n1                   = 0;
+                $n1 = 0;
                 foreach ($map['contactGroups'] as $item1) {
                     $model->contactGroups[$n1++] = contactGroups::fromMap($item1);
                 }
@@ -232,7 +247,7 @@ class data extends Model
         if (isset($map['contacts'])) {
             if (!empty($map['contacts'])) {
                 $model->contacts = [];
-                $n1              = 0;
+                $n1 = 0;
                 foreach ($map['contacts'] as $item1) {
                     $model->contacts[$n1++] = contacts::fromMap($item1);
                 }
@@ -246,7 +261,7 @@ class data extends Model
         if (isset($map['eventSendGroup'])) {
             if (!empty($map['eventSendGroup'])) {
                 $model->eventSendGroup = [];
-                $n1                    = 0;
+                $n1 = 0;
                 foreach ($map['eventSendGroup'] as $item1) {
                     $model->eventSendGroup[$n1++] = $item1;
                 }

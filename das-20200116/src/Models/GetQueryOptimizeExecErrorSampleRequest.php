@@ -12,23 +12,26 @@ class GetQueryOptimizeExecErrorSampleRequest extends Model
      * @var string
      */
     public $engine;
+
     /**
      * @var string
      */
     public $instanceId;
+
     /**
      * @var string
      */
     public $sqlId;
+
     /**
      * @var string
      */
     public $time;
     protected $_name = [
-        'engine'     => 'Engine',
+        'engine' => 'Engine',
         'instanceId' => 'InstanceId',
-        'sqlId'      => 'SqlId',
-        'time'       => 'Time',
+        'sqlId' => 'SqlId',
+        'time' => 'Time',
     ];
 
     public function validate()

@@ -12,18 +12,20 @@ class storage extends Model
      * @var int
      */
     public $diskUsageUpperThreshold;
+
     /**
      * @var int
      */
     public $maxStorage;
+
     /**
      * @var bool
      */
     public $upgrade;
     protected $_name = [
         'diskUsageUpperThreshold' => 'DiskUsageUpperThreshold',
-        'maxStorage'              => 'MaxStorage',
-        'upgrade'                 => 'Upgrade',
+        'maxStorage' => 'MaxStorage',
+        'upgrade' => 'Upgrade',
     ];
 
     public function validate()

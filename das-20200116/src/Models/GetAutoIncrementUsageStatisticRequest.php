@@ -12,23 +12,26 @@ class GetAutoIncrementUsageStatisticRequest extends Model
      * @var string
      */
     public $dbNames;
+
     /**
      * @var string
      */
     public $instanceId;
+
     /**
      * @var float
      */
     public $ratioFilter;
+
     /**
      * @var bool
      */
     public $realTime;
     protected $_name = [
-        'dbNames'     => 'DbNames',
-        'instanceId'  => 'InstanceId',
+        'dbNames' => 'DbNames',
+        'instanceId' => 'InstanceId',
         'ratioFilter' => 'RatioFilter',
-        'realTime'    => 'RealTime',
+        'realTime' => 'RealTime',
     ];
 
     public function validate()

@@ -14,23 +14,26 @@ class data extends Model
      * @var sessions[]
      */
     public $sessions;
+
     /**
      * @var sourceStats[]
      */
     public $sourceStats;
+
     /**
      * @var int
      */
     public $timestamp;
+
     /**
      * @var int
      */
     public $total;
     protected $_name = [
-        'sessions'    => 'Sessions',
+        'sessions' => 'Sessions',
         'sourceStats' => 'SourceStats',
-        'timestamp'   => 'Timestamp',
-        'total'       => 'Total',
+        'timestamp' => 'Timestamp',
+        'total' => 'Total',
     ];
 
     public function validate()
@@ -50,7 +53,7 @@ class data extends Model
         if (null !== $this->sessions) {
             if (\is_array($this->sessions)) {
                 $res['Sessions'] = [];
-                $n1              = 0;
+                $n1 = 0;
                 foreach ($this->sessions as $item1) {
                     $res['Sessions'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -60,7 +63,7 @@ class data extends Model
         if (null !== $this->sourceStats) {
             if (\is_array($this->sourceStats)) {
                 $res['SourceStats'] = [];
-                $n1                 = 0;
+                $n1 = 0;
                 foreach ($this->sourceStats as $item1) {
                     $res['SourceStats'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -89,7 +92,7 @@ class data extends Model
         if (isset($map['Sessions'])) {
             if (!empty($map['Sessions'])) {
                 $model->sessions = [];
-                $n1              = 0;
+                $n1 = 0;
                 foreach ($map['Sessions'] as $item1) {
                     $model->sessions[$n1++] = sessions::fromMap($item1);
                 }
@@ -99,7 +102,7 @@ class data extends Model
         if (isset($map['SourceStats'])) {
             if (!empty($map['SourceStats'])) {
                 $model->sourceStats = [];
-                $n1                 = 0;
+                $n1 = 0;
                 foreach ($map['SourceStats'] as $item1) {
                     $model->sourceStats[$n1++] = sourceStats::fromMap($item1);
                 }

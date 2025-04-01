@@ -12,13 +12,14 @@ class UpdateAutoSqlOptimizeStatusRequest extends Model
      * @var string
      */
     public $instances;
+
     /**
      * @var int
      */
     public $status;
     protected $_name = [
         'instances' => 'Instances',
-        'status'    => 'Status',
+        'status' => 'Status',
     ];
 
     public function validate()
