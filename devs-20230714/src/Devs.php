@@ -6,6 +6,8 @@ namespace AlibabaCloud\SDK\Devs\V20230714;
 
 use AlibabaCloud\Dara\Models\RuntimeOptions;
 use AlibabaCloud\Dara\Url;
+use AlibabaCloud\SDK\Devs\V20230714\Models\ActivateConnectionRequest;
+use AlibabaCloud\SDK\Devs\V20230714\Models\ActivateConnectionResponse;
 use AlibabaCloud\SDK\Devs\V20230714\Models\CancelPipelineResponse;
 use AlibabaCloud\SDK\Devs\V20230714\Models\CancelTaskResponse;
 use AlibabaCloud\SDK\Devs\V20230714\Models\CreateArtifactRequest;
@@ -19,6 +21,8 @@ use AlibabaCloud\SDK\Devs\V20230714\Models\CreateProjectResponse;
 use AlibabaCloud\SDK\Devs\V20230714\Models\CreateTaskRequest;
 use AlibabaCloud\SDK\Devs\V20230714\Models\CreateTaskResponse;
 use AlibabaCloud\SDK\Devs\V20230714\Models\DeleteArtifactResponse;
+use AlibabaCloud\SDK\Devs\V20230714\Models\DeleteConnectionRequest;
+use AlibabaCloud\SDK\Devs\V20230714\Models\DeleteConnectionResponse;
 use AlibabaCloud\SDK\Devs\V20230714\Models\DeleteEnvironmentResponse;
 use AlibabaCloud\SDK\Devs\V20230714\Models\DeleteProjectRequest;
 use AlibabaCloud\SDK\Devs\V20230714\Models\DeleteProjectResponse;
@@ -26,6 +30,7 @@ use AlibabaCloud\SDK\Devs\V20230714\Models\DeployEnvironmentRequest;
 use AlibabaCloud\SDK\Devs\V20230714\Models\DeployEnvironmentResponse;
 use AlibabaCloud\SDK\Devs\V20230714\Models\FetchArtifactDownloadUrlResponse;
 use AlibabaCloud\SDK\Devs\V20230714\Models\FetchArtifactTempBucketTokenResponse;
+use AlibabaCloud\SDK\Devs\V20230714\Models\FetchConnectionCredentialResponse;
 use AlibabaCloud\SDK\Devs\V20230714\Models\GetArtifactResponse;
 use AlibabaCloud\SDK\Devs\V20230714\Models\GetEnvironmentDeploymentResponse;
 use AlibabaCloud\SDK\Devs\V20230714\Models\GetEnvironmentResponse;
@@ -34,6 +39,9 @@ use AlibabaCloud\SDK\Devs\V20230714\Models\GetProjectResponse;
 use AlibabaCloud\SDK\Devs\V20230714\Models\GetRepositoryResponse;
 use AlibabaCloud\SDK\Devs\V20230714\Models\GetServiceDeploymentResponse;
 use AlibabaCloud\SDK\Devs\V20230714\Models\GetTaskResponse;
+use AlibabaCloud\SDK\Devs\V20230714\Models\ListConnectionsRequest;
+use AlibabaCloud\SDK\Devs\V20230714\Models\ListConnectionsResponse;
+use AlibabaCloud\SDK\Devs\V20230714\Models\ListConnectionsShrinkRequest;
 use AlibabaCloud\SDK\Devs\V20230714\Models\ListEnvironmentsRequest;
 use AlibabaCloud\SDK\Devs\V20230714\Models\ListEnvironmentsResponse;
 use AlibabaCloud\SDK\Devs\V20230714\Models\ListEnvironmentsShrinkRequest;
@@ -103,6 +111,76 @@ class Devs extends OpenApiClient
         }
 
         return Utils::getEndpointRules($productId, $regionId, $endpointRule, $network, $suffix);
+    }
+
+    /**
+     * 激活身份绑定,完成OAuth授权.
+     *
+     * @param request - ActivateConnectionRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ActivateConnectionResponse
+     *
+     * @param string                    $name
+     * @param ActivateConnectionRequest $request
+     * @param string[]                  $headers
+     * @param RuntimeOptions            $runtime
+     *
+     * @return ActivateConnectionResponse
+     */
+    public function activateConnectionWithOptions($name, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->account) {
+            @$body['account'] = $request->account;
+        }
+
+        if (null !== $request->credential) {
+            @$body['credential'] = $request->credential;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'ActivateConnection',
+            'version' => '2023-07-14',
+            'protocol' => 'HTTPS',
+            'pathname' => '/2023-07-14/connections/' . Url::percentEncode($name) . '/activate',
+            'method' => 'PATCH',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ActivateConnectionResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
+
+        return ActivateConnectionResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * 激活身份绑定,完成OAuth授权.
+     *
+     * @param request - ActivateConnectionRequest
+     *
+     * @returns ActivateConnectionResponse
+     *
+     * @param string                    $name
+     * @param ActivateConnectionRequest $request
+     *
+     * @return ActivateConnectionResponse
+     */
+    public function activateConnection($name, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->activateConnectionWithOptions($name, $request, $headers, $runtime);
     }
 
     /**
@@ -565,6 +643,72 @@ class Devs extends OpenApiClient
     }
 
     /**
+     * 删除身份绑定.
+     *
+     * @param request - DeleteConnectionRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteConnectionResponse
+     *
+     * @param string                  $name
+     * @param DeleteConnectionRequest $request
+     * @param string[]                $headers
+     * @param RuntimeOptions          $runtime
+     *
+     * @return DeleteConnectionResponse
+     */
+    public function deleteConnectionWithOptions($name, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->force) {
+            @$query['force'] = $request->force;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DeleteConnection',
+            'version' => '2023-07-14',
+            'protocol' => 'HTTPS',
+            'pathname' => '/2023-07-14/connections/' . Url::percentEncode($name) . '',
+            'method' => 'DELETE',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DeleteConnectionResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
+
+        return DeleteConnectionResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * 删除身份绑定.
+     *
+     * @param request - DeleteConnectionRequest
+     *
+     * @returns DeleteConnectionResponse
+     *
+     * @param string                  $name
+     * @param DeleteConnectionRequest $request
+     *
+     * @return DeleteConnectionResponse
+     */
+    public function deleteConnection($name, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->deleteConnectionWithOptions($name, $request, $headers, $runtime);
+    }
+
+    /**
      * 删除环境.
      *
      * @param headers - map
@@ -852,6 +996,60 @@ class Devs extends OpenApiClient
         $headers = [];
 
         return $this->fetchArtifactTempBucketTokenWithOptions($headers, $runtime);
+    }
+
+    /**
+     * 查询身份绑定中的凭证信息.
+     *
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns FetchConnectionCredentialResponse
+     *
+     * @param string         $name
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
+     *
+     * @return FetchConnectionCredentialResponse
+     */
+    public function fetchConnectionCredentialWithOptions($name, $headers, $runtime)
+    {
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+        ]);
+        $params = new Params([
+            'action' => 'FetchConnectionCredential',
+            'version' => '2023-07-14',
+            'protocol' => 'HTTPS',
+            'pathname' => '/2023-07-14/connections/' . Url::percentEncode($name) . '/fetchCredential',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return FetchConnectionCredentialResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
+
+        return FetchConnectionCredentialResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * 查询身份绑定中的凭证信息.
+     *
+     * @returns FetchConnectionCredentialResponse
+     *
+     * @param string $name
+     *
+     * @return FetchConnectionCredentialResponse
+     */
+    public function fetchConnectionCredential($name)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->fetchConnectionCredentialWithOptions($name, $headers, $runtime);
     }
 
     /**
@@ -1286,6 +1484,88 @@ class Devs extends OpenApiClient
         $headers = [];
 
         return $this->getTaskWithOptions($name, $headers, $runtime);
+    }
+
+    /**
+     * 批量查询身份绑定.
+     *
+     * @param tmpReq - ListConnectionsRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListConnectionsResponse
+     *
+     * @param ListConnectionsRequest $tmpReq
+     * @param string[]               $headers
+     * @param RuntimeOptions         $runtime
+     *
+     * @return ListConnectionsResponse
+     */
+    public function listConnectionsWithOptions($tmpReq, $headers, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new ListConnectionsShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->labelSelector) {
+            $request->labelSelectorShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->labelSelector, 'labelSelector', 'simple');
+        }
+
+        $query = [];
+        if (null !== $request->keyword) {
+            @$query['keyword'] = $request->keyword;
+        }
+
+        if (null !== $request->labelSelectorShrink) {
+            @$query['labelSelector'] = $request->labelSelectorShrink;
+        }
+
+        if (null !== $request->pageNumber) {
+            @$query['pageNumber'] = $request->pageNumber;
+        }
+
+        if (null !== $request->pageSize) {
+            @$query['pageSize'] = $request->pageSize;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListConnections',
+            'version' => '2023-07-14',
+            'protocol' => 'HTTPS',
+            'pathname' => '/2023-07-14/connections',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ListConnectionsResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
+
+        return ListConnectionsResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * 批量查询身份绑定.
+     *
+     * @param request - ListConnectionsRequest
+     *
+     * @returns ListConnectionsResponse
+     *
+     * @param ListConnectionsRequest $request
+     *
+     * @return ListConnectionsResponse
+     */
+    public function listConnections($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->listConnectionsWithOptions($request, $headers, $runtime);
     }
 
     /**

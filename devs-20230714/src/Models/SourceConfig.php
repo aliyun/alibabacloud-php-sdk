@@ -9,6 +9,11 @@ use AlibabaCloud\Dara\Model;
 class SourceConfig extends Model
 {
     /**
+     * @var OpenStructOssSourceConfig
+     */
+    public $oss;
+
+    /**
      * @var RepositorySourceConfig
      */
     public $repository;
@@ -18,12 +23,16 @@ class SourceConfig extends Model
      */
     public $template;
     protected $_name = [
+        'oss' => 'oss',
         'repository' => 'repository',
         'template' => 'template',
     ];
 
     public function validate()
     {
+        if (null !== $this->oss) {
+            $this->oss->validate();
+        }
         if (null !== $this->repository) {
             $this->repository->validate();
         }
@@ -36,6 +45,10 @@ class SourceConfig extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->oss) {
+            $res['oss'] = null !== $this->oss ? $this->oss->toArray($noStream) : $this->oss;
+        }
+
         if (null !== $this->repository) {
             $res['repository'] = null !== $this->repository ? $this->repository->toArray($noStream) : $this->repository;
         }
@@ -55,6 +68,10 @@ class SourceConfig extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['oss'])) {
+            $model->oss = OpenStructOssSourceConfig::fromMap($map['oss']);
+        }
+
         if (isset($map['repository'])) {
             $model->repository = RepositorySourceConfig::fromMap($map['repository']);
         }
