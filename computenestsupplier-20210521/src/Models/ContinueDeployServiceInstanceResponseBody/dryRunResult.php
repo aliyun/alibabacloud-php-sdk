@@ -4,33 +4,21 @@
 
 namespace AlibabaCloud\SDK\ComputeNestSupplier\V20210521\Models\ContinueDeployServiceInstanceResponseBody;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class dryRunResult extends Model
 {
     /**
-     * @description The parameters that can be modified. The operation that is performed to modify the parameters does not cause a validation error.
-     *
-     * >  This parameter is returned only if DryRun is set to true.
-     *
      * @var string[]
      */
     public $parametersAllowedToBeModified;
 
     /**
-     * @description The parameters that can be modified under specific conditions. The new values of the parameters determine whether the operation that is performed to modify the parameters causes a validation error.
-     *
-     * >  This parameter is returned only if DryRun is set to true.
-     *
      * @var string[]
      */
     public $parametersConditionallyAllowedToBeModified;
 
     /**
-     * @description The parameters that cannot be modified. The operation that is performed to modify the parameters causes a validation error.
-     *
-     * >  This parameter is returned only if DryRun is set to true.
-     *
      * @var string[]
      */
     public $parametersNotAllowedToBeModified;
@@ -40,45 +28,91 @@ class dryRunResult extends Model
         'parametersNotAllowedToBeModified' => 'ParametersNotAllowedToBeModified',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->parametersAllowedToBeModified)) {
+            Model::validateArray($this->parametersAllowedToBeModified);
+        }
+        if (\is_array($this->parametersConditionallyAllowedToBeModified)) {
+            Model::validateArray($this->parametersConditionallyAllowedToBeModified);
+        }
+        if (\is_array($this->parametersNotAllowedToBeModified)) {
+            Model::validateArray($this->parametersNotAllowedToBeModified);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->parametersAllowedToBeModified) {
-            $res['ParametersAllowedToBeModified'] = $this->parametersAllowedToBeModified;
+            if (\is_array($this->parametersAllowedToBeModified)) {
+                $res['ParametersAllowedToBeModified'] = [];
+                $n1 = 0;
+                foreach ($this->parametersAllowedToBeModified as $item1) {
+                    $res['ParametersAllowedToBeModified'][$n1++] = $item1;
+                }
+            }
         }
+
         if (null !== $this->parametersConditionallyAllowedToBeModified) {
-            $res['ParametersConditionallyAllowedToBeModified'] = $this->parametersConditionallyAllowedToBeModified;
+            if (\is_array($this->parametersConditionallyAllowedToBeModified)) {
+                $res['ParametersConditionallyAllowedToBeModified'] = [];
+                $n1 = 0;
+                foreach ($this->parametersConditionallyAllowedToBeModified as $item1) {
+                    $res['ParametersConditionallyAllowedToBeModified'][$n1++] = $item1;
+                }
+            }
         }
+
         if (null !== $this->parametersNotAllowedToBeModified) {
-            $res['ParametersNotAllowedToBeModified'] = $this->parametersNotAllowedToBeModified;
+            if (\is_array($this->parametersNotAllowedToBeModified)) {
+                $res['ParametersNotAllowedToBeModified'] = [];
+                $n1 = 0;
+                foreach ($this->parametersNotAllowedToBeModified as $item1) {
+                    $res['ParametersNotAllowedToBeModified'][$n1++] = $item1;
+                }
+            }
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return dryRunResult
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ParametersAllowedToBeModified'])) {
             if (!empty($map['ParametersAllowedToBeModified'])) {
-                $model->parametersAllowedToBeModified = $map['ParametersAllowedToBeModified'];
+                $model->parametersAllowedToBeModified = [];
+                $n1 = 0;
+                foreach ($map['ParametersAllowedToBeModified'] as $item1) {
+                    $model->parametersAllowedToBeModified[$n1++] = $item1;
+                }
             }
         }
+
         if (isset($map['ParametersConditionallyAllowedToBeModified'])) {
             if (!empty($map['ParametersConditionallyAllowedToBeModified'])) {
-                $model->parametersConditionallyAllowedToBeModified = $map['ParametersConditionallyAllowedToBeModified'];
+                $model->parametersConditionallyAllowedToBeModified = [];
+                $n1 = 0;
+                foreach ($map['ParametersConditionallyAllowedToBeModified'] as $item1) {
+                    $model->parametersConditionallyAllowedToBeModified[$n1++] = $item1;
+                }
             }
         }
+
         if (isset($map['ParametersNotAllowedToBeModified'])) {
             if (!empty($map['ParametersNotAllowedToBeModified'])) {
-                $model->parametersNotAllowedToBeModified = $map['ParametersNotAllowedToBeModified'];
+                $model->parametersNotAllowedToBeModified = [];
+                $n1 = 0;
+                foreach ($map['ParametersNotAllowedToBeModified'] as $item1) {
+                    $model->parametersNotAllowedToBeModified[$n1++] = $item1;
+                }
             }
         }
 

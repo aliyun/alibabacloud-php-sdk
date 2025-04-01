@@ -4,59 +4,37 @@
 
 namespace AlibabaCloud\SDK\ComputeNestSupplier\V20210521\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\ComputeNestSupplier\V20210521\Models\ListServiceTestCasesRequest\filters;
-use AlibabaCloud\Tea\Model;
 
 class ListServiceTestCasesRequest extends Model
 {
     /**
-     * @description The filters.
-     *
      * @var filters[]
      */
     public $filters;
 
     /**
-     * @description The number of entries per page. Valid values: 1 to 100. Default value: 20.
-     *
-     * @example 20
-     *
      * @var int
      */
     public $maxResults;
 
     /**
-     * @description The pagination token that is used in the next request to retrieve a new page of results. You do not need to specify this parameter for the first request. You must specify the token that is obtained from the previous query as the value of NextToken.
-     *
-     * @example AAAAAWns8w4MmhzeptXVRG0PUEU=
-     *
      * @var string
      */
     public $nextToken;
 
     /**
-     * @description The region ID.
-     *
-     * @example cn-hangzhou
-     *
      * @var string
      */
     public $regionId;
 
     /**
-     * @description The service ID.
-     *
-     * @example service-0e6fca6a51a54420****
-     *
      * @var string
      */
     public $serviceId;
 
     /**
-     * @description The service version.
-     *
-     * @example draft
-     *
      * @var string
      */
     public $serviceVersion;
@@ -69,32 +47,43 @@ class ListServiceTestCasesRequest extends Model
         'serviceVersion' => 'ServiceVersion',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->filters)) {
+            Model::validateArray($this->filters);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->filters) {
-            $res['Filters'] = [];
-            if (null !== $this->filters && \is_array($this->filters)) {
-                $n = 0;
-                foreach ($this->filters as $item) {
-                    $res['Filters'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->filters)) {
+                $res['Filters'] = [];
+                $n1 = 0;
+                foreach ($this->filters as $item1) {
+                    $res['Filters'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
+
         if (null !== $this->maxResults) {
             $res['MaxResults'] = $this->maxResults;
         }
+
         if (null !== $this->nextToken) {
             $res['NextToken'] = $this->nextToken;
         }
+
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
+
         if (null !== $this->serviceId) {
             $res['ServiceId'] = $this->serviceId;
         }
+
         if (null !== $this->serviceVersion) {
             $res['ServiceVersion'] = $this->serviceVersion;
         }
@@ -102,35 +91,40 @@ class ListServiceTestCasesRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ListServiceTestCasesRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Filters'])) {
             if (!empty($map['Filters'])) {
                 $model->filters = [];
-                $n = 0;
-                foreach ($map['Filters'] as $item) {
-                    $model->filters[$n++] = null !== $item ? filters::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['Filters'] as $item1) {
+                    $model->filters[$n1++] = filters::fromMap($item1);
                 }
             }
         }
+
         if (isset($map['MaxResults'])) {
             $model->maxResults = $map['MaxResults'];
         }
+
         if (isset($map['NextToken'])) {
             $model->nextToken = $map['NextToken'];
         }
+
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
         }
+
         if (isset($map['ServiceId'])) {
             $model->serviceId = $map['ServiceId'];
         }
+
         if (isset($map['ServiceVersion'])) {
             $model->serviceVersion = $map['ServiceVersion'];
         }

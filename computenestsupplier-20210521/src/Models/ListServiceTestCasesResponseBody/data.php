@@ -4,46 +4,26 @@
 
 namespace AlibabaCloud\SDK\ComputeNestSupplier\V20210521\Models\ListServiceTestCasesResponseBody;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class data extends Model
 {
     /**
-     * @description The template name.
-     *
-     * @example test-1
-     *
      * @var string
      */
     public $templateName;
 
     /**
-     * @description The service test case id.
-     *
-     * @example stc-83fcee1383354e35b151
-     *
      * @var string
      */
     public $testCaseId;
 
     /**
-     * @description The service test case name.
-     *
-     * @example case1
-     *
      * @var string
      */
     public $testCaseName;
 
     /**
-     * @description The service test config.
-     *
-     * @example ---
-     * parameters:
-     * PayType: "PostPaid"
-     * EcsInstanceType: "$[iact3-auto]"
-     * InstancePassword: "$[iact3-auto]"
-     *
      * @var string
      */
     public $testConfig;
@@ -54,20 +34,26 @@ class data extends Model
         'testConfig' => 'TestConfig',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->templateName) {
             $res['TemplateName'] = $this->templateName;
         }
+
         if (null !== $this->testCaseId) {
             $res['TestCaseId'] = $this->testCaseId;
         }
+
         if (null !== $this->testCaseName) {
             $res['TestCaseName'] = $this->testCaseName;
         }
+
         if (null !== $this->testConfig) {
             $res['TestConfig'] = $this->testConfig;
         }
@@ -75,23 +61,26 @@ class data extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return data
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['TemplateName'])) {
             $model->templateName = $map['TemplateName'];
         }
+
         if (isset($map['TestCaseId'])) {
             $model->testCaseId = $map['TestCaseId'];
         }
+
         if (isset($map['TestCaseName'])) {
             $model->testCaseName = $map['TestCaseName'];
         }
+
         if (isset($map['TestConfig'])) {
             $model->testConfig = $map['TestConfig'];
         }

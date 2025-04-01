@@ -4,31 +4,21 @@
 
 namespace AlibabaCloud\SDK\ComputeNestSupplier\V20210521\Models\GetServiceResponseBody\commodity;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class specifications extends Model
 {
     /**
-     * @description The commodity code.
-     *
-     * @example cmjj00xxxx
-     *
      * @var string
      */
     public $code;
 
     /**
-     * @description The specification name.
-     *
-     * @example specifications1
-     *
      * @var string
      */
     public $name;
 
     /**
-     * @description The subscription duration. Unit: week or year.
-     *
      * @var string[]
      */
     public $times;
@@ -38,41 +28,61 @@ class specifications extends Model
         'times' => 'Times',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->times)) {
+            Model::validateArray($this->times);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->code) {
             $res['Code'] = $this->code;
         }
+
         if (null !== $this->name) {
             $res['Name'] = $this->name;
         }
+
         if (null !== $this->times) {
-            $res['Times'] = $this->times;
+            if (\is_array($this->times)) {
+                $res['Times'] = [];
+                $n1 = 0;
+                foreach ($this->times as $item1) {
+                    $res['Times'][$n1++] = $item1;
+                }
+            }
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return specifications
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Code'])) {
             $model->code = $map['Code'];
         }
+
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
         }
+
         if (isset($map['Times'])) {
             if (!empty($map['Times'])) {
-                $model->times = $map['Times'];
+                $model->times = [];
+                $n1 = 0;
+                foreach ($map['Times'] as $item1) {
+                    $model->times[$n1++] = $item1;
+                }
             }
         }
 

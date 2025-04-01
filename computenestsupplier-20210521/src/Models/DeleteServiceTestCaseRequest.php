@@ -4,26 +4,16 @@
 
 namespace AlibabaCloud\SDK\ComputeNestSupplier\V20210521\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DeleteServiceTestCaseRequest extends Model
 {
     /**
-     * @description Region ID.
-     *
-     * @example cn-hangzhou
-     *
      * @var string
      */
     public $regionId;
 
     /**
-     * @description The service test case id.
-     *
-     * This parameter is required.
-     *
-     * @example stc-0b2a3ad7e1de4c299eec
-     *
      * @var string
      */
     public $testCaseId;
@@ -32,14 +22,18 @@ class DeleteServiceTestCaseRequest extends Model
         'testCaseId' => 'TestCaseId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
+
         if (null !== $this->testCaseId) {
             $res['TestCaseId'] = $this->testCaseId;
         }
@@ -47,17 +41,18 @@ class DeleteServiceTestCaseRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DeleteServiceTestCaseRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
         }
+
         if (isset($map['TestCaseId'])) {
             $model->testCaseId = $map['TestCaseId'];
         }

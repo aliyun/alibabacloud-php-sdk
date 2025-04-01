@@ -4,26 +4,16 @@
 
 namespace AlibabaCloud\SDK\ComputeNestSupplier\V20210521\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class GetUploadCredentialsRequest extends Model
 {
     /**
-     * @description The file name to upload.
-     *
-     * This parameter is required.
-     *
-     * @example template.yaml
-     *
      * @var string
      */
     public $fileName;
 
     /**
-     * @description Specifies whether the file is publicly accessible. Valid values: **public** or **private**. The default value is **private**.
-     *
-     * @example public
-     *
      * @var string
      */
     public $visibility;
@@ -32,14 +22,18 @@ class GetUploadCredentialsRequest extends Model
         'visibility' => 'Visibility',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->fileName) {
             $res['FileName'] = $this->fileName;
         }
+
         if (null !== $this->visibility) {
             $res['Visibility'] = $this->visibility;
         }
@@ -47,17 +41,18 @@ class GetUploadCredentialsRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return GetUploadCredentialsRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['FileName'])) {
             $model->fileName = $map['FileName'];
         }
+
         if (isset($map['Visibility'])) {
             $model->visibility = $map['Visibility'];
         }
