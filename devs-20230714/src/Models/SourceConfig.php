@@ -9,7 +9,7 @@ use AlibabaCloud\Dara\Model;
 class SourceConfig extends Model
 {
     /**
-     * @var OpenStructOssSourceConfig
+     * @var OssSourceConfig
      */
     public $oss;
 
@@ -69,7 +69,7 @@ class SourceConfig extends Model
     {
         $model = new self();
         if (isset($map['oss'])) {
-            $model->oss = OpenStructOssSourceConfig::fromMap($map['oss']);
+            $model->oss = OssSourceConfig::fromMap($map['oss']);
         }
 
         if (isset($map['repository'])) {
