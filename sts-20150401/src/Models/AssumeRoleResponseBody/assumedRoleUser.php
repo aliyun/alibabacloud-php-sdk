@@ -4,42 +4,36 @@
 
 namespace AlibabaCloud\SDK\Sts\V20150401\Models\AssumeRoleResponseBody;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class assumedRoleUser extends Model
 {
     /**
-     * @description The ARN of the temporary identity that you use to assume the RAM role.
-     *
-     * @example acs:ram::123456789012****:role/adminrole/alice
-     *
      * @var string
      */
     public $arn;
 
     /**
-     * @description The ID of the temporary identity that you use to assume the RAM role.
-     *
-     * @example 34458433936495****:alice
-     *
      * @var string
      */
     public $assumedRoleId;
     protected $_name = [
-        'arn'           => 'Arn',
+        'arn' => 'Arn',
         'assumedRoleId' => 'AssumedRoleId',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->arn) {
             $res['Arn'] = $this->arn;
         }
+
         if (null !== $this->assumedRoleId) {
             $res['AssumedRoleId'] = $this->assumedRoleId;
         }
@@ -47,17 +41,18 @@ class assumedRoleUser extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return assumedRoleUser
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Arn'])) {
             $model->arn = $map['Arn'];
         }
+
         if (isset($map['AssumedRoleId'])) {
             $model->assumedRoleId = $map['AssumedRoleId'];
         }
