@@ -31,6 +31,9 @@ use AlibabaCloud\SDK\FC\V20230330\Models\DeleteProvisionConfigRequest;
 use AlibabaCloud\SDK\FC\V20230330\Models\DeleteProvisionConfigResponse;
 use AlibabaCloud\SDK\FC\V20230330\Models\DeleteTriggerResponse;
 use AlibabaCloud\SDK\FC\V20230330\Models\DeleteVpcBindingResponse;
+use AlibabaCloud\SDK\FC\V20230330\Models\DisableFunctionInvocationRequest;
+use AlibabaCloud\SDK\FC\V20230330\Models\DisableFunctionInvocationResponse;
+use AlibabaCloud\SDK\FC\V20230330\Models\EnableFunctionInvocationResponse;
 use AlibabaCloud\SDK\FC\V20230330\Models\GetAliasResponse;
 use AlibabaCloud\SDK\FC\V20230330\Models\GetAsyncInvokeConfigRequest;
 use AlibabaCloud\SDK\FC\V20230330\Models\GetAsyncInvokeConfigResponse;
@@ -1090,6 +1093,130 @@ class FC extends OpenApiClient
         $headers = [];
 
         return $this->deleteVpcBindingWithOptions($functionName, $vpcId, $headers, $runtime);
+    }
+
+    /**
+     * 禁止函数调用.
+     *
+     * @param request - DisableFunctionInvocationRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DisableFunctionInvocationResponse
+     *
+     * @param string                           $functionName
+     * @param DisableFunctionInvocationRequest $request
+     * @param string[]                         $headers
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return DisableFunctionInvocationResponse
+     */
+    public function disableFunctionInvocationWithOptions($functionName, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->abortOngoingRequest) {
+            @$body['abortOngoingRequest'] = $request->abortOngoingRequest;
+        }
+
+        if (null !== $request->reason) {
+            @$body['reason'] = $request->reason;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'DisableFunctionInvocation',
+            'version' => '2023-03-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/2023-03-30/functions/' . Url::percentEncode($functionName) . '/invoke/disable',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DisableFunctionInvocationResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
+
+        return DisableFunctionInvocationResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * 禁止函数调用.
+     *
+     * @param request - DisableFunctionInvocationRequest
+     *
+     * @returns DisableFunctionInvocationResponse
+     *
+     * @param string                           $functionName
+     * @param DisableFunctionInvocationRequest $request
+     *
+     * @return DisableFunctionInvocationResponse
+     */
+    public function disableFunctionInvocation($functionName, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->disableFunctionInvocationWithOptions($functionName, $request, $headers, $runtime);
+    }
+
+    /**
+     * 允许函数调用.
+     *
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns EnableFunctionInvocationResponse
+     *
+     * @param string         $functionName
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
+     *
+     * @return EnableFunctionInvocationResponse
+     */
+    public function enableFunctionInvocationWithOptions($functionName, $headers, $runtime)
+    {
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+        ]);
+        $params = new Params([
+            'action' => 'EnableFunctionInvocation',
+            'version' => '2023-03-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/2023-03-30/functions/' . Url::percentEncode($functionName) . '/invoke/enable',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return EnableFunctionInvocationResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
+
+        return EnableFunctionInvocationResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * 允许函数调用.
+     *
+     * @returns EnableFunctionInvocationResponse
+     *
+     * @param string $functionName
+     *
+     * @return EnableFunctionInvocationResponse
+     */
+    public function enableFunctionInvocation($functionName)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->enableFunctionInvocationWithOptions($functionName, $headers, $runtime);
     }
 
     /**

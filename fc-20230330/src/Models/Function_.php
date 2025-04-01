@@ -104,6 +104,11 @@ class Function_ extends Model
     public $internetAccess;
 
     /**
+     * @var OpenStructFunctionRestriction
+     */
+    public $invocationRestriction;
+
+    /**
      * @var string
      */
     public $lastModifiedTime;
@@ -212,6 +217,7 @@ class Function_ extends Model
         'instanceConcurrency' => 'instanceConcurrency',
         'instanceLifecycleConfig' => 'instanceLifecycleConfig',
         'internetAccess' => 'internetAccess',
+        'invocationRestriction' => 'invocationRestriction',
         'lastModifiedTime' => 'lastModifiedTime',
         'lastUpdateStatus' => 'lastUpdateStatus',
         'lastUpdateStatusReason' => 'lastUpdateStatusReason',
@@ -251,6 +257,9 @@ class Function_ extends Model
         }
         if (null !== $this->instanceLifecycleConfig) {
             $this->instanceLifecycleConfig->validate();
+        }
+        if (null !== $this->invocationRestriction) {
+            $this->invocationRestriction->validate();
         }
         if (\is_array($this->layers)) {
             Model::validateArray($this->layers);
@@ -358,6 +367,10 @@ class Function_ extends Model
 
         if (null !== $this->internetAccess) {
             $res['internetAccess'] = $this->internetAccess;
+        }
+
+        if (null !== $this->invocationRestriction) {
+            $res['invocationRestriction'] = null !== $this->invocationRestriction ? $this->invocationRestriction->toArray($noStream) : $this->invocationRestriction;
         }
 
         if (null !== $this->lastModifiedTime) {
@@ -534,6 +547,10 @@ class Function_ extends Model
 
         if (isset($map['internetAccess'])) {
             $model->internetAccess = $map['internetAccess'];
+        }
+
+        if (isset($map['invocationRestriction'])) {
+            $model->invocationRestriction = OpenStructFunctionRestriction::fromMap($map['invocationRestriction']);
         }
 
         if (isset($map['lastModifiedTime'])) {
