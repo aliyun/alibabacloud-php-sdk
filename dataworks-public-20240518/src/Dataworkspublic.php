@@ -4383,7 +4383,7 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * Queries a list of custom alert monitoring rules.
+     * Queries a custom alert monitoring rule.
      *
      * @param request - GetAlertRuleRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -4421,7 +4421,7 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * Queries a list of custom alert monitoring rules.
+     * Queries a custom alert monitoring rule.
      *
      * @param request - GetAlertRuleRequest
      *
@@ -4439,7 +4439,11 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * 查看认证文件.
+     * Queries a certificate file.
+     *
+     * @remarks
+     * 1.  This API operation is available for all DataWorks editions.
+     * 2.  You can call this operation only if you are assigned one of the following roles in DataWorks: Tenant Owner, Workspace Administrator, Deploy, Develop, Workspace Owner, and O\\&M.
      *
      * @param request - GetCertificateRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -4477,7 +4481,11 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * 查看认证文件.
+     * Queries a certificate file.
+     *
+     * @remarks
+     * 1.  This API operation is available for all DataWorks editions.
+     * 2.  You can call this operation only if you are assigned one of the following roles in DataWorks: Tenant Owner, Workspace Administrator, Deploy, Develop, Workspace Owner, and O\\&M.
      *
      * @param request - GetCertificateRequest
      *
@@ -6318,7 +6326,7 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * Queries a list of custom monitoring alert rule by page.
+     * Queries a list of custom monitoring alert rules.
      *
      * @param tmpReq - ListAlertRulesRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -6394,7 +6402,7 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * Queries a list of custom monitoring alert rule by page.
+     * Queries a list of custom monitoring alert rules.
      *
      * @param request - ListAlertRulesRequest
      *
@@ -6412,7 +6420,11 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * 查询认证文件列表.
+     * Queries a list of certificate files.
+     *
+     * @remarks
+     * 1.  This API operation is available for all DataWorks editions.
+     * 2.  You can call this operation only if you are assigned one of the following roles in DataWorks: Tenant Owner, Workspace Administrator, Deploy, Develop, Visitor, Workspace Owner, O\\&M, Model Designer, Security Administrator, Data Analyst, OpenPlatform Administrator, and Data Governance Administrator.
      *
      * @param request - ListCertificatesRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -6450,7 +6462,11 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * 查询认证文件列表.
+     * Queries a list of certificate files.
+     *
+     * @remarks
+     * 1.  This API operation is available for all DataWorks editions.
+     * 2.  You can call this operation only if you are assigned one of the following roles in DataWorks: Tenant Owner, Workspace Administrator, Deploy, Develop, Visitor, Workspace Owner, O\\&M, Model Designer, Security Administrator, Data Analyst, OpenPlatform Administrator, and Data Governance Administrator.
      *
      * @param request - ListCertificatesRequest
      *
@@ -10480,7 +10496,7 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * Tests the network connectivity between a resource group and a data source.
+     * Tests the connectivity between a data source and a resource group.
      *
      * @remarks
      * 1.  This API operation is available for all DataWorks editions.
@@ -10534,7 +10550,7 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * Tests the network connectivity between a resource group and a data source.
+     * Tests the connectivity between a data source and a resource group.
      *
      * @remarks
      * 1.  This API operation is available for all DataWorks editions.
@@ -10724,7 +10740,7 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * Updates a custom alert monitoring rule.
+     * Updates the information about a custom alert monitoring rule.
      *
      * @param tmpReq - UpdateAlertRuleRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -10796,7 +10812,7 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * Updates a custom alert monitoring rule.
+     * Updates the information about a custom alert monitoring rule.
      *
      * @param request - UpdateAlertRuleRequest
      *

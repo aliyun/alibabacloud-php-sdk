@@ -1,3 +1,7 @@
+2025-04-02 Version: 5.1.2
+- Update API ListNodes: add response parameters Body.PagingInfo.Nodes.$.RuntimeResource.ResourceGroup.
+
+
 2025-03-31 Version: 5.1.1
 - Update API CreateDIJob: add request parameters JobType.
 - Update API GetDIJob: add response parameters Body.PagingInfo.JobType.

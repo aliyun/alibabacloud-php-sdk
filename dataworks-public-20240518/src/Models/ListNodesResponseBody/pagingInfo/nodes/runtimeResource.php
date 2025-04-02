@@ -11,8 +11,14 @@ class runtimeResource extends Model
     /**
      * @var string
      */
+    public $resourceGroup;
+
+    /**
+     * @var string
+     */
     public $resourceGroupId;
     protected $_name = [
+        'resourceGroup' => 'ResourceGroup',
         'resourceGroupId' => 'ResourceGroupId',
     ];
 
@@ -24,6 +30,10 @@ class runtimeResource extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->resourceGroup) {
+            $res['ResourceGroup'] = $this->resourceGroup;
+        }
+
         if (null !== $this->resourceGroupId) {
             $res['ResourceGroupId'] = $this->resourceGroupId;
         }
@@ -39,6 +49,10 @@ class runtimeResource extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['ResourceGroup'])) {
+            $model->resourceGroup = $map['ResourceGroup'];
+        }
+
         if (isset($map['ResourceGroupId'])) {
             $model->resourceGroupId = $map['ResourceGroupId'];
         }
