@@ -13,43 +13,50 @@ class CreateOrgHonorTemplateRequest extends Model
      * @var tenantContext
      */
     public $tenantContext;
+
     /**
      * @var string
      */
     public $avatarFrameMediaId;
+
     /**
      * @var string
      */
     public $defaultBgColor;
+
     /**
      * @var string
      */
     public $medalDesc;
+
     /**
      * @var string
      */
     public $medalMediaId;
+
     /**
      * @var string
      */
     public $medalName;
+
     /**
      * @var int
      */
     public $orgId;
+
     /**
      * @var string
      */
     public $userId;
     protected $_name = [
-        'tenantContext'      => 'TenantContext',
+        'tenantContext' => 'TenantContext',
         'avatarFrameMediaId' => 'avatarFrameMediaId',
-        'defaultBgColor'     => 'defaultBgColor',
-        'medalDesc'          => 'medalDesc',
-        'medalMediaId'       => 'medalMediaId',
-        'medalName'          => 'medalName',
-        'orgId'              => 'orgId',
-        'userId'             => 'userId',
+        'defaultBgColor' => 'defaultBgColor',
+        'medalDesc' => 'medalDesc',
+        'medalMediaId' => 'medalMediaId',
+        'medalName' => 'medalName',
+        'orgId' => 'orgId',
+        'userId' => 'userId',
     ];
 
     public function validate()

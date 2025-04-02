@@ -12,18 +12,20 @@ class cardCallback extends Model
      * @var string
      */
     public $content;
+
     /**
      * @var string
      */
     public $templateId;
+
     /**
      * @var string
      */
     public $userId;
     protected $_name = [
-        'content'    => 'content',
+        'content' => 'content',
         'templateId' => 'templateId',
-        'userId'     => 'userId',
+        'userId' => 'userId',
     ];
 
     public function validate()

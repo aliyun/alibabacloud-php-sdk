@@ -12,13 +12,14 @@ class GetDeptNoShrinkRequest extends Model
      * @var string
      */
     public $tenantContextShrink;
+
     /**
      * @var string
      */
     public $deptId;
     protected $_name = [
         'tenantContextShrink' => 'TenantContext',
-        'deptId'              => 'deptId',
+        'deptId' => 'deptId',
     ];
 
     public function validate()

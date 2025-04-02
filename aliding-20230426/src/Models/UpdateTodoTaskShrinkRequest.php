@@ -12,43 +12,50 @@ class UpdateTodoTaskShrinkRequest extends Model
      * @var string
      */
     public $tenantContextShrink;
+
     /**
      * @var string
      */
     public $description;
+
     /**
      * @var bool
      */
     public $done;
+
     /**
      * @var int
      */
     public $dueTime;
+
     /**
      * @var string
      */
     public $executorIdsShrink;
+
     /**
      * @var string
      */
     public $participantIdsShrink;
+
     /**
      * @var string
      */
     public $subject;
+
     /**
      * @var string
      */
     public $taskId;
     protected $_name = [
-        'tenantContextShrink'  => 'TenantContext',
-        'description'          => 'description',
-        'done'                 => 'done',
-        'dueTime'              => 'dueTime',
-        'executorIdsShrink'    => 'executorIds',
+        'tenantContextShrink' => 'TenantContext',
+        'description' => 'description',
+        'done' => 'done',
+        'dueTime' => 'dueTime',
+        'executorIdsShrink' => 'executorIds',
         'participantIdsShrink' => 'participantIds',
-        'subject'              => 'subject',
-        'taskId'               => 'taskId',
+        'subject' => 'subject',
+        'taskId' => 'taskId',
     ];
 
     public function validate()

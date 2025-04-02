@@ -17,98 +17,116 @@ class recentList extends Model
      * @var string
      */
     public $contentType;
+
     /**
      * @var int
      */
     public $createdTime;
+
     /**
      * @var creator
      */
     public $creator;
+
     /**
      * @var string
      */
     public $dentryId;
+
     /**
      * @var string
      */
     public $dentryType;
+
     /**
      * @var string
      */
     public $dentryUuid;
+
     /**
      * @var string
      */
     public $docKey;
+
     /**
      * @var string
      */
     public $extension;
+
     /**
      * @var bool
      */
     public $hasChildren;
+
     /**
      * @var linkSourceInfo
      */
     public $linkSourceInfo;
+
     /**
      * @var string
      */
     public $name;
+
     /**
      * @var string
      */
     public $path;
+
     /**
      * @var mixed
      */
     public $space;
+
     /**
      * @var string
      */
     public $spaceId;
+
     /**
      * @var statisticalInfo
      */
     public $statisticalInfo;
+
     /**
      * @var int
      */
     public $updatedTime;
+
     /**
      * @var updater
      */
     public $updater;
+
     /**
      * @var string
      */
     public $url;
+
     /**
      * @var visitorInfo
      */
     public $visitorInfo;
     protected $_name = [
-        'contentType'     => 'ContentType',
-        'createdTime'     => 'CreatedTime',
-        'creator'         => 'Creator',
-        'dentryId'        => 'DentryId',
-        'dentryType'      => 'DentryType',
-        'dentryUuid'      => 'DentryUuid',
-        'docKey'          => 'DocKey',
-        'extension'       => 'Extension',
-        'hasChildren'     => 'HasChildren',
-        'linkSourceInfo'  => 'LinkSourceInfo',
-        'name'            => 'Name',
-        'path'            => 'Path',
-        'space'           => 'Space',
-        'spaceId'         => 'SpaceId',
+        'contentType' => 'ContentType',
+        'createdTime' => 'CreatedTime',
+        'creator' => 'Creator',
+        'dentryId' => 'DentryId',
+        'dentryType' => 'DentryType',
+        'dentryUuid' => 'DentryUuid',
+        'docKey' => 'DocKey',
+        'extension' => 'Extension',
+        'hasChildren' => 'HasChildren',
+        'linkSourceInfo' => 'LinkSourceInfo',
+        'name' => 'Name',
+        'path' => 'Path',
+        'space' => 'Space',
+        'spaceId' => 'SpaceId',
         'statisticalInfo' => 'StatisticalInfo',
-        'updatedTime'     => 'UpdatedTime',
-        'updater'         => 'Updater',
-        'url'             => 'Url',
-        'visitorInfo'     => 'VisitorInfo',
+        'updatedTime' => 'UpdatedTime',
+        'updater' => 'Updater',
+        'url' => 'Url',
+        'visitorInfo' => 'VisitorInfo',
     ];
 
     public function validate()

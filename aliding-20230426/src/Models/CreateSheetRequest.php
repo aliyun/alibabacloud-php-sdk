@@ -13,18 +13,20 @@ class CreateSheetRequest extends Model
      * @var string
      */
     public $name;
+
     /**
      * @var tenantContext
      */
     public $tenantContext;
+
     /**
      * @var string
      */
     public $workbookId;
     protected $_name = [
-        'name'          => 'Name',
+        'name' => 'Name',
         'tenantContext' => 'TenantContext',
-        'workbookId'    => 'WorkbookId',
+        'workbookId' => 'WorkbookId',
     ];
 
     public function validate()

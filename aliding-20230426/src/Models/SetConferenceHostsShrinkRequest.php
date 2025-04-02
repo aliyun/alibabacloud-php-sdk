@@ -12,23 +12,26 @@ class SetConferenceHostsShrinkRequest extends Model
      * @var string
      */
     public $operationType;
+
     /**
      * @var string
      */
     public $tenantContextShrink;
+
     /**
      * @var string
      */
     public $userIdsShrink;
+
     /**
      * @var string
      */
     public $conferenceId;
     protected $_name = [
-        'operationType'       => 'OperationType',
+        'operationType' => 'OperationType',
         'tenantContextShrink' => 'TenantContext',
-        'userIdsShrink'       => 'UserIds',
-        'conferenceId'        => 'conferenceId',
+        'userIdsShrink' => 'UserIds',
+        'conferenceId' => 'conferenceId',
     ];
 
     public function validate()

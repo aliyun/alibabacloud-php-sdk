@@ -12,78 +12,92 @@ class CreateEventShrinkRequest extends Model
      * @var string
      */
     public $attendeesShrink;
+
     /**
      * @var string
      */
     public $cardInstancesShrink;
+
     /**
      * @var string
      */
     public $description;
+
     /**
      * @var string
      */
     public $endShrink;
+
     /**
      * @var string
      */
     public $extraShrink;
+
     /**
      * @var bool
      */
     public $isAllDay;
+
     /**
      * @var string
      */
     public $locationShrink;
+
     /**
      * @var string
      */
     public $onlineMeetingInfoShrink;
+
     /**
      * @var string
      */
     public $recurrenceShrink;
+
     /**
      * @var string
      */
     public $remindersShrink;
+
     /**
      * @var string
      */
     public $richTextDescriptionShrink;
+
     /**
      * @var string
      */
     public $summary;
+
     /**
      * @var string
      */
     public $uiConfigsShrink;
+
     /**
      * @var string
      */
     public $calendarId;
+
     /**
      * @var string
      */
     public $startShrink;
     protected $_name = [
-        'attendeesShrink'           => 'Attendees',
-        'cardInstancesShrink'       => 'CardInstances',
-        'description'               => 'Description',
-        'endShrink'                 => 'End',
-        'extraShrink'               => 'Extra',
-        'isAllDay'                  => 'IsAllDay',
-        'locationShrink'            => 'Location',
-        'onlineMeetingInfoShrink'   => 'OnlineMeetingInfo',
-        'recurrenceShrink'          => 'Recurrence',
-        'remindersShrink'           => 'Reminders',
+        'attendeesShrink' => 'Attendees',
+        'cardInstancesShrink' => 'CardInstances',
+        'description' => 'Description',
+        'endShrink' => 'End',
+        'extraShrink' => 'Extra',
+        'isAllDay' => 'IsAllDay',
+        'locationShrink' => 'Location',
+        'onlineMeetingInfoShrink' => 'OnlineMeetingInfo',
+        'recurrenceShrink' => 'Recurrence',
+        'remindersShrink' => 'Reminders',
         'richTextDescriptionShrink' => 'RichTextDescription',
-        'summary'                   => 'Summary',
-        'uiConfigsShrink'           => 'UiConfigs',
-        'calendarId'                => 'calendarId',
-        'startShrink'               => 'start',
+        'summary' => 'Summary',
+        'uiConfigsShrink' => 'UiConfigs',
+        'calendarId' => 'calendarId',
+        'startShrink' => 'start',
     ];
 
     public function validate()

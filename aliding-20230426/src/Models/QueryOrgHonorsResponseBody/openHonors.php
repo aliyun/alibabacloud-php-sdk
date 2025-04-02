@@ -12,27 +12,31 @@ class openHonors extends Model
      * @var string
      */
     public $honorDesc;
+
     /**
      * @var int
      */
     public $honorId;
+
     /**
      * @var string
      */
     public $honorImgUrl;
+
     /**
      * @var string
      */
     public $honorName;
+
     /**
      * @var string
      */
     public $honorPendantImgUrl;
     protected $_name = [
-        'honorDesc'          => 'honorDesc',
-        'honorId'            => 'honorId',
-        'honorImgUrl'        => 'honorImgUrl',
-        'honorName'          => 'honorName',
+        'honorDesc' => 'honorDesc',
+        'honorId' => 'honorId',
+        'honorImgUrl' => 'honorImgUrl',
+        'honorName' => 'honorName',
         'honorPendantImgUrl' => 'honorPendantImgUrl',
     ];
 

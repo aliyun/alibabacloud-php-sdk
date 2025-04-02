@@ -12,18 +12,20 @@ class thumbnail extends Model
      * @var int
      */
     public $height;
+
     /**
      * @var string
      */
     public $url;
+
     /**
      * @var int
      */
     public $width;
     protected $_name = [
         'height' => 'Height',
-        'url'    => 'Url',
-        'width'  => 'Width',
+        'url' => 'Url',
+        'width' => 'Width',
     ];
 
     public function validate()

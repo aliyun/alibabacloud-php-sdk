@@ -12,13 +12,14 @@ class InvokeSkillResponseBody extends Model
      * @var string
      */
     public $requestId;
+
     /**
      * @var mixed[]
      */
     public $data;
     protected $_name = [
         'requestId' => 'RequestId',
-        'data'      => 'data',
+        'data' => 'data',
     ];
 
     public function validate()

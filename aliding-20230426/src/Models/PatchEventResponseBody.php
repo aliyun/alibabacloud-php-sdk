@@ -19,73 +19,86 @@ class PatchEventResponseBody extends Model
      * @var attendees[]
      */
     public $attendees;
+
     /**
      * @var string
      */
     public $createTime;
+
     /**
      * @var string
      */
     public $description;
+
     /**
      * @var end
      */
     public $end;
+
     /**
      * @var string
      */
     public $id;
+
     /**
      * @var bool
      */
     public $isAllDay;
+
     /**
      * @var location
      */
     public $location;
+
     /**
      * @var organizer
      */
     public $organizer;
+
     /**
      * @var recurrence
      */
     public $recurrence;
+
     /**
      * @var reminders[]
      */
     public $reminders;
+
     /**
      * @var string
      */
     public $requestId;
+
     /**
      * @var start
      */
     public $start;
+
     /**
      * @var string
      */
     public $summary;
+
     /**
      * @var string
      */
     public $updateTime;
     protected $_name = [
-        'attendees'   => 'attendees',
-        'createTime'  => 'createTime',
+        'attendees' => 'attendees',
+        'createTime' => 'createTime',
         'description' => 'description',
-        'end'         => 'end',
-        'id'          => 'id',
-        'isAllDay'    => 'isAllDay',
-        'location'    => 'location',
-        'organizer'   => 'organizer',
-        'recurrence'  => 'recurrence',
-        'reminders'   => 'reminders',
-        'requestId'   => 'requestId',
-        'start'       => 'start',
-        'summary'     => 'summary',
-        'updateTime'  => 'updateTime',
+        'end' => 'end',
+        'id' => 'id',
+        'isAllDay' => 'isAllDay',
+        'location' => 'location',
+        'organizer' => 'organizer',
+        'recurrence' => 'recurrence',
+        'reminders' => 'reminders',
+        'requestId' => 'requestId',
+        'start' => 'start',
+        'summary' => 'summary',
+        'updateTime' => 'updateTime',
     ];
 
     public function validate()
@@ -120,7 +133,7 @@ class PatchEventResponseBody extends Model
         if (null !== $this->attendees) {
             if (\is_array($this->attendees)) {
                 $res['attendees'] = [];
-                $n1               = 0;
+                $n1 = 0;
                 foreach ($this->attendees as $item1) {
                     $res['attendees'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -162,7 +175,7 @@ class PatchEventResponseBody extends Model
         if (null !== $this->reminders) {
             if (\is_array($this->reminders)) {
                 $res['reminders'] = [];
-                $n1               = 0;
+                $n1 = 0;
                 foreach ($this->reminders as $item1) {
                     $res['reminders'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -199,7 +212,7 @@ class PatchEventResponseBody extends Model
         if (isset($map['attendees'])) {
             if (!empty($map['attendees'])) {
                 $model->attendees = [];
-                $n1               = 0;
+                $n1 = 0;
                 foreach ($map['attendees'] as $item1) {
                     $model->attendees[$n1++] = attendees::fromMap($item1);
                 }
@@ -241,7 +254,7 @@ class PatchEventResponseBody extends Model
         if (isset($map['reminders'])) {
             if (!empty($map['reminders'])) {
                 $model->reminders = [];
-                $n1               = 0;
+                $n1 = 0;
                 foreach ($map['reminders'] as $item1) {
                     $model->reminders[$n1++] = reminders::fromMap($item1);
                 }

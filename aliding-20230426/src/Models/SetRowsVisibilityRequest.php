@@ -13,33 +13,38 @@ class SetRowsVisibilityRequest extends Model
      * @var int
      */
     public $row;
+
     /**
      * @var int
      */
     public $rowCount;
+
     /**
      * @var string
      */
     public $sheetId;
+
     /**
      * @var tenantContext
      */
     public $tenantContext;
+
     /**
      * @var string
      */
     public $visibility;
+
     /**
      * @var string
      */
     public $workbookId;
     protected $_name = [
-        'row'           => 'Row',
-        'rowCount'      => 'RowCount',
-        'sheetId'       => 'SheetId',
+        'row' => 'Row',
+        'rowCount' => 'RowCount',
+        'sheetId' => 'SheetId',
         'tenantContext' => 'TenantContext',
-        'visibility'    => 'Visibility',
-        'workbookId'    => 'WorkbookId',
+        'visibility' => 'Visibility',
+        'workbookId' => 'WorkbookId',
     ];
 
     public function validate()

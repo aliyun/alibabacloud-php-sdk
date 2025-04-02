@@ -12,23 +12,26 @@ class GetOperationRecordsRequest extends Model
      * @var string
      */
     public $appType;
+
     /**
      * @var string
      */
     public $language;
+
     /**
      * @var string
      */
     public $processInstanceId;
+
     /**
      * @var string
      */
     public $systemToken;
     protected $_name = [
-        'appType'           => 'AppType',
-        'language'          => 'Language',
+        'appType' => 'AppType',
+        'language' => 'Language',
         'processInstanceId' => 'ProcessInstanceId',
-        'systemToken'       => 'SystemToken',
+        'systemToken' => 'SystemToken',
     ];
 
     public function validate()

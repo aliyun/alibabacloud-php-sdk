@@ -13,16 +13,18 @@ class CreateMeetingRoomGroupRequest extends Model
      * @var string
      */
     public $groupName;
+
     /**
      * @var int
      */
     public $parentGroupId;
+
     /**
      * @var tenantContext
      */
     public $tenantContext;
     protected $_name = [
-        'groupName'     => 'GroupName',
+        'groupName' => 'GroupName',
         'parentGroupId' => 'ParentGroupId',
         'tenantContext' => 'TenantContext',
     ];

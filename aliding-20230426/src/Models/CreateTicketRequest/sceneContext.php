@@ -13,23 +13,26 @@ class sceneContext extends Model
      * @var groupMsgs[]
      */
     public $groupMsgs;
+
     /**
      * @var string
      */
     public $openConversationId;
+
     /**
      * @var string[]
      */
     public $relevantorUserIds;
+
     /**
      * @var string
      */
     public $topicId;
     protected $_name = [
-        'groupMsgs'          => 'GroupMsgs',
+        'groupMsgs' => 'GroupMsgs',
         'openConversationId' => 'OpenConversationId',
-        'relevantorUserIds'  => 'RelevantorUserIds',
-        'topicId'            => 'TopicId',
+        'relevantorUserIds' => 'RelevantorUserIds',
+        'topicId' => 'TopicId',
     ];
 
     public function validate()
@@ -49,7 +52,7 @@ class sceneContext extends Model
         if (null !== $this->groupMsgs) {
             if (\is_array($this->groupMsgs)) {
                 $res['GroupMsgs'] = [];
-                $n1               = 0;
+                $n1 = 0;
                 foreach ($this->groupMsgs as $item1) {
                     $res['GroupMsgs'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -63,7 +66,7 @@ class sceneContext extends Model
         if (null !== $this->relevantorUserIds) {
             if (\is_array($this->relevantorUserIds)) {
                 $res['RelevantorUserIds'] = [];
-                $n1                       = 0;
+                $n1 = 0;
                 foreach ($this->relevantorUserIds as $item1) {
                     $res['RelevantorUserIds'][$n1++] = $item1;
                 }
@@ -88,7 +91,7 @@ class sceneContext extends Model
         if (isset($map['GroupMsgs'])) {
             if (!empty($map['GroupMsgs'])) {
                 $model->groupMsgs = [];
-                $n1               = 0;
+                $n1 = 0;
                 foreach ($map['GroupMsgs'] as $item1) {
                     $model->groupMsgs[$n1++] = groupMsgs::fromMap($item1);
                 }
@@ -102,7 +105,7 @@ class sceneContext extends Model
         if (isset($map['RelevantorUserIds'])) {
             if (!empty($map['RelevantorUserIds'])) {
                 $model->relevantorUserIds = [];
-                $n1                       = 0;
+                $n1 = 0;
                 foreach ($map['RelevantorUserIds'] as $item1) {
                     $model->relevantorUserIds[$n1++] = $item1;
                 }

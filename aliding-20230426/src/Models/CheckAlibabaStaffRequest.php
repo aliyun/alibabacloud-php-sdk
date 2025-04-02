@@ -13,12 +13,13 @@ class CheckAlibabaStaffRequest extends Model
      * @var string
      */
     public $mobile;
+
     /**
      * @var tenantContext
      */
     public $tenantContext;
     protected $_name = [
-        'mobile'        => 'Mobile',
+        'mobile' => 'Mobile',
         'tenantContext' => 'TenantContext',
     ];
 

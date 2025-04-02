@@ -12,27 +12,31 @@ class GetOrgOrWebOpenDocContentTaskIdShrinkRequest extends Model
      * @var string
      */
     public $dentryUuid;
+
     /**
      * @var bool
      */
     public $generateCp;
+
     /**
      * @var int
      */
     public $scopeType;
+
     /**
      * @var string
      */
     public $targetFormat;
+
     /**
      * @var string
      */
     public $tenantContextShrink;
     protected $_name = [
-        'dentryUuid'          => 'DentryUuid',
-        'generateCp'          => 'GenerateCp',
-        'scopeType'           => 'ScopeType',
-        'targetFormat'        => 'TargetFormat',
+        'dentryUuid' => 'DentryUuid',
+        'generateCp' => 'GenerateCp',
+        'scopeType' => 'ScopeType',
+        'targetFormat' => 'TargetFormat',
         'tenantContextShrink' => 'TenantContext',
     ];
 

@@ -12,18 +12,20 @@ class QueryOrgTodoTasksShrinkRequest extends Model
      * @var string
      */
     public $tenantContextShrink;
+
     /**
      * @var bool
      */
     public $isDone;
+
     /**
      * @var string
      */
     public $nextToken;
     protected $_name = [
         'tenantContextShrink' => 'TenantContext',
-        'isDone'              => 'isDone',
-        'nextToken'           => 'nextToken',
+        'isDone' => 'isDone',
+        'nextToken' => 'nextToken',
     ];
 
     public function validate()

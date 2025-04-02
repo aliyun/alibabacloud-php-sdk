@@ -14,13 +14,14 @@ class recurrence extends Model
      * @var pattern
      */
     public $pattern;
+
     /**
      * @var range
      */
     public $range;
     protected $_name = [
         'pattern' => 'Pattern',
-        'range'   => 'Range',
+        'range' => 'Range',
     ];
 
     public function validate()

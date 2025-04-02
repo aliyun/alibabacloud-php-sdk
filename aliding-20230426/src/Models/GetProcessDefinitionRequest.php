@@ -12,48 +12,56 @@ class GetProcessDefinitionRequest extends Model
      * @var string
      */
     public $appType;
+
     /**
      * @var string
      */
     public $corpId;
+
     /**
      * @var string
      */
     public $groupId;
+
     /**
      * @var string
      */
     public $language;
+
     /**
      * @var string
      */
     public $nameSpace;
+
     /**
      * @var string
      */
     public $orderNumber;
+
     /**
      * @var string
      */
     public $processInstanceId;
+
     /**
      * @var string
      */
     public $systemToken;
+
     /**
      * @var string
      */
     public $systemType;
     protected $_name = [
-        'appType'           => 'AppType',
-        'corpId'            => 'CorpId',
-        'groupId'           => 'GroupId',
-        'language'          => 'Language',
-        'nameSpace'         => 'NameSpace',
-        'orderNumber'       => 'OrderNumber',
+        'appType' => 'AppType',
+        'corpId' => 'CorpId',
+        'groupId' => 'GroupId',
+        'language' => 'Language',
+        'nameSpace' => 'NameSpace',
+        'orderNumber' => 'OrderNumber',
         'processInstanceId' => 'ProcessInstanceId',
-        'systemToken'       => 'SystemToken',
-        'systemType'        => 'SystemType',
+        'systemToken' => 'SystemToken',
+        'systemType' => 'SystemType',
     ];
 
     public function validate()

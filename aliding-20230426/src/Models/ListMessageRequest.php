@@ -12,33 +12,38 @@ class ListMessageRequest extends Model
      * @var string
      */
     public $assistantId;
+
     /**
      * @var int
      */
     public $limit;
+
     /**
      * @var string
      */
     public $order;
+
     /**
      * @var string
      */
     public $originalAssistantid;
+
     /**
      * @var string
      */
     public $runId;
+
     /**
      * @var string
      */
     public $threadId;
     protected $_name = [
-        'assistantId'         => 'assistantId',
-        'limit'               => 'limit',
-        'order'               => 'order',
+        'assistantId' => 'assistantId',
+        'limit' => 'limit',
+        'order' => 'order',
         'originalAssistantid' => 'originalAssistantid',
-        'runId'               => 'runId',
-        'threadId'            => 'threadId',
+        'runId' => 'runId',
+        'threadId' => 'threadId',
     ];
 
     public function validate()

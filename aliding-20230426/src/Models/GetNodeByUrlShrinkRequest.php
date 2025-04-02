@@ -12,18 +12,20 @@ class GetNodeByUrlShrinkRequest extends Model
      * @var string
      */
     public $optionShrink;
+
     /**
      * @var string
      */
     public $tenantContextShrink;
+
     /**
      * @var string
      */
     public $url;
     protected $_name = [
-        'optionShrink'        => 'Option',
+        'optionShrink' => 'Option',
         'tenantContextShrink' => 'TenantContext',
-        'url'                 => 'Url',
+        'url' => 'Url',
     ];
 
     public function validate()

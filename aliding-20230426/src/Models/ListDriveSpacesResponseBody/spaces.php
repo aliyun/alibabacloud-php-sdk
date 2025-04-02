@@ -12,43 +12,50 @@ class spaces extends Model
      * @var string
      */
     public $createTime;
+
     /**
      * @var string
      */
     public $modifyTime;
+
     /**
      * @var string
      */
     public $permissionMode;
+
     /**
      * @var int
      */
     public $quota;
+
     /**
      * @var string
      */
     public $spaceId;
+
     /**
      * @var string
      */
     public $spaceName;
+
     /**
      * @var string
      */
     public $spaceType;
+
     /**
      * @var int
      */
     public $usedQuota;
     protected $_name = [
-        'createTime'     => 'CreateTime',
-        'modifyTime'     => 'ModifyTime',
+        'createTime' => 'CreateTime',
+        'modifyTime' => 'ModifyTime',
         'permissionMode' => 'PermissionMode',
-        'quota'          => 'Quota',
-        'spaceId'        => 'SpaceId',
-        'spaceName'      => 'SpaceName',
-        'spaceType'      => 'SpaceType',
-        'usedQuota'      => 'UsedQuota',
+        'quota' => 'Quota',
+        'spaceId' => 'SpaceId',
+        'spaceName' => 'SpaceName',
+        'spaceType' => 'SpaceType',
+        'usedQuota' => 'UsedQuota',
     ];
 
     public function validate()

@@ -12,68 +12,80 @@ class QueryLiveInfoResponseBody extends Model
      * @var string
      */
     public $coverUrl;
+
     /**
      * @var int
      */
     public $duration;
+
     /**
      * @var int
      */
     public $endTime;
+
     /**
      * @var string
      */
     public $introduction;
+
     /**
      * @var string
      */
     public $liveId;
+
     /**
      * @var string
      */
     public $livePlayUrl;
+
     /**
      * @var int
      */
     public $liveStatus;
+
     /**
      * @var int
      */
     public $playbackDuration;
+
     /**
      * @var string
      */
     public $requestId;
+
     /**
      * @var int
      */
     public $startTime;
+
     /**
      * @var int
      */
     public $subscribeCount;
+
     /**
      * @var string
      */
     public $title;
+
     /**
      * @var int
      */
     public $uv;
     protected $_name = [
-        'coverUrl'         => 'coverUrl',
-        'duration'         => 'duration',
-        'endTime'          => 'endTime',
-        'introduction'     => 'introduction',
-        'liveId'           => 'liveId',
-        'livePlayUrl'      => 'livePlayUrl',
-        'liveStatus'       => 'liveStatus',
+        'coverUrl' => 'coverUrl',
+        'duration' => 'duration',
+        'endTime' => 'endTime',
+        'introduction' => 'introduction',
+        'liveId' => 'liveId',
+        'livePlayUrl' => 'livePlayUrl',
+        'liveStatus' => 'liveStatus',
         'playbackDuration' => 'playbackDuration',
-        'requestId'        => 'requestId',
-        'startTime'        => 'startTime',
-        'subscribeCount'   => 'subscribeCount',
-        'title'            => 'title',
-        'uv'               => 'uv',
+        'requestId' => 'requestId',
+        'startTime' => 'startTime',
+        'subscribeCount' => 'subscribeCount',
+        'title' => 'title',
+        'uv' => 'uv',
     ];
 
     public function validate()

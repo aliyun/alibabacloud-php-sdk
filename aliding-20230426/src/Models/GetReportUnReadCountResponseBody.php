@@ -12,12 +12,13 @@ class GetReportUnReadCountResponseBody extends Model
      * @var int
      */
     public $count;
+
     /**
      * @var string
      */
     public $requestId;
     protected $_name = [
-        'count'     => 'count',
+        'count' => 'count',
         'requestId' => 'requestId',
     ];
 

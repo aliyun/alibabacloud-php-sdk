@@ -13,21 +13,24 @@ class GetSpaceDirectoriesResponseBody extends Model
      * @var children[]
      */
     public $children;
+
     /**
      * @var bool
      */
     public $hasMore;
+
     /**
      * @var string
      */
     public $nextToken;
+
     /**
      * @var string
      */
     public $requestId;
     protected $_name = [
-        'children'  => 'children',
-        'hasMore'   => 'hasMore',
+        'children' => 'children',
+        'hasMore' => 'hasMore',
         'nextToken' => 'nextToken',
         'requestId' => 'requestId',
     ];
@@ -46,7 +49,7 @@ class GetSpaceDirectoriesResponseBody extends Model
         if (null !== $this->children) {
             if (\is_array($this->children)) {
                 $res['children'] = [];
-                $n1              = 0;
+                $n1 = 0;
                 foreach ($this->children as $item1) {
                     $res['children'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -79,7 +82,7 @@ class GetSpaceDirectoriesResponseBody extends Model
         if (isset($map['children'])) {
             if (!empty($map['children'])) {
                 $model->children = [];
-                $n1              = 0;
+                $n1 = 0;
                 foreach ($map['children'] as $item1) {
                     $model->children[$n1++] = children::fromMap($item1);
                 }

@@ -22,88 +22,104 @@ class CreateEventResponseBody extends Model
      * @var attendees[]
      */
     public $attendees;
+
     /**
      * @var string
      */
     public $createTime;
+
     /**
      * @var string
      */
     public $description;
+
     /**
      * @var end
      */
     public $end;
+
     /**
      * @var string
      */
     public $id;
+
     /**
      * @var bool
      */
     public $isAllDay;
+
     /**
      * @var location
      */
     public $location;
+
     /**
      * @var onlineMeetingInfo
      */
     public $onlineMeetingInfo;
+
     /**
      * @var organizer
      */
     public $organizer;
+
     /**
      * @var recurrence
      */
     public $recurrence;
+
     /**
      * @var reminders[]
      */
     public $reminders;
+
     /**
      * @var string
      */
     public $requestId;
+
     /**
      * @var richTextDescription
      */
     public $richTextDescription;
+
     /**
      * @var start
      */
     public $start;
+
     /**
      * @var string
      */
     public $summary;
+
     /**
      * @var uiConfigs[]
      */
     public $uiConfigs;
+
     /**
      * @var string
      */
     public $updateTime;
     protected $_name = [
-        'attendees'           => 'attendees',
-        'createTime'          => 'createTime',
-        'description'         => 'description',
-        'end'                 => 'end',
-        'id'                  => 'id',
-        'isAllDay'            => 'isAllDay',
-        'location'            => 'location',
-        'onlineMeetingInfo'   => 'onlineMeetingInfo',
-        'organizer'           => 'organizer',
-        'recurrence'          => 'recurrence',
-        'reminders'           => 'reminders',
-        'requestId'           => 'requestId',
+        'attendees' => 'attendees',
+        'createTime' => 'createTime',
+        'description' => 'description',
+        'end' => 'end',
+        'id' => 'id',
+        'isAllDay' => 'isAllDay',
+        'location' => 'location',
+        'onlineMeetingInfo' => 'onlineMeetingInfo',
+        'organizer' => 'organizer',
+        'recurrence' => 'recurrence',
+        'reminders' => 'reminders',
+        'requestId' => 'requestId',
         'richTextDescription' => 'richTextDescription',
-        'start'               => 'start',
-        'summary'             => 'summary',
-        'uiConfigs'           => 'uiConfigs',
-        'updateTime'          => 'updateTime',
+        'start' => 'start',
+        'summary' => 'summary',
+        'uiConfigs' => 'uiConfigs',
+        'updateTime' => 'updateTime',
     ];
 
     public function validate()
@@ -147,7 +163,7 @@ class CreateEventResponseBody extends Model
         if (null !== $this->attendees) {
             if (\is_array($this->attendees)) {
                 $res['attendees'] = [];
-                $n1               = 0;
+                $n1 = 0;
                 foreach ($this->attendees as $item1) {
                     $res['attendees'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -193,7 +209,7 @@ class CreateEventResponseBody extends Model
         if (null !== $this->reminders) {
             if (\is_array($this->reminders)) {
                 $res['reminders'] = [];
-                $n1               = 0;
+                $n1 = 0;
                 foreach ($this->reminders as $item1) {
                     $res['reminders'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -219,7 +235,7 @@ class CreateEventResponseBody extends Model
         if (null !== $this->uiConfigs) {
             if (\is_array($this->uiConfigs)) {
                 $res['uiConfigs'] = [];
-                $n1               = 0;
+                $n1 = 0;
                 foreach ($this->uiConfigs as $item1) {
                     $res['uiConfigs'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -244,7 +260,7 @@ class CreateEventResponseBody extends Model
         if (isset($map['attendees'])) {
             if (!empty($map['attendees'])) {
                 $model->attendees = [];
-                $n1               = 0;
+                $n1 = 0;
                 foreach ($map['attendees'] as $item1) {
                     $model->attendees[$n1++] = attendees::fromMap($item1);
                 }
@@ -290,7 +306,7 @@ class CreateEventResponseBody extends Model
         if (isset($map['reminders'])) {
             if (!empty($map['reminders'])) {
                 $model->reminders = [];
-                $n1               = 0;
+                $n1 = 0;
                 foreach ($map['reminders'] as $item1) {
                     $model->reminders[$n1++] = reminders::fromMap($item1);
                 }
@@ -316,7 +332,7 @@ class CreateEventResponseBody extends Model
         if (isset($map['uiConfigs'])) {
             if (!empty($map['uiConfigs'])) {
                 $model->uiConfigs = [];
-                $n1               = 0;
+                $n1 = 0;
                 foreach ($map['uiConfigs'] as $item1) {
                     $model->uiConfigs[$n1++] = uiConfigs::fromMap($item1);
                 }

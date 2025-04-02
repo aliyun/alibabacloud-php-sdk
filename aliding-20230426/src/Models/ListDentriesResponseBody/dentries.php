@@ -15,103 +15,122 @@ class dentries extends Model
      * @var DentriesAppPropertiesValue[][]
      */
     public $appProperties;
+
     /**
      * @var string
      */
     public $createTime;
+
     /**
      * @var string
      */
     public $creatorId;
+
     /**
      * @var string
      */
     public $extension;
+
     /**
      * @var string
      */
     public $id;
+
     /**
      * @var string
      */
     public $modifiedTime;
+
     /**
      * @var string
      */
     public $modifierId;
+
     /**
      * @var string
      */
     public $name;
+
     /**
      * @var string
      */
     public $parentId;
+
     /**
      * @var string
      */
     public $partitionType;
+
     /**
      * @var string
      */
     public $path;
+
     /**
      * @var properties
      */
     public $properties;
+
     /**
      * @var int
      */
     public $size;
+
     /**
      * @var string
      */
     public $spaceId;
+
     /**
      * @var string
      */
     public $status;
+
     /**
      * @var string
      */
     public $storageDriver;
+
     /**
      * @var thumbnail
      */
     public $thumbnail;
+
     /**
      * @var string
      */
     public $type;
+
     /**
      * @var string
      */
     public $uuid;
+
     /**
      * @var int
      */
     public $version;
     protected $_name = [
         'appProperties' => 'AppProperties',
-        'createTime'    => 'CreateTime',
-        'creatorId'     => 'CreatorId',
-        'extension'     => 'Extension',
-        'id'            => 'Id',
-        'modifiedTime'  => 'ModifiedTime',
-        'modifierId'    => 'ModifierId',
-        'name'          => 'Name',
-        'parentId'      => 'ParentId',
+        'createTime' => 'CreateTime',
+        'creatorId' => 'CreatorId',
+        'extension' => 'Extension',
+        'id' => 'Id',
+        'modifiedTime' => 'ModifiedTime',
+        'modifierId' => 'ModifierId',
+        'name' => 'Name',
+        'parentId' => 'ParentId',
         'partitionType' => 'PartitionType',
-        'path'          => 'Path',
-        'properties'    => 'Properties',
-        'size'          => 'Size',
-        'spaceId'       => 'SpaceId',
-        'status'        => 'Status',
+        'path' => 'Path',
+        'properties' => 'Properties',
+        'size' => 'Size',
+        'spaceId' => 'SpaceId',
+        'status' => 'Status',
         'storageDriver' => 'StorageDriver',
-        'thumbnail'     => 'Thumbnail',
-        'type'          => 'Type',
-        'uuid'          => 'Uuid',
-        'version'       => 'Version',
+        'thumbnail' => 'Thumbnail',
+        'type' => 'Type',
+        'uuid' => 'Uuid',
+        'version' => 'Version',
     ];
 
     public function validate()
@@ -137,7 +156,7 @@ class dentries extends Model
                 foreach ($this->appProperties as $key1 => $value1) {
                     if (\is_array($value1)) {
                         $res['AppProperties'][$key1] = [];
-                        $n2                          = 0;
+                        $n2 = 0;
                         foreach ($value1 as $item2) {
                             $res['AppProperties'][$key1][$n2++] = null !== $item2 ? $item2->toArray($noStream) : $item2;
                         }
@@ -239,7 +258,7 @@ class dentries extends Model
                 foreach ($map['AppProperties'] as $key1 => $value1) {
                     if (!empty($value1)) {
                         $model->appProperties[$key1] = [];
-                        $n2                          = 0;
+                        $n2 = 0;
                         foreach ($value1 as $item2) {
                             $model->appProperties[$key1][$n2++] = DentriesAppPropertiesValue::fromMap($item2);
                         }

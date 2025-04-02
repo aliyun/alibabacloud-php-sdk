@@ -12,33 +12,38 @@ class orgUsesList extends Model
      * @var string
      */
     public $deptName;
+
     /**
      * @var string
      */
     public $name;
+
     /**
      * @var string
      */
     public $userId;
+
     /**
      * @var int
      */
     public $watchLiveTime;
+
     /**
      * @var int
      */
     public $watchPlaybackTime;
+
     /**
      * @var int
      */
     public $watchProgressMs;
     protected $_name = [
-        'deptName'          => 'DeptName',
-        'name'              => 'Name',
-        'userId'            => 'UserId',
-        'watchLiveTime'     => 'WatchLiveTime',
+        'deptName' => 'DeptName',
+        'name' => 'Name',
+        'userId' => 'UserId',
+        'watchLiveTime' => 'WatchLiveTime',
         'watchPlaybackTime' => 'WatchPlaybackTime',
-        'watchProgressMs'   => 'WatchProgressMs',
+        'watchProgressMs' => 'WatchProgressMs',
     ];
 
     public function validate()

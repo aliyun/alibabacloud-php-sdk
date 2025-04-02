@@ -12,23 +12,26 @@ class phoneInviteeList extends Model
      * @var bool
      */
     public $inviteClient;
+
     /**
      * @var string
      */
     public $nick;
+
     /**
      * @var string
      */
     public $phoneNumber;
+
     /**
      * @var string
      */
     public $statusCode;
     protected $_name = [
         'inviteClient' => 'InviteClient',
-        'nick'         => 'Nick',
-        'phoneNumber'  => 'PhoneNumber',
-        'statusCode'   => 'StatusCode',
+        'nick' => 'Nick',
+        'phoneNumber' => 'PhoneNumber',
+        'statusCode' => 'StatusCode',
     ];
 
     public function validate()

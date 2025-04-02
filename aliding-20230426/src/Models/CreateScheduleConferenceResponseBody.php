@@ -12,28 +12,32 @@ class CreateScheduleConferenceResponseBody extends Model
      * @var string[]
      */
     public $phones;
+
     /**
      * @var string
      */
     public $requestId;
+
     /**
      * @var string
      */
     public $roomCode;
+
     /**
      * @var string
      */
     public $scheduleConferenceId;
+
     /**
      * @var string
      */
     public $url;
     protected $_name = [
-        'phones'               => 'phones',
-        'requestId'            => 'requestId',
-        'roomCode'             => 'roomCode',
+        'phones' => 'phones',
+        'requestId' => 'requestId',
+        'roomCode' => 'roomCode',
         'scheduleConferenceId' => 'scheduleConferenceId',
-        'url'                  => 'url',
+        'url' => 'url',
     ];
 
     public function validate()
@@ -50,7 +54,7 @@ class CreateScheduleConferenceResponseBody extends Model
         if (null !== $this->phones) {
             if (\is_array($this->phones)) {
                 $res['phones'] = [];
-                $n1            = 0;
+                $n1 = 0;
                 foreach ($this->phones as $item1) {
                     $res['phones'][$n1++] = $item1;
                 }
@@ -87,7 +91,7 @@ class CreateScheduleConferenceResponseBody extends Model
         if (isset($map['phones'])) {
             if (!empty($map['phones'])) {
                 $model->phones = [];
-                $n1            = 0;
+                $n1 = 0;
                 foreach ($map['phones'] as $item1) {
                     $model->phones[$n1++] = $item1;
                 }

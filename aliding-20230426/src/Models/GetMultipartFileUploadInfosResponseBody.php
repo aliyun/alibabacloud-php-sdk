@@ -13,23 +13,26 @@ class GetMultipartFileUploadInfosResponseBody extends Model
      * @var multipartHeaderSignatureInfos[]
      */
     public $multipartHeaderSignatureInfos;
+
     /**
      * @var string
      */
     public $requestId;
+
     /**
      * @var string
      */
     public $vendorRequestId;
+
     /**
      * @var string
      */
     public $vendorType;
     protected $_name = [
         'multipartHeaderSignatureInfos' => 'multipartHeaderSignatureInfos',
-        'requestId'                     => 'requestId',
-        'vendorRequestId'               => 'vendorRequestId',
-        'vendorType'                    => 'vendorType',
+        'requestId' => 'requestId',
+        'vendorRequestId' => 'vendorRequestId',
+        'vendorType' => 'vendorType',
     ];
 
     public function validate()
@@ -46,7 +49,7 @@ class GetMultipartFileUploadInfosResponseBody extends Model
         if (null !== $this->multipartHeaderSignatureInfos) {
             if (\is_array($this->multipartHeaderSignatureInfos)) {
                 $res['multipartHeaderSignatureInfos'] = [];
-                $n1                                   = 0;
+                $n1 = 0;
                 foreach ($this->multipartHeaderSignatureInfos as $item1) {
                     $res['multipartHeaderSignatureInfos'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -79,7 +82,7 @@ class GetMultipartFileUploadInfosResponseBody extends Model
         if (isset($map['multipartHeaderSignatureInfos'])) {
             if (!empty($map['multipartHeaderSignatureInfos'])) {
                 $model->multipartHeaderSignatureInfos = [];
-                $n1                                   = 0;
+                $n1 = 0;
                 foreach ($map['multipartHeaderSignatureInfos'] as $item1) {
                     $model->multipartHeaderSignatureInfos[$n1++] = multipartHeaderSignatureInfos::fromMap($item1);
                 }

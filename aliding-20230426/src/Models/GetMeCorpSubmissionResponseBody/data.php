@@ -14,133 +14,158 @@ class data extends Model
      * @var actioner[]
      */
     public $actioner;
+
     /**
      * @var string[]
      */
     public $actionerId;
+
     /**
      * @var string[]
      */
     public $actionerName;
+
     /**
      * @var string
      */
     public $appType;
+
     /**
      * @var string
      */
     public $createTimeGMT;
+
     /**
      * @var currentActivityInstances[]
      */
     public $currentActivityInstances;
+
     /**
      * @var mixed[]
      */
     public $dataMap;
+
     /**
      * @var string
      */
     public $dataType;
+
     /**
      * @var string
      */
     public $finishTimeGMT;
+
     /**
      * @var string
      */
     public $formInstanceId;
+
     /**
      * @var string
      */
     public $formUuid;
+
     /**
      * @var string
      */
     public $instanceValue;
+
     /**
      * @var string
      */
     public $modifiedTimeGMT;
+
     /**
      * @var string
      */
     public $originatorAvatar;
+
     /**
      * @var string
      */
     public $originatorDisplayName;
+
     /**
      * @var string
      */
     public $originatorId;
+
     /**
      * @var string
      */
     public $processApprovedResult;
+
     /**
      * @var string
      */
     public $processApprovedResultText;
+
     /**
      * @var string
      */
     public $processCode;
+
     /**
      * @var int
      */
     public $processId;
+
     /**
      * @var string
      */
     public $processInstanceId;
+
     /**
      * @var string
      */
     public $processInstanceStatus;
+
     /**
      * @var string
      */
     public $processInstanceStatusText;
+
     /**
      * @var string
      */
     public $processName;
+
     /**
      * @var string
      */
     public $title;
+
     /**
      * @var int
      */
     public $version;
     protected $_name = [
-        'actioner'                  => 'Actioner',
-        'actionerId'                => 'ActionerId',
-        'actionerName'              => 'ActionerName',
-        'appType'                   => 'AppType',
-        'createTimeGMT'             => 'CreateTimeGMT',
-        'currentActivityInstances'  => 'CurrentActivityInstances',
-        'dataMap'                   => 'DataMap',
-        'dataType'                  => 'DataType',
-        'finishTimeGMT'             => 'FinishTimeGMT',
-        'formInstanceId'            => 'FormInstanceId',
-        'formUuid'                  => 'FormUuid',
-        'instanceValue'             => 'InstanceValue',
-        'modifiedTimeGMT'           => 'ModifiedTimeGMT',
-        'originatorAvatar'          => 'OriginatorAvatar',
-        'originatorDisplayName'     => 'OriginatorDisplayName',
-        'originatorId'              => 'OriginatorId',
-        'processApprovedResult'     => 'ProcessApprovedResult',
+        'actioner' => 'Actioner',
+        'actionerId' => 'ActionerId',
+        'actionerName' => 'ActionerName',
+        'appType' => 'AppType',
+        'createTimeGMT' => 'CreateTimeGMT',
+        'currentActivityInstances' => 'CurrentActivityInstances',
+        'dataMap' => 'DataMap',
+        'dataType' => 'DataType',
+        'finishTimeGMT' => 'FinishTimeGMT',
+        'formInstanceId' => 'FormInstanceId',
+        'formUuid' => 'FormUuid',
+        'instanceValue' => 'InstanceValue',
+        'modifiedTimeGMT' => 'ModifiedTimeGMT',
+        'originatorAvatar' => 'OriginatorAvatar',
+        'originatorDisplayName' => 'OriginatorDisplayName',
+        'originatorId' => 'OriginatorId',
+        'processApprovedResult' => 'ProcessApprovedResult',
         'processApprovedResultText' => 'ProcessApprovedResultText',
-        'processCode'               => 'ProcessCode',
-        'processId'                 => 'ProcessId',
-        'processInstanceId'         => 'ProcessInstanceId',
-        'processInstanceStatus'     => 'ProcessInstanceStatus',
+        'processCode' => 'ProcessCode',
+        'processId' => 'ProcessId',
+        'processInstanceId' => 'ProcessInstanceId',
+        'processInstanceStatus' => 'ProcessInstanceStatus',
         'processInstanceStatusText' => 'ProcessInstanceStatusText',
-        'processName'               => 'ProcessName',
-        'title'                     => 'Title',
-        'version'                   => 'Version',
+        'processName' => 'ProcessName',
+        'title' => 'Title',
+        'version' => 'Version',
     ];
 
     public function validate()
@@ -169,7 +194,7 @@ class data extends Model
         if (null !== $this->actioner) {
             if (\is_array($this->actioner)) {
                 $res['Actioner'] = [];
-                $n1              = 0;
+                $n1 = 0;
                 foreach ($this->actioner as $item1) {
                     $res['Actioner'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -179,7 +204,7 @@ class data extends Model
         if (null !== $this->actionerId) {
             if (\is_array($this->actionerId)) {
                 $res['ActionerId'] = [];
-                $n1                = 0;
+                $n1 = 0;
                 foreach ($this->actionerId as $item1) {
                     $res['ActionerId'][$n1++] = $item1;
                 }
@@ -189,7 +214,7 @@ class data extends Model
         if (null !== $this->actionerName) {
             if (\is_array($this->actionerName)) {
                 $res['ActionerName'] = [];
-                $n1                  = 0;
+                $n1 = 0;
                 foreach ($this->actionerName as $item1) {
                     $res['ActionerName'][$n1++] = $item1;
                 }
@@ -207,7 +232,7 @@ class data extends Model
         if (null !== $this->currentActivityInstances) {
             if (\is_array($this->currentActivityInstances)) {
                 $res['CurrentActivityInstances'] = [];
-                $n1                              = 0;
+                $n1 = 0;
                 foreach ($this->currentActivityInstances as $item1) {
                     $res['CurrentActivityInstances'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -313,7 +338,7 @@ class data extends Model
         if (isset($map['Actioner'])) {
             if (!empty($map['Actioner'])) {
                 $model->actioner = [];
-                $n1              = 0;
+                $n1 = 0;
                 foreach ($map['Actioner'] as $item1) {
                     $model->actioner[$n1++] = actioner::fromMap($item1);
                 }
@@ -323,7 +348,7 @@ class data extends Model
         if (isset($map['ActionerId'])) {
             if (!empty($map['ActionerId'])) {
                 $model->actionerId = [];
-                $n1                = 0;
+                $n1 = 0;
                 foreach ($map['ActionerId'] as $item1) {
                     $model->actionerId[$n1++] = $item1;
                 }
@@ -333,7 +358,7 @@ class data extends Model
         if (isset($map['ActionerName'])) {
             if (!empty($map['ActionerName'])) {
                 $model->actionerName = [];
-                $n1                  = 0;
+                $n1 = 0;
                 foreach ($map['ActionerName'] as $item1) {
                     $model->actionerName[$n1++] = $item1;
                 }
@@ -351,7 +376,7 @@ class data extends Model
         if (isset($map['CurrentActivityInstances'])) {
             if (!empty($map['CurrentActivityInstances'])) {
                 $model->currentActivityInstances = [];
-                $n1                              = 0;
+                $n1 = 0;
                 foreach ($map['CurrentActivityInstances'] as $item1) {
                     $model->currentActivityInstances[$n1++] = currentActivityInstances::fromMap($item1);
                 }

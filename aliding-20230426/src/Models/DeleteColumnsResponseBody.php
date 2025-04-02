@@ -12,12 +12,13 @@ class DeleteColumnsResponseBody extends Model
      * @var string
      */
     public $id;
+
     /**
      * @var string
      */
     public $requestId;
     protected $_name = [
-        'id'        => 'id',
+        'id' => 'id',
         'requestId' => 'requestId',
     ];
 

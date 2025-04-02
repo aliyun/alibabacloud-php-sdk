@@ -12,28 +12,32 @@ class CommitFileShrinkRequest extends Model
      * @var string
      */
     public $name;
+
     /**
      * @var string
      */
     public $optionShrink;
+
     /**
      * @var string
      */
     public $parentDentryUuid;
+
     /**
      * @var string
      */
     public $tenantContextShrink;
+
     /**
      * @var string
      */
     public $uploadKey;
     protected $_name = [
-        'name'                => 'Name',
-        'optionShrink'        => 'Option',
-        'parentDentryUuid'    => 'ParentDentryUuid',
+        'name' => 'Name',
+        'optionShrink' => 'Option',
+        'parentDentryUuid' => 'ParentDentryUuid',
         'tenantContextShrink' => 'TenantContext',
-        'uploadKey'           => 'UploadKey',
+        'uploadKey' => 'UploadKey',
     ];
 
     public function validate()

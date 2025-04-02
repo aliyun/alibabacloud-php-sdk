@@ -12,68 +12,80 @@ class PatchEventShrinkRequest extends Model
      * @var string
      */
     public $attendeesShrink;
+
     /**
      * @var string
      */
     public $calendarId;
+
     /**
      * @var string
      */
     public $cardInstancesShrink;
+
     /**
      * @var string
      */
     public $description;
+
     /**
      * @var string
      */
     public $endShrink;
+
     /**
      * @var string
      */
     public $eventId;
+
     /**
      * @var string
      */
     public $extraShrink;
+
     /**
      * @var bool
      */
     public $isAllDay;
+
     /**
      * @var string
      */
     public $locationShrink;
+
     /**
      * @var string
      */
     public $recurrenceShrink;
+
     /**
      * @var string
      */
     public $remindersShrink;
+
     /**
      * @var string
      */
     public $startShrink;
+
     /**
      * @var string
      */
     public $summary;
     protected $_name = [
-        'attendeesShrink'     => 'Attendees',
-        'calendarId'          => 'CalendarId',
+        'attendeesShrink' => 'Attendees',
+        'calendarId' => 'CalendarId',
         'cardInstancesShrink' => 'CardInstances',
-        'description'         => 'Description',
-        'endShrink'           => 'End',
-        'eventId'             => 'EventId',
-        'extraShrink'         => 'Extra',
-        'isAllDay'            => 'IsAllDay',
-        'locationShrink'      => 'Location',
-        'recurrenceShrink'    => 'Recurrence',
-        'remindersShrink'     => 'Reminders',
-        'startShrink'         => 'Start',
-        'summary'             => 'Summary',
+        'description' => 'Description',
+        'endShrink' => 'End',
+        'eventId' => 'EventId',
+        'extraShrink' => 'Extra',
+        'isAllDay' => 'IsAllDay',
+        'locationShrink' => 'Location',
+        'recurrenceShrink' => 'Recurrence',
+        'remindersShrink' => 'Reminders',
+        'startShrink' => 'Start',
+        'summary' => 'Summary',
     ];
 
     public function validate()

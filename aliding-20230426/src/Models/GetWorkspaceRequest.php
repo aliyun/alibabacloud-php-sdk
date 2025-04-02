@@ -13,18 +13,20 @@ class GetWorkspaceRequest extends Model
      * @var tenantContext
      */
     public $tenantContext;
+
     /**
      * @var bool
      */
     public $withPermissionRole;
+
     /**
      * @var string
      */
     public $workspaceId;
     protected $_name = [
-        'tenantContext'      => 'TenantContext',
+        'tenantContext' => 'TenantContext',
         'withPermissionRole' => 'WithPermissionRole',
-        'workspaceId'        => 'WorkspaceId',
+        'workspaceId' => 'WorkspaceId',
     ];
 
     public function validate()

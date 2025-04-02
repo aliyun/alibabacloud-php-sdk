@@ -12,38 +12,44 @@ class BatchSaveFormDataShrinkRequest extends Model
      * @var string
      */
     public $appType;
+
     /**
      * @var bool
      */
     public $asynchronousExecution;
+
     /**
      * @var string
      */
     public $formDataJsonListShrink;
+
     /**
      * @var string
      */
     public $formUuid;
+
     /**
      * @var bool
      */
     public $keepRunningAfterException;
+
     /**
      * @var bool
      */
     public $noExecuteExpression;
+
     /**
      * @var string
      */
     public $systemToken;
     protected $_name = [
-        'appType'                   => 'AppType',
-        'asynchronousExecution'     => 'AsynchronousExecution',
-        'formDataJsonListShrink'    => 'FormDataJsonList',
-        'formUuid'                  => 'FormUuid',
+        'appType' => 'AppType',
+        'asynchronousExecution' => 'AsynchronousExecution',
+        'formDataJsonListShrink' => 'FormDataJsonList',
+        'formUuid' => 'FormUuid',
         'keepRunningAfterException' => 'KeepRunningAfterException',
-        'noExecuteExpression'       => 'NoExecuteExpression',
-        'systemToken'               => 'SystemToken',
+        'noExecuteExpression' => 'NoExecuteExpression',
+        'systemToken' => 'SystemToken',
     ];
 
     public function validate()

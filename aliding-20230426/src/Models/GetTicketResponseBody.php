@@ -16,83 +16,98 @@ class GetTicketResponseBody extends Model
      * @var string
      */
     public $createTime;
+
     /**
      * @var creator
      */
     public $creator;
+
     /**
      * @var string
      */
     public $customFields;
+
     /**
      * @var string
      */
     public $openConversationId;
+
     /**
      * @var string
      */
     public $openTicketId;
+
     /**
      * @var processor
      */
     public $processor;
+
     /**
      * @var string
      */
     public $requestId;
+
     /**
      * @var string
      */
     public $scene;
+
     /**
      * @var string
      */
     public $sceneContext;
+
     /**
      * @var string
      */
     public $stage;
+
     /**
      * @var takers[]
      */
     public $takers;
+
     /**
      * @var template
      */
     public $template;
+
     /**
      * @var string
      */
     public $title;
+
     /**
      * @var string
      */
     public $updateTime;
+
     /**
      * @var string
      */
     public $vendorRequestId;
+
     /**
      * @var string
      */
     public $vendorType;
     protected $_name = [
-        'createTime'         => 'createTime',
-        'creator'            => 'creator',
-        'customFields'       => 'customFields',
+        'createTime' => 'createTime',
+        'creator' => 'creator',
+        'customFields' => 'customFields',
         'openConversationId' => 'openConversationId',
-        'openTicketId'       => 'openTicketId',
-        'processor'          => 'processor',
-        'requestId'          => 'requestId',
-        'scene'              => 'scene',
-        'sceneContext'       => 'sceneContext',
-        'stage'              => 'stage',
-        'takers'             => 'takers',
-        'template'           => 'template',
-        'title'              => 'title',
-        'updateTime'         => 'updateTime',
-        'vendorRequestId'    => 'vendorRequestId',
-        'vendorType'         => 'vendorType',
+        'openTicketId' => 'openTicketId',
+        'processor' => 'processor',
+        'requestId' => 'requestId',
+        'scene' => 'scene',
+        'sceneContext' => 'sceneContext',
+        'stage' => 'stage',
+        'takers' => 'takers',
+        'template' => 'template',
+        'title' => 'title',
+        'updateTime' => 'updateTime',
+        'vendorRequestId' => 'vendorRequestId',
+        'vendorType' => 'vendorType',
     ];
 
     public function validate()
@@ -158,7 +173,7 @@ class GetTicketResponseBody extends Model
         if (null !== $this->takers) {
             if (\is_array($this->takers)) {
                 $res['takers'] = [];
-                $n1            = 0;
+                $n1 = 0;
                 foreach ($this->takers as $item1) {
                     $res['takers'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -239,7 +254,7 @@ class GetTicketResponseBody extends Model
         if (isset($map['takers'])) {
             if (!empty($map['takers'])) {
                 $model->takers = [];
-                $n1            = 0;
+                $n1 = 0;
                 foreach ($map['takers'] as $item1) {
                     $model->takers[$n1++] = takers::fromMap($item1);
                 }

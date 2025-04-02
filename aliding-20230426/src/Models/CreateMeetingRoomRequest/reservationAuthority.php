@@ -31,7 +31,7 @@ class reservationAuthority extends Model
         if (null !== $this->authorizedMembers) {
             if (\is_array($this->authorizedMembers)) {
                 $res['AuthorizedMembers'] = [];
-                $n1                       = 0;
+                $n1 = 0;
                 foreach ($this->authorizedMembers as $item1) {
                     $res['AuthorizedMembers'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -52,7 +52,7 @@ class reservationAuthority extends Model
         if (isset($map['AuthorizedMembers'])) {
             if (!empty($map['AuthorizedMembers'])) {
                 $model->authorizedMembers = [];
-                $n1                       = 0;
+                $n1 = 0;
                 foreach ($map['AuthorizedMembers'] as $item1) {
                     $model->authorizedMembers[$n1++] = authorizedMembers::fromMap($item1);
                 }

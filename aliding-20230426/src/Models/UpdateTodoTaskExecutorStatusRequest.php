@@ -14,23 +14,26 @@ class UpdateTodoTaskExecutorStatusRequest extends Model
      * @var tenantContext
      */
     public $tenantContext;
+
     /**
      * @var executorStatusList[]
      */
     public $executorStatusList;
+
     /**
      * @var string
      */
     public $operatorId;
+
     /**
      * @var string
      */
     public $taskId;
     protected $_name = [
-        'tenantContext'      => 'TenantContext',
+        'tenantContext' => 'TenantContext',
         'executorStatusList' => 'executorStatusList',
-        'operatorId'         => 'operatorId',
-        'taskId'             => 'taskId',
+        'operatorId' => 'operatorId',
+        'taskId' => 'taskId',
     ];
 
     public function validate()
@@ -54,7 +57,7 @@ class UpdateTodoTaskExecutorStatusRequest extends Model
         if (null !== $this->executorStatusList) {
             if (\is_array($this->executorStatusList)) {
                 $res['executorStatusList'] = [];
-                $n1                        = 0;
+                $n1 = 0;
                 foreach ($this->executorStatusList as $item1) {
                     $res['executorStatusList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -87,7 +90,7 @@ class UpdateTodoTaskExecutorStatusRequest extends Model
         if (isset($map['executorStatusList'])) {
             if (!empty($map['executorStatusList'])) {
                 $model->executorStatusList = [];
-                $n1                        = 0;
+                $n1 = 0;
                 foreach ($map['executorStatusList'] as $item1) {
                     $model->executorStatusList[$n1++] = executorStatusList::fromMap($item1);
                 }

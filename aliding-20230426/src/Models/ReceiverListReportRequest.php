@@ -13,22 +13,25 @@ class ReceiverListReportRequest extends Model
      * @var int
      */
     public $offset;
+
     /**
      * @var string
      */
     public $reportId;
+
     /**
      * @var int
      */
     public $size;
+
     /**
      * @var tenantContext
      */
     public $tenantContext;
     protected $_name = [
-        'offset'        => 'Offset',
-        'reportId'      => 'ReportId',
-        'size'          => 'Size',
+        'offset' => 'Offset',
+        'reportId' => 'ReportId',
+        'size' => 'Size',
         'tenantContext' => 'TenantContext',
     ];
 

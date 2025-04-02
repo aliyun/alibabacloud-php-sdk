@@ -14,38 +14,44 @@ class CreateReportRequest extends Model
      * @var contents[]
      */
     public $contents;
+
     /**
      * @var string
      */
     public $ddFrom;
+
     /**
      * @var string
      */
     public $templateId;
+
     /**
      * @var tenantContext
      */
     public $tenantContext;
+
     /**
      * @var bool
      */
     public $toChat;
+
     /**
      * @var string[]
      */
     public $toCids;
+
     /**
      * @var string[]
      */
     public $toUserids;
     protected $_name = [
-        'contents'      => 'Contents',
-        'ddFrom'        => 'DdFrom',
-        'templateId'    => 'TemplateId',
+        'contents' => 'Contents',
+        'ddFrom' => 'DdFrom',
+        'templateId' => 'TemplateId',
         'tenantContext' => 'TenantContext',
-        'toChat'        => 'ToChat',
-        'toCids'        => 'ToCids',
-        'toUserids'     => 'ToUserids',
+        'toChat' => 'ToChat',
+        'toCids' => 'ToCids',
+        'toUserids' => 'ToUserids',
     ];
 
     public function validate()
@@ -71,7 +77,7 @@ class CreateReportRequest extends Model
         if (null !== $this->contents) {
             if (\is_array($this->contents)) {
                 $res['Contents'] = [];
-                $n1              = 0;
+                $n1 = 0;
                 foreach ($this->contents as $item1) {
                     $res['Contents'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -97,7 +103,7 @@ class CreateReportRequest extends Model
         if (null !== $this->toCids) {
             if (\is_array($this->toCids)) {
                 $res['ToCids'] = [];
-                $n1            = 0;
+                $n1 = 0;
                 foreach ($this->toCids as $item1) {
                     $res['ToCids'][$n1++] = $item1;
                 }
@@ -107,7 +113,7 @@ class CreateReportRequest extends Model
         if (null !== $this->toUserids) {
             if (\is_array($this->toUserids)) {
                 $res['ToUserids'] = [];
-                $n1               = 0;
+                $n1 = 0;
                 foreach ($this->toUserids as $item1) {
                     $res['ToUserids'][$n1++] = $item1;
                 }
@@ -128,7 +134,7 @@ class CreateReportRequest extends Model
         if (isset($map['Contents'])) {
             if (!empty($map['Contents'])) {
                 $model->contents = [];
-                $n1              = 0;
+                $n1 = 0;
                 foreach ($map['Contents'] as $item1) {
                     $model->contents[$n1++] = contents::fromMap($item1);
                 }
@@ -154,7 +160,7 @@ class CreateReportRequest extends Model
         if (isset($map['ToCids'])) {
             if (!empty($map['ToCids'])) {
                 $model->toCids = [];
-                $n1            = 0;
+                $n1 = 0;
                 foreach ($map['ToCids'] as $item1) {
                     $model->toCids[$n1++] = $item1;
                 }
@@ -164,7 +170,7 @@ class CreateReportRequest extends Model
         if (isset($map['ToUserids'])) {
             if (!empty($map['ToUserids'])) {
                 $model->toUserids = [];
-                $n1               = 0;
+                $n1 = 0;
                 foreach ($map['ToUserids'] as $item1) {
                     $model->toUserids[$n1++] = $item1;
                 }

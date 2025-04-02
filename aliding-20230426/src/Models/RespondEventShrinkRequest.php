@@ -12,22 +12,25 @@ class RespondEventShrinkRequest extends Model
      * @var string
      */
     public $calendarId;
+
     /**
      * @var string
      */
     public $eventId;
+
     /**
      * @var string
      */
     public $responseStatus;
+
     /**
      * @var string
      */
     public $tenantContextShrink;
     protected $_name = [
-        'calendarId'          => 'CalendarId',
-        'eventId'             => 'EventId',
-        'responseStatus'      => 'ResponseStatus',
+        'calendarId' => 'CalendarId',
+        'eventId' => 'EventId',
+        'responseStatus' => 'ResponseStatus',
         'tenantContextShrink' => 'TenantContext',
     ];
 

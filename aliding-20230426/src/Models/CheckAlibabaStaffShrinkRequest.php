@@ -12,12 +12,13 @@ class CheckAlibabaStaffShrinkRequest extends Model
      * @var string
      */
     public $mobile;
+
     /**
      * @var string
      */
     public $tenantContextShrink;
     protected $_name = [
-        'mobile'              => 'Mobile',
+        'mobile' => 'Mobile',
         'tenantContextShrink' => 'TenantContext',
     ];
 

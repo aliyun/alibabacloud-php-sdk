@@ -12,18 +12,20 @@ class fields extends Model
      * @var string
      */
     public $fieldName;
+
     /**
      * @var int
      */
     public $sort;
+
     /**
      * @var int
      */
     public $type;
     protected $_name = [
         'fieldName' => 'FieldName',
-        'sort'      => 'Sort',
-        'type'      => 'Type',
+        'sort' => 'Sort',
+        'type' => 'Type',
     ];
 
     public function validate()

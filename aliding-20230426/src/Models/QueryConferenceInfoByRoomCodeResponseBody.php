@@ -13,43 +13,50 @@ class QueryConferenceInfoByRoomCodeResponseBody extends Model
      * @var conferenceList[]
      */
     public $conferenceList;
+
     /**
      * @var string
      */
     public $dingtalkRequestId;
+
     /**
      * @var bool
      */
     public $hasMore;
+
     /**
      * @var string
      */
     public $nextToken;
+
     /**
      * @var string
      */
     public $requestId;
+
     /**
      * @var int
      */
     public $totalCount;
+
     /**
      * @var string
      */
     public $vendorRequestId;
+
     /**
      * @var string
      */
     public $vendorType;
     protected $_name = [
-        'conferenceList'    => 'conferenceList',
+        'conferenceList' => 'conferenceList',
         'dingtalkRequestId' => 'dingtalkRequestId',
-        'hasMore'           => 'hasMore',
-        'nextToken'         => 'nextToken',
-        'requestId'         => 'requestId',
-        'totalCount'        => 'totalCount',
-        'vendorRequestId'   => 'vendorRequestId',
-        'vendorType'        => 'vendorType',
+        'hasMore' => 'hasMore',
+        'nextToken' => 'nextToken',
+        'requestId' => 'requestId',
+        'totalCount' => 'totalCount',
+        'vendorRequestId' => 'vendorRequestId',
+        'vendorType' => 'vendorType',
     ];
 
     public function validate()
@@ -66,7 +73,7 @@ class QueryConferenceInfoByRoomCodeResponseBody extends Model
         if (null !== $this->conferenceList) {
             if (\is_array($this->conferenceList)) {
                 $res['conferenceList'] = [];
-                $n1                    = 0;
+                $n1 = 0;
                 foreach ($this->conferenceList as $item1) {
                     $res['conferenceList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -115,7 +122,7 @@ class QueryConferenceInfoByRoomCodeResponseBody extends Model
         if (isset($map['conferenceList'])) {
             if (!empty($map['conferenceList'])) {
                 $model->conferenceList = [];
-                $n1                    = 0;
+                $n1 = 0;
                 foreach ($map['conferenceList'] as $item1) {
                     $model->conferenceList[$n1++] = conferenceList::fromMap($item1);
                 }

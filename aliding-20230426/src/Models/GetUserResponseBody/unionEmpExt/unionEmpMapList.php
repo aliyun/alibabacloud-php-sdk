@@ -12,6 +12,7 @@ class unionEmpMapList extends Model
      * @var string
      */
     public $cropId;
+
     /**
      * @var string
      */

@@ -13,13 +13,14 @@ class history extends Model
      * @var content[]
      */
     public $content;
+
     /**
      * @var string
      */
     public $role;
     protected $_name = [
         'content' => 'content',
-        'role'    => 'role',
+        'role' => 'role',
     ];
 
     public function validate()
@@ -36,7 +37,7 @@ class history extends Model
         if (null !== $this->content) {
             if (\is_array($this->content)) {
                 $res['content'] = [];
-                $n1             = 0;
+                $n1 = 0;
                 foreach ($this->content as $item1) {
                     $res['content'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -61,7 +62,7 @@ class history extends Model
         if (isset($map['content'])) {
             if (!empty($map['content'])) {
                 $model->content = [];
-                $n1             = 0;
+                $n1 = 0;
                 foreach ($map['content'] as $item1) {
                     $model->content[$n1++] = content::fromMap($item1);
                 }

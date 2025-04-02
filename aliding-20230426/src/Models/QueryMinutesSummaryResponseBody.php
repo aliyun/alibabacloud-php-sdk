@@ -13,23 +13,26 @@ class QueryMinutesSummaryResponseBody extends Model
      * @var string
      */
     public $requestId;
+
     /**
      * @var summary
      */
     public $summary;
+
     /**
      * @var string
      */
     public $vendorRequestId;
+
     /**
      * @var string
      */
     public $vendorType;
     protected $_name = [
-        'requestId'       => 'requestId',
-        'summary'         => 'summary',
+        'requestId' => 'requestId',
+        'summary' => 'summary',
         'vendorRequestId' => 'vendorRequestId',
-        'vendorType'      => 'vendorType',
+        'vendorType' => 'vendorType',
     ];
 
     public function validate()

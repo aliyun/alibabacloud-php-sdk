@@ -12,17 +12,19 @@ class appProperties extends Model
      * @var string
      */
     public $name;
+
     /**
      * @var string
      */
     public $value;
+
     /**
      * @var string
      */
     public $visibility;
     protected $_name = [
-        'name'       => 'Name',
-        'value'      => 'Value',
+        'name' => 'Name',
+        'value' => 'Value',
         'visibility' => 'Visibility',
     ];
 

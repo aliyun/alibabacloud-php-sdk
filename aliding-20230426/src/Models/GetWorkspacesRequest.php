@@ -14,18 +14,20 @@ class GetWorkspacesRequest extends Model
      * @var option
      */
     public $option;
+
     /**
      * @var tenantContext
      */
     public $tenantContext;
+
     /**
      * @var string[]
      */
     public $workspaceIds;
     protected $_name = [
-        'option'        => 'Option',
+        'option' => 'Option',
         'tenantContext' => 'TenantContext',
-        'workspaceIds'  => 'WorkspaceIds',
+        'workspaceIds' => 'WorkspaceIds',
     ];
 
     public function validate()
@@ -56,7 +58,7 @@ class GetWorkspacesRequest extends Model
         if (null !== $this->workspaceIds) {
             if (\is_array($this->workspaceIds)) {
                 $res['WorkspaceIds'] = [];
-                $n1                  = 0;
+                $n1 = 0;
                 foreach ($this->workspaceIds as $item1) {
                     $res['WorkspaceIds'][$n1++] = $item1;
                 }
@@ -85,7 +87,7 @@ class GetWorkspacesRequest extends Model
         if (isset($map['WorkspaceIds'])) {
             if (!empty($map['WorkspaceIds'])) {
                 $model->workspaceIds = [];
-                $n1                  = 0;
+                $n1 = 0;
                 foreach ($map['WorkspaceIds'] as $item1) {
                     $model->workspaceIds[$n1++] = $item1;
                 }

@@ -12,17 +12,19 @@ class GetEventRequest extends Model
      * @var string
      */
     public $calendarId;
+
     /**
      * @var string
      */
     public $eventId;
+
     /**
      * @var int
      */
     public $maxAttendees;
     protected $_name = [
-        'calendarId'   => 'CalendarId',
-        'eventId'      => 'EventId',
+        'calendarId' => 'CalendarId',
+        'eventId' => 'EventId',
         'maxAttendees' => 'MaxAttendees',
     ];
 

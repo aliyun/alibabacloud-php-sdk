@@ -12,18 +12,20 @@ class organizer extends Model
      * @var string
      */
     public $displayName;
+
     /**
      * @var string
      */
     public $responseStatus;
+
     /**
      * @var bool
      */
     public $self;
     protected $_name = [
-        'displayName'    => 'DisplayName',
+        'displayName' => 'DisplayName',
         'responseStatus' => 'ResponseStatus',
-        'self'           => 'Self',
+        'self' => 'Self',
     ];
 
     public function validate()

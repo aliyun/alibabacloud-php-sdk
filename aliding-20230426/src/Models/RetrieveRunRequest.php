@@ -12,23 +12,26 @@ class RetrieveRunRequest extends Model
      * @var string
      */
     public $assistantId;
+
     /**
      * @var string
      */
     public $originalAssistantId;
+
     /**
      * @var string
      */
     public $runId;
+
     /**
      * @var string
      */
     public $threadId;
     protected $_name = [
-        'assistantId'         => 'assistantId',
+        'assistantId' => 'assistantId',
         'originalAssistantId' => 'originalAssistantId',
-        'runId'               => 'runId',
-        'threadId'            => 'threadId',
+        'runId' => 'runId',
+        'threadId' => 'threadId',
     ];
 
     public function validate()

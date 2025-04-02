@@ -12,37 +12,43 @@ class dataList extends Model
      * @var int
      */
     public $createTime;
+
     /**
      * @var string
      */
     public $creatorId;
+
     /**
      * @var string
      */
     public $creatorName;
+
     /**
      * @var string
      */
     public $deptName;
+
     /**
      * @var string
      */
     public $remark;
+
     /**
      * @var string
      */
     public $reportId;
+
     /**
      * @var string
      */
     public $templateName;
     protected $_name = [
-        'createTime'   => 'CreateTime',
-        'creatorId'    => 'CreatorId',
-        'creatorName'  => 'CreatorName',
-        'deptName'     => 'DeptName',
-        'remark'       => 'Remark',
-        'reportId'     => 'ReportId',
+        'createTime' => 'CreateTime',
+        'creatorId' => 'CreatorId',
+        'creatorName' => 'CreatorName',
+        'deptName' => 'DeptName',
+        'remark' => 'Remark',
+        'reportId' => 'ReportId',
         'templateName' => 'TemplateName',
     ];
 

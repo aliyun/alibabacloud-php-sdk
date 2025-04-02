@@ -17,33 +17,38 @@ class content extends Model
      * @var cardCallback
      */
     public $cardCallback;
+
     /**
      * @var dingCard
      */
     public $dingCard;
+
     /**
      * @var imageUrl
      */
     public $imageUrl;
+
     /**
      * @var markdown
      */
     public $markdown;
+
     /**
      * @var text
      */
     public $text;
+
     /**
      * @var string
      */
     public $type;
     protected $_name = [
         'cardCallback' => 'cardCallback',
-        'dingCard'     => 'dingCard',
-        'imageUrl'     => 'imageUrl',
-        'markdown'     => 'markdown',
-        'text'         => 'text',
-        'type'         => 'type',
+        'dingCard' => 'dingCard',
+        'imageUrl' => 'imageUrl',
+        'markdown' => 'markdown',
+        'text' => 'text',
+        'type' => 'type',
     ];
 
     public function validate()

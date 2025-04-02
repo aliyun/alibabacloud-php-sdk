@@ -13,23 +13,26 @@ class CommentListReportResponseBody extends Model
      * @var comments[]
      */
     public $comments;
+
     /**
      * @var bool
      */
     public $hasMore;
+
     /**
      * @var int
      */
     public $nextCursor;
+
     /**
      * @var string
      */
     public $requestId;
     protected $_name = [
-        'comments'   => 'comments',
-        'hasMore'    => 'hasMore',
+        'comments' => 'comments',
+        'hasMore' => 'hasMore',
         'nextCursor' => 'nextCursor',
-        'requestId'  => 'requestId',
+        'requestId' => 'requestId',
     ];
 
     public function validate()
@@ -46,7 +49,7 @@ class CommentListReportResponseBody extends Model
         if (null !== $this->comments) {
             if (\is_array($this->comments)) {
                 $res['comments'] = [];
-                $n1              = 0;
+                $n1 = 0;
                 foreach ($this->comments as $item1) {
                     $res['comments'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -79,7 +82,7 @@ class CommentListReportResponseBody extends Model
         if (isset($map['comments'])) {
             if (!empty($map['comments'])) {
                 $model->comments = [];
-                $n1              = 0;
+                $n1 = 0;
                 foreach ($map['comments'] as $item1) {
                     $model->comments[$n1++] = comments::fromMap($item1);
                 }

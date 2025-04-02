@@ -12,23 +12,26 @@ class AddTicketMemoShrinkRequest extends Model
      * @var string
      */
     public $openTeamId;
+
     /**
      * @var string
      */
     public $openTicketId;
+
     /**
      * @var string
      */
     public $tenantContextShrink;
+
     /**
      * @var string
      */
     public $ticketMemoShrink;
     protected $_name = [
-        'openTeamId'          => 'OpenTeamId',
-        'openTicketId'        => 'OpenTicketId',
+        'openTeamId' => 'OpenTeamId',
+        'openTicketId' => 'OpenTicketId',
         'tenantContextShrink' => 'TenantContext',
-        'ticketMemoShrink'    => 'TicketMemo',
+        'ticketMemoShrink' => 'TicketMemo',
     ];
 
     public function validate()

@@ -13,23 +13,26 @@ class option extends Model
      * @var preCheckParam
      */
     public $preCheckParam;
+
     /**
      * @var bool
      */
     public $preferIntranet;
+
     /**
      * @var string
      */
     public $preferRegion;
+
     /**
      * @var string
      */
     public $storageDriver;
     protected $_name = [
-        'preCheckParam'  => 'PreCheckParam',
+        'preCheckParam' => 'PreCheckParam',
         'preferIntranet' => 'PreferIntranet',
-        'preferRegion'   => 'PreferRegion',
-        'storageDriver'  => 'StorageDriver',
+        'preferRegion' => 'PreferRegion',
+        'storageDriver' => 'StorageDriver',
     ];
 
     public function validate()

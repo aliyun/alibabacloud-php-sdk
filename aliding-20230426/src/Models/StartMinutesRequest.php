@@ -13,23 +13,26 @@ class StartMinutesRequest extends Model
      * @var tenantContext
      */
     public $tenantContext;
+
     /**
      * @var string
      */
     public $conferenceId;
+
     /**
      * @var string
      */
     public $ownerUserId;
+
     /**
      * @var bool
      */
     public $recordAudio;
     protected $_name = [
         'tenantContext' => 'TenantContext',
-        'conferenceId'  => 'conferenceId',
-        'ownerUserId'   => 'ownerUserId',
-        'recordAudio'   => 'recordAudio',
+        'conferenceId' => 'conferenceId',
+        'ownerUserId' => 'ownerUserId',
+        'recordAudio' => 'recordAudio',
     ];
 
     public function validate()

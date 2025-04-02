@@ -13,33 +13,38 @@ class ListEventsResponseBody extends Model
      * @var events[]
      */
     public $events;
+
     /**
      * @var string
      */
     public $nextToken;
+
     /**
      * @var string
      */
     public $requestId;
+
     /**
      * @var string
      */
     public $syncToken;
+
     /**
      * @var string
      */
     public $vendorRequestId;
+
     /**
      * @var string
      */
     public $vendorType;
     protected $_name = [
-        'events'          => 'events',
-        'nextToken'       => 'nextToken',
-        'requestId'       => 'requestId',
-        'syncToken'       => 'syncToken',
+        'events' => 'events',
+        'nextToken' => 'nextToken',
+        'requestId' => 'requestId',
+        'syncToken' => 'syncToken',
         'vendorRequestId' => 'vendorRequestId',
-        'vendorType'      => 'vendorType',
+        'vendorType' => 'vendorType',
     ];
 
     public function validate()
@@ -56,7 +61,7 @@ class ListEventsResponseBody extends Model
         if (null !== $this->events) {
             if (\is_array($this->events)) {
                 $res['events'] = [];
-                $n1            = 0;
+                $n1 = 0;
                 foreach ($this->events as $item1) {
                     $res['events'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -97,7 +102,7 @@ class ListEventsResponseBody extends Model
         if (isset($map['events'])) {
             if (!empty($map['events'])) {
                 $model->events = [];
-                $n1            = 0;
+                $n1 = 0;
                 foreach ($map['events'] as $item1) {
                     $model->events[$n1++] = events::fromMap($item1);
                 }

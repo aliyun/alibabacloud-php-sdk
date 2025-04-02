@@ -12,22 +12,25 @@ class GetGroupLiveListShrinkRequest extends Model
      * @var int
      */
     public $endTime;
+
     /**
      * @var string
      */
     public $openConversationId;
+
     /**
      * @var int
      */
     public $startTime;
+
     /**
      * @var string
      */
     public $tenantContextShrink;
     protected $_name = [
-        'endTime'             => 'EndTime',
-        'openConversationId'  => 'OpenConversationId',
-        'startTime'           => 'StartTime',
+        'endTime' => 'EndTime',
+        'openConversationId' => 'OpenConversationId',
+        'startTime' => 'StartTime',
         'tenantContextShrink' => 'TenantContext',
     ];
 

@@ -12,33 +12,38 @@ class CreateRunRequest extends Model
      * @var string
      */
     public $assistantId;
+
     /**
      * @var string
      */
     public $instructions;
+
     /**
      * @var mixed[]
      */
     public $metadata;
+
     /**
      * @var string
      */
     public $originalAssistantId;
+
     /**
      * @var bool
      */
     public $stream;
+
     /**
      * @var string
      */
     public $threadId;
     protected $_name = [
-        'assistantId'         => 'assistantId',
-        'instructions'        => 'instructions',
-        'metadata'            => 'metadata',
+        'assistantId' => 'assistantId',
+        'instructions' => 'instructions',
+        'metadata' => 'metadata',
         'originalAssistantId' => 'originalAssistantId',
-        'stream'              => 'stream',
-        'threadId'            => 'threadId',
+        'stream' => 'stream',
+        'threadId' => 'threadId',
     ];
 
     public function validate()

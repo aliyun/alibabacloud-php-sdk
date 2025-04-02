@@ -13,17 +13,19 @@ class QueryRecordMinutesUrlRequest extends Model
      * @var string
      */
     public $bizType;
+
     /**
      * @var string
      */
     public $conferenceId;
+
     /**
      * @var tenantContext
      */
     public $tenantContext;
     protected $_name = [
-        'bizType'       => 'BizType',
-        'conferenceId'  => 'ConferenceId',
+        'bizType' => 'BizType',
+        'conferenceId' => 'ConferenceId',
         'tenantContext' => 'TenantContext',
     ];
 

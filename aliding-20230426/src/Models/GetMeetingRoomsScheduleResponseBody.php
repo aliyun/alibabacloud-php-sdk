@@ -13,12 +13,13 @@ class GetMeetingRoomsScheduleResponseBody extends Model
      * @var string
      */
     public $requestId;
+
     /**
      * @var scheduleInformation[]
      */
     public $scheduleInformation;
     protected $_name = [
-        'requestId'           => 'requestId',
+        'requestId' => 'requestId',
         'scheduleInformation' => 'scheduleInformation',
     ];
 
@@ -40,7 +41,7 @@ class GetMeetingRoomsScheduleResponseBody extends Model
         if (null !== $this->scheduleInformation) {
             if (\is_array($this->scheduleInformation)) {
                 $res['scheduleInformation'] = [];
-                $n1                         = 0;
+                $n1 = 0;
                 foreach ($this->scheduleInformation as $item1) {
                     $res['scheduleInformation'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -65,7 +66,7 @@ class GetMeetingRoomsScheduleResponseBody extends Model
         if (isset($map['scheduleInformation'])) {
             if (!empty($map['scheduleInformation'])) {
                 $model->scheduleInformation = [];
-                $n1                         = 0;
+                $n1 = 0;
                 foreach ($map['scheduleInformation'] as $item1) {
                     $model->scheduleInformation[$n1++] = scheduleInformation::fromMap($item1);
                 }

@@ -12,28 +12,32 @@ class GetOpenUrlRequest extends Model
      * @var string
      */
     public $appType;
+
     /**
      * @var string
      */
     public $fileUrl;
+
     /**
      * @var string
      */
     public $language;
+
     /**
      * @var string
      */
     public $systemToken;
+
     /**
      * @var int
      */
     public $timeout;
     protected $_name = [
-        'appType'     => 'AppType',
-        'fileUrl'     => 'FileUrl',
-        'language'    => 'Language',
+        'appType' => 'AppType',
+        'fileUrl' => 'FileUrl',
+        'language' => 'Language',
         'systemToken' => 'SystemToken',
-        'timeout'     => 'Timeout',
+        'timeout' => 'Timeout',
     ];
 
     public function validate()

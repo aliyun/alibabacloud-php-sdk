@@ -12,23 +12,26 @@ class DeleteFormDataRequest extends Model
      * @var string
      */
     public $appType;
+
     /**
      * @var string
      */
     public $formInstanceId;
+
     /**
      * @var string
      */
     public $language;
+
     /**
      * @var string
      */
     public $systemToken;
     protected $_name = [
-        'appType'        => 'AppType',
+        'appType' => 'AppType',
         'formInstanceId' => 'FormInstanceId',
-        'language'       => 'Language',
-        'systemToken'    => 'SystemToken',
+        'language' => 'Language',
+        'systemToken' => 'SystemToken',
     ];
 
     public function validate()

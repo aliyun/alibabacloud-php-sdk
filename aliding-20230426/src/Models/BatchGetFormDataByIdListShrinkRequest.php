@@ -12,28 +12,32 @@ class BatchGetFormDataByIdListShrinkRequest extends Model
      * @var string
      */
     public $appType;
+
     /**
      * @var string
      */
     public $formInstanceIdListShrink;
+
     /**
      * @var string
      */
     public $formUuid;
+
     /**
      * @var bool
      */
     public $needFormInstanceValue;
+
     /**
      * @var string
      */
     public $systemToken;
     protected $_name = [
-        'appType'                  => 'AppType',
+        'appType' => 'AppType',
         'formInstanceIdListShrink' => 'FormInstanceIdList',
-        'formUuid'                 => 'FormUuid',
-        'needFormInstanceValue'    => 'NeedFormInstanceValue',
-        'systemToken'              => 'SystemToken',
+        'formUuid' => 'FormUuid',
+        'needFormInstanceValue' => 'NeedFormInstanceValue',
+        'systemToken' => 'SystemToken',
     ];
 
     public function validate()

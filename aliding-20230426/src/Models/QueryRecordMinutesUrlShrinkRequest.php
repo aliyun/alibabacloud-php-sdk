@@ -12,17 +12,19 @@ class QueryRecordMinutesUrlShrinkRequest extends Model
      * @var string
      */
     public $bizType;
+
     /**
      * @var string
      */
     public $conferenceId;
+
     /**
      * @var string
      */
     public $tenantContextShrink;
     protected $_name = [
-        'bizType'             => 'BizType',
-        'conferenceId'        => 'ConferenceId',
+        'bizType' => 'BizType',
+        'conferenceId' => 'ConferenceId',
         'tenantContextShrink' => 'TenantContext',
     ];
 

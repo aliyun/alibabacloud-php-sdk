@@ -12,33 +12,38 @@ class UpdateStatusRequest extends Model
      * @var string
      */
     public $appType;
+
     /**
      * @var int[]
      */
     public $errorLines;
+
     /**
      * @var string
      */
     public $importSequence;
+
     /**
      * @var string
      */
     public $language;
+
     /**
      * @var string
      */
     public $status;
+
     /**
      * @var string
      */
     public $systemToken;
     protected $_name = [
-        'appType'        => 'AppType',
-        'errorLines'     => 'ErrorLines',
+        'appType' => 'AppType',
+        'errorLines' => 'ErrorLines',
         'importSequence' => 'ImportSequence',
-        'language'       => 'Language',
-        'status'         => 'Status',
-        'systemToken'    => 'SystemToken',
+        'language' => 'Language',
+        'status' => 'Status',
+        'systemToken' => 'SystemToken',
     ];
 
     public function validate()
@@ -59,7 +64,7 @@ class UpdateStatusRequest extends Model
         if (null !== $this->errorLines) {
             if (\is_array($this->errorLines)) {
                 $res['ErrorLines'] = [];
-                $n1                = 0;
+                $n1 = 0;
                 foreach ($this->errorLines as $item1) {
                     $res['ErrorLines'][$n1++] = $item1;
                 }
@@ -100,7 +105,7 @@ class UpdateStatusRequest extends Model
         if (isset($map['ErrorLines'])) {
             if (!empty($map['ErrorLines'])) {
                 $model->errorLines = [];
-                $n1                = 0;
+                $n1 = 0;
                 foreach ($map['ErrorLines'] as $item1) {
                     $model->errorLines[$n1++] = $item1;
                 }

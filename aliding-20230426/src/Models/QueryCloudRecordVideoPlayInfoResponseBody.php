@@ -12,33 +12,38 @@ class QueryCloudRecordVideoPlayInfoResponseBody extends Model
      * @var int
      */
     public $duration;
+
     /**
      * @var int
      */
     public $fileSize;
+
     /**
      * @var string
      */
     public $mp4FileUrl;
+
     /**
      * @var string
      */
     public $playUrl;
+
     /**
      * @var string
      */
     public $requestId;
+
     /**
      * @var int
      */
     public $status;
     protected $_name = [
-        'duration'   => 'duration',
-        'fileSize'   => 'fileSize',
+        'duration' => 'duration',
+        'fileSize' => 'fileSize',
         'mp4FileUrl' => 'mp4FileUrl',
-        'playUrl'    => 'playUrl',
-        'requestId'  => 'requestId',
-        'status'     => 'status',
+        'playUrl' => 'playUrl',
+        'requestId' => 'requestId',
+        'status' => 'status',
     ];
 
     public function validate()

@@ -12,23 +12,26 @@ class BatchUpdateFormDataByInstanceIdResponseBody extends Model
      * @var string
      */
     public $requestId;
+
     /**
      * @var string[]
      */
     public $result;
+
     /**
      * @var string
      */
     public $vendorRequestId;
+
     /**
      * @var string
      */
     public $vendorType;
     protected $_name = [
-        'requestId'       => 'requestId',
-        'result'          => 'result',
+        'requestId' => 'requestId',
+        'result' => 'result',
         'vendorRequestId' => 'vendorRequestId',
-        'vendorType'      => 'vendorType',
+        'vendorType' => 'vendorType',
     ];
 
     public function validate()
@@ -49,7 +52,7 @@ class BatchUpdateFormDataByInstanceIdResponseBody extends Model
         if (null !== $this->result) {
             if (\is_array($this->result)) {
                 $res['result'] = [];
-                $n1            = 0;
+                $n1 = 0;
                 foreach ($this->result as $item1) {
                     $res['result'][$n1++] = $item1;
                 }
@@ -82,7 +85,7 @@ class BatchUpdateFormDataByInstanceIdResponseBody extends Model
         if (isset($map['result'])) {
             if (!empty($map['result'])) {
                 $model->result = [];
-                $n1            = 0;
+                $n1 = 0;
                 foreach ($map['result'] as $item1) {
                     $model->result[$n1++] = $item1;
                 }

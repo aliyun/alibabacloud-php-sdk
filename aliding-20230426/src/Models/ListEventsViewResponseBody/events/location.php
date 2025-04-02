@@ -12,12 +12,13 @@ class location extends Model
      * @var string
      */
     public $displayName;
+
     /**
      * @var string[]
      */
     public $meetingRooms;
     protected $_name = [
-        'displayName'  => 'DisplayName',
+        'displayName' => 'DisplayName',
         'meetingRooms' => 'MeetingRooms',
     ];
 
@@ -39,7 +40,7 @@ class location extends Model
         if (null !== $this->meetingRooms) {
             if (\is_array($this->meetingRooms)) {
                 $res['MeetingRooms'] = [];
-                $n1                  = 0;
+                $n1 = 0;
                 foreach ($this->meetingRooms as $item1) {
                     $res['MeetingRooms'][$n1++] = $item1;
                 }
@@ -64,7 +65,7 @@ class location extends Model
         if (isset($map['MeetingRooms'])) {
             if (!empty($map['MeetingRooms'])) {
                 $model->meetingRooms = [];
-                $n1                  = 0;
+                $n1 = 0;
                 foreach ($map['MeetingRooms'] as $item1) {
                     $model->meetingRooms[$n1++] = $item1;
                 }

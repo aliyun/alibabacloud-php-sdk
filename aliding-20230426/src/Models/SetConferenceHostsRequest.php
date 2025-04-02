@@ -13,14 +13,17 @@ class SetConferenceHostsRequest extends Model
      * @var string
      */
     public $operationType;
+
     /**
      * @var tenantContext
      */
     public $tenantContext;
+
     /**
      * @var string[]
      */
     public $userIds;
+
     /**
      * @var string
      */
@@ -28,8 +31,8 @@ class SetConferenceHostsRequest extends Model
     protected $_name = [
         'operationType' => 'OperationType',
         'tenantContext' => 'TenantContext',
-        'userIds'       => 'UserIds',
-        'conferenceId'  => 'conferenceId',
+        'userIds' => 'UserIds',
+        'conferenceId' => 'conferenceId',
     ];
 
     public function validate()
@@ -57,7 +60,7 @@ class SetConferenceHostsRequest extends Model
         if (null !== $this->userIds) {
             if (\is_array($this->userIds)) {
                 $res['UserIds'] = [];
-                $n1             = 0;
+                $n1 = 0;
                 foreach ($this->userIds as $item1) {
                     $res['UserIds'][$n1++] = $item1;
                 }
@@ -90,7 +93,7 @@ class SetConferenceHostsRequest extends Model
         if (isset($map['UserIds'])) {
             if (!empty($map['UserIds'])) {
                 $model->userIds = [];
-                $n1             = 0;
+                $n1 = 0;
                 foreach ($map['UserIds'] as $item1) {
                     $model->userIds[$n1++] = $item1;
                 }

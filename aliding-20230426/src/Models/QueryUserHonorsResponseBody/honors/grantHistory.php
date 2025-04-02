@@ -12,12 +12,13 @@ class grantHistory extends Model
      * @var int
      */
     public $grantTime;
+
     /**
      * @var string
      */
     public $senderUserid;
     protected $_name = [
-        'grantTime'    => 'grantTime',
+        'grantTime' => 'grantTime',
         'senderUserid' => 'senderUserid',
     ];
 

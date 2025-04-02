@@ -13,23 +13,26 @@ class tasks extends Model
      * @var string
      */
     public $actionerId;
+
     /**
      * @var activity
      */
     public $activity;
+
     /**
      * @var string
      */
     public $status;
+
     /**
      * @var int
      */
     public $taskId;
     protected $_name = [
         'actionerId' => 'ActionerId',
-        'activity'   => 'Activity',
-        'status'     => 'Status',
-        'taskId'     => 'TaskId',
+        'activity' => 'Activity',
+        'status' => 'Status',
+        'taskId' => 'TaskId',
     ];
 
     public function validate()

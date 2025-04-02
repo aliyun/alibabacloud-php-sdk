@@ -12,43 +12,50 @@ class masterDataDepartments extends Model
      * @var string
      */
     public $deptName;
+
     /**
      * @var string
      */
     public $deptNameInEnglish;
+
     /**
      * @var string
      */
     public $deptNo;
+
     /**
      * @var string
      */
     public $deptPath;
+
     /**
      * @var string
      */
     public $humanSourceGroupOrderNumber;
+
     /**
      * @var string
      */
     public $humanSourceGroupWorkNo;
+
     /**
      * @var int
      */
     public $id;
+
     /**
      * @var string
      */
     public $masterWorkNo;
     protected $_name = [
-        'deptName'                    => 'DeptName',
-        'deptNameInEnglish'           => 'DeptNameInEnglish',
-        'deptNo'                      => 'DeptNo',
-        'deptPath'                    => 'DeptPath',
+        'deptName' => 'DeptName',
+        'deptNameInEnglish' => 'DeptNameInEnglish',
+        'deptNo' => 'DeptNo',
+        'deptPath' => 'DeptPath',
         'humanSourceGroupOrderNumber' => 'HumanSourceGroupOrderNumber',
-        'humanSourceGroupWorkNo'      => 'HumanSourceGroupWorkNo',
-        'id'                          => 'Id',
-        'masterWorkNo'                => 'MasterWorkNo',
+        'humanSourceGroupWorkNo' => 'HumanSourceGroupWorkNo',
+        'id' => 'Id',
+        'masterWorkNo' => 'MasterWorkNo',
     ];
 
     public function validate()

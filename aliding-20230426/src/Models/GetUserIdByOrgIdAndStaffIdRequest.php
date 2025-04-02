@@ -13,12 +13,13 @@ class GetUserIdByOrgIdAndStaffIdRequest extends Model
      * @var int
      */
     public $orgId;
+
     /**
      * @var tenantContext
      */
     public $tenantContext;
     protected $_name = [
-        'orgId'         => 'OrgId',
+        'orgId' => 'OrgId',
         'tenantContext' => 'TenantContext',
     ];
 

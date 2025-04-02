@@ -12,23 +12,26 @@ class onlineMeetingInfo extends Model
      * @var string
      */
     public $conferenceId;
+
     /**
      * @var mixed[]
      */
     public $extraInfo;
+
     /**
      * @var string
      */
     public $type;
+
     /**
      * @var string
      */
     public $url;
     protected $_name = [
         'conferenceId' => 'ConferenceId',
-        'extraInfo'    => 'ExtraInfo',
-        'type'         => 'Type',
-        'url'          => 'Url',
+        'extraInfo' => 'ExtraInfo',
+        'type' => 'Type',
+        'url' => 'Url',
     ];
 
     public function validate()

@@ -12,63 +12,74 @@ class conferenceList extends Model
      * @var string
      */
     public $bizType;
+
     /**
      * @var int
      */
     public $confDuration;
+
     /**
      * @var string
      */
     public $conferenceId;
+
     /**
      * @var string
      */
     public $creatorId;
+
     /**
      * @var string
      */
     public $creatorNick;
+
     /**
      * @var int
      */
     public $endTime;
+
     /**
      * @var string
      */
     public $externalLinkUrl;
+
     /**
      * @var string
      */
     public $roomCode;
+
     /**
      * @var string
      */
     public $scheduleConferenceId;
+
     /**
      * @var int
      */
     public $startTime;
+
     /**
      * @var int
      */
     public $status;
+
     /**
      * @var string
      */
     public $title;
     protected $_name = [
-        'bizType'              => 'BizType',
-        'confDuration'         => 'ConfDuration',
-        'conferenceId'         => 'ConferenceId',
-        'creatorId'            => 'CreatorId',
-        'creatorNick'          => 'CreatorNick',
-        'endTime'              => 'EndTime',
-        'externalLinkUrl'      => 'ExternalLinkUrl',
-        'roomCode'             => 'RoomCode',
+        'bizType' => 'BizType',
+        'confDuration' => 'ConfDuration',
+        'conferenceId' => 'ConferenceId',
+        'creatorId' => 'CreatorId',
+        'creatorNick' => 'CreatorNick',
+        'endTime' => 'EndTime',
+        'externalLinkUrl' => 'ExternalLinkUrl',
+        'roomCode' => 'RoomCode',
         'scheduleConferenceId' => 'ScheduleConferenceId',
-        'startTime'            => 'StartTime',
-        'status'               => 'Status',
-        'title'                => 'Title',
+        'startTime' => 'StartTime',
+        'status' => 'Status',
+        'title' => 'Title',
     ];
 
     public function validate()

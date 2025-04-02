@@ -15,63 +15,74 @@ class UpdateMeetingRoomRequest extends Model
      * @var bool
      */
     public $enableCycleReservation;
+
     /**
      * @var int
      */
     public $groupId;
+
     /**
      * @var string
      */
     public $isvRoomId;
+
     /**
      * @var reservationAuthority
      */
     public $reservationAuthority;
+
     /**
      * @var int
      */
     public $roomCapacity;
+
     /**
      * @var string
      */
     public $roomId;
+
     /**
      * @var int[]
      */
     public $roomLabelIds;
+
     /**
      * @var roomLocation
      */
     public $roomLocation;
+
     /**
      * @var string
      */
     public $roomName;
+
     /**
      * @var string
      */
     public $roomPicture;
+
     /**
      * @var int
      */
     public $roomStatus;
+
     /**
      * @var tenantContext
      */
     public $tenantContext;
     protected $_name = [
         'enableCycleReservation' => 'EnableCycleReservation',
-        'groupId'                => 'GroupId',
-        'isvRoomId'              => 'IsvRoomId',
-        'reservationAuthority'   => 'ReservationAuthority',
-        'roomCapacity'           => 'RoomCapacity',
-        'roomId'                 => 'RoomId',
-        'roomLabelIds'           => 'RoomLabelIds',
-        'roomLocation'           => 'RoomLocation',
-        'roomName'               => 'RoomName',
-        'roomPicture'            => 'RoomPicture',
-        'roomStatus'             => 'RoomStatus',
-        'tenantContext'          => 'TenantContext',
+        'groupId' => 'GroupId',
+        'isvRoomId' => 'IsvRoomId',
+        'reservationAuthority' => 'ReservationAuthority',
+        'roomCapacity' => 'RoomCapacity',
+        'roomId' => 'RoomId',
+        'roomLabelIds' => 'RoomLabelIds',
+        'roomLocation' => 'RoomLocation',
+        'roomName' => 'RoomName',
+        'roomPicture' => 'RoomPicture',
+        'roomStatus' => 'RoomStatus',
+        'tenantContext' => 'TenantContext',
     ];
 
     public function validate()
@@ -121,7 +132,7 @@ class UpdateMeetingRoomRequest extends Model
         if (null !== $this->roomLabelIds) {
             if (\is_array($this->roomLabelIds)) {
                 $res['RoomLabelIds'] = [];
-                $n1                  = 0;
+                $n1 = 0;
                 foreach ($this->roomLabelIds as $item1) {
                     $res['RoomLabelIds'][$n1++] = $item1;
                 }
@@ -186,7 +197,7 @@ class UpdateMeetingRoomRequest extends Model
         if (isset($map['RoomLabelIds'])) {
             if (!empty($map['RoomLabelIds'])) {
                 $model->roomLabelIds = [];
-                $n1                  = 0;
+                $n1 = 0;
                 foreach ($map['RoomLabelIds'] as $item1) {
                     $model->roomLabelIds[$n1++] = $item1;
                 }

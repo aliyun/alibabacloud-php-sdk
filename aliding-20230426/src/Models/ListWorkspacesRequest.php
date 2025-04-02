@@ -13,32 +13,37 @@ class ListWorkspacesRequest extends Model
      * @var int
      */
     public $maxResults;
+
     /**
      * @var string
      */
     public $nextToken;
+
     /**
      * @var string
      */
     public $orderBy;
+
     /**
      * @var string
      */
     public $teamId;
+
     /**
      * @var tenantContext
      */
     public $tenantContext;
+
     /**
      * @var bool
      */
     public $withPermissionRole;
     protected $_name = [
-        'maxResults'         => 'MaxResults',
-        'nextToken'          => 'NextToken',
-        'orderBy'            => 'OrderBy',
-        'teamId'             => 'TeamId',
-        'tenantContext'      => 'TenantContext',
+        'maxResults' => 'MaxResults',
+        'nextToken' => 'NextToken',
+        'orderBy' => 'OrderBy',
+        'teamId' => 'TeamId',
+        'tenantContext' => 'TenantContext',
         'withPermissionRole' => 'WithPermissionRole',
     ];
 

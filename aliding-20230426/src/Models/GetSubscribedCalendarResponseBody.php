@@ -13,37 +13,43 @@ class GetSubscribedCalendarResponseBody extends Model
      * @var string
      */
     public $author;
+
     /**
      * @var string
      */
     public $calendarId;
+
     /**
      * @var string
      */
     public $description;
+
     /**
      * @var string[]
      */
     public $managers;
+
     /**
      * @var string
      */
     public $name;
+
     /**
      * @var string
      */
     public $requestId;
+
     /**
      * @var subscribeScope
      */
     public $subscribeScope;
     protected $_name = [
-        'author'         => 'author',
-        'calendarId'     => 'calendarId',
-        'description'    => 'description',
-        'managers'       => 'managers',
-        'name'           => 'name',
-        'requestId'      => 'requestId',
+        'author' => 'author',
+        'calendarId' => 'calendarId',
+        'description' => 'description',
+        'managers' => 'managers',
+        'name' => 'name',
+        'requestId' => 'requestId',
         'subscribeScope' => 'subscribeScope',
     ];
 
@@ -76,7 +82,7 @@ class GetSubscribedCalendarResponseBody extends Model
         if (null !== $this->managers) {
             if (\is_array($this->managers)) {
                 $res['managers'] = [];
-                $n1              = 0;
+                $n1 = 0;
                 foreach ($this->managers as $item1) {
                     $res['managers'][$n1++] = $item1;
                 }
@@ -121,7 +127,7 @@ class GetSubscribedCalendarResponseBody extends Model
         if (isset($map['managers'])) {
             if (!empty($map['managers'])) {
                 $model->managers = [];
-                $n1              = 0;
+                $n1 = 0;
                 foreach ($map['managers'] as $item1) {
                     $model->managers[$n1++] = $item1;
                 }

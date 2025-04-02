@@ -12,28 +12,32 @@ class headerSignatureInfo extends Model
      * @var int
      */
     public $expirationSeconds;
+
     /**
      * @var string[]
      */
     public $headers;
+
     /**
      * @var string[]
      */
     public $internalResourceUrls;
+
     /**
      * @var string
      */
     public $region;
+
     /**
      * @var string[]
      */
     public $resourceUrls;
     protected $_name = [
-        'expirationSeconds'    => 'ExpirationSeconds',
-        'headers'              => 'Headers',
+        'expirationSeconds' => 'ExpirationSeconds',
+        'headers' => 'Headers',
         'internalResourceUrls' => 'InternalResourceUrls',
-        'region'               => 'Region',
-        'resourceUrls'         => 'ResourceUrls',
+        'region' => 'Region',
+        'resourceUrls' => 'ResourceUrls',
     ];
 
     public function validate()
@@ -69,7 +73,7 @@ class headerSignatureInfo extends Model
         if (null !== $this->internalResourceUrls) {
             if (\is_array($this->internalResourceUrls)) {
                 $res['InternalResourceUrls'] = [];
-                $n1                          = 0;
+                $n1 = 0;
                 foreach ($this->internalResourceUrls as $item1) {
                     $res['InternalResourceUrls'][$n1++] = $item1;
                 }
@@ -83,7 +87,7 @@ class headerSignatureInfo extends Model
         if (null !== $this->resourceUrls) {
             if (\is_array($this->resourceUrls)) {
                 $res['ResourceUrls'] = [];
-                $n1                  = 0;
+                $n1 = 0;
                 foreach ($this->resourceUrls as $item1) {
                     $res['ResourceUrls'][$n1++] = $item1;
                 }
@@ -117,7 +121,7 @@ class headerSignatureInfo extends Model
         if (isset($map['InternalResourceUrls'])) {
             if (!empty($map['InternalResourceUrls'])) {
                 $model->internalResourceUrls = [];
-                $n1                          = 0;
+                $n1 = 0;
                 foreach ($map['InternalResourceUrls'] as $item1) {
                     $model->internalResourceUrls[$n1++] = $item1;
                 }
@@ -131,7 +135,7 @@ class headerSignatureInfo extends Model
         if (isset($map['ResourceUrls'])) {
             if (!empty($map['ResourceUrls'])) {
                 $model->resourceUrls = [];
-                $n1                  = 0;
+                $n1 = 0;
                 foreach ($map['ResourceUrls'] as $item1) {
                     $model->resourceUrls[$n1++] = $item1;
                 }

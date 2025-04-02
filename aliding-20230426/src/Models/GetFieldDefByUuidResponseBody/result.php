@@ -12,38 +12,44 @@ class result extends Model
      * @var string
      */
     public $behavior;
+
     /**
      * @var string
      */
     public $children;
+
     /**
      * @var string
      */
     public $componentName;
+
     /**
      * @var string
      */
     public $fieldId;
+
     /**
      * @var mixed
      */
     public $label;
+
     /**
      * @var mixed
      */
     public $props;
+
     /**
      * @var bool
      */
     public $success;
     protected $_name = [
-        'behavior'      => 'Behavior',
-        'children'      => 'Children',
+        'behavior' => 'Behavior',
+        'children' => 'Children',
         'componentName' => 'ComponentName',
-        'fieldId'       => 'FieldId',
-        'label'         => 'Label',
-        'props'         => 'Props',
-        'success'       => 'Success',
+        'fieldId' => 'FieldId',
+        'label' => 'Label',
+        'props' => 'Props',
+        'success' => 'Success',
     ];
 
     public function validate()

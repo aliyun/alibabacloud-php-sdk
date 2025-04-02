@@ -13,28 +13,32 @@ class honors extends Model
      * @var int
      */
     public $expirationTime;
+
     /**
      * @var grantHistory[]
      */
     public $grantHistory;
+
     /**
      * @var string
      */
     public $honorDesc;
+
     /**
      * @var string
      */
     public $honorId;
+
     /**
      * @var string
      */
     public $honorName;
     protected $_name = [
         'expirationTime' => 'expirationTime',
-        'grantHistory'   => 'grantHistory',
-        'honorDesc'      => 'honorDesc',
-        'honorId'        => 'honorId',
-        'honorName'      => 'honorName',
+        'grantHistory' => 'grantHistory',
+        'honorDesc' => 'honorDesc',
+        'honorId' => 'honorId',
+        'honorName' => 'honorName',
     ];
 
     public function validate()
@@ -55,7 +59,7 @@ class honors extends Model
         if (null !== $this->grantHistory) {
             if (\is_array($this->grantHistory)) {
                 $res['grantHistory'] = [];
-                $n1                  = 0;
+                $n1 = 0;
                 foreach ($this->grantHistory as $item1) {
                     $res['grantHistory'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -92,7 +96,7 @@ class honors extends Model
         if (isset($map['grantHistory'])) {
             if (!empty($map['grantHistory'])) {
                 $model->grantHistory = [];
-                $n1                  = 0;
+                $n1 = 0;
                 foreach ($map['grantHistory'] as $item1) {
                     $model->grantHistory[$n1++] = grantHistory::fromMap($item1);
                 }

@@ -12,17 +12,19 @@ class RemoveMeetingRoomsShrinkRequest extends Model
      * @var string
      */
     public $calendarId;
+
     /**
      * @var string
      */
     public $eventId;
+
     /**
      * @var string
      */
     public $meetingRoomsToRemoveShrink;
     protected $_name = [
-        'calendarId'                 => 'CalendarId',
-        'eventId'                    => 'EventId',
+        'calendarId' => 'CalendarId',
+        'eventId' => 'EventId',
         'meetingRoomsToRemoveShrink' => 'MeetingRoomsToRemove',
     ];
 

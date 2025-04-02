@@ -12,22 +12,25 @@ class GetFormComponentDefinitionListRequest extends Model
      * @var string
      */
     public $appType;
+
     /**
      * @var string
      */
     public $formUuid;
+
     /**
      * @var string
      */
     public $language;
+
     /**
      * @var string
      */
     public $systemToken;
     protected $_name = [
-        'appType'     => 'AppType',
-        'formUuid'    => 'FormUuid',
-        'language'    => 'Language',
+        'appType' => 'AppType',
+        'formUuid' => 'FormUuid',
+        'language' => 'Language',
         'systemToken' => 'SystemToken',
     ];
 

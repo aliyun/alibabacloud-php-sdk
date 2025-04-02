@@ -12,12 +12,13 @@ class GetUserIdByOrgIdAndStaffIdShrinkRequest extends Model
      * @var int
      */
     public $orgId;
+
     /**
      * @var string
      */
     public $tenantContextShrink;
     protected $_name = [
-        'orgId'               => 'OrgId',
+        'orgId' => 'OrgId',
         'tenantContextShrink' => 'TenantContext',
     ];
 

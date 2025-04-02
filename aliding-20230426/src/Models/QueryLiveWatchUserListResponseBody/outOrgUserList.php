@@ -12,23 +12,26 @@ class outOrgUserList extends Model
      * @var string
      */
     public $name;
+
     /**
      * @var int
      */
     public $watchLiveTime;
+
     /**
      * @var int
      */
     public $watchPlaybackTime;
+
     /**
      * @var int
      */
     public $watchProgressMs;
     protected $_name = [
-        'name'              => 'Name',
-        'watchLiveTime'     => 'WatchLiveTime',
+        'name' => 'Name',
+        'watchLiveTime' => 'WatchLiveTime',
         'watchPlaybackTime' => 'WatchPlaybackTime',
-        'watchProgressMs'   => 'WatchProgressMs',
+        'watchProgressMs' => 'WatchProgressMs',
     ];
 
     public function validate()

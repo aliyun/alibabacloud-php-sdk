@@ -13,20 +13,23 @@ class InvokeAssistantResponseBody extends Model
      * @var content[]
      */
     public $content;
+
     /**
      * @var string
      */
     public $requestId;
+
     /**
      * @var string
      */
     public $sessionId;
+
     /**
      * @var bool
      */
     public $streamEnd;
     protected $_name = [
-        'content'   => 'content',
+        'content' => 'content',
         'requestId' => 'requestId',
         'sessionId' => 'sessionId',
         'streamEnd' => 'streamEnd',
@@ -46,7 +49,7 @@ class InvokeAssistantResponseBody extends Model
         if (null !== $this->content) {
             if (\is_array($this->content)) {
                 $res['content'] = [];
-                $n1             = 0;
+                $n1 = 0;
                 foreach ($this->content as $item1) {
                     $res['content'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -79,7 +82,7 @@ class InvokeAssistantResponseBody extends Model
         if (isset($map['content'])) {
             if (!empty($map['content'])) {
                 $model->content = [];
-                $n1             = 0;
+                $n1 = 0;
                 foreach ($map['content'] as $item1) {
                     $model->content[$n1++] = content::fromMap($item1);
                 }

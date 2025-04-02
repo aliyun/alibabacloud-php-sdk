@@ -13,13 +13,14 @@ class CancelScheduleConferenceRequest extends Model
      * @var string
      */
     public $scheduleConferenceId;
+
     /**
      * @var tenantContext
      */
     public $tenantContext;
     protected $_name = [
         'scheduleConferenceId' => 'ScheduleConferenceId',
-        'tenantContext'        => 'TenantContext',
+        'tenantContext' => 'TenantContext',
     ];
 
     public function validate()

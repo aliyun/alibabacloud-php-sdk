@@ -13,12 +13,13 @@ class GetReportTemplateByNameRequest extends Model
      * @var string
      */
     public $templateName;
+
     /**
      * @var tenantContext
      */
     public $tenantContext;
     protected $_name = [
-        'templateName'  => 'TemplateName',
+        'templateName' => 'TemplateName',
         'tenantContext' => 'TenantContext',
     ];
 

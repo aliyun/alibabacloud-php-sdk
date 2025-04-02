@@ -12,38 +12,44 @@ class calendars extends Model
      * @var string
      */
     public $description;
+
     /**
      * @var string
      */
     public $ETag;
+
     /**
      * @var string
      */
     public $id;
+
     /**
      * @var string
      */
     public $privilege;
+
     /**
      * @var string
      */
     public $summary;
+
     /**
      * @var string
      */
     public $timeZone;
+
     /**
      * @var string
      */
     public $type;
     protected $_name = [
         'description' => 'Description',
-        'ETag'        => 'ETag',
-        'id'          => 'Id',
-        'privilege'   => 'Privilege',
-        'summary'     => 'Summary',
-        'timeZone'    => 'TimeZone',
-        'type'        => 'Type',
+        'ETag' => 'ETag',
+        'id' => 'Id',
+        'privilege' => 'Privilege',
+        'summary' => 'Summary',
+        'timeZone' => 'TimeZone',
+        'type' => 'Type',
     ];
 
     public function validate()

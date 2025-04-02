@@ -13,28 +13,32 @@ class UpdateScheduleConferenceRequest extends Model
      * @var int
      */
     public $endTime;
+
     /**
      * @var string
      */
     public $scheduleConferenceId;
+
     /**
      * @var int
      */
     public $startTime;
+
     /**
      * @var tenantContext
      */
     public $tenantContext;
+
     /**
      * @var string
      */
     public $title;
     protected $_name = [
-        'endTime'              => 'EndTime',
+        'endTime' => 'EndTime',
         'scheduleConferenceId' => 'ScheduleConferenceId',
-        'startTime'            => 'StartTime',
-        'tenantContext'        => 'TenantContext',
-        'title'                => 'Title',
+        'startTime' => 'StartTime',
+        'tenantContext' => 'TenantContext',
+        'title' => 'Title',
     ];
 
     public function validate()

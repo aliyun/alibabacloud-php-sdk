@@ -12,23 +12,26 @@ class GetDocContentTakIdResponseBody extends Model
      * @var string
      */
     public $requestId;
+
     /**
      * @var int
      */
     public $taskId;
+
     /**
      * @var string
      */
     public $vendorRequestId;
+
     /**
      * @var string
      */
     public $vendorType;
     protected $_name = [
-        'requestId'       => 'requestId',
-        'taskId'          => 'taskId',
+        'requestId' => 'requestId',
+        'taskId' => 'taskId',
         'vendorRequestId' => 'vendorRequestId',
-        'vendorType'      => 'vendorType',
+        'vendorType' => 'vendorType',
     ];
 
     public function validate()

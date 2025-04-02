@@ -12,18 +12,20 @@ class imageUrl extends Model
      * @var string
      */
     public $detail;
+
     /**
      * @var string
      */
     public $imageDesc;
+
     /**
      * @var string
      */
     public $url;
     protected $_name = [
-        'detail'    => 'detail',
+        'detail' => 'detail',
         'imageDesc' => 'imageDesc',
-        'url'       => 'url',
+        'url' => 'url',
     ];
 
     public function validate()

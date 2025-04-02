@@ -13,17 +13,19 @@ class GetTemplateListByUserIdResponseBody extends Model
      * @var int
      */
     public $nextCursor;
+
     /**
      * @var string
      */
     public $requestId;
+
     /**
      * @var templateList[]
      */
     public $templateList;
     protected $_name = [
-        'nextCursor'   => 'nextCursor',
-        'requestId'    => 'requestId',
+        'nextCursor' => 'nextCursor',
+        'requestId' => 'requestId',
         'templateList' => 'templateList',
     ];
 
@@ -49,7 +51,7 @@ class GetTemplateListByUserIdResponseBody extends Model
         if (null !== $this->templateList) {
             if (\is_array($this->templateList)) {
                 $res['templateList'] = [];
-                $n1                  = 0;
+                $n1 = 0;
                 foreach ($this->templateList as $item1) {
                     $res['templateList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -78,7 +80,7 @@ class GetTemplateListByUserIdResponseBody extends Model
         if (isset($map['templateList'])) {
             if (!empty($map['templateList'])) {
                 $model->templateList = [];
-                $n1                  = 0;
+                $n1 = 0;
                 foreach ($map['templateList'] as $item1) {
                     $model->templateList[$n1++] = templateList::fromMap($item1);
                 }

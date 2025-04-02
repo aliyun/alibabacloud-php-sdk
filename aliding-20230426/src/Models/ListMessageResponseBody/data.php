@@ -13,42 +13,49 @@ class data extends Model
      * @var content[]
      */
     public $content;
+
     /**
      * @var int
      */
     public $createAt;
+
     /**
      * @var string
      */
     public $id;
+
     /**
      * @var mixed[]
      */
     public $metadata;
+
     /**
      * @var string
      */
     public $object;
+
     /**
      * @var string
      */
     public $role;
+
     /**
      * @var string
      */
     public $runId;
+
     /**
      * @var string
      */
     public $threadId;
     protected $_name = [
-        'content'  => 'content',
+        'content' => 'content',
         'createAt' => 'createAt',
-        'id'       => 'id',
+        'id' => 'id',
         'metadata' => 'metadata',
-        'object'   => 'object',
-        'role'     => 'role',
-        'runId'    => 'runId',
+        'object' => 'object',
+        'role' => 'role',
+        'runId' => 'runId',
         'threadId' => 'threadId',
     ];
 
@@ -69,7 +76,7 @@ class data extends Model
         if (null !== $this->content) {
             if (\is_array($this->content)) {
                 $res['content'] = [];
-                $n1             = 0;
+                $n1 = 0;
                 foreach ($this->content as $item1) {
                     $res['content'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -123,7 +130,7 @@ class data extends Model
         if (isset($map['content'])) {
             if (!empty($map['content'])) {
                 $model->content = [];
-                $n1             = 0;
+                $n1 = 0;
                 foreach ($map['content'] as $item1) {
                     $model->content[$n1++] = content::fromMap($item1);
                 }

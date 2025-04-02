@@ -13,23 +13,26 @@ class GetFormComponentDefinitionListResponseBody extends Model
      * @var result[]
      */
     public $result;
+
     /**
      * @var string
      */
     public $requestId;
+
     /**
      * @var string
      */
     public $vendorRequestId;
+
     /**
      * @var string
      */
     public $vendorType;
     protected $_name = [
-        'result'          => 'Result',
-        'requestId'       => 'requestId',
+        'result' => 'Result',
+        'requestId' => 'requestId',
         'vendorRequestId' => 'vendorRequestId',
-        'vendorType'      => 'vendorType',
+        'vendorType' => 'vendorType',
     ];
 
     public function validate()
@@ -46,7 +49,7 @@ class GetFormComponentDefinitionListResponseBody extends Model
         if (null !== $this->result) {
             if (\is_array($this->result)) {
                 $res['Result'] = [];
-                $n1            = 0;
+                $n1 = 0;
                 foreach ($this->result as $item1) {
                     $res['Result'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -79,7 +82,7 @@ class GetFormComponentDefinitionListResponseBody extends Model
         if (isset($map['Result'])) {
             if (!empty($map['Result'])) {
                 $model->result = [];
-                $n1            = 0;
+                $n1 = 0;
                 foreach ($map['Result'] as $item1) {
                     $model->result[$n1++] = result::fromMap($item1);
                 }

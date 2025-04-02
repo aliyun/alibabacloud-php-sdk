@@ -12,17 +12,19 @@ class InitMultipartFileUploadShrinkRequest extends Model
      * @var string
      */
     public $optionShrink;
+
     /**
      * @var string
      */
     public $parentDentryUuid;
+
     /**
      * @var string
      */
     public $tenantContextShrink;
     protected $_name = [
-        'optionShrink'        => 'Option',
-        'parentDentryUuid'    => 'ParentDentryUuid',
+        'optionShrink' => 'Option',
+        'parentDentryUuid' => 'ParentDentryUuid',
         'tenantContextShrink' => 'TenantContext',
     ];
 

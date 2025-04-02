@@ -14,18 +14,20 @@ class InitMultipartFileUploadRequest extends Model
      * @var option
      */
     public $option;
+
     /**
      * @var string
      */
     public $parentDentryUuid;
+
     /**
      * @var tenantContext
      */
     public $tenantContext;
     protected $_name = [
-        'option'           => 'Option',
+        'option' => 'Option',
         'parentDentryUuid' => 'ParentDentryUuid',
-        'tenantContext'    => 'TenantContext',
+        'tenantContext' => 'TenantContext',
     ];
 
     public function validate()

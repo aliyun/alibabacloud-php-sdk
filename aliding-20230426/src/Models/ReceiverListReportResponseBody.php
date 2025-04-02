@@ -12,22 +12,25 @@ class ReceiverListReportResponseBody extends Model
      * @var bool
      */
     public $hasMore;
+
     /**
      * @var int
      */
     public $nextCursor;
+
     /**
      * @var string
      */
     public $requestId;
+
     /**
      * @var string[]
      */
     public $useridList;
     protected $_name = [
-        'hasMore'    => 'hasMore',
+        'hasMore' => 'hasMore',
         'nextCursor' => 'nextCursor',
-        'requestId'  => 'requestId',
+        'requestId' => 'requestId',
         'useridList' => 'useridList',
     ];
 
@@ -57,7 +60,7 @@ class ReceiverListReportResponseBody extends Model
         if (null !== $this->useridList) {
             if (\is_array($this->useridList)) {
                 $res['useridList'] = [];
-                $n1                = 0;
+                $n1 = 0;
                 foreach ($this->useridList as $item1) {
                     $res['useridList'][$n1++] = $item1;
                 }
@@ -90,7 +93,7 @@ class ReceiverListReportResponseBody extends Model
         if (isset($map['useridList'])) {
             if (!empty($map['useridList'])) {
                 $model->useridList = [];
-                $n1                = 0;
+                $n1 = 0;
                 foreach ($map['useridList'] as $item1) {
                     $model->useridList[$n1++] = $item1;
                 }

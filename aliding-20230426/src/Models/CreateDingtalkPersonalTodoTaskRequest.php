@@ -14,43 +14,50 @@ class CreateDingtalkPersonalTodoTaskRequest extends Model
      * @var string
      */
     public $description;
+
     /**
      * @var int
      */
     public $dueTime;
+
     /**
      * @var string[]
      */
     public $executorIds;
+
     /**
      * @var notifyConfigs
      */
     public $notifyConfigs;
+
     /**
      * @var string[]
      */
     public $participantIds;
+
     /**
      * @var string
      */
     public $subject;
+
     /**
      * @var tenantContext
      */
     public $tenantContext;
+
     /**
      * @var string
      */
     public $userToken;
     protected $_name = [
-        'description'    => 'Description',
-        'dueTime'        => 'DueTime',
-        'executorIds'    => 'ExecutorIds',
-        'notifyConfigs'  => 'NotifyConfigs',
+        'description' => 'Description',
+        'dueTime' => 'DueTime',
+        'executorIds' => 'ExecutorIds',
+        'notifyConfigs' => 'NotifyConfigs',
         'participantIds' => 'ParticipantIds',
-        'subject'        => 'Subject',
-        'tenantContext'  => 'TenantContext',
-        'userToken'      => 'UserToken',
+        'subject' => 'Subject',
+        'tenantContext' => 'TenantContext',
+        'userToken' => 'UserToken',
     ];
 
     public function validate()
@@ -84,7 +91,7 @@ class CreateDingtalkPersonalTodoTaskRequest extends Model
         if (null !== $this->executorIds) {
             if (\is_array($this->executorIds)) {
                 $res['ExecutorIds'] = [];
-                $n1                 = 0;
+                $n1 = 0;
                 foreach ($this->executorIds as $item1) {
                     $res['ExecutorIds'][$n1++] = $item1;
                 }
@@ -98,7 +105,7 @@ class CreateDingtalkPersonalTodoTaskRequest extends Model
         if (null !== $this->participantIds) {
             if (\is_array($this->participantIds)) {
                 $res['ParticipantIds'] = [];
-                $n1                    = 0;
+                $n1 = 0;
                 foreach ($this->participantIds as $item1) {
                     $res['ParticipantIds'][$n1++] = $item1;
                 }
@@ -139,7 +146,7 @@ class CreateDingtalkPersonalTodoTaskRequest extends Model
         if (isset($map['ExecutorIds'])) {
             if (!empty($map['ExecutorIds'])) {
                 $model->executorIds = [];
-                $n1                 = 0;
+                $n1 = 0;
                 foreach ($map['ExecutorIds'] as $item1) {
                     $model->executorIds[$n1++] = $item1;
                 }
@@ -153,7 +160,7 @@ class CreateDingtalkPersonalTodoTaskRequest extends Model
         if (isset($map['ParticipantIds'])) {
             if (!empty($map['ParticipantIds'])) {
                 $model->participantIds = [];
-                $n1                    = 0;
+                $n1 = 0;
                 foreach ($map['ParticipantIds'] as $item1) {
                     $model->participantIds[$n1++] = $item1;
                 }

@@ -12,63 +12,74 @@ class SearchFormDataSecondGenerationRequest extends Model
      * @var string
      */
     public $appType;
+
     /**
      * @var string
      */
     public $createFromTimeGMT;
+
     /**
      * @var string
      */
     public $createToTimeGMT;
+
     /**
      * @var string
      */
     public $formUuid;
+
     /**
      * @var string
      */
     public $modifiedFromTimeGMT;
+
     /**
      * @var string
      */
     public $modifiedToTimeGMT;
+
     /**
      * @var string
      */
     public $orderConfigJson;
+
     /**
      * @var string
      */
     public $originatorId;
+
     /**
      * @var int
      */
     public $pageNumber;
+
     /**
      * @var int
      */
     public $pageSize;
+
     /**
      * @var string
      */
     public $searchCondition;
+
     /**
      * @var string
      */
     public $systemToken;
     protected $_name = [
-        'appType'             => 'AppType',
-        'createFromTimeGMT'   => 'CreateFromTimeGMT',
-        'createToTimeGMT'     => 'CreateToTimeGMT',
-        'formUuid'            => 'FormUuid',
+        'appType' => 'AppType',
+        'createFromTimeGMT' => 'CreateFromTimeGMT',
+        'createToTimeGMT' => 'CreateToTimeGMT',
+        'formUuid' => 'FormUuid',
         'modifiedFromTimeGMT' => 'ModifiedFromTimeGMT',
-        'modifiedToTimeGMT'   => 'ModifiedToTimeGMT',
-        'orderConfigJson'     => 'OrderConfigJson',
-        'originatorId'        => 'OriginatorId',
-        'pageNumber'          => 'PageNumber',
-        'pageSize'            => 'PageSize',
-        'searchCondition'     => 'SearchCondition',
-        'systemToken'         => 'SystemToken',
+        'modifiedToTimeGMT' => 'ModifiedToTimeGMT',
+        'orderConfigJson' => 'OrderConfigJson',
+        'originatorId' => 'OriginatorId',
+        'pageNumber' => 'PageNumber',
+        'pageSize' => 'PageSize',
+        'searchCondition' => 'SearchCondition',
+        'systemToken' => 'SystemToken',
     ];
 
     public function validate()

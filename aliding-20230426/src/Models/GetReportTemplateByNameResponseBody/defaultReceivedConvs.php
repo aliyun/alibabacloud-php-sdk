@@ -12,13 +12,14 @@ class defaultReceivedConvs extends Model
      * @var string
      */
     public $conversationId;
+
     /**
      * @var string
      */
     public $title;
     protected $_name = [
         'conversationId' => 'ConversationId',
-        'title'          => 'Title',
+        'title' => 'Title',
     ];
 
     public function validate()

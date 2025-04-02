@@ -13,18 +13,20 @@ class QueryOrgTodoTasksRequest extends Model
      * @var tenantContext
      */
     public $tenantContext;
+
     /**
      * @var bool
      */
     public $isDone;
+
     /**
      * @var string
      */
     public $nextToken;
     protected $_name = [
         'tenantContext' => 'TenantContext',
-        'isDone'        => 'isDone',
-        'nextToken'     => 'nextToken',
+        'isDone' => 'isDone',
+        'nextToken' => 'nextToken',
     ];
 
     public function validate()

@@ -12,12 +12,13 @@ class QueryScheduleConferenceShrinkRequest extends Model
      * @var string
      */
     public $tenantContextShrink;
+
     /**
      * @var string
      */
     public $scheduleConferenceId;
     protected $_name = [
-        'tenantContextShrink'  => 'TenantContext',
+        'tenantContextShrink' => 'TenantContext',
         'scheduleConferenceId' => 'scheduleConferenceId',
     ];
 

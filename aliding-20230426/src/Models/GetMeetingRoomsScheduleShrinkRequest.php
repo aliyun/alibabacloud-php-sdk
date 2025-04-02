@@ -12,18 +12,20 @@ class GetMeetingRoomsScheduleShrinkRequest extends Model
      * @var string
      */
     public $endTime;
+
     /**
      * @var string
      */
     public $roomIdsShrink;
+
     /**
      * @var string
      */
     public $startTime;
     protected $_name = [
-        'endTime'       => 'EndTime',
+        'endTime' => 'EndTime',
         'roomIdsShrink' => 'RoomIds',
-        'startTime'     => 'StartTime',
+        'startTime' => 'StartTime',
     ];
 
     public function validate()

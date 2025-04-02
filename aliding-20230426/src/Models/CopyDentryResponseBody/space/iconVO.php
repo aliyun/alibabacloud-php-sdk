@@ -12,6 +12,7 @@ class iconVO extends Model
      * @var string
      */
     public $icon;
+
     /**
      * @var string
      */

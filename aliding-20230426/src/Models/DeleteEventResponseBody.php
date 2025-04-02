@@ -13,38 +13,44 @@ class DeleteEventResponseBody extends Model
      * @var content
      */
     public $content;
+
     /**
      * @var string
      */
     public $errorCode;
+
     /**
      * @var mixed[]
      */
     public $errorCtx;
+
     /**
      * @var string
      */
     public $errorMsg;
+
     /**
      * @var int
      */
     public $httpStatusCode;
+
     /**
      * @var string
      */
     public $requestId;
+
     /**
      * @var bool
      */
     public $success;
     protected $_name = [
-        'content'        => 'content',
-        'errorCode'      => 'errorCode',
-        'errorCtx'       => 'errorCtx',
-        'errorMsg'       => 'errorMsg',
+        'content' => 'content',
+        'errorCode' => 'errorCode',
+        'errorCtx' => 'errorCtx',
+        'errorMsg' => 'errorMsg',
         'httpStatusCode' => 'httpStatusCode',
-        'requestId'      => 'requestId',
-        'success'        => 'success',
+        'requestId' => 'requestId',
+        'success' => 'success',
     ];
 
     public function validate()

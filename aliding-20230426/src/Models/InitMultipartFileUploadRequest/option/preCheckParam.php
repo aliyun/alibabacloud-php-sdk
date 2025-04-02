@@ -12,23 +12,26 @@ class preCheckParam extends Model
      * @var string
      */
     public $md5;
+
     /**
      * @var string
      */
     public $name;
+
     /**
      * @var string
      */
     public $parentId;
+
     /**
      * @var int
      */
     public $size;
     protected $_name = [
-        'md5'      => 'Md5',
-        'name'     => 'Name',
+        'md5' => 'Md5',
+        'name' => 'Name',
         'parentId' => 'ParentId',
-        'size'     => 'Size',
+        'size' => 'Size',
     ];
 
     public function validate()

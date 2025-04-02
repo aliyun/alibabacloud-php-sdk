@@ -12,28 +12,32 @@ class CloseVideoConferenceResponseBody extends Model
      * @var string
      */
     public $cause;
+
     /**
      * @var int
      */
     public $code;
+
     /**
      * @var string
      */
     public $requestId;
+
     /**
      * @var string
      */
     public $vendorRequestId;
+
     /**
      * @var string
      */
     public $vendorType;
     protected $_name = [
-        'cause'           => 'cause',
-        'code'            => 'code',
-        'requestId'       => 'requestId',
+        'cause' => 'cause',
+        'code' => 'code',
+        'requestId' => 'requestId',
         'vendorRequestId' => 'vendorRequestId',
-        'vendorType'      => 'vendorType',
+        'vendorType' => 'vendorType',
     ];
 
     public function validate()

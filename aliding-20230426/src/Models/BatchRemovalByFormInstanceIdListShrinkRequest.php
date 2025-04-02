@@ -12,33 +12,38 @@ class BatchRemovalByFormInstanceIdListShrinkRequest extends Model
      * @var string
      */
     public $appType;
+
     /**
      * @var bool
      */
     public $asynchronousExecution;
+
     /**
      * @var bool
      */
     public $executeExpression;
+
     /**
      * @var string
      */
     public $formInstanceIdListShrink;
+
     /**
      * @var string
      */
     public $formUuid;
+
     /**
      * @var string
      */
     public $systemToken;
     protected $_name = [
-        'appType'                  => 'AppType',
-        'asynchronousExecution'    => 'AsynchronousExecution',
-        'executeExpression'        => 'ExecuteExpression',
+        'appType' => 'AppType',
+        'asynchronousExecution' => 'AsynchronousExecution',
+        'executeExpression' => 'ExecuteExpression',
         'formInstanceIdListShrink' => 'FormInstanceIdList',
-        'formUuid'                 => 'FormUuid',
-        'systemToken'              => 'SystemToken',
+        'formUuid' => 'FormUuid',
+        'systemToken' => 'SystemToken',
     ];
 
     public function validate()

@@ -12,18 +12,20 @@ class comments extends Model
      * @var string
      */
     public $content;
+
     /**
      * @var string
      */
     public $createTime;
+
     /**
      * @var string
      */
     public $userid;
     protected $_name = [
-        'content'    => 'Content',
+        'content' => 'Content',
         'createTime' => 'CreateTime',
-        'userid'     => 'Userid',
+        'userid' => 'Userid',
     ];
 
     public function validate()

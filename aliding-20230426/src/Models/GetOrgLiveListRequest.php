@@ -13,38 +13,44 @@ class GetOrgLiveListRequest extends Model
      * @var string
      */
     public $corpId;
+
     /**
      * @var int
      */
     public $endTime;
+
     /**
      * @var int
      */
     public $pageNumber;
+
     /**
      * @var int
      */
     public $pageSize;
+
     /**
      * @var int
      */
     public $startTime;
+
     /**
      * @var tenantContext
      */
     public $tenantContext;
+
     /**
      * @var string
      */
     public $userId;
     protected $_name = [
-        'corpId'        => 'CorpId',
-        'endTime'       => 'EndTime',
-        'pageNumber'    => 'PageNumber',
-        'pageSize'      => 'PageSize',
-        'startTime'     => 'StartTime',
+        'corpId' => 'CorpId',
+        'endTime' => 'EndTime',
+        'pageNumber' => 'PageNumber',
+        'pageSize' => 'PageSize',
+        'startTime' => 'StartTime',
         'tenantContext' => 'TenantContext',
-        'userId'        => 'UserId',
+        'userId' => 'UserId',
     ];
 
     public function validate()

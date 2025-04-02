@@ -12,43 +12,50 @@ class ListDentriesShrinkRequest extends Model
      * @var int
      */
     public $maxResults;
+
     /**
      * @var string
      */
     public $nextToken;
+
     /**
      * @var string
      */
     public $order;
+
     /**
      * @var string
      */
     public $orderBy;
+
     /**
      * @var string
      */
     public $parentId;
+
     /**
      * @var string
      */
     public $spaceId;
+
     /**
      * @var string
      */
     public $tenantContextShrink;
+
     /**
      * @var bool
      */
     public $withThumbnail;
     protected $_name = [
-        'maxResults'          => 'MaxResults',
-        'nextToken'           => 'NextToken',
-        'order'               => 'Order',
-        'orderBy'             => 'OrderBy',
-        'parentId'            => 'ParentId',
-        'spaceId'             => 'SpaceId',
+        'maxResults' => 'MaxResults',
+        'nextToken' => 'NextToken',
+        'order' => 'Order',
+        'orderBy' => 'OrderBy',
+        'parentId' => 'ParentId',
+        'spaceId' => 'SpaceId',
         'tenantContextShrink' => 'TenantContext',
-        'withThumbnail'       => 'WithThumbnail',
+        'withThumbnail' => 'WithThumbnail',
     ];
 
     public function validate()

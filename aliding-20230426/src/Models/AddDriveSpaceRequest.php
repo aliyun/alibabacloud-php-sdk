@@ -13,12 +13,13 @@ class AddDriveSpaceRequest extends Model
      * @var string
      */
     public $name;
+
     /**
      * @var tenantContext
      */
     public $tenantContext;
     protected $_name = [
-        'name'          => 'Name',
+        'name' => 'Name',
         'tenantContext' => 'TenantContext',
     ];
 

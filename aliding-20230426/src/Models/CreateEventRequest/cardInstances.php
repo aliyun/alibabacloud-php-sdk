@@ -12,13 +12,14 @@ class cardInstances extends Model
      * @var string
      */
     public $outTrackId;
+
     /**
      * @var string
      */
     public $scenario;
     protected $_name = [
         'outTrackId' => 'OutTrackId',
-        'scenario'   => 'Scenario',
+        'scenario' => 'Scenario',
     ];
 
     public function validate()

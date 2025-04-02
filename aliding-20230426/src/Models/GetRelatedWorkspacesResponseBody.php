@@ -13,23 +13,26 @@ class GetRelatedWorkspacesResponseBody extends Model
      * @var string
      */
     public $requestId;
+
     /**
      * @var string
      */
     public $vendorRequestId;
+
     /**
      * @var string
      */
     public $vendorType;
+
     /**
      * @var workspaces[]
      */
     public $workspaces;
     protected $_name = [
-        'requestId'       => 'requestId',
+        'requestId' => 'requestId',
         'vendorRequestId' => 'vendorRequestId',
-        'vendorType'      => 'vendorType',
-        'workspaces'      => 'workspaces',
+        'vendorType' => 'vendorType',
+        'workspaces' => 'workspaces',
     ];
 
     public function validate()
@@ -58,7 +61,7 @@ class GetRelatedWorkspacesResponseBody extends Model
         if (null !== $this->workspaces) {
             if (\is_array($this->workspaces)) {
                 $res['workspaces'] = [];
-                $n1                = 0;
+                $n1 = 0;
                 foreach ($this->workspaces as $item1) {
                     $res['workspaces'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -91,7 +94,7 @@ class GetRelatedWorkspacesResponseBody extends Model
         if (isset($map['workspaces'])) {
             if (!empty($map['workspaces'])) {
                 $model->workspaces = [];
-                $n1                = 0;
+                $n1 = 0;
                 foreach ($map['workspaces'] as $item1) {
                     $model->workspaces[$n1++] = workspaces::fromMap($item1);
                 }

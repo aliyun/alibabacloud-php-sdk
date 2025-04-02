@@ -12,103 +12,122 @@ class CreateScenegroupRequest extends Model
      * @var int
      */
     public $addFriendForbidden;
+
     /**
      * @var int
      */
     public $allMembersCanCreateCalendar;
+
     /**
      * @var int
      */
     public $allMembersCanCreateMcsConf;
+
     /**
      * @var int
      */
     public $chatBannedType;
+
     /**
      * @var int
      */
     public $groupEmailDisabled;
+
     /**
      * @var int
      */
     public $groupLiveSwitch;
+
     /**
      * @var string
      */
     public $icon;
+
     /**
      * @var int
      */
     public $managementType;
+
     /**
      * @var int
      */
     public $membersToAdminChat;
+
     /**
      * @var int
      */
     public $mentionAllAuthority;
+
     /**
      * @var int
      */
     public $onlyAdminCanDing;
+
     /**
      * @var int
      */
     public $onlyAdminCanSetMsgTop;
+
     /**
      * @var int
      */
     public $searchable;
+
     /**
      * @var int
      */
     public $showHistoryType;
+
     /**
      * @var string
      */
     public $subadminIds;
+
     /**
      * @var string
      */
     public $templateId;
+
     /**
      * @var string
      */
     public $title;
+
     /**
      * @var string
      */
     public $userIds;
+
     /**
      * @var string
      */
     public $uuid;
+
     /**
      * @var int
      */
     public $validationType;
     protected $_name = [
-        'addFriendForbidden'          => 'AddFriendForbidden',
+        'addFriendForbidden' => 'AddFriendForbidden',
         'allMembersCanCreateCalendar' => 'AllMembersCanCreateCalendar',
-        'allMembersCanCreateMcsConf'  => 'AllMembersCanCreateMcsConf',
-        'chatBannedType'              => 'ChatBannedType',
-        'groupEmailDisabled'          => 'GroupEmailDisabled',
-        'groupLiveSwitch'             => 'GroupLiveSwitch',
-        'icon'                        => 'Icon',
-        'managementType'              => 'ManagementType',
-        'membersToAdminChat'          => 'MembersToAdminChat',
-        'mentionAllAuthority'         => 'MentionAllAuthority',
-        'onlyAdminCanDing'            => 'OnlyAdminCanDing',
-        'onlyAdminCanSetMsgTop'       => 'OnlyAdminCanSetMsgTop',
-        'searchable'                  => 'Searchable',
-        'showHistoryType'             => 'ShowHistoryType',
-        'subadminIds'                 => 'SubadminIds',
-        'templateId'                  => 'TemplateId',
-        'title'                       => 'Title',
-        'userIds'                     => 'UserIds',
-        'uuid'                        => 'Uuid',
-        'validationType'              => 'ValidationType',
+        'allMembersCanCreateMcsConf' => 'AllMembersCanCreateMcsConf',
+        'chatBannedType' => 'ChatBannedType',
+        'groupEmailDisabled' => 'GroupEmailDisabled',
+        'groupLiveSwitch' => 'GroupLiveSwitch',
+        'icon' => 'Icon',
+        'managementType' => 'ManagementType',
+        'membersToAdminChat' => 'MembersToAdminChat',
+        'mentionAllAuthority' => 'MentionAllAuthority',
+        'onlyAdminCanDing' => 'OnlyAdminCanDing',
+        'onlyAdminCanSetMsgTop' => 'OnlyAdminCanSetMsgTop',
+        'searchable' => 'Searchable',
+        'showHistoryType' => 'ShowHistoryType',
+        'subadminIds' => 'SubadminIds',
+        'templateId' => 'TemplateId',
+        'title' => 'Title',
+        'userIds' => 'UserIds',
+        'uuid' => 'Uuid',
+        'validationType' => 'ValidationType',
     ];
 
     public function validate()

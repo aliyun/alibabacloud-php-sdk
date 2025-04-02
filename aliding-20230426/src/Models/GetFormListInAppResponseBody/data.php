@@ -13,28 +13,32 @@ class data extends Model
      * @var string
      */
     public $creator;
+
     /**
      * @var string
      */
     public $formType;
+
     /**
      * @var string
      */
     public $formUuid;
+
     /**
      * @var string
      */
     public $gmtCreate;
+
     /**
      * @var title
      */
     public $title;
     protected $_name = [
-        'creator'   => 'Creator',
-        'formType'  => 'FormType',
-        'formUuid'  => 'FormUuid',
+        'creator' => 'Creator',
+        'formType' => 'FormType',
+        'formUuid' => 'FormUuid',
         'gmtCreate' => 'GmtCreate',
-        'title'     => 'Title',
+        'title' => 'Title',
     ];
 
     public function validate()

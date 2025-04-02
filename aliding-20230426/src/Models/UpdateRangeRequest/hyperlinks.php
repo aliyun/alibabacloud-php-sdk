@@ -12,10 +12,12 @@ class hyperlinks extends Model
      * @var string
      */
     public $type;
+
     /**
      * @var string
      */
     public $link;
+
     /**
      * @var string
      */

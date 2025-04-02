@@ -15,28 +15,32 @@ class FinishTicketRequest extends Model
      * @var notify
      */
     public $notify;
+
     /**
      * @var string
      */
     public $openTeamId;
+
     /**
      * @var string
      */
     public $openTicketId;
+
     /**
      * @var tenantContext
      */
     public $tenantContext;
+
     /**
      * @var ticketMemo
      */
     public $ticketMemo;
     protected $_name = [
-        'notify'        => 'Notify',
-        'openTeamId'    => 'OpenTeamId',
-        'openTicketId'  => 'OpenTicketId',
+        'notify' => 'Notify',
+        'openTeamId' => 'OpenTeamId',
+        'openTicketId' => 'OpenTicketId',
         'tenantContext' => 'TenantContext',
-        'ticketMemo'    => 'TicketMemo',
+        'ticketMemo' => 'TicketMemo',
     ];
 
     public function validate()

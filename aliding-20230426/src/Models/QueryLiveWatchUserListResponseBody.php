@@ -14,18 +14,20 @@ class QueryLiveWatchUserListResponseBody extends Model
      * @var orgUsesList[]
      */
     public $orgUsesList;
+
     /**
      * @var outOrgUserList[]
      */
     public $outOrgUserList;
+
     /**
      * @var string
      */
     public $requestId;
     protected $_name = [
-        'orgUsesList'    => 'orgUsesList',
+        'orgUsesList' => 'orgUsesList',
         'outOrgUserList' => 'outOrgUserList',
-        'requestId'      => 'requestId',
+        'requestId' => 'requestId',
     ];
 
     public function validate()
@@ -45,7 +47,7 @@ class QueryLiveWatchUserListResponseBody extends Model
         if (null !== $this->orgUsesList) {
             if (\is_array($this->orgUsesList)) {
                 $res['orgUsesList'] = [];
-                $n1                 = 0;
+                $n1 = 0;
                 foreach ($this->orgUsesList as $item1) {
                     $res['orgUsesList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -55,7 +57,7 @@ class QueryLiveWatchUserListResponseBody extends Model
         if (null !== $this->outOrgUserList) {
             if (\is_array($this->outOrgUserList)) {
                 $res['outOrgUserList'] = [];
-                $n1                    = 0;
+                $n1 = 0;
                 foreach ($this->outOrgUserList as $item1) {
                     $res['outOrgUserList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -80,7 +82,7 @@ class QueryLiveWatchUserListResponseBody extends Model
         if (isset($map['orgUsesList'])) {
             if (!empty($map['orgUsesList'])) {
                 $model->orgUsesList = [];
-                $n1                 = 0;
+                $n1 = 0;
                 foreach ($map['orgUsesList'] as $item1) {
                     $model->orgUsesList[$n1++] = orgUsesList::fromMap($item1);
                 }
@@ -90,7 +92,7 @@ class QueryLiveWatchUserListResponseBody extends Model
         if (isset($map['outOrgUserList'])) {
             if (!empty($map['outOrgUserList'])) {
                 $model->outOrgUserList = [];
-                $n1                    = 0;
+                $n1 = 0;
                 foreach ($map['outOrgUserList'] as $item1) {
                     $model->outOrgUserList[$n1++] = outOrgUserList::fromMap($item1);
                 }

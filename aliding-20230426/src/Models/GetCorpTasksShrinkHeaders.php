@@ -12,12 +12,13 @@ class GetCorpTasksShrinkHeaders extends Model
      * @var string[]
      */
     public $commonHeaders;
+
     /**
      * @var string
      */
     public $accountContextShrink;
     protected $_name = [
-        'commonHeaders'        => 'commonHeaders',
+        'commonHeaders' => 'commonHeaders',
         'accountContextShrink' => 'AccountContext',
     ];
 

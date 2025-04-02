@@ -12,28 +12,32 @@ class AddAttendeeShrinkRequest extends Model
      * @var string
      */
     public $attendeesToAddShrink;
+
     /**
      * @var string
      */
     public $calendarId;
+
     /**
      * @var string
      */
     public $eventId;
+
     /**
      * @var bool
      */
     public $chatNotification;
+
     /**
      * @var bool
      */
     public $pushNotification;
     protected $_name = [
         'attendeesToAddShrink' => 'AttendeesToAdd',
-        'calendarId'           => 'CalendarId',
-        'eventId'              => 'EventId',
-        'chatNotification'     => 'chatNotification',
-        'pushNotification'     => 'pushNotification',
+        'calendarId' => 'CalendarId',
+        'eventId' => 'EventId',
+        'chatNotification' => 'chatNotification',
+        'pushNotification' => 'pushNotification',
     ];
 
     public function validate()

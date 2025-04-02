@@ -12,23 +12,26 @@ class groupInfos extends Model
      * @var string
      */
     public $icon;
+
     /**
      * @var string
      */
     public $memberAmount;
+
     /**
      * @var string
      */
     public $openConversationId;
+
     /**
      * @var string
      */
     public $title;
     protected $_name = [
-        'icon'               => 'Icon',
-        'memberAmount'       => 'MemberAmount',
+        'icon' => 'Icon',
+        'memberAmount' => 'MemberAmount',
         'openConversationId' => 'OpenConversationId',
-        'title'              => 'Title',
+        'title' => 'Title',
     ];
 
     public function validate()

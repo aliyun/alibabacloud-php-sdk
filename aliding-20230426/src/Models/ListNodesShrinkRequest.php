@@ -12,28 +12,32 @@ class ListNodesShrinkRequest extends Model
      * @var int
      */
     public $maxResults;
+
     /**
      * @var string
      */
     public $nextToken;
+
     /**
      * @var string
      */
     public $parentNodeId;
+
     /**
      * @var string
      */
     public $tenantContextShrink;
+
     /**
      * @var bool
      */
     public $withPermissionRole;
     protected $_name = [
-        'maxResults'          => 'MaxResults',
-        'nextToken'           => 'NextToken',
-        'parentNodeId'        => 'ParentNodeId',
+        'maxResults' => 'MaxResults',
+        'nextToken' => 'NextToken',
+        'parentNodeId' => 'ParentNodeId',
         'tenantContextShrink' => 'TenantContext',
-        'withPermissionRole'  => 'WithPermissionRole',
+        'withPermissionRole' => 'WithPermissionRole',
     ];
 
     public function validate()

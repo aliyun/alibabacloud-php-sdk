@@ -13,23 +13,26 @@ class QueryScheduleConferenceInfoRequest extends Model
      * @var int
      */
     public $maxResults;
+
     /**
      * @var string
      */
     public $nextToken;
+
     /**
      * @var string
      */
     public $scheduleConferenceId;
+
     /**
      * @var tenantContext
      */
     public $tenantContext;
     protected $_name = [
-        'maxResults'           => 'MaxResults',
-        'nextToken'            => 'NextToken',
+        'maxResults' => 'MaxResults',
+        'nextToken' => 'NextToken',
         'scheduleConferenceId' => 'ScheduleConferenceId',
-        'tenantContext'        => 'TenantContext',
+        'tenantContext' => 'TenantContext',
     ];
 
     public function validate()

@@ -12,68 +12,80 @@ class SearchFormDatasRequest extends Model
      * @var string
      */
     public $appType;
+
     /**
      * @var string
      */
     public $createFromTimeGMT;
+
     /**
      * @var string
      */
     public $createToTimeGMT;
+
     /**
      * @var int
      */
     public $currentPage;
+
     /**
      * @var string
      */
     public $dynamicOrder;
+
     /**
      * @var string
      */
     public $formUuid;
+
     /**
      * @var string
      */
     public $language;
+
     /**
      * @var string
      */
     public $modifiedFromTimeGMT;
+
     /**
      * @var string
      */
     public $modifiedToTimeGMT;
+
     /**
      * @var string
      */
     public $originatorId;
+
     /**
      * @var int
      */
     public $pageSize;
+
     /**
      * @var string
      */
     public $searchFieldJson;
+
     /**
      * @var string
      */
     public $systemToken;
     protected $_name = [
-        'appType'             => 'AppType',
-        'createFromTimeGMT'   => 'CreateFromTimeGMT',
-        'createToTimeGMT'     => 'CreateToTimeGMT',
-        'currentPage'         => 'CurrentPage',
-        'dynamicOrder'        => 'DynamicOrder',
-        'formUuid'            => 'FormUuid',
-        'language'            => 'Language',
+        'appType' => 'AppType',
+        'createFromTimeGMT' => 'CreateFromTimeGMT',
+        'createToTimeGMT' => 'CreateToTimeGMT',
+        'currentPage' => 'CurrentPage',
+        'dynamicOrder' => 'DynamicOrder',
+        'formUuid' => 'FormUuid',
+        'language' => 'Language',
         'modifiedFromTimeGMT' => 'ModifiedFromTimeGMT',
-        'modifiedToTimeGMT'   => 'ModifiedToTimeGMT',
-        'originatorId'        => 'OriginatorId',
-        'pageSize'            => 'PageSize',
-        'searchFieldJson'     => 'SearchFieldJson',
-        'systemToken'         => 'SystemToken',
+        'modifiedToTimeGMT' => 'ModifiedToTimeGMT',
+        'originatorId' => 'OriginatorId',
+        'pageSize' => 'PageSize',
+        'searchFieldJson' => 'SearchFieldJson',
+        'systemToken' => 'SystemToken',
     ];
 
     public function validate()

@@ -12,43 +12,50 @@ class liveList extends Model
      * @var string
      */
     public $anchorNickname;
+
     /**
      * @var string
      */
     public $anchorUnionId;
+
     /**
      * @var string
      */
     public $anchorUserId;
+
     /**
      * @var int
      */
     public $liveEndTime;
+
     /**
      * @var int
      */
     public $liveStartTime;
+
     /**
      * @var string
      */
     public $liveUuid;
+
     /**
      * @var string[]
      */
     public $shareOpenConversationIds;
+
     /**
      * @var string
      */
     public $title;
     protected $_name = [
-        'anchorNickname'           => 'AnchorNickname',
-        'anchorUnionId'            => 'AnchorUnionId',
-        'anchorUserId'             => 'AnchorUserId',
-        'liveEndTime'              => 'LiveEndTime',
-        'liveStartTime'            => 'LiveStartTime',
-        'liveUuid'                 => 'LiveUuid',
+        'anchorNickname' => 'AnchorNickname',
+        'anchorUnionId' => 'AnchorUnionId',
+        'anchorUserId' => 'AnchorUserId',
+        'liveEndTime' => 'LiveEndTime',
+        'liveStartTime' => 'LiveStartTime',
+        'liveUuid' => 'LiveUuid',
         'shareOpenConversationIds' => 'ShareOpenConversationIds',
-        'title'                    => 'Title',
+        'title' => 'Title',
     ];
 
     public function validate()
@@ -89,7 +96,7 @@ class liveList extends Model
         if (null !== $this->shareOpenConversationIds) {
             if (\is_array($this->shareOpenConversationIds)) {
                 $res['ShareOpenConversationIds'] = [];
-                $n1                              = 0;
+                $n1 = 0;
                 foreach ($this->shareOpenConversationIds as $item1) {
                     $res['ShareOpenConversationIds'][$n1++] = $item1;
                 }
@@ -138,7 +145,7 @@ class liveList extends Model
         if (isset($map['ShareOpenConversationIds'])) {
             if (!empty($map['ShareOpenConversationIds'])) {
                 $model->shareOpenConversationIds = [];
-                $n1                              = 0;
+                $n1 = 0;
                 foreach ($map['ShareOpenConversationIds'] as $item1) {
                     $model->shareOpenConversationIds[$n1++] = $item1;
                 }

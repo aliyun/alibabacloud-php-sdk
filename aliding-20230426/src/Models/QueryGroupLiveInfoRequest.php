@@ -13,17 +13,19 @@ class QueryGroupLiveInfoRequest extends Model
      * @var string
      */
     public $anchorUnionId;
+
     /**
      * @var string
      */
     public $liveUuid;
+
     /**
      * @var tenantContext
      */
     public $tenantContext;
     protected $_name = [
         'anchorUnionId' => 'AnchorUnionId',
-        'liveUuid'      => 'LiveUuid',
+        'liveUuid' => 'LiveUuid',
         'tenantContext' => 'TenantContext',
     ];
 

@@ -13,27 +13,31 @@ class GetSpaceDirectoriesRequest extends Model
      * @var string
      */
     public $dentryId;
+
     /**
      * @var int
      */
     public $maxResults;
+
     /**
      * @var string
      */
     public $nextToken;
+
     /**
      * @var string
      */
     public $spaceId;
+
     /**
      * @var tenantContext
      */
     public $tenantContext;
     protected $_name = [
-        'dentryId'      => 'DentryId',
-        'maxResults'    => 'MaxResults',
-        'nextToken'     => 'NextToken',
-        'spaceId'       => 'SpaceId',
+        'dentryId' => 'DentryId',
+        'maxResults' => 'MaxResults',
+        'nextToken' => 'NextToken',
+        'spaceId' => 'SpaceId',
         'tenantContext' => 'TenantContext',
     ];
 

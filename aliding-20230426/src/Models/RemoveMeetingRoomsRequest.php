@@ -13,17 +13,19 @@ class RemoveMeetingRoomsRequest extends Model
      * @var string
      */
     public $calendarId;
+
     /**
      * @var string
      */
     public $eventId;
+
     /**
      * @var meetingRoomsToRemove[]
      */
     public $meetingRoomsToRemove;
     protected $_name = [
-        'calendarId'           => 'CalendarId',
-        'eventId'              => 'EventId',
+        'calendarId' => 'CalendarId',
+        'eventId' => 'EventId',
         'meetingRoomsToRemove' => 'MeetingRoomsToRemove',
     ];
 
@@ -49,7 +51,7 @@ class RemoveMeetingRoomsRequest extends Model
         if (null !== $this->meetingRoomsToRemove) {
             if (\is_array($this->meetingRoomsToRemove)) {
                 $res['MeetingRoomsToRemove'] = [];
-                $n1                          = 0;
+                $n1 = 0;
                 foreach ($this->meetingRoomsToRemove as $item1) {
                     $res['MeetingRoomsToRemove'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -78,7 +80,7 @@ class RemoveMeetingRoomsRequest extends Model
         if (isset($map['MeetingRoomsToRemove'])) {
             if (!empty($map['MeetingRoomsToRemove'])) {
                 $model->meetingRoomsToRemove = [];
-                $n1                          = 0;
+                $n1 = 0;
                 foreach ($map['MeetingRoomsToRemove'] as $item1) {
                     $model->meetingRoomsToRemove[$n1++] = meetingRoomsToRemove::fromMap($item1);
                 }

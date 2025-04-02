@@ -13,58 +13,68 @@ class todoCards extends Model
      * @var string
      */
     public $bizTag;
+
     /**
      * @var int
      */
     public $createdTime;
+
     /**
      * @var string
      */
     public $creatorId;
+
     /**
      * @var detailUrl
      */
     public $detailUrl;
+
     /**
      * @var int
      */
     public $dueTime;
+
     /**
      * @var bool
      */
     public $isDone;
+
     /**
      * @var int
      */
     public $modifiedTime;
+
     /**
      * @var int
      */
     public $priority;
+
     /**
      * @var string
      */
     public $sourceId;
+
     /**
      * @var string
      */
     public $subject;
+
     /**
      * @var string
      */
     public $taskId;
     protected $_name = [
-        'bizTag'       => 'bizTag',
-        'createdTime'  => 'createdTime',
-        'creatorId'    => 'creatorId',
-        'detailUrl'    => 'detailUrl',
-        'dueTime'      => 'dueTime',
-        'isDone'       => 'isDone',
+        'bizTag' => 'bizTag',
+        'createdTime' => 'createdTime',
+        'creatorId' => 'creatorId',
+        'detailUrl' => 'detailUrl',
+        'dueTime' => 'dueTime',
+        'isDone' => 'isDone',
         'modifiedTime' => 'modifiedTime',
-        'priority'     => 'priority',
-        'sourceId'     => 'sourceId',
-        'subject'      => 'subject',
-        'taskId'       => 'taskId',
+        'priority' => 'priority',
+        'sourceId' => 'sourceId',
+        'subject' => 'subject',
+        'taskId' => 'taskId',
     ];
 
     public function validate()

@@ -12,17 +12,19 @@ class moziConfExtensionAppSettings extends Model
      * @var int
      */
     public $autoOpenMode;
+
     /**
      * @var string
      */
     public $coolAppCode;
+
     /**
      * @var string
      */
     public $extensionAppBizData;
     protected $_name = [
-        'autoOpenMode'        => 'AutoOpenMode',
-        'coolAppCode'         => 'CoolAppCode',
+        'autoOpenMode' => 'AutoOpenMode',
+        'coolAppCode' => 'CoolAppCode',
         'extensionAppBizData' => 'ExtensionAppBizData',
     ];
 

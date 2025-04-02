@@ -12,33 +12,38 @@ class ExecuteBatchTaskResponseBody extends Model
      * @var int
      */
     public $failNumber;
+
     /**
      * @var string
      */
     public $requestId;
+
     /**
      * @var int
      */
     public $successNumber;
+
     /**
      * @var int
      */
     public $total;
+
     /**
      * @var string
      */
     public $vendorRequestId;
+
     /**
      * @var string
      */
     public $vendorType;
     protected $_name = [
-        'failNumber'      => 'failNumber',
-        'requestId'       => 'requestId',
-        'successNumber'   => 'successNumber',
-        'total'           => 'total',
+        'failNumber' => 'failNumber',
+        'requestId' => 'requestId',
+        'successNumber' => 'successNumber',
+        'total' => 'total',
         'vendorRequestId' => 'vendorRequestId',
-        'vendorType'      => 'vendorType',
+        'vendorType' => 'vendorType',
     ];
 
     public function validate()

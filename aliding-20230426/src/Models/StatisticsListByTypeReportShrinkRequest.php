@@ -12,28 +12,32 @@ class StatisticsListByTypeReportShrinkRequest extends Model
      * @var int
      */
     public $offset;
+
     /**
      * @var string
      */
     public $reportId;
+
     /**
      * @var int
      */
     public $size;
+
     /**
      * @var string
      */
     public $tenantContextShrink;
+
     /**
      * @var int
      */
     public $type;
     protected $_name = [
-        'offset'              => 'Offset',
-        'reportId'            => 'ReportId',
-        'size'                => 'Size',
+        'offset' => 'Offset',
+        'reportId' => 'ReportId',
+        'size' => 'Size',
         'tenantContextShrink' => 'TenantContext',
-        'type'                => 'Type',
+        'type' => 'Type',
     ];
 
     public function validate()

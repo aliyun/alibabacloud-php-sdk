@@ -12,28 +12,32 @@ class UpdateScheduleConferenceShrinkRequest extends Model
      * @var int
      */
     public $endTime;
+
     /**
      * @var string
      */
     public $scheduleConferenceId;
+
     /**
      * @var int
      */
     public $startTime;
+
     /**
      * @var string
      */
     public $tenantContextShrink;
+
     /**
      * @var string
      */
     public $title;
     protected $_name = [
-        'endTime'              => 'EndTime',
+        'endTime' => 'EndTime',
         'scheduleConferenceId' => 'ScheduleConferenceId',
-        'startTime'            => 'StartTime',
-        'tenantContextShrink'  => 'TenantContext',
-        'title'                => 'Title',
+        'startTime' => 'StartTime',
+        'tenantContextShrink' => 'TenantContext',
+        'title' => 'Title',
     ];
 
     public function validate()

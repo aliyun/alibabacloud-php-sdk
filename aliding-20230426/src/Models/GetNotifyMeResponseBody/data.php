@@ -12,47 +12,55 @@ class data extends Model
      * @var string
      */
     public $activityId;
+
     /**
      * @var string
      */
     public $appType;
+
     /**
      * @var string
      */
     public $corpId;
+
     /**
      * @var string
      */
     public $createTimeGMT;
+
     /**
      * @var string
      */
     public $creatorUserId;
+
     /**
      * @var string
      */
     public $formInstanceId;
+
     /**
      * @var string
      */
     public $instStatus;
+
     /**
      * @var string
      */
     public $mobileUrl;
+
     /**
      * @var string
      */
     public $modifiedTimeGMT;
     protected $_name = [
-        'activityId'      => 'ActivityId',
-        'appType'         => 'AppType',
-        'corpId'          => 'CorpId',
-        'createTimeGMT'   => 'CreateTimeGMT',
-        'creatorUserId'   => 'CreatorUserId',
-        'formInstanceId'  => 'FormInstanceId',
-        'instStatus'      => 'InstStatus',
-        'mobileUrl'       => 'MobileUrl',
+        'activityId' => 'ActivityId',
+        'appType' => 'AppType',
+        'corpId' => 'CorpId',
+        'createTimeGMT' => 'CreateTimeGMT',
+        'creatorUserId' => 'CreatorUserId',
+        'formInstanceId' => 'FormInstanceId',
+        'instStatus' => 'InstStatus',
+        'mobileUrl' => 'MobileUrl',
         'modifiedTimeGMT' => 'ModifiedTimeGMT',
     ];
 

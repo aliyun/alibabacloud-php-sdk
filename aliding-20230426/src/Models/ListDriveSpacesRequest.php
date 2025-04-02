@@ -13,22 +13,25 @@ class ListDriveSpacesRequest extends Model
      * @var int
      */
     public $maxResults;
+
     /**
      * @var string
      */
     public $nextToken;
+
     /**
      * @var string
      */
     public $spaceType;
+
     /**
      * @var tenantContext
      */
     public $tenantContext;
     protected $_name = [
-        'maxResults'    => 'MaxResults',
-        'nextToken'     => 'NextToken',
-        'spaceType'     => 'SpaceType',
+        'maxResults' => 'MaxResults',
+        'nextToken' => 'NextToken',
+        'spaceType' => 'SpaceType',
         'tenantContext' => 'TenantContext',
     ];
 

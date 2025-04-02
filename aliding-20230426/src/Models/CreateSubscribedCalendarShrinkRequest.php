@@ -12,22 +12,25 @@ class CreateSubscribedCalendarShrinkRequest extends Model
      * @var string
      */
     public $description;
+
     /**
      * @var string
      */
     public $managersShrink;
+
     /**
      * @var string
      */
     public $name;
+
     /**
      * @var string
      */
     public $subscribeScopeShrink;
     protected $_name = [
-        'description'          => 'Description',
-        'managersShrink'       => 'Managers',
-        'name'                 => 'Name',
+        'description' => 'Description',
+        'managersShrink' => 'Managers',
+        'name' => 'Name',
         'subscribeScopeShrink' => 'SubscribeScope',
     ];
 

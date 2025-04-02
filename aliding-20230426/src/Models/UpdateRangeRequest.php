@@ -14,43 +14,50 @@ class UpdateRangeRequest extends Model
      * @var string[][]
      */
     public $backgroundColors;
+
     /**
      * @var hyperlinks[][]
      */
     public $hyperlinks;
+
     /**
      * @var string
      */
     public $numberFormat;
+
     /**
      * @var string
      */
     public $rangeAddress;
+
     /**
      * @var string
      */
     public $sheetId;
+
     /**
      * @var tenantContext
      */
     public $tenantContext;
+
     /**
      * @var string[][]
      */
     public $values;
+
     /**
      * @var string
      */
     public $workbookId;
     protected $_name = [
         'backgroundColors' => 'BackgroundColors',
-        'hyperlinks'       => 'Hyperlinks',
-        'numberFormat'     => 'NumberFormat',
-        'rangeAddress'     => 'RangeAddress',
-        'sheetId'          => 'SheetId',
-        'tenantContext'    => 'TenantContext',
-        'values'           => 'Values',
-        'workbookId'       => 'WorkbookId',
+        'hyperlinks' => 'Hyperlinks',
+        'numberFormat' => 'NumberFormat',
+        'rangeAddress' => 'RangeAddress',
+        'sheetId' => 'SheetId',
+        'tenantContext' => 'TenantContext',
+        'values' => 'Values',
+        'workbookId' => 'WorkbookId',
     ];
 
     public function validate()
@@ -76,11 +83,11 @@ class UpdateRangeRequest extends Model
         if (null !== $this->backgroundColors) {
             if (\is_array($this->backgroundColors)) {
                 $res['BackgroundColors'] = [];
-                $n1                      = 0;
+                $n1 = 0;
                 foreach ($this->backgroundColors as $item1) {
                     if (\is_array($item1)) {
                         $res['BackgroundColors'][$n1++] = [];
-                        $n2                             = 0;
+                        $n2 = 0;
                         foreach ($item1 as $item2) {
                             $res['BackgroundColors'][$n1++][$n2++] = $item2;
                         }
@@ -92,11 +99,11 @@ class UpdateRangeRequest extends Model
         if (null !== $this->hyperlinks) {
             if (\is_array($this->hyperlinks)) {
                 $res['Hyperlinks'] = [];
-                $n1                = 0;
+                $n1 = 0;
                 foreach ($this->hyperlinks as $item1) {
                     if (\is_array($item1)) {
                         $res['Hyperlinks'][$n1++] = [];
-                        $n2                       = 0;
+                        $n2 = 0;
                         foreach ($item1 as $item2) {
                             $res['Hyperlinks'][$n1++][$n2++] = null !== $item2 ? $item2->toArray($noStream) : $item2;
                         }
@@ -124,11 +131,11 @@ class UpdateRangeRequest extends Model
         if (null !== $this->values) {
             if (\is_array($this->values)) {
                 $res['Values'] = [];
-                $n1            = 0;
+                $n1 = 0;
                 foreach ($this->values as $item1) {
                     if (\is_array($item1)) {
                         $res['Values'][$n1++] = [];
-                        $n2                   = 0;
+                        $n2 = 0;
                         foreach ($item1 as $item2) {
                             $res['Values'][$n1++][$n2++] = $item2;
                         }
@@ -155,11 +162,11 @@ class UpdateRangeRequest extends Model
         if (isset($map['BackgroundColors'])) {
             if (!empty($map['BackgroundColors'])) {
                 $model->backgroundColors = [];
-                $n1                      = 0;
+                $n1 = 0;
                 foreach ($map['BackgroundColors'] as $item1) {
                     if (!empty($item1)) {
                         $model->backgroundColors[$n1++] = [];
-                        $n2                             = 0;
+                        $n2 = 0;
                         foreach ($item1 as $item2) {
                             $model->backgroundColors[$n1++][$n2++] = $item2;
                         }
@@ -171,11 +178,11 @@ class UpdateRangeRequest extends Model
         if (isset($map['Hyperlinks'])) {
             if (!empty($map['Hyperlinks'])) {
                 $model->hyperlinks = [];
-                $n1                = 0;
+                $n1 = 0;
                 foreach ($map['Hyperlinks'] as $item1) {
                     if (!empty($item1)) {
                         $model->hyperlinks[$n1++] = [];
-                        $n2                       = 0;
+                        $n2 = 0;
                         foreach ($item1 as $item2) {
                             $model->hyperlinks[$n1++][$n2++] = hyperlinks::fromMap($item2);
                         }
@@ -203,11 +210,11 @@ class UpdateRangeRequest extends Model
         if (isset($map['Values'])) {
             if (!empty($map['Values'])) {
                 $model->values = [];
-                $n1            = 0;
+                $n1 = 0;
                 foreach ($map['Values'] as $item1) {
                     if (!empty($item1)) {
                         $model->values[$n1++] = [];
-                        $n2                   = 0;
+                        $n2 = 0;
                         foreach ($item1 as $item2) {
                             $model->values[$n1++][$n2++] = $item2;
                         }

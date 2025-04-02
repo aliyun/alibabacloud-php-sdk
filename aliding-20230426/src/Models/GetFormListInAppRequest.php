@@ -12,27 +12,31 @@ class GetFormListInAppRequest extends Model
      * @var string
      */
     public $appType;
+
     /**
      * @var string
      */
     public $formTypes;
+
     /**
      * @var int
      */
     public $pageNumber;
+
     /**
      * @var int
      */
     public $pageSize;
+
     /**
      * @var string
      */
     public $systemToken;
     protected $_name = [
-        'appType'     => 'AppType',
-        'formTypes'   => 'FormTypes',
-        'pageNumber'  => 'PageNumber',
-        'pageSize'    => 'PageSize',
+        'appType' => 'AppType',
+        'formTypes' => 'FormTypes',
+        'pageNumber' => 'PageNumber',
+        'pageSize' => 'PageSize',
         'systemToken' => 'SystemToken',
     ];
 

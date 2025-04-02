@@ -12,38 +12,44 @@ class CreateReportShrinkRequest extends Model
      * @var string
      */
     public $contentsShrink;
+
     /**
      * @var string
      */
     public $ddFrom;
+
     /**
      * @var string
      */
     public $templateId;
+
     /**
      * @var string
      */
     public $tenantContextShrink;
+
     /**
      * @var bool
      */
     public $toChat;
+
     /**
      * @var string
      */
     public $toCidsShrink;
+
     /**
      * @var string
      */
     public $toUseridsShrink;
     protected $_name = [
-        'contentsShrink'      => 'Contents',
-        'ddFrom'              => 'DdFrom',
-        'templateId'          => 'TemplateId',
+        'contentsShrink' => 'Contents',
+        'ddFrom' => 'DdFrom',
+        'templateId' => 'TemplateId',
         'tenantContextShrink' => 'TenantContext',
-        'toChat'              => 'ToChat',
-        'toCidsShrink'        => 'ToCids',
-        'toUseridsShrink'     => 'ToUserids',
+        'toChat' => 'ToChat',
+        'toCidsShrink' => 'ToCids',
+        'toUseridsShrink' => 'ToUserids',
     ];
 
     public function validate()

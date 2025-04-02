@@ -13,41 +13,48 @@ class ListDentriesRequest extends Model
      * @var int
      */
     public $maxResults;
+
     /**
      * @var string
      */
     public $nextToken;
+
     /**
      * @var string
      */
     public $order;
+
     /**
      * @var string
      */
     public $orderBy;
+
     /**
      * @var string
      */
     public $parentId;
+
     /**
      * @var string
      */
     public $spaceId;
+
     /**
      * @var tenantContext
      */
     public $tenantContext;
+
     /**
      * @var bool
      */
     public $withThumbnail;
     protected $_name = [
-        'maxResults'    => 'MaxResults',
-        'nextToken'     => 'NextToken',
-        'order'         => 'Order',
-        'orderBy'       => 'OrderBy',
-        'parentId'      => 'ParentId',
-        'spaceId'       => 'SpaceId',
+        'maxResults' => 'MaxResults',
+        'nextToken' => 'NextToken',
+        'order' => 'Order',
+        'orderBy' => 'OrderBy',
+        'parentId' => 'ParentId',
+        'spaceId' => 'SpaceId',
         'tenantContext' => 'TenantContext',
         'withThumbnail' => 'WithThumbnail',
     ];

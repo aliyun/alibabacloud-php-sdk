@@ -12,12 +12,13 @@ class GetReportTemplateByNameShrinkRequest extends Model
      * @var string
      */
     public $templateName;
+
     /**
      * @var string
      */
     public $tenantContextShrink;
     protected $_name = [
-        'templateName'        => 'TemplateName',
+        'templateName' => 'TemplateName',
         'tenantContextShrink' => 'TenantContext',
     ];
 

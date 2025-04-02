@@ -12,13 +12,14 @@ class CreateScenegroupResponseBody extends Model
      * @var string
      */
     public $openConversationId;
+
     /**
      * @var string
      */
     public $requestId;
     protected $_name = [
         'openConversationId' => 'openConversationId',
-        'requestId'          => 'requestId',
+        'requestId' => 'requestId',
     ];
 
     public function validate()

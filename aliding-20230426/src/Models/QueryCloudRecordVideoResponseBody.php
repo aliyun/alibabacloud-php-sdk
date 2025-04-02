@@ -13,6 +13,7 @@ class QueryCloudRecordVideoResponseBody extends Model
      * @var string
      */
     public $requestId;
+
     /**
      * @var videoList[]
      */
@@ -40,7 +41,7 @@ class QueryCloudRecordVideoResponseBody extends Model
         if (null !== $this->videoList) {
             if (\is_array($this->videoList)) {
                 $res['videoList'] = [];
-                $n1               = 0;
+                $n1 = 0;
                 foreach ($this->videoList as $item1) {
                     $res['videoList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -65,7 +66,7 @@ class QueryCloudRecordVideoResponseBody extends Model
         if (isset($map['videoList'])) {
             if (!empty($map['videoList'])) {
                 $model->videoList = [];
-                $n1               = 0;
+                $n1 = 0;
                 foreach ($map['videoList'] as $item1) {
                     $model->videoList[$n1++] = videoList::fromMap($item1);
                 }

@@ -13,28 +13,32 @@ class InsertRowsBeforeRequest extends Model
      * @var int
      */
     public $row;
+
     /**
      * @var int
      */
     public $rowCount;
+
     /**
      * @var string
      */
     public $sheetId;
+
     /**
      * @var tenantContext
      */
     public $tenantContext;
+
     /**
      * @var string
      */
     public $workbookId;
     protected $_name = [
-        'row'           => 'Row',
-        'rowCount'      => 'RowCount',
-        'sheetId'       => 'SheetId',
+        'row' => 'Row',
+        'rowCount' => 'RowCount',
+        'sheetId' => 'SheetId',
         'tenantContext' => 'TenantContext',
-        'workbookId'    => 'WorkbookId',
+        'workbookId' => 'WorkbookId',
     ];
 
     public function validate()

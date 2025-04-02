@@ -12,28 +12,32 @@ class UploadMediaShrinkRequest extends Model
      * @var string
      */
     public $tenantContextShrink;
+
     /**
      * @var string
      */
     public $mediaName;
+
     /**
      * @var string
      */
     public $mediaType;
+
     /**
      * @var int
      */
     public $orgId;
+
     /**
      * @var string
      */
     public $url;
     protected $_name = [
         'tenantContextShrink' => 'TenantContext',
-        'mediaName'           => 'mediaName',
-        'mediaType'           => 'mediaType',
-        'orgId'               => 'orgId',
-        'url'                 => 'url',
+        'mediaName' => 'mediaName',
+        'mediaType' => 'mediaType',
+        'orgId' => 'orgId',
+        'url' => 'url',
     ];
 
     public function validate()

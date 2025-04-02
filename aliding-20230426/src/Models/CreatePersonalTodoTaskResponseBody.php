@@ -12,28 +12,32 @@ class CreatePersonalTodoTaskResponseBody extends Model
      * @var int
      */
     public $createdTime;
+
     /**
      * @var string
      */
     public $requestId;
+
     /**
      * @var string
      */
     public $taskId;
+
     /**
      * @var string
      */
     public $vendorRequestId;
+
     /**
      * @var string
      */
     public $vendorType;
     protected $_name = [
-        'createdTime'     => 'createdTime',
-        'requestId'       => 'requestId',
-        'taskId'          => 'taskId',
+        'createdTime' => 'createdTime',
+        'requestId' => 'requestId',
+        'taskId' => 'taskId',
         'vendorRequestId' => 'vendorRequestId',
-        'vendorType'      => 'vendorType',
+        'vendorType' => 'vendorType',
     ];
 
     public function validate()

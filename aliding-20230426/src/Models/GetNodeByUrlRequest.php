@@ -14,18 +14,20 @@ class GetNodeByUrlRequest extends Model
      * @var option
      */
     public $option;
+
     /**
      * @var tenantContext
      */
     public $tenantContext;
+
     /**
      * @var string
      */
     public $url;
     protected $_name = [
-        'option'        => 'Option',
+        'option' => 'Option',
         'tenantContext' => 'TenantContext',
-        'url'           => 'Url',
+        'url' => 'Url',
     ];
 
     public function validate()

@@ -12,13 +12,14 @@ class defaultReceivers extends Model
      * @var string
      */
     public $userName;
+
     /**
      * @var string
      */
     public $userid;
     protected $_name = [
         'userName' => 'UserName',
-        'userid'   => 'Userid',
+        'userid' => 'Userid',
     ];
 
     public function validate()

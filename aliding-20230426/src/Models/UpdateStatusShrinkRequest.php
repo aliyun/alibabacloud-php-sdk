@@ -12,33 +12,38 @@ class UpdateStatusShrinkRequest extends Model
      * @var string
      */
     public $appType;
+
     /**
      * @var string
      */
     public $errorLinesShrink;
+
     /**
      * @var string
      */
     public $importSequence;
+
     /**
      * @var string
      */
     public $language;
+
     /**
      * @var string
      */
     public $status;
+
     /**
      * @var string
      */
     public $systemToken;
     protected $_name = [
-        'appType'          => 'AppType',
+        'appType' => 'AppType',
         'errorLinesShrink' => 'ErrorLines',
-        'importSequence'   => 'ImportSequence',
-        'language'         => 'Language',
-        'status'           => 'Status',
-        'systemToken'      => 'SystemToken',
+        'importSequence' => 'ImportSequence',
+        'language' => 'Language',
+        'status' => 'Status',
+        'systemToken' => 'SystemToken',
     ];
 
     public function validate()

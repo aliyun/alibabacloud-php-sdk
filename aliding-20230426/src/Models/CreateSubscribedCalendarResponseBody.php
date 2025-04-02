@@ -12,13 +12,14 @@ class CreateSubscribedCalendarResponseBody extends Model
      * @var string
      */
     public $calendarId;
+
     /**
      * @var string
      */
     public $requestId;
     protected $_name = [
         'calendarId' => 'calendarId',
-        'requestId'  => 'requestId',
+        'requestId' => 'requestId',
     ];
 
     public function validate()

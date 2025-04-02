@@ -12,13 +12,14 @@ class option extends Model
      * @var string
      */
     public $description;
+
     /**
      * @var string
      */
     public $teamId;
     protected $_name = [
         'description' => 'Description',
-        'teamId'      => 'TeamId',
+        'teamId' => 'TeamId',
     ];
 
     public function validate()

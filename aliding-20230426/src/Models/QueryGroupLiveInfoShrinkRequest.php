@@ -12,17 +12,19 @@ class QueryGroupLiveInfoShrinkRequest extends Model
      * @var string
      */
     public $anchorUnionId;
+
     /**
      * @var string
      */
     public $liveUuid;
+
     /**
      * @var string
      */
     public $tenantContextShrink;
     protected $_name = [
-        'anchorUnionId'       => 'AnchorUnionId',
-        'liveUuid'            => 'LiveUuid',
+        'anchorUnionId' => 'AnchorUnionId',
+        'liveUuid' => 'LiveUuid',
         'tenantContextShrink' => 'TenantContext',
     ];
 

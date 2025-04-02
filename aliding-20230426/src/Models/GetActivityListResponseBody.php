@@ -13,23 +13,26 @@ class GetActivityListResponseBody extends Model
      * @var string
      */
     public $requestId;
+
     /**
      * @var result[]
      */
     public $result;
+
     /**
      * @var string
      */
     public $vendorRequestId;
+
     /**
      * @var string
      */
     public $vendorType;
     protected $_name = [
-        'requestId'       => 'requestId',
-        'result'          => 'result',
+        'requestId' => 'requestId',
+        'result' => 'result',
         'vendorRequestId' => 'vendorRequestId',
-        'vendorType'      => 'vendorType',
+        'vendorType' => 'vendorType',
     ];
 
     public function validate()
@@ -50,7 +53,7 @@ class GetActivityListResponseBody extends Model
         if (null !== $this->result) {
             if (\is_array($this->result)) {
                 $res['result'] = [];
-                $n1            = 0;
+                $n1 = 0;
                 foreach ($this->result as $item1) {
                     $res['result'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -83,7 +86,7 @@ class GetActivityListResponseBody extends Model
         if (isset($map['result'])) {
             if (!empty($map['result'])) {
                 $model->result = [];
-                $n1            = 0;
+                $n1 = 0;
                 foreach ($map['result'] as $item1) {
                     $model->result[$n1++] = result::fromMap($item1);
                 }

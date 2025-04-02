@@ -13,28 +13,32 @@ class ListTemplateRequest extends Model
      * @var int
      */
     public $maxResults;
+
     /**
      * @var string
      */
     public $nextToken;
+
     /**
      * @var string
      */
     public $templateType;
+
     /**
      * @var tenantContext
      */
     public $tenantContext;
+
     /**
      * @var string
      */
     public $workspaceId;
     protected $_name = [
-        'maxResults'    => 'MaxResults',
-        'nextToken'     => 'NextToken',
-        'templateType'  => 'TemplateType',
+        'maxResults' => 'MaxResults',
+        'nextToken' => 'NextToken',
+        'templateType' => 'TemplateType',
         'tenantContext' => 'TenantContext',
-        'workspaceId'   => 'WorkspaceId',
+        'workspaceId' => 'WorkspaceId',
     ];
 
     public function validate()

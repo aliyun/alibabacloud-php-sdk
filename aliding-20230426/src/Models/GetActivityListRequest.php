@@ -12,21 +12,24 @@ class GetActivityListRequest extends Model
      * @var string
      */
     public $appType;
+
     /**
      * @var string
      */
     public $language;
+
     /**
      * @var string
      */
     public $processCode;
+
     /**
      * @var string
      */
     public $systemToken;
     protected $_name = [
-        'appType'     => 'AppType',
-        'language'    => 'Language',
+        'appType' => 'AppType',
+        'language' => 'Language',
         'processCode' => 'ProcessCode',
         'systemToken' => 'SystemToken',
     ];

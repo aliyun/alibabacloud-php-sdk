@@ -12,12 +12,13 @@ class iconUrl extends Model
      * @var string
      */
     public $line;
+
     /**
      * @var string
      */
     public $small;
     protected $_name = [
-        'line'  => 'Line',
+        'line' => 'Line',
         'small' => 'Small',
     ];
 

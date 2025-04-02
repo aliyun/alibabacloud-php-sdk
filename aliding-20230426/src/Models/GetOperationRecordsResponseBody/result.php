@@ -12,123 +12,146 @@ class result extends Model
      * @var string
      */
     public $action;
+
     /**
      * @var string
      */
     public $actionExit;
+
     /**
      * @var string
      */
     public $activeTimeGMT;
+
     /**
      * @var string
      */
     public $activityId;
+
     /**
      * @var int
      */
     public $dataId;
+
     /**
      * @var string
      */
     public $digitalSign;
+
     /**
      * @var string
      */
     public $files;
+
     /**
      * @var string
      */
     public $operateTimeGMT;
+
     /**
      * @var string
      */
     public $operateType;
+
     /**
      * @var string
      */
     public $operatorDisplayName;
+
     /**
      * @var string
      */
     public $operatorName;
+
     /**
      * @var string
      */
     public $operatorNickName;
+
     /**
      * @var string
      */
     public $operatorPhotoUrl;
+
     /**
      * @var string
      */
     public $operatorStatus;
+
     /**
      * @var string
      */
     public $operatorUserId;
+
     /**
      * @var string
      */
     public $processInstanceId;
+
     /**
      * @var string
      */
     public $remark;
+
     /**
      * @var string
      */
     public $showName;
+
     /**
      * @var int
      */
     public $size;
+
     /**
      * @var string
      */
     public $taskExecuteType;
+
     /**
      * @var int
      */
     public $taskHoldTimeGMT;
+
     /**
      * @var string
      */
     public $taskId;
+
     /**
      * @var string
      */
     public $taskType;
+
     /**
      * @var string
      */
     public $type;
     protected $_name = [
-        'action'              => 'Action',
-        'actionExit'          => 'ActionExit',
-        'activeTimeGMT'       => 'ActiveTimeGMT',
-        'activityId'          => 'ActivityId',
-        'dataId'              => 'DataId',
-        'digitalSign'         => 'DigitalSign',
-        'files'               => 'Files',
-        'operateTimeGMT'      => 'OperateTimeGMT',
-        'operateType'         => 'OperateType',
+        'action' => 'Action',
+        'actionExit' => 'ActionExit',
+        'activeTimeGMT' => 'ActiveTimeGMT',
+        'activityId' => 'ActivityId',
+        'dataId' => 'DataId',
+        'digitalSign' => 'DigitalSign',
+        'files' => 'Files',
+        'operateTimeGMT' => 'OperateTimeGMT',
+        'operateType' => 'OperateType',
         'operatorDisplayName' => 'OperatorDisplayName',
-        'operatorName'        => 'OperatorName',
-        'operatorNickName'    => 'OperatorNickName',
-        'operatorPhotoUrl'    => 'OperatorPhotoUrl',
-        'operatorStatus'      => 'OperatorStatus',
-        'operatorUserId'      => 'OperatorUserId',
-        'processInstanceId'   => 'ProcessInstanceId',
-        'remark'              => 'Remark',
-        'showName'            => 'ShowName',
-        'size'                => 'Size',
-        'taskExecuteType'     => 'TaskExecuteType',
-        'taskHoldTimeGMT'     => 'TaskHoldTimeGMT',
-        'taskId'              => 'TaskId',
-        'taskType'            => 'TaskType',
-        'type'                => 'Type',
+        'operatorName' => 'OperatorName',
+        'operatorNickName' => 'OperatorNickName',
+        'operatorPhotoUrl' => 'OperatorPhotoUrl',
+        'operatorStatus' => 'OperatorStatus',
+        'operatorUserId' => 'OperatorUserId',
+        'processInstanceId' => 'ProcessInstanceId',
+        'remark' => 'Remark',
+        'showName' => 'ShowName',
+        'size' => 'Size',
+        'taskExecuteType' => 'TaskExecuteType',
+        'taskHoldTimeGMT' => 'TaskHoldTimeGMT',
+        'taskId' => 'TaskId',
+        'taskType' => 'TaskType',
+        'type' => 'Type',
     ];
 
     public function validate()

@@ -13,48 +13,56 @@ class paragraphList extends Model
      * @var int
      */
     public $endTime;
+
     /**
      * @var int
      */
     public $nextTtoken;
+
     /**
      * @var string
      */
     public $nickName;
+
     /**
      * @var string
      */
     public $paragraph;
+
     /**
      * @var int
      */
     public $recordId;
+
     /**
      * @var sentenceList[]
      */
     public $sentenceList;
+
     /**
      * @var int
      */
     public $startTime;
+
     /**
      * @var int
      */
     public $status;
+
     /**
      * @var string
      */
     public $userId;
     protected $_name = [
-        'endTime'      => 'EndTime',
-        'nextTtoken'   => 'NextTtoken',
-        'nickName'     => 'NickName',
-        'paragraph'    => 'Paragraph',
-        'recordId'     => 'RecordId',
+        'endTime' => 'EndTime',
+        'nextTtoken' => 'NextTtoken',
+        'nickName' => 'NickName',
+        'paragraph' => 'Paragraph',
+        'recordId' => 'RecordId',
         'sentenceList' => 'SentenceList',
-        'startTime'    => 'StartTime',
-        'status'       => 'Status',
-        'userId'       => 'UserId',
+        'startTime' => 'StartTime',
+        'status' => 'Status',
+        'userId' => 'UserId',
     ];
 
     public function validate()
@@ -91,7 +99,7 @@ class paragraphList extends Model
         if (null !== $this->sentenceList) {
             if (\is_array($this->sentenceList)) {
                 $res['SentenceList'] = [];
-                $n1                  = 0;
+                $n1 = 0;
                 foreach ($this->sentenceList as $item1) {
                     $res['SentenceList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -144,7 +152,7 @@ class paragraphList extends Model
         if (isset($map['SentenceList'])) {
             if (!empty($map['SentenceList'])) {
                 $model->sentenceList = [];
-                $n1                  = 0;
+                $n1 = 0;
                 foreach ($map['SentenceList'] as $item1) {
                     $model->sentenceList[$n1++] = sentenceList::fromMap($item1);
                 }

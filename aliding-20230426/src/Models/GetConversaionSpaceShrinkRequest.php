@@ -12,12 +12,13 @@ class GetConversaionSpaceShrinkRequest extends Model
      * @var string
      */
     public $openConversationId;
+
     /**
      * @var string
      */
     public $tenantContextShrink;
     protected $_name = [
-        'openConversationId'  => 'OpenConversationId',
+        'openConversationId' => 'OpenConversationId',
         'tenantContextShrink' => 'TenantContext',
     ];
 

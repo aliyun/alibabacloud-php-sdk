@@ -15,48 +15,56 @@ class CreateTicketRequest extends Model
      * @var string
      */
     public $customFields;
+
     /**
      * @var notify
      */
     public $notify;
+
     /**
      * @var string
      */
     public $openTeamId;
+
     /**
      * @var string
      */
     public $openTemplateBizId;
+
     /**
      * @var string[]
      */
     public $processorUserIds;
+
     /**
      * @var string
      */
     public $scene;
+
     /**
      * @var sceneContext
      */
     public $sceneContext;
+
     /**
      * @var tenantContext
      */
     public $tenantContext;
+
     /**
      * @var string
      */
     public $title;
     protected $_name = [
-        'customFields'      => 'CustomFields',
-        'notify'            => 'Notify',
-        'openTeamId'        => 'OpenTeamId',
+        'customFields' => 'CustomFields',
+        'notify' => 'Notify',
+        'openTeamId' => 'OpenTeamId',
         'openTemplateBizId' => 'OpenTemplateBizId',
-        'processorUserIds'  => 'ProcessorUserIds',
-        'scene'             => 'Scene',
-        'sceneContext'      => 'SceneContext',
-        'tenantContext'     => 'TenantContext',
-        'title'             => 'Title',
+        'processorUserIds' => 'ProcessorUserIds',
+        'scene' => 'Scene',
+        'sceneContext' => 'SceneContext',
+        'tenantContext' => 'TenantContext',
+        'title' => 'Title',
     ];
 
     public function validate()
@@ -98,7 +106,7 @@ class CreateTicketRequest extends Model
         if (null !== $this->processorUserIds) {
             if (\is_array($this->processorUserIds)) {
                 $res['ProcessorUserIds'] = [];
-                $n1                      = 0;
+                $n1 = 0;
                 foreach ($this->processorUserIds as $item1) {
                     $res['ProcessorUserIds'][$n1++] = $item1;
                 }
@@ -151,7 +159,7 @@ class CreateTicketRequest extends Model
         if (isset($map['ProcessorUserIds'])) {
             if (!empty($map['ProcessorUserIds'])) {
                 $model->processorUserIds = [];
-                $n1                      = 0;
+                $n1 = 0;
                 foreach ($map['ProcessorUserIds'] as $item1) {
                     $model->processorUserIds[$n1++] = $item1;
                 }

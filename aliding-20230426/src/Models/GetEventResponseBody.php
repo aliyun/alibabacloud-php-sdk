@@ -25,113 +25,134 @@ class GetEventResponseBody extends Model
      * @var attendees[]
      */
     public $attendees;
+
     /**
      * @var categories[]
      */
     public $categories;
+
     /**
      * @var string
      */
     public $createTime;
+
     /**
      * @var string
      */
     public $description;
+
     /**
      * @var end
      */
     public $end;
+
     /**
      * @var extendedProperties
      */
     public $extendedProperties;
+
     /**
      * @var string
      */
     public $id;
+
     /**
      * @var bool
      */
     public $isAllDay;
+
     /**
      * @var location
      */
     public $location;
+
     /**
      * @var meetingRooms[]
      */
     public $meetingRooms;
+
     /**
      * @var onlineMeetingInfo
      */
     public $onlineMeetingInfo;
+
     /**
      * @var organizer
      */
     public $organizer;
+
     /**
      * @var originStart
      */
     public $originStart;
+
     /**
      * @var recurrence
      */
     public $recurrence;
+
     /**
      * @var reminders[]
      */
     public $reminders;
+
     /**
      * @var string
      */
     public $requestId;
+
     /**
      * @var richTextDescription
      */
     public $richTextDescription;
+
     /**
      * @var string
      */
     public $seriesMasterId;
+
     /**
      * @var start
      */
     public $start;
+
     /**
      * @var string
      */
     public $status;
+
     /**
      * @var string
      */
     public $summary;
+
     /**
      * @var string
      */
     public $updateTime;
     protected $_name = [
-        'attendees'           => 'attendees',
-        'categories'          => 'categories',
-        'createTime'          => 'createTime',
-        'description'         => 'description',
-        'end'                 => 'end',
-        'extendedProperties'  => 'extendedProperties',
-        'id'                  => 'id',
-        'isAllDay'            => 'isAllDay',
-        'location'            => 'location',
-        'meetingRooms'        => 'meetingRooms',
-        'onlineMeetingInfo'   => 'onlineMeetingInfo',
-        'organizer'           => 'organizer',
-        'originStart'         => 'originStart',
-        'recurrence'          => 'recurrence',
-        'reminders'           => 'reminders',
-        'requestId'           => 'requestId',
+        'attendees' => 'attendees',
+        'categories' => 'categories',
+        'createTime' => 'createTime',
+        'description' => 'description',
+        'end' => 'end',
+        'extendedProperties' => 'extendedProperties',
+        'id' => 'id',
+        'isAllDay' => 'isAllDay',
+        'location' => 'location',
+        'meetingRooms' => 'meetingRooms',
+        'onlineMeetingInfo' => 'onlineMeetingInfo',
+        'organizer' => 'organizer',
+        'originStart' => 'originStart',
+        'recurrence' => 'recurrence',
+        'reminders' => 'reminders',
+        'requestId' => 'requestId',
         'richTextDescription' => 'richTextDescription',
-        'seriesMasterId'      => 'seriesMasterId',
-        'start'               => 'start',
-        'status'              => 'status',
-        'summary'             => 'summary',
-        'updateTime'          => 'updateTime',
+        'seriesMasterId' => 'seriesMasterId',
+        'start' => 'start',
+        'status' => 'status',
+        'summary' => 'summary',
+        'updateTime' => 'updateTime',
     ];
 
     public function validate()
@@ -184,7 +205,7 @@ class GetEventResponseBody extends Model
         if (null !== $this->attendees) {
             if (\is_array($this->attendees)) {
                 $res['attendees'] = [];
-                $n1               = 0;
+                $n1 = 0;
                 foreach ($this->attendees as $item1) {
                     $res['attendees'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -194,7 +215,7 @@ class GetEventResponseBody extends Model
         if (null !== $this->categories) {
             if (\is_array($this->categories)) {
                 $res['categories'] = [];
-                $n1                = 0;
+                $n1 = 0;
                 foreach ($this->categories as $item1) {
                     $res['categories'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -232,7 +253,7 @@ class GetEventResponseBody extends Model
         if (null !== $this->meetingRooms) {
             if (\is_array($this->meetingRooms)) {
                 $res['meetingRooms'] = [];
-                $n1                  = 0;
+                $n1 = 0;
                 foreach ($this->meetingRooms as $item1) {
                     $res['meetingRooms'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -258,7 +279,7 @@ class GetEventResponseBody extends Model
         if (null !== $this->reminders) {
             if (\is_array($this->reminders)) {
                 $res['reminders'] = [];
-                $n1               = 0;
+                $n1 = 0;
                 foreach ($this->reminders as $item1) {
                     $res['reminders'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -307,7 +328,7 @@ class GetEventResponseBody extends Model
         if (isset($map['attendees'])) {
             if (!empty($map['attendees'])) {
                 $model->attendees = [];
-                $n1               = 0;
+                $n1 = 0;
                 foreach ($map['attendees'] as $item1) {
                     $model->attendees[$n1++] = attendees::fromMap($item1);
                 }
@@ -317,7 +338,7 @@ class GetEventResponseBody extends Model
         if (isset($map['categories'])) {
             if (!empty($map['categories'])) {
                 $model->categories = [];
-                $n1                = 0;
+                $n1 = 0;
                 foreach ($map['categories'] as $item1) {
                     $model->categories[$n1++] = categories::fromMap($item1);
                 }
@@ -355,7 +376,7 @@ class GetEventResponseBody extends Model
         if (isset($map['meetingRooms'])) {
             if (!empty($map['meetingRooms'])) {
                 $model->meetingRooms = [];
-                $n1                  = 0;
+                $n1 = 0;
                 foreach ($map['meetingRooms'] as $item1) {
                     $model->meetingRooms[$n1++] = meetingRooms::fromMap($item1);
                 }
@@ -381,7 +402,7 @@ class GetEventResponseBody extends Model
         if (isset($map['reminders'])) {
             if (!empty($map['reminders'])) {
                 $model->reminders = [];
-                $n1               = 0;
+                $n1 = 0;
                 foreach ($map['reminders'] as $item1) {
                     $model->reminders[$n1++] = reminders::fromMap($item1);
                 }

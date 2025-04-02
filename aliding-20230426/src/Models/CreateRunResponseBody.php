@@ -14,78 +14,92 @@ class CreateRunResponseBody extends Model
      * @var int
      */
     public $cancelledAt;
+
     /**
      * @var int
      */
     public $completedAt;
+
     /**
      * @var content
      */
     public $content;
+
     /**
      * @var int
      */
     public $createAt;
+
     /**
      * @var delta
      */
     public $delta;
+
     /**
      * @var int
      */
     public $expiresAt;
+
     /**
      * @var int
      */
     public $failedAt;
+
     /**
      * @var string
      */
     public $id;
+
     /**
      * @var string
      */
     public $lastErrorMsg;
+
     /**
      * @var mixed[]
      */
     public $metadata;
+
     /**
      * @var string
      */
     public $object;
+
     /**
      * @var string
      */
     public $requestId;
+
     /**
      * @var int
      */
     public $startedAt;
+
     /**
      * @var string
      */
     public $status;
+
     /**
      * @var string
      */
     public $threadId;
     protected $_name = [
-        'cancelledAt'  => 'cancelledAt',
-        'completedAt'  => 'completedAt',
-        'content'      => 'content',
-        'createAt'     => 'createAt',
-        'delta'        => 'delta',
-        'expiresAt'    => 'expiresAt',
-        'failedAt'     => 'failedAt',
-        'id'           => 'id',
+        'cancelledAt' => 'cancelledAt',
+        'completedAt' => 'completedAt',
+        'content' => 'content',
+        'createAt' => 'createAt',
+        'delta' => 'delta',
+        'expiresAt' => 'expiresAt',
+        'failedAt' => 'failedAt',
+        'id' => 'id',
         'lastErrorMsg' => 'lastErrorMsg',
-        'metadata'     => 'metadata',
-        'object'       => 'object',
-        'requestId'    => 'requestId',
-        'startedAt'    => 'startedAt',
-        'status'       => 'status',
-        'threadId'     => 'threadId',
+        'metadata' => 'metadata',
+        'object' => 'object',
+        'requestId' => 'requestId',
+        'startedAt' => 'startedAt',
+        'status' => 'status',
+        'threadId' => 'threadId',
     ];
 
     public function validate()

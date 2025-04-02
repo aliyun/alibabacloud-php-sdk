@@ -13,13 +13,14 @@ class StopCloudRecordRequest extends Model
      * @var tenantContext
      */
     public $tenantContext;
+
     /**
      * @var string
      */
     public $conferenceId;
     protected $_name = [
         'tenantContext' => 'TenantContext',
-        'conferenceId'  => 'conferenceId',
+        'conferenceId' => 'conferenceId',
     ];
 
     public function validate()

@@ -12,12 +12,13 @@ class value extends Model
      * @var string
      */
     public $id;
+
     /**
      * @var string
      */
     public $name;
     protected $_name = [
-        'id'   => 'Id',
+        'id' => 'Id',
         'name' => 'Name',
     ];
 

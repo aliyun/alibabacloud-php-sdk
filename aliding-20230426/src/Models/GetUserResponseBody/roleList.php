@@ -12,18 +12,20 @@ class roleList extends Model
      * @var string
      */
     public $groupName;
+
     /**
      * @var int
      */
     public $id;
+
     /**
      * @var string
      */
     public $name;
     protected $_name = [
         'groupName' => 'groupName',
-        'id'        => 'id',
-        'name'      => 'name',
+        'id' => 'id',
+        'name' => 'name',
     ];
 
     public function validate()

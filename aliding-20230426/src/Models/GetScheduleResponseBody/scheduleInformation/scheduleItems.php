@@ -14,17 +14,19 @@ class scheduleItems extends Model
      * @var end
      */
     public $end;
+
     /**
      * @var start
      */
     public $start;
+
     /**
      * @var string
      */
     public $status;
     protected $_name = [
-        'end'    => 'End',
-        'start'  => 'Start',
+        'end' => 'End',
+        'start' => 'Start',
         'status' => 'Status',
     ];
 

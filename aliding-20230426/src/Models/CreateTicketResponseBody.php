@@ -12,23 +12,26 @@ class CreateTicketResponseBody extends Model
      * @var string
      */
     public $openTicketId;
+
     /**
      * @var string
      */
     public $requestId;
+
     /**
      * @var string
      */
     public $vendorRequestId;
+
     /**
      * @var string
      */
     public $vendorType;
     protected $_name = [
-        'openTicketId'    => 'openTicketId',
-        'requestId'       => 'requestId',
+        'openTicketId' => 'openTicketId',
+        'requestId' => 'requestId',
         'vendorRequestId' => 'vendorRequestId',
-        'vendorType'      => 'vendorType',
+        'vendorType' => 'vendorType',
     ];
 
     public function validate()

@@ -13,13 +13,14 @@ class GetDeptNoRequest extends Model
      * @var tenantContext
      */
     public $tenantContext;
+
     /**
      * @var string
      */
     public $deptId;
     protected $_name = [
         'tenantContext' => 'TenantContext',
-        'deptId'        => 'deptId',
+        'deptId' => 'deptId',
     ];
 
     public function validate()

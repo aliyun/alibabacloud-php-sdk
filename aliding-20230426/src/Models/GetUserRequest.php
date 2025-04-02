@@ -13,13 +13,14 @@ class GetUserRequest extends Model
      * @var tenantContext
      */
     public $tenantContext;
+
     /**
      * @var string
      */
     public $language;
     protected $_name = [
         'tenantContext' => 'TenantContext',
-        'language'      => 'language',
+        'language' => 'language',
     ];
 
     public function validate()

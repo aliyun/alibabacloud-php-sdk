@@ -12,32 +12,37 @@ class ListMultiDimTableRecordsShrinkRequest extends Model
      * @var string
      */
     public $baseId;
+
     /**
      * @var string
      */
     public $filterShrink;
+
     /**
      * @var int
      */
     public $maxResults;
+
     /**
      * @var string
      */
     public $nextToken;
+
     /**
      * @var string
      */
     public $sheetIdOrName;
+
     /**
      * @var string
      */
     public $tenantContextShrink;
     protected $_name = [
-        'baseId'              => 'BaseId',
-        'filterShrink'        => 'Filter',
-        'maxResults'          => 'MaxResults',
-        'nextToken'           => 'NextToken',
-        'sheetIdOrName'       => 'SheetIdOrName',
+        'baseId' => 'BaseId',
+        'filterShrink' => 'Filter',
+        'maxResults' => 'MaxResults',
+        'nextToken' => 'NextToken',
+        'sheetIdOrName' => 'SheetIdOrName',
         'tenantContextShrink' => 'TenantContext',
     ];
 

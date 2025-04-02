@@ -12,18 +12,20 @@ class CreateSheetShrinkRequest extends Model
      * @var string
      */
     public $name;
+
     /**
      * @var string
      */
     public $tenantContextShrink;
+
     /**
      * @var string
      */
     public $workbookId;
     protected $_name = [
-        'name'                => 'Name',
+        'name' => 'Name',
         'tenantContextShrink' => 'TenantContext',
-        'workbookId'          => 'WorkbookId',
+        'workbookId' => 'WorkbookId',
     ];
 
     public function validate()

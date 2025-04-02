@@ -12,18 +12,20 @@ class template extends Model
      * @var string
      */
     public $openTemplateBizId;
+
     /**
      * @var string
      */
     public $openTemplateId;
+
     /**
      * @var string
      */
     public $templateName;
     protected $_name = [
         'openTemplateBizId' => 'OpenTemplateBizId',
-        'openTemplateId'    => 'OpenTemplateId',
-        'templateName'      => 'TemplateName',
+        'openTemplateId' => 'OpenTemplateId',
+        'templateName' => 'TemplateName',
     ];
 
     public function validate()

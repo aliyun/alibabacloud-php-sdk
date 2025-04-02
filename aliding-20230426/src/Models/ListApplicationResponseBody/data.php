@@ -12,53 +12,62 @@ class data extends Model
      * @var string
      */
     public $appConfig;
+
     /**
      * @var string
      */
     public $appType;
+
     /**
      * @var string
      */
     public $applicationStatus;
+
     /**
      * @var string
      */
     public $corpId;
+
     /**
      * @var string
      */
     public $creatorUserId;
+
     /**
      * @var string
      */
     public $description;
+
     /**
      * @var string
      */
     public $icon;
+
     /**
      * @var string
      */
     public $inexistence;
+
     /**
      * @var string
      */
     public $name;
+
     /**
      * @var string
      */
     public $subCorpId;
     protected $_name = [
-        'appConfig'         => 'AppConfig',
-        'appType'           => 'AppType',
+        'appConfig' => 'AppConfig',
+        'appType' => 'AppType',
         'applicationStatus' => 'ApplicationStatus',
-        'corpId'            => 'CorpId',
-        'creatorUserId'     => 'CreatorUserId',
-        'description'       => 'Description',
-        'icon'              => 'Icon',
-        'inexistence'       => 'Inexistence',
-        'name'              => 'Name',
-        'subCorpId'         => 'SubCorpId',
+        'corpId' => 'CorpId',
+        'creatorUserId' => 'CreatorUserId',
+        'description' => 'Description',
+        'icon' => 'Icon',
+        'inexistence' => 'Inexistence',
+        'name' => 'Name',
+        'subCorpId' => 'SubCorpId',
     ];
 
     public function validate()

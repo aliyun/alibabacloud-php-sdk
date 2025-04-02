@@ -12,17 +12,19 @@ class CreateVideoConferenceShrinkRequest extends Model
      * @var string
      */
     public $confTitle;
+
     /**
      * @var bool
      */
     public $inviteCaller;
+
     /**
      * @var string
      */
     public $inviteUserIdsShrink;
     protected $_name = [
-        'confTitle'           => 'ConfTitle',
-        'inviteCaller'        => 'InviteCaller',
+        'confTitle' => 'ConfTitle',
+        'inviteCaller' => 'InviteCaller',
         'inviteUserIdsShrink' => 'InviteUserIds',
     ];
 

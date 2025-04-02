@@ -12,28 +12,32 @@ class GetSheetContentJobIdResponseBody extends Model
      * @var string
      */
     public $jobId;
+
     /**
      * @var string
      */
     public $requestId;
+
     /**
      * @var string
      */
     public $status;
+
     /**
      * @var string
      */
     public $vendorRequestId;
+
     /**
      * @var string
      */
     public $vendorType;
     protected $_name = [
-        'jobId'           => 'jobId',
-        'requestId'       => 'requestId',
-        'status'          => 'status',
+        'jobId' => 'jobId',
+        'requestId' => 'requestId',
+        'status' => 'status',
         'vendorRequestId' => 'vendorRequestId',
-        'vendorType'      => 'vendorType',
+        'vendorType' => 'vendorType',
     ];
 
     public function validate()

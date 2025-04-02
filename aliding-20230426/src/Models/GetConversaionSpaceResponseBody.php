@@ -13,23 +13,26 @@ class GetConversaionSpaceResponseBody extends Model
      * @var string
      */
     public $requestId;
+
     /**
      * @var space
      */
     public $space;
+
     /**
      * @var string
      */
     public $vendorRequestId;
+
     /**
      * @var string
      */
     public $vendorType;
     protected $_name = [
-        'requestId'       => 'requestId',
-        'space'           => 'space',
+        'requestId' => 'requestId',
+        'space' => 'space',
         'vendorRequestId' => 'vendorRequestId',
-        'vendorType'      => 'vendorType',
+        'vendorType' => 'vendorType',
     ];
 
     public function validate()

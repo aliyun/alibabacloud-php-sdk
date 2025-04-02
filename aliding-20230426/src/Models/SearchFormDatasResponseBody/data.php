@@ -14,83 +14,98 @@ class data extends Model
      * @var string
      */
     public $createdTimeGMT;
+
     /**
      * @var string
      */
     public $creatorUserId;
+
     /**
      * @var int
      */
     public $dataId;
+
     /**
      * @var mixed[]
      */
     public $formData;
+
     /**
      * @var string
      */
     public $formInstanceId;
+
     /**
      * @var string
      */
     public $formUuid;
+
     /**
      * @var string
      */
     public $instanceValue;
+
     /**
      * @var string
      */
     public $modelUuid;
+
     /**
      * @var string
      */
     public $modifiedTimeGMT;
+
     /**
      * @var string
      */
     public $modifierUserId;
+
     /**
      * @var modifyUser
      */
     public $modifyUser;
+
     /**
      * @var originator
      */
     public $originator;
+
     /**
      * @var string
      */
     public $sequence;
+
     /**
      * @var string
      */
     public $serialNo;
+
     /**
      * @var string
      */
     public $title;
+
     /**
      * @var int
      */
     public $version;
     protected $_name = [
-        'createdTimeGMT'  => 'CreatedTimeGMT',
-        'creatorUserId'   => 'CreatorUserId',
-        'dataId'          => 'DataId',
-        'formData'        => 'FormData',
-        'formInstanceId'  => 'FormInstanceId',
-        'formUuid'        => 'FormUuid',
-        'instanceValue'   => 'InstanceValue',
-        'modelUuid'       => 'ModelUuid',
+        'createdTimeGMT' => 'CreatedTimeGMT',
+        'creatorUserId' => 'CreatorUserId',
+        'dataId' => 'DataId',
+        'formData' => 'FormData',
+        'formInstanceId' => 'FormInstanceId',
+        'formUuid' => 'FormUuid',
+        'instanceValue' => 'InstanceValue',
+        'modelUuid' => 'ModelUuid',
         'modifiedTimeGMT' => 'ModifiedTimeGMT',
-        'modifierUserId'  => 'ModifierUserId',
-        'modifyUser'      => 'ModifyUser',
-        'originator'      => 'Originator',
-        'sequence'        => 'Sequence',
-        'serialNo'        => 'SerialNo',
-        'title'           => 'Title',
-        'version'         => 'Version',
+        'modifierUserId' => 'ModifierUserId',
+        'modifyUser' => 'ModifyUser',
+        'originator' => 'Originator',
+        'sequence' => 'Sequence',
+        'serialNo' => 'SerialNo',
+        'title' => 'Title',
+        'version' => 'Version',
     ];
 
     public function validate()

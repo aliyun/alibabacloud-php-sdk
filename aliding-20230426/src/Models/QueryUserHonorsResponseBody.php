@@ -13,16 +13,18 @@ class QueryUserHonorsResponseBody extends Model
      * @var honors[]
      */
     public $honors;
+
     /**
      * @var string
      */
     public $nextToken;
+
     /**
      * @var string
      */
     public $requestId;
     protected $_name = [
-        'honors'    => 'honors',
+        'honors' => 'honors',
         'nextToken' => 'nextToken',
         'requestId' => 'requestId',
     ];
@@ -41,7 +43,7 @@ class QueryUserHonorsResponseBody extends Model
         if (null !== $this->honors) {
             if (\is_array($this->honors)) {
                 $res['honors'] = [];
-                $n1            = 0;
+                $n1 = 0;
                 foreach ($this->honors as $item1) {
                     $res['honors'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -70,7 +72,7 @@ class QueryUserHonorsResponseBody extends Model
         if (isset($map['honors'])) {
             if (!empty($map['honors'])) {
                 $model->honors = [];
-                $n1            = 0;
+                $n1 = 0;
                 foreach ($map['honors'] as $item1) {
                     $model->honors[$n1++] = honors::fromMap($item1);
                 }

@@ -12,12 +12,13 @@ class DeleteSubscribedCalendarResponseBody extends Model
      * @var bool
      */
     public $result;
+
     /**
      * @var string
      */
     public $requestId;
     protected $_name = [
-        'result'    => 'Result',
+        'result' => 'Result',
         'requestId' => 'requestId',
     ];
 

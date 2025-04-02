@@ -16,173 +16,206 @@ class GetUserResponseBody extends Model
      * @var bool
      */
     public $active;
+
     /**
      * @var bool
      */
     public $admin;
+
     /**
      * @var string
      */
     public $avatar;
+
     /**
      * @var bool
      */
     public $boss;
+
     /**
      * @var int[]
      */
     public $deptIdList;
+
     /**
      * @var deptOrderList[]
      */
     public $deptOrderList;
+
     /**
      * @var string
      */
     public $email;
+
     /**
      * @var bool
      */
     public $exclusiveAccount;
+
     /**
      * @var string
      */
     public $exclusiveAccountCorpId;
+
     /**
      * @var string
      */
     public $exclusiveAccountCorpName;
+
     /**
      * @var string
      */
     public $exclusiveAccountType;
+
     /**
      * @var string
      */
     public $extension;
+
     /**
      * @var bool
      */
     public $hideMobile;
+
     /**
      * @var int
      */
     public $hiredDate;
+
     /**
      * @var string
      */
     public $jobNumber;
+
     /**
      * @var leaderInDept[]
      */
     public $leaderInDept;
+
     /**
      * @var string
      */
     public $loginId;
+
     /**
      * @var string
      */
     public $managerUserid;
+
     /**
      * @var string
      */
     public $mobile;
+
     /**
      * @var string
      */
     public $name;
+
     /**
      * @var string
      */
     public $nickname;
+
     /**
      * @var string
      */
     public $orgEmail;
+
     /**
      * @var bool
      */
     public $realAuthed;
+
     /**
      * @var string
      */
     public $remark;
+
     /**
      * @var string
      */
     public $requestId;
+
     /**
      * @var roleList[]
      */
     public $roleList;
+
     /**
      * @var bool
      */
     public $senior;
+
     /**
      * @var string
      */
     public $stateCode;
+
     /**
      * @var string
      */
     public $telephone;
+
     /**
      * @var string
      */
     public $title;
+
     /**
      * @var unionEmpExt
      */
     public $unionEmpExt;
+
     /**
      * @var string
      */
     public $unionid;
+
     /**
      * @var string
      */
     public $userid;
+
     /**
      * @var string
      */
     public $workPlace;
     protected $_name = [
-        'active'                   => 'active',
-        'admin'                    => 'admin',
-        'avatar'                   => 'avatar',
-        'boss'                     => 'boss',
-        'deptIdList'               => 'deptIdList',
-        'deptOrderList'            => 'deptOrderList',
-        'email'                    => 'email',
-        'exclusiveAccount'         => 'exclusiveAccount',
-        'exclusiveAccountCorpId'   => 'exclusiveAccountCorpId',
+        'active' => 'active',
+        'admin' => 'admin',
+        'avatar' => 'avatar',
+        'boss' => 'boss',
+        'deptIdList' => 'deptIdList',
+        'deptOrderList' => 'deptOrderList',
+        'email' => 'email',
+        'exclusiveAccount' => 'exclusiveAccount',
+        'exclusiveAccountCorpId' => 'exclusiveAccountCorpId',
         'exclusiveAccountCorpName' => 'exclusiveAccountCorpName',
-        'exclusiveAccountType'     => 'exclusiveAccountType',
-        'extension'                => 'extension',
-        'hideMobile'               => 'hideMobile',
-        'hiredDate'                => 'hiredDate',
-        'jobNumber'                => 'jobNumber',
-        'leaderInDept'             => 'leaderInDept',
-        'loginId'                  => 'loginId',
-        'managerUserid'            => 'managerUserid',
-        'mobile'                   => 'mobile',
-        'name'                     => 'name',
-        'nickname'                 => 'nickname',
-        'orgEmail'                 => 'orgEmail',
-        'realAuthed'               => 'realAuthed',
-        'remark'                   => 'remark',
-        'requestId'                => 'requestId',
-        'roleList'                 => 'roleList',
-        'senior'                   => 'senior',
-        'stateCode'                => 'stateCode',
-        'telephone'                => 'telephone',
-        'title'                    => 'title',
-        'unionEmpExt'              => 'unionEmpExt',
-        'unionid'                  => 'unionid',
-        'userid'                   => 'userid',
-        'workPlace'                => 'workPlace',
+        'exclusiveAccountType' => 'exclusiveAccountType',
+        'extension' => 'extension',
+        'hideMobile' => 'hideMobile',
+        'hiredDate' => 'hiredDate',
+        'jobNumber' => 'jobNumber',
+        'leaderInDept' => 'leaderInDept',
+        'loginId' => 'loginId',
+        'managerUserid' => 'managerUserid',
+        'mobile' => 'mobile',
+        'name' => 'name',
+        'nickname' => 'nickname',
+        'orgEmail' => 'orgEmail',
+        'realAuthed' => 'realAuthed',
+        'remark' => 'remark',
+        'requestId' => 'requestId',
+        'roleList' => 'roleList',
+        'senior' => 'senior',
+        'stateCode' => 'stateCode',
+        'telephone' => 'telephone',
+        'title' => 'title',
+        'unionEmpExt' => 'unionEmpExt',
+        'unionid' => 'unionid',
+        'userid' => 'userid',
+        'workPlace' => 'workPlace',
     ];
 
     public function validate()
@@ -227,7 +260,7 @@ class GetUserResponseBody extends Model
         if (null !== $this->deptIdList) {
             if (\is_array($this->deptIdList)) {
                 $res['deptIdList'] = [];
-                $n1                = 0;
+                $n1 = 0;
                 foreach ($this->deptIdList as $item1) {
                     $res['deptIdList'][$n1++] = $item1;
                 }
@@ -237,7 +270,7 @@ class GetUserResponseBody extends Model
         if (null !== $this->deptOrderList) {
             if (\is_array($this->deptOrderList)) {
                 $res['deptOrderList'] = [];
-                $n1                   = 0;
+                $n1 = 0;
                 foreach ($this->deptOrderList as $item1) {
                     $res['deptOrderList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -283,7 +316,7 @@ class GetUserResponseBody extends Model
         if (null !== $this->leaderInDept) {
             if (\is_array($this->leaderInDept)) {
                 $res['leaderInDept'] = [];
-                $n1                  = 0;
+                $n1 = 0;
                 foreach ($this->leaderInDept as $item1) {
                     $res['leaderInDept'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -329,7 +362,7 @@ class GetUserResponseBody extends Model
         if (null !== $this->roleList) {
             if (\is_array($this->roleList)) {
                 $res['roleList'] = [];
-                $n1              = 0;
+                $n1 = 0;
                 foreach ($this->roleList as $item1) {
                     $res['roleList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -398,7 +431,7 @@ class GetUserResponseBody extends Model
         if (isset($map['deptIdList'])) {
             if (!empty($map['deptIdList'])) {
                 $model->deptIdList = [];
-                $n1                = 0;
+                $n1 = 0;
                 foreach ($map['deptIdList'] as $item1) {
                     $model->deptIdList[$n1++] = $item1;
                 }
@@ -408,7 +441,7 @@ class GetUserResponseBody extends Model
         if (isset($map['deptOrderList'])) {
             if (!empty($map['deptOrderList'])) {
                 $model->deptOrderList = [];
-                $n1                   = 0;
+                $n1 = 0;
                 foreach ($map['deptOrderList'] as $item1) {
                     $model->deptOrderList[$n1++] = deptOrderList::fromMap($item1);
                 }
@@ -454,7 +487,7 @@ class GetUserResponseBody extends Model
         if (isset($map['leaderInDept'])) {
             if (!empty($map['leaderInDept'])) {
                 $model->leaderInDept = [];
-                $n1                  = 0;
+                $n1 = 0;
                 foreach ($map['leaderInDept'] as $item1) {
                     $model->leaderInDept[$n1++] = leaderInDept::fromMap($item1);
                 }
@@ -500,7 +533,7 @@ class GetUserResponseBody extends Model
         if (isset($map['roleList'])) {
             if (!empty($map['roleList'])) {
                 $model->roleList = [];
-                $n1              = 0;
+                $n1 = 0;
                 foreach ($map['roleList'] as $item1) {
                     $model->roleList[$n1++] = roleList::fromMap($item1);
                 }

@@ -12,28 +12,32 @@ class UpdateUserAvatarResponseBody extends Model
      * @var string
      */
     public $errcode;
+
     /**
      * @var string
      */
     public $errmsg;
+
     /**
      * @var string
      */
     public $requestId;
+
     /**
      * @var string
      */
     public $vendorRequestId;
+
     /**
      * @var string
      */
     public $vendorType;
     protected $_name = [
-        'errcode'         => 'errcode',
-        'errmsg'          => 'errmsg',
-        'requestId'       => 'requestId',
+        'errcode' => 'errcode',
+        'errmsg' => 'errmsg',
+        'requestId' => 'requestId',
         'vendorRequestId' => 'vendorRequestId',
-        'vendorType'      => 'vendorType',
+        'vendorType' => 'vendorType',
     ];
 
     public function validate()

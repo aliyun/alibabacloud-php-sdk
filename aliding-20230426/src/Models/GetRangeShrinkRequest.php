@@ -12,28 +12,32 @@ class GetRangeShrinkRequest extends Model
      * @var string
      */
     public $rangeAddress;
+
     /**
      * @var string
      */
     public $select;
+
     /**
      * @var string
      */
     public $sheetId;
+
     /**
      * @var string
      */
     public $tenantContextShrink;
+
     /**
      * @var string
      */
     public $workbookId;
     protected $_name = [
-        'rangeAddress'        => 'RangeAddress',
-        'select'              => 'Select',
-        'sheetId'             => 'SheetId',
+        'rangeAddress' => 'RangeAddress',
+        'select' => 'Select',
+        'sheetId' => 'SheetId',
         'tenantContextShrink' => 'TenantContext',
-        'workbookId'          => 'WorkbookId',
+        'workbookId' => 'WorkbookId',
     ];
 
     public function validate()

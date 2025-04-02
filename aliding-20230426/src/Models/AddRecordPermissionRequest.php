@@ -13,23 +13,26 @@ class AddRecordPermissionRequest extends Model
      * @var string
      */
     public $bizType;
+
     /**
      * @var string
      */
     public $conferenceId;
+
     /**
      * @var tenantContext
      */
     public $tenantContext;
+
     /**
      * @var string
      */
     public $userId;
     protected $_name = [
-        'bizType'       => 'BizType',
-        'conferenceId'  => 'ConferenceId',
+        'bizType' => 'BizType',
+        'conferenceId' => 'ConferenceId',
         'tenantContext' => 'TenantContext',
-        'userId'        => 'UserId',
+        'userId' => 'UserId',
     ];
 
     public function validate()

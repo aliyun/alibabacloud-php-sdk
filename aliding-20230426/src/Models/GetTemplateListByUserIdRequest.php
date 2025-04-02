@@ -13,17 +13,19 @@ class GetTemplateListByUserIdRequest extends Model
      * @var int
      */
     public $offset;
+
     /**
      * @var int
      */
     public $size;
+
     /**
      * @var tenantContext
      */
     public $tenantContext;
     protected $_name = [
-        'offset'        => 'Offset',
-        'size'          => 'Size',
+        'offset' => 'Offset',
+        'size' => 'Size',
         'tenantContext' => 'TenantContext',
     ];
 

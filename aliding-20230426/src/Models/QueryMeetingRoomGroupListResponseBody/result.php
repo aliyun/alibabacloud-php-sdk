@@ -12,18 +12,20 @@ class result extends Model
      * @var int
      */
     public $groupId;
+
     /**
      * @var string
      */
     public $groupName;
+
     /**
      * @var int
      */
     public $parentId;
     protected $_name = [
-        'groupId'   => 'GroupId',
+        'groupId' => 'GroupId',
         'groupName' => 'GroupName',
-        'parentId'  => 'ParentId',
+        'parentId' => 'ParentId',
     ];
 
     public function validate()

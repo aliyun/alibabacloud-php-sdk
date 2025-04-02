@@ -12,22 +12,25 @@ class ReceiverListReportShrinkRequest extends Model
      * @var int
      */
     public $offset;
+
     /**
      * @var string
      */
     public $reportId;
+
     /**
      * @var int
      */
     public $size;
+
     /**
      * @var string
      */
     public $tenantContextShrink;
     protected $_name = [
-        'offset'              => 'Offset',
-        'reportId'            => 'ReportId',
-        'size'                => 'Size',
+        'offset' => 'Offset',
+        'reportId' => 'ReportId',
+        'size' => 'Size',
         'tenantContextShrink' => 'TenantContext',
     ];
 

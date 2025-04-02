@@ -13,28 +13,32 @@ class option extends Model
      * @var appProperties[]
      */
     public $appProperties;
+
     /**
      * @var string
      */
     public $conflictStrategy;
+
     /**
      * @var bool
      */
     public $convertToOnlineDoc;
+
     /**
      * @var string
      */
     public $convertToOnlineDocTargetDocumentType;
+
     /**
      * @var int
      */
     public $size;
     protected $_name = [
-        'appProperties'                        => 'AppProperties',
-        'conflictStrategy'                     => 'ConflictStrategy',
-        'convertToOnlineDoc'                   => 'ConvertToOnlineDoc',
+        'appProperties' => 'AppProperties',
+        'conflictStrategy' => 'ConflictStrategy',
+        'convertToOnlineDoc' => 'ConvertToOnlineDoc',
         'convertToOnlineDocTargetDocumentType' => 'ConvertToOnlineDocTargetDocumentType',
-        'size'                                 => 'Size',
+        'size' => 'Size',
     ];
 
     public function validate()
@@ -51,7 +55,7 @@ class option extends Model
         if (null !== $this->appProperties) {
             if (\is_array($this->appProperties)) {
                 $res['AppProperties'] = [];
-                $n1                   = 0;
+                $n1 = 0;
                 foreach ($this->appProperties as $item1) {
                     $res['AppProperties'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -88,7 +92,7 @@ class option extends Model
         if (isset($map['AppProperties'])) {
             if (!empty($map['AppProperties'])) {
                 $model->appProperties = [];
-                $n1                   = 0;
+                $n1 = 0;
                 foreach ($map['AppProperties'] as $item1) {
                     $model->appProperties[$n1++] = appProperties::fromMap($item1);
                 }

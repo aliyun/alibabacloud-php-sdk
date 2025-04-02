@@ -12,18 +12,20 @@ class GetWorkspaceShrinkRequest extends Model
      * @var string
      */
     public $tenantContextShrink;
+
     /**
      * @var bool
      */
     public $withPermissionRole;
+
     /**
      * @var string
      */
     public $workspaceId;
     protected $_name = [
         'tenantContextShrink' => 'TenantContext',
-        'withPermissionRole'  => 'WithPermissionRole',
-        'workspaceId'         => 'WorkspaceId',
+        'withPermissionRole' => 'WithPermissionRole',
+        'workspaceId' => 'WorkspaceId',
     ];
 
     public function validate()

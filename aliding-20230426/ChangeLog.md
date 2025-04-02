@@ -1,3 +1,9 @@
+2025-04-02 Version: 2.25.2
+- Update API CreateWorkspaceDoc: add response parameters Body.dentryUuid.
+- Update API CreateWorkspaceDoc: add response parameters Body.vendorRequestId.
+- Update API CreateWorkspaceDoc: add response parameters Body.vendorType.
+
+
 2025-02-28 Version: 2.25.1
 - Generated php 2023-04-26 for aliding.
 

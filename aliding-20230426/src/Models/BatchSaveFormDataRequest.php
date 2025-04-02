@@ -12,38 +12,44 @@ class BatchSaveFormDataRequest extends Model
      * @var string
      */
     public $appType;
+
     /**
      * @var bool
      */
     public $asynchronousExecution;
+
     /**
      * @var string[]
      */
     public $formDataJsonList;
+
     /**
      * @var string
      */
     public $formUuid;
+
     /**
      * @var bool
      */
     public $keepRunningAfterException;
+
     /**
      * @var bool
      */
     public $noExecuteExpression;
+
     /**
      * @var string
      */
     public $systemToken;
     protected $_name = [
-        'appType'                   => 'AppType',
-        'asynchronousExecution'     => 'AsynchronousExecution',
-        'formDataJsonList'          => 'FormDataJsonList',
-        'formUuid'                  => 'FormUuid',
+        'appType' => 'AppType',
+        'asynchronousExecution' => 'AsynchronousExecution',
+        'formDataJsonList' => 'FormDataJsonList',
+        'formUuid' => 'FormUuid',
         'keepRunningAfterException' => 'KeepRunningAfterException',
-        'noExecuteExpression'       => 'NoExecuteExpression',
-        'systemToken'               => 'SystemToken',
+        'noExecuteExpression' => 'NoExecuteExpression',
+        'systemToken' => 'SystemToken',
     ];
 
     public function validate()
@@ -68,7 +74,7 @@ class BatchSaveFormDataRequest extends Model
         if (null !== $this->formDataJsonList) {
             if (\is_array($this->formDataJsonList)) {
                 $res['FormDataJsonList'] = [];
-                $n1                      = 0;
+                $n1 = 0;
                 foreach ($this->formDataJsonList as $item1) {
                     $res['FormDataJsonList'][$n1++] = $item1;
                 }
@@ -113,7 +119,7 @@ class BatchSaveFormDataRequest extends Model
         if (isset($map['FormDataJsonList'])) {
             if (!empty($map['FormDataJsonList'])) {
                 $model->formDataJsonList = [];
-                $n1                      = 0;
+                $n1 = 0;
                 foreach ($map['FormDataJsonList'] as $item1) {
                     $model->formDataJsonList[$n1++] = $item1;
                 }

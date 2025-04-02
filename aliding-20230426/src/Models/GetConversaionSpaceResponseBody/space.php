@@ -12,23 +12,26 @@ class space extends Model
      * @var string
      */
     public $corpId;
+
     /**
      * @var string
      */
     public $createTime;
+
     /**
      * @var string
      */
     public $modifiedTime;
+
     /**
      * @var string
      */
     public $spaceId;
     protected $_name = [
-        'corpId'       => 'CorpId',
-        'createTime'   => 'CreateTime',
+        'corpId' => 'CorpId',
+        'createTime' => 'CreateTime',
         'modifiedTime' => 'ModifiedTime',
-        'spaceId'      => 'SpaceId',
+        'spaceId' => 'SpaceId',
     ];
 
     public function validate()

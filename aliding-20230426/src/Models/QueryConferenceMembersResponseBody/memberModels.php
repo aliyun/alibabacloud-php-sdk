@@ -12,58 +12,68 @@ class memberModels extends Model
      * @var int
      */
     public $attendStatus;
+
     /**
      * @var bool
      */
     public $coHost;
+
     /**
      * @var string
      */
     public $conferenceId;
+
     /**
      * @var int
      */
     public $duration;
+
     /**
      * @var bool
      */
     public $host;
+
     /**
      * @var int
      */
     public $joinTime;
+
     /**
      * @var int
      */
     public $leaveTime;
+
     /**
      * @var bool
      */
     public $outerOrgMember;
+
     /**
      * @var bool
      */
     public $pstnJoin;
+
     /**
      * @var string
      */
     public $userId;
+
     /**
      * @var string
      */
     public $userNick;
     protected $_name = [
-        'attendStatus'   => 'AttendStatus',
-        'coHost'         => 'CoHost',
-        'conferenceId'   => 'ConferenceId',
-        'duration'       => 'Duration',
-        'host'           => 'Host',
-        'joinTime'       => 'JoinTime',
-        'leaveTime'      => 'LeaveTime',
+        'attendStatus' => 'AttendStatus',
+        'coHost' => 'CoHost',
+        'conferenceId' => 'ConferenceId',
+        'duration' => 'Duration',
+        'host' => 'Host',
+        'joinTime' => 'JoinTime',
+        'leaveTime' => 'LeaveTime',
         'outerOrgMember' => 'OuterOrgMember',
-        'pstnJoin'       => 'PstnJoin',
-        'userId'         => 'UserId',
-        'userNick'       => 'UserNick',
+        'pstnJoin' => 'PstnJoin',
+        'userId' => 'UserId',
+        'userNick' => 'UserNick',
     ];
 
     public function validate()

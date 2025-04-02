@@ -13,62 +13,73 @@ class dataList extends Model
      * @var contents[]
      */
     public $contents;
+
     /**
      * @var int
      */
     public $createTime;
+
     /**
      * @var string
      */
     public $creatorId;
+
     /**
      * @var string
      */
     public $creatorName;
+
     /**
      * @var string
      */
     public $deptName;
+
     /**
      * @var string[]
      */
     public $images;
+
     /**
      * @var string
      */
     public $latitude;
+
     /**
      * @var string
      */
     public $longitude;
+
     /**
      * @var int
      */
     public $modifiedTime;
+
     /**
      * @var string
      */
     public $remark;
+
     /**
      * @var string
      */
     public $reportId;
+
     /**
      * @var string
      */
     public $templateName;
     protected $_name = [
-        'contents'     => 'Contents',
-        'createTime'   => 'CreateTime',
-        'creatorId'    => 'CreatorId',
-        'creatorName'  => 'CreatorName',
-        'deptName'     => 'DeptName',
-        'images'       => 'Images',
-        'latitude'     => 'Latitude',
-        'longitude'    => 'Longitude',
+        'contents' => 'Contents',
+        'createTime' => 'CreateTime',
+        'creatorId' => 'CreatorId',
+        'creatorName' => 'CreatorName',
+        'deptName' => 'DeptName',
+        'images' => 'Images',
+        'latitude' => 'Latitude',
+        'longitude' => 'Longitude',
         'modifiedTime' => 'ModifiedTime',
-        'remark'       => 'Remark',
-        'reportId'     => 'ReportId',
+        'remark' => 'Remark',
+        'reportId' => 'ReportId',
         'templateName' => 'TemplateName',
     ];
 
@@ -89,7 +100,7 @@ class dataList extends Model
         if (null !== $this->contents) {
             if (\is_array($this->contents)) {
                 $res['Contents'] = [];
-                $n1              = 0;
+                $n1 = 0;
                 foreach ($this->contents as $item1) {
                     $res['Contents'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -115,7 +126,7 @@ class dataList extends Model
         if (null !== $this->images) {
             if (\is_array($this->images)) {
                 $res['Images'] = [];
-                $n1            = 0;
+                $n1 = 0;
                 foreach ($this->images as $item1) {
                     $res['Images'][$n1++] = $item1;
                 }
@@ -160,7 +171,7 @@ class dataList extends Model
         if (isset($map['Contents'])) {
             if (!empty($map['Contents'])) {
                 $model->contents = [];
-                $n1              = 0;
+                $n1 = 0;
                 foreach ($map['Contents'] as $item1) {
                     $model->contents[$n1++] = contents::fromMap($item1);
                 }
@@ -186,7 +197,7 @@ class dataList extends Model
         if (isset($map['Images'])) {
             if (!empty($map['Images'])) {
                 $model->images = [];
-                $n1            = 0;
+                $n1 = 0;
                 foreach ($map['Images'] as $item1) {
                     $model->images[$n1++] = $item1;
                 }

@@ -12,38 +12,44 @@ class CreateOrUpdateFormDataRequest extends Model
      * @var string
      */
     public $appType;
+
     /**
      * @var string
      */
     public $formDataJson;
+
     /**
      * @var string
      */
     public $formUuid;
+
     /**
      * @var bool
      */
     public $noExecuteExpression;
+
     /**
      * @var string
      */
     public $searchCondition;
+
     /**
      * @var string
      */
     public $systemToken;
+
     /**
      * @var string
      */
     public $userId;
     protected $_name = [
-        'appType'             => 'AppType',
-        'formDataJson'        => 'FormDataJson',
-        'formUuid'            => 'FormUuid',
+        'appType' => 'AppType',
+        'formDataJson' => 'FormDataJson',
+        'formUuid' => 'FormUuid',
         'noExecuteExpression' => 'NoExecuteExpression',
-        'searchCondition'     => 'SearchCondition',
-        'systemToken'         => 'SystemToken',
-        'userId'              => 'UserId',
+        'searchCondition' => 'SearchCondition',
+        'systemToken' => 'SystemToken',
+        'userId' => 'UserId',
     ];
 
     public function validate()

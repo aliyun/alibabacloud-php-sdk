@@ -12,22 +12,25 @@ class GetMultiDimTableRecordShrinkRequest extends Model
      * @var string
      */
     public $baseId;
+
     /**
      * @var string
      */
     public $recordId;
+
     /**
      * @var string
      */
     public $sheetIdOrName;
+
     /**
      * @var string
      */
     public $tenantContextShrink;
     protected $_name = [
-        'baseId'              => 'BaseId',
-        'recordId'            => 'RecordId',
-        'sheetIdOrName'       => 'SheetIdOrName',
+        'baseId' => 'BaseId',
+        'recordId' => 'RecordId',
+        'sheetIdOrName' => 'SheetIdOrName',
         'tenantContextShrink' => 'TenantContext',
     ];
 

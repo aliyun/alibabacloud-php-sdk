@@ -13,28 +13,32 @@ class QueryMinutesTextRequest extends Model
      * @var tenantContext
      */
     public $tenantContext;
+
     /**
      * @var string
      */
     public $conferenceId;
+
     /**
      * @var string
      */
     public $direction;
+
     /**
      * @var int
      */
     public $maxResults;
+
     /**
      * @var string
      */
     public $nextToken;
     protected $_name = [
         'tenantContext' => 'TenantContext',
-        'conferenceId'  => 'conferenceId',
-        'direction'     => 'direction',
-        'maxResults'    => 'maxResults',
-        'nextToken'     => 'nextToken',
+        'conferenceId' => 'conferenceId',
+        'direction' => 'direction',
+        'maxResults' => 'maxResults',
+        'nextToken' => 'nextToken',
     ];
 
     public function validate()

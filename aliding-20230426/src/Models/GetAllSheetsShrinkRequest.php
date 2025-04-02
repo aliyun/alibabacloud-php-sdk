@@ -12,13 +12,14 @@ class GetAllSheetsShrinkRequest extends Model
      * @var string
      */
     public $tenantContextShrink;
+
     /**
      * @var string
      */
     public $workbookId;
     protected $_name = [
         'tenantContextShrink' => 'TenantContext',
-        'workbookId'          => 'WorkbookId',
+        'workbookId' => 'WorkbookId',
     ];
 
     public function validate()

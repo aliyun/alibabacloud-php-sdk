@@ -13,12 +13,13 @@ class QueryScheduleConferenceRequest extends Model
      * @var tenantContext
      */
     public $tenantContext;
+
     /**
      * @var string
      */
     public $scheduleConferenceId;
     protected $_name = [
-        'tenantContext'        => 'TenantContext',
+        'tenantContext' => 'TenantContext',
         'scheduleConferenceId' => 'scheduleConferenceId',
     ];
 

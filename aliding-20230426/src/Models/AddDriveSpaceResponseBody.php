@@ -12,58 +12,68 @@ class AddDriveSpaceResponseBody extends Model
      * @var string
      */
     public $createTime;
+
     /**
      * @var string
      */
     public $modifyTime;
+
     /**
      * @var string
      */
     public $permissionMode;
+
     /**
      * @var int
      */
     public $quota;
+
     /**
      * @var string
      */
     public $requestId;
+
     /**
      * @var string
      */
     public $spaceId;
+
     /**
      * @var string
      */
     public $spaceName;
+
     /**
      * @var string
      */
     public $spaceType;
+
     /**
      * @var int
      */
     public $usedQuota;
+
     /**
      * @var string
      */
     public $vendorRequestId;
+
     /**
      * @var string
      */
     public $vendorType;
     protected $_name = [
-        'createTime'      => 'createTime',
-        'modifyTime'      => 'modifyTime',
-        'permissionMode'  => 'permissionMode',
-        'quota'           => 'quota',
-        'requestId'       => 'requestId',
-        'spaceId'         => 'spaceId',
-        'spaceName'       => 'spaceName',
-        'spaceType'       => 'spaceType',
-        'usedQuota'       => 'usedQuota',
+        'createTime' => 'createTime',
+        'modifyTime' => 'modifyTime',
+        'permissionMode' => 'permissionMode',
+        'quota' => 'quota',
+        'requestId' => 'requestId',
+        'spaceId' => 'spaceId',
+        'spaceName' => 'spaceName',
+        'spaceType' => 'spaceType',
+        'usedQuota' => 'usedQuota',
         'vendorRequestId' => 'vendorRequestId',
-        'vendorType'      => 'vendorType',
+        'vendorType' => 'vendorType',
     ];
 
     public function validate()

@@ -16,57 +16,67 @@ class space extends Model
      * @var string
      */
     public $cover;
+
     /**
      * @var string
      */
     public $description;
+
     /**
      * @var hdIconVO
      */
     public $hdIconVO;
+
     /**
      * @var iconVO
      */
     public $iconVO;
+
     /**
      * @var string
      */
     public $id;
+
     /**
      * @var string
      */
     public $name;
+
     /**
      * @var owner
      */
     public $owner;
+
     /**
      * @var mixed[]
      */
     public $recentList;
+
     /**
      * @var int
      */
     public $type;
+
     /**
      * @var string
      */
     public $url;
+
     /**
      * @var visitorInfo
      */
     public $visitorInfo;
     protected $_name = [
-        'cover'       => 'Cover',
+        'cover' => 'Cover',
         'description' => 'Description',
-        'hdIconVO'    => 'HdIconVO',
-        'iconVO'      => 'IconVO',
-        'id'          => 'Id',
-        'name'        => 'Name',
-        'owner'       => 'Owner',
-        'recentList'  => 'RecentList',
-        'type'        => 'Type',
-        'url'         => 'Url',
+        'hdIconVO' => 'HdIconVO',
+        'iconVO' => 'IconVO',
+        'id' => 'Id',
+        'name' => 'Name',
+        'owner' => 'Owner',
+        'recentList' => 'RecentList',
+        'type' => 'Type',
+        'url' => 'Url',
         'visitorInfo' => 'VisitorInfo',
     ];
 
@@ -124,7 +134,7 @@ class space extends Model
         if (null !== $this->recentList) {
             if (\is_array($this->recentList)) {
                 $res['RecentList'] = [];
-                $n1                = 0;
+                $n1 = 0;
                 foreach ($this->recentList as $item1) {
                     $res['RecentList'][$n1++] = $item1;
                 }
@@ -185,7 +195,7 @@ class space extends Model
         if (isset($map['RecentList'])) {
             if (!empty($map['RecentList'])) {
                 $model->recentList = [];
-                $n1                = 0;
+                $n1 = 0;
                 foreach ($map['RecentList'] as $item1) {
                     $model->recentList[$n1++] = $item1;
                 }

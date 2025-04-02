@@ -13,18 +13,20 @@ class scheduleInformation extends Model
      * @var string
      */
     public $error;
+
     /**
      * @var scheduleItems[]
      */
     public $scheduleItems;
+
     /**
      * @var string
      */
     public $userId;
     protected $_name = [
-        'error'         => 'Error',
+        'error' => 'Error',
         'scheduleItems' => 'ScheduleItems',
-        'userId'        => 'UserId',
+        'userId' => 'UserId',
     ];
 
     public function validate()
@@ -45,7 +47,7 @@ class scheduleInformation extends Model
         if (null !== $this->scheduleItems) {
             if (\is_array($this->scheduleItems)) {
                 $res['ScheduleItems'] = [];
-                $n1                   = 0;
+                $n1 = 0;
                 foreach ($this->scheduleItems as $item1) {
                     $res['ScheduleItems'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -74,7 +76,7 @@ class scheduleInformation extends Model
         if (isset($map['ScheduleItems'])) {
             if (!empty($map['ScheduleItems'])) {
                 $model->scheduleItems = [];
-                $n1                   = 0;
+                $n1 = 0;
                 foreach ($map['ScheduleItems'] as $item1) {
                     $model->scheduleItems[$n1++] = scheduleItems::fromMap($item1);
                 }

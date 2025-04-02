@@ -13,17 +13,19 @@ class CreateWorkspaceRequest extends Model
      * @var string
      */
     public $description;
+
     /**
      * @var string
      */
     public $name;
+
     /**
      * @var tenantContext
      */
     public $tenantContext;
     protected $_name = [
-        'description'   => 'Description',
-        'name'          => 'Name',
+        'description' => 'Description',
+        'name' => 'Name',
         'tenantContext' => 'TenantContext',
     ];
 

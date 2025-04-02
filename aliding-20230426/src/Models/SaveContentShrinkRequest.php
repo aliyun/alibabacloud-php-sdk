@@ -12,22 +12,25 @@ class SaveContentShrinkRequest extends Model
      * @var string
      */
     public $contentsShrink;
+
     /**
      * @var string
      */
     public $ddFrom;
+
     /**
      * @var string
      */
     public $templateId;
+
     /**
      * @var string
      */
     public $tenantContextShrink;
     protected $_name = [
-        'contentsShrink'      => 'Contents',
-        'ddFrom'              => 'DdFrom',
-        'templateId'          => 'TemplateId',
+        'contentsShrink' => 'Contents',
+        'ddFrom' => 'DdFrom',
+        'templateId' => 'TemplateId',
         'tenantContextShrink' => 'TenantContext',
     ];
 

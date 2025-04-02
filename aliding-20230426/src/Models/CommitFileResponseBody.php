@@ -13,23 +13,26 @@ class CommitFileResponseBody extends Model
      * @var dentry
      */
     public $dentry;
+
     /**
      * @var string
      */
     public $requestId;
+
     /**
      * @var string
      */
     public $vendorRequestId;
+
     /**
      * @var string
      */
     public $vendorType;
     protected $_name = [
-        'dentry'          => 'dentry',
-        'requestId'       => 'requestId',
+        'dentry' => 'dentry',
+        'requestId' => 'requestId',
         'vendorRequestId' => 'vendorRequestId',
-        'vendorType'      => 'vendorType',
+        'vendorType' => 'vendorType',
     ];
 
     public function validate()

@@ -14,17 +14,19 @@ class AddWorkspaceRequest extends Model
      * @var string
      */
     public $name;
+
     /**
      * @var option
      */
     public $option;
+
     /**
      * @var tenantContext
      */
     public $tenantContext;
     protected $_name = [
-        'name'          => 'Name',
-        'option'        => 'Option',
+        'name' => 'Name',
+        'option' => 'Option',
         'tenantContext' => 'TenantContext',
     ];
 

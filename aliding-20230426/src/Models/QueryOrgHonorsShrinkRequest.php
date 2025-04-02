@@ -12,23 +12,26 @@ class QueryOrgHonorsShrinkRequest extends Model
      * @var string
      */
     public $tenantContextShrink;
+
     /**
      * @var int
      */
     public $maxResults;
+
     /**
      * @var string
      */
     public $nextToken;
+
     /**
      * @var int
      */
     public $orgId;
     protected $_name = [
         'tenantContextShrink' => 'TenantContext',
-        'maxResults'          => 'maxResults',
-        'nextToken'           => 'nextToken',
-        'orgId'               => 'orgId',
+        'maxResults' => 'maxResults',
+        'nextToken' => 'nextToken',
+        'orgId' => 'orgId',
     ];
 
     public function validate()

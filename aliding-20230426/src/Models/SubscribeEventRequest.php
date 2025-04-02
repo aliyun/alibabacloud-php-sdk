@@ -13,17 +13,19 @@ class SubscribeEventRequest extends Model
      * @var string
      */
     public $scope;
+
     /**
      * @var string
      */
     public $scopeId;
+
     /**
      * @var tenantContext
      */
     public $tenantContext;
     protected $_name = [
-        'scope'         => 'Scope',
-        'scopeId'       => 'ScopeId',
+        'scope' => 'Scope',
+        'scopeId' => 'ScopeId',
         'tenantContext' => 'TenantContext',
     ];
 

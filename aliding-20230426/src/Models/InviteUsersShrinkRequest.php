@@ -12,22 +12,25 @@ class InviteUsersShrinkRequest extends Model
      * @var string
      */
     public $inviteeListShrink;
+
     /**
      * @var string
      */
     public $tenantContextShrink;
+
     /**
      * @var string
      */
     public $conferenceId;
+
     /**
      * @var string
      */
     public $phoneInviteeListShrink;
     protected $_name = [
-        'inviteeListShrink'      => 'InviteeList',
-        'tenantContextShrink'    => 'TenantContext',
-        'conferenceId'           => 'conferenceId',
+        'inviteeListShrink' => 'InviteeList',
+        'tenantContextShrink' => 'TenantContext',
+        'conferenceId' => 'conferenceId',
         'phoneInviteeListShrink' => 'phoneInviteeList',
     ];
 

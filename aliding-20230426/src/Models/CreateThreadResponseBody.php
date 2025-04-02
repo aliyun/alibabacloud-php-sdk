@@ -12,27 +12,31 @@ class CreateThreadResponseBody extends Model
      * @var int
      */
     public $createAt;
+
     /**
      * @var string
      */
     public $id;
+
     /**
      * @var mixed[]
      */
     public $metadata;
+
     /**
      * @var string
      */
     public $object;
+
     /**
      * @var string
      */
     public $requestId;
     protected $_name = [
-        'createAt'  => 'createAt',
-        'id'        => 'id',
-        'metadata'  => 'metadata',
-        'object'    => 'object',
+        'createAt' => 'createAt',
+        'id' => 'id',
+        'metadata' => 'metadata',
+        'object' => 'object',
         'requestId' => 'requestId',
     ];
 

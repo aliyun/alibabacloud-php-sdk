@@ -13,10 +13,12 @@ class QueryOrgTodoTasksResponseBody extends Model
      * @var string
      */
     public $nextToken;
+
     /**
      * @var string
      */
     public $requestId;
+
     /**
      * @var todoCards[]
      */
@@ -49,7 +51,7 @@ class QueryOrgTodoTasksResponseBody extends Model
         if (null !== $this->todoCards) {
             if (\is_array($this->todoCards)) {
                 $res['todoCards'] = [];
-                $n1               = 0;
+                $n1 = 0;
                 foreach ($this->todoCards as $item1) {
                     $res['todoCards'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -78,7 +80,7 @@ class QueryOrgTodoTasksResponseBody extends Model
         if (isset($map['todoCards'])) {
             if (!empty($map['todoCards'])) {
                 $model->todoCards = [];
-                $n1               = 0;
+                $n1 = 0;
                 foreach ($map['todoCards'] as $item1) {
                     $model->todoCards[$n1++] = todoCards::fromMap($item1);
                 }

@@ -12,53 +12,62 @@ class GetCorpAccomplishmentTasksRequest extends Model
      * @var string
      */
     public $appTypes;
+
     /**
      * @var string
      */
     public $corpId;
+
     /**
      * @var int
      */
     public $createFromTimeGMT;
+
     /**
      * @var int
      */
     public $createToTimeGMT;
+
     /**
      * @var string
      */
     public $keyword;
+
     /**
      * @var string
      */
     public $language;
+
     /**
      * @var int
      */
     public $pageNumber;
+
     /**
      * @var int
      */
     public $pageSize;
+
     /**
      * @var string
      */
     public $processCodes;
+
     /**
      * @var string
      */
     public $token;
     protected $_name = [
-        'appTypes'          => 'AppTypes',
-        'corpId'            => 'CorpId',
+        'appTypes' => 'AppTypes',
+        'corpId' => 'CorpId',
         'createFromTimeGMT' => 'CreateFromTimeGMT',
-        'createToTimeGMT'   => 'CreateToTimeGMT',
-        'keyword'           => 'Keyword',
-        'language'          => 'Language',
-        'pageNumber'        => 'PageNumber',
-        'pageSize'          => 'PageSize',
-        'processCodes'      => 'ProcessCodes',
-        'token'             => 'Token',
+        'createToTimeGMT' => 'CreateToTimeGMT',
+        'keyword' => 'Keyword',
+        'language' => 'Language',
+        'pageNumber' => 'PageNumber',
+        'pageSize' => 'PageSize',
+        'processCodes' => 'ProcessCodes',
+        'token' => 'Token',
     ];
 
     public function validate()

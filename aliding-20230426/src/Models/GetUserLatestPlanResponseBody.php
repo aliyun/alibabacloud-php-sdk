@@ -12,78 +12,92 @@ class GetUserLatestPlanResponseBody extends Model
      * @var int
      */
     public $accountHandleStatus;
+
     /**
      * @var string
      */
     public $accountHandleTime;
+
     /**
      * @var int
      */
     public $accountType;
+
     /**
      * @var string
      */
     public $agreementFirstSignTime;
+
     /**
      * @var string
      */
     public $agreementLastSignTime;
+
     /**
      * @var int
      */
     public $agreementStatus;
+
     /**
      * @var string
      */
     public $dataHandleEndTime;
+
     /**
      * @var string
      */
     public $dataHandleStartTime;
+
     /**
      * @var int
      */
     public $dataHandleStatus;
+
     /**
      * @var int
      */
     public $exclusivePlan;
+
     /**
      * @var int
      */
     public $newAccountUid;
+
     /**
      * @var string
      */
     public $requestId;
+
     /**
      * @var int
      */
     public $status;
+
     /**
      * @var string
      */
     public $vendorRequestId;
+
     /**
      * @var string
      */
     public $vendorType;
     protected $_name = [
-        'accountHandleStatus'    => 'accountHandleStatus',
-        'accountHandleTime'      => 'accountHandleTime',
-        'accountType'            => 'accountType',
+        'accountHandleStatus' => 'accountHandleStatus',
+        'accountHandleTime' => 'accountHandleTime',
+        'accountType' => 'accountType',
         'agreementFirstSignTime' => 'agreementFirstSignTime',
-        'agreementLastSignTime'  => 'agreementLastSignTime',
-        'agreementStatus'        => 'agreementStatus',
-        'dataHandleEndTime'      => 'dataHandleEndTime',
-        'dataHandleStartTime'    => 'dataHandleStartTime',
-        'dataHandleStatus'       => 'dataHandleStatus',
-        'exclusivePlan'          => 'exclusivePlan',
-        'newAccountUid'          => 'newAccountUid',
-        'requestId'              => 'requestId',
-        'status'                 => 'status',
-        'vendorRequestId'        => 'vendorRequestId',
-        'vendorType'             => 'vendorType',
+        'agreementLastSignTime' => 'agreementLastSignTime',
+        'agreementStatus' => 'agreementStatus',
+        'dataHandleEndTime' => 'dataHandleEndTime',
+        'dataHandleStartTime' => 'dataHandleStartTime',
+        'dataHandleStatus' => 'dataHandleStatus',
+        'exclusivePlan' => 'exclusivePlan',
+        'newAccountUid' => 'newAccountUid',
+        'requestId' => 'requestId',
+        'status' => 'status',
+        'vendorRequestId' => 'vendorRequestId',
+        'vendorType' => 'vendorType',
     ];
 
     public function validate()

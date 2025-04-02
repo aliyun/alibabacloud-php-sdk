@@ -12,12 +12,13 @@ class uiConfigs extends Model
      * @var string
      */
     public $uiName;
+
     /**
      * @var string
      */
     public $uiStatus;
     protected $_name = [
-        'uiName'   => 'UiName',
+        'uiName' => 'UiName',
         'uiStatus' => 'UiStatus',
     ];
 

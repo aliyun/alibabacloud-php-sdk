@@ -13,23 +13,26 @@ class QueryRecordMinutesUrlResponseBody extends Model
      * @var recordMinutesUrls[]
      */
     public $recordMinutesUrls;
+
     /**
      * @var string
      */
     public $requestId;
+
     /**
      * @var string
      */
     public $vendorRequestId;
+
     /**
      * @var string
      */
     public $vendorType;
     protected $_name = [
         'recordMinutesUrls' => 'recordMinutesUrls',
-        'requestId'         => 'requestId',
-        'vendorRequestId'   => 'vendorRequestId',
-        'vendorType'        => 'vendorType',
+        'requestId' => 'requestId',
+        'vendorRequestId' => 'vendorRequestId',
+        'vendorType' => 'vendorType',
     ];
 
     public function validate()
@@ -46,7 +49,7 @@ class QueryRecordMinutesUrlResponseBody extends Model
         if (null !== $this->recordMinutesUrls) {
             if (\is_array($this->recordMinutesUrls)) {
                 $res['recordMinutesUrls'] = [];
-                $n1                       = 0;
+                $n1 = 0;
                 foreach ($this->recordMinutesUrls as $item1) {
                     $res['recordMinutesUrls'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -79,7 +82,7 @@ class QueryRecordMinutesUrlResponseBody extends Model
         if (isset($map['recordMinutesUrls'])) {
             if (!empty($map['recordMinutesUrls'])) {
                 $model->recordMinutesUrls = [];
-                $n1                       = 0;
+                $n1 = 0;
                 foreach ($map['recordMinutesUrls'] as $item1) {
                     $model->recordMinutesUrls[$n1++] = recordMinutesUrls::fromMap($item1);
                 }

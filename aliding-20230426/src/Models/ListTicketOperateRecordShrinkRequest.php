@@ -12,17 +12,19 @@ class ListTicketOperateRecordShrinkRequest extends Model
      * @var string
      */
     public $openTeamId;
+
     /**
      * @var string
      */
     public $openTicketId;
+
     /**
      * @var string
      */
     public $tenantContextShrink;
     protected $_name = [
-        'openTeamId'          => 'OpenTeamId',
-        'openTicketId'        => 'OpenTicketId',
+        'openTeamId' => 'OpenTeamId',
+        'openTicketId' => 'OpenTicketId',
         'tenantContextShrink' => 'TenantContext',
     ];
 

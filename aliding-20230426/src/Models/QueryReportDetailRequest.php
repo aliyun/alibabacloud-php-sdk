@@ -13,12 +13,13 @@ class QueryReportDetailRequest extends Model
      * @var string
      */
     public $reportId;
+
     /**
      * @var tenantContext
      */
     public $tenantContext;
     protected $_name = [
-        'reportId'      => 'ReportId',
+        'reportId' => 'ReportId',
         'tenantContext' => 'TenantContext',
     ];
 

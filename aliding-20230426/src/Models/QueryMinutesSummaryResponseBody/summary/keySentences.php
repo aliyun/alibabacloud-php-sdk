@@ -12,28 +12,32 @@ class keySentences extends Model
      * @var int
      */
     public $end;
+
     /**
      * @var int
      */
     public $id;
+
     /**
      * @var int
      */
     public $sentenceId;
+
     /**
      * @var int
      */
     public $start;
+
     /**
      * @var string
      */
     public $text;
     protected $_name = [
-        'end'        => 'End',
-        'id'         => 'Id',
+        'end' => 'End',
+        'id' => 'Id',
         'sentenceId' => 'SentenceId',
-        'start'      => 'Start',
-        'text'       => 'Text',
+        'start' => 'Start',
+        'text' => 'Text',
     ];
 
     public function validate()

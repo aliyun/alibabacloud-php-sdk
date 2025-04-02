@@ -12,18 +12,22 @@ class pattern extends Model
      * @var int
      */
     public $dayOfMonth;
+
     /**
      * @var string
      */
     public $daysOfWeek;
+
     /**
      * @var string
      */
     public $index;
+
     /**
      * @var int
      */
     public $interval;
+
     /**
      * @var string
      */
@@ -31,9 +35,9 @@ class pattern extends Model
     protected $_name = [
         'dayOfMonth' => 'DayOfMonth',
         'daysOfWeek' => 'DaysOfWeek',
-        'index'      => 'Index',
-        'interval'   => 'Interval',
-        'type'       => 'Type',
+        'index' => 'Index',
+        'interval' => 'Interval',
+        'type' => 'Type',
     ];
 
     public function validate()

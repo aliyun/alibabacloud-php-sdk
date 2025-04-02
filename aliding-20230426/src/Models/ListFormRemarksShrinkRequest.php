@@ -12,23 +12,26 @@ class ListFormRemarksShrinkRequest extends Model
      * @var string
      */
     public $appType;
+
     /**
      * @var string
      */
     public $formInstanceIdListShrink;
+
     /**
      * @var string
      */
     public $formUuid;
+
     /**
      * @var string
      */
     public $systemToken;
     protected $_name = [
-        'appType'                  => 'AppType',
+        'appType' => 'AppType',
         'formInstanceIdListShrink' => 'FormInstanceIdList',
-        'formUuid'                 => 'FormUuid',
-        'systemToken'              => 'SystemToken',
+        'formUuid' => 'FormUuid',
+        'systemToken' => 'SystemToken',
     ];
 
     public function validate()

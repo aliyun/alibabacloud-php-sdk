@@ -12,12 +12,13 @@ class param extends Model
      * @var string
      */
     public $body;
+
     /**
      * @var string[]
      */
     public $header;
     protected $_name = [
-        'body'   => 'body',
+        'body' => 'body',
         'header' => 'header',
     ];
 

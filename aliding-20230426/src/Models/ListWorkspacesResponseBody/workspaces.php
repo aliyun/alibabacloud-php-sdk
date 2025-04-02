@@ -13,78 +13,92 @@ class workspaces extends Model
      * @var string
      */
     public $corpId;
+
     /**
      * @var string
      */
     public $cover;
+
     /**
      * @var string
      */
     public $createTime;
+
     /**
      * @var string
      */
     public $creatorId;
+
     /**
      * @var string
      */
     public $description;
+
     /**
      * @var icon
      */
     public $icon;
+
     /**
      * @var string
      */
     public $modifiedTime;
+
     /**
      * @var string
      */
     public $modifierId;
+
     /**
      * @var string
      */
     public $name;
+
     /**
      * @var string
      */
     public $permissionRole;
+
     /**
      * @var string
      */
     public $rootNodeId;
+
     /**
      * @var string
      */
     public $teamId;
+
     /**
      * @var string
      */
     public $type;
+
     /**
      * @var string
      */
     public $url;
+
     /**
      * @var string
      */
     public $workspaceId;
     protected $_name = [
-        'corpId'         => 'CorpId',
-        'cover'          => 'Cover',
-        'createTime'     => 'CreateTime',
-        'creatorId'      => 'CreatorId',
-        'description'    => 'Description',
-        'icon'           => 'Icon',
-        'modifiedTime'   => 'ModifiedTime',
-        'modifierId'     => 'ModifierId',
-        'name'           => 'Name',
+        'corpId' => 'CorpId',
+        'cover' => 'Cover',
+        'createTime' => 'CreateTime',
+        'creatorId' => 'CreatorId',
+        'description' => 'Description',
+        'icon' => 'Icon',
+        'modifiedTime' => 'ModifiedTime',
+        'modifierId' => 'ModifierId',
+        'name' => 'Name',
         'permissionRole' => 'PermissionRole',
-        'rootNodeId'     => 'RootNodeId',
-        'teamId'         => 'TeamId',
-        'type'           => 'Type',
-        'url'            => 'Url',
-        'workspaceId'    => 'WorkspaceId',
+        'rootNodeId' => 'RootNodeId',
+        'teamId' => 'TeamId',
+        'type' => 'Type',
+        'url' => 'Url',
+        'workspaceId' => 'WorkspaceId',
     ];
 
     public function validate()

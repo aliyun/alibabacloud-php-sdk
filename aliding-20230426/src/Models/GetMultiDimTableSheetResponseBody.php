@@ -12,28 +12,32 @@ class GetMultiDimTableSheetResponseBody extends Model
      * @var string
      */
     public $id;
+
     /**
      * @var string
      */
     public $name;
+
     /**
      * @var string
      */
     public $requestId;
+
     /**
      * @var string
      */
     public $vendorRequestId;
+
     /**
      * @var string
      */
     public $vendorType;
     protected $_name = [
-        'id'              => 'id',
-        'name'            => 'name',
-        'requestId'       => 'requestId',
+        'id' => 'id',
+        'name' => 'name',
+        'requestId' => 'requestId',
         'vendorRequestId' => 'vendorRequestId',
-        'vendorType'      => 'vendorType',
+        'vendorType' => 'vendorType',
     ];
 
     public function validate()

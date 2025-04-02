@@ -12,12 +12,13 @@ class QueryMeetingRoomGroupListShrinkRequest extends Model
      * @var string
      */
     public $requestShrink;
+
     /**
      * @var string
      */
     public $tenantContextShrink;
     protected $_name = [
-        'requestShrink'       => 'Request',
+        'requestShrink' => 'Request',
         'tenantContextShrink' => 'TenantContext',
     ];
 

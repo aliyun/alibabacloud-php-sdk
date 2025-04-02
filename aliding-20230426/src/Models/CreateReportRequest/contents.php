@@ -12,28 +12,32 @@ class contents extends Model
      * @var string
      */
     public $content;
+
     /**
      * @var string
      */
     public $contentType;
+
     /**
      * @var string
      */
     public $key;
+
     /**
      * @var int
      */
     public $sort;
+
     /**
      * @var int
      */
     public $type;
     protected $_name = [
-        'content'     => 'Content',
+        'content' => 'Content',
         'contentType' => 'ContentType',
-        'key'         => 'Key',
-        'sort'        => 'Sort',
-        'type'        => 'Type',
+        'key' => 'Key',
+        'sort' => 'Sort',
+        'type' => 'Type',
     ];
 
     public function validate()

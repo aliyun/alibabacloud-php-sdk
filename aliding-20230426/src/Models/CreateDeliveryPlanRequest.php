@@ -13,33 +13,38 @@ class CreateDeliveryPlanRequest extends Model
      * @var mixed[]
      */
     public $content;
+
     /**
      * @var int
      */
     public $endTime;
+
     /**
      * @var string
      */
     public $resId;
+
     /**
      * @var int
      */
     public $startTime;
+
     /**
      * @var tenantContext
      */
     public $tenantContext;
+
     /**
      * @var string[]
      */
     public $userIdList;
     protected $_name = [
-        'content'       => 'Content',
-        'endTime'       => 'EndTime',
-        'resId'         => 'ResId',
-        'startTime'     => 'StartTime',
+        'content' => 'Content',
+        'endTime' => 'EndTime',
+        'resId' => 'ResId',
+        'startTime' => 'StartTime',
         'tenantContext' => 'TenantContext',
-        'userIdList'    => 'UserIdList',
+        'userIdList' => 'UserIdList',
     ];
 
     public function validate()
@@ -87,7 +92,7 @@ class CreateDeliveryPlanRequest extends Model
         if (null !== $this->userIdList) {
             if (\is_array($this->userIdList)) {
                 $res['UserIdList'] = [];
-                $n1                = 0;
+                $n1 = 0;
                 foreach ($this->userIdList as $item1) {
                     $res['UserIdList'][$n1++] = $item1;
                 }
@@ -133,7 +138,7 @@ class CreateDeliveryPlanRequest extends Model
         if (isset($map['UserIdList'])) {
             if (!empty($map['UserIdList'])) {
                 $model->userIdList = [];
-                $n1                = 0;
+                $n1 = 0;
                 foreach ($map['UserIdList'] as $item1) {
                     $model->userIdList[$n1++] = $item1;
                 }

@@ -12,22 +12,25 @@ class SendPopupShrinkRequest extends Model
      * @var string
      */
     public $contentShrink;
+
     /**
      * @var int
      */
     public $endTime;
+
     /**
      * @var int
      */
     public $startTime;
+
     /**
      * @var string
      */
     public $tenantContextShrink;
     protected $_name = [
-        'contentShrink'       => 'Content',
-        'endTime'             => 'EndTime',
-        'startTime'           => 'StartTime',
+        'contentShrink' => 'Content',
+        'endTime' => 'EndTime',
+        'startTime' => 'StartTime',
         'tenantContextShrink' => 'TenantContext',
     ];
 

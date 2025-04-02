@@ -12,48 +12,56 @@ class ListEventsRequest extends Model
      * @var string
      */
     public $calendarId;
+
     /**
      * @var int
      */
     public $maxAttendees;
+
     /**
      * @var int
      */
     public $maxResults;
+
     /**
      * @var string
      */
     public $nextToken;
+
     /**
      * @var string
      */
     public $seriesMasterId;
+
     /**
      * @var bool
      */
     public $showDeleted;
+
     /**
      * @var string
      */
     public $syncToken;
+
     /**
      * @var string
      */
     public $timeMax;
+
     /**
      * @var string
      */
     public $timeMin;
     protected $_name = [
-        'calendarId'     => 'CalendarId',
-        'maxAttendees'   => 'MaxAttendees',
-        'maxResults'     => 'MaxResults',
-        'nextToken'      => 'NextToken',
+        'calendarId' => 'CalendarId',
+        'maxAttendees' => 'MaxAttendees',
+        'maxResults' => 'MaxResults',
+        'nextToken' => 'NextToken',
         'seriesMasterId' => 'SeriesMasterId',
-        'showDeleted'    => 'ShowDeleted',
-        'syncToken'      => 'SyncToken',
-        'timeMax'        => 'TimeMax',
-        'timeMin'        => 'TimeMin',
+        'showDeleted' => 'ShowDeleted',
+        'syncToken' => 'SyncToken',
+        'timeMax' => 'TimeMax',
+        'timeMin' => 'TimeMin',
     ];
 
     public function validate()

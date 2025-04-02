@@ -12,17 +12,19 @@ class GetNodesShrinkRequest extends Model
      * @var string
      */
     public $nodeIdsShrink;
+
     /**
      * @var string
      */
     public $optionShrink;
+
     /**
      * @var string
      */
     public $tenantContextShrink;
     protected $_name = [
-        'nodeIdsShrink'       => 'NodeIds',
-        'optionShrink'        => 'Option',
+        'nodeIdsShrink' => 'NodeIds',
+        'optionShrink' => 'Option',
         'tenantContextShrink' => 'TenantContext',
     ];
 

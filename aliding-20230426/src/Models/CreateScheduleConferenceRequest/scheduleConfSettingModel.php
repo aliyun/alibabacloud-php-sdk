@@ -14,43 +14,50 @@ class scheduleConfSettingModel extends Model
      * @var string[]
      */
     public $cohostUserIds;
+
     /**
      * @var string
      */
     public $confAllowedCorpId;
+
     /**
      * @var string
      */
     public $hostUserId;
+
     /**
      * @var int
      */
     public $lockRoom;
+
     /**
      * @var moziConfOpenRecordSetting
      */
     public $moziConfOpenRecordSetting;
+
     /**
      * @var moziConfVirtualExtraSetting
      */
     public $moziConfVirtualExtraSetting;
+
     /**
      * @var int
      */
     public $muteOnJoin;
+
     /**
      * @var int
      */
     public $screenShareForbidden;
     protected $_name = [
-        'cohostUserIds'               => 'CohostUserIds',
-        'confAllowedCorpId'           => 'ConfAllowedCorpId',
-        'hostUserId'                  => 'HostUserId',
-        'lockRoom'                    => 'LockRoom',
-        'moziConfOpenRecordSetting'   => 'MoziConfOpenRecordSetting',
+        'cohostUserIds' => 'CohostUserIds',
+        'confAllowedCorpId' => 'ConfAllowedCorpId',
+        'hostUserId' => 'HostUserId',
+        'lockRoom' => 'LockRoom',
+        'moziConfOpenRecordSetting' => 'MoziConfOpenRecordSetting',
         'moziConfVirtualExtraSetting' => 'MoziConfVirtualExtraSetting',
-        'muteOnJoin'                  => 'MuteOnJoin',
-        'screenShareForbidden'        => 'ScreenShareForbidden',
+        'muteOnJoin' => 'MuteOnJoin',
+        'screenShareForbidden' => 'ScreenShareForbidden',
     ];
 
     public function validate()
@@ -73,7 +80,7 @@ class scheduleConfSettingModel extends Model
         if (null !== $this->cohostUserIds) {
             if (\is_array($this->cohostUserIds)) {
                 $res['CohostUserIds'] = [];
-                $n1                   = 0;
+                $n1 = 0;
                 foreach ($this->cohostUserIds as $item1) {
                     $res['CohostUserIds'][$n1++] = $item1;
                 }
@@ -122,7 +129,7 @@ class scheduleConfSettingModel extends Model
         if (isset($map['CohostUserIds'])) {
             if (!empty($map['CohostUserIds'])) {
                 $model->cohostUserIds = [];
-                $n1                   = 0;
+                $n1 = 0;
                 foreach ($map['CohostUserIds'] as $item1) {
                     $model->cohostUserIds[$n1++] = $item1;
                 }

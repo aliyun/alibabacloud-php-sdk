@@ -12,18 +12,20 @@ class visitorInfo extends Model
      * @var string[]
      */
     public $dentryActions;
+
     /**
      * @var string
      */
     public $roleCode;
+
     /**
      * @var string[]
      */
     public $spaceActions;
     protected $_name = [
         'dentryActions' => 'DentryActions',
-        'roleCode'      => 'RoleCode',
-        'spaceActions'  => 'SpaceActions',
+        'roleCode' => 'RoleCode',
+        'spaceActions' => 'SpaceActions',
     ];
 
     public function validate()
@@ -43,7 +45,7 @@ class visitorInfo extends Model
         if (null !== $this->dentryActions) {
             if (\is_array($this->dentryActions)) {
                 $res['DentryActions'] = [];
-                $n1                   = 0;
+                $n1 = 0;
                 foreach ($this->dentryActions as $item1) {
                     $res['DentryActions'][$n1++] = $item1;
                 }
@@ -57,7 +59,7 @@ class visitorInfo extends Model
         if (null !== $this->spaceActions) {
             if (\is_array($this->spaceActions)) {
                 $res['SpaceActions'] = [];
-                $n1                  = 0;
+                $n1 = 0;
                 foreach ($this->spaceActions as $item1) {
                     $res['SpaceActions'][$n1++] = $item1;
                 }
@@ -78,7 +80,7 @@ class visitorInfo extends Model
         if (isset($map['DentryActions'])) {
             if (!empty($map['DentryActions'])) {
                 $model->dentryActions = [];
-                $n1                   = 0;
+                $n1 = 0;
                 foreach ($map['DentryActions'] as $item1) {
                     $model->dentryActions[$n1++] = $item1;
                 }
@@ -92,7 +94,7 @@ class visitorInfo extends Model
         if (isset($map['SpaceActions'])) {
             if (!empty($map['SpaceActions'])) {
                 $model->spaceActions = [];
-                $n1                  = 0;
+                $n1 = 0;
                 foreach ($map['SpaceActions'] as $item1) {
                     $model->spaceActions[$n1++] = $item1;
                 }

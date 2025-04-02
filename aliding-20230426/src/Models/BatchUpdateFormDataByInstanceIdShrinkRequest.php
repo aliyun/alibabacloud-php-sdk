@@ -12,47 +12,55 @@ class BatchUpdateFormDataByInstanceIdShrinkRequest extends Model
      * @var string
      */
     public $appType;
+
     /**
      * @var bool
      */
     public $asynchronousExecution;
+
     /**
      * @var string
      */
     public $formInstanceIdListShrink;
+
     /**
      * @var string
      */
     public $formUuid;
+
     /**
      * @var bool
      */
     public $ignoreEmpty;
+
     /**
      * @var bool
      */
     public $noExecuteExpression;
+
     /**
      * @var string
      */
     public $systemToken;
+
     /**
      * @var string
      */
     public $updateFormDataJson;
+
     /**
      * @var bool
      */
     public $useLatestFormSchemaVersion;
     protected $_name = [
-        'appType'                    => 'AppType',
-        'asynchronousExecution'      => 'AsynchronousExecution',
-        'formInstanceIdListShrink'   => 'FormInstanceIdList',
-        'formUuid'                   => 'FormUuid',
-        'ignoreEmpty'                => 'IgnoreEmpty',
-        'noExecuteExpression'        => 'NoExecuteExpression',
-        'systemToken'                => 'SystemToken',
-        'updateFormDataJson'         => 'UpdateFormDataJson',
+        'appType' => 'AppType',
+        'asynchronousExecution' => 'AsynchronousExecution',
+        'formInstanceIdListShrink' => 'FormInstanceIdList',
+        'formUuid' => 'FormUuid',
+        'ignoreEmpty' => 'IgnoreEmpty',
+        'noExecuteExpression' => 'NoExecuteExpression',
+        'systemToken' => 'SystemToken',
+        'updateFormDataJson' => 'UpdateFormDataJson',
         'useLatestFormSchemaVersion' => 'UseLatestFormSchemaVersion',
     ];
 

@@ -13,18 +13,20 @@ class DeleteTodoTaskRequest extends Model
      * @var tenantContext
      */
     public $tenantContext;
+
     /**
      * @var string
      */
     public $operatorId;
+
     /**
      * @var string
      */
     public $taskId;
     protected $_name = [
         'tenantContext' => 'TenantContext',
-        'operatorId'    => 'operatorId',
-        'taskId'        => 'taskId',
+        'operatorId' => 'operatorId',
+        'taskId' => 'taskId',
     ];
 
     public function validate()

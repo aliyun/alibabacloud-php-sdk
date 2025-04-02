@@ -12,17 +12,19 @@ class CreateMeetingRoomGroupShrinkRequest extends Model
      * @var string
      */
     public $groupName;
+
     /**
      * @var int
      */
     public $parentGroupId;
+
     /**
      * @var string
      */
     public $tenantContextShrink;
     protected $_name = [
-        'groupName'           => 'GroupName',
-        'parentGroupId'       => 'ParentGroupId',
+        'groupName' => 'GroupName',
+        'parentGroupId' => 'ParentGroupId',
         'tenantContextShrink' => 'TenantContext',
     ];
 

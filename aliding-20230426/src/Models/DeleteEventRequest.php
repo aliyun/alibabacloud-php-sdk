@@ -12,17 +12,19 @@ class DeleteEventRequest extends Model
      * @var string
      */
     public $calendarId;
+
     /**
      * @var string
      */
     public $eventId;
+
     /**
      * @var bool
      */
     public $pushNotification;
     protected $_name = [
-        'calendarId'       => 'CalendarId',
-        'eventId'          => 'EventId',
+        'calendarId' => 'CalendarId',
+        'eventId' => 'EventId',
         'pushNotification' => 'pushNotification',
     ];
 

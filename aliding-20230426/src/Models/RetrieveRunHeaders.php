@@ -12,13 +12,14 @@ class RetrieveRunHeaders extends Model
      * @var string[]
      */
     public $commonHeaders;
+
     /**
      * @var string
      */
     public $accountId;
     protected $_name = [
         'commonHeaders' => 'commonHeaders',
-        'accountId'     => 'accountId',
+        'accountId' => 'accountId',
     ];
 
     public function validate()

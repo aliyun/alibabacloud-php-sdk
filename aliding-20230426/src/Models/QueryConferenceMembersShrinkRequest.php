@@ -12,23 +12,26 @@ class QueryConferenceMembersShrinkRequest extends Model
      * @var int
      */
     public $maxResults;
+
     /**
      * @var string
      */
     public $nextToken;
+
     /**
      * @var string
      */
     public $tenantContextShrink;
+
     /**
      * @var string
      */
     public $conferenceId;
     protected $_name = [
-        'maxResults'          => 'MaxResults',
-        'nextToken'           => 'NextToken',
+        'maxResults' => 'MaxResults',
+        'nextToken' => 'NextToken',
         'tenantContextShrink' => 'TenantContext',
-        'conferenceId'        => 'conferenceId',
+        'conferenceId' => 'conferenceId',
     ];
 
     public function validate()

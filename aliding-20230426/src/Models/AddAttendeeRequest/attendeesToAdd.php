@@ -12,12 +12,13 @@ class attendeesToAdd extends Model
      * @var string
      */
     public $id;
+
     /**
      * @var bool
      */
     public $isOptional;
     protected $_name = [
-        'id'         => 'id',
+        'id' => 'id',
         'isOptional' => 'isOptional',
     ];
 

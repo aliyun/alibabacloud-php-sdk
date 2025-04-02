@@ -13,22 +13,25 @@ class QueryLiveWatchUserListRequest extends Model
      * @var string
      */
     public $liveId;
+
     /**
      * @var int
      */
     public $pageNumber;
+
     /**
      * @var int
      */
     public $pageSize;
+
     /**
      * @var tenantContext
      */
     public $tenantContext;
     protected $_name = [
-        'liveId'        => 'LiveId',
-        'pageNumber'    => 'PageNumber',
-        'pageSize'      => 'PageSize',
+        'liveId' => 'LiveId',
+        'pageNumber' => 'PageNumber',
+        'pageSize' => 'PageSize',
         'tenantContext' => 'TenantContext',
     ];
 

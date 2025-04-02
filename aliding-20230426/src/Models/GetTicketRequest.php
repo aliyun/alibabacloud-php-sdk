@@ -13,17 +13,19 @@ class GetTicketRequest extends Model
      * @var string
      */
     public $openTeamId;
+
     /**
      * @var string
      */
     public $openTicketId;
+
     /**
      * @var tenantContext
      */
     public $tenantContext;
     protected $_name = [
-        'openTeamId'    => 'OpenTeamId',
-        'openTicketId'  => 'OpenTicketId',
+        'openTeamId' => 'OpenTeamId',
+        'openTicketId' => 'OpenTicketId',
         'tenantContext' => 'TenantContext',
     ];
 

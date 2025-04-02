@@ -14,17 +14,19 @@ class GetNodesRequest extends Model
      * @var string[]
      */
     public $nodeIds;
+
     /**
      * @var option
      */
     public $option;
+
     /**
      * @var tenantContext
      */
     public $tenantContext;
     protected $_name = [
-        'nodeIds'       => 'NodeIds',
-        'option'        => 'Option',
+        'nodeIds' => 'NodeIds',
+        'option' => 'Option',
         'tenantContext' => 'TenantContext',
     ];
 
@@ -48,7 +50,7 @@ class GetNodesRequest extends Model
         if (null !== $this->nodeIds) {
             if (\is_array($this->nodeIds)) {
                 $res['NodeIds'] = [];
-                $n1             = 0;
+                $n1 = 0;
                 foreach ($this->nodeIds as $item1) {
                     $res['NodeIds'][$n1++] = $item1;
                 }
@@ -77,7 +79,7 @@ class GetNodesRequest extends Model
         if (isset($map['NodeIds'])) {
             if (!empty($map['NodeIds'])) {
                 $model->nodeIds = [];
-                $n1             = 0;
+                $n1 = 0;
                 foreach ($map['NodeIds'] as $item1) {
                     $model->nodeIds[$n1++] = $item1;
                 }

@@ -13,53 +13,62 @@ class originator extends Model
      * @var string
      */
     public $departmentDescription;
+
     /**
      * @var string
      */
     public $displayEnName;
+
     /**
      * @var string
      */
     public $displayName;
+
     /**
      * @var masterDataDepartments[]
      */
     public $masterDataDepartments;
+
     /**
      * @var string
      */
     public $orderNumber;
+
     /**
      * @var string
      */
     public $personalPhoto;
+
     /**
      * @var string
      */
     public $status;
+
     /**
      * @var string
      */
     public $tbWang;
+
     /**
      * @var string
      */
     public $userId;
+
     /**
      * @var string
      */
     public $userInfo;
     protected $_name = [
         'departmentDescription' => 'DepartmentDescription',
-        'displayEnName'         => 'DisplayEnName',
-        'displayName'           => 'DisplayName',
+        'displayEnName' => 'DisplayEnName',
+        'displayName' => 'DisplayName',
         'masterDataDepartments' => 'MasterDataDepartments',
-        'orderNumber'           => 'OrderNumber',
-        'personalPhoto'         => 'PersonalPhoto',
-        'status'                => 'Status',
-        'tbWang'                => 'TbWang',
-        'userId'                => 'UserId',
-        'userInfo'              => 'UserInfo',
+        'orderNumber' => 'OrderNumber',
+        'personalPhoto' => 'PersonalPhoto',
+        'status' => 'Status',
+        'tbWang' => 'TbWang',
+        'userId' => 'UserId',
+        'userInfo' => 'UserInfo',
     ];
 
     public function validate()
@@ -88,7 +97,7 @@ class originator extends Model
         if (null !== $this->masterDataDepartments) {
             if (\is_array($this->masterDataDepartments)) {
                 $res['MasterDataDepartments'] = [];
-                $n1                           = 0;
+                $n1 = 0;
                 foreach ($this->masterDataDepartments as $item1) {
                     $res['MasterDataDepartments'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -145,7 +154,7 @@ class originator extends Model
         if (isset($map['MasterDataDepartments'])) {
             if (!empty($map['MasterDataDepartments'])) {
                 $model->masterDataDepartments = [];
-                $n1                           = 0;
+                $n1 = 0;
                 foreach ($map['MasterDataDepartments'] as $item1) {
                     $model->masterDataDepartments[$n1++] = masterDataDepartments::fromMap($item1);
                 }

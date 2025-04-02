@@ -12,17 +12,19 @@ class AddMeetingRoomsShrinkRequest extends Model
      * @var string
      */
     public $calendarId;
+
     /**
      * @var string
      */
     public $eventId;
+
     /**
      * @var string
      */
     public $meetingRoomsToAddShrink;
     protected $_name = [
-        'calendarId'              => 'CalendarId',
-        'eventId'                 => 'EventId',
+        'calendarId' => 'CalendarId',
+        'eventId' => 'EventId',
         'meetingRoomsToAddShrink' => 'MeetingRoomsToAdd',
     ];
 

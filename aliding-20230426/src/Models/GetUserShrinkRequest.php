@@ -12,13 +12,14 @@ class GetUserShrinkRequest extends Model
      * @var string
      */
     public $tenantContextShrink;
+
     /**
      * @var string
      */
     public $language;
     protected $_name = [
         'tenantContextShrink' => 'TenantContext',
-        'language'            => 'language',
+        'language' => 'language',
     ];
 
     public function validate()

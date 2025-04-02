@@ -13,28 +13,32 @@ class GetFileDownloadInfoResponseBody extends Model
      * @var headerSignatureInfo
      */
     public $headerSignatureInfo;
+
     /**
      * @var string
      */
     public $protocol;
+
     /**
      * @var string
      */
     public $requestId;
+
     /**
      * @var string
      */
     public $vendorRequestId;
+
     /**
      * @var string
      */
     public $vendorType;
     protected $_name = [
         'headerSignatureInfo' => 'headerSignatureInfo',
-        'protocol'            => 'protocol',
-        'requestId'           => 'requestId',
-        'vendorRequestId'     => 'vendorRequestId',
-        'vendorType'          => 'vendorType',
+        'protocol' => 'protocol',
+        'requestId' => 'requestId',
+        'vendorRequestId' => 'vendorRequestId',
+        'vendorType' => 'vendorType',
     ];
 
     public function validate()

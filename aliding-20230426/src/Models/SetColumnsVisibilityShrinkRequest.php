@@ -12,33 +12,38 @@ class SetColumnsVisibilityShrinkRequest extends Model
      * @var int
      */
     public $column;
+
     /**
      * @var int
      */
     public $columnCount;
+
     /**
      * @var string
      */
     public $sheetId;
+
     /**
      * @var string
      */
     public $tenantContextShrink;
+
     /**
      * @var string
      */
     public $visibility;
+
     /**
      * @var string
      */
     public $workbookId;
     protected $_name = [
-        'column'              => 'Column',
-        'columnCount'         => 'ColumnCount',
-        'sheetId'             => 'SheetId',
+        'column' => 'Column',
+        'columnCount' => 'ColumnCount',
+        'sheetId' => 'SheetId',
         'tenantContextShrink' => 'TenantContext',
-        'visibility'          => 'Visibility',
-        'workbookId'          => 'WorkbookId',
+        'visibility' => 'Visibility',
+        'workbookId' => 'WorkbookId',
     ];
 
     public function validate()

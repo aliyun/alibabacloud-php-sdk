@@ -12,43 +12,50 @@ class UpdateRangeShrinkRequest extends Model
      * @var string
      */
     public $backgroundColorsShrink;
+
     /**
      * @var string
      */
     public $hyperlinksShrink;
+
     /**
      * @var string
      */
     public $numberFormat;
+
     /**
      * @var string
      */
     public $rangeAddress;
+
     /**
      * @var string
      */
     public $sheetId;
+
     /**
      * @var string
      */
     public $tenantContextShrink;
+
     /**
      * @var string
      */
     public $valuesShrink;
+
     /**
      * @var string
      */
     public $workbookId;
     protected $_name = [
         'backgroundColorsShrink' => 'BackgroundColors',
-        'hyperlinksShrink'       => 'Hyperlinks',
-        'numberFormat'           => 'NumberFormat',
-        'rangeAddress'           => 'RangeAddress',
-        'sheetId'                => 'SheetId',
-        'tenantContextShrink'    => 'TenantContext',
-        'valuesShrink'           => 'Values',
-        'workbookId'             => 'WorkbookId',
+        'hyperlinksShrink' => 'Hyperlinks',
+        'numberFormat' => 'NumberFormat',
+        'rangeAddress' => 'RangeAddress',
+        'sheetId' => 'SheetId',
+        'tenantContextShrink' => 'TenantContext',
+        'valuesShrink' => 'Values',
+        'workbookId' => 'WorkbookId',
     ];
 
     public function validate()

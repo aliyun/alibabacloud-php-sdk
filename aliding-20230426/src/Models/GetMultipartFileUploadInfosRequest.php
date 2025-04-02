@@ -14,23 +14,26 @@ class GetMultipartFileUploadInfosRequest extends Model
      * @var option
      */
     public $option;
+
     /**
      * @var int[]
      */
     public $partNumbers;
+
     /**
      * @var tenantContext
      */
     public $tenantContext;
+
     /**
      * @var string
      */
     public $uploadKey;
     protected $_name = [
-        'option'        => 'Option',
-        'partNumbers'   => 'PartNumbers',
+        'option' => 'Option',
+        'partNumbers' => 'PartNumbers',
         'tenantContext' => 'TenantContext',
-        'uploadKey'     => 'UploadKey',
+        'uploadKey' => 'UploadKey',
     ];
 
     public function validate()
@@ -57,7 +60,7 @@ class GetMultipartFileUploadInfosRequest extends Model
         if (null !== $this->partNumbers) {
             if (\is_array($this->partNumbers)) {
                 $res['PartNumbers'] = [];
-                $n1                 = 0;
+                $n1 = 0;
                 foreach ($this->partNumbers as $item1) {
                     $res['PartNumbers'][$n1++] = $item1;
                 }
@@ -90,7 +93,7 @@ class GetMultipartFileUploadInfosRequest extends Model
         if (isset($map['PartNumbers'])) {
             if (!empty($map['PartNumbers'])) {
                 $model->partNumbers = [];
-                $n1                 = 0;
+                $n1 = 0;
                 foreach ($map['PartNumbers'] as $item1) {
                     $model->partNumbers[$n1++] = $item1;
                 }

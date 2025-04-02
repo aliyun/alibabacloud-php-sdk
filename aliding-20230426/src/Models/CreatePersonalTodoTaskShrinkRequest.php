@@ -12,43 +12,50 @@ class CreatePersonalTodoTaskShrinkRequest extends Model
      * @var string
      */
     public $description;
+
     /**
      * @var int
      */
     public $dueTime;
+
     /**
      * @var string
      */
     public $executorIdsShrink;
+
     /**
      * @var string
      */
     public $notifyConfigsShrink;
+
     /**
      * @var string
      */
     public $participantIdsShrink;
+
     /**
      * @var int
      */
     public $reminderTimeStamp;
+
     /**
      * @var string
      */
     public $subject;
+
     /**
      * @var string
      */
     public $tenantContextShrink;
     protected $_name = [
-        'description'          => 'Description',
-        'dueTime'              => 'DueTime',
-        'executorIdsShrink'    => 'ExecutorIds',
-        'notifyConfigsShrink'  => 'NotifyConfigs',
+        'description' => 'Description',
+        'dueTime' => 'DueTime',
+        'executorIdsShrink' => 'ExecutorIds',
+        'notifyConfigsShrink' => 'NotifyConfigs',
         'participantIdsShrink' => 'ParticipantIds',
-        'reminderTimeStamp'    => 'ReminderTimeStamp',
-        'subject'              => 'Subject',
-        'tenantContextShrink'  => 'TenantContext',
+        'reminderTimeStamp' => 'ReminderTimeStamp',
+        'subject' => 'Subject',
+        'tenantContextShrink' => 'TenantContext',
     ];
 
     public function validate()

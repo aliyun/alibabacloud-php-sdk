@@ -12,28 +12,32 @@ class InitMultipartFileUploadResponseBody extends Model
      * @var string
      */
     public $requestId;
+
     /**
      * @var string
      */
     public $storageDriver;
+
     /**
      * @var string
      */
     public $uploadKey;
+
     /**
      * @var string
      */
     public $vendorRequestId;
+
     /**
      * @var string
      */
     public $vendorType;
     protected $_name = [
-        'requestId'       => 'requestId',
-        'storageDriver'   => 'storageDriver',
-        'uploadKey'       => 'uploadKey',
+        'requestId' => 'requestId',
+        'storageDriver' => 'storageDriver',
+        'uploadKey' => 'uploadKey',
         'vendorRequestId' => 'vendorRequestId',
-        'vendorType'      => 'vendorType',
+        'vendorType' => 'vendorType',
     ];
 
     public function validate()

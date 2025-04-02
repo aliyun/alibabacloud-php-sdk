@@ -12,13 +12,14 @@ class GetUserIdShrinkRequest extends Model
      * @var string
      */
     public $tenantContextShrink;
+
     /**
      * @var string
      */
     public $unionId;
     protected $_name = [
         'tenantContextShrink' => 'TenantContext',
-        'unionId'             => 'UnionId',
+        'unionId' => 'UnionId',
     ];
 
     public function validate()

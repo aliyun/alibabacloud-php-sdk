@@ -13,28 +13,32 @@ class WearOrgHonorRequest extends Model
      * @var tenantContext
      */
     public $tenantContext;
+
     /**
      * @var string
      */
     public $honorId;
+
     /**
      * @var int
      */
     public $orgId;
+
     /**
      * @var string
      */
     public $userId;
+
     /**
      * @var bool
      */
     public $wear;
     protected $_name = [
         'tenantContext' => 'TenantContext',
-        'honorId'       => 'honorId',
-        'orgId'         => 'orgId',
-        'userId'        => 'userId',
-        'wear'          => 'wear',
+        'honorId' => 'honorId',
+        'orgId' => 'orgId',
+        'userId' => 'userId',
+        'wear' => 'wear',
     ];
 
     public function validate()

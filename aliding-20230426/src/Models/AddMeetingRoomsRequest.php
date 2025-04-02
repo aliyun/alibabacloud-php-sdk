@@ -13,17 +13,19 @@ class AddMeetingRoomsRequest extends Model
      * @var string
      */
     public $calendarId;
+
     /**
      * @var string
      */
     public $eventId;
+
     /**
      * @var meetingRoomsToAdd[]
      */
     public $meetingRoomsToAdd;
     protected $_name = [
-        'calendarId'        => 'CalendarId',
-        'eventId'           => 'EventId',
+        'calendarId' => 'CalendarId',
+        'eventId' => 'EventId',
         'meetingRoomsToAdd' => 'MeetingRoomsToAdd',
     ];
 
@@ -49,7 +51,7 @@ class AddMeetingRoomsRequest extends Model
         if (null !== $this->meetingRoomsToAdd) {
             if (\is_array($this->meetingRoomsToAdd)) {
                 $res['MeetingRoomsToAdd'] = [];
-                $n1                       = 0;
+                $n1 = 0;
                 foreach ($this->meetingRoomsToAdd as $item1) {
                     $res['MeetingRoomsToAdd'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -78,7 +80,7 @@ class AddMeetingRoomsRequest extends Model
         if (isset($map['MeetingRoomsToAdd'])) {
             if (!empty($map['MeetingRoomsToAdd'])) {
                 $model->meetingRoomsToAdd = [];
-                $n1                       = 0;
+                $n1 = 0;
                 foreach ($map['MeetingRoomsToAdd'] as $item1) {
                     $model->meetingRoomsToAdd[$n1++] = meetingRoomsToAdd::fromMap($item1);
                 }

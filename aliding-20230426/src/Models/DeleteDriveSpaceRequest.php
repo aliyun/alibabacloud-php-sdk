@@ -13,12 +13,13 @@ class DeleteDriveSpaceRequest extends Model
      * @var string
      */
     public $spaceId;
+
     /**
      * @var tenantContext
      */
     public $tenantContext;
     protected $_name = [
-        'spaceId'       => 'SpaceId',
+        'spaceId' => 'SpaceId',
         'tenantContext' => 'TenantContext',
     ];
 

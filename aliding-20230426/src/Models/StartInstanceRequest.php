@@ -12,43 +12,50 @@ class StartInstanceRequest extends Model
      * @var string
      */
     public $appType;
+
     /**
      * @var string
      */
     public $departmentId;
+
     /**
      * @var string
      */
     public $formDataJson;
+
     /**
      * @var string
      */
     public $formUuid;
+
     /**
      * @var string
      */
     public $language;
+
     /**
      * @var string
      */
     public $processCode;
+
     /**
      * @var string
      */
     public $processData;
+
     /**
      * @var string
      */
     public $systemToken;
     protected $_name = [
-        'appType'      => 'AppType',
+        'appType' => 'AppType',
         'departmentId' => 'DepartmentId',
         'formDataJson' => 'FormDataJson',
-        'formUuid'     => 'FormUuid',
-        'language'     => 'Language',
-        'processCode'  => 'ProcessCode',
-        'processData'  => 'ProcessData',
-        'systemToken'  => 'SystemToken',
+        'formUuid' => 'FormUuid',
+        'language' => 'Language',
+        'processCode' => 'ProcessCode',
+        'processData' => 'ProcessData',
+        'systemToken' => 'SystemToken',
     ];
 
     public function validate()

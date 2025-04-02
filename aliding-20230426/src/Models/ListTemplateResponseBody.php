@@ -13,33 +13,38 @@ class ListTemplateResponseBody extends Model
      * @var bool
      */
     public $hasMore;
+
     /**
      * @var string
      */
     public $nextToken;
+
     /**
      * @var string
      */
     public $requestId;
+
     /**
      * @var templateList[]
      */
     public $templateList;
+
     /**
      * @var string
      */
     public $vendorRequestId;
+
     /**
      * @var string
      */
     public $vendorType;
     protected $_name = [
-        'hasMore'         => 'hasMore',
-        'nextToken'       => 'nextToken',
-        'requestId'       => 'requestId',
-        'templateList'    => 'templateList',
+        'hasMore' => 'hasMore',
+        'nextToken' => 'nextToken',
+        'requestId' => 'requestId',
+        'templateList' => 'templateList',
         'vendorRequestId' => 'vendorRequestId',
-        'vendorType'      => 'vendorType',
+        'vendorType' => 'vendorType',
     ];
 
     public function validate()
@@ -68,7 +73,7 @@ class ListTemplateResponseBody extends Model
         if (null !== $this->templateList) {
             if (\is_array($this->templateList)) {
                 $res['templateList'] = [];
-                $n1                  = 0;
+                $n1 = 0;
                 foreach ($this->templateList as $item1) {
                     $res['templateList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -109,7 +114,7 @@ class ListTemplateResponseBody extends Model
         if (isset($map['templateList'])) {
             if (!empty($map['templateList'])) {
                 $model->templateList = [];
-                $n1                  = 0;
+                $n1 = 0;
                 foreach ($map['templateList'] as $item1) {
                     $model->templateList[$n1++] = templateList::fromMap($item1);
                 }

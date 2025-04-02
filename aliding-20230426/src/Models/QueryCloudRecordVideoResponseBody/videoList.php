@@ -12,48 +12,56 @@ class videoList extends Model
      * @var int
      */
     public $duration;
+
     /**
      * @var int
      */
     public $endTime;
+
     /**
      * @var int
      */
     public $fileSize;
+
     /**
      * @var string
      */
     public $mediaId;
+
     /**
      * @var string
      */
     public $recordId;
+
     /**
      * @var int
      */
     public $recordType;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var int
      */
     public $startTime;
+
     /**
      * @var string
      */
     public $userId;
     protected $_name = [
-        'duration'   => 'Duration',
-        'endTime'    => 'EndTime',
-        'fileSize'   => 'FileSize',
-        'mediaId'    => 'MediaId',
-        'recordId'   => 'RecordId',
+        'duration' => 'Duration',
+        'endTime' => 'EndTime',
+        'fileSize' => 'FileSize',
+        'mediaId' => 'MediaId',
+        'recordId' => 'RecordId',
         'recordType' => 'RecordType',
-        'regionId'   => 'RegionId',
-        'startTime'  => 'StartTime',
-        'userId'     => 'UserId',
+        'regionId' => 'RegionId',
+        'startTime' => 'StartTime',
+        'userId' => 'UserId',
     ];
 
     public function validate()

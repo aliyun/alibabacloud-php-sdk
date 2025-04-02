@@ -12,12 +12,13 @@ class roomLocation extends Model
      * @var string
      */
     public $desc;
+
     /**
      * @var string
      */
     public $title;
     protected $_name = [
-        'desc'  => 'Desc',
+        'desc' => 'Desc',
         'title' => 'Title',
     ];
 

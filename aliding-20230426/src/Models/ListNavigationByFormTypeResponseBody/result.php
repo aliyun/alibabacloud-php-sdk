@@ -13,18 +13,20 @@ class result extends Model
      * @var string
      */
     public $formUuid;
+
     /**
      * @var string
      */
     public $processCode;
+
     /**
      * @var title
      */
     public $title;
     protected $_name = [
-        'formUuid'    => 'FormUuid',
+        'formUuid' => 'FormUuid',
         'processCode' => 'ProcessCode',
-        'title'       => 'Title',
+        'title' => 'Title',
     ];
 
     public function validate()

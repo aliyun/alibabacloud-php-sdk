@@ -12,33 +12,38 @@ class groupLiveList extends Model
      * @var string
      */
     public $anchorNickname;
+
     /**
      * @var string
      */
     public $anchorUnionId;
+
     /**
      * @var int
      */
     public $liveEndTime;
+
     /**
      * @var int
      */
     public $liveStartTime;
+
     /**
      * @var string
      */
     public $liveUuid;
+
     /**
      * @var string
      */
     public $title;
     protected $_name = [
         'anchorNickname' => 'AnchorNickname',
-        'anchorUnionId'  => 'AnchorUnionId',
-        'liveEndTime'    => 'LiveEndTime',
-        'liveStartTime'  => 'LiveStartTime',
-        'liveUuid'       => 'LiveUuid',
-        'title'          => 'Title',
+        'anchorUnionId' => 'AnchorUnionId',
+        'liveEndTime' => 'LiveEndTime',
+        'liveStartTime' => 'LiveStartTime',
+        'liveUuid' => 'LiveUuid',
+        'title' => 'Title',
     ];
 
     public function validate()

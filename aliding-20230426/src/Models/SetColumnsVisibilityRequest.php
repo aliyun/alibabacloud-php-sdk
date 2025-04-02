@@ -13,33 +13,38 @@ class SetColumnsVisibilityRequest extends Model
      * @var int
      */
     public $column;
+
     /**
      * @var int
      */
     public $columnCount;
+
     /**
      * @var string
      */
     public $sheetId;
+
     /**
      * @var tenantContext
      */
     public $tenantContext;
+
     /**
      * @var string
      */
     public $visibility;
+
     /**
      * @var string
      */
     public $workbookId;
     protected $_name = [
-        'column'        => 'Column',
-        'columnCount'   => 'ColumnCount',
-        'sheetId'       => 'SheetId',
+        'column' => 'Column',
+        'columnCount' => 'ColumnCount',
+        'sheetId' => 'SheetId',
         'tenantContext' => 'TenantContext',
-        'visibility'    => 'Visibility',
-        'workbookId'    => 'WorkbookId',
+        'visibility' => 'Visibility',
+        'workbookId' => 'WorkbookId',
     ];
 
     public function validate()

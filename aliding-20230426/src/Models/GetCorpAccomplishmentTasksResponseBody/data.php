@@ -12,83 +12,98 @@ class data extends Model
      * @var string
      */
     public $activeTimeGMT;
+
     /**
      * @var string
      */
     public $actualActionerId;
+
     /**
      * @var string
      */
     public $appType;
+
     /**
      * @var string
      */
     public $createTimeGMT;
+
     /**
      * @var string
      */
     public $finishTimeGMT;
+
     /**
      * @var string
      */
     public $originatorEmail;
+
     /**
      * @var string
      */
     public $originatorId;
+
     /**
      * @var string
      */
     public $originatorName;
+
     /**
      * @var string
      */
     public $originatorNameInEnglish;
+
     /**
      * @var string
      */
     public $originatorNickName;
+
     /**
      * @var string
      */
     public $originatorNickNameInEnglish;
+
     /**
      * @var string
      */
     public $originatorPhoto;
+
     /**
      * @var string
      */
     public $outResult;
+
     /**
      * @var string
      */
     public $outResultName;
+
     /**
      * @var string
      */
     public $processInstanceId;
+
     /**
      * @var string
      */
     public $title;
     protected $_name = [
-        'activeTimeGMT'               => 'ActiveTimeGMT',
-        'actualActionerId'            => 'ActualActionerId',
-        'appType'                     => 'AppType',
-        'createTimeGMT'               => 'CreateTimeGMT',
-        'finishTimeGMT'               => 'FinishTimeGMT',
-        'originatorEmail'             => 'OriginatorEmail',
-        'originatorId'                => 'OriginatorId',
-        'originatorName'              => 'OriginatorName',
-        'originatorNameInEnglish'     => 'OriginatorNameInEnglish',
-        'originatorNickName'          => 'OriginatorNickName',
+        'activeTimeGMT' => 'ActiveTimeGMT',
+        'actualActionerId' => 'ActualActionerId',
+        'appType' => 'AppType',
+        'createTimeGMT' => 'CreateTimeGMT',
+        'finishTimeGMT' => 'FinishTimeGMT',
+        'originatorEmail' => 'OriginatorEmail',
+        'originatorId' => 'OriginatorId',
+        'originatorName' => 'OriginatorName',
+        'originatorNameInEnglish' => 'OriginatorNameInEnglish',
+        'originatorNickName' => 'OriginatorNickName',
         'originatorNickNameInEnglish' => 'OriginatorNickNameInEnglish',
-        'originatorPhoto'             => 'OriginatorPhoto',
-        'outResult'                   => 'OutResult',
-        'outResultName'               => 'OutResultName',
-        'processInstanceId'           => 'ProcessInstanceId',
-        'title'                       => 'Title',
+        'originatorPhoto' => 'OriginatorPhoto',
+        'outResult' => 'OutResult',
+        'outResultName' => 'OutResultName',
+        'processInstanceId' => 'ProcessInstanceId',
+        'title' => 'Title',
     ];
 
     public function validate()

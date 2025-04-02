@@ -12,38 +12,44 @@ class UpdateLiveShrinkRequest extends Model
      * @var string
      */
     public $coverUrl;
+
     /**
      * @var string
      */
     public $introduction;
+
     /**
      * @var string
      */
     public $liveId;
+
     /**
      * @var int
      */
     public $preEndTime;
+
     /**
      * @var int
      */
     public $preStartTime;
+
     /**
      * @var string
      */
     public $tenantContextShrink;
+
     /**
      * @var string
      */
     public $title;
     protected $_name = [
-        'coverUrl'            => 'CoverUrl',
-        'introduction'        => 'Introduction',
-        'liveId'              => 'LiveId',
-        'preEndTime'          => 'PreEndTime',
-        'preStartTime'        => 'PreStartTime',
+        'coverUrl' => 'CoverUrl',
+        'introduction' => 'Introduction',
+        'liveId' => 'LiveId',
+        'preEndTime' => 'PreEndTime',
+        'preStartTime' => 'PreStartTime',
         'tenantContextShrink' => 'TenantContext',
-        'title'               => 'Title',
+        'title' => 'Title',
     ];
 
     public function validate()

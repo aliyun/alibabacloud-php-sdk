@@ -13,12 +13,13 @@ class GetTodoTaskRequest extends Model
      * @var string
      */
     public $taskId;
+
     /**
      * @var tenantContext
      */
     public $tenantContext;
     protected $_name = [
-        'taskId'        => 'TaskId',
+        'taskId' => 'TaskId',
         'tenantContext' => 'TenantContext',
     ];
 

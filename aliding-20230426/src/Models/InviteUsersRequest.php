@@ -15,22 +15,25 @@ class InviteUsersRequest extends Model
      * @var inviteeList[]
      */
     public $inviteeList;
+
     /**
      * @var tenantContext
      */
     public $tenantContext;
+
     /**
      * @var string
      */
     public $conferenceId;
+
     /**
      * @var phoneInviteeList[]
      */
     public $phoneInviteeList;
     protected $_name = [
-        'inviteeList'      => 'InviteeList',
-        'tenantContext'    => 'TenantContext',
-        'conferenceId'     => 'conferenceId',
+        'inviteeList' => 'InviteeList',
+        'tenantContext' => 'TenantContext',
+        'conferenceId' => 'conferenceId',
         'phoneInviteeList' => 'phoneInviteeList',
     ];
 
@@ -54,7 +57,7 @@ class InviteUsersRequest extends Model
         if (null !== $this->inviteeList) {
             if (\is_array($this->inviteeList)) {
                 $res['InviteeList'] = [];
-                $n1                 = 0;
+                $n1 = 0;
                 foreach ($this->inviteeList as $item1) {
                     $res['InviteeList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -72,7 +75,7 @@ class InviteUsersRequest extends Model
         if (null !== $this->phoneInviteeList) {
             if (\is_array($this->phoneInviteeList)) {
                 $res['phoneInviteeList'] = [];
-                $n1                      = 0;
+                $n1 = 0;
                 foreach ($this->phoneInviteeList as $item1) {
                     $res['phoneInviteeList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -93,7 +96,7 @@ class InviteUsersRequest extends Model
         if (isset($map['InviteeList'])) {
             if (!empty($map['InviteeList'])) {
                 $model->inviteeList = [];
-                $n1                 = 0;
+                $n1 = 0;
                 foreach ($map['InviteeList'] as $item1) {
                     $model->inviteeList[$n1++] = inviteeList::fromMap($item1);
                 }
@@ -111,7 +114,7 @@ class InviteUsersRequest extends Model
         if (isset($map['phoneInviteeList'])) {
             if (!empty($map['phoneInviteeList'])) {
                 $model->phoneInviteeList = [];
-                $n1                      = 0;
+                $n1 = 0;
                 foreach ($map['phoneInviteeList'] as $item1) {
                     $model->phoneInviteeList[$n1++] = phoneInviteeList::fromMap($item1);
                 }

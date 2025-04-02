@@ -12,23 +12,26 @@ class GetDocContentShrinkRequest extends Model
      * @var string
      */
     public $dentryUuid;
+
     /**
      * @var string
      */
     public $targetFormat;
+
     /**
      * @var string
      */
     public $tenantContextShrink;
+
     /**
      * @var string
      */
     public $userToken;
     protected $_name = [
-        'dentryUuid'          => 'DentryUuid',
-        'targetFormat'        => 'TargetFormat',
+        'dentryUuid' => 'DentryUuid',
+        'targetFormat' => 'TargetFormat',
         'tenantContextShrink' => 'TenantContext',
-        'userToken'           => 'userToken',
+        'userToken' => 'userToken',
     ];
 
     public function validate()

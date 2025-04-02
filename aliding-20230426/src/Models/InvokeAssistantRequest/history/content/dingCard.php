@@ -12,28 +12,32 @@ class dingCard extends Model
      * @var string
      */
     public $cardDesc;
+
     /**
      * @var string
      */
     public $content;
+
     /**
      * @var string
      */
     public $contentType;
+
     /**
      * @var bool
      */
     public $finished;
+
     /**
      * @var string
      */
     public $templateId;
     protected $_name = [
-        'cardDesc'    => 'cardDesc',
-        'content'     => 'content',
+        'cardDesc' => 'cardDesc',
+        'content' => 'content',
         'contentType' => 'contentType',
-        'finished'    => 'finished',
-        'templateId'  => 'templateId',
+        'finished' => 'finished',
+        'templateId' => 'templateId',
     ];
 
     public function validate()

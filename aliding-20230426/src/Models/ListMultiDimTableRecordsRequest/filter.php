@@ -13,13 +13,14 @@ class filter extends Model
      * @var string
      */
     public $combination;
+
     /**
      * @var conditions[]
      */
     public $conditions;
     protected $_name = [
         'combination' => 'Combination',
-        'conditions'  => 'Conditions',
+        'conditions' => 'Conditions',
     ];
 
     public function validate()
@@ -40,7 +41,7 @@ class filter extends Model
         if (null !== $this->conditions) {
             if (\is_array($this->conditions)) {
                 $res['Conditions'] = [];
-                $n1                = 0;
+                $n1 = 0;
                 foreach ($this->conditions as $item1) {
                     $res['Conditions'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -65,7 +66,7 @@ class filter extends Model
         if (isset($map['Conditions'])) {
             if (!empty($map['Conditions'])) {
                 $model->conditions = [];
-                $n1                = 0;
+                $n1 = 0;
                 foreach ($map['Conditions'] as $item1) {
                     $model->conditions[$n1++] = conditions::fromMap($item1);
                 }

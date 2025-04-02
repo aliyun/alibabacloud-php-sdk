@@ -12,6 +12,7 @@ class end extends Model
      * @var string
      */
     public $dateTime;
+
     /**
      * @var string
      */

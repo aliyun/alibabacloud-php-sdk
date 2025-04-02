@@ -12,22 +12,25 @@ class GetNodeShrinkRequest extends Model
      * @var string
      */
     public $nodeId;
+
     /**
      * @var string
      */
     public $tenantContextShrink;
+
     /**
      * @var bool
      */
     public $withPermissionRole;
+
     /**
      * @var bool
      */
     public $withStatisticalInfo;
     protected $_name = [
-        'nodeId'              => 'NodeId',
+        'nodeId' => 'NodeId',
         'tenantContextShrink' => 'TenantContext',
-        'withPermissionRole'  => 'WithPermissionRole',
+        'withPermissionRole' => 'WithPermissionRole',
         'withStatisticalInfo' => 'WithStatisticalInfo',
     ];
 

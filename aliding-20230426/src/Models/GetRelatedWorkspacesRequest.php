@@ -13,6 +13,7 @@ class GetRelatedWorkspacesRequest extends Model
      * @var bool
      */
     public $includeRecent;
+
     /**
      * @var tenantContext
      */

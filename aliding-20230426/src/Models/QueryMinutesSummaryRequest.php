@@ -13,17 +13,19 @@ class QueryMinutesSummaryRequest extends Model
      * @var tenantContext
      */
     public $tenantContext;
+
     /**
      * @var string
      */
     public $conferenceId;
+
     /**
      * @var string[]
      */
     public $summaryTypeList;
     protected $_name = [
-        'tenantContext'   => 'TenantContext',
-        'conferenceId'    => 'conferenceId',
+        'tenantContext' => 'TenantContext',
+        'conferenceId' => 'conferenceId',
         'summaryTypeList' => 'summaryTypeList',
     ];
 
@@ -52,7 +54,7 @@ class QueryMinutesSummaryRequest extends Model
         if (null !== $this->summaryTypeList) {
             if (\is_array($this->summaryTypeList)) {
                 $res['summaryTypeList'] = [];
-                $n1                     = 0;
+                $n1 = 0;
                 foreach ($this->summaryTypeList as $item1) {
                     $res['summaryTypeList'][$n1++] = $item1;
                 }
@@ -81,7 +83,7 @@ class QueryMinutesSummaryRequest extends Model
         if (isset($map['summaryTypeList'])) {
             if (!empty($map['summaryTypeList'])) {
                 $model->summaryTypeList = [];
-                $n1                     = 0;
+                $n1 = 0;
                 foreach ($map['summaryTypeList'] as $item1) {
                     $model->summaryTypeList[$n1++] = $item1;
                 }

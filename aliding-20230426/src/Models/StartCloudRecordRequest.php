@@ -13,23 +13,26 @@ class StartCloudRecordRequest extends Model
      * @var string
      */
     public $mode;
+
     /**
      * @var string
      */
     public $smallWindowPosition;
+
     /**
      * @var tenantContext
      */
     public $tenantContext;
+
     /**
      * @var string
      */
     public $conferenceId;
     protected $_name = [
-        'mode'                => 'Mode',
+        'mode' => 'Mode',
         'smallWindowPosition' => 'SmallWindowPosition',
-        'tenantContext'       => 'TenantContext',
-        'conferenceId'        => 'conferenceId',
+        'tenantContext' => 'TenantContext',
+        'conferenceId' => 'conferenceId',
     ];
 
     public function validate()

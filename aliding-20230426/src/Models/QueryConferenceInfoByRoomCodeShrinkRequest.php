@@ -12,23 +12,26 @@ class QueryConferenceInfoByRoomCodeShrinkRequest extends Model
      * @var string
      */
     public $tenantContextShrink;
+
     /**
      * @var int
      */
     public $maxResults;
+
     /**
      * @var string
      */
     public $nextToken;
+
     /**
      * @var string
      */
     public $roomCode;
     protected $_name = [
         'tenantContextShrink' => 'TenantContext',
-        'maxResults'          => 'maxResults',
-        'nextToken'           => 'nextToken',
-        'roomCode'            => 'roomCode',
+        'maxResults' => 'maxResults',
+        'nextToken' => 'nextToken',
+        'roomCode' => 'roomCode',
     ];
 
     public function validate()

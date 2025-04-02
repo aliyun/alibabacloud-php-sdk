@@ -12,12 +12,13 @@ class StartCloudRecordResponseBody extends Model
      * @var string
      */
     public $code;
+
     /**
      * @var string
      */
     public $requestId;
     protected $_name = [
-        'code'      => 'code',
+        'code' => 'code',
         'requestId' => 'requestId',
     ];
 

@@ -12,28 +12,32 @@ class content extends Model
      * @var string[]
      */
     public $images;
+
     /**
      * @var string
      */
     public $key;
+
     /**
      * @var string
      */
     public $sort;
+
     /**
      * @var string
      */
     public $type;
+
     /**
      * @var string
      */
     public $value;
     protected $_name = [
         'images' => 'Images',
-        'key'    => 'Key',
-        'sort'   => 'Sort',
-        'type'   => 'Type',
-        'value'  => 'Value',
+        'key' => 'Key',
+        'sort' => 'Sort',
+        'type' => 'Type',
+        'value' => 'Value',
     ];
 
     public function validate()
@@ -50,7 +54,7 @@ class content extends Model
         if (null !== $this->images) {
             if (\is_array($this->images)) {
                 $res['Images'] = [];
-                $n1            = 0;
+                $n1 = 0;
                 foreach ($this->images as $item1) {
                     $res['Images'][$n1++] = $item1;
                 }
@@ -87,7 +91,7 @@ class content extends Model
         if (isset($map['Images'])) {
             if (!empty($map['Images'])) {
                 $model->images = [];
-                $n1            = 0;
+                $n1 = 0;
                 foreach ($map['Images'] as $item1) {
                     $model->images[$n1++] = $item1;
                 }

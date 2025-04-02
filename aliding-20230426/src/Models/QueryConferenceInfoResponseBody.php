@@ -13,12 +13,13 @@ class QueryConferenceInfoResponseBody extends Model
      * @var confInfo
      */
     public $confInfo;
+
     /**
      * @var string
      */
     public $requestId;
     protected $_name = [
-        'confInfo'  => 'confInfo',
+        'confInfo' => 'confInfo',
         'requestId' => 'requestId',
     ];
 

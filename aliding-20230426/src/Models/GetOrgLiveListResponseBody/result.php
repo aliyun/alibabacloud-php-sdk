@@ -14,12 +14,13 @@ class result extends Model
      * @var newLive
      */
     public $newLive;
+
     /**
      * @var updateLive
      */
     public $updateLive;
     protected $_name = [
-        'newLive'    => 'NewLive',
+        'newLive' => 'NewLive',
         'updateLive' => 'UpdateLive',
     ];
 

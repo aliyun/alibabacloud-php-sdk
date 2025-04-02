@@ -12,12 +12,13 @@ class GetTodoTaskShrinkRequest extends Model
      * @var string
      */
     public $taskId;
+
     /**
      * @var string
      */
     public $tenantContextShrink;
     protected $_name = [
-        'taskId'              => 'TaskId',
+        'taskId' => 'TaskId',
         'tenantContextShrink' => 'TenantContext',
     ];
 

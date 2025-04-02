@@ -12,42 +12,49 @@ class BatchUpdateFormDataByInstanceMapRequest extends Model
      * @var string
      */
     public $appType;
+
     /**
      * @var bool
      */
     public $asynchronousExecution;
+
     /**
      * @var string
      */
     public $formUuid;
+
     /**
      * @var bool
      */
     public $ignoreEmpty;
+
     /**
      * @var bool
      */
     public $noExecuteExpression;
+
     /**
      * @var string
      */
     public $systemToken;
+
     /**
      * @var mixed[]
      */
     public $updateFormDataJsonMap;
+
     /**
      * @var bool
      */
     public $useLatestFormSchemaVersion;
     protected $_name = [
-        'appType'                    => 'AppType',
-        'asynchronousExecution'      => 'AsynchronousExecution',
-        'formUuid'                   => 'FormUuid',
-        'ignoreEmpty'                => 'IgnoreEmpty',
-        'noExecuteExpression'        => 'NoExecuteExpression',
-        'systemToken'                => 'SystemToken',
-        'updateFormDataJsonMap'      => 'UpdateFormDataJsonMap',
+        'appType' => 'AppType',
+        'asynchronousExecution' => 'AsynchronousExecution',
+        'formUuid' => 'FormUuid',
+        'ignoreEmpty' => 'IgnoreEmpty',
+        'noExecuteExpression' => 'NoExecuteExpression',
+        'systemToken' => 'SystemToken',
+        'updateFormDataJsonMap' => 'UpdateFormDataJsonMap',
         'useLatestFormSchemaVersion' => 'UseLatestFormSchemaVersion',
     ];
 

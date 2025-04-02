@@ -12,12 +12,13 @@ class icon extends Model
      * @var string
      */
     public $type;
+
     /**
      * @var string
      */
     public $value;
     protected $_name = [
-        'type'  => 'Type',
+        'type' => 'Type',
         'value' => 'Value',
     ];
 

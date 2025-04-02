@@ -13,23 +13,26 @@ class RecallHonorRequest extends Model
      * @var tenantContext
      */
     public $tenantContext;
+
     /**
      * @var string
      */
     public $honorId;
+
     /**
      * @var int
      */
     public $orgId;
+
     /**
      * @var string
      */
     public $userId;
     protected $_name = [
         'tenantContext' => 'TenantContext',
-        'honorId'       => 'honorId',
-        'orgId'         => 'orgId',
-        'userId'        => 'userId',
+        'honorId' => 'honorId',
+        'orgId' => 'orgId',
+        'userId' => 'userId',
     ];
 
     public function validate()

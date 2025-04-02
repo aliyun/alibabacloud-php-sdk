@@ -13,38 +13,44 @@ class RemoveAttendeeResponseBody extends Model
      * @var content
      */
     public $content;
+
     /**
      * @var string
      */
     public $errorCode;
+
     /**
      * @var mixed[]
      */
     public $errorCtx;
+
     /**
      * @var string
      */
     public $errorMsg;
+
     /**
      * @var int
      */
     public $httpStatusCode;
+
     /**
      * @var string
      */
     public $requestId;
+
     /**
      * @var bool
      */
     public $success;
     protected $_name = [
-        'content'        => 'Content',
-        'errorCode'      => 'ErrorCode',
-        'errorCtx'       => 'ErrorCtx',
-        'errorMsg'       => 'ErrorMsg',
+        'content' => 'Content',
+        'errorCode' => 'ErrorCode',
+        'errorCtx' => 'ErrorCtx',
+        'errorMsg' => 'ErrorMsg',
         'httpStatusCode' => 'HttpStatusCode',
-        'requestId'      => 'RequestId',
-        'success'        => 'Success',
+        'requestId' => 'RequestId',
+        'success' => 'Success',
     ];
 
     public function validate()

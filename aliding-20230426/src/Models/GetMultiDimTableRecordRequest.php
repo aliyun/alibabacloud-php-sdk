@@ -13,21 +13,24 @@ class GetMultiDimTableRecordRequest extends Model
      * @var string
      */
     public $baseId;
+
     /**
      * @var string
      */
     public $recordId;
+
     /**
      * @var string
      */
     public $sheetIdOrName;
+
     /**
      * @var tenantContext
      */
     public $tenantContext;
     protected $_name = [
-        'baseId'        => 'BaseId',
-        'recordId'      => 'RecordId',
+        'baseId' => 'BaseId',
+        'recordId' => 'RecordId',
         'sheetIdOrName' => 'SheetIdOrName',
         'tenantContext' => 'TenantContext',
     ];

@@ -14,28 +14,32 @@ class InvokeAssistantRequest extends Model
      * @var string
      */
     public $assistantId;
+
     /**
      * @var content[]
      */
     public $content;
+
     /**
      * @var history[]
      */
     public $history;
+
     /**
      * @var string
      */
     public $sessionId;
+
     /**
      * @var bool
      */
     public $stream;
     protected $_name = [
         'assistantId' => 'assistantId',
-        'content'     => 'content',
-        'history'     => 'history',
-        'sessionId'   => 'sessionId',
-        'stream'      => 'stream',
+        'content' => 'content',
+        'history' => 'history',
+        'sessionId' => 'sessionId',
+        'stream' => 'stream',
     ];
 
     public function validate()
@@ -59,7 +63,7 @@ class InvokeAssistantRequest extends Model
         if (null !== $this->content) {
             if (\is_array($this->content)) {
                 $res['content'] = [];
-                $n1             = 0;
+                $n1 = 0;
                 foreach ($this->content as $item1) {
                     $res['content'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -69,7 +73,7 @@ class InvokeAssistantRequest extends Model
         if (null !== $this->history) {
             if (\is_array($this->history)) {
                 $res['history'] = [];
-                $n1             = 0;
+                $n1 = 0;
                 foreach ($this->history as $item1) {
                     $res['history'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -102,7 +106,7 @@ class InvokeAssistantRequest extends Model
         if (isset($map['content'])) {
             if (!empty($map['content'])) {
                 $model->content = [];
-                $n1             = 0;
+                $n1 = 0;
                 foreach ($map['content'] as $item1) {
                     $model->content[$n1++] = content::fromMap($item1);
                 }
@@ -112,7 +116,7 @@ class InvokeAssistantRequest extends Model
         if (isset($map['history'])) {
             if (!empty($map['history'])) {
                 $model->history = [];
-                $n1             = 0;
+                $n1 = 0;
                 foreach ($map['history'] as $item1) {
                     $model->history[$n1++] = history::fromMap($item1);
                 }

@@ -13,17 +13,19 @@ class UpdateMeetingRoomGroupRequest extends Model
      * @var string
      */
     public $groupId;
+
     /**
      * @var string
      */
     public $groupName;
+
     /**
      * @var tenantContext
      */
     public $tenantContext;
     protected $_name = [
-        'groupId'       => 'GroupId',
-        'groupName'     => 'GroupName',
+        'groupId' => 'GroupId',
+        'groupName' => 'GroupName',
         'tenantContext' => 'TenantContext',
     ];
 

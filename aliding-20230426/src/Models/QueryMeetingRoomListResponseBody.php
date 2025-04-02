@@ -13,23 +13,26 @@ class QueryMeetingRoomListResponseBody extends Model
      * @var bool
      */
     public $hasMore;
+
     /**
      * @var int
      */
     public $nextToken;
+
     /**
      * @var string
      */
     public $requestId;
+
     /**
      * @var result[]
      */
     public $result;
     protected $_name = [
-        'hasMore'   => 'hasMore',
+        'hasMore' => 'hasMore',
         'nextToken' => 'nextToken',
         'requestId' => 'requestId',
-        'result'    => 'result',
+        'result' => 'result',
     ];
 
     public function validate()
@@ -58,7 +61,7 @@ class QueryMeetingRoomListResponseBody extends Model
         if (null !== $this->result) {
             if (\is_array($this->result)) {
                 $res['result'] = [];
-                $n1            = 0;
+                $n1 = 0;
                 foreach ($this->result as $item1) {
                     $res['result'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -91,7 +94,7 @@ class QueryMeetingRoomListResponseBody extends Model
         if (isset($map['result'])) {
             if (!empty($map['result'])) {
                 $model->result = [];
-                $n1            = 0;
+                $n1 = 0;
                 foreach ($map['result'] as $item1) {
                     $model->result[$n1++] = result::fromMap($item1);
                 }

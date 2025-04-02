@@ -13,18 +13,20 @@ class QueryOrgHonorsResponseBody extends Model
      * @var string
      */
     public $nextToken;
+
     /**
      * @var openHonors[]
      */
     public $openHonors;
+
     /**
      * @var string
      */
     public $requestId;
     protected $_name = [
-        'nextToken'  => 'nextToken',
+        'nextToken' => 'nextToken',
         'openHonors' => 'openHonors',
-        'requestId'  => 'requestId',
+        'requestId' => 'requestId',
     ];
 
     public function validate()
@@ -45,7 +47,7 @@ class QueryOrgHonorsResponseBody extends Model
         if (null !== $this->openHonors) {
             if (\is_array($this->openHonors)) {
                 $res['openHonors'] = [];
-                $n1                = 0;
+                $n1 = 0;
                 foreach ($this->openHonors as $item1) {
                     $res['openHonors'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -74,7 +76,7 @@ class QueryOrgHonorsResponseBody extends Model
         if (isset($map['openHonors'])) {
             if (!empty($map['openHonors'])) {
                 $model->openHonors = [];
-                $n1                = 0;
+                $n1 = 0;
                 foreach ($map['openHonors'] as $item1) {
                     $model->openHonors[$n1++] = openHonors::fromMap($item1);
                 }

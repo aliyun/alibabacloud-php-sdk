@@ -12,38 +12,44 @@ class ListTableDataByFormInstanceIdTableIdRequest extends Model
      * @var string
      */
     public $appType;
+
     /**
      * @var string
      */
     public $formInstanceId;
+
     /**
      * @var string
      */
     public $formUuid;
+
     /**
      * @var int
      */
     public $pageNumber;
+
     /**
      * @var int
      */
     public $pageSize;
+
     /**
      * @var string
      */
     public $systemToken;
+
     /**
      * @var string
      */
     public $tableFieldId;
     protected $_name = [
-        'appType'        => 'AppType',
+        'appType' => 'AppType',
         'formInstanceId' => 'FormInstanceId',
-        'formUuid'       => 'FormUuid',
-        'pageNumber'     => 'PageNumber',
-        'pageSize'       => 'PageSize',
-        'systemToken'    => 'SystemToken',
-        'tableFieldId'   => 'TableFieldId',
+        'formUuid' => 'FormUuid',
+        'pageNumber' => 'PageNumber',
+        'pageSize' => 'PageSize',
+        'systemToken' => 'SystemToken',
+        'tableFieldId' => 'TableFieldId',
     ];
 
     public function validate()

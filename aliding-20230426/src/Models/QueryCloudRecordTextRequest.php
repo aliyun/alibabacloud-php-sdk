@@ -13,33 +13,38 @@ class QueryCloudRecordTextRequest extends Model
      * @var string
      */
     public $direction;
+
     /**
      * @var int
      */
     public $maxResults;
+
     /**
      * @var int
      */
     public $nextToken;
+
     /**
      * @var int
      */
     public $startTime;
+
     /**
      * @var tenantContext
      */
     public $tenantContext;
+
     /**
      * @var string
      */
     public $conferenceId;
     protected $_name = [
-        'direction'     => 'Direction',
-        'maxResults'    => 'MaxResults',
-        'nextToken'     => 'NextToken',
-        'startTime'     => 'StartTime',
+        'direction' => 'Direction',
+        'maxResults' => 'MaxResults',
+        'nextToken' => 'NextToken',
+        'startTime' => 'StartTime',
         'tenantContext' => 'TenantContext',
-        'conferenceId'  => 'conferenceId',
+        'conferenceId' => 'conferenceId',
     ];
 
     public function validate()

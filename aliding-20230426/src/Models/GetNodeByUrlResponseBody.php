@@ -13,12 +13,13 @@ class GetNodeByUrlResponseBody extends Model
      * @var node
      */
     public $node;
+
     /**
      * @var string
      */
     public $requestId;
     protected $_name = [
-        'node'      => 'node',
+        'node' => 'node',
         'requestId' => 'requestId',
     ];
 

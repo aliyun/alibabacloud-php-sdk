@@ -12,17 +12,19 @@ class CreateVideoConferenceRequest extends Model
      * @var string
      */
     public $confTitle;
+
     /**
      * @var bool
      */
     public $inviteCaller;
+
     /**
      * @var string[]
      */
     public $inviteUserIds;
     protected $_name = [
-        'confTitle'     => 'ConfTitle',
-        'inviteCaller'  => 'InviteCaller',
+        'confTitle' => 'ConfTitle',
+        'inviteCaller' => 'InviteCaller',
         'inviteUserIds' => 'InviteUserIds',
     ];
 
@@ -48,7 +50,7 @@ class CreateVideoConferenceRequest extends Model
         if (null !== $this->inviteUserIds) {
             if (\is_array($this->inviteUserIds)) {
                 $res['InviteUserIds'] = [];
-                $n1                   = 0;
+                $n1 = 0;
                 foreach ($this->inviteUserIds as $item1) {
                     $res['InviteUserIds'][$n1++] = $item1;
                 }
@@ -77,7 +79,7 @@ class CreateVideoConferenceRequest extends Model
         if (isset($map['InviteUserIds'])) {
             if (!empty($map['InviteUserIds'])) {
                 $model->inviteUserIds = [];
-                $n1                   = 0;
+                $n1 = 0;
                 foreach ($map['InviteUserIds'] as $item1) {
                     $model->inviteUserIds[$n1++] = $item1;
                 }

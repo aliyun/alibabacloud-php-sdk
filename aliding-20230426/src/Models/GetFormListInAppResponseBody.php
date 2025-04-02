@@ -13,38 +13,44 @@ class GetFormListInAppResponseBody extends Model
      * @var int
      */
     public $currentPage;
+
     /**
      * @var data[]
      */
     public $data;
+
     /**
      * @var string
      */
     public $requestId;
+
     /**
      * @var bool
      */
     public $success;
+
     /**
      * @var int
      */
     public $totalCount;
+
     /**
      * @var string
      */
     public $vendorRequestId;
+
     /**
      * @var string
      */
     public $vendorType;
     protected $_name = [
-        'currentPage'     => 'currentPage',
-        'data'            => 'data',
-        'requestId'       => 'requestId',
-        'success'         => 'success',
-        'totalCount'      => 'totalCount',
+        'currentPage' => 'currentPage',
+        'data' => 'data',
+        'requestId' => 'requestId',
+        'success' => 'success',
+        'totalCount' => 'totalCount',
         'vendorRequestId' => 'vendorRequestId',
-        'vendorType'      => 'vendorType',
+        'vendorType' => 'vendorType',
     ];
 
     public function validate()
@@ -65,7 +71,7 @@ class GetFormListInAppResponseBody extends Model
         if (null !== $this->data) {
             if (\is_array($this->data)) {
                 $res['data'] = [];
-                $n1          = 0;
+                $n1 = 0;
                 foreach ($this->data as $item1) {
                     $res['data'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -110,7 +116,7 @@ class GetFormListInAppResponseBody extends Model
         if (isset($map['data'])) {
             if (!empty($map['data'])) {
                 $model->data = [];
-                $n1          = 0;
+                $n1 = 0;
                 foreach ($map['data'] as $item1) {
                     $model->data[$n1++] = data::fromMap($item1);
                 }

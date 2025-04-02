@@ -14,18 +14,20 @@ class UpdateScheduleConfSettingsRequest extends Model
      * @var scheduleConfSettingModel
      */
     public $scheduleConfSettingModel;
+
     /**
      * @var string
      */
     public $scheduleConferenceId;
+
     /**
      * @var tenantContext
      */
     public $tenantContext;
     protected $_name = [
         'scheduleConfSettingModel' => 'ScheduleConfSettingModel',
-        'scheduleConferenceId'     => 'ScheduleConferenceId',
-        'tenantContext'            => 'TenantContext',
+        'scheduleConferenceId' => 'ScheduleConferenceId',
+        'tenantContext' => 'TenantContext',
     ];
 
     public function validate()

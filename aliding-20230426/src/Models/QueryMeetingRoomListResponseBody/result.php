@@ -15,58 +15,68 @@ class result extends Model
      * @var string
      */
     public $corpId;
+
     /**
      * @var string
      */
     public $isvRoomId;
+
     /**
      * @var int
      */
     public $roomCapacity;
+
     /**
      * @var roomGroup
      */
     public $roomGroup;
+
     /**
      * @var string
      */
     public $roomId;
+
     /**
      * @var roomLabels[]
      */
     public $roomLabels;
+
     /**
      * @var roomLocation
      */
     public $roomLocation;
+
     /**
      * @var string
      */
     public $roomName;
+
     /**
      * @var string
      */
     public $roomPicture;
+
     /**
      * @var string
      */
     public $roomStaffId;
+
     /**
      * @var int
      */
     public $roomStatus;
     protected $_name = [
-        'corpId'       => 'CorpId',
-        'isvRoomId'    => 'IsvRoomId',
+        'corpId' => 'CorpId',
+        'isvRoomId' => 'IsvRoomId',
         'roomCapacity' => 'RoomCapacity',
-        'roomGroup'    => 'RoomGroup',
-        'roomId'       => 'RoomId',
-        'roomLabels'   => 'RoomLabels',
+        'roomGroup' => 'RoomGroup',
+        'roomId' => 'RoomId',
+        'roomLabels' => 'RoomLabels',
         'roomLocation' => 'RoomLocation',
-        'roomName'     => 'RoomName',
-        'roomPicture'  => 'RoomPicture',
-        'roomStaffId'  => 'RoomStaffId',
-        'roomStatus'   => 'RoomStatus',
+        'roomName' => 'RoomName',
+        'roomPicture' => 'RoomPicture',
+        'roomStaffId' => 'RoomStaffId',
+        'roomStatus' => 'RoomStatus',
     ];
 
     public function validate()
@@ -109,7 +119,7 @@ class result extends Model
         if (null !== $this->roomLabels) {
             if (\is_array($this->roomLabels)) {
                 $res['RoomLabels'] = [];
-                $n1                = 0;
+                $n1 = 0;
                 foreach ($this->roomLabels as $item1) {
                     $res['RoomLabels'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -170,7 +180,7 @@ class result extends Model
         if (isset($map['RoomLabels'])) {
             if (!empty($map['RoomLabels'])) {
                 $model->roomLabels = [];
-                $n1                = 0;
+                $n1 = 0;
                 foreach ($map['RoomLabels'] as $item1) {
                     $model->roomLabels[$n1++] = roomLabels::fromMap($item1);
                 }

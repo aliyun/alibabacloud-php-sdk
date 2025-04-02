@@ -12,17 +12,19 @@ class QueryMinutesSummaryShrinkRequest extends Model
      * @var string
      */
     public $tenantContextShrink;
+
     /**
      * @var string
      */
     public $conferenceId;
+
     /**
      * @var string
      */
     public $summaryTypeListShrink;
     protected $_name = [
-        'tenantContextShrink'   => 'TenantContext',
-        'conferenceId'          => 'conferenceId',
+        'tenantContextShrink' => 'TenantContext',
+        'conferenceId' => 'conferenceId',
         'summaryTypeListShrink' => 'summaryTypeList',
     ];
 

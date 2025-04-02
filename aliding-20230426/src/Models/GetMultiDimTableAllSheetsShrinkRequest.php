@@ -12,12 +12,13 @@ class GetMultiDimTableAllSheetsShrinkRequest extends Model
      * @var string
      */
     public $baseId;
+
     /**
      * @var string
      */
     public $tenantContextShrink;
     protected $_name = [
-        'baseId'              => 'BaseId',
+        'baseId' => 'BaseId',
         'tenantContextShrink' => 'TenantContext',
     ];
 

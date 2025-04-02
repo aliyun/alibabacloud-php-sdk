@@ -12,18 +12,20 @@ class RemoveAttendeeShrinkRequest extends Model
      * @var string
      */
     public $attendeesToRemoveShrink;
+
     /**
      * @var string
      */
     public $calendarId;
+
     /**
      * @var string
      */
     public $eventId;
     protected $_name = [
         'attendeesToRemoveShrink' => 'AttendeesToRemove',
-        'calendarId'              => 'CalendarId',
-        'eventId'                 => 'EventId',
+        'calendarId' => 'CalendarId',
+        'eventId' => 'EventId',
     ];
 
     public function validate()

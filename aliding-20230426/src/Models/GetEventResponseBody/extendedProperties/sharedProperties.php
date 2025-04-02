@@ -12,12 +12,13 @@ class sharedProperties extends Model
      * @var string
      */
     public $belongCorpId;
+
     /**
      * @var string
      */
     public $sourceOpenCid;
     protected $_name = [
-        'belongCorpId'  => 'BelongCorpId',
+        'belongCorpId' => 'BelongCorpId',
         'sourceOpenCid' => 'SourceOpenCid',
     ];
 

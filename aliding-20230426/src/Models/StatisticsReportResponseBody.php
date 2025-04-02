@@ -12,28 +12,32 @@ class StatisticsReportResponseBody extends Model
      * @var int
      */
     public $commentNum;
+
     /**
      * @var int
      */
     public $commentUserNum;
+
     /**
      * @var int
      */
     public $likeNum;
+
     /**
      * @var int
      */
     public $readNum;
+
     /**
      * @var string
      */
     public $requestId;
     protected $_name = [
-        'commentNum'     => 'commentNum',
+        'commentNum' => 'commentNum',
         'commentUserNum' => 'commentUserNum',
-        'likeNum'        => 'likeNum',
-        'readNum'        => 'readNum',
-        'requestId'      => 'requestId',
+        'likeNum' => 'likeNum',
+        'readNum' => 'readNum',
+        'requestId' => 'requestId',
     ];
 
     public function validate()

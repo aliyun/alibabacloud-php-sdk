@@ -14,32 +14,37 @@ class records extends Model
      * @var createdBy
      */
     public $createdBy;
+
     /**
      * @var int
      */
     public $createdTime;
+
     /**
      * @var mixed[]
      */
     public $fields;
+
     /**
      * @var string
      */
     public $id;
+
     /**
      * @var lastModifiedBy
      */
     public $lastModifiedBy;
+
     /**
      * @var int
      */
     public $lastModifiedTime;
     protected $_name = [
-        'createdBy'        => 'CreatedBy',
-        'createdTime'      => 'CreatedTime',
-        'fields'           => 'Fields',
-        'id'               => 'Id',
-        'lastModifiedBy'   => 'LastModifiedBy',
+        'createdBy' => 'CreatedBy',
+        'createdTime' => 'CreatedTime',
+        'fields' => 'Fields',
+        'id' => 'Id',
+        'lastModifiedBy' => 'LastModifiedBy',
         'lastModifiedTime' => 'LastModifiedTime',
     ];
 

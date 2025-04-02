@@ -12,33 +12,38 @@ class conferenceList extends Model
      * @var string
      */
     public $conferenceId;
+
     /**
      * @var int
      */
     public $endTime;
+
     /**
      * @var string
      */
     public $roomCode;
+
     /**
      * @var int
      */
     public $startTime;
+
     /**
      * @var int
      */
     public $status;
+
     /**
      * @var string
      */
     public $title;
     protected $_name = [
         'conferenceId' => 'ConferenceId',
-        'endTime'      => 'EndTime',
-        'roomCode'     => 'RoomCode',
-        'startTime'    => 'StartTime',
-        'status'       => 'Status',
-        'title'        => 'Title',
+        'endTime' => 'EndTime',
+        'roomCode' => 'RoomCode',
+        'startTime' => 'StartTime',
+        'status' => 'Status',
+        'title' => 'Title',
     ];
 
     public function validate()

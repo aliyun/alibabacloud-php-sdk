@@ -12,22 +12,25 @@ class QueryMeetingRoomGroupResponseBody extends Model
      * @var int
      */
     public $groupId;
+
     /**
      * @var string
      */
     public $groupName;
+
     /**
      * @var int
      */
     public $parentId;
+
     /**
      * @var string
      */
     public $requestId;
     protected $_name = [
-        'groupId'   => 'groupId',
+        'groupId' => 'groupId',
         'groupName' => 'groupName',
-        'parentId'  => 'parentId',
+        'parentId' => 'parentId',
         'requestId' => 'requestId',
     ];
 

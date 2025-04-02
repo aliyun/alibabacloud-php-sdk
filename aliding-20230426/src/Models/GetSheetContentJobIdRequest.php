@@ -13,17 +13,19 @@ class GetSheetContentJobIdRequest extends Model
      * @var string
      */
     public $dentryUuid;
+
     /**
      * @var string
      */
     public $exportType;
+
     /**
      * @var tenantContext
      */
     public $tenantContext;
     protected $_name = [
-        'dentryUuid'    => 'DentryUuid',
-        'exportType'    => 'ExportType',
+        'dentryUuid' => 'DentryUuid',
+        'exportType' => 'ExportType',
         'tenantContext' => 'TenantContext',
     ];
 

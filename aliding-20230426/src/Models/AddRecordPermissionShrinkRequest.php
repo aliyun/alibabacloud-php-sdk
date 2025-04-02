@@ -12,23 +12,26 @@ class AddRecordPermissionShrinkRequest extends Model
      * @var string
      */
     public $bizType;
+
     /**
      * @var string
      */
     public $conferenceId;
+
     /**
      * @var string
      */
     public $tenantContextShrink;
+
     /**
      * @var string
      */
     public $userId;
     protected $_name = [
-        'bizType'             => 'BizType',
-        'conferenceId'        => 'ConferenceId',
+        'bizType' => 'BizType',
+        'conferenceId' => 'ConferenceId',
         'tenantContextShrink' => 'TenantContext',
-        'userId'              => 'UserId',
+        'userId' => 'UserId',
     ];
 
     public function validate()

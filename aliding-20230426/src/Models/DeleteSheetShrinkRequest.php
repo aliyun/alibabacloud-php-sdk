@@ -12,18 +12,20 @@ class DeleteSheetShrinkRequest extends Model
      * @var string
      */
     public $sheetId;
+
     /**
      * @var string
      */
     public $tenantContextShrink;
+
     /**
      * @var string
      */
     public $workbookId;
     protected $_name = [
-        'sheetId'             => 'SheetId',
+        'sheetId' => 'SheetId',
         'tenantContextShrink' => 'TenantContext',
-        'workbookId'          => 'WorkbookId',
+        'workbookId' => 'WorkbookId',
     ];
 
     public function validate()

@@ -12,12 +12,13 @@ class AddDriveSpaceShrinkRequest extends Model
      * @var string
      */
     public $name;
+
     /**
      * @var string
      */
     public $tenantContextShrink;
     protected $_name = [
-        'name'                => 'Name',
+        'name' => 'Name',
         'tenantContextShrink' => 'TenantContext',
     ];
 

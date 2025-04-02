@@ -12,6 +12,7 @@ class leaderInDept extends Model
      * @var int
      */
     public $deptId;
+
     /**
      * @var bool
      */

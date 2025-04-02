@@ -12,22 +12,25 @@ class backgroundColors extends Model
      * @var int
      */
     public $red;
+
     /**
      * @var int
      */
     public $green;
+
     /**
      * @var int
      */
     public $blue;
+
     /**
      * @var string
      */
     public $hexString;
     protected $_name = [
-        'red'       => 'Red',
-        'green'     => 'Green',
-        'blue'      => 'Blue',
+        'red' => 'Red',
+        'green' => 'Green',
+        'blue' => 'Blue',
         'hexString' => 'HexString',
     ];
 

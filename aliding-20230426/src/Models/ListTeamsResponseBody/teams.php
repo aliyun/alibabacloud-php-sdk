@@ -13,53 +13,62 @@ class teams extends Model
      * @var string
      */
     public $corpId;
+
     /**
      * @var string
      */
     public $cover;
+
     /**
      * @var string
      */
     public $createTime;
+
     /**
      * @var string
      */
     public $creatorId;
+
     /**
      * @var string
      */
     public $description;
+
     /**
      * @var icon
      */
     public $icon;
+
     /**
      * @var string
      */
     public $modifiedTime;
+
     /**
      * @var string
      */
     public $modifierId;
+
     /**
      * @var string
      */
     public $name;
+
     /**
      * @var string
      */
     public $teamId;
     protected $_name = [
-        'corpId'       => 'CorpId',
-        'cover'        => 'Cover',
-        'createTime'   => 'CreateTime',
-        'creatorId'    => 'CreatorId',
-        'description'  => 'Description',
-        'icon'         => 'Icon',
+        'corpId' => 'CorpId',
+        'cover' => 'Cover',
+        'createTime' => 'CreateTime',
+        'creatorId' => 'CreatorId',
+        'description' => 'Description',
+        'icon' => 'Icon',
         'modifiedTime' => 'ModifiedTime',
-        'modifierId'   => 'ModifierId',
-        'name'         => 'Name',
-        'teamId'       => 'TeamId',
+        'modifierId' => 'ModifierId',
+        'name' => 'Name',
+        'teamId' => 'TeamId',
     ];
 
     public function validate()

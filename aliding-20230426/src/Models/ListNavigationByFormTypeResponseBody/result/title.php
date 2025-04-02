@@ -12,10 +12,12 @@ class title extends Model
      * @var string
      */
     public $nameInChinese;
+
     /**
      * @var string
      */
     public $nameInEnglish;
+
     /**
      * @var string
      */
@@ -23,7 +25,7 @@ class title extends Model
     protected $_name = [
         'nameInChinese' => 'NameInChinese',
         'nameInEnglish' => 'NameInEnglish',
-        'type'          => 'Type',
+        'type' => 'Type',
     ];
 
     public function validate()

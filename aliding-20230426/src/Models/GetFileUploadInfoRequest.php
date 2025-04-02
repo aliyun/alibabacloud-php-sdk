@@ -14,23 +14,26 @@ class GetFileUploadInfoRequest extends Model
      * @var option
      */
     public $option;
+
     /**
      * @var string
      */
     public $parentDentryUuid;
+
     /**
      * @var string
      */
     public $protocol;
+
     /**
      * @var tenantContext
      */
     public $tenantContext;
     protected $_name = [
-        'option'           => 'Option',
+        'option' => 'Option',
         'parentDentryUuid' => 'ParentDentryUuid',
-        'protocol'         => 'Protocol',
-        'tenantContext'    => 'TenantContext',
+        'protocol' => 'Protocol',
+        'tenantContext' => 'TenantContext',
     ];
 
     public function validate()

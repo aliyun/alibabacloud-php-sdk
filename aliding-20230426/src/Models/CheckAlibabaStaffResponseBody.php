@@ -12,23 +12,26 @@ class CheckAlibabaStaffResponseBody extends Model
      * @var bool
      */
     public $isAlibabaStaff;
+
     /**
      * @var string
      */
     public $requestId;
+
     /**
      * @var string
      */
     public $vendorRequestId;
+
     /**
      * @var string
      */
     public $vendorType;
     protected $_name = [
-        'isAlibabaStaff'  => 'isAlibabaStaff',
-        'requestId'       => 'requestId',
+        'isAlibabaStaff' => 'isAlibabaStaff',
+        'requestId' => 'requestId',
         'vendorRequestId' => 'vendorRequestId',
-        'vendorType'      => 'vendorType',
+        'vendorType' => 'vendorType',
     ];
 
     public function validate()

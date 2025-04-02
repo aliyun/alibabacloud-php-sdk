@@ -12,58 +12,68 @@ class CreateMeetingRoomShrinkRequest extends Model
      * @var bool
      */
     public $enableCycleReservation;
+
     /**
      * @var int
      */
     public $groupId;
+
     /**
      * @var string
      */
     public $isvRoomId;
+
     /**
      * @var string
      */
     public $reservationAuthorityShrink;
+
     /**
      * @var int
      */
     public $roomCapacity;
+
     /**
      * @var string
      */
     public $roomLabelIdsShrink;
+
     /**
      * @var string
      */
     public $roomLocationShrink;
+
     /**
      * @var string
      */
     public $roomName;
+
     /**
      * @var string
      */
     public $roomPicture;
+
     /**
      * @var int
      */
     public $roomStatus;
+
     /**
      * @var string
      */
     public $tenantContextShrink;
     protected $_name = [
-        'enableCycleReservation'     => 'EnableCycleReservation',
-        'groupId'                    => 'GroupId',
-        'isvRoomId'                  => 'IsvRoomId',
+        'enableCycleReservation' => 'EnableCycleReservation',
+        'groupId' => 'GroupId',
+        'isvRoomId' => 'IsvRoomId',
         'reservationAuthorityShrink' => 'ReservationAuthority',
-        'roomCapacity'               => 'RoomCapacity',
-        'roomLabelIdsShrink'         => 'RoomLabelIds',
-        'roomLocationShrink'         => 'RoomLocation',
-        'roomName'                   => 'RoomName',
-        'roomPicture'                => 'RoomPicture',
-        'roomStatus'                 => 'RoomStatus',
-        'tenantContextShrink'        => 'TenantContext',
+        'roomCapacity' => 'RoomCapacity',
+        'roomLabelIdsShrink' => 'RoomLabelIds',
+        'roomLocationShrink' => 'RoomLocation',
+        'roomName' => 'RoomName',
+        'roomPicture' => 'RoomPicture',
+        'roomStatus' => 'RoomStatus',
+        'tenantContextShrink' => 'TenantContext',
     ];
 
     public function validate()

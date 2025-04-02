@@ -12,28 +12,32 @@ class autoChapters extends Model
      * @var int
      */
     public $end;
+
     /**
      * @var string
      */
     public $headline;
+
     /**
      * @var int
      */
     public $id;
+
     /**
      * @var int
      */
     public $start;
+
     /**
      * @var string
      */
     public $summary;
     protected $_name = [
-        'end'      => 'End',
+        'end' => 'End',
         'headline' => 'Headline',
-        'id'       => 'Id',
-        'start'    => 'Start',
-        'summary'  => 'Summary',
+        'id' => 'Id',
+        'start' => 'Start',
+        'summary' => 'Summary',
     ];
 
     public function validate()

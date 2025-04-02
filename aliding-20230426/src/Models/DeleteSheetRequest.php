@@ -13,18 +13,20 @@ class DeleteSheetRequest extends Model
      * @var string
      */
     public $sheetId;
+
     /**
      * @var tenantContext
      */
     public $tenantContext;
+
     /**
      * @var string
      */
     public $workbookId;
     protected $_name = [
-        'sheetId'       => 'SheetId',
+        'sheetId' => 'SheetId',
         'tenantContext' => 'TenantContext',
-        'workbookId'    => 'WorkbookId',
+        'workbookId' => 'WorkbookId',
     ];
 
     public function validate()

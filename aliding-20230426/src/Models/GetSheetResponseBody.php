@@ -12,43 +12,50 @@ class GetSheetResponseBody extends Model
      * @var int
      */
     public $columnCount;
+
     /**
      * @var string
      */
     public $id;
+
     /**
      * @var int
      */
     public $lastNonEmptyColumn;
+
     /**
      * @var int
      */
     public $lastNonEmptyRow;
+
     /**
      * @var string
      */
     public $name;
+
     /**
      * @var string
      */
     public $requestId;
+
     /**
      * @var int
      */
     public $rowCount;
+
     /**
      * @var string
      */
     public $visibility;
     protected $_name = [
-        'columnCount'        => 'columnCount',
-        'id'                 => 'id',
+        'columnCount' => 'columnCount',
+        'id' => 'id',
         'lastNonEmptyColumn' => 'lastNonEmptyColumn',
-        'lastNonEmptyRow'    => 'lastNonEmptyRow',
-        'name'               => 'name',
-        'requestId'          => 'requestId',
-        'rowCount'           => 'rowCount',
-        'visibility'         => 'visibility',
+        'lastNonEmptyRow' => 'lastNonEmptyRow',
+        'name' => 'name',
+        'requestId' => 'requestId',
+        'rowCount' => 'rowCount',
+        'visibility' => 'visibility',
     ];
 
     public function validate()

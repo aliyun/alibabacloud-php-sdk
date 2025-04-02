@@ -13,78 +13,92 @@ class node extends Model
      * @var string
      */
     public $category;
+
     /**
      * @var string
      */
     public $createTime;
+
     /**
      * @var string
      */
     public $creatorId;
+
     /**
      * @var string
      */
     public $extension;
+
     /**
      * @var bool
      */
     public $hasChildren;
+
     /**
      * @var string
      */
     public $modifiedTime;
+
     /**
      * @var string
      */
     public $modifierId;
+
     /**
      * @var string
      */
     public $name;
+
     /**
      * @var string
      */
     public $nodeId;
+
     /**
      * @var string
      */
     public $permissionRole;
+
     /**
      * @var int
      */
     public $size;
+
     /**
      * @var statisticalInfo
      */
     public $statisticalInfo;
+
     /**
      * @var string
      */
     public $type;
+
     /**
      * @var string
      */
     public $url;
+
     /**
      * @var string
      */
     public $workspaceId;
     protected $_name = [
-        'category'        => 'Category',
-        'createTime'      => 'CreateTime',
-        'creatorId'       => 'CreatorId',
-        'extension'       => 'Extension',
-        'hasChildren'     => 'HasChildren',
-        'modifiedTime'    => 'ModifiedTime',
-        'modifierId'      => 'ModifierId',
-        'name'            => 'Name',
-        'nodeId'          => 'NodeId',
-        'permissionRole'  => 'PermissionRole',
-        'size'            => 'Size',
+        'category' => 'Category',
+        'createTime' => 'CreateTime',
+        'creatorId' => 'CreatorId',
+        'extension' => 'Extension',
+        'hasChildren' => 'HasChildren',
+        'modifiedTime' => 'ModifiedTime',
+        'modifierId' => 'ModifierId',
+        'name' => 'Name',
+        'nodeId' => 'NodeId',
+        'permissionRole' => 'PermissionRole',
+        'size' => 'Size',
         'statisticalInfo' => 'StatisticalInfo',
-        'type'            => 'Type',
-        'url'             => 'Url',
-        'workspaceId'     => 'WorkspaceId',
+        'type' => 'Type',
+        'url' => 'Url',
+        'workspaceId' => 'WorkspaceId',
     ];
 
     public function validate()

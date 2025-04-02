@@ -13,43 +13,50 @@ class UpdateVideoConferenceSettingRequest extends Model
      * @var bool
      */
     public $allowUnmuteSelf;
+
     /**
      * @var bool
      */
     public $autoTransferHost;
+
     /**
      * @var bool
      */
     public $forbiddenShareScreen;
+
     /**
      * @var bool
      */
     public $lockConference;
+
     /**
      * @var bool
      */
     public $muteAll;
+
     /**
      * @var bool
      */
     public $onlyInternalEmployeesJoin;
+
     /**
      * @var tenantContext
      */
     public $tenantContext;
+
     /**
      * @var string
      */
     public $conferenceId;
     protected $_name = [
-        'allowUnmuteSelf'           => 'AllowUnmuteSelf',
-        'autoTransferHost'          => 'AutoTransferHost',
-        'forbiddenShareScreen'      => 'ForbiddenShareScreen',
-        'lockConference'            => 'LockConference',
-        'muteAll'                   => 'MuteAll',
+        'allowUnmuteSelf' => 'AllowUnmuteSelf',
+        'autoTransferHost' => 'AutoTransferHost',
+        'forbiddenShareScreen' => 'ForbiddenShareScreen',
+        'lockConference' => 'LockConference',
+        'muteAll' => 'MuteAll',
         'onlyInternalEmployeesJoin' => 'OnlyInternalEmployeesJoin',
-        'tenantContext'             => 'TenantContext',
-        'conferenceId'              => 'conferenceId',
+        'tenantContext' => 'TenantContext',
+        'conferenceId' => 'conferenceId',
     ];
 
     public function validate()

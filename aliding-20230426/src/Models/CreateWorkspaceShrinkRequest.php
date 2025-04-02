@@ -12,17 +12,19 @@ class CreateWorkspaceShrinkRequest extends Model
      * @var string
      */
     public $description;
+
     /**
      * @var string
      */
     public $name;
+
     /**
      * @var string
      */
     public $tenantContextShrink;
     protected $_name = [
-        'description'         => 'Description',
-        'name'                => 'Name',
+        'description' => 'Description',
+        'name' => 'Name',
         'tenantContextShrink' => 'TenantContext',
     ];
 

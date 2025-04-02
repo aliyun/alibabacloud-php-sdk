@@ -12,22 +12,25 @@ class GetDocContentTakIdShrinkRequest extends Model
      * @var string
      */
     public $dentryUuid;
+
     /**
      * @var bool
      */
     public $generateCp;
+
     /**
      * @var string
      */
     public $targetFormat;
+
     /**
      * @var string
      */
     public $tenantContextShrink;
     protected $_name = [
-        'dentryUuid'          => 'DentryUuid',
-        'generateCp'          => 'GenerateCp',
-        'targetFormat'        => 'TargetFormat',
+        'dentryUuid' => 'DentryUuid',
+        'generateCp' => 'GenerateCp',
+        'targetFormat' => 'TargetFormat',
         'tenantContextShrink' => 'TenantContext',
     ];
 

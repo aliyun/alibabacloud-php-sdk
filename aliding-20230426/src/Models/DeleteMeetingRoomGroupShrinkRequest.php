@@ -12,12 +12,13 @@ class DeleteMeetingRoomGroupShrinkRequest extends Model
      * @var string
      */
     public $groupId;
+
     /**
      * @var string
      */
     public $tenantContextShrink;
     protected $_name = [
-        'groupId'             => 'GroupId',
+        'groupId' => 'GroupId',
         'tenantContextShrink' => 'TenantContext',
     ];
 

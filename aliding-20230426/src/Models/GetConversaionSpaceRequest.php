@@ -13,13 +13,14 @@ class GetConversaionSpaceRequest extends Model
      * @var string
      */
     public $openConversationId;
+
     /**
      * @var tenantContext
      */
     public $tenantContext;
     protected $_name = [
         'openConversationId' => 'OpenConversationId',
-        'tenantContext'      => 'TenantContext',
+        'tenantContext' => 'TenantContext',
     ];
 
     public function validate()

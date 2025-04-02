@@ -12,28 +12,32 @@ class BatchGetFormDataByIdListRequest extends Model
      * @var string
      */
     public $appType;
+
     /**
      * @var string[]
      */
     public $formInstanceIdList;
+
     /**
      * @var string
      */
     public $formUuid;
+
     /**
      * @var bool
      */
     public $needFormInstanceValue;
+
     /**
      * @var string
      */
     public $systemToken;
     protected $_name = [
-        'appType'               => 'AppType',
-        'formInstanceIdList'    => 'FormInstanceIdList',
-        'formUuid'              => 'FormUuid',
+        'appType' => 'AppType',
+        'formInstanceIdList' => 'FormInstanceIdList',
+        'formUuid' => 'FormUuid',
         'needFormInstanceValue' => 'NeedFormInstanceValue',
-        'systemToken'           => 'SystemToken',
+        'systemToken' => 'SystemToken',
     ];
 
     public function validate()
@@ -54,7 +58,7 @@ class BatchGetFormDataByIdListRequest extends Model
         if (null !== $this->formInstanceIdList) {
             if (\is_array($this->formInstanceIdList)) {
                 $res['FormInstanceIdList'] = [];
-                $n1                        = 0;
+                $n1 = 0;
                 foreach ($this->formInstanceIdList as $item1) {
                     $res['FormInstanceIdList'][$n1++] = $item1;
                 }
@@ -91,7 +95,7 @@ class BatchGetFormDataByIdListRequest extends Model
         if (isset($map['FormInstanceIdList'])) {
             if (!empty($map['FormInstanceIdList'])) {
                 $model->formInstanceIdList = [];
-                $n1                        = 0;
+                $n1 = 0;
                 foreach ($map['FormInstanceIdList'] as $item1) {
                     $model->formInstanceIdList[$n1++] = $item1;
                 }

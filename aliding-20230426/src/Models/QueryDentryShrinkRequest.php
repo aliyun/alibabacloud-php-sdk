@@ -12,22 +12,25 @@ class QueryDentryShrinkRequest extends Model
      * @var string
      */
     public $dentryId;
+
     /**
      * @var bool
      */
     public $includeSpace;
+
     /**
      * @var string
      */
     public $spaceId;
+
     /**
      * @var string
      */
     public $tenantContextShrink;
     protected $_name = [
-        'dentryId'            => 'DentryId',
-        'includeSpace'        => 'IncludeSpace',
-        'spaceId'             => 'SpaceId',
+        'dentryId' => 'DentryId',
+        'includeSpace' => 'IncludeSpace',
+        'spaceId' => 'SpaceId',
         'tenantContextShrink' => 'TenantContext',
     ];
 

@@ -12,18 +12,20 @@ class RemoveAttendeeRequest extends Model
      * @var string[]
      */
     public $attendeesToRemove;
+
     /**
      * @var string
      */
     public $calendarId;
+
     /**
      * @var string
      */
     public $eventId;
     protected $_name = [
         'attendeesToRemove' => 'AttendeesToRemove',
-        'calendarId'        => 'CalendarId',
-        'eventId'           => 'EventId',
+        'calendarId' => 'CalendarId',
+        'eventId' => 'EventId',
     ];
 
     public function validate()
@@ -40,7 +42,7 @@ class RemoveAttendeeRequest extends Model
         if (null !== $this->attendeesToRemove) {
             if (\is_array($this->attendeesToRemove)) {
                 $res['AttendeesToRemove'] = [];
-                $n1                       = 0;
+                $n1 = 0;
                 foreach ($this->attendeesToRemove as $item1) {
                     $res['AttendeesToRemove'][$n1++] = $item1;
                 }
@@ -69,7 +71,7 @@ class RemoveAttendeeRequest extends Model
         if (isset($map['AttendeesToRemove'])) {
             if (!empty($map['AttendeesToRemove'])) {
                 $model->attendeesToRemove = [];
-                $n1                       = 0;
+                $n1 = 0;
                 foreach ($map['AttendeesToRemove'] as $item1) {
                     $model->attendeesToRemove[$n1++] = $item1;
                 }

@@ -12,18 +12,20 @@ class UpdateScheduleConfSettingsShrinkRequest extends Model
      * @var string
      */
     public $scheduleConfSettingModelShrink;
+
     /**
      * @var string
      */
     public $scheduleConferenceId;
+
     /**
      * @var string
      */
     public $tenantContextShrink;
     protected $_name = [
         'scheduleConfSettingModelShrink' => 'ScheduleConfSettingModel',
-        'scheduleConferenceId'           => 'ScheduleConferenceId',
-        'tenantContextShrink'            => 'TenantContext',
+        'scheduleConferenceId' => 'ScheduleConferenceId',
+        'tenantContextShrink' => 'TenantContext',
     ];
 
     public function validate()

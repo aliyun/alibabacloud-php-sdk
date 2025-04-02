@@ -12,43 +12,50 @@ class CopyDentryShrinkRequest extends Model
      * @var string
      */
     public $dentryId;
+
     /**
      * @var string
      */
     public $name;
+
     /**
      * @var string
      */
     public $spaceId;
+
     /**
      * @var string
      */
     public $targetSpaceId;
+
     /**
      * @var string
      */
     public $tenantContextShrink;
+
     /**
      * @var string
      */
     public $toNextDentryId;
+
     /**
      * @var string
      */
     public $toParentDentryId;
+
     /**
      * @var string
      */
     public $toPrevDentryId;
     protected $_name = [
-        'dentryId'            => 'DentryId',
-        'name'                => 'Name',
-        'spaceId'             => 'SpaceId',
-        'targetSpaceId'       => 'TargetSpaceId',
+        'dentryId' => 'DentryId',
+        'name' => 'Name',
+        'spaceId' => 'SpaceId',
+        'targetSpaceId' => 'TargetSpaceId',
         'tenantContextShrink' => 'TenantContext',
-        'toNextDentryId'      => 'ToNextDentryId',
-        'toParentDentryId'    => 'ToParentDentryId',
-        'toPrevDentryId'      => 'ToPrevDentryId',
+        'toNextDentryId' => 'ToNextDentryId',
+        'toParentDentryId' => 'ToParentDentryId',
+        'toPrevDentryId' => 'ToPrevDentryId',
     ];
 
     public function validate()

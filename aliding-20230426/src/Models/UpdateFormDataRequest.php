@@ -12,33 +12,38 @@ class UpdateFormDataRequest extends Model
      * @var string
      */
     public $appType;
+
     /**
      * @var string
      */
     public $formInstanceId;
+
     /**
      * @var string
      */
     public $language;
+
     /**
      * @var string
      */
     public $systemToken;
+
     /**
      * @var string
      */
     public $updateFormDataJson;
+
     /**
      * @var bool
      */
     public $useLatestVersion;
     protected $_name = [
-        'appType'            => 'AppType',
-        'formInstanceId'     => 'FormInstanceId',
-        'language'           => 'Language',
-        'systemToken'        => 'SystemToken',
+        'appType' => 'AppType',
+        'formInstanceId' => 'FormInstanceId',
+        'language' => 'Language',
+        'systemToken' => 'SystemToken',
         'updateFormDataJson' => 'UpdateFormDataJson',
-        'useLatestVersion'   => 'UseLatestVersion',
+        'useLatestVersion' => 'UseLatestVersion',
     ];
 
     public function validate()

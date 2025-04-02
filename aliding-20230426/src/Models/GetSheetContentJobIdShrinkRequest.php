@@ -12,17 +12,19 @@ class GetSheetContentJobIdShrinkRequest extends Model
      * @var string
      */
     public $dentryUuid;
+
     /**
      * @var string
      */
     public $exportType;
+
     /**
      * @var string
      */
     public $tenantContextShrink;
     protected $_name = [
-        'dentryUuid'          => 'DentryUuid',
-        'exportType'          => 'ExportType',
+        'dentryUuid' => 'DentryUuid',
+        'exportType' => 'ExportType',
         'tenantContextShrink' => 'TenantContext',
     ];
 

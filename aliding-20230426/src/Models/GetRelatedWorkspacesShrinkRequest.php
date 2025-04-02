@@ -12,12 +12,13 @@ class GetRelatedWorkspacesShrinkRequest extends Model
      * @var bool
      */
     public $includeRecent;
+
     /**
      * @var string
      */
     public $tenantContextShrink;
     protected $_name = [
-        'includeRecent'       => 'IncludeRecent',
+        'includeRecent' => 'IncludeRecent',
         'tenantContextShrink' => 'TenantContext',
     ];
 

@@ -12,33 +12,38 @@ class ListWorkspacesShrinkRequest extends Model
      * @var int
      */
     public $maxResults;
+
     /**
      * @var string
      */
     public $nextToken;
+
     /**
      * @var string
      */
     public $orderBy;
+
     /**
      * @var string
      */
     public $teamId;
+
     /**
      * @var string
      */
     public $tenantContextShrink;
+
     /**
      * @var bool
      */
     public $withPermissionRole;
     protected $_name = [
-        'maxResults'          => 'MaxResults',
-        'nextToken'           => 'NextToken',
-        'orderBy'             => 'OrderBy',
-        'teamId'              => 'TeamId',
+        'maxResults' => 'MaxResults',
+        'nextToken' => 'NextToken',
+        'orderBy' => 'OrderBy',
+        'teamId' => 'TeamId',
         'tenantContextShrink' => 'TenantContext',
-        'withPermissionRole'  => 'WithPermissionRole',
+        'withPermissionRole' => 'WithPermissionRole',
     ];
 
     public function validate()

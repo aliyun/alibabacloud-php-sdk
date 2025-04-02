@@ -12,12 +12,13 @@ class executorStatusList extends Model
      * @var string
      */
     public $id;
+
     /**
      * @var bool
      */
     public $isDone;
     protected $_name = [
-        'id'     => 'id',
+        'id' => 'id',
         'isDone' => 'isDone',
     ];
 

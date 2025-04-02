@@ -12,13 +12,14 @@ class ClearDataResponseBody extends Model
      * @var string
      */
     public $a1Notation;
+
     /**
      * @var string
      */
     public $requestId;
     protected $_name = [
         'a1Notation' => 'a1Notation',
-        'requestId'  => 'requestId',
+        'requestId' => 'requestId',
     ];
 
     public function validate()

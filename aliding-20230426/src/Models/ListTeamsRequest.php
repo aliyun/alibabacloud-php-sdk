@@ -13,17 +13,19 @@ class ListTeamsRequest extends Model
      * @var int
      */
     public $maxResults;
+
     /**
      * @var string
      */
     public $nextToken;
+
     /**
      * @var tenantContext
      */
     public $tenantContext;
     protected $_name = [
-        'maxResults'    => 'MaxResults',
-        'nextToken'     => 'NextToken',
+        'maxResults' => 'MaxResults',
+        'nextToken' => 'NextToken',
         'tenantContext' => 'TenantContext',
     ];
 

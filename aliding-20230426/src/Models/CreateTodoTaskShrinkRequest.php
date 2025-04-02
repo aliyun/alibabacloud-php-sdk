@@ -12,78 +12,92 @@ class CreateTodoTaskShrinkRequest extends Model
      * @var string
      */
     public $tenantContextShrink;
+
     /**
      * @var string
      */
     public $actionListShrink;
+
     /**
      * @var string
      */
     public $contentFieldListShrink;
+
     /**
      * @var string
      */
     public $creatorId;
+
     /**
      * @var string
      */
     public $description;
+
     /**
      * @var string
      */
     public $detailUrlShrink;
+
     /**
      * @var int
      */
     public $dueTime;
+
     /**
      * @var string
      */
     public $executorIdsShrink;
+
     /**
      * @var bool
      */
     public $isOnlyShowExecutor;
+
     /**
      * @var string
      */
     public $notifyConfigsShrink;
+
     /**
      * @var string
      */
     public $operatorId;
+
     /**
      * @var string
      */
     public $participantIdsShrink;
+
     /**
      * @var int
      */
     public $priority;
+
     /**
      * @var string
      */
     public $sourceId;
+
     /**
      * @var string
      */
     public $subject;
     protected $_name = [
-        'tenantContextShrink'    => 'TenantContext',
-        'actionListShrink'       => 'actionList',
+        'tenantContextShrink' => 'TenantContext',
+        'actionListShrink' => 'actionList',
         'contentFieldListShrink' => 'contentFieldList',
-        'creatorId'              => 'creatorId',
-        'description'            => 'description',
-        'detailUrlShrink'        => 'detailUrl',
-        'dueTime'                => 'dueTime',
-        'executorIdsShrink'      => 'executorIds',
-        'isOnlyShowExecutor'     => 'isOnlyShowExecutor',
-        'notifyConfigsShrink'    => 'notifyConfigs',
-        'operatorId'             => 'operatorId',
-        'participantIdsShrink'   => 'participantIds',
-        'priority'               => 'priority',
-        'sourceId'               => 'sourceId',
-        'subject'                => 'subject',
+        'creatorId' => 'creatorId',
+        'description' => 'description',
+        'detailUrlShrink' => 'detailUrl',
+        'dueTime' => 'dueTime',
+        'executorIdsShrink' => 'executorIds',
+        'isOnlyShowExecutor' => 'isOnlyShowExecutor',
+        'notifyConfigsShrink' => 'notifyConfigs',
+        'operatorId' => 'operatorId',
+        'participantIdsShrink' => 'participantIds',
+        'priority' => 'priority',
+        'sourceId' => 'sourceId',
+        'subject' => 'subject',
     ];
 
     public function validate()

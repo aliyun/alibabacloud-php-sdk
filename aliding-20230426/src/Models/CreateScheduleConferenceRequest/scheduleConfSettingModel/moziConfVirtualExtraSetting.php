@@ -13,63 +13,74 @@ class moziConfVirtualExtraSetting extends Model
      * @var string
      */
     public $cloudRecordOwnerUserId;
+
     /**
      * @var int
      */
     public $enableChat;
+
     /**
      * @var bool
      */
     public $enableWebAnonymousJoin;
+
     /**
      * @var int
      */
     public $joinBeforeHost;
+
     /**
      * @var int
      */
     public $lockMediaStatusMicMute;
+
     /**
      * @var int
      */
     public $lockNick;
+
     /**
      * @var string
      */
     public $minutesOwnerUserId;
+
     /**
      * @var moziConfExtensionAppSettings[]
      */
     public $moziConfExtensionAppSettings;
+
     /**
      * @var bool
      */
     public $pushAllMeetingRecords;
+
     /**
      * @var bool
      */
     public $pushCloudRecordCard;
+
     /**
      * @var bool
      */
     public $pushMinutesCard;
+
     /**
      * @var int
      */
     public $waitingRoom;
     protected $_name = [
-        'cloudRecordOwnerUserId'       => 'CloudRecordOwnerUserId',
-        'enableChat'                   => 'EnableChat',
-        'enableWebAnonymousJoin'       => 'EnableWebAnonymousJoin',
-        'joinBeforeHost'               => 'JoinBeforeHost',
-        'lockMediaStatusMicMute'       => 'LockMediaStatusMicMute',
-        'lockNick'                     => 'LockNick',
-        'minutesOwnerUserId'           => 'MinutesOwnerUserId',
+        'cloudRecordOwnerUserId' => 'CloudRecordOwnerUserId',
+        'enableChat' => 'EnableChat',
+        'enableWebAnonymousJoin' => 'EnableWebAnonymousJoin',
+        'joinBeforeHost' => 'JoinBeforeHost',
+        'lockMediaStatusMicMute' => 'LockMediaStatusMicMute',
+        'lockNick' => 'LockNick',
+        'minutesOwnerUserId' => 'MinutesOwnerUserId',
         'moziConfExtensionAppSettings' => 'MoziConfExtensionAppSettings',
-        'pushAllMeetingRecords'        => 'PushAllMeetingRecords',
-        'pushCloudRecordCard'          => 'PushCloudRecordCard',
-        'pushMinutesCard'              => 'PushMinutesCard',
-        'waitingRoom'                  => 'WaitingRoom',
+        'pushAllMeetingRecords' => 'PushAllMeetingRecords',
+        'pushCloudRecordCard' => 'PushCloudRecordCard',
+        'pushMinutesCard' => 'PushMinutesCard',
+        'waitingRoom' => 'WaitingRoom',
     ];
 
     public function validate()
@@ -114,7 +125,7 @@ class moziConfVirtualExtraSetting extends Model
         if (null !== $this->moziConfExtensionAppSettings) {
             if (\is_array($this->moziConfExtensionAppSettings)) {
                 $res['MoziConfExtensionAppSettings'] = [];
-                $n1                                  = 0;
+                $n1 = 0;
                 foreach ($this->moziConfExtensionAppSettings as $item1) {
                     $res['MoziConfExtensionAppSettings'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -179,7 +190,7 @@ class moziConfVirtualExtraSetting extends Model
         if (isset($map['MoziConfExtensionAppSettings'])) {
             if (!empty($map['MoziConfExtensionAppSettings'])) {
                 $model->moziConfExtensionAppSettings = [];
-                $n1                                  = 0;
+                $n1 = 0;
                 foreach ($map['MoziConfExtensionAppSettings'] as $item1) {
                     $model->moziConfExtensionAppSettings[$n1++] = moziConfExtensionAppSettings::fromMap($item1);
                 }

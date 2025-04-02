@@ -12,28 +12,32 @@ class attendees extends Model
      * @var string
      */
     public $displayName;
+
     /**
      * @var string
      */
     public $id;
+
     /**
      * @var bool
      */
     public $isOptional;
+
     /**
      * @var string
      */
     public $responseStatus;
+
     /**
      * @var bool
      */
     public $self;
     protected $_name = [
-        'displayName'    => 'DisplayName',
-        'id'             => 'Id',
-        'isOptional'     => 'IsOptional',
+        'displayName' => 'DisplayName',
+        'id' => 'Id',
+        'isOptional' => 'IsOptional',
         'responseStatus' => 'ResponseStatus',
-        'self'           => 'Self',
+        'self' => 'Self',
     ];
 
     public function validate()

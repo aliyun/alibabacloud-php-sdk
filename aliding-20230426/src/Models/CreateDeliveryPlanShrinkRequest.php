@@ -12,33 +12,38 @@ class CreateDeliveryPlanShrinkRequest extends Model
      * @var string
      */
     public $contentShrink;
+
     /**
      * @var int
      */
     public $endTime;
+
     /**
      * @var string
      */
     public $resId;
+
     /**
      * @var int
      */
     public $startTime;
+
     /**
      * @var string
      */
     public $tenantContextShrink;
+
     /**
      * @var string
      */
     public $userIdListShrink;
     protected $_name = [
-        'contentShrink'       => 'Content',
-        'endTime'             => 'EndTime',
-        'resId'               => 'ResId',
-        'startTime'           => 'StartTime',
+        'contentShrink' => 'Content',
+        'endTime' => 'EndTime',
+        'resId' => 'ResId',
+        'startTime' => 'StartTime',
         'tenantContextShrink' => 'TenantContext',
-        'userIdListShrink'    => 'UserIdList',
+        'userIdListShrink' => 'UserIdList',
     ];
 
     public function validate()

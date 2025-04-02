@@ -12,27 +12,31 @@ class CreateWorkspaceResponseBody extends Model
      * @var string
      */
     public $description;
+
     /**
      * @var string
      */
     public $name;
+
     /**
      * @var string
      */
     public $requestId;
+
     /**
      * @var string
      */
     public $url;
+
     /**
      * @var string
      */
     public $workspaceId;
     protected $_name = [
         'description' => 'description',
-        'name'        => 'name',
-        'requestId'   => 'requestId',
-        'url'         => 'url',
+        'name' => 'name',
+        'requestId' => 'requestId',
+        'url' => 'url',
         'workspaceId' => 'workspaceId',
     ];
 

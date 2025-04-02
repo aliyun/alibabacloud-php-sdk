@@ -12,13 +12,14 @@ class CancelScheduleConferenceShrinkRequest extends Model
      * @var string
      */
     public $scheduleConferenceId;
+
     /**
      * @var string
      */
     public $tenantContextShrink;
     protected $_name = [
         'scheduleConferenceId' => 'ScheduleConferenceId',
-        'tenantContextShrink'  => 'TenantContext',
+        'tenantContextShrink' => 'TenantContext',
     ];
 
     public function validate()

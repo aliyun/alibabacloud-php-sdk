@@ -12,63 +12,74 @@ class result extends Model
      * @var string
      */
     public $activeTimeGMT;
+
     /**
      * @var string
      */
     public $activityId;
+
     /**
      * @var string
      */
     public $actualActionerId;
+
     /**
      * @var string
      */
     public $createTimeGMT;
+
     /**
      * @var string
      */
     public $finishTimeGMT;
+
     /**
      * @var string
      */
     public $originatorId;
+
     /**
      * @var string
      */
     public $processInstanceId;
+
     /**
      * @var string
      */
     public $status;
+
     /**
      * @var string
      */
     public $taskId;
+
     /**
      * @var string
      */
     public $taskType;
+
     /**
      * @var string
      */
     public $title;
+
     /**
      * @var string
      */
     public $titleInEnglish;
     protected $_name = [
-        'activeTimeGMT'     => 'ActiveTimeGMT',
-        'activityId'        => 'ActivityId',
-        'actualActionerId'  => 'ActualActionerId',
-        'createTimeGMT'     => 'CreateTimeGMT',
-        'finishTimeGMT'     => 'FinishTimeGMT',
-        'originatorId'      => 'OriginatorId',
+        'activeTimeGMT' => 'ActiveTimeGMT',
+        'activityId' => 'ActivityId',
+        'actualActionerId' => 'ActualActionerId',
+        'createTimeGMT' => 'CreateTimeGMT',
+        'finishTimeGMT' => 'FinishTimeGMT',
+        'originatorId' => 'OriginatorId',
         'processInstanceId' => 'ProcessInstanceId',
-        'status'            => 'Status',
-        'taskId'            => 'TaskId',
-        'taskType'          => 'TaskType',
-        'title'             => 'Title',
-        'titleInEnglish'    => 'TitleInEnglish',
+        'status' => 'Status',
+        'taskId' => 'TaskId',
+        'taskType' => 'TaskType',
+        'title' => 'Title',
+        'titleInEnglish' => 'TitleInEnglish',
     ];
 
     public function validate()

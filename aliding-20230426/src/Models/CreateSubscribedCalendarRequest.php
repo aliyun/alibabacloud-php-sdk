@@ -13,22 +13,25 @@ class CreateSubscribedCalendarRequest extends Model
      * @var string
      */
     public $description;
+
     /**
      * @var string[]
      */
     public $managers;
+
     /**
      * @var string
      */
     public $name;
+
     /**
      * @var subscribeScope
      */
     public $subscribeScope;
     protected $_name = [
-        'description'    => 'Description',
-        'managers'       => 'Managers',
-        'name'           => 'Name',
+        'description' => 'Description',
+        'managers' => 'Managers',
+        'name' => 'Name',
         'subscribeScope' => 'SubscribeScope',
     ];
 
@@ -53,7 +56,7 @@ class CreateSubscribedCalendarRequest extends Model
         if (null !== $this->managers) {
             if (\is_array($this->managers)) {
                 $res['Managers'] = [];
-                $n1              = 0;
+                $n1 = 0;
                 foreach ($this->managers as $item1) {
                     $res['Managers'][$n1++] = $item1;
                 }
@@ -86,7 +89,7 @@ class CreateSubscribedCalendarRequest extends Model
         if (isset($map['Managers'])) {
             if (!empty($map['Managers'])) {
                 $model->managers = [];
-                $n1              = 0;
+                $n1 = 0;
                 foreach ($map['Managers'] as $item1) {
                     $model->managers[$n1++] = $item1;
                 }

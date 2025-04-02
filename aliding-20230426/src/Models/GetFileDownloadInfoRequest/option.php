@@ -12,13 +12,14 @@ class option extends Model
      * @var bool
      */
     public $preferIntranet;
+
     /**
      * @var int
      */
     public $version;
     protected $_name = [
         'preferIntranet' => 'PreferIntranet',
-        'version'        => 'Version',
+        'version' => 'Version',
     ];
 
     public function validate()

@@ -13,23 +13,26 @@ class GetDocContentRequest extends Model
      * @var string
      */
     public $dentryUuid;
+
     /**
      * @var string
      */
     public $targetFormat;
+
     /**
      * @var tenantContext
      */
     public $tenantContext;
+
     /**
      * @var string
      */
     public $userToken;
     protected $_name = [
-        'dentryUuid'    => 'DentryUuid',
-        'targetFormat'  => 'TargetFormat',
+        'dentryUuid' => 'DentryUuid',
+        'targetFormat' => 'TargetFormat',
         'tenantContext' => 'TenantContext',
-        'userToken'     => 'userToken',
+        'userToken' => 'userToken',
     ];
 
     public function validate()

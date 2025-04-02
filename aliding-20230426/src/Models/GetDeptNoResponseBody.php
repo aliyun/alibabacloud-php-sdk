@@ -12,23 +12,26 @@ class GetDeptNoResponseBody extends Model
      * @var string
      */
     public $deptNo;
+
     /**
      * @var string
      */
     public $requestId;
+
     /**
      * @var string
      */
     public $vendorRequestId;
+
     /**
      * @var string
      */
     public $vendorType;
     protected $_name = [
-        'deptNo'          => 'deptNo',
-        'requestId'       => 'requestId',
+        'deptNo' => 'deptNo',
+        'requestId' => 'requestId',
         'vendorRequestId' => 'vendorRequestId',
-        'vendorType'      => 'vendorType',
+        'vendorType' => 'vendorType',
     ];
 
     public function validate()

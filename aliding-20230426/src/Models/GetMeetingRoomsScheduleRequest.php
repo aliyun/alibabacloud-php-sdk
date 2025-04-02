@@ -12,17 +12,19 @@ class GetMeetingRoomsScheduleRequest extends Model
      * @var string
      */
     public $endTime;
+
     /**
      * @var string[]
      */
     public $roomIds;
+
     /**
      * @var string
      */
     public $startTime;
     protected $_name = [
-        'endTime'   => 'EndTime',
-        'roomIds'   => 'RoomIds',
+        'endTime' => 'EndTime',
+        'roomIds' => 'RoomIds',
         'startTime' => 'StartTime',
     ];
 
@@ -44,7 +46,7 @@ class GetMeetingRoomsScheduleRequest extends Model
         if (null !== $this->roomIds) {
             if (\is_array($this->roomIds)) {
                 $res['RoomIds'] = [];
-                $n1             = 0;
+                $n1 = 0;
                 foreach ($this->roomIds as $item1) {
                     $res['RoomIds'][$n1++] = $item1;
                 }
@@ -73,7 +75,7 @@ class GetMeetingRoomsScheduleRequest extends Model
         if (isset($map['RoomIds'])) {
             if (!empty($map['RoomIds'])) {
                 $model->roomIds = [];
-                $n1             = 0;
+                $n1 = 0;
                 foreach ($map['RoomIds'] as $item1) {
                     $model->roomIds[$n1++] = $item1;
                 }

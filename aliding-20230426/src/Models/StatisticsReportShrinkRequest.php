@@ -12,12 +12,13 @@ class StatisticsReportShrinkRequest extends Model
      * @var string
      */
     public $reportId;
+
     /**
      * @var string
      */
     public $tenantContextShrink;
     protected $_name = [
-        'reportId'            => 'ReportId',
+        'reportId' => 'ReportId',
         'tenantContextShrink' => 'TenantContext',
     ];
 

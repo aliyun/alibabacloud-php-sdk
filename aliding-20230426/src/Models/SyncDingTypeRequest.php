@@ -13,28 +13,32 @@ class SyncDingTypeRequest extends Model
      * @var string
      */
     public $dingType;
+
     /**
      * @var string
      */
     public $isDimission;
+
     /**
      * @var string
      */
     public $source;
+
     /**
      * @var tenantContext
      */
     public $tenantContext;
+
     /**
      * @var string
      */
     public $workNo;
     protected $_name = [
-        'dingType'      => 'DingType',
-        'isDimission'   => 'IsDimission',
-        'source'        => 'Source',
+        'dingType' => 'DingType',
+        'isDimission' => 'IsDimission',
+        'source' => 'Source',
         'tenantContext' => 'TenantContext',
-        'workNo'        => 'WorkNo',
+        'workNo' => 'WorkNo',
     ];
 
     public function validate()

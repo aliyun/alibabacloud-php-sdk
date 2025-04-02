@@ -12,17 +12,19 @@ class QueryMeetingRoomListShrinkRequest extends Model
      * @var int
      */
     public $maxResults;
+
     /**
      * @var int
      */
     public $nextToken;
+
     /**
      * @var string
      */
     public $tenantContextShrink;
     protected $_name = [
-        'maxResults'          => 'MaxResults',
-        'nextToken'           => 'NextToken',
+        'maxResults' => 'MaxResults',
+        'nextToken' => 'NextToken',
         'tenantContextShrink' => 'TenantContext',
     ];
 

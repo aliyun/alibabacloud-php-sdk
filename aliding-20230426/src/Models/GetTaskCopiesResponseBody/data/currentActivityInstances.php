@@ -12,28 +12,32 @@ class currentActivityInstances extends Model
      * @var string
      */
     public $activityId;
+
     /**
      * @var string
      */
     public $activityInstanceStatus;
+
     /**
      * @var string
      */
     public $activityName;
+
     /**
      * @var string
      */
     public $activityNameInEnglish;
+
     /**
      * @var int
      */
     public $id;
     protected $_name = [
-        'activityId'             => 'ActivityId',
+        'activityId' => 'ActivityId',
         'activityInstanceStatus' => 'ActivityInstanceStatus',
-        'activityName'           => 'ActivityName',
-        'activityNameInEnglish'  => 'ActivityNameInEnglish',
-        'id'                     => 'Id',
+        'activityName' => 'ActivityName',
+        'activityNameInEnglish' => 'ActivityNameInEnglish',
+        'id' => 'Id',
     ];
 
     public function validate()

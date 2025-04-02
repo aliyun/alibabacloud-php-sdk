@@ -12,33 +12,38 @@ class ListEventsViewRequest extends Model
      * @var string
      */
     public $calendarId;
+
     /**
      * @var int
      */
     public $maxAttendees;
+
     /**
      * @var int
      */
     public $maxResults;
+
     /**
      * @var string
      */
     public $nextToken;
+
     /**
      * @var string
      */
     public $timeMax;
+
     /**
      * @var string
      */
     public $timeMin;
     protected $_name = [
-        'calendarId'   => 'CalendarId',
+        'calendarId' => 'CalendarId',
         'maxAttendees' => 'MaxAttendees',
-        'maxResults'   => 'MaxResults',
-        'nextToken'    => 'NextToken',
-        'timeMax'      => 'TimeMax',
-        'timeMin'      => 'TimeMin',
+        'maxResults' => 'MaxResults',
+        'nextToken' => 'NextToken',
+        'timeMax' => 'TimeMax',
+        'timeMin' => 'TimeMin',
     ];
 
     public function validate()

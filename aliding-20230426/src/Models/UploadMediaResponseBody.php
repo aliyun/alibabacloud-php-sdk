@@ -12,12 +12,13 @@ class UploadMediaResponseBody extends Model
      * @var string
      */
     public $mediaId;
+
     /**
      * @var string
      */
     public $requestId;
     protected $_name = [
-        'mediaId'   => 'mediaId',
+        'mediaId' => 'mediaId',
         'requestId' => 'requestId',
     ];
 

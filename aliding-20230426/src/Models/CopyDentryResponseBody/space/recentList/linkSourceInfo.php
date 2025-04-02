@@ -13,28 +13,32 @@ class linkSourceInfo extends Model
      * @var string
      */
     public $extension;
+
     /**
      * @var iconUrl
      */
     public $iconUrl;
+
     /**
      * @var string
      */
     public $id;
+
     /**
      * @var int
      */
     public $linkType;
+
     /**
      * @var string
      */
     public $spaceId;
     protected $_name = [
         'extension' => 'Extension',
-        'iconUrl'   => 'IconUrl',
-        'id'        => 'Id',
-        'linkType'  => 'LinkType',
-        'spaceId'   => 'SpaceId',
+        'iconUrl' => 'IconUrl',
+        'id' => 'Id',
+        'linkType' => 'LinkType',
+        'spaceId' => 'SpaceId',
     ];
 
     public function validate()

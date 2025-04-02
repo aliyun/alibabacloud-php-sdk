@@ -13,22 +13,25 @@ class QueryDentryRequest extends Model
      * @var string
      */
     public $dentryId;
+
     /**
      * @var bool
      */
     public $includeSpace;
+
     /**
      * @var string
      */
     public $spaceId;
+
     /**
      * @var tenantContext
      */
     public $tenantContext;
     protected $_name = [
-        'dentryId'      => 'DentryId',
-        'includeSpace'  => 'IncludeSpace',
-        'spaceId'       => 'SpaceId',
+        'dentryId' => 'DentryId',
+        'includeSpace' => 'IncludeSpace',
+        'spaceId' => 'SpaceId',
         'tenantContext' => 'TenantContext',
     ];
 

@@ -15,68 +15,80 @@ class GetProcessDefinitionResponseBody extends Model
      * @var string
      */
     public $formUuid;
+
     /**
      * @var originator
      */
     public $originator;
+
     /**
      * @var string
      */
     public $outResult;
+
     /**
      * @var owners[]
      */
     public $owners;
+
     /**
      * @var string
      */
     public $processId;
+
     /**
      * @var string
      */
     public $processInstanceId;
+
     /**
      * @var string
      */
     public $requestId;
+
     /**
      * @var string
      */
     public $status;
+
     /**
      * @var tasks[]
      */
     public $tasks;
+
     /**
      * @var string
      */
     public $title;
+
     /**
      * @var mixed[]
      */
     public $variables;
+
     /**
      * @var string
      */
     public $vendorRequestId;
+
     /**
      * @var string
      */
     public $vendorType;
     protected $_name = [
-        'formUuid'          => 'formUuid',
-        'originator'        => 'originator',
-        'outResult'         => 'outResult',
-        'owners'            => 'owners',
-        'processId'         => 'processId',
+        'formUuid' => 'formUuid',
+        'originator' => 'originator',
+        'outResult' => 'outResult',
+        'owners' => 'owners',
+        'processId' => 'processId',
         'processInstanceId' => 'processInstanceId',
-        'requestId'         => 'requestId',
-        'status'            => 'status',
-        'tasks'             => 'tasks',
-        'title'             => 'title',
-        'variables'         => 'variables',
-        'vendorRequestId'   => 'vendorRequestId',
-        'vendorType'        => 'vendorType',
+        'requestId' => 'requestId',
+        'status' => 'status',
+        'tasks' => 'tasks',
+        'title' => 'title',
+        'variables' => 'variables',
+        'vendorRequestId' => 'vendorRequestId',
+        'vendorType' => 'vendorType',
     ];
 
     public function validate()
@@ -114,7 +126,7 @@ class GetProcessDefinitionResponseBody extends Model
         if (null !== $this->owners) {
             if (\is_array($this->owners)) {
                 $res['owners'] = [];
-                $n1            = 0;
+                $n1 = 0;
                 foreach ($this->owners as $item1) {
                     $res['owners'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -140,7 +152,7 @@ class GetProcessDefinitionResponseBody extends Model
         if (null !== $this->tasks) {
             if (\is_array($this->tasks)) {
                 $res['tasks'] = [];
-                $n1           = 0;
+                $n1 = 0;
                 foreach ($this->tasks as $item1) {
                     $res['tasks'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -194,7 +206,7 @@ class GetProcessDefinitionResponseBody extends Model
         if (isset($map['owners'])) {
             if (!empty($map['owners'])) {
                 $model->owners = [];
-                $n1            = 0;
+                $n1 = 0;
                 foreach ($map['owners'] as $item1) {
                     $model->owners[$n1++] = owners::fromMap($item1);
                 }
@@ -220,7 +232,7 @@ class GetProcessDefinitionResponseBody extends Model
         if (isset($map['tasks'])) {
             if (!empty($map['tasks'])) {
                 $model->tasks = [];
-                $n1           = 0;
+                $n1 = 0;
                 foreach ($map['tasks'] as $item1) {
                     $model->tasks[$n1++] = tasks::fromMap($item1);
                 }

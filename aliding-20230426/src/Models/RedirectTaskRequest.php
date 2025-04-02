@@ -12,43 +12,50 @@ class RedirectTaskRequest extends Model
      * @var string
      */
     public $appType;
+
     /**
      * @var string
      */
     public $byManager;
+
     /**
      * @var string
      */
     public $language;
+
     /**
      * @var string
      */
     public $nowActionExecutorId;
+
     /**
      * @var string
      */
     public $processInstanceId;
+
     /**
      * @var string
      */
     public $remark;
+
     /**
      * @var string
      */
     public $systemToken;
+
     /**
      * @var int
      */
     public $taskId;
     protected $_name = [
-        'appType'             => 'AppType',
-        'byManager'           => 'ByManager',
-        'language'            => 'Language',
+        'appType' => 'AppType',
+        'byManager' => 'ByManager',
+        'language' => 'Language',
         'nowActionExecutorId' => 'NowActionExecutorId',
-        'processInstanceId'   => 'ProcessInstanceId',
-        'remark'              => 'Remark',
-        'systemToken'         => 'SystemToken',
-        'taskId'              => 'TaskId',
+        'processInstanceId' => 'ProcessInstanceId',
+        'remark' => 'Remark',
+        'systemToken' => 'SystemToken',
+        'taskId' => 'TaskId',
     ];
 
     public function validate()

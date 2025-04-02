@@ -13,23 +13,26 @@ class QueryOrgHonorsRequest extends Model
      * @var tenantContext
      */
     public $tenantContext;
+
     /**
      * @var int
      */
     public $maxResults;
+
     /**
      * @var string
      */
     public $nextToken;
+
     /**
      * @var int
      */
     public $orgId;
     protected $_name = [
         'tenantContext' => 'TenantContext',
-        'maxResults'    => 'maxResults',
-        'nextToken'     => 'nextToken',
-        'orgId'         => 'orgId',
+        'maxResults' => 'maxResults',
+        'nextToken' => 'nextToken',
+        'orgId' => 'orgId',
     ];
 
     public function validate()

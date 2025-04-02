@@ -13,12 +13,13 @@ class GetMultiDimTableAllSheetsRequest extends Model
      * @var string
      */
     public $baseId;
+
     /**
      * @var tenantContext
      */
     public $tenantContext;
     protected $_name = [
-        'baseId'        => 'BaseId',
+        'baseId' => 'BaseId',
         'tenantContext' => 'TenantContext',
     ];
 

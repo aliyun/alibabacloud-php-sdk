@@ -14,31 +14,36 @@ class ListMultiDimTableRecordsRequest extends Model
      * @var string
      */
     public $baseId;
+
     /**
      * @var filter
      */
     public $filter;
+
     /**
      * @var int
      */
     public $maxResults;
+
     /**
      * @var string
      */
     public $nextToken;
+
     /**
      * @var string
      */
     public $sheetIdOrName;
+
     /**
      * @var tenantContext
      */
     public $tenantContext;
     protected $_name = [
-        'baseId'        => 'BaseId',
-        'filter'        => 'Filter',
-        'maxResults'    => 'MaxResults',
-        'nextToken'     => 'NextToken',
+        'baseId' => 'BaseId',
+        'filter' => 'Filter',
+        'maxResults' => 'MaxResults',
+        'nextToken' => 'NextToken',
         'sheetIdOrName' => 'SheetIdOrName',
         'tenantContext' => 'TenantContext',
     ];

@@ -12,6 +12,7 @@ class hdIconVO extends Model
      * @var string
      */
     public $icon;
+
     /**
      * @var string
      */

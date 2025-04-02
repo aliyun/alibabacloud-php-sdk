@@ -13,12 +13,13 @@ class DeleteWorkspaceDocMembersHeaders extends Model
      * @var string[]
      */
     public $commonHeaders;
+
     /**
      * @var accountContext
      */
     public $accountContext;
     protected $_name = [
-        'commonHeaders'  => 'commonHeaders',
+        'commonHeaders' => 'commonHeaders',
         'accountContext' => 'AccountContext',
     ];
 

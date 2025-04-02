@@ -13,13 +13,14 @@ class multipartHeaderSignatureInfos extends Model
      * @var headerSignatureInfo
      */
     public $headerSignatureInfo;
+
     /**
      * @var int
      */
     public $partNumber;
     protected $_name = [
         'headerSignatureInfo' => 'HeaderSignatureInfo',
-        'partNumber'          => 'PartNumber',
+        'partNumber' => 'PartNumber',
     ];
 
     public function validate()

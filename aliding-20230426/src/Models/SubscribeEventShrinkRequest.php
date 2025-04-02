@@ -12,17 +12,19 @@ class SubscribeEventShrinkRequest extends Model
      * @var string
      */
     public $scope;
+
     /**
      * @var string
      */
     public $scopeId;
+
     /**
      * @var string
      */
     public $tenantContextShrink;
     protected $_name = [
-        'scope'               => 'Scope',
-        'scopeId'             => 'ScopeId',
+        'scope' => 'Scope',
+        'scopeId' => 'ScopeId',
         'tenantContextShrink' => 'TenantContext',
     ];
 

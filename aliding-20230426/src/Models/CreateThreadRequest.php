@@ -12,17 +12,19 @@ class CreateThreadRequest extends Model
      * @var string
      */
     public $assistantId;
+
     /**
      * @var mixed[]
      */
     public $metadata;
+
     /**
      * @var string
      */
     public $originalAssistantId;
     protected $_name = [
-        'assistantId'         => 'assistantId',
-        'metadata'            => 'metadata',
+        'assistantId' => 'assistantId',
+        'metadata' => 'metadata',
         'originalAssistantId' => 'originalAssistantId',
     ];
 

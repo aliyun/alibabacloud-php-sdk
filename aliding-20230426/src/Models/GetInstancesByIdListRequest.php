@@ -12,23 +12,26 @@ class GetInstancesByIdListRequest extends Model
      * @var string
      */
     public $appType;
+
     /**
      * @var string
      */
     public $language;
+
     /**
      * @var string
      */
     public $processInstanceIds;
+
     /**
      * @var string
      */
     public $systemToken;
     protected $_name = [
-        'appType'            => 'AppType',
-        'language'           => 'Language',
+        'appType' => 'AppType',
+        'language' => 'Language',
         'processInstanceIds' => 'ProcessInstanceIds',
-        'systemToken'        => 'SystemToken',
+        'systemToken' => 'SystemToken',
     ];
 
     public function validate()

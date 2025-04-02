@@ -14,48 +14,56 @@ class result extends Model
      * @var actionExecutor[]
      */
     public $actionExecutor;
+
     /**
      * @var string
      */
     public $approvedResult;
+
     /**
      * @var mixed[]
      */
     public $data;
+
     /**
      * @var string
      */
     public $formUuid;
+
     /**
      * @var string
      */
     public $instanceStatus;
+
     /**
      * @var originator
      */
     public $originator;
+
     /**
      * @var string
      */
     public $processCode;
+
     /**
      * @var string
      */
     public $processInstanceId;
+
     /**
      * @var string
      */
     public $title;
     protected $_name = [
-        'actionExecutor'    => 'ActionExecutor',
-        'approvedResult'    => 'ApprovedResult',
-        'data'              => 'Data',
-        'formUuid'          => 'FormUuid',
-        'instanceStatus'    => 'InstanceStatus',
-        'originator'        => 'Originator',
-        'processCode'       => 'ProcessCode',
+        'actionExecutor' => 'ActionExecutor',
+        'approvedResult' => 'ApprovedResult',
+        'data' => 'Data',
+        'formUuid' => 'FormUuid',
+        'instanceStatus' => 'InstanceStatus',
+        'originator' => 'Originator',
+        'processCode' => 'ProcessCode',
         'processInstanceId' => 'ProcessInstanceId',
-        'title'             => 'Title',
+        'title' => 'Title',
     ];
 
     public function validate()
@@ -78,7 +86,7 @@ class result extends Model
         if (null !== $this->actionExecutor) {
             if (\is_array($this->actionExecutor)) {
                 $res['ActionExecutor'] = [];
-                $n1                    = 0;
+                $n1 = 0;
                 foreach ($this->actionExecutor as $item1) {
                     $res['ActionExecutor'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -136,7 +144,7 @@ class result extends Model
         if (isset($map['ActionExecutor'])) {
             if (!empty($map['ActionExecutor'])) {
                 $model->actionExecutor = [];
-                $n1                    = 0;
+                $n1 = 0;
                 foreach ($map['ActionExecutor'] as $item1) {
                     $model->actionExecutor[$n1++] = actionExecutor::fromMap($item1);
                 }

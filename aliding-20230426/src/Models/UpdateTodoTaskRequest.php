@@ -13,43 +13,50 @@ class UpdateTodoTaskRequest extends Model
      * @var tenantContext
      */
     public $tenantContext;
+
     /**
      * @var string
      */
     public $description;
+
     /**
      * @var bool
      */
     public $done;
+
     /**
      * @var int
      */
     public $dueTime;
+
     /**
      * @var string[]
      */
     public $executorIds;
+
     /**
      * @var string[]
      */
     public $participantIds;
+
     /**
      * @var string
      */
     public $subject;
+
     /**
      * @var string
      */
     public $taskId;
     protected $_name = [
-        'tenantContext'  => 'TenantContext',
-        'description'    => 'description',
-        'done'           => 'done',
-        'dueTime'        => 'dueTime',
-        'executorIds'    => 'executorIds',
+        'tenantContext' => 'TenantContext',
+        'description' => 'description',
+        'done' => 'done',
+        'dueTime' => 'dueTime',
+        'executorIds' => 'executorIds',
         'participantIds' => 'participantIds',
-        'subject'        => 'subject',
-        'taskId'         => 'taskId',
+        'subject' => 'subject',
+        'taskId' => 'taskId',
     ];
 
     public function validate()
@@ -88,7 +95,7 @@ class UpdateTodoTaskRequest extends Model
         if (null !== $this->executorIds) {
             if (\is_array($this->executorIds)) {
                 $res['executorIds'] = [];
-                $n1                 = 0;
+                $n1 = 0;
                 foreach ($this->executorIds as $item1) {
                     $res['executorIds'][$n1++] = $item1;
                 }
@@ -98,7 +105,7 @@ class UpdateTodoTaskRequest extends Model
         if (null !== $this->participantIds) {
             if (\is_array($this->participantIds)) {
                 $res['participantIds'] = [];
-                $n1                    = 0;
+                $n1 = 0;
                 foreach ($this->participantIds as $item1) {
                     $res['participantIds'][$n1++] = $item1;
                 }
@@ -143,7 +150,7 @@ class UpdateTodoTaskRequest extends Model
         if (isset($map['executorIds'])) {
             if (!empty($map['executorIds'])) {
                 $model->executorIds = [];
-                $n1                 = 0;
+                $n1 = 0;
                 foreach ($map['executorIds'] as $item1) {
                     $model->executorIds[$n1++] = $item1;
                 }
@@ -153,7 +160,7 @@ class UpdateTodoTaskRequest extends Model
         if (isset($map['participantIds'])) {
             if (!empty($map['participantIds'])) {
                 $model->participantIds = [];
-                $n1                    = 0;
+                $n1 = 0;
                 foreach ($map['participantIds'] as $item1) {
                     $model->participantIds[$n1++] = $item1;
                 }

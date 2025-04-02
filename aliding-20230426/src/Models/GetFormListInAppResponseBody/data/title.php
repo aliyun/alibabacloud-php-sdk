@@ -12,6 +12,7 @@ class title extends Model
      * @var string
      */
     public $enUS;
+
     /**
      * @var string
      */

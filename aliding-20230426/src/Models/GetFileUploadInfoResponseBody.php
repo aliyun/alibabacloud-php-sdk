@@ -13,38 +13,44 @@ class GetFileUploadInfoResponseBody extends Model
      * @var headerSignatureInfo
      */
     public $headerSignatureInfo;
+
     /**
      * @var string
      */
     public $protocol;
+
     /**
      * @var string
      */
     public $requestId;
+
     /**
      * @var string
      */
     public $storageDriver;
+
     /**
      * @var string
      */
     public $uploadKey;
+
     /**
      * @var string
      */
     public $vendorRequestId;
+
     /**
      * @var string
      */
     public $vendorType;
     protected $_name = [
         'headerSignatureInfo' => 'headerSignatureInfo',
-        'protocol'            => 'protocol',
-        'requestId'           => 'requestId',
-        'storageDriver'       => 'storageDriver',
-        'uploadKey'           => 'uploadKey',
-        'vendorRequestId'     => 'vendorRequestId',
-        'vendorType'          => 'vendorType',
+        'protocol' => 'protocol',
+        'requestId' => 'requestId',
+        'storageDriver' => 'storageDriver',
+        'uploadKey' => 'uploadKey',
+        'vendorRequestId' => 'vendorRequestId',
+        'vendorType' => 'vendorType',
     ];
 
     public function validate()

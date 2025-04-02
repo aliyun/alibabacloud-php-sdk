@@ -12,23 +12,26 @@ class UpdateTodoTaskExecutorStatusShrinkRequest extends Model
      * @var string
      */
     public $tenantContextShrink;
+
     /**
      * @var string
      */
     public $executorStatusListShrink;
+
     /**
      * @var string
      */
     public $operatorId;
+
     /**
      * @var string
      */
     public $taskId;
     protected $_name = [
-        'tenantContextShrink'      => 'TenantContext',
+        'tenantContextShrink' => 'TenantContext',
         'executorStatusListShrink' => 'executorStatusList',
-        'operatorId'               => 'operatorId',
-        'taskId'                   => 'taskId',
+        'operatorId' => 'operatorId',
+        'taskId' => 'taskId',
     ];
 
     public function validate()

@@ -12,48 +12,56 @@ class CreateTicketShrinkRequest extends Model
      * @var string
      */
     public $customFields;
+
     /**
      * @var string
      */
     public $notifyShrink;
+
     /**
      * @var string
      */
     public $openTeamId;
+
     /**
      * @var string
      */
     public $openTemplateBizId;
+
     /**
      * @var string
      */
     public $processorUserIdsShrink;
+
     /**
      * @var string
      */
     public $scene;
+
     /**
      * @var string
      */
     public $sceneContextShrink;
+
     /**
      * @var string
      */
     public $tenantContextShrink;
+
     /**
      * @var string
      */
     public $title;
     protected $_name = [
-        'customFields'           => 'CustomFields',
-        'notifyShrink'           => 'Notify',
-        'openTeamId'             => 'OpenTeamId',
-        'openTemplateBizId'      => 'OpenTemplateBizId',
+        'customFields' => 'CustomFields',
+        'notifyShrink' => 'Notify',
+        'openTeamId' => 'OpenTeamId',
+        'openTemplateBizId' => 'OpenTemplateBizId',
         'processorUserIdsShrink' => 'ProcessorUserIds',
-        'scene'                  => 'Scene',
-        'sceneContextShrink'     => 'SceneContext',
-        'tenantContextShrink'    => 'TenantContext',
-        'title'                  => 'Title',
+        'scene' => 'Scene',
+        'sceneContextShrink' => 'SceneContext',
+        'tenantContextShrink' => 'TenantContext',
+        'title' => 'Title',
     ];
 
     public function validate()

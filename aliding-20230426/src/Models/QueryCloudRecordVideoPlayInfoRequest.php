@@ -13,22 +13,25 @@ class QueryCloudRecordVideoPlayInfoRequest extends Model
      * @var string
      */
     public $conferenceId;
+
     /**
      * @var string
      */
     public $mediaId;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var tenantContext
      */
     public $tenantContext;
     protected $_name = [
-        'conferenceId'  => 'ConferenceId',
-        'mediaId'       => 'MediaId',
-        'regionId'      => 'RegionId',
+        'conferenceId' => 'ConferenceId',
+        'mediaId' => 'MediaId',
+        'regionId' => 'RegionId',
         'tenantContext' => 'TenantContext',
     ];
 

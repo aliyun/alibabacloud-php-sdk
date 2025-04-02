@@ -12,12 +12,13 @@ class reminders extends Model
      * @var string
      */
     public $method;
+
     /**
      * @var int
      */
     public $minutes;
     protected $_name = [
-        'method'  => 'method',
+        'method' => 'method',
         'minutes' => 'minutes',
     ];
 

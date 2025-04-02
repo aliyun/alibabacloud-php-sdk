@@ -12,28 +12,32 @@ class FinishTicketShrinkRequest extends Model
      * @var string
      */
     public $notifyShrink;
+
     /**
      * @var string
      */
     public $openTeamId;
+
     /**
      * @var string
      */
     public $openTicketId;
+
     /**
      * @var string
      */
     public $tenantContextShrink;
+
     /**
      * @var string
      */
     public $ticketMemoShrink;
     protected $_name = [
-        'notifyShrink'        => 'Notify',
-        'openTeamId'          => 'OpenTeamId',
-        'openTicketId'        => 'OpenTicketId',
+        'notifyShrink' => 'Notify',
+        'openTeamId' => 'OpenTeamId',
+        'openTicketId' => 'OpenTicketId',
         'tenantContextShrink' => 'TenantContext',
-        'ticketMemoShrink'    => 'TicketMemo',
+        'ticketMemoShrink' => 'TicketMemo',
     ];
 
     public function validate()

@@ -19,68 +19,80 @@ class PatchEventRequest extends Model
      * @var attendees[]
      */
     public $attendees;
+
     /**
      * @var string
      */
     public $calendarId;
+
     /**
      * @var cardInstances[]
      */
     public $cardInstances;
+
     /**
      * @var string
      */
     public $description;
+
     /**
      * @var end
      */
     public $end;
+
     /**
      * @var string
      */
     public $eventId;
+
     /**
      * @var string[]
      */
     public $extra;
+
     /**
      * @var bool
      */
     public $isAllDay;
+
     /**
      * @var location
      */
     public $location;
+
     /**
      * @var recurrence
      */
     public $recurrence;
+
     /**
      * @var reminders[]
      */
     public $reminders;
+
     /**
      * @var start
      */
     public $start;
+
     /**
      * @var string
      */
     public $summary;
     protected $_name = [
-        'attendees'     => 'Attendees',
-        'calendarId'    => 'CalendarId',
+        'attendees' => 'Attendees',
+        'calendarId' => 'CalendarId',
         'cardInstances' => 'CardInstances',
-        'description'   => 'Description',
-        'end'           => 'End',
-        'eventId'       => 'EventId',
-        'extra'         => 'Extra',
-        'isAllDay'      => 'IsAllDay',
-        'location'      => 'Location',
-        'recurrence'    => 'Recurrence',
-        'reminders'     => 'Reminders',
-        'start'         => 'Start',
-        'summary'       => 'Summary',
+        'description' => 'Description',
+        'end' => 'End',
+        'eventId' => 'EventId',
+        'extra' => 'Extra',
+        'isAllDay' => 'IsAllDay',
+        'location' => 'Location',
+        'recurrence' => 'Recurrence',
+        'reminders' => 'Reminders',
+        'start' => 'Start',
+        'summary' => 'Summary',
     ];
 
     public function validate()
@@ -118,7 +130,7 @@ class PatchEventRequest extends Model
         if (null !== $this->attendees) {
             if (\is_array($this->attendees)) {
                 $res['Attendees'] = [];
-                $n1               = 0;
+                $n1 = 0;
                 foreach ($this->attendees as $item1) {
                     $res['Attendees'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -132,7 +144,7 @@ class PatchEventRequest extends Model
         if (null !== $this->cardInstances) {
             if (\is_array($this->cardInstances)) {
                 $res['CardInstances'] = [];
-                $n1                   = 0;
+                $n1 = 0;
                 foreach ($this->cardInstances as $item1) {
                     $res['CardInstances'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -175,7 +187,7 @@ class PatchEventRequest extends Model
         if (null !== $this->reminders) {
             if (\is_array($this->reminders)) {
                 $res['Reminders'] = [];
-                $n1               = 0;
+                $n1 = 0;
                 foreach ($this->reminders as $item1) {
                     $res['Reminders'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -204,7 +216,7 @@ class PatchEventRequest extends Model
         if (isset($map['Attendees'])) {
             if (!empty($map['Attendees'])) {
                 $model->attendees = [];
-                $n1               = 0;
+                $n1 = 0;
                 foreach ($map['Attendees'] as $item1) {
                     $model->attendees[$n1++] = attendees::fromMap($item1);
                 }
@@ -218,7 +230,7 @@ class PatchEventRequest extends Model
         if (isset($map['CardInstances'])) {
             if (!empty($map['CardInstances'])) {
                 $model->cardInstances = [];
-                $n1                   = 0;
+                $n1 = 0;
                 foreach ($map['CardInstances'] as $item1) {
                     $model->cardInstances[$n1++] = cardInstances::fromMap($item1);
                 }
@@ -261,7 +273,7 @@ class PatchEventRequest extends Model
         if (isset($map['Reminders'])) {
             if (!empty($map['Reminders'])) {
                 $model->reminders = [];
-                $n1               = 0;
+                $n1 = 0;
                 foreach ($map['Reminders'] as $item1) {
                     $model->reminders[$n1++] = reminders::fromMap($item1);
                 }

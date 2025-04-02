@@ -13,28 +13,32 @@ class UploadMediaRequest extends Model
      * @var tenantContext
      */
     public $tenantContext;
+
     /**
      * @var string
      */
     public $mediaName;
+
     /**
      * @var string
      */
     public $mediaType;
+
     /**
      * @var int
      */
     public $orgId;
+
     /**
      * @var string
      */
     public $url;
     protected $_name = [
         'tenantContext' => 'TenantContext',
-        'mediaName'     => 'mediaName',
-        'mediaType'     => 'mediaType',
-        'orgId'         => 'orgId',
-        'url'           => 'url',
+        'mediaName' => 'mediaName',
+        'mediaType' => 'mediaType',
+        'orgId' => 'orgId',
+        'url' => 'url',
     ];
 
     public function validate()

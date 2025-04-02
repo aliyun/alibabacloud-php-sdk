@@ -13,38 +13,44 @@ class UpdateLiveRequest extends Model
      * @var string
      */
     public $coverUrl;
+
     /**
      * @var string
      */
     public $introduction;
+
     /**
      * @var string
      */
     public $liveId;
+
     /**
      * @var int
      */
     public $preEndTime;
+
     /**
      * @var int
      */
     public $preStartTime;
+
     /**
      * @var tenantContext
      */
     public $tenantContext;
+
     /**
      * @var string
      */
     public $title;
     protected $_name = [
-        'coverUrl'      => 'CoverUrl',
-        'introduction'  => 'Introduction',
-        'liveId'        => 'LiveId',
-        'preEndTime'    => 'PreEndTime',
-        'preStartTime'  => 'PreStartTime',
+        'coverUrl' => 'CoverUrl',
+        'introduction' => 'Introduction',
+        'liveId' => 'LiveId',
+        'preEndTime' => 'PreEndTime',
+        'preStartTime' => 'PreStartTime',
         'tenantContext' => 'TenantContext',
-        'title'         => 'Title',
+        'title' => 'Title',
     ];
 
     public function validate()

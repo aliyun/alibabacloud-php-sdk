@@ -14,23 +14,26 @@ class AddTicketMemoRequest extends Model
      * @var string
      */
     public $openTeamId;
+
     /**
      * @var string
      */
     public $openTicketId;
+
     /**
      * @var tenantContext
      */
     public $tenantContext;
+
     /**
      * @var ticketMemo
      */
     public $ticketMemo;
     protected $_name = [
-        'openTeamId'    => 'OpenTeamId',
-        'openTicketId'  => 'OpenTicketId',
+        'openTeamId' => 'OpenTeamId',
+        'openTicketId' => 'OpenTicketId',
         'tenantContext' => 'TenantContext',
-        'ticketMemo'    => 'TicketMemo',
+        'ticketMemo' => 'TicketMemo',
     ];
 
     public function validate()

@@ -12,13 +12,14 @@ class CloseVideoConferenceShrinkRequest extends Model
      * @var string
      */
     public $tenantContextShrink;
+
     /**
      * @var string
      */
     public $conferenceId;
     protected $_name = [
         'tenantContextShrink' => 'TenantContext',
-        'conferenceId'        => 'conferenceId',
+        'conferenceId' => 'conferenceId',
     ];
 
     public function validate()

@@ -12,58 +12,68 @@ class GrantHonorShrinkRequest extends Model
      * @var string
      */
     public $tenantContextShrink;
+
     /**
      * @var int
      */
     public $expirationTime;
+
     /**
      * @var string
      */
     public $grantReason;
+
     /**
      * @var string
      */
     public $granterName;
+
     /**
      * @var string
      */
     public $honorId;
+
     /**
      * @var bool
      */
     public $noticeAnnouncer;
+
     /**
      * @var bool
      */
     public $noticeSingle;
+
     /**
      * @var string
      */
     public $openConversationIdsShrink;
+
     /**
      * @var int
      */
     public $orgId;
+
     /**
      * @var string
      */
     public $receiverUserIdsShrink;
+
     /**
      * @var string
      */
     public $senderUserId;
     protected $_name = [
-        'tenantContextShrink'       => 'TenantContext',
-        'expirationTime'            => 'expirationTime',
-        'grantReason'               => 'grantReason',
-        'granterName'               => 'granterName',
-        'honorId'                   => 'honorId',
-        'noticeAnnouncer'           => 'noticeAnnouncer',
-        'noticeSingle'              => 'noticeSingle',
+        'tenantContextShrink' => 'TenantContext',
+        'expirationTime' => 'expirationTime',
+        'grantReason' => 'grantReason',
+        'granterName' => 'granterName',
+        'honorId' => 'honorId',
+        'noticeAnnouncer' => 'noticeAnnouncer',
+        'noticeSingle' => 'noticeSingle',
         'openConversationIdsShrink' => 'openConversationIds',
-        'orgId'                     => 'orgId',
-        'receiverUserIdsShrink'     => 'receiverUserIds',
-        'senderUserId'              => 'senderUserId',
+        'orgId' => 'orgId',
+        'receiverUserIdsShrink' => 'receiverUserIds',
+        'senderUserId' => 'senderUserId',
     ];
 
     public function validate()

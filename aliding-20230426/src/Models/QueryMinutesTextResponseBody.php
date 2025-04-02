@@ -13,33 +13,38 @@ class QueryMinutesTextResponseBody extends Model
      * @var bool
      */
     public $hasMore;
+
     /**
      * @var string
      */
     public $nextToken;
+
     /**
      * @var paragraphList[]
      */
     public $paragraphList;
+
     /**
      * @var string
      */
     public $requestId;
+
     /**
      * @var string
      */
     public $vendorRequestId;
+
     /**
      * @var string
      */
     public $vendorType;
     protected $_name = [
-        'hasMore'         => 'hasMore',
-        'nextToken'       => 'nextToken',
-        'paragraphList'   => 'paragraphList',
-        'requestId'       => 'requestId',
+        'hasMore' => 'hasMore',
+        'nextToken' => 'nextToken',
+        'paragraphList' => 'paragraphList',
+        'requestId' => 'requestId',
         'vendorRequestId' => 'vendorRequestId',
-        'vendorType'      => 'vendorType',
+        'vendorType' => 'vendorType',
     ];
 
     public function validate()
@@ -64,7 +69,7 @@ class QueryMinutesTextResponseBody extends Model
         if (null !== $this->paragraphList) {
             if (\is_array($this->paragraphList)) {
                 $res['paragraphList'] = [];
-                $n1                   = 0;
+                $n1 = 0;
                 foreach ($this->paragraphList as $item1) {
                     $res['paragraphList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -105,7 +110,7 @@ class QueryMinutesTextResponseBody extends Model
         if (isset($map['paragraphList'])) {
             if (!empty($map['paragraphList'])) {
                 $model->paragraphList = [];
-                $n1                   = 0;
+                $n1 = 0;
                 foreach ($map['paragraphList'] as $item1) {
                     $model->paragraphList[$n1++] = paragraphList::fromMap($item1);
                 }

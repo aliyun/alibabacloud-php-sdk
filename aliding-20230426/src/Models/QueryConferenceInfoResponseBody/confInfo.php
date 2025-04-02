@@ -12,68 +12,80 @@ class confInfo extends Model
      * @var int
      */
     public $activeNum;
+
     /**
      * @var int
      */
     public $attendNum;
+
     /**
      * @var int
      */
     public $confDuration;
+
     /**
      * @var string
      */
     public $conferenceId;
+
     /**
      * @var string
      */
     public $creatorId;
+
     /**
      * @var string
      */
     public $creatorNick;
+
     /**
      * @var int
      */
     public $endTime;
+
     /**
      * @var string
      */
     public $externalLinkUrl;
+
     /**
      * @var int
      */
     public $invitedNum;
+
     /**
      * @var string
      */
     public $roomCode;
+
     /**
      * @var int
      */
     public $startTime;
+
     /**
      * @var int
      */
     public $status;
+
     /**
      * @var string
      */
     public $title;
     protected $_name = [
-        'activeNum'       => 'ActiveNum',
-        'attendNum'       => 'AttendNum',
-        'confDuration'    => 'ConfDuration',
-        'conferenceId'    => 'ConferenceId',
-        'creatorId'       => 'CreatorId',
-        'creatorNick'     => 'CreatorNick',
-        'endTime'         => 'EndTime',
+        'activeNum' => 'ActiveNum',
+        'attendNum' => 'AttendNum',
+        'confDuration' => 'ConfDuration',
+        'conferenceId' => 'ConferenceId',
+        'creatorId' => 'CreatorId',
+        'creatorNick' => 'CreatorNick',
+        'endTime' => 'EndTime',
         'externalLinkUrl' => 'ExternalLinkUrl',
-        'invitedNum'      => 'InvitedNum',
-        'roomCode'        => 'RoomCode',
-        'startTime'       => 'StartTime',
-        'status'          => 'Status',
-        'title'           => 'Title',
+        'invitedNum' => 'InvitedNum',
+        'roomCode' => 'RoomCode',
+        'startTime' => 'StartTime',
+        'status' => 'Status',
+        'title' => 'Title',
     ];
 
     public function validate()

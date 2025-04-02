@@ -12,13 +12,14 @@ class SearchInnerGroupsRequest extends Model
      * @var int
      */
     public $maxResults;
+
     /**
      * @var string
      */
     public $searchKey;
     protected $_name = [
         'maxResults' => 'MaxResults',
-        'searchKey'  => 'SearchKey',
+        'searchKey' => 'SearchKey',
     ];
 
     public function validate()

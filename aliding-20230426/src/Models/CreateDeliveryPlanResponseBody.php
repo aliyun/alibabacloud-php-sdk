@@ -12,28 +12,32 @@ class CreateDeliveryPlanResponseBody extends Model
      * @var mixed[]
      */
     public $arguments;
+
     /**
      * @var string
      */
     public $requestId;
+
     /**
      * @var bool
      */
     public $success;
+
     /**
      * @var string
      */
     public $vendorRequestId;
+
     /**
      * @var string
      */
     public $vendorType;
     protected $_name = [
-        'arguments'       => 'arguments',
-        'requestId'       => 'requestId',
-        'success'         => 'success',
+        'arguments' => 'arguments',
+        'requestId' => 'requestId',
+        'success' => 'success',
         'vendorRequestId' => 'vendorRequestId',
-        'vendorType'      => 'vendorType',
+        'vendorType' => 'vendorType',
     ];
 
     public function validate()
@@ -50,7 +54,7 @@ class CreateDeliveryPlanResponseBody extends Model
         if (null !== $this->arguments) {
             if (\is_array($this->arguments)) {
                 $res['arguments'] = [];
-                $n1               = 0;
+                $n1 = 0;
                 foreach ($this->arguments as $item1) {
                     $res['arguments'][$n1++] = $item1;
                 }
@@ -87,7 +91,7 @@ class CreateDeliveryPlanResponseBody extends Model
         if (isset($map['arguments'])) {
             if (!empty($map['arguments'])) {
                 $model->arguments = [];
-                $n1               = 0;
+                $n1 = 0;
                 foreach ($map['arguments'] as $item1) {
                     $model->arguments[$n1++] = $item1;
                 }

@@ -12,27 +12,31 @@ class UpdateSubscribedCalendarsShrinkRequest extends Model
      * @var string
      */
     public $calendarId;
+
     /**
      * @var string
      */
     public $description;
+
     /**
      * @var string
      */
     public $managersShrink;
+
     /**
      * @var string
      */
     public $name;
+
     /**
      * @var string
      */
     public $subscribeScopeShrink;
     protected $_name = [
-        'calendarId'           => 'CalendarId',
-        'description'          => 'Description',
-        'managersShrink'       => 'Managers',
-        'name'                 => 'Name',
+        'calendarId' => 'CalendarId',
+        'description' => 'Description',
+        'managersShrink' => 'Managers',
+        'name' => 'Name',
         'subscribeScopeShrink' => 'SubscribeScope',
     ];
 

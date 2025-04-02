@@ -13,23 +13,26 @@ class GetNewestInnerGroupsResponseBody extends Model
      * @var groupInfos[]
      */
     public $groupInfos;
+
     /**
      * @var string
      */
     public $requestId;
+
     /**
      * @var string
      */
     public $vendorRequestId;
+
     /**
      * @var string
      */
     public $vendorType;
     protected $_name = [
-        'groupInfos'      => 'groupInfos',
-        'requestId'       => 'requestId',
+        'groupInfos' => 'groupInfos',
+        'requestId' => 'requestId',
         'vendorRequestId' => 'vendorRequestId',
-        'vendorType'      => 'vendorType',
+        'vendorType' => 'vendorType',
     ];
 
     public function validate()
@@ -46,7 +49,7 @@ class GetNewestInnerGroupsResponseBody extends Model
         if (null !== $this->groupInfos) {
             if (\is_array($this->groupInfos)) {
                 $res['groupInfos'] = [];
-                $n1                = 0;
+                $n1 = 0;
                 foreach ($this->groupInfos as $item1) {
                     $res['groupInfos'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -79,7 +82,7 @@ class GetNewestInnerGroupsResponseBody extends Model
         if (isset($map['groupInfos'])) {
             if (!empty($map['groupInfos'])) {
                 $model->groupInfos = [];
-                $n1                = 0;
+                $n1 = 0;
                 foreach ($map['groupInfos'] as $item1) {
                     $model->groupInfos[$n1++] = groupInfos::fromMap($item1);
                 }

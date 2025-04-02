@@ -12,22 +12,25 @@ class contents extends Model
      * @var string
      */
     public $key;
+
     /**
      * @var string
      */
     public $sort;
+
     /**
      * @var string
      */
     public $type;
+
     /**
      * @var string
      */
     public $value;
     protected $_name = [
-        'key'   => 'Key',
-        'sort'  => 'Sort',
-        'type'  => 'Type',
+        'key' => 'Key',
+        'sort' => 'Sort',
+        'type' => 'Type',
         'value' => 'Value',
     ];
 

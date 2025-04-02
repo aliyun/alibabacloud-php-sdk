@@ -12,22 +12,25 @@ class GetFormDataByIDRequest extends Model
      * @var string
      */
     public $appType;
+
     /**
      * @var string
      */
     public $id;
+
     /**
      * @var string
      */
     public $language;
+
     /**
      * @var string
      */
     public $systemToken;
     protected $_name = [
-        'appType'     => 'AppType',
-        'id'          => 'Id',
-        'language'    => 'Language',
+        'appType' => 'AppType',
+        'id' => 'Id',
+        'language' => 'Language',
         'systemToken' => 'SystemToken',
     ];
 

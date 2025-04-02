@@ -12,22 +12,25 @@ class CreateSheetResponseBody extends Model
      * @var string
      */
     public $id;
+
     /**
      * @var string
      */
     public $name;
+
     /**
      * @var string
      */
     public $requestId;
+
     /**
      * @var string
      */
     public $visibility;
     protected $_name = [
-        'id'         => 'id',
-        'name'       => 'name',
-        'requestId'  => 'requestId',
+        'id' => 'id',
+        'name' => 'name',
+        'requestId' => 'requestId',
         'visibility' => 'visibility',
     ];
 

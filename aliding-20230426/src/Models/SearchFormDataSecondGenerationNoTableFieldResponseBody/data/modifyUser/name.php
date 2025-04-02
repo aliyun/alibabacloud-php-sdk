@@ -12,6 +12,7 @@ class name extends Model
      * @var string
      */
     public $nameInChinese;
+
     /**
      * @var string
      */

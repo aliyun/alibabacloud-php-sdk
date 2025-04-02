@@ -12,28 +12,32 @@ class SaveFormDataRequest extends Model
      * @var string
      */
     public $appType;
+
     /**
      * @var string
      */
     public $formDataJson;
+
     /**
      * @var string
      */
     public $formUuid;
+
     /**
      * @var string
      */
     public $language;
+
     /**
      * @var string
      */
     public $systemToken;
     protected $_name = [
-        'appType'      => 'AppType',
+        'appType' => 'AppType',
         'formDataJson' => 'FormDataJson',
-        'formUuid'     => 'FormUuid',
-        'language'     => 'Language',
-        'systemToken'  => 'SystemToken',
+        'formUuid' => 'FormUuid',
+        'language' => 'Language',
+        'systemToken' => 'SystemToken',
     ];
 
     public function validate()

@@ -12,12 +12,13 @@ class QueryLiveInfoShrinkRequest extends Model
      * @var string
      */
     public $liveId;
+
     /**
      * @var string
      */
     public $tenantContextShrink;
     protected $_name = [
-        'liveId'              => 'LiveId',
+        'liveId' => 'LiveId',
         'tenantContextShrink' => 'TenantContext',
     ];
 

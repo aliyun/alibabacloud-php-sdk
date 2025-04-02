@@ -12,12 +12,13 @@ class roomLabels extends Model
      * @var int
      */
     public $labelId;
+
     /**
      * @var string
      */
     public $labelName;
     protected $_name = [
-        'labelId'   => 'LabelId',
+        'labelId' => 'LabelId',
         'labelName' => 'LabelName',
     ];
 

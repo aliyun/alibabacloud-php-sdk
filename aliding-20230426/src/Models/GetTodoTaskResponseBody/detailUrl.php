@@ -12,13 +12,14 @@ class detailUrl extends Model
      * @var string
      */
     public $appUrl;
+
     /**
      * @var string
      */
     public $pcUrl;
     protected $_name = [
         'appUrl' => 'AppUrl',
-        'pcUrl'  => 'PcUrl',
+        'pcUrl' => 'PcUrl',
     ];
 
     public function validate()

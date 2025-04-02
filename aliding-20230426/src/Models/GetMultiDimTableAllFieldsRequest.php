@@ -13,16 +13,18 @@ class GetMultiDimTableAllFieldsRequest extends Model
      * @var string
      */
     public $baseId;
+
     /**
      * @var string
      */
     public $sheetIdOrName;
+
     /**
      * @var tenantContext
      */
     public $tenantContext;
     protected $_name = [
-        'baseId'        => 'BaseId',
+        'baseId' => 'BaseId',
         'sheetIdOrName' => 'SheetIdOrName',
         'tenantContext' => 'TenantContext',
     ];

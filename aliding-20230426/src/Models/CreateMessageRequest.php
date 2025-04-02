@@ -13,33 +13,38 @@ class CreateMessageRequest extends Model
      * @var string
      */
     public $assistantId;
+
     /**
      * @var content[]
      */
     public $content;
+
     /**
      * @var mixed[]
      */
     public $metadata;
+
     /**
      * @var string
      */
     public $originalAssistantId;
+
     /**
      * @var string
      */
     public $role;
+
     /**
      * @var string
      */
     public $threadId;
     protected $_name = [
-        'assistantId'         => 'assistantId',
-        'content'             => 'content',
-        'metadata'            => 'metadata',
+        'assistantId' => 'assistantId',
+        'content' => 'content',
+        'metadata' => 'metadata',
         'originalAssistantId' => 'originalAssistantId',
-        'role'                => 'role',
-        'threadId'            => 'threadId',
+        'role' => 'role',
+        'threadId' => 'threadId',
     ];
 
     public function validate()
@@ -63,7 +68,7 @@ class CreateMessageRequest extends Model
         if (null !== $this->content) {
             if (\is_array($this->content)) {
                 $res['content'] = [];
-                $n1             = 0;
+                $n1 = 0;
                 foreach ($this->content as $item1) {
                     $res['content'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -109,7 +114,7 @@ class CreateMessageRequest extends Model
         if (isset($map['content'])) {
             if (!empty($map['content'])) {
                 $model->content = [];
-                $n1             = 0;
+                $n1 = 0;
                 foreach ($map['content'] as $item1) {
                     $model->content[$n1++] = content::fromMap($item1);
                 }

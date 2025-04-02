@@ -12,12 +12,13 @@ class updater extends Model
      * @var string
      */
     public $name;
+
     /**
      * @var string
      */
     public $userId;
     protected $_name = [
-        'name'   => 'Name',
+        'name' => 'Name',
         'userId' => 'UserId',
     ];
 

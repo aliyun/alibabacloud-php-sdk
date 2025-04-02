@@ -12,93 +12,110 @@ class actioner extends Model
      * @var string
      */
     public $buName;
+
     /**
      * @var string
      */
     public $email;
+
     /**
      * @var string
      */
     public $employeeType;
+
     /**
      * @var string
      */
     public $employeeTypeInformation;
+
     /**
      * @var string
      */
     public $humanResourceGroupWorkNumber;
+
     /**
      * @var bool
      */
     public $isSystemAdmin;
+
     /**
      * @var string
      */
     public $level;
+
     /**
      * @var string
      */
     public $name;
+
     /**
      * @var string
      */
     public $nickName;
+
     /**
      * @var string
      */
     public $orderNumber;
+
     /**
      * @var string
      */
     public $personalPhoto;
+
     /**
      * @var string
      */
     public $personalPhotoUrl;
+
     /**
      * @var string
      */
     public $pinyinNameAll;
+
     /**
      * @var string
      */
     public $pinyinNickName;
+
     /**
      * @var string
      */
     public $state;
+
     /**
      * @var string
      */
     public $superUserId;
+
     /**
      * @var string
      */
     public $tbWang;
+
     /**
      * @var string
      */
     public $userId;
     protected $_name = [
-        'buName'                       => 'BuName',
-        'email'                        => 'Email',
-        'employeeType'                 => 'EmployeeType',
-        'employeeTypeInformation'      => 'EmployeeTypeInformation',
+        'buName' => 'BuName',
+        'email' => 'Email',
+        'employeeType' => 'EmployeeType',
+        'employeeTypeInformation' => 'EmployeeTypeInformation',
         'humanResourceGroupWorkNumber' => 'HumanResourceGroupWorkNumber',
-        'isSystemAdmin'                => 'IsSystemAdmin',
-        'level'                        => 'Level',
-        'name'                         => 'Name',
-        'nickName'                     => 'NickName',
-        'orderNumber'                  => 'OrderNumber',
-        'personalPhoto'                => 'PersonalPhoto',
-        'personalPhotoUrl'             => 'PersonalPhotoUrl',
-        'pinyinNameAll'                => 'PinyinNameAll',
-        'pinyinNickName'               => 'PinyinNickName',
-        'state'                        => 'State',
-        'superUserId'                  => 'SuperUserId',
-        'tbWang'                       => 'TbWang',
-        'userId'                       => 'UserId',
+        'isSystemAdmin' => 'IsSystemAdmin',
+        'level' => 'Level',
+        'name' => 'Name',
+        'nickName' => 'NickName',
+        'orderNumber' => 'OrderNumber',
+        'personalPhoto' => 'PersonalPhoto',
+        'personalPhotoUrl' => 'PersonalPhotoUrl',
+        'pinyinNameAll' => 'PinyinNameAll',
+        'pinyinNickName' => 'PinyinNickName',
+        'state' => 'State',
+        'superUserId' => 'SuperUserId',
+        'tbWang' => 'TbWang',
+        'userId' => 'UserId',
     ];
 
     public function validate()

@@ -12,27 +12,31 @@ class GetSpaceDirectoriesShrinkRequest extends Model
      * @var string
      */
     public $dentryId;
+
     /**
      * @var int
      */
     public $maxResults;
+
     /**
      * @var string
      */
     public $nextToken;
+
     /**
      * @var string
      */
     public $spaceId;
+
     /**
      * @var string
      */
     public $tenantContextShrink;
     protected $_name = [
-        'dentryId'            => 'DentryId',
-        'maxResults'          => 'MaxResults',
-        'nextToken'           => 'NextToken',
-        'spaceId'             => 'SpaceId',
+        'dentryId' => 'DentryId',
+        'maxResults' => 'MaxResults',
+        'nextToken' => 'NextToken',
+        'spaceId' => 'SpaceId',
         'tenantContextShrink' => 'TenantContext',
     ];
 

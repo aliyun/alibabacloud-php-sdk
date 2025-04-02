@@ -14,78 +14,92 @@ class GetInstanceByIdResponseBody extends Model
      * @var actionExecutor[]
      */
     public $actionExecutor;
+
     /**
      * @var string
      */
     public $approvedResult;
+
     /**
      * @var string
      */
     public $createTimeGMT;
+
     /**
      * @var mixed[]
      */
     public $data;
+
     /**
      * @var string
      */
     public $formUuid;
+
     /**
      * @var string
      */
     public $instanceStatus;
+
     /**
      * @var string
      */
     public $modifiedTimeGMT;
+
     /**
      * @var originator
      */
     public $originator;
+
     /**
      * @var string
      */
     public $processCode;
+
     /**
      * @var string
      */
     public $processInstanceId;
+
     /**
      * @var string
      */
     public $requestId;
+
     /**
      * @var string
      */
     public $title;
+
     /**
      * @var string
      */
     public $vendorRequestId;
+
     /**
      * @var string
      */
     public $vendorType;
+
     /**
      * @var int
      */
     public $version;
     protected $_name = [
-        'actionExecutor'    => 'actionExecutor',
-        'approvedResult'    => 'approvedResult',
-        'createTimeGMT'     => 'createTimeGMT',
-        'data'              => 'data',
-        'formUuid'          => 'formUuid',
-        'instanceStatus'    => 'instanceStatus',
-        'modifiedTimeGMT'   => 'modifiedTimeGMT',
-        'originator'        => 'originator',
-        'processCode'       => 'processCode',
+        'actionExecutor' => 'actionExecutor',
+        'approvedResult' => 'approvedResult',
+        'createTimeGMT' => 'createTimeGMT',
+        'data' => 'data',
+        'formUuid' => 'formUuid',
+        'instanceStatus' => 'instanceStatus',
+        'modifiedTimeGMT' => 'modifiedTimeGMT',
+        'originator' => 'originator',
+        'processCode' => 'processCode',
         'processInstanceId' => 'processInstanceId',
-        'requestId'         => 'requestId',
-        'title'             => 'title',
-        'vendorRequestId'   => 'vendorRequestId',
-        'vendorType'        => 'vendorType',
-        'version'           => 'version',
+        'requestId' => 'requestId',
+        'title' => 'title',
+        'vendorRequestId' => 'vendorRequestId',
+        'vendorType' => 'vendorType',
+        'version' => 'version',
     ];
 
     public function validate()
@@ -108,7 +122,7 @@ class GetInstanceByIdResponseBody extends Model
         if (null !== $this->actionExecutor) {
             if (\is_array($this->actionExecutor)) {
                 $res['actionExecutor'] = [];
-                $n1                    = 0;
+                $n1 = 0;
                 foreach ($this->actionExecutor as $item1) {
                     $res['actionExecutor'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -190,7 +204,7 @@ class GetInstanceByIdResponseBody extends Model
         if (isset($map['actionExecutor'])) {
             if (!empty($map['actionExecutor'])) {
                 $model->actionExecutor = [];
-                $n1                    = 0;
+                $n1 = 0;
                 foreach ($map['actionExecutor'] as $item1) {
                     $model->actionExecutor[$n1++] = actionExecutor::fromMap($item1);
                 }

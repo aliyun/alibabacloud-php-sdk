@@ -12,13 +12,14 @@ class attachments extends Model
      * @var string
      */
     public $fileName;
+
     /**
      * @var string
      */
     public $key;
     protected $_name = [
         'fileName' => 'FileName',
-        'key'      => 'Key',
+        'key' => 'Key',
     ];
 
     public function validate()

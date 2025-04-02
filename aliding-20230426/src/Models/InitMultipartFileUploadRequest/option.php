@@ -13,17 +13,19 @@ class option extends Model
      * @var preCheckParam
      */
     public $preCheckParam;
+
     /**
      * @var string
      */
     public $preferRegion;
+
     /**
      * @var string
      */
     public $storageDriver;
     protected $_name = [
         'preCheckParam' => 'PreCheckParam',
-        'preferRegion'  => 'PreferRegion',
+        'preferRegion' => 'PreferRegion',
         'storageDriver' => 'StorageDriver',
     ];
 

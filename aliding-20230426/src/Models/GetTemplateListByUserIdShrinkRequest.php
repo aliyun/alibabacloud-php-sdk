@@ -12,17 +12,19 @@ class GetTemplateListByUserIdShrinkRequest extends Model
      * @var int
      */
     public $offset;
+
     /**
      * @var int
      */
     public $size;
+
     /**
      * @var string
      */
     public $tenantContextShrink;
     protected $_name = [
-        'offset'              => 'Offset',
-        'size'                => 'Size',
+        'offset' => 'Offset',
+        'size' => 'Size',
         'tenantContextShrink' => 'TenantContext',
     ];
 

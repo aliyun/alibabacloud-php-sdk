@@ -12,33 +12,38 @@ class TransferTicketShrinkRequest extends Model
      * @var string
      */
     public $notifyShrink;
+
     /**
      * @var string
      */
     public $openTeamId;
+
     /**
      * @var string
      */
     public $openTicketId;
+
     /**
      * @var string
      */
     public $processorUserIdsShrink;
+
     /**
      * @var string
      */
     public $tenantContextShrink;
+
     /**
      * @var string
      */
     public $ticketMemoShrink;
     protected $_name = [
-        'notifyShrink'           => 'Notify',
-        'openTeamId'             => 'OpenTeamId',
-        'openTicketId'           => 'OpenTicketId',
+        'notifyShrink' => 'Notify',
+        'openTeamId' => 'OpenTeamId',
+        'openTicketId' => 'OpenTicketId',
         'processorUserIdsShrink' => 'ProcessorUserIds',
-        'tenantContextShrink'    => 'TenantContext',
-        'ticketMemoShrink'       => 'TicketMemo',
+        'tenantContextShrink' => 'TenantContext',
+        'ticketMemoShrink' => 'TicketMemo',
     ];
 
     public function validate()

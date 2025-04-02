@@ -12,13 +12,14 @@ class DeleteSheetResponseBody extends Model
      * @var string
      */
     public $requestId;
+
     /**
      * @var bool
      */
     public $success;
     protected $_name = [
         'requestId' => 'requestId',
-        'success'   => 'success',
+        'success' => 'success',
     ];
 
     public function validate()

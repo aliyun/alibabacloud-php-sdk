@@ -13,12 +13,13 @@ class QueryLiveWatchDetailRequest extends Model
      * @var string
      */
     public $liveId;
+
     /**
      * @var tenantContext
      */
     public $tenantContext;
     protected $_name = [
-        'liveId'        => 'LiveId',
+        'liveId' => 'LiveId',
         'tenantContext' => 'TenantContext',
     ];
 

@@ -12,23 +12,26 @@ class QueryScheduleConferenceInfoShrinkRequest extends Model
      * @var int
      */
     public $maxResults;
+
     /**
      * @var string
      */
     public $nextToken;
+
     /**
      * @var string
      */
     public $scheduleConferenceId;
+
     /**
      * @var string
      */
     public $tenantContextShrink;
     protected $_name = [
-        'maxResults'           => 'MaxResults',
-        'nextToken'            => 'NextToken',
+        'maxResults' => 'MaxResults',
+        'nextToken' => 'NextToken',
         'scheduleConferenceId' => 'ScheduleConferenceId',
-        'tenantContextShrink'  => 'TenantContext',
+        'tenantContextShrink' => 'TenantContext',
     ];
 
     public function validate()

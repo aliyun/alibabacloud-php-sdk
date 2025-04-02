@@ -13,13 +13,14 @@ class ListCalendarsResponseBody extends Model
      * @var string
      */
     public $requestId;
+
     /**
      * @var response
      */
     public $response;
     protected $_name = [
         'requestId' => 'requestId',
-        'response'  => 'response',
+        'response' => 'response',
     ];
 
     public function validate()

@@ -13,13 +13,14 @@ class GetAllSheetsRequest extends Model
      * @var tenantContext
      */
     public $tenantContext;
+
     /**
      * @var string
      */
     public $workbookId;
     protected $_name = [
         'tenantContext' => 'TenantContext',
-        'workbookId'    => 'WorkbookId',
+        'workbookId' => 'WorkbookId',
     ];
 
     public function validate()

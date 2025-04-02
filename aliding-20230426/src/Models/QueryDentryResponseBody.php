@@ -17,98 +17,116 @@ class QueryDentryResponseBody extends Model
      * @var string
      */
     public $contentType;
+
     /**
      * @var int
      */
     public $createdTime;
+
     /**
      * @var creator
      */
     public $creator;
+
     /**
      * @var string
      */
     public $dentryId;
+
     /**
      * @var string
      */
     public $dentryType;
+
     /**
      * @var string
      */
     public $dentryUuid;
+
     /**
      * @var string
      */
     public $docKey;
+
     /**
      * @var string
      */
     public $extension;
+
     /**
      * @var bool
      */
     public $hasChildren;
+
     /**
      * @var linkSourceInfo
      */
     public $linkSourceInfo;
+
     /**
      * @var string
      */
     public $name;
+
     /**
      * @var string
      */
     public $path;
+
     /**
      * @var string
      */
     public $requestId;
+
     /**
      * @var space
      */
     public $space;
+
     /**
      * @var string
      */
     public $spaceId;
+
     /**
      * @var int
      */
     public $updatedTime;
+
     /**
      * @var updater
      */
     public $updater;
+
     /**
      * @var string
      */
     public $url;
+
     /**
      * @var visitorInfo
      */
     public $visitorInfo;
     protected $_name = [
-        'contentType'    => 'contentType',
-        'createdTime'    => 'createdTime',
-        'creator'        => 'creator',
-        'dentryId'       => 'dentryId',
-        'dentryType'     => 'dentryType',
-        'dentryUuid'     => 'dentryUuid',
-        'docKey'         => 'docKey',
-        'extension'      => 'extension',
-        'hasChildren'    => 'hasChildren',
+        'contentType' => 'contentType',
+        'createdTime' => 'createdTime',
+        'creator' => 'creator',
+        'dentryId' => 'dentryId',
+        'dentryType' => 'dentryType',
+        'dentryUuid' => 'dentryUuid',
+        'docKey' => 'docKey',
+        'extension' => 'extension',
+        'hasChildren' => 'hasChildren',
         'linkSourceInfo' => 'linkSourceInfo',
-        'name'           => 'name',
-        'path'           => 'path',
-        'requestId'      => 'requestId',
-        'space'          => 'space',
-        'spaceId'        => 'spaceId',
-        'updatedTime'    => 'updatedTime',
-        'updater'        => 'updater',
-        'url'            => 'url',
-        'visitorInfo'    => 'visitorInfo',
+        'name' => 'name',
+        'path' => 'path',
+        'requestId' => 'requestId',
+        'space' => 'space',
+        'spaceId' => 'spaceId',
+        'updatedTime' => 'updatedTime',
+        'updater' => 'updater',
+        'url' => 'url',
+        'visitorInfo' => 'visitorInfo',
     ];
 
     public function validate()

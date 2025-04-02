@@ -12,23 +12,26 @@ class GetScheduleShrinkRequest extends Model
      * @var string
      */
     public $endTime;
+
     /**
      * @var string
      */
     public $startTime;
+
     /**
      * @var string
      */
     public $tenantContextShrink;
+
     /**
      * @var string
      */
     public $userIdsShrink;
     protected $_name = [
-        'endTime'             => 'EndTime',
-        'startTime'           => 'StartTime',
+        'endTime' => 'EndTime',
+        'startTime' => 'StartTime',
         'tenantContextShrink' => 'TenantContext',
-        'userIdsShrink'       => 'UserIds',
+        'userIdsShrink' => 'UserIds',
     ];
 
     public function validate()

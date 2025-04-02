@@ -13,42 +13,49 @@ class workspaces extends Model
      * @var int
      */
     public $createTime;
+
     /**
      * @var bool
      */
     public $deleted;
+
     /**
      * @var string
      */
     public $name;
+
     /**
      * @var string
      */
     public $owner;
+
     /**
      * @var recentList[]
      */
     public $recentList;
+
     /**
      * @var string
      */
     public $role;
+
     /**
      * @var string
      */
     public $url;
+
     /**
      * @var string
      */
     public $workspaceId;
     protected $_name = [
-        'createTime'  => 'CreateTime',
-        'deleted'     => 'Deleted',
-        'name'        => 'Name',
-        'owner'       => 'Owner',
-        'recentList'  => 'RecentList',
-        'role'        => 'Role',
-        'url'         => 'Url',
+        'createTime' => 'CreateTime',
+        'deleted' => 'Deleted',
+        'name' => 'Name',
+        'owner' => 'Owner',
+        'recentList' => 'RecentList',
+        'role' => 'Role',
+        'url' => 'Url',
         'workspaceId' => 'WorkspaceId',
     ];
 
@@ -82,7 +89,7 @@ class workspaces extends Model
         if (null !== $this->recentList) {
             if (\is_array($this->recentList)) {
                 $res['RecentList'] = [];
-                $n1                = 0;
+                $n1 = 0;
                 foreach ($this->recentList as $item1) {
                     $res['RecentList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -131,7 +138,7 @@ class workspaces extends Model
         if (isset($map['RecentList'])) {
             if (!empty($map['RecentList'])) {
                 $model->recentList = [];
-                $n1                = 0;
+                $n1 = 0;
                 foreach ($map['RecentList'] as $item1) {
                     $model->recentList[$n1++] = recentList::fromMap($item1);
                 }

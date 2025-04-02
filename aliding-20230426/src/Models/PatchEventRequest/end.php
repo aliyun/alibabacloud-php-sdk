@@ -12,16 +12,18 @@ class end extends Model
      * @var string
      */
     public $date;
+
     /**
      * @var string
      */
     public $dateTime;
+
     /**
      * @var string
      */
     public $timeZone;
     protected $_name = [
-        'date'     => 'date',
+        'date' => 'date',
         'dateTime' => 'dateTime',
         'timeZone' => 'timeZone',
     ];

@@ -12,23 +12,26 @@ class StartMinutesShrinkRequest extends Model
      * @var string
      */
     public $tenantContextShrink;
+
     /**
      * @var string
      */
     public $conferenceId;
+
     /**
      * @var string
      */
     public $ownerUserId;
+
     /**
      * @var bool
      */
     public $recordAudio;
     protected $_name = [
         'tenantContextShrink' => 'TenantContext',
-        'conferenceId'        => 'conferenceId',
-        'ownerUserId'         => 'ownerUserId',
-        'recordAudio'         => 'recordAudio',
+        'conferenceId' => 'conferenceId',
+        'ownerUserId' => 'ownerUserId',
+        'recordAudio' => 'recordAudio',
     ];
 
     public function validate()

@@ -12,6 +12,7 @@ class preCheckParam extends Model
      * @var string
      */
     public $name;
+
     /**
      * @var int
      */

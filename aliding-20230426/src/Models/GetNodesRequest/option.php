@@ -12,12 +12,13 @@ class option extends Model
      * @var bool
      */
     public $withPermissionRole;
+
     /**
      * @var bool
      */
     public $withStatisticalInfo;
     protected $_name = [
-        'withPermissionRole'  => 'WithPermissionRole',
+        'withPermissionRole' => 'WithPermissionRole',
         'withStatisticalInfo' => 'WithStatisticalInfo',
     ];
 

@@ -12,22 +12,25 @@ class questionsAnsweringSummary extends Model
      * @var string
      */
     public $answer;
+
     /**
      * @var string
      */
     public $question;
+
     /**
      * @var int[]
      */
     public $sentenceIdsOfAnswer;
+
     /**
      * @var int[]
      */
     public $sentenceIdsOfQuestion;
     protected $_name = [
-        'answer'                => 'Answer',
-        'question'              => 'Question',
-        'sentenceIdsOfAnswer'   => 'SentenceIdsOfAnswer',
+        'answer' => 'Answer',
+        'question' => 'Question',
+        'sentenceIdsOfAnswer' => 'SentenceIdsOfAnswer',
         'sentenceIdsOfQuestion' => 'SentenceIdsOfQuestion',
     ];
 
@@ -56,7 +59,7 @@ class questionsAnsweringSummary extends Model
         if (null !== $this->sentenceIdsOfAnswer) {
             if (\is_array($this->sentenceIdsOfAnswer)) {
                 $res['SentenceIdsOfAnswer'] = [];
-                $n1                         = 0;
+                $n1 = 0;
                 foreach ($this->sentenceIdsOfAnswer as $item1) {
                     $res['SentenceIdsOfAnswer'][$n1++] = $item1;
                 }
@@ -66,7 +69,7 @@ class questionsAnsweringSummary extends Model
         if (null !== $this->sentenceIdsOfQuestion) {
             if (\is_array($this->sentenceIdsOfQuestion)) {
                 $res['SentenceIdsOfQuestion'] = [];
-                $n1                           = 0;
+                $n1 = 0;
                 foreach ($this->sentenceIdsOfQuestion as $item1) {
                     $res['SentenceIdsOfQuestion'][$n1++] = $item1;
                 }
@@ -95,7 +98,7 @@ class questionsAnsweringSummary extends Model
         if (isset($map['SentenceIdsOfAnswer'])) {
             if (!empty($map['SentenceIdsOfAnswer'])) {
                 $model->sentenceIdsOfAnswer = [];
-                $n1                         = 0;
+                $n1 = 0;
                 foreach ($map['SentenceIdsOfAnswer'] as $item1) {
                     $model->sentenceIdsOfAnswer[$n1++] = $item1;
                 }
@@ -105,7 +108,7 @@ class questionsAnsweringSummary extends Model
         if (isset($map['SentenceIdsOfQuestion'])) {
             if (!empty($map['SentenceIdsOfQuestion'])) {
                 $model->sentenceIdsOfQuestion = [];
-                $n1                           = 0;
+                $n1 = 0;
                 foreach ($map['SentenceIdsOfQuestion'] as $item1) {
                     $model->sentenceIdsOfQuestion[$n1++] = $item1;
                 }

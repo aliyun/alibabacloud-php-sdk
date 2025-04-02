@@ -12,23 +12,26 @@ class ClearShrinkRequest extends Model
      * @var string
      */
     public $rangeAddress;
+
     /**
      * @var string
      */
     public $sheetId;
+
     /**
      * @var string
      */
     public $tenantContextShrink;
+
     /**
      * @var string
      */
     public $workbookId;
     protected $_name = [
-        'rangeAddress'        => 'RangeAddress',
-        'sheetId'             => 'SheetId',
+        'rangeAddress' => 'RangeAddress',
+        'sheetId' => 'SheetId',
         'tenantContextShrink' => 'TenantContext',
-        'workbookId'          => 'WorkbookId',
+        'workbookId' => 'WorkbookId',
     ];
 
     public function validate()

@@ -12,38 +12,44 @@ class SaveFormRemarkRequest extends Model
      * @var string
      */
     public $appType;
+
     /**
      * @var string
      */
     public $atUserId;
+
     /**
      * @var string
      */
     public $content;
+
     /**
      * @var string
      */
     public $formInstanceId;
+
     /**
      * @var string
      */
     public $language;
+
     /**
      * @var int
      */
     public $replyId;
+
     /**
      * @var string
      */
     public $systemToken;
     protected $_name = [
-        'appType'        => 'AppType',
-        'atUserId'       => 'AtUserId',
-        'content'        => 'Content',
+        'appType' => 'AppType',
+        'atUserId' => 'AtUserId',
+        'content' => 'Content',
         'formInstanceId' => 'FormInstanceId',
-        'language'       => 'Language',
-        'replyId'        => 'ReplyId',
-        'systemToken'    => 'SystemToken',
+        'language' => 'Language',
+        'replyId' => 'ReplyId',
+        'systemToken' => 'SystemToken',
     ];
 
     public function validate()

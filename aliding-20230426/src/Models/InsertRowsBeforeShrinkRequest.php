@@ -12,28 +12,32 @@ class InsertRowsBeforeShrinkRequest extends Model
      * @var int
      */
     public $row;
+
     /**
      * @var int
      */
     public $rowCount;
+
     /**
      * @var string
      */
     public $sheetId;
+
     /**
      * @var string
      */
     public $tenantContextShrink;
+
     /**
      * @var string
      */
     public $workbookId;
     protected $_name = [
-        'row'                 => 'Row',
-        'rowCount'            => 'RowCount',
-        'sheetId'             => 'SheetId',
+        'row' => 'Row',
+        'rowCount' => 'RowCount',
+        'sheetId' => 'SheetId',
         'tenantContextShrink' => 'TenantContext',
-        'workbookId'          => 'WorkbookId',
+        'workbookId' => 'WorkbookId',
     ];
 
     public function validate()

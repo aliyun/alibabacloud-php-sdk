@@ -12,18 +12,20 @@ class conversationalSummary extends Model
      * @var string
      */
     public $speakerId;
+
     /**
      * @var string
      */
     public $speakerName;
+
     /**
      * @var string
      */
     public $summary;
     protected $_name = [
-        'speakerId'   => 'SpeakerId',
+        'speakerId' => 'SpeakerId',
         'speakerName' => 'SpeakerName',
-        'summary'     => 'Summary',
+        'summary' => 'Summary',
     ];
 
     public function validate()

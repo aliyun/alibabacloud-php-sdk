@@ -13,12 +13,13 @@ class originator extends Model
      * @var string
      */
     public $userId;
+
     /**
      * @var userName
      */
     public $userName;
     protected $_name = [
-        'userId'   => 'UserId',
+        'userId' => 'UserId',
         'userName' => 'UserName',
     ];
 

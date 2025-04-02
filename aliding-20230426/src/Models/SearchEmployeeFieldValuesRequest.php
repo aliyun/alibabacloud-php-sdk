@@ -12,58 +12,68 @@ class SearchEmployeeFieldValuesRequest extends Model
      * @var string
      */
     public $appType;
+
     /**
      * @var string
      */
     public $createFromTimeGMT;
+
     /**
      * @var string
      */
     public $createToTimeGMT;
+
     /**
      * @var string
      */
     public $formUuid;
+
     /**
      * @var string
      */
     public $language;
+
     /**
      * @var string
      */
     public $modifiedFromTimeGMT;
+
     /**
      * @var string
      */
     public $modifiedToTimeGMT;
+
     /**
      * @var string
      */
     public $originatorId;
+
     /**
      * @var string
      */
     public $searchFieldJson;
+
     /**
      * @var string
      */
     public $systemToken;
+
     /**
      * @var string
      */
     public $targetFieldJson;
     protected $_name = [
-        'appType'             => 'AppType',
-        'createFromTimeGMT'   => 'CreateFromTimeGMT',
-        'createToTimeGMT'     => 'CreateToTimeGMT',
-        'formUuid'            => 'FormUuid',
-        'language'            => 'Language',
+        'appType' => 'AppType',
+        'createFromTimeGMT' => 'CreateFromTimeGMT',
+        'createToTimeGMT' => 'CreateToTimeGMT',
+        'formUuid' => 'FormUuid',
+        'language' => 'Language',
         'modifiedFromTimeGMT' => 'ModifiedFromTimeGMT',
-        'modifiedToTimeGMT'   => 'ModifiedToTimeGMT',
-        'originatorId'        => 'OriginatorId',
-        'searchFieldJson'     => 'SearchFieldJson',
-        'systemToken'         => 'SystemToken',
-        'targetFieldJson'     => 'TargetFieldJson',
+        'modifiedToTimeGMT' => 'ModifiedToTimeGMT',
+        'originatorId' => 'OriginatorId',
+        'searchFieldJson' => 'SearchFieldJson',
+        'systemToken' => 'SystemToken',
+        'targetFieldJson' => 'TargetFieldJson',
     ];
 
     public function validate()

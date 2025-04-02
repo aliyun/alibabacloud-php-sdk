@@ -13,38 +13,44 @@ class GetFormDataByIDResponseBody extends Model
      * @var mixed[]
      */
     public $formData;
+
     /**
      * @var string
      */
     public $formInstId;
+
     /**
      * @var string
      */
     public $modifiedTimeGMT;
+
     /**
      * @var originator
      */
     public $originator;
+
     /**
      * @var string
      */
     public $requestId;
+
     /**
      * @var string
      */
     public $vendorRequestId;
+
     /**
      * @var string
      */
     public $vendorType;
     protected $_name = [
-        'formData'        => 'formData',
-        'formInstId'      => 'formInstId',
+        'formData' => 'formData',
+        'formInstId' => 'formInstId',
         'modifiedTimeGMT' => 'modifiedTimeGMT',
-        'originator'      => 'originator',
-        'requestId'       => 'requestId',
+        'originator' => 'originator',
+        'requestId' => 'requestId',
         'vendorRequestId' => 'vendorRequestId',
-        'vendorType'      => 'vendorType',
+        'vendorType' => 'vendorType',
     ];
 
     public function validate()

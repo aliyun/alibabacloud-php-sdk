@@ -12,83 +12,98 @@ class GetInstancesRequest extends Model
      * @var string
      */
     public $appType;
+
     /**
      * @var string
      */
     public $approvedResult;
+
     /**
      * @var string
      */
     public $createFromTimeGMT;
+
     /**
      * @var string
      */
     public $createToTimeGMT;
+
     /**
      * @var string
      */
     public $formUuid;
+
     /**
      * @var string
      */
     public $instanceStatus;
+
     /**
      * @var string
      */
     public $language;
+
     /**
      * @var string
      */
     public $modifiedFromTimeGMT;
+
     /**
      * @var string
      */
     public $modifiedToTimeGMT;
+
     /**
      * @var string
      */
     public $orderConfigJson;
+
     /**
      * @var string
      */
     public $originatorId;
+
     /**
      * @var int
      */
     public $pageNumber;
+
     /**
      * @var int
      */
     public $pageSize;
+
     /**
      * @var string
      */
     public $searchFieldJson;
+
     /**
      * @var string
      */
     public $systemToken;
+
     /**
      * @var string
      */
     public $taskId;
     protected $_name = [
-        'appType'             => 'AppType',
-        'approvedResult'      => 'ApprovedResult',
-        'createFromTimeGMT'   => 'CreateFromTimeGMT',
-        'createToTimeGMT'     => 'CreateToTimeGMT',
-        'formUuid'            => 'FormUuid',
-        'instanceStatus'      => 'InstanceStatus',
-        'language'            => 'Language',
+        'appType' => 'AppType',
+        'approvedResult' => 'ApprovedResult',
+        'createFromTimeGMT' => 'CreateFromTimeGMT',
+        'createToTimeGMT' => 'CreateToTimeGMT',
+        'formUuid' => 'FormUuid',
+        'instanceStatus' => 'InstanceStatus',
+        'language' => 'Language',
         'modifiedFromTimeGMT' => 'ModifiedFromTimeGMT',
-        'modifiedToTimeGMT'   => 'ModifiedToTimeGMT',
-        'orderConfigJson'     => 'OrderConfigJson',
-        'originatorId'        => 'OriginatorId',
-        'pageNumber'          => 'PageNumber',
-        'pageSize'            => 'PageSize',
-        'searchFieldJson'     => 'SearchFieldJson',
-        'systemToken'         => 'SystemToken',
-        'taskId'              => 'TaskId',
+        'modifiedToTimeGMT' => 'ModifiedToTimeGMT',
+        'orderConfigJson' => 'OrderConfigJson',
+        'originatorId' => 'OriginatorId',
+        'pageNumber' => 'PageNumber',
+        'pageSize' => 'PageSize',
+        'searchFieldJson' => 'SearchFieldJson',
+        'systemToken' => 'SystemToken',
+        'taskId' => 'TaskId',
     ];
 
     public function validate()

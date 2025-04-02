@@ -12,38 +12,44 @@ class audioList extends Model
      * @var int
      */
     public $duration;
+
     /**
      * @var int
      */
     public $endTime;
+
     /**
      * @var int
      */
     public $fileSize;
+
     /**
      * @var string
      */
     public $playUrl;
+
     /**
      * @var string
      */
     public $recordId;
+
     /**
      * @var int
      */
     public $startTime;
+
     /**
      * @var string
      */
     public $userId;
     protected $_name = [
-        'duration'  => 'Duration',
-        'endTime'   => 'EndTime',
-        'fileSize'  => 'FileSize',
-        'playUrl'   => 'PlayUrl',
-        'recordId'  => 'RecordId',
+        'duration' => 'Duration',
+        'endTime' => 'EndTime',
+        'fileSize' => 'FileSize',
+        'playUrl' => 'PlayUrl',
+        'recordId' => 'RecordId',
         'startTime' => 'StartTime',
-        'userId'    => 'UserId',
+        'userId' => 'UserId',
     ];
 
     public function validate()

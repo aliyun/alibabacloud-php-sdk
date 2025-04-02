@@ -12,38 +12,44 @@ class CreateVideoConferenceResponseBody extends Model
      * @var string
      */
     public $conferenceId;
+
     /**
      * @var string
      */
     public $conferencePassword;
+
     /**
      * @var string
      */
     public $externalLinkUrl;
+
     /**
      * @var string
      */
     public $hostPassword;
+
     /**
      * @var string[]
      */
     public $phoneNumbers;
+
     /**
      * @var string
      */
     public $requestId;
+
     /**
      * @var string
      */
     public $roomCode;
     protected $_name = [
-        'conferenceId'       => 'conferenceId',
+        'conferenceId' => 'conferenceId',
         'conferencePassword' => 'conferencePassword',
-        'externalLinkUrl'    => 'externalLinkUrl',
-        'hostPassword'       => 'hostPassword',
-        'phoneNumbers'       => 'phoneNumbers',
-        'requestId'          => 'requestId',
-        'roomCode'           => 'roomCode',
+        'externalLinkUrl' => 'externalLinkUrl',
+        'hostPassword' => 'hostPassword',
+        'phoneNumbers' => 'phoneNumbers',
+        'requestId' => 'requestId',
+        'roomCode' => 'roomCode',
     ];
 
     public function validate()
@@ -76,7 +82,7 @@ class CreateVideoConferenceResponseBody extends Model
         if (null !== $this->phoneNumbers) {
             if (\is_array($this->phoneNumbers)) {
                 $res['phoneNumbers'] = [];
-                $n1                  = 0;
+                $n1 = 0;
                 foreach ($this->phoneNumbers as $item1) {
                     $res['phoneNumbers'][$n1++] = $item1;
                 }
@@ -121,7 +127,7 @@ class CreateVideoConferenceResponseBody extends Model
         if (isset($map['phoneNumbers'])) {
             if (!empty($map['phoneNumbers'])) {
                 $model->phoneNumbers = [];
-                $n1                  = 0;
+                $n1 = 0;
                 foreach ($map['phoneNumbers'] as $item1) {
                     $model->phoneNumbers[$n1++] = $item1;
                 }

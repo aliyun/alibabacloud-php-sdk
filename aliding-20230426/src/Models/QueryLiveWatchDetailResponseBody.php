@@ -12,48 +12,56 @@ class QueryLiveWatchDetailResponseBody extends Model
      * @var int
      */
     public $avgWatchTime;
+
     /**
      * @var int
      */
     public $liveUv;
+
     /**
      * @var int
      */
     public $msgCount;
+
     /**
      * @var int
      */
     public $playbackUv;
+
     /**
      * @var int
      */
     public $praiseCount;
+
     /**
      * @var int
      */
     public $pv;
+
     /**
      * @var string
      */
     public $requestId;
+
     /**
      * @var int
      */
     public $totalWatchTime;
+
     /**
      * @var int
      */
     public $uv;
     protected $_name = [
-        'avgWatchTime'   => 'avgWatchTime',
-        'liveUv'         => 'liveUv',
-        'msgCount'       => 'msgCount',
-        'playbackUv'     => 'playbackUv',
-        'praiseCount'    => 'praiseCount',
-        'pv'             => 'pv',
-        'requestId'      => 'requestId',
+        'avgWatchTime' => 'avgWatchTime',
+        'liveUv' => 'liveUv',
+        'msgCount' => 'msgCount',
+        'playbackUv' => 'playbackUv',
+        'praiseCount' => 'praiseCount',
+        'pv' => 'pv',
+        'requestId' => 'requestId',
         'totalWatchTime' => 'totalWatchTime',
-        'uv'             => 'uv',
+        'uv' => 'uv',
     ];
 
     public function validate()

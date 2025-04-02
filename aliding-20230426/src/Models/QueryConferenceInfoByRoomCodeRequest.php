@@ -13,23 +13,26 @@ class QueryConferenceInfoByRoomCodeRequest extends Model
      * @var tenantContext
      */
     public $tenantContext;
+
     /**
      * @var int
      */
     public $maxResults;
+
     /**
      * @var string
      */
     public $nextToken;
+
     /**
      * @var string
      */
     public $roomCode;
     protected $_name = [
         'tenantContext' => 'TenantContext',
-        'maxResults'    => 'maxResults',
-        'nextToken'     => 'nextToken',
-        'roomCode'      => 'roomCode',
+        'maxResults' => 'maxResults',
+        'nextToken' => 'nextToken',
+        'roomCode' => 'roomCode',
     ];
 
     public function validate()

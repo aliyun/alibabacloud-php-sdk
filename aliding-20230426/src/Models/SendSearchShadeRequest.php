@@ -13,22 +13,25 @@ class SendSearchShadeRequest extends Model
      * @var mixed[]
      */
     public $content;
+
     /**
      * @var int
      */
     public $endTime;
+
     /**
      * @var int
      */
     public $startTime;
+
     /**
      * @var tenantContext
      */
     public $tenantContext;
     protected $_name = [
-        'content'       => 'Content',
-        'endTime'       => 'EndTime',
-        'startTime'     => 'StartTime',
+        'content' => 'Content',
+        'endTime' => 'EndTime',
+        'startTime' => 'StartTime',
         'tenantContext' => 'TenantContext',
     ];
 

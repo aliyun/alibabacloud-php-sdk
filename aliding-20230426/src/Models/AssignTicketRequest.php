@@ -15,33 +15,38 @@ class AssignTicketRequest extends Model
      * @var notify
      */
     public $notify;
+
     /**
      * @var string
      */
     public $openTeamId;
+
     /**
      * @var string
      */
     public $openTicketId;
+
     /**
      * @var string[]
      */
     public $processorUserIds;
+
     /**
      * @var tenantContext
      */
     public $tenantContext;
+
     /**
      * @var ticketMemo
      */
     public $ticketMemo;
     protected $_name = [
-        'notify'           => 'Notify',
-        'openTeamId'       => 'OpenTeamId',
-        'openTicketId'     => 'OpenTicketId',
+        'notify' => 'Notify',
+        'openTeamId' => 'OpenTeamId',
+        'openTicketId' => 'OpenTicketId',
         'processorUserIds' => 'ProcessorUserIds',
-        'tenantContext'    => 'TenantContext',
-        'ticketMemo'       => 'TicketMemo',
+        'tenantContext' => 'TenantContext',
+        'ticketMemo' => 'TicketMemo',
     ];
 
     public function validate()
@@ -79,7 +84,7 @@ class AssignTicketRequest extends Model
         if (null !== $this->processorUserIds) {
             if (\is_array($this->processorUserIds)) {
                 $res['ProcessorUserIds'] = [];
-                $n1                      = 0;
+                $n1 = 0;
                 foreach ($this->processorUserIds as $item1) {
                     $res['ProcessorUserIds'][$n1++] = $item1;
                 }
@@ -120,7 +125,7 @@ class AssignTicketRequest extends Model
         if (isset($map['ProcessorUserIds'])) {
             if (!empty($map['ProcessorUserIds'])) {
                 $model->processorUserIds = [];
-                $n1                      = 0;
+                $n1 = 0;
                 foreach ($map['ProcessorUserIds'] as $item1) {
                     $model->processorUserIds[$n1++] = $item1;
                 }

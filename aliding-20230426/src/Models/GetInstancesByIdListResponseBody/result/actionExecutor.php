@@ -13,23 +13,26 @@ class actionExecutor extends Model
      * @var string
      */
     public $departmentName;
+
     /**
      * @var string
      */
     public $email;
+
     /**
      * @var name
      */
     public $name;
+
     /**
      * @var string
      */
     public $userId;
     protected $_name = [
         'departmentName' => 'DepartmentName',
-        'email'          => 'Email',
-        'name'           => 'Name',
-        'userId'         => 'UserId',
+        'email' => 'Email',
+        'name' => 'Name',
+        'userId' => 'UserId',
     ];
 
     public function validate()

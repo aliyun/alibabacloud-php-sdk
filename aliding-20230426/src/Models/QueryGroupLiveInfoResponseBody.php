@@ -12,88 +12,104 @@ class QueryGroupLiveInfoResponseBody extends Model
      * @var string
      */
     public $coverUrl;
+
     /**
      * @var int
      */
     public $duration;
+
     /**
      * @var int
      */
     public $endTime;
+
     /**
      * @var string
      */
     public $introduction;
+
     /**
      * @var string
      */
     public $liveId;
+
     /**
      * @var string
      */
     public $livePlayUrl;
+
     /**
      * @var int
      */
     public $liveStatus;
+
     /**
      * @var int
      */
     public $playbackDuration;
+
     /**
      * @var string
      */
     public $replayUrl;
+
     /**
      * @var string
      */
     public $requestId;
+
     /**
      * @var string
      */
     public $staffId;
+
     /**
      * @var int
      */
     public $startTime;
+
     /**
      * @var int
      */
     public $subscribeCount;
+
     /**
      * @var string
      */
     public $title;
+
     /**
      * @var int
      */
     public $uv;
+
     /**
      * @var string
      */
     public $vendorRequestId;
+
     /**
      * @var string
      */
     public $vendorType;
     protected $_name = [
-        'coverUrl'         => 'coverUrl',
-        'duration'         => 'duration',
-        'endTime'          => 'endTime',
-        'introduction'     => 'introduction',
-        'liveId'           => 'liveId',
-        'livePlayUrl'      => 'livePlayUrl',
-        'liveStatus'       => 'liveStatus',
+        'coverUrl' => 'coverUrl',
+        'duration' => 'duration',
+        'endTime' => 'endTime',
+        'introduction' => 'introduction',
+        'liveId' => 'liveId',
+        'livePlayUrl' => 'livePlayUrl',
+        'liveStatus' => 'liveStatus',
         'playbackDuration' => 'playbackDuration',
-        'replayUrl'        => 'replayUrl',
-        'requestId'        => 'requestId',
-        'staffId'          => 'staffId',
-        'startTime'        => 'startTime',
-        'subscribeCount'   => 'subscribeCount',
-        'title'            => 'title',
-        'uv'               => 'uv',
-        'vendorRequestId'  => 'vendorRequestId',
-        'vendorType'       => 'vendorType',
+        'replayUrl' => 'replayUrl',
+        'requestId' => 'requestId',
+        'staffId' => 'staffId',
+        'startTime' => 'startTime',
+        'subscribeCount' => 'subscribeCount',
+        'title' => 'title',
+        'uv' => 'uv',
+        'vendorRequestId' => 'vendorRequestId',
+        'vendorType' => 'vendorType',
     ];
 
     public function validate()

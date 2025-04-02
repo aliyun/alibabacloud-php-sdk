@@ -13,26 +13,30 @@ class AddAttendeeRequest extends Model
      * @var attendeesToAdd[]
      */
     public $attendeesToAdd;
+
     /**
      * @var string
      */
     public $calendarId;
+
     /**
      * @var string
      */
     public $eventId;
+
     /**
      * @var bool
      */
     public $chatNotification;
+
     /**
      * @var bool
      */
     public $pushNotification;
     protected $_name = [
-        'attendeesToAdd'   => 'AttendeesToAdd',
-        'calendarId'       => 'CalendarId',
-        'eventId'          => 'EventId',
+        'attendeesToAdd' => 'AttendeesToAdd',
+        'calendarId' => 'CalendarId',
+        'eventId' => 'EventId',
         'chatNotification' => 'chatNotification',
         'pushNotification' => 'pushNotification',
     ];
@@ -51,7 +55,7 @@ class AddAttendeeRequest extends Model
         if (null !== $this->attendeesToAdd) {
             if (\is_array($this->attendeesToAdd)) {
                 $res['AttendeesToAdd'] = [];
-                $n1                    = 0;
+                $n1 = 0;
                 foreach ($this->attendeesToAdd as $item1) {
                     $res['AttendeesToAdd'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -88,7 +92,7 @@ class AddAttendeeRequest extends Model
         if (isset($map['AttendeesToAdd'])) {
             if (!empty($map['AttendeesToAdd'])) {
                 $model->attendeesToAdd = [];
-                $n1                    = 0;
+                $n1 = 0;
                 foreach ($map['AttendeesToAdd'] as $item1) {
                     $model->attendeesToAdd[$n1++] = attendeesToAdd::fromMap($item1);
                 }

@@ -13,28 +13,32 @@ class SimpleListReportResponseBody extends Model
      * @var dataList[]
      */
     public $dataList;
+
     /**
      * @var bool
      */
     public $hasMore;
+
     /**
      * @var int
      */
     public $nextCursor;
+
     /**
      * @var string
      */
     public $requestId;
+
     /**
      * @var int
      */
     public $size;
     protected $_name = [
-        'dataList'   => 'dataList',
-        'hasMore'    => 'hasMore',
+        'dataList' => 'dataList',
+        'hasMore' => 'hasMore',
         'nextCursor' => 'nextCursor',
-        'requestId'  => 'requestId',
-        'size'       => 'size',
+        'requestId' => 'requestId',
+        'size' => 'size',
     ];
 
     public function validate()
@@ -51,7 +55,7 @@ class SimpleListReportResponseBody extends Model
         if (null !== $this->dataList) {
             if (\is_array($this->dataList)) {
                 $res['dataList'] = [];
-                $n1              = 0;
+                $n1 = 0;
                 foreach ($this->dataList as $item1) {
                     $res['dataList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -88,7 +92,7 @@ class SimpleListReportResponseBody extends Model
         if (isset($map['dataList'])) {
             if (!empty($map['dataList'])) {
                 $model->dataList = [];
-                $n1              = 0;
+                $n1 = 0;
                 foreach ($map['dataList'] as $item1) {
                     $model->dataList[$n1++] = dataList::fromMap($item1);
                 }

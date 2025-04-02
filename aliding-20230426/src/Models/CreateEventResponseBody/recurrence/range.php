@@ -12,18 +12,20 @@ class range extends Model
      * @var string
      */
     public $endDate;
+
     /**
      * @var int
      */
     public $numberOfOccurrences;
+
     /**
      * @var string
      */
     public $type;
     protected $_name = [
-        'endDate'             => 'EndDate',
+        'endDate' => 'EndDate',
         'numberOfOccurrences' => 'NumberOfOccurrences',
-        'type'                => 'Type',
+        'type' => 'Type',
     ];
 
     public function validate()

@@ -12,22 +12,25 @@ class GetFileUploadInfoShrinkRequest extends Model
      * @var string
      */
     public $optionShrink;
+
     /**
      * @var string
      */
     public $parentDentryUuid;
+
     /**
      * @var string
      */
     public $protocol;
+
     /**
      * @var string
      */
     public $tenantContextShrink;
     protected $_name = [
-        'optionShrink'        => 'Option',
-        'parentDentryUuid'    => 'ParentDentryUuid',
-        'protocol'            => 'Protocol',
+        'optionShrink' => 'Option',
+        'parentDentryUuid' => 'ParentDentryUuid',
+        'protocol' => 'Protocol',
         'tenantContextShrink' => 'TenantContext',
     ];
 

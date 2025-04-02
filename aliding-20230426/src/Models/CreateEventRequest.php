@@ -22,78 +22,92 @@ class CreateEventRequest extends Model
      * @var attendees[]
      */
     public $attendees;
+
     /**
      * @var cardInstances[]
      */
     public $cardInstances;
+
     /**
      * @var string
      */
     public $description;
+
     /**
      * @var end
      */
     public $end;
+
     /**
      * @var string[]
      */
     public $extra;
+
     /**
      * @var bool
      */
     public $isAllDay;
+
     /**
      * @var location
      */
     public $location;
+
     /**
      * @var onlineMeetingInfo
      */
     public $onlineMeetingInfo;
+
     /**
      * @var recurrence
      */
     public $recurrence;
+
     /**
      * @var reminders[]
      */
     public $reminders;
+
     /**
      * @var richTextDescription
      */
     public $richTextDescription;
+
     /**
      * @var string
      */
     public $summary;
+
     /**
      * @var uiConfigs[]
      */
     public $uiConfigs;
+
     /**
      * @var string
      */
     public $calendarId;
+
     /**
      * @var start
      */
     public $start;
     protected $_name = [
-        'attendees'           => 'Attendees',
-        'cardInstances'       => 'CardInstances',
-        'description'         => 'Description',
-        'end'                 => 'End',
-        'extra'               => 'Extra',
-        'isAllDay'            => 'IsAllDay',
-        'location'            => 'Location',
-        'onlineMeetingInfo'   => 'OnlineMeetingInfo',
-        'recurrence'          => 'Recurrence',
-        'reminders'           => 'Reminders',
+        'attendees' => 'Attendees',
+        'cardInstances' => 'CardInstances',
+        'description' => 'Description',
+        'end' => 'End',
+        'extra' => 'Extra',
+        'isAllDay' => 'IsAllDay',
+        'location' => 'Location',
+        'onlineMeetingInfo' => 'OnlineMeetingInfo',
+        'recurrence' => 'Recurrence',
+        'reminders' => 'Reminders',
         'richTextDescription' => 'RichTextDescription',
-        'summary'             => 'Summary',
-        'uiConfigs'           => 'UiConfigs',
-        'calendarId'          => 'calendarId',
-        'start'               => 'start',
+        'summary' => 'Summary',
+        'uiConfigs' => 'UiConfigs',
+        'calendarId' => 'calendarId',
+        'start' => 'start',
     ];
 
     public function validate()
@@ -140,7 +154,7 @@ class CreateEventRequest extends Model
         if (null !== $this->attendees) {
             if (\is_array($this->attendees)) {
                 $res['Attendees'] = [];
-                $n1               = 0;
+                $n1 = 0;
                 foreach ($this->attendees as $item1) {
                     $res['Attendees'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -150,7 +164,7 @@ class CreateEventRequest extends Model
         if (null !== $this->cardInstances) {
             if (\is_array($this->cardInstances)) {
                 $res['CardInstances'] = [];
-                $n1                   = 0;
+                $n1 = 0;
                 foreach ($this->cardInstances as $item1) {
                     $res['CardInstances'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -193,7 +207,7 @@ class CreateEventRequest extends Model
         if (null !== $this->reminders) {
             if (\is_array($this->reminders)) {
                 $res['Reminders'] = [];
-                $n1               = 0;
+                $n1 = 0;
                 foreach ($this->reminders as $item1) {
                     $res['Reminders'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -211,7 +225,7 @@ class CreateEventRequest extends Model
         if (null !== $this->uiConfigs) {
             if (\is_array($this->uiConfigs)) {
                 $res['UiConfigs'] = [];
-                $n1               = 0;
+                $n1 = 0;
                 foreach ($this->uiConfigs as $item1) {
                     $res['UiConfigs'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -240,7 +254,7 @@ class CreateEventRequest extends Model
         if (isset($map['Attendees'])) {
             if (!empty($map['Attendees'])) {
                 $model->attendees = [];
-                $n1               = 0;
+                $n1 = 0;
                 foreach ($map['Attendees'] as $item1) {
                     $model->attendees[$n1++] = attendees::fromMap($item1);
                 }
@@ -250,7 +264,7 @@ class CreateEventRequest extends Model
         if (isset($map['CardInstances'])) {
             if (!empty($map['CardInstances'])) {
                 $model->cardInstances = [];
-                $n1                   = 0;
+                $n1 = 0;
                 foreach ($map['CardInstances'] as $item1) {
                     $model->cardInstances[$n1++] = cardInstances::fromMap($item1);
                 }
@@ -293,7 +307,7 @@ class CreateEventRequest extends Model
         if (isset($map['Reminders'])) {
             if (!empty($map['Reminders'])) {
                 $model->reminders = [];
-                $n1               = 0;
+                $n1 = 0;
                 foreach ($map['Reminders'] as $item1) {
                     $model->reminders[$n1++] = reminders::fromMap($item1);
                 }
@@ -311,7 +325,7 @@ class CreateEventRequest extends Model
         if (isset($map['UiConfigs'])) {
             if (!empty($map['UiConfigs'])) {
                 $model->uiConfigs = [];
-                $n1               = 0;
+                $n1 = 0;
                 foreach ($map['UiConfigs'] as $item1) {
                     $model->uiConfigs[$n1++] = uiConfigs::fromMap($item1);
                 }

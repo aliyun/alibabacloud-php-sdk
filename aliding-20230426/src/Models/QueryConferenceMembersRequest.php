@@ -13,23 +13,26 @@ class QueryConferenceMembersRequest extends Model
      * @var int
      */
     public $maxResults;
+
     /**
      * @var string
      */
     public $nextToken;
+
     /**
      * @var tenantContext
      */
     public $tenantContext;
+
     /**
      * @var string
      */
     public $conferenceId;
     protected $_name = [
-        'maxResults'    => 'MaxResults',
-        'nextToken'     => 'NextToken',
+        'maxResults' => 'MaxResults',
+        'nextToken' => 'NextToken',
         'tenantContext' => 'TenantContext',
-        'conferenceId'  => 'conferenceId',
+        'conferenceId' => 'conferenceId',
     ];
 
     public function validate()

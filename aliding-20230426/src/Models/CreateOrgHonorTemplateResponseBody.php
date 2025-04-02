@@ -12,12 +12,13 @@ class CreateOrgHonorTemplateResponseBody extends Model
      * @var string
      */
     public $honorId;
+
     /**
      * @var string
      */
     public $requestId;
     protected $_name = [
-        'honorId'   => 'honorId',
+        'honorId' => 'honorId',
         'requestId' => 'requestId',
     ];
 

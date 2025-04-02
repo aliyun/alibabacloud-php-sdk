@@ -12,23 +12,26 @@ class GetMultipartFileUploadInfosShrinkRequest extends Model
      * @var string
      */
     public $optionShrink;
+
     /**
      * @var string
      */
     public $partNumbersShrink;
+
     /**
      * @var string
      */
     public $tenantContextShrink;
+
     /**
      * @var string
      */
     public $uploadKey;
     protected $_name = [
-        'optionShrink'        => 'Option',
-        'partNumbersShrink'   => 'PartNumbers',
+        'optionShrink' => 'Option',
+        'partNumbersShrink' => 'PartNumbers',
         'tenantContextShrink' => 'TenantContext',
-        'uploadKey'           => 'UploadKey',
+        'uploadKey' => 'UploadKey',
     ];
 
     public function validate()

@@ -12,13 +12,14 @@ class processor extends Model
      * @var string
      */
     public $nickName;
+
     /**
      * @var string
      */
     public $unionId;
     protected $_name = [
         'nickName' => 'NickName',
-        'unionId'  => 'UnionId',
+        'unionId' => 'UnionId',
     ];
 
     public function validate()

@@ -12,43 +12,50 @@ class templateList extends Model
      * @var string
      */
     public $coverUrl;
+
     /**
      * @var int
      */
     public $createTime;
+
     /**
      * @var string
      */
     public $docType;
+
     /**
      * @var string
      */
     public $id;
+
     /**
      * @var string
      */
     public $templateType;
+
     /**
      * @var string
      */
     public $title;
+
     /**
      * @var int
      */
     public $updateTime;
+
     /**
      * @var string
      */
     public $workspaceId;
     protected $_name = [
-        'coverUrl'     => 'CoverUrl',
-        'createTime'   => 'CreateTime',
-        'docType'      => 'DocType',
-        'id'           => 'Id',
+        'coverUrl' => 'CoverUrl',
+        'createTime' => 'CreateTime',
+        'docType' => 'DocType',
+        'id' => 'Id',
         'templateType' => 'TemplateType',
-        'title'        => 'Title',
-        'updateTime'   => 'UpdateTime',
-        'workspaceId'  => 'WorkspaceId',
+        'title' => 'Title',
+        'updateTime' => 'UpdateTime',
+        'workspaceId' => 'WorkspaceId',
     ];
 
     public function validate()

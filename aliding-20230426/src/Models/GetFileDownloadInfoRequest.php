@@ -14,22 +14,25 @@ class GetFileDownloadInfoRequest extends Model
      * @var string
      */
     public $dentryId;
+
     /**
      * @var option
      */
     public $option;
+
     /**
      * @var string
      */
     public $spaceId;
+
     /**
      * @var tenantContext
      */
     public $tenantContext;
     protected $_name = [
-        'dentryId'      => 'DentryId',
-        'option'        => 'Option',
-        'spaceId'       => 'SpaceId',
+        'dentryId' => 'DentryId',
+        'option' => 'Option',
+        'spaceId' => 'SpaceId',
         'tenantContext' => 'TenantContext',
     ];
 

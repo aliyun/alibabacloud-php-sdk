@@ -13,12 +13,13 @@ class GetMineWorkspaceRequest extends Model
      * @var mixed[]
      */
     public $request;
+
     /**
      * @var tenantContext
      */
     public $tenantContext;
     protected $_name = [
-        'request'       => 'Request',
+        'request' => 'Request',
         'tenantContext' => 'TenantContext',
     ];
 

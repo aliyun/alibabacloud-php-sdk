@@ -12,17 +12,19 @@ class result extends Model
      * @var string
      */
     public $activityId;
+
     /**
      * @var string
      */
     public $activityName;
+
     /**
      * @var string
      */
     public $activityNameInEnglish;
     protected $_name = [
-        'activityId'            => 'ActivityId',
-        'activityName'          => 'ActivityName',
+        'activityId' => 'ActivityId',
+        'activityName' => 'ActivityName',
         'activityNameInEnglish' => 'ActivityNameInEnglish',
     ];
 

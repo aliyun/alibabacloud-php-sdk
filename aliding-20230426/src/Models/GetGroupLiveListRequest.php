@@ -13,23 +13,26 @@ class GetGroupLiveListRequest extends Model
      * @var int
      */
     public $endTime;
+
     /**
      * @var string
      */
     public $openConversationId;
+
     /**
      * @var int
      */
     public $startTime;
+
     /**
      * @var tenantContext
      */
     public $tenantContext;
     protected $_name = [
-        'endTime'            => 'EndTime',
+        'endTime' => 'EndTime',
         'openConversationId' => 'OpenConversationId',
-        'startTime'          => 'StartTime',
-        'tenantContext'      => 'TenantContext',
+        'startTime' => 'StartTime',
+        'tenantContext' => 'TenantContext',
     ];
 
     public function validate()

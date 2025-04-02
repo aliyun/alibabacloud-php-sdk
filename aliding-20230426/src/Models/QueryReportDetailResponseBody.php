@@ -13,63 +13,74 @@ class QueryReportDetailResponseBody extends Model
      * @var content[]
      */
     public $content;
+
     /**
      * @var int
      */
     public $createTime;
+
     /**
      * @var string
      */
     public $creatorId;
+
     /**
      * @var string
      */
     public $creatorName;
+
     /**
      * @var string
      */
     public $deptName;
+
     /**
      * @var int
      */
     public $modifiedTime;
+
     /**
      * @var string
      */
     public $remark;
+
     /**
      * @var string
      */
     public $reportId;
+
     /**
      * @var string
      */
     public $requestId;
+
     /**
      * @var string
      */
     public $templateName;
+
     /**
      * @var string
      */
     public $vendorRequestId;
+
     /**
      * @var string
      */
     public $vendorType;
     protected $_name = [
-        'content'         => 'content',
-        'createTime'      => 'createTime',
-        'creatorId'       => 'creatorId',
-        'creatorName'     => 'creatorName',
-        'deptName'        => 'deptName',
-        'modifiedTime'    => 'modifiedTime',
-        'remark'          => 'remark',
-        'reportId'        => 'reportId',
-        'requestId'       => 'requestId',
-        'templateName'    => 'templateName',
+        'content' => 'content',
+        'createTime' => 'createTime',
+        'creatorId' => 'creatorId',
+        'creatorName' => 'creatorName',
+        'deptName' => 'deptName',
+        'modifiedTime' => 'modifiedTime',
+        'remark' => 'remark',
+        'reportId' => 'reportId',
+        'requestId' => 'requestId',
+        'templateName' => 'templateName',
         'vendorRequestId' => 'vendorRequestId',
-        'vendorType'      => 'vendorType',
+        'vendorType' => 'vendorType',
     ];
 
     public function validate()
@@ -86,7 +97,7 @@ class QueryReportDetailResponseBody extends Model
         if (null !== $this->content) {
             if (\is_array($this->content)) {
                 $res['content'] = [];
-                $n1             = 0;
+                $n1 = 0;
                 foreach ($this->content as $item1) {
                     $res['content'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -151,7 +162,7 @@ class QueryReportDetailResponseBody extends Model
         if (isset($map['content'])) {
             if (!empty($map['content'])) {
                 $model->content = [];
-                $n1             = 0;
+                $n1 = 0;
                 foreach ($map['content'] as $item1) {
                     $model->content[$n1++] = content::fromMap($item1);
                 }

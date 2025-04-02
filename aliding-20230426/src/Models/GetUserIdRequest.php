@@ -13,13 +13,14 @@ class GetUserIdRequest extends Model
      * @var tenantContext
      */
     public $tenantContext;
+
     /**
      * @var string
      */
     public $unionId;
     protected $_name = [
         'tenantContext' => 'TenantContext',
-        'unionId'       => 'UnionId',
+        'unionId' => 'UnionId',
     ];
 
     public function validate()

@@ -13,22 +13,25 @@ class GetNodeRequest extends Model
      * @var string
      */
     public $nodeId;
+
     /**
      * @var tenantContext
      */
     public $tenantContext;
+
     /**
      * @var bool
      */
     public $withPermissionRole;
+
     /**
      * @var bool
      */
     public $withStatisticalInfo;
     protected $_name = [
-        'nodeId'              => 'NodeId',
-        'tenantContext'       => 'TenantContext',
-        'withPermissionRole'  => 'WithPermissionRole',
+        'nodeId' => 'NodeId',
+        'tenantContext' => 'TenantContext',
+        'withPermissionRole' => 'WithPermissionRole',
         'withStatisticalInfo' => 'WithStatisticalInfo',
     ];
 

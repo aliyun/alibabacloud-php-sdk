@@ -12,32 +12,37 @@ class SimpleListReportShrinkRequest extends Model
      * @var int
      */
     public $cursor;
+
     /**
      * @var int
      */
     public $endTime;
+
     /**
      * @var int
      */
     public $size;
+
     /**
      * @var int
      */
     public $startTime;
+
     /**
      * @var string
      */
     public $templateName;
+
     /**
      * @var string
      */
     public $tenantContextShrink;
     protected $_name = [
-        'cursor'              => 'Cursor',
-        'endTime'             => 'EndTime',
-        'size'                => 'Size',
-        'startTime'           => 'StartTime',
-        'templateName'        => 'TemplateName',
+        'cursor' => 'Cursor',
+        'endTime' => 'EndTime',
+        'size' => 'Size',
+        'startTime' => 'StartTime',
+        'templateName' => 'TemplateName',
         'tenantContextShrink' => 'TenantContext',
     ];
 

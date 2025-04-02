@@ -15,113 +15,134 @@ class CreateTodoTaskResponseBody extends Model
      * @var string
      */
     public $bizTag;
+
     /**
      * @var contentFieldList[]
      */
     public $contentFieldList;
+
     /**
      * @var int
      */
     public $createdTime;
+
     /**
      * @var string
      */
     public $creatorId;
+
     /**
      * @var string
      */
     public $description;
+
     /**
      * @var detailUrl
      */
     public $detailUrl;
+
     /**
      * @var bool
      */
     public $done;
+
     /**
      * @var int
      */
     public $dueTime;
+
     /**
      * @var string[]
      */
     public $executorIds;
+
     /**
      * @var int
      */
     public $finishTime;
+
     /**
      * @var string
      */
     public $id;
+
     /**
      * @var bool
      */
     public $isOnlyShowExecutor;
+
     /**
      * @var int
      */
     public $modifiedTime;
+
     /**
      * @var string
      */
     public $modifierId;
+
     /**
      * @var notifyConfigs
      */
     public $notifyConfigs;
+
     /**
      * @var string[]
      */
     public $participantIds;
+
     /**
      * @var int
      */
     public $priority;
+
     /**
      * @var string
      */
     public $requestId;
+
     /**
      * @var string
      */
     public $source;
+
     /**
      * @var string
      */
     public $sourceId;
+
     /**
      * @var int
      */
     public $startTime;
+
     /**
      * @var string
      */
     public $subject;
     protected $_name = [
-        'bizTag'             => 'bizTag',
-        'contentFieldList'   => 'contentFieldList',
-        'createdTime'        => 'createdTime',
-        'creatorId'          => 'creatorId',
-        'description'        => 'description',
-        'detailUrl'          => 'detailUrl',
-        'done'               => 'done',
-        'dueTime'            => 'dueTime',
-        'executorIds'        => 'executorIds',
-        'finishTime'         => 'finishTime',
-        'id'                 => 'id',
+        'bizTag' => 'bizTag',
+        'contentFieldList' => 'contentFieldList',
+        'createdTime' => 'createdTime',
+        'creatorId' => 'creatorId',
+        'description' => 'description',
+        'detailUrl' => 'detailUrl',
+        'done' => 'done',
+        'dueTime' => 'dueTime',
+        'executorIds' => 'executorIds',
+        'finishTime' => 'finishTime',
+        'id' => 'id',
         'isOnlyShowExecutor' => 'isOnlyShowExecutor',
-        'modifiedTime'       => 'modifiedTime',
-        'modifierId'         => 'modifierId',
-        'notifyConfigs'      => 'notifyConfigs',
-        'participantIds'     => 'participantIds',
-        'priority'           => 'priority',
-        'requestId'          => 'requestId',
-        'source'             => 'source',
-        'sourceId'           => 'sourceId',
-        'startTime'          => 'startTime',
-        'subject'            => 'subject',
+        'modifiedTime' => 'modifiedTime',
+        'modifierId' => 'modifierId',
+        'notifyConfigs' => 'notifyConfigs',
+        'participantIds' => 'participantIds',
+        'priority' => 'priority',
+        'requestId' => 'requestId',
+        'source' => 'source',
+        'sourceId' => 'sourceId',
+        'startTime' => 'startTime',
+        'subject' => 'subject',
     ];
 
     public function validate()
@@ -154,7 +175,7 @@ class CreateTodoTaskResponseBody extends Model
         if (null !== $this->contentFieldList) {
             if (\is_array($this->contentFieldList)) {
                 $res['contentFieldList'] = [];
-                $n1                      = 0;
+                $n1 = 0;
                 foreach ($this->contentFieldList as $item1) {
                     $res['contentFieldList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -188,7 +209,7 @@ class CreateTodoTaskResponseBody extends Model
         if (null !== $this->executorIds) {
             if (\is_array($this->executorIds)) {
                 $res['executorIds'] = [];
-                $n1                 = 0;
+                $n1 = 0;
                 foreach ($this->executorIds as $item1) {
                     $res['executorIds'][$n1++] = $item1;
                 }
@@ -222,7 +243,7 @@ class CreateTodoTaskResponseBody extends Model
         if (null !== $this->participantIds) {
             if (\is_array($this->participantIds)) {
                 $res['participantIds'] = [];
-                $n1                    = 0;
+                $n1 = 0;
                 foreach ($this->participantIds as $item1) {
                     $res['participantIds'][$n1++] = $item1;
                 }
@@ -271,7 +292,7 @@ class CreateTodoTaskResponseBody extends Model
         if (isset($map['contentFieldList'])) {
             if (!empty($map['contentFieldList'])) {
                 $model->contentFieldList = [];
-                $n1                      = 0;
+                $n1 = 0;
                 foreach ($map['contentFieldList'] as $item1) {
                     $model->contentFieldList[$n1++] = contentFieldList::fromMap($item1);
                 }
@@ -305,7 +326,7 @@ class CreateTodoTaskResponseBody extends Model
         if (isset($map['executorIds'])) {
             if (!empty($map['executorIds'])) {
                 $model->executorIds = [];
-                $n1                 = 0;
+                $n1 = 0;
                 foreach ($map['executorIds'] as $item1) {
                     $model->executorIds[$n1++] = $item1;
                 }
@@ -339,7 +360,7 @@ class CreateTodoTaskResponseBody extends Model
         if (isset($map['participantIds'])) {
             if (!empty($map['participantIds'])) {
                 $model->participantIds = [];
-                $n1                    = 0;
+                $n1 = 0;
                 foreach ($map['participantIds'] as $item1) {
                     $model->participantIds[$n1++] = $item1;
                 }

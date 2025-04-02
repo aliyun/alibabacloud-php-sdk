@@ -12,23 +12,26 @@ class GetLiveReplayUrlResponseBody extends Model
      * @var string
      */
     public $replayUrl;
+
     /**
      * @var string
      */
     public $requestId;
+
     /**
      * @var string
      */
     public $vendorRequestId;
+
     /**
      * @var string
      */
     public $vendorType;
     protected $_name = [
-        'replayUrl'       => 'replayUrl',
-        'requestId'       => 'requestId',
+        'replayUrl' => 'replayUrl',
+        'requestId' => 'requestId',
         'vendorRequestId' => 'vendorRequestId',
-        'vendorType'      => 'vendorType',
+        'vendorType' => 'vendorType',
     ];
 
     public function validate()

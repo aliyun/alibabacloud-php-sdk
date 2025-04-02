@@ -12,28 +12,32 @@ class SyncDingTypeShrinkRequest extends Model
      * @var string
      */
     public $dingType;
+
     /**
      * @var string
      */
     public $isDimission;
+
     /**
      * @var string
      */
     public $source;
+
     /**
      * @var string
      */
     public $tenantContextShrink;
+
     /**
      * @var string
      */
     public $workNo;
     protected $_name = [
-        'dingType'            => 'DingType',
-        'isDimission'         => 'IsDimission',
-        'source'              => 'Source',
+        'dingType' => 'DingType',
+        'isDimission' => 'IsDimission',
+        'source' => 'Source',
         'tenantContextShrink' => 'TenantContext',
-        'workNo'              => 'WorkNo',
+        'workNo' => 'WorkNo',
     ];
 
     public function validate()

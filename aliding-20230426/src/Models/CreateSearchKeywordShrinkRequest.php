@@ -12,33 +12,38 @@ class CreateSearchKeywordShrinkRequest extends Model
      * @var string
      */
     public $content;
+
     /**
      * @var int
      */
     public $endTime;
+
     /**
      * @var string
      */
     public $resId;
+
     /**
      * @var int
      */
     public $startTime;
+
     /**
      * @var string
      */
     public $tenantContextShrink;
+
     /**
      * @var string
      */
     public $userIdListShrink;
     protected $_name = [
-        'content'             => 'Content',
-        'endTime'             => 'EndTime',
-        'resId'               => 'ResId',
-        'startTime'           => 'StartTime',
+        'content' => 'Content',
+        'endTime' => 'EndTime',
+        'resId' => 'ResId',
+        'startTime' => 'StartTime',
         'tenantContextShrink' => 'TenantContext',
-        'userIdListShrink'    => 'UserIdList',
+        'userIdListShrink' => 'UserIdList',
     ];
 
     public function validate()

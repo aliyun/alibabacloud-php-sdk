@@ -17,78 +17,92 @@ class CreateTodoTaskRequest extends Model
      * @var tenantContext
      */
     public $tenantContext;
+
     /**
      * @var actionList[]
      */
     public $actionList;
+
     /**
      * @var contentFieldList[]
      */
     public $contentFieldList;
+
     /**
      * @var string
      */
     public $creatorId;
+
     /**
      * @var string
      */
     public $description;
+
     /**
      * @var detailUrl
      */
     public $detailUrl;
+
     /**
      * @var int
      */
     public $dueTime;
+
     /**
      * @var string[]
      */
     public $executorIds;
+
     /**
      * @var bool
      */
     public $isOnlyShowExecutor;
+
     /**
      * @var notifyConfigs
      */
     public $notifyConfigs;
+
     /**
      * @var string
      */
     public $operatorId;
+
     /**
      * @var string[]
      */
     public $participantIds;
+
     /**
      * @var int
      */
     public $priority;
+
     /**
      * @var string
      */
     public $sourceId;
+
     /**
      * @var string
      */
     public $subject;
     protected $_name = [
-        'tenantContext'      => 'TenantContext',
-        'actionList'         => 'actionList',
-        'contentFieldList'   => 'contentFieldList',
-        'creatorId'          => 'creatorId',
-        'description'        => 'description',
-        'detailUrl'          => 'detailUrl',
-        'dueTime'            => 'dueTime',
-        'executorIds'        => 'executorIds',
+        'tenantContext' => 'TenantContext',
+        'actionList' => 'actionList',
+        'contentFieldList' => 'contentFieldList',
+        'creatorId' => 'creatorId',
+        'description' => 'description',
+        'detailUrl' => 'detailUrl',
+        'dueTime' => 'dueTime',
+        'executorIds' => 'executorIds',
         'isOnlyShowExecutor' => 'isOnlyShowExecutor',
-        'notifyConfigs'      => 'notifyConfigs',
-        'operatorId'         => 'operatorId',
-        'participantIds'     => 'participantIds',
-        'priority'           => 'priority',
-        'sourceId'           => 'sourceId',
-        'subject'            => 'subject',
+        'notifyConfigs' => 'notifyConfigs',
+        'operatorId' => 'operatorId',
+        'participantIds' => 'participantIds',
+        'priority' => 'priority',
+        'sourceId' => 'sourceId',
+        'subject' => 'subject',
     ];
 
     public function validate()
@@ -127,7 +141,7 @@ class CreateTodoTaskRequest extends Model
         if (null !== $this->actionList) {
             if (\is_array($this->actionList)) {
                 $res['actionList'] = [];
-                $n1                = 0;
+                $n1 = 0;
                 foreach ($this->actionList as $item1) {
                     $res['actionList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -137,7 +151,7 @@ class CreateTodoTaskRequest extends Model
         if (null !== $this->contentFieldList) {
             if (\is_array($this->contentFieldList)) {
                 $res['contentFieldList'] = [];
-                $n1                      = 0;
+                $n1 = 0;
                 foreach ($this->contentFieldList as $item1) {
                     $res['contentFieldList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -163,7 +177,7 @@ class CreateTodoTaskRequest extends Model
         if (null !== $this->executorIds) {
             if (\is_array($this->executorIds)) {
                 $res['executorIds'] = [];
-                $n1                 = 0;
+                $n1 = 0;
                 foreach ($this->executorIds as $item1) {
                     $res['executorIds'][$n1++] = $item1;
                 }
@@ -185,7 +199,7 @@ class CreateTodoTaskRequest extends Model
         if (null !== $this->participantIds) {
             if (\is_array($this->participantIds)) {
                 $res['participantIds'] = [];
-                $n1                    = 0;
+                $n1 = 0;
                 foreach ($this->participantIds as $item1) {
                     $res['participantIds'][$n1++] = $item1;
                 }
@@ -222,7 +236,7 @@ class CreateTodoTaskRequest extends Model
         if (isset($map['actionList'])) {
             if (!empty($map['actionList'])) {
                 $model->actionList = [];
-                $n1                = 0;
+                $n1 = 0;
                 foreach ($map['actionList'] as $item1) {
                     $model->actionList[$n1++] = actionList::fromMap($item1);
                 }
@@ -232,7 +246,7 @@ class CreateTodoTaskRequest extends Model
         if (isset($map['contentFieldList'])) {
             if (!empty($map['contentFieldList'])) {
                 $model->contentFieldList = [];
-                $n1                      = 0;
+                $n1 = 0;
                 foreach ($map['contentFieldList'] as $item1) {
                     $model->contentFieldList[$n1++] = contentFieldList::fromMap($item1);
                 }
@@ -258,7 +272,7 @@ class CreateTodoTaskRequest extends Model
         if (isset($map['executorIds'])) {
             if (!empty($map['executorIds'])) {
                 $model->executorIds = [];
-                $n1                 = 0;
+                $n1 = 0;
                 foreach ($map['executorIds'] as $item1) {
                     $model->executorIds[$n1++] = $item1;
                 }
@@ -280,7 +294,7 @@ class CreateTodoTaskRequest extends Model
         if (isset($map['participantIds'])) {
             if (!empty($map['participantIds'])) {
                 $model->participantIds = [];
-                $n1                    = 0;
+                $n1 = 0;
                 foreach ($map['participantIds'] as $item1) {
                     $model->participantIds[$n1++] = $item1;
                 }

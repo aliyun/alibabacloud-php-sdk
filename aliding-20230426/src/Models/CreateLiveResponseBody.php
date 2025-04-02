@@ -12,12 +12,13 @@ class CreateLiveResponseBody extends Model
      * @var string
      */
     public $liveId;
+
     /**
      * @var string
      */
     public $requestId;
     protected $_name = [
-        'liveId'    => 'liveId',
+        'liveId' => 'liveId',
         'requestId' => 'requestId',
     ];
 

@@ -12,28 +12,32 @@ class UpdateVideoConferenceSettingResponseBody extends Model
      * @var string
      */
     public $caseResult;
+
     /**
      * @var string
      */
     public $code;
+
     /**
      * @var string
      */
     public $requestId;
+
     /**
      * @var string
      */
     public $vendorRequestId;
+
     /**
      * @var string
      */
     public $vendorType;
     protected $_name = [
-        'caseResult'      => 'caseResult',
-        'code'            => 'code',
-        'requestId'       => 'requestId',
+        'caseResult' => 'caseResult',
+        'code' => 'code',
+        'requestId' => 'requestId',
         'vendorRequestId' => 'vendorRequestId',
-        'vendorType'      => 'vendorType',
+        'vendorType' => 'vendorType',
     ];
 
     public function validate()

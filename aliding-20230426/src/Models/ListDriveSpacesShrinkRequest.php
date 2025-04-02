@@ -12,22 +12,25 @@ class ListDriveSpacesShrinkRequest extends Model
      * @var int
      */
     public $maxResults;
+
     /**
      * @var string
      */
     public $nextToken;
+
     /**
      * @var string
      */
     public $spaceType;
+
     /**
      * @var string
      */
     public $tenantContextShrink;
     protected $_name = [
-        'maxResults'          => 'MaxResults',
-        'nextToken'           => 'NextToken',
-        'spaceType'           => 'SpaceType',
+        'maxResults' => 'MaxResults',
+        'nextToken' => 'NextToken',
+        'spaceType' => 'SpaceType',
         'tenantContextShrink' => 'TenantContext',
     ];
 

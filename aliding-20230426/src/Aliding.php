@@ -1148,6 +1148,7 @@ class Aliding extends OpenApiClient
      * @param tmpReq - AddAttendeeRequest
      * @param tmpHeader - AddAttendeeHeaders
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns AddAttendeeResponse
      *
      * @param AddAttendeeRequest $tmpReq
@@ -1198,23 +1199,23 @@ class Aliding extends OpenApiClient
         }
 
         if (null !== $headers->accountContextShrink) {
-            @$realHeaders['AccountContext'] = json_encode($headers->accountContextShrink, JSON_UNESCAPED_UNICODE + JSON_UNESCAPED_SLASHES);
+            @$realHeaders['AccountContext'] = json_encode($headers->accountContextShrink, \JSON_UNESCAPED_UNICODE + \JSON_UNESCAPED_SLASHES);
         }
 
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
-            'body'    => Utils::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'AddAttendee',
-            'version'     => '2023-04-26',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/dingtalk/v1/calendar/addAttendee',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'AddAttendee',
+            'version' => '2023-04-26',
+            'protocol' => 'HTTPS',
+            'pathname' => '/dingtalk/v1/calendar/addAttendee',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return AddAttendeeResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -1227,6 +1228,7 @@ class Aliding extends OpenApiClient
      * 添加日程参与者.
      *
      * @param request - AddAttendeeRequest
+     *
      * @returns AddAttendeeResponse
      *
      * @param AddAttendeeRequest $request
@@ -1247,6 +1249,7 @@ class Aliding extends OpenApiClient
      * @param tmpReq - AddDriveSpaceRequest
      * @param tmpHeader - AddDriveSpaceHeaders
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns AddDriveSpaceResponse
      *
      * @param AddDriveSpaceRequest $tmpReq
@@ -1285,23 +1288,23 @@ class Aliding extends OpenApiClient
         }
 
         if (null !== $headers->accountContextShrink) {
-            @$realHeaders['AccountContext'] = json_encode($headers->accountContextShrink, JSON_UNESCAPED_UNICODE + JSON_UNESCAPED_SLASHES);
+            @$realHeaders['AccountContext'] = json_encode($headers->accountContextShrink, \JSON_UNESCAPED_UNICODE + \JSON_UNESCAPED_SLASHES);
         }
 
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
-            'body'    => Utils::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'AddDriveSpace',
-            'version'     => '2023-04-26',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/dingtalk/v1/documents/addDriveSpace',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'AddDriveSpace',
+            'version' => '2023-04-26',
+            'protocol' => 'HTTPS',
+            'pathname' => '/dingtalk/v1/documents/addDriveSpace',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return AddDriveSpaceResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -1314,6 +1317,7 @@ class Aliding extends OpenApiClient
      * 新建钉盘空间.
      *
      * @param request - AddDriveSpaceRequest
+     *
      * @returns AddDriveSpaceResponse
      *
      * @param AddDriveSpaceRequest $request
@@ -1334,6 +1338,7 @@ class Aliding extends OpenApiClient
      * @param tmpReq - AddMeetingRoomsRequest
      * @param tmpHeader - AddMeetingRoomsHeaders
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns AddMeetingRoomsResponse
      *
      * @param AddMeetingRoomsRequest $tmpReq
@@ -1376,23 +1381,23 @@ class Aliding extends OpenApiClient
         }
 
         if (null !== $headers->accountContextShrink) {
-            @$realHeaders['AccountContext'] = json_encode($headers->accountContextShrink, JSON_UNESCAPED_UNICODE + JSON_UNESCAPED_SLASHES);
+            @$realHeaders['AccountContext'] = json_encode($headers->accountContextShrink, \JSON_UNESCAPED_UNICODE + \JSON_UNESCAPED_SLASHES);
         }
 
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
-            'body'    => Utils::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'AddMeetingRooms',
-            'version'     => '2023-04-26',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/dingtalk/v1/calendar/addMeetingRooms',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'AddMeetingRooms',
+            'version' => '2023-04-26',
+            'protocol' => 'HTTPS',
+            'pathname' => '/dingtalk/v1/calendar/addMeetingRooms',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return AddMeetingRoomsResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -1405,6 +1410,7 @@ class Aliding extends OpenApiClient
      * 预定会议室.
      *
      * @param request - AddMeetingRoomsRequest
+     *
      * @returns AddMeetingRoomsResponse
      *
      * @param AddMeetingRoomsRequest $request
@@ -1425,6 +1431,7 @@ class Aliding extends OpenApiClient
      * @param tmpReq - AddRecordPermissionRequest
      * @param tmpHeader - AddRecordPermissionHeaders
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns AddRecordPermissionResponse
      *
      * @param AddRecordPermissionRequest $tmpReq
@@ -1471,23 +1478,23 @@ class Aliding extends OpenApiClient
         }
 
         if (null !== $headers->accountContextShrink) {
-            @$realHeaders['AccountContext'] = json_encode($headers->accountContextShrink, JSON_UNESCAPED_UNICODE + JSON_UNESCAPED_SLASHES);
+            @$realHeaders['AccountContext'] = json_encode($headers->accountContextShrink, \JSON_UNESCAPED_UNICODE + \JSON_UNESCAPED_SLASHES);
         }
 
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
-            'body'    => Utils::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'AddRecordPermission',
-            'version'     => '2023-04-26',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/dingtalk/v1/ysp/addRecordPermission',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'AddRecordPermission',
+            'version' => '2023-04-26',
+            'protocol' => 'HTTPS',
+            'pathname' => '/dingtalk/v1/ysp/addRecordPermission',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return AddRecordPermissionResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -1500,6 +1507,7 @@ class Aliding extends OpenApiClient
      * 添加闪记权限.
      *
      * @param request - AddRecordPermissionRequest
+     *
      * @returns AddRecordPermissionResponse
      *
      * @param AddRecordPermissionRequest $request
@@ -1520,6 +1528,7 @@ class Aliding extends OpenApiClient
      * @param request - AddScenegroupMemberRequest
      * @param tmpHeader - AddScenegroupMemberHeaders
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns AddScenegroupMemberResponse
      *
      * @param AddScenegroupMemberRequest $request
@@ -1552,23 +1561,23 @@ class Aliding extends OpenApiClient
         }
 
         if (null !== $headers->accountContextShrink) {
-            @$realHeaders['AccountContext'] = json_encode($headers->accountContextShrink, JSON_UNESCAPED_UNICODE + JSON_UNESCAPED_SLASHES);
+            @$realHeaders['AccountContext'] = json_encode($headers->accountContextShrink, \JSON_UNESCAPED_UNICODE + \JSON_UNESCAPED_SLASHES);
         }
 
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
-            'body'    => Utils::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'AddScenegroupMember',
-            'version'     => '2023-04-26',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/dingtalk/v1/im/addScenegroupMember',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'AddScenegroupMember',
+            'version' => '2023-04-26',
+            'protocol' => 'HTTPS',
+            'pathname' => '/dingtalk/v1/im/addScenegroupMember',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return AddScenegroupMemberResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -1581,6 +1590,7 @@ class Aliding extends OpenApiClient
      * 新增群成员.
      *
      * @param request - AddScenegroupMemberRequest
+     *
      * @returns AddScenegroupMemberResponse
      *
      * @param AddScenegroupMemberRequest $request
@@ -1601,6 +1611,7 @@ class Aliding extends OpenApiClient
      * @param tmpReq - AddTicketMemoRequest
      * @param tmpHeader - AddTicketMemoHeaders
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns AddTicketMemoResponse
      *
      * @param AddTicketMemoRequest $tmpReq
@@ -1651,23 +1662,23 @@ class Aliding extends OpenApiClient
         }
 
         if (null !== $headers->accountContextShrink) {
-            @$realHeaders['AccountContext'] = json_encode($headers->accountContextShrink, JSON_UNESCAPED_UNICODE + JSON_UNESCAPED_SLASHES);
+            @$realHeaders['AccountContext'] = json_encode($headers->accountContextShrink, \JSON_UNESCAPED_UNICODE + \JSON_UNESCAPED_SLASHES);
         }
 
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
-            'body'    => Utils::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'AddTicketMemo',
-            'version'     => '2023-04-26',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/dingtalk/v1/ticket/addTicketMemo',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'AddTicketMemo',
+            'version' => '2023-04-26',
+            'protocol' => 'HTTPS',
+            'pathname' => '/dingtalk/v1/ticket/addTicketMemo',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return AddTicketMemoResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -1680,6 +1691,7 @@ class Aliding extends OpenApiClient
      * 工单添加备注.
      *
      * @param request - AddTicketMemoRequest
+     *
      * @returns AddTicketMemoResponse
      *
      * @param AddTicketMemoRequest $request
@@ -1700,6 +1712,7 @@ class Aliding extends OpenApiClient
      * @param tmpReq - AddWorkspaceRequest
      * @param tmpHeader - AddWorkspaceHeaders
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns AddWorkspaceResponse
      *
      * @param AddWorkspaceRequest $tmpReq
@@ -1746,23 +1759,23 @@ class Aliding extends OpenApiClient
         }
 
         if (null !== $headers->accountContextShrink) {
-            @$realHeaders['AccountContext'] = json_encode($headers->accountContextShrink, JSON_UNESCAPED_UNICODE + JSON_UNESCAPED_SLASHES);
+            @$realHeaders['AccountContext'] = json_encode($headers->accountContextShrink, \JSON_UNESCAPED_UNICODE + \JSON_UNESCAPED_SLASHES);
         }
 
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
-            'body'    => Utils::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'AddWorkspace',
-            'version'     => '2023-04-26',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/dingtalk/v2/documents/addWorkspace',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'AddWorkspace',
+            'version' => '2023-04-26',
+            'protocol' => 'HTTPS',
+            'pathname' => '/dingtalk/v2/documents/addWorkspace',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return AddWorkspaceResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -1775,6 +1788,7 @@ class Aliding extends OpenApiClient
      * 新建知识库.
      *
      * @param request - AddWorkspaceRequest
+     *
      * @returns AddWorkspaceResponse
      *
      * @param AddWorkspaceRequest $request
@@ -1795,6 +1809,7 @@ class Aliding extends OpenApiClient
      * @param tmpReq - AddWorkspaceDocMembersRequest
      * @param tmpHeader - AddWorkspaceDocMembersHeaders
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns AddWorkspaceDocMembersResponse
      *
      * @param AddWorkspaceDocMembersRequest $tmpReq
@@ -1845,23 +1860,23 @@ class Aliding extends OpenApiClient
         }
 
         if (null !== $headers->accountContextShrink) {
-            @$realHeaders['AccountContext'] = json_encode($headers->accountContextShrink, JSON_UNESCAPED_UNICODE + JSON_UNESCAPED_SLASHES);
+            @$realHeaders['AccountContext'] = json_encode($headers->accountContextShrink, \JSON_UNESCAPED_UNICODE + \JSON_UNESCAPED_SLASHES);
         }
 
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
-            'body'    => Utils::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'AddWorkspaceDocMembers',
-            'version'     => '2023-04-26',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/dingtalk/v1/documents/addWorkspaceDocMembers',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'AddWorkspaceDocMembers',
+            'version' => '2023-04-26',
+            'protocol' => 'HTTPS',
+            'pathname' => '/dingtalk/v1/documents/addWorkspaceDocMembers',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return AddWorkspaceDocMembersResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -1874,6 +1889,7 @@ class Aliding extends OpenApiClient
      * 添加知识库文档成员.
      *
      * @param request - AddWorkspaceDocMembersRequest
+     *
      * @returns AddWorkspaceDocMembersResponse
      *
      * @param AddWorkspaceDocMembersRequest $request
@@ -1894,6 +1910,7 @@ class Aliding extends OpenApiClient
      * @param tmpReq - AddWorkspaceMembersRequest
      * @param tmpHeader - AddWorkspaceMembersHeaders
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns AddWorkspaceMembersResponse
      *
      * @param AddWorkspaceMembersRequest $tmpReq
@@ -1940,23 +1957,23 @@ class Aliding extends OpenApiClient
         }
 
         if (null !== $headers->accountContextShrink) {
-            @$realHeaders['AccountContext'] = json_encode($headers->accountContextShrink, JSON_UNESCAPED_UNICODE + JSON_UNESCAPED_SLASHES);
+            @$realHeaders['AccountContext'] = json_encode($headers->accountContextShrink, \JSON_UNESCAPED_UNICODE + \JSON_UNESCAPED_SLASHES);
         }
 
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
-            'body'    => Utils::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'AddWorkspaceMembers',
-            'version'     => '2023-04-26',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/dingtalk/v1/documents/addWorkspaceMembers',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'AddWorkspaceMembers',
+            'version' => '2023-04-26',
+            'protocol' => 'HTTPS',
+            'pathname' => '/dingtalk/v1/documents/addWorkspaceMembers',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return AddWorkspaceMembersResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -1969,6 +1986,7 @@ class Aliding extends OpenApiClient
      * 添加知识库成员.
      *
      * @param request - AddWorkspaceMembersRequest
+     *
      * @returns AddWorkspaceMembersResponse
      *
      * @param AddWorkspaceMembersRequest $request
@@ -1989,6 +2007,7 @@ class Aliding extends OpenApiClient
      * @param tmpReq - AssignTicketRequest
      * @param tmpHeader - AssignTicketHeaders
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns AssignTicketResponse
      *
      * @param AssignTicketRequest $tmpReq
@@ -2055,23 +2074,23 @@ class Aliding extends OpenApiClient
         }
 
         if (null !== $headers->accountContextShrink) {
-            @$realHeaders['AccountContext'] = json_encode($headers->accountContextShrink, JSON_UNESCAPED_UNICODE + JSON_UNESCAPED_SLASHES);
+            @$realHeaders['AccountContext'] = json_encode($headers->accountContextShrink, \JSON_UNESCAPED_UNICODE + \JSON_UNESCAPED_SLASHES);
         }
 
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
-            'body'    => Utils::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'AssignTicket',
-            'version'     => '2023-04-26',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/dingtalk/v1/ticket/assignTicket',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'AssignTicket',
+            'version' => '2023-04-26',
+            'protocol' => 'HTTPS',
+            'pathname' => '/dingtalk/v1/ticket/assignTicket',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return AssignTicketResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -2084,6 +2103,7 @@ class Aliding extends OpenApiClient
      * 指派工单.
      *
      * @param request - AssignTicketRequest
+     *
      * @returns AssignTicketResponse
      *
      * @param AssignTicketRequest $request
@@ -2104,6 +2124,7 @@ class Aliding extends OpenApiClient
      * @param tmpReq - BatchGetFormDataByIdListRequest
      * @param tmpHeader - BatchGetFormDataByIdListHeaders
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns BatchGetFormDataByIdListResponse
      *
      * @param BatchGetFormDataByIdListRequest $tmpReq
@@ -2154,23 +2175,23 @@ class Aliding extends OpenApiClient
         }
 
         if (null !== $headers->accountContextShrink) {
-            @$realHeaders['AccountContext'] = json_encode($headers->accountContextShrink, JSON_UNESCAPED_UNICODE + JSON_UNESCAPED_SLASHES);
+            @$realHeaders['AccountContext'] = json_encode($headers->accountContextShrink, \JSON_UNESCAPED_UNICODE + \JSON_UNESCAPED_SLASHES);
         }
 
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
-            'body'    => Utils::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'BatchGetFormDataByIdList',
-            'version'     => '2023-04-26',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/dingtalk/v1/yida/batchGetFormDataByIdList',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'BatchGetFormDataByIdList',
+            'version' => '2023-04-26',
+            'protocol' => 'HTTPS',
+            'pathname' => '/dingtalk/v1/yida/batchGetFormDataByIdList',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return BatchGetFormDataByIdListResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -2183,6 +2204,7 @@ class Aliding extends OpenApiClient
      * 批量获取表单实例数据.
      *
      * @param request - BatchGetFormDataByIdListRequest
+     *
      * @returns BatchGetFormDataByIdListResponse
      *
      * @param BatchGetFormDataByIdListRequest $request
@@ -2203,6 +2225,7 @@ class Aliding extends OpenApiClient
      * @param tmpReq - BatchRemovalByFormInstanceIdListRequest
      * @param tmpHeader - BatchRemovalByFormInstanceIdListHeaders
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns BatchRemovalByFormInstanceIdListResponse
      *
      * @param BatchRemovalByFormInstanceIdListRequest $tmpReq
@@ -2257,23 +2280,23 @@ class Aliding extends OpenApiClient
         }
 
         if (null !== $headers->accountContextShrink) {
-            @$realHeaders['AccountContext'] = json_encode($headers->accountContextShrink, JSON_UNESCAPED_UNICODE + JSON_UNESCAPED_SLASHES);
+            @$realHeaders['AccountContext'] = json_encode($headers->accountContextShrink, \JSON_UNESCAPED_UNICODE + \JSON_UNESCAPED_SLASHES);
         }
 
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
-            'body'    => Utils::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'BatchRemovalByFormInstanceIdList',
-            'version'     => '2023-04-26',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/dingtalk/v1/yida/batchRemovalByFormInstanceIdList',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'BatchRemovalByFormInstanceIdList',
+            'version' => '2023-04-26',
+            'protocol' => 'HTTPS',
+            'pathname' => '/dingtalk/v1/yida/batchRemovalByFormInstanceIdList',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return BatchRemovalByFormInstanceIdListResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -2286,6 +2309,7 @@ class Aliding extends OpenApiClient
      * 批量删除表单实例.
      *
      * @param request - BatchRemovalByFormInstanceIdListRequest
+     *
      * @returns BatchRemovalByFormInstanceIdListResponse
      *
      * @param BatchRemovalByFormInstanceIdListRequest $request
@@ -2306,6 +2330,7 @@ class Aliding extends OpenApiClient
      * @param tmpReq - BatchSaveFormDataRequest
      * @param tmpHeader - BatchSaveFormDataHeaders
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns BatchSaveFormDataResponse
      *
      * @param BatchSaveFormDataRequest $tmpReq
@@ -2364,23 +2389,23 @@ class Aliding extends OpenApiClient
         }
 
         if (null !== $headers->accountContextShrink) {
-            @$realHeaders['AccountContext'] = json_encode($headers->accountContextShrink, JSON_UNESCAPED_UNICODE + JSON_UNESCAPED_SLASHES);
+            @$realHeaders['AccountContext'] = json_encode($headers->accountContextShrink, \JSON_UNESCAPED_UNICODE + \JSON_UNESCAPED_SLASHES);
         }
 
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
-            'body'    => Utils::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'BatchSaveFormData',
-            'version'     => '2023-04-26',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/dingtalk/v1/yida/batchSaveFormData',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'BatchSaveFormData',
+            'version' => '2023-04-26',
+            'protocol' => 'HTTPS',
+            'pathname' => '/dingtalk/v1/yida/batchSaveFormData',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return BatchSaveFormDataResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -2393,6 +2418,7 @@ class Aliding extends OpenApiClient
      * 批量创建表单实例.
      *
      * @param request - BatchSaveFormDataRequest
+     *
      * @returns BatchSaveFormDataResponse
      *
      * @param BatchSaveFormDataRequest $request
@@ -2413,6 +2439,7 @@ class Aliding extends OpenApiClient
      * @param tmpReq - BatchUpdateFormDataByInstanceIdRequest
      * @param tmpHeader - BatchUpdateFormDataByInstanceIdHeaders
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns BatchUpdateFormDataByInstanceIdResponse
      *
      * @param BatchUpdateFormDataByInstanceIdRequest $tmpReq
@@ -2479,23 +2506,23 @@ class Aliding extends OpenApiClient
         }
 
         if (null !== $headers->accountContextShrink) {
-            @$realHeaders['AccountContext'] = json_encode($headers->accountContextShrink, JSON_UNESCAPED_UNICODE + JSON_UNESCAPED_SLASHES);
+            @$realHeaders['AccountContext'] = json_encode($headers->accountContextShrink, \JSON_UNESCAPED_UNICODE + \JSON_UNESCAPED_SLASHES);
         }
 
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
-            'body'    => Utils::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'BatchUpdateFormDataByInstanceId',
-            'version'     => '2023-04-26',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/dingtalk/v1/yida/batchUpdateFormDataByInstanceId',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'BatchUpdateFormDataByInstanceId',
+            'version' => '2023-04-26',
+            'protocol' => 'HTTPS',
+            'pathname' => '/dingtalk/v1/yida/batchUpdateFormDataByInstanceId',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return BatchUpdateFormDataByInstanceIdResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -2508,6 +2535,7 @@ class Aliding extends OpenApiClient
      * 批量更新表单实例内的组件值
      *
      * @param request - BatchUpdateFormDataByInstanceIdRequest
+     *
      * @returns BatchUpdateFormDataByInstanceIdResponse
      *
      * @param BatchUpdateFormDataByInstanceIdRequest $request
@@ -2528,6 +2556,7 @@ class Aliding extends OpenApiClient
      * @param tmpReq - BatchUpdateFormDataByInstanceMapRequest
      * @param tmpHeader - BatchUpdateFormDataByInstanceMapHeaders
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns BatchUpdateFormDataByInstanceMapResponse
      *
      * @param BatchUpdateFormDataByInstanceMapRequest $tmpReq
@@ -2590,23 +2619,23 @@ class Aliding extends OpenApiClient
         }
 
         if (null !== $headers->accountContextShrink) {
-            @$realHeaders['AccountContext'] = json_encode($headers->accountContextShrink, JSON_UNESCAPED_UNICODE + JSON_UNESCAPED_SLASHES);
+            @$realHeaders['AccountContext'] = json_encode($headers->accountContextShrink, \JSON_UNESCAPED_UNICODE + \JSON_UNESCAPED_SLASHES);
         }
 
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
-            'body'    => Utils::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'BatchUpdateFormDataByInstanceMap',
-            'version'     => '2023-04-26',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/dingtalk/v1/yida/batchUpdateFormDataByInstanceMap',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'BatchUpdateFormDataByInstanceMap',
+            'version' => '2023-04-26',
+            'protocol' => 'HTTPS',
+            'pathname' => '/dingtalk/v1/yida/batchUpdateFormDataByInstanceMap',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return BatchUpdateFormDataByInstanceMapResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -2619,6 +2648,7 @@ class Aliding extends OpenApiClient
      * 通过表单实例数据批量更新表单实例.
      *
      * @param request - BatchUpdateFormDataByInstanceMapRequest
+     *
      * @returns BatchUpdateFormDataByInstanceMapResponse
      *
      * @param BatchUpdateFormDataByInstanceMapRequest $request
@@ -2639,6 +2669,7 @@ class Aliding extends OpenApiClient
      * @param tmpReq - CancelScheduleConferenceRequest
      * @param tmpHeader - CancelScheduleConferenceHeaders
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns CancelScheduleConferenceResponse
      *
      * @param CancelScheduleConferenceRequest $tmpReq
@@ -2677,23 +2708,23 @@ class Aliding extends OpenApiClient
         }
 
         if (null !== $headers->accountContextShrink) {
-            @$realHeaders['AccountContext'] = json_encode($headers->accountContextShrink, JSON_UNESCAPED_UNICODE + JSON_UNESCAPED_SLASHES);
+            @$realHeaders['AccountContext'] = json_encode($headers->accountContextShrink, \JSON_UNESCAPED_UNICODE + \JSON_UNESCAPED_SLASHES);
         }
 
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
-            'body'    => Utils::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'CancelScheduleConference',
-            'version'     => '2023-04-26',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/dingtalk/v1/ysp/cancelScheduleConference',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'CancelScheduleConference',
+            'version' => '2023-04-26',
+            'protocol' => 'HTTPS',
+            'pathname' => '/dingtalk/v1/ysp/cancelScheduleConference',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return CancelScheduleConferenceResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -2706,6 +2737,7 @@ class Aliding extends OpenApiClient
      * 取消预约会议.
      *
      * @param request - CancelScheduleConferenceRequest
+     *
      * @returns CancelScheduleConferenceResponse
      *
      * @param CancelScheduleConferenceRequest $request
@@ -2726,6 +2758,7 @@ class Aliding extends OpenApiClient
      * @param tmpReq - CheckAlibabaStaffRequest
      * @param tmpHeader - CheckAlibabaStaffHeaders
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns CheckAlibabaStaffResponse
      *
      * @param CheckAlibabaStaffRequest $tmpReq
@@ -2764,23 +2797,23 @@ class Aliding extends OpenApiClient
         }
 
         if (null !== $headers->accountContextShrink) {
-            @$realHeaders['AccountContext'] = json_encode($headers->accountContextShrink, JSON_UNESCAPED_UNICODE + JSON_UNESCAPED_SLASHES);
+            @$realHeaders['AccountContext'] = json_encode($headers->accountContextShrink, \JSON_UNESCAPED_UNICODE + \JSON_UNESCAPED_SLASHES);
         }
 
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
-            'body'    => Utils::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'CheckAlibabaStaff',
-            'version'     => '2023-04-26',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/dingtalk/v1/im/checkAlibabaStaff',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'CheckAlibabaStaff',
+            'version' => '2023-04-26',
+            'protocol' => 'HTTPS',
+            'pathname' => '/dingtalk/v1/im/checkAlibabaStaff',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return CheckAlibabaStaffResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -2793,6 +2826,7 @@ class Aliding extends OpenApiClient
      * 校验阿里员工.
      *
      * @param request - CheckAlibabaStaffRequest
+     *
      * @returns CheckAlibabaStaffResponse
      *
      * @param CheckAlibabaStaffRequest $request
@@ -2813,6 +2847,7 @@ class Aliding extends OpenApiClient
      * @param request - CheckUserIsGroupMemberRequest
      * @param tmpHeader - CheckUserIsGroupMemberHeaders
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns CheckUserIsGroupMemberResponse
      *
      * @param CheckUserIsGroupMemberRequest $request
@@ -2841,23 +2876,23 @@ class Aliding extends OpenApiClient
         }
 
         if (null !== $headers->accountContextShrink) {
-            @$realHeaders['AccountContext'] = json_encode($headers->accountContextShrink, JSON_UNESCAPED_UNICODE + JSON_UNESCAPED_SLASHES);
+            @$realHeaders['AccountContext'] = json_encode($headers->accountContextShrink, \JSON_UNESCAPED_UNICODE + \JSON_UNESCAPED_SLASHES);
         }
 
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
-            'body'    => Utils::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'CheckUserIsGroupMember',
-            'version'     => '2023-04-26',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/dingtalk/v1/im/checkUserIsGroupMember',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'CheckUserIsGroupMember',
+            'version' => '2023-04-26',
+            'protocol' => 'HTTPS',
+            'pathname' => '/dingtalk/v1/im/checkUserIsGroupMember',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return CheckUserIsGroupMemberResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -2870,6 +2905,7 @@ class Aliding extends OpenApiClient
      * 查询用户是否为企业内部群成员.
      *
      * @param request - CheckUserIsGroupMemberRequest
+     *
      * @returns CheckUserIsGroupMemberResponse
      *
      * @param CheckUserIsGroupMemberRequest $request
@@ -2890,6 +2926,7 @@ class Aliding extends OpenApiClient
      * @param tmpReq - ClearRequest
      * @param tmpHeader - ClearHeaders
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ClearResponse
      *
      * @param ClearRequest   $tmpReq
@@ -2936,23 +2973,23 @@ class Aliding extends OpenApiClient
         }
 
         if (null !== $headers->accountContextShrink) {
-            @$realHeaders['AccountContext'] = json_encode($headers->accountContextShrink, JSON_UNESCAPED_UNICODE + JSON_UNESCAPED_SLASHES);
+            @$realHeaders['AccountContext'] = json_encode($headers->accountContextShrink, \JSON_UNESCAPED_UNICODE + \JSON_UNESCAPED_SLASHES);
         }
 
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
-            'body'    => Utils::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'Clear',
-            'version'     => '2023-04-26',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/dingtalk/v1/documents/clear',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'Clear',
+            'version' => '2023-04-26',
+            'protocol' => 'HTTPS',
+            'pathname' => '/dingtalk/v1/documents/clear',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return ClearResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -2965,6 +3002,7 @@ class Aliding extends OpenApiClient
      * 清除单元格所有内容.
      *
      * @param request - ClearRequest
+     *
      * @returns ClearResponse
      *
      * @param ClearRequest $request
@@ -2985,6 +3023,7 @@ class Aliding extends OpenApiClient
      * @param tmpReq - ClearDataRequest
      * @param tmpHeader - ClearDataHeaders
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ClearDataResponse
      *
      * @param ClearDataRequest $tmpReq
@@ -3031,23 +3070,23 @@ class Aliding extends OpenApiClient
         }
 
         if (null !== $headers->accountContextShrink) {
-            @$realHeaders['AccountContext'] = json_encode($headers->accountContextShrink, JSON_UNESCAPED_UNICODE + JSON_UNESCAPED_SLASHES);
+            @$realHeaders['AccountContext'] = json_encode($headers->accountContextShrink, \JSON_UNESCAPED_UNICODE + \JSON_UNESCAPED_SLASHES);
         }
 
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
-            'body'    => Utils::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'ClearData',
-            'version'     => '2023-04-26',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/dingtalk/v1/documents/clearData',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'ClearData',
+            'version' => '2023-04-26',
+            'protocol' => 'HTTPS',
+            'pathname' => '/dingtalk/v1/documents/clearData',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return ClearDataResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -3060,6 +3099,7 @@ class Aliding extends OpenApiClient
      * 清除单元格数据.
      *
      * @param request - ClearDataRequest
+     *
      * @returns ClearDataResponse
      *
      * @param ClearDataRequest $request
@@ -3080,6 +3120,7 @@ class Aliding extends OpenApiClient
      * @param tmpReq - CloseVideoConferenceRequest
      * @param tmpHeader - CloseVideoConferenceHeaders
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns CloseVideoConferenceResponse
      *
      * @param CloseVideoConferenceRequest $tmpReq
@@ -3118,23 +3159,23 @@ class Aliding extends OpenApiClient
         }
 
         if (null !== $headers->accountContextShrink) {
-            @$realHeaders['AccountContext'] = json_encode($headers->accountContextShrink, JSON_UNESCAPED_UNICODE + JSON_UNESCAPED_SLASHES);
+            @$realHeaders['AccountContext'] = json_encode($headers->accountContextShrink, \JSON_UNESCAPED_UNICODE + \JSON_UNESCAPED_SLASHES);
         }
 
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
-            'body'    => Utils::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'CloseVideoConference',
-            'version'     => '2023-04-26',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/dingtalk/v1/ysp/closeVideoConference',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'CloseVideoConference',
+            'version' => '2023-04-26',
+            'protocol' => 'HTTPS',
+            'pathname' => '/dingtalk/v1/ysp/closeVideoConference',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return CloseVideoConferenceResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -3147,6 +3188,7 @@ class Aliding extends OpenApiClient
      * 关闭视频会议.
      *
      * @param request - CloseVideoConferenceRequest
+     *
      * @returns CloseVideoConferenceResponse
      *
      * @param CloseVideoConferenceRequest $request
@@ -3167,6 +3209,7 @@ class Aliding extends OpenApiClient
      * @param tmpReq - CommentListReportRequest
      * @param tmpHeader - CommentListReportHeaders
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns CommentListReportResponse
      *
      * @param CommentListReportRequest $tmpReq
@@ -3213,23 +3256,23 @@ class Aliding extends OpenApiClient
         }
 
         if (null !== $headers->accountContextShrink) {
-            @$realHeaders['AccountContext'] = json_encode($headers->accountContextShrink, JSON_UNESCAPED_UNICODE + JSON_UNESCAPED_SLASHES);
+            @$realHeaders['AccountContext'] = json_encode($headers->accountContextShrink, \JSON_UNESCAPED_UNICODE + \JSON_UNESCAPED_SLASHES);
         }
 
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
-            'body'    => Utils::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'CommentListReport',
-            'version'     => '2023-04-26',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/dingtalk/v1/log/commentListReport',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'CommentListReport',
+            'version' => '2023-04-26',
+            'protocol' => 'HTTPS',
+            'pathname' => '/dingtalk/v1/log/commentListReport',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return CommentListReportResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -3242,6 +3285,7 @@ class Aliding extends OpenApiClient
      * 获取日志评论列表.
      *
      * @param request - CommentListReportRequest
+     *
      * @returns CommentListReportResponse
      *
      * @param CommentListReportRequest $request
@@ -3262,6 +3306,7 @@ class Aliding extends OpenApiClient
      * @param tmpReq - CommitFileRequest
      * @param tmpHeader - CommitFileHeaders
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns CommitFileResponse
      *
      * @param CommitFileRequest $tmpReq
@@ -3316,23 +3361,23 @@ class Aliding extends OpenApiClient
         }
 
         if (null !== $headers->accountContextShrink) {
-            @$realHeaders['AccountContext'] = json_encode($headers->accountContextShrink, JSON_UNESCAPED_UNICODE + JSON_UNESCAPED_SLASHES);
+            @$realHeaders['AccountContext'] = json_encode($headers->accountContextShrink, \JSON_UNESCAPED_UNICODE + \JSON_UNESCAPED_SLASHES);
         }
 
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
-            'body'    => Utils::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'CommitFile',
-            'version'     => '2023-04-26',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/dingtalk/v1/documents/commitFile',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'CommitFile',
+            'version' => '2023-04-26',
+            'protocol' => 'HTTPS',
+            'pathname' => '/dingtalk/v1/documents/commitFile',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return CommitFileResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -3345,6 +3390,7 @@ class Aliding extends OpenApiClient
      * 提交文件.
      *
      * @param request - CommitFileRequest
+     *
      * @returns CommitFileResponse
      *
      * @param CommitFileRequest $request
@@ -3365,6 +3411,7 @@ class Aliding extends OpenApiClient
      * @param tmpReq - CopyDentryRequest
      * @param tmpHeader - CopyDentryHeaders
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns CopyDentryResponse
      *
      * @param CopyDentryRequest $tmpReq
@@ -3427,23 +3474,23 @@ class Aliding extends OpenApiClient
         }
 
         if (null !== $headers->accountContextShrink) {
-            @$realHeaders['AccountContext'] = json_encode($headers->accountContextShrink, JSON_UNESCAPED_UNICODE + JSON_UNESCAPED_SLASHES);
+            @$realHeaders['AccountContext'] = json_encode($headers->accountContextShrink, \JSON_UNESCAPED_UNICODE + \JSON_UNESCAPED_SLASHES);
         }
 
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
-            'body'    => Utils::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'CopyDentry',
-            'version'     => '2023-04-26',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/dingtalk/v2/documents/copyDentry',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'CopyDentry',
+            'version' => '2023-04-26',
+            'protocol' => 'HTTPS',
+            'pathname' => '/dingtalk/v2/documents/copyDentry',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return CopyDentryResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -3456,6 +3503,7 @@ class Aliding extends OpenApiClient
      * 创建知识库节点副本.
      *
      * @param request - CopyDentryRequest
+     *
      * @returns CopyDentryResponse
      *
      * @param CopyDentryRequest $request
@@ -3476,6 +3524,7 @@ class Aliding extends OpenApiClient
      * @param tmpReq - CreateDeliveryPlanRequest
      * @param tmpHeader - CreateDeliveryPlanHeaders
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns CreateDeliveryPlanResponse
      *
      * @param CreateDeliveryPlanRequest $tmpReq
@@ -3538,23 +3587,23 @@ class Aliding extends OpenApiClient
         }
 
         if (null !== $headers->accountContextShrink) {
-            @$realHeaders['AccountContext'] = json_encode($headers->accountContextShrink, JSON_UNESCAPED_UNICODE + JSON_UNESCAPED_SLASHES);
+            @$realHeaders['AccountContext'] = json_encode($headers->accountContextShrink, \JSON_UNESCAPED_UNICODE + \JSON_UNESCAPED_SLASHES);
         }
 
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
-            'body'    => Utils::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'CreateDeliveryPlan',
-            'version'     => '2023-04-26',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/dingtalk/v1/watt/createDeliveryPlan',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'CreateDeliveryPlan',
+            'version' => '2023-04-26',
+            'protocol' => 'HTTPS',
+            'pathname' => '/dingtalk/v1/watt/createDeliveryPlan',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return CreateDeliveryPlanResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -3567,6 +3616,7 @@ class Aliding extends OpenApiClient
      * 发布钉钉投放活动.
      *
      * @param request - CreateDeliveryPlanRequest
+     *
      * @returns CreateDeliveryPlanResponse
      *
      * @param CreateDeliveryPlanRequest $request
@@ -3587,6 +3637,7 @@ class Aliding extends OpenApiClient
      * @param tmpReq - CreateDingtalkPersonalTodoTaskRequest
      * @param tmpHeader - CreateDingtalkPersonalTodoTaskHeaders
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns CreateDingtalkPersonalTodoTaskResponse
      *
      * @param CreateDingtalkPersonalTodoTaskRequest $tmpReq
@@ -3661,23 +3712,23 @@ class Aliding extends OpenApiClient
         }
 
         if (null !== $headers->accountContextShrink) {
-            @$realHeaders['AccountContext'] = json_encode($headers->accountContextShrink, JSON_UNESCAPED_UNICODE + JSON_UNESCAPED_SLASHES);
+            @$realHeaders['AccountContext'] = json_encode($headers->accountContextShrink, \JSON_UNESCAPED_UNICODE + \JSON_UNESCAPED_SLASHES);
         }
 
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
-            'body'    => Utils::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'CreateDingtalkPersonalTodoTask',
-            'version'     => '2023-04-26',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/dingtalk/v1/task/createDingtalkPersonalTodoTask',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'CreateDingtalkPersonalTodoTask',
+            'version' => '2023-04-26',
+            'protocol' => 'HTTPS',
+            'pathname' => '/dingtalk/v1/task/createDingtalkPersonalTodoTask',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return CreateDingtalkPersonalTodoTaskResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -3690,6 +3741,7 @@ class Aliding extends OpenApiClient
      * 委托权限创建钉钉个人待办.
      *
      * @param request - CreateDingtalkPersonalTodoTaskRequest
+     *
      * @returns CreateDingtalkPersonalTodoTaskResponse
      *
      * @param CreateDingtalkPersonalTodoTaskRequest $request
@@ -3710,6 +3762,7 @@ class Aliding extends OpenApiClient
      * @param tmpReq - CreateEventRequest
      * @param tmpHeader - CreateEventHeaders
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns CreateEventResponse
      *
      * @param CreateEventRequest $tmpReq
@@ -3840,23 +3893,23 @@ class Aliding extends OpenApiClient
         }
 
         if (null !== $headers->accountContextShrink) {
-            @$realHeaders['AccountContext'] = json_encode($headers->accountContextShrink, JSON_UNESCAPED_UNICODE + JSON_UNESCAPED_SLASHES);
+            @$realHeaders['AccountContext'] = json_encode($headers->accountContextShrink, \JSON_UNESCAPED_UNICODE + \JSON_UNESCAPED_SLASHES);
         }
 
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
-            'body'    => Utils::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'CreateEvent',
-            'version'     => '2023-04-26',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/dingtalk/v1/calendar/createEvent',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'CreateEvent',
+            'version' => '2023-04-26',
+            'protocol' => 'HTTPS',
+            'pathname' => '/dingtalk/v1/calendar/createEvent',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return CreateEventResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -3869,6 +3922,7 @@ class Aliding extends OpenApiClient
      * 创建日程.
      *
      * @param request - CreateEventRequest
+     *
      * @returns CreateEventResponse
      *
      * @param CreateEventRequest $request
@@ -3889,6 +3943,7 @@ class Aliding extends OpenApiClient
      * @param tmpReq - CreateLiveRequest
      * @param tmpHeader - CreateLiveHeaders
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns CreateLiveResponse
      *
      * @param CreateLiveRequest $tmpReq
@@ -3947,23 +4002,23 @@ class Aliding extends OpenApiClient
         }
 
         if (null !== $headers->accountContextShrink) {
-            @$realHeaders['AccountContext'] = json_encode($headers->accountContextShrink, JSON_UNESCAPED_UNICODE + JSON_UNESCAPED_SLASHES);
+            @$realHeaders['AccountContext'] = json_encode($headers->accountContextShrink, \JSON_UNESCAPED_UNICODE + \JSON_UNESCAPED_SLASHES);
         }
 
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
-            'body'    => Utils::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'CreateLive',
-            'version'     => '2023-04-26',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/dingtalk/v1/ysp/createLive',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'CreateLive',
+            'version' => '2023-04-26',
+            'protocol' => 'HTTPS',
+            'pathname' => '/dingtalk/v1/ysp/createLive',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return CreateLiveResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -3976,6 +4031,7 @@ class Aliding extends OpenApiClient
      * 创建直播.
      *
      * @param request - CreateLiveRequest
+     *
      * @returns CreateLiveResponse
      *
      * @param CreateLiveRequest $request
@@ -3996,6 +4052,7 @@ class Aliding extends OpenApiClient
      * @param tmpReq - CreateMeetingRoomRequest
      * @param tmpHeader - CreateMeetingRoomHeaders
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns CreateMeetingRoomResponse
      *
      * @param CreateMeetingRoomRequest $tmpReq
@@ -4082,23 +4139,23 @@ class Aliding extends OpenApiClient
         }
 
         if (null !== $headers->accountContextShrink) {
-            @$realHeaders['AccountContext'] = json_encode($headers->accountContextShrink, JSON_UNESCAPED_UNICODE + JSON_UNESCAPED_SLASHES);
+            @$realHeaders['AccountContext'] = json_encode($headers->accountContextShrink, \JSON_UNESCAPED_UNICODE + \JSON_UNESCAPED_SLASHES);
         }
 
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
-            'body'    => Utils::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'CreateMeetingRoom',
-            'version'     => '2023-04-26',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/dingtalk/v1/ysp/createMeetingRoom',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'CreateMeetingRoom',
+            'version' => '2023-04-26',
+            'protocol' => 'HTTPS',
+            'pathname' => '/dingtalk/v1/ysp/createMeetingRoom',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return CreateMeetingRoomResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -4111,6 +4168,7 @@ class Aliding extends OpenApiClient
      * 创建会议室.
      *
      * @param request - CreateMeetingRoomRequest
+     *
      * @returns CreateMeetingRoomResponse
      *
      * @param CreateMeetingRoomRequest $request
@@ -4131,6 +4189,7 @@ class Aliding extends OpenApiClient
      * @param tmpReq - CreateMeetingRoomGroupRequest
      * @param tmpHeader - CreateMeetingRoomGroupHeaders
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns CreateMeetingRoomGroupResponse
      *
      * @param CreateMeetingRoomGroupRequest $tmpReq
@@ -4173,23 +4232,23 @@ class Aliding extends OpenApiClient
         }
 
         if (null !== $headers->accountContextShrink) {
-            @$realHeaders['AccountContext'] = json_encode($headers->accountContextShrink, JSON_UNESCAPED_UNICODE + JSON_UNESCAPED_SLASHES);
+            @$realHeaders['AccountContext'] = json_encode($headers->accountContextShrink, \JSON_UNESCAPED_UNICODE + \JSON_UNESCAPED_SLASHES);
         }
 
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
-            'body'    => Utils::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'CreateMeetingRoomGroup',
-            'version'     => '2023-04-26',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/dingtalk/v1/ysp/createMeetingRoomGroup',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'CreateMeetingRoomGroup',
+            'version' => '2023-04-26',
+            'protocol' => 'HTTPS',
+            'pathname' => '/dingtalk/v1/ysp/createMeetingRoomGroup',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return CreateMeetingRoomGroupResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -4202,6 +4261,7 @@ class Aliding extends OpenApiClient
      * 创建会议室分组.
      *
      * @param request - CreateMeetingRoomGroupRequest
+     *
      * @returns CreateMeetingRoomGroupResponse
      *
      * @param CreateMeetingRoomGroupRequest $request
@@ -4222,6 +4282,7 @@ class Aliding extends OpenApiClient
      * @param request - CreateMessageRequest
      * @param headers - CreateMessageHeaders
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns CreateMessageResponse
      *
      * @param CreateMessageRequest $request
@@ -4269,18 +4330,18 @@ class Aliding extends OpenApiClient
 
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
-            'body'    => Utils::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'CreateMessage',
-            'version'     => '2023-04-26',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/ai/v1/assistant/createMessage',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'CreateMessage',
+            'version' => '2023-04-26',
+            'protocol' => 'HTTPS',
+            'pathname' => '/ai/v1/assistant/createMessage',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return CreateMessageResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -4293,6 +4354,7 @@ class Aliding extends OpenApiClient
      * 创建消息.
      *
      * @param request - CreateMessageRequest
+     *
      * @returns CreateMessageResponse
      *
      * @param CreateMessageRequest $request
@@ -4313,6 +4375,7 @@ class Aliding extends OpenApiClient
      * @param request - CreateOrUpdateFormDataRequest
      * @param tmpHeader - CreateOrUpdateFormDataHeaders
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns CreateOrUpdateFormDataResponse
      *
      * @param CreateOrUpdateFormDataRequest $request
@@ -4365,23 +4428,23 @@ class Aliding extends OpenApiClient
         }
 
         if (null !== $headers->accountContextShrink) {
-            @$realHeaders['AccountContext'] = json_encode($headers->accountContextShrink, JSON_UNESCAPED_UNICODE + JSON_UNESCAPED_SLASHES);
+            @$realHeaders['AccountContext'] = json_encode($headers->accountContextShrink, \JSON_UNESCAPED_UNICODE + \JSON_UNESCAPED_SLASHES);
         }
 
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
-            'body'    => Utils::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'CreateOrUpdateFormData',
-            'version'     => '2023-04-26',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/dingtalk/v1/yida/createOrUpdateFormData',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'CreateOrUpdateFormData',
+            'version' => '2023-04-26',
+            'protocol' => 'HTTPS',
+            'pathname' => '/dingtalk/v1/yida/createOrUpdateFormData',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return CreateOrUpdateFormDataResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -4394,6 +4457,7 @@ class Aliding extends OpenApiClient
      * 新增或更新表单实例.
      *
      * @param request - CreateOrUpdateFormDataRequest
+     *
      * @returns CreateOrUpdateFormDataResponse
      *
      * @param CreateOrUpdateFormDataRequest $request
@@ -4414,6 +4478,7 @@ class Aliding extends OpenApiClient
      * @param tmpReq - CreateOrgHonorTemplateRequest
      * @param tmpHeader - CreateOrgHonorTemplateHeaders
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns CreateOrgHonorTemplateResponse
      *
      * @param CreateOrgHonorTemplateRequest $tmpReq
@@ -4476,23 +4541,23 @@ class Aliding extends OpenApiClient
         }
 
         if (null !== $headers->accountContextShrink) {
-            @$realHeaders['AccountContext'] = json_encode($headers->accountContextShrink, JSON_UNESCAPED_UNICODE + JSON_UNESCAPED_SLASHES);
+            @$realHeaders['AccountContext'] = json_encode($headers->accountContextShrink, \JSON_UNESCAPED_UNICODE + \JSON_UNESCAPED_SLASHES);
         }
 
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
-            'body'    => Utils::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'CreateOrgHonorTemplate',
-            'version'     => '2023-04-26',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/aliding/v1/honor/createOrgHonorTemplate',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'CreateOrgHonorTemplate',
+            'version' => '2023-04-26',
+            'protocol' => 'HTTPS',
+            'pathname' => '/aliding/v1/honor/createOrgHonorTemplate',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return CreateOrgHonorTemplateResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -4505,6 +4570,7 @@ class Aliding extends OpenApiClient
      * 创建荣誉勋章模板
      *
      * @param request - CreateOrgHonorTemplateRequest
+     *
      * @returns CreateOrgHonorTemplateResponse
      *
      * @param CreateOrgHonorTemplateRequest $request
@@ -4525,6 +4591,7 @@ class Aliding extends OpenApiClient
      * @param tmpReq - CreatePersonalTodoTaskRequest
      * @param tmpHeader - CreatePersonalTodoTaskHeaders
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns CreatePersonalTodoTaskResponse
      *
      * @param CreatePersonalTodoTaskRequest $tmpReq
@@ -4599,23 +4666,23 @@ class Aliding extends OpenApiClient
         }
 
         if (null !== $headers->accountContextShrink) {
-            @$realHeaders['AccountContext'] = json_encode($headers->accountContextShrink, JSON_UNESCAPED_UNICODE + JSON_UNESCAPED_SLASHES);
+            @$realHeaders['AccountContext'] = json_encode($headers->accountContextShrink, \JSON_UNESCAPED_UNICODE + \JSON_UNESCAPED_SLASHES);
         }
 
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
-            'body'    => Utils::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'CreatePersonalTodoTask',
-            'version'     => '2023-04-26',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/dingtalk/v1/task/createPersonalTodoTask',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'CreatePersonalTodoTask',
+            'version' => '2023-04-26',
+            'protocol' => 'HTTPS',
+            'pathname' => '/dingtalk/v1/task/createPersonalTodoTask',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return CreatePersonalTodoTaskResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -4628,6 +4695,7 @@ class Aliding extends OpenApiClient
      * 创建钉钉个人待办任务
      *
      * @param request - CreatePersonalTodoTaskRequest
+     *
      * @returns CreatePersonalTodoTaskResponse
      *
      * @param CreatePersonalTodoTaskRequest $request
@@ -4648,6 +4716,7 @@ class Aliding extends OpenApiClient
      * @param tmpReq - CreateReportRequest
      * @param tmpHeader - CreateReportHeaders
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns CreateReportResponse
      *
      * @param CreateReportRequest $tmpReq
@@ -4718,23 +4787,23 @@ class Aliding extends OpenApiClient
         }
 
         if (null !== $headers->accountContextShrink) {
-            @$realHeaders['AccountContext'] = json_encode($headers->accountContextShrink, JSON_UNESCAPED_UNICODE + JSON_UNESCAPED_SLASHES);
+            @$realHeaders['AccountContext'] = json_encode($headers->accountContextShrink, \JSON_UNESCAPED_UNICODE + \JSON_UNESCAPED_SLASHES);
         }
 
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
-            'body'    => Utils::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'CreateReport',
-            'version'     => '2023-04-26',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/dingtalk/v1/log/createReport',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'CreateReport',
+            'version' => '2023-04-26',
+            'protocol' => 'HTTPS',
+            'pathname' => '/dingtalk/v1/log/createReport',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return CreateReportResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -4747,6 +4816,7 @@ class Aliding extends OpenApiClient
      * 创建日志.
      *
      * @param request - CreateReportRequest
+     *
      * @returns CreateReportResponse
      *
      * @param CreateReportRequest $request
@@ -4767,6 +4837,7 @@ class Aliding extends OpenApiClient
      * @param request - CreateRunRequest
      * @param headers - CreateRunHeaders
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns CreateRunResponse
      *
      * @param CreateRunRequest $request
@@ -4814,18 +4885,18 @@ class Aliding extends OpenApiClient
 
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
-            'body'    => Utils::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'CreateRun',
-            'version'     => '2023-04-26',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/ai/v1/assistant/createRun',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'CreateRun',
+            'version' => '2023-04-26',
+            'protocol' => 'HTTPS',
+            'pathname' => '/ai/v1/assistant/createRun',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return CreateRunResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -4838,6 +4909,7 @@ class Aliding extends OpenApiClient
      * 创建运行.
      *
      * @param request - CreateRunRequest
+     *
      * @returns CreateRunResponse
      *
      * @param CreateRunRequest $request
@@ -4858,6 +4930,7 @@ class Aliding extends OpenApiClient
      * @param request - CreateScenegroupRequest
      * @param tmpHeader - CreateScenegroupHeaders
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns CreateScenegroupResponse
      *
      * @param CreateScenegroupRequest $request
@@ -4962,23 +5035,23 @@ class Aliding extends OpenApiClient
         }
 
         if (null !== $headers->accountContextShrink) {
-            @$realHeaders['AccountContext'] = json_encode($headers->accountContextShrink, JSON_UNESCAPED_UNICODE + JSON_UNESCAPED_SLASHES);
+            @$realHeaders['AccountContext'] = json_encode($headers->accountContextShrink, \JSON_UNESCAPED_UNICODE + \JSON_UNESCAPED_SLASHES);
         }
 
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
-            'body'    => Utils::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'CreateScenegroup',
-            'version'     => '2023-04-26',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/dingtalk/v1/im/createScenegroup',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'CreateScenegroup',
+            'version' => '2023-04-26',
+            'protocol' => 'HTTPS',
+            'pathname' => '/dingtalk/v1/im/createScenegroup',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return CreateScenegroupResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -4991,6 +5064,7 @@ class Aliding extends OpenApiClient
      * 创建场景群.
      *
      * @param request - CreateScenegroupRequest
+     *
      * @returns CreateScenegroupResponse
      *
      * @param CreateScenegroupRequest $request
@@ -5011,6 +5085,7 @@ class Aliding extends OpenApiClient
      * @param tmpReq - CreateScheduleConferenceRequest
      * @param tmpHeader - CreateScheduleConferenceHeaders
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns CreateScheduleConferenceResponse
      *
      * @param CreateScheduleConferenceRequest $tmpReq
@@ -5065,23 +5140,23 @@ class Aliding extends OpenApiClient
         }
 
         if (null !== $headers->accountContextShrink) {
-            @$realHeaders['AccountContext'] = json_encode($headers->accountContextShrink, JSON_UNESCAPED_UNICODE + JSON_UNESCAPED_SLASHES);
+            @$realHeaders['AccountContext'] = json_encode($headers->accountContextShrink, \JSON_UNESCAPED_UNICODE + \JSON_UNESCAPED_SLASHES);
         }
 
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
-            'body'    => Utils::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'CreateScheduleConference',
-            'version'     => '2023-04-26',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/dingtalk/v1/ysp/createScheduleConference',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'CreateScheduleConference',
+            'version' => '2023-04-26',
+            'protocol' => 'HTTPS',
+            'pathname' => '/dingtalk/v1/ysp/createScheduleConference',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return CreateScheduleConferenceResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -5094,6 +5169,7 @@ class Aliding extends OpenApiClient
      * 创建预约会议.
      *
      * @param request - CreateScheduleConferenceRequest
+     *
      * @returns CreateScheduleConferenceResponse
      *
      * @param CreateScheduleConferenceRequest $request
@@ -5114,6 +5190,7 @@ class Aliding extends OpenApiClient
      * @param tmpReq - CreateSearchDomeRequest
      * @param tmpHeader - CreateSearchDomeHeaders
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns CreateSearchDomeResponse
      *
      * @param CreateSearchDomeRequest $tmpReq
@@ -5172,23 +5249,23 @@ class Aliding extends OpenApiClient
         }
 
         if (null !== $headers->accountContextShrink) {
-            @$realHeaders['AccountContext'] = json_encode($headers->accountContextShrink, JSON_UNESCAPED_UNICODE + JSON_UNESCAPED_SLASHES);
+            @$realHeaders['AccountContext'] = json_encode($headers->accountContextShrink, \JSON_UNESCAPED_UNICODE + \JSON_UNESCAPED_SLASHES);
         }
 
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
-            'body'    => Utils::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'CreateSearchDome',
-            'version'     => '2023-04-26',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/dingtalk/v1/watt/createSearchDome',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'CreateSearchDome',
+            'version' => '2023-04-26',
+            'protocol' => 'HTTPS',
+            'pathname' => '/dingtalk/v1/watt/createSearchDome',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return CreateSearchDomeResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -5201,6 +5278,7 @@ class Aliding extends OpenApiClient
      * 发布钉钉搜索穹顶.
      *
      * @param request - CreateSearchDomeRequest
+     *
      * @returns CreateSearchDomeResponse
      *
      * @param CreateSearchDomeRequest $request
@@ -5221,6 +5299,7 @@ class Aliding extends OpenApiClient
      * @param tmpReq - CreateSearchKeywordRequest
      * @param tmpHeader - CreateSearchKeywordHeaders
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns CreateSearchKeywordResponse
      *
      * @param CreateSearchKeywordRequest $tmpReq
@@ -5279,23 +5358,23 @@ class Aliding extends OpenApiClient
         }
 
         if (null !== $headers->accountContextShrink) {
-            @$realHeaders['AccountContext'] = json_encode($headers->accountContextShrink, JSON_UNESCAPED_UNICODE + JSON_UNESCAPED_SLASHES);
+            @$realHeaders['AccountContext'] = json_encode($headers->accountContextShrink, \JSON_UNESCAPED_UNICODE + \JSON_UNESCAPED_SLASHES);
         }
 
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
-            'body'    => Utils::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'CreateSearchKeyword',
-            'version'     => '2023-04-26',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/dingtalk/v1/watt/createSearchKeyword',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'CreateSearchKeyword',
+            'version' => '2023-04-26',
+            'protocol' => 'HTTPS',
+            'pathname' => '/dingtalk/v1/watt/createSearchKeyword',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return CreateSearchKeywordResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -5308,6 +5387,7 @@ class Aliding extends OpenApiClient
      * 发布钉钉搜索关键词.
      *
      * @param request - CreateSearchKeywordRequest
+     *
      * @returns CreateSearchKeywordResponse
      *
      * @param CreateSearchKeywordRequest $request
@@ -5328,6 +5408,7 @@ class Aliding extends OpenApiClient
      * @param tmpReq - CreateSheetRequest
      * @param tmpHeader - CreateSheetHeaders
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns CreateSheetResponse
      *
      * @param CreateSheetRequest $tmpReq
@@ -5370,23 +5451,23 @@ class Aliding extends OpenApiClient
         }
 
         if (null !== $headers->accountContextShrink) {
-            @$realHeaders['AccountContext'] = json_encode($headers->accountContextShrink, JSON_UNESCAPED_UNICODE + JSON_UNESCAPED_SLASHES);
+            @$realHeaders['AccountContext'] = json_encode($headers->accountContextShrink, \JSON_UNESCAPED_UNICODE + \JSON_UNESCAPED_SLASHES);
         }
 
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
-            'body'    => Utils::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'CreateSheet',
-            'version'     => '2023-04-26',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/dingtalk/v1/documents/createSheet',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'CreateSheet',
+            'version' => '2023-04-26',
+            'protocol' => 'HTTPS',
+            'pathname' => '/dingtalk/v1/documents/createSheet',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return CreateSheetResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -5399,6 +5480,7 @@ class Aliding extends OpenApiClient
      * 创建工作表.
      *
      * @param request - CreateSheetRequest
+     *
      * @returns CreateSheetResponse
      *
      * @param CreateSheetRequest $request
@@ -5419,6 +5501,7 @@ class Aliding extends OpenApiClient
      * @param tmpReq - CreateSubscribedCalendarRequest
      * @param tmpHeader - CreateSubscribedCalendarHeaders
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns CreateSubscribedCalendarResponse
      *
      * @param CreateSubscribedCalendarRequest $tmpReq
@@ -5469,23 +5552,23 @@ class Aliding extends OpenApiClient
         }
 
         if (null !== $headers->accountContextShrink) {
-            @$realHeaders['AccountContext'] = json_encode($headers->accountContextShrink, JSON_UNESCAPED_UNICODE + JSON_UNESCAPED_SLASHES);
+            @$realHeaders['AccountContext'] = json_encode($headers->accountContextShrink, \JSON_UNESCAPED_UNICODE + \JSON_UNESCAPED_SLASHES);
         }
 
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
-            'body'    => Utils::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'CreateSubscribedCalendar',
-            'version'     => '2023-04-26',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/dingtalk/v1/calendar/createSubscribedCalendar',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'CreateSubscribedCalendar',
+            'version' => '2023-04-26',
+            'protocol' => 'HTTPS',
+            'pathname' => '/dingtalk/v1/calendar/createSubscribedCalendar',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return CreateSubscribedCalendarResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -5498,6 +5581,7 @@ class Aliding extends OpenApiClient
      * 创建订阅日历.
      *
      * @param request - CreateSubscribedCalendarRequest
+     *
      * @returns CreateSubscribedCalendarResponse
      *
      * @param CreateSubscribedCalendarRequest $request
@@ -5518,6 +5602,7 @@ class Aliding extends OpenApiClient
      * @param request - CreateThreadRequest
      * @param headers - CreateThreadHeaders
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns CreateThreadResponse
      *
      * @param CreateThreadRequest $request
@@ -5553,18 +5638,18 @@ class Aliding extends OpenApiClient
 
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
-            'body'    => Utils::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'CreateThread',
-            'version'     => '2023-04-26',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/ai/v1/assistant/createThread',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'CreateThread',
+            'version' => '2023-04-26',
+            'protocol' => 'HTTPS',
+            'pathname' => '/ai/v1/assistant/createThread',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return CreateThreadResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -5577,6 +5662,7 @@ class Aliding extends OpenApiClient
      * 创建线程.
      *
      * @param request - CreateThreadRequest
+     *
      * @returns CreateThreadResponse
      *
      * @param CreateThreadRequest $request
@@ -5597,6 +5683,7 @@ class Aliding extends OpenApiClient
      * @param tmpReq - CreateTicketRequest
      * @param tmpHeader - CreateTicketHeaders
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns CreateTicketResponse
      *
      * @param CreateTicketRequest $tmpReq
@@ -5675,23 +5762,23 @@ class Aliding extends OpenApiClient
         }
 
         if (null !== $headers->accountContextShrink) {
-            @$realHeaders['AccountContext'] = json_encode($headers->accountContextShrink, JSON_UNESCAPED_UNICODE + JSON_UNESCAPED_SLASHES);
+            @$realHeaders['AccountContext'] = json_encode($headers->accountContextShrink, \JSON_UNESCAPED_UNICODE + \JSON_UNESCAPED_SLASHES);
         }
 
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
-            'body'    => Utils::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'CreateTicket',
-            'version'     => '2023-04-26',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/dingtalk/v1/ticket/createTicket',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'CreateTicket',
+            'version' => '2023-04-26',
+            'protocol' => 'HTTPS',
+            'pathname' => '/dingtalk/v1/ticket/createTicket',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return CreateTicketResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -5704,6 +5791,7 @@ class Aliding extends OpenApiClient
      * 创建工单.
      *
      * @param request - CreateTicketRequest
+     *
      * @returns CreateTicketResponse
      *
      * @param CreateTicketRequest $request
@@ -5724,6 +5812,7 @@ class Aliding extends OpenApiClient
      * @param tmpReq - CreateTodoTaskRequest
      * @param tmpHeader - CreateTodoTaskHeaders
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns CreateTodoTaskResponse
      *
      * @param CreateTodoTaskRequest $tmpReq
@@ -5839,24 +5928,24 @@ class Aliding extends OpenApiClient
         }
 
         if (null !== $headers->accountContextShrink) {
-            @$realHeaders['AccountContext'] = json_encode($headers->accountContextShrink, JSON_UNESCAPED_UNICODE + JSON_UNESCAPED_SLASHES);
+            @$realHeaders['AccountContext'] = json_encode($headers->accountContextShrink, \JSON_UNESCAPED_UNICODE + \JSON_UNESCAPED_SLASHES);
         }
 
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
-            'query'   => Utils::query($query),
-            'body'    => Utils::parseToMap($body),
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'CreateTodoTask',
-            'version'     => '2023-04-26',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/dingtalk/v1/task/createTodoTask',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'CreateTodoTask',
+            'version' => '2023-04-26',
+            'protocol' => 'HTTPS',
+            'pathname' => '/dingtalk/v1/task/createTodoTask',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return CreateTodoTaskResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -5869,6 +5958,7 @@ class Aliding extends OpenApiClient
      * 创建代办.
      *
      * @param request - CreateTodoTaskRequest
+     *
      * @returns CreateTodoTaskResponse
      *
      * @param CreateTodoTaskRequest $request
@@ -5889,6 +5979,7 @@ class Aliding extends OpenApiClient
      * @param tmpReq - CreateVideoConferenceRequest
      * @param tmpHeader - CreateVideoConferenceHeaders
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns CreateVideoConferenceResponse
      *
      * @param CreateVideoConferenceRequest $tmpReq
@@ -5931,23 +6022,23 @@ class Aliding extends OpenApiClient
         }
 
         if (null !== $headers->accountContextShrink) {
-            @$realHeaders['AccountContext'] = json_encode($headers->accountContextShrink, JSON_UNESCAPED_UNICODE + JSON_UNESCAPED_SLASHES);
+            @$realHeaders['AccountContext'] = json_encode($headers->accountContextShrink, \JSON_UNESCAPED_UNICODE + \JSON_UNESCAPED_SLASHES);
         }
 
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
-            'body'    => Utils::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'CreateVideoConference',
-            'version'     => '2023-04-26',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/dingtalk/v1/ysp/createVideoConference',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'CreateVideoConference',
+            'version' => '2023-04-26',
+            'protocol' => 'HTTPS',
+            'pathname' => '/dingtalk/v1/ysp/createVideoConference',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return CreateVideoConferenceResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -5960,6 +6051,7 @@ class Aliding extends OpenApiClient
      * 创建视频会议.
      *
      * @param request - CreateVideoConferenceRequest
+     *
      * @returns CreateVideoConferenceResponse
      *
      * @param CreateVideoConferenceRequest $request
@@ -5980,6 +6072,7 @@ class Aliding extends OpenApiClient
      * @param tmpReq - CreateWorkspaceRequest
      * @param tmpHeader - CreateWorkspaceHeaders
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns CreateWorkspaceResponse
      *
      * @param CreateWorkspaceRequest $tmpReq
@@ -6022,23 +6115,23 @@ class Aliding extends OpenApiClient
         }
 
         if (null !== $headers->accountContextShrink) {
-            @$realHeaders['AccountContext'] = json_encode($headers->accountContextShrink, JSON_UNESCAPED_UNICODE + JSON_UNESCAPED_SLASHES);
+            @$realHeaders['AccountContext'] = json_encode($headers->accountContextShrink, \JSON_UNESCAPED_UNICODE + \JSON_UNESCAPED_SLASHES);
         }
 
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
-            'body'    => Utils::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'CreateWorkspace',
-            'version'     => '2023-04-26',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/dingtalk/v1/documents/createWorkspace',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'CreateWorkspace',
+            'version' => '2023-04-26',
+            'protocol' => 'HTTPS',
+            'pathname' => '/dingtalk/v1/documents/createWorkspace',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return CreateWorkspaceResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -6051,6 +6144,7 @@ class Aliding extends OpenApiClient
      * 创建知识库.
      *
      * @param request - CreateWorkspaceRequest
+     *
      * @returns CreateWorkspaceResponse
      *
      * @param CreateWorkspaceRequest $request
@@ -6071,6 +6165,7 @@ class Aliding extends OpenApiClient
      * @param tmpReq - CreateWorkspaceDocRequest
      * @param tmpHeader - CreateWorkspaceDocHeaders
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns CreateWorkspaceDocResponse
      *
      * @param CreateWorkspaceDocRequest $tmpReq
@@ -6129,23 +6224,23 @@ class Aliding extends OpenApiClient
         }
 
         if (null !== $headers->accountContextShrink) {
-            @$realHeaders['AccountContext'] = json_encode($headers->accountContextShrink, JSON_UNESCAPED_UNICODE + JSON_UNESCAPED_SLASHES);
+            @$realHeaders['AccountContext'] = json_encode($headers->accountContextShrink, \JSON_UNESCAPED_UNICODE + \JSON_UNESCAPED_SLASHES);
         }
 
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
-            'body'    => Utils::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'CreateWorkspaceDoc',
-            'version'     => '2023-04-26',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/dingtalk/v1/documents/createWorkspaceDoc',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'CreateWorkspaceDoc',
+            'version' => '2023-04-26',
+            'protocol' => 'HTTPS',
+            'pathname' => '/dingtalk/v1/documents/createWorkspaceDoc',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return CreateWorkspaceDocResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -6158,6 +6253,7 @@ class Aliding extends OpenApiClient
      * 创建知识库文档.
      *
      * @param request - CreateWorkspaceDocRequest
+     *
      * @returns CreateWorkspaceDocResponse
      *
      * @param CreateWorkspaceDocRequest $request
@@ -6178,6 +6274,7 @@ class Aliding extends OpenApiClient
      * @param tmpReq - DeleteColumnsRequest
      * @param tmpHeader - DeleteColumnsHeaders
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DeleteColumnsResponse
      *
      * @param DeleteColumnsRequest $tmpReq
@@ -6228,23 +6325,23 @@ class Aliding extends OpenApiClient
         }
 
         if (null !== $headers->accountContextShrink) {
-            @$realHeaders['AccountContext'] = json_encode($headers->accountContextShrink, JSON_UNESCAPED_UNICODE + JSON_UNESCAPED_SLASHES);
+            @$realHeaders['AccountContext'] = json_encode($headers->accountContextShrink, \JSON_UNESCAPED_UNICODE + \JSON_UNESCAPED_SLASHES);
         }
 
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
-            'body'    => Utils::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'DeleteColumns',
-            'version'     => '2023-04-26',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/dingtalk/v1/documents/deleteColumns',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'DeleteColumns',
+            'version' => '2023-04-26',
+            'protocol' => 'HTTPS',
+            'pathname' => '/dingtalk/v1/documents/deleteColumns',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DeleteColumnsResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -6257,6 +6354,7 @@ class Aliding extends OpenApiClient
      * 删除指定列.
      *
      * @param request - DeleteColumnsRequest
+     *
      * @returns DeleteColumnsResponse
      *
      * @param DeleteColumnsRequest $request
@@ -6277,6 +6375,7 @@ class Aliding extends OpenApiClient
      * @param tmpReq - DeleteDriveSpaceRequest
      * @param tmpHeader - DeleteDriveSpaceHeaders
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DeleteDriveSpaceResponse
      *
      * @param DeleteDriveSpaceRequest $tmpReq
@@ -6315,23 +6414,23 @@ class Aliding extends OpenApiClient
         }
 
         if (null !== $headers->accountContextShrink) {
-            @$realHeaders['AccountContext'] = json_encode($headers->accountContextShrink, JSON_UNESCAPED_UNICODE + JSON_UNESCAPED_SLASHES);
+            @$realHeaders['AccountContext'] = json_encode($headers->accountContextShrink, \JSON_UNESCAPED_UNICODE + \JSON_UNESCAPED_SLASHES);
         }
 
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
-            'body'    => Utils::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'DeleteDriveSpace',
-            'version'     => '2023-04-26',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/dingtalk/v1/documents/deleteDriveSpace',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'DeleteDriveSpace',
+            'version' => '2023-04-26',
+            'protocol' => 'HTTPS',
+            'pathname' => '/dingtalk/v1/documents/deleteDriveSpace',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DeleteDriveSpaceResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -6344,6 +6443,7 @@ class Aliding extends OpenApiClient
      * 删除钉盘空间.
      *
      * @param request - DeleteDriveSpaceRequest
+     *
      * @returns DeleteDriveSpaceResponse
      *
      * @param DeleteDriveSpaceRequest $request
@@ -6364,6 +6464,7 @@ class Aliding extends OpenApiClient
      * @param request - DeleteEventRequest
      * @param tmpHeader - DeleteEventHeaders
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DeleteEventResponse
      *
      * @param DeleteEventRequest $request
@@ -6400,23 +6501,23 @@ class Aliding extends OpenApiClient
         }
 
         if (null !== $headers->accountContextShrink) {
-            @$realHeaders['AccountContext'] = json_encode($headers->accountContextShrink, JSON_UNESCAPED_UNICODE + JSON_UNESCAPED_SLASHES);
+            @$realHeaders['AccountContext'] = json_encode($headers->accountContextShrink, \JSON_UNESCAPED_UNICODE + \JSON_UNESCAPED_SLASHES);
         }
 
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
-            'body'    => Utils::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'DeleteEvent',
-            'version'     => '2023-04-26',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/dingtalk/v1/calendar/deleteEvent',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'DeleteEvent',
+            'version' => '2023-04-26',
+            'protocol' => 'HTTPS',
+            'pathname' => '/dingtalk/v1/calendar/deleteEvent',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DeleteEventResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -6429,6 +6530,7 @@ class Aliding extends OpenApiClient
      * 删除日程.
      *
      * @param request - DeleteEventRequest
+     *
      * @returns DeleteEventResponse
      *
      * @param DeleteEventRequest $request
@@ -6449,6 +6551,7 @@ class Aliding extends OpenApiClient
      * @param request - DeleteFormDataRequest
      * @param tmpHeader - DeleteFormDataHeaders
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DeleteFormDataResponse
      *
      * @param DeleteFormDataRequest $request
@@ -6489,23 +6592,23 @@ class Aliding extends OpenApiClient
         }
 
         if (null !== $headers->accountContextShrink) {
-            @$realHeaders['AccountContext'] = json_encode($headers->accountContextShrink, JSON_UNESCAPED_UNICODE + JSON_UNESCAPED_SLASHES);
+            @$realHeaders['AccountContext'] = json_encode($headers->accountContextShrink, \JSON_UNESCAPED_UNICODE + \JSON_UNESCAPED_SLASHES);
         }
 
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
-            'body'    => Utils::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'DeleteFormData',
-            'version'     => '2023-04-26',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/dingtalk/v1/yida/deleteFormData',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'DeleteFormData',
+            'version' => '2023-04-26',
+            'protocol' => 'HTTPS',
+            'pathname' => '/dingtalk/v1/yida/deleteFormData',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DeleteFormDataResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -6518,6 +6621,7 @@ class Aliding extends OpenApiClient
      * 删除表单数据.
      *
      * @param request - DeleteFormDataRequest
+     *
      * @returns DeleteFormDataResponse
      *
      * @param DeleteFormDataRequest $request
@@ -6536,6 +6640,7 @@ class Aliding extends OpenApiClient
      * @param request - DeleteInstanceRequest
      * @param tmpHeader - DeleteInstanceHeaders
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DeleteInstanceResponse
      *
      * @param DeleteInstanceRequest $request
@@ -6576,23 +6681,23 @@ class Aliding extends OpenApiClient
         }
 
         if (null !== $headers->accountContextShrink) {
-            @$realHeaders['AccountContext'] = json_encode($headers->accountContextShrink, JSON_UNESCAPED_UNICODE + JSON_UNESCAPED_SLASHES);
+            @$realHeaders['AccountContext'] = json_encode($headers->accountContextShrink, \JSON_UNESCAPED_UNICODE + \JSON_UNESCAPED_SLASHES);
         }
 
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
-            'body'    => Utils::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'DeleteInstance',
-            'version'     => '2023-04-26',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/dingtalk/v1/yida/deleteInstance',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'DeleteInstance',
+            'version' => '2023-04-26',
+            'protocol' => 'HTTPS',
+            'pathname' => '/dingtalk/v1/yida/deleteInstance',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DeleteInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -6603,6 +6708,7 @@ class Aliding extends OpenApiClient
 
     /**
      * @param request - DeleteInstanceRequest
+     *
      * @returns DeleteInstanceResponse
      *
      * @param DeleteInstanceRequest $request
@@ -6623,6 +6729,7 @@ class Aliding extends OpenApiClient
      * @param tmpReq - DeleteLiveRequest
      * @param tmpHeader - DeleteLiveHeaders
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DeleteLiveResponse
      *
      * @param DeleteLiveRequest $tmpReq
@@ -6661,23 +6768,23 @@ class Aliding extends OpenApiClient
         }
 
         if (null !== $headers->accountContextShrink) {
-            @$realHeaders['AccountContext'] = json_encode($headers->accountContextShrink, JSON_UNESCAPED_UNICODE + JSON_UNESCAPED_SLASHES);
+            @$realHeaders['AccountContext'] = json_encode($headers->accountContextShrink, \JSON_UNESCAPED_UNICODE + \JSON_UNESCAPED_SLASHES);
         }
 
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
-            'body'    => Utils::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'DeleteLive',
-            'version'     => '2023-04-26',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/dingtalk/v1/ysp/deleteLive',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'DeleteLive',
+            'version' => '2023-04-26',
+            'protocol' => 'HTTPS',
+            'pathname' => '/dingtalk/v1/ysp/deleteLive',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DeleteLiveResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -6690,6 +6797,7 @@ class Aliding extends OpenApiClient
      * 删除直播.
      *
      * @param request - DeleteLiveRequest
+     *
      * @returns DeleteLiveResponse
      *
      * @param DeleteLiveRequest $request
@@ -6710,6 +6818,7 @@ class Aliding extends OpenApiClient
      * @param tmpReq - DeleteMeetingRoomRequest
      * @param tmpHeader - DeleteMeetingRoomHeaders
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DeleteMeetingRoomResponse
      *
      * @param DeleteMeetingRoomRequest $tmpReq
@@ -6748,23 +6857,23 @@ class Aliding extends OpenApiClient
         }
 
         if (null !== $headers->accountContextShrink) {
-            @$realHeaders['AccountContext'] = json_encode($headers->accountContextShrink, JSON_UNESCAPED_UNICODE + JSON_UNESCAPED_SLASHES);
+            @$realHeaders['AccountContext'] = json_encode($headers->accountContextShrink, \JSON_UNESCAPED_UNICODE + \JSON_UNESCAPED_SLASHES);
         }
 
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
-            'body'    => Utils::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'DeleteMeetingRoom',
-            'version'     => '2023-04-26',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/dingtalk/v1/ysp/deleteMeetingRoom',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'DeleteMeetingRoom',
+            'version' => '2023-04-26',
+            'protocol' => 'HTTPS',
+            'pathname' => '/dingtalk/v1/ysp/deleteMeetingRoom',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DeleteMeetingRoomResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -6777,6 +6886,7 @@ class Aliding extends OpenApiClient
      * 删除会议室.
      *
      * @param request - DeleteMeetingRoomRequest
+     *
      * @returns DeleteMeetingRoomResponse
      *
      * @param DeleteMeetingRoomRequest $request
@@ -6797,6 +6907,7 @@ class Aliding extends OpenApiClient
      * @param tmpReq - DeleteMeetingRoomGroupRequest
      * @param tmpHeader - DeleteMeetingRoomGroupHeaders
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DeleteMeetingRoomGroupResponse
      *
      * @param DeleteMeetingRoomGroupRequest $tmpReq
@@ -6835,23 +6946,23 @@ class Aliding extends OpenApiClient
         }
 
         if (null !== $headers->accountContextShrink) {
-            @$realHeaders['AccountContext'] = json_encode($headers->accountContextShrink, JSON_UNESCAPED_UNICODE + JSON_UNESCAPED_SLASHES);
+            @$realHeaders['AccountContext'] = json_encode($headers->accountContextShrink, \JSON_UNESCAPED_UNICODE + \JSON_UNESCAPED_SLASHES);
         }
 
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
-            'body'    => Utils::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'DeleteMeetingRoomGroup',
-            'version'     => '2023-04-26',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/dingtalk/v1/ysp/deleteMeetingRoomGroup',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'DeleteMeetingRoomGroup',
+            'version' => '2023-04-26',
+            'protocol' => 'HTTPS',
+            'pathname' => '/dingtalk/v1/ysp/deleteMeetingRoomGroup',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DeleteMeetingRoomGroupResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -6864,6 +6975,7 @@ class Aliding extends OpenApiClient
      * 删除会议室分组.
      *
      * @param request - DeleteMeetingRoomGroupRequest
+     *
      * @returns DeleteMeetingRoomGroupResponse
      *
      * @param DeleteMeetingRoomGroupRequest $request
@@ -6884,6 +6996,7 @@ class Aliding extends OpenApiClient
      * @param tmpReq - DeleteRowsRequest
      * @param tmpHeader - DeleteRowsHeaders
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DeleteRowsResponse
      *
      * @param DeleteRowsRequest $tmpReq
@@ -6934,23 +7047,23 @@ class Aliding extends OpenApiClient
         }
 
         if (null !== $headers->accountContextShrink) {
-            @$realHeaders['AccountContext'] = json_encode($headers->accountContextShrink, JSON_UNESCAPED_UNICODE + JSON_UNESCAPED_SLASHES);
+            @$realHeaders['AccountContext'] = json_encode($headers->accountContextShrink, \JSON_UNESCAPED_UNICODE + \JSON_UNESCAPED_SLASHES);
         }
 
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
-            'body'    => Utils::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'DeleteRows',
-            'version'     => '2023-04-26',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/dingtalk/v1/documents/deleteRows',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'DeleteRows',
+            'version' => '2023-04-26',
+            'protocol' => 'HTTPS',
+            'pathname' => '/dingtalk/v1/documents/deleteRows',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DeleteRowsResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -6963,6 +7076,7 @@ class Aliding extends OpenApiClient
      * 删除指定行.
      *
      * @param request - DeleteRowsRequest
+     *
      * @returns DeleteRowsResponse
      *
      * @param DeleteRowsRequest $request
@@ -6983,6 +7097,7 @@ class Aliding extends OpenApiClient
      * @param request - DeleteScenegroupMemberRequest
      * @param tmpHeader - DeleteScenegroupMemberHeaders
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DeleteScenegroupMemberResponse
      *
      * @param DeleteScenegroupMemberRequest $request
@@ -7015,23 +7130,23 @@ class Aliding extends OpenApiClient
         }
 
         if (null !== $headers->accountContextShrink) {
-            @$realHeaders['AccountContext'] = json_encode($headers->accountContextShrink, JSON_UNESCAPED_UNICODE + JSON_UNESCAPED_SLASHES);
+            @$realHeaders['AccountContext'] = json_encode($headers->accountContextShrink, \JSON_UNESCAPED_UNICODE + \JSON_UNESCAPED_SLASHES);
         }
 
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
-            'body'    => Utils::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'DeleteScenegroupMember',
-            'version'     => '2023-04-26',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/dingtalk/v1/im/deleteScenegroupMember',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'DeleteScenegroupMember',
+            'version' => '2023-04-26',
+            'protocol' => 'HTTPS',
+            'pathname' => '/dingtalk/v1/im/deleteScenegroupMember',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DeleteScenegroupMemberResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -7044,6 +7159,7 @@ class Aliding extends OpenApiClient
      * 删除群成员.
      *
      * @param request - DeleteScenegroupMemberRequest
+     *
      * @returns DeleteScenegroupMemberResponse
      *
      * @param DeleteScenegroupMemberRequest $request
@@ -7064,6 +7180,7 @@ class Aliding extends OpenApiClient
      * @param tmpReq - DeleteSheetRequest
      * @param tmpHeader - DeleteSheetHeaders
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DeleteSheetResponse
      *
      * @param DeleteSheetRequest $tmpReq
@@ -7106,23 +7223,23 @@ class Aliding extends OpenApiClient
         }
 
         if (null !== $headers->accountContextShrink) {
-            @$realHeaders['AccountContext'] = json_encode($headers->accountContextShrink, JSON_UNESCAPED_UNICODE + JSON_UNESCAPED_SLASHES);
+            @$realHeaders['AccountContext'] = json_encode($headers->accountContextShrink, \JSON_UNESCAPED_UNICODE + \JSON_UNESCAPED_SLASHES);
         }
 
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
-            'body'    => Utils::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'DeleteSheet',
-            'version'     => '2023-04-26',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/dingtalk/v1/documents/deleteSheet',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'DeleteSheet',
+            'version' => '2023-04-26',
+            'protocol' => 'HTTPS',
+            'pathname' => '/dingtalk/v1/documents/deleteSheet',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DeleteSheetResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -7135,6 +7252,7 @@ class Aliding extends OpenApiClient
      * 删除一个工作表.
      *
      * @param request - DeleteSheetRequest
+     *
      * @returns DeleteSheetResponse
      *
      * @param DeleteSheetRequest $request
@@ -7155,6 +7273,7 @@ class Aliding extends OpenApiClient
      * @param request - DeleteSubscribedCalendarRequest
      * @param tmpHeader - DeleteSubscribedCalendarHeaders
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DeleteSubscribedCalendarResponse
      *
      * @param DeleteSubscribedCalendarRequest $request
@@ -7183,23 +7302,23 @@ class Aliding extends OpenApiClient
         }
 
         if (null !== $headers->accountContextShrink) {
-            @$realHeaders['AccountContext'] = json_encode($headers->accountContextShrink, JSON_UNESCAPED_UNICODE + JSON_UNESCAPED_SLASHES);
+            @$realHeaders['AccountContext'] = json_encode($headers->accountContextShrink, \JSON_UNESCAPED_UNICODE + \JSON_UNESCAPED_SLASHES);
         }
 
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
-            'body'    => Utils::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'DeleteSubscribedCalendar',
-            'version'     => '2023-04-26',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/dingtalk/v1/calendar/deleteSubscribedCalendar',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'DeleteSubscribedCalendar',
+            'version' => '2023-04-26',
+            'protocol' => 'HTTPS',
+            'pathname' => '/dingtalk/v1/calendar/deleteSubscribedCalendar',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DeleteSubscribedCalendarResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -7212,6 +7331,7 @@ class Aliding extends OpenApiClient
      * 删除订阅日历.
      *
      * @param request - DeleteSubscribedCalendarRequest
+     *
      * @returns DeleteSubscribedCalendarResponse
      *
      * @param DeleteSubscribedCalendarRequest $request
@@ -7232,6 +7352,7 @@ class Aliding extends OpenApiClient
      * @param tmpReq - DeleteTodoTaskRequest
      * @param tmpHeader - DeleteTodoTaskHeaders
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DeleteTodoTaskResponse
      *
      * @param DeleteTodoTaskRequest $tmpReq
@@ -7274,23 +7395,23 @@ class Aliding extends OpenApiClient
         }
 
         if (null !== $headers->accountContextShrink) {
-            @$realHeaders['AccountContext'] = json_encode($headers->accountContextShrink, JSON_UNESCAPED_UNICODE + JSON_UNESCAPED_SLASHES);
+            @$realHeaders['AccountContext'] = json_encode($headers->accountContextShrink, \JSON_UNESCAPED_UNICODE + \JSON_UNESCAPED_SLASHES);
         }
 
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
-            'body'    => Utils::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'DeleteTodoTask',
-            'version'     => '2023-04-26',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/dingtalk/v1/task/deleteTodoTask',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'DeleteTodoTask',
+            'version' => '2023-04-26',
+            'protocol' => 'HTTPS',
+            'pathname' => '/dingtalk/v1/task/deleteTodoTask',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DeleteTodoTaskResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -7303,6 +7424,7 @@ class Aliding extends OpenApiClient
      * 删除代办.
      *
      * @param request - DeleteTodoTaskRequest
+     *
      * @returns DeleteTodoTaskResponse
      *
      * @param DeleteTodoTaskRequest $request
@@ -7323,6 +7445,7 @@ class Aliding extends OpenApiClient
      * @param tmpReq - DeleteWorkspaceDocMembersRequest
      * @param tmpHeader - DeleteWorkspaceDocMembersHeaders
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DeleteWorkspaceDocMembersResponse
      *
      * @param DeleteWorkspaceDocMembersRequest $tmpReq
@@ -7373,23 +7496,23 @@ class Aliding extends OpenApiClient
         }
 
         if (null !== $headers->accountContextShrink) {
-            @$realHeaders['AccountContext'] = json_encode($headers->accountContextShrink, JSON_UNESCAPED_UNICODE + JSON_UNESCAPED_SLASHES);
+            @$realHeaders['AccountContext'] = json_encode($headers->accountContextShrink, \JSON_UNESCAPED_UNICODE + \JSON_UNESCAPED_SLASHES);
         }
 
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
-            'body'    => Utils::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'DeleteWorkspaceDocMembers',
-            'version'     => '2023-04-26',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/dingtalk/v1/documents/deleteWorkspaceDocMembers',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'DeleteWorkspaceDocMembers',
+            'version' => '2023-04-26',
+            'protocol' => 'HTTPS',
+            'pathname' => '/dingtalk/v1/documents/deleteWorkspaceDocMembers',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DeleteWorkspaceDocMembersResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -7402,6 +7525,7 @@ class Aliding extends OpenApiClient
      * 删除知识库文档成员.
      *
      * @param request - DeleteWorkspaceDocMembersRequest
+     *
      * @returns DeleteWorkspaceDocMembersResponse
      *
      * @param DeleteWorkspaceDocMembersRequest $request
@@ -7422,6 +7546,7 @@ class Aliding extends OpenApiClient
      * @param tmpReq - DeleteWorkspaceMembersRequest
      * @param tmpHeader - DeleteWorkspaceMembersHeaders
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DeleteWorkspaceMembersResponse
      *
      * @param DeleteWorkspaceMembersRequest $tmpReq
@@ -7468,23 +7593,23 @@ class Aliding extends OpenApiClient
         }
 
         if (null !== $headers->accountContextShrink) {
-            @$realHeaders['AccountContext'] = json_encode($headers->accountContextShrink, JSON_UNESCAPED_UNICODE + JSON_UNESCAPED_SLASHES);
+            @$realHeaders['AccountContext'] = json_encode($headers->accountContextShrink, \JSON_UNESCAPED_UNICODE + \JSON_UNESCAPED_SLASHES);
         }
 
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
-            'body'    => Utils::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'DeleteWorkspaceMembers',
-            'version'     => '2023-04-26',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/dingtalk/v1/documents/deleteWorkspaceMembers',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'DeleteWorkspaceMembers',
+            'version' => '2023-04-26',
+            'protocol' => 'HTTPS',
+            'pathname' => '/dingtalk/v1/documents/deleteWorkspaceMembers',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DeleteWorkspaceMembersResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -7497,6 +7622,7 @@ class Aliding extends OpenApiClient
      * 删除知识库成员.
      *
      * @param request - DeleteWorkspaceMembersRequest
+     *
      * @returns DeleteWorkspaceMembersResponse
      *
      * @param DeleteWorkspaceMembersRequest $request
@@ -7517,6 +7643,7 @@ class Aliding extends OpenApiClient
      * @param request - ExecuteBatchTaskRequest
      * @param tmpHeader - ExecuteBatchTaskHeaders
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ExecuteBatchTaskResponse
      *
      * @param ExecuteBatchTaskRequest $request
@@ -7561,23 +7688,23 @@ class Aliding extends OpenApiClient
         }
 
         if (null !== $headers->accountContextShrink) {
-            @$realHeaders['AccountContext'] = json_encode($headers->accountContextShrink, JSON_UNESCAPED_UNICODE + JSON_UNESCAPED_SLASHES);
+            @$realHeaders['AccountContext'] = json_encode($headers->accountContextShrink, \JSON_UNESCAPED_UNICODE + \JSON_UNESCAPED_SLASHES);
         }
 
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
-            'body'    => Utils::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'ExecuteBatchTask',
-            'version'     => '2023-04-26',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/dingtalk/v1/yida/executeBatchTask',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'ExecuteBatchTask',
+            'version' => '2023-04-26',
+            'protocol' => 'HTTPS',
+            'pathname' => '/dingtalk/v1/yida/executeBatchTask',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return ExecuteBatchTaskResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -7590,6 +7717,7 @@ class Aliding extends OpenApiClient
      * 批量执行宜搭审批任务
      *
      * @param request - ExecuteBatchTaskRequest
+     *
      * @returns ExecuteBatchTaskResponse
      *
      * @param ExecuteBatchTaskRequest $request
@@ -7610,6 +7738,7 @@ class Aliding extends OpenApiClient
      * @param request - ExecutePlatformTaskRequest
      * @param tmpHeader - ExecutePlatformTaskHeaders
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ExecutePlatformTaskResponse
      *
      * @param ExecutePlatformTaskRequest $request
@@ -7666,23 +7795,23 @@ class Aliding extends OpenApiClient
         }
 
         if (null !== $headers->accountContextShrink) {
-            @$realHeaders['AccountContext'] = json_encode($headers->accountContextShrink, JSON_UNESCAPED_UNICODE + JSON_UNESCAPED_SLASHES);
+            @$realHeaders['AccountContext'] = json_encode($headers->accountContextShrink, \JSON_UNESCAPED_UNICODE + \JSON_UNESCAPED_SLASHES);
         }
 
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
-            'body'    => Utils::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'ExecutePlatformTask',
-            'version'     => '2023-04-26',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/dingtalk/v1/yida/executePlatformTask',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'ExecutePlatformTask',
+            'version' => '2023-04-26',
+            'protocol' => 'HTTPS',
+            'pathname' => '/dingtalk/v1/yida/executePlatformTask',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return ExecutePlatformTaskResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -7695,6 +7824,7 @@ class Aliding extends OpenApiClient
      * 执行宜搭的审批任务
      *
      * @param request - ExecutePlatformTaskRequest
+     *
      * @returns ExecutePlatformTaskResponse
      *
      * @param ExecutePlatformTaskRequest $request
@@ -7715,6 +7845,7 @@ class Aliding extends OpenApiClient
      * @param request - ExecuteTaskRequest
      * @param tmpHeader - ExecuteTaskHeaders
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ExecuteTaskResponse
      *
      * @param ExecuteTaskRequest $request
@@ -7779,23 +7910,23 @@ class Aliding extends OpenApiClient
         }
 
         if (null !== $headers->accountContextShrink) {
-            @$realHeaders['AccountContext'] = json_encode($headers->accountContextShrink, JSON_UNESCAPED_UNICODE + JSON_UNESCAPED_SLASHES);
+            @$realHeaders['AccountContext'] = json_encode($headers->accountContextShrink, \JSON_UNESCAPED_UNICODE + \JSON_UNESCAPED_SLASHES);
         }
 
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
-            'body'    => Utils::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'ExecuteTask',
-            'version'     => '2023-04-26',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/dingtalk/v1/yida/executeTask',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'ExecuteTask',
+            'version' => '2023-04-26',
+            'protocol' => 'HTTPS',
+            'pathname' => '/dingtalk/v1/yida/executeTask',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return ExecuteTaskResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -7808,6 +7939,7 @@ class Aliding extends OpenApiClient
      * 同意或拒绝宜搭审批任务(执行审批任务).
      *
      * @param request - ExecuteTaskRequest
+     *
      * @returns ExecuteTaskResponse
      *
      * @param ExecuteTaskRequest $request
@@ -7828,6 +7960,7 @@ class Aliding extends OpenApiClient
      * @param tmpReq - ExpandGroupCapacityRequest
      * @param tmpHeader - ExpandGroupCapacityHeaders
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ExpandGroupCapacityResponse
      *
      * @param ExpandGroupCapacityRequest $tmpReq
@@ -7866,23 +7999,23 @@ class Aliding extends OpenApiClient
         }
 
         if (null !== $headers->accountContextShrink) {
-            @$realHeaders['AccountContext'] = json_encode($headers->accountContextShrink, JSON_UNESCAPED_UNICODE + JSON_UNESCAPED_SLASHES);
+            @$realHeaders['AccountContext'] = json_encode($headers->accountContextShrink, \JSON_UNESCAPED_UNICODE + \JSON_UNESCAPED_SLASHES);
         }
 
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
-            'body'    => Utils::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'ExpandGroupCapacity',
-            'version'     => '2023-04-26',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/aliding/v1/im/expandGroupCapacity',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'ExpandGroupCapacity',
+            'version' => '2023-04-26',
+            'protocol' => 'HTTPS',
+            'pathname' => '/aliding/v1/im/expandGroupCapacity',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return ExpandGroupCapacityResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -7895,6 +8028,7 @@ class Aliding extends OpenApiClient
      * 群扩容.
      *
      * @param request - ExpandGroupCapacityRequest
+     *
      * @returns ExpandGroupCapacityResponse
      *
      * @param ExpandGroupCapacityRequest $request
@@ -7915,6 +8049,7 @@ class Aliding extends OpenApiClient
      * @param tmpReq - FinishTicketRequest
      * @param tmpHeader - FinishTicketHeaders
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns FinishTicketResponse
      *
      * @param FinishTicketRequest $tmpReq
@@ -7973,23 +8108,23 @@ class Aliding extends OpenApiClient
         }
 
         if (null !== $headers->accountContextShrink) {
-            @$realHeaders['AccountContext'] = json_encode($headers->accountContextShrink, JSON_UNESCAPED_UNICODE + JSON_UNESCAPED_SLASHES);
+            @$realHeaders['AccountContext'] = json_encode($headers->accountContextShrink, \JSON_UNESCAPED_UNICODE + \JSON_UNESCAPED_SLASHES);
         }
 
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
-            'body'    => Utils::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'FinishTicket',
-            'version'     => '2023-04-26',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/dingtalk/v1/ticket/finishTicket',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'FinishTicket',
+            'version' => '2023-04-26',
+            'protocol' => 'HTTPS',
+            'pathname' => '/dingtalk/v1/ticket/finishTicket',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return FinishTicketResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -8002,6 +8137,7 @@ class Aliding extends OpenApiClient
      * 完结工单.
      *
      * @param request - FinishTicketRequest
+     *
      * @returns FinishTicketResponse
      *
      * @param FinishTicketRequest $request
@@ -8022,6 +8158,7 @@ class Aliding extends OpenApiClient
      * @param request - GetActivityListRequest
      * @param tmpHeader - GetActivityListHeaders
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns GetActivityListResponse
      *
      * @param GetActivityListRequest $request
@@ -8062,23 +8199,23 @@ class Aliding extends OpenApiClient
         }
 
         if (null !== $headers->accountContextShrink) {
-            @$realHeaders['AccountContext'] = json_encode($headers->accountContextShrink, JSON_UNESCAPED_UNICODE + JSON_UNESCAPED_SLASHES);
+            @$realHeaders['AccountContext'] = json_encode($headers->accountContextShrink, \JSON_UNESCAPED_UNICODE + \JSON_UNESCAPED_SLASHES);
         }
 
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
-            'body'    => Utils::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'GetActivityList',
-            'version'     => '2023-04-26',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/dingtalk/v1/yida/getActivityList',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'GetActivityList',
+            'version' => '2023-04-26',
+            'protocol' => 'HTTPS',
+            'pathname' => '/dingtalk/v1/yida/getActivityList',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return GetActivityListResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -8091,6 +8228,7 @@ class Aliding extends OpenApiClient
      * 获取流程设计的节点信息.
      *
      * @param request - GetActivityListRequest
+     *
      * @returns GetActivityListResponse
      *
      * @param GetActivityListRequest $request
@@ -8111,6 +8249,7 @@ class Aliding extends OpenApiClient
      * @param tmpReq - GetAllSheetsRequest
      * @param tmpHeader - GetAllSheetsHeaders
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns GetAllSheetsResponse
      *
      * @param GetAllSheetsRequest $tmpReq
@@ -8149,23 +8288,23 @@ class Aliding extends OpenApiClient
         }
 
         if (null !== $headers->accountContextShrink) {
-            @$realHeaders['AccountContext'] = json_encode($headers->accountContextShrink, JSON_UNESCAPED_UNICODE + JSON_UNESCAPED_SLASHES);
+            @$realHeaders['AccountContext'] = json_encode($headers->accountContextShrink, \JSON_UNESCAPED_UNICODE + \JSON_UNESCAPED_SLASHES);
         }
 
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
-            'body'    => Utils::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'GetAllSheets',
-            'version'     => '2023-04-26',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/dingtalk/v1/documents/getAllSheets',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'GetAllSheets',
+            'version' => '2023-04-26',
+            'protocol' => 'HTTPS',
+            'pathname' => '/dingtalk/v1/documents/getAllSheets',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return GetAllSheetsResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -8178,6 +8317,7 @@ class Aliding extends OpenApiClient
      * 获取所有工作表.
      *
      * @param request - GetAllSheetsRequest
+     *
      * @returns GetAllSheetsResponse
      *
      * @param GetAllSheetsRequest $request
@@ -8198,6 +8338,7 @@ class Aliding extends OpenApiClient
      * @param tmpReq - GetConversaionSpaceRequest
      * @param tmpHeader - GetConversaionSpaceHeaders
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns GetConversaionSpaceResponse
      *
      * @param GetConversaionSpaceRequest $tmpReq
@@ -8236,23 +8377,23 @@ class Aliding extends OpenApiClient
         }
 
         if (null !== $headers->accountContextShrink) {
-            @$realHeaders['AccountContext'] = json_encode($headers->accountContextShrink, JSON_UNESCAPED_UNICODE + JSON_UNESCAPED_SLASHES);
+            @$realHeaders['AccountContext'] = json_encode($headers->accountContextShrink, \JSON_UNESCAPED_UNICODE + \JSON_UNESCAPED_SLASHES);
         }
 
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
-            'body'    => Utils::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'GetConversaionSpace',
-            'version'     => '2023-04-26',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/dingtalk/v1/documents/getConversaionSpace',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'GetConversaionSpace',
+            'version' => '2023-04-26',
+            'protocol' => 'HTTPS',
+            'pathname' => '/dingtalk/v1/documents/getConversaionSpace',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return GetConversaionSpaceResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -8265,6 +8406,7 @@ class Aliding extends OpenApiClient
      * 获取群存储空间信息.
      *
      * @param request - GetConversaionSpaceRequest
+     *
      * @returns GetConversaionSpaceResponse
      *
      * @param GetConversaionSpaceRequest $request
@@ -8285,6 +8427,7 @@ class Aliding extends OpenApiClient
      * @param request - GetCorpAccomplishmentTasksRequest
      * @param tmpHeader - GetCorpAccomplishmentTasksHeaders
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns GetCorpAccomplishmentTasksResponse
      *
      * @param GetCorpAccomplishmentTasksRequest $request
@@ -8349,23 +8492,23 @@ class Aliding extends OpenApiClient
         }
 
         if (null !== $headers->accountContextShrink) {
-            @$realHeaders['AccountContext'] = json_encode($headers->accountContextShrink, JSON_UNESCAPED_UNICODE + JSON_UNESCAPED_SLASHES);
+            @$realHeaders['AccountContext'] = json_encode($headers->accountContextShrink, \JSON_UNESCAPED_UNICODE + \JSON_UNESCAPED_SLASHES);
         }
 
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
-            'body'    => Utils::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'GetCorpAccomplishmentTasks',
-            'version'     => '2023-04-26',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/dingtalk/v1/yida/getCorpAccomplishmentTasks',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'GetCorpAccomplishmentTasks',
+            'version' => '2023-04-26',
+            'protocol' => 'HTTPS',
+            'pathname' => '/dingtalk/v1/yida/getCorpAccomplishmentTasks',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return GetCorpAccomplishmentTasksResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -8378,6 +8521,7 @@ class Aliding extends OpenApiClient
      * 获取组织内已完成的审批任务
      *
      * @param request - GetCorpAccomplishmentTasksRequest
+     *
      * @returns GetCorpAccomplishmentTasksResponse
      *
      * @param GetCorpAccomplishmentTasksRequest $request
@@ -8398,6 +8542,7 @@ class Aliding extends OpenApiClient
      * @param request - GetCorpTasksRequest
      * @param tmpHeader - GetCorpTasksHeaders
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns GetCorpTasksResponse
      *
      * @param GetCorpTasksRequest $request
@@ -8462,23 +8607,23 @@ class Aliding extends OpenApiClient
         }
 
         if (null !== $headers->accountContextShrink) {
-            @$realHeaders['AccountContext'] = json_encode($headers->accountContextShrink, JSON_UNESCAPED_UNICODE + JSON_UNESCAPED_SLASHES);
+            @$realHeaders['AccountContext'] = json_encode($headers->accountContextShrink, \JSON_UNESCAPED_UNICODE + \JSON_UNESCAPED_SLASHES);
         }
 
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
-            'body'    => Utils::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'GetCorpTasks',
-            'version'     => '2023-04-26',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/dingtalk/v1/yida/getCorpTasks',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'GetCorpTasks',
+            'version' => '2023-04-26',
+            'protocol' => 'HTTPS',
+            'pathname' => '/dingtalk/v1/yida/getCorpTasks',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return GetCorpTasksResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -8491,6 +8636,7 @@ class Aliding extends OpenApiClient
      * 获取任务列表（组织维度）.
      *
      * @param request - GetCorpTasksRequest
+     *
      * @returns GetCorpTasksResponse
      *
      * @param GetCorpTasksRequest $request
@@ -8509,6 +8655,7 @@ class Aliding extends OpenApiClient
      * @param tmpReq - GetDeptNoRequest
      * @param tmpHeader - GetDeptNoHeaders
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns GetDeptNoResponse
      *
      * @param GetDeptNoRequest $tmpReq
@@ -8547,23 +8694,23 @@ class Aliding extends OpenApiClient
         }
 
         if (null !== $headers->accountContextShrink) {
-            @$realHeaders['AccountContext'] = json_encode($headers->accountContextShrink, JSON_UNESCAPED_UNICODE + JSON_UNESCAPED_SLASHES);
+            @$realHeaders['AccountContext'] = json_encode($headers->accountContextShrink, \JSON_UNESCAPED_UNICODE + \JSON_UNESCAPED_SLASHES);
         }
 
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
-            'body'    => Utils::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'GetDeptNo',
-            'version'     => '2023-04-26',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/aliding/v1/dept/getDeptNo',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'GetDeptNo',
+            'version' => '2023-04-26',
+            'protocol' => 'HTTPS',
+            'pathname' => '/aliding/v1/dept/getDeptNo',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return GetDeptNoResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -8574,6 +8721,7 @@ class Aliding extends OpenApiClient
 
     /**
      * @param request - GetDeptNoRequest
+     *
      * @returns GetDeptNoResponse
      *
      * @param GetDeptNoRequest $request
@@ -8594,6 +8742,7 @@ class Aliding extends OpenApiClient
      * @param tmpReq - GetDocContentRequest
      * @param tmpHeader - GetDocContentHeaders
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns GetDocContentResponse
      *
      * @param GetDocContentRequest $tmpReq
@@ -8640,23 +8789,23 @@ class Aliding extends OpenApiClient
         }
 
         if (null !== $headers->accountContextShrink) {
-            @$realHeaders['AccountContext'] = json_encode($headers->accountContextShrink, JSON_UNESCAPED_UNICODE + JSON_UNESCAPED_SLASHES);
+            @$realHeaders['AccountContext'] = json_encode($headers->accountContextShrink, \JSON_UNESCAPED_UNICODE + \JSON_UNESCAPED_SLASHES);
         }
 
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
-            'body'    => Utils::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'GetDocContent',
-            'version'     => '2023-04-26',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/dingtalk/v2/documents/getDocContent',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'GetDocContent',
+            'version' => '2023-04-26',
+            'protocol' => 'HTTPS',
+            'pathname' => '/dingtalk/v2/documents/getDocContent',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return GetDocContentResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -8669,6 +8818,7 @@ class Aliding extends OpenApiClient
      * 委托权限获取文档内容.
      *
      * @param request - GetDocContentRequest
+     *
      * @returns GetDocContentResponse
      *
      * @param GetDocContentRequest $request
@@ -8689,6 +8839,7 @@ class Aliding extends OpenApiClient
      * @param tmpReq - GetDocContentTakIdRequest
      * @param tmpHeader - GetDocContentTakIdHeaders
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns GetDocContentTakIdResponse
      *
      * @param GetDocContentTakIdRequest $tmpReq
@@ -8735,23 +8886,23 @@ class Aliding extends OpenApiClient
         }
 
         if (null !== $headers->accountContextShrink) {
-            @$realHeaders['AccountContext'] = json_encode($headers->accountContextShrink, JSON_UNESCAPED_UNICODE + JSON_UNESCAPED_SLASHES);
+            @$realHeaders['AccountContext'] = json_encode($headers->accountContextShrink, \JSON_UNESCAPED_UNICODE + \JSON_UNESCAPED_SLASHES);
         }
 
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
-            'body'    => Utils::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'GetDocContentTakId',
-            'version'     => '2023-04-26',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/dingtalk/v2/documents/getDocContentTakId',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'GetDocContentTakId',
+            'version' => '2023-04-26',
+            'protocol' => 'HTTPS',
+            'pathname' => '/dingtalk/v2/documents/getDocContentTakId',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return GetDocContentTakIdResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -8764,6 +8915,7 @@ class Aliding extends OpenApiClient
      * 委托权限获取文档内容taskId.
      *
      * @param request - GetDocContentTakIdRequest
+     *
      * @returns GetDocContentTakIdResponse
      *
      * @param GetDocContentTakIdRequest $request
@@ -8784,6 +8936,7 @@ class Aliding extends OpenApiClient
      * @param request - GetEventRequest
      * @param tmpHeader - GetEventHeaders
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns GetEventResponse
      *
      * @param GetEventRequest $request
@@ -8821,24 +8974,24 @@ class Aliding extends OpenApiClient
         }
 
         if (null !== $headers->accountContextShrink) {
-            @$realHeaders['AccountContext'] = json_encode($headers->accountContextShrink, JSON_UNESCAPED_UNICODE + JSON_UNESCAPED_SLASHES);
+            @$realHeaders['AccountContext'] = json_encode($headers->accountContextShrink, \JSON_UNESCAPED_UNICODE + \JSON_UNESCAPED_SLASHES);
         }
 
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
-            'query'   => Utils::query($query),
-            'body'    => Utils::parseToMap($body),
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'GetEvent',
-            'version'     => '2023-04-26',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/dingtalk/v1/calendar/getEvent',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'GetEvent',
+            'version' => '2023-04-26',
+            'protocol' => 'HTTPS',
+            'pathname' => '/dingtalk/v1/calendar/getEvent',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return GetEventResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -8851,6 +9004,7 @@ class Aliding extends OpenApiClient
      * 查询单个日程详情.
      *
      * @param request - GetEventRequest
+     *
      * @returns GetEventResponse
      *
      * @param GetEventRequest $request
@@ -8871,6 +9025,7 @@ class Aliding extends OpenApiClient
      * @param request - GetFieldDefByUuidRequest
      * @param tmpHeader - GetFieldDefByUuidHeaders
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns GetFieldDefByUuidResponse
      *
      * @param GetFieldDefByUuidRequest $request
@@ -8907,23 +9062,23 @@ class Aliding extends OpenApiClient
         }
 
         if (null !== $headers->accountContextShrink) {
-            @$realHeaders['AccountContext'] = json_encode($headers->accountContextShrink, JSON_UNESCAPED_UNICODE + JSON_UNESCAPED_SLASHES);
+            @$realHeaders['AccountContext'] = json_encode($headers->accountContextShrink, \JSON_UNESCAPED_UNICODE + \JSON_UNESCAPED_SLASHES);
         }
 
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
-            'body'    => Utils::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'GetFieldDefByUuid',
-            'version'     => '2023-04-26',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/dingtalk/v1/yida/getFieldDefByUuid',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'GetFieldDefByUuid',
+            'version' => '2023-04-26',
+            'protocol' => 'HTTPS',
+            'pathname' => '/dingtalk/v1/yida/getFieldDefByUuid',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return GetFieldDefByUuidResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -8936,6 +9091,7 @@ class Aliding extends OpenApiClient
      * 获取表单内的组件信息.
      *
      * @param request - GetFieldDefByUuidRequest
+     *
      * @returns GetFieldDefByUuidResponse
      *
      * @param GetFieldDefByUuidRequest $request
@@ -8956,6 +9112,7 @@ class Aliding extends OpenApiClient
      * @param tmpReq - GetFileDownloadInfoRequest
      * @param tmpHeader - GetFileDownloadInfoHeaders
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns GetFileDownloadInfoResponse
      *
      * @param GetFileDownloadInfoRequest $tmpReq
@@ -9006,23 +9163,23 @@ class Aliding extends OpenApiClient
         }
 
         if (null !== $headers->accountContextShrink) {
-            @$realHeaders['AccountContext'] = json_encode($headers->accountContextShrink, JSON_UNESCAPED_UNICODE + JSON_UNESCAPED_SLASHES);
+            @$realHeaders['AccountContext'] = json_encode($headers->accountContextShrink, \JSON_UNESCAPED_UNICODE + \JSON_UNESCAPED_SLASHES);
         }
 
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
-            'body'    => Utils::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'GetFileDownloadInfo',
-            'version'     => '2023-04-26',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/dingtalk/v1/documents/getFileDownloadInfo',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'GetFileDownloadInfo',
+            'version' => '2023-04-26',
+            'protocol' => 'HTTPS',
+            'pathname' => '/dingtalk/v1/documents/getFileDownloadInfo',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return GetFileDownloadInfoResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -9035,6 +9192,7 @@ class Aliding extends OpenApiClient
      * 获取文件下载信息.
      *
      * @param request - GetFileDownloadInfoRequest
+     *
      * @returns GetFileDownloadInfoResponse
      *
      * @param GetFileDownloadInfoRequest $request
@@ -9055,6 +9213,7 @@ class Aliding extends OpenApiClient
      * @param tmpReq - GetFileUploadInfoRequest
      * @param tmpHeader - GetFileUploadInfoHeaders
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns GetFileUploadInfoResponse
      *
      * @param GetFileUploadInfoRequest $tmpReq
@@ -9105,23 +9264,23 @@ class Aliding extends OpenApiClient
         }
 
         if (null !== $headers->accountContextShrink) {
-            @$realHeaders['AccountContext'] = json_encode($headers->accountContextShrink, JSON_UNESCAPED_UNICODE + JSON_UNESCAPED_SLASHES);
+            @$realHeaders['AccountContext'] = json_encode($headers->accountContextShrink, \JSON_UNESCAPED_UNICODE + \JSON_UNESCAPED_SLASHES);
         }
 
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
-            'body'    => Utils::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'GetFileUploadInfo',
-            'version'     => '2023-04-26',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/dingtalk/v1/documents/getFileUploadInfo',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'GetFileUploadInfo',
+            'version' => '2023-04-26',
+            'protocol' => 'HTTPS',
+            'pathname' => '/dingtalk/v1/documents/getFileUploadInfo',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return GetFileUploadInfoResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -9134,6 +9293,7 @@ class Aliding extends OpenApiClient
      * 获取文件上传信息.
      *
      * @param request - GetFileUploadInfoRequest
+     *
      * @returns GetFileUploadInfoResponse
      *
      * @param GetFileUploadInfoRequest $request
@@ -9154,6 +9314,7 @@ class Aliding extends OpenApiClient
      * @param request - GetFormComponentDefinitionListRequest
      * @param tmpHeader - GetFormComponentDefinitionListHeaders
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns GetFormComponentDefinitionListResponse
      *
      * @param GetFormComponentDefinitionListRequest $request
@@ -9194,23 +9355,23 @@ class Aliding extends OpenApiClient
         }
 
         if (null !== $headers->accountContextShrink) {
-            @$realHeaders['AccountContext'] = json_encode($headers->accountContextShrink, JSON_UNESCAPED_UNICODE + JSON_UNESCAPED_SLASHES);
+            @$realHeaders['AccountContext'] = json_encode($headers->accountContextShrink, \JSON_UNESCAPED_UNICODE + \JSON_UNESCAPED_SLASHES);
         }
 
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
-            'body'    => Utils::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'GetFormComponentDefinitionList',
-            'version'     => '2023-04-26',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/dingtalk/v1/yida/getFormComponentDefinitionList',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'GetFormComponentDefinitionList',
+            'version' => '2023-04-26',
+            'protocol' => 'HTTPS',
+            'pathname' => '/dingtalk/v1/yida/getFormComponentDefinitionList',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return GetFormComponentDefinitionListResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -9223,6 +9384,7 @@ class Aliding extends OpenApiClient
      * 获取表单组件定义列表.
      *
      * @param request - GetFormComponentDefinitionListRequest
+     *
      * @returns GetFormComponentDefinitionListResponse
      *
      * @param GetFormComponentDefinitionListRequest $request
@@ -9243,6 +9405,7 @@ class Aliding extends OpenApiClient
      * @param request - GetFormDataByIDRequest
      * @param tmpHeader - GetFormDataByIDHeaders
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns GetFormDataByIDResponse
      *
      * @param GetFormDataByIDRequest $request
@@ -9283,23 +9446,23 @@ class Aliding extends OpenApiClient
         }
 
         if (null !== $headers->accountContextShrink) {
-            @$realHeaders['AccountContext'] = json_encode($headers->accountContextShrink, JSON_UNESCAPED_UNICODE + JSON_UNESCAPED_SLASHES);
+            @$realHeaders['AccountContext'] = json_encode($headers->accountContextShrink, \JSON_UNESCAPED_UNICODE + \JSON_UNESCAPED_SLASHES);
         }
 
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
-            'body'    => Utils::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'GetFormDataByID',
-            'version'     => '2023-04-26',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/dingtalk/v1/yida/getFormDataByID',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'GetFormDataByID',
+            'version' => '2023-04-26',
+            'protocol' => 'HTTPS',
+            'pathname' => '/dingtalk/v1/yida/getFormDataByID',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return GetFormDataByIDResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -9312,6 +9475,7 @@ class Aliding extends OpenApiClient
      * 查询表单数据.
      *
      * @param request - GetFormDataByIDRequest
+     *
      * @returns GetFormDataByIDResponse
      *
      * @param GetFormDataByIDRequest $request
@@ -9332,6 +9496,7 @@ class Aliding extends OpenApiClient
      * @param request - GetFormListInAppRequest
      * @param tmpHeader - GetFormListInAppHeaders
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns GetFormListInAppResponse
      *
      * @param GetFormListInAppRequest $request
@@ -9376,23 +9541,23 @@ class Aliding extends OpenApiClient
         }
 
         if (null !== $headers->accountContextShrink) {
-            @$realHeaders['AccountContext'] = json_encode($headers->accountContextShrink, JSON_UNESCAPED_UNICODE + JSON_UNESCAPED_SLASHES);
+            @$realHeaders['AccountContext'] = json_encode($headers->accountContextShrink, \JSON_UNESCAPED_UNICODE + \JSON_UNESCAPED_SLASHES);
         }
 
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
-            'body'    => Utils::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'GetFormListInApp',
-            'version'     => '2023-04-26',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/dingtalk/v1/yida/getFormListInApp',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'GetFormListInApp',
+            'version' => '2023-04-26',
+            'protocol' => 'HTTPS',
+            'pathname' => '/dingtalk/v1/yida/getFormListInApp',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return GetFormListInAppResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -9405,6 +9570,7 @@ class Aliding extends OpenApiClient
      * 获取指定应用下的表单列表.
      *
      * @param request - GetFormListInAppRequest
+     *
      * @returns GetFormListInAppResponse
      *
      * @param GetFormListInAppRequest $request
@@ -9425,6 +9591,7 @@ class Aliding extends OpenApiClient
      * @param tmpReq - GetGroupLiveListRequest
      * @param tmpHeader - GetGroupLiveListHeaders
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns GetGroupLiveListResponse
      *
      * @param GetGroupLiveListRequest $tmpReq
@@ -9471,23 +9638,23 @@ class Aliding extends OpenApiClient
         }
 
         if (null !== $headers->accountContextShrink) {
-            @$realHeaders['AccountContext'] = json_encode($headers->accountContextShrink, JSON_UNESCAPED_UNICODE + JSON_UNESCAPED_SLASHES);
+            @$realHeaders['AccountContext'] = json_encode($headers->accountContextShrink, \JSON_UNESCAPED_UNICODE + \JSON_UNESCAPED_SLASHES);
         }
 
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
-            'body'    => Utils::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'GetGroupLiveList',
-            'version'     => '2023-04-26',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/dingtalk/v1/ysp/getGroupLiveList',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'GetGroupLiveList',
+            'version' => '2023-04-26',
+            'protocol' => 'HTTPS',
+            'pathname' => '/dingtalk/v1/ysp/getGroupLiveList',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return GetGroupLiveListResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -9500,6 +9667,7 @@ class Aliding extends OpenApiClient
      * 查询群内直播信息(最早支持2024年01月数据).
      *
      * @param request - GetGroupLiveListRequest
+     *
      * @returns GetGroupLiveListResponse
      *
      * @param GetGroupLiveListRequest $request
@@ -9520,6 +9688,7 @@ class Aliding extends OpenApiClient
      * @param request - GetInnerGroupMembersRequest
      * @param tmpHeader - GetInnerGroupMembersHeaders
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns GetInnerGroupMembersResponse
      *
      * @param GetInnerGroupMembersRequest $request
@@ -9556,23 +9725,23 @@ class Aliding extends OpenApiClient
         }
 
         if (null !== $headers->accountContextShrink) {
-            @$realHeaders['AccountContext'] = json_encode($headers->accountContextShrink, JSON_UNESCAPED_UNICODE + JSON_UNESCAPED_SLASHES);
+            @$realHeaders['AccountContext'] = json_encode($headers->accountContextShrink, \JSON_UNESCAPED_UNICODE + \JSON_UNESCAPED_SLASHES);
         }
 
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
-            'body'    => Utils::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'GetInnerGroupMembers',
-            'version'     => '2023-04-26',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/dingtalk/v1/im/getInnerGroupMembers',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'GetInnerGroupMembers',
+            'version' => '2023-04-26',
+            'protocol' => 'HTTPS',
+            'pathname' => '/dingtalk/v1/im/getInnerGroupMembers',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return GetInnerGroupMembersResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -9585,6 +9754,7 @@ class Aliding extends OpenApiClient
      * 查询企业内部群成员.
      *
      * @param request - GetInnerGroupMembersRequest
+     *
      * @returns GetInnerGroupMembersResponse
      *
      * @param GetInnerGroupMembersRequest $request
@@ -9605,6 +9775,7 @@ class Aliding extends OpenApiClient
      * @param request - GetInstanceByIdRequest
      * @param tmpHeader - GetInstanceByIdHeaders
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns GetInstanceByIdResponse
      *
      * @param GetInstanceByIdRequest $request
@@ -9645,23 +9816,23 @@ class Aliding extends OpenApiClient
         }
 
         if (null !== $headers->accountContextShrink) {
-            @$realHeaders['AccountContext'] = json_encode($headers->accountContextShrink, JSON_UNESCAPED_UNICODE + JSON_UNESCAPED_SLASHES);
+            @$realHeaders['AccountContext'] = json_encode($headers->accountContextShrink, \JSON_UNESCAPED_UNICODE + \JSON_UNESCAPED_SLASHES);
         }
 
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
-            'body'    => Utils::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'GetInstanceById',
-            'version'     => '2023-04-26',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/dingtalk/v1/yida/getInstanceById',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'GetInstanceById',
+            'version' => '2023-04-26',
+            'protocol' => 'HTTPS',
+            'pathname' => '/dingtalk/v1/yida/getInstanceById',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return GetInstanceByIdResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -9674,6 +9845,7 @@ class Aliding extends OpenApiClient
      * 根据流程实例ID获取流程实例.
      *
      * @param request - GetInstanceByIdRequest
+     *
      * @returns GetInstanceByIdResponse
      *
      * @param GetInstanceByIdRequest $request
@@ -9694,6 +9866,7 @@ class Aliding extends OpenApiClient
      * @param request - GetInstanceIdListRequest
      * @param tmpHeader - GetInstanceIdListHeaders
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns GetInstanceIdListResponse
      *
      * @param GetInstanceIdListRequest $request
@@ -9778,23 +9951,23 @@ class Aliding extends OpenApiClient
         }
 
         if (null !== $headers->accountContextShrink) {
-            @$realHeaders['AccountContext'] = json_encode($headers->accountContextShrink, JSON_UNESCAPED_UNICODE + JSON_UNESCAPED_SLASHES);
+            @$realHeaders['AccountContext'] = json_encode($headers->accountContextShrink, \JSON_UNESCAPED_UNICODE + \JSON_UNESCAPED_SLASHES);
         }
 
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
-            'body'    => Utils::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'GetInstanceIdList',
-            'version'     => '2023-04-26',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/dingtalk/v1/yida/getInstanceIdList',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'GetInstanceIdList',
+            'version' => '2023-04-26',
+            'protocol' => 'HTTPS',
+            'pathname' => '/dingtalk/v1/yida/getInstanceIdList',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return GetInstanceIdListResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -9807,6 +9980,7 @@ class Aliding extends OpenApiClient
      * 获取实例ID列表.
      *
      * @param request - GetInstanceIdListRequest
+     *
      * @returns GetInstanceIdListResponse
      *
      * @param GetInstanceIdListRequest $request
@@ -9827,6 +10001,7 @@ class Aliding extends OpenApiClient
      * @param request - GetInstancesRequest
      * @param tmpHeader - GetInstancesHeaders
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns GetInstancesResponse
      *
      * @param GetInstancesRequest $request
@@ -9915,23 +10090,23 @@ class Aliding extends OpenApiClient
         }
 
         if (null !== $headers->accountContextShrink) {
-            @$realHeaders['AccountContext'] = json_encode($headers->accountContextShrink, JSON_UNESCAPED_UNICODE + JSON_UNESCAPED_SLASHES);
+            @$realHeaders['AccountContext'] = json_encode($headers->accountContextShrink, \JSON_UNESCAPED_UNICODE + \JSON_UNESCAPED_SLASHES);
         }
 
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
-            'body'    => Utils::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'GetInstances',
-            'version'     => '2023-04-26',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/dingtalk/v1/yida/getInstances',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'GetInstances',
+            'version' => '2023-04-26',
+            'protocol' => 'HTTPS',
+            'pathname' => '/dingtalk/v1/yida/getInstances',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return GetInstancesResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -9944,6 +10119,7 @@ class Aliding extends OpenApiClient
      * 获取流程实例.
      *
      * @param request - GetInstancesRequest
+     *
      * @returns GetInstancesResponse
      *
      * @param GetInstancesRequest $request
@@ -9964,6 +10140,7 @@ class Aliding extends OpenApiClient
      * @param request - GetInstancesByIdListRequest
      * @param tmpHeader - GetInstancesByIdListHeaders
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns GetInstancesByIdListResponse
      *
      * @param GetInstancesByIdListRequest $request
@@ -10004,23 +10181,23 @@ class Aliding extends OpenApiClient
         }
 
         if (null !== $headers->accountContextShrink) {
-            @$realHeaders['AccountContext'] = json_encode($headers->accountContextShrink, JSON_UNESCAPED_UNICODE + JSON_UNESCAPED_SLASHES);
+            @$realHeaders['AccountContext'] = json_encode($headers->accountContextShrink, \JSON_UNESCAPED_UNICODE + \JSON_UNESCAPED_SLASHES);
         }
 
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
-            'body'    => Utils::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'GetInstancesByIdList',
-            'version'     => '2023-04-26',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/dingtalk/v1/yida/getInstancesByIdList',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'GetInstancesByIdList',
+            'version' => '2023-04-26',
+            'protocol' => 'HTTPS',
+            'pathname' => '/dingtalk/v1/yida/getInstancesByIdList',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return GetInstancesByIdListResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -10033,6 +10210,7 @@ class Aliding extends OpenApiClient
      * 根据实例 ID 列表批量获取流程实例详情(批量获取流程实例列表).
      *
      * @param request - GetInstancesByIdListRequest
+     *
      * @returns GetInstancesByIdListResponse
      *
      * @param GetInstancesByIdListRequest $request
@@ -10053,6 +10231,7 @@ class Aliding extends OpenApiClient
      * @param tmpReq - GetLiveReplayUrlRequest
      * @param tmpHeader - GetLiveReplayUrlHeaders
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns GetLiveReplayUrlResponse
      *
      * @param GetLiveReplayUrlRequest $tmpReq
@@ -10091,23 +10270,23 @@ class Aliding extends OpenApiClient
         }
 
         if (null !== $headers->accountContextShrink) {
-            @$realHeaders['AccountContext'] = json_encode($headers->accountContextShrink, JSON_UNESCAPED_UNICODE + JSON_UNESCAPED_SLASHES);
+            @$realHeaders['AccountContext'] = json_encode($headers->accountContextShrink, \JSON_UNESCAPED_UNICODE + \JSON_UNESCAPED_SLASHES);
         }
 
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
-            'body'    => Utils::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'GetLiveReplayUrl',
-            'version'     => '2023-04-26',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/dingtalk/v1/ysp/getLiveReplayUrl',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'GetLiveReplayUrl',
+            'version' => '2023-04-26',
+            'protocol' => 'HTTPS',
+            'pathname' => '/dingtalk/v1/ysp/getLiveReplayUrl',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return GetLiveReplayUrlResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -10120,6 +10299,7 @@ class Aliding extends OpenApiClient
      * 获取直播的可下载回放地址
      *
      * @param request - GetLiveReplayUrlRequest
+     *
      * @returns GetLiveReplayUrlResponse
      *
      * @param GetLiveReplayUrlRequest $request
@@ -10140,6 +10320,7 @@ class Aliding extends OpenApiClient
      * @param request - GetMeCorpSubmissionRequest
      * @param tmpHeader - GetMeCorpSubmissionHeaders
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns GetMeCorpSubmissionResponse
      *
      * @param GetMeCorpSubmissionRequest $request
@@ -10204,23 +10385,23 @@ class Aliding extends OpenApiClient
         }
 
         if (null !== $headers->accountContextShrink) {
-            @$realHeaders['AccountContext'] = json_encode($headers->accountContextShrink, JSON_UNESCAPED_UNICODE + JSON_UNESCAPED_SLASHES);
+            @$realHeaders['AccountContext'] = json_encode($headers->accountContextShrink, \JSON_UNESCAPED_UNICODE + \JSON_UNESCAPED_SLASHES);
         }
 
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
-            'body'    => Utils::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'GetMeCorpSubmission',
-            'version'     => '2023-04-26',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/dingtalk/v1/yida/getMeCorpSubmission',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'GetMeCorpSubmission',
+            'version' => '2023-04-26',
+            'protocol' => 'HTTPS',
+            'pathname' => '/dingtalk/v1/yida/getMeCorpSubmission',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return GetMeCorpSubmissionResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -10233,6 +10414,7 @@ class Aliding extends OpenApiClient
      * 获取组织内某人提交的任务
      *
      * @param request - GetMeCorpSubmissionRequest
+     *
      * @returns GetMeCorpSubmissionResponse
      *
      * @param GetMeCorpSubmissionRequest $request
@@ -10253,6 +10435,7 @@ class Aliding extends OpenApiClient
      * @param tmpReq - GetMeetingRoomsScheduleRequest
      * @param tmpHeader - GetMeetingRoomsScheduleHeaders
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns GetMeetingRoomsScheduleResponse
      *
      * @param GetMeetingRoomsScheduleRequest $tmpReq
@@ -10295,23 +10478,23 @@ class Aliding extends OpenApiClient
         }
 
         if (null !== $headers->accountContextShrink) {
-            @$realHeaders['AccountContext'] = json_encode($headers->accountContextShrink, JSON_UNESCAPED_UNICODE + JSON_UNESCAPED_SLASHES);
+            @$realHeaders['AccountContext'] = json_encode($headers->accountContextShrink, \JSON_UNESCAPED_UNICODE + \JSON_UNESCAPED_SLASHES);
         }
 
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
-            'body'    => Utils::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'GetMeetingRoomsSchedule',
-            'version'     => '2023-04-26',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/dingtalk/v1/calendar/getMeetingRoomsSchedule',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'GetMeetingRoomsSchedule',
+            'version' => '2023-04-26',
+            'protocol' => 'HTTPS',
+            'pathname' => '/dingtalk/v1/calendar/getMeetingRoomsSchedule',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return GetMeetingRoomsScheduleResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -10324,6 +10507,7 @@ class Aliding extends OpenApiClient
      * 获取会议室忙闲信息.
      *
      * @param request - GetMeetingRoomsScheduleRequest
+     *
      * @returns GetMeetingRoomsScheduleResponse
      *
      * @param GetMeetingRoomsScheduleRequest $request
@@ -10344,6 +10528,7 @@ class Aliding extends OpenApiClient
      * @param tmpReq - GetMineWorkspaceRequest
      * @param tmpHeader - GetMineWorkspaceHeaders
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns GetMineWorkspaceResponse
      *
      * @param GetMineWorkspaceRequest $tmpReq
@@ -10386,23 +10571,23 @@ class Aliding extends OpenApiClient
         }
 
         if (null !== $headers->accountContextShrink) {
-            @$realHeaders['AccountContext'] = json_encode($headers->accountContextShrink, JSON_UNESCAPED_UNICODE + JSON_UNESCAPED_SLASHES);
+            @$realHeaders['AccountContext'] = json_encode($headers->accountContextShrink, \JSON_UNESCAPED_UNICODE + \JSON_UNESCAPED_SLASHES);
         }
 
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
-            'body'    => Utils::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'GetMineWorkspace',
-            'version'     => '2023-04-26',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/dingtalk/v2/documents/getMineWorkspace',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'GetMineWorkspace',
+            'version' => '2023-04-26',
+            'protocol' => 'HTTPS',
+            'pathname' => '/dingtalk/v2/documents/getMineWorkspace',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return GetMineWorkspaceResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -10415,6 +10600,7 @@ class Aliding extends OpenApiClient
      * 获取我的文档知识库信息.
      *
      * @param request - GetMineWorkspaceRequest
+     *
      * @returns GetMineWorkspaceResponse
      *
      * @param GetMineWorkspaceRequest $request
@@ -10435,6 +10621,7 @@ class Aliding extends OpenApiClient
      * @param tmpReq - GetMultiDimTableAllFieldsRequest
      * @param tmpHeader - GetMultiDimTableAllFieldsHeaders
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns GetMultiDimTableAllFieldsResponse
      *
      * @param GetMultiDimTableAllFieldsRequest $tmpReq
@@ -10477,23 +10664,23 @@ class Aliding extends OpenApiClient
         }
 
         if (null !== $headers->accountContextShrink) {
-            @$realHeaders['AccountContext'] = json_encode($headers->accountContextShrink, JSON_UNESCAPED_UNICODE + JSON_UNESCAPED_SLASHES);
+            @$realHeaders['AccountContext'] = json_encode($headers->accountContextShrink, \JSON_UNESCAPED_UNICODE + \JSON_UNESCAPED_SLASHES);
         }
 
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
-            'body'    => Utils::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'GetMultiDimTableAllFields',
-            'version'     => '2023-04-26',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/dingtalk/v1/table/getMultiDimTableAllFields',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'GetMultiDimTableAllFields',
+            'version' => '2023-04-26',
+            'protocol' => 'HTTPS',
+            'pathname' => '/dingtalk/v1/table/getMultiDimTableAllFields',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return GetMultiDimTableAllFieldsResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -10506,6 +10693,7 @@ class Aliding extends OpenApiClient
      * 获取所有字段.
      *
      * @param request - GetMultiDimTableAllFieldsRequest
+     *
      * @returns GetMultiDimTableAllFieldsResponse
      *
      * @param GetMultiDimTableAllFieldsRequest $request
@@ -10526,6 +10714,7 @@ class Aliding extends OpenApiClient
      * @param tmpReq - GetMultiDimTableAllSheetsRequest
      * @param tmpHeader - GetMultiDimTableAllSheetsHeaders
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns GetMultiDimTableAllSheetsResponse
      *
      * @param GetMultiDimTableAllSheetsRequest $tmpReq
@@ -10564,23 +10753,23 @@ class Aliding extends OpenApiClient
         }
 
         if (null !== $headers->accountContextShrink) {
-            @$realHeaders['AccountContext'] = json_encode($headers->accountContextShrink, JSON_UNESCAPED_UNICODE + JSON_UNESCAPED_SLASHES);
+            @$realHeaders['AccountContext'] = json_encode($headers->accountContextShrink, \JSON_UNESCAPED_UNICODE + \JSON_UNESCAPED_SLASHES);
         }
 
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
-            'body'    => Utils::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'GetMultiDimTableAllSheets',
-            'version'     => '2023-04-26',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/dingtalk/v1/table/getMultiDimTableAllSheets',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'GetMultiDimTableAllSheets',
+            'version' => '2023-04-26',
+            'protocol' => 'HTTPS',
+            'pathname' => '/dingtalk/v1/table/getMultiDimTableAllSheets',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return GetMultiDimTableAllSheetsResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -10593,6 +10782,7 @@ class Aliding extends OpenApiClient
      * 获取所有数据表.
      *
      * @param request - GetMultiDimTableAllSheetsRequest
+     *
      * @returns GetMultiDimTableAllSheetsResponse
      *
      * @param GetMultiDimTableAllSheetsRequest $request
@@ -10613,6 +10803,7 @@ class Aliding extends OpenApiClient
      * @param tmpReq - GetMultiDimTableRecordRequest
      * @param tmpHeader - GetMultiDimTableRecordHeaders
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns GetMultiDimTableRecordResponse
      *
      * @param GetMultiDimTableRecordRequest $tmpReq
@@ -10659,23 +10850,23 @@ class Aliding extends OpenApiClient
         }
 
         if (null !== $headers->accountContextShrink) {
-            @$realHeaders['AccountContext'] = json_encode($headers->accountContextShrink, JSON_UNESCAPED_UNICODE + JSON_UNESCAPED_SLASHES);
+            @$realHeaders['AccountContext'] = json_encode($headers->accountContextShrink, \JSON_UNESCAPED_UNICODE + \JSON_UNESCAPED_SLASHES);
         }
 
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
-            'body'    => Utils::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'GetMultiDimTableRecord',
-            'version'     => '2023-04-26',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/dingtalk/v1/table/getMultiDimTableRecord',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'GetMultiDimTableRecord',
+            'version' => '2023-04-26',
+            'protocol' => 'HTTPS',
+            'pathname' => '/dingtalk/v1/table/getMultiDimTableRecord',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return GetMultiDimTableRecordResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -10688,6 +10879,7 @@ class Aliding extends OpenApiClient
      * 获取记录.
      *
      * @param request - GetMultiDimTableRecordRequest
+     *
      * @returns GetMultiDimTableRecordResponse
      *
      * @param GetMultiDimTableRecordRequest $request
@@ -10708,6 +10900,7 @@ class Aliding extends OpenApiClient
      * @param tmpReq - GetMultiDimTableSheetRequest
      * @param tmpHeader - GetMultiDimTableSheetHeaders
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns GetMultiDimTableSheetResponse
      *
      * @param GetMultiDimTableSheetRequest $tmpReq
@@ -10750,23 +10943,23 @@ class Aliding extends OpenApiClient
         }
 
         if (null !== $headers->accountContextShrink) {
-            @$realHeaders['AccountContext'] = json_encode($headers->accountContextShrink, JSON_UNESCAPED_UNICODE + JSON_UNESCAPED_SLASHES);
+            @$realHeaders['AccountContext'] = json_encode($headers->accountContextShrink, \JSON_UNESCAPED_UNICODE + \JSON_UNESCAPED_SLASHES);
         }
 
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
-            'body'    => Utils::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'GetMultiDimTableSheet',
-            'version'     => '2023-04-26',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/dingtalk/v1/table/getMultiDimTableSheet',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'GetMultiDimTableSheet',
+            'version' => '2023-04-26',
+            'protocol' => 'HTTPS',
+            'pathname' => '/dingtalk/v1/table/getMultiDimTableSheet',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return GetMultiDimTableSheetResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -10779,6 +10972,7 @@ class Aliding extends OpenApiClient
      * 获取数据表.
      *
      * @param request - GetMultiDimTableSheetRequest
+     *
      * @returns GetMultiDimTableSheetResponse
      *
      * @param GetMultiDimTableSheetRequest $request
@@ -10799,6 +10993,7 @@ class Aliding extends OpenApiClient
      * @param tmpReq - GetMultipartFileUploadInfosRequest
      * @param tmpHeader - GetMultipartFileUploadInfosHeaders
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns GetMultipartFileUploadInfosResponse
      *
      * @param GetMultipartFileUploadInfosRequest $tmpReq
@@ -10853,23 +11048,23 @@ class Aliding extends OpenApiClient
         }
 
         if (null !== $headers->accountContextShrink) {
-            @$realHeaders['AccountContext'] = json_encode($headers->accountContextShrink, JSON_UNESCAPED_UNICODE + JSON_UNESCAPED_SLASHES);
+            @$realHeaders['AccountContext'] = json_encode($headers->accountContextShrink, \JSON_UNESCAPED_UNICODE + \JSON_UNESCAPED_SLASHES);
         }
 
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
-            'body'    => Utils::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'GetMultipartFileUploadInfos',
-            'version'     => '2023-04-26',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/GetMultipartFileUploadInfos',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'GetMultipartFileUploadInfos',
+            'version' => '2023-04-26',
+            'protocol' => 'HTTPS',
+            'pathname' => '/GetMultipartFileUploadInfos',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return GetMultipartFileUploadInfosResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -10882,6 +11077,7 @@ class Aliding extends OpenApiClient
      * 获取文件分片上传信息.
      *
      * @param request - GetMultipartFileUploadInfosRequest
+     *
      * @returns GetMultipartFileUploadInfosResponse
      *
      * @param GetMultipartFileUploadInfosRequest $request
@@ -10902,6 +11098,7 @@ class Aliding extends OpenApiClient
      * @param tmpReq - GetNewestInnerGroupsRequest
      * @param tmpHeader - GetNewestInnerGroupsHeaders
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns GetNewestInnerGroupsResponse
      *
      * @param GetNewestInnerGroupsRequest $tmpReq
@@ -10936,23 +11133,23 @@ class Aliding extends OpenApiClient
         }
 
         if (null !== $headers->accountContextShrink) {
-            @$realHeaders['AccountContext'] = json_encode($headers->accountContextShrink, JSON_UNESCAPED_UNICODE + JSON_UNESCAPED_SLASHES);
+            @$realHeaders['AccountContext'] = json_encode($headers->accountContextShrink, \JSON_UNESCAPED_UNICODE + \JSON_UNESCAPED_SLASHES);
         }
 
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
-            'body'    => Utils::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'GetNewestInnerGroups',
-            'version'     => '2023-04-26',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/dingtalk/v1/im/getNewestInnerGroups',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'GetNewestInnerGroups',
+            'version' => '2023-04-26',
+            'protocol' => 'HTTPS',
+            'pathname' => '/dingtalk/v1/im/getNewestInnerGroups',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return GetNewestInnerGroupsResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -10965,6 +11162,7 @@ class Aliding extends OpenApiClient
      * 查询最近活跃的企业内部群列表.
      *
      * @param request - GetNewestInnerGroupsRequest
+     *
      * @returns GetNewestInnerGroupsResponse
      *
      * @param GetNewestInnerGroupsRequest $request
@@ -10985,6 +11183,7 @@ class Aliding extends OpenApiClient
      * @param tmpReq - GetNodeRequest
      * @param tmpHeader - GetNodeHeaders
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns GetNodeResponse
      *
      * @param GetNodeRequest $tmpReq
@@ -11031,23 +11230,23 @@ class Aliding extends OpenApiClient
         }
 
         if (null !== $headers->accountContextShrink) {
-            @$realHeaders['AccountContext'] = json_encode($headers->accountContextShrink, JSON_UNESCAPED_UNICODE + JSON_UNESCAPED_SLASHES);
+            @$realHeaders['AccountContext'] = json_encode($headers->accountContextShrink, \JSON_UNESCAPED_UNICODE + \JSON_UNESCAPED_SLASHES);
         }
 
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
-            'body'    => Utils::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'GetNode',
-            'version'     => '2023-04-26',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/dingtalk/v2/documents/getNode',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'GetNode',
+            'version' => '2023-04-26',
+            'protocol' => 'HTTPS',
+            'pathname' => '/dingtalk/v2/documents/getNode',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return GetNodeResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -11060,6 +11259,7 @@ class Aliding extends OpenApiClient
      * 获取节点.
      *
      * @param request - GetNodeRequest
+     *
      * @returns GetNodeResponse
      *
      * @param GetNodeRequest $request
@@ -11080,6 +11280,7 @@ class Aliding extends OpenApiClient
      * @param tmpReq - GetNodeByUrlRequest
      * @param tmpHeader - GetNodeByUrlHeaders
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns GetNodeByUrlResponse
      *
      * @param GetNodeByUrlRequest $tmpReq
@@ -11126,23 +11327,23 @@ class Aliding extends OpenApiClient
         }
 
         if (null !== $headers->accountContextShrink) {
-            @$realHeaders['AccountContext'] = json_encode($headers->accountContextShrink, JSON_UNESCAPED_UNICODE + JSON_UNESCAPED_SLASHES);
+            @$realHeaders['AccountContext'] = json_encode($headers->accountContextShrink, \JSON_UNESCAPED_UNICODE + \JSON_UNESCAPED_SLASHES);
         }
 
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
-            'body'    => Utils::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'GetNodeByUrl',
-            'version'     => '2023-04-26',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/dingtalk/v2/documents/getNodeByUrl',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'GetNodeByUrl',
+            'version' => '2023-04-26',
+            'protocol' => 'HTTPS',
+            'pathname' => '/dingtalk/v2/documents/getNodeByUrl',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return GetNodeByUrlResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -11155,6 +11356,7 @@ class Aliding extends OpenApiClient
      * 通过链接获取节点.
      *
      * @param request - GetNodeByUrlRequest
+     *
      * @returns GetNodeByUrlResponse
      *
      * @param GetNodeByUrlRequest $request
@@ -11175,6 +11377,7 @@ class Aliding extends OpenApiClient
      * @param tmpReq - GetNodesRequest
      * @param tmpHeader - GetNodesHeaders
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns GetNodesResponse
      *
      * @param GetNodesRequest $tmpReq
@@ -11225,23 +11428,23 @@ class Aliding extends OpenApiClient
         }
 
         if (null !== $headers->accountContextShrink) {
-            @$realHeaders['AccountContext'] = json_encode($headers->accountContextShrink, JSON_UNESCAPED_UNICODE + JSON_UNESCAPED_SLASHES);
+            @$realHeaders['AccountContext'] = json_encode($headers->accountContextShrink, \JSON_UNESCAPED_UNICODE + \JSON_UNESCAPED_SLASHES);
         }
 
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
-            'body'    => Utils::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'GetNodes',
-            'version'     => '2023-04-26',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/dingtalk/v2/documents/getNodes',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'GetNodes',
+            'version' => '2023-04-26',
+            'protocol' => 'HTTPS',
+            'pathname' => '/dingtalk/v2/documents/getNodes',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return GetNodesResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -11254,6 +11457,7 @@ class Aliding extends OpenApiClient
      * 批量获取节点.
      *
      * @param request - GetNodesRequest
+     *
      * @returns GetNodesResponse
      *
      * @param GetNodesRequest $request
@@ -11274,6 +11478,7 @@ class Aliding extends OpenApiClient
      * @param request - GetNotifyMeRequest
      * @param tmpHeader - GetNotifyMeHeaders
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns GetNotifyMeResponse
      *
      * @param GetNotifyMeRequest $request
@@ -11346,23 +11551,23 @@ class Aliding extends OpenApiClient
         }
 
         if (null !== $headers->accountContextShrink) {
-            @$realHeaders['AccountContext'] = json_encode($headers->accountContextShrink, JSON_UNESCAPED_UNICODE + JSON_UNESCAPED_SLASHES);
+            @$realHeaders['AccountContext'] = json_encode($headers->accountContextShrink, \JSON_UNESCAPED_UNICODE + \JSON_UNESCAPED_SLASHES);
         }
 
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
-            'body'    => Utils::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'GetNotifyMe',
-            'version'     => '2023-04-26',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/dingtalk/v1/yida/getNotifyMe',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'GetNotifyMe',
+            'version' => '2023-04-26',
+            'protocol' => 'HTTPS',
+            'pathname' => '/dingtalk/v1/yida/getNotifyMe',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return GetNotifyMeResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -11375,6 +11580,7 @@ class Aliding extends OpenApiClient
      * 获取发送给用户的通知.
      *
      * @param request - GetNotifyMeRequest
+     *
      * @returns GetNotifyMeResponse
      *
      * @param GetNotifyMeRequest $request
@@ -11395,6 +11601,7 @@ class Aliding extends OpenApiClient
      * @param request - GetOpenUrlRequest
      * @param tmpHeader - GetOpenUrlHeaders
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns GetOpenUrlResponse
      *
      * @param GetOpenUrlRequest $request
@@ -11439,23 +11646,23 @@ class Aliding extends OpenApiClient
         }
 
         if (null !== $headers->accountContextShrink) {
-            @$realHeaders['AccountContext'] = json_encode($headers->accountContextShrink, JSON_UNESCAPED_UNICODE + JSON_UNESCAPED_SLASHES);
+            @$realHeaders['AccountContext'] = json_encode($headers->accountContextShrink, \JSON_UNESCAPED_UNICODE + \JSON_UNESCAPED_SLASHES);
         }
 
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
-            'body'    => Utils::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'GetOpenUrl',
-            'version'     => '2023-04-26',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/dingtalk/v1/yida/getOpenUrl',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'GetOpenUrl',
+            'version' => '2023-04-26',
+            'protocol' => 'HTTPS',
+            'pathname' => '/dingtalk/v1/yida/getOpenUrl',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return GetOpenUrlResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -11468,6 +11675,7 @@ class Aliding extends OpenApiClient
      * 获取宜搭附件临时免登地址
      *
      * @param request - GetOpenUrlRequest
+     *
      * @returns GetOpenUrlResponse
      *
      * @param GetOpenUrlRequest $request
@@ -11488,6 +11696,7 @@ class Aliding extends OpenApiClient
      * @param request - GetOperationRecordsRequest
      * @param tmpHeader - GetOperationRecordsHeaders
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns GetOperationRecordsResponse
      *
      * @param GetOperationRecordsRequest $request
@@ -11528,23 +11737,23 @@ class Aliding extends OpenApiClient
         }
 
         if (null !== $headers->accountContextShrink) {
-            @$realHeaders['AccountContext'] = json_encode($headers->accountContextShrink, JSON_UNESCAPED_UNICODE + JSON_UNESCAPED_SLASHES);
+            @$realHeaders['AccountContext'] = json_encode($headers->accountContextShrink, \JSON_UNESCAPED_UNICODE + \JSON_UNESCAPED_SLASHES);
         }
 
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
-            'body'    => Utils::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'GetOperationRecords',
-            'version'     => '2023-04-26',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/dingtalk/v1/yida/getOperationRecords',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'GetOperationRecords',
+            'version' => '2023-04-26',
+            'protocol' => 'HTTPS',
+            'pathname' => '/dingtalk/v1/yida/getOperationRecords',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return GetOperationRecordsResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -11557,6 +11766,7 @@ class Aliding extends OpenApiClient
      * 获取审批记录.
      *
      * @param request - GetOperationRecordsRequest
+     *
      * @returns GetOperationRecordsResponse
      *
      * @param GetOperationRecordsRequest $request
@@ -11575,6 +11785,7 @@ class Aliding extends OpenApiClient
      * @param tmpReq - GetOrgLiveListRequest
      * @param tmpHeader - GetOrgLiveListHeaders
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns GetOrgLiveListResponse
      *
      * @param GetOrgLiveListRequest $tmpReq
@@ -11633,23 +11844,23 @@ class Aliding extends OpenApiClient
         }
 
         if (null !== $headers->accountContextShrink) {
-            @$realHeaders['AccountContext'] = json_encode($headers->accountContextShrink, JSON_UNESCAPED_UNICODE + JSON_UNESCAPED_SLASHES);
+            @$realHeaders['AccountContext'] = json_encode($headers->accountContextShrink, \JSON_UNESCAPED_UNICODE + \JSON_UNESCAPED_SLASHES);
         }
 
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
-            'body'    => Utils::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'GetOrgLiveList',
-            'version'     => '2023-04-26',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/dingtalk/v1/ysp/getOrgLiveList',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'GetOrgLiveList',
+            'version' => '2023-04-26',
+            'protocol' => 'HTTPS',
+            'pathname' => '/dingtalk/v1/ysp/getOrgLiveList',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return GetOrgLiveListResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -11660,6 +11871,7 @@ class Aliding extends OpenApiClient
 
     /**
      * @param request - GetOrgLiveListRequest
+     *
      * @returns GetOrgLiveListResponse
      *
      * @param GetOrgLiveListRequest $request
@@ -11680,6 +11892,7 @@ class Aliding extends OpenApiClient
      * @param tmpReq - GetOrgOrWebOpenDocContentTaskIdRequest
      * @param tmpHeader - GetOrgOrWebOpenDocContentTaskIdHeaders
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns GetOrgOrWebOpenDocContentTaskIdResponse
      *
      * @param GetOrgOrWebOpenDocContentTaskIdRequest $tmpReq
@@ -11730,23 +11943,23 @@ class Aliding extends OpenApiClient
         }
 
         if (null !== $headers->accountContextShrink) {
-            @$realHeaders['AccountContext'] = json_encode($headers->accountContextShrink, JSON_UNESCAPED_UNICODE + JSON_UNESCAPED_SLASHES);
+            @$realHeaders['AccountContext'] = json_encode($headers->accountContextShrink, \JSON_UNESCAPED_UNICODE + \JSON_UNESCAPED_SLASHES);
         }
 
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
-            'body'    => Utils::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'GetOrgOrWebOpenDocContentTaskId',
-            'version'     => '2023-04-26',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/dingtalk/v2/documents/getOrgOrWebOpenDocContentTaskId',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'GetOrgOrWebOpenDocContentTaskId',
+            'version' => '2023-04-26',
+            'protocol' => 'HTTPS',
+            'pathname' => '/dingtalk/v2/documents/getOrgOrWebOpenDocContentTaskId',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return GetOrgOrWebOpenDocContentTaskIdResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -11759,6 +11972,7 @@ class Aliding extends OpenApiClient
      * 委托权限获取组织或者互联网公开文档内容taskId.
      *
      * @param request - GetOrgOrWebOpenDocContentTaskIdRequest
+     *
      * @returns GetOrgOrWebOpenDocContentTaskIdResponse
      *
      * @param GetOrgOrWebOpenDocContentTaskIdRequest $request
@@ -11779,6 +11993,7 @@ class Aliding extends OpenApiClient
      * @param request - GetProcessDefinitionRequest
      * @param tmpHeader - GetProcessDefinitionHeaders
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns GetProcessDefinitionResponse
      *
      * @param GetProcessDefinitionRequest $request
@@ -11839,23 +12054,23 @@ class Aliding extends OpenApiClient
         }
 
         if (null !== $headers->accountContextShrink) {
-            @$realHeaders['AccountContext'] = json_encode($headers->accountContextShrink, JSON_UNESCAPED_UNICODE + JSON_UNESCAPED_SLASHES);
+            @$realHeaders['AccountContext'] = json_encode($headers->accountContextShrink, \JSON_UNESCAPED_UNICODE + \JSON_UNESCAPED_SLASHES);
         }
 
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
-            'body'    => Utils::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'GetProcessDefinition',
-            'version'     => '2023-04-26',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/dingtalk/v1/yida/getProcessDefinition',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'GetProcessDefinition',
+            'version' => '2023-04-26',
+            'protocol' => 'HTTPS',
+            'pathname' => '/dingtalk/v1/yida/getProcessDefinition',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return GetProcessDefinitionResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -11868,6 +12083,7 @@ class Aliding extends OpenApiClient
      * 获取流程定义.
      *
      * @param request - GetProcessDefinitionRequest
+     *
      * @returns GetProcessDefinitionResponse
      *
      * @param GetProcessDefinitionRequest $request
@@ -11888,6 +12104,7 @@ class Aliding extends OpenApiClient
      * @param tmpReq - GetRangeRequest
      * @param tmpHeader - GetRangeHeaders
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns GetRangeResponse
      *
      * @param GetRangeRequest $tmpReq
@@ -11938,23 +12155,23 @@ class Aliding extends OpenApiClient
         }
 
         if (null !== $headers->accountContextShrink) {
-            @$realHeaders['AccountContext'] = json_encode($headers->accountContextShrink, JSON_UNESCAPED_UNICODE + JSON_UNESCAPED_SLASHES);
+            @$realHeaders['AccountContext'] = json_encode($headers->accountContextShrink, \JSON_UNESCAPED_UNICODE + \JSON_UNESCAPED_SLASHES);
         }
 
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
-            'body'    => Utils::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'GetRange',
-            'version'     => '2023-04-26',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/dingtalk/v1/documents/getRange',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'GetRange',
+            'version' => '2023-04-26',
+            'protocol' => 'HTTPS',
+            'pathname' => '/dingtalk/v1/documents/getRange',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return GetRangeResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -11967,6 +12184,7 @@ class Aliding extends OpenApiClient
      * 获取单元格区域
      *
      * @param request - GetRangeRequest
+     *
      * @returns GetRangeResponse
      *
      * @param GetRangeRequest $request
@@ -11987,6 +12205,7 @@ class Aliding extends OpenApiClient
      * @param tmpReq - GetRelatedWorkspacesRequest
      * @param tmpHeader - GetRelatedWorkspacesHeaders
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns GetRelatedWorkspacesResponse
      *
      * @param GetRelatedWorkspacesRequest $tmpReq
@@ -12025,23 +12244,23 @@ class Aliding extends OpenApiClient
         }
 
         if (null !== $headers->accountContextShrink) {
-            @$realHeaders['AccountContext'] = json_encode($headers->accountContextShrink, JSON_UNESCAPED_UNICODE + JSON_UNESCAPED_SLASHES);
+            @$realHeaders['AccountContext'] = json_encode($headers->accountContextShrink, \JSON_UNESCAPED_UNICODE + \JSON_UNESCAPED_SLASHES);
         }
 
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
-            'body'    => Utils::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'GetRelatedWorkspaces',
-            'version'     => '2023-04-26',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/dingtalk/v1/documents/getRelatedWorkspaces',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'GetRelatedWorkspaces',
+            'version' => '2023-04-26',
+            'protocol' => 'HTTPS',
+            'pathname' => '/dingtalk/v1/documents/getRelatedWorkspaces',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return GetRelatedWorkspacesResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -12054,6 +12273,7 @@ class Aliding extends OpenApiClient
      * 查询用户有权限的知识库列表(旧).
      *
      * @param request - GetRelatedWorkspacesRequest
+     *
      * @returns GetRelatedWorkspacesResponse
      *
      * @param GetRelatedWorkspacesRequest $request
@@ -12074,6 +12294,7 @@ class Aliding extends OpenApiClient
      * @param tmpReq - GetReportTemplateByNameRequest
      * @param tmpHeader - GetReportTemplateByNameHeaders
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns GetReportTemplateByNameResponse
      *
      * @param GetReportTemplateByNameRequest $tmpReq
@@ -12112,23 +12333,23 @@ class Aliding extends OpenApiClient
         }
 
         if (null !== $headers->accountContextShrink) {
-            @$realHeaders['AccountContext'] = json_encode($headers->accountContextShrink, JSON_UNESCAPED_UNICODE + JSON_UNESCAPED_SLASHES);
+            @$realHeaders['AccountContext'] = json_encode($headers->accountContextShrink, \JSON_UNESCAPED_UNICODE + \JSON_UNESCAPED_SLASHES);
         }
 
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
-            'body'    => Utils::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'GetReportTemplateByName',
-            'version'     => '2023-04-26',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/dingtalk/v1/log/getReportTemplateByName',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'GetReportTemplateByName',
+            'version' => '2023-04-26',
+            'protocol' => 'HTTPS',
+            'pathname' => '/dingtalk/v1/log/getReportTemplateByName',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return GetReportTemplateByNameResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -12141,6 +12362,7 @@ class Aliding extends OpenApiClient
      * 获取模板详情.
      *
      * @param request - GetReportTemplateByNameRequest
+     *
      * @returns GetReportTemplateByNameResponse
      *
      * @param GetReportTemplateByNameRequest $request
@@ -12161,6 +12383,7 @@ class Aliding extends OpenApiClient
      * @param tmpReq - GetReportUnReadCountRequest
      * @param tmpHeader - GetReportUnReadCountHeaders
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns GetReportUnReadCountResponse
      *
      * @param GetReportUnReadCountRequest $tmpReq
@@ -12203,23 +12426,23 @@ class Aliding extends OpenApiClient
         }
 
         if (null !== $headers->accountContextShrink) {
-            @$realHeaders['AccountContext'] = json_encode($headers->accountContextShrink, JSON_UNESCAPED_UNICODE + JSON_UNESCAPED_SLASHES);
+            @$realHeaders['AccountContext'] = json_encode($headers->accountContextShrink, \JSON_UNESCAPED_UNICODE + \JSON_UNESCAPED_SLASHES);
         }
 
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
-            'body'    => Utils::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'GetReportUnReadCount',
-            'version'     => '2023-04-26',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/dingtalk/v1/log/getReportUnReadCount',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'GetReportUnReadCount',
+            'version' => '2023-04-26',
+            'protocol' => 'HTTPS',
+            'pathname' => '/dingtalk/v1/log/getReportUnReadCount',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return GetReportUnReadCountResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -12232,6 +12455,7 @@ class Aliding extends OpenApiClient
      * 获取员工有多少数量的日志（一个月内）是未读状态
      *
      * @param request - GetReportUnReadCountRequest
+     *
      * @returns GetReportUnReadCountResponse
      *
      * @param GetReportUnReadCountRequest $request
@@ -12252,6 +12476,7 @@ class Aliding extends OpenApiClient
      * @param request - GetRunningTasksRequest
      * @param tmpHeader - GetRunningTasksHeaders
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns GetRunningTasksResponse
      *
      * @param GetRunningTasksRequest $request
@@ -12296,23 +12521,23 @@ class Aliding extends OpenApiClient
         }
 
         if (null !== $headers->accountContextShrink) {
-            @$realHeaders['AccountContext'] = json_encode($headers->accountContextShrink, JSON_UNESCAPED_UNICODE + JSON_UNESCAPED_SLASHES);
+            @$realHeaders['AccountContext'] = json_encode($headers->accountContextShrink, \JSON_UNESCAPED_UNICODE + \JSON_UNESCAPED_SLASHES);
         }
 
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
-            'body'    => Utils::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'GetRunningTasks',
-            'version'     => '2023-04-26',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/dingtalk/v1/yida/getRunningTasks',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'GetRunningTasks',
+            'version' => '2023-04-26',
+            'protocol' => 'HTTPS',
+            'pathname' => '/dingtalk/v1/yida/getRunningTasks',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return GetRunningTasksResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -12325,6 +12550,7 @@ class Aliding extends OpenApiClient
      * 查询流程运行任务（VPC）.
      *
      * @param request - GetRunningTasksRequest
+     *
      * @returns GetRunningTasksResponse
      *
      * @param GetRunningTasksRequest $request
@@ -12345,6 +12571,7 @@ class Aliding extends OpenApiClient
      * @param tmpReq - GetScheduleRequest
      * @param tmpHeader - GetScheduleHeaders
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns GetScheduleResponse
      *
      * @param GetScheduleRequest $tmpReq
@@ -12395,23 +12622,23 @@ class Aliding extends OpenApiClient
         }
 
         if (null !== $headers->accountContextShrink) {
-            @$realHeaders['AccountContext'] = json_encode($headers->accountContextShrink, JSON_UNESCAPED_UNICODE + JSON_UNESCAPED_SLASHES);
+            @$realHeaders['AccountContext'] = json_encode($headers->accountContextShrink, \JSON_UNESCAPED_UNICODE + \JSON_UNESCAPED_SLASHES);
         }
 
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
-            'body'    => Utils::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'GetSchedule',
-            'version'     => '2023-04-26',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/dingtalk/v1/calendar/getSchedule',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'GetSchedule',
+            'version' => '2023-04-26',
+            'protocol' => 'HTTPS',
+            'pathname' => '/dingtalk/v1/calendar/getSchedule',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return GetScheduleResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -12424,6 +12651,7 @@ class Aliding extends OpenApiClient
      * 获取用户忙闲信息.
      *
      * @param request - GetScheduleRequest
+     *
      * @returns GetScheduleResponse
      *
      * @param GetScheduleRequest $request
@@ -12444,6 +12672,7 @@ class Aliding extends OpenApiClient
      * @param tmpReq - GetSheetRequest
      * @param tmpHeader - GetSheetHeaders
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns GetSheetResponse
      *
      * @param GetSheetRequest $tmpReq
@@ -12486,23 +12715,23 @@ class Aliding extends OpenApiClient
         }
 
         if (null !== $headers->accountContextShrink) {
-            @$realHeaders['AccountContext'] = json_encode($headers->accountContextShrink, JSON_UNESCAPED_UNICODE + JSON_UNESCAPED_SLASHES);
+            @$realHeaders['AccountContext'] = json_encode($headers->accountContextShrink, \JSON_UNESCAPED_UNICODE + \JSON_UNESCAPED_SLASHES);
         }
 
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
-            'body'    => Utils::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'GetSheet',
-            'version'     => '2023-04-26',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/dingtalk/v1/documents/getSheet',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'GetSheet',
+            'version' => '2023-04-26',
+            'protocol' => 'HTTPS',
+            'pathname' => '/dingtalk/v1/documents/getSheet',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return GetSheetResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -12515,6 +12744,7 @@ class Aliding extends OpenApiClient
      * 获取工作表.
      *
      * @param request - GetSheetRequest
+     *
      * @returns GetSheetResponse
      *
      * @param GetSheetRequest $request
@@ -12535,6 +12765,7 @@ class Aliding extends OpenApiClient
      * @param tmpReq - GetSheetContentJobIdRequest
      * @param tmpHeader - GetSheetContentJobIdHeaders
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns GetSheetContentJobIdResponse
      *
      * @param GetSheetContentJobIdRequest $tmpReq
@@ -12577,23 +12808,23 @@ class Aliding extends OpenApiClient
         }
 
         if (null !== $headers->accountContextShrink) {
-            @$realHeaders['AccountContext'] = json_encode($headers->accountContextShrink, JSON_UNESCAPED_UNICODE + JSON_UNESCAPED_SLASHES);
+            @$realHeaders['AccountContext'] = json_encode($headers->accountContextShrink, \JSON_UNESCAPED_UNICODE + \JSON_UNESCAPED_SLASHES);
         }
 
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
-            'body'    => Utils::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'GetSheetContentJobId',
-            'version'     => '2023-04-26',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/dingtalk/v2/documents/getSheetContentJobId',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'GetSheetContentJobId',
+            'version' => '2023-04-26',
+            'protocol' => 'HTTPS',
+            'pathname' => '/dingtalk/v2/documents/getSheetContentJobId',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return GetSheetContentJobIdResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -12606,6 +12837,7 @@ class Aliding extends OpenApiClient
      * 获取表格文档内容jobId.
      *
      * @param request - GetSheetContentJobIdRequest
+     *
      * @returns GetSheetContentJobIdResponse
      *
      * @param GetSheetContentJobIdRequest $request
@@ -12626,6 +12858,7 @@ class Aliding extends OpenApiClient
      * @param tmpReq - GetSpaceDirectoriesRequest
      * @param tmpHeader - GetSpaceDirectoriesHeaders
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns GetSpaceDirectoriesResponse
      *
      * @param GetSpaceDirectoriesRequest $tmpReq
@@ -12676,23 +12909,23 @@ class Aliding extends OpenApiClient
         }
 
         if (null !== $headers->accountContextShrink) {
-            @$realHeaders['AccountContext'] = json_encode($headers->accountContextShrink, JSON_UNESCAPED_UNICODE + JSON_UNESCAPED_SLASHES);
+            @$realHeaders['AccountContext'] = json_encode($headers->accountContextShrink, \JSON_UNESCAPED_UNICODE + \JSON_UNESCAPED_SLASHES);
         }
 
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
-            'body'    => Utils::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'GetSpaceDirectories',
-            'version'     => '2023-04-26',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/dingtalk/v2/documents/getSpaceDirectories',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'GetSpaceDirectories',
+            'version' => '2023-04-26',
+            'protocol' => 'HTTPS',
+            'pathname' => '/dingtalk/v2/documents/getSpaceDirectories',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return GetSpaceDirectoriesResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -12705,6 +12938,7 @@ class Aliding extends OpenApiClient
      * 查询知识库下的目录结构.
      *
      * @param request - GetSpaceDirectoriesRequest
+     *
      * @returns GetSpaceDirectoriesResponse
      *
      * @param GetSpaceDirectoriesRequest $request
@@ -12725,6 +12959,7 @@ class Aliding extends OpenApiClient
      * @param request - GetSubscribedCalendarRequest
      * @param tmpHeader - GetSubscribedCalendarHeaders
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns GetSubscribedCalendarResponse
      *
      * @param GetSubscribedCalendarRequest $request
@@ -12753,23 +12988,23 @@ class Aliding extends OpenApiClient
         }
 
         if (null !== $headers->accountContextShrink) {
-            @$realHeaders['AccountContext'] = json_encode($headers->accountContextShrink, JSON_UNESCAPED_UNICODE + JSON_UNESCAPED_SLASHES);
+            @$realHeaders['AccountContext'] = json_encode($headers->accountContextShrink, \JSON_UNESCAPED_UNICODE + \JSON_UNESCAPED_SLASHES);
         }
 
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
-            'body'    => Utils::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'GetSubscribedCalendar',
-            'version'     => '2023-04-26',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/dingtalk/v1/calendar/getSubscribedCalendar',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'GetSubscribedCalendar',
+            'version' => '2023-04-26',
+            'protocol' => 'HTTPS',
+            'pathname' => '/dingtalk/v1/calendar/getSubscribedCalendar',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return GetSubscribedCalendarResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -12782,6 +13017,7 @@ class Aliding extends OpenApiClient
      * 查询单个订阅日历详情.
      *
      * @param request - GetSubscribedCalendarRequest
+     *
      * @returns GetSubscribedCalendarResponse
      *
      * @param GetSubscribedCalendarRequest $request
@@ -12802,6 +13038,7 @@ class Aliding extends OpenApiClient
      * @param request - GetTaskCopiesRequest
      * @param tmpHeader - GetTaskCopiesHeaders
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns GetTaskCopiesResponse
      *
      * @param GetTaskCopiesRequest $request
@@ -12862,23 +13099,23 @@ class Aliding extends OpenApiClient
         }
 
         if (null !== $headers->accountContextShrink) {
-            @$realHeaders['AccountContext'] = json_encode($headers->accountContextShrink, JSON_UNESCAPED_UNICODE + JSON_UNESCAPED_SLASHES);
+            @$realHeaders['AccountContext'] = json_encode($headers->accountContextShrink, \JSON_UNESCAPED_UNICODE + \JSON_UNESCAPED_SLASHES);
         }
 
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
-            'body'    => Utils::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'GetTaskCopies',
-            'version'     => '2023-04-26',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/dingtalk/v1/yida/getTaskCopies',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'GetTaskCopies',
+            'version' => '2023-04-26',
+            'protocol' => 'HTTPS',
+            'pathname' => '/dingtalk/v1/yida/getTaskCopies',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return GetTaskCopiesResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -12891,6 +13128,7 @@ class Aliding extends OpenApiClient
      * 查询抄送我的任务列表（应用维度）.
      *
      * @param request - GetTaskCopiesRequest
+     *
      * @returns GetTaskCopiesResponse
      *
      * @param GetTaskCopiesRequest $request
@@ -12911,6 +13149,7 @@ class Aliding extends OpenApiClient
      * @param tmpReq - GetTemplateListByUserIdRequest
      * @param tmpHeader - GetTemplateListByUserIdHeaders
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns GetTemplateListByUserIdResponse
      *
      * @param GetTemplateListByUserIdRequest $tmpReq
@@ -12953,23 +13192,23 @@ class Aliding extends OpenApiClient
         }
 
         if (null !== $headers->accountContextShrink) {
-            @$realHeaders['AccountContext'] = json_encode($headers->accountContextShrink, JSON_UNESCAPED_UNICODE + JSON_UNESCAPED_SLASHES);
+            @$realHeaders['AccountContext'] = json_encode($headers->accountContextShrink, \JSON_UNESCAPED_UNICODE + \JSON_UNESCAPED_SLASHES);
         }
 
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
-            'body'    => Utils::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'GetTemplateListByUserId',
-            'version'     => '2023-04-26',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/dingtalk/v1/log/getTemplateListByUserId',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'GetTemplateListByUserId',
+            'version' => '2023-04-26',
+            'protocol' => 'HTTPS',
+            'pathname' => '/dingtalk/v1/log/getTemplateListByUserId',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return GetTemplateListByUserIdResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -12982,6 +13221,7 @@ class Aliding extends OpenApiClient
      * 获取用户可见的日志模板
      *
      * @param request - GetTemplateListByUserIdRequest
+     *
      * @returns GetTemplateListByUserIdResponse
      *
      * @param GetTemplateListByUserIdRequest $request
@@ -13002,6 +13242,7 @@ class Aliding extends OpenApiClient
      * @param tmpReq - GetTicketRequest
      * @param tmpHeader - GetTicketHeaders
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns GetTicketResponse
      *
      * @param GetTicketRequest $tmpReq
@@ -13044,23 +13285,23 @@ class Aliding extends OpenApiClient
         }
 
         if (null !== $headers->accountContextShrink) {
-            @$realHeaders['AccountContext'] = json_encode($headers->accountContextShrink, JSON_UNESCAPED_UNICODE + JSON_UNESCAPED_SLASHES);
+            @$realHeaders['AccountContext'] = json_encode($headers->accountContextShrink, \JSON_UNESCAPED_UNICODE + \JSON_UNESCAPED_SLASHES);
         }
 
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
-            'body'    => Utils::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'GetTicket',
-            'version'     => '2023-04-26',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/dingtalk/v1/ticket/getTicket',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'GetTicket',
+            'version' => '2023-04-26',
+            'protocol' => 'HTTPS',
+            'pathname' => '/dingtalk/v1/ticket/getTicket',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return GetTicketResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -13073,6 +13314,7 @@ class Aliding extends OpenApiClient
      * 获取指定工单详情.
      *
      * @param request - GetTicketRequest
+     *
      * @returns GetTicketResponse
      *
      * @param GetTicketRequest $request
@@ -13093,6 +13335,7 @@ class Aliding extends OpenApiClient
      * @param tmpReq - GetTodoTaskRequest
      * @param tmpHeader - GetTodoTaskHeaders
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns GetTodoTaskResponse
      *
      * @param GetTodoTaskRequest $tmpReq
@@ -13131,23 +13374,23 @@ class Aliding extends OpenApiClient
         }
 
         if (null !== $headers->accountContextShrink) {
-            @$realHeaders['AccountContext'] = json_encode($headers->accountContextShrink, JSON_UNESCAPED_UNICODE + JSON_UNESCAPED_SLASHES);
+            @$realHeaders['AccountContext'] = json_encode($headers->accountContextShrink, \JSON_UNESCAPED_UNICODE + \JSON_UNESCAPED_SLASHES);
         }
 
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
-            'body'    => Utils::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'GetTodoTask',
-            'version'     => '2023-04-26',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/dingtalk/v1/task/getTodoTask',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'GetTodoTask',
+            'version' => '2023-04-26',
+            'protocol' => 'HTTPS',
+            'pathname' => '/dingtalk/v1/task/getTodoTask',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return GetTodoTaskResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -13160,6 +13403,7 @@ class Aliding extends OpenApiClient
      * 获取钉钉待办任务详情.
      *
      * @param request - GetTodoTaskRequest
+     *
      * @returns GetTodoTaskResponse
      *
      * @param GetTodoTaskRequest $request
@@ -13180,6 +13424,7 @@ class Aliding extends OpenApiClient
      * @param tmpReq - GetUserRequest
      * @param tmpHeader - GetUserHeaders
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns GetUserResponse
      *
      * @param GetUserRequest $tmpReq
@@ -13218,23 +13463,23 @@ class Aliding extends OpenApiClient
         }
 
         if (null !== $headers->accountContextShrink) {
-            @$realHeaders['AccountContext'] = json_encode($headers->accountContextShrink, JSON_UNESCAPED_UNICODE + JSON_UNESCAPED_SLASHES);
+            @$realHeaders['AccountContext'] = json_encode($headers->accountContextShrink, \JSON_UNESCAPED_UNICODE + \JSON_UNESCAPED_SLASHES);
         }
 
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
-            'body'    => Utils::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'GetUser',
-            'version'     => '2023-04-26',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/dingtalk/v1/im/getUser',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'GetUser',
+            'version' => '2023-04-26',
+            'protocol' => 'HTTPS',
+            'pathname' => '/dingtalk/v1/im/getUser',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return GetUserResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -13247,6 +13492,7 @@ class Aliding extends OpenApiClient
      * 获取专属账号信息.
      *
      * @param request - GetUserRequest
+     *
      * @returns GetUserResponse
      *
      * @param GetUserRequest $request
@@ -13267,6 +13513,7 @@ class Aliding extends OpenApiClient
      * @param tmpReq - GetUserIdRequest
      * @param tmpHeader - GetUserIdHeaders
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns GetUserIdResponse
      *
      * @param GetUserIdRequest $tmpReq
@@ -13305,23 +13552,23 @@ class Aliding extends OpenApiClient
         }
 
         if (null !== $headers->accountContextShrink) {
-            @$realHeaders['AccountContext'] = json_encode($headers->accountContextShrink, JSON_UNESCAPED_UNICODE + JSON_UNESCAPED_SLASHES);
+            @$realHeaders['AccountContext'] = json_encode($headers->accountContextShrink, \JSON_UNESCAPED_UNICODE + \JSON_UNESCAPED_SLASHES);
         }
 
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
-            'body'    => Utils::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'GetUserId',
-            'version'     => '2023-04-26',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/dingtalk/v1/im/getUserId',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'GetUserId',
+            'version' => '2023-04-26',
+            'protocol' => 'HTTPS',
+            'pathname' => '/dingtalk/v1/im/getUserId',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return GetUserIdResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -13334,6 +13581,7 @@ class Aliding extends OpenApiClient
      * 根据unionId获取用户userId.
      *
      * @param request - GetUserIdRequest
+     *
      * @returns GetUserIdResponse
      *
      * @param GetUserIdRequest $request
@@ -13354,6 +13602,7 @@ class Aliding extends OpenApiClient
      * @param tmpReq - GetUserIdByOrgIdAndStaffIdRequest
      * @param tmpHeader - GetUserIdByOrgIdAndStaffIdHeaders
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns GetUserIdByOrgIdAndStaffIdResponse
      *
      * @param GetUserIdByOrgIdAndStaffIdRequest $tmpReq
@@ -13392,23 +13641,23 @@ class Aliding extends OpenApiClient
         }
 
         if (null !== $headers->accountContextShrink) {
-            @$realHeaders['AccountContext'] = json_encode($headers->accountContextShrink, JSON_UNESCAPED_UNICODE + JSON_UNESCAPED_SLASHES);
+            @$realHeaders['AccountContext'] = json_encode($headers->accountContextShrink, \JSON_UNESCAPED_UNICODE + \JSON_UNESCAPED_SLASHES);
         }
 
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
-            'body'    => Utils::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'GetUserIdByOrgIdAndStaffId',
-            'version'     => '2023-04-26',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/dingtalk/v1/im/getUserIdByOrgIdAndStaffId',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'GetUserIdByOrgIdAndStaffId',
+            'version' => '2023-04-26',
+            'protocol' => 'HTTPS',
+            'pathname' => '/dingtalk/v1/im/getUserIdByOrgIdAndStaffId',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return GetUserIdByOrgIdAndStaffIdResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -13421,6 +13670,7 @@ class Aliding extends OpenApiClient
      * 根据orgId和staffId获取用户userId.
      *
      * @param request - GetUserIdByOrgIdAndStaffIdRequest
+     *
      * @returns GetUserIdByOrgIdAndStaffIdResponse
      *
      * @param GetUserIdByOrgIdAndStaffIdRequest $request
@@ -13441,6 +13691,7 @@ class Aliding extends OpenApiClient
      * @param tmpReq - GetUserLatestPlanRequest
      * @param tmpHeader - GetUserLatestPlanHeaders
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns GetUserLatestPlanResponse
      *
      * @param GetUserLatestPlanRequest $tmpReq
@@ -13475,23 +13726,23 @@ class Aliding extends OpenApiClient
         }
 
         if (null !== $headers->accountContextShrink) {
-            @$realHeaders['AccountContext'] = json_encode($headers->accountContextShrink, JSON_UNESCAPED_UNICODE + JSON_UNESCAPED_SLASHES);
+            @$realHeaders['AccountContext'] = json_encode($headers->accountContextShrink, \JSON_UNESCAPED_UNICODE + \JSON_UNESCAPED_SLASHES);
         }
 
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
-            'body'    => Utils::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'GetUserLatestPlan',
-            'version'     => '2023-04-26',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/aliding/v1/indepding/getUserLatestPlan',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'GetUserLatestPlan',
+            'version' => '2023-04-26',
+            'protocol' => 'HTTPS',
+            'pathname' => '/aliding/v1/indepding/getUserLatestPlan',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return GetUserLatestPlanResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -13504,6 +13755,7 @@ class Aliding extends OpenApiClient
      * 获取用户最新的有效的专属账号迁移方案.
      *
      * @param request - GetUserLatestPlanRequest
+     *
      * @returns GetUserLatestPlanResponse
      *
      * @param GetUserLatestPlanRequest $request
@@ -13524,6 +13776,7 @@ class Aliding extends OpenApiClient
      * @param tmpReq - GetWorkspaceRequest
      * @param tmpHeader - GetWorkspaceHeaders
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns GetWorkspaceResponse
      *
      * @param GetWorkspaceRequest $tmpReq
@@ -13566,23 +13819,23 @@ class Aliding extends OpenApiClient
         }
 
         if (null !== $headers->accountContextShrink) {
-            @$realHeaders['AccountContext'] = json_encode($headers->accountContextShrink, JSON_UNESCAPED_UNICODE + JSON_UNESCAPED_SLASHES);
+            @$realHeaders['AccountContext'] = json_encode($headers->accountContextShrink, \JSON_UNESCAPED_UNICODE + \JSON_UNESCAPED_SLASHES);
         }
 
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
-            'body'    => Utils::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'GetWorkspace',
-            'version'     => '2023-04-26',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/dingtalk/v2/documents/getWorkspace',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'GetWorkspace',
+            'version' => '2023-04-26',
+            'protocol' => 'HTTPS',
+            'pathname' => '/dingtalk/v2/documents/getWorkspace',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return GetWorkspaceResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -13595,6 +13848,7 @@ class Aliding extends OpenApiClient
      * 获取知识库.
      *
      * @param request - GetWorkspaceRequest
+     *
      * @returns GetWorkspaceResponse
      *
      * @param GetWorkspaceRequest $request
@@ -13615,6 +13869,7 @@ class Aliding extends OpenApiClient
      * @param tmpReq - GetWorkspacesRequest
      * @param tmpHeader - GetWorkspacesHeaders
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns GetWorkspacesResponse
      *
      * @param GetWorkspacesRequest $tmpReq
@@ -13665,23 +13920,23 @@ class Aliding extends OpenApiClient
         }
 
         if (null !== $headers->accountContextShrink) {
-            @$realHeaders['AccountContext'] = json_encode($headers->accountContextShrink, JSON_UNESCAPED_UNICODE + JSON_UNESCAPED_SLASHES);
+            @$realHeaders['AccountContext'] = json_encode($headers->accountContextShrink, \JSON_UNESCAPED_UNICODE + \JSON_UNESCAPED_SLASHES);
         }
 
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
-            'body'    => Utils::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'GetWorkspaces',
-            'version'     => '2023-04-26',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/dingtalk/v2/documents/getWorkspaces',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'GetWorkspaces',
+            'version' => '2023-04-26',
+            'protocol' => 'HTTPS',
+            'pathname' => '/dingtalk/v2/documents/getWorkspaces',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return GetWorkspacesResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -13694,6 +13949,7 @@ class Aliding extends OpenApiClient
      * 批量获取知识库.
      *
      * @param request - GetWorkspacesRequest
+     *
      * @returns GetWorkspacesResponse
      *
      * @param GetWorkspacesRequest $request
@@ -13714,6 +13970,7 @@ class Aliding extends OpenApiClient
      * @param tmpReq - GrantHonorRequest
      * @param tmpHeader - GrantHonorHeaders
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns GrantHonorResponse
      *
      * @param GrantHonorRequest $tmpReq
@@ -13796,23 +14053,23 @@ class Aliding extends OpenApiClient
         }
 
         if (null !== $headers->accountContextShrink) {
-            @$realHeaders['AccountContext'] = json_encode($headers->accountContextShrink, JSON_UNESCAPED_UNICODE + JSON_UNESCAPED_SLASHES);
+            @$realHeaders['AccountContext'] = json_encode($headers->accountContextShrink, \JSON_UNESCAPED_UNICODE + \JSON_UNESCAPED_SLASHES);
         }
 
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
-            'body'    => Utils::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'GrantHonor',
-            'version'     => '2023-04-26',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/aliding/v1/honor/grantHonor',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'GrantHonor',
+            'version' => '2023-04-26',
+            'protocol' => 'HTTPS',
+            'pathname' => '/aliding/v1/honor/grantHonor',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return GrantHonorResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -13825,6 +14082,7 @@ class Aliding extends OpenApiClient
      * 授予勋章.
      *
      * @param request - GrantHonorRequest
+     *
      * @returns GrantHonorResponse
      *
      * @param GrantHonorRequest $request
@@ -13845,6 +14103,7 @@ class Aliding extends OpenApiClient
      * @param tmpReq - InitMultipartFileUploadRequest
      * @param tmpHeader - InitMultipartFileUploadHeaders
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns InitMultipartFileUploadResponse
      *
      * @param InitMultipartFileUploadRequest $tmpReq
@@ -13891,23 +14150,23 @@ class Aliding extends OpenApiClient
         }
 
         if (null !== $headers->accountContextShrink) {
-            @$realHeaders['AccountContext'] = json_encode($headers->accountContextShrink, JSON_UNESCAPED_UNICODE + JSON_UNESCAPED_SLASHES);
+            @$realHeaders['AccountContext'] = json_encode($headers->accountContextShrink, \JSON_UNESCAPED_UNICODE + \JSON_UNESCAPED_SLASHES);
         }
 
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
-            'body'    => Utils::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'InitMultipartFileUpload',
-            'version'     => '2023-04-26',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/dingtalk/v1/documents/initMultipartFileUpload',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'InitMultipartFileUpload',
+            'version' => '2023-04-26',
+            'protocol' => 'HTTPS',
+            'pathname' => '/dingtalk/v1/documents/initMultipartFileUpload',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return InitMultipartFileUploadResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -13920,6 +14179,7 @@ class Aliding extends OpenApiClient
      * 初始化文件分片上传.
      *
      * @param request - InitMultipartFileUploadRequest
+     *
      * @returns InitMultipartFileUploadResponse
      *
      * @param InitMultipartFileUploadRequest $request
@@ -13940,6 +14200,7 @@ class Aliding extends OpenApiClient
      * @param tmpReq - InsertColumnsBeforeRequest
      * @param tmpHeader - InsertColumnsBeforeHeaders
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns InsertColumnsBeforeResponse
      *
      * @param InsertColumnsBeforeRequest $tmpReq
@@ -13990,23 +14251,23 @@ class Aliding extends OpenApiClient
         }
 
         if (null !== $headers->accountContextShrink) {
-            @$realHeaders['AccountContext'] = json_encode($headers->accountContextShrink, JSON_UNESCAPED_UNICODE + JSON_UNESCAPED_SLASHES);
+            @$realHeaders['AccountContext'] = json_encode($headers->accountContextShrink, \JSON_UNESCAPED_UNICODE + \JSON_UNESCAPED_SLASHES);
         }
 
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
-            'body'    => Utils::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'InsertColumnsBefore',
-            'version'     => '2023-04-26',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/dingtalk/v1/documents/insertColumnsBefore',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'InsertColumnsBefore',
+            'version' => '2023-04-26',
+            'protocol' => 'HTTPS',
+            'pathname' => '/dingtalk/v1/documents/insertColumnsBefore',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return InsertColumnsBeforeResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -14019,6 +14280,7 @@ class Aliding extends OpenApiClient
      * 在指定列左侧插入若干列.
      *
      * @param request - InsertColumnsBeforeRequest
+     *
      * @returns InsertColumnsBeforeResponse
      *
      * @param InsertColumnsBeforeRequest $request
@@ -14039,6 +14301,7 @@ class Aliding extends OpenApiClient
      * @param tmpReq - InsertRowsBeforeRequest
      * @param tmpHeader - InsertRowsBeforeHeaders
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns InsertRowsBeforeResponse
      *
      * @param InsertRowsBeforeRequest $tmpReq
@@ -14089,23 +14352,23 @@ class Aliding extends OpenApiClient
         }
 
         if (null !== $headers->accountContextShrink) {
-            @$realHeaders['AccountContext'] = json_encode($headers->accountContextShrink, JSON_UNESCAPED_UNICODE + JSON_UNESCAPED_SLASHES);
+            @$realHeaders['AccountContext'] = json_encode($headers->accountContextShrink, \JSON_UNESCAPED_UNICODE + \JSON_UNESCAPED_SLASHES);
         }
 
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
-            'body'    => Utils::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'InsertRowsBefore',
-            'version'     => '2023-04-26',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/dingtalk/v1/documents/insertRowsBefore',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'InsertRowsBefore',
+            'version' => '2023-04-26',
+            'protocol' => 'HTTPS',
+            'pathname' => '/dingtalk/v1/documents/insertRowsBefore',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return InsertRowsBeforeResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -14118,6 +14381,7 @@ class Aliding extends OpenApiClient
      * 在指定行上方插入若干行.
      *
      * @param request - InsertRowsBeforeRequest
+     *
      * @returns InsertRowsBeforeResponse
      *
      * @param InsertRowsBeforeRequest $request
@@ -14138,6 +14402,7 @@ class Aliding extends OpenApiClient
      * @param tmpReq - InviteUsersRequest
      * @param tmpHeader - InviteUsersHeaders
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns InviteUsersResponse
      *
      * @param InviteUsersRequest $tmpReq
@@ -14192,23 +14457,23 @@ class Aliding extends OpenApiClient
         }
 
         if (null !== $headers->accountContextShrink) {
-            @$realHeaders['AccountContext'] = json_encode($headers->accountContextShrink, JSON_UNESCAPED_UNICODE + JSON_UNESCAPED_SLASHES);
+            @$realHeaders['AccountContext'] = json_encode($headers->accountContextShrink, \JSON_UNESCAPED_UNICODE + \JSON_UNESCAPED_SLASHES);
         }
 
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
-            'body'    => Utils::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'InviteUsers',
-            'version'     => '2023-04-26',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/dingtalk/v1/ysp/inviteUsers',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'InviteUsers',
+            'version' => '2023-04-26',
+            'protocol' => 'HTTPS',
+            'pathname' => '/dingtalk/v1/ysp/inviteUsers',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return InviteUsersResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -14221,6 +14486,7 @@ class Aliding extends OpenApiClient
      * 邀请用户入会.
      *
      * @param request - InviteUsersRequest
+     *
      * @returns InviteUsersResponse
      *
      * @param InviteUsersRequest $request
@@ -14241,6 +14507,7 @@ class Aliding extends OpenApiClient
      * @param request - InvokeAssistantRequest
      * @param headers - InvokeAssistantHeaders
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns InvokeAssistantResponse
      *
      * @param InvokeAssistantRequest $request
@@ -14284,18 +14551,18 @@ class Aliding extends OpenApiClient
 
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
-            'body'    => Utils::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'InvokeAssistant',
-            'version'     => '2023-04-26',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/ai/v1/assistant/invokeAssistant',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'InvokeAssistant',
+            'version' => '2023-04-26',
+            'protocol' => 'HTTPS',
+            'pathname' => '/ai/v1/assistant/invokeAssistant',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return InvokeAssistantResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -14308,6 +14575,7 @@ class Aliding extends OpenApiClient
      * 调用助理.
      *
      * @param request - InvokeAssistantRequest
+     *
      * @returns InvokeAssistantResponse
      *
      * @param InvokeAssistantRequest $request
@@ -14328,6 +14596,7 @@ class Aliding extends OpenApiClient
      * @param tmpReq - InvokeSkillRequest
      * @param tmpHeader - InvokeSkillHeaders
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns InvokeSkillResponse
      *
      * @param InvokeSkillRequest $tmpReq
@@ -14366,23 +14635,23 @@ class Aliding extends OpenApiClient
         }
 
         if (null !== $headers->accountContextShrink) {
-            @$realHeaders['AccountContext'] = json_encode($headers->accountContextShrink, JSON_UNESCAPED_UNICODE + JSON_UNESCAPED_SLASHES);
+            @$realHeaders['AccountContext'] = json_encode($headers->accountContextShrink, \JSON_UNESCAPED_UNICODE + \JSON_UNESCAPED_SLASHES);
         }
 
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
-            'body'    => Utils::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'InvokeSkill',
-            'version'     => '2023-04-26',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/ai/v1/skill/invoke',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'InvokeSkill',
+            'version' => '2023-04-26',
+            'protocol' => 'HTTPS',
+            'pathname' => '/ai/v1/skill/invoke',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return InvokeSkillResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -14395,6 +14664,7 @@ class Aliding extends OpenApiClient
      * 调用AI技能.
      *
      * @param request - InvokeSkillRequest
+     *
      * @returns InvokeSkillResponse
      *
      * @param InvokeSkillRequest $request
@@ -14415,6 +14685,7 @@ class Aliding extends OpenApiClient
      * @param request - ListApplicationRequest
      * @param tmpHeader - ListApplicationHeaders
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ListApplicationResponse
      *
      * @param ListApplicationRequest $request
@@ -14463,23 +14734,23 @@ class Aliding extends OpenApiClient
         }
 
         if (null !== $headers->accountContextShrink) {
-            @$realHeaders['AccountContext'] = json_encode($headers->accountContextShrink, JSON_UNESCAPED_UNICODE + JSON_UNESCAPED_SLASHES);
+            @$realHeaders['AccountContext'] = json_encode($headers->accountContextShrink, \JSON_UNESCAPED_UNICODE + \JSON_UNESCAPED_SLASHES);
         }
 
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
-            'body'    => Utils::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'ListApplication',
-            'version'     => '2023-04-26',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/dingtalk/v1/yida/listApplication',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'ListApplication',
+            'version' => '2023-04-26',
+            'protocol' => 'HTTPS',
+            'pathname' => '/dingtalk/v1/yida/listApplication',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return ListApplicationResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -14492,6 +14763,7 @@ class Aliding extends OpenApiClient
      * 查询宜搭应用列表.
      *
      * @param request - ListApplicationRequest
+     *
      * @returns ListApplicationResponse
      *
      * @param ListApplicationRequest $request
@@ -14512,6 +14784,7 @@ class Aliding extends OpenApiClient
      * @param tmpReq - ListCalendarsRequest
      * @param tmpHeader - ListCalendarsHeaders
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ListCalendarsResponse
      *
      * @param ListCalendarsRequest $tmpReq
@@ -14546,23 +14819,23 @@ class Aliding extends OpenApiClient
         }
 
         if (null !== $headers->accountContextShrink) {
-            @$realHeaders['AccountContext'] = json_encode($headers->accountContextShrink, JSON_UNESCAPED_UNICODE + JSON_UNESCAPED_SLASHES);
+            @$realHeaders['AccountContext'] = json_encode($headers->accountContextShrink, \JSON_UNESCAPED_UNICODE + \JSON_UNESCAPED_SLASHES);
         }
 
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
-            'body'    => Utils::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'ListCalendars',
-            'version'     => '2023-04-26',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/dingtalk/v1/calendar/listCalendars',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'ListCalendars',
+            'version' => '2023-04-26',
+            'protocol' => 'HTTPS',
+            'pathname' => '/dingtalk/v1/calendar/listCalendars',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return ListCalendarsResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -14575,6 +14848,7 @@ class Aliding extends OpenApiClient
      * 查询日历.
      *
      * @param request - ListCalendarsRequest
+     *
      * @returns ListCalendarsResponse
      *
      * @param ListCalendarsRequest $request
@@ -14595,6 +14869,7 @@ class Aliding extends OpenApiClient
      * @param tmpReq - ListDentriesRequest
      * @param tmpHeader - ListDentriesHeaders
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ListDentriesResponse
      *
      * @param ListDentriesRequest $tmpReq
@@ -14657,23 +14932,23 @@ class Aliding extends OpenApiClient
         }
 
         if (null !== $headers->accountContextShrink) {
-            @$realHeaders['AccountContext'] = json_encode($headers->accountContextShrink, JSON_UNESCAPED_UNICODE + JSON_UNESCAPED_SLASHES);
+            @$realHeaders['AccountContext'] = json_encode($headers->accountContextShrink, \JSON_UNESCAPED_UNICODE + \JSON_UNESCAPED_SLASHES);
         }
 
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
-            'body'    => Utils::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'ListDentries',
-            'version'     => '2023-04-26',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/dingtalk/v1/documents/listDentries',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'ListDentries',
+            'version' => '2023-04-26',
+            'protocol' => 'HTTPS',
+            'pathname' => '/dingtalk/v1/documents/listDentries',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return ListDentriesResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -14686,6 +14961,7 @@ class Aliding extends OpenApiClient
      * 获取文件或文件夹列表.
      *
      * @param request - ListDentriesRequest
+     *
      * @returns ListDentriesResponse
      *
      * @param ListDentriesRequest $request
@@ -14706,6 +14982,7 @@ class Aliding extends OpenApiClient
      * @param tmpReq - ListDriveSpacesRequest
      * @param tmpHeader - ListDriveSpacesHeaders
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ListDriveSpacesResponse
      *
      * @param ListDriveSpacesRequest $tmpReq
@@ -14752,23 +15029,23 @@ class Aliding extends OpenApiClient
         }
 
         if (null !== $headers->accountContextShrink) {
-            @$realHeaders['AccountContext'] = json_encode($headers->accountContextShrink, JSON_UNESCAPED_UNICODE + JSON_UNESCAPED_SLASHES);
+            @$realHeaders['AccountContext'] = json_encode($headers->accountContextShrink, \JSON_UNESCAPED_UNICODE + \JSON_UNESCAPED_SLASHES);
         }
 
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
-            'body'    => Utils::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'ListDriveSpaces',
-            'version'     => '2023-04-26',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/dingtalk/v1/documents/listDriveSpaces',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'ListDriveSpaces',
+            'version' => '2023-04-26',
+            'protocol' => 'HTTPS',
+            'pathname' => '/dingtalk/v1/documents/listDriveSpaces',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return ListDriveSpacesResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -14781,6 +15058,7 @@ class Aliding extends OpenApiClient
      * 获取钉盘空间列表.
      *
      * @param request - ListDriveSpacesRequest
+     *
      * @returns ListDriveSpacesResponse
      *
      * @param ListDriveSpacesRequest $request
@@ -14801,6 +15079,7 @@ class Aliding extends OpenApiClient
      * @param request - ListEventsRequest
      * @param tmpHeader - ListEventsHeaders
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ListEventsResponse
      *
      * @param ListEventsRequest $request
@@ -14861,23 +15140,23 @@ class Aliding extends OpenApiClient
         }
 
         if (null !== $headers->accountContextShrink) {
-            @$realHeaders['AccountContext'] = json_encode($headers->accountContextShrink, JSON_UNESCAPED_UNICODE + JSON_UNESCAPED_SLASHES);
+            @$realHeaders['AccountContext'] = json_encode($headers->accountContextShrink, \JSON_UNESCAPED_UNICODE + \JSON_UNESCAPED_SLASHES);
         }
 
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
-            'body'    => Utils::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'ListEvents',
-            'version'     => '2023-04-26',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/dingtalk/v1/calendar/listEvents',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'ListEvents',
+            'version' => '2023-04-26',
+            'protocol' => 'HTTPS',
+            'pathname' => '/dingtalk/v1/calendar/listEvents',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return ListEventsResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -14890,6 +15169,7 @@ class Aliding extends OpenApiClient
      * 查询日程列表.
      *
      * @param request - ListEventsRequest
+     *
      * @returns ListEventsResponse
      *
      * @param ListEventsRequest $request
@@ -14910,6 +15190,7 @@ class Aliding extends OpenApiClient
      * @param request - ListEventsViewRequest
      * @param tmpHeader - ListEventsViewHeaders
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ListEventsViewResponse
      *
      * @param ListEventsViewRequest $request
@@ -14958,23 +15239,23 @@ class Aliding extends OpenApiClient
         }
 
         if (null !== $headers->accountContextShrink) {
-            @$realHeaders['AccountContext'] = json_encode($headers->accountContextShrink, JSON_UNESCAPED_UNICODE + JSON_UNESCAPED_SLASHES);
+            @$realHeaders['AccountContext'] = json_encode($headers->accountContextShrink, \JSON_UNESCAPED_UNICODE + \JSON_UNESCAPED_SLASHES);
         }
 
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
-            'body'    => Utils::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'ListEventsView',
-            'version'     => '2023-04-26',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/dingtalk/v1/calendar/listEventsView',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'ListEventsView',
+            'version' => '2023-04-26',
+            'protocol' => 'HTTPS',
+            'pathname' => '/dingtalk/v1/calendar/listEventsView',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return ListEventsViewResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -14987,6 +15268,7 @@ class Aliding extends OpenApiClient
      * 查询日程视图.
      *
      * @param request - ListEventsViewRequest
+     *
      * @returns ListEventsViewResponse
      *
      * @param ListEventsViewRequest $request
@@ -15007,6 +15289,7 @@ class Aliding extends OpenApiClient
      * @param tmpReq - ListFormRemarksRequest
      * @param tmpHeader - ListFormRemarksHeaders
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ListFormRemarksResponse
      *
      * @param ListFormRemarksRequest $tmpReq
@@ -15053,23 +15336,23 @@ class Aliding extends OpenApiClient
         }
 
         if (null !== $headers->accountContextShrink) {
-            @$realHeaders['AccountContext'] = json_encode($headers->accountContextShrink, JSON_UNESCAPED_UNICODE + JSON_UNESCAPED_SLASHES);
+            @$realHeaders['AccountContext'] = json_encode($headers->accountContextShrink, \JSON_UNESCAPED_UNICODE + \JSON_UNESCAPED_SLASHES);
         }
 
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
-            'body'    => Utils::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'ListFormRemarks',
-            'version'     => '2023-04-26',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/dingtalk/v1/yida/listFormRemarks',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'ListFormRemarks',
+            'version' => '2023-04-26',
+            'protocol' => 'HTTPS',
+            'pathname' => '/dingtalk/v1/yida/listFormRemarks',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return ListFormRemarksResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -15082,6 +15365,7 @@ class Aliding extends OpenApiClient
      * 批量查询宜搭表单实例的评论.
      *
      * @param request - ListFormRemarksRequest
+     *
      * @returns ListFormRemarksResponse
      *
      * @param ListFormRemarksRequest $request
@@ -15102,6 +15386,7 @@ class Aliding extends OpenApiClient
      * @param request - ListMessageRequest
      * @param headers - ListMessageHeaders
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ListMessageResponse
      *
      * @param ListMessageRequest $request
@@ -15149,18 +15434,18 @@ class Aliding extends OpenApiClient
 
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
-            'body'    => Utils::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'ListMessage',
-            'version'     => '2023-04-26',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/ai/v1/assistant/listMessage',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'ListMessage',
+            'version' => '2023-04-26',
+            'protocol' => 'HTTPS',
+            'pathname' => '/ai/v1/assistant/listMessage',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return ListMessageResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -15173,6 +15458,7 @@ class Aliding extends OpenApiClient
      * 查询消息.
      *
      * @param request - ListMessageRequest
+     *
      * @returns ListMessageResponse
      *
      * @param ListMessageRequest $request
@@ -15193,6 +15479,7 @@ class Aliding extends OpenApiClient
      * @param tmpReq - ListMultiDimTableRecordsRequest
      * @param tmpHeader - ListMultiDimTableRecordsHeaders
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ListMultiDimTableRecordsResponse
      *
      * @param ListMultiDimTableRecordsRequest $tmpReq
@@ -15251,23 +15538,23 @@ class Aliding extends OpenApiClient
         }
 
         if (null !== $headers->accountContextShrink) {
-            @$realHeaders['AccountContext'] = json_encode($headers->accountContextShrink, JSON_UNESCAPED_UNICODE + JSON_UNESCAPED_SLASHES);
+            @$realHeaders['AccountContext'] = json_encode($headers->accountContextShrink, \JSON_UNESCAPED_UNICODE + \JSON_UNESCAPED_SLASHES);
         }
 
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
-            'body'    => Utils::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'ListMultiDimTableRecords',
-            'version'     => '2023-04-26',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/dingtalk/v1/table/listMultiDimTableRecords',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'ListMultiDimTableRecords',
+            'version' => '2023-04-26',
+            'protocol' => 'HTTPS',
+            'pathname' => '/dingtalk/v1/table/listMultiDimTableRecords',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return ListMultiDimTableRecordsResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -15280,6 +15567,7 @@ class Aliding extends OpenApiClient
      * 列出多行记录.
      *
      * @param request - ListMultiDimTableRecordsRequest
+     *
      * @returns ListMultiDimTableRecordsResponse
      *
      * @param ListMultiDimTableRecordsRequest $request
@@ -15300,6 +15588,7 @@ class Aliding extends OpenApiClient
      * @param request - ListNavigationByFormTypeRequest
      * @param tmpHeader - ListNavigationByFormTypeHeaders
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ListNavigationByFormTypeResponse
      *
      * @param ListNavigationByFormTypeRequest $request
@@ -15340,23 +15629,23 @@ class Aliding extends OpenApiClient
         }
 
         if (null !== $headers->accountContextShrink) {
-            @$realHeaders['AccountContext'] = json_encode($headers->accountContextShrink, JSON_UNESCAPED_UNICODE + JSON_UNESCAPED_SLASHES);
+            @$realHeaders['AccountContext'] = json_encode($headers->accountContextShrink, \JSON_UNESCAPED_UNICODE + \JSON_UNESCAPED_SLASHES);
         }
 
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
-            'body'    => Utils::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'ListNavigationByFormType',
-            'version'     => '2023-04-26',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/dingtalk/v1/yida/listNavigationByFormType',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'ListNavigationByFormType',
+            'version' => '2023-04-26',
+            'protocol' => 'HTTPS',
+            'pathname' => '/dingtalk/v1/yida/listNavigationByFormType',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return ListNavigationByFormTypeResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -15369,6 +15658,7 @@ class Aliding extends OpenApiClient
      * 获取应用下的页面列表.
      *
      * @param request - ListNavigationByFormTypeRequest
+     *
      * @returns ListNavigationByFormTypeResponse
      *
      * @param ListNavigationByFormTypeRequest $request
@@ -15389,6 +15679,7 @@ class Aliding extends OpenApiClient
      * @param tmpReq - ListNodesRequest
      * @param tmpHeader - ListNodesHeaders
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ListNodesResponse
      *
      * @param ListNodesRequest $tmpReq
@@ -15439,23 +15730,23 @@ class Aliding extends OpenApiClient
         }
 
         if (null !== $headers->accountContextShrink) {
-            @$realHeaders['AccountContext'] = json_encode($headers->accountContextShrink, JSON_UNESCAPED_UNICODE + JSON_UNESCAPED_SLASHES);
+            @$realHeaders['AccountContext'] = json_encode($headers->accountContextShrink, \JSON_UNESCAPED_UNICODE + \JSON_UNESCAPED_SLASHES);
         }
 
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
-            'body'    => Utils::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'ListNodes',
-            'version'     => '2023-04-26',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/dingtalk/v2/documents/listNodes',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'ListNodes',
+            'version' => '2023-04-26',
+            'protocol' => 'HTTPS',
+            'pathname' => '/dingtalk/v2/documents/listNodes',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return ListNodesResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -15468,6 +15759,7 @@ class Aliding extends OpenApiClient
      * 获取节点列表.
      *
      * @param request - ListNodesRequest
+     *
      * @returns ListNodesResponse
      *
      * @param ListNodesRequest $request
@@ -15488,6 +15780,7 @@ class Aliding extends OpenApiClient
      * @param tmpReq - ListReportRequest
      * @param tmpHeader - ListReportHeaders
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ListReportResponse
      *
      * @param ListReportRequest $tmpReq
@@ -15550,23 +15843,23 @@ class Aliding extends OpenApiClient
         }
 
         if (null !== $headers->accountContextShrink) {
-            @$realHeaders['AccountContext'] = json_encode($headers->accountContextShrink, JSON_UNESCAPED_UNICODE + JSON_UNESCAPED_SLASHES);
+            @$realHeaders['AccountContext'] = json_encode($headers->accountContextShrink, \JSON_UNESCAPED_UNICODE + \JSON_UNESCAPED_SLASHES);
         }
 
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
-            'body'    => Utils::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'ListReport',
-            'version'     => '2023-04-26',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/dingtalk/v1/log/listReport',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'ListReport',
+            'version' => '2023-04-26',
+            'protocol' => 'HTTPS',
+            'pathname' => '/dingtalk/v1/log/listReport',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return ListReportResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -15579,6 +15872,7 @@ class Aliding extends OpenApiClient
      * 获取用户发出的日志列表.
      *
      * @param request - ListReportRequest
+     *
      * @returns ListReportResponse
      *
      * @param ListReportRequest $request
@@ -15599,6 +15893,7 @@ class Aliding extends OpenApiClient
      * @param request - ListTableDataByFormInstanceIdTableIdRequest
      * @param tmpHeader - ListTableDataByFormInstanceIdTableIdHeaders
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ListTableDataByFormInstanceIdTableIdResponse
      *
      * @param ListTableDataByFormInstanceIdTableIdRequest $request
@@ -15651,23 +15946,23 @@ class Aliding extends OpenApiClient
         }
 
         if (null !== $headers->accountContextShrink) {
-            @$realHeaders['AccountContext'] = json_encode($headers->accountContextShrink, JSON_UNESCAPED_UNICODE + JSON_UNESCAPED_SLASHES);
+            @$realHeaders['AccountContext'] = json_encode($headers->accountContextShrink, \JSON_UNESCAPED_UNICODE + \JSON_UNESCAPED_SLASHES);
         }
 
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
-            'body'    => Utils::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'ListTableDataByFormInstanceIdTableId',
-            'version'     => '2023-04-26',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/dingtalk/v1/yida/listTableDataByFormInstanceIdTableId',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'ListTableDataByFormInstanceIdTableId',
+            'version' => '2023-04-26',
+            'protocol' => 'HTTPS',
+            'pathname' => '/dingtalk/v1/yida/listTableDataByFormInstanceIdTableId',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return ListTableDataByFormInstanceIdTableIdResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -15680,6 +15975,7 @@ class Aliding extends OpenApiClient
      * 获取子表组件数据.
      *
      * @param request - ListTableDataByFormInstanceIdTableIdRequest
+     *
      * @returns ListTableDataByFormInstanceIdTableIdResponse
      *
      * @param ListTableDataByFormInstanceIdTableIdRequest $request
@@ -15700,6 +15996,7 @@ class Aliding extends OpenApiClient
      * @param tmpReq - ListTeamsRequest
      * @param tmpHeader - ListTeamsHeaders
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ListTeamsResponse
      *
      * @param ListTeamsRequest $tmpReq
@@ -15742,23 +16039,23 @@ class Aliding extends OpenApiClient
         }
 
         if (null !== $headers->accountContextShrink) {
-            @$realHeaders['AccountContext'] = json_encode($headers->accountContextShrink, JSON_UNESCAPED_UNICODE + JSON_UNESCAPED_SLASHES);
+            @$realHeaders['AccountContext'] = json_encode($headers->accountContextShrink, \JSON_UNESCAPED_UNICODE + \JSON_UNESCAPED_SLASHES);
         }
 
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
-            'body'    => Utils::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'ListTeams',
-            'version'     => '2023-04-26',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/dingtalk/v2/documents/listTeams',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'ListTeams',
+            'version' => '2023-04-26',
+            'protocol' => 'HTTPS',
+            'pathname' => '/dingtalk/v2/documents/listTeams',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return ListTeamsResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -15771,6 +16068,7 @@ class Aliding extends OpenApiClient
      * 获取知识小组列表.
      *
      * @param request - ListTeamsRequest
+     *
      * @returns ListTeamsResponse
      *
      * @param ListTeamsRequest $request
@@ -15791,6 +16089,7 @@ class Aliding extends OpenApiClient
      * @param tmpReq - ListTemplateRequest
      * @param tmpHeader - ListTemplateHeaders
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ListTemplateResponse
      *
      * @param ListTemplateRequest $tmpReq
@@ -15841,23 +16140,23 @@ class Aliding extends OpenApiClient
         }
 
         if (null !== $headers->accountContextShrink) {
-            @$realHeaders['AccountContext'] = json_encode($headers->accountContextShrink, JSON_UNESCAPED_UNICODE + JSON_UNESCAPED_SLASHES);
+            @$realHeaders['AccountContext'] = json_encode($headers->accountContextShrink, \JSON_UNESCAPED_UNICODE + \JSON_UNESCAPED_SLASHES);
         }
 
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
-            'body'    => Utils::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'ListTemplate',
-            'version'     => '2023-04-26',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/dingtalk/v1/documents/listTemplate',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'ListTemplate',
+            'version' => '2023-04-26',
+            'protocol' => 'HTTPS',
+            'pathname' => '/dingtalk/v1/documents/listTemplate',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return ListTemplateResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -15870,6 +16169,7 @@ class Aliding extends OpenApiClient
      * 查询文档模板
      *
      * @param request - ListTemplateRequest
+     *
      * @returns ListTemplateResponse
      *
      * @param ListTemplateRequest $request
@@ -15890,6 +16190,7 @@ class Aliding extends OpenApiClient
      * @param tmpReq - ListTicketOperateRecordRequest
      * @param tmpHeader - ListTicketOperateRecordHeaders
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ListTicketOperateRecordResponse
      *
      * @param ListTicketOperateRecordRequest $tmpReq
@@ -15932,23 +16233,23 @@ class Aliding extends OpenApiClient
         }
 
         if (null !== $headers->accountContextShrink) {
-            @$realHeaders['AccountContext'] = json_encode($headers->accountContextShrink, JSON_UNESCAPED_UNICODE + JSON_UNESCAPED_SLASHES);
+            @$realHeaders['AccountContext'] = json_encode($headers->accountContextShrink, \JSON_UNESCAPED_UNICODE + \JSON_UNESCAPED_SLASHES);
         }
 
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
-            'body'    => Utils::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'ListTicketOperateRecord',
-            'version'     => '2023-04-26',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/dingtalk/v1/ticket/listTicketOperateRecord',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'ListTicketOperateRecord',
+            'version' => '2023-04-26',
+            'protocol' => 'HTTPS',
+            'pathname' => '/dingtalk/v1/ticket/listTicketOperateRecord',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return ListTicketOperateRecordResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -15961,6 +16262,7 @@ class Aliding extends OpenApiClient
      * 查询工单操作记录.
      *
      * @param request - ListTicketOperateRecordRequest
+     *
      * @returns ListTicketOperateRecordResponse
      *
      * @param ListTicketOperateRecordRequest $request
@@ -15981,6 +16283,7 @@ class Aliding extends OpenApiClient
      * @param tmpReq - ListWorkspacesRequest
      * @param tmpHeader - ListWorkspacesHeaders
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ListWorkspacesResponse
      *
      * @param ListWorkspacesRequest $tmpReq
@@ -16035,23 +16338,23 @@ class Aliding extends OpenApiClient
         }
 
         if (null !== $headers->accountContextShrink) {
-            @$realHeaders['AccountContext'] = json_encode($headers->accountContextShrink, JSON_UNESCAPED_UNICODE + JSON_UNESCAPED_SLASHES);
+            @$realHeaders['AccountContext'] = json_encode($headers->accountContextShrink, \JSON_UNESCAPED_UNICODE + \JSON_UNESCAPED_SLASHES);
         }
 
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
-            'body'    => Utils::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'ListWorkspaces',
-            'version'     => '2023-04-26',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/dingtalk/v2/documents/listWorkspaces',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'ListWorkspaces',
+            'version' => '2023-04-26',
+            'protocol' => 'HTTPS',
+            'pathname' => '/dingtalk/v2/documents/listWorkspaces',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return ListWorkspacesResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -16064,6 +16367,7 @@ class Aliding extends OpenApiClient
      * 获取知识库列表.
      *
      * @param request - ListWorkspacesRequest
+     *
      * @returns ListWorkspacesResponse
      *
      * @param ListWorkspacesRequest $request
@@ -16084,6 +16388,7 @@ class Aliding extends OpenApiClient
      * @param tmpReq - PatchEventRequest
      * @param tmpHeader - PatchEventHeaders
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns PatchEventResponse
      *
      * @param PatchEventRequest $tmpReq
@@ -16194,23 +16499,23 @@ class Aliding extends OpenApiClient
         }
 
         if (null !== $headers->accountContextShrink) {
-            @$realHeaders['AccountContext'] = json_encode($headers->accountContextShrink, JSON_UNESCAPED_UNICODE + JSON_UNESCAPED_SLASHES);
+            @$realHeaders['AccountContext'] = json_encode($headers->accountContextShrink, \JSON_UNESCAPED_UNICODE + \JSON_UNESCAPED_SLASHES);
         }
 
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
-            'body'    => Utils::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'PatchEvent',
-            'version'     => '2023-04-26',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/dingtalk/v1/calendar/patchEvent',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'PatchEvent',
+            'version' => '2023-04-26',
+            'protocol' => 'HTTPS',
+            'pathname' => '/dingtalk/v1/calendar/patchEvent',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return PatchEventResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -16223,6 +16528,7 @@ class Aliding extends OpenApiClient
      * 修改日程.
      *
      * @param request - PatchEventRequest
+     *
      * @returns PatchEventResponse
      *
      * @param PatchEventRequest $request
@@ -16243,6 +16549,7 @@ class Aliding extends OpenApiClient
      * @param tmpReq - QueryCloudRecordTextRequest
      * @param tmpHeader - QueryCloudRecordTextHeaders
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns QueryCloudRecordTextResponse
      *
      * @param QueryCloudRecordTextRequest $tmpReq
@@ -16297,23 +16604,23 @@ class Aliding extends OpenApiClient
         }
 
         if (null !== $headers->accountContextShrink) {
-            @$realHeaders['AccountContext'] = json_encode($headers->accountContextShrink, JSON_UNESCAPED_UNICODE + JSON_UNESCAPED_SLASHES);
+            @$realHeaders['AccountContext'] = json_encode($headers->accountContextShrink, \JSON_UNESCAPED_UNICODE + \JSON_UNESCAPED_SLASHES);
         }
 
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
-            'body'    => Utils::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'QueryCloudRecordText',
-            'version'     => '2023-04-26',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/dingtalk/v1/ysp/queryCloudRecordText',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'QueryCloudRecordText',
+            'version' => '2023-04-26',
+            'protocol' => 'HTTPS',
+            'pathname' => '/dingtalk/v1/ysp/queryCloudRecordText',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return QueryCloudRecordTextResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -16326,6 +16633,7 @@ class Aliding extends OpenApiClient
      * 查询会议录制中的文本信息.
      *
      * @param request - QueryCloudRecordTextRequest
+     *
      * @returns QueryCloudRecordTextResponse
      *
      * @param QueryCloudRecordTextRequest $request
@@ -16346,6 +16654,7 @@ class Aliding extends OpenApiClient
      * @param tmpReq - QueryCloudRecordVideoRequest
      * @param tmpHeader - QueryCloudRecordVideoHeaders
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns QueryCloudRecordVideoResponse
      *
      * @param QueryCloudRecordVideoRequest $tmpReq
@@ -16384,23 +16693,23 @@ class Aliding extends OpenApiClient
         }
 
         if (null !== $headers->accountContextShrink) {
-            @$realHeaders['AccountContext'] = json_encode($headers->accountContextShrink, JSON_UNESCAPED_UNICODE + JSON_UNESCAPED_SLASHES);
+            @$realHeaders['AccountContext'] = json_encode($headers->accountContextShrink, \JSON_UNESCAPED_UNICODE + \JSON_UNESCAPED_SLASHES);
         }
 
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
-            'body'    => Utils::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'QueryCloudRecordVideo',
-            'version'     => '2023-04-26',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/dingtalk/v1/ysp/queryCloudRecordVideo',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'QueryCloudRecordVideo',
+            'version' => '2023-04-26',
+            'protocol' => 'HTTPS',
+            'pathname' => '/dingtalk/v1/ysp/queryCloudRecordVideo',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return QueryCloudRecordVideoResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -16413,6 +16722,7 @@ class Aliding extends OpenApiClient
      * 查询会议录制的详情信息.
      *
      * @param request - QueryCloudRecordVideoRequest
+     *
      * @returns QueryCloudRecordVideoResponse
      *
      * @param QueryCloudRecordVideoRequest $request
@@ -16433,6 +16743,7 @@ class Aliding extends OpenApiClient
      * @param tmpReq - QueryCloudRecordVideoPlayInfoRequest
      * @param tmpHeader - QueryCloudRecordVideoPlayInfoHeaders
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns QueryCloudRecordVideoPlayInfoResponse
      *
      * @param QueryCloudRecordVideoPlayInfoRequest $tmpReq
@@ -16479,23 +16790,23 @@ class Aliding extends OpenApiClient
         }
 
         if (null !== $headers->accountContextShrink) {
-            @$realHeaders['AccountContext'] = json_encode($headers->accountContextShrink, JSON_UNESCAPED_UNICODE + JSON_UNESCAPED_SLASHES);
+            @$realHeaders['AccountContext'] = json_encode($headers->accountContextShrink, \JSON_UNESCAPED_UNICODE + \JSON_UNESCAPED_SLASHES);
         }
 
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
-            'body'    => Utils::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'QueryCloudRecordVideoPlayInfo',
-            'version'     => '2023-04-26',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/dingtalk/v1/ysp/queryCloudRecordVideoPlayInfo',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'QueryCloudRecordVideoPlayInfo',
+            'version' => '2023-04-26',
+            'protocol' => 'HTTPS',
+            'pathname' => '/dingtalk/v1/ysp/queryCloudRecordVideoPlayInfo',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return QueryCloudRecordVideoPlayInfoResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -16508,6 +16819,7 @@ class Aliding extends OpenApiClient
      * 查询会议录制中的视频信息.
      *
      * @param request - QueryCloudRecordVideoPlayInfoRequest
+     *
      * @returns QueryCloudRecordVideoPlayInfoResponse
      *
      * @param QueryCloudRecordVideoPlayInfoRequest $request
@@ -16528,6 +16840,7 @@ class Aliding extends OpenApiClient
      * @param request - QueryConferenceInfoRequest
      * @param tmpHeader - QueryConferenceInfoHeaders
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns QueryConferenceInfoResponse
      *
      * @param QueryConferenceInfoRequest $request
@@ -16556,23 +16869,23 @@ class Aliding extends OpenApiClient
         }
 
         if (null !== $headers->accountContextShrink) {
-            @$realHeaders['AccountContext'] = json_encode($headers->accountContextShrink, JSON_UNESCAPED_UNICODE + JSON_UNESCAPED_SLASHES);
+            @$realHeaders['AccountContext'] = json_encode($headers->accountContextShrink, \JSON_UNESCAPED_UNICODE + \JSON_UNESCAPED_SLASHES);
         }
 
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
-            'body'    => Utils::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'QueryConferenceInfo',
-            'version'     => '2023-04-26',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/dingtalk/v1/ysp/queryConferenceInfo',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'QueryConferenceInfo',
+            'version' => '2023-04-26',
+            'protocol' => 'HTTPS',
+            'pathname' => '/dingtalk/v1/ysp/queryConferenceInfo',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return QueryConferenceInfoResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -16585,6 +16898,7 @@ class Aliding extends OpenApiClient
      * 查询视频会议信息.
      *
      * @param request - QueryConferenceInfoRequest
+     *
      * @returns QueryConferenceInfoResponse
      *
      * @param QueryConferenceInfoRequest $request
@@ -16605,6 +16919,7 @@ class Aliding extends OpenApiClient
      * @param tmpReq - QueryConferenceInfoByRoomCodeRequest
      * @param tmpHeader - QueryConferenceInfoByRoomCodeHeaders
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns QueryConferenceInfoByRoomCodeResponse
      *
      * @param QueryConferenceInfoByRoomCodeRequest $tmpReq
@@ -16651,23 +16966,23 @@ class Aliding extends OpenApiClient
         }
 
         if (null !== $headers->accountContextShrink) {
-            @$realHeaders['AccountContext'] = json_encode($headers->accountContextShrink, JSON_UNESCAPED_UNICODE + JSON_UNESCAPED_SLASHES);
+            @$realHeaders['AccountContext'] = json_encode($headers->accountContextShrink, \JSON_UNESCAPED_UNICODE + \JSON_UNESCAPED_SLASHES);
         }
 
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
-            'body'    => Utils::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'QueryConferenceInfoByRoomCode',
-            'version'     => '2023-04-26',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/dingtalk/v1/ysp/queryConferenceInfoByRoomCode',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'QueryConferenceInfoByRoomCode',
+            'version' => '2023-04-26',
+            'protocol' => 'HTTPS',
+            'pathname' => '/dingtalk/v1/ysp/queryConferenceInfoByRoomCode',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return QueryConferenceInfoByRoomCodeResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -16680,6 +16995,7 @@ class Aliding extends OpenApiClient
      * 根据会议码查询视频会议信息.
      *
      * @param request - QueryConferenceInfoByRoomCodeRequest
+     *
      * @returns QueryConferenceInfoByRoomCodeResponse
      *
      * @param QueryConferenceInfoByRoomCodeRequest $request
@@ -16700,6 +17016,7 @@ class Aliding extends OpenApiClient
      * @param tmpReq - QueryConferenceMembersRequest
      * @param tmpHeader - QueryConferenceMembersHeaders
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns QueryConferenceMembersResponse
      *
      * @param QueryConferenceMembersRequest $tmpReq
@@ -16746,23 +17063,23 @@ class Aliding extends OpenApiClient
         }
 
         if (null !== $headers->accountContextShrink) {
-            @$realHeaders['AccountContext'] = json_encode($headers->accountContextShrink, JSON_UNESCAPED_UNICODE + JSON_UNESCAPED_SLASHES);
+            @$realHeaders['AccountContext'] = json_encode($headers->accountContextShrink, \JSON_UNESCAPED_UNICODE + \JSON_UNESCAPED_SLASHES);
         }
 
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
-            'body'    => Utils::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'QueryConferenceMembers',
-            'version'     => '2023-04-26',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/dingtalk/v1/ysp/queryConferenceMembers',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'QueryConferenceMembers',
+            'version' => '2023-04-26',
+            'protocol' => 'HTTPS',
+            'pathname' => '/dingtalk/v1/ysp/queryConferenceMembers',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return QueryConferenceMembersResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -16775,6 +17092,7 @@ class Aliding extends OpenApiClient
      * 查询视频会议成员.
      *
      * @param request - QueryConferenceMembersRequest
+     *
      * @returns QueryConferenceMembersResponse
      *
      * @param QueryConferenceMembersRequest $request
@@ -16795,6 +17113,7 @@ class Aliding extends OpenApiClient
      * @param tmpReq - QueryDentryRequest
      * @param tmpHeader - QueryDentryHeaders
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns QueryDentryResponse
      *
      * @param QueryDentryRequest $tmpReq
@@ -16841,23 +17160,23 @@ class Aliding extends OpenApiClient
         }
 
         if (null !== $headers->accountContextShrink) {
-            @$realHeaders['AccountContext'] = json_encode($headers->accountContextShrink, JSON_UNESCAPED_UNICODE + JSON_UNESCAPED_SLASHES);
+            @$realHeaders['AccountContext'] = json_encode($headers->accountContextShrink, \JSON_UNESCAPED_UNICODE + \JSON_UNESCAPED_SLASHES);
         }
 
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
-            'body'    => Utils::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'QueryDentry',
-            'version'     => '2023-04-26',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/dingtalk/v2/documents/queryDentry',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'QueryDentry',
+            'version' => '2023-04-26',
+            'protocol' => 'HTTPS',
+            'pathname' => '/dingtalk/v2/documents/queryDentry',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return QueryDentryResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -16870,6 +17189,7 @@ class Aliding extends OpenApiClient
      * 查询知识库节点信息.
      *
      * @param request - QueryDentryRequest
+     *
      * @returns QueryDentryResponse
      *
      * @param QueryDentryRequest $request
@@ -16890,6 +17210,7 @@ class Aliding extends OpenApiClient
      * @param tmpReq - QueryGroupLiveInfoRequest
      * @param tmpHeader - QueryGroupLiveInfoHeaders
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns QueryGroupLiveInfoResponse
      *
      * @param QueryGroupLiveInfoRequest $tmpReq
@@ -16932,23 +17253,23 @@ class Aliding extends OpenApiClient
         }
 
         if (null !== $headers->accountContextShrink) {
-            @$realHeaders['AccountContext'] = json_encode($headers->accountContextShrink, JSON_UNESCAPED_UNICODE + JSON_UNESCAPED_SLASHES);
+            @$realHeaders['AccountContext'] = json_encode($headers->accountContextShrink, \JSON_UNESCAPED_UNICODE + \JSON_UNESCAPED_SLASHES);
         }
 
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
-            'body'    => Utils::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'QueryGroupLiveInfo',
-            'version'     => '2023-04-26',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/dingtalk/v1/ysp/queryGroupLiveInfo',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'QueryGroupLiveInfo',
+            'version' => '2023-04-26',
+            'protocol' => 'HTTPS',
+            'pathname' => '/dingtalk/v1/ysp/queryGroupLiveInfo',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return QueryGroupLiveInfoResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -16961,6 +17282,7 @@ class Aliding extends OpenApiClient
      * 查询群直播详情.
      *
      * @param request - QueryGroupLiveInfoRequest
+     *
      * @returns QueryGroupLiveInfoResponse
      *
      * @param QueryGroupLiveInfoRequest $request
@@ -16981,6 +17303,7 @@ class Aliding extends OpenApiClient
      * @param tmpReq - QueryLiveInfoRequest
      * @param tmpHeader - QueryLiveInfoHeaders
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns QueryLiveInfoResponse
      *
      * @param QueryLiveInfoRequest $tmpReq
@@ -17019,23 +17342,23 @@ class Aliding extends OpenApiClient
         }
 
         if (null !== $headers->accountContextShrink) {
-            @$realHeaders['AccountContext'] = json_encode($headers->accountContextShrink, JSON_UNESCAPED_UNICODE + JSON_UNESCAPED_SLASHES);
+            @$realHeaders['AccountContext'] = json_encode($headers->accountContextShrink, \JSON_UNESCAPED_UNICODE + \JSON_UNESCAPED_SLASHES);
         }
 
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
-            'body'    => Utils::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'QueryLiveInfo',
-            'version'     => '2023-04-26',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/dingtalk/v1/ysp/queryLiveInfo',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'QueryLiveInfo',
+            'version' => '2023-04-26',
+            'protocol' => 'HTTPS',
+            'pathname' => '/dingtalk/v1/ysp/queryLiveInfo',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return QueryLiveInfoResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -17048,6 +17371,7 @@ class Aliding extends OpenApiClient
      * 查询直播信息.
      *
      * @param request - QueryLiveInfoRequest
+     *
      * @returns QueryLiveInfoResponse
      *
      * @param QueryLiveInfoRequest $request
@@ -17068,6 +17392,7 @@ class Aliding extends OpenApiClient
      * @param tmpReq - QueryLiveWatchDetailRequest
      * @param tmpHeader - QueryLiveWatchDetailHeaders
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns QueryLiveWatchDetailResponse
      *
      * @param QueryLiveWatchDetailRequest $tmpReq
@@ -17106,23 +17431,23 @@ class Aliding extends OpenApiClient
         }
 
         if (null !== $headers->accountContextShrink) {
-            @$realHeaders['AccountContext'] = json_encode($headers->accountContextShrink, JSON_UNESCAPED_UNICODE + JSON_UNESCAPED_SLASHES);
+            @$realHeaders['AccountContext'] = json_encode($headers->accountContextShrink, \JSON_UNESCAPED_UNICODE + \JSON_UNESCAPED_SLASHES);
         }
 
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
-            'body'    => Utils::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'QueryLiveWatchDetail',
-            'version'     => '2023-04-26',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/dingtalk/v1/ysp/queryLiveWatchDetail',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'QueryLiveWatchDetail',
+            'version' => '2023-04-26',
+            'protocol' => 'HTTPS',
+            'pathname' => '/dingtalk/v1/ysp/queryLiveWatchDetail',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return QueryLiveWatchDetailResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -17135,6 +17460,7 @@ class Aliding extends OpenApiClient
      * 查询直播的观看数据.
      *
      * @param request - QueryLiveWatchDetailRequest
+     *
      * @returns QueryLiveWatchDetailResponse
      *
      * @param QueryLiveWatchDetailRequest $request
@@ -17155,6 +17481,7 @@ class Aliding extends OpenApiClient
      * @param tmpReq - QueryLiveWatchUserListRequest
      * @param tmpHeader - QueryLiveWatchUserListHeaders
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns QueryLiveWatchUserListResponse
      *
      * @param QueryLiveWatchUserListRequest $tmpReq
@@ -17201,23 +17528,23 @@ class Aliding extends OpenApiClient
         }
 
         if (null !== $headers->accountContextShrink) {
-            @$realHeaders['AccountContext'] = json_encode($headers->accountContextShrink, JSON_UNESCAPED_UNICODE + JSON_UNESCAPED_SLASHES);
+            @$realHeaders['AccountContext'] = json_encode($headers->accountContextShrink, \JSON_UNESCAPED_UNICODE + \JSON_UNESCAPED_SLASHES);
         }
 
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
-            'body'    => Utils::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'QueryLiveWatchUserList',
-            'version'     => '2023-04-26',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/dingtalk/v1/ysp/queryLiveWatchUserList',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'QueryLiveWatchUserList',
+            'version' => '2023-04-26',
+            'protocol' => 'HTTPS',
+            'pathname' => '/dingtalk/v1/ysp/queryLiveWatchUserList',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return QueryLiveWatchUserListResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -17230,6 +17557,7 @@ class Aliding extends OpenApiClient
      * 查询直播观看人员信息.
      *
      * @param request - QueryLiveWatchUserListRequest
+     *
      * @returns QueryLiveWatchUserListResponse
      *
      * @param QueryLiveWatchUserListRequest $request
@@ -17250,6 +17578,7 @@ class Aliding extends OpenApiClient
      * @param tmpReq - QueryMeetingRoomRequest
      * @param tmpHeader - QueryMeetingRoomHeaders
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns QueryMeetingRoomResponse
      *
      * @param QueryMeetingRoomRequest $tmpReq
@@ -17288,23 +17617,23 @@ class Aliding extends OpenApiClient
         }
 
         if (null !== $headers->accountContextShrink) {
-            @$realHeaders['AccountContext'] = json_encode($headers->accountContextShrink, JSON_UNESCAPED_UNICODE + JSON_UNESCAPED_SLASHES);
+            @$realHeaders['AccountContext'] = json_encode($headers->accountContextShrink, \JSON_UNESCAPED_UNICODE + \JSON_UNESCAPED_SLASHES);
         }
 
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
-            'body'    => Utils::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'QueryMeetingRoom',
-            'version'     => '2023-04-26',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/dingtalk/v1/ysp/queryMeetingRoom',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'QueryMeetingRoom',
+            'version' => '2023-04-26',
+            'protocol' => 'HTTPS',
+            'pathname' => '/dingtalk/v1/ysp/queryMeetingRoom',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return QueryMeetingRoomResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -17317,6 +17646,7 @@ class Aliding extends OpenApiClient
      * 查询会议室详情.
      *
      * @param request - QueryMeetingRoomRequest
+     *
      * @returns QueryMeetingRoomResponse
      *
      * @param QueryMeetingRoomRequest $request
@@ -17337,6 +17667,7 @@ class Aliding extends OpenApiClient
      * @param tmpReq - QueryMeetingRoomGroupRequest
      * @param tmpHeader - QueryMeetingRoomGroupHeaders
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns QueryMeetingRoomGroupResponse
      *
      * @param QueryMeetingRoomGroupRequest $tmpReq
@@ -17375,23 +17706,23 @@ class Aliding extends OpenApiClient
         }
 
         if (null !== $headers->accountContextShrink) {
-            @$realHeaders['AccountContext'] = json_encode($headers->accountContextShrink, JSON_UNESCAPED_UNICODE + JSON_UNESCAPED_SLASHES);
+            @$realHeaders['AccountContext'] = json_encode($headers->accountContextShrink, \JSON_UNESCAPED_UNICODE + \JSON_UNESCAPED_SLASHES);
         }
 
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
-            'body'    => Utils::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'QueryMeetingRoomGroup',
-            'version'     => '2023-04-26',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/dingtalk/v1/ysp/queryMeetingRoomGroup',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'QueryMeetingRoomGroup',
+            'version' => '2023-04-26',
+            'protocol' => 'HTTPS',
+            'pathname' => '/dingtalk/v1/ysp/queryMeetingRoomGroup',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return QueryMeetingRoomGroupResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -17404,6 +17735,7 @@ class Aliding extends OpenApiClient
      * 查询会议室分组信息.
      *
      * @param request - QueryMeetingRoomGroupRequest
+     *
      * @returns QueryMeetingRoomGroupResponse
      *
      * @param QueryMeetingRoomGroupRequest $request
@@ -17424,6 +17756,7 @@ class Aliding extends OpenApiClient
      * @param tmpReq - QueryMeetingRoomGroupListRequest
      * @param tmpHeader - QueryMeetingRoomGroupListHeaders
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns QueryMeetingRoomGroupListResponse
      *
      * @param QueryMeetingRoomGroupListRequest $tmpReq
@@ -17466,23 +17799,23 @@ class Aliding extends OpenApiClient
         }
 
         if (null !== $headers->accountContextShrink) {
-            @$realHeaders['AccountContext'] = json_encode($headers->accountContextShrink, JSON_UNESCAPED_UNICODE + JSON_UNESCAPED_SLASHES);
+            @$realHeaders['AccountContext'] = json_encode($headers->accountContextShrink, \JSON_UNESCAPED_UNICODE + \JSON_UNESCAPED_SLASHES);
         }
 
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
-            'body'    => Utils::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'QueryMeetingRoomGroupList',
-            'version'     => '2023-04-26',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/dingtalk/v1/ysp/queryMeetingRoomGroupList',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'QueryMeetingRoomGroupList',
+            'version' => '2023-04-26',
+            'protocol' => 'HTTPS',
+            'pathname' => '/dingtalk/v1/ysp/queryMeetingRoomGroupList',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return QueryMeetingRoomGroupListResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -17495,6 +17828,7 @@ class Aliding extends OpenApiClient
      * 查询会议室分组列表.
      *
      * @param request - QueryMeetingRoomGroupListRequest
+     *
      * @returns QueryMeetingRoomGroupListResponse
      *
      * @param QueryMeetingRoomGroupListRequest $request
@@ -17515,6 +17849,7 @@ class Aliding extends OpenApiClient
      * @param tmpReq - QueryMeetingRoomListRequest
      * @param tmpHeader - QueryMeetingRoomListHeaders
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns QueryMeetingRoomListResponse
      *
      * @param QueryMeetingRoomListRequest $tmpReq
@@ -17557,23 +17892,23 @@ class Aliding extends OpenApiClient
         }
 
         if (null !== $headers->accountContextShrink) {
-            @$realHeaders['AccountContext'] = json_encode($headers->accountContextShrink, JSON_UNESCAPED_UNICODE + JSON_UNESCAPED_SLASHES);
+            @$realHeaders['AccountContext'] = json_encode($headers->accountContextShrink, \JSON_UNESCAPED_UNICODE + \JSON_UNESCAPED_SLASHES);
         }
 
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
-            'body'    => Utils::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'QueryMeetingRoomList',
-            'version'     => '2023-04-26',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/dingtalk/v1/ysp/queryMeetingRoomList',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'QueryMeetingRoomList',
+            'version' => '2023-04-26',
+            'protocol' => 'HTTPS',
+            'pathname' => '/dingtalk/v1/ysp/queryMeetingRoomList',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return QueryMeetingRoomListResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -17586,6 +17921,7 @@ class Aliding extends OpenApiClient
      * 查询会议室列表.
      *
      * @param request - QueryMeetingRoomListRequest
+     *
      * @returns QueryMeetingRoomListResponse
      *
      * @param QueryMeetingRoomListRequest $request
@@ -17606,6 +17942,7 @@ class Aliding extends OpenApiClient
      * @param tmpReq - QueryMinutesRequest
      * @param tmpHeader - QueryMinutesHeaders
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns QueryMinutesResponse
      *
      * @param QueryMinutesRequest $tmpReq
@@ -17644,23 +17981,23 @@ class Aliding extends OpenApiClient
         }
 
         if (null !== $headers->accountContextShrink) {
-            @$realHeaders['AccountContext'] = json_encode($headers->accountContextShrink, JSON_UNESCAPED_UNICODE + JSON_UNESCAPED_SLASHES);
+            @$realHeaders['AccountContext'] = json_encode($headers->accountContextShrink, \JSON_UNESCAPED_UNICODE + \JSON_UNESCAPED_SLASHES);
         }
 
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
-            'body'    => Utils::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'QueryMinutes',
-            'version'     => '2023-04-26',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/dingtalk/v1/ysp/queryMinutes',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'QueryMinutes',
+            'version' => '2023-04-26',
+            'protocol' => 'HTTPS',
+            'pathname' => '/dingtalk/v1/ysp/queryMinutes',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return QueryMinutesResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -17673,6 +18010,7 @@ class Aliding extends OpenApiClient
      * 查询闪记录音.
      *
      * @param request - QueryMinutesRequest
+     *
      * @returns QueryMinutesResponse
      *
      * @param QueryMinutesRequest $request
@@ -17693,6 +18031,7 @@ class Aliding extends OpenApiClient
      * @param tmpReq - QueryMinutesSummaryRequest
      * @param tmpHeader - QueryMinutesSummaryHeaders
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns QueryMinutesSummaryResponse
      *
      * @param QueryMinutesSummaryRequest $tmpReq
@@ -17739,23 +18078,23 @@ class Aliding extends OpenApiClient
         }
 
         if (null !== $headers->accountContextShrink) {
-            @$realHeaders['AccountContext'] = json_encode($headers->accountContextShrink, JSON_UNESCAPED_UNICODE + JSON_UNESCAPED_SLASHES);
+            @$realHeaders['AccountContext'] = json_encode($headers->accountContextShrink, \JSON_UNESCAPED_UNICODE + \JSON_UNESCAPED_SLASHES);
         }
 
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
-            'body'    => Utils::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'QueryMinutesSummary',
-            'version'     => '2023-04-26',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/dingtalk/v1/ysp/queryMinutesSummary',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'QueryMinutesSummary',
+            'version' => '2023-04-26',
+            'protocol' => 'HTTPS',
+            'pathname' => '/dingtalk/v1/ysp/queryMinutesSummary',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return QueryMinutesSummaryResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -17768,6 +18107,7 @@ class Aliding extends OpenApiClient
      * 查询会议闪记智能纪要
      *
      * @param request - QueryMinutesSummaryRequest
+     *
      * @returns QueryMinutesSummaryResponse
      *
      * @param QueryMinutesSummaryRequest $request
@@ -17788,6 +18128,7 @@ class Aliding extends OpenApiClient
      * @param tmpReq - QueryMinutesTextRequest
      * @param tmpHeader - QueryMinutesTextHeaders
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns QueryMinutesTextResponse
      *
      * @param QueryMinutesTextRequest $tmpReq
@@ -17838,23 +18179,23 @@ class Aliding extends OpenApiClient
         }
 
         if (null !== $headers->accountContextShrink) {
-            @$realHeaders['AccountContext'] = json_encode($headers->accountContextShrink, JSON_UNESCAPED_UNICODE + JSON_UNESCAPED_SLASHES);
+            @$realHeaders['AccountContext'] = json_encode($headers->accountContextShrink, \JSON_UNESCAPED_UNICODE + \JSON_UNESCAPED_SLASHES);
         }
 
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
-            'body'    => Utils::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'QueryMinutesText',
-            'version'     => '2023-04-26',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/dingtalk/v1/ysp/queryMinutesText',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'QueryMinutesText',
+            'version' => '2023-04-26',
+            'protocol' => 'HTTPS',
+            'pathname' => '/dingtalk/v1/ysp/queryMinutesText',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return QueryMinutesTextResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -17867,6 +18208,7 @@ class Aliding extends OpenApiClient
      * 查询会议闪记的文本信息.
      *
      * @param request - QueryMinutesTextRequest
+     *
      * @returns QueryMinutesTextResponse
      *
      * @param QueryMinutesTextRequest $request
@@ -17887,6 +18229,7 @@ class Aliding extends OpenApiClient
      * @param tmpReq - QueryOrgHonorsRequest
      * @param tmpHeader - QueryOrgHonorsHeaders
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns QueryOrgHonorsResponse
      *
      * @param QueryOrgHonorsRequest $tmpReq
@@ -17933,23 +18276,23 @@ class Aliding extends OpenApiClient
         }
 
         if (null !== $headers->accountContextShrink) {
-            @$realHeaders['AccountContext'] = json_encode($headers->accountContextShrink, JSON_UNESCAPED_UNICODE + JSON_UNESCAPED_SLASHES);
+            @$realHeaders['AccountContext'] = json_encode($headers->accountContextShrink, \JSON_UNESCAPED_UNICODE + \JSON_UNESCAPED_SLASHES);
         }
 
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
-            'body'    => Utils::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'QueryOrgHonors',
-            'version'     => '2023-04-26',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/aliding/v1/honor/queryOrgHonors',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'QueryOrgHonors',
+            'version' => '2023-04-26',
+            'protocol' => 'HTTPS',
+            'pathname' => '/aliding/v1/honor/queryOrgHonors',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return QueryOrgHonorsResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -17962,6 +18305,7 @@ class Aliding extends OpenApiClient
      * 查询企业荣誉.
      *
      * @param request - QueryOrgHonorsRequest
+     *
      * @returns QueryOrgHonorsResponse
      *
      * @param QueryOrgHonorsRequest $request
@@ -17982,6 +18326,7 @@ class Aliding extends OpenApiClient
      * @param tmpReq - QueryOrgTodoTasksRequest
      * @param tmpHeader - QueryOrgTodoTasksHeaders
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns QueryOrgTodoTasksResponse
      *
      * @param QueryOrgTodoTasksRequest $tmpReq
@@ -18024,23 +18369,23 @@ class Aliding extends OpenApiClient
         }
 
         if (null !== $headers->accountContextShrink) {
-            @$realHeaders['AccountContext'] = json_encode($headers->accountContextShrink, JSON_UNESCAPED_UNICODE + JSON_UNESCAPED_SLASHES);
+            @$realHeaders['AccountContext'] = json_encode($headers->accountContextShrink, \JSON_UNESCAPED_UNICODE + \JSON_UNESCAPED_SLASHES);
         }
 
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
-            'body'    => Utils::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'QueryOrgTodoTasks',
-            'version'     => '2023-04-26',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/dingtalk/v1/task/queryOrgTodoTasks',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'QueryOrgTodoTasks',
+            'version' => '2023-04-26',
+            'protocol' => 'HTTPS',
+            'pathname' => '/dingtalk/v1/task/queryOrgTodoTasks',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return QueryOrgTodoTasksResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -18053,6 +18398,7 @@ class Aliding extends OpenApiClient
      * 查询企业代办.
      *
      * @param request - QueryOrgTodoTasksRequest
+     *
      * @returns QueryOrgTodoTasksResponse
      *
      * @param QueryOrgTodoTasksRequest $request
@@ -18073,6 +18419,7 @@ class Aliding extends OpenApiClient
      * @param tmpReq - QueryRecordMinutesUrlRequest
      * @param tmpHeader - QueryRecordMinutesUrlHeaders
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns QueryRecordMinutesUrlResponse
      *
      * @param QueryRecordMinutesUrlRequest $tmpReq
@@ -18115,23 +18462,23 @@ class Aliding extends OpenApiClient
         }
 
         if (null !== $headers->accountContextShrink) {
-            @$realHeaders['AccountContext'] = json_encode($headers->accountContextShrink, JSON_UNESCAPED_UNICODE + JSON_UNESCAPED_SLASHES);
+            @$realHeaders['AccountContext'] = json_encode($headers->accountContextShrink, \JSON_UNESCAPED_UNICODE + \JSON_UNESCAPED_SLASHES);
         }
 
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
-            'body'    => Utils::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'QueryRecordMinutesUrl',
-            'version'     => '2023-04-26',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/dingtalk/v1/ysp/queryRecordMinutesUrl',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'QueryRecordMinutesUrl',
+            'version' => '2023-04-26',
+            'protocol' => 'HTTPS',
+            'pathname' => '/dingtalk/v1/ysp/queryRecordMinutesUrl',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return QueryRecordMinutesUrlResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -18144,6 +18491,7 @@ class Aliding extends OpenApiClient
      * 查询闪记的链接，可通过链接查看闪记内容.
      *
      * @param request - QueryRecordMinutesUrlRequest
+     *
      * @returns QueryRecordMinutesUrlResponse
      *
      * @param QueryRecordMinutesUrlRequest $request
@@ -18164,6 +18512,7 @@ class Aliding extends OpenApiClient
      * @param tmpReq - QueryReportDetailRequest
      * @param tmpHeader - QueryReportDetailHeaders
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns QueryReportDetailResponse
      *
      * @param QueryReportDetailRequest $tmpReq
@@ -18202,23 +18551,23 @@ class Aliding extends OpenApiClient
         }
 
         if (null !== $headers->accountContextShrink) {
-            @$realHeaders['AccountContext'] = json_encode($headers->accountContextShrink, JSON_UNESCAPED_UNICODE + JSON_UNESCAPED_SLASHES);
+            @$realHeaders['AccountContext'] = json_encode($headers->accountContextShrink, \JSON_UNESCAPED_UNICODE + \JSON_UNESCAPED_SLASHES);
         }
 
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
-            'body'    => Utils::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'QueryReportDetail',
-            'version'     => '2023-04-26',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/dingtalk/v1/log/queryReportDetail',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'QueryReportDetail',
+            'version' => '2023-04-26',
+            'protocol' => 'HTTPS',
+            'pathname' => '/dingtalk/v1/log/queryReportDetail',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return QueryReportDetailResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -18231,6 +18580,7 @@ class Aliding extends OpenApiClient
      * 获取日志详情.
      *
      * @param request - QueryReportDetailRequest
+     *
      * @returns QueryReportDetailResponse
      *
      * @param QueryReportDetailRequest $request
@@ -18251,6 +18601,7 @@ class Aliding extends OpenApiClient
      * @param tmpReq - QueryScheduleConferenceRequest
      * @param tmpHeader - QueryScheduleConferenceHeaders
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns QueryScheduleConferenceResponse
      *
      * @param QueryScheduleConferenceRequest $tmpReq
@@ -18289,23 +18640,23 @@ class Aliding extends OpenApiClient
         }
 
         if (null !== $headers->accountContextShrink) {
-            @$realHeaders['AccountContext'] = json_encode($headers->accountContextShrink, JSON_UNESCAPED_UNICODE + JSON_UNESCAPED_SLASHES);
+            @$realHeaders['AccountContext'] = json_encode($headers->accountContextShrink, \JSON_UNESCAPED_UNICODE + \JSON_UNESCAPED_SLASHES);
         }
 
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
-            'body'    => Utils::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'QueryScheduleConference',
-            'version'     => '2023-04-26',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/dingtalk/v1/ysp/queryScheduleConference',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'QueryScheduleConference',
+            'version' => '2023-04-26',
+            'protocol' => 'HTTPS',
+            'pathname' => '/dingtalk/v1/ysp/queryScheduleConference',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return QueryScheduleConferenceResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -18318,6 +18669,7 @@ class Aliding extends OpenApiClient
      * 查询预约会议.
      *
      * @param request - QueryScheduleConferenceRequest
+     *
      * @returns QueryScheduleConferenceResponse
      *
      * @param QueryScheduleConferenceRequest $request
@@ -18338,6 +18690,7 @@ class Aliding extends OpenApiClient
      * @param tmpReq - QueryScheduleConferenceInfoRequest
      * @param tmpHeader - QueryScheduleConferenceInfoHeaders
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns QueryScheduleConferenceInfoResponse
      *
      * @param QueryScheduleConferenceInfoRequest $tmpReq
@@ -18384,23 +18737,23 @@ class Aliding extends OpenApiClient
         }
 
         if (null !== $headers->accountContextShrink) {
-            @$realHeaders['AccountContext'] = json_encode($headers->accountContextShrink, JSON_UNESCAPED_UNICODE + JSON_UNESCAPED_SLASHES);
+            @$realHeaders['AccountContext'] = json_encode($headers->accountContextShrink, \JSON_UNESCAPED_UNICODE + \JSON_UNESCAPED_SLASHES);
         }
 
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
-            'body'    => Utils::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'QueryScheduleConferenceInfo',
-            'version'     => '2023-04-26',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/dingtalk/v1/ysp/queryScheduleConferenceInfo',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'QueryScheduleConferenceInfo',
+            'version' => '2023-04-26',
+            'protocol' => 'HTTPS',
+            'pathname' => '/dingtalk/v1/ysp/queryScheduleConferenceInfo',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return QueryScheduleConferenceInfoResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -18413,6 +18766,7 @@ class Aliding extends OpenApiClient
      * 查询预约会议历史会议信息.
      *
      * @param request - QueryScheduleConferenceInfoRequest
+     *
      * @returns QueryScheduleConferenceInfoResponse
      *
      * @param QueryScheduleConferenceInfoRequest $request
@@ -18433,6 +18787,7 @@ class Aliding extends OpenApiClient
      * @param tmpReq - QueryUserHonorsRequest
      * @param tmpHeader - QueryUserHonorsHeaders
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns QueryUserHonorsResponse
      *
      * @param QueryUserHonorsRequest $tmpReq
@@ -18483,23 +18838,23 @@ class Aliding extends OpenApiClient
         }
 
         if (null !== $headers->accountContextShrink) {
-            @$realHeaders['AccountContext'] = json_encode($headers->accountContextShrink, JSON_UNESCAPED_UNICODE + JSON_UNESCAPED_SLASHES);
+            @$realHeaders['AccountContext'] = json_encode($headers->accountContextShrink, \JSON_UNESCAPED_UNICODE + \JSON_UNESCAPED_SLASHES);
         }
 
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
-            'body'    => Utils::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'QueryUserHonors',
-            'version'     => '2023-04-26',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/aliding/v1/honor/queryUserHonors',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'QueryUserHonors',
+            'version' => '2023-04-26',
+            'protocol' => 'HTTPS',
+            'pathname' => '/aliding/v1/honor/queryUserHonors',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return QueryUserHonorsResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -18512,6 +18867,7 @@ class Aliding extends OpenApiClient
      * 查询员工勋章列表.
      *
      * @param request - QueryUserHonorsRequest
+     *
      * @returns QueryUserHonorsResponse
      *
      * @param QueryUserHonorsRequest $request
@@ -18532,6 +18888,7 @@ class Aliding extends OpenApiClient
      * @param tmpReq - RecallHonorRequest
      * @param tmpHeader - RecallHonorHeaders
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns RecallHonorResponse
      *
      * @param RecallHonorRequest $tmpReq
@@ -18578,23 +18935,23 @@ class Aliding extends OpenApiClient
         }
 
         if (null !== $headers->accountContextShrink) {
-            @$realHeaders['AccountContext'] = json_encode($headers->accountContextShrink, JSON_UNESCAPED_UNICODE + JSON_UNESCAPED_SLASHES);
+            @$realHeaders['AccountContext'] = json_encode($headers->accountContextShrink, \JSON_UNESCAPED_UNICODE + \JSON_UNESCAPED_SLASHES);
         }
 
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
-            'body'    => Utils::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'RecallHonor',
-            'version'     => '2023-04-26',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/aliding/v1/honor/recallHonor',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'RecallHonor',
+            'version' => '2023-04-26',
+            'protocol' => 'HTTPS',
+            'pathname' => '/aliding/v1/honor/recallHonor',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return RecallHonorResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -18607,6 +18964,7 @@ class Aliding extends OpenApiClient
      * 收回勋章.
      *
      * @param request - RecallHonorRequest
+     *
      * @returns RecallHonorResponse
      *
      * @param RecallHonorRequest $request
@@ -18627,6 +18985,7 @@ class Aliding extends OpenApiClient
      * @param tmpReq - ReceiverListReportRequest
      * @param tmpHeader - ReceiverListReportHeaders
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ReceiverListReportResponse
      *
      * @param ReceiverListReportRequest $tmpReq
@@ -18673,23 +19032,23 @@ class Aliding extends OpenApiClient
         }
 
         if (null !== $headers->accountContextShrink) {
-            @$realHeaders['AccountContext'] = json_encode($headers->accountContextShrink, JSON_UNESCAPED_UNICODE + JSON_UNESCAPED_SLASHES);
+            @$realHeaders['AccountContext'] = json_encode($headers->accountContextShrink, \JSON_UNESCAPED_UNICODE + \JSON_UNESCAPED_SLASHES);
         }
 
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
-            'body'    => Utils::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'ReceiverListReport',
-            'version'     => '2023-04-26',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/dingtalk/v1/log/receiverListReport',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'ReceiverListReport',
+            'version' => '2023-04-26',
+            'protocol' => 'HTTPS',
+            'pathname' => '/dingtalk/v1/log/receiverListReport',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return ReceiverListReportResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -18702,6 +19061,7 @@ class Aliding extends OpenApiClient
      * 获取日志接收人员列表.
      *
      * @param request - ReceiverListReportRequest
+     *
      * @returns ReceiverListReportResponse
      *
      * @param ReceiverListReportRequest $request
@@ -18722,6 +19082,7 @@ class Aliding extends OpenApiClient
      * @param request - RedirectTaskRequest
      * @param tmpHeader - RedirectTaskHeaders
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns RedirectTaskResponse
      *
      * @param RedirectTaskRequest $request
@@ -18778,23 +19139,23 @@ class Aliding extends OpenApiClient
         }
 
         if (null !== $headers->accountContextShrink) {
-            @$realHeaders['AccountContext'] = json_encode($headers->accountContextShrink, JSON_UNESCAPED_UNICODE + JSON_UNESCAPED_SLASHES);
+            @$realHeaders['AccountContext'] = json_encode($headers->accountContextShrink, \JSON_UNESCAPED_UNICODE + \JSON_UNESCAPED_SLASHES);
         }
 
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
-            'body'    => Utils::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'RedirectTask',
-            'version'     => '2023-04-26',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/dingtalk/v1/yida/redirectTask',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'RedirectTask',
+            'version' => '2023-04-26',
+            'protocol' => 'HTTPS',
+            'pathname' => '/dingtalk/v1/yida/redirectTask',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return RedirectTaskResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -18807,6 +19168,7 @@ class Aliding extends OpenApiClient
      * 转交任务
      *
      * @param request - RedirectTaskRequest
+     *
      * @returns RedirectTaskResponse
      *
      * @param RedirectTaskRequest $request
@@ -18827,6 +19189,7 @@ class Aliding extends OpenApiClient
      * @param tmpReq - RemoveAttendeeRequest
      * @param tmpHeader - RemoveAttendeeHeaders
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns RemoveAttendeeResponse
      *
      * @param RemoveAttendeeRequest $tmpReq
@@ -18869,23 +19232,23 @@ class Aliding extends OpenApiClient
         }
 
         if (null !== $headers->accountContextShrink) {
-            @$realHeaders['AccountContext'] = json_encode($headers->accountContextShrink, JSON_UNESCAPED_UNICODE + JSON_UNESCAPED_SLASHES);
+            @$realHeaders['AccountContext'] = json_encode($headers->accountContextShrink, \JSON_UNESCAPED_UNICODE + \JSON_UNESCAPED_SLASHES);
         }
 
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
-            'body'    => Utils::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'RemoveAttendee',
-            'version'     => '2023-04-26',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/dingtalk/v1/calendar/removeAttendee',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'RemoveAttendee',
+            'version' => '2023-04-26',
+            'protocol' => 'HTTPS',
+            'pathname' => '/dingtalk/v1/calendar/removeAttendee',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return RemoveAttendeeResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -18898,6 +19261,7 @@ class Aliding extends OpenApiClient
      * 删除日程参与者.
      *
      * @param request - RemoveAttendeeRequest
+     *
      * @returns RemoveAttendeeResponse
      *
      * @param RemoveAttendeeRequest $request
@@ -18918,6 +19282,7 @@ class Aliding extends OpenApiClient
      * @param tmpReq - RemoveMeetingRoomsRequest
      * @param tmpHeader - RemoveMeetingRoomsHeaders
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns RemoveMeetingRoomsResponse
      *
      * @param RemoveMeetingRoomsRequest $tmpReq
@@ -18960,23 +19325,23 @@ class Aliding extends OpenApiClient
         }
 
         if (null !== $headers->accountContextShrink) {
-            @$realHeaders['AccountContext'] = json_encode($headers->accountContextShrink, JSON_UNESCAPED_UNICODE + JSON_UNESCAPED_SLASHES);
+            @$realHeaders['AccountContext'] = json_encode($headers->accountContextShrink, \JSON_UNESCAPED_UNICODE + \JSON_UNESCAPED_SLASHES);
         }
 
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
-            'body'    => Utils::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'RemoveMeetingRooms',
-            'version'     => '2023-04-26',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/dingtalk/v1/calendar/removeMeetingRooms',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'RemoveMeetingRooms',
+            'version' => '2023-04-26',
+            'protocol' => 'HTTPS',
+            'pathname' => '/dingtalk/v1/calendar/removeMeetingRooms',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return RemoveMeetingRoomsResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -18989,6 +19354,7 @@ class Aliding extends OpenApiClient
      * 取消预定会议室.
      *
      * @param request - RemoveMeetingRoomsRequest
+     *
      * @returns RemoveMeetingRoomsResponse
      *
      * @param RemoveMeetingRoomsRequest $request
@@ -19009,6 +19375,7 @@ class Aliding extends OpenApiClient
      * @param tmpReq - RespondEventRequest
      * @param tmpHeader - RespondEventHeaders
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns RespondEventResponse
      *
      * @param RespondEventRequest $tmpReq
@@ -19055,23 +19422,23 @@ class Aliding extends OpenApiClient
         }
 
         if (null !== $headers->accountContextShrink) {
-            @$realHeaders['AccountContext'] = json_encode($headers->accountContextShrink, JSON_UNESCAPED_UNICODE + JSON_UNESCAPED_SLASHES);
+            @$realHeaders['AccountContext'] = json_encode($headers->accountContextShrink, \JSON_UNESCAPED_UNICODE + \JSON_UNESCAPED_SLASHES);
         }
 
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
-            'body'    => Utils::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'RespondEvent',
-            'version'     => '2023-04-26',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/dingtalk/v1/calendar/respondEvent',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'RespondEvent',
+            'version' => '2023-04-26',
+            'protocol' => 'HTTPS',
+            'pathname' => '/dingtalk/v1/calendar/respondEvent',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return RespondEventResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -19084,6 +19451,7 @@ class Aliding extends OpenApiClient
      * 设置日程响应邀请状态
      *
      * @param request - RespondEventRequest
+     *
      * @returns RespondEventResponse
      *
      * @param RespondEventRequest $request
@@ -19104,6 +19472,7 @@ class Aliding extends OpenApiClient
      * @param request - RetrieveRunRequest
      * @param headers - RetrieveRunHeaders
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns RetrieveRunResponse
      *
      * @param RetrieveRunRequest $request
@@ -19143,18 +19512,18 @@ class Aliding extends OpenApiClient
 
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
-            'body'    => Utils::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'RetrieveRun',
-            'version'     => '2023-04-26',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/ai/v1/assistant/retrieveRun',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'RetrieveRun',
+            'version' => '2023-04-26',
+            'protocol' => 'HTTPS',
+            'pathname' => '/ai/v1/assistant/retrieveRun',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return RetrieveRunResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -19167,6 +19536,7 @@ class Aliding extends OpenApiClient
      * 查询运行.
      *
      * @param request - RetrieveRunRequest
+     *
      * @returns RetrieveRunResponse
      *
      * @param RetrieveRunRequest $request
@@ -19187,6 +19557,7 @@ class Aliding extends OpenApiClient
      * @param tmpReq - SaveContentRequest
      * @param tmpHeader - SaveContentHeaders
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns SaveContentResponse
      *
      * @param SaveContentRequest $tmpReq
@@ -19237,23 +19608,23 @@ class Aliding extends OpenApiClient
         }
 
         if (null !== $headers->accountContextShrink) {
-            @$realHeaders['AccountContext'] = json_encode($headers->accountContextShrink, JSON_UNESCAPED_UNICODE + JSON_UNESCAPED_SLASHES);
+            @$realHeaders['AccountContext'] = json_encode($headers->accountContextShrink, \JSON_UNESCAPED_UNICODE + \JSON_UNESCAPED_SLASHES);
         }
 
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
-            'body'    => Utils::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'SaveContent',
-            'version'     => '2023-04-26',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/dingtalk/v1/log/saveContent',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'SaveContent',
+            'version' => '2023-04-26',
+            'protocol' => 'HTTPS',
+            'pathname' => '/dingtalk/v1/log/saveContent',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return SaveContentResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -19266,6 +19637,7 @@ class Aliding extends OpenApiClient
      * 保存日志内容.
      *
      * @param request - SaveContentRequest
+     *
      * @returns SaveContentResponse
      *
      * @param SaveContentRequest $request
@@ -19286,6 +19658,7 @@ class Aliding extends OpenApiClient
      * @param request - SaveFormDataRequest
      * @param tmpHeader - SaveFormDataHeaders
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns SaveFormDataResponse
      *
      * @param SaveFormDataRequest $request
@@ -19330,23 +19703,23 @@ class Aliding extends OpenApiClient
         }
 
         if (null !== $headers->accountContextShrink) {
-            @$realHeaders['AccountContext'] = json_encode($headers->accountContextShrink, JSON_UNESCAPED_UNICODE + JSON_UNESCAPED_SLASHES);
+            @$realHeaders['AccountContext'] = json_encode($headers->accountContextShrink, \JSON_UNESCAPED_UNICODE + \JSON_UNESCAPED_SLASHES);
         }
 
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
-            'body'    => Utils::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'SaveFormData',
-            'version'     => '2023-04-26',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/dingtalk/v1/yida/saveFormData',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'SaveFormData',
+            'version' => '2023-04-26',
+            'protocol' => 'HTTPS',
+            'pathname' => '/dingtalk/v1/yida/saveFormData',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return SaveFormDataResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -19359,6 +19732,7 @@ class Aliding extends OpenApiClient
      * 保存表单数据.
      *
      * @param request - SaveFormDataRequest
+     *
      * @returns SaveFormDataResponse
      *
      * @param SaveFormDataRequest $request
@@ -19379,6 +19753,7 @@ class Aliding extends OpenApiClient
      * @param request - SaveFormRemarkRequest
      * @param tmpHeader - SaveFormRemarkHeaders
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns SaveFormRemarkResponse
      *
      * @param SaveFormRemarkRequest $request
@@ -19431,23 +19806,23 @@ class Aliding extends OpenApiClient
         }
 
         if (null !== $headers->accountContextShrink) {
-            @$realHeaders['AccountContext'] = json_encode($headers->accountContextShrink, JSON_UNESCAPED_UNICODE + JSON_UNESCAPED_SLASHES);
+            @$realHeaders['AccountContext'] = json_encode($headers->accountContextShrink, \JSON_UNESCAPED_UNICODE + \JSON_UNESCAPED_SLASHES);
         }
 
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
-            'body'    => Utils::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'SaveFormRemark',
-            'version'     => '2023-04-26',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/dingtalk/v1/yida/saveFormRemark',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'SaveFormRemark',
+            'version' => '2023-04-26',
+            'protocol' => 'HTTPS',
+            'pathname' => '/dingtalk/v1/yida/saveFormRemark',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return SaveFormRemarkResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -19460,6 +19835,7 @@ class Aliding extends OpenApiClient
      * 提交表单或流程实例下的评论.
      *
      * @param request - SaveFormRemarkRequest
+     *
      * @returns SaveFormRemarkResponse
      *
      * @param SaveFormRemarkRequest $request
@@ -19480,6 +19856,7 @@ class Aliding extends OpenApiClient
      * @param request - SearchEmployeeFieldValuesRequest
      * @param tmpHeader - SearchEmployeeFieldValuesHeaders
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns SearchEmployeeFieldValuesResponse
      *
      * @param SearchEmployeeFieldValuesRequest $request
@@ -19548,23 +19925,23 @@ class Aliding extends OpenApiClient
         }
 
         if (null !== $headers->accountContextShrink) {
-            @$realHeaders['AccountContext'] = json_encode($headers->accountContextShrink, JSON_UNESCAPED_UNICODE + JSON_UNESCAPED_SLASHES);
+            @$realHeaders['AccountContext'] = json_encode($headers->accountContextShrink, \JSON_UNESCAPED_UNICODE + \JSON_UNESCAPED_SLASHES);
         }
 
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
-            'body'    => Utils::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'SearchEmployeeFieldValues',
-            'version'     => '2023-04-26',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/dingtalk/v1/yida/searchEmployeeFieldValues',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'SearchEmployeeFieldValues',
+            'version' => '2023-04-26',
+            'protocol' => 'HTTPS',
+            'pathname' => '/dingtalk/v1/yida/searchEmployeeFieldValues',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return SearchEmployeeFieldValuesResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -19577,6 +19954,7 @@ class Aliding extends OpenApiClient
      * 获取员工组件的值
      *
      * @param request - SearchEmployeeFieldValuesRequest
+     *
      * @returns SearchEmployeeFieldValuesResponse
      *
      * @param SearchEmployeeFieldValuesRequest $request
@@ -19597,6 +19975,7 @@ class Aliding extends OpenApiClient
      * @param request - SearchFormDataIdListRequest
      * @param tmpHeader - SearchFormDataIdListHeaders
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns SearchFormDataIdListResponse
      *
      * @param SearchFormDataIdListRequest $request
@@ -19669,23 +20048,23 @@ class Aliding extends OpenApiClient
         }
 
         if (null !== $headers->accountContextShrink) {
-            @$realHeaders['AccountContext'] = json_encode($headers->accountContextShrink, JSON_UNESCAPED_UNICODE + JSON_UNESCAPED_SLASHES);
+            @$realHeaders['AccountContext'] = json_encode($headers->accountContextShrink, \JSON_UNESCAPED_UNICODE + \JSON_UNESCAPED_SLASHES);
         }
 
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
-            'body'    => Utils::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'SearchFormDataIdList',
-            'version'     => '2023-04-26',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/dingtalk/v1/yida/searchFormDataIdList',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'SearchFormDataIdList',
+            'version' => '2023-04-26',
+            'protocol' => 'HTTPS',
+            'pathname' => '/dingtalk/v1/yida/searchFormDataIdList',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return SearchFormDataIdListResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -19698,6 +20077,7 @@ class Aliding extends OpenApiClient
      * 获取多个表单实例ID.
      *
      * @param request - SearchFormDataIdListRequest
+     *
      * @returns SearchFormDataIdListResponse
      *
      * @param SearchFormDataIdListRequest $request
@@ -19718,6 +20098,7 @@ class Aliding extends OpenApiClient
      * @param request - SearchFormDataSecondGenerationRequest
      * @param tmpHeader - SearchFormDataSecondGenerationHeaders
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns SearchFormDataSecondGenerationResponse
      *
      * @param SearchFormDataSecondGenerationRequest $request
@@ -19790,23 +20171,23 @@ class Aliding extends OpenApiClient
         }
 
         if (null !== $headers->accountContextShrink) {
-            @$realHeaders['AccountContext'] = json_encode($headers->accountContextShrink, JSON_UNESCAPED_UNICODE + JSON_UNESCAPED_SLASHES);
+            @$realHeaders['AccountContext'] = json_encode($headers->accountContextShrink, \JSON_UNESCAPED_UNICODE + \JSON_UNESCAPED_SLASHES);
         }
 
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
-            'body'    => Utils::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'SearchFormDataSecondGeneration',
-            'version'     => '2023-04-26',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/dingtalk/v1/yida/searchFormDataSecondGeneration',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'SearchFormDataSecondGeneration',
+            'version' => '2023-04-26',
+            'protocol' => 'HTTPS',
+            'pathname' => '/dingtalk/v1/yida/searchFormDataSecondGeneration',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return SearchFormDataSecondGenerationResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -19819,6 +20200,7 @@ class Aliding extends OpenApiClient
      * 通过高级查询条件获取表单实例数据（包括子表单组件数据）.
      *
      * @param request - SearchFormDataSecondGenerationRequest
+     *
      * @returns SearchFormDataSecondGenerationResponse
      *
      * @param SearchFormDataSecondGenerationRequest $request
@@ -19839,6 +20221,7 @@ class Aliding extends OpenApiClient
      * @param request - SearchFormDataSecondGenerationNoTableFieldRequest
      * @param tmpHeader - SearchFormDataSecondGenerationNoTableFieldHeaders
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns SearchFormDataSecondGenerationNoTableFieldResponse
      *
      * @param SearchFormDataSecondGenerationNoTableFieldRequest $request
@@ -19911,23 +20294,23 @@ class Aliding extends OpenApiClient
         }
 
         if (null !== $headers->accountContextShrink) {
-            @$realHeaders['AccountContext'] = json_encode($headers->accountContextShrink, JSON_UNESCAPED_UNICODE + JSON_UNESCAPED_SLASHES);
+            @$realHeaders['AccountContext'] = json_encode($headers->accountContextShrink, \JSON_UNESCAPED_UNICODE + \JSON_UNESCAPED_SLASHES);
         }
 
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
-            'body'    => Utils::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'SearchFormDataSecondGenerationNoTableField',
-            'version'     => '2023-04-26',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/dingtalk/v1/yida/searchFormDataSecondGenerationNoTableField',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'SearchFormDataSecondGenerationNoTableField',
+            'version' => '2023-04-26',
+            'protocol' => 'HTTPS',
+            'pathname' => '/dingtalk/v1/yida/searchFormDataSecondGenerationNoTableField',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return SearchFormDataSecondGenerationNoTableFieldResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -19940,6 +20323,7 @@ class Aliding extends OpenApiClient
      * 通过高级查询条件获取表单实例数据（不包括子表单组件数据）.
      *
      * @param request - SearchFormDataSecondGenerationNoTableFieldRequest
+     *
      * @returns SearchFormDataSecondGenerationNoTableFieldResponse
      *
      * @param SearchFormDataSecondGenerationNoTableFieldRequest $request
@@ -19960,6 +20344,7 @@ class Aliding extends OpenApiClient
      * @param request - SearchFormDatasRequest
      * @param tmpHeader - SearchFormDatasHeaders
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns SearchFormDatasResponse
      *
      * @param SearchFormDatasRequest $request
@@ -20036,23 +20421,23 @@ class Aliding extends OpenApiClient
         }
 
         if (null !== $headers->accountContextShrink) {
-            @$realHeaders['AccountContext'] = json_encode($headers->accountContextShrink, JSON_UNESCAPED_UNICODE + JSON_UNESCAPED_SLASHES);
+            @$realHeaders['AccountContext'] = json_encode($headers->accountContextShrink, \JSON_UNESCAPED_UNICODE + \JSON_UNESCAPED_SLASHES);
         }
 
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
-            'body'    => Utils::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'SearchFormDatas',
-            'version'     => '2023-04-26',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/dingtalk/v1/yida/searchFormDatas',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'SearchFormDatas',
+            'version' => '2023-04-26',
+            'protocol' => 'HTTPS',
+            'pathname' => '/dingtalk/v1/yida/searchFormDatas',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return SearchFormDatasResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -20065,6 +20450,7 @@ class Aliding extends OpenApiClient
      * 查询表单实例数据.
      *
      * @param request - SearchFormDatasRequest
+     *
      * @returns SearchFormDatasResponse
      *
      * @param SearchFormDatasRequest $request
@@ -20085,6 +20471,7 @@ class Aliding extends OpenApiClient
      * @param request - SearchInnerGroupsRequest
      * @param tmpHeader - SearchInnerGroupsHeaders
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns SearchInnerGroupsResponse
      *
      * @param SearchInnerGroupsRequest $request
@@ -20117,23 +20504,23 @@ class Aliding extends OpenApiClient
         }
 
         if (null !== $headers->accountContextShrink) {
-            @$realHeaders['AccountContext'] = json_encode($headers->accountContextShrink, JSON_UNESCAPED_UNICODE + JSON_UNESCAPED_SLASHES);
+            @$realHeaders['AccountContext'] = json_encode($headers->accountContextShrink, \JSON_UNESCAPED_UNICODE + \JSON_UNESCAPED_SLASHES);
         }
 
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
-            'body'    => Utils::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'SearchInnerGroups',
-            'version'     => '2023-04-26',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/dingtalk/v1/im/searchInnerGroups',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'SearchInnerGroups',
+            'version' => '2023-04-26',
+            'protocol' => 'HTTPS',
+            'pathname' => '/dingtalk/v1/im/searchInnerGroups',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return SearchInnerGroupsResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -20146,6 +20533,7 @@ class Aliding extends OpenApiClient
      * 根据关键词搜索企业内部群.
      *
      * @param request - SearchInnerGroupsRequest
+     *
      * @returns SearchInnerGroupsResponse
      *
      * @param SearchInnerGroupsRequest $request
@@ -20166,6 +20554,7 @@ class Aliding extends OpenApiClient
      * @param tmpReq - SendBannerRequest
      * @param tmpHeader - SendBannerHeaders
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns SendBannerResponse
      *
      * @param SendBannerRequest $tmpReq
@@ -20216,23 +20605,23 @@ class Aliding extends OpenApiClient
         }
 
         if (null !== $headers->accountContextShrink) {
-            @$realHeaders['AccountContext'] = json_encode($headers->accountContextShrink, JSON_UNESCAPED_UNICODE + JSON_UNESCAPED_SLASHES);
+            @$realHeaders['AccountContext'] = json_encode($headers->accountContextShrink, \JSON_UNESCAPED_UNICODE + \JSON_UNESCAPED_SLASHES);
         }
 
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
-            'body'    => Utils::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'SendBanner',
-            'version'     => '2023-04-26',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/dingtalk/v1/watt/sendBanner',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'SendBanner',
+            'version' => '2023-04-26',
+            'protocol' => 'HTTPS',
+            'pathname' => '/dingtalk/v1/watt/sendBanner',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return SendBannerResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -20245,6 +20634,7 @@ class Aliding extends OpenApiClient
      * 发送钉钉Banner通知.
      *
      * @param request - SendBannerRequest
+     *
      * @returns SendBannerResponse
      *
      * @param SendBannerRequest $request
@@ -20265,6 +20655,7 @@ class Aliding extends OpenApiClient
      * @param tmpReq - SendPopupRequest
      * @param tmpHeader - SendPopupHeaders
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns SendPopupResponse
      *
      * @param SendPopupRequest $tmpReq
@@ -20315,23 +20706,23 @@ class Aliding extends OpenApiClient
         }
 
         if (null !== $headers->accountContextShrink) {
-            @$realHeaders['AccountContext'] = json_encode($headers->accountContextShrink, JSON_UNESCAPED_UNICODE + JSON_UNESCAPED_SLASHES);
+            @$realHeaders['AccountContext'] = json_encode($headers->accountContextShrink, \JSON_UNESCAPED_UNICODE + \JSON_UNESCAPED_SLASHES);
         }
 
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
-            'body'    => Utils::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'SendPopup',
-            'version'     => '2023-04-26',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/dingtalk/v1/watt/sendPopup',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'SendPopup',
+            'version' => '2023-04-26',
+            'protocol' => 'HTTPS',
+            'pathname' => '/dingtalk/v1/watt/sendPopup',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return SendPopupResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -20344,6 +20735,7 @@ class Aliding extends OpenApiClient
      * 发送钉钉封屏弹窗.
      *
      * @param request - SendPopupRequest
+     *
      * @returns SendPopupResponse
      *
      * @param SendPopupRequest $request
@@ -20364,6 +20756,7 @@ class Aliding extends OpenApiClient
      * @param tmpReq - SendSearchShadeRequest
      * @param tmpHeader - SendSearchShadeHeaders
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns SendSearchShadeResponse
      *
      * @param SendSearchShadeRequest $tmpReq
@@ -20414,23 +20807,23 @@ class Aliding extends OpenApiClient
         }
 
         if (null !== $headers->accountContextShrink) {
-            @$realHeaders['AccountContext'] = json_encode($headers->accountContextShrink, JSON_UNESCAPED_UNICODE + JSON_UNESCAPED_SLASHES);
+            @$realHeaders['AccountContext'] = json_encode($headers->accountContextShrink, \JSON_UNESCAPED_UNICODE + \JSON_UNESCAPED_SLASHES);
         }
 
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
-            'body'    => Utils::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'SendSearchShade',
-            'version'     => '2023-04-26',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/dingtalk/v1/watt/sendSearchShade',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'SendSearchShade',
+            'version' => '2023-04-26',
+            'protocol' => 'HTTPS',
+            'pathname' => '/dingtalk/v1/watt/sendSearchShade',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return SendSearchShadeResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -20443,6 +20836,7 @@ class Aliding extends OpenApiClient
      * 发送钉钉搜索底纹.
      *
      * @param request - SendSearchShadeRequest
+     *
      * @returns SendSearchShadeResponse
      *
      * @param SendSearchShadeRequest $request
@@ -20463,6 +20857,7 @@ class Aliding extends OpenApiClient
      * @param tmpReq - SetColumnsVisibilityRequest
      * @param tmpHeader - SetColumnsVisibilityHeaders
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns SetColumnsVisibilityResponse
      *
      * @param SetColumnsVisibilityRequest $tmpReq
@@ -20517,23 +20912,23 @@ class Aliding extends OpenApiClient
         }
 
         if (null !== $headers->accountContextShrink) {
-            @$realHeaders['AccountContext'] = json_encode($headers->accountContextShrink, JSON_UNESCAPED_UNICODE + JSON_UNESCAPED_SLASHES);
+            @$realHeaders['AccountContext'] = json_encode($headers->accountContextShrink, \JSON_UNESCAPED_UNICODE + \JSON_UNESCAPED_SLASHES);
         }
 
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
-            'body'    => Utils::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'SetColumnsVisibility',
-            'version'     => '2023-04-26',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/dingtalk/v1/documents/setColumnsVisibility',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'SetColumnsVisibility',
+            'version' => '2023-04-26',
+            'protocol' => 'HTTPS',
+            'pathname' => '/dingtalk/v1/documents/setColumnsVisibility',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return SetColumnsVisibilityResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -20546,6 +20941,7 @@ class Aliding extends OpenApiClient
      * 指定列隐藏.
      *
      * @param request - SetColumnsVisibilityRequest
+     *
      * @returns SetColumnsVisibilityResponse
      *
      * @param SetColumnsVisibilityRequest $request
@@ -20566,6 +20962,7 @@ class Aliding extends OpenApiClient
      * @param tmpReq - SetConferenceHostsRequest
      * @param tmpHeader - SetConferenceHostsHeaders
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns SetConferenceHostsResponse
      *
      * @param SetConferenceHostsRequest $tmpReq
@@ -20616,23 +21013,23 @@ class Aliding extends OpenApiClient
         }
 
         if (null !== $headers->accountContextShrink) {
-            @$realHeaders['AccountContext'] = json_encode($headers->accountContextShrink, JSON_UNESCAPED_UNICODE + JSON_UNESCAPED_SLASHES);
+            @$realHeaders['AccountContext'] = json_encode($headers->accountContextShrink, \JSON_UNESCAPED_UNICODE + \JSON_UNESCAPED_SLASHES);
         }
 
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
-            'body'    => Utils::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'SetConferenceHosts',
-            'version'     => '2023-04-26',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/dingtalk/v1/ysp/setConferenceHosts',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'SetConferenceHosts',
+            'version' => '2023-04-26',
+            'protocol' => 'HTTPS',
+            'pathname' => '/dingtalk/v1/ysp/setConferenceHosts',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return SetConferenceHostsResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -20645,6 +21042,7 @@ class Aliding extends OpenApiClient
      * 设置联席主持人.
      *
      * @param request - SetConferenceHostsRequest
+     *
      * @returns SetConferenceHostsResponse
      *
      * @param SetConferenceHostsRequest $request
@@ -20665,6 +21063,7 @@ class Aliding extends OpenApiClient
      * @param tmpReq - SetRowsVisibilityRequest
      * @param tmpHeader - SetRowsVisibilityHeaders
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns SetRowsVisibilityResponse
      *
      * @param SetRowsVisibilityRequest $tmpReq
@@ -20719,23 +21118,23 @@ class Aliding extends OpenApiClient
         }
 
         if (null !== $headers->accountContextShrink) {
-            @$realHeaders['AccountContext'] = json_encode($headers->accountContextShrink, JSON_UNESCAPED_UNICODE + JSON_UNESCAPED_SLASHES);
+            @$realHeaders['AccountContext'] = json_encode($headers->accountContextShrink, \JSON_UNESCAPED_UNICODE + \JSON_UNESCAPED_SLASHES);
         }
 
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
-            'body'    => Utils::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'SetRowsVisibility',
-            'version'     => '2023-04-26',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/dingtalk/v1/documents/setRowsVisibility',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'SetRowsVisibility',
+            'version' => '2023-04-26',
+            'protocol' => 'HTTPS',
+            'pathname' => '/dingtalk/v1/documents/setRowsVisibility',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return SetRowsVisibilityResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -20748,6 +21147,7 @@ class Aliding extends OpenApiClient
      * 指定行隐藏.
      *
      * @param request - SetRowsVisibilityRequest
+     *
      * @returns SetRowsVisibilityResponse
      *
      * @param SetRowsVisibilityRequest $request
@@ -20768,6 +21168,7 @@ class Aliding extends OpenApiClient
      * @param tmpReq - SimpleListReportRequest
      * @param tmpHeader - SimpleListReportHeaders
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns SimpleListReportResponse
      *
      * @param SimpleListReportRequest $tmpReq
@@ -20822,23 +21223,23 @@ class Aliding extends OpenApiClient
         }
 
         if (null !== $headers->accountContextShrink) {
-            @$realHeaders['AccountContext'] = json_encode($headers->accountContextShrink, JSON_UNESCAPED_UNICODE + JSON_UNESCAPED_SLASHES);
+            @$realHeaders['AccountContext'] = json_encode($headers->accountContextShrink, \JSON_UNESCAPED_UNICODE + \JSON_UNESCAPED_SLASHES);
         }
 
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
-            'body'    => Utils::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'SimpleListReport',
-            'version'     => '2023-04-26',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/dingtalk/v1/log/simpleListReport',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'SimpleListReport',
+            'version' => '2023-04-26',
+            'protocol' => 'HTTPS',
+            'pathname' => '/dingtalk/v1/log/simpleListReport',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return SimpleListReportResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -20851,6 +21252,7 @@ class Aliding extends OpenApiClient
      * 获取用户发送日志的概要信息.
      *
      * @param request - SimpleListReportRequest
+     *
      * @returns SimpleListReportResponse
      *
      * @param SimpleListReportRequest $request
@@ -20871,6 +21273,7 @@ class Aliding extends OpenApiClient
      * @param tmpReq - StartCloudRecordRequest
      * @param tmpHeader - StartCloudRecordHeaders
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns StartCloudRecordResponse
      *
      * @param StartCloudRecordRequest $tmpReq
@@ -20917,23 +21320,23 @@ class Aliding extends OpenApiClient
         }
 
         if (null !== $headers->accountContextShrink) {
-            @$realHeaders['AccountContext'] = json_encode($headers->accountContextShrink, JSON_UNESCAPED_UNICODE + JSON_UNESCAPED_SLASHES);
+            @$realHeaders['AccountContext'] = json_encode($headers->accountContextShrink, \JSON_UNESCAPED_UNICODE + \JSON_UNESCAPED_SLASHES);
         }
 
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
-            'body'    => Utils::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'StartCloudRecord',
-            'version'     => '2023-04-26',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/dingtalk/v1/ysp/startCloudRecord',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'StartCloudRecord',
+            'version' => '2023-04-26',
+            'protocol' => 'HTTPS',
+            'pathname' => '/dingtalk/v1/ysp/startCloudRecord',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return StartCloudRecordResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -20946,6 +21349,7 @@ class Aliding extends OpenApiClient
      * 开启视频会议云录制.
      *
      * @param request - StartCloudRecordRequest
+     *
      * @returns StartCloudRecordResponse
      *
      * @param StartCloudRecordRequest $request
@@ -20966,6 +21370,7 @@ class Aliding extends OpenApiClient
      * @param request - StartInstanceRequest
      * @param tmpHeader - StartInstanceHeaders
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns StartInstanceResponse
      *
      * @param StartInstanceRequest $request
@@ -21022,23 +21427,23 @@ class Aliding extends OpenApiClient
         }
 
         if (null !== $headers->accountContextShrink) {
-            @$realHeaders['AccountContext'] = json_encode($headers->accountContextShrink, JSON_UNESCAPED_UNICODE + JSON_UNESCAPED_SLASHES);
+            @$realHeaders['AccountContext'] = json_encode($headers->accountContextShrink, \JSON_UNESCAPED_UNICODE + \JSON_UNESCAPED_SLASHES);
         }
 
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
-            'body'    => Utils::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'StartInstance',
-            'version'     => '2023-04-26',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/dingtalk/v1/yida/startInstance',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'StartInstance',
+            'version' => '2023-04-26',
+            'protocol' => 'HTTPS',
+            'pathname' => '/dingtalk/v1/yida/startInstance',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return StartInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -21051,6 +21456,7 @@ class Aliding extends OpenApiClient
      * 发起宜搭审批流程.
      *
      * @param request - StartInstanceRequest
+     *
      * @returns StartInstanceResponse
      *
      * @param StartInstanceRequest $request
@@ -21071,6 +21477,7 @@ class Aliding extends OpenApiClient
      * @param tmpReq - StartMinutesRequest
      * @param tmpHeader - StartMinutesHeaders
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns StartMinutesResponse
      *
      * @param StartMinutesRequest $tmpReq
@@ -21117,23 +21524,23 @@ class Aliding extends OpenApiClient
         }
 
         if (null !== $headers->accountContextShrink) {
-            @$realHeaders['AccountContext'] = json_encode($headers->accountContextShrink, JSON_UNESCAPED_UNICODE + JSON_UNESCAPED_SLASHES);
+            @$realHeaders['AccountContext'] = json_encode($headers->accountContextShrink, \JSON_UNESCAPED_UNICODE + \JSON_UNESCAPED_SLASHES);
         }
 
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
-            'body'    => Utils::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'StartMinutes',
-            'version'     => '2023-04-26',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/dingtalk/v1/ysp/startMinutes',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'StartMinutes',
+            'version' => '2023-04-26',
+            'protocol' => 'HTTPS',
+            'pathname' => '/dingtalk/v1/ysp/startMinutes',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return StartMinutesResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -21146,6 +21553,7 @@ class Aliding extends OpenApiClient
      * 开启闪记.
      *
      * @param request - StartMinutesRequest
+     *
      * @returns StartMinutesResponse
      *
      * @param StartMinutesRequest $request
@@ -21166,6 +21574,7 @@ class Aliding extends OpenApiClient
      * @param tmpReq - StatisticsListByTypeReportRequest
      * @param tmpHeader - StatisticsListByTypeReportHeaders
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns StatisticsListByTypeReportResponse
      *
      * @param StatisticsListByTypeReportRequest $tmpReq
@@ -21216,23 +21625,23 @@ class Aliding extends OpenApiClient
         }
 
         if (null !== $headers->accountContextShrink) {
-            @$realHeaders['AccountContext'] = json_encode($headers->accountContextShrink, JSON_UNESCAPED_UNICODE + JSON_UNESCAPED_SLASHES);
+            @$realHeaders['AccountContext'] = json_encode($headers->accountContextShrink, \JSON_UNESCAPED_UNICODE + \JSON_UNESCAPED_SLASHES);
         }
 
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
-            'body'    => Utils::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'StatisticsListByTypeReport',
-            'version'     => '2023-04-26',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/dingtalk/v1/log/statisticsListByTypeReport',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'StatisticsListByTypeReport',
+            'version' => '2023-04-26',
+            'protocol' => 'HTTPS',
+            'pathname' => '/dingtalk/v1/log/statisticsListByTypeReport',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return StatisticsListByTypeReportResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -21245,6 +21654,7 @@ class Aliding extends OpenApiClient
      * 获取日志相关人员列表.
      *
      * @param request - StatisticsListByTypeReportRequest
+     *
      * @returns StatisticsListByTypeReportResponse
      *
      * @param StatisticsListByTypeReportRequest $request
@@ -21265,6 +21675,7 @@ class Aliding extends OpenApiClient
      * @param tmpReq - StatisticsReportRequest
      * @param tmpHeader - StatisticsReportHeaders
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns StatisticsReportResponse
      *
      * @param StatisticsReportRequest $tmpReq
@@ -21303,23 +21714,23 @@ class Aliding extends OpenApiClient
         }
 
         if (null !== $headers->accountContextShrink) {
-            @$realHeaders['AccountContext'] = json_encode($headers->accountContextShrink, JSON_UNESCAPED_UNICODE + JSON_UNESCAPED_SLASHES);
+            @$realHeaders['AccountContext'] = json_encode($headers->accountContextShrink, \JSON_UNESCAPED_UNICODE + \JSON_UNESCAPED_SLASHES);
         }
 
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
-            'body'    => Utils::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'StatisticsReport',
-            'version'     => '2023-04-26',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/dingtalk/v1/log/statisticsReport',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'StatisticsReport',
+            'version' => '2023-04-26',
+            'protocol' => 'HTTPS',
+            'pathname' => '/dingtalk/v1/log/statisticsReport',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return StatisticsReportResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -21332,6 +21743,7 @@ class Aliding extends OpenApiClient
      * 获取日志统计数据.
      *
      * @param request - StatisticsReportRequest
+     *
      * @returns StatisticsReportResponse
      *
      * @param StatisticsReportRequest $request
@@ -21352,6 +21764,7 @@ class Aliding extends OpenApiClient
      * @param tmpReq - StopCloudRecordRequest
      * @param tmpHeader - StopCloudRecordHeaders
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns StopCloudRecordResponse
      *
      * @param StopCloudRecordRequest $tmpReq
@@ -21390,23 +21803,23 @@ class Aliding extends OpenApiClient
         }
 
         if (null !== $headers->accountContextShrink) {
-            @$realHeaders['AccountContext'] = json_encode($headers->accountContextShrink, JSON_UNESCAPED_UNICODE + JSON_UNESCAPED_SLASHES);
+            @$realHeaders['AccountContext'] = json_encode($headers->accountContextShrink, \JSON_UNESCAPED_UNICODE + \JSON_UNESCAPED_SLASHES);
         }
 
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
-            'body'    => Utils::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'StopCloudRecord',
-            'version'     => '2023-04-26',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/dingtalk/v1/ysp/stopCloudRecord',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'StopCloudRecord',
+            'version' => '2023-04-26',
+            'protocol' => 'HTTPS',
+            'pathname' => '/dingtalk/v1/ysp/stopCloudRecord',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return StopCloudRecordResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -21419,6 +21832,7 @@ class Aliding extends OpenApiClient
      * 停止视频会议云录制.
      *
      * @param request - StopCloudRecordRequest
+     *
      * @returns StopCloudRecordResponse
      *
      * @param StopCloudRecordRequest $request
@@ -21439,6 +21853,7 @@ class Aliding extends OpenApiClient
      * @param tmpReq - StopMinutesRequest
      * @param tmpHeader - StopMinutesHeaders
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns StopMinutesResponse
      *
      * @param StopMinutesRequest $tmpReq
@@ -21477,23 +21892,23 @@ class Aliding extends OpenApiClient
         }
 
         if (null !== $headers->accountContextShrink) {
-            @$realHeaders['AccountContext'] = json_encode($headers->accountContextShrink, JSON_UNESCAPED_UNICODE + JSON_UNESCAPED_SLASHES);
+            @$realHeaders['AccountContext'] = json_encode($headers->accountContextShrink, \JSON_UNESCAPED_UNICODE + \JSON_UNESCAPED_SLASHES);
         }
 
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
-            'body'    => Utils::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'StopMinutes',
-            'version'     => '2023-04-26',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/dingtalk/v1/ysp/stopMinutes',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'StopMinutes',
+            'version' => '2023-04-26',
+            'protocol' => 'HTTPS',
+            'pathname' => '/dingtalk/v1/ysp/stopMinutes',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return StopMinutesResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -21506,6 +21921,7 @@ class Aliding extends OpenApiClient
      * 暂停闪记.
      *
      * @param request - StopMinutesRequest
+     *
      * @returns StopMinutesResponse
      *
      * @param StopMinutesRequest $request
@@ -21526,6 +21942,7 @@ class Aliding extends OpenApiClient
      * @param request - SubscribeCalendarRequest
      * @param tmpHeader - SubscribeCalendarHeaders
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns SubscribeCalendarResponse
      *
      * @param SubscribeCalendarRequest $request
@@ -21554,23 +21971,23 @@ class Aliding extends OpenApiClient
         }
 
         if (null !== $headers->accountContextShrink) {
-            @$realHeaders['AccountContext'] = json_encode($headers->accountContextShrink, JSON_UNESCAPED_UNICODE + JSON_UNESCAPED_SLASHES);
+            @$realHeaders['AccountContext'] = json_encode($headers->accountContextShrink, \JSON_UNESCAPED_UNICODE + \JSON_UNESCAPED_SLASHES);
         }
 
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
-            'body'    => Utils::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'SubscribeCalendar',
-            'version'     => '2023-04-26',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/dingtalk/v1/calendar/subscribeCalendar',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'SubscribeCalendar',
+            'version' => '2023-04-26',
+            'protocol' => 'HTTPS',
+            'pathname' => '/dingtalk/v1/calendar/subscribeCalendar',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return SubscribeCalendarResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -21583,6 +22000,7 @@ class Aliding extends OpenApiClient
      * 订阅公共日历.
      *
      * @param request - SubscribeCalendarRequest
+     *
      * @returns SubscribeCalendarResponse
      *
      * @param SubscribeCalendarRequest $request
@@ -21603,6 +22021,7 @@ class Aliding extends OpenApiClient
      * @param tmpReq - SubscribeEventRequest
      * @param tmpHeader - SubscribeEventHeaders
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns SubscribeEventResponse
      *
      * @param SubscribeEventRequest $tmpReq
@@ -21645,23 +22064,23 @@ class Aliding extends OpenApiClient
         }
 
         if (null !== $headers->accountContextShrink) {
-            @$realHeaders['AccountContext'] = json_encode($headers->accountContextShrink, JSON_UNESCAPED_UNICODE + JSON_UNESCAPED_SLASHES);
+            @$realHeaders['AccountContext'] = json_encode($headers->accountContextShrink, \JSON_UNESCAPED_UNICODE + \JSON_UNESCAPED_SLASHES);
         }
 
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
-            'body'    => Utils::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'SubscribeEvent',
-            'version'     => '2023-04-26',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/dingtalk/v1/documents/subscribeEvent',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'SubscribeEvent',
+            'version' => '2023-04-26',
+            'protocol' => 'HTTPS',
+            'pathname' => '/dingtalk/v1/documents/subscribeEvent',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return SubscribeEventResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -21674,6 +22093,7 @@ class Aliding extends OpenApiClient
      * 订阅文件变更事件.
      *
      * @param request - SubscribeEventRequest
+     *
      * @returns SubscribeEventResponse
      *
      * @param SubscribeEventRequest $request
@@ -21694,6 +22114,7 @@ class Aliding extends OpenApiClient
      * @param tmpReq - SyncDingTypeRequest
      * @param tmpHeader - SyncDingTypeHeaders
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns SyncDingTypeResponse
      *
      * @param SyncDingTypeRequest $tmpReq
@@ -21744,23 +22165,23 @@ class Aliding extends OpenApiClient
         }
 
         if (null !== $headers->accountContextShrink) {
-            @$realHeaders['AccountContext'] = json_encode($headers->accountContextShrink, JSON_UNESCAPED_UNICODE + JSON_UNESCAPED_SLASHES);
+            @$realHeaders['AccountContext'] = json_encode($headers->accountContextShrink, \JSON_UNESCAPED_UNICODE + \JSON_UNESCAPED_SLASHES);
         }
 
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
-            'body'    => Utils::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'SyncDingType',
-            'version'     => '2023-04-26',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/aliding/v1/indepding/syncDingType',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'SyncDingType',
+            'version' => '2023-04-26',
+            'protocol' => 'HTTPS',
+            'pathname' => '/aliding/v1/indepding/syncDingType',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return SyncDingTypeResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -21773,6 +22194,7 @@ class Aliding extends OpenApiClient
      * 同步钉钉账号类型.
      *
      * @param request - SyncDingTypeRequest
+     *
      * @returns SyncDingTypeResponse
      *
      * @param SyncDingTypeRequest $request
@@ -21793,6 +22215,7 @@ class Aliding extends OpenApiClient
      * @param request - TerminateInstanceRequest
      * @param tmpHeader - TerminateInstanceHeaders
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns TerminateInstanceResponse
      *
      * @param TerminateInstanceRequest $request
@@ -21833,23 +22256,23 @@ class Aliding extends OpenApiClient
         }
 
         if (null !== $headers->accountContextShrink) {
-            @$realHeaders['AccountContext'] = json_encode($headers->accountContextShrink, JSON_UNESCAPED_UNICODE + JSON_UNESCAPED_SLASHES);
+            @$realHeaders['AccountContext'] = json_encode($headers->accountContextShrink, \JSON_UNESCAPED_UNICODE + \JSON_UNESCAPED_SLASHES);
         }
 
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
-            'body'    => Utils::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'TerminateInstance',
-            'version'     => '2023-04-26',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/dingtalk/v1/yida/terminateInstance',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'TerminateInstance',
+            'version' => '2023-04-26',
+            'protocol' => 'HTTPS',
+            'pathname' => '/dingtalk/v1/yida/terminateInstance',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return TerminateInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -21862,6 +22285,7 @@ class Aliding extends OpenApiClient
      * 终止流程实例.
      *
      * @param request - TerminateInstanceRequest
+     *
      * @returns TerminateInstanceResponse
      *
      * @param TerminateInstanceRequest $request
@@ -21882,6 +22306,7 @@ class Aliding extends OpenApiClient
      * @param tmpReq - TransferTicketRequest
      * @param tmpHeader - TransferTicketHeaders
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns TransferTicketResponse
      *
      * @param TransferTicketRequest $tmpReq
@@ -21948,23 +22373,23 @@ class Aliding extends OpenApiClient
         }
 
         if (null !== $headers->accountContextShrink) {
-            @$realHeaders['AccountContext'] = json_encode($headers->accountContextShrink, JSON_UNESCAPED_UNICODE + JSON_UNESCAPED_SLASHES);
+            @$realHeaders['AccountContext'] = json_encode($headers->accountContextShrink, \JSON_UNESCAPED_UNICODE + \JSON_UNESCAPED_SLASHES);
         }
 
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
-            'body'    => Utils::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'TransferTicket',
-            'version'     => '2023-04-26',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/dingtalk/v1/ticket/transferTicket',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'TransferTicket',
+            'version' => '2023-04-26',
+            'protocol' => 'HTTPS',
+            'pathname' => '/dingtalk/v1/ticket/transferTicket',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return TransferTicketResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -21977,6 +22402,7 @@ class Aliding extends OpenApiClient
      * 转交工单.
      *
      * @param request - TransferTicketRequest
+     *
      * @returns TransferTicketResponse
      *
      * @param TransferTicketRequest $request
@@ -21997,6 +22423,7 @@ class Aliding extends OpenApiClient
      * @param request - UnsubscribeCalendarRequest
      * @param tmpHeader - UnsubscribeCalendarHeaders
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns UnsubscribeCalendarResponse
      *
      * @param UnsubscribeCalendarRequest $request
@@ -22025,23 +22452,23 @@ class Aliding extends OpenApiClient
         }
 
         if (null !== $headers->accountContextShrink) {
-            @$realHeaders['AccountContext'] = json_encode($headers->accountContextShrink, JSON_UNESCAPED_UNICODE + JSON_UNESCAPED_SLASHES);
+            @$realHeaders['AccountContext'] = json_encode($headers->accountContextShrink, \JSON_UNESCAPED_UNICODE + \JSON_UNESCAPED_SLASHES);
         }
 
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
-            'body'    => Utils::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'UnsubscribeCalendar',
-            'version'     => '2023-04-26',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/dingtalk/v1/calendar/unsubscribeCalendar',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'UnsubscribeCalendar',
+            'version' => '2023-04-26',
+            'protocol' => 'HTTPS',
+            'pathname' => '/dingtalk/v1/calendar/unsubscribeCalendar',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return UnsubscribeCalendarResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -22054,6 +22481,7 @@ class Aliding extends OpenApiClient
      * 取消订阅公共日历.
      *
      * @param request - UnsubscribeCalendarRequest
+     *
      * @returns UnsubscribeCalendarResponse
      *
      * @param UnsubscribeCalendarRequest $request
@@ -22074,6 +22502,7 @@ class Aliding extends OpenApiClient
      * @param tmpReq - UnsubscribeEventRequest
      * @param tmpHeader - UnsubscribeEventHeaders
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns UnsubscribeEventResponse
      *
      * @param UnsubscribeEventRequest $tmpReq
@@ -22116,23 +22545,23 @@ class Aliding extends OpenApiClient
         }
 
         if (null !== $headers->accountContextShrink) {
-            @$realHeaders['AccountContext'] = json_encode($headers->accountContextShrink, JSON_UNESCAPED_UNICODE + JSON_UNESCAPED_SLASHES);
+            @$realHeaders['AccountContext'] = json_encode($headers->accountContextShrink, \JSON_UNESCAPED_UNICODE + \JSON_UNESCAPED_SLASHES);
         }
 
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
-            'body'    => Utils::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'UnsubscribeEvent',
-            'version'     => '2023-04-26',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/dingtalk/v1/documents/unsubscribeEvent',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'UnsubscribeEvent',
+            'version' => '2023-04-26',
+            'protocol' => 'HTTPS',
+            'pathname' => '/dingtalk/v1/documents/unsubscribeEvent',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return UnsubscribeEventResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -22145,6 +22574,7 @@ class Aliding extends OpenApiClient
      * 取消订阅文件变更事件.
      *
      * @param request - UnsubscribeEventRequest
+     *
      * @returns UnsubscribeEventResponse
      *
      * @param UnsubscribeEventRequest $request
@@ -22165,6 +22595,7 @@ class Aliding extends OpenApiClient
      * @param request - UpdateFormDataRequest
      * @param tmpHeader - UpdateFormDataHeaders
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns UpdateFormDataResponse
      *
      * @param UpdateFormDataRequest $request
@@ -22213,23 +22644,23 @@ class Aliding extends OpenApiClient
         }
 
         if (null !== $headers->accountContextShrink) {
-            @$realHeaders['AccountContext'] = json_encode($headers->accountContextShrink, JSON_UNESCAPED_UNICODE + JSON_UNESCAPED_SLASHES);
+            @$realHeaders['AccountContext'] = json_encode($headers->accountContextShrink, \JSON_UNESCAPED_UNICODE + \JSON_UNESCAPED_SLASHES);
         }
 
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
-            'body'    => Utils::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'UpdateFormData',
-            'version'     => '2023-04-26',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/dingtalk/v1/yida/updateFormData',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'UpdateFormData',
+            'version' => '2023-04-26',
+            'protocol' => 'HTTPS',
+            'pathname' => '/dingtalk/v1/yida/updateFormData',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return UpdateFormDataResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -22242,6 +22673,7 @@ class Aliding extends OpenApiClient
      * 更新表单数据.
      *
      * @param request - UpdateFormDataRequest
+     *
      * @returns UpdateFormDataResponse
      *
      * @param UpdateFormDataRequest $request
@@ -22262,6 +22694,7 @@ class Aliding extends OpenApiClient
      * @param request - UpdateInstanceRequest
      * @param tmpHeader - UpdateInstanceHeaders
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns UpdateInstanceResponse
      *
      * @param UpdateInstanceRequest $request
@@ -22306,23 +22739,23 @@ class Aliding extends OpenApiClient
         }
 
         if (null !== $headers->accountContextShrink) {
-            @$realHeaders['AccountContext'] = json_encode($headers->accountContextShrink, JSON_UNESCAPED_UNICODE + JSON_UNESCAPED_SLASHES);
+            @$realHeaders['AccountContext'] = json_encode($headers->accountContextShrink, \JSON_UNESCAPED_UNICODE + \JSON_UNESCAPED_SLASHES);
         }
 
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
-            'body'    => Utils::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'UpdateInstance',
-            'version'     => '2023-04-26',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/dingtalk/v1/yida/updateInstance',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'UpdateInstance',
+            'version' => '2023-04-26',
+            'protocol' => 'HTTPS',
+            'pathname' => '/dingtalk/v1/yida/updateInstance',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return UpdateInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -22335,6 +22768,7 @@ class Aliding extends OpenApiClient
      * 更新流程实例.
      *
      * @param request - UpdateInstanceRequest
+     *
      * @returns UpdateInstanceResponse
      *
      * @param UpdateInstanceRequest $request
@@ -22355,6 +22789,7 @@ class Aliding extends OpenApiClient
      * @param tmpReq - UpdateLiveRequest
      * @param tmpHeader - UpdateLiveHeaders
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns UpdateLiveResponse
      *
      * @param UpdateLiveRequest $tmpReq
@@ -22413,23 +22848,23 @@ class Aliding extends OpenApiClient
         }
 
         if (null !== $headers->accountContextShrink) {
-            @$realHeaders['AccountContext'] = json_encode($headers->accountContextShrink, JSON_UNESCAPED_UNICODE + JSON_UNESCAPED_SLASHES);
+            @$realHeaders['AccountContext'] = json_encode($headers->accountContextShrink, \JSON_UNESCAPED_UNICODE + \JSON_UNESCAPED_SLASHES);
         }
 
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
-            'body'    => Utils::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'UpdateLive',
-            'version'     => '2023-04-26',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/dingtalk/v1/ysp/updateLive',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'UpdateLive',
+            'version' => '2023-04-26',
+            'protocol' => 'HTTPS',
+            'pathname' => '/dingtalk/v1/ysp/updateLive',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return UpdateLiveResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -22442,6 +22877,7 @@ class Aliding extends OpenApiClient
      * 修改直播属性信息.
      *
      * @param request - UpdateLiveRequest
+     *
      * @returns UpdateLiveResponse
      *
      * @param UpdateLiveRequest $request
@@ -22462,6 +22898,7 @@ class Aliding extends OpenApiClient
      * @param tmpReq - UpdateMeetingRoomRequest
      * @param tmpHeader - UpdateMeetingRoomHeaders
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns UpdateMeetingRoomResponse
      *
      * @param UpdateMeetingRoomRequest $tmpReq
@@ -22552,23 +22989,23 @@ class Aliding extends OpenApiClient
         }
 
         if (null !== $headers->accountContextShrink) {
-            @$realHeaders['AccountContext'] = json_encode($headers->accountContextShrink, JSON_UNESCAPED_UNICODE + JSON_UNESCAPED_SLASHES);
+            @$realHeaders['AccountContext'] = json_encode($headers->accountContextShrink, \JSON_UNESCAPED_UNICODE + \JSON_UNESCAPED_SLASHES);
         }
 
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
-            'body'    => Utils::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'UpdateMeetingRoom',
-            'version'     => '2023-04-26',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/dingtalk/v1/ysp/updateMeetingRoom',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'UpdateMeetingRoom',
+            'version' => '2023-04-26',
+            'protocol' => 'HTTPS',
+            'pathname' => '/dingtalk/v1/ysp/updateMeetingRoom',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return UpdateMeetingRoomResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -22581,6 +23018,7 @@ class Aliding extends OpenApiClient
      * 更新会议室信息.
      *
      * @param request - UpdateMeetingRoomRequest
+     *
      * @returns UpdateMeetingRoomResponse
      *
      * @param UpdateMeetingRoomRequest $request
@@ -22601,6 +23039,7 @@ class Aliding extends OpenApiClient
      * @param tmpReq - UpdateMeetingRoomGroupRequest
      * @param tmpHeader - UpdateMeetingRoomGroupHeaders
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns UpdateMeetingRoomGroupResponse
      *
      * @param UpdateMeetingRoomGroupRequest $tmpReq
@@ -22643,23 +23082,23 @@ class Aliding extends OpenApiClient
         }
 
         if (null !== $headers->accountContextShrink) {
-            @$realHeaders['AccountContext'] = json_encode($headers->accountContextShrink, JSON_UNESCAPED_UNICODE + JSON_UNESCAPED_SLASHES);
+            @$realHeaders['AccountContext'] = json_encode($headers->accountContextShrink, \JSON_UNESCAPED_UNICODE + \JSON_UNESCAPED_SLASHES);
         }
 
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
-            'body'    => Utils::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'UpdateMeetingRoomGroup',
-            'version'     => '2023-04-26',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/dingtalk/v1/ysp/updateMeetingRoomGroup',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'UpdateMeetingRoomGroup',
+            'version' => '2023-04-26',
+            'protocol' => 'HTTPS',
+            'pathname' => '/dingtalk/v1/ysp/updateMeetingRoomGroup',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return UpdateMeetingRoomGroupResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -22672,6 +23111,7 @@ class Aliding extends OpenApiClient
      * 更新会议室分组信息.
      *
      * @param request - UpdateMeetingRoomGroupRequest
+     *
      * @returns UpdateMeetingRoomGroupResponse
      *
      * @param UpdateMeetingRoomGroupRequest $request
@@ -22692,6 +23132,7 @@ class Aliding extends OpenApiClient
      * @param tmpReq - UpdateRangeRequest
      * @param tmpHeader - UpdateRangeHeaders
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns UpdateRangeResponse
      *
      * @param UpdateRangeRequest $tmpReq
@@ -22766,23 +23207,23 @@ class Aliding extends OpenApiClient
         }
 
         if (null !== $headers->accountContextShrink) {
-            @$realHeaders['AccountContext'] = json_encode($headers->accountContextShrink, JSON_UNESCAPED_UNICODE + JSON_UNESCAPED_SLASHES);
+            @$realHeaders['AccountContext'] = json_encode($headers->accountContextShrink, \JSON_UNESCAPED_UNICODE + \JSON_UNESCAPED_SLASHES);
         }
 
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
-            'body'    => Utils::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'UpdateRange',
-            'version'     => '2023-04-26',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/dingtalk/v1/documents/updateRange',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'UpdateRange',
+            'version' => '2023-04-26',
+            'protocol' => 'HTTPS',
+            'pathname' => '/dingtalk/v1/documents/updateRange',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return UpdateRangeResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -22795,6 +23236,7 @@ class Aliding extends OpenApiClient
      * 更新单元格区域
      *
      * @param request - UpdateRangeRequest
+     *
      * @returns UpdateRangeResponse
      *
      * @param UpdateRangeRequest $request
@@ -22815,6 +23257,7 @@ class Aliding extends OpenApiClient
      * @param tmpReq - UpdateScheduleConfSettingsRequest
      * @param tmpHeader - UpdateScheduleConfSettingsHeaders
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns UpdateScheduleConfSettingsResponse
      *
      * @param UpdateScheduleConfSettingsRequest $tmpReq
@@ -22861,23 +23304,23 @@ class Aliding extends OpenApiClient
         }
 
         if (null !== $headers->accountContextShrink) {
-            @$realHeaders['AccountContext'] = json_encode($headers->accountContextShrink, JSON_UNESCAPED_UNICODE + JSON_UNESCAPED_SLASHES);
+            @$realHeaders['AccountContext'] = json_encode($headers->accountContextShrink, \JSON_UNESCAPED_UNICODE + \JSON_UNESCAPED_SLASHES);
         }
 
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
-            'body'    => Utils::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'UpdateScheduleConfSettings',
-            'version'     => '2023-04-26',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/dingtalk/v1/ysp/updateScheduleConfSettings',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'UpdateScheduleConfSettings',
+            'version' => '2023-04-26',
+            'protocol' => 'HTTPS',
+            'pathname' => '/dingtalk/v1/ysp/updateScheduleConfSettings',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return UpdateScheduleConfSettingsResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -22890,6 +23333,7 @@ class Aliding extends OpenApiClient
      * 更新预约会议设置.
      *
      * @param request - UpdateScheduleConfSettingsRequest
+     *
      * @returns UpdateScheduleConfSettingsResponse
      *
      * @param UpdateScheduleConfSettingsRequest $request
@@ -22910,6 +23354,7 @@ class Aliding extends OpenApiClient
      * @param tmpReq - UpdateScheduleConferenceRequest
      * @param tmpHeader - UpdateScheduleConferenceHeaders
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns UpdateScheduleConferenceResponse
      *
      * @param UpdateScheduleConferenceRequest $tmpReq
@@ -22960,23 +23405,23 @@ class Aliding extends OpenApiClient
         }
 
         if (null !== $headers->accountContextShrink) {
-            @$realHeaders['AccountContext'] = json_encode($headers->accountContextShrink, JSON_UNESCAPED_UNICODE + JSON_UNESCAPED_SLASHES);
+            @$realHeaders['AccountContext'] = json_encode($headers->accountContextShrink, \JSON_UNESCAPED_UNICODE + \JSON_UNESCAPED_SLASHES);
         }
 
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
-            'body'    => Utils::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'UpdateScheduleConference',
-            'version'     => '2023-04-26',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/dingtalk/v1/ysp/updateScheduleConference',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'UpdateScheduleConference',
+            'version' => '2023-04-26',
+            'protocol' => 'HTTPS',
+            'pathname' => '/dingtalk/v1/ysp/updateScheduleConference',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return UpdateScheduleConferenceResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -22989,6 +23434,7 @@ class Aliding extends OpenApiClient
      * 更新预约会议.
      *
      * @param request - UpdateScheduleConferenceRequest
+     *
      * @returns UpdateScheduleConferenceResponse
      *
      * @param UpdateScheduleConferenceRequest $request
@@ -23009,6 +23455,7 @@ class Aliding extends OpenApiClient
      * @param tmpReq - UpdateStatusRequest
      * @param tmpHeader - UpdateStatusHeaders
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns UpdateStatusResponse
      *
      * @param UpdateStatusRequest $tmpReq
@@ -23063,23 +23510,23 @@ class Aliding extends OpenApiClient
         }
 
         if (null !== $headers->accountContextShrink) {
-            @$realHeaders['AccountContext'] = json_encode($headers->accountContextShrink, JSON_UNESCAPED_UNICODE + JSON_UNESCAPED_SLASHES);
+            @$realHeaders['AccountContext'] = json_encode($headers->accountContextShrink, \JSON_UNESCAPED_UNICODE + \JSON_UNESCAPED_SLASHES);
         }
 
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
-            'body'    => Utils::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'UpdateStatus',
-            'version'     => '2023-04-26',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/dingtalk/v1/yida/updateStatus',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'UpdateStatus',
+            'version' => '2023-04-26',
+            'protocol' => 'HTTPS',
+            'pathname' => '/dingtalk/v1/yida/updateStatus',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return UpdateStatusResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -23092,6 +23539,7 @@ class Aliding extends OpenApiClient
      * 更新状态
      *
      * @param request - UpdateStatusRequest
+     *
      * @returns UpdateStatusResponse
      *
      * @param UpdateStatusRequest $request
@@ -23112,6 +23560,7 @@ class Aliding extends OpenApiClient
      * @param tmpReq - UpdateSubscribedCalendarsRequest
      * @param tmpHeader - UpdateSubscribedCalendarsHeaders
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns UpdateSubscribedCalendarsResponse
      *
      * @param UpdateSubscribedCalendarsRequest $tmpReq
@@ -23166,23 +23615,23 @@ class Aliding extends OpenApiClient
         }
 
         if (null !== $headers->accountContextShrink) {
-            @$realHeaders['AccountContext'] = json_encode($headers->accountContextShrink, JSON_UNESCAPED_UNICODE + JSON_UNESCAPED_SLASHES);
+            @$realHeaders['AccountContext'] = json_encode($headers->accountContextShrink, \JSON_UNESCAPED_UNICODE + \JSON_UNESCAPED_SLASHES);
         }
 
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
-            'body'    => Utils::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'UpdateSubscribedCalendars',
-            'version'     => '2023-04-26',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/dingtalk/v1/calendar/updateSubscribedCalendars',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'UpdateSubscribedCalendars',
+            'version' => '2023-04-26',
+            'protocol' => 'HTTPS',
+            'pathname' => '/dingtalk/v1/calendar/updateSubscribedCalendars',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return UpdateSubscribedCalendarsResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -23195,6 +23644,7 @@ class Aliding extends OpenApiClient
      * 更新订阅日历.
      *
      * @param request - UpdateSubscribedCalendarsRequest
+     *
      * @returns UpdateSubscribedCalendarsResponse
      *
      * @param UpdateSubscribedCalendarsRequest $request
@@ -23215,6 +23665,7 @@ class Aliding extends OpenApiClient
      * @param tmpReq - UpdateTodoTaskRequest
      * @param tmpHeader - UpdateTodoTaskHeaders
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns UpdateTodoTaskResponse
      *
      * @param UpdateTodoTaskRequest $tmpReq
@@ -23285,23 +23736,23 @@ class Aliding extends OpenApiClient
         }
 
         if (null !== $headers->accountContextShrink) {
-            @$realHeaders['AccountContext'] = json_encode($headers->accountContextShrink, JSON_UNESCAPED_UNICODE + JSON_UNESCAPED_SLASHES);
+            @$realHeaders['AccountContext'] = json_encode($headers->accountContextShrink, \JSON_UNESCAPED_UNICODE + \JSON_UNESCAPED_SLASHES);
         }
 
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
-            'body'    => Utils::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'UpdateTodoTask',
-            'version'     => '2023-04-26',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/dingtalk/v1/task/updateTodoTask',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'UpdateTodoTask',
+            'version' => '2023-04-26',
+            'protocol' => 'HTTPS',
+            'pathname' => '/dingtalk/v1/task/updateTodoTask',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return UpdateTodoTaskResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -23314,6 +23765,7 @@ class Aliding extends OpenApiClient
      * 更新代办.
      *
      * @param request - UpdateTodoTaskRequest
+     *
      * @returns UpdateTodoTaskResponse
      *
      * @param UpdateTodoTaskRequest $request
@@ -23334,6 +23786,7 @@ class Aliding extends OpenApiClient
      * @param tmpReq - UpdateTodoTaskExecutorStatusRequest
      * @param tmpHeader - UpdateTodoTaskExecutorStatusHeaders
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns UpdateTodoTaskExecutorStatusResponse
      *
      * @param UpdateTodoTaskExecutorStatusRequest $tmpReq
@@ -23384,23 +23837,23 @@ class Aliding extends OpenApiClient
         }
 
         if (null !== $headers->accountContextShrink) {
-            @$realHeaders['AccountContext'] = json_encode($headers->accountContextShrink, JSON_UNESCAPED_UNICODE + JSON_UNESCAPED_SLASHES);
+            @$realHeaders['AccountContext'] = json_encode($headers->accountContextShrink, \JSON_UNESCAPED_UNICODE + \JSON_UNESCAPED_SLASHES);
         }
 
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
-            'body'    => Utils::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'UpdateTodoTaskExecutorStatus',
-            'version'     => '2023-04-26',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/dingtalk/v1/task/updateTodoTaskExecutorStatus',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'UpdateTodoTaskExecutorStatus',
+            'version' => '2023-04-26',
+            'protocol' => 'HTTPS',
+            'pathname' => '/dingtalk/v1/task/updateTodoTaskExecutorStatus',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return UpdateTodoTaskExecutorStatusResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -23413,6 +23866,7 @@ class Aliding extends OpenApiClient
      * 更新代办执行者状态
      *
      * @param request - UpdateTodoTaskExecutorStatusRequest
+     *
      * @returns UpdateTodoTaskExecutorStatusResponse
      *
      * @param UpdateTodoTaskExecutorStatusRequest $request
@@ -23433,6 +23887,7 @@ class Aliding extends OpenApiClient
      * @param request - UpdateUserAvatarRequest
      * @param tmpHeader - UpdateUserAvatarHeaders
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns UpdateUserAvatarResponse
      *
      * @param UpdateUserAvatarRequest $request
@@ -23461,23 +23916,23 @@ class Aliding extends OpenApiClient
         }
 
         if (null !== $headers->accountContextShrink) {
-            @$realHeaders['AccountContext'] = json_encode($headers->accountContextShrink, JSON_UNESCAPED_UNICODE + JSON_UNESCAPED_SLASHES);
+            @$realHeaders['AccountContext'] = json_encode($headers->accountContextShrink, \JSON_UNESCAPED_UNICODE + \JSON_UNESCAPED_SLASHES);
         }
 
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
-            'body'    => Utils::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'UpdateUserAvatar',
-            'version'     => '2023-04-26',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/dingtalk/v1/contact/updateUserAvatar',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'UpdateUserAvatar',
+            'version' => '2023-04-26',
+            'protocol' => 'HTTPS',
+            'pathname' => '/dingtalk/v1/contact/updateUserAvatar',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return UpdateUserAvatarResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -23490,6 +23945,7 @@ class Aliding extends OpenApiClient
      * 更新企业账号用户头像.
      *
      * @param request - UpdateUserAvatarRequest
+     *
      * @returns UpdateUserAvatarResponse
      *
      * @param UpdateUserAvatarRequest $request
@@ -23510,6 +23966,7 @@ class Aliding extends OpenApiClient
      * @param tmpReq - UpdateVideoConferenceSettingRequest
      * @param tmpHeader - UpdateVideoConferenceSettingHeaders
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns UpdateVideoConferenceSettingResponse
      *
      * @param UpdateVideoConferenceSettingRequest $tmpReq
@@ -23572,23 +24029,23 @@ class Aliding extends OpenApiClient
         }
 
         if (null !== $headers->accountContextShrink) {
-            @$realHeaders['AccountContext'] = json_encode($headers->accountContextShrink, JSON_UNESCAPED_UNICODE + JSON_UNESCAPED_SLASHES);
+            @$realHeaders['AccountContext'] = json_encode($headers->accountContextShrink, \JSON_UNESCAPED_UNICODE + \JSON_UNESCAPED_SLASHES);
         }
 
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
-            'body'    => Utils::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'UpdateVideoConferenceSetting',
-            'version'     => '2023-04-26',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/dingtalk/v1/ysp/updateVideoConferenceSetting',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'UpdateVideoConferenceSetting',
+            'version' => '2023-04-26',
+            'protocol' => 'HTTPS',
+            'pathname' => '/dingtalk/v1/ysp/updateVideoConferenceSetting',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return UpdateVideoConferenceSettingResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -23601,6 +24058,7 @@ class Aliding extends OpenApiClient
      * 设置正在进行中的视频会议属性.
      *
      * @param request - UpdateVideoConferenceSettingRequest
+     *
      * @returns UpdateVideoConferenceSettingResponse
      *
      * @param UpdateVideoConferenceSettingRequest $request
@@ -23621,6 +24079,7 @@ class Aliding extends OpenApiClient
      * @param tmpReq - UpdateWorkspaceDocMembersRequest
      * @param tmpHeader - UpdateWorkspaceDocMembersHeaders
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns UpdateWorkspaceDocMembersResponse
      *
      * @param UpdateWorkspaceDocMembersRequest $tmpReq
@@ -23671,23 +24130,23 @@ class Aliding extends OpenApiClient
         }
 
         if (null !== $headers->accountContextShrink) {
-            @$realHeaders['AccountContext'] = json_encode($headers->accountContextShrink, JSON_UNESCAPED_UNICODE + JSON_UNESCAPED_SLASHES);
+            @$realHeaders['AccountContext'] = json_encode($headers->accountContextShrink, \JSON_UNESCAPED_UNICODE + \JSON_UNESCAPED_SLASHES);
         }
 
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
-            'body'    => Utils::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'UpdateWorkspaceDocMembers',
-            'version'     => '2023-04-26',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/dingtalk/v1/documents/updateWorkspaceDocMembers',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'UpdateWorkspaceDocMembers',
+            'version' => '2023-04-26',
+            'protocol' => 'HTTPS',
+            'pathname' => '/dingtalk/v1/documents/updateWorkspaceDocMembers',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return UpdateWorkspaceDocMembersResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -23700,6 +24159,7 @@ class Aliding extends OpenApiClient
      * 修改知识库文档成员权限.
      *
      * @param request - UpdateWorkspaceDocMembersRequest
+     *
      * @returns UpdateWorkspaceDocMembersResponse
      *
      * @param UpdateWorkspaceDocMembersRequest $request
@@ -23720,6 +24180,7 @@ class Aliding extends OpenApiClient
      * @param tmpReq - UpdateWorkspaceMembersRequest
      * @param tmpHeader - UpdateWorkspaceMembersHeaders
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns UpdateWorkspaceMembersResponse
      *
      * @param UpdateWorkspaceMembersRequest $tmpReq
@@ -23766,23 +24227,23 @@ class Aliding extends OpenApiClient
         }
 
         if (null !== $headers->accountContextShrink) {
-            @$realHeaders['AccountContext'] = json_encode($headers->accountContextShrink, JSON_UNESCAPED_UNICODE + JSON_UNESCAPED_SLASHES);
+            @$realHeaders['AccountContext'] = json_encode($headers->accountContextShrink, \JSON_UNESCAPED_UNICODE + \JSON_UNESCAPED_SLASHES);
         }
 
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
-            'body'    => Utils::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'UpdateWorkspaceMembers',
-            'version'     => '2023-04-26',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/dingtalk/v1/documents/updateWorkspaceMembers',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'UpdateWorkspaceMembers',
+            'version' => '2023-04-26',
+            'protocol' => 'HTTPS',
+            'pathname' => '/dingtalk/v1/documents/updateWorkspaceMembers',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return UpdateWorkspaceMembersResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -23795,6 +24256,7 @@ class Aliding extends OpenApiClient
      * 更新知识库成员权限.
      *
      * @param request - UpdateWorkspaceMembersRequest
+     *
      * @returns UpdateWorkspaceMembersResponse
      *
      * @param UpdateWorkspaceMembersRequest $request
@@ -23815,6 +24277,7 @@ class Aliding extends OpenApiClient
      * @param tmpReq - UploadMediaRequest
      * @param tmpHeader - UploadMediaHeaders
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns UploadMediaResponse
      *
      * @param UploadMediaRequest $tmpReq
@@ -23865,23 +24328,23 @@ class Aliding extends OpenApiClient
         }
 
         if (null !== $headers->accountContextShrink) {
-            @$realHeaders['AccountContext'] = json_encode($headers->accountContextShrink, JSON_UNESCAPED_UNICODE + JSON_UNESCAPED_SLASHES);
+            @$realHeaders['AccountContext'] = json_encode($headers->accountContextShrink, \JSON_UNESCAPED_UNICODE + \JSON_UNESCAPED_SLASHES);
         }
 
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
-            'body'    => Utils::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'UploadMedia',
-            'version'     => '2023-04-26',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/aliding/v1/documents/uploadMedia',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'UploadMedia',
+            'version' => '2023-04-26',
+            'protocol' => 'HTTPS',
+            'pathname' => '/aliding/v1/documents/uploadMedia',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return UploadMediaResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -23894,6 +24357,7 @@ class Aliding extends OpenApiClient
      * 上传媒体<br/>.
      *
      * @param request - UploadMediaRequest
+     *
      * @returns UploadMediaResponse
      *
      * @param UploadMediaRequest $request
@@ -23914,6 +24378,7 @@ class Aliding extends OpenApiClient
      * @param tmpReq - WearOrgHonorRequest
      * @param tmpHeader - WearOrgHonorHeaders
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns WearOrgHonorResponse
      *
      * @param WearOrgHonorRequest $tmpReq
@@ -23964,23 +24429,23 @@ class Aliding extends OpenApiClient
         }
 
         if (null !== $headers->accountContextShrink) {
-            @$realHeaders['AccountContext'] = json_encode($headers->accountContextShrink, JSON_UNESCAPED_UNICODE + JSON_UNESCAPED_SLASHES);
+            @$realHeaders['AccountContext'] = json_encode($headers->accountContextShrink, \JSON_UNESCAPED_UNICODE + \JSON_UNESCAPED_SLASHES);
         }
 
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
-            'body'    => Utils::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'WearOrgHonor',
-            'version'     => '2023-04-26',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/aliding/v1/honor/wearOrgHonor',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'WearOrgHonor',
+            'version' => '2023-04-26',
+            'protocol' => 'HTTPS',
+            'pathname' => '/aliding/v1/honor/wearOrgHonor',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return WearOrgHonorResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -23993,6 +24458,7 @@ class Aliding extends OpenApiClient
      * 穿戴勋章.
      *
      * @param request - WearOrgHonorRequest
+     *
      * @returns WearOrgHonorResponse
      *
      * @param WearOrgHonorRequest $request

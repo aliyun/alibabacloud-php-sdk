@@ -12,23 +12,26 @@ class RecallHonorShrinkRequest extends Model
      * @var string
      */
     public $tenantContextShrink;
+
     /**
      * @var string
      */
     public $honorId;
+
     /**
      * @var int
      */
     public $orgId;
+
     /**
      * @var string
      */
     public $userId;
     protected $_name = [
         'tenantContextShrink' => 'TenantContext',
-        'honorId'             => 'honorId',
-        'orgId'               => 'orgId',
-        'userId'              => 'userId',
+        'honorId' => 'honorId',
+        'orgId' => 'orgId',
+        'userId' => 'userId',
     ];
 
     public function validate()

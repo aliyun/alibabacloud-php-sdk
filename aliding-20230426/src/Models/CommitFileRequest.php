@@ -14,28 +14,32 @@ class CommitFileRequest extends Model
      * @var string
      */
     public $name;
+
     /**
      * @var option
      */
     public $option;
+
     /**
      * @var string
      */
     public $parentDentryUuid;
+
     /**
      * @var tenantContext
      */
     public $tenantContext;
+
     /**
      * @var string
      */
     public $uploadKey;
     protected $_name = [
-        'name'             => 'Name',
-        'option'           => 'Option',
+        'name' => 'Name',
+        'option' => 'Option',
         'parentDentryUuid' => 'ParentDentryUuid',
-        'tenantContext'    => 'TenantContext',
-        'uploadKey'        => 'UploadKey',
+        'tenantContext' => 'TenantContext',
+        'uploadKey' => 'UploadKey',
     ];
 
     public function validate()

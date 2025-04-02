@@ -12,27 +12,31 @@ class UpdateInstanceRequest extends Model
      * @var string
      */
     public $appType;
+
     /**
      * @var string
      */
     public $language;
+
     /**
      * @var string
      */
     public $processInstanceId;
+
     /**
      * @var string
      */
     public $systemToken;
+
     /**
      * @var string
      */
     public $updateFormDataJson;
     protected $_name = [
-        'appType'            => 'AppType',
-        'language'           => 'Language',
-        'processInstanceId'  => 'ProcessInstanceId',
-        'systemToken'        => 'SystemToken',
+        'appType' => 'AppType',
+        'language' => 'Language',
+        'processInstanceId' => 'ProcessInstanceId',
+        'systemToken' => 'SystemToken',
         'updateFormDataJson' => 'UpdateFormDataJson',
     ];
 

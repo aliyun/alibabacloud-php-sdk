@@ -12,23 +12,26 @@ class UpdateMeetingRoomResponseBody extends Model
      * @var bool
      */
     public $result;
+
     /**
      * @var string
      */
     public $requestId;
+
     /**
      * @var string
      */
     public $vendorRequestId;
+
     /**
      * @var string
      */
     public $vendorType;
     protected $_name = [
-        'result'          => 'Result',
-        'requestId'       => 'requestId',
+        'result' => 'Result',
+        'requestId' => 'requestId',
         'vendorRequestId' => 'vendorRequestId',
-        'vendorType'      => 'vendorType',
+        'vendorType' => 'vendorType',
     ];
 
     public function validate()

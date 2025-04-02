@@ -13,23 +13,26 @@ class GetScheduleRequest extends Model
      * @var string
      */
     public $endTime;
+
     /**
      * @var string
      */
     public $startTime;
+
     /**
      * @var tenantContext
      */
     public $tenantContext;
+
     /**
      * @var string[]
      */
     public $userIds;
     protected $_name = [
-        'endTime'       => 'EndTime',
-        'startTime'     => 'StartTime',
+        'endTime' => 'EndTime',
+        'startTime' => 'StartTime',
         'tenantContext' => 'TenantContext',
-        'userIds'       => 'UserIds',
+        'userIds' => 'UserIds',
     ];
 
     public function validate()
@@ -61,7 +64,7 @@ class GetScheduleRequest extends Model
         if (null !== $this->userIds) {
             if (\is_array($this->userIds)) {
                 $res['UserIds'] = [];
-                $n1             = 0;
+                $n1 = 0;
                 foreach ($this->userIds as $item1) {
                     $res['UserIds'][$n1++] = $item1;
                 }
@@ -94,7 +97,7 @@ class GetScheduleRequest extends Model
         if (isset($map['UserIds'])) {
             if (!empty($map['UserIds'])) {
                 $model->userIds = [];
-                $n1             = 0;
+                $n1 = 0;
                 foreach ($map['UserIds'] as $item1) {
                     $model->userIds[$n1++] = $item1;
                 }

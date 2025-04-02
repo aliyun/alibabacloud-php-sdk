@@ -17,37 +17,43 @@ class summary extends Model
      * @var actions
      */
     public $actions;
+
     /**
      * @var autoChapters[]
      */
     public $autoChapters;
+
     /**
      * @var conversationalSummary[]
      */
     public $conversationalSummary;
+
     /**
      * @var keySentences
      */
     public $keySentences;
+
     /**
      * @var string[]
      */
     public $keywords;
+
     /**
      * @var string
      */
     public $paragraphSummary;
+
     /**
      * @var questionsAnsweringSummary[]
      */
     public $questionsAnsweringSummary;
     protected $_name = [
-        'actions'                   => 'Actions',
-        'autoChapters'              => 'AutoChapters',
-        'conversationalSummary'     => 'ConversationalSummary',
-        'keySentences'              => 'KeySentences',
-        'keywords'                  => 'Keywords',
-        'paragraphSummary'          => 'ParagraphSummary',
+        'actions' => 'Actions',
+        'autoChapters' => 'AutoChapters',
+        'conversationalSummary' => 'ConversationalSummary',
+        'keySentences' => 'KeySentences',
+        'keywords' => 'Keywords',
+        'paragraphSummary' => 'ParagraphSummary',
         'questionsAnsweringSummary' => 'QuestionsAnsweringSummary',
     ];
 
@@ -84,7 +90,7 @@ class summary extends Model
         if (null !== $this->autoChapters) {
             if (\is_array($this->autoChapters)) {
                 $res['AutoChapters'] = [];
-                $n1                  = 0;
+                $n1 = 0;
                 foreach ($this->autoChapters as $item1) {
                     $res['AutoChapters'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -94,7 +100,7 @@ class summary extends Model
         if (null !== $this->conversationalSummary) {
             if (\is_array($this->conversationalSummary)) {
                 $res['ConversationalSummary'] = [];
-                $n1                           = 0;
+                $n1 = 0;
                 foreach ($this->conversationalSummary as $item1) {
                     $res['ConversationalSummary'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -108,7 +114,7 @@ class summary extends Model
         if (null !== $this->keywords) {
             if (\is_array($this->keywords)) {
                 $res['Keywords'] = [];
-                $n1              = 0;
+                $n1 = 0;
                 foreach ($this->keywords as $item1) {
                     $res['Keywords'][$n1++] = $item1;
                 }
@@ -122,7 +128,7 @@ class summary extends Model
         if (null !== $this->questionsAnsweringSummary) {
             if (\is_array($this->questionsAnsweringSummary)) {
                 $res['QuestionsAnsweringSummary'] = [];
-                $n1                               = 0;
+                $n1 = 0;
                 foreach ($this->questionsAnsweringSummary as $item1) {
                     $res['QuestionsAnsweringSummary'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -147,7 +153,7 @@ class summary extends Model
         if (isset($map['AutoChapters'])) {
             if (!empty($map['AutoChapters'])) {
                 $model->autoChapters = [];
-                $n1                  = 0;
+                $n1 = 0;
                 foreach ($map['AutoChapters'] as $item1) {
                     $model->autoChapters[$n1++] = autoChapters::fromMap($item1);
                 }
@@ -157,7 +163,7 @@ class summary extends Model
         if (isset($map['ConversationalSummary'])) {
             if (!empty($map['ConversationalSummary'])) {
                 $model->conversationalSummary = [];
-                $n1                           = 0;
+                $n1 = 0;
                 foreach ($map['ConversationalSummary'] as $item1) {
                     $model->conversationalSummary[$n1++] = conversationalSummary::fromMap($item1);
                 }
@@ -171,7 +177,7 @@ class summary extends Model
         if (isset($map['Keywords'])) {
             if (!empty($map['Keywords'])) {
                 $model->keywords = [];
-                $n1              = 0;
+                $n1 = 0;
                 foreach ($map['Keywords'] as $item1) {
                     $model->keywords[$n1++] = $item1;
                 }
@@ -185,7 +191,7 @@ class summary extends Model
         if (isset($map['QuestionsAnsweringSummary'])) {
             if (!empty($map['QuestionsAnsweringSummary'])) {
                 $model->questionsAnsweringSummary = [];
-                $n1                               = 0;
+                $n1 = 0;
                 foreach ($map['QuestionsAnsweringSummary'] as $item1) {
                     $model->questionsAnsweringSummary[$n1++] = questionsAnsweringSummary::fromMap($item1);
                 }

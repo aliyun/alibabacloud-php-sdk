@@ -12,43 +12,50 @@ class QueryScheduleConferenceResponseBody extends Model
      * @var int
      */
     public $endTime;
+
     /**
      * @var string[]
      */
     public $phones;
+
     /**
      * @var string
      */
     public $requestId;
+
     /**
      * @var string
      */
     public $roomCode;
+
     /**
      * @var string
      */
     public $scheduleConferenceId;
+
     /**
      * @var int
      */
     public $startTime;
+
     /**
      * @var string
      */
     public $title;
+
     /**
      * @var string
      */
     public $url;
     protected $_name = [
-        'endTime'              => 'endTime',
-        'phones'               => 'phones',
-        'requestId'            => 'requestId',
-        'roomCode'             => 'roomCode',
+        'endTime' => 'endTime',
+        'phones' => 'phones',
+        'requestId' => 'requestId',
+        'roomCode' => 'roomCode',
         'scheduleConferenceId' => 'scheduleConferenceId',
-        'startTime'            => 'startTime',
-        'title'                => 'title',
-        'url'                  => 'url',
+        'startTime' => 'startTime',
+        'title' => 'title',
+        'url' => 'url',
     ];
 
     public function validate()
@@ -69,7 +76,7 @@ class QueryScheduleConferenceResponseBody extends Model
         if (null !== $this->phones) {
             if (\is_array($this->phones)) {
                 $res['phones'] = [];
-                $n1            = 0;
+                $n1 = 0;
                 foreach ($this->phones as $item1) {
                     $res['phones'][$n1++] = $item1;
                 }
@@ -118,7 +125,7 @@ class QueryScheduleConferenceResponseBody extends Model
         if (isset($map['phones'])) {
             if (!empty($map['phones'])) {
                 $model->phones = [];
-                $n1            = 0;
+                $n1 = 0;
                 foreach ($map['phones'] as $item1) {
                     $model->phones[$n1++] = $item1;
                 }

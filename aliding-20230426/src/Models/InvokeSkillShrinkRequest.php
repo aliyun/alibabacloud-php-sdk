@@ -12,13 +12,14 @@ class InvokeSkillShrinkRequest extends Model
      * @var string
      */
     public $paramsShrink;
+
     /**
      * @var string
      */
     public $skillId;
     protected $_name = [
         'paramsShrink' => 'Params',
-        'skillId'      => 'SkillId',
+        'skillId' => 'SkillId',
     ];
 
     public function validate()

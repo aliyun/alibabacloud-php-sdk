@@ -13,28 +13,32 @@ class ListDriveSpacesResponseBody extends Model
      * @var string
      */
     public $nextToken;
+
     /**
      * @var string
      */
     public $requestId;
+
     /**
      * @var spaces[]
      */
     public $spaces;
+
     /**
      * @var string
      */
     public $vendorRequestId;
+
     /**
      * @var string
      */
     public $vendorType;
     protected $_name = [
-        'nextToken'       => 'nextToken',
-        'requestId'       => 'requestId',
-        'spaces'          => 'spaces',
+        'nextToken' => 'nextToken',
+        'requestId' => 'requestId',
+        'spaces' => 'spaces',
         'vendorRequestId' => 'vendorRequestId',
-        'vendorType'      => 'vendorType',
+        'vendorType' => 'vendorType',
     ];
 
     public function validate()
@@ -59,7 +63,7 @@ class ListDriveSpacesResponseBody extends Model
         if (null !== $this->spaces) {
             if (\is_array($this->spaces)) {
                 $res['spaces'] = [];
-                $n1            = 0;
+                $n1 = 0;
                 foreach ($this->spaces as $item1) {
                     $res['spaces'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -96,7 +100,7 @@ class ListDriveSpacesResponseBody extends Model
         if (isset($map['spaces'])) {
             if (!empty($map['spaces'])) {
                 $model->spaces = [];
-                $n1            = 0;
+                $n1 = 0;
                 foreach ($map['spaces'] as $item1) {
                     $model->spaces[$n1++] = spaces::fromMap($item1);
                 }

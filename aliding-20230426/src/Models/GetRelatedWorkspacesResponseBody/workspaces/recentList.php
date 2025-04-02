@@ -12,23 +12,26 @@ class recentList extends Model
      * @var int
      */
     public $lastEditTime;
+
     /**
      * @var string
      */
     public $name;
+
     /**
      * @var string
      */
     public $nodeId;
+
     /**
      * @var string
      */
     public $url;
     protected $_name = [
         'lastEditTime' => 'LastEditTime',
-        'name'         => 'Name',
-        'nodeId'       => 'NodeId',
-        'url'          => 'Url',
+        'name' => 'Name',
+        'nodeId' => 'NodeId',
+        'url' => 'Url',
     ];
 
     public function validate()

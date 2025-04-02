@@ -12,28 +12,32 @@ class GetRunningTasksRequest extends Model
      * @var string
      */
     public $appType;
+
     /**
      * @var string
      */
     public $language;
+
     /**
      * @var string
      */
     public $processCodes;
+
     /**
      * @var string
      */
     public $processInstanceId;
+
     /**
      * @var string
      */
     public $systemToken;
     protected $_name = [
-        'appType'           => 'AppType',
-        'language'          => 'Language',
-        'processCodes'      => 'ProcessCodes',
+        'appType' => 'AppType',
+        'language' => 'Language',
+        'processCodes' => 'ProcessCodes',
         'processInstanceId' => 'ProcessInstanceId',
-        'systemToken'       => 'SystemToken',
+        'systemToken' => 'SystemToken',
     ];
 
     public function validate()

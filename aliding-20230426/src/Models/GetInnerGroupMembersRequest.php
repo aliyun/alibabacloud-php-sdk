@@ -12,17 +12,19 @@ class GetInnerGroupMembersRequest extends Model
      * @var int
      */
     public $maxResults;
+
     /**
      * @var string
      */
     public $nextToken;
+
     /**
      * @var string
      */
     public $openConversationId;
     protected $_name = [
-        'maxResults'         => 'MaxResults',
-        'nextToken'          => 'NextToken',
+        'maxResults' => 'MaxResults',
+        'nextToken' => 'NextToken',
         'openConversationId' => 'OpenConversationId',
     ];
 

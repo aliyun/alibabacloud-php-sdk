@@ -12,18 +12,20 @@ class AddWorkspaceMembersShrinkRequest extends Model
      * @var string
      */
     public $membersShrink;
+
     /**
      * @var string
      */
     public $tenantContextShrink;
+
     /**
      * @var string
      */
     public $workspaceId;
     protected $_name = [
-        'membersShrink'       => 'Members',
+        'membersShrink' => 'Members',
         'tenantContextShrink' => 'TenantContext',
-        'workspaceId'         => 'WorkspaceId',
+        'workspaceId' => 'WorkspaceId',
     ];
 
     public function validate()

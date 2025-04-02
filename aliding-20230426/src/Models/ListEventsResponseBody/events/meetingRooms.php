@@ -12,18 +12,20 @@ class meetingRooms extends Model
      * @var string
      */
     public $displayName;
+
     /**
      * @var string
      */
     public $responseStatus;
+
     /**
      * @var string
      */
     public $roomId;
     protected $_name = [
-        'displayName'    => 'DisplayName',
+        'displayName' => 'DisplayName',
         'responseStatus' => 'ResponseStatus',
-        'roomId'         => 'RoomId',
+        'roomId' => 'RoomId',
     ];
 
     public function validate()

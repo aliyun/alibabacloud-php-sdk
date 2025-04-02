@@ -12,17 +12,19 @@ class UpdateMeetingRoomGroupShrinkRequest extends Model
      * @var string
      */
     public $groupId;
+
     /**
      * @var string
      */
     public $groupName;
+
     /**
      * @var string
      */
     public $tenantContextShrink;
     protected $_name = [
-        'groupId'             => 'GroupId',
-        'groupName'           => 'GroupName',
+        'groupId' => 'GroupId',
+        'groupName' => 'GroupName',
         'tenantContextShrink' => 'TenantContext',
     ];
 

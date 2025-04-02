@@ -12,12 +12,13 @@ class DeleteDriveSpaceShrinkRequest extends Model
      * @var string
      */
     public $spaceId;
+
     /**
      * @var string
      */
     public $tenantContextShrink;
     protected $_name = [
-        'spaceId'             => 'SpaceId',
+        'spaceId' => 'SpaceId',
         'tenantContextShrink' => 'TenantContext',
     ];
 

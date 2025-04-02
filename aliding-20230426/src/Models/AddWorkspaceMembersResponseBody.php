@@ -12,13 +12,14 @@ class AddWorkspaceMembersResponseBody extends Model
      * @var string[]
      */
     public $notInOrgList;
+
     /**
      * @var string
      */
     public $requestId;
     protected $_name = [
         'notInOrgList' => 'NotInOrgList',
-        'requestId'    => 'requestId',
+        'requestId' => 'requestId',
     ];
 
     public function validate()
@@ -35,7 +36,7 @@ class AddWorkspaceMembersResponseBody extends Model
         if (null !== $this->notInOrgList) {
             if (\is_array($this->notInOrgList)) {
                 $res['NotInOrgList'] = [];
-                $n1                  = 0;
+                $n1 = 0;
                 foreach ($this->notInOrgList as $item1) {
                     $res['NotInOrgList'][$n1++] = $item1;
                 }
@@ -60,7 +61,7 @@ class AddWorkspaceMembersResponseBody extends Model
         if (isset($map['NotInOrgList'])) {
             if (!empty($map['NotInOrgList'])) {
                 $model->notInOrgList = [];
-                $n1                  = 0;
+                $n1 = 0;
                 foreach ($map['NotInOrgList'] as $item1) {
                     $model->notInOrgList[$n1++] = $item1;
                 }

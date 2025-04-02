@@ -12,23 +12,26 @@ class templateList extends Model
      * @var string
      */
     public $iconUrl;
+
     /**
      * @var string
      */
     public $name;
+
     /**
      * @var string
      */
     public $reportCode;
+
     /**
      * @var string
      */
     public $url;
     protected $_name = [
-        'iconUrl'    => 'IconUrl',
-        'name'       => 'Name',
+        'iconUrl' => 'IconUrl',
+        'name' => 'Name',
         'reportCode' => 'ReportCode',
-        'url'        => 'Url',
+        'url' => 'Url',
     ];
 
     public function validate()

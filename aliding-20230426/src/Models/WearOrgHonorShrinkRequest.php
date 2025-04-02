@@ -12,28 +12,32 @@ class WearOrgHonorShrinkRequest extends Model
      * @var string
      */
     public $tenantContextShrink;
+
     /**
      * @var string
      */
     public $honorId;
+
     /**
      * @var int
      */
     public $orgId;
+
     /**
      * @var string
      */
     public $userId;
+
     /**
      * @var bool
      */
     public $wear;
     protected $_name = [
         'tenantContextShrink' => 'TenantContext',
-        'honorId'             => 'honorId',
-        'orgId'               => 'orgId',
-        'userId'              => 'userId',
-        'wear'                => 'wear',
+        'honorId' => 'honorId',
+        'orgId' => 'orgId',
+        'userId' => 'userId',
+        'wear' => 'wear',
     ];
 
     public function validate()

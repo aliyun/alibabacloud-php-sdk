@@ -11,28 +11,50 @@ class CreateWorkspaceDocResponseBody extends Model
     /**
      * @var string
      */
+    public $dentryUuid;
+
+    /**
+     * @var string
+     */
     public $docKey;
+
     /**
      * @var string
      */
     public $nodeId;
+
     /**
      * @var string
      */
     public $requestId;
+
     /**
      * @var string
      */
     public $url;
+
+    /**
+     * @var string
+     */
+    public $vendorRequestId;
+
+    /**
+     * @var string
+     */
+    public $vendorType;
+
     /**
      * @var string
      */
     public $workspaceId;
     protected $_name = [
-        'docKey'      => 'docKey',
-        'nodeId'      => 'nodeId',
-        'requestId'   => 'requestId',
-        'url'         => 'url',
+        'dentryUuid' => 'dentryUuid',
+        'docKey' => 'docKey',
+        'nodeId' => 'nodeId',
+        'requestId' => 'requestId',
+        'url' => 'url',
+        'vendorRequestId' => 'vendorRequestId',
+        'vendorType' => 'vendorType',
         'workspaceId' => 'workspaceId',
     ];
 
@@ -44,6 +66,10 @@ class CreateWorkspaceDocResponseBody extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->dentryUuid) {
+            $res['dentryUuid'] = $this->dentryUuid;
+        }
+
         if (null !== $this->docKey) {
             $res['docKey'] = $this->docKey;
         }
@@ -58,6 +84,14 @@ class CreateWorkspaceDocResponseBody extends Model
 
         if (null !== $this->url) {
             $res['url'] = $this->url;
+        }
+
+        if (null !== $this->vendorRequestId) {
+            $res['vendorRequestId'] = $this->vendorRequestId;
+        }
+
+        if (null !== $this->vendorType) {
+            $res['vendorType'] = $this->vendorType;
         }
 
         if (null !== $this->workspaceId) {
@@ -75,6 +109,10 @@ class CreateWorkspaceDocResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['dentryUuid'])) {
+            $model->dentryUuid = $map['dentryUuid'];
+        }
+
         if (isset($map['docKey'])) {
             $model->docKey = $map['docKey'];
         }
@@ -89,6 +127,14 @@ class CreateWorkspaceDocResponseBody extends Model
 
         if (isset($map['url'])) {
             $model->url = $map['url'];
+        }
+
+        if (isset($map['vendorRequestId'])) {
+            $model->vendorRequestId = $map['vendorRequestId'];
+        }
+
+        if (isset($map['vendorType'])) {
+            $model->vendorType = $map['vendorType'];
         }
 
         if (isset($map['workspaceId'])) {

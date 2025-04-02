@@ -12,23 +12,26 @@ class result extends Model
      * @var string
      */
     public $componentName;
+
     /**
      * @var string
      */
     public $fieldId;
+
     /**
      * @var string
      */
     public $label;
+
     /**
      * @var string
      */
     public $parentId;
     protected $_name = [
         'componentName' => 'ComponentName',
-        'fieldId'       => 'FieldId',
-        'label'         => 'Label',
-        'parentId'      => 'ParentId',
+        'fieldId' => 'FieldId',
+        'label' => 'Label',
+        'parentId' => 'ParentId',
     ];
 
     public function validate()

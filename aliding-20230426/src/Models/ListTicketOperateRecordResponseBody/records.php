@@ -14,38 +14,44 @@ class records extends Model
      * @var string
      */
     public $openTicketId;
+
     /**
      * @var string
      */
     public $operateData;
+
     /**
      * @var string
      */
     public $operateTime;
+
     /**
      * @var string
      */
     public $operation;
+
     /**
      * @var string
      */
     public $operationDisplayName;
+
     /**
      * @var operator
      */
     public $operator;
+
     /**
      * @var ticketMemo
      */
     public $ticketMemo;
     protected $_name = [
-        'openTicketId'         => 'OpenTicketId',
-        'operateData'          => 'OperateData',
-        'operateTime'          => 'OperateTime',
-        'operation'            => 'Operation',
+        'openTicketId' => 'OpenTicketId',
+        'operateData' => 'OperateData',
+        'operateTime' => 'OperateTime',
+        'operation' => 'Operation',
         'operationDisplayName' => 'OperationDisplayName',
-        'operator'             => 'Operator',
-        'ticketMemo'           => 'TicketMemo',
+        'operator' => 'Operator',
+        'ticketMemo' => 'TicketMemo',
     ];
 
     public function validate()

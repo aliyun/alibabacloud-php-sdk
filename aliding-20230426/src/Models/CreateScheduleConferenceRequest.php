@@ -14,28 +14,32 @@ class CreateScheduleConferenceRequest extends Model
      * @var int
      */
     public $endTime;
+
     /**
      * @var scheduleConfSettingModel
      */
     public $scheduleConfSettingModel;
+
     /**
      * @var int
      */
     public $startTime;
+
     /**
      * @var tenantContext
      */
     public $tenantContext;
+
     /**
      * @var string
      */
     public $title;
     protected $_name = [
-        'endTime'                  => 'EndTime',
+        'endTime' => 'EndTime',
         'scheduleConfSettingModel' => 'ScheduleConfSettingModel',
-        'startTime'                => 'StartTime',
-        'tenantContext'            => 'TenantContext',
-        'title'                    => 'Title',
+        'startTime' => 'StartTime',
+        'tenantContext' => 'TenantContext',
+        'title' => 'Title',
     ];
 
     public function validate()

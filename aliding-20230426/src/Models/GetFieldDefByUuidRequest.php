@@ -12,17 +12,19 @@ class GetFieldDefByUuidRequest extends Model
      * @var string
      */
     public $appType;
+
     /**
      * @var string
      */
     public $formUuid;
+
     /**
      * @var string
      */
     public $systemToken;
     protected $_name = [
-        'appType'     => 'AppType',
-        'formUuid'    => 'FormUuid',
+        'appType' => 'AppType',
+        'formUuid' => 'FormUuid',
         'systemToken' => 'SystemToken',
     ];
 

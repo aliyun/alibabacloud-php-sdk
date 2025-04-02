@@ -13,6 +13,7 @@ class GetWorkspacesResponseBody extends Model
      * @var string
      */
     public $requestId;
+
     /**
      * @var workspace[]
      */
@@ -40,7 +41,7 @@ class GetWorkspacesResponseBody extends Model
         if (null !== $this->workspace) {
             if (\is_array($this->workspace)) {
                 $res['workspace'] = [];
-                $n1               = 0;
+                $n1 = 0;
                 foreach ($this->workspace as $item1) {
                     $res['workspace'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -65,7 +66,7 @@ class GetWorkspacesResponseBody extends Model
         if (isset($map['workspace'])) {
             if (!empty($map['workspace'])) {
                 $model->workspace = [];
-                $n1               = 0;
+                $n1 = 0;
                 foreach ($map['workspace'] as $item1) {
                     $model->workspace[$n1++] = workspace::fromMap($item1);
                 }

@@ -12,16 +12,18 @@ class authorizedMembers extends Model
      * @var string
      */
     public $memberId;
+
     /**
      * @var string
      */
     public $memberName;
+
     /**
      * @var string
      */
     public $memberType;
     protected $_name = [
-        'memberId'   => 'MemberId',
+        'memberId' => 'MemberId',
         'memberName' => 'MemberName',
         'memberType' => 'MemberType',
     ];

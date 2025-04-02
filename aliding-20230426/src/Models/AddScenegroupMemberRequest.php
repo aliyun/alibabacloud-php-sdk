@@ -12,13 +12,14 @@ class AddScenegroupMemberRequest extends Model
      * @var string
      */
     public $openConversationId;
+
     /**
      * @var string
      */
     public $userIds;
     protected $_name = [
         'openConversationId' => 'OpenConversationId',
-        'userIds'            => 'UserIds',
+        'userIds' => 'UserIds',
     ];
 
     public function validate()

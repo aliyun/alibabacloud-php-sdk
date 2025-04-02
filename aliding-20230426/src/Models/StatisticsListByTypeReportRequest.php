@@ -13,28 +13,32 @@ class StatisticsListByTypeReportRequest extends Model
      * @var int
      */
     public $offset;
+
     /**
      * @var string
      */
     public $reportId;
+
     /**
      * @var int
      */
     public $size;
+
     /**
      * @var tenantContext
      */
     public $tenantContext;
+
     /**
      * @var int
      */
     public $type;
     protected $_name = [
-        'offset'        => 'Offset',
-        'reportId'      => 'ReportId',
-        'size'          => 'Size',
+        'offset' => 'Offset',
+        'reportId' => 'ReportId',
+        'size' => 'Size',
         'tenantContext' => 'TenantContext',
-        'type'          => 'Type',
+        'type' => 'Type',
     ];
 
     public function validate()

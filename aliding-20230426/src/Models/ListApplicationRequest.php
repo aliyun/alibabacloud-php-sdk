@@ -12,33 +12,38 @@ class ListApplicationRequest extends Model
      * @var string
      */
     public $appFilter;
+
     /**
      * @var string
      */
     public $appNameSearchKeyword;
+
     /**
      * @var string
      */
     public $corpId;
+
     /**
      * @var int
      */
     public $pageNumber;
+
     /**
      * @var int
      */
     public $pageSize;
+
     /**
      * @var string
      */
     public $token;
     protected $_name = [
-        'appFilter'            => 'AppFilter',
+        'appFilter' => 'AppFilter',
         'appNameSearchKeyword' => 'AppNameSearchKeyword',
-        'corpId'               => 'CorpId',
-        'pageNumber'           => 'PageNumber',
-        'pageSize'             => 'PageSize',
-        'token'                => 'Token',
+        'corpId' => 'CorpId',
+        'pageNumber' => 'PageNumber',
+        'pageSize' => 'PageSize',
+        'token' => 'Token',
     ];
 
     public function validate()

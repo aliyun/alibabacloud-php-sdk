@@ -12,12 +12,13 @@ class InvokeSkillRequest extends Model
      * @var mixed[]
      */
     public $params;
+
     /**
      * @var string
      */
     public $skillId;
     protected $_name = [
-        'params'  => 'Params',
+        'params' => 'Params',
         'skillId' => 'SkillId',
     ];
 

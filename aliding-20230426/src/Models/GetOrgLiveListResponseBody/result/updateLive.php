@@ -13,27 +13,31 @@ class updateLive extends Model
      * @var bool
      */
     public $hasMore;
+
     /**
      * @var liveList[]
      */
     public $liveList;
+
     /**
      * @var int
      */
     public $pageNumber;
+
     /**
      * @var int
      */
     public $pageSize;
+
     /**
      * @var int
      */
     public $totalCount;
     protected $_name = [
-        'hasMore'    => 'HasMore',
-        'liveList'   => 'LiveList',
+        'hasMore' => 'HasMore',
+        'liveList' => 'LiveList',
         'pageNumber' => 'PageNumber',
-        'pageSize'   => 'PageSize',
+        'pageSize' => 'PageSize',
         'totalCount' => 'TotalCount',
     ];
 
@@ -55,7 +59,7 @@ class updateLive extends Model
         if (null !== $this->liveList) {
             if (\is_array($this->liveList)) {
                 $res['LiveList'] = [];
-                $n1              = 0;
+                $n1 = 0;
                 foreach ($this->liveList as $item1) {
                     $res['LiveList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -92,7 +96,7 @@ class updateLive extends Model
         if (isset($map['LiveList'])) {
             if (!empty($map['LiveList'])) {
                 $model->liveList = [];
-                $n1              = 0;
+                $n1 = 0;
                 foreach ($map['LiveList'] as $item1) {
                     $model->liveList[$n1++] = liveList::fromMap($item1);
                 }

@@ -12,23 +12,26 @@ class wordList extends Model
      * @var int
      */
     public $endTime;
+
     /**
      * @var int
      */
     public $startTime;
+
     /**
      * @var string
      */
     public $word;
+
     /**
      * @var string
      */
     public $wordId;
     protected $_name = [
-        'endTime'   => 'EndTime',
+        'endTime' => 'EndTime',
         'startTime' => 'StartTime',
-        'word'      => 'Word',
-        'wordId'    => 'WordId',
+        'word' => 'Word',
+        'wordId' => 'WordId',
     ];
 
     public function validate()

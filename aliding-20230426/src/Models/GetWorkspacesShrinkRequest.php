@@ -12,18 +12,20 @@ class GetWorkspacesShrinkRequest extends Model
      * @var string
      */
     public $optionShrink;
+
     /**
      * @var string
      */
     public $tenantContextShrink;
+
     /**
      * @var string
      */
     public $workspaceIdsShrink;
     protected $_name = [
-        'optionShrink'        => 'Option',
+        'optionShrink' => 'Option',
         'tenantContextShrink' => 'TenantContext',
-        'workspaceIdsShrink'  => 'WorkspaceIds',
+        'workspaceIdsShrink' => 'WorkspaceIds',
     ];
 
     public function validate()

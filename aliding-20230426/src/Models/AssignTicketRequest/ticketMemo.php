@@ -13,13 +13,14 @@ class ticketMemo extends Model
      * @var attachments[]
      */
     public $attachments;
+
     /**
      * @var string
      */
     public $memo;
     protected $_name = [
         'attachments' => 'Attachments',
-        'memo'        => 'Memo',
+        'memo' => 'Memo',
     ];
 
     public function validate()
@@ -36,7 +37,7 @@ class ticketMemo extends Model
         if (null !== $this->attachments) {
             if (\is_array($this->attachments)) {
                 $res['Attachments'] = [];
-                $n1                 = 0;
+                $n1 = 0;
                 foreach ($this->attachments as $item1) {
                     $res['Attachments'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -61,7 +62,7 @@ class ticketMemo extends Model
         if (isset($map['Attachments'])) {
             if (!empty($map['Attachments'])) {
                 $model->attachments = [];
-                $n1                 = 0;
+                $n1 = 0;
                 foreach ($map['Attachments'] as $item1) {
                     $model->attachments[$n1++] = attachments::fromMap($item1);
                 }

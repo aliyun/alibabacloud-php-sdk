@@ -13,27 +13,31 @@ class ListNodesRequest extends Model
      * @var int
      */
     public $maxResults;
+
     /**
      * @var string
      */
     public $nextToken;
+
     /**
      * @var string
      */
     public $parentNodeId;
+
     /**
      * @var tenantContext
      */
     public $tenantContext;
+
     /**
      * @var bool
      */
     public $withPermissionRole;
     protected $_name = [
-        'maxResults'         => 'MaxResults',
-        'nextToken'          => 'NextToken',
-        'parentNodeId'       => 'ParentNodeId',
-        'tenantContext'      => 'TenantContext',
+        'maxResults' => 'MaxResults',
+        'nextToken' => 'NextToken',
+        'parentNodeId' => 'ParentNodeId',
+        'tenantContext' => 'TenantContext',
         'withPermissionRole' => 'WithPermissionRole',
     ];
 

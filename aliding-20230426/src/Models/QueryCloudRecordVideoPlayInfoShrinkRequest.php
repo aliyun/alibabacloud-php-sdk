@@ -12,22 +12,25 @@ class QueryCloudRecordVideoPlayInfoShrinkRequest extends Model
      * @var string
      */
     public $conferenceId;
+
     /**
      * @var string
      */
     public $mediaId;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $tenantContextShrink;
     protected $_name = [
-        'conferenceId'        => 'ConferenceId',
-        'mediaId'             => 'MediaId',
-        'regionId'            => 'RegionId',
+        'conferenceId' => 'ConferenceId',
+        'mediaId' => 'MediaId',
+        'regionId' => 'RegionId',
         'tenantContextShrink' => 'TenantContext',
     ];
 

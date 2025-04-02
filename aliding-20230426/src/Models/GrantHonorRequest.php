@@ -13,58 +13,68 @@ class GrantHonorRequest extends Model
      * @var tenantContext
      */
     public $tenantContext;
+
     /**
      * @var int
      */
     public $expirationTime;
+
     /**
      * @var string
      */
     public $grantReason;
+
     /**
      * @var string
      */
     public $granterName;
+
     /**
      * @var string
      */
     public $honorId;
+
     /**
      * @var bool
      */
     public $noticeAnnouncer;
+
     /**
      * @var bool
      */
     public $noticeSingle;
+
     /**
      * @var string[]
      */
     public $openConversationIds;
+
     /**
      * @var int
      */
     public $orgId;
+
     /**
      * @var string[]
      */
     public $receiverUserIds;
+
     /**
      * @var string
      */
     public $senderUserId;
     protected $_name = [
-        'tenantContext'       => 'TenantContext',
-        'expirationTime'      => 'expirationTime',
-        'grantReason'         => 'grantReason',
-        'granterName'         => 'granterName',
-        'honorId'             => 'honorId',
-        'noticeAnnouncer'     => 'noticeAnnouncer',
-        'noticeSingle'        => 'noticeSingle',
+        'tenantContext' => 'TenantContext',
+        'expirationTime' => 'expirationTime',
+        'grantReason' => 'grantReason',
+        'granterName' => 'granterName',
+        'honorId' => 'honorId',
+        'noticeAnnouncer' => 'noticeAnnouncer',
+        'noticeSingle' => 'noticeSingle',
         'openConversationIds' => 'openConversationIds',
-        'orgId'               => 'orgId',
-        'receiverUserIds'     => 'receiverUserIds',
-        'senderUserId'        => 'senderUserId',
+        'orgId' => 'orgId',
+        'receiverUserIds' => 'receiverUserIds',
+        'senderUserId' => 'senderUserId',
     ];
 
     public function validate()
@@ -115,7 +125,7 @@ class GrantHonorRequest extends Model
         if (null !== $this->openConversationIds) {
             if (\is_array($this->openConversationIds)) {
                 $res['openConversationIds'] = [];
-                $n1                         = 0;
+                $n1 = 0;
                 foreach ($this->openConversationIds as $item1) {
                     $res['openConversationIds'][$n1++] = $item1;
                 }
@@ -129,7 +139,7 @@ class GrantHonorRequest extends Model
         if (null !== $this->receiverUserIds) {
             if (\is_array($this->receiverUserIds)) {
                 $res['receiverUserIds'] = [];
-                $n1                     = 0;
+                $n1 = 0;
                 foreach ($this->receiverUserIds as $item1) {
                     $res['receiverUserIds'][$n1++] = $item1;
                 }
@@ -182,7 +192,7 @@ class GrantHonorRequest extends Model
         if (isset($map['openConversationIds'])) {
             if (!empty($map['openConversationIds'])) {
                 $model->openConversationIds = [];
-                $n1                         = 0;
+                $n1 = 0;
                 foreach ($map['openConversationIds'] as $item1) {
                     $model->openConversationIds[$n1++] = $item1;
                 }
@@ -196,7 +206,7 @@ class GrantHonorRequest extends Model
         if (isset($map['receiverUserIds'])) {
             if (!empty($map['receiverUserIds'])) {
                 $model->receiverUserIds = [];
-                $n1                     = 0;
+                $n1 = 0;
                 foreach ($map['receiverUserIds'] as $item1) {
                     $model->receiverUserIds[$n1++] = $item1;
                 }

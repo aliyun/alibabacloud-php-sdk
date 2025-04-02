@@ -25,108 +25,128 @@ class events extends Model
      * @var attendees[]
      */
     public $attendees;
+
     /**
      * @var categories[]
      */
     public $categories;
+
     /**
      * @var string
      */
     public $createTime;
+
     /**
      * @var string
      */
     public $description;
+
     /**
      * @var end
      */
     public $end;
+
     /**
      * @var extendedProperties
      */
     public $extendedProperties;
+
     /**
      * @var string
      */
     public $id;
+
     /**
      * @var bool
      */
     public $isAllDay;
+
     /**
      * @var location
      */
     public $location;
+
     /**
      * @var meetingRooms[]
      */
     public $meetingRooms;
+
     /**
      * @var onlineMeetingInfo
      */
     public $onlineMeetingInfo;
+
     /**
      * @var organizer
      */
     public $organizer;
+
     /**
      * @var originStart
      */
     public $originStart;
+
     /**
      * @var recurrence
      */
     public $recurrence;
+
     /**
      * @var reminders[]
      */
     public $reminders;
+
     /**
      * @var richTextDescription
      */
     public $richTextDescription;
+
     /**
      * @var string
      */
     public $seriesMasterId;
+
     /**
      * @var start
      */
     public $start;
+
     /**
      * @var string
      */
     public $status;
+
     /**
      * @var string
      */
     public $summary;
+
     /**
      * @var string
      */
     public $updateTime;
     protected $_name = [
-        'attendees'           => 'Attendees',
-        'categories'          => 'Categories',
-        'createTime'          => 'CreateTime',
-        'description'         => 'Description',
-        'end'                 => 'End',
-        'extendedProperties'  => 'ExtendedProperties',
-        'id'                  => 'Id',
-        'isAllDay'            => 'IsAllDay',
-        'location'            => 'Location',
-        'meetingRooms'        => 'MeetingRooms',
-        'onlineMeetingInfo'   => 'OnlineMeetingInfo',
-        'organizer'           => 'Organizer',
-        'originStart'         => 'OriginStart',
-        'recurrence'          => 'Recurrence',
-        'reminders'           => 'Reminders',
+        'attendees' => 'Attendees',
+        'categories' => 'Categories',
+        'createTime' => 'CreateTime',
+        'description' => 'Description',
+        'end' => 'End',
+        'extendedProperties' => 'ExtendedProperties',
+        'id' => 'Id',
+        'isAllDay' => 'IsAllDay',
+        'location' => 'Location',
+        'meetingRooms' => 'MeetingRooms',
+        'onlineMeetingInfo' => 'OnlineMeetingInfo',
+        'organizer' => 'Organizer',
+        'originStart' => 'OriginStart',
+        'recurrence' => 'Recurrence',
+        'reminders' => 'Reminders',
         'richTextDescription' => 'RichTextDescription',
-        'seriesMasterId'      => 'SeriesMasterId',
-        'start'               => 'Start',
-        'status'              => 'Status',
-        'summary'             => 'Summary',
-        'updateTime'          => 'UpdateTime',
+        'seriesMasterId' => 'SeriesMasterId',
+        'start' => 'Start',
+        'status' => 'Status',
+        'summary' => 'Summary',
+        'updateTime' => 'UpdateTime',
     ];
 
     public function validate()
@@ -179,7 +199,7 @@ class events extends Model
         if (null !== $this->attendees) {
             if (\is_array($this->attendees)) {
                 $res['Attendees'] = [];
-                $n1               = 0;
+                $n1 = 0;
                 foreach ($this->attendees as $item1) {
                     $res['Attendees'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -189,7 +209,7 @@ class events extends Model
         if (null !== $this->categories) {
             if (\is_array($this->categories)) {
                 $res['Categories'] = [];
-                $n1                = 0;
+                $n1 = 0;
                 foreach ($this->categories as $item1) {
                     $res['Categories'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -227,7 +247,7 @@ class events extends Model
         if (null !== $this->meetingRooms) {
             if (\is_array($this->meetingRooms)) {
                 $res['MeetingRooms'] = [];
-                $n1                  = 0;
+                $n1 = 0;
                 foreach ($this->meetingRooms as $item1) {
                     $res['MeetingRooms'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -253,7 +273,7 @@ class events extends Model
         if (null !== $this->reminders) {
             if (\is_array($this->reminders)) {
                 $res['Reminders'] = [];
-                $n1               = 0;
+                $n1 = 0;
                 foreach ($this->reminders as $item1) {
                     $res['Reminders'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -298,7 +318,7 @@ class events extends Model
         if (isset($map['Attendees'])) {
             if (!empty($map['Attendees'])) {
                 $model->attendees = [];
-                $n1               = 0;
+                $n1 = 0;
                 foreach ($map['Attendees'] as $item1) {
                     $model->attendees[$n1++] = attendees::fromMap($item1);
                 }
@@ -308,7 +328,7 @@ class events extends Model
         if (isset($map['Categories'])) {
             if (!empty($map['Categories'])) {
                 $model->categories = [];
-                $n1                = 0;
+                $n1 = 0;
                 foreach ($map['Categories'] as $item1) {
                     $model->categories[$n1++] = categories::fromMap($item1);
                 }
@@ -346,7 +366,7 @@ class events extends Model
         if (isset($map['MeetingRooms'])) {
             if (!empty($map['MeetingRooms'])) {
                 $model->meetingRooms = [];
-                $n1                  = 0;
+                $n1 = 0;
                 foreach ($map['MeetingRooms'] as $item1) {
                     $model->meetingRooms[$n1++] = meetingRooms::fromMap($item1);
                 }
@@ -372,7 +392,7 @@ class events extends Model
         if (isset($map['Reminders'])) {
             if (!empty($map['Reminders'])) {
                 $model->reminders = [];
-                $n1               = 0;
+                $n1 = 0;
                 foreach ($map['Reminders'] as $item1) {
                     $model->reminders[$n1++] = reminders::fromMap($item1);
                 }

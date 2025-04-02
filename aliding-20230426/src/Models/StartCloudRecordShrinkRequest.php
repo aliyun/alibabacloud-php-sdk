@@ -12,23 +12,26 @@ class StartCloudRecordShrinkRequest extends Model
      * @var string
      */
     public $mode;
+
     /**
      * @var string
      */
     public $smallWindowPosition;
+
     /**
      * @var string
      */
     public $tenantContextShrink;
+
     /**
      * @var string
      */
     public $conferenceId;
     protected $_name = [
-        'mode'                => 'Mode',
+        'mode' => 'Mode',
         'smallWindowPosition' => 'SmallWindowPosition',
         'tenantContextShrink' => 'TenantContext',
-        'conferenceId'        => 'conferenceId',
+        'conferenceId' => 'conferenceId',
     ];
 
     public function validate()

@@ -13,12 +13,13 @@ class QueryMeetingRoomRequest extends Model
      * @var string
      */
     public $roomId;
+
     /**
      * @var tenantContext
      */
     public $tenantContext;
     protected $_name = [
-        'roomId'        => 'RoomId',
+        'roomId' => 'RoomId',
         'tenantContext' => 'TenantContext',
     ];
 

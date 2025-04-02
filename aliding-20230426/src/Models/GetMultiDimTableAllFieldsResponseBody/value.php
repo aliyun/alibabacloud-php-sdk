@@ -12,23 +12,26 @@ class value extends Model
      * @var string
      */
     public $id;
+
     /**
      * @var string
      */
     public $name;
+
     /**
      * @var mixed[]
      */
     public $property;
+
     /**
      * @var string
      */
     public $type;
     protected $_name = [
-        'id'       => 'Id',
-        'name'     => 'Name',
+        'id' => 'Id',
+        'name' => 'Name',
         'property' => 'Property',
-        'type'     => 'Type',
+        'type' => 'Type',
     ];
 
     public function validate()

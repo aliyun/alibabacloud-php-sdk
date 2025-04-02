@@ -12,12 +12,13 @@ class inviteeList extends Model
      * @var string
      */
     public $nick;
+
     /**
      * @var string
      */
     public $userId;
     protected $_name = [
-        'nick'   => 'Nick',
+        'nick' => 'Nick',
         'userId' => 'UserId',
     ];
 

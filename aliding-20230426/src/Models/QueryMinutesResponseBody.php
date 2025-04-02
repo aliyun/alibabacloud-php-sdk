@@ -13,23 +13,26 @@ class QueryMinutesResponseBody extends Model
      * @var audioList[]
      */
     public $audioList;
+
     /**
      * @var string
      */
     public $requestId;
+
     /**
      * @var string
      */
     public $vendorRequestId;
+
     /**
      * @var string
      */
     public $vendorType;
     protected $_name = [
-        'audioList'       => 'audioList',
-        'requestId'       => 'requestId',
+        'audioList' => 'audioList',
+        'requestId' => 'requestId',
         'vendorRequestId' => 'vendorRequestId',
-        'vendorType'      => 'vendorType',
+        'vendorType' => 'vendorType',
     ];
 
     public function validate()
@@ -46,7 +49,7 @@ class QueryMinutesResponseBody extends Model
         if (null !== $this->audioList) {
             if (\is_array($this->audioList)) {
                 $res['audioList'] = [];
-                $n1               = 0;
+                $n1 = 0;
                 foreach ($this->audioList as $item1) {
                     $res['audioList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -79,7 +82,7 @@ class QueryMinutesResponseBody extends Model
         if (isset($map['audioList'])) {
             if (!empty($map['audioList'])) {
                 $model->audioList = [];
-                $n1               = 0;
+                $n1 = 0;
                 foreach ($map['audioList'] as $item1) {
                     $model->audioList[$n1++] = audioList::fromMap($item1);
                 }

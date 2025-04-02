@@ -12,22 +12,25 @@ class QueryLiveWatchUserListShrinkRequest extends Model
      * @var string
      */
     public $liveId;
+
     /**
      * @var int
      */
     public $pageNumber;
+
     /**
      * @var int
      */
     public $pageSize;
+
     /**
      * @var string
      */
     public $tenantContextShrink;
     protected $_name = [
-        'liveId'              => 'LiveId',
-        'pageNumber'          => 'PageNumber',
-        'pageSize'            => 'PageSize',
+        'liveId' => 'LiveId',
+        'pageNumber' => 'PageNumber',
+        'pageSize' => 'PageSize',
         'tenantContextShrink' => 'TenantContext',
     ];
 

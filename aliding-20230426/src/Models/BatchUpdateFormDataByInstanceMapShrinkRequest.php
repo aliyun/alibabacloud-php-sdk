@@ -12,43 +12,50 @@ class BatchUpdateFormDataByInstanceMapShrinkRequest extends Model
      * @var string
      */
     public $appType;
+
     /**
      * @var bool
      */
     public $asynchronousExecution;
+
     /**
      * @var string
      */
     public $formUuid;
+
     /**
      * @var bool
      */
     public $ignoreEmpty;
+
     /**
      * @var bool
      */
     public $noExecuteExpression;
+
     /**
      * @var string
      */
     public $systemToken;
+
     /**
      * @var string
      */
     public $updateFormDataJsonMapShrink;
+
     /**
      * @var bool
      */
     public $useLatestFormSchemaVersion;
     protected $_name = [
-        'appType'                     => 'AppType',
-        'asynchronousExecution'       => 'AsynchronousExecution',
-        'formUuid'                    => 'FormUuid',
-        'ignoreEmpty'                 => 'IgnoreEmpty',
-        'noExecuteExpression'         => 'NoExecuteExpression',
-        'systemToken'                 => 'SystemToken',
+        'appType' => 'AppType',
+        'asynchronousExecution' => 'AsynchronousExecution',
+        'formUuid' => 'FormUuid',
+        'ignoreEmpty' => 'IgnoreEmpty',
+        'noExecuteExpression' => 'NoExecuteExpression',
+        'systemToken' => 'SystemToken',
         'updateFormDataJsonMapShrink' => 'UpdateFormDataJsonMap',
-        'useLatestFormSchemaVersion'  => 'UseLatestFormSchemaVersion',
+        'useLatestFormSchemaVersion' => 'UseLatestFormSchemaVersion',
     ];
 
     public function validate()

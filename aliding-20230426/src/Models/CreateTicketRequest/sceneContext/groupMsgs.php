@@ -12,12 +12,13 @@ class groupMsgs extends Model
      * @var bool
      */
     public $anchor;
+
     /**
      * @var string
      */
     public $openMsgId;
     protected $_name = [
-        'anchor'    => 'Anchor',
+        'anchor' => 'Anchor',
         'openMsgId' => 'OpenMsgId',
     ];
 

@@ -12,43 +12,50 @@ class CreateDingtalkPersonalTodoTaskShrinkRequest extends Model
      * @var string
      */
     public $description;
+
     /**
      * @var int
      */
     public $dueTime;
+
     /**
      * @var string
      */
     public $executorIdsShrink;
+
     /**
      * @var string
      */
     public $notifyConfigsShrink;
+
     /**
      * @var string
      */
     public $participantIdsShrink;
+
     /**
      * @var string
      */
     public $subject;
+
     /**
      * @var string
      */
     public $tenantContextShrink;
+
     /**
      * @var string
      */
     public $userToken;
     protected $_name = [
-        'description'          => 'Description',
-        'dueTime'              => 'DueTime',
-        'executorIdsShrink'    => 'ExecutorIds',
-        'notifyConfigsShrink'  => 'NotifyConfigs',
+        'description' => 'Description',
+        'dueTime' => 'DueTime',
+        'executorIdsShrink' => 'ExecutorIds',
+        'notifyConfigsShrink' => 'NotifyConfigs',
         'participantIdsShrink' => 'ParticipantIds',
-        'subject'              => 'Subject',
-        'tenantContextShrink'  => 'TenantContext',
-        'userToken'            => 'UserToken',
+        'subject' => 'Subject',
+        'tenantContextShrink' => 'TenantContext',
+        'userToken' => 'UserToken',
     ];
 
     public function validate()

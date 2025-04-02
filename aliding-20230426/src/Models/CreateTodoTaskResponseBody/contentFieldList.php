@@ -12,12 +12,13 @@ class contentFieldList extends Model
      * @var string
      */
     public $fieldKey;
+
     /**
      * @var string
      */
     public $fieldValue;
     protected $_name = [
-        'fieldKey'   => 'fieldKey',
+        'fieldKey' => 'fieldKey',
         'fieldValue' => 'fieldValue',
     ];
 

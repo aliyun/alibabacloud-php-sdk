@@ -13,23 +13,26 @@ class RespondEventRequest extends Model
      * @var string
      */
     public $calendarId;
+
     /**
      * @var string
      */
     public $eventId;
+
     /**
      * @var string
      */
     public $responseStatus;
+
     /**
      * @var tenantContext
      */
     public $tenantContext;
     protected $_name = [
-        'calendarId'     => 'CalendarId',
-        'eventId'        => 'EventId',
+        'calendarId' => 'CalendarId',
+        'eventId' => 'EventId',
         'responseStatus' => 'ResponseStatus',
-        'tenantContext'  => 'TenantContext',
+        'tenantContext' => 'TenantContext',
     ];
 
     public function validate()

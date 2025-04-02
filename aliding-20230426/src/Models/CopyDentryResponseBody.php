@@ -14,108 +14,128 @@ class CopyDentryResponseBody extends Model
      * @var string
      */
     public $contentType;
+
     /**
      * @var int
      */
     public $createdTime;
+
     /**
      * @var mixed[]
      */
     public $creator;
+
     /**
      * @var string
      */
     public $dentryId;
+
     /**
      * @var string
      */
     public $dentryType;
+
     /**
      * @var string
      */
     public $dentryUuid;
+
     /**
      * @var string
      */
     public $docKey;
+
     /**
      * @var string
      */
     public $extension;
+
     /**
      * @var bool
      */
     public $hasChildren;
+
     /**
      * @var linkSourceInfo
      */
     public $linkSourceInfo;
+
     /**
      * @var string
      */
     public $name;
+
     /**
      * @var string
      */
     public $path;
+
     /**
      * @var string
      */
     public $requestId;
+
     /**
      * @var space
      */
     public $space;
+
     /**
      * @var string
      */
     public $spaceId;
+
     /**
      * @var int
      */
     public $updatedTime;
+
     /**
      * @var mixed[]
      */
     public $updater;
+
     /**
      * @var string
      */
     public $url;
+
     /**
      * @var string
      */
     public $vendorRequestId;
+
     /**
      * @var string
      */
     public $vendorType;
+
     /**
      * @var mixed[]
      */
     public $visitorInfo;
     protected $_name = [
-        'contentType'     => 'contentType',
-        'createdTime'     => 'createdTime',
-        'creator'         => 'creator',
-        'dentryId'        => 'dentryId',
-        'dentryType'      => 'dentryType',
-        'dentryUuid'      => 'dentryUuid',
-        'docKey'          => 'docKey',
-        'extension'       => 'extension',
-        'hasChildren'     => 'hasChildren',
-        'linkSourceInfo'  => 'linkSourceInfo',
-        'name'            => 'name',
-        'path'            => 'path',
-        'requestId'       => 'requestId',
-        'space'           => 'space',
-        'spaceId'         => 'spaceId',
-        'updatedTime'     => 'updatedTime',
-        'updater'         => 'updater',
-        'url'             => 'url',
+        'contentType' => 'contentType',
+        'createdTime' => 'createdTime',
+        'creator' => 'creator',
+        'dentryId' => 'dentryId',
+        'dentryType' => 'dentryType',
+        'dentryUuid' => 'dentryUuid',
+        'docKey' => 'docKey',
+        'extension' => 'extension',
+        'hasChildren' => 'hasChildren',
+        'linkSourceInfo' => 'linkSourceInfo',
+        'name' => 'name',
+        'path' => 'path',
+        'requestId' => 'requestId',
+        'space' => 'space',
+        'spaceId' => 'spaceId',
+        'updatedTime' => 'updatedTime',
+        'updater' => 'updater',
+        'url' => 'url',
         'vendorRequestId' => 'vendorRequestId',
-        'vendorType'      => 'vendorType',
-        'visitorInfo'     => 'visitorInfo',
+        'vendorType' => 'vendorType',
+        'visitorInfo' => 'visitorInfo',
     ];
 
     public function validate()

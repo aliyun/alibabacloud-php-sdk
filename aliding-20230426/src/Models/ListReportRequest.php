@@ -13,43 +13,50 @@ class ListReportRequest extends Model
      * @var int
      */
     public $cursor;
+
     /**
      * @var int
      */
     public $endTime;
+
     /**
      * @var int
      */
     public $modifiedEndTime;
+
     /**
      * @var int
      */
     public $modifiedStartTime;
+
     /**
      * @var int
      */
     public $size;
+
     /**
      * @var int
      */
     public $startTime;
+
     /**
      * @var string
      */
     public $templateName;
+
     /**
      * @var tenantContext
      */
     public $tenantContext;
     protected $_name = [
-        'cursor'            => 'Cursor',
-        'endTime'           => 'EndTime',
-        'modifiedEndTime'   => 'ModifiedEndTime',
+        'cursor' => 'Cursor',
+        'endTime' => 'EndTime',
+        'modifiedEndTime' => 'ModifiedEndTime',
         'modifiedStartTime' => 'ModifiedStartTime',
-        'size'              => 'Size',
-        'startTime'         => 'StartTime',
-        'templateName'      => 'TemplateName',
-        'tenantContext'     => 'TenantContext',
+        'size' => 'Size',
+        'startTime' => 'StartTime',
+        'templateName' => 'TemplateName',
+        'tenantContext' => 'TenantContext',
     ];
 
     public function validate()

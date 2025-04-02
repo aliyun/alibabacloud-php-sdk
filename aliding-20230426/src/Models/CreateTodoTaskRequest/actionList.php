@@ -13,38 +13,44 @@ class actionList extends Model
      * @var string
      */
     public $actionKey;
+
     /**
      * @var int
      */
     public $actionType;
+
     /**
      * @var int
      */
     public $buttonStyleType;
+
     /**
      * @var param
      */
     public $param;
+
     /**
      * @var string
      */
     public $pcUrl;
+
     /**
      * @var string
      */
     public $title;
+
     /**
      * @var string
      */
     public $url;
     protected $_name = [
-        'actionKey'       => 'actionKey',
-        'actionType'      => 'actionType',
+        'actionKey' => 'actionKey',
+        'actionType' => 'actionType',
         'buttonStyleType' => 'buttonStyleType',
-        'param'           => 'param',
-        'pcUrl'           => 'pcUrl',
-        'title'           => 'title',
-        'url'             => 'url',
+        'param' => 'param',
+        'pcUrl' => 'pcUrl',
+        'title' => 'title',
+        'url' => 'url',
     ];
 
     public function validate()

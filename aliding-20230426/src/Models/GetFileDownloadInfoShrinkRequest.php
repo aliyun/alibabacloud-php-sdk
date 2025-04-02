@@ -12,22 +12,25 @@ class GetFileDownloadInfoShrinkRequest extends Model
      * @var string
      */
     public $dentryId;
+
     /**
      * @var string
      */
     public $optionShrink;
+
     /**
      * @var string
      */
     public $spaceId;
+
     /**
      * @var string
      */
     public $tenantContextShrink;
     protected $_name = [
-        'dentryId'            => 'DentryId',
-        'optionShrink'        => 'Option',
-        'spaceId'             => 'SpaceId',
+        'dentryId' => 'DentryId',
+        'optionShrink' => 'Option',
+        'spaceId' => 'SpaceId',
         'tenantContextShrink' => 'TenantContext',
     ];
 

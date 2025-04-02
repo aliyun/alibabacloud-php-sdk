@@ -13,13 +13,14 @@ class GetAllSheetsResponseBody extends Model
      * @var string
      */
     public $requestId;
+
     /**
      * @var value[]
      */
     public $value;
     protected $_name = [
         'requestId' => 'requestId',
-        'value'     => 'value',
+        'value' => 'value',
     ];
 
     public function validate()
@@ -40,7 +41,7 @@ class GetAllSheetsResponseBody extends Model
         if (null !== $this->value) {
             if (\is_array($this->value)) {
                 $res['value'] = [];
-                $n1           = 0;
+                $n1 = 0;
                 foreach ($this->value as $item1) {
                     $res['value'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -65,7 +66,7 @@ class GetAllSheetsResponseBody extends Model
         if (isset($map['value'])) {
             if (!empty($map['value'])) {
                 $model->value = [];
-                $n1           = 0;
+                $n1 = 0;
                 foreach ($map['value'] as $item1) {
                     $model->value[$n1++] = value::fromMap($item1);
                 }

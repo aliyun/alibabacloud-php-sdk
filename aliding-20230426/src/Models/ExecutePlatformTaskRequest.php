@@ -12,43 +12,50 @@ class ExecutePlatformTaskRequest extends Model
      * @var string
      */
     public $appType;
+
     /**
      * @var string
      */
     public $formDataJson;
+
     /**
      * @var string
      */
     public $language;
+
     /**
      * @var string
      */
     public $noExecuteExpressions;
+
     /**
      * @var string
      */
     public $outResult;
+
     /**
      * @var string
      */
     public $processInstanceId;
+
     /**
      * @var string
      */
     public $remark;
+
     /**
      * @var string
      */
     public $systemToken;
     protected $_name = [
-        'appType'              => 'AppType',
-        'formDataJson'         => 'FormDataJson',
-        'language'             => 'Language',
+        'appType' => 'AppType',
+        'formDataJson' => 'FormDataJson',
+        'language' => 'Language',
         'noExecuteExpressions' => 'NoExecuteExpressions',
-        'outResult'            => 'OutResult',
-        'processInstanceId'    => 'ProcessInstanceId',
-        'remark'               => 'Remark',
-        'systemToken'          => 'SystemToken',
+        'outResult' => 'OutResult',
+        'processInstanceId' => 'ProcessInstanceId',
+        'remark' => 'Remark',
+        'systemToken' => 'SystemToken',
     ];
 
     public function validate()

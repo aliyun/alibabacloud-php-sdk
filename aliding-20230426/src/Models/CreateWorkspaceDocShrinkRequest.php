@@ -12,38 +12,44 @@ class CreateWorkspaceDocShrinkRequest extends Model
      * @var string
      */
     public $docType;
+
     /**
      * @var string
      */
     public $name;
+
     /**
      * @var string
      */
     public $parentNodeId;
+
     /**
      * @var string
      */
     public $templateId;
+
     /**
      * @var string
      */
     public $templateType;
+
     /**
      * @var string
      */
     public $tenantContextShrink;
+
     /**
      * @var string
      */
     public $workspaceId;
     protected $_name = [
-        'docType'             => 'DocType',
-        'name'                => 'Name',
-        'parentNodeId'        => 'ParentNodeId',
-        'templateId'          => 'TemplateId',
-        'templateType'        => 'TemplateType',
+        'docType' => 'DocType',
+        'name' => 'Name',
+        'parentNodeId' => 'ParentNodeId',
+        'templateId' => 'TemplateId',
+        'templateType' => 'TemplateType',
         'tenantContextShrink' => 'TenantContext',
-        'workspaceId'         => 'WorkspaceId',
+        'workspaceId' => 'WorkspaceId',
     ];
 
     public function validate()

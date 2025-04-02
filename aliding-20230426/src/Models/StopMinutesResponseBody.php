@@ -12,23 +12,26 @@ class StopMinutesResponseBody extends Model
      * @var string
      */
     public $code;
+
     /**
      * @var string
      */
     public $requestId;
+
     /**
      * @var string
      */
     public $vendorRequestId;
+
     /**
      * @var string
      */
     public $vendorType;
     protected $_name = [
-        'code'            => 'code',
-        'requestId'       => 'requestId',
+        'code' => 'code',
+        'requestId' => 'requestId',
         'vendorRequestId' => 'vendorRequestId',
-        'vendorType'      => 'vendorType',
+        'vendorType' => 'vendorType',
     ];
 
     public function validate()

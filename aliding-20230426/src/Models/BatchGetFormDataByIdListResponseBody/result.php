@@ -14,78 +14,92 @@ class result extends Model
      * @var string
      */
     public $createTimeGMT;
+
     /**
      * @var string
      */
     public $creatorUserId;
+
     /**
      * @var mixed[]
      */
     public $formData;
+
     /**
      * @var string
      */
     public $formInstanceId;
+
     /**
      * @var string
      */
     public $formUuid;
+
     /**
      * @var int
      */
     public $id;
+
     /**
      * @var string
      */
     public $instanceValue;
+
     /**
      * @var string
      */
     public $modifiedTimeGMT;
+
     /**
      * @var string
      */
     public $modifier;
+
     /**
      * @var modifyUser
      */
     public $modifyUser;
+
     /**
      * @var originator
      */
     public $originator;
+
     /**
      * @var string
      */
     public $sequence;
+
     /**
      * @var string
      */
     public $serialNumber;
+
     /**
      * @var string
      */
     public $title;
+
     /**
      * @var int
      */
     public $version;
     protected $_name = [
-        'createTimeGMT'   => 'CreateTimeGMT',
-        'creatorUserId'   => 'CreatorUserId',
-        'formData'        => 'FormData',
-        'formInstanceId'  => 'FormInstanceId',
-        'formUuid'        => 'FormUuid',
-        'id'              => 'Id',
-        'instanceValue'   => 'InstanceValue',
+        'createTimeGMT' => 'CreateTimeGMT',
+        'creatorUserId' => 'CreatorUserId',
+        'formData' => 'FormData',
+        'formInstanceId' => 'FormInstanceId',
+        'formUuid' => 'FormUuid',
+        'id' => 'Id',
+        'instanceValue' => 'InstanceValue',
         'modifiedTimeGMT' => 'ModifiedTimeGMT',
-        'modifier'        => 'Modifier',
-        'modifyUser'      => 'ModifyUser',
-        'originator'      => 'Originator',
-        'sequence'        => 'Sequence',
-        'serialNumber'    => 'SerialNumber',
-        'title'           => 'Title',
-        'version'         => 'Version',
+        'modifier' => 'Modifier',
+        'modifyUser' => 'ModifyUser',
+        'originator' => 'Originator',
+        'sequence' => 'Sequence',
+        'serialNumber' => 'SerialNumber',
+        'title' => 'Title',
+        'version' => 'Version',
     ];
 
     public function validate()

@@ -30,7 +30,7 @@ class subscribeScope extends Model
         if (null !== $this->userIds) {
             if (\is_array($this->userIds)) {
                 $res['UserIds'] = [];
-                $n1             = 0;
+                $n1 = 0;
                 foreach ($this->userIds as $item1) {
                     $res['UserIds'][$n1++] = $item1;
                 }
@@ -51,7 +51,7 @@ class subscribeScope extends Model
         if (isset($map['UserIds'])) {
             if (!empty($map['UserIds'])) {
                 $model->userIds = [];
-                $n1             = 0;
+                $n1 = 0;
                 foreach ($map['UserIds'] as $item1) {
                     $model->userIds[$n1++] = $item1;
                 }

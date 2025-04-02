@@ -13,6 +13,7 @@ class GetMineWorkspaceResponseBody extends Model
      * @var string
      */
     public $requestId;
+
     /**
      * @var workspace
      */

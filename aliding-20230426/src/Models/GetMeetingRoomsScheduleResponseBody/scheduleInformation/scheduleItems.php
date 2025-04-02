@@ -15,28 +15,32 @@ class scheduleItems extends Model
      * @var end
      */
     public $end;
+
     /**
      * @var string
      */
     public $eventId;
+
     /**
      * @var organizer
      */
     public $organizer;
+
     /**
      * @var start
      */
     public $start;
+
     /**
      * @var string
      */
     public $status;
     protected $_name = [
-        'end'       => 'End',
-        'eventId'   => 'EventId',
+        'end' => 'End',
+        'eventId' => 'EventId',
         'organizer' => 'Organizer',
-        'start'     => 'Start',
-        'status'    => 'Status',
+        'start' => 'Start',
+        'status' => 'Status',
     ];
 
     public function validate()

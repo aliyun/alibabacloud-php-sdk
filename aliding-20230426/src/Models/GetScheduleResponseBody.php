@@ -13,23 +13,26 @@ class GetScheduleResponseBody extends Model
      * @var string
      */
     public $requestId;
+
     /**
      * @var scheduleInformation[]
      */
     public $scheduleInformation;
+
     /**
      * @var string
      */
     public $vendorRequestId;
+
     /**
      * @var string
      */
     public $vendorType;
     protected $_name = [
-        'requestId'           => 'requestId',
+        'requestId' => 'requestId',
         'scheduleInformation' => 'scheduleInformation',
-        'vendorRequestId'     => 'vendorRequestId',
-        'vendorType'          => 'vendorType',
+        'vendorRequestId' => 'vendorRequestId',
+        'vendorType' => 'vendorType',
     ];
 
     public function validate()
@@ -50,7 +53,7 @@ class GetScheduleResponseBody extends Model
         if (null !== $this->scheduleInformation) {
             if (\is_array($this->scheduleInformation)) {
                 $res['scheduleInformation'] = [];
-                $n1                         = 0;
+                $n1 = 0;
                 foreach ($this->scheduleInformation as $item1) {
                     $res['scheduleInformation'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -83,7 +86,7 @@ class GetScheduleResponseBody extends Model
         if (isset($map['scheduleInformation'])) {
             if (!empty($map['scheduleInformation'])) {
                 $model->scheduleInformation = [];
-                $n1                         = 0;
+                $n1 = 0;
                 foreach ($map['scheduleInformation'] as $item1) {
                     $model->scheduleInformation[$n1++] = scheduleInformation::fromMap($item1);
                 }

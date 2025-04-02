@@ -12,22 +12,25 @@ class ListNavigationByFormTypeRequest extends Model
      * @var string
      */
     public $appType;
+
     /**
      * @var string
      */
     public $formType;
+
     /**
      * @var string
      */
     public $language;
+
     /**
      * @var string
      */
     public $systemToken;
     protected $_name = [
-        'appType'     => 'AppType',
-        'formType'    => 'FormType',
-        'language'    => 'Language',
+        'appType' => 'AppType',
+        'formType' => 'FormType',
+        'language' => 'Language',
         'systemToken' => 'SystemToken',
     ];
 

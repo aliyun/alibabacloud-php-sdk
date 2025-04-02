@@ -14,63 +14,74 @@ class data extends Model
      * @var actionExecutor[]
      */
     public $actionExecutor;
+
     /**
      * @var string
      */
     public $approvedResult;
+
     /**
      * @var string
      */
     public $createTimeGMT;
+
     /**
      * @var mixed[]
      */
     public $data;
+
     /**
      * @var string
      */
     public $formUuid;
+
     /**
      * @var string
      */
     public $instanceStatus;
+
     /**
      * @var string
      */
     public $modifiedTimeGMT;
+
     /**
      * @var originator
      */
     public $originator;
+
     /**
      * @var string
      */
     public $processCode;
+
     /**
      * @var string
      */
     public $processInstanceId;
+
     /**
      * @var string
      */
     public $title;
+
     /**
      * @var int
      */
     public $version;
     protected $_name = [
-        'actionExecutor'    => 'ActionExecutor',
-        'approvedResult'    => 'ApprovedResult',
-        'createTimeGMT'     => 'CreateTimeGMT',
-        'data'              => 'Data',
-        'formUuid'          => 'FormUuid',
-        'instanceStatus'    => 'InstanceStatus',
-        'modifiedTimeGMT'   => 'ModifiedTimeGMT',
-        'originator'        => 'Originator',
-        'processCode'       => 'ProcessCode',
+        'actionExecutor' => 'ActionExecutor',
+        'approvedResult' => 'ApprovedResult',
+        'createTimeGMT' => 'CreateTimeGMT',
+        'data' => 'Data',
+        'formUuid' => 'FormUuid',
+        'instanceStatus' => 'InstanceStatus',
+        'modifiedTimeGMT' => 'ModifiedTimeGMT',
+        'originator' => 'Originator',
+        'processCode' => 'ProcessCode',
         'processInstanceId' => 'ProcessInstanceId',
-        'title'             => 'Title',
-        'version'           => 'Version',
+        'title' => 'Title',
+        'version' => 'Version',
     ];
 
     public function validate()
@@ -93,7 +104,7 @@ class data extends Model
         if (null !== $this->actionExecutor) {
             if (\is_array($this->actionExecutor)) {
                 $res['ActionExecutor'] = [];
-                $n1                    = 0;
+                $n1 = 0;
                 foreach ($this->actionExecutor as $item1) {
                     $res['ActionExecutor'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -163,7 +174,7 @@ class data extends Model
         if (isset($map['ActionExecutor'])) {
             if (!empty($map['ActionExecutor'])) {
                 $model->actionExecutor = [];
-                $n1                    = 0;
+                $n1 = 0;
                 foreach ($map['ActionExecutor'] as $item1) {
                     $model->actionExecutor[$n1++] = actionExecutor::fromMap($item1);
                 }

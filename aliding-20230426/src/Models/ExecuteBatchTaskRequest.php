@@ -12,27 +12,31 @@ class ExecuteBatchTaskRequest extends Model
      * @var string
      */
     public $appType;
+
     /**
      * @var string
      */
     public $outResult;
+
     /**
      * @var string
      */
     public $remark;
+
     /**
      * @var string
      */
     public $systemToken;
+
     /**
      * @var string
      */
     public $taskInformationList;
     protected $_name = [
-        'appType'             => 'AppType',
-        'outResult'           => 'OutResult',
-        'remark'              => 'Remark',
-        'systemToken'         => 'SystemToken',
+        'appType' => 'AppType',
+        'outResult' => 'OutResult',
+        'remark' => 'Remark',
+        'systemToken' => 'SystemToken',
         'taskInformationList' => 'TaskInformationList',
     ];
 
