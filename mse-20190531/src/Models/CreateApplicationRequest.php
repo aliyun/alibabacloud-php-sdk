@@ -4,86 +4,47 @@
 
 namespace AlibabaCloud\SDK\Mse\V20190531\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Mse\V20190531\Models\CreateApplicationRequest\tags;
-use AlibabaCloud\Tea\Model;
 
 class CreateApplicationRequest extends Model
 {
     /**
-     * @description The language of the response. Valid values:
-     *
-     *   zh: Chinese
-     *   en: English
-     *
-     * @example zh
-     *
      * @var string
      */
     public $acceptLanguage;
 
     /**
-     * @description The name of the application.
-     *
-     * This parameter is required.
-     *
-     * @example spring-cloud-a
-     *
      * @var string
      */
     public $appName;
 
     /**
-     * @description The programming language of the application.
-     *
-     * @example JAVA
-     *
      * @var string
      */
     public $language;
 
     /**
-     * @description MSE命名空间名字。
-     *
-     * @example prod
-     *
      * @var string
      */
     public $namespace;
 
     /**
-     * @description The region to which the application belongs.
-     *
-     * This parameter is required.
-     *
-     * @example cn-hangzhou
-     *
      * @var string
      */
     public $region;
 
     /**
-     * @description Specifies whether to start the switch.
-     *
-     * @example true
-     *
      * @var string
      */
     public $sentinelEnable;
 
     /**
-     * @description The service where the application is deployed. A value of ACK indicates Container Service for Kubernetes.
-     *
-     * @example ACK
-     *
      * @var string
      */
     public $source;
 
     /**
-     * @description The name of the Microservices Engine (MSE) namespace.
-     *
-     * @example true
-     *
      * @var string
      */
     public $switchEnable;
@@ -104,41 +65,55 @@ class CreateApplicationRequest extends Model
         'tags' => 'Tags',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->tags)) {
+            Model::validateArray($this->tags);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->acceptLanguage) {
             $res['AcceptLanguage'] = $this->acceptLanguage;
         }
+
         if (null !== $this->appName) {
             $res['AppName'] = $this->appName;
         }
+
         if (null !== $this->language) {
             $res['Language'] = $this->language;
         }
+
         if (null !== $this->namespace) {
             $res['Namespace'] = $this->namespace;
         }
+
         if (null !== $this->region) {
             $res['Region'] = $this->region;
         }
+
         if (null !== $this->sentinelEnable) {
             $res['SentinelEnable'] = $this->sentinelEnable;
         }
+
         if (null !== $this->source) {
             $res['Source'] = $this->source;
         }
+
         if (null !== $this->switchEnable) {
             $res['SwitchEnable'] = $this->switchEnable;
         }
+
         if (null !== $this->tags) {
-            $res['Tags'] = [];
-            if (null !== $this->tags && \is_array($this->tags)) {
-                $n = 0;
-                foreach ($this->tags as $item) {
-                    $res['Tags'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->tags)) {
+                $res['Tags'] = [];
+                $n1 = 0;
+                foreach ($this->tags as $item1) {
+                    $res['Tags'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
@@ -146,44 +121,52 @@ class CreateApplicationRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return CreateApplicationRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AcceptLanguage'])) {
             $model->acceptLanguage = $map['AcceptLanguage'];
         }
+
         if (isset($map['AppName'])) {
             $model->appName = $map['AppName'];
         }
+
         if (isset($map['Language'])) {
             $model->language = $map['Language'];
         }
+
         if (isset($map['Namespace'])) {
             $model->namespace = $map['Namespace'];
         }
+
         if (isset($map['Region'])) {
             $model->region = $map['Region'];
         }
+
         if (isset($map['SentinelEnable'])) {
             $model->sentinelEnable = $map['SentinelEnable'];
         }
+
         if (isset($map['Source'])) {
             $model->source = $map['Source'];
         }
+
         if (isset($map['SwitchEnable'])) {
             $model->switchEnable = $map['SwitchEnable'];
         }
+
         if (isset($map['Tags'])) {
             if (!empty($map['Tags'])) {
                 $model->tags = [];
-                $n = 0;
-                foreach ($map['Tags'] as $item) {
-                    $model->tags[$n++] = null !== $item ? tags::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['Tags'] as $item1) {
+                    $model->tags[$n1++] = tags::fromMap($item1);
                 }
             }
         }

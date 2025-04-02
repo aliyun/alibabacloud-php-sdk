@@ -4,27 +4,21 @@
 
 namespace AlibabaCloud\SDK\Mse\V20190531\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class InitializeServiceLinkRoleRequest extends Model
 {
     /**
-     * @example zh
-     *
      * @var string
      */
     public $acceptLanguage;
 
     /**
-     * @example AliyunServiceRoleForMSE
-     *
      * @var string
      */
     public $roleName;
 
     /**
-     * @example ""
-     *
      * @var string
      */
     public $token;
@@ -34,17 +28,22 @@ class InitializeServiceLinkRoleRequest extends Model
         'token' => 'Token',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->acceptLanguage) {
             $res['AcceptLanguage'] = $this->acceptLanguage;
         }
+
         if (null !== $this->roleName) {
             $res['RoleName'] = $this->roleName;
         }
+
         if (null !== $this->token) {
             $res['Token'] = $this->token;
         }
@@ -52,20 +51,22 @@ class InitializeServiceLinkRoleRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return InitializeServiceLinkRoleRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AcceptLanguage'])) {
             $model->acceptLanguage = $map['AcceptLanguage'];
         }
+
         if (isset($map['RoleName'])) {
             $model->roleName = $map['RoleName'];
         }
+
         if (isset($map['Token'])) {
             $model->token = $map['Token'];
         }

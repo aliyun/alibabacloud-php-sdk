@@ -4,49 +4,31 @@
 
 namespace AlibabaCloud\SDK\Mse\V20190531\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class ListAppBySwimmingLaneGroupTagsResponseBody extends Model
 {
     /**
-     * @description The returned data.
-     *
      * @var DataValue[][]
      */
     public $data;
 
     /**
-     * @description The error code.
-     *
-     * @example Success
-     *
      * @var string
      */
     public $errorCode;
 
     /**
-     * @description The additional request information.
-     *
-     * @example OK
-     *
      * @var string
      */
     public $message;
 
     /**
-     * @description The request ID.
-     *
-     * @example 6832e76b-bb5f-4dea-****-************
-     *
      * @var string
      */
     public $requestId;
 
     /**
-     * @description Indicates whether the request was successful. Valid values:
-     *
-     * @example True
-     *
      * @var bool
      */
     public $success;
@@ -58,23 +40,44 @@ class ListAppBySwimmingLaneGroupTagsResponseBody extends Model
         'success' => 'Success',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->data)) {
+            Model::validateArray($this->data);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->data) {
-            $res['Data'] = $this->data;
+            if (\is_array($this->data)) {
+                $res['Data'] = [];
+                foreach ($this->data as $key1 => $value1) {
+                    if (\is_array($value1)) {
+                        $res['Data'][$key1] = [];
+                        $n2 = 0;
+                        foreach ($value1 as $item2) {
+                            $res['Data'][$key1][$n2++] = null !== $item2 ? $item2->toArray($noStream) : $item2;
+                        }
+                    }
+                }
+            }
         }
+
         if (null !== $this->errorCode) {
             $res['ErrorCode'] = $this->errorCode;
         }
+
         if (null !== $this->message) {
             $res['Message'] = $this->message;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
+
         if (null !== $this->success) {
             $res['Success'] = $this->success;
         }
@@ -82,26 +85,41 @@ class ListAppBySwimmingLaneGroupTagsResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ListAppBySwimmingLaneGroupTagsResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Data'])) {
-            $model->data = $map['Data'];
+            if (!empty($map['Data'])) {
+                $model->data = [];
+                foreach ($map['Data'] as $key1 => $value1) {
+                    if (!empty($value1)) {
+                        $model->data[$key1] = [];
+                        $n2 = 0;
+                        foreach ($value1 as $item2) {
+                            $model->data[$key1][$n2++] = DataValue::fromMap($item2);
+                        }
+                    }
+                }
+            }
         }
+
         if (isset($map['ErrorCode'])) {
             $model->errorCode = $map['ErrorCode'];
         }
+
         if (isset($map['Message'])) {
             $model->message = $map['Message'];
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
+
         if (isset($map['Success'])) {
             $model->success = $map['Success'];
         }

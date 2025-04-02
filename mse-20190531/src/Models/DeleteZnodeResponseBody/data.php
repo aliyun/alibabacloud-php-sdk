@@ -4,45 +4,26 @@
 
 namespace AlibabaCloud\SDK\Mse\V20190531\Models\DeleteZnodeResponseBody;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class data extends Model
 {
     /**
-     * @description The data of the node.
-     *
-     * @example cluster
-     *
      * @var string
      */
     public $data;
 
     /**
-     * @description Indicates whether the node information was returned. Valid values:
-     *
-     *   `true`: The node information was returned.
-     *   `false`: The node information failed to be returned.
-     *
-     * @example true
-     *
      * @var bool
      */
     public $dir;
 
     /**
-     * @description The name of the node.
-     *
-     * @example mse-bc1a29b0-160230875****-reg-center-0-1
-     *
      * @var string
      */
     public $name;
 
     /**
-     * @description The path of the node.
-     *
-     * @example /
-     *
      * @var string
      */
     public $path;
@@ -53,20 +34,26 @@ class data extends Model
         'path' => 'Path',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->data) {
             $res['Data'] = $this->data;
         }
+
         if (null !== $this->dir) {
             $res['Dir'] = $this->dir;
         }
+
         if (null !== $this->name) {
             $res['Name'] = $this->name;
         }
+
         if (null !== $this->path) {
             $res['Path'] = $this->path;
         }
@@ -74,23 +61,26 @@ class data extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return data
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Data'])) {
             $model->data = $map['Data'];
         }
+
         if (isset($map['Dir'])) {
             $model->dir = $map['Dir'];
         }
+
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
         }
+
         if (isset($map['Path'])) {
             $model->path = $map['Path'];
         }

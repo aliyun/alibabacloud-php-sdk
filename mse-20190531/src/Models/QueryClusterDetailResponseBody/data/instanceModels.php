@@ -4,78 +4,46 @@
 
 namespace AlibabaCloud\SDK\Mse\V20190531\Models\QueryClusterDetailResponseBody\data;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class instanceModels extends Model
 {
     /**
-     * @description The timestamp when the instance was created.
-     *
-     * @example 1578575377732
-     *
      * @var string
      */
     public $creationTimestamp;
 
     /**
-     * @description The health status of the instance.
-     *
-     * @example Running
-     *
      * @var string
      */
     public $healthStatus;
 
     /**
-     * @description The public IP address.
-     *
-     * @example 47.98.XX.XX
-     *
      * @var string
      */
     public $internetIp;
 
     /**
-     * @description The IP address of the instance.
-     *
-     * @example 10.12.XX.XX
-     *
      * @var string
      */
     public $ip;
 
     /**
-     * @description The name of the pod.
-     *
-     * @example mse-7413****-159616656****-reg-center-0-0
-     *
      * @var string
      */
     public $podName;
 
     /**
-     * @description The role.
-     *
-     * @example Peer
-     *
      * @var string
      */
     public $role;
 
     /**
-     * @description The single-thread IP address.
-     *
-     * @example 192.168.XX.XX
-     *
      * @var string
      */
     public $singleTunnelVip;
 
     /**
-     * @description The zone ID.
-     *
-     * @example cn-shanghai-f
-     *
      * @var string
      */
     public $zone;
@@ -90,32 +58,42 @@ class instanceModels extends Model
         'zone' => 'Zone',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->creationTimestamp) {
             $res['CreationTimestamp'] = $this->creationTimestamp;
         }
+
         if (null !== $this->healthStatus) {
             $res['HealthStatus'] = $this->healthStatus;
         }
+
         if (null !== $this->internetIp) {
             $res['InternetIp'] = $this->internetIp;
         }
+
         if (null !== $this->ip) {
             $res['Ip'] = $this->ip;
         }
+
         if (null !== $this->podName) {
             $res['PodName'] = $this->podName;
         }
+
         if (null !== $this->role) {
             $res['Role'] = $this->role;
         }
+
         if (null !== $this->singleTunnelVip) {
             $res['SingleTunnelVip'] = $this->singleTunnelVip;
         }
+
         if (null !== $this->zone) {
             $res['Zone'] = $this->zone;
         }
@@ -123,35 +101,42 @@ class instanceModels extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return instanceModels
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['CreationTimestamp'])) {
             $model->creationTimestamp = $map['CreationTimestamp'];
         }
+
         if (isset($map['HealthStatus'])) {
             $model->healthStatus = $map['HealthStatus'];
         }
+
         if (isset($map['InternetIp'])) {
             $model->internetIp = $map['InternetIp'];
         }
+
         if (isset($map['Ip'])) {
             $model->ip = $map['Ip'];
         }
+
         if (isset($map['PodName'])) {
             $model->podName = $map['PodName'];
         }
+
         if (isset($map['Role'])) {
             $model->role = $map['Role'];
         }
+
         if (isset($map['SingleTunnelVip'])) {
             $model->singleTunnelVip = $map['SingleTunnelVip'];
         }
+
         if (isset($map['Zone'])) {
             $model->zone = $map['Zone'];
         }

@@ -4,64 +4,36 @@
 
 namespace AlibabaCloud\SDK\Mse\V20190531\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class CloneSentinelRuleFromAhasRequest extends Model
 {
     /**
-     * @description The language in which you want to display the results. Valid values: zh and en. zh indicates Chinese, which is the default value. en indicates English.
-     *
-     * @example zh
-     *
      * @var string
      */
     public $acceptLanguage;
 
     /**
-     * @description The namespace (environment) of Application High Availability Service (AHAS).
-     *
-     * This parameter is required.
-     *
-     * @example default
-     *
      * @var string
      */
     public $ahasNamespace;
 
     /**
-     * @description The application name.
-     *
-     * @example spring-cloud-a
-     *
      * @var string
      */
     public $appName;
 
     /**
-     * @description Specifies whether AHAS is deployed in the Internet region.
-     *
-     * @example false
-     *
      * @var bool
      */
     public $isAHASPublicRegion;
 
     /**
-     * @description The name of the MSE application after migration. If this parameter is not specified, the name of the Application High Availability Service (AHAS) application is used by default.
-     *
-     * @example spring-cloud-a
-     *
      * @var string
      */
     public $mseAppName;
 
     /**
-     * @description The namespace.
-     *
-     * This parameter is required.
-     *
-     * @example default
-     *
      * @var string
      */
     public $namespace;
@@ -74,26 +46,34 @@ class CloneSentinelRuleFromAhasRequest extends Model
         'namespace' => 'Namespace',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->acceptLanguage) {
             $res['AcceptLanguage'] = $this->acceptLanguage;
         }
+
         if (null !== $this->ahasNamespace) {
             $res['AhasNamespace'] = $this->ahasNamespace;
         }
+
         if (null !== $this->appName) {
             $res['AppName'] = $this->appName;
         }
+
         if (null !== $this->isAHASPublicRegion) {
             $res['IsAHASPublicRegion'] = $this->isAHASPublicRegion;
         }
+
         if (null !== $this->mseAppName) {
             $res['MseAppName'] = $this->mseAppName;
         }
+
         if (null !== $this->namespace) {
             $res['Namespace'] = $this->namespace;
         }
@@ -101,29 +81,34 @@ class CloneSentinelRuleFromAhasRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return CloneSentinelRuleFromAhasRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AcceptLanguage'])) {
             $model->acceptLanguage = $map['AcceptLanguage'];
         }
+
         if (isset($map['AhasNamespace'])) {
             $model->ahasNamespace = $map['AhasNamespace'];
         }
+
         if (isset($map['AppName'])) {
             $model->appName = $map['AppName'];
         }
+
         if (isset($map['IsAHASPublicRegion'])) {
             $model->isAHASPublicRegion = $map['IsAHASPublicRegion'];
         }
+
         if (isset($map['MseAppName'])) {
             $model->mseAppName = $map['MseAppName'];
         }
+
         if (isset($map['Namespace'])) {
             $model->namespace = $map['Namespace'];
         }

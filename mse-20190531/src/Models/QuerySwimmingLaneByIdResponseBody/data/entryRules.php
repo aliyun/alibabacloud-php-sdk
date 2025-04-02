@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Mse\V20190531\Models\QuerySwimmingLaneByIdResponseBody\data;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Mse\V20190531\Models\QuerySwimmingLaneByIdResponseBody\data\entryRules\restItems;
-use AlibabaCloud\Tea\Model;
 
 class entryRules extends Model
 {
@@ -35,26 +35,44 @@ class entryRules extends Model
         'restItems' => 'restItems',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->paths)) {
+            Model::validateArray($this->paths);
+        }
+        if (\is_array($this->restItems)) {
+            Model::validateArray($this->restItems);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->condition) {
             $res['condition'] = $this->condition;
         }
+
         if (null !== $this->path) {
             $res['path'] = $this->path;
         }
+
         if (null !== $this->paths) {
-            $res['paths'] = $this->paths;
+            if (\is_array($this->paths)) {
+                $res['paths'] = [];
+                $n1 = 0;
+                foreach ($this->paths as $item1) {
+                    $res['paths'][$n1++] = $item1;
+                }
+            }
         }
+
         if (null !== $this->restItems) {
-            $res['restItems'] = [];
-            if (null !== $this->restItems && \is_array($this->restItems)) {
-                $n = 0;
-                foreach ($this->restItems as $item) {
-                    $res['restItems'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->restItems)) {
+                $res['restItems'] = [];
+                $n1 = 0;
+                foreach ($this->restItems as $item1) {
+                    $res['restItems'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
@@ -62,31 +80,38 @@ class entryRules extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return entryRules
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['condition'])) {
             $model->condition = $map['condition'];
         }
+
         if (isset($map['path'])) {
             $model->path = $map['path'];
         }
+
         if (isset($map['paths'])) {
             if (!empty($map['paths'])) {
-                $model->paths = $map['paths'];
+                $model->paths = [];
+                $n1 = 0;
+                foreach ($map['paths'] as $item1) {
+                    $model->paths[$n1++] = $item1;
+                }
             }
         }
+
         if (isset($map['restItems'])) {
             if (!empty($map['restItems'])) {
                 $model->restItems = [];
-                $n = 0;
-                foreach ($map['restItems'] as $item) {
-                    $model->restItems[$n++] = null !== $item ? restItems::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['restItems'] as $item1) {
+                    $model->restItems[$n1++] = restItems::fromMap($item1);
                 }
             }
         }

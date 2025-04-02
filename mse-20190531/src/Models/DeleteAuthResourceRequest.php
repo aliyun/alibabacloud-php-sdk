@@ -4,36 +4,21 @@
 
 namespace AlibabaCloud\SDK\Mse\V20190531\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DeleteAuthResourceRequest extends Model
 {
     /**
-     * @description The language of the response. Valid values:
-     *
-     *   zh: Chinese
-     *   en: English
-     *
-     * @example zh
-     *
      * @var string
      */
     public $acceptLanguage;
 
     /**
-     * @description The unique ID of the gateway.
-     *
-     * @example gw-3f97e2989c344f35ab3fd62b19f1****
-     *
      * @var string
      */
     public $gatewayUniqueId;
 
     /**
-     * @description The destination ID.
-     *
-     * @example 36
-     *
      * @var int
      */
     public $id;
@@ -43,17 +28,22 @@ class DeleteAuthResourceRequest extends Model
         'id' => 'Id',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->acceptLanguage) {
             $res['AcceptLanguage'] = $this->acceptLanguage;
         }
+
         if (null !== $this->gatewayUniqueId) {
             $res['GatewayUniqueId'] = $this->gatewayUniqueId;
         }
+
         if (null !== $this->id) {
             $res['Id'] = $this->id;
         }
@@ -61,20 +51,22 @@ class DeleteAuthResourceRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DeleteAuthResourceRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AcceptLanguage'])) {
             $model->acceptLanguage = $map['AcceptLanguage'];
         }
+
         if (isset($map['GatewayUniqueId'])) {
             $model->gatewayUniqueId = $map['GatewayUniqueId'];
         }
+
         if (isset($map['Id'])) {
             $model->id = $map['Id'];
         }

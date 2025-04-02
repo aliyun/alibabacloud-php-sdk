@@ -4,82 +4,46 @@
 
 namespace AlibabaCloud\SDK\Mse\V20190531\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class UpdateMessageQueueRouteRequest extends Model
 {
     /**
-     * @description The language of the response. Valid values:
-     *
-     *   zh: Chinese
-     *   en: English
-     *
-     * @example zh
-     *
      * @var string
      */
     public $acceptLanguage;
 
     /**
-     * @description The ID of the application.
-     *
-     * This parameter is required.
-     *
-     * @example hkhon1po62@c3df23522baa898
-     *
      * @var string
      */
     public $appId;
 
     /**
-     * @example example-app
-     *
      * @var string
      */
     public $appName;
 
     /**
-     * @description Specifies whether the canary release for messaging feature is enabled for the application. Valid values:
-     *
-     *   `true`: enabled
-     *   `false`: disabled
-     *
-     * @example true
-     *
      * @var bool
      */
     public $enable;
 
     /**
-     * @description The side for message filtering when the canary release for messaging feature is enabled.
-     *
-     * @example Server
-     *
      * @var string
      */
     public $filterSide;
 
     /**
-     * @example default
-     *
      * @var string
      */
     public $namespace;
 
     /**
-     * @description The region ID.
-     *
-     * This parameter is required.
-     *
-     * @example cn-hangzhou
-     *
      * @var string
      */
     public $region;
 
     /**
-     * @description The tag that is negligible for the untagged environment of the application.
-     *
      * @var string[]
      */
     public $tags;
@@ -94,71 +58,101 @@ class UpdateMessageQueueRouteRequest extends Model
         'tags' => 'Tags',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->tags)) {
+            Model::validateArray($this->tags);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->acceptLanguage) {
             $res['AcceptLanguage'] = $this->acceptLanguage;
         }
+
         if (null !== $this->appId) {
             $res['AppId'] = $this->appId;
         }
+
         if (null !== $this->appName) {
             $res['AppName'] = $this->appName;
         }
+
         if (null !== $this->enable) {
             $res['Enable'] = $this->enable;
         }
+
         if (null !== $this->filterSide) {
             $res['FilterSide'] = $this->filterSide;
         }
+
         if (null !== $this->namespace) {
             $res['Namespace'] = $this->namespace;
         }
+
         if (null !== $this->region) {
             $res['Region'] = $this->region;
         }
+
         if (null !== $this->tags) {
-            $res['Tags'] = $this->tags;
+            if (\is_array($this->tags)) {
+                $res['Tags'] = [];
+                $n1 = 0;
+                foreach ($this->tags as $item1) {
+                    $res['Tags'][$n1++] = $item1;
+                }
+            }
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return UpdateMessageQueueRouteRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AcceptLanguage'])) {
             $model->acceptLanguage = $map['AcceptLanguage'];
         }
+
         if (isset($map['AppId'])) {
             $model->appId = $map['AppId'];
         }
+
         if (isset($map['AppName'])) {
             $model->appName = $map['AppName'];
         }
+
         if (isset($map['Enable'])) {
             $model->enable = $map['Enable'];
         }
+
         if (isset($map['FilterSide'])) {
             $model->filterSide = $map['FilterSide'];
         }
+
         if (isset($map['Namespace'])) {
             $model->namespace = $map['Namespace'];
         }
+
         if (isset($map['Region'])) {
             $model->region = $map['Region'];
         }
+
         if (isset($map['Tags'])) {
             if (!empty($map['Tags'])) {
-                $model->tags = $map['Tags'];
+                $model->tags = [];
+                $n1 = 0;
+                foreach ($map['Tags'] as $item1) {
+                    $model->tags[$n1++] = $item1;
+                }
             }
         }
 

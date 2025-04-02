@@ -4,45 +4,26 @@
 
 namespace AlibabaCloud\SDK\Mse\V20190531\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class AddSSLCertRequest extends Model
 {
     /**
-     * @description The language of the response. Valid values:
-     *
-     *   zh: Chinese
-     *   en: English
-     *
-     * @example zh
-     *
      * @var string
      */
     public $acceptLanguage;
 
     /**
-     * @description The ID of the certificate.
-     *
-     * @example 5213641-cn-hangzhou
-     *
      * @var string
      */
     public $certIdentifier;
 
     /**
-     * @description The domain ID.
-     *
-     * @example 0
-     *
      * @var int
      */
     public $domainId;
 
     /**
-     * @description The unique ID of the gateway.
-     *
-     * @example gw-c70622ff52fe49beb29bea9a6f52****
-     *
      * @var string
      */
     public $gatewayUniqueId;
@@ -53,20 +34,26 @@ class AddSSLCertRequest extends Model
         'gatewayUniqueId' => 'GatewayUniqueId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->acceptLanguage) {
             $res['AcceptLanguage'] = $this->acceptLanguage;
         }
+
         if (null !== $this->certIdentifier) {
             $res['CertIdentifier'] = $this->certIdentifier;
         }
+
         if (null !== $this->domainId) {
             $res['DomainId'] = $this->domainId;
         }
+
         if (null !== $this->gatewayUniqueId) {
             $res['GatewayUniqueId'] = $this->gatewayUniqueId;
         }
@@ -74,23 +61,26 @@ class AddSSLCertRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return AddSSLCertRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AcceptLanguage'])) {
             $model->acceptLanguage = $map['AcceptLanguage'];
         }
+
         if (isset($map['CertIdentifier'])) {
             $model->certIdentifier = $map['CertIdentifier'];
         }
+
         if (isset($map['DomainId'])) {
             $model->domainId = $map['DomainId'];
         }
+
         if (isset($map['GatewayUniqueId'])) {
             $model->gatewayUniqueId = $map['GatewayUniqueId'];
         }

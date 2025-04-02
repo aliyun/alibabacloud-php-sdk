@@ -4,45 +4,27 @@
 
 namespace AlibabaCloud\SDK\Mse\V20190531\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Mse\V20190531\Models\CreateOrUpdateSwimmingLaneShrinkRequest\entryRules;
-use AlibabaCloud\Tea\Model;
 
 class CreateOrUpdateSwimmingLaneShrinkRequest extends Model
 {
     /**
-     * @description The language of the response. Valid values: zh and en. Default value: zh. The value zh indicates Chinese, and the value en indicates English.
-     *
-     * @example zh
-     *
      * @var string
      */
     public $acceptLanguage;
 
     /**
-     * @description Specifies whether to enable the lane.
-     *
-     * @example true
-     *
      * @var bool
      */
     public $enable;
 
     /**
-     * @description Specifies whether to configure a routing rule for the lane. If an Ingress gateway is used, this parameter is not required.
-     *
-     * @example false
-     *
      * @var bool
      */
     public $enableRules;
 
     /**
-     * @description The JSON string.
-     *
-     * @example {}
-     *
-     * @deprecated
-     *
      * @var string
      */
     public $entryRule;
@@ -53,49 +35,26 @@ class CreateOrUpdateSwimmingLaneShrinkRequest extends Model
     public $entryRules;
 
     /**
-     * @description The information about the routing rule for the gateway. This parameter is required when a cloud-native gateway is used as the ingress.
-     *
      * @var string
      */
     public $gatewaySwimmingLaneRouteJsonShrink;
 
     /**
-     * @description The language of the response. Valid values:****
-     *
-     *   **zh-CN**: Chinese
-     *   **en-US**: English
-     *
-     * > Default value: **zh-CN**.
-     *
-     * @example 115
-     *
      * @var int
      */
     public $groupId;
 
     /**
-     * @description The ID of the primary key. The value -1 indicates a request that is used to create a lane. A value greater than 0 indicates a request that is used to modify a lane.
-     *
-     * @example -1
-     *
      * @var int
      */
     public $id;
 
     /**
-     * @description The name of the lane.
-     *
-     * This parameter is required.
-     *
-     * @example Test lane
-     *
      * @var string
      */
     public $name;
 
     /**
-     * @example default
-     *
      * @var string
      */
     public $namespace;
@@ -106,19 +65,11 @@ class CreateOrUpdateSwimmingLaneShrinkRequest extends Model
     public $pathIndependentPercentageEnable;
 
     /**
-     * @description The ID of the region.
-     *
-     * @example cn-beijing
-     *
      * @var string
      */
     public $regionId;
 
     /**
-     * @description The tag.
-     *
-     * @example gray
-     *
      * @var string
      */
     public $tag;
@@ -138,53 +89,71 @@ class CreateOrUpdateSwimmingLaneShrinkRequest extends Model
         'tag' => 'Tag',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->entryRules)) {
+            Model::validateArray($this->entryRules);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->acceptLanguage) {
             $res['AcceptLanguage'] = $this->acceptLanguage;
         }
+
         if (null !== $this->enable) {
             $res['Enable'] = $this->enable;
         }
+
         if (null !== $this->enableRules) {
             $res['EnableRules'] = $this->enableRules;
         }
+
         if (null !== $this->entryRule) {
             $res['EntryRule'] = $this->entryRule;
         }
+
         if (null !== $this->entryRules) {
-            $res['EntryRules'] = [];
-            if (null !== $this->entryRules && \is_array($this->entryRules)) {
-                $n = 0;
-                foreach ($this->entryRules as $item) {
-                    $res['EntryRules'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->entryRules)) {
+                $res['EntryRules'] = [];
+                $n1 = 0;
+                foreach ($this->entryRules as $item1) {
+                    $res['EntryRules'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
+
         if (null !== $this->gatewaySwimmingLaneRouteJsonShrink) {
             $res['GatewaySwimmingLaneRouteJson'] = $this->gatewaySwimmingLaneRouteJsonShrink;
         }
+
         if (null !== $this->groupId) {
             $res['GroupId'] = $this->groupId;
         }
+
         if (null !== $this->id) {
             $res['Id'] = $this->id;
         }
+
         if (null !== $this->name) {
             $res['Name'] = $this->name;
         }
+
         if (null !== $this->namespace) {
             $res['Namespace'] = $this->namespace;
         }
+
         if (null !== $this->pathIndependentPercentageEnable) {
             $res['PathIndependentPercentageEnable'] = $this->pathIndependentPercentageEnable;
         }
+
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
+
         if (null !== $this->tag) {
             $res['Tag'] = $this->tag;
         }
@@ -192,56 +161,68 @@ class CreateOrUpdateSwimmingLaneShrinkRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return CreateOrUpdateSwimmingLaneShrinkRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AcceptLanguage'])) {
             $model->acceptLanguage = $map['AcceptLanguage'];
         }
+
         if (isset($map['Enable'])) {
             $model->enable = $map['Enable'];
         }
+
         if (isset($map['EnableRules'])) {
             $model->enableRules = $map['EnableRules'];
         }
+
         if (isset($map['EntryRule'])) {
             $model->entryRule = $map['EntryRule'];
         }
+
         if (isset($map['EntryRules'])) {
             if (!empty($map['EntryRules'])) {
                 $model->entryRules = [];
-                $n = 0;
-                foreach ($map['EntryRules'] as $item) {
-                    $model->entryRules[$n++] = null !== $item ? entryRules::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['EntryRules'] as $item1) {
+                    $model->entryRules[$n1++] = entryRules::fromMap($item1);
                 }
             }
         }
+
         if (isset($map['GatewaySwimmingLaneRouteJson'])) {
             $model->gatewaySwimmingLaneRouteJsonShrink = $map['GatewaySwimmingLaneRouteJson'];
         }
+
         if (isset($map['GroupId'])) {
             $model->groupId = $map['GroupId'];
         }
+
         if (isset($map['Id'])) {
             $model->id = $map['Id'];
         }
+
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
         }
+
         if (isset($map['Namespace'])) {
             $model->namespace = $map['Namespace'];
         }
+
         if (isset($map['PathIndependentPercentageEnable'])) {
             $model->pathIndependentPercentageEnable = $map['PathIndependentPercentageEnable'];
         }
+
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
         }
+
         if (isset($map['Tag'])) {
             $model->tag = $map['Tag'];
         }

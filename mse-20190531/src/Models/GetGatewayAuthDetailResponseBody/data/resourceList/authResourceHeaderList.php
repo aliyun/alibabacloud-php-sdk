@@ -4,27 +4,21 @@
 
 namespace AlibabaCloud\SDK\Mse\V20190531\Models\GetGatewayAuthDetailResponseBody\data\resourceList;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class authResourceHeaderList extends Model
 {
     /**
-     * @example x-req
-     *
      * @var string
      */
     public $headerKey;
 
     /**
-     * @example EQUAL
-     *
      * @var string
      */
     public $headerMethod;
 
     /**
-     * @example 123
-     *
      * @var string
      */
     public $headerValue;
@@ -34,17 +28,22 @@ class authResourceHeaderList extends Model
         'headerValue' => 'HeaderValue',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->headerKey) {
             $res['HeaderKey'] = $this->headerKey;
         }
+
         if (null !== $this->headerMethod) {
             $res['HeaderMethod'] = $this->headerMethod;
         }
+
         if (null !== $this->headerValue) {
             $res['HeaderValue'] = $this->headerValue;
         }
@@ -52,20 +51,22 @@ class authResourceHeaderList extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return authResourceHeaderList
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['HeaderKey'])) {
             $model->headerKey = $map['HeaderKey'];
         }
+
         if (isset($map['HeaderMethod'])) {
             $model->headerMethod = $map['HeaderMethod'];
         }
+
         if (isset($map['HeaderValue'])) {
             $model->headerValue = $map['HeaderValue'];
         }

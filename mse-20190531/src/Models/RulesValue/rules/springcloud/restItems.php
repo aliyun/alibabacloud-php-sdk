@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Mse\V20190531\Models\RulesValue\rules\springcloud;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class restItems extends Model
 {
@@ -39,8 +39,6 @@ class restItems extends Model
     public $remainder;
 
     /**
-     * @example 20
-     *
      * @var int
      */
     public $rate;
@@ -72,38 +70,59 @@ class restItems extends Model
         'value' => 'value',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->nameList)) {
+            Model::validateArray($this->nameList);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->datum) {
             $res['datum'] = $this->datum;
         }
+
         if (null !== $this->operator) {
             $res['operator'] = $this->operator;
         }
+
         if (null !== $this->nameList) {
-            $res['nameList'] = $this->nameList;
+            if (\is_array($this->nameList)) {
+                $res['nameList'] = [];
+                $n1 = 0;
+                foreach ($this->nameList as $item1) {
+                    $res['nameList'][$n1++] = $item1;
+                }
+            }
         }
+
         if (null !== $this->cond) {
             $res['cond'] = $this->cond;
         }
+
         if (null !== $this->divisor) {
             $res['divisor'] = $this->divisor;
         }
+
         if (null !== $this->remainder) {
             $res['remainder'] = $this->remainder;
         }
+
         if (null !== $this->rate) {
             $res['rate'] = $this->rate;
         }
+
         if (null !== $this->type) {
             $res['type'] = $this->type;
         }
+
         if (null !== $this->name) {
             $res['name'] = $this->name;
         }
+
         if (null !== $this->value) {
             $res['value'] = $this->value;
         }
@@ -111,43 +130,56 @@ class restItems extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return restItems
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['datum'])) {
             $model->datum = $map['datum'];
         }
+
         if (isset($map['operator'])) {
             $model->operator = $map['operator'];
         }
+
         if (isset($map['nameList'])) {
             if (!empty($map['nameList'])) {
-                $model->nameList = $map['nameList'];
+                $model->nameList = [];
+                $n1 = 0;
+                foreach ($map['nameList'] as $item1) {
+                    $model->nameList[$n1++] = $item1;
+                }
             }
         }
+
         if (isset($map['cond'])) {
             $model->cond = $map['cond'];
         }
+
         if (isset($map['divisor'])) {
             $model->divisor = $map['divisor'];
         }
+
         if (isset($map['remainder'])) {
             $model->remainder = $map['remainder'];
         }
+
         if (isset($map['rate'])) {
             $model->rate = $map['rate'];
         }
+
         if (isset($map['type'])) {
             $model->type = $map['type'];
         }
+
         if (isset($map['name'])) {
             $model->name = $map['name'];
         }
+
         if (isset($map['value'])) {
             $model->value = $map['value'];
         }

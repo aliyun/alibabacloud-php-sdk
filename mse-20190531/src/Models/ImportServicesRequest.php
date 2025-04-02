@@ -4,19 +4,12 @@
 
 namespace AlibabaCloud\SDK\Mse\V20190531\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Mse\V20190531\Models\ImportServicesRequest\serviceList;
-use AlibabaCloud\Tea\Model;
 
 class ImportServicesRequest extends Model
 {
     /**
-     * @description The language of the response. Valid values:
-     *
-     *   zh: Chinese
-     *   en: English
-     *
-     * @example zh
-     *
      * @var string
      */
     public $acceptLanguage;
@@ -37,60 +30,26 @@ class ImportServicesRequest extends Model
     public $fcVersion;
 
     /**
-     * @description The unique ID of the gateway.
-     *
-     * @example gw-77e1153db6e14c0a8b1fae20bcb89ca5
-     *
      * @var string
      */
     public $gatewayUniqueId;
 
     /**
-     * @description The information about services.
-     *
-     * @example DNS
-     *
      * @var serviceList[]
      */
     public $serviceList;
 
     /**
-     * @example 100
-     *
      * @var int
      */
     public $sourceId;
 
     /**
-     * @description The service source. Valid values:
-     *
-     *   MSE: MSE Nacos instance
-     *   K8s: ACK cluster
-     *   VIP: fixed address
-     *   DNS: DNS domain
-     *
-     * @example DNS
-     *
      * @var string
      */
     public $sourceType;
 
     /**
-     * @description The Transport Layer Security (TLS) settings. Valid values:
-     *
-     *   mode: TLS mode
-     *   certId: certificate ID
-     *   caCertId: CA certificate ID
-     *   caCertContent: CA certificate public key
-     *   sni: service name identification
-     *
-     * @example {
-     * "mode": "MUTUAL",
-     * "certId": "1*****-cn-hangzhou",
-     * "caCertContent": "123",
-     * "sni": "ceshi"
-     * }
-     *
      * @var string
      */
     public $tlsSetting;
@@ -106,41 +65,55 @@ class ImportServicesRequest extends Model
         'tlsSetting' => 'TlsSetting',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->serviceList)) {
+            Model::validateArray($this->serviceList);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->acceptLanguage) {
             $res['AcceptLanguage'] = $this->acceptLanguage;
         }
+
         if (null !== $this->fcAlias) {
             $res['FcAlias'] = $this->fcAlias;
         }
+
         if (null !== $this->fcServiceName) {
             $res['FcServiceName'] = $this->fcServiceName;
         }
+
         if (null !== $this->fcVersion) {
             $res['FcVersion'] = $this->fcVersion;
         }
+
         if (null !== $this->gatewayUniqueId) {
             $res['GatewayUniqueId'] = $this->gatewayUniqueId;
         }
+
         if (null !== $this->serviceList) {
-            $res['ServiceList'] = [];
-            if (null !== $this->serviceList && \is_array($this->serviceList)) {
-                $n = 0;
-                foreach ($this->serviceList as $item) {
-                    $res['ServiceList'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->serviceList)) {
+                $res['ServiceList'] = [];
+                $n1 = 0;
+                foreach ($this->serviceList as $item1) {
+                    $res['ServiceList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
+
         if (null !== $this->sourceId) {
             $res['SourceId'] = $this->sourceId;
         }
+
         if (null !== $this->sourceType) {
             $res['SourceType'] = $this->sourceType;
         }
+
         if (null !== $this->tlsSetting) {
             $res['TlsSetting'] = $this->tlsSetting;
         }
@@ -148,44 +121,52 @@ class ImportServicesRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ImportServicesRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AcceptLanguage'])) {
             $model->acceptLanguage = $map['AcceptLanguage'];
         }
+
         if (isset($map['FcAlias'])) {
             $model->fcAlias = $map['FcAlias'];
         }
+
         if (isset($map['FcServiceName'])) {
             $model->fcServiceName = $map['FcServiceName'];
         }
+
         if (isset($map['FcVersion'])) {
             $model->fcVersion = $map['FcVersion'];
         }
+
         if (isset($map['GatewayUniqueId'])) {
             $model->gatewayUniqueId = $map['GatewayUniqueId'];
         }
+
         if (isset($map['ServiceList'])) {
             if (!empty($map['ServiceList'])) {
                 $model->serviceList = [];
-                $n = 0;
-                foreach ($map['ServiceList'] as $item) {
-                    $model->serviceList[$n++] = null !== $item ? serviceList::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['ServiceList'] as $item1) {
+                    $model->serviceList[$n1++] = serviceList::fromMap($item1);
                 }
             }
         }
+
         if (isset($map['SourceId'])) {
             $model->sourceId = $map['SourceId'];
         }
+
         if (isset($map['SourceType'])) {
             $model->sourceType = $map['SourceType'];
         }
+
         if (isset($map['TlsSetting'])) {
             $model->tlsSetting = $map['TlsSetting'];
         }

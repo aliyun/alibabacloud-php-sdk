@@ -4,49 +4,26 @@
 
 namespace AlibabaCloud\SDK\Mse\V20190531\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class UpgradeClusterRequest extends Model
 {
     /**
-     * @description The language of the response. Valid values:
-     *
-     *   zh: Chinese
-     *   en: English
-     *
-     * @example zh
-     *
      * @var string
      */
     public $acceptLanguage;
 
     /**
-     * @description The ID of the instance.
-     *
-     * This parameter is required.
-     *
-     * @example mse-cn-nif1w51wi0c
-     *
      * @var string
      */
     public $instanceId;
 
     /**
-     * @description The extended request parameters in the JSON format.
-     *
-     * @example {}
-     *
      * @var string
      */
     public $requestPars;
 
     /**
-     * @description The destination version.
-     *
-     * This parameter is required.
-     *
-     * @example 1.2.1
-     *
      * @var string
      */
     public $upgradeVersion;
@@ -57,20 +34,26 @@ class UpgradeClusterRequest extends Model
         'upgradeVersion' => 'UpgradeVersion',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->acceptLanguage) {
             $res['AcceptLanguage'] = $this->acceptLanguage;
         }
+
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
         }
+
         if (null !== $this->requestPars) {
             $res['RequestPars'] = $this->requestPars;
         }
+
         if (null !== $this->upgradeVersion) {
             $res['UpgradeVersion'] = $this->upgradeVersion;
         }
@@ -78,23 +61,26 @@ class UpgradeClusterRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return UpgradeClusterRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AcceptLanguage'])) {
             $model->acceptLanguage = $map['AcceptLanguage'];
         }
+
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
         }
+
         if (isset($map['RequestPars'])) {
             $model->requestPars = $map['RequestPars'];
         }
+
         if (isset($map['UpgradeVersion'])) {
             $model->upgradeVersion = $map['UpgradeVersion'];
         }

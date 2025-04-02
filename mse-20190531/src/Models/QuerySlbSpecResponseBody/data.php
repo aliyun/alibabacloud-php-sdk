@@ -4,60 +4,36 @@
 
 namespace AlibabaCloud\SDK\Mse\V20190531\Models\QuerySlbSpecResponseBody;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class data extends Model
 {
     /**
-     * @description The ID of the returned data.
-     *
-     * @example 2
-     *
      * @var int
      */
     public $id;
 
     /**
-     * @description The maximum number of connections.
-     *
-     * @example 50,000
-     *
      * @var string
      */
     public $maxConnection;
 
     /**
-     * @description The name of the instance.
-     *
-     * @example Standard I
-     *
      * @var string
      */
     public $name;
 
     /**
-     * @description The number of connections per second.
-     *
-     * @example 50,000
-     *
      * @var string
      */
     public $newConnectionPerSecond;
 
     /**
-     * @description The number of queries per second (QPS).
-     *
-     * @example 50,000
-     *
      * @var string
      */
     public $qps;
 
     /**
-     * @description The specification of the instance.
-     *
-     * @example slb.s2.small
-     *
      * @var string
      */
     public $spec;
@@ -70,26 +46,34 @@ class data extends Model
         'spec' => 'Spec',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->id) {
             $res['Id'] = $this->id;
         }
+
         if (null !== $this->maxConnection) {
             $res['MaxConnection'] = $this->maxConnection;
         }
+
         if (null !== $this->name) {
             $res['Name'] = $this->name;
         }
+
         if (null !== $this->newConnectionPerSecond) {
             $res['NewConnectionPerSecond'] = $this->newConnectionPerSecond;
         }
+
         if (null !== $this->qps) {
             $res['Qps'] = $this->qps;
         }
+
         if (null !== $this->spec) {
             $res['Spec'] = $this->spec;
         }
@@ -97,29 +81,34 @@ class data extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return data
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Id'])) {
             $model->id = $map['Id'];
         }
+
         if (isset($map['MaxConnection'])) {
             $model->maxConnection = $map['MaxConnection'];
         }
+
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
         }
+
         if (isset($map['NewConnectionPerSecond'])) {
             $model->newConnectionPerSecond = $map['NewConnectionPerSecond'];
         }
+
         if (isset($map['Qps'])) {
             $model->qps = $map['Qps'];
         }
+
         if (isset($map['Spec'])) {
             $model->spec = $map['Spec'];
         }

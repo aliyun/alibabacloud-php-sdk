@@ -4,15 +4,11 @@
 
 namespace AlibabaCloud\SDK\Mse\V20190531\Models\ListGatewayServiceResponseBody\data\result;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class versions extends Model
 {
     /**
-     * @description The version number.
-     *
-     * @example v1
-     *
      * @var string
      */
     public $name;
@@ -20,9 +16,12 @@ class versions extends Model
         'name' => 'Name',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->name) {
@@ -32,11 +31,11 @@ class versions extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return versions
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

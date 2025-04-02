@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Mse\V20190531\Models\TrafficPolicy\loadBalancerSettings\consistentHashLBConfig;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class httpCookie extends Model
 {
@@ -19,8 +19,6 @@ class httpCookie extends Model
     public $path;
 
     /**
-     * @example 0s
-     *
      * @var string
      */
     public $TTL;
@@ -30,17 +28,22 @@ class httpCookie extends Model
         'TTL' => 'TTL',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->name) {
             $res['Name'] = $this->name;
         }
+
         if (null !== $this->path) {
             $res['Path'] = $this->path;
         }
+
         if (null !== $this->TTL) {
             $res['TTL'] = $this->TTL;
         }
@@ -48,20 +51,22 @@ class httpCookie extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return httpCookie
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
         }
+
         if (isset($map['Path'])) {
             $model->path = $map['Path'];
         }
+
         if (isset($map['TTL'])) {
             $model->TTL = $map['TTL'];
         }

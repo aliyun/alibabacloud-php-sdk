@@ -4,43 +4,21 @@
 
 namespace AlibabaCloud\SDK\Mse\V20190531\Models\UpdateGatewayRouteRequest\services\httpDubboTranscoder\mothedMapList;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class paramMapsList extends Model
 {
     /**
-     * @description The key extracted from the input parameter.
-     *
-     * @example name
-     *
      * @var string
      */
     public $extractKey;
 
     /**
-     * @description The position of the input parameter.
-     *
-     * > Valid values:
-     *
-     *   `ALL_QUERY_PARAMETER`: request parameter
-     *
-     *   `ALL_HEADER`: request header
-     *
-     *   `ALL_PATH`: request path
-     *
-     *   `ALL_BODY`: request body
-     *
-     * @example ALL_QUERY_PARAMETER
-     *
      * @var string
      */
     public $extractKeySpec;
 
     /**
-     * @description The type of the backend service parameter.
-     *
-     * @example java.lang.String
-     *
      * @var string
      */
     public $mappingType;
@@ -50,17 +28,22 @@ class paramMapsList extends Model
         'mappingType' => 'MappingType',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->extractKey) {
             $res['ExtractKey'] = $this->extractKey;
         }
+
         if (null !== $this->extractKeySpec) {
             $res['ExtractKeySpec'] = $this->extractKeySpec;
         }
+
         if (null !== $this->mappingType) {
             $res['MappingType'] = $this->mappingType;
         }
@@ -68,20 +51,22 @@ class paramMapsList extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return paramMapsList
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ExtractKey'])) {
             $model->extractKey = $map['ExtractKey'];
         }
+
         if (isset($map['ExtractKeySpec'])) {
             $model->extractKeySpec = $map['ExtractKeySpec'];
         }
+
         if (isset($map['MappingType'])) {
             $model->mappingType = $map['MappingType'];
         }

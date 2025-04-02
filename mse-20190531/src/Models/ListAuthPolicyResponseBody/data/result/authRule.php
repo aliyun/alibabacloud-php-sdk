@@ -4,58 +4,37 @@
 
 namespace AlibabaCloud\SDK\Mse\V20190531\Models\ListAuthPolicyResponseBody\data\result;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Mse\V20190531\Models\ListAuthPolicyResponseBody\data\result\authRule\method;
-use AlibabaCloud\Tea\Model;
 
 class authRule extends Model
 {
     /**
-     * @description The IDs of applications.
-     *
      * @var string[]
      */
     public $appIds;
 
     /**
-     * @description The rule type. Valid values:
-     *
-     *   0: by application
-     *   1: by namespace
-     *
-     * @example 0
-     *
      * @var int
      */
     public $authType;
 
     /**
-     * @description Indicates whether the rule is a blacklist rule.
-     *
-     * @example false
-     *
      * @var bool
      */
     public $black;
 
     /**
-     * @description The queried namespaces.
-     *
      * @var string[]
      */
     public $k8sNamespaces;
 
     /**
-     * @description The request method.
-     *
      * @var method
      */
     public $method;
 
     /**
-     * @description The service path.
-     *
-     * @example /a
-     *
      * @var string
      */
     public $path;
@@ -68,26 +47,55 @@ class authRule extends Model
         'path' => 'Path',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->appIds)) {
+            Model::validateArray($this->appIds);
+        }
+        if (\is_array($this->k8sNamespaces)) {
+            Model::validateArray($this->k8sNamespaces);
+        }
+        if (null !== $this->method) {
+            $this->method->validate();
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->appIds) {
-            $res['AppIds'] = $this->appIds;
+            if (\is_array($this->appIds)) {
+                $res['AppIds'] = [];
+                $n1 = 0;
+                foreach ($this->appIds as $item1) {
+                    $res['AppIds'][$n1++] = $item1;
+                }
+            }
         }
+
         if (null !== $this->authType) {
             $res['AuthType'] = $this->authType;
         }
+
         if (null !== $this->black) {
             $res['Black'] = $this->black;
         }
+
         if (null !== $this->k8sNamespaces) {
-            $res['K8sNamespaces'] = $this->k8sNamespaces;
+            if (\is_array($this->k8sNamespaces)) {
+                $res['K8sNamespaces'] = [];
+                $n1 = 0;
+                foreach ($this->k8sNamespaces as $item1) {
+                    $res['K8sNamespaces'][$n1++] = $item1;
+                }
+            }
         }
+
         if (null !== $this->method) {
-            $res['Method'] = null !== $this->method ? $this->method->toMap() : null;
+            $res['Method'] = null !== $this->method ? $this->method->toArray($noStream) : $this->method;
         }
+
         if (null !== $this->path) {
             $res['Path'] = $this->path;
         }
@@ -95,33 +103,46 @@ class authRule extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return authRule
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AppIds'])) {
             if (!empty($map['AppIds'])) {
-                $model->appIds = $map['AppIds'];
+                $model->appIds = [];
+                $n1 = 0;
+                foreach ($map['AppIds'] as $item1) {
+                    $model->appIds[$n1++] = $item1;
+                }
             }
         }
+
         if (isset($map['AuthType'])) {
             $model->authType = $map['AuthType'];
         }
+
         if (isset($map['Black'])) {
             $model->black = $map['Black'];
         }
+
         if (isset($map['K8sNamespaces'])) {
             if (!empty($map['K8sNamespaces'])) {
-                $model->k8sNamespaces = $map['K8sNamespaces'];
+                $model->k8sNamespaces = [];
+                $n1 = 0;
+                foreach ($map['K8sNamespaces'] as $item1) {
+                    $model->k8sNamespaces[$n1++] = $item1;
+                }
             }
         }
+
         if (isset($map['Method'])) {
             $model->method = method::fromMap($map['Method']);
         }
+
         if (isset($map['Path'])) {
             $model->path = $map['Path'];
         }

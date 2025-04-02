@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Mse\V20190531\Models\CreateOrUpdateSwimmingLaneRequest\gatewaySwimmingLaneRouteJson;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class routeIndependentPercentageList extends Model
 {
@@ -22,14 +22,18 @@ class routeIndependentPercentageList extends Model
         'routeId' => 'RouteId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->percentage) {
             $res['Percentage'] = $this->percentage;
         }
+
         if (null !== $this->routeId) {
             $res['RouteId'] = $this->routeId;
         }
@@ -37,17 +41,18 @@ class routeIndependentPercentageList extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return routeIndependentPercentageList
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Percentage'])) {
             $model->percentage = $map['Percentage'];
         }
+
         if (isset($map['RouteId'])) {
             $model->routeId = $map['RouteId'];
         }
