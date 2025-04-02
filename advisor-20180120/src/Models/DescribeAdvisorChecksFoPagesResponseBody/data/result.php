@@ -49,6 +49,11 @@ class result extends Model
     public $product;
 
     /**
+     * @var int
+     */
+    public $riskLevel;
+
+    /**
      * @var string
      */
     public $source;
@@ -81,6 +86,7 @@ class result extends Model
         'name' => 'Name',
         'operateColumn' => 'OperateColumn',
         'product' => 'Product',
+        'riskLevel' => 'RiskLevel',
         'source' => 'Source',
         'status' => 'Status',
         'subCategory' => 'SubCategory',
@@ -129,6 +135,10 @@ class result extends Model
 
         if (null !== $this->product) {
             $res['Product'] = $this->product;
+        }
+
+        if (null !== $this->riskLevel) {
+            $res['RiskLevel'] = $this->riskLevel;
         }
 
         if (null !== $this->source) {
@@ -198,6 +208,10 @@ class result extends Model
 
         if (isset($map['Product'])) {
             $model->product = $map['Product'];
+        }
+
+        if (isset($map['RiskLevel'])) {
+            $model->riskLevel = $map['RiskLevel'];
         }
 
         if (isset($map['Source'])) {
