@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Paidlc\V20201203\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class ResourceRequirements extends Model
 {
@@ -18,40 +18,69 @@ class ResourceRequirements extends Model
      */
     public $requests;
     protected $_name = [
-        'limits'   => 'Limits',
+        'limits' => 'Limits',
         'requests' => 'Requests',
     ];
 
     public function validate()
     {
+        if (\is_array($this->limits)) {
+            Model::validateArray($this->limits);
+        }
+        if (\is_array($this->requests)) {
+            Model::validateArray($this->requests);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->limits) {
-            $res['Limits'] = $this->limits;
+            if (\is_array($this->limits)) {
+                $res['Limits'] = [];
+                foreach ($this->limits as $key1 => $value1) {
+                    $res['Limits'][$key1] = $value1;
+                }
+            }
         }
+
         if (null !== $this->requests) {
-            $res['Requests'] = $this->requests;
+            if (\is_array($this->requests)) {
+                $res['Requests'] = [];
+                foreach ($this->requests as $key1 => $value1) {
+                    $res['Requests'][$key1] = $value1;
+                }
+            }
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ResourceRequirements
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Limits'])) {
-            $model->limits = $map['Limits'];
+            if (!empty($map['Limits'])) {
+                $model->limits = [];
+                foreach ($map['Limits'] as $key1 => $value1) {
+                    $model->limits[$key1] = $value1;
+                }
+            }
         }
+
         if (isset($map['Requests'])) {
-            $model->requests = $map['Requests'];
+            if (!empty($map['Requests'])) {
+                $model->requests = [];
+                foreach ($map['Requests'] as $key1 => $value1) {
+                    $model->requests[$key1] = $value1;
+                }
+            }
         }
 
         return $model;

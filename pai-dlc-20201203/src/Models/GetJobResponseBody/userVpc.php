@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Paidlc\V20201203\Models\GetJobResponseBody;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class userVpc extends Model
 {
@@ -19,52 +19,60 @@ class userVpc extends Model
     public $extendedCidrs;
 
     /**
-     * @example sg-abcdef****
-     *
      * @var string
      */
     public $securityGroupId;
 
     /**
-     * @example vs-abcdef****
-     *
      * @var string
      */
     public $switchId;
 
     /**
-     * @example vpc-abcdef****
-     *
      * @var string
      */
     public $vpcId;
     protected $_name = [
-        'defaultRoute'    => 'DefaultRoute',
-        'extendedCidrs'   => 'ExtendedCidrs',
+        'defaultRoute' => 'DefaultRoute',
+        'extendedCidrs' => 'ExtendedCidrs',
         'securityGroupId' => 'SecurityGroupId',
-        'switchId'        => 'SwitchId',
-        'vpcId'           => 'VpcId',
+        'switchId' => 'SwitchId',
+        'vpcId' => 'VpcId',
     ];
 
     public function validate()
     {
+        if (\is_array($this->extendedCidrs)) {
+            Model::validateArray($this->extendedCidrs);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->defaultRoute) {
             $res['DefaultRoute'] = $this->defaultRoute;
         }
+
         if (null !== $this->extendedCidrs) {
-            $res['ExtendedCidrs'] = $this->extendedCidrs;
+            if (\is_array($this->extendedCidrs)) {
+                $res['ExtendedCidrs'] = [];
+                $n1 = 0;
+                foreach ($this->extendedCidrs as $item1) {
+                    $res['ExtendedCidrs'][$n1++] = $item1;
+                }
+            }
         }
+
         if (null !== $this->securityGroupId) {
             $res['SecurityGroupId'] = $this->securityGroupId;
         }
+
         if (null !== $this->switchId) {
             $res['SwitchId'] = $this->switchId;
         }
+
         if (null !== $this->vpcId) {
             $res['VpcId'] = $this->vpcId;
         }
@@ -72,28 +80,36 @@ class userVpc extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return userVpc
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['DefaultRoute'])) {
             $model->defaultRoute = $map['DefaultRoute'];
         }
+
         if (isset($map['ExtendedCidrs'])) {
             if (!empty($map['ExtendedCidrs'])) {
-                $model->extendedCidrs = $map['ExtendedCidrs'];
+                $model->extendedCidrs = [];
+                $n1 = 0;
+                foreach ($map['ExtendedCidrs'] as $item1) {
+                    $model->extendedCidrs[$n1++] = $item1;
+                }
             }
         }
+
         if (isset($map['SecurityGroupId'])) {
             $model->securityGroupId = $map['SecurityGroupId'];
         }
+
         if (isset($map['SwitchId'])) {
             $model->switchId = $map['SwitchId'];
         }
+
         if (isset($map['VpcId'])) {
             $model->vpcId = $map['VpcId'];
         }

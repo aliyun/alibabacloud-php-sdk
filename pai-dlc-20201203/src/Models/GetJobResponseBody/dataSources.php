@@ -4,49 +4,46 @@
 
 namespace AlibabaCloud\SDK\Paidlc\V20201203\Models\GetJobResponseBody;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class dataSources extends Model
 {
     /**
-     * @example d*******
-     *
      * @var string
      */
     public $dataSourceId;
 
     /**
-     * @example /mnt/data/
-     *
      * @var string
      */
     public $mountPath;
 
     /**
-     * @example oss://bucket.oss-cn-hangzhou-internal.aliyuncs.com/path/
-     *
      * @var string
      */
     public $uri;
     protected $_name = [
         'dataSourceId' => 'DataSourceId',
-        'mountPath'    => 'MountPath',
-        'uri'          => 'Uri',
+        'mountPath' => 'MountPath',
+        'uri' => 'Uri',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->dataSourceId) {
             $res['DataSourceId'] = $this->dataSourceId;
         }
+
         if (null !== $this->mountPath) {
             $res['MountPath'] = $this->mountPath;
         }
+
         if (null !== $this->uri) {
             $res['Uri'] = $this->uri;
         }
@@ -54,20 +51,22 @@ class dataSources extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return dataSources
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['DataSourceId'])) {
             $model->dataSourceId = $map['DataSourceId'];
         }
+
         if (isset($map['MountPath'])) {
             $model->mountPath = $map['MountPath'];
         }
+
         if (isset($map['Uri'])) {
             $model->uri = $map['Uri'];
         }

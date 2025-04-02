@@ -6,20 +6,20 @@ namespace AlibabaCloud\SDK\Paidlc\V20201203\Models;
 
 use AlibabaCloud\Dara\Model;
 
-class GetTokenResponseBody extends Model
+class SeccompProfile extends Model
 {
     /**
      * @var string
      */
-    public $requestId;
+    public $localhostProfile;
 
     /**
      * @var string
      */
-    public $token;
+    public $type;
     protected $_name = [
-        'requestId' => 'RequestId',
-        'token' => 'Token',
+        'localhostProfile' => 'LocalhostProfile',
+        'type' => 'Type',
     ];
 
     public function validate()
@@ -30,12 +30,12 @@ class GetTokenResponseBody extends Model
     public function toArray($noStream = false)
     {
         $res = [];
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
+        if (null !== $this->localhostProfile) {
+            $res['LocalhostProfile'] = $this->localhostProfile;
         }
 
-        if (null !== $this->token) {
-            $res['Token'] = $this->token;
+        if (null !== $this->type) {
+            $res['Type'] = $this->type;
         }
 
         return $res;
@@ -49,12 +49,12 @@ class GetTokenResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
+        if (isset($map['LocalhostProfile'])) {
+            $model->localhostProfile = $map['LocalhostProfile'];
         }
 
-        if (isset($map['Token'])) {
-            $model->token = $map['Token'];
+        if (isset($map['Type'])) {
+            $model->type = $map['Type'];
         }
 
         return $model;

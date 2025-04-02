@@ -4,13 +4,11 @@
 
 namespace AlibabaCloud\SDK\Paidlc\V20201203\Models\CreateJobRequest;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class dataSources extends Model
 {
     /**
-     * @example d-cn9dl*******
-     *
      * @var string
      */
     public $dataSourceId;
@@ -21,8 +19,11 @@ class dataSources extends Model
     public $dataSourceVersion;
 
     /**
-     * @example /root/data
-     *
+     * @var string
+     */
+    public $mountAccess;
+
+    /**
      * @var string
      */
     public $mountPath;
@@ -33,38 +34,46 @@ class dataSources extends Model
     public $options;
 
     /**
-     * @example oss://bucket.oss-cn-hangzhou-internal.aliyuncs.com/path/
-     *
      * @var string
      */
     public $uri;
     protected $_name = [
-        'dataSourceId'      => 'DataSourceId',
+        'dataSourceId' => 'DataSourceId',
         'dataSourceVersion' => 'DataSourceVersion',
-        'mountPath'         => 'MountPath',
-        'options'           => 'Options',
-        'uri'               => 'Uri',
+        'mountAccess' => 'MountAccess',
+        'mountPath' => 'MountPath',
+        'options' => 'Options',
+        'uri' => 'Uri',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->dataSourceId) {
             $res['DataSourceId'] = $this->dataSourceId;
         }
+
         if (null !== $this->dataSourceVersion) {
             $res['DataSourceVersion'] = $this->dataSourceVersion;
         }
+
+        if (null !== $this->mountAccess) {
+            $res['MountAccess'] = $this->mountAccess;
+        }
+
         if (null !== $this->mountPath) {
             $res['MountPath'] = $this->mountPath;
         }
+
         if (null !== $this->options) {
             $res['Options'] = $this->options;
         }
+
         if (null !== $this->uri) {
             $res['Uri'] = $this->uri;
         }
@@ -72,26 +81,34 @@ class dataSources extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return dataSources
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['DataSourceId'])) {
             $model->dataSourceId = $map['DataSourceId'];
         }
+
         if (isset($map['DataSourceVersion'])) {
             $model->dataSourceVersion = $map['DataSourceVersion'];
         }
+
+        if (isset($map['MountAccess'])) {
+            $model->mountAccess = $map['MountAccess'];
+        }
+
         if (isset($map['MountPath'])) {
             $model->mountPath = $map['MountPath'];
         }
+
         if (isset($map['Options'])) {
             $model->options = $map['Options'];
         }
+
         if (isset($map['Uri'])) {
             $model->uri = $map['Uri'];
         }

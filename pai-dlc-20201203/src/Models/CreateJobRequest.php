@@ -4,10 +4,10 @@
 
 namespace AlibabaCloud\SDK\Paidlc\V20201203\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Paidlc\V20201203\Models\CreateJobRequest\codeSource;
 use AlibabaCloud\SDK\Paidlc\V20201203\Models\CreateJobRequest\dataSources;
 use AlibabaCloud\SDK\Paidlc\V20201203\Models\CreateJobRequest\userVpc;
-use AlibabaCloud\Tea\Model;
 
 class CreateJobRequest extends Model
 {
@@ -32,17 +32,11 @@ class CreateJobRequest extends Model
     public $dataSources;
 
     /**
-     * @example “”
-     *
      * @var string
      */
     public $debuggerConfigContent;
 
     /**
-     * @description This parameter is required.
-     *
-     * @example tf-mnist-test
-     *
      * @var string
      */
     public $displayName;
@@ -58,45 +52,31 @@ class CreateJobRequest extends Model
     public $envs;
 
     /**
-     * @example 1024
-     *
      * @var int
      */
     public $jobMaxRunningTimeMinutes;
 
     /**
-     * @description This parameter is required.
-     *
      * @var JobSpec[]
      */
     public $jobSpecs;
 
     /**
-     * @description This parameter is required.
-     *
-     * @example TFJob
-     *
      * @var string
      */
     public $jobType;
 
     /**
-     * @example key1=value1,key2=value2
-     *
      * @var string
      */
     public $options;
 
     /**
-     * @example 8
-     *
      * @var int
      */
     public $priority;
 
     /**
-     * @example rs-xxx
-     *
      * @var string
      */
     public $resourceId;
@@ -107,15 +87,11 @@ class CreateJobRequest extends Model
     public $settings;
 
     /**
-     * @example AllWorkers
-     *
      * @var string
      */
     public $successPolicy;
 
     /**
-     * @example /root/code/
-     *
      * @var string
      */
     public $thirdpartyLibDir;
@@ -126,10 +102,6 @@ class CreateJobRequest extends Model
     public $thirdpartyLibs;
 
     /**
-     * @description This parameter is required.
-     *
-     * @example python /root/code/mnist.py
-     *
      * @var string
      */
     public $userCommand;
@@ -140,114 +112,171 @@ class CreateJobRequest extends Model
     public $userVpc;
 
     /**
-     * @example ws-20210126170216-xxxxxxx
-     *
      * @var string
      */
     public $workspaceId;
     protected $_name = [
-        'accessibility'            => 'Accessibility',
-        'codeSource'               => 'CodeSource',
-        'credentialConfig'         => 'CredentialConfig',
-        'dataSources'              => 'DataSources',
-        'debuggerConfigContent'    => 'DebuggerConfigContent',
-        'displayName'              => 'DisplayName',
-        'elasticSpec'              => 'ElasticSpec',
-        'envs'                     => 'Envs',
+        'accessibility' => 'Accessibility',
+        'codeSource' => 'CodeSource',
+        'credentialConfig' => 'CredentialConfig',
+        'dataSources' => 'DataSources',
+        'debuggerConfigContent' => 'DebuggerConfigContent',
+        'displayName' => 'DisplayName',
+        'elasticSpec' => 'ElasticSpec',
+        'envs' => 'Envs',
         'jobMaxRunningTimeMinutes' => 'JobMaxRunningTimeMinutes',
-        'jobSpecs'                 => 'JobSpecs',
-        'jobType'                  => 'JobType',
-        'options'                  => 'Options',
-        'priority'                 => 'Priority',
-        'resourceId'               => 'ResourceId',
-        'settings'                 => 'Settings',
-        'successPolicy'            => 'SuccessPolicy',
-        'thirdpartyLibDir'         => 'ThirdpartyLibDir',
-        'thirdpartyLibs'           => 'ThirdpartyLibs',
-        'userCommand'              => 'UserCommand',
-        'userVpc'                  => 'UserVpc',
-        'workspaceId'              => 'WorkspaceId',
+        'jobSpecs' => 'JobSpecs',
+        'jobType' => 'JobType',
+        'options' => 'Options',
+        'priority' => 'Priority',
+        'resourceId' => 'ResourceId',
+        'settings' => 'Settings',
+        'successPolicy' => 'SuccessPolicy',
+        'thirdpartyLibDir' => 'ThirdpartyLibDir',
+        'thirdpartyLibs' => 'ThirdpartyLibs',
+        'userCommand' => 'UserCommand',
+        'userVpc' => 'UserVpc',
+        'workspaceId' => 'WorkspaceId',
     ];
 
     public function validate()
     {
+        if (null !== $this->codeSource) {
+            $this->codeSource->validate();
+        }
+        if (null !== $this->credentialConfig) {
+            $this->credentialConfig->validate();
+        }
+        if (\is_array($this->dataSources)) {
+            Model::validateArray($this->dataSources);
+        }
+        if (null !== $this->elasticSpec) {
+            $this->elasticSpec->validate();
+        }
+        if (\is_array($this->envs)) {
+            Model::validateArray($this->envs);
+        }
+        if (\is_array($this->jobSpecs)) {
+            Model::validateArray($this->jobSpecs);
+        }
+        if (null !== $this->settings) {
+            $this->settings->validate();
+        }
+        if (\is_array($this->thirdpartyLibs)) {
+            Model::validateArray($this->thirdpartyLibs);
+        }
+        if (null !== $this->userVpc) {
+            $this->userVpc->validate();
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->accessibility) {
             $res['Accessibility'] = $this->accessibility;
         }
+
         if (null !== $this->codeSource) {
-            $res['CodeSource'] = null !== $this->codeSource ? $this->codeSource->toMap() : null;
+            $res['CodeSource'] = null !== $this->codeSource ? $this->codeSource->toArray($noStream) : $this->codeSource;
         }
+
         if (null !== $this->credentialConfig) {
-            $res['CredentialConfig'] = null !== $this->credentialConfig ? $this->credentialConfig->toMap() : null;
+            $res['CredentialConfig'] = null !== $this->credentialConfig ? $this->credentialConfig->toArray($noStream) : $this->credentialConfig;
         }
+
         if (null !== $this->dataSources) {
-            $res['DataSources'] = [];
-            if (null !== $this->dataSources && \is_array($this->dataSources)) {
-                $n = 0;
-                foreach ($this->dataSources as $item) {
-                    $res['DataSources'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->dataSources)) {
+                $res['DataSources'] = [];
+                $n1 = 0;
+                foreach ($this->dataSources as $item1) {
+                    $res['DataSources'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
+
         if (null !== $this->debuggerConfigContent) {
             $res['DebuggerConfigContent'] = $this->debuggerConfigContent;
         }
+
         if (null !== $this->displayName) {
             $res['DisplayName'] = $this->displayName;
         }
+
         if (null !== $this->elasticSpec) {
-            $res['ElasticSpec'] = null !== $this->elasticSpec ? $this->elasticSpec->toMap() : null;
+            $res['ElasticSpec'] = null !== $this->elasticSpec ? $this->elasticSpec->toArray($noStream) : $this->elasticSpec;
         }
+
         if (null !== $this->envs) {
-            $res['Envs'] = $this->envs;
-        }
-        if (null !== $this->jobMaxRunningTimeMinutes) {
-            $res['JobMaxRunningTimeMinutes'] = $this->jobMaxRunningTimeMinutes;
-        }
-        if (null !== $this->jobSpecs) {
-            $res['JobSpecs'] = [];
-            if (null !== $this->jobSpecs && \is_array($this->jobSpecs)) {
-                $n = 0;
-                foreach ($this->jobSpecs as $item) {
-                    $res['JobSpecs'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->envs)) {
+                $res['Envs'] = [];
+                foreach ($this->envs as $key1 => $value1) {
+                    $res['Envs'][$key1] = $value1;
                 }
             }
         }
+
+        if (null !== $this->jobMaxRunningTimeMinutes) {
+            $res['JobMaxRunningTimeMinutes'] = $this->jobMaxRunningTimeMinutes;
+        }
+
+        if (null !== $this->jobSpecs) {
+            if (\is_array($this->jobSpecs)) {
+                $res['JobSpecs'] = [];
+                $n1 = 0;
+                foreach ($this->jobSpecs as $item1) {
+                    $res['JobSpecs'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                }
+            }
+        }
+
         if (null !== $this->jobType) {
             $res['JobType'] = $this->jobType;
         }
+
         if (null !== $this->options) {
             $res['Options'] = $this->options;
         }
+
         if (null !== $this->priority) {
             $res['Priority'] = $this->priority;
         }
+
         if (null !== $this->resourceId) {
             $res['ResourceId'] = $this->resourceId;
         }
+
         if (null !== $this->settings) {
-            $res['Settings'] = null !== $this->settings ? $this->settings->toMap() : null;
+            $res['Settings'] = null !== $this->settings ? $this->settings->toArray($noStream) : $this->settings;
         }
+
         if (null !== $this->successPolicy) {
             $res['SuccessPolicy'] = $this->successPolicy;
         }
+
         if (null !== $this->thirdpartyLibDir) {
             $res['ThirdpartyLibDir'] = $this->thirdpartyLibDir;
         }
+
         if (null !== $this->thirdpartyLibs) {
-            $res['ThirdpartyLibs'] = $this->thirdpartyLibs;
+            if (\is_array($this->thirdpartyLibs)) {
+                $res['ThirdpartyLibs'] = [];
+                $n1 = 0;
+                foreach ($this->thirdpartyLibs as $item1) {
+                    $res['ThirdpartyLibs'][$n1++] = $item1;
+                }
+            }
         }
+
         if (null !== $this->userCommand) {
             $res['UserCommand'] = $this->userCommand;
         }
+
         if (null !== $this->userVpc) {
-            $res['UserVpc'] = null !== $this->userVpc ? $this->userVpc->toMap() : null;
+            $res['UserVpc'] = null !== $this->userVpc ? $this->userVpc->toArray($noStream) : $this->userVpc;
         }
+
         if (null !== $this->workspaceId) {
             $res['WorkspaceId'] = $this->workspaceId;
         }
@@ -255,88 +284,117 @@ class CreateJobRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return CreateJobRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Accessibility'])) {
             $model->accessibility = $map['Accessibility'];
         }
+
         if (isset($map['CodeSource'])) {
             $model->codeSource = codeSource::fromMap($map['CodeSource']);
         }
+
         if (isset($map['CredentialConfig'])) {
             $model->credentialConfig = CredentialConfig::fromMap($map['CredentialConfig']);
         }
+
         if (isset($map['DataSources'])) {
             if (!empty($map['DataSources'])) {
                 $model->dataSources = [];
-                $n                  = 0;
-                foreach ($map['DataSources'] as $item) {
-                    $model->dataSources[$n++] = null !== $item ? dataSources::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['DataSources'] as $item1) {
+                    $model->dataSources[$n1++] = dataSources::fromMap($item1);
                 }
             }
         }
+
         if (isset($map['DebuggerConfigContent'])) {
             $model->debuggerConfigContent = $map['DebuggerConfigContent'];
         }
+
         if (isset($map['DisplayName'])) {
             $model->displayName = $map['DisplayName'];
         }
+
         if (isset($map['ElasticSpec'])) {
             $model->elasticSpec = JobElasticSpec::fromMap($map['ElasticSpec']);
         }
+
         if (isset($map['Envs'])) {
-            $model->envs = $map['Envs'];
-        }
-        if (isset($map['JobMaxRunningTimeMinutes'])) {
-            $model->jobMaxRunningTimeMinutes = $map['JobMaxRunningTimeMinutes'];
-        }
-        if (isset($map['JobSpecs'])) {
-            if (!empty($map['JobSpecs'])) {
-                $model->jobSpecs = [];
-                $n               = 0;
-                foreach ($map['JobSpecs'] as $item) {
-                    $model->jobSpecs[$n++] = null !== $item ? JobSpec::fromMap($item) : $item;
+            if (!empty($map['Envs'])) {
+                $model->envs = [];
+                foreach ($map['Envs'] as $key1 => $value1) {
+                    $model->envs[$key1] = $value1;
                 }
             }
         }
+
+        if (isset($map['JobMaxRunningTimeMinutes'])) {
+            $model->jobMaxRunningTimeMinutes = $map['JobMaxRunningTimeMinutes'];
+        }
+
+        if (isset($map['JobSpecs'])) {
+            if (!empty($map['JobSpecs'])) {
+                $model->jobSpecs = [];
+                $n1 = 0;
+                foreach ($map['JobSpecs'] as $item1) {
+                    $model->jobSpecs[$n1++] = JobSpec::fromMap($item1);
+                }
+            }
+        }
+
         if (isset($map['JobType'])) {
             $model->jobType = $map['JobType'];
         }
+
         if (isset($map['Options'])) {
             $model->options = $map['Options'];
         }
+
         if (isset($map['Priority'])) {
             $model->priority = $map['Priority'];
         }
+
         if (isset($map['ResourceId'])) {
             $model->resourceId = $map['ResourceId'];
         }
+
         if (isset($map['Settings'])) {
             $model->settings = JobSettings::fromMap($map['Settings']);
         }
+
         if (isset($map['SuccessPolicy'])) {
             $model->successPolicy = $map['SuccessPolicy'];
         }
+
         if (isset($map['ThirdpartyLibDir'])) {
             $model->thirdpartyLibDir = $map['ThirdpartyLibDir'];
         }
+
         if (isset($map['ThirdpartyLibs'])) {
             if (!empty($map['ThirdpartyLibs'])) {
-                $model->thirdpartyLibs = $map['ThirdpartyLibs'];
+                $model->thirdpartyLibs = [];
+                $n1 = 0;
+                foreach ($map['ThirdpartyLibs'] as $item1) {
+                    $model->thirdpartyLibs[$n1++] = $item1;
+                }
             }
         }
+
         if (isset($map['UserCommand'])) {
             $model->userCommand = $map['UserCommand'];
         }
+
         if (isset($map['UserVpc'])) {
             $model->userVpc = userVpc::fromMap($map['UserVpc']);
         }
+
         if (isset($map['WorkspaceId'])) {
             $model->workspaceId = $map['WorkspaceId'];
         }

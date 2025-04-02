@@ -4,38 +4,36 @@
 
 namespace AlibabaCloud\SDK\Paidlc\V20201203\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class FreeResourceDetail extends Model
 {
     /**
-     * @example 2
-     *
      * @var int
      */
     public $amount;
 
     /**
-     * @example CPU
-     *
      * @var string
      */
     public $resourceType;
     protected $_name = [
-        'amount'       => 'Amount',
+        'amount' => 'Amount',
         'resourceType' => 'ResourceType',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->amount) {
             $res['Amount'] = $this->amount;
         }
+
         if (null !== $this->resourceType) {
             $res['ResourceType'] = $this->resourceType;
         }
@@ -43,17 +41,18 @@ class FreeResourceDetail extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return FreeResourceDetail
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Amount'])) {
             $model->amount = $map['Amount'];
         }
+
         if (isset($map['ResourceType'])) {
             $model->resourceType = $map['ResourceType'];
         }

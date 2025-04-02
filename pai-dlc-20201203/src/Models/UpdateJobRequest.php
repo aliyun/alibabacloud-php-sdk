@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Paidlc\V20201203\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class UpdateJobRequest extends Model
 {
@@ -14,26 +14,26 @@ class UpdateJobRequest extends Model
     public $accessibility;
 
     /**
-     * @example 5
-     *
      * @var int
      */
     public $priority;
     protected $_name = [
         'accessibility' => 'Accessibility',
-        'priority'      => 'Priority',
+        'priority' => 'Priority',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->accessibility) {
             $res['Accessibility'] = $this->accessibility;
         }
+
         if (null !== $this->priority) {
             $res['Priority'] = $this->priority;
         }
@@ -41,17 +41,18 @@ class UpdateJobRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return UpdateJobRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Accessibility'])) {
             $model->accessibility = $map['Accessibility'];
         }
+
         if (isset($map['Priority'])) {
             $model->priority = $map['Priority'];
         }

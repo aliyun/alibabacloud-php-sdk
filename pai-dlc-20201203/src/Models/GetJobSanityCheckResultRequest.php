@@ -4,22 +4,16 @@
 
 namespace AlibabaCloud\SDK\Paidlc\V20201203\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class GetJobSanityCheckResultRequest extends Model
 {
     /**
-     * @description This parameter is required.
-     *
-     * @example 1
-     *
      * @var int
      */
     public $sanityCheckNumber;
 
     /**
-     * @example DeviceCheck
-     *
      * @var string
      */
     public $sanityCheckPhase;
@@ -30,23 +24,26 @@ class GetJobSanityCheckResultRequest extends Model
     public $token;
     protected $_name = [
         'sanityCheckNumber' => 'SanityCheckNumber',
-        'sanityCheckPhase'  => 'SanityCheckPhase',
-        'token'             => 'Token',
+        'sanityCheckPhase' => 'SanityCheckPhase',
+        'token' => 'Token',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->sanityCheckNumber) {
             $res['SanityCheckNumber'] = $this->sanityCheckNumber;
         }
+
         if (null !== $this->sanityCheckPhase) {
             $res['SanityCheckPhase'] = $this->sanityCheckPhase;
         }
+
         if (null !== $this->token) {
             $res['Token'] = $this->token;
         }
@@ -54,20 +51,22 @@ class GetJobSanityCheckResultRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return GetJobSanityCheckResultRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['SanityCheckNumber'])) {
             $model->sanityCheckNumber = $map['SanityCheckNumber'];
         }
+
         if (isset($map['SanityCheckPhase'])) {
             $model->sanityCheckPhase = $map['SanityCheckPhase'];
         }
+
         if (isset($map['Token'])) {
             $model->token = $map['Token'];
         }

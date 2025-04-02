@@ -1,3 +1,7 @@
+2025-04-02 Version: 1.4.20
+- Update API CreateJob: add request parameters body.DataSources.$.MountAccess.
+
+
 2025-01-09 Version: 1.4.19
 - Update API CreateJob: update param body.
 - Update API GetJob: update response param.

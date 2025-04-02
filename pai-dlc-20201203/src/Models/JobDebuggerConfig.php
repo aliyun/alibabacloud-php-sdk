@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Paidlc\V20201203\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class JobDebuggerConfig extends Model
 {
@@ -29,27 +29,31 @@ class JobDebuggerConfig extends Model
     public $jobId;
     protected $_name = [
         'debuggerConfigContent' => 'DebuggerConfigContent',
-        'debuggerConfigId'      => 'DebuggerConfigId',
-        'gmtCreateTime'         => 'GmtCreateTime',
-        'jobId'                 => 'JobId',
+        'debuggerConfigId' => 'DebuggerConfigId',
+        'gmtCreateTime' => 'GmtCreateTime',
+        'jobId' => 'JobId',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->debuggerConfigContent) {
             $res['DebuggerConfigContent'] = $this->debuggerConfigContent;
         }
+
         if (null !== $this->debuggerConfigId) {
             $res['DebuggerConfigId'] = $this->debuggerConfigId;
         }
+
         if (null !== $this->gmtCreateTime) {
             $res['GmtCreateTime'] = $this->gmtCreateTime;
         }
+
         if (null !== $this->jobId) {
             $res['JobId'] = $this->jobId;
         }
@@ -57,23 +61,26 @@ class JobDebuggerConfig extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return JobDebuggerConfig
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['DebuggerConfigContent'])) {
             $model->debuggerConfigContent = $map['DebuggerConfigContent'];
         }
+
         if (isset($map['DebuggerConfigId'])) {
             $model->debuggerConfigId = $map['DebuggerConfigId'];
         }
+
         if (isset($map['GmtCreateTime'])) {
             $model->gmtCreateTime = $map['GmtCreateTime'];
         }
+
         if (isset($map['JobId'])) {
             $model->jobId = $map['JobId'];
         }

@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Paidlc\V20201203\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class GetWebTerminalResponseBody extends Model
 {
@@ -18,20 +18,22 @@ class GetWebTerminalResponseBody extends Model
      */
     public $webTerminalUrl;
     protected $_name = [
-        'requestId'      => 'RequestId',
+        'requestId' => 'RequestId',
         'webTerminalUrl' => 'WebTerminalUrl',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
+
         if (null !== $this->webTerminalUrl) {
             $res['WebTerminalUrl'] = $this->webTerminalUrl;
         }
@@ -39,17 +41,18 @@ class GetWebTerminalResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return GetWebTerminalResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
+
         if (isset($map['WebTerminalUrl'])) {
             $model->webTerminalUrl = $map['WebTerminalUrl'];
         }

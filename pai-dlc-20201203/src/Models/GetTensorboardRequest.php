@@ -4,13 +4,11 @@
 
 namespace AlibabaCloud\SDK\Paidlc\V20201203\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class GetTensorboardRequest extends Model
 {
     /**
-     * @example dlc-xxxxxxxx
-     *
      * @var string
      */
     public $jodId;
@@ -21,30 +19,31 @@ class GetTensorboardRequest extends Model
     public $token;
 
     /**
-     * @example 46099
-     *
      * @var string
      */
     public $workspaceId;
     protected $_name = [
-        'jodId'       => 'JodId',
-        'token'       => 'Token',
+        'jodId' => 'JodId',
+        'token' => 'Token',
         'workspaceId' => 'WorkspaceId',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->jodId) {
             $res['JodId'] = $this->jodId;
         }
+
         if (null !== $this->token) {
             $res['Token'] = $this->token;
         }
+
         if (null !== $this->workspaceId) {
             $res['WorkspaceId'] = $this->workspaceId;
         }
@@ -52,20 +51,22 @@ class GetTensorboardRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return GetTensorboardRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['JodId'])) {
             $model->jodId = $map['JodId'];
         }
+
         if (isset($map['Token'])) {
             $model->token = $map['Token'];
         }
+
         if (isset($map['WorkspaceId'])) {
             $model->workspaceId = $map['WorkspaceId'];
         }

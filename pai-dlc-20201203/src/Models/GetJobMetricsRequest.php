@@ -4,73 +4,66 @@
 
 namespace AlibabaCloud\SDK\Paidlc\V20201203\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class GetJobMetricsRequest extends Model
 {
     /**
-     * @example 2020-11-09T16:00:00Z
-     *
      * @var string
      */
     public $endTime;
 
     /**
-     * @description This parameter is required.
-     *
-     * @example GpuMemoryUsage
-     *
      * @var string
      */
     public $metricType;
 
     /**
-     * @example 2020-11-08T16:00:00Z
-     *
      * @var string
      */
     public $startTime;
 
     /**
-     * @example 5m
-     *
      * @var string
      */
     public $timeStep;
 
     /**
-     * @example eyXXXX-XXXX.XXXXX
-     *
      * @var string
      */
     public $token;
     protected $_name = [
-        'endTime'    => 'EndTime',
+        'endTime' => 'EndTime',
         'metricType' => 'MetricType',
-        'startTime'  => 'StartTime',
-        'timeStep'   => 'TimeStep',
-        'token'      => 'Token',
+        'startTime' => 'StartTime',
+        'timeStep' => 'TimeStep',
+        'token' => 'Token',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->endTime) {
             $res['EndTime'] = $this->endTime;
         }
+
         if (null !== $this->metricType) {
             $res['MetricType'] = $this->metricType;
         }
+
         if (null !== $this->startTime) {
             $res['StartTime'] = $this->startTime;
         }
+
         if (null !== $this->timeStep) {
             $res['TimeStep'] = $this->timeStep;
         }
+
         if (null !== $this->token) {
             $res['Token'] = $this->token;
         }
@@ -78,26 +71,30 @@ class GetJobMetricsRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return GetJobMetricsRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['EndTime'])) {
             $model->endTime = $map['EndTime'];
         }
+
         if (isset($map['MetricType'])) {
             $model->metricType = $map['MetricType'];
         }
+
         if (isset($map['StartTime'])) {
             $model->startTime = $map['StartTime'];
         }
+
         if (isset($map['TimeStep'])) {
             $model->timeStep = $map['TimeStep'];
         }
+
         if (isset($map['Token'])) {
             $model->token = $map['Token'];
         }

@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Paidlc\V20201203\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class GetWebTerminalRequest extends Model
 {
@@ -14,28 +14,26 @@ class GetWebTerminalRequest extends Model
     public $isShared;
 
     /**
-     * @description Pod UID。
-     *
-     * @example 94a7cc7c-0033-48b5-85bd-71c63592c268
-     *
      * @var string
      */
     public $podUid;
     protected $_name = [
         'isShared' => 'IsShared',
-        'podUid'   => 'PodUid',
+        'podUid' => 'PodUid',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->isShared) {
             $res['IsShared'] = $this->isShared;
         }
+
         if (null !== $this->podUid) {
             $res['PodUid'] = $this->podUid;
         }
@@ -43,17 +41,18 @@ class GetWebTerminalRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return GetWebTerminalRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['IsShared'])) {
             $model->isShared = $map['IsShared'];
         }
+
         if (isset($map['PodUid'])) {
             $model->podUid = $map['PodUid'];
         }

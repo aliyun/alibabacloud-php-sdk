@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Paidlc\V20201203\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class UpdateTensorboardRequest extends Model
 {
@@ -14,8 +14,6 @@ class UpdateTensorboardRequest extends Model
     public $accessibility;
 
     /**
-     * @example MaxRunningTimeMinutes
-     *
      * @var int
      */
     public $maxRunningTimeMinutes;
@@ -26,34 +24,36 @@ class UpdateTensorboardRequest extends Model
     public $priority;
 
     /**
-     * @example 380
-     *
      * @var string
      */
     public $workspaceId;
     protected $_name = [
-        'accessibility'         => 'Accessibility',
+        'accessibility' => 'Accessibility',
         'maxRunningTimeMinutes' => 'MaxRunningTimeMinutes',
-        'priority'              => 'Priority',
-        'workspaceId'           => 'WorkspaceId',
+        'priority' => 'Priority',
+        'workspaceId' => 'WorkspaceId',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->accessibility) {
             $res['Accessibility'] = $this->accessibility;
         }
+
         if (null !== $this->maxRunningTimeMinutes) {
             $res['MaxRunningTimeMinutes'] = $this->maxRunningTimeMinutes;
         }
+
         if (null !== $this->priority) {
             $res['Priority'] = $this->priority;
         }
+
         if (null !== $this->workspaceId) {
             $res['WorkspaceId'] = $this->workspaceId;
         }
@@ -61,23 +61,26 @@ class UpdateTensorboardRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return UpdateTensorboardRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Accessibility'])) {
             $model->accessibility = $map['Accessibility'];
         }
+
         if (isset($map['MaxRunningTimeMinutes'])) {
             $model->maxRunningTimeMinutes = $map['MaxRunningTimeMinutes'];
         }
+
         if (isset($map['Priority'])) {
             $model->priority = $map['Priority'];
         }
+
         if (isset($map['WorkspaceId'])) {
             $model->workspaceId = $map['WorkspaceId'];
         }

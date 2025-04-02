@@ -4,13 +4,11 @@
 
 namespace AlibabaCloud\SDK\Paidlc\V20201203\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class GetTensorboardSharedUrlRequest extends Model
 {
     /**
-     * @example 86400
-     *
      * @var string
      */
     public $expireTimeSeconds;
@@ -20,9 +18,10 @@ class GetTensorboardSharedUrlRequest extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->expireTimeSeconds) {
@@ -32,11 +31,11 @@ class GetTensorboardSharedUrlRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return GetTensorboardSharedUrlRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
