@@ -12,88 +12,104 @@ class items extends Model
      * @var int
      */
     public $affectedUserCount;
+
     /**
      * @var string
      */
     public $digestHash;
+
     /**
      * @var string
      */
     public $domScore;
+
     /**
      * @var int
      */
     public $errorColumn;
+
     /**
      * @var int
      */
     public $errorCount;
+
     /**
      * @var int
      */
     public $errorDeviceCount;
+
     /**
      * @var float
      */
     public $errorDeviceRate;
+
     /**
      * @var string
      */
     public $errorFileName;
+
     /**
      * @var int
      */
     public $errorLine;
+
     /**
      * @var string
      */
     public $errorName;
+
     /**
      * @var float
      */
     public $errorRate;
+
     /**
      * @var string
      */
     public $errorType;
+
     /**
      * @var string
      */
     public $eventTime;
+
     /**
      * @var string
      */
     public $firstVersion;
+
     /**
      * @var string
      */
     public $name;
+
     /**
      * @var string
      */
     public $stack;
+
     /**
      * @var int
      */
     public $status;
     protected $_name = [
         'affectedUserCount' => 'AffectedUserCount',
-        'digestHash'        => 'DigestHash',
-        'domScore'          => 'DomScore',
-        'errorColumn'       => 'ErrorColumn',
-        'errorCount'        => 'ErrorCount',
-        'errorDeviceCount'  => 'ErrorDeviceCount',
-        'errorDeviceRate'   => 'ErrorDeviceRate',
-        'errorFileName'     => 'ErrorFileName',
-        'errorLine'         => 'ErrorLine',
-        'errorName'         => 'ErrorName',
-        'errorRate'         => 'ErrorRate',
-        'errorType'         => 'ErrorType',
-        'eventTime'         => 'EventTime',
-        'firstVersion'      => 'FirstVersion',
-        'name'              => 'Name',
-        'stack'             => 'Stack',
-        'status'            => 'Status',
+        'digestHash' => 'DigestHash',
+        'domScore' => 'DomScore',
+        'errorColumn' => 'ErrorColumn',
+        'errorCount' => 'ErrorCount',
+        'errorDeviceCount' => 'ErrorDeviceCount',
+        'errorDeviceRate' => 'ErrorDeviceRate',
+        'errorFileName' => 'ErrorFileName',
+        'errorLine' => 'ErrorLine',
+        'errorName' => 'ErrorName',
+        'errorRate' => 'ErrorRate',
+        'errorType' => 'ErrorType',
+        'eventTime' => 'EventTime',
+        'firstVersion' => 'FirstVersion',
+        'name' => 'Name',
+        'stack' => 'Stack',
+        'status' => 'Status',
     ];
 
     public function validate()

@@ -13,33 +13,38 @@ class GetErrorResponseBody extends Model
      * @var mixed[]
      */
     public $args;
+
     /**
      * @var int
      */
     public $errorCode;
+
     /**
      * @var string
      */
     public $message;
+
     /**
      * @var model_
      */
     public $model;
+
     /**
      * @var string
      */
     public $requestId;
+
     /**
      * @var bool
      */
     public $success;
     protected $_name = [
-        'args'      => 'Args',
+        'args' => 'Args',
         'errorCode' => 'ErrorCode',
-        'message'   => 'Message',
-        'model'     => 'Model',
+        'message' => 'Message',
+        'model' => 'Model',
         'requestId' => 'RequestId',
-        'success'   => 'Success',
+        'success' => 'Success',
     ];
 
     public function validate()

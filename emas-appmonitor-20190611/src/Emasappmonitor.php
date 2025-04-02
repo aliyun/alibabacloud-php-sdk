@@ -16,6 +16,12 @@ use AlibabaCloud\SDK\Emasappmonitor\V20190611\Models\GetIssueShrinkRequest;
 use AlibabaCloud\SDK\Emasappmonitor\V20190611\Models\GetIssuesRequest;
 use AlibabaCloud\SDK\Emasappmonitor\V20190611\Models\GetIssuesResponse;
 use AlibabaCloud\SDK\Emasappmonitor\V20190611\Models\GetIssuesShrinkRequest;
+use AlibabaCloud\SDK\Emasappmonitor\V20190611\Models\GetSymbolicFilesRequest;
+use AlibabaCloud\SDK\Emasappmonitor\V20190611\Models\GetSymbolicFilesResponse;
+use AlibabaCloud\SDK\Emasappmonitor\V20190611\Models\RequestUploadTokenRequest;
+use AlibabaCloud\SDK\Emasappmonitor\V20190611\Models\RequestUploadTokenResponse;
+use AlibabaCloud\SDK\Emasappmonitor\V20190611\Models\SubmitSymbolicRequest;
+use AlibabaCloud\SDK\Emasappmonitor\V20190611\Models\SubmitSymbolicResponse;
 use Darabonba\OpenApi\Models\OpenApiRequest;
 use Darabonba\OpenApi\Models\Params;
 use Darabonba\OpenApi\OpenApiClient;
@@ -60,6 +66,7 @@ class Emasappmonitor extends OpenApiClient
      *
      * @param request - GetErrorRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns GetErrorResponse
      *
      * @param GetErrorRequest $request
@@ -103,15 +110,15 @@ class Emasappmonitor extends OpenApiClient
             'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'GetError',
-            'version'     => '2019-06-11',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetError',
+            'version' => '2019-06-11',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return GetErrorResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -124,6 +131,7 @@ class Emasappmonitor extends OpenApiClient
      * 获取错误事件详情.
      *
      * @param request - GetErrorRequest
+     *
      * @returns GetErrorResponse
      *
      * @param GetErrorRequest $request
@@ -142,6 +150,7 @@ class Emasappmonitor extends OpenApiClient
      *
      * @param tmpReq - GetErrorsRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns GetErrorsResponse
      *
      * @param GetErrorsRequest $tmpReq
@@ -202,15 +211,15 @@ class Emasappmonitor extends OpenApiClient
             'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'GetErrors',
-            'version'     => '2019-06-11',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetErrors',
+            'version' => '2019-06-11',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return GetErrorsResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -223,6 +232,7 @@ class Emasappmonitor extends OpenApiClient
      * 获取某一聚合错误下所有的错误事件列表.
      *
      * @param request - GetErrorsRequest
+     *
      * @returns GetErrorsResponse
      *
      * @param GetErrorsRequest $request
@@ -241,6 +251,7 @@ class Emasappmonitor extends OpenApiClient
      *
      * @param tmpReq - GetIssueRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns GetIssueResponse
      *
      * @param GetIssueRequest $tmpReq
@@ -289,15 +300,15 @@ class Emasappmonitor extends OpenApiClient
             'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'GetIssue',
-            'version'     => '2019-06-11',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetIssue',
+            'version' => '2019-06-11',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return GetIssueResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -310,6 +321,7 @@ class Emasappmonitor extends OpenApiClient
      * 获取聚合错误详情.
      *
      * @param request - GetIssueRequest
+     *
      * @returns GetIssueResponse
      *
      * @param GetIssueRequest $request
@@ -328,6 +340,7 @@ class Emasappmonitor extends OpenApiClient
      *
      * @param tmpReq - GetIssuesRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns GetIssuesResponse
      *
      * @param GetIssuesRequest $tmpReq
@@ -396,15 +409,15 @@ class Emasappmonitor extends OpenApiClient
             'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'GetIssues',
-            'version'     => '2019-06-11',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetIssues',
+            'version' => '2019-06-11',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return GetIssuesResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -417,6 +430,7 @@ class Emasappmonitor extends OpenApiClient
      * 获取聚合错误列表.
      *
      * @param request - GetIssuesRequest
+     *
      * @returns GetIssuesResponse
      *
      * @param GetIssuesRequest $request
@@ -428,5 +442,245 @@ class Emasappmonitor extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->getIssuesWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param request - GetSymbolicFilesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetSymbolicFilesResponse
+     *
+     * @param GetSymbolicFilesRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return GetSymbolicFilesResponse
+     */
+    public function getSymbolicFilesWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->appKey) {
+            @$body['AppKey'] = $request->appKey;
+        }
+
+        if (null !== $request->appVersion) {
+            @$body['AppVersion'] = $request->appVersion;
+        }
+
+        if (null !== $request->endTime) {
+            @$body['EndTime'] = $request->endTime;
+        }
+
+        if (null !== $request->exportStatus) {
+            @$body['ExportStatus'] = $request->exportStatus;
+        }
+
+        if (null !== $request->fileName) {
+            @$body['FileName'] = $request->fileName;
+        }
+
+        if (null !== $request->fileType) {
+            @$body['FileType'] = $request->fileType;
+        }
+
+        if (null !== $request->os) {
+            @$body['Os'] = $request->os;
+        }
+
+        if (null !== $request->pageIndex) {
+            @$body['PageIndex'] = $request->pageIndex;
+        }
+
+        if (null !== $request->pageSize) {
+            @$body['PageSize'] = $request->pageSize;
+        }
+
+        if (null !== $request->startTime) {
+            @$body['StartTime'] = $request->startTime;
+        }
+
+        if (null !== $request->uuid) {
+            @$body['Uuid'] = $request->uuid;
+        }
+
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'GetSymbolicFiles',
+            'version' => '2019-06-11',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return GetSymbolicFilesResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
+
+        return GetSymbolicFilesResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * @param request - GetSymbolicFilesRequest
+     *
+     * @returns GetSymbolicFilesResponse
+     *
+     * @param GetSymbolicFilesRequest $request
+     *
+     * @return GetSymbolicFilesResponse
+     */
+    public function getSymbolicFiles($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getSymbolicFilesWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param request - RequestUploadTokenRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns RequestUploadTokenResponse
+     *
+     * @param RequestUploadTokenRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return RequestUploadTokenResponse
+     */
+    public function requestUploadTokenWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->appKey) {
+            @$body['AppKey'] = $request->appKey;
+        }
+
+        if (null !== $request->os) {
+            @$body['Os'] = $request->os;
+        }
+
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'RequestUploadToken',
+            'version' => '2019-06-11',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return RequestUploadTokenResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
+
+        return RequestUploadTokenResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * @param request - RequestUploadTokenRequest
+     *
+     * @returns RequestUploadTokenResponse
+     *
+     * @param RequestUploadTokenRequest $request
+     *
+     * @return RequestUploadTokenResponse
+     */
+    public function requestUploadToken($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->requestUploadTokenWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param request - SubmitSymbolicRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns SubmitSymbolicResponse
+     *
+     * @param SubmitSymbolicRequest $request
+     * @param RuntimeOptions        $runtime
+     *
+     * @return SubmitSymbolicResponse
+     */
+    public function submitSymbolicWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->appKey) {
+            @$body['AppKey'] = $request->appKey;
+        }
+
+        if (null !== $request->appVersion) {
+            @$body['AppVersion'] = $request->appVersion;
+        }
+
+        if (null !== $request->buildId) {
+            @$body['BuildId'] = $request->buildId;
+        }
+
+        if (null !== $request->fileName) {
+            @$body['FileName'] = $request->fileName;
+        }
+
+        if (null !== $request->filePath) {
+            @$body['FilePath'] = $request->filePath;
+        }
+
+        if (null !== $request->fileType) {
+            @$body['FileType'] = $request->fileType;
+        }
+
+        if (null !== $request->os) {
+            @$body['Os'] = $request->os;
+        }
+
+        if (null !== $request->uuid) {
+            @$body['Uuid'] = $request->uuid;
+        }
+
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'SubmitSymbolic',
+            'version' => '2019-06-11',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return SubmitSymbolicResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
+
+        return SubmitSymbolicResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * @param request - SubmitSymbolicRequest
+     *
+     * @returns SubmitSymbolicResponse
+     *
+     * @param SubmitSymbolicRequest $request
+     *
+     * @return SubmitSymbolicResponse
+     */
+    public function submitSymbolic($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->submitSymbolicWithOptions($request, $runtime);
     }
 }

@@ -14,48 +14,56 @@ class GetErrorsRequest extends Model
      * @var int
      */
     public $appKey;
+
     /**
      * @var string
      */
     public $bizModule;
+
     /**
      * @var string
      */
     public $digestHash;
+
     /**
      * @var filter
      */
     public $filter;
+
     /**
      * @var string
      */
     public $os;
+
     /**
      * @var int
      */
     public $pageIndex;
+
     /**
      * @var int
      */
     public $pageSize;
+
     /**
      * @var timeRange
      */
     public $timeRange;
+
     /**
      * @var string
      */
     public $utdid;
     protected $_name = [
-        'appKey'     => 'AppKey',
-        'bizModule'  => 'BizModule',
+        'appKey' => 'AppKey',
+        'bizModule' => 'BizModule',
         'digestHash' => 'DigestHash',
-        'filter'     => 'Filter',
-        'os'         => 'Os',
-        'pageIndex'  => 'PageIndex',
-        'pageSize'   => 'PageSize',
-        'timeRange'  => 'TimeRange',
-        'utdid'      => 'Utdid',
+        'filter' => 'Filter',
+        'os' => 'Os',
+        'pageIndex' => 'PageIndex',
+        'pageSize' => 'PageSize',
+        'timeRange' => 'TimeRange',
+        'utdid' => 'Utdid',
     ];
 
     public function validate()

@@ -12,23 +12,26 @@ class filter extends Model
      * @var string
      */
     public $key;
+
     /**
      * @var string
      */
     public $operator;
+
     /**
      * @var string[]
      */
     public $subFilters;
+
     /**
      * @var mixed[]
      */
     public $values;
     protected $_name = [
-        'key'        => 'Key',
-        'operator'   => 'Operator',
+        'key' => 'Key',
+        'operator' => 'Operator',
         'subFilters' => 'SubFilters',
-        'values'     => 'Values',
+        'values' => 'Values',
     ];
 
     public function validate()
@@ -56,7 +59,7 @@ class filter extends Model
         if (null !== $this->subFilters) {
             if (\is_array($this->subFilters)) {
                 $res['SubFilters'] = [];
-                $n1                = 0;
+                $n1 = 0;
                 foreach ($this->subFilters as $item1) {
                     $res['SubFilters'][$n1++] = $item1;
                 }
@@ -66,7 +69,7 @@ class filter extends Model
         if (null !== $this->values) {
             if (\is_array($this->values)) {
                 $res['Values'] = [];
-                $n1            = 0;
+                $n1 = 0;
                 foreach ($this->values as $item1) {
                     $res['Values'][$n1++] = $item1;
                 }
@@ -95,7 +98,7 @@ class filter extends Model
         if (isset($map['SubFilters'])) {
             if (!empty($map['SubFilters'])) {
                 $model->subFilters = [];
-                $n1                = 0;
+                $n1 = 0;
                 foreach ($map['SubFilters'] as $item1) {
                     $model->subFilters[$n1++] = $item1;
                 }
@@ -105,7 +108,7 @@ class filter extends Model
         if (isset($map['Values'])) {
             if (!empty($map['Values'])) {
                 $model->values = [];
-                $n1            = 0;
+                $n1 = 0;
                 foreach ($map['Values'] as $item1) {
                     $model->values[$n1++] = $item1;
                 }

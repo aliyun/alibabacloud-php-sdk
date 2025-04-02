@@ -12,27 +12,31 @@ class ConditionalRule extends Model
      * @var EventFilter
      */
     public $filter;
+
     /**
      * @var string
      */
     public $modifyTime;
+
     /**
      * @var string
      */
     public $name;
+
     /**
      * @var string
      */
     public $operator;
+
     /**
      * @var float
      */
     public $sampleRate;
     protected $_name = [
-        'filter'     => 'Filter',
+        'filter' => 'Filter',
         'modifyTime' => 'ModifyTime',
-        'name'       => 'Name',
-        'operator'   => 'Operator',
+        'name' => 'Name',
+        'operator' => 'Operator',
         'sampleRate' => 'SampleRate',
     ];
 

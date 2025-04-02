@@ -12,23 +12,26 @@ class Filter extends Model
      * @var string
      */
     public $key;
+
     /**
      * @var string
      */
     public $operator;
+
     /**
      * @var Filter[]
      */
     public $subFilters;
+
     /**
      * @var mixed
      */
     public $values;
     protected $_name = [
-        'key'        => 'Key',
-        'operator'   => 'Operator',
+        'key' => 'Key',
+        'operator' => 'Operator',
         'subFilters' => 'SubFilters',
-        'values'     => 'Values',
+        'values' => 'Values',
     ];
 
     public function validate()
@@ -53,7 +56,7 @@ class Filter extends Model
         if (null !== $this->subFilters) {
             if (\is_array($this->subFilters)) {
                 $res['SubFilters'] = [];
-                $n1                = 0;
+                $n1 = 0;
                 foreach ($this->subFilters as $item1) {
                     $res['SubFilters'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -86,7 +89,7 @@ class Filter extends Model
         if (isset($map['SubFilters'])) {
             if (!empty($map['SubFilters'])) {
                 $model->subFilters = [];
-                $n1                = 0;
+                $n1 = 0;
                 foreach ($map['SubFilters'] as $item1) {
                     $model->subFilters[$n1++] = self::fromMap($item1);
                 }

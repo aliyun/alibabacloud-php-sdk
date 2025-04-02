@@ -6,7 +6,7 @@ namespace AlibabaCloud\SDK\Emasappmonitor\V20190611\Models;
 
 use AlibabaCloud\Dara\Model;
 
-class GetErrorRequest extends Model
+class SubmitSymbolicRequest extends Model
 {
     /**
      * @var int
@@ -16,22 +16,27 @@ class GetErrorRequest extends Model
     /**
      * @var string
      */
-    public $bizModule;
-
-    /**
-     * @var int
-     */
-    public $clientTime;
+    public $appVersion;
 
     /**
      * @var string
      */
-    public $did;
+    public $buildId;
 
     /**
-     * @var bool
+     * @var string
      */
-    public $force;
+    public $fileName;
+
+    /**
+     * @var string
+     */
+    public $filePath;
+
+    /**
+     * @var string
+     */
+    public $fileType;
 
     /**
      * @var string
@@ -44,10 +49,11 @@ class GetErrorRequest extends Model
     public $uuid;
     protected $_name = [
         'appKey' => 'AppKey',
-        'bizModule' => 'BizModule',
-        'clientTime' => 'ClientTime',
-        'did' => 'Did',
-        'force' => 'Force',
+        'appVersion' => 'AppVersion',
+        'buildId' => 'BuildId',
+        'fileName' => 'FileName',
+        'filePath' => 'FilePath',
+        'fileType' => 'FileType',
         'os' => 'Os',
         'uuid' => 'Uuid',
     ];
@@ -64,20 +70,24 @@ class GetErrorRequest extends Model
             $res['AppKey'] = $this->appKey;
         }
 
-        if (null !== $this->bizModule) {
-            $res['BizModule'] = $this->bizModule;
+        if (null !== $this->appVersion) {
+            $res['AppVersion'] = $this->appVersion;
         }
 
-        if (null !== $this->clientTime) {
-            $res['ClientTime'] = $this->clientTime;
+        if (null !== $this->buildId) {
+            $res['BuildId'] = $this->buildId;
         }
 
-        if (null !== $this->did) {
-            $res['Did'] = $this->did;
+        if (null !== $this->fileName) {
+            $res['FileName'] = $this->fileName;
         }
 
-        if (null !== $this->force) {
-            $res['Force'] = $this->force;
+        if (null !== $this->filePath) {
+            $res['FilePath'] = $this->filePath;
+        }
+
+        if (null !== $this->fileType) {
+            $res['FileType'] = $this->fileType;
         }
 
         if (null !== $this->os) {
@@ -103,20 +113,24 @@ class GetErrorRequest extends Model
             $model->appKey = $map['AppKey'];
         }
 
-        if (isset($map['BizModule'])) {
-            $model->bizModule = $map['BizModule'];
+        if (isset($map['AppVersion'])) {
+            $model->appVersion = $map['AppVersion'];
         }
 
-        if (isset($map['ClientTime'])) {
-            $model->clientTime = $map['ClientTime'];
+        if (isset($map['BuildId'])) {
+            $model->buildId = $map['BuildId'];
         }
 
-        if (isset($map['Did'])) {
-            $model->did = $map['Did'];
+        if (isset($map['FileName'])) {
+            $model->fileName = $map['FileName'];
         }
 
-        if (isset($map['Force'])) {
-            $model->force = $map['Force'];
+        if (isset($map['FilePath'])) {
+            $model->filePath = $map['FilePath'];
+        }
+
+        if (isset($map['FileType'])) {
+            $model->fileType = $map['FileType'];
         }
 
         if (isset($map['Os'])) {

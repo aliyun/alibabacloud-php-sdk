@@ -14,33 +14,38 @@ class GetIssueRequest extends Model
      * @var int
      */
     public $appKey;
+
     /**
      * @var string
      */
     public $bizModule;
+
     /**
      * @var string
      */
     public $digestHash;
+
     /**
      * @var filter
      */
     public $filter;
+
     /**
      * @var string
      */
     public $os;
+
     /**
      * @var timeRange
      */
     public $timeRange;
     protected $_name = [
-        'appKey'     => 'AppKey',
-        'bizModule'  => 'BizModule',
+        'appKey' => 'AppKey',
+        'bizModule' => 'BizModule',
         'digestHash' => 'DigestHash',
-        'filter'     => 'Filter',
-        'os'         => 'Os',
-        'timeRange'  => 'TimeRange',
+        'filter' => 'Filter',
+        'os' => 'Os',
+        'timeRange' => 'TimeRange',
     ];
 
     public function validate()

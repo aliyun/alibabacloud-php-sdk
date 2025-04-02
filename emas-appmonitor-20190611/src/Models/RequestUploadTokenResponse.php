@@ -6,7 +6,7 @@ namespace AlibabaCloud\SDK\Emasappmonitor\V20190611\Models;
 
 use AlibabaCloud\Dara\Model;
 
-class GetIssueResponse extends Model
+class RequestUploadTokenResponse extends Model
 {
     /**
      * @var string[]
@@ -19,7 +19,7 @@ class GetIssueResponse extends Model
     public $statusCode;
 
     /**
-     * @var GetIssueResponseBody
+     * @var RequestUploadTokenResponseBody
      */
     public $body;
     protected $_name = [
@@ -84,7 +84,7 @@ class GetIssueResponse extends Model
         }
 
         if (isset($map['body'])) {
-            $model->body = GetIssueResponseBody::fromMap($map['body']);
+            $model->body = RequestUploadTokenResponseBody::fromMap($map['body']);
         }
 
         return $model;

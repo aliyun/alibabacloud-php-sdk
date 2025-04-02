@@ -2,10 +2,10 @@
 
 // This file is auto-generated, don't edit it. Thanks.
 
-namespace AlibabaCloud\SDK\Emasappmonitor\V20190611\Models\GetIssuesResponseBody;
+namespace AlibabaCloud\SDK\Emasappmonitor\V20190611\Models\GetSymbolicFilesResponseBody;
 
 use AlibabaCloud\Dara\Model;
-use AlibabaCloud\SDK\Emasappmonitor\V20190611\Models\GetIssuesResponseBody\model\items;
+use AlibabaCloud\SDK\Emasappmonitor\V20190611\Models\GetSymbolicFilesResponseBody\model\items;
 
 class model_ extends Model
 {

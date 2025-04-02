@@ -5,9 +5,8 @@
 namespace AlibabaCloud\SDK\Emasappmonitor\V20190611\Models;
 
 use AlibabaCloud\Dara\Model;
-use AlibabaCloud\SDK\Emasappmonitor\V20190611\Models\GetIssuesShrinkRequest\timeRange;
 
-class GetIssuesShrinkRequest extends Model
+class GetSymbolicFilesRequest extends Model
 {
     /**
      * @var int
@@ -17,27 +16,27 @@ class GetIssuesShrinkRequest extends Model
     /**
      * @var string
      */
-    public $bizModule;
+    public $appVersion;
+
+    /**
+     * @var int
+     */
+    public $endTime;
 
     /**
      * @var string
      */
-    public $filterShrink;
+    public $exportStatus;
 
     /**
      * @var string
      */
-    public $name;
+    public $fileName;
 
     /**
      * @var string
      */
-    public $orderBy;
-
-    /**
-     * @var string
-     */
-    public $orderType;
+    public $fileType;
 
     /**
      * @var string
@@ -57,31 +56,28 @@ class GetIssuesShrinkRequest extends Model
     /**
      * @var int
      */
-    public $status;
+    public $startTime;
 
     /**
-     * @var timeRange
+     * @var string
      */
-    public $timeRange;
+    public $uuid;
     protected $_name = [
         'appKey' => 'AppKey',
-        'bizModule' => 'BizModule',
-        'filterShrink' => 'Filter',
-        'name' => 'Name',
-        'orderBy' => 'OrderBy',
-        'orderType' => 'OrderType',
+        'appVersion' => 'AppVersion',
+        'endTime' => 'EndTime',
+        'exportStatus' => 'ExportStatus',
+        'fileName' => 'FileName',
+        'fileType' => 'FileType',
         'os' => 'Os',
         'pageIndex' => 'PageIndex',
         'pageSize' => 'PageSize',
-        'status' => 'Status',
-        'timeRange' => 'TimeRange',
+        'startTime' => 'StartTime',
+        'uuid' => 'Uuid',
     ];
 
     public function validate()
     {
-        if (null !== $this->timeRange) {
-            $this->timeRange->validate();
-        }
         parent::validate();
     }
 
@@ -92,24 +88,24 @@ class GetIssuesShrinkRequest extends Model
             $res['AppKey'] = $this->appKey;
         }
 
-        if (null !== $this->bizModule) {
-            $res['BizModule'] = $this->bizModule;
+        if (null !== $this->appVersion) {
+            $res['AppVersion'] = $this->appVersion;
         }
 
-        if (null !== $this->filterShrink) {
-            $res['Filter'] = $this->filterShrink;
+        if (null !== $this->endTime) {
+            $res['EndTime'] = $this->endTime;
         }
 
-        if (null !== $this->name) {
-            $res['Name'] = $this->name;
+        if (null !== $this->exportStatus) {
+            $res['ExportStatus'] = $this->exportStatus;
         }
 
-        if (null !== $this->orderBy) {
-            $res['OrderBy'] = $this->orderBy;
+        if (null !== $this->fileName) {
+            $res['FileName'] = $this->fileName;
         }
 
-        if (null !== $this->orderType) {
-            $res['OrderType'] = $this->orderType;
+        if (null !== $this->fileType) {
+            $res['FileType'] = $this->fileType;
         }
 
         if (null !== $this->os) {
@@ -124,12 +120,12 @@ class GetIssuesShrinkRequest extends Model
             $res['PageSize'] = $this->pageSize;
         }
 
-        if (null !== $this->status) {
-            $res['Status'] = $this->status;
+        if (null !== $this->startTime) {
+            $res['StartTime'] = $this->startTime;
         }
 
-        if (null !== $this->timeRange) {
-            $res['TimeRange'] = null !== $this->timeRange ? $this->timeRange->toArray($noStream) : $this->timeRange;
+        if (null !== $this->uuid) {
+            $res['Uuid'] = $this->uuid;
         }
 
         return $res;
@@ -147,24 +143,24 @@ class GetIssuesShrinkRequest extends Model
             $model->appKey = $map['AppKey'];
         }
 
-        if (isset($map['BizModule'])) {
-            $model->bizModule = $map['BizModule'];
+        if (isset($map['AppVersion'])) {
+            $model->appVersion = $map['AppVersion'];
         }
 
-        if (isset($map['Filter'])) {
-            $model->filterShrink = $map['Filter'];
+        if (isset($map['EndTime'])) {
+            $model->endTime = $map['EndTime'];
         }
 
-        if (isset($map['Name'])) {
-            $model->name = $map['Name'];
+        if (isset($map['ExportStatus'])) {
+            $model->exportStatus = $map['ExportStatus'];
         }
 
-        if (isset($map['OrderBy'])) {
-            $model->orderBy = $map['OrderBy'];
+        if (isset($map['FileName'])) {
+            $model->fileName = $map['FileName'];
         }
 
-        if (isset($map['OrderType'])) {
-            $model->orderType = $map['OrderType'];
+        if (isset($map['FileType'])) {
+            $model->fileType = $map['FileType'];
         }
 
         if (isset($map['Os'])) {
@@ -179,12 +175,12 @@ class GetIssuesShrinkRequest extends Model
             $model->pageSize = $map['PageSize'];
         }
 
-        if (isset($map['Status'])) {
-            $model->status = $map['Status'];
+        if (isset($map['StartTime'])) {
+            $model->startTime = $map['StartTime'];
         }
 
-        if (isset($map['TimeRange'])) {
-            $model->timeRange = timeRange::fromMap($map['TimeRange']);
+        if (isset($map['Uuid'])) {
+            $model->uuid = $map['Uuid'];
         }
 
         return $model;

@@ -12,708 +12,848 @@ class model_ extends Model
      * @var string
      */
     public $access;
+
     /**
      * @var string
      */
     public $accessSubType;
+
     /**
      * @var string
      */
     public $additionalCallbackInfo;
+
     /**
      * @var string
      */
     public $additionalCrossPlatformCrashInfo;
+
     /**
      * @var string
      */
     public $additionalCustomInfo;
+
     /**
      * @var string
      */
     public $androidVm;
+
     /**
      * @var string
      */
     public $appId;
+
     /**
      * @var int
      */
     public $appKey;
+
     /**
      * @var string
      */
     public $appVersion;
+
     /**
      * @var int
      */
     public $argHash;
+
     /**
      * @var string
      */
     public $args;
+
     /**
      * @var string
      */
     public $backtrace;
+
     /**
      * @var string
      */
     public $banner;
+
     /**
      * @var string
      */
     public $binaryUuids;
+
     /**
      * @var string
      */
     public $brand;
+
     /**
      * @var string
      */
     public $browserName;
+
     /**
      * @var string
      */
     public $browserVersion;
+
     /**
      * @var string
      */
     public $build;
+
     /**
      * @var string
      */
     public $businessCountry;
+
     /**
      * @var string
      */
     public $businessErrorExtData;
+
     /**
      * @var string
      */
     public $businessLogType;
+
     /**
      * @var string
      */
     public $carrier;
+
     /**
      * @var string
      */
     public $channel;
+
     /**
      * @var string
      */
     public $city;
+
     /**
      * @var string
      */
     public $clientIp;
+
     /**
      * @var int
      */
     public $clientTime;
+
     /**
      * @var string
      */
     public $colNo;
+
     /**
      * @var string
      */
     public $country;
+
     /**
      * @var string
      */
     public $cpuModel;
+
     /**
      * @var string
      */
     public $cruxModule;
+
     /**
      * @var string
      */
     public $cruxStack;
+
     /**
      * @var int
      */
     public $cruxStackHash;
+
     /**
      * @var string
      */
     public $cruxStackTrace;
+
     /**
      * @var int
      */
     public $cruxStackTraceHash;
+
     /**
      * @var string
      */
     public $customExceptionType;
+
     /**
      * @var string
      */
     public $customInfo;
+
     /**
      * @var string
      */
     public $dataDirectory;
+
     /**
      * @var string
      */
     public $deviceId;
+
     /**
      * @var string
      */
     public $deviceModel;
+
     /**
      * @var string
      */
     public $did;
+
     /**
      * @var string
      */
     public $digest;
+
     /**
      * @var string
      */
     public $digestHash;
+
     /**
      * @var string
      */
     public $domScore;
+
     /**
      * @var string
      */
     public $downloadCacheDirectory;
+
     /**
      * @var string
      */
     public $errorName;
+
     /**
      * @var string
      */
     public $errorType;
+
     /**
      * @var int
      */
     public $eventId;
+
     /**
      * @var string
      */
     public $eventLog;
+
     /**
      * @var string
      */
     public $exceptionArg1;
+
     /**
      * @var string
      */
     public $exceptionArg2;
+
     /**
      * @var string
      */
     public $exceptionArg3;
+
     /**
      * @var string
      */
     public $exceptionCode;
+
     /**
      * @var string
      */
     public $exceptionCodes;
+
     /**
      * @var string
      */
     public $exceptionDetail;
+
     /**
      * @var string
      */
     public $exceptionId;
+
     /**
      * @var string
      */
     public $exceptionMsg;
+
     /**
      * @var string
      */
     public $exceptionSubtype;
+
     /**
      * @var string
      */
     public $exceptionType;
+
     /**
      * @var string
      */
     public $exceptionVersion;
+
     /**
      * @var string
      */
     public $exportStatus;
+
     /**
      * @var string
      */
     public $externalStorageDirectory;
+
     /**
      * @var string
      */
     public $featureScene;
+
     /**
      * @var string
      */
     public $fileName;
+
     /**
      * @var string
      */
     public $filePath;
+
     /**
      * @var string
      */
     public $filename;
+
     /**
      * @var string
      */
     public $flutterRoute;
+
     /**
      * @var int
      */
     public $forceGround;
+
     /**
      * @var int
      */
     public $foreGround;
+
     /**
      * @var string
      */
     public $h5FullUrl;
+
     /**
      * @var string
      */
     public $h5ShortUrl;
+
     /**
      * @var int
      */
     public $hasOpenMultiProcessMode;
+
     /**
      * @var int
      */
     public $hasSdCard;
+
     /**
      * @var int
      */
     public $hasSgSecurityConfigKey;
+
     /**
      * @var string
      */
     public $imei;
+
     /**
      * @var string
      */
     public $imsi;
+
     /**
      * @var int
      */
     public $inMainProcess;
+
     /**
      * @var int
      */
     public $installSdCard;
+
     /**
      * @var int
      */
     public $isBackTrace;
+
     /**
      * @var int
      */
     public $isSpeedVersion;
+
     /**
      * @var string
      */
     public $isp;
+
     /**
      * @var string
      */
     public $jsBacktrace;
+
     /**
      * @var string
      */
     public $language;
+
     /**
      * @var string
      */
     public $launchedTime;
+
     /**
      * @var string
      */
     public $lineNo;
+
     /**
      * @var int
      */
     public $logHash;
+
     /**
      * @var string
      */
     public $mainLog;
+
     /**
      * @var string
      */
     public $memoryMap;
+
     /**
      * @var string
      */
     public $moreInfo1;
+
     /**
      * @var string
      */
     public $moreInfo2;
+
     /**
      * @var string
      */
     public $moreInfo3;
+
     /**
      * @var string
      */
     public $nativeAllThreadDump;
+
     /**
      * @var string
      */
     public $nativeMaps;
+
     /**
      * @var int
      */
     public $needReCluster;
+
     /**
      * @var int
      */
     public $openedFileCount;
+
     /**
      * @var string
      */
     public $operations;
+
     /**
      * @var string
      */
     public $originData;
+
     /**
      * @var string
      */
     public $originUri;
+
     /**
      * @var string
      */
     public $os;
+
     /**
      * @var string
      */
     public $osVersion;
+
     /**
      * @var string
      */
     public $page;
+
     /**
      * @var string
      */
     public $parentProcessName;
+
     /**
      * @var int
      */
     public $pid;
+
     /**
      * @var string
      */
     public $platform;
+
     /**
      * @var string
      */
     public $processName;
+
     /**
      * @var string
      */
     public $province;
+
     /**
      * @var string
      */
     public $reason;
+
     /**
      * @var string
      */
     public $reportContent;
+
     /**
      * @var string
      */
     public $reportType;
+
     /**
      * @var string
      */
     public $resolution;
+
     /**
      * @var string
      */
     public $rootDirectory;
+
     /**
      * @var string
      */
     public $runtimeExtData;
+
     /**
      * @var string
      */
     public $sceneValue;
+
     /**
      * @var string
      */
     public $sdkType;
+
     /**
      * @var string
      */
     public $sdkVersion;
+
     /**
      * @var string
      */
     public $seq;
+
     /**
      * @var int
      */
     public $serverTime;
+
     /**
      * @var string
      */
     public $sessionId;
+
     /**
      * @var string
      */
     public $simpleReportContent;
+
     /**
      * @var string
      */
     public $soLibBuild;
+
     /**
      * @var string
      */
     public $speedFlags;
+
     /**
      * @var string
      */
     public $stack;
+
     /**
      * @var string
      */
     public $status;
+
     /**
      * @var string
      */
     public $summary;
+
     /**
      * @var string
      */
     public $symbolicFileType;
+
     /**
      * @var string
      */
     public $sysLog;
+
     /**
      * @var string
      */
     public $threadName;
+
     /**
      * @var string
      */
     public $threads;
+
     /**
      * @var int
      */
     public $tid;
+
     /**
      * @var string
      */
     public $track;
+
     /**
      * @var string
      */
     public $triggeredTime;
+
     /**
      * @var int
      */
     public $uploadTime;
+
     /**
      * @var string
      */
     public $uri;
+
     /**
      * @var string
      */
     public $user;
+
     /**
      * @var string
      */
     public $userId;
+
     /**
      * @var string
      */
     public $userNick;
+
     /**
      * @var string
      */
     public $utdid;
+
     /**
      * @var string
      */
     public $uuid;
+
     /**
      * @var string
      */
     public $view;
+
     /**
      * @var string
      */
     public $weexFullUrl;
+
     /**
      * @var string
      */
     public $weexShortUrl;
+
     /**
      * @var int
      */
     public $writeLimit;
     protected $_name = [
-        'access'                           => 'Access',
-        'accessSubType'                    => 'AccessSubType',
-        'additionalCallbackInfo'           => 'AdditionalCallbackInfo',
+        'access' => 'Access',
+        'accessSubType' => 'AccessSubType',
+        'additionalCallbackInfo' => 'AdditionalCallbackInfo',
         'additionalCrossPlatformCrashInfo' => 'AdditionalCrossPlatformCrashInfo',
-        'additionalCustomInfo'             => 'AdditionalCustomInfo',
-        'androidVm'                        => 'AndroidVm',
-        'appId'                            => 'AppId',
-        'appKey'                           => 'AppKey',
-        'appVersion'                       => 'AppVersion',
-        'argHash'                          => 'ArgHash',
-        'args'                             => 'Args',
-        'backtrace'                        => 'Backtrace',
-        'banner'                           => 'Banner',
-        'binaryUuids'                      => 'BinaryUuids',
-        'brand'                            => 'Brand',
-        'browserName'                      => 'BrowserName',
-        'browserVersion'                   => 'BrowserVersion',
-        'build'                            => 'Build',
-        'businessCountry'                  => 'BusinessCountry',
-        'businessErrorExtData'             => 'BusinessErrorExtData',
-        'businessLogType'                  => 'BusinessLogType',
-        'carrier'                          => 'Carrier',
-        'channel'                          => 'Channel',
-        'city'                             => 'City',
-        'clientIp'                         => 'ClientIp',
-        'clientTime'                       => 'ClientTime',
-        'colNo'                            => 'ColNo',
-        'country'                          => 'Country',
-        'cpuModel'                         => 'CpuModel',
-        'cruxModule'                       => 'CruxModule',
-        'cruxStack'                        => 'CruxStack',
-        'cruxStackHash'                    => 'CruxStackHash',
-        'cruxStackTrace'                   => 'CruxStackTrace',
-        'cruxStackTraceHash'               => 'CruxStackTraceHash',
-        'customExceptionType'              => 'CustomExceptionType',
-        'customInfo'                       => 'CustomInfo',
-        'dataDirectory'                    => 'DataDirectory',
-        'deviceId'                         => 'DeviceId',
-        'deviceModel'                      => 'DeviceModel',
-        'did'                              => 'Did',
-        'digest'                           => 'Digest',
-        'digestHash'                       => 'DigestHash',
-        'domScore'                         => 'DomScore',
-        'downloadCacheDirectory'           => 'DownloadCacheDirectory',
-        'errorName'                        => 'ErrorName',
-        'errorType'                        => 'ErrorType',
-        'eventId'                          => 'EventId',
-        'eventLog'                         => 'EventLog',
-        'exceptionArg1'                    => 'ExceptionArg1',
-        'exceptionArg2'                    => 'ExceptionArg2',
-        'exceptionArg3'                    => 'ExceptionArg3',
-        'exceptionCode'                    => 'ExceptionCode',
-        'exceptionCodes'                   => 'ExceptionCodes',
-        'exceptionDetail'                  => 'ExceptionDetail',
-        'exceptionId'                      => 'ExceptionId',
-        'exceptionMsg'                     => 'ExceptionMsg',
-        'exceptionSubtype'                 => 'ExceptionSubtype',
-        'exceptionType'                    => 'ExceptionType',
-        'exceptionVersion'                 => 'ExceptionVersion',
-        'exportStatus'                     => 'ExportStatus',
-        'externalStorageDirectory'         => 'ExternalStorageDirectory',
-        'featureScene'                     => 'FeatureScene',
-        'fileName'                         => 'FileName',
-        'filePath'                         => 'FilePath',
-        'filename'                         => 'Filename',
-        'flutterRoute'                     => 'FlutterRoute',
-        'forceGround'                      => 'ForceGround',
-        'foreGround'                       => 'ForeGround',
-        'h5FullUrl'                        => 'H5FullUrl',
-        'h5ShortUrl'                       => 'H5ShortUrl',
-        'hasOpenMultiProcessMode'          => 'HasOpenMultiProcessMode',
-        'hasSdCard'                        => 'HasSdCard',
-        'hasSgSecurityConfigKey'           => 'HasSgSecurityConfigKey',
-        'imei'                             => 'Imei',
-        'imsi'                             => 'Imsi',
-        'inMainProcess'                    => 'InMainProcess',
-        'installSdCard'                    => 'InstallSdCard',
-        'isBackTrace'                      => 'IsBackTrace',
-        'isSpeedVersion'                   => 'IsSpeedVersion',
-        'isp'                              => 'Isp',
-        'jsBacktrace'                      => 'JsBacktrace',
-        'language'                         => 'Language',
-        'launchedTime'                     => 'LaunchedTime',
-        'lineNo'                           => 'LineNo',
-        'logHash'                          => 'LogHash',
-        'mainLog'                          => 'MainLog',
-        'memoryMap'                        => 'MemoryMap',
-        'moreInfo1'                        => 'MoreInfo1',
-        'moreInfo2'                        => 'MoreInfo2',
-        'moreInfo3'                        => 'MoreInfo3',
-        'nativeAllThreadDump'              => 'NativeAllThreadDump',
-        'nativeMaps'                       => 'NativeMaps',
-        'needReCluster'                    => 'NeedReCluster',
-        'openedFileCount'                  => 'OpenedFileCount',
-        'operations'                       => 'Operations',
-        'originData'                       => 'OriginData',
-        'originUri'                        => 'OriginUri',
-        'os'                               => 'Os',
-        'osVersion'                        => 'OsVersion',
-        'page'                             => 'Page',
-        'parentProcessName'                => 'ParentProcessName',
-        'pid'                              => 'Pid',
-        'platform'                         => 'Platform',
-        'processName'                      => 'ProcessName',
-        'province'                         => 'Province',
-        'reason'                           => 'Reason',
-        'reportContent'                    => 'ReportContent',
-        'reportType'                       => 'ReportType',
-        'resolution'                       => 'Resolution',
-        'rootDirectory'                    => 'RootDirectory',
-        'runtimeExtData'                   => 'RuntimeExtData',
-        'sceneValue'                       => 'SceneValue',
-        'sdkType'                          => 'SdkType',
-        'sdkVersion'                       => 'SdkVersion',
-        'seq'                              => 'Seq',
-        'serverTime'                       => 'ServerTime',
-        'sessionId'                        => 'SessionId',
-        'simpleReportContent'              => 'SimpleReportContent',
-        'soLibBuild'                       => 'SoLibBuild',
-        'speedFlags'                       => 'SpeedFlags',
-        'stack'                            => 'Stack',
-        'status'                           => 'Status',
-        'summary'                          => 'Summary',
-        'symbolicFileType'                 => 'SymbolicFileType',
-        'sysLog'                           => 'SysLog',
-        'threadName'                       => 'ThreadName',
-        'threads'                          => 'Threads',
-        'tid'                              => 'Tid',
-        'track'                            => 'Track',
-        'triggeredTime'                    => 'TriggeredTime',
-        'uploadTime'                       => 'UploadTime',
-        'uri'                              => 'Uri',
-        'user'                             => 'User',
-        'userId'                           => 'UserId',
-        'userNick'                         => 'UserNick',
-        'utdid'                            => 'Utdid',
-        'uuid'                             => 'Uuid',
-        'view'                             => 'View',
-        'weexFullUrl'                      => 'WeexFullUrl',
-        'weexShortUrl'                     => 'WeexShortUrl',
-        'writeLimit'                       => 'WriteLimit',
+        'additionalCustomInfo' => 'AdditionalCustomInfo',
+        'androidVm' => 'AndroidVm',
+        'appId' => 'AppId',
+        'appKey' => 'AppKey',
+        'appVersion' => 'AppVersion',
+        'argHash' => 'ArgHash',
+        'args' => 'Args',
+        'backtrace' => 'Backtrace',
+        'banner' => 'Banner',
+        'binaryUuids' => 'BinaryUuids',
+        'brand' => 'Brand',
+        'browserName' => 'BrowserName',
+        'browserVersion' => 'BrowserVersion',
+        'build' => 'Build',
+        'businessCountry' => 'BusinessCountry',
+        'businessErrorExtData' => 'BusinessErrorExtData',
+        'businessLogType' => 'BusinessLogType',
+        'carrier' => 'Carrier',
+        'channel' => 'Channel',
+        'city' => 'City',
+        'clientIp' => 'ClientIp',
+        'clientTime' => 'ClientTime',
+        'colNo' => 'ColNo',
+        'country' => 'Country',
+        'cpuModel' => 'CpuModel',
+        'cruxModule' => 'CruxModule',
+        'cruxStack' => 'CruxStack',
+        'cruxStackHash' => 'CruxStackHash',
+        'cruxStackTrace' => 'CruxStackTrace',
+        'cruxStackTraceHash' => 'CruxStackTraceHash',
+        'customExceptionType' => 'CustomExceptionType',
+        'customInfo' => 'CustomInfo',
+        'dataDirectory' => 'DataDirectory',
+        'deviceId' => 'DeviceId',
+        'deviceModel' => 'DeviceModel',
+        'did' => 'Did',
+        'digest' => 'Digest',
+        'digestHash' => 'DigestHash',
+        'domScore' => 'DomScore',
+        'downloadCacheDirectory' => 'DownloadCacheDirectory',
+        'errorName' => 'ErrorName',
+        'errorType' => 'ErrorType',
+        'eventId' => 'EventId',
+        'eventLog' => 'EventLog',
+        'exceptionArg1' => 'ExceptionArg1',
+        'exceptionArg2' => 'ExceptionArg2',
+        'exceptionArg3' => 'ExceptionArg3',
+        'exceptionCode' => 'ExceptionCode',
+        'exceptionCodes' => 'ExceptionCodes',
+        'exceptionDetail' => 'ExceptionDetail',
+        'exceptionId' => 'ExceptionId',
+        'exceptionMsg' => 'ExceptionMsg',
+        'exceptionSubtype' => 'ExceptionSubtype',
+        'exceptionType' => 'ExceptionType',
+        'exceptionVersion' => 'ExceptionVersion',
+        'exportStatus' => 'ExportStatus',
+        'externalStorageDirectory' => 'ExternalStorageDirectory',
+        'featureScene' => 'FeatureScene',
+        'fileName' => 'FileName',
+        'filePath' => 'FilePath',
+        'filename' => 'Filename',
+        'flutterRoute' => 'FlutterRoute',
+        'forceGround' => 'ForceGround',
+        'foreGround' => 'ForeGround',
+        'h5FullUrl' => 'H5FullUrl',
+        'h5ShortUrl' => 'H5ShortUrl',
+        'hasOpenMultiProcessMode' => 'HasOpenMultiProcessMode',
+        'hasSdCard' => 'HasSdCard',
+        'hasSgSecurityConfigKey' => 'HasSgSecurityConfigKey',
+        'imei' => 'Imei',
+        'imsi' => 'Imsi',
+        'inMainProcess' => 'InMainProcess',
+        'installSdCard' => 'InstallSdCard',
+        'isBackTrace' => 'IsBackTrace',
+        'isSpeedVersion' => 'IsSpeedVersion',
+        'isp' => 'Isp',
+        'jsBacktrace' => 'JsBacktrace',
+        'language' => 'Language',
+        'launchedTime' => 'LaunchedTime',
+        'lineNo' => 'LineNo',
+        'logHash' => 'LogHash',
+        'mainLog' => 'MainLog',
+        'memoryMap' => 'MemoryMap',
+        'moreInfo1' => 'MoreInfo1',
+        'moreInfo2' => 'MoreInfo2',
+        'moreInfo3' => 'MoreInfo3',
+        'nativeAllThreadDump' => 'NativeAllThreadDump',
+        'nativeMaps' => 'NativeMaps',
+        'needReCluster' => 'NeedReCluster',
+        'openedFileCount' => 'OpenedFileCount',
+        'operations' => 'Operations',
+        'originData' => 'OriginData',
+        'originUri' => 'OriginUri',
+        'os' => 'Os',
+        'osVersion' => 'OsVersion',
+        'page' => 'Page',
+        'parentProcessName' => 'ParentProcessName',
+        'pid' => 'Pid',
+        'platform' => 'Platform',
+        'processName' => 'ProcessName',
+        'province' => 'Province',
+        'reason' => 'Reason',
+        'reportContent' => 'ReportContent',
+        'reportType' => 'ReportType',
+        'resolution' => 'Resolution',
+        'rootDirectory' => 'RootDirectory',
+        'runtimeExtData' => 'RuntimeExtData',
+        'sceneValue' => 'SceneValue',
+        'sdkType' => 'SdkType',
+        'sdkVersion' => 'SdkVersion',
+        'seq' => 'Seq',
+        'serverTime' => 'ServerTime',
+        'sessionId' => 'SessionId',
+        'simpleReportContent' => 'SimpleReportContent',
+        'soLibBuild' => 'SoLibBuild',
+        'speedFlags' => 'SpeedFlags',
+        'stack' => 'Stack',
+        'status' => 'Status',
+        'summary' => 'Summary',
+        'symbolicFileType' => 'SymbolicFileType',
+        'sysLog' => 'SysLog',
+        'threadName' => 'ThreadName',
+        'threads' => 'Threads',
+        'tid' => 'Tid',
+        'track' => 'Track',
+        'triggeredTime' => 'TriggeredTime',
+        'uploadTime' => 'UploadTime',
+        'uri' => 'Uri',
+        'user' => 'User',
+        'userId' => 'UserId',
+        'userNick' => 'UserNick',
+        'utdid' => 'Utdid',
+        'uuid' => 'Uuid',
+        'view' => 'View',
+        'weexFullUrl' => 'WeexFullUrl',
+        'weexShortUrl' => 'WeexShortUrl',
+        'writeLimit' => 'WriteLimit',
     ];
 
     public function validate()

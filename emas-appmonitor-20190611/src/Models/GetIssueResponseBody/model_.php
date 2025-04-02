@@ -12,133 +12,158 @@ class model_ extends Model
      * @var string[]
      */
     public $affectedVersions;
+
     /**
      * @var string
      */
     public $cruxStack;
+
     /**
      * @var string
      */
     public $digestHash;
+
     /**
      * @var int
      */
     public $errorColumn;
+
     /**
      * @var int
      */
     public $errorCount;
+
     /**
      * @var float
      */
     public $errorCountGrowthRate;
+
     /**
      * @var int
      */
     public $errorDeviceCount;
+
     /**
      * @var float
      */
     public $errorDeviceCountGrowthRate;
+
     /**
      * @var float
      */
     public $errorDeviceRate;
+
     /**
      * @var float
      */
     public $errorDeviceRateGrowthRate;
+
     /**
      * @var string
      */
     public $errorFileName;
+
     /**
      * @var string
      */
     public $errorLine;
+
     /**
      * @var string
      */
     public $errorName;
+
     /**
      * @var float
      */
     public $errorRate;
+
     /**
      * @var float
      */
     public $errorRateGrowthRate;
+
     /**
      * @var string
      */
     public $errorType;
+
     /**
      * @var string
      */
     public $firstVersion;
+
     /**
      * @var int
      */
     public $gmtCreate;
+
     /**
      * @var int
      */
     public $gmtLatest;
+
     /**
      * @var int
      */
     public $keyLine;
+
     /**
      * @var string
      */
     public $name;
+
     /**
      * @var string
      */
     public $stack;
+
     /**
      * @var int
      */
     public $status;
+
     /**
      * @var string
      */
     public $summary;
+
     /**
      * @var bool
      */
     public $symbolicStatus;
+
     /**
      * @var string[]
      */
     public $tags;
     protected $_name = [
-        'affectedVersions'           => 'AffectedVersions',
-        'cruxStack'                  => 'CruxStack',
-        'digestHash'                 => 'DigestHash',
-        'errorColumn'                => 'ErrorColumn',
-        'errorCount'                 => 'ErrorCount',
-        'errorCountGrowthRate'       => 'ErrorCountGrowthRate',
-        'errorDeviceCount'           => 'ErrorDeviceCount',
+        'affectedVersions' => 'AffectedVersions',
+        'cruxStack' => 'CruxStack',
+        'digestHash' => 'DigestHash',
+        'errorColumn' => 'ErrorColumn',
+        'errorCount' => 'ErrorCount',
+        'errorCountGrowthRate' => 'ErrorCountGrowthRate',
+        'errorDeviceCount' => 'ErrorDeviceCount',
         'errorDeviceCountGrowthRate' => 'ErrorDeviceCountGrowthRate',
-        'errorDeviceRate'            => 'ErrorDeviceRate',
-        'errorDeviceRateGrowthRate'  => 'ErrorDeviceRateGrowthRate',
-        'errorFileName'              => 'ErrorFileName',
-        'errorLine'                  => 'ErrorLine',
-        'errorName'                  => 'ErrorName',
-        'errorRate'                  => 'ErrorRate',
-        'errorRateGrowthRate'        => 'ErrorRateGrowthRate',
-        'errorType'                  => 'ErrorType',
-        'firstVersion'               => 'FirstVersion',
-        'gmtCreate'                  => 'GmtCreate',
-        'gmtLatest'                  => 'GmtLatest',
-        'keyLine'                    => 'KeyLine',
-        'name'                       => 'Name',
-        'stack'                      => 'Stack',
-        'status'                     => 'Status',
-        'summary'                    => 'Summary',
-        'symbolicStatus'             => 'SymbolicStatus',
-        'tags'                       => 'Tags',
+        'errorDeviceRate' => 'ErrorDeviceRate',
+        'errorDeviceRateGrowthRate' => 'ErrorDeviceRateGrowthRate',
+        'errorFileName' => 'ErrorFileName',
+        'errorLine' => 'ErrorLine',
+        'errorName' => 'ErrorName',
+        'errorRate' => 'ErrorRate',
+        'errorRateGrowthRate' => 'ErrorRateGrowthRate',
+        'errorType' => 'ErrorType',
+        'firstVersion' => 'FirstVersion',
+        'gmtCreate' => 'GmtCreate',
+        'gmtLatest' => 'GmtLatest',
+        'keyLine' => 'KeyLine',
+        'name' => 'Name',
+        'stack' => 'Stack',
+        'status' => 'Status',
+        'summary' => 'Summary',
+        'symbolicStatus' => 'SymbolicStatus',
+        'tags' => 'Tags',
     ];
 
     public function validate()
@@ -158,7 +183,7 @@ class model_ extends Model
         if (null !== $this->affectedVersions) {
             if (\is_array($this->affectedVersions)) {
                 $res['AffectedVersions'] = [];
-                $n1                      = 0;
+                $n1 = 0;
                 foreach ($this->affectedVersions as $item1) {
                     $res['AffectedVersions'][$n1++] = $item1;
                 }
@@ -264,7 +289,7 @@ class model_ extends Model
         if (null !== $this->tags) {
             if (\is_array($this->tags)) {
                 $res['Tags'] = [];
-                $n1          = 0;
+                $n1 = 0;
                 foreach ($this->tags as $item1) {
                     $res['Tags'][$n1++] = $item1;
                 }
@@ -285,7 +310,7 @@ class model_ extends Model
         if (isset($map['AffectedVersions'])) {
             if (!empty($map['AffectedVersions'])) {
                 $model->affectedVersions = [];
-                $n1                      = 0;
+                $n1 = 0;
                 foreach ($map['AffectedVersions'] as $item1) {
                     $model->affectedVersions[$n1++] = $item1;
                 }
@@ -391,7 +416,7 @@ class model_ extends Model
         if (isset($map['Tags'])) {
             if (!empty($map['Tags'])) {
                 $model->tags = [];
-                $n1          = 0;
+                $n1 = 0;
                 foreach ($map['Tags'] as $item1) {
                     $model->tags[$n1++] = $item1;
                 }

@@ -12,33 +12,38 @@ class EventRule extends Model
      * @var ConditionalRule[]
      */
     public $conditional;
+
     /**
      * @var bool
      */
     public $enable;
+
     /**
      * @var string
      */
     public $eventId;
+
     /**
      * @var string
      */
     public $modifyTime;
+
     /**
      * @var string
      */
     public $operator;
+
     /**
      * @var float
      */
     public $sampleRate;
     protected $_name = [
         'conditional' => 'Conditional',
-        'enable'      => 'Enable',
-        'eventId'     => 'EventId',
-        'modifyTime'  => 'ModifyTime',
-        'operator'    => 'Operator',
-        'sampleRate'  => 'SampleRate',
+        'enable' => 'Enable',
+        'eventId' => 'EventId',
+        'modifyTime' => 'ModifyTime',
+        'operator' => 'Operator',
+        'sampleRate' => 'SampleRate',
     ];
 
     public function validate()
@@ -55,7 +60,7 @@ class EventRule extends Model
         if (null !== $this->conditional) {
             if (\is_array($this->conditional)) {
                 $res['Conditional'] = [];
-                $n1                 = 0;
+                $n1 = 0;
                 foreach ($this->conditional as $item1) {
                     $res['Conditional'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -96,7 +101,7 @@ class EventRule extends Model
         if (isset($map['Conditional'])) {
             if (!empty($map['Conditional'])) {
                 $model->conditional = [];
-                $n1                 = 0;
+                $n1 = 0;
                 foreach ($map['Conditional'] as $item1) {
                     $model->conditional[$n1++] = ConditionalRule::fromMap($item1);
                 }

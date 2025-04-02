@@ -12,23 +12,26 @@ class timeRange extends Model
      * @var int
      */
     public $endTime;
+
     /**
      * @var int
      */
     public $granularity;
+
     /**
      * @var string
      */
     public $granularityUnit;
+
     /**
      * @var int
      */
     public $startTime;
     protected $_name = [
-        'endTime'         => 'EndTime',
-        'granularity'     => 'Granularity',
+        'endTime' => 'EndTime',
+        'granularity' => 'Granularity',
         'granularityUnit' => 'GranularityUnit',
-        'startTime'       => 'StartTime',
+        'startTime' => 'StartTime',
     ];
 
     public function validate()

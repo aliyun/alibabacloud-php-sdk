@@ -14,57 +14,67 @@ class GetIssuesRequest extends Model
      * @var int
      */
     public $appKey;
+
     /**
      * @var string
      */
     public $bizModule;
+
     /**
      * @var filter
      */
     public $filter;
+
     /**
      * @var string
      */
     public $name;
+
     /**
      * @var string
      */
     public $orderBy;
+
     /**
      * @var string
      */
     public $orderType;
+
     /**
      * @var string
      */
     public $os;
+
     /**
      * @var int
      */
     public $pageIndex;
+
     /**
      * @var int
      */
     public $pageSize;
+
     /**
      * @var int
      */
     public $status;
+
     /**
      * @var timeRange
      */
     public $timeRange;
     protected $_name = [
-        'appKey'    => 'AppKey',
+        'appKey' => 'AppKey',
         'bizModule' => 'BizModule',
-        'filter'    => 'Filter',
-        'name'      => 'Name',
-        'orderBy'   => 'OrderBy',
+        'filter' => 'Filter',
+        'name' => 'Name',
+        'orderBy' => 'OrderBy',
         'orderType' => 'OrderType',
-        'os'        => 'Os',
+        'os' => 'Os',
         'pageIndex' => 'PageIndex',
-        'pageSize'  => 'PageSize',
-        'status'    => 'Status',
+        'pageSize' => 'PageSize',
+        'status' => 'Status',
         'timeRange' => 'TimeRange',
     ];
 

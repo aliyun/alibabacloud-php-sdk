@@ -12,23 +12,26 @@ class items extends Model
      * @var int
      */
     public $clientTime;
+
     /**
      * @var string
      */
     public $did;
+
     /**
      * @var string
      */
     public $utdid;
+
     /**
      * @var string
      */
     public $uuid;
     protected $_name = [
         'clientTime' => 'ClientTime',
-        'did'        => 'Did',
-        'utdid'      => 'Utdid',
-        'uuid'       => 'Uuid',
+        'did' => 'Did',
+        'utdid' => 'Utdid',
+        'uuid' => 'Uuid',
     ];
 
     public function validate()

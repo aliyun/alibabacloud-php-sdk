@@ -13,33 +13,38 @@ class GetIssueShrinkRequest extends Model
      * @var int
      */
     public $appKey;
+
     /**
      * @var string
      */
     public $bizModule;
+
     /**
      * @var string
      */
     public $digestHash;
+
     /**
      * @var string
      */
     public $filterShrink;
+
     /**
      * @var string
      */
     public $os;
+
     /**
      * @var timeRange
      */
     public $timeRange;
     protected $_name = [
-        'appKey'       => 'AppKey',
-        'bizModule'    => 'BizModule',
-        'digestHash'   => 'DigestHash',
+        'appKey' => 'AppKey',
+        'bizModule' => 'BizModule',
+        'digestHash' => 'DigestHash',
         'filterShrink' => 'Filter',
-        'os'           => 'Os',
-        'timeRange'    => 'TimeRange',
+        'os' => 'Os',
+        'timeRange' => 'TimeRange',
     ];
 
     public function validate()

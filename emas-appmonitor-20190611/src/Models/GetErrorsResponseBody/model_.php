@@ -13,28 +13,32 @@ class model_ extends Model
      * @var items[]
      */
     public $items;
+
     /**
      * @var int
      */
     public $pageNum;
+
     /**
      * @var int
      */
     public $pageSize;
+
     /**
      * @var int
      */
     public $pages;
+
     /**
      * @var int
      */
     public $total;
     protected $_name = [
-        'items'    => 'Items',
-        'pageNum'  => 'PageNum',
+        'items' => 'Items',
+        'pageNum' => 'PageNum',
         'pageSize' => 'PageSize',
-        'pages'    => 'Pages',
-        'total'    => 'Total',
+        'pages' => 'Pages',
+        'total' => 'Total',
     ];
 
     public function validate()
@@ -51,7 +55,7 @@ class model_ extends Model
         if (null !== $this->items) {
             if (\is_array($this->items)) {
                 $res['Items'] = [];
-                $n1           = 0;
+                $n1 = 0;
                 foreach ($this->items as $item1) {
                     $res['Items'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -88,7 +92,7 @@ class model_ extends Model
         if (isset($map['Items'])) {
             if (!empty($map['Items'])) {
                 $model->items = [];
-                $n1           = 0;
+                $n1 = 0;
                 foreach ($map['Items'] as $item1) {
                     $model->items[$n1++] = items::fromMap($item1);
                 }

@@ -12,18 +12,20 @@ class FullSampleItem extends Model
      * @var string
      */
     public $id;
+
     /**
      * @var string
      */
     public $modifyTime;
+
     /**
      * @var string
      */
     public $operator;
     protected $_name = [
-        'id'         => 'Id',
+        'id' => 'Id',
         'modifyTime' => 'ModifyTime',
-        'operator'   => 'Operator',
+        'operator' => 'Operator',
     ];
 
     public function validate()

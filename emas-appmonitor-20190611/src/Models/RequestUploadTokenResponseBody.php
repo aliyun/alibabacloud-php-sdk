@@ -5,9 +5,9 @@
 namespace AlibabaCloud\SDK\Emasappmonitor\V20190611\Models;
 
 use AlibabaCloud\Dara\Model;
-use AlibabaCloud\SDK\Emasappmonitor\V20190611\Models\GetIssueResponseBody\model_;
+use AlibabaCloud\SDK\Emasappmonitor\V20190611\Models\RequestUploadTokenResponseBody\model_;
 
-class GetIssueResponseBody extends Model
+class RequestUploadTokenResponseBody extends Model
 {
     /**
      * @var mixed[]
