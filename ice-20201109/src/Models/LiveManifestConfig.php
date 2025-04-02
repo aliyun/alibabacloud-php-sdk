@@ -19,11 +19,6 @@ class LiveManifestConfig extends Model
     public $dateTimeInterval;
 
     /**
-     * @var string
-     */
-    public $manifestName;
-
-    /**
      * @var int
      */
     public $maxVideoBitrate;
@@ -36,38 +31,31 @@ class LiveManifestConfig extends Model
     /**
      * @var int
      */
-    public $minVideoBitrate;
-
-    /**
-     * @var string
-     */
-    public $protocol;
+    public $minUpdatePeriod;
 
     /**
      * @var int
      */
-    public $segmentNum;
+    public $minVideoBitrate;
+
+    /**
+     * @var int
+     */
+    public $segmentCount;
 
     /**
      * @var string
      */
     public $streamOrder;
-
-    /**
-     * @var bool
-     */
-    public $useAudioRenditionGroups;
     protected $_name = [
         'adMarkers' => 'AdMarkers',
         'dateTimeInterval' => 'DateTimeInterval',
-        'manifestName' => 'ManifestName',
         'maxVideoBitrate' => 'MaxVideoBitrate',
         'minBufferTime' => 'MinBufferTime',
+        'minUpdatePeriod' => 'MinUpdatePeriod',
         'minVideoBitrate' => 'MinVideoBitrate',
-        'protocol' => 'Protocol',
-        'segmentNum' => 'SegmentNum',
+        'segmentCount' => 'SegmentCount',
         'streamOrder' => 'StreamOrder',
-        'useAudioRenditionGroups' => 'UseAudioRenditionGroups',
     ];
 
     public function validate()
@@ -86,10 +74,6 @@ class LiveManifestConfig extends Model
             $res['DateTimeInterval'] = $this->dateTimeInterval;
         }
 
-        if (null !== $this->manifestName) {
-            $res['ManifestName'] = $this->manifestName;
-        }
-
         if (null !== $this->maxVideoBitrate) {
             $res['MaxVideoBitrate'] = $this->maxVideoBitrate;
         }
@@ -98,24 +82,20 @@ class LiveManifestConfig extends Model
             $res['MinBufferTime'] = $this->minBufferTime;
         }
 
+        if (null !== $this->minUpdatePeriod) {
+            $res['MinUpdatePeriod'] = $this->minUpdatePeriod;
+        }
+
         if (null !== $this->minVideoBitrate) {
             $res['MinVideoBitrate'] = $this->minVideoBitrate;
         }
 
-        if (null !== $this->protocol) {
-            $res['Protocol'] = $this->protocol;
-        }
-
-        if (null !== $this->segmentNum) {
-            $res['SegmentNum'] = $this->segmentNum;
+        if (null !== $this->segmentCount) {
+            $res['SegmentCount'] = $this->segmentCount;
         }
 
         if (null !== $this->streamOrder) {
             $res['StreamOrder'] = $this->streamOrder;
-        }
-
-        if (null !== $this->useAudioRenditionGroups) {
-            $res['UseAudioRenditionGroups'] = $this->useAudioRenditionGroups;
         }
 
         return $res;
@@ -137,10 +117,6 @@ class LiveManifestConfig extends Model
             $model->dateTimeInterval = $map['DateTimeInterval'];
         }
 
-        if (isset($map['ManifestName'])) {
-            $model->manifestName = $map['ManifestName'];
-        }
-
         if (isset($map['MaxVideoBitrate'])) {
             $model->maxVideoBitrate = $map['MaxVideoBitrate'];
         }
@@ -149,24 +125,20 @@ class LiveManifestConfig extends Model
             $model->minBufferTime = $map['MinBufferTime'];
         }
 
+        if (isset($map['MinUpdatePeriod'])) {
+            $model->minUpdatePeriod = $map['MinUpdatePeriod'];
+        }
+
         if (isset($map['MinVideoBitrate'])) {
             $model->minVideoBitrate = $map['MinVideoBitrate'];
         }
 
-        if (isset($map['Protocol'])) {
-            $model->protocol = $map['Protocol'];
-        }
-
-        if (isset($map['SegmentNum'])) {
-            $model->segmentNum = $map['SegmentNum'];
+        if (isset($map['SegmentCount'])) {
+            $model->segmentCount = $map['SegmentCount'];
         }
 
         if (isset($map['StreamOrder'])) {
             $model->streamOrder = $map['StreamOrder'];
-        }
-
-        if (isset($map['UseAudioRenditionGroups'])) {
-            $model->useAudioRenditionGroups = $map['UseAudioRenditionGroups'];
         }
 
         return $model;

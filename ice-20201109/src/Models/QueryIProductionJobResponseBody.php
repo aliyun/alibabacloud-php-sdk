@@ -59,6 +59,11 @@ class QueryIProductionJobResponseBody extends Model
     /**
      * @var string[]
      */
+    public $outputMediaIds;
+
+    /**
+     * @var string[]
+     */
     public $outputUrls;
 
     /**
@@ -100,6 +105,7 @@ class QueryIProductionJobResponseBody extends Model
         'name' => 'Name',
         'output' => 'Output',
         'outputFiles' => 'OutputFiles',
+        'outputMediaIds' => 'OutputMediaIds',
         'outputUrls' => 'OutputUrls',
         'requestId' => 'RequestId',
         'result' => 'Result',
@@ -119,6 +125,9 @@ class QueryIProductionJobResponseBody extends Model
         }
         if (\is_array($this->outputFiles)) {
             Model::validateArray($this->outputFiles);
+        }
+        if (\is_array($this->outputMediaIds)) {
+            Model::validateArray($this->outputMediaIds);
         }
         if (\is_array($this->outputUrls)) {
             Model::validateArray($this->outputUrls);
@@ -170,6 +179,16 @@ class QueryIProductionJobResponseBody extends Model
                 $n1 = 0;
                 foreach ($this->outputFiles as $item1) {
                     $res['OutputFiles'][$n1++] = $item1;
+                }
+            }
+        }
+
+        if (null !== $this->outputMediaIds) {
+            if (\is_array($this->outputMediaIds)) {
+                $res['OutputMediaIds'] = [];
+                $n1 = 0;
+                foreach ($this->outputMediaIds as $item1) {
+                    $res['OutputMediaIds'][$n1++] = $item1;
                 }
             }
         }
@@ -257,6 +276,16 @@ class QueryIProductionJobResponseBody extends Model
                 $n1 = 0;
                 foreach ($map['OutputFiles'] as $item1) {
                     $model->outputFiles[$n1++] = $item1;
+                }
+            }
+        }
+
+        if (isset($map['OutputMediaIds'])) {
+            if (!empty($map['OutputMediaIds'])) {
+                $model->outputMediaIds = [];
+                $n1 = 0;
+                foreach ($map['OutputMediaIds'] as $item1) {
+                    $model->outputMediaIds[$n1++] = $item1;
                 }
             }
         }

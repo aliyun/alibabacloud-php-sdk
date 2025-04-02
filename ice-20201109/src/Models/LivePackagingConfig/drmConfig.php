@@ -19,6 +19,11 @@ class drmConfig extends Model
     public $IV;
 
     /**
+     * @var int
+     */
+    public $rotatePeriod;
+
+    /**
      * @var string[]
      */
     public $systemIds;
@@ -30,6 +35,7 @@ class drmConfig extends Model
     protected $_name = [
         'encryptionMethod' => 'EncryptionMethod',
         'IV' => 'IV',
+        'rotatePeriod' => 'RotatePeriod',
         'systemIds' => 'SystemIds',
         'url' => 'Url',
     ];
@@ -51,6 +57,10 @@ class drmConfig extends Model
 
         if (null !== $this->IV) {
             $res['IV'] = $this->IV;
+        }
+
+        if (null !== $this->rotatePeriod) {
+            $res['RotatePeriod'] = $this->rotatePeriod;
         }
 
         if (null !== $this->systemIds) {
@@ -84,6 +94,10 @@ class drmConfig extends Model
 
         if (isset($map['IV'])) {
             $model->IV = $map['IV'];
+        }
+
+        if (isset($map['RotatePeriod'])) {
+            $model->rotatePeriod = $map['RotatePeriod'];
         }
 
         if (isset($map['SystemIds'])) {
