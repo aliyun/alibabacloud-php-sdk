@@ -244,6 +244,12 @@ use AlibabaCloud\SDK\ESA\V20240910\Models\DescribePurgeTasksRequest;
 use AlibabaCloud\SDK\ESA\V20240910\Models\DescribePurgeTasksResponse;
 use AlibabaCloud\SDK\ESA\V20240910\Models\DescribeRatePlanInstanceStatusRequest;
 use AlibabaCloud\SDK\ESA\V20240910\Models\DescribeRatePlanInstanceStatusResponse;
+use AlibabaCloud\SDK\ESA\V20240910\Models\DescribeSiteTimeSeriesDataRequest;
+use AlibabaCloud\SDK\ESA\V20240910\Models\DescribeSiteTimeSeriesDataResponse;
+use AlibabaCloud\SDK\ESA\V20240910\Models\DescribeSiteTimeSeriesDataShrinkRequest;
+use AlibabaCloud\SDK\ESA\V20240910\Models\DescribeSiteTopDataRequest;
+use AlibabaCloud\SDK\ESA\V20240910\Models\DescribeSiteTopDataResponse;
+use AlibabaCloud\SDK\ESA\V20240910\Models\DescribeSiteTopDataShrinkRequest;
 use AlibabaCloud\SDK\ESA\V20240910\Models\DisableCustomScenePolicyRequest;
 use AlibabaCloud\SDK\ESA\V20240910\Models\DisableCustomScenePolicyResponse;
 use AlibabaCloud\SDK\ESA\V20240910\Models\EditSiteWafSettingsRequest;
@@ -9184,6 +9190,174 @@ class ESA extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->describeRatePlanInstanceStatusWithOptions($request, $runtime);
+    }
+
+    /**
+     * 获取时序数据.
+     *
+     * @param tmpReq - DescribeSiteTimeSeriesDataRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeSiteTimeSeriesDataResponse
+     *
+     * @param DescribeSiteTimeSeriesDataRequest $tmpReq
+     * @param RuntimeOptions                    $runtime
+     *
+     * @return DescribeSiteTimeSeriesDataResponse
+     */
+    public function describeSiteTimeSeriesDataWithOptions($tmpReq, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new DescribeSiteTimeSeriesDataShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->fields) {
+            $request->fieldsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->fields, 'Fields', 'json');
+        }
+
+        $query = [];
+        if (null !== $request->endTime) {
+            @$query['EndTime'] = $request->endTime;
+        }
+
+        if (null !== $request->fieldsShrink) {
+            @$query['Fields'] = $request->fieldsShrink;
+        }
+
+        if (null !== $request->interval) {
+            @$query['Interval'] = $request->interval;
+        }
+
+        if (null !== $request->siteId) {
+            @$query['SiteId'] = $request->siteId;
+        }
+
+        if (null !== $request->startTime) {
+            @$query['StartTime'] = $request->startTime;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DescribeSiteTimeSeriesData',
+            'version' => '2024-09-10',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DescribeSiteTimeSeriesDataResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
+
+        return DescribeSiteTimeSeriesDataResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * 获取时序数据.
+     *
+     * @param request - DescribeSiteTimeSeriesDataRequest
+     *
+     * @returns DescribeSiteTimeSeriesDataResponse
+     *
+     * @param DescribeSiteTimeSeriesDataRequest $request
+     *
+     * @return DescribeSiteTimeSeriesDataResponse
+     */
+    public function describeSiteTimeSeriesData($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeSiteTimeSeriesDataWithOptions($request, $runtime);
+    }
+
+    /**
+     * 获取Top数据.
+     *
+     * @param tmpReq - DescribeSiteTopDataRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeSiteTopDataResponse
+     *
+     * @param DescribeSiteTopDataRequest $tmpReq
+     * @param RuntimeOptions             $runtime
+     *
+     * @return DescribeSiteTopDataResponse
+     */
+    public function describeSiteTopDataWithOptions($tmpReq, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new DescribeSiteTopDataShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->fields) {
+            $request->fieldsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->fields, 'Fields', 'json');
+        }
+
+        $query = [];
+        if (null !== $request->endTime) {
+            @$query['EndTime'] = $request->endTime;
+        }
+
+        if (null !== $request->fieldsShrink) {
+            @$query['Fields'] = $request->fieldsShrink;
+        }
+
+        if (null !== $request->interval) {
+            @$query['Interval'] = $request->interval;
+        }
+
+        if (null !== $request->limit) {
+            @$query['Limit'] = $request->limit;
+        }
+
+        if (null !== $request->siteId) {
+            @$query['SiteId'] = $request->siteId;
+        }
+
+        if (null !== $request->startTime) {
+            @$query['StartTime'] = $request->startTime;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DescribeSiteTopData',
+            'version' => '2024-09-10',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DescribeSiteTopDataResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
+
+        return DescribeSiteTopDataResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * 获取Top数据.
+     *
+     * @param request - DescribeSiteTopDataRequest
+     *
+     * @returns DescribeSiteTopDataResponse
+     *
+     * @param DescribeSiteTopDataRequest $request
+     *
+     * @return DescribeSiteTopDataResponse
+     */
+    public function describeSiteTopData($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeSiteTopDataWithOptions($request, $runtime);
     }
 
     /**
