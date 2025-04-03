@@ -30,6 +30,38 @@
 - Update API UpdateConfigRule: add request parameters ResourceNameScope.
 
 
+2025-04-03 Version: 3.0.12
+- Update API CreateAggregateCompliancePack: add request parameters Tag.
+- Update API CreateAggregateConfigRule: add request parameters ResourceNameScope.
+- Update API CreateAggregateConfigRule: add request parameters Tag.
+- Update API CreateAggregator: add request parameters Tag.
+- Update API CreateCompliancePack: add request parameters Tag.
+- Update API CreateConfigRule: add request parameters ResourceNameScope.
+- Update API GetAggregateCompliancePack: add request parameters Tag.
+- Update API GetAggregateCompliancePack: add response parameters Body.CompliancePack.Tags.
+- Update API GetAggregateConfigRule: add response parameters Body.ConfigRule.ResourceNameScope.
+- Update API GetAggregator: add request parameters Tag.
+- Update API GetAggregator: add response parameters Body.Aggregator.Tags.
+- Update API GetCompliancePack: add request parameters Tag.
+- Update API GetCompliancePack: add response parameters Body.CompliancePack.Tags.
+- Update API GetConfigRule: add response parameters Body.ConfigRule.ResourceNameScope.
+- Update API ListAggregateCompliancePacks: add request parameters Tag.
+- Update API ListAggregateCompliancePacks: add response parameters Body.CompliancePacksResult.CompliancePacks.$.Tags.
+- Update API ListAggregateConfigRules: add request parameters Tag.
+- Update API ListAggregators: add request parameters Tag.
+- Update API ListAggregators: add response parameters Body.AggregatorsResult.Aggregators.$.Tags.
+- Update API ListCompliancePacks: add request parameters Tag.
+- Update API ListCompliancePacks: add response parameters Body.CompliancePacksResult.CompliancePacks.$.Tags.
+- Update API ListManagedRules: add request parameters FilterType.
+- Update API UpdateAggregateCompliancePack: add request parameters Tag.
+- Update API UpdateAggregateConfigRule: add request parameters ResourceNameScope.
+- Update API UpdateAggregateConfigRule: add request parameters Tag.
+- Update API UpdateAggregator: add request parameters FolderId.
+- Update API UpdateAggregator: add request parameters Tag.
+- Update API UpdateCompliancePack: add request parameters Tag.
+- Update API UpdateConfigRule: add request parameters ResourceNameScope.
+
+
 2025-01-20 Version: 3.0.11
 - Update API EvaluatePreConfigRules: add param ResourceTypeFormat.
 - Update API EvaluatePreConfigRules: update param EnableManagedRules.
