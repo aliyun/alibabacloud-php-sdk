@@ -4,9 +4,9 @@
 
 namespace AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\RunDocSummaryResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\RunDocSummaryResponseBody\payload\output;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\RunDocSummaryResponseBody\payload\usage;
-use AlibabaCloud\Tea\Model;
 
 class payload extends Model
 {
@@ -24,32 +24,43 @@ class payload extends Model
         'usage' => 'Usage',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (null !== $this->output) {
+            $this->output->validate();
+        }
+        if (null !== $this->usage) {
+            $this->usage->validate();
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->output) {
-            $res['Output'] = null !== $this->output ? $this->output->toMap() : null;
+            $res['Output'] = null !== $this->output ? $this->output->toArray($noStream) : $this->output;
         }
+
         if (null !== $this->usage) {
-            $res['Usage'] = null !== $this->usage ? $this->usage->toMap() : null;
+            $res['Usage'] = null !== $this->usage ? $this->usage->toArray($noStream) : $this->usage;
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return payload
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Output'])) {
             $model->output = output::fromMap($map['Output']);
         }
+
         if (isset($map['Usage'])) {
             $model->usage = usage::fromMap($map['Usage']);
         }

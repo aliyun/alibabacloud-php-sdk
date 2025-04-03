@@ -4,35 +4,27 @@
 
 namespace AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\RunSearchGenerationResponseBody\payload\output\agentContext\bizContext\generatedContent\newsElementResult\newsElementArticleList;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\RunSearchGenerationResponseBody\payload\output\agentContext\bizContext\generatedContent\newsElementResult\newsElementArticleList\newsElementList\event;
-use AlibabaCloud\Tea\Model;
 
 class newsElementList extends Model
 {
     /**
-     * @example task-started
-     *
      * @var event
      */
     public $event;
 
     /**
-     * @example xx
-     *
      * @var string
      */
     public $location;
 
     /**
-     * @example xx
-     *
      * @var string
      */
     public $people;
 
     /**
-     * @example 时间
-     *
      * @var string
      */
     public $time;
@@ -43,20 +35,29 @@ class newsElementList extends Model
         'time' => 'Time',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (null !== $this->event) {
+            $this->event->validate();
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->event) {
-            $res['Event'] = null !== $this->event ? $this->event->toMap() : null;
+            $res['Event'] = null !== $this->event ? $this->event->toArray($noStream) : $this->event;
         }
+
         if (null !== $this->location) {
             $res['Location'] = $this->location;
         }
+
         if (null !== $this->people) {
             $res['People'] = $this->people;
         }
+
         if (null !== $this->time) {
             $res['Time'] = $this->time;
         }
@@ -64,23 +65,26 @@ class newsElementList extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return newsElementList
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Event'])) {
             $model->event = event::fromMap($map['Event']);
         }
+
         if (isset($map['Location'])) {
             $model->location = $map['Location'];
         }
+
         if (isset($map['People'])) {
             $model->people = $map['People'];
         }
+
         if (isset($map['Time'])) {
             $model->time = $map['Time'];
         }

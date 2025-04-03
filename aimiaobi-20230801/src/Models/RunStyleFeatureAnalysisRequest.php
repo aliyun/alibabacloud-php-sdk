@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\AiMiaoBi\V20230801\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class RunStyleFeatureAnalysisRequest extends Model
 {
@@ -19,10 +19,6 @@ class RunStyleFeatureAnalysisRequest extends Model
     public $materialIds;
 
     /**
-     * @description This parameter is required.
-     *
-     * @example llm-2setzb9x4ewsd
-     *
      * @var string
      */
     public $workspaceId;
@@ -32,17 +28,40 @@ class RunStyleFeatureAnalysisRequest extends Model
         'workspaceId' => 'WorkspaceId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->contents)) {
+            Model::validateArray($this->contents);
+        }
+        if (\is_array($this->materialIds)) {
+            Model::validateArray($this->materialIds);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->contents) {
-            $res['Contents'] = $this->contents;
+            if (\is_array($this->contents)) {
+                $res['Contents'] = [];
+                $n1 = 0;
+                foreach ($this->contents as $item1) {
+                    $res['Contents'][$n1++] = $item1;
+                }
+            }
         }
+
         if (null !== $this->materialIds) {
-            $res['MaterialIds'] = $this->materialIds;
+            if (\is_array($this->materialIds)) {
+                $res['MaterialIds'] = [];
+                $n1 = 0;
+                foreach ($this->materialIds as $item1) {
+                    $res['MaterialIds'][$n1++] = $item1;
+                }
+            }
         }
+
         if (null !== $this->workspaceId) {
             $res['WorkspaceId'] = $this->workspaceId;
         }
@@ -50,24 +69,34 @@ class RunStyleFeatureAnalysisRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return RunStyleFeatureAnalysisRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Contents'])) {
             if (!empty($map['Contents'])) {
-                $model->contents = $map['Contents'];
+                $model->contents = [];
+                $n1 = 0;
+                foreach ($map['Contents'] as $item1) {
+                    $model->contents[$n1++] = $item1;
+                }
             }
         }
+
         if (isset($map['MaterialIds'])) {
             if (!empty($map['MaterialIds'])) {
-                $model->materialIds = $map['MaterialIds'];
+                $model->materialIds = [];
+                $n1 = 0;
+                foreach ($map['MaterialIds'] as $item1) {
+                    $model->materialIds[$n1++] = $item1;
+                }
             }
         }
+
         if (isset($map['WorkspaceId'])) {
             $model->workspaceId = $map['WorkspaceId'];
         }

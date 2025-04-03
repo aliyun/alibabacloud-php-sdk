@@ -4,27 +4,21 @@
 
 namespace AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\GetPropertiesResponseBody\data\intelligentSearchConfig;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class searchSources extends Model
 {
     /**
-     * @example xx
-     *
      * @var string
      */
     public $code;
 
     /**
-     * @example xx
-     *
      * @var string
      */
     public $datasetName;
 
     /**
-     * @example xx
-     *
      * @var string
      */
     public $name;
@@ -34,17 +28,22 @@ class searchSources extends Model
         'name' => 'Name',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->code) {
             $res['Code'] = $this->code;
         }
+
         if (null !== $this->datasetName) {
             $res['DatasetName'] = $this->datasetName;
         }
+
         if (null !== $this->name) {
             $res['Name'] = $this->name;
         }
@@ -52,20 +51,22 @@ class searchSources extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return searchSources
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Code'])) {
             $model->code = $map['Code'];
         }
+
         if (isset($map['DatasetName'])) {
             $model->datasetName = $map['DatasetName'];
         }
+
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
         }

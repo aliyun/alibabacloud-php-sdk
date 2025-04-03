@@ -4,27 +4,21 @@
 
 namespace AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\RunSearchGenerationResponseBody\payload\output\agentContext\bizContext\generatedContent\timelineResult\generateTraceability\coordinates;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class generateCoordinate extends Model
 {
     /**
-     * @example 1
-     *
      * @var int
      */
     public $x;
 
     /**
-     * @example 1
-     *
      * @var int
      */
     public $y;
 
     /**
-     * @example 1
-     *
      * @var int
      */
     public $z;
@@ -34,17 +28,22 @@ class generateCoordinate extends Model
         'z' => 'Z',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->x) {
             $res['X'] = $this->x;
         }
+
         if (null !== $this->y) {
             $res['Y'] = $this->y;
         }
+
         if (null !== $this->z) {
             $res['Z'] = $this->z;
         }
@@ -52,20 +51,22 @@ class generateCoordinate extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return generateCoordinate
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['X'])) {
             $model->x = $map['X'];
         }
+
         if (isset($map['Y'])) {
             $model->y = $map['Y'];
         }
+
         if (isset($map['Z'])) {
             $model->z = $map['Z'];
         }

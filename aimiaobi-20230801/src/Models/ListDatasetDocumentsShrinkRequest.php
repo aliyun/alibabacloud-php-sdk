@@ -4,34 +4,26 @@
 
 namespace AlibabaCloud\SDK\AiMiaoBi\V20230801\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class ListDatasetDocumentsShrinkRequest extends Model
 {
     /**
-     * @example xx
-     *
      * @var string
      */
     public $datasetDescription;
 
     /**
-     * @example 1
-     *
      * @var int
      */
     public $datasetId;
 
     /**
-     * @example 数据集名称
-     *
      * @var string
      */
     public $datasetName;
 
     /**
-     * @example text
-     *
      * @var string
      */
     public $docType;
@@ -47,38 +39,26 @@ class ListDatasetDocumentsShrinkRequest extends Model
     public $includeFieldsShrink;
 
     /**
-     * @example 1
-     *
      * @var int
      */
     public $pageNumber;
 
     /**
-     * @example 10
-     *
      * @var int
      */
     public $pageSize;
 
     /**
-     * @example 搜索条件
-     *
      * @var string
      */
     public $query;
 
     /**
-     * @example 100
-     *
      * @var int
      */
     public $status;
 
     /**
-     * @description This parameter is required.
-     *
-     * @example xxxx
-     *
      * @var string
      */
     public $workspaceId;
@@ -96,41 +76,54 @@ class ListDatasetDocumentsShrinkRequest extends Model
         'workspaceId' => 'WorkspaceId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->datasetDescription) {
             $res['DatasetDescription'] = $this->datasetDescription;
         }
+
         if (null !== $this->datasetId) {
             $res['DatasetId'] = $this->datasetId;
         }
+
         if (null !== $this->datasetName) {
             $res['DatasetName'] = $this->datasetName;
         }
+
         if (null !== $this->docType) {
             $res['DocType'] = $this->docType;
         }
+
         if (null !== $this->excludeFieldsShrink) {
             $res['ExcludeFields'] = $this->excludeFieldsShrink;
         }
+
         if (null !== $this->includeFieldsShrink) {
             $res['IncludeFields'] = $this->includeFieldsShrink;
         }
+
         if (null !== $this->pageNumber) {
             $res['PageNumber'] = $this->pageNumber;
         }
+
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
         }
+
         if (null !== $this->query) {
             $res['Query'] = $this->query;
         }
+
         if (null !== $this->status) {
             $res['Status'] = $this->status;
         }
+
         if (null !== $this->workspaceId) {
             $res['WorkspaceId'] = $this->workspaceId;
         }
@@ -138,44 +131,54 @@ class ListDatasetDocumentsShrinkRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ListDatasetDocumentsShrinkRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['DatasetDescription'])) {
             $model->datasetDescription = $map['DatasetDescription'];
         }
+
         if (isset($map['DatasetId'])) {
             $model->datasetId = $map['DatasetId'];
         }
+
         if (isset($map['DatasetName'])) {
             $model->datasetName = $map['DatasetName'];
         }
+
         if (isset($map['DocType'])) {
             $model->docType = $map['DocType'];
         }
+
         if (isset($map['ExcludeFields'])) {
             $model->excludeFieldsShrink = $map['ExcludeFields'];
         }
+
         if (isset($map['IncludeFields'])) {
             $model->includeFieldsShrink = $map['IncludeFields'];
         }
+
         if (isset($map['PageNumber'])) {
             $model->pageNumber = $map['PageNumber'];
         }
+
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
         }
+
         if (isset($map['Query'])) {
             $model->query = $map['Query'];
         }
+
         if (isset($map['Status'])) {
             $model->status = $map['Status'];
         }
+
         if (isset($map['WorkspaceId'])) {
             $model->workspaceId = $map['WorkspaceId'];
         }

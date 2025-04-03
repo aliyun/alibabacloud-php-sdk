@@ -4,15 +4,11 @@
 
 namespace AlibabaCloud\SDK\AiMiaoBi\V20230801\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class GetInterveneTemplateFileUrlRequest extends Model
 {
     /**
-     * @description This parameter is required.
-     *
-     * @example c160c841c8e54295bf2f441432785944_p_efm
-     *
      * @var string
      */
     public $agentKey;
@@ -20,9 +16,12 @@ class GetInterveneTemplateFileUrlRequest extends Model
         'agentKey' => 'AgentKey',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->agentKey) {
@@ -32,11 +31,11 @@ class GetInterveneTemplateFileUrlRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return GetInterveneTemplateFileUrlRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

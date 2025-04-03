@@ -4,15 +4,11 @@
 
 namespace AlibabaCloud\SDK\AiMiaoBi\V20230801\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class ListMaterialDocumentsRequest extends Model
 {
     /**
-     * @description This parameter is required.
-     *
-     * @example 33a2658aaabf4c24b45d50e575125311_p_beebot_public
-     *
      * @var string
      */
     public $agentKey;
@@ -23,50 +19,36 @@ class ListMaterialDocumentsRequest extends Model
     public $content;
 
     /**
-     * @example 2023-03-18 02:00:00
-     *
      * @var string
      */
     public $createTimeEnd;
 
     /**
-     * @example 2023-02-19 07:28:11
-     *
      * @var string
      */
     public $createTimeStart;
 
     /**
-     * @example 1
-     *
      * @var int
      */
     public $current;
 
     /**
-     * @example jsonLine
-     *
      * @var string
      */
     public $docType;
 
     /**
-     * @example excel
-     *
      * @var string[]
      */
     public $docTypeList;
 
     /**
-     * @example true
-     *
      * @var bool
      */
     public $generatePublicUrl;
 
     /**
-     * @example 69
-     *
      * @var int
      */
     public $id;
@@ -82,15 +64,11 @@ class ListMaterialDocumentsRequest extends Model
     public $query;
 
     /**
-     * @example 1
-     *
      * @var int
      */
     public $shareAttr;
 
     /**
-     * @example 10
-     *
      * @var int
      */
     public $size;
@@ -101,15 +79,11 @@ class ListMaterialDocumentsRequest extends Model
     public $title;
 
     /**
-     * @example 2023-03-18 03:00:00
-     *
      * @var string
      */
     public $updateTimeEnd;
 
     /**
-     * @example 2023-03-18 02:00:00
-     *
      * @var string
      */
     public $updateTimeStart;
@@ -132,56 +106,92 @@ class ListMaterialDocumentsRequest extends Model
         'updateTimeStart' => 'UpdateTimeStart',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->docTypeList)) {
+            Model::validateArray($this->docTypeList);
+        }
+        if (\is_array($this->keywords)) {
+            Model::validateArray($this->keywords);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->agentKey) {
             $res['AgentKey'] = $this->agentKey;
         }
+
         if (null !== $this->content) {
             $res['Content'] = $this->content;
         }
+
         if (null !== $this->createTimeEnd) {
             $res['CreateTimeEnd'] = $this->createTimeEnd;
         }
+
         if (null !== $this->createTimeStart) {
             $res['CreateTimeStart'] = $this->createTimeStart;
         }
+
         if (null !== $this->current) {
             $res['Current'] = $this->current;
         }
+
         if (null !== $this->docType) {
             $res['DocType'] = $this->docType;
         }
+
         if (null !== $this->docTypeList) {
-            $res['DocTypeList'] = $this->docTypeList;
+            if (\is_array($this->docTypeList)) {
+                $res['DocTypeList'] = [];
+                $n1 = 0;
+                foreach ($this->docTypeList as $item1) {
+                    $res['DocTypeList'][$n1++] = $item1;
+                }
+            }
         }
+
         if (null !== $this->generatePublicUrl) {
             $res['GeneratePublicUrl'] = $this->generatePublicUrl;
         }
+
         if (null !== $this->id) {
             $res['Id'] = $this->id;
         }
+
         if (null !== $this->keywords) {
-            $res['Keywords'] = $this->keywords;
+            if (\is_array($this->keywords)) {
+                $res['Keywords'] = [];
+                $n1 = 0;
+                foreach ($this->keywords as $item1) {
+                    $res['Keywords'][$n1++] = $item1;
+                }
+            }
         }
+
         if (null !== $this->query) {
             $res['Query'] = $this->query;
         }
+
         if (null !== $this->shareAttr) {
             $res['ShareAttr'] = $this->shareAttr;
         }
+
         if (null !== $this->size) {
             $res['Size'] = $this->size;
         }
+
         if (null !== $this->title) {
             $res['Title'] = $this->title;
         }
+
         if (null !== $this->updateTimeEnd) {
             $res['UpdateTimeEnd'] = $this->updateTimeEnd;
         }
+
         if (null !== $this->updateTimeStart) {
             $res['UpdateTimeStart'] = $this->updateTimeStart;
         }
@@ -189,63 +199,86 @@ class ListMaterialDocumentsRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ListMaterialDocumentsRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AgentKey'])) {
             $model->agentKey = $map['AgentKey'];
         }
+
         if (isset($map['Content'])) {
             $model->content = $map['Content'];
         }
+
         if (isset($map['CreateTimeEnd'])) {
             $model->createTimeEnd = $map['CreateTimeEnd'];
         }
+
         if (isset($map['CreateTimeStart'])) {
             $model->createTimeStart = $map['CreateTimeStart'];
         }
+
         if (isset($map['Current'])) {
             $model->current = $map['Current'];
         }
+
         if (isset($map['DocType'])) {
             $model->docType = $map['DocType'];
         }
+
         if (isset($map['DocTypeList'])) {
             if (!empty($map['DocTypeList'])) {
-                $model->docTypeList = $map['DocTypeList'];
+                $model->docTypeList = [];
+                $n1 = 0;
+                foreach ($map['DocTypeList'] as $item1) {
+                    $model->docTypeList[$n1++] = $item1;
+                }
             }
         }
+
         if (isset($map['GeneratePublicUrl'])) {
             $model->generatePublicUrl = $map['GeneratePublicUrl'];
         }
+
         if (isset($map['Id'])) {
             $model->id = $map['Id'];
         }
+
         if (isset($map['Keywords'])) {
             if (!empty($map['Keywords'])) {
-                $model->keywords = $map['Keywords'];
+                $model->keywords = [];
+                $n1 = 0;
+                foreach ($map['Keywords'] as $item1) {
+                    $model->keywords[$n1++] = $item1;
+                }
             }
         }
+
         if (isset($map['Query'])) {
             $model->query = $map['Query'];
         }
+
         if (isset($map['ShareAttr'])) {
             $model->shareAttr = $map['ShareAttr'];
         }
+
         if (isset($map['Size'])) {
             $model->size = $map['Size'];
         }
+
         if (isset($map['Title'])) {
             $model->title = $map['Title'];
         }
+
         if (isset($map['UpdateTimeEnd'])) {
             $model->updateTimeEnd = $map['UpdateTimeEnd'];
         }
+
         if (isset($map['UpdateTimeStart'])) {
             $model->updateTimeStart = $map['UpdateTimeStart'];
         }

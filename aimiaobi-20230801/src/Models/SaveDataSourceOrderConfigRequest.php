@@ -4,32 +4,22 @@
 
 namespace AlibabaCloud\SDK\AiMiaoBi\V20230801\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\SaveDataSourceOrderConfigRequest\userConfigDataSourceList;
-use AlibabaCloud\Tea\Model;
 
 class SaveDataSourceOrderConfigRequest extends Model
 {
     /**
-     * @description This parameter is required.
-     *
-     * @example c160c841c8e54295bf2f441432785944_p_efm
-     *
      * @var string
      */
     public $agentKey;
 
     /**
-     * @description This parameter is required.
-     *
-     * @example miaobi
-     *
      * @var string
      */
     public $productCode;
 
     /**
-     * @description This parameter is required.
-     *
      * @var userConfigDataSourceList[]
      */
     public $userConfigDataSourceList;
@@ -39,23 +29,31 @@ class SaveDataSourceOrderConfigRequest extends Model
         'userConfigDataSourceList' => 'UserConfigDataSourceList',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->userConfigDataSourceList)) {
+            Model::validateArray($this->userConfigDataSourceList);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->agentKey) {
             $res['AgentKey'] = $this->agentKey;
         }
+
         if (null !== $this->productCode) {
             $res['ProductCode'] = $this->productCode;
         }
+
         if (null !== $this->userConfigDataSourceList) {
-            $res['UserConfigDataSourceList'] = [];
-            if (null !== $this->userConfigDataSourceList && \is_array($this->userConfigDataSourceList)) {
-                $n = 0;
-                foreach ($this->userConfigDataSourceList as $item) {
-                    $res['UserConfigDataSourceList'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->userConfigDataSourceList)) {
+                $res['UserConfigDataSourceList'] = [];
+                $n1 = 0;
+                foreach ($this->userConfigDataSourceList as $item1) {
+                    $res['UserConfigDataSourceList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
@@ -63,26 +61,28 @@ class SaveDataSourceOrderConfigRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return SaveDataSourceOrderConfigRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AgentKey'])) {
             $model->agentKey = $map['AgentKey'];
         }
+
         if (isset($map['ProductCode'])) {
             $model->productCode = $map['ProductCode'];
         }
+
         if (isset($map['UserConfigDataSourceList'])) {
             if (!empty($map['UserConfigDataSourceList'])) {
                 $model->userConfigDataSourceList = [];
-                $n = 0;
-                foreach ($map['UserConfigDataSourceList'] as $item) {
-                    $model->userConfigDataSourceList[$n++] = null !== $item ? userConfigDataSourceList::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['UserConfigDataSourceList'] as $item1) {
+                    $model->userConfigDataSourceList[$n1++] = userConfigDataSourceList::fromMap($item1);
                 }
             }
         }

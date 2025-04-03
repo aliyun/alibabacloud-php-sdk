@@ -4,15 +4,11 @@
 
 namespace AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\ListIntervenesResponseBody\data;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class interveneList extends Model
 {
     /**
-     * @description id
-     *
-     * @example 36559
-     *
      * @var string
      */
     public $id;
@@ -26,14 +22,18 @@ class interveneList extends Model
         'query' => 'Query',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->id) {
             $res['Id'] = $this->id;
         }
+
         if (null !== $this->query) {
             $res['Query'] = $this->query;
         }
@@ -41,17 +41,18 @@ class interveneList extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return interveneList
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Id'])) {
             $model->id = $map['Id'];
         }
+
         if (isset($map['Query'])) {
             $model->query = $map['Query'];
         }

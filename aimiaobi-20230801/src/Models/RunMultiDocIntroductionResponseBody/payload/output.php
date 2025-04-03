@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\RunMultiDocIntroductionResponseBody\payload;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\RunMultiDocIntroductionResponseBody\payload\output\keyPoints;
-use AlibabaCloud\Tea\Model;
 
 class output extends Model
 {
@@ -23,20 +23,27 @@ class output extends Model
         'summary' => 'Summary',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->keyPoints)) {
+            Model::validateArray($this->keyPoints);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->keyPoints) {
-            $res['KeyPoints'] = [];
-            if (null !== $this->keyPoints && \is_array($this->keyPoints)) {
-                $n = 0;
-                foreach ($this->keyPoints as $item) {
-                    $res['KeyPoints'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->keyPoints)) {
+                $res['KeyPoints'] = [];
+                $n1 = 0;
+                foreach ($this->keyPoints as $item1) {
+                    $res['KeyPoints'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
+
         if (null !== $this->summary) {
             $res['Summary'] = $this->summary;
         }
@@ -44,23 +51,24 @@ class output extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return output
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['KeyPoints'])) {
             if (!empty($map['KeyPoints'])) {
                 $model->keyPoints = [];
-                $n = 0;
-                foreach ($map['KeyPoints'] as $item) {
-                    $model->keyPoints[$n++] = null !== $item ? keyPoints::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['KeyPoints'] as $item1) {
+                    $model->keyPoints[$n1++] = keyPoints::fromMap($item1);
                 }
             }
         }
+
         if (isset($map['Summary'])) {
             $model->summary = $map['Summary'];
         }

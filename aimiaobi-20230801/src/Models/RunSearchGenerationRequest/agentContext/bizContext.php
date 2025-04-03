@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\RunSearchGenerationRequest\agentContext;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\RunSearchGenerationRequest\agentContext\bizContext\multimodalMediaSelection;
-use AlibabaCloud\Tea\Model;
 
 class bizContext extends Model
 {
@@ -23,14 +23,21 @@ class bizContext extends Model
         'skipCurrentSupplement' => 'SkipCurrentSupplement',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (null !== $this->multimodalMediaSelection) {
+            $this->multimodalMediaSelection->validate();
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->multimodalMediaSelection) {
-            $res['MultimodalMediaSelection'] = null !== $this->multimodalMediaSelection ? $this->multimodalMediaSelection->toMap() : null;
+            $res['MultimodalMediaSelection'] = null !== $this->multimodalMediaSelection ? $this->multimodalMediaSelection->toArray($noStream) : $this->multimodalMediaSelection;
         }
+
         if (null !== $this->skipCurrentSupplement) {
             $res['SkipCurrentSupplement'] = $this->skipCurrentSupplement;
         }
@@ -38,17 +45,18 @@ class bizContext extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return bizContext
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['MultimodalMediaSelection'])) {
             $model->multimodalMediaSelection = multimodalMediaSelection::fromMap($map['MultimodalMediaSelection']);
         }
+
         if (isset($map['SkipCurrentSupplement'])) {
             $model->skipCurrentSupplement = $map['SkipCurrentSupplement'];
         }

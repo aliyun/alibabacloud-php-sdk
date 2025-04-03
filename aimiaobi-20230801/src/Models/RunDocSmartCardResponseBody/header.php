@@ -4,27 +4,21 @@
 
 namespace AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\RunDocSmartCardResponseBody;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class header extends Model
 {
     /**
-     * @example success
-     *
      * @var string
      */
     public $errorCode;
 
     /**
-     * @example success
-     *
      * @var string
      */
     public $errorMessage;
 
     /**
-     * @example finished
-     *
      * @var string
      */
     public $event;
@@ -35,22 +29,16 @@ class header extends Model
     public $eventInfo;
 
     /**
-     * @example 07181f55-2311-48af-8048-132a77dee020
-     *
      * @var string
      */
     public $sessionId;
 
     /**
-     * @example 8d55b429d7c6d321fcff54823e8d317b
-     *
      * @var string
      */
     public $taskId;
 
     /**
-     * @example 0abb781c17337107444473701ed7c3
-     *
      * @var string
      */
     public $traceId;
@@ -64,29 +52,38 @@ class header extends Model
         'traceId' => 'TraceId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->errorCode) {
             $res['ErrorCode'] = $this->errorCode;
         }
+
         if (null !== $this->errorMessage) {
             $res['ErrorMessage'] = $this->errorMessage;
         }
+
         if (null !== $this->event) {
             $res['Event'] = $this->event;
         }
+
         if (null !== $this->eventInfo) {
             $res['EventInfo'] = $this->eventInfo;
         }
+
         if (null !== $this->sessionId) {
             $res['SessionId'] = $this->sessionId;
         }
+
         if (null !== $this->taskId) {
             $res['TaskId'] = $this->taskId;
         }
+
         if (null !== $this->traceId) {
             $res['TraceId'] = $this->traceId;
         }
@@ -94,32 +91,38 @@ class header extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return header
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ErrorCode'])) {
             $model->errorCode = $map['ErrorCode'];
         }
+
         if (isset($map['ErrorMessage'])) {
             $model->errorMessage = $map['ErrorMessage'];
         }
+
         if (isset($map['Event'])) {
             $model->event = $map['Event'];
         }
+
         if (isset($map['EventInfo'])) {
             $model->eventInfo = $map['EventInfo'];
         }
+
         if (isset($map['SessionId'])) {
             $model->sessionId = $map['SessionId'];
         }
+
         if (isset($map['TaskId'])) {
             $model->taskId = $map['TaskId'];
         }
+
         if (isset($map['TraceId'])) {
             $model->traceId = $map['TraceId'];
         }

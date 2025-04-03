@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\AiMiaoBi\V20230801\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\RunSearchSimilarArticlesRequest\chatConfig;
-use AlibabaCloud\Tea\Model;
 
 class RunSearchSimilarArticlesRequest extends Model
 {
@@ -15,8 +15,6 @@ class RunSearchSimilarArticlesRequest extends Model
     public $chatConfig;
 
     /**
-     * @example html
-     *
      * @var string
      */
     public $docType;
@@ -27,19 +25,11 @@ class RunSearchSimilarArticlesRequest extends Model
     public $title;
 
     /**
-     * @description This parameter is required.
-     *
-     * @example https://xxx/xxx
-     *
      * @var string
      */
     public $url;
 
     /**
-     * @description This parameter is required.
-     *
-     * @example xxxx
-     *
      * @var string
      */
     public $workspaceId;
@@ -51,23 +41,33 @@ class RunSearchSimilarArticlesRequest extends Model
         'workspaceId' => 'WorkspaceId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (null !== $this->chatConfig) {
+            $this->chatConfig->validate();
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->chatConfig) {
-            $res['ChatConfig'] = null !== $this->chatConfig ? $this->chatConfig->toMap() : null;
+            $res['ChatConfig'] = null !== $this->chatConfig ? $this->chatConfig->toArray($noStream) : $this->chatConfig;
         }
+
         if (null !== $this->docType) {
             $res['DocType'] = $this->docType;
         }
+
         if (null !== $this->title) {
             $res['Title'] = $this->title;
         }
+
         if (null !== $this->url) {
             $res['Url'] = $this->url;
         }
+
         if (null !== $this->workspaceId) {
             $res['WorkspaceId'] = $this->workspaceId;
         }
@@ -75,26 +75,30 @@ class RunSearchSimilarArticlesRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return RunSearchSimilarArticlesRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ChatConfig'])) {
             $model->chatConfig = chatConfig::fromMap($map['ChatConfig']);
         }
+
         if (isset($map['DocType'])) {
             $model->docType = $map['DocType'];
         }
+
         if (isset($map['Title'])) {
             $model->title = $map['Title'];
         }
+
         if (isset($map['Url'])) {
             $model->url = $map['Url'];
         }
+
         if (isset($map['WorkspaceId'])) {
             $model->workspaceId = $map['WorkspaceId'];
         }

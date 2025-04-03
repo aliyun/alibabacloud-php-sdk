@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\RunSearchSimilarArticlesRequest;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\RunSearchSimilarArticlesRequest\chatConfig\searchParam;
-use AlibabaCloud\Tea\Model;
 
 class chatConfig extends Model
 {
@@ -17,23 +17,29 @@ class chatConfig extends Model
         'searchParam' => 'SearchParam',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (null !== $this->searchParam) {
+            $this->searchParam->validate();
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->searchParam) {
-            $res['SearchParam'] = null !== $this->searchParam ? $this->searchParam->toMap() : null;
+            $res['SearchParam'] = null !== $this->searchParam ? $this->searchParam->toArray($noStream) : $this->searchParam;
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return chatConfig
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

@@ -4,35 +4,27 @@
 
 namespace AlibabaCloud\SDK\AiMiaoBi\V20230801\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\UpdateDatasetDocumentRequest\document;
-use AlibabaCloud\Tea\Model;
 
 class UpdateDatasetDocumentRequest extends Model
 {
     /**
-     * @example 1
-     *
      * @var int
      */
     public $datasetId;
 
     /**
-     * @example 数据集名称
-     *
      * @var string
      */
     public $datasetName;
 
     /**
-     * @description This parameter is required.
-     *
      * @var document
      */
     public $document;
 
     /**
-     * @example xxxx
-     *
      * @var string
      */
     public $workspaceId;
@@ -43,20 +35,29 @@ class UpdateDatasetDocumentRequest extends Model
         'workspaceId' => 'WorkspaceId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (null !== $this->document) {
+            $this->document->validate();
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->datasetId) {
             $res['DatasetId'] = $this->datasetId;
         }
+
         if (null !== $this->datasetName) {
             $res['DatasetName'] = $this->datasetName;
         }
+
         if (null !== $this->document) {
-            $res['Document'] = null !== $this->document ? $this->document->toMap() : null;
+            $res['Document'] = null !== $this->document ? $this->document->toArray($noStream) : $this->document;
         }
+
         if (null !== $this->workspaceId) {
             $res['WorkspaceId'] = $this->workspaceId;
         }
@@ -64,23 +65,26 @@ class UpdateDatasetDocumentRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return UpdateDatasetDocumentRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['DatasetId'])) {
             $model->datasetId = $map['DatasetId'];
         }
+
         if (isset($map['DatasetName'])) {
             $model->datasetName = $map['DatasetName'];
         }
+
         if (isset($map['Document'])) {
             $model->document = document::fromMap($map['Document']);
         }
+
         if (isset($map['WorkspaceId'])) {
             $model->workspaceId = $map['WorkspaceId'];
         }

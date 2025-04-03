@@ -4,15 +4,11 @@
 
 namespace AlibabaCloud\SDK\AiMiaoBi\V20230801\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class SubmitCustomTopicSelectionPerspectiveAnalysisTaskShrinkRequest extends Model
 {
     /**
-     * @description This parameter is required.
-     *
-     * @example xxxxx_p_efm
-     *
      * @var string
      */
     public $agentKey;
@@ -23,17 +19,11 @@ class SubmitCustomTopicSelectionPerspectiveAnalysisTaskShrinkRequest extends Mod
     public $documentsShrink;
 
     /**
-     * @description This parameter is required.
-     *
-     * @example 自定义观点的输入Prompt
-     *
      * @var string
      */
     public $prompt;
 
     /**
-     * @example 待分析的主题名（documents与topic二者至少传一个）
-     *
      * @var string
      */
     public $topic;
@@ -44,20 +34,26 @@ class SubmitCustomTopicSelectionPerspectiveAnalysisTaskShrinkRequest extends Mod
         'topic' => 'Topic',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->agentKey) {
             $res['AgentKey'] = $this->agentKey;
         }
+
         if (null !== $this->documentsShrink) {
             $res['Documents'] = $this->documentsShrink;
         }
+
         if (null !== $this->prompt) {
             $res['Prompt'] = $this->prompt;
         }
+
         if (null !== $this->topic) {
             $res['Topic'] = $this->topic;
         }
@@ -65,23 +61,26 @@ class SubmitCustomTopicSelectionPerspectiveAnalysisTaskShrinkRequest extends Mod
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return SubmitCustomTopicSelectionPerspectiveAnalysisTaskShrinkRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AgentKey'])) {
             $model->agentKey = $map['AgentKey'];
         }
+
         if (isset($map['Documents'])) {
             $model->documentsShrink = $map['Documents'];
         }
+
         if (isset($map['Prompt'])) {
             $model->prompt = $map['Prompt'];
         }
+
         if (isset($map['Topic'])) {
             $model->topic = $map['Topic'];
         }

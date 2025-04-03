@@ -4,22 +4,16 @@
 
 namespace AlibabaCloud\SDK\AiMiaoBi\V20230801\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class GetTopicSelectionPerspectiveAnalysisTaskRequest extends Model
 {
     /**
-     * @description This parameter is required.
-     *
-     * @example xxxxx_p_efm
-     *
      * @var string
      */
     public $agentKey;
 
     /**
-     * @example c9f226b02cca4f42a84c5e955c39dfd2
-     *
      * @var string
      */
     public $taskId;
@@ -28,14 +22,18 @@ class GetTopicSelectionPerspectiveAnalysisTaskRequest extends Model
         'taskId' => 'TaskId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->agentKey) {
             $res['AgentKey'] = $this->agentKey;
         }
+
         if (null !== $this->taskId) {
             $res['TaskId'] = $this->taskId;
         }
@@ -43,17 +41,18 @@ class GetTopicSelectionPerspectiveAnalysisTaskRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return GetTopicSelectionPerspectiveAnalysisTaskRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AgentKey'])) {
             $model->agentKey = $map['AgentKey'];
         }
+
         if (isset($map['TaskId'])) {
             $model->taskId = $map['TaskId'];
         }

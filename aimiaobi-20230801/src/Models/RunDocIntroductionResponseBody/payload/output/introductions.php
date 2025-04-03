@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\RunDocIntroductionResponseBody\payload\output;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\RunDocIntroductionResponseBody\payload\output\introductions\blocks;
-use AlibabaCloud\Tea\Model;
 
 class introductions extends Model
 {
@@ -15,8 +15,6 @@ class introductions extends Model
     public $blocks;
 
     /**
-     * @example 10
-     *
      * @var int
      */
     public $startPageId;
@@ -37,26 +35,35 @@ class introductions extends Model
         'title' => 'Title',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->blocks)) {
+            Model::validateArray($this->blocks);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->blocks) {
-            $res['Blocks'] = [];
-            if (null !== $this->blocks && \is_array($this->blocks)) {
-                $n = 0;
-                foreach ($this->blocks as $item) {
-                    $res['Blocks'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->blocks)) {
+                $res['Blocks'] = [];
+                $n1 = 0;
+                foreach ($this->blocks as $item1) {
+                    $res['Blocks'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
+
         if (null !== $this->startPageId) {
             $res['StartPageId'] = $this->startPageId;
         }
+
         if (null !== $this->summary) {
             $res['Summary'] = $this->summary;
         }
+
         if (null !== $this->title) {
             $res['Title'] = $this->title;
         }
@@ -64,29 +71,32 @@ class introductions extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return introductions
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Blocks'])) {
             if (!empty($map['Blocks'])) {
                 $model->blocks = [];
-                $n = 0;
-                foreach ($map['Blocks'] as $item) {
-                    $model->blocks[$n++] = null !== $item ? blocks::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['Blocks'] as $item1) {
+                    $model->blocks[$n1++] = blocks::fromMap($item1);
                 }
             }
         }
+
         if (isset($map['StartPageId'])) {
             $model->startPageId = $map['StartPageId'];
         }
+
         if (isset($map['Summary'])) {
             $model->summary = $map['Summary'];
         }
+
         if (isset($map['Title'])) {
             $model->title = $map['Title'];
         }

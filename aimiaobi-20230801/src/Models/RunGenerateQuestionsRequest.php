@@ -4,13 +4,11 @@
 
 namespace AlibabaCloud\SDK\AiMiaoBi\V20230801\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class RunGenerateQuestionsRequest extends Model
 {
     /**
-     * @example oOgIwodFANW1u5MnqxysOh1rtld3xn
-     *
      * @var string
      */
     public $docId;
@@ -21,17 +19,11 @@ class RunGenerateQuestionsRequest extends Model
     public $referenceContent;
 
     /**
-     * @example f486c4e2-b773-4d65-88f8-2ba540610456
-     *
      * @var string
      */
     public $sessionId;
 
     /**
-     * @description This parameter is required.
-     *
-     * @example llm-w335gauzlbba2vze
-     *
      * @var string
      */
     public $workspaceId;
@@ -42,20 +34,26 @@ class RunGenerateQuestionsRequest extends Model
         'workspaceId' => 'WorkspaceId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->docId) {
             $res['DocId'] = $this->docId;
         }
+
         if (null !== $this->referenceContent) {
             $res['ReferenceContent'] = $this->referenceContent;
         }
+
         if (null !== $this->sessionId) {
             $res['SessionId'] = $this->sessionId;
         }
+
         if (null !== $this->workspaceId) {
             $res['WorkspaceId'] = $this->workspaceId;
         }
@@ -63,23 +61,26 @@ class RunGenerateQuestionsRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return RunGenerateQuestionsRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['DocId'])) {
             $model->docId = $map['DocId'];
         }
+
         if (isset($map['ReferenceContent'])) {
             $model->referenceContent = $map['ReferenceContent'];
         }
+
         if (isset($map['SessionId'])) {
             $model->sessionId = $map['SessionId'];
         }
+
         if (isset($map['WorkspaceId'])) {
             $model->workspaceId = $map['WorkspaceId'];
         }

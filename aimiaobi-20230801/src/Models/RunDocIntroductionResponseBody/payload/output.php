@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\RunDocIntroductionResponseBody\payload;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\RunDocIntroductionResponseBody\payload\output\introductions;
-use AlibabaCloud\Tea\Model;
 
 class output extends Model
 {
@@ -29,23 +29,31 @@ class output extends Model
         'summary' => 'Summary',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->introductions)) {
+            Model::validateArray($this->introductions);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->introductions) {
-            $res['Introductions'] = [];
-            if (null !== $this->introductions && \is_array($this->introductions)) {
-                $n = 0;
-                foreach ($this->introductions as $item) {
-                    $res['Introductions'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->introductions)) {
+                $res['Introductions'] = [];
+                $n1 = 0;
+                foreach ($this->introductions as $item1) {
+                    $res['Introductions'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
+
         if (null !== $this->keyPoint) {
             $res['KeyPoint'] = $this->keyPoint;
         }
+
         if (null !== $this->summary) {
             $res['Summary'] = $this->summary;
         }
@@ -53,26 +61,28 @@ class output extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return output
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Introductions'])) {
             if (!empty($map['Introductions'])) {
                 $model->introductions = [];
-                $n = 0;
-                foreach ($map['Introductions'] as $item) {
-                    $model->introductions[$n++] = null !== $item ? introductions::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['Introductions'] as $item1) {
+                    $model->introductions[$n1++] = introductions::fromMap($item1);
                 }
             }
         }
+
         if (isset($map['KeyPoint'])) {
             $model->keyPoint = $map['KeyPoint'];
         }
+
         if (isset($map['Summary'])) {
             $model->summary = $map['Summary'];
         }

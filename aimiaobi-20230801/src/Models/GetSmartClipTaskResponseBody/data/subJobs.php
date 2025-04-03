@@ -4,14 +4,12 @@
 
 namespace AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\GetSmartClipTaskResponseBody\data;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\GetSmartClipTaskResponseBody\data\subJobs\fileAttr;
-use AlibabaCloud\Tea\Model;
 
 class subJobs extends Model
 {
     /**
-     * @example x\"x\"x\"x
-     *
      * @var string
      */
     public $errorMessage;
@@ -22,22 +20,16 @@ class subJobs extends Model
     public $fileAttr;
 
     /**
-     * @example oss://default/bucket-name/path-xxx/xxx-1.mp4
-     *
      * @var string
      */
     public $fileKey;
 
     /**
-     * @example RUNNING
-     *
      * @var string
      */
     public $status;
 
     /**
-     * @example xxxxx
-     *
      * @var string
      */
     public $subJobId;
@@ -49,23 +41,33 @@ class subJobs extends Model
         'subJobId' => 'SubJobId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (null !== $this->fileAttr) {
+            $this->fileAttr->validate();
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->errorMessage) {
             $res['ErrorMessage'] = $this->errorMessage;
         }
+
         if (null !== $this->fileAttr) {
-            $res['FileAttr'] = null !== $this->fileAttr ? $this->fileAttr->toMap() : null;
+            $res['FileAttr'] = null !== $this->fileAttr ? $this->fileAttr->toArray($noStream) : $this->fileAttr;
         }
+
         if (null !== $this->fileKey) {
             $res['FileKey'] = $this->fileKey;
         }
+
         if (null !== $this->status) {
             $res['Status'] = $this->status;
         }
+
         if (null !== $this->subJobId) {
             $res['SubJobId'] = $this->subJobId;
         }
@@ -73,26 +75,30 @@ class subJobs extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return subJobs
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ErrorMessage'])) {
             $model->errorMessage = $map['ErrorMessage'];
         }
+
         if (isset($map['FileAttr'])) {
             $model->fileAttr = fileAttr::fromMap($map['FileAttr']);
         }
+
         if (isset($map['FileKey'])) {
             $model->fileKey = $map['FileKey'];
         }
+
         if (isset($map['Status'])) {
             $model->status = $map['Status'];
         }
+
         if (isset($map['SubJobId'])) {
             $model->subJobId = $map['SubJobId'];
         }

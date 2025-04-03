@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\ListBuildConfigsResponseBody\data;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class keywords extends Model
 {
@@ -22,14 +22,18 @@ class keywords extends Model
         'key' => 'Key',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->description) {
             $res['Description'] = $this->description;
         }
+
         if (null !== $this->key) {
             $res['Key'] = $this->key;
         }
@@ -37,17 +41,18 @@ class keywords extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return keywords
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
         }
+
         if (isset($map['Key'])) {
             $model->key = $map['Key'];
         }

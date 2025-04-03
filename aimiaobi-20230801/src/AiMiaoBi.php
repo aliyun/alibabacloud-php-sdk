@@ -4,8 +4,7 @@
 
 namespace AlibabaCloud\SDK\AiMiaoBi\V20230801;
 
-use AlibabaCloud\Endpoint\Endpoint;
-use AlibabaCloud\OpenApiUtil\OpenApiUtilClient;
+use AlibabaCloud\Dara\Models\RuntimeOptions;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\AddDatasetDocumentRequest;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\AddDatasetDocumentResponse;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\AddDatasetDocumentShrinkRequest;
@@ -319,11 +318,10 @@ use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\UploadDocResponse;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\UploadDocShrinkRequest;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\ValidateUploadTemplateRequest;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\ValidateUploadTemplateResponse;
-use AlibabaCloud\Tea\Utils\Utils;
-use AlibabaCloud\Tea\Utils\Utils\RuntimeOptions;
 use Darabonba\OpenApi\Models\OpenApiRequest;
 use Darabonba\OpenApi\Models\Params;
 use Darabonba\OpenApi\OpenApiClient;
+use Darabonba\OpenApi\Utils;
 
 class AiMiaoBi extends OpenApiClient
 {
@@ -348,47 +346,58 @@ class AiMiaoBi extends OpenApiClient
      */
     public function getEndpoint($productId, $regionId, $endpointRule, $network, $suffix, $endpointMap, $endpoint)
     {
-        if (!Utils::empty_($endpoint)) {
+        if (null !== $endpoint) {
             return $endpoint;
         }
-        if (!Utils::isUnset($endpointMap) && !Utils::empty_(@$endpointMap[$regionId])) {
+
+        if (null !== $endpointMap && null !== @$endpointMap[$regionId]) {
             return @$endpointMap[$regionId];
         }
 
-        return Endpoint::getEndpointRules($productId, $regionId, $endpointRule, $network, $suffix);
+        return Utils::getEndpointRules($productId, $regionId, $endpointRule, $network, $suffix);
     }
 
     /**
-     * @summary 添加文档到数据集
-     *  *
-     * @param AddDatasetDocumentRequest $tmpReq  AddDatasetDocumentRequest
-     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
+     * 添加文档到数据集.
      *
-     * @return AddDatasetDocumentResponse AddDatasetDocumentResponse
+     * @param tmpReq - AddDatasetDocumentRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns AddDatasetDocumentResponse
+     *
+     * @param AddDatasetDocumentRequest $tmpReq
+     * @param RuntimeOptions            $runtime
+     *
+     * @return AddDatasetDocumentResponse
      */
     public function addDatasetDocumentWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new AddDatasetDocumentShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->document)) {
-            $request->documentShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->document, 'Document', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->document) {
+            $request->documentShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->document, 'Document', 'json');
         }
+
         $body = [];
-        if (!Utils::isUnset($request->datasetId)) {
-            $body['DatasetId'] = $request->datasetId;
+        if (null !== $request->datasetId) {
+            @$body['DatasetId'] = $request->datasetId;
         }
-        if (!Utils::isUnset($request->datasetName)) {
-            $body['DatasetName'] = $request->datasetName;
+
+        if (null !== $request->datasetName) {
+            @$body['DatasetName'] = $request->datasetName;
         }
-        if (!Utils::isUnset($request->documentShrink)) {
-            $body['Document'] = $request->documentShrink;
+
+        if (null !== $request->documentShrink) {
+            @$body['Document'] = $request->documentShrink;
         }
-        if (!Utils::isUnset($request->workspaceId)) {
-            $body['WorkspaceId'] = $request->workspaceId;
+
+        if (null !== $request->workspaceId) {
+            @$body['WorkspaceId'] = $request->workspaceId;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'AddDatasetDocument',
@@ -401,7 +410,7 @@ class AiMiaoBi extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return AddDatasetDocumentResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -409,11 +418,15 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * @summary 添加文档到数据集
-     *  *
-     * @param AddDatasetDocumentRequest $request AddDatasetDocumentRequest
+     * 添加文档到数据集.
      *
-     * @return AddDatasetDocumentResponse AddDatasetDocumentResponse
+     * @param request - AddDatasetDocumentRequest
+     *
+     * @returns AddDatasetDocumentResponse
+     *
+     * @param AddDatasetDocumentRequest $request
+     *
+     * @return AddDatasetDocumentResponse
      */
     public function addDatasetDocument($request)
     {
@@ -423,27 +436,34 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * @summary 取消异步任务
-     *  *
-     * @param CancelAsyncTaskRequest $request CancelAsyncTaskRequest
-     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
+     * 取消异步任务
      *
-     * @return CancelAsyncTaskResponse CancelAsyncTaskResponse
+     * @param request - CancelAsyncTaskRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CancelAsyncTaskResponse
+     *
+     * @param CancelAsyncTaskRequest $request
+     * @param RuntimeOptions         $runtime
+     *
+     * @return CancelAsyncTaskResponse
      */
     public function cancelAsyncTaskWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->agentKey)) {
-            $query['AgentKey'] = $request->agentKey;
+        if (null !== $request->agentKey) {
+            @$query['AgentKey'] = $request->agentKey;
         }
+
         $body = [];
-        if (!Utils::isUnset($request->taskId)) {
-            $body['TaskId'] = $request->taskId;
+        if (null !== $request->taskId) {
+            @$body['TaskId'] = $request->taskId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'CancelAsyncTask',
@@ -456,7 +476,7 @@ class AiMiaoBi extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return CancelAsyncTaskResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -464,11 +484,15 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * @summary 取消异步任务
-     *  *
-     * @param CancelAsyncTaskRequest $request CancelAsyncTaskRequest
+     * 取消异步任务
      *
-     * @return CancelAsyncTaskResponse CancelAsyncTaskResponse
+     * @param request - CancelAsyncTaskRequest
+     *
+     * @returns CancelAsyncTaskResponse
+     *
+     * @param CancelAsyncTaskRequest $request
+     *
+     * @return CancelAsyncTaskResponse
      */
     public function cancelAsyncTask($request)
     {
@@ -478,22 +502,28 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * @summary 清除所有干预内容
-     *  *
-     * @param ClearIntervenesRequest $request ClearIntervenesRequest
-     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
+     * 清除所有干预内容.
      *
-     * @return ClearIntervenesResponse ClearIntervenesResponse
+     * @param request - ClearIntervenesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ClearIntervenesResponse
+     *
+     * @param ClearIntervenesRequest $request
+     * @param RuntimeOptions         $runtime
+     *
+     * @return ClearIntervenesResponse
      */
     public function clearIntervenesWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->agentKey)) {
-            $query['AgentKey'] = $request->agentKey;
+        if (null !== $request->agentKey) {
+            @$query['AgentKey'] = $request->agentKey;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'ClearIntervenes',
@@ -506,7 +536,7 @@ class AiMiaoBi extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return ClearIntervenesResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -514,11 +544,15 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * @summary 清除所有干预内容
-     *  *
-     * @param ClearIntervenesRequest $request ClearIntervenesRequest
+     * 清除所有干预内容.
      *
-     * @return ClearIntervenesResponse ClearIntervenesResponse
+     * @param request - ClearIntervenesRequest
+     *
+     * @returns ClearIntervenesResponse
+     *
+     * @param ClearIntervenesRequest $request
+     *
+     * @return ClearIntervenesResponse
      */
     public function clearIntervenes($request)
     {
@@ -528,48 +562,62 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * @summary 数据集管理-创建
-     *  *
-     * @param CreateDatasetRequest $tmpReq  CreateDatasetRequest
-     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
+     * 数据集管理-创建.
      *
-     * @return CreateDatasetResponse CreateDatasetResponse
+     * @param tmpReq - CreateDatasetRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateDatasetResponse
+     *
+     * @param CreateDatasetRequest $tmpReq
+     * @param RuntimeOptions       $runtime
+     *
+     * @return CreateDatasetResponse
      */
     public function createDatasetWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new CreateDatasetShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->datasetConfig)) {
-            $request->datasetConfigShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->datasetConfig, 'DatasetConfig', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->datasetConfig) {
+            $request->datasetConfigShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->datasetConfig, 'DatasetConfig', 'json');
         }
-        if (!Utils::isUnset($tmpReq->documentHandleConfig)) {
-            $request->documentHandleConfigShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->documentHandleConfig, 'DocumentHandleConfig', 'json');
+
+        if (null !== $tmpReq->documentHandleConfig) {
+            $request->documentHandleConfigShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->documentHandleConfig, 'DocumentHandleConfig', 'json');
         }
+
         $body = [];
-        if (!Utils::isUnset($request->datasetConfigShrink)) {
-            $body['DatasetConfig'] = $request->datasetConfigShrink;
+        if (null !== $request->datasetConfigShrink) {
+            @$body['DatasetConfig'] = $request->datasetConfigShrink;
         }
-        if (!Utils::isUnset($request->datasetDescription)) {
-            $body['DatasetDescription'] = $request->datasetDescription;
+
+        if (null !== $request->datasetDescription) {
+            @$body['DatasetDescription'] = $request->datasetDescription;
         }
-        if (!Utils::isUnset($request->datasetName)) {
-            $body['DatasetName'] = $request->datasetName;
+
+        if (null !== $request->datasetName) {
+            @$body['DatasetName'] = $request->datasetName;
         }
-        if (!Utils::isUnset($request->datasetType)) {
-            $body['DatasetType'] = $request->datasetType;
+
+        if (null !== $request->datasetType) {
+            @$body['DatasetType'] = $request->datasetType;
         }
-        if (!Utils::isUnset($request->documentHandleConfigShrink)) {
-            $body['DocumentHandleConfig'] = $request->documentHandleConfigShrink;
+
+        if (null !== $request->documentHandleConfigShrink) {
+            @$body['DocumentHandleConfig'] = $request->documentHandleConfigShrink;
         }
-        if (!Utils::isUnset($request->searchDatasetEnable)) {
-            $body['SearchDatasetEnable'] = $request->searchDatasetEnable;
+
+        if (null !== $request->searchDatasetEnable) {
+            @$body['SearchDatasetEnable'] = $request->searchDatasetEnable;
         }
-        if (!Utils::isUnset($request->workspaceId)) {
-            $body['WorkspaceId'] = $request->workspaceId;
+
+        if (null !== $request->workspaceId) {
+            @$body['WorkspaceId'] = $request->workspaceId;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'CreateDataset',
@@ -582,7 +630,7 @@ class AiMiaoBi extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return CreateDatasetResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -590,11 +638,15 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * @summary 数据集管理-创建
-     *  *
-     * @param CreateDatasetRequest $request CreateDatasetRequest
+     * 数据集管理-创建.
      *
-     * @return CreateDatasetResponse CreateDatasetResponse
+     * @param request - CreateDatasetRequest
+     *
+     * @returns CreateDatasetResponse
+     *
+     * @param CreateDatasetRequest $request
+     *
+     * @return CreateDatasetResponse
      */
     public function createDataset($request)
     {
@@ -604,53 +656,68 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * @summary 文档管理-创建
-     *  *
-     * @param CreateGeneratedContentRequest $tmpReq  CreateGeneratedContentRequest
-     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
+     * 文档管理-创建.
      *
-     * @return CreateGeneratedContentResponse CreateGeneratedContentResponse
+     * @param tmpReq - CreateGeneratedContentRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateGeneratedContentResponse
+     *
+     * @param CreateGeneratedContentRequest $tmpReq
+     * @param RuntimeOptions                $runtime
+     *
+     * @return CreateGeneratedContentResponse
      */
     public function createGeneratedContentWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new CreateGeneratedContentShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->keywords)) {
-            $request->keywordsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->keywords, 'Keywords', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->keywords) {
+            $request->keywordsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->keywords, 'Keywords', 'json');
         }
+
         $query = [];
-        if (!Utils::isUnset($request->agentKey)) {
-            $query['AgentKey'] = $request->agentKey;
+        if (null !== $request->agentKey) {
+            @$query['AgentKey'] = $request->agentKey;
         }
+
         $body = [];
-        if (!Utils::isUnset($request->content)) {
-            $body['Content'] = $request->content;
+        if (null !== $request->content) {
+            @$body['Content'] = $request->content;
         }
-        if (!Utils::isUnset($request->contentDomain)) {
-            $body['ContentDomain'] = $request->contentDomain;
+
+        if (null !== $request->contentDomain) {
+            @$body['ContentDomain'] = $request->contentDomain;
         }
-        if (!Utils::isUnset($request->contentText)) {
-            $body['ContentText'] = $request->contentText;
+
+        if (null !== $request->contentText) {
+            @$body['ContentText'] = $request->contentText;
         }
-        if (!Utils::isUnset($request->keywordsShrink)) {
-            $body['Keywords'] = $request->keywordsShrink;
+
+        if (null !== $request->keywordsShrink) {
+            @$body['Keywords'] = $request->keywordsShrink;
         }
-        if (!Utils::isUnset($request->prompt)) {
-            $body['Prompt'] = $request->prompt;
+
+        if (null !== $request->prompt) {
+            @$body['Prompt'] = $request->prompt;
         }
-        if (!Utils::isUnset($request->taskId)) {
-            $body['TaskId'] = $request->taskId;
+
+        if (null !== $request->taskId) {
+            @$body['TaskId'] = $request->taskId;
         }
-        if (!Utils::isUnset($request->title)) {
-            $body['Title'] = $request->title;
+
+        if (null !== $request->title) {
+            @$body['Title'] = $request->title;
         }
-        if (!Utils::isUnset($request->uuid)) {
-            $body['Uuid'] = $request->uuid;
+
+        if (null !== $request->uuid) {
+            @$body['Uuid'] = $request->uuid;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'CreateGeneratedContent',
@@ -663,7 +730,7 @@ class AiMiaoBi extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return CreateGeneratedContentResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -671,11 +738,15 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * @summary 文档管理-创建
-     *  *
-     * @param CreateGeneratedContentRequest $request CreateGeneratedContentRequest
+     * 文档管理-创建.
      *
-     * @return CreateGeneratedContentResponse CreateGeneratedContentResponse
+     * @param request - CreateGeneratedContentRequest
+     *
+     * @returns CreateGeneratedContentResponse
+     *
+     * @param CreateGeneratedContentRequest $request
+     *
+     * @return CreateGeneratedContentResponse
      */
     public function createGeneratedContent($request)
     {
@@ -685,22 +756,28 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * @summary 获取授权token
-     *  *
-     * @param CreateTokenRequest $request CreateTokenRequest
-     * @param RuntimeOptions     $runtime runtime options for this request RuntimeOptions
+     * 获取授权token.
      *
-     * @return CreateTokenResponse CreateTokenResponse
+     * @param request - CreateTokenRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateTokenResponse
+     *
+     * @param CreateTokenRequest $request
+     * @param RuntimeOptions     $runtime
+     *
+     * @return CreateTokenResponse
      */
     public function createTokenWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->agentKey)) {
-            $query['AgentKey'] = $request->agentKey;
+        if (null !== $request->agentKey) {
+            @$query['AgentKey'] = $request->agentKey;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'CreateToken',
@@ -713,7 +790,7 @@ class AiMiaoBi extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return CreateTokenResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -721,11 +798,15 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * @summary 获取授权token
-     *  *
-     * @param CreateTokenRequest $request CreateTokenRequest
+     * 获取授权token.
      *
-     * @return CreateTokenResponse CreateTokenResponse
+     * @param request - CreateTokenRequest
+     *
+     * @returns CreateTokenResponse
+     *
+     * @param CreateTokenRequest $request
+     *
+     * @return CreateTokenResponse
      */
     public function createToken($request)
     {
@@ -735,30 +816,38 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * @summary 删除自定义文本
-     *  *
-     * @param DeleteCustomTextRequest $request DeleteCustomTextRequest
-     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
+     * 删除自定义文本.
      *
-     * @return DeleteCustomTextResponse DeleteCustomTextResponse
+     * @param request - DeleteCustomTextRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteCustomTextResponse
+     *
+     * @param DeleteCustomTextRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return DeleteCustomTextResponse
      */
     public function deleteCustomTextWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->agentKey)) {
-            $query['AgentKey'] = $request->agentKey;
+        if (null !== $request->agentKey) {
+            @$query['AgentKey'] = $request->agentKey;
         }
+
         $body = [];
-        if (!Utils::isUnset($request->commodityCode)) {
-            $body['CommodityCode'] = $request->commodityCode;
+        if (null !== $request->commodityCode) {
+            @$body['CommodityCode'] = $request->commodityCode;
         }
-        if (!Utils::isUnset($request->id)) {
-            $body['Id'] = $request->id;
+
+        if (null !== $request->id) {
+            @$body['Id'] = $request->id;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'DeleteCustomText',
@@ -771,7 +860,7 @@ class AiMiaoBi extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DeleteCustomTextResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -779,11 +868,15 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * @summary 删除自定义文本
-     *  *
-     * @param DeleteCustomTextRequest $request DeleteCustomTextRequest
+     * 删除自定义文本.
      *
-     * @return DeleteCustomTextResponse DeleteCustomTextResponse
+     * @param request - DeleteCustomTextRequest
+     *
+     * @returns DeleteCustomTextResponse
+     *
+     * @param DeleteCustomTextRequest $request
+     *
+     * @return DeleteCustomTextResponse
      */
     public function deleteCustomText($request)
     {
@@ -793,27 +886,34 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * @summary 根据主题删除自定义主题事件
-     *  *
-     * @param DeleteCustomTopicByTopicRequest $request DeleteCustomTopicByTopicRequest
-     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
+     * 根据主题删除自定义主题事件.
      *
-     * @return DeleteCustomTopicByTopicResponse DeleteCustomTopicByTopicResponse
+     * @param request - DeleteCustomTopicByTopicRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteCustomTopicByTopicResponse
+     *
+     * @param DeleteCustomTopicByTopicRequest $request
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return DeleteCustomTopicByTopicResponse
      */
     public function deleteCustomTopicByTopicWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->agentKey)) {
-            $query['AgentKey'] = $request->agentKey;
+        if (null !== $request->agentKey) {
+            @$query['AgentKey'] = $request->agentKey;
         }
+
         $body = [];
-        if (!Utils::isUnset($request->topic)) {
-            $body['Topic'] = $request->topic;
+        if (null !== $request->topic) {
+            @$body['Topic'] = $request->topic;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'DeleteCustomTopicByTopic',
@@ -826,7 +926,7 @@ class AiMiaoBi extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DeleteCustomTopicByTopicResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -834,11 +934,15 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * @summary 根据主题删除自定义主题事件
-     *  *
-     * @param DeleteCustomTopicByTopicRequest $request DeleteCustomTopicByTopicRequest
+     * 根据主题删除自定义主题事件.
      *
-     * @return DeleteCustomTopicByTopicResponse DeleteCustomTopicByTopicResponse
+     * @param request - DeleteCustomTopicByTopicRequest
+     *
+     * @returns DeleteCustomTopicByTopicResponse
+     *
+     * @param DeleteCustomTopicByTopicRequest $request
+     *
+     * @return DeleteCustomTopicByTopicResponse
      */
     public function deleteCustomTopicByTopic($request)
     {
@@ -848,27 +952,34 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * @summary 根据自定义观点ID删除自定义观点
-     *  *
-     * @param DeleteCustomTopicViewPointByIdRequest $request DeleteCustomTopicViewPointByIdRequest
-     * @param RuntimeOptions                        $runtime runtime options for this request RuntimeOptions
+     * 根据自定义观点ID删除自定义观点.
      *
-     * @return DeleteCustomTopicViewPointByIdResponse DeleteCustomTopicViewPointByIdResponse
+     * @param request - DeleteCustomTopicViewPointByIdRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteCustomTopicViewPointByIdResponse
+     *
+     * @param DeleteCustomTopicViewPointByIdRequest $request
+     * @param RuntimeOptions                        $runtime
+     *
+     * @return DeleteCustomTopicViewPointByIdResponse
      */
     public function deleteCustomTopicViewPointByIdWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->agentKey)) {
-            $query['AgentKey'] = $request->agentKey;
+        if (null !== $request->agentKey) {
+            @$query['AgentKey'] = $request->agentKey;
         }
+
         $body = [];
-        if (!Utils::isUnset($request->customViewPointId)) {
-            $body['CustomViewPointId'] = $request->customViewPointId;
+        if (null !== $request->customViewPointId) {
+            @$body['CustomViewPointId'] = $request->customViewPointId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'DeleteCustomTopicViewPointById',
@@ -881,7 +992,7 @@ class AiMiaoBi extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DeleteCustomTopicViewPointByIdResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -889,11 +1000,15 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * @summary 根据自定义观点ID删除自定义观点
-     *  *
-     * @param DeleteCustomTopicViewPointByIdRequest $request DeleteCustomTopicViewPointByIdRequest
+     * 根据自定义观点ID删除自定义观点.
      *
-     * @return DeleteCustomTopicViewPointByIdResponse DeleteCustomTopicViewPointByIdResponse
+     * @param request - DeleteCustomTopicViewPointByIdRequest
+     *
+     * @returns DeleteCustomTopicViewPointByIdResponse
+     *
+     * @param DeleteCustomTopicViewPointByIdRequest $request
+     *
+     * @return DeleteCustomTopicViewPointByIdResponse
      */
     public function deleteCustomTopicViewPointById($request)
     {
@@ -903,25 +1018,32 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * @summary 数据集管理-删除
-     *  *
-     * @param DeleteDatasetRequest $request DeleteDatasetRequest
-     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
+     * 数据集管理-删除.
      *
-     * @return DeleteDatasetResponse DeleteDatasetResponse
+     * @param request - DeleteDatasetRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteDatasetResponse
+     *
+     * @param DeleteDatasetRequest $request
+     * @param RuntimeOptions       $runtime
+     *
+     * @return DeleteDatasetResponse
      */
     public function deleteDatasetWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->datasetId)) {
-            $body['DatasetId'] = $request->datasetId;
+        if (null !== $request->datasetId) {
+            @$body['DatasetId'] = $request->datasetId;
         }
-        if (!Utils::isUnset($request->workspaceId)) {
-            $body['WorkspaceId'] = $request->workspaceId;
+
+        if (null !== $request->workspaceId) {
+            @$body['WorkspaceId'] = $request->workspaceId;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'DeleteDataset',
@@ -934,7 +1056,7 @@ class AiMiaoBi extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DeleteDatasetResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -942,11 +1064,15 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * @summary 数据集管理-删除
-     *  *
-     * @param DeleteDatasetRequest $request DeleteDatasetRequest
+     * 数据集管理-删除.
      *
-     * @return DeleteDatasetResponse DeleteDatasetResponse
+     * @param request - DeleteDatasetRequest
+     *
+     * @returns DeleteDatasetResponse
+     *
+     * @param DeleteDatasetRequest $request
+     *
+     * @return DeleteDatasetResponse
      */
     public function deleteDataset($request)
     {
@@ -956,34 +1082,44 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * @summary 删除数据集文档
-     *  *
-     * @param DeleteDatasetDocumentRequest $request DeleteDatasetDocumentRequest
-     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
+     * 删除数据集文档.
      *
-     * @return DeleteDatasetDocumentResponse DeleteDatasetDocumentResponse
+     * @param request - DeleteDatasetDocumentRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteDatasetDocumentResponse
+     *
+     * @param DeleteDatasetDocumentRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return DeleteDatasetDocumentResponse
      */
     public function deleteDatasetDocumentWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->datasetId)) {
-            $body['DatasetId'] = $request->datasetId;
+        if (null !== $request->datasetId) {
+            @$body['DatasetId'] = $request->datasetId;
         }
-        if (!Utils::isUnset($request->datasetName)) {
-            $body['DatasetName'] = $request->datasetName;
+
+        if (null !== $request->datasetName) {
+            @$body['DatasetName'] = $request->datasetName;
         }
-        if (!Utils::isUnset($request->docId)) {
-            $body['DocId'] = $request->docId;
+
+        if (null !== $request->docId) {
+            @$body['DocId'] = $request->docId;
         }
-        if (!Utils::isUnset($request->docUuid)) {
-            $body['DocUuid'] = $request->docUuid;
+
+        if (null !== $request->docUuid) {
+            @$body['DocUuid'] = $request->docUuid;
         }
-        if (!Utils::isUnset($request->workspaceId)) {
-            $body['WorkspaceId'] = $request->workspaceId;
+
+        if (null !== $request->workspaceId) {
+            @$body['WorkspaceId'] = $request->workspaceId;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'DeleteDatasetDocument',
@@ -996,7 +1132,7 @@ class AiMiaoBi extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DeleteDatasetDocumentResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -1004,11 +1140,15 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * @summary 删除数据集文档
-     *  *
-     * @param DeleteDatasetDocumentRequest $request DeleteDatasetDocumentRequest
+     * 删除数据集文档.
      *
-     * @return DeleteDatasetDocumentResponse DeleteDatasetDocumentResponse
+     * @param request - DeleteDatasetDocumentRequest
+     *
+     * @returns DeleteDatasetDocumentResponse
+     *
+     * @param DeleteDatasetDocumentRequest $request
+     *
+     * @return DeleteDatasetDocumentResponse
      */
     public function deleteDatasetDocument($request)
     {
@@ -1018,30 +1158,38 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * @summary 妙读删除多个文档
-     *  *
-     * @param DeleteDocsRequest $tmpReq  DeleteDocsRequest
-     * @param RuntimeOptions    $runtime runtime options for this request RuntimeOptions
+     * 妙读删除多个文档.
      *
-     * @return DeleteDocsResponse DeleteDocsResponse
+     * @param tmpReq - DeleteDocsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteDocsResponse
+     *
+     * @param DeleteDocsRequest $tmpReq
+     * @param RuntimeOptions    $runtime
+     *
+     * @return DeleteDocsResponse
      */
     public function deleteDocsWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new DeleteDocsShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->docIds)) {
-            $request->docIdsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->docIds, 'DocIds', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->docIds) {
+            $request->docIdsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->docIds, 'DocIds', 'json');
         }
+
         $body = [];
-        if (!Utils::isUnset($request->docIdsShrink)) {
-            $body['DocIds'] = $request->docIdsShrink;
+        if (null !== $request->docIdsShrink) {
+            @$body['DocIds'] = $request->docIdsShrink;
         }
-        if (!Utils::isUnset($request->workspaceId)) {
-            $body['WorkspaceId'] = $request->workspaceId;
+
+        if (null !== $request->workspaceId) {
+            @$body['WorkspaceId'] = $request->workspaceId;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'DeleteDocs',
@@ -1054,7 +1202,7 @@ class AiMiaoBi extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DeleteDocsResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -1062,11 +1210,15 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * @summary 妙读删除多个文档
-     *  *
-     * @param DeleteDocsRequest $request DeleteDocsRequest
+     * 妙读删除多个文档.
      *
-     * @return DeleteDocsResponse DeleteDocsResponse
+     * @param request - DeleteDocsRequest
+     *
+     * @returns DeleteDocsResponse
+     *
+     * @param DeleteDocsRequest $request
+     *
+     * @return DeleteDocsResponse
      */
     public function deleteDocs($request)
     {
@@ -1076,30 +1228,38 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * @summary 文档管理-删除。
-     *  *
-     * @param DeleteGeneratedContentRequest $request DeleteGeneratedContentRequest
-     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
+     * 文档管理-删除。
      *
-     * @return DeleteGeneratedContentResponse DeleteGeneratedContentResponse
+     * @param request - DeleteGeneratedContentRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteGeneratedContentResponse
+     *
+     * @param DeleteGeneratedContentRequest $request
+     * @param RuntimeOptions                $runtime
+     *
+     * @return DeleteGeneratedContentResponse
      */
     public function deleteGeneratedContentWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->agentKey)) {
-            $query['AgentKey'] = $request->agentKey;
+        if (null !== $request->agentKey) {
+            @$query['AgentKey'] = $request->agentKey;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
+
         $body = [];
-        if (!Utils::isUnset($request->id)) {
-            $body['Id'] = $request->id;
+        if (null !== $request->id) {
+            @$body['Id'] = $request->id;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'DeleteGeneratedContent',
@@ -1112,7 +1272,7 @@ class AiMiaoBi extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DeleteGeneratedContentResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -1120,11 +1280,15 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * @summary 文档管理-删除。
-     *  *
-     * @param DeleteGeneratedContentRequest $request DeleteGeneratedContentRequest
+     * 文档管理-删除。
      *
-     * @return DeleteGeneratedContentResponse DeleteGeneratedContentResponse
+     * @param request - DeleteGeneratedContentRequest
+     *
+     * @returns DeleteGeneratedContentResponse
+     *
+     * @param DeleteGeneratedContentRequest $request
+     *
+     * @return DeleteGeneratedContentResponse
      */
     public function deleteGeneratedContent($request)
     {
@@ -1134,27 +1298,34 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * @summary 删除干预规则
-     *  *
-     * @param DeleteInterveneRuleRequest $request DeleteInterveneRuleRequest
-     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
+     * 删除干预规则.
      *
-     * @return DeleteInterveneRuleResponse DeleteInterveneRuleResponse
+     * @param request - DeleteInterveneRuleRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteInterveneRuleResponse
+     *
+     * @param DeleteInterveneRuleRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return DeleteInterveneRuleResponse
      */
     public function deleteInterveneRuleWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->agentKey)) {
-            $query['AgentKey'] = $request->agentKey;
+        if (null !== $request->agentKey) {
+            @$query['AgentKey'] = $request->agentKey;
         }
+
         $body = [];
-        if (!Utils::isUnset($request->ruleId)) {
-            $body['RuleId'] = $request->ruleId;
+        if (null !== $request->ruleId) {
+            @$body['RuleId'] = $request->ruleId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'DeleteInterveneRule',
@@ -1167,7 +1338,7 @@ class AiMiaoBi extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DeleteInterveneRuleResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -1175,11 +1346,15 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * @summary 删除干预规则
-     *  *
-     * @param DeleteInterveneRuleRequest $request DeleteInterveneRuleRequest
+     * 删除干预规则.
      *
-     * @return DeleteInterveneRuleResponse DeleteInterveneRuleResponse
+     * @param request - DeleteInterveneRuleRequest
+     *
+     * @returns DeleteInterveneRuleResponse
+     *
+     * @param DeleteInterveneRuleRequest $request
+     *
+     * @return DeleteInterveneRuleResponse
      */
     public function deleteInterveneRule($request)
     {
@@ -1189,27 +1364,34 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * @summary 根据ID删除素材
-     *  *
-     * @param DeleteMaterialByIdRequest $request DeleteMaterialByIdRequest
-     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
+     * 根据ID删除素材.
      *
-     * @return DeleteMaterialByIdResponse DeleteMaterialByIdResponse
+     * @param request - DeleteMaterialByIdRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteMaterialByIdResponse
+     *
+     * @param DeleteMaterialByIdRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return DeleteMaterialByIdResponse
      */
     public function deleteMaterialByIdWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->agentKey)) {
-            $query['AgentKey'] = $request->agentKey;
+        if (null !== $request->agentKey) {
+            @$query['AgentKey'] = $request->agentKey;
         }
+
         $body = [];
-        if (!Utils::isUnset($request->id)) {
-            $body['Id'] = $request->id;
+        if (null !== $request->id) {
+            @$body['Id'] = $request->id;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'DeleteMaterialById',
@@ -1222,7 +1404,7 @@ class AiMiaoBi extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DeleteMaterialByIdResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -1230,11 +1412,15 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * @summary 根据ID删除素材
-     *  *
-     * @param DeleteMaterialByIdRequest $request DeleteMaterialByIdRequest
+     * 根据ID删除素材.
      *
-     * @return DeleteMaterialByIdResponse DeleteMaterialByIdResponse
+     * @param request - DeleteMaterialByIdRequest
+     *
+     * @returns DeleteMaterialByIdResponse
+     *
+     * @param DeleteMaterialByIdRequest $request
+     *
+     * @return DeleteMaterialByIdResponse
      */
     public function deleteMaterialById($request)
     {
@@ -1244,32 +1430,40 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * @summary 从链接中提取文档内容
-     *  *
-     * @param DocumentExtractionRequest $tmpReq  DocumentExtractionRequest
-     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
+     * 从链接中提取文档内容.
      *
-     * @return DocumentExtractionResponse DocumentExtractionResponse
+     * @param tmpReq - DocumentExtractionRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DocumentExtractionResponse
+     *
+     * @param DocumentExtractionRequest $tmpReq
+     * @param RuntimeOptions            $runtime
+     *
+     * @return DocumentExtractionResponse
      */
     public function documentExtractionWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new DocumentExtractionShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->urls)) {
-            $request->urlsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->urls, 'Urls', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->urls) {
+            $request->urlsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->urls, 'Urls', 'json');
         }
+
         $query = [];
-        if (!Utils::isUnset($request->agentKey)) {
-            $query['AgentKey'] = $request->agentKey;
+        if (null !== $request->agentKey) {
+            @$query['AgentKey'] = $request->agentKey;
         }
+
         $body = [];
-        if (!Utils::isUnset($request->urlsShrink)) {
-            $body['Urls'] = $request->urlsShrink;
+        if (null !== $request->urlsShrink) {
+            @$body['Urls'] = $request->urlsShrink;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'DocumentExtraction',
@@ -1282,7 +1476,7 @@ class AiMiaoBi extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DocumentExtractionResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -1290,11 +1484,15 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * @summary 从链接中提取文档内容
-     *  *
-     * @param DocumentExtractionRequest $request DocumentExtractionRequest
+     * 从链接中提取文档内容.
      *
-     * @return DocumentExtractionResponse DocumentExtractionResponse
+     * @param request - DocumentExtractionRequest
+     *
+     * @returns DocumentExtractionResponse
+     *
+     * @param DocumentExtractionRequest $request
+     *
+     * @return DocumentExtractionResponse
      */
     public function documentExtraction($request)
     {
@@ -1304,33 +1502,42 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * @summary 导出企业VOC分析任务明细列表
-     *  *
-     * @param ExportAnalysisTagDetailByTaskIdRequest $tmpReq  ExportAnalysisTagDetailByTaskIdRequest
-     * @param RuntimeOptions                         $runtime runtime options for this request RuntimeOptions
+     * 导出企业VOC分析任务明细列表.
      *
-     * @return ExportAnalysisTagDetailByTaskIdResponse ExportAnalysisTagDetailByTaskIdResponse
+     * @param tmpReq - ExportAnalysisTagDetailByTaskIdRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ExportAnalysisTagDetailByTaskIdResponse
+     *
+     * @param ExportAnalysisTagDetailByTaskIdRequest $tmpReq
+     * @param RuntimeOptions                         $runtime
+     *
+     * @return ExportAnalysisTagDetailByTaskIdResponse
      */
     public function exportAnalysisTagDetailByTaskIdWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new ExportAnalysisTagDetailByTaskIdShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->categories)) {
-            $request->categoriesShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->categories, 'Categories', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->categories) {
+            $request->categoriesShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->categories, 'Categories', 'json');
         }
+
         $body = [];
-        if (!Utils::isUnset($request->categoriesShrink)) {
-            $body['Categories'] = $request->categoriesShrink;
+        if (null !== $request->categoriesShrink) {
+            @$body['Categories'] = $request->categoriesShrink;
         }
-        if (!Utils::isUnset($request->taskId)) {
-            $body['TaskId'] = $request->taskId;
+
+        if (null !== $request->taskId) {
+            @$body['TaskId'] = $request->taskId;
         }
-        if (!Utils::isUnset($request->workspaceId)) {
-            $body['WorkspaceId'] = $request->workspaceId;
+
+        if (null !== $request->workspaceId) {
+            @$body['WorkspaceId'] = $request->workspaceId;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'ExportAnalysisTagDetailByTaskId',
@@ -1343,7 +1550,7 @@ class AiMiaoBi extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return ExportAnalysisTagDetailByTaskIdResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -1351,11 +1558,15 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * @summary 导出企业VOC分析任务明细列表
-     *  *
-     * @param ExportAnalysisTagDetailByTaskIdRequest $request ExportAnalysisTagDetailByTaskIdRequest
+     * 导出企业VOC分析任务明细列表.
      *
-     * @return ExportAnalysisTagDetailByTaskIdResponse ExportAnalysisTagDetailByTaskIdResponse
+     * @param request - ExportAnalysisTagDetailByTaskIdRequest
+     *
+     * @returns ExportAnalysisTagDetailByTaskIdResponse
+     *
+     * @param ExportAnalysisTagDetailByTaskIdRequest $request
+     *
+     * @return ExportAnalysisTagDetailByTaskIdResponse
      */
     public function exportAnalysisTagDetailByTaskId($request)
     {
@@ -1365,27 +1576,34 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * @summary 文档管理-导出。
-     *  *
-     * @param ExportGeneratedContentRequest $request ExportGeneratedContentRequest
-     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
+     * 文档管理-导出。
      *
-     * @return ExportGeneratedContentResponse ExportGeneratedContentResponse
+     * @param request - ExportGeneratedContentRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ExportGeneratedContentResponse
+     *
+     * @param ExportGeneratedContentRequest $request
+     * @param RuntimeOptions                $runtime
+     *
+     * @return ExportGeneratedContentResponse
      */
     public function exportGeneratedContentWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->agentKey)) {
-            $query['AgentKey'] = $request->agentKey;
+        if (null !== $request->agentKey) {
+            @$query['AgentKey'] = $request->agentKey;
         }
+
         $body = [];
-        if (!Utils::isUnset($request->id)) {
-            $body['Id'] = $request->id;
+        if (null !== $request->id) {
+            @$body['Id'] = $request->id;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'ExportGeneratedContent',
@@ -1398,7 +1616,7 @@ class AiMiaoBi extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return ExportGeneratedContentResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -1406,11 +1624,15 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * @summary 文档管理-导出。
-     *  *
-     * @param ExportGeneratedContentRequest $request ExportGeneratedContentRequest
+     * 文档管理-导出。
      *
-     * @return ExportGeneratedContentResponse ExportGeneratedContentResponse
+     * @param request - ExportGeneratedContentRequest
+     *
+     * @returns ExportGeneratedContentResponse
+     *
+     * @param ExportGeneratedContentRequest $request
+     *
+     * @return ExportGeneratedContentResponse
      */
     public function exportGeneratedContent($request)
     {
@@ -1420,50 +1642,64 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * @summary 导出选题策划文档，响应为一个可公开访问的URL。一小时后失效
-     *  *
-     * @param ExportHotTopicPlanningProposalsRequest $tmpReq  ExportHotTopicPlanningProposalsRequest
-     * @param RuntimeOptions                         $runtime runtime options for this request RuntimeOptions
+     * 导出选题策划文档，响应为一个可公开访问的URL。一小时后失效.
      *
-     * @return ExportHotTopicPlanningProposalsResponse ExportHotTopicPlanningProposalsResponse
+     * @param tmpReq - ExportHotTopicPlanningProposalsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ExportHotTopicPlanningProposalsResponse
+     *
+     * @param ExportHotTopicPlanningProposalsRequest $tmpReq
+     * @param RuntimeOptions                         $runtime
+     *
+     * @return ExportHotTopicPlanningProposalsResponse
      */
     public function exportHotTopicPlanningProposalsWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new ExportHotTopicPlanningProposalsShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->customViewPointIds)) {
-            $request->customViewPointIdsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->customViewPointIds, 'CustomViewPointIds', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->customViewPointIds) {
+            $request->customViewPointIdsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->customViewPointIds, 'CustomViewPointIds', 'json');
         }
-        if (!Utils::isUnset($tmpReq->titles)) {
-            $request->titlesShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->titles, 'Titles', 'json');
+
+        if (null !== $tmpReq->titles) {
+            $request->titlesShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->titles, 'Titles', 'json');
         }
+
         $query = [];
-        if (!Utils::isUnset($request->agentKey)) {
-            $query['AgentKey'] = $request->agentKey;
+        if (null !== $request->agentKey) {
+            @$query['AgentKey'] = $request->agentKey;
         }
+
         $body = [];
-        if (!Utils::isUnset($request->customViewPointIdsShrink)) {
-            $body['CustomViewPointIds'] = $request->customViewPointIdsShrink;
+        if (null !== $request->customViewPointIdsShrink) {
+            @$body['CustomViewPointIds'] = $request->customViewPointIdsShrink;
         }
-        if (!Utils::isUnset($request->exportType)) {
-            $body['ExportType'] = $request->exportType;
+
+        if (null !== $request->exportType) {
+            @$body['ExportType'] = $request->exportType;
         }
-        if (!Utils::isUnset($request->titlesShrink)) {
-            $body['Titles'] = $request->titlesShrink;
+
+        if (null !== $request->titlesShrink) {
+            @$body['Titles'] = $request->titlesShrink;
         }
-        if (!Utils::isUnset($request->topic)) {
-            $body['Topic'] = $request->topic;
+
+        if (null !== $request->topic) {
+            @$body['Topic'] = $request->topic;
         }
-        if (!Utils::isUnset($request->topicSource)) {
-            $body['TopicSource'] = $request->topicSource;
+
+        if (null !== $request->topicSource) {
+            @$body['TopicSource'] = $request->topicSource;
         }
-        if (!Utils::isUnset($request->viewPointType)) {
-            $body['ViewPointType'] = $request->viewPointType;
+
+        if (null !== $request->viewPointType) {
+            @$body['ViewPointType'] = $request->viewPointType;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'ExportHotTopicPlanningProposals',
@@ -1476,7 +1712,7 @@ class AiMiaoBi extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return ExportHotTopicPlanningProposalsResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -1484,11 +1720,15 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * @summary 导出选题策划文档，响应为一个可公开访问的URL。一小时后失效
-     *  *
-     * @param ExportHotTopicPlanningProposalsRequest $request ExportHotTopicPlanningProposalsRequest
+     * 导出选题策划文档，响应为一个可公开访问的URL。一小时后失效.
      *
-     * @return ExportHotTopicPlanningProposalsResponse ExportHotTopicPlanningProposalsResponse
+     * @param request - ExportHotTopicPlanningProposalsRequest
+     *
+     * @returns ExportHotTopicPlanningProposalsResponse
+     *
+     * @param ExportHotTopicPlanningProposalsRequest $request
+     *
+     * @return ExportHotTopicPlanningProposalsResponse
      */
     public function exportHotTopicPlanningProposals($request)
     {
@@ -1498,22 +1738,28 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * @summary 导出所有干预内容
-     *  *
-     * @param ExportIntervenesRequest $request ExportIntervenesRequest
-     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
+     * 导出所有干预内容.
      *
-     * @return ExportIntervenesResponse ExportIntervenesResponse
+     * @param request - ExportIntervenesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ExportIntervenesResponse
+     *
+     * @param ExportIntervenesRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return ExportIntervenesResponse
      */
     public function exportIntervenesWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->agentKey)) {
-            $query['AgentKey'] = $request->agentKey;
+        if (null !== $request->agentKey) {
+            @$query['AgentKey'] = $request->agentKey;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'ExportIntervenes',
@@ -1526,7 +1772,7 @@ class AiMiaoBi extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return ExportIntervenesResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -1534,11 +1780,15 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * @summary 导出所有干预内容
-     *  *
-     * @param ExportIntervenesRequest $request ExportIntervenesRequest
+     * 导出所有干预内容.
      *
-     * @return ExportIntervenesResponse ExportIntervenesResponse
+     * @param request - ExportIntervenesRequest
+     *
+     * @returns ExportIntervenesResponse
+     *
+     * @param ExportIntervenesRequest $request
+     *
+     * @return ExportIntervenesResponse
      */
     public function exportIntervenes($request)
     {
@@ -1548,50 +1798,64 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * @summary 反馈某次生成的结果
-     *  *
-     * @param FeedbackDialogueRequest $tmpReq  FeedbackDialogueRequest
-     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
+     * 反馈某次生成的结果.
      *
-     * @return FeedbackDialogueResponse FeedbackDialogueResponse
+     * @param tmpReq - FeedbackDialogueRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns FeedbackDialogueResponse
+     *
+     * @param FeedbackDialogueRequest $tmpReq
+     * @param RuntimeOptions          $runtime
+     *
+     * @return FeedbackDialogueResponse
      */
     public function feedbackDialogueWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new FeedbackDialogueShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->ratingTags)) {
-            $request->ratingTagsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->ratingTags, 'RatingTags', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->ratingTags) {
+            $request->ratingTagsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->ratingTags, 'RatingTags', 'json');
         }
+
         $query = [];
-        if (!Utils::isUnset($request->agentKey)) {
-            $query['AgentKey'] = $request->agentKey;
+        if (null !== $request->agentKey) {
+            @$query['AgentKey'] = $request->agentKey;
         }
+
         $body = [];
-        if (!Utils::isUnset($request->customerResponse)) {
-            $body['CustomerResponse'] = $request->customerResponse;
+        if (null !== $request->customerResponse) {
+            @$body['CustomerResponse'] = $request->customerResponse;
         }
-        if (!Utils::isUnset($request->goodText)) {
-            $body['GoodText'] = $request->goodText;
+
+        if (null !== $request->goodText) {
+            @$body['GoodText'] = $request->goodText;
         }
-        if (!Utils::isUnset($request->modifiedResponse)) {
-            $body['ModifiedResponse'] = $request->modifiedResponse;
+
+        if (null !== $request->modifiedResponse) {
+            @$body['ModifiedResponse'] = $request->modifiedResponse;
         }
-        if (!Utils::isUnset($request->rating)) {
-            $body['Rating'] = $request->rating;
+
+        if (null !== $request->rating) {
+            @$body['Rating'] = $request->rating;
         }
-        if (!Utils::isUnset($request->ratingTagsShrink)) {
-            $body['RatingTags'] = $request->ratingTagsShrink;
+
+        if (null !== $request->ratingTagsShrink) {
+            @$body['RatingTags'] = $request->ratingTagsShrink;
         }
-        if (!Utils::isUnset($request->sessionId)) {
-            $body['SessionId'] = $request->sessionId;
+
+        if (null !== $request->sessionId) {
+            @$body['SessionId'] = $request->sessionId;
         }
-        if (!Utils::isUnset($request->taskId)) {
-            $body['TaskId'] = $request->taskId;
+
+        if (null !== $request->taskId) {
+            @$body['TaskId'] = $request->taskId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'FeedbackDialogue',
@@ -1604,7 +1868,7 @@ class AiMiaoBi extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return FeedbackDialogueResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -1612,11 +1876,15 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * @summary 反馈某次生成的结果
-     *  *
-     * @param FeedbackDialogueRequest $request FeedbackDialogueRequest
+     * 反馈某次生成的结果.
      *
-     * @return FeedbackDialogueResponse FeedbackDialogueResponse
+     * @param request - FeedbackDialogueRequest
+     *
+     * @returns FeedbackDialogueResponse
+     *
+     * @param FeedbackDialogueRequest $request
+     *
+     * @return FeedbackDialogueResponse
      */
     public function feedbackDialogue($request)
     {
@@ -1626,35 +1894,44 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * @summary 获取图片任务执行结果
-     *  *
-     * @param FetchImageTaskRequest $tmpReq  FetchImageTaskRequest
-     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
+     * 获取图片任务执行结果.
      *
-     * @return FetchImageTaskResponse FetchImageTaskResponse
+     * @param tmpReq - FetchImageTaskRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns FetchImageTaskResponse
+     *
+     * @param FetchImageTaskRequest $tmpReq
+     * @param RuntimeOptions        $runtime
+     *
+     * @return FetchImageTaskResponse
      */
     public function fetchImageTaskWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new FetchImageTaskShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->taskIdList)) {
-            $request->taskIdListShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->taskIdList, 'TaskIdList', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->taskIdList) {
+            $request->taskIdListShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->taskIdList, 'TaskIdList', 'json');
         }
+
         $query = [];
-        if (!Utils::isUnset($request->agentKey)) {
-            $query['AgentKey'] = $request->agentKey;
+        if (null !== $request->agentKey) {
+            @$query['AgentKey'] = $request->agentKey;
         }
+
         $body = [];
-        if (!Utils::isUnset($request->articleTaskId)) {
-            $body['ArticleTaskId'] = $request->articleTaskId;
+        if (null !== $request->articleTaskId) {
+            @$body['ArticleTaskId'] = $request->articleTaskId;
         }
-        if (!Utils::isUnset($request->taskIdListShrink)) {
-            $body['TaskIdList'] = $request->taskIdListShrink;
+
+        if (null !== $request->taskIdListShrink) {
+            @$body['TaskIdList'] = $request->taskIdListShrink;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'FetchImageTask',
@@ -1667,7 +1944,7 @@ class AiMiaoBi extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return FetchImageTaskResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -1675,11 +1952,15 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * @summary 获取图片任务执行结果
-     *  *
-     * @param FetchImageTaskRequest $request FetchImageTaskRequest
+     * 获取图片任务执行结果.
      *
-     * @return FetchImageTaskResponse FetchImageTaskResponse
+     * @param request - FetchImageTaskRequest
+     *
+     * @returns FetchImageTaskResponse
+     *
+     * @param FetchImageTaskRequest $request
+     *
+     * @return FetchImageTaskResponse
      */
     public function fetchImageTask($request)
     {
@@ -1689,30 +1970,38 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * @summary 生成临时可访问的公开url
-     *  *
-     * @param GenerateFileUrlByKeyRequest $request GenerateFileUrlByKeyRequest
-     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
+     * 生成临时可访问的公开url.
      *
-     * @return GenerateFileUrlByKeyResponse GenerateFileUrlByKeyResponse
+     * @param request - GenerateFileUrlByKeyRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GenerateFileUrlByKeyResponse
+     *
+     * @param GenerateFileUrlByKeyRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return GenerateFileUrlByKeyResponse
      */
     public function generateFileUrlByKeyWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->agentKey)) {
-            $query['AgentKey'] = $request->agentKey;
+        if (null !== $request->agentKey) {
+            @$query['AgentKey'] = $request->agentKey;
         }
+
         $body = [];
-        if (!Utils::isUnset($request->fileKey)) {
-            $body['FileKey'] = $request->fileKey;
+        if (null !== $request->fileKey) {
+            @$body['FileKey'] = $request->fileKey;
         }
-        if (!Utils::isUnset($request->fileName)) {
-            $body['FileName'] = $request->fileName;
+
+        if (null !== $request->fileName) {
+            @$body['FileName'] = $request->fileName;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'GenerateFileUrlByKey',
@@ -1725,7 +2014,7 @@ class AiMiaoBi extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return GenerateFileUrlByKeyResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -1733,11 +2022,15 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * @summary 生成临时可访问的公开url
-     *  *
-     * @param GenerateFileUrlByKeyRequest $request GenerateFileUrlByKeyRequest
+     * 生成临时可访问的公开url.
      *
-     * @return GenerateFileUrlByKeyResponse GenerateFileUrlByKeyResponse
+     * @param request - GenerateFileUrlByKeyRequest
+     *
+     * @returns GenerateFileUrlByKeyResponse
+     *
+     * @param GenerateFileUrlByKeyRequest $request
+     *
+     * @return GenerateFileUrlByKeyResponse
      */
     public function generateFileUrlByKey($request)
     {
@@ -1747,41 +2040,52 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * @summary 智能配图，图片生成任务
-     *  *
-     * @param GenerateImageTaskRequest $tmpReq  GenerateImageTaskRequest
-     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
+     * 智能配图，图片生成任务
      *
-     * @return GenerateImageTaskResponse GenerateImageTaskResponse
+     * @param tmpReq - GenerateImageTaskRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GenerateImageTaskResponse
+     *
+     * @param GenerateImageTaskRequest $tmpReq
+     * @param RuntimeOptions           $runtime
+     *
+     * @return GenerateImageTaskResponse
      */
     public function generateImageTaskWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new GenerateImageTaskShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->paragraphList)) {
-            $request->paragraphListShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->paragraphList, 'ParagraphList', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->paragraphList) {
+            $request->paragraphListShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->paragraphList, 'ParagraphList', 'json');
         }
+
         $query = [];
-        if (!Utils::isUnset($request->agentKey)) {
-            $query['AgentKey'] = $request->agentKey;
+        if (null !== $request->agentKey) {
+            @$query['AgentKey'] = $request->agentKey;
         }
+
         $body = [];
-        if (!Utils::isUnset($request->articleTaskId)) {
-            $body['ArticleTaskId'] = $request->articleTaskId;
+        if (null !== $request->articleTaskId) {
+            @$body['ArticleTaskId'] = $request->articleTaskId;
         }
-        if (!Utils::isUnset($request->paragraphListShrink)) {
-            $body['ParagraphList'] = $request->paragraphListShrink;
+
+        if (null !== $request->paragraphListShrink) {
+            @$body['ParagraphList'] = $request->paragraphListShrink;
         }
-        if (!Utils::isUnset($request->size)) {
-            $body['Size'] = $request->size;
+
+        if (null !== $request->size) {
+            @$body['Size'] = $request->size;
         }
-        if (!Utils::isUnset($request->style)) {
-            $body['Style'] = $request->style;
+
+        if (null !== $request->style) {
+            @$body['Style'] = $request->style;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'GenerateImageTask',
@@ -1794,7 +2098,7 @@ class AiMiaoBi extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return GenerateImageTaskResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -1802,11 +2106,15 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * @summary 智能配图，图片生成任务
-     *  *
-     * @param GenerateImageTaskRequest $request GenerateImageTaskRequest
+     * 智能配图，图片生成任务
      *
-     * @return GenerateImageTaskResponse GenerateImageTaskResponse
+     * @param request - GenerateImageTaskRequest
+     *
+     * @returns GenerateImageTaskResponse
+     *
+     * @param GenerateImageTaskRequest $request
+     *
+     * @return GenerateImageTaskResponse
      */
     public function generateImageTask($request)
     {
@@ -1816,30 +2124,38 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * @summary 生成上传配置
-     *  *
-     * @param GenerateUploadConfigRequest $request GenerateUploadConfigRequest
-     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
+     * 生成上传配置.
      *
-     * @return GenerateUploadConfigResponse GenerateUploadConfigResponse
+     * @param request - GenerateUploadConfigRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GenerateUploadConfigResponse
+     *
+     * @param GenerateUploadConfigRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return GenerateUploadConfigResponse
      */
     public function generateUploadConfigWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->agentKey)) {
-            $query['AgentKey'] = $request->agentKey;
+        if (null !== $request->agentKey) {
+            @$query['AgentKey'] = $request->agentKey;
         }
+
         $body = [];
-        if (!Utils::isUnset($request->fileName)) {
-            $body['FileName'] = $request->fileName;
+        if (null !== $request->fileName) {
+            @$body['FileName'] = $request->fileName;
         }
-        if (!Utils::isUnset($request->parentDir)) {
-            $body['ParentDir'] = $request->parentDir;
+
+        if (null !== $request->parentDir) {
+            @$body['ParentDir'] = $request->parentDir;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'GenerateUploadConfig',
@@ -1852,7 +2168,7 @@ class AiMiaoBi extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return GenerateUploadConfigResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -1860,11 +2176,15 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * @summary 生成上传配置
-     *  *
-     * @param GenerateUploadConfigRequest $request GenerateUploadConfigRequest
+     * 生成上传配置.
      *
-     * @return GenerateUploadConfigResponse GenerateUploadConfigResponse
+     * @param request - GenerateUploadConfigRequest
+     *
+     * @returns GenerateUploadConfigResponse
+     *
+     * @param GenerateUploadConfigRequest $request
+     *
+     * @return GenerateUploadConfigResponse
      */
     public function generateUploadConfig($request)
     {
@@ -1874,32 +2194,40 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * @summary 视角生成
-     *  *
-     * @param GenerateViewPointRequest $tmpReq  GenerateViewPointRequest
-     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
+     * 视角生成.
      *
-     * @return GenerateViewPointResponse GenerateViewPointResponse
+     * @param tmpReq - GenerateViewPointRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GenerateViewPointResponse
+     *
+     * @param GenerateViewPointRequest $tmpReq
+     * @param RuntimeOptions           $runtime
+     *
+     * @return GenerateViewPointResponse
      */
     public function generateViewPointWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new GenerateViewPointShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->referenceData)) {
-            $request->referenceDataShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->referenceData, 'ReferenceData', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->referenceData) {
+            $request->referenceDataShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->referenceData, 'ReferenceData', 'json');
         }
+
         $query = [];
-        if (!Utils::isUnset($request->agentKey)) {
-            $query['AgentKey'] = $request->agentKey;
+        if (null !== $request->agentKey) {
+            @$query['AgentKey'] = $request->agentKey;
         }
+
         $body = [];
-        if (!Utils::isUnset($request->referenceDataShrink)) {
-            $body['ReferenceData'] = $request->referenceDataShrink;
+        if (null !== $request->referenceDataShrink) {
+            @$body['ReferenceData'] = $request->referenceDataShrink;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'GenerateViewPoint',
@@ -1912,7 +2240,7 @@ class AiMiaoBi extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return GenerateViewPointResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -1920,11 +2248,15 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * @summary 视角生成
-     *  *
-     * @param GenerateViewPointRequest $request GenerateViewPointRequest
+     * 视角生成.
      *
-     * @return GenerateViewPointResponse GenerateViewPointResponse
+     * @param request - GenerateViewPointRequest
+     *
+     * @returns GenerateViewPointResponse
+     *
+     * @param GenerateViewPointRequest $request
+     *
+     * @return GenerateViewPointResponse
      */
     public function generateViewPoint($request)
     {
@@ -1934,25 +2266,32 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * @summary 获取某次标签挖掘结果分类
-     *  *
-     * @param GetCategoriesByTaskIdRequest $request GetCategoriesByTaskIdRequest
-     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
+     * 获取某次标签挖掘结果分类.
      *
-     * @return GetCategoriesByTaskIdResponse GetCategoriesByTaskIdResponse
+     * @param request - GetCategoriesByTaskIdRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetCategoriesByTaskIdResponse
+     *
+     * @param GetCategoriesByTaskIdRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return GetCategoriesByTaskIdResponse
      */
     public function getCategoriesByTaskIdWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->taskId)) {
-            $body['TaskId'] = $request->taskId;
+        if (null !== $request->taskId) {
+            @$body['TaskId'] = $request->taskId;
         }
-        if (!Utils::isUnset($request->workspaceId)) {
-            $body['WorkspaceId'] = $request->workspaceId;
+
+        if (null !== $request->workspaceId) {
+            @$body['WorkspaceId'] = $request->workspaceId;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'GetCategoriesByTaskId',
@@ -1965,7 +2304,7 @@ class AiMiaoBi extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return GetCategoriesByTaskIdResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -1973,11 +2312,15 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * @summary 获取某次标签挖掘结果分类
-     *  *
-     * @param GetCategoriesByTaskIdRequest $request GetCategoriesByTaskIdRequest
+     * 获取某次标签挖掘结果分类.
      *
-     * @return GetCategoriesByTaskIdResponse GetCategoriesByTaskIdResponse
+     * @param request - GetCategoriesByTaskIdRequest
+     *
+     * @returns GetCategoriesByTaskIdResponse
+     *
+     * @param GetCategoriesByTaskIdRequest $request
+     *
+     * @return GetCategoriesByTaskIdResponse
      */
     public function getCategoriesByTaskId($request)
     {
@@ -1987,25 +2330,32 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * @summary 获取自定义播报单任务结果
-     *  *
-     * @param GetCustomHotTopicBroadcastJobRequest $request GetCustomHotTopicBroadcastJobRequest
-     * @param RuntimeOptions                       $runtime runtime options for this request RuntimeOptions
+     * 获取自定义播报单任务结果.
      *
-     * @return GetCustomHotTopicBroadcastJobResponse GetCustomHotTopicBroadcastJobResponse
+     * @param request - GetCustomHotTopicBroadcastJobRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetCustomHotTopicBroadcastJobResponse
+     *
+     * @param GetCustomHotTopicBroadcastJobRequest $request
+     * @param RuntimeOptions                       $runtime
+     *
+     * @return GetCustomHotTopicBroadcastJobResponse
      */
     public function getCustomHotTopicBroadcastJobWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->taskId)) {
-            $body['TaskId'] = $request->taskId;
+        if (null !== $request->taskId) {
+            @$body['TaskId'] = $request->taskId;
         }
-        if (!Utils::isUnset($request->workspaceId)) {
-            $body['WorkspaceId'] = $request->workspaceId;
+
+        if (null !== $request->workspaceId) {
+            @$body['WorkspaceId'] = $request->workspaceId;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'GetCustomHotTopicBroadcastJob',
@@ -2018,7 +2368,7 @@ class AiMiaoBi extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return GetCustomHotTopicBroadcastJobResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -2026,11 +2376,15 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * @summary 获取自定义播报单任务结果
-     *  *
-     * @param GetCustomHotTopicBroadcastJobRequest $request GetCustomHotTopicBroadcastJobRequest
+     * 获取自定义播报单任务结果.
      *
-     * @return GetCustomHotTopicBroadcastJobResponse GetCustomHotTopicBroadcastJobResponse
+     * @param request - GetCustomHotTopicBroadcastJobRequest
+     *
+     * @returns GetCustomHotTopicBroadcastJobResponse
+     *
+     * @param GetCustomHotTopicBroadcastJobRequest $request
+     *
+     * @return GetCustomHotTopicBroadcastJobResponse
      */
     public function getCustomHotTopicBroadcastJob($request)
     {
@@ -2040,30 +2394,38 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * @summary 获取自定义文本
-     *  *
-     * @param GetCustomTextRequest $request GetCustomTextRequest
-     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
+     * 获取自定义文本.
      *
-     * @return GetCustomTextResponse GetCustomTextResponse
+     * @param request - GetCustomTextRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetCustomTextResponse
+     *
+     * @param GetCustomTextRequest $request
+     * @param RuntimeOptions       $runtime
+     *
+     * @return GetCustomTextResponse
      */
     public function getCustomTextWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->agentKey)) {
-            $query['AgentKey'] = $request->agentKey;
+        if (null !== $request->agentKey) {
+            @$query['AgentKey'] = $request->agentKey;
         }
+
         $body = [];
-        if (!Utils::isUnset($request->commodityCode)) {
-            $body['CommodityCode'] = $request->commodityCode;
+        if (null !== $request->commodityCode) {
+            @$body['CommodityCode'] = $request->commodityCode;
         }
-        if (!Utils::isUnset($request->id)) {
-            $body['Id'] = $request->id;
+
+        if (null !== $request->id) {
+            @$body['Id'] = $request->id;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'GetCustomText',
@@ -2076,7 +2438,7 @@ class AiMiaoBi extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return GetCustomTextResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -2084,11 +2446,15 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * @summary 获取自定义文本
-     *  *
-     * @param GetCustomTextRequest $request GetCustomTextRequest
+     * 获取自定义文本.
      *
-     * @return GetCustomTextResponse GetCustomTextResponse
+     * @param request - GetCustomTextRequest
+     *
+     * @returns GetCustomTextResponse
+     *
+     * @param GetCustomTextRequest $request
+     *
+     * @return GetCustomTextResponse
      */
     public function getCustomText($request)
     {
@@ -2098,27 +2464,34 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * @summary 获取自定义选题视角分析任务结果
-     *  *
-     * @param GetCustomTopicSelectionPerspectiveAnalysisTaskRequest $request GetCustomTopicSelectionPerspectiveAnalysisTaskRequest
-     * @param RuntimeOptions                                        $runtime runtime options for this request RuntimeOptions
+     * 获取自定义选题视角分析任务结果.
      *
-     * @return GetCustomTopicSelectionPerspectiveAnalysisTaskResponse GetCustomTopicSelectionPerspectiveAnalysisTaskResponse
+     * @param request - GetCustomTopicSelectionPerspectiveAnalysisTaskRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetCustomTopicSelectionPerspectiveAnalysisTaskResponse
+     *
+     * @param GetCustomTopicSelectionPerspectiveAnalysisTaskRequest $request
+     * @param RuntimeOptions                                        $runtime
+     *
+     * @return GetCustomTopicSelectionPerspectiveAnalysisTaskResponse
      */
     public function getCustomTopicSelectionPerspectiveAnalysisTaskWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->agentKey)) {
-            $query['AgentKey'] = $request->agentKey;
+        if (null !== $request->agentKey) {
+            @$query['AgentKey'] = $request->agentKey;
         }
+
         $body = [];
-        if (!Utils::isUnset($request->taskId)) {
-            $body['TaskId'] = $request->taskId;
+        if (null !== $request->taskId) {
+            @$body['TaskId'] = $request->taskId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'GetCustomTopicSelectionPerspectiveAnalysisTask',
@@ -2131,7 +2504,7 @@ class AiMiaoBi extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return GetCustomTopicSelectionPerspectiveAnalysisTaskResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -2139,11 +2512,15 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * @summary 获取自定义选题视角分析任务结果
-     *  *
-     * @param GetCustomTopicSelectionPerspectiveAnalysisTaskRequest $request GetCustomTopicSelectionPerspectiveAnalysisTaskRequest
+     * 获取自定义选题视角分析任务结果.
      *
-     * @return GetCustomTopicSelectionPerspectiveAnalysisTaskResponse GetCustomTopicSelectionPerspectiveAnalysisTaskResponse
+     * @param request - GetCustomTopicSelectionPerspectiveAnalysisTaskRequest
+     *
+     * @returns GetCustomTopicSelectionPerspectiveAnalysisTaskResponse
+     *
+     * @param GetCustomTopicSelectionPerspectiveAnalysisTaskRequest $request
+     *
+     * @return GetCustomTopicSelectionPerspectiveAnalysisTaskResponse
      */
     public function getCustomTopicSelectionPerspectiveAnalysisTask($request)
     {
@@ -2153,27 +2530,34 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * @summary 获取系统数据源配置和个人配置
-     *  *
-     * @param GetDataSourceOrderConfigRequest $request GetDataSourceOrderConfigRequest
-     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
+     * 获取系统数据源配置和个人配置.
      *
-     * @return GetDataSourceOrderConfigResponse GetDataSourceOrderConfigResponse
+     * @param request - GetDataSourceOrderConfigRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetDataSourceOrderConfigResponse
+     *
+     * @param GetDataSourceOrderConfigRequest $request
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return GetDataSourceOrderConfigResponse
      */
     public function getDataSourceOrderConfigWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->agentKey)) {
-            $query['AgentKey'] = $request->agentKey;
+        if (null !== $request->agentKey) {
+            @$query['AgentKey'] = $request->agentKey;
         }
+
         $body = [];
-        if (!Utils::isUnset($request->productCode)) {
-            $body['ProductCode'] = $request->productCode;
+        if (null !== $request->productCode) {
+            @$body['ProductCode'] = $request->productCode;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'GetDataSourceOrderConfig',
@@ -2186,7 +2570,7 @@ class AiMiaoBi extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return GetDataSourceOrderConfigResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -2194,11 +2578,15 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * @summary 获取系统数据源配置和个人配置
-     *  *
-     * @param GetDataSourceOrderConfigRequest $request GetDataSourceOrderConfigRequest
+     * 获取系统数据源配置和个人配置.
      *
-     * @return GetDataSourceOrderConfigResponse GetDataSourceOrderConfigResponse
+     * @param request - GetDataSourceOrderConfigRequest
+     *
+     * @returns GetDataSourceOrderConfigResponse
+     *
+     * @param GetDataSourceOrderConfigRequest $request
+     *
+     * @return GetDataSourceOrderConfigResponse
      */
     public function getDataSourceOrderConfig($request)
     {
@@ -2208,28 +2596,36 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * @summary 数据集管理-详情
-     *  *
-     * @param GetDatasetRequest $request GetDatasetRequest
-     * @param RuntimeOptions    $runtime runtime options for this request RuntimeOptions
+     * 数据集管理-详情.
      *
-     * @return GetDatasetResponse GetDatasetResponse
+     * @param request - GetDatasetRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetDatasetResponse
+     *
+     * @param GetDatasetRequest $request
+     * @param RuntimeOptions    $runtime
+     *
+     * @return GetDatasetResponse
      */
     public function getDatasetWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->datasetId)) {
-            $body['DatasetId'] = $request->datasetId;
+        if (null !== $request->datasetId) {
+            @$body['DatasetId'] = $request->datasetId;
         }
-        if (!Utils::isUnset($request->datasetName)) {
-            $body['DatasetName'] = $request->datasetName;
+
+        if (null !== $request->datasetName) {
+            @$body['DatasetName'] = $request->datasetName;
         }
-        if (!Utils::isUnset($request->workspaceId)) {
-            $body['WorkspaceId'] = $request->workspaceId;
+
+        if (null !== $request->workspaceId) {
+            @$body['WorkspaceId'] = $request->workspaceId;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'GetDataset',
@@ -2242,7 +2638,7 @@ class AiMiaoBi extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return GetDatasetResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -2250,11 +2646,15 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * @summary 数据集管理-详情
-     *  *
-     * @param GetDatasetRequest $request GetDatasetRequest
+     * 数据集管理-详情.
      *
-     * @return GetDatasetResponse GetDatasetResponse
+     * @param request - GetDatasetRequest
+     *
+     * @returns GetDatasetResponse
+     *
+     * @param GetDatasetRequest $request
+     *
+     * @return GetDatasetResponse
      */
     public function getDataset($request)
     {
@@ -2264,34 +2664,44 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * @summary 获取数据集文档
-     *  *
-     * @param GetDatasetDocumentRequest $request GetDatasetDocumentRequest
-     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
+     * 获取数据集文档.
      *
-     * @return GetDatasetDocumentResponse GetDatasetDocumentResponse
+     * @param request - GetDatasetDocumentRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetDatasetDocumentResponse
+     *
+     * @param GetDatasetDocumentRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return GetDatasetDocumentResponse
      */
     public function getDatasetDocumentWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->datasetId)) {
-            $body['DatasetId'] = $request->datasetId;
+        if (null !== $request->datasetId) {
+            @$body['DatasetId'] = $request->datasetId;
         }
-        if (!Utils::isUnset($request->datasetName)) {
-            $body['DatasetName'] = $request->datasetName;
+
+        if (null !== $request->datasetName) {
+            @$body['DatasetName'] = $request->datasetName;
         }
-        if (!Utils::isUnset($request->docId)) {
-            $body['DocId'] = $request->docId;
+
+        if (null !== $request->docId) {
+            @$body['DocId'] = $request->docId;
         }
-        if (!Utils::isUnset($request->docUuid)) {
-            $body['DocUuid'] = $request->docUuid;
+
+        if (null !== $request->docUuid) {
+            @$body['DocUuid'] = $request->docUuid;
         }
-        if (!Utils::isUnset($request->workspaceId)) {
-            $body['WorkspaceId'] = $request->workspaceId;
+
+        if (null !== $request->workspaceId) {
+            @$body['WorkspaceId'] = $request->workspaceId;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'GetDatasetDocument',
@@ -2304,7 +2714,7 @@ class AiMiaoBi extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return GetDatasetDocumentResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -2312,11 +2722,15 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * @summary 获取数据集文档
-     *  *
-     * @param GetDatasetDocumentRequest $request GetDatasetDocumentRequest
+     * 获取数据集文档.
      *
-     * @return GetDatasetDocumentResponse GetDatasetDocumentResponse
+     * @param request - GetDatasetDocumentRequest
+     *
+     * @returns GetDatasetDocumentResponse
+     *
+     * @param GetDatasetDocumentRequest $request
+     *
+     * @return GetDatasetDocumentResponse
      */
     public function getDatasetDocument($request)
     {
@@ -2326,27 +2740,34 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * @summary 获取文档聚合任务结果
-     *  *
-     * @param GetDocClusterTaskRequest $request GetDocClusterTaskRequest
-     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
+     * 获取文档聚合任务结果.
      *
-     * @return GetDocClusterTaskResponse GetDocClusterTaskResponse
+     * @param request - GetDocClusterTaskRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetDocClusterTaskResponse
+     *
+     * @param GetDocClusterTaskRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return GetDocClusterTaskResponse
      */
     public function getDocClusterTaskWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->agentKey)) {
-            $query['AgentKey'] = $request->agentKey;
+        if (null !== $request->agentKey) {
+            @$query['AgentKey'] = $request->agentKey;
         }
+
         $body = [];
-        if (!Utils::isUnset($request->taskId)) {
-            $body['TaskId'] = $request->taskId;
+        if (null !== $request->taskId) {
+            @$body['TaskId'] = $request->taskId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'GetDocClusterTask',
@@ -2359,7 +2780,7 @@ class AiMiaoBi extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return GetDocClusterTaskResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -2367,11 +2788,15 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * @summary 获取文档聚合任务结果
-     *  *
-     * @param GetDocClusterTaskRequest $request GetDocClusterTaskRequest
+     * 获取文档聚合任务结果.
      *
-     * @return GetDocClusterTaskResponse GetDocClusterTaskResponse
+     * @param request - GetDocClusterTaskRequest
+     *
+     * @returns GetDocClusterTaskResponse
+     *
+     * @param GetDocClusterTaskRequest $request
+     *
+     * @return GetDocClusterTaskResponse
      */
     public function getDocClusterTask($request)
     {
@@ -2381,28 +2806,36 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * @summary 妙读获取文档信息
-     *  *
-     * @param GetDocInfoRequest $request GetDocInfoRequest
-     * @param RuntimeOptions    $runtime runtime options for this request RuntimeOptions
+     * 妙读获取文档信息.
      *
-     * @return GetDocInfoResponse GetDocInfoResponse
+     * @param request - GetDocInfoRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetDocInfoResponse
+     *
+     * @param GetDocInfoRequest $request
+     * @param RuntimeOptions    $runtime
+     *
+     * @return GetDocInfoResponse
      */
     public function getDocInfoWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->categoryId)) {
-            $body['CategoryId'] = $request->categoryId;
+        if (null !== $request->categoryId) {
+            @$body['CategoryId'] = $request->categoryId;
         }
-        if (!Utils::isUnset($request->docId)) {
-            $body['DocId'] = $request->docId;
+
+        if (null !== $request->docId) {
+            @$body['DocId'] = $request->docId;
         }
-        if (!Utils::isUnset($request->workspaceId)) {
-            $body['WorkspaceId'] = $request->workspaceId;
+
+        if (null !== $request->workspaceId) {
+            @$body['WorkspaceId'] = $request->workspaceId;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'GetDocInfo',
@@ -2415,7 +2848,7 @@ class AiMiaoBi extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return GetDocInfoResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -2423,11 +2856,15 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * @summary 妙读获取文档信息
-     *  *
-     * @param GetDocInfoRequest $request GetDocInfoRequest
+     * 妙读获取文档信息.
      *
-     * @return GetDocInfoResponse GetDocInfoResponse
+     * @param request - GetDocInfoRequest
+     *
+     * @returns GetDocInfoResponse
+     *
+     * @param GetDocInfoRequest $request
+     *
+     * @return GetDocInfoResponse
      */
     public function getDocInfo($request)
     {
@@ -2437,25 +2874,32 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * @summary 获取企业VOC分析任务结果
-     *  *
-     * @param GetEnterpriseVocAnalysisTaskRequest $request GetEnterpriseVocAnalysisTaskRequest
-     * @param RuntimeOptions                      $runtime runtime options for this request RuntimeOptions
+     * 获取企业VOC分析任务结果.
      *
-     * @return GetEnterpriseVocAnalysisTaskResponse GetEnterpriseVocAnalysisTaskResponse
+     * @param request - GetEnterpriseVocAnalysisTaskRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetEnterpriseVocAnalysisTaskResponse
+     *
+     * @param GetEnterpriseVocAnalysisTaskRequest $request
+     * @param RuntimeOptions                      $runtime
+     *
+     * @return GetEnterpriseVocAnalysisTaskResponse
      */
     public function getEnterpriseVocAnalysisTaskWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->taskId)) {
-            $body['TaskId'] = $request->taskId;
+        if (null !== $request->taskId) {
+            @$body['TaskId'] = $request->taskId;
         }
-        if (!Utils::isUnset($request->workspaceId)) {
-            $body['WorkspaceId'] = $request->workspaceId;
+
+        if (null !== $request->workspaceId) {
+            @$body['WorkspaceId'] = $request->workspaceId;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'GetEnterpriseVocAnalysisTask',
@@ -2468,7 +2912,7 @@ class AiMiaoBi extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return GetEnterpriseVocAnalysisTaskResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -2476,11 +2920,15 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * @summary 获取企业VOC分析任务结果
-     *  *
-     * @param GetEnterpriseVocAnalysisTaskRequest $request GetEnterpriseVocAnalysisTaskRequest
+     * 获取企业VOC分析任务结果.
      *
-     * @return GetEnterpriseVocAnalysisTaskResponse GetEnterpriseVocAnalysisTaskResponse
+     * @param request - GetEnterpriseVocAnalysisTaskRequest
+     *
+     * @returns GetEnterpriseVocAnalysisTaskResponse
+     *
+     * @param GetEnterpriseVocAnalysisTaskRequest $request
+     *
+     * @return GetEnterpriseVocAnalysisTaskResponse
      */
     public function getEnterpriseVocAnalysisTask($request)
     {
@@ -2490,27 +2938,34 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * @summary 文档管理-查询详情。
-     *  *
-     * @param GetGeneratedContentRequest $request GetGeneratedContentRequest
-     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
+     * 文档管理-查询详情。
      *
-     * @return GetGeneratedContentResponse GetGeneratedContentResponse
+     * @param request - GetGeneratedContentRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetGeneratedContentResponse
+     *
+     * @param GetGeneratedContentRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return GetGeneratedContentResponse
      */
     public function getGeneratedContentWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->agentKey)) {
-            $query['AgentKey'] = $request->agentKey;
+        if (null !== $request->agentKey) {
+            @$query['AgentKey'] = $request->agentKey;
         }
+
         $body = [];
-        if (!Utils::isUnset($request->id)) {
-            $body['Id'] = $request->id;
+        if (null !== $request->id) {
+            @$body['Id'] = $request->id;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'GetGeneratedContent',
@@ -2523,7 +2978,7 @@ class AiMiaoBi extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return GetGeneratedContentResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -2531,11 +2986,15 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * @summary 文档管理-查询详情。
-     *  *
-     * @param GetGeneratedContentRequest $request GetGeneratedContentRequest
+     * 文档管理-查询详情。
      *
-     * @return GetGeneratedContentResponse GetGeneratedContentResponse
+     * @param request - GetGeneratedContentRequest
+     *
+     * @returns GetGeneratedContentResponse
+     *
+     * @param GetGeneratedContentRequest $request
+     *
+     * @return GetGeneratedContentResponse
      */
     public function getGeneratedContent($request)
     {
@@ -2545,57 +3004,90 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * @summary 查询新闻播报单
-     *  *
-     * @param GetHotTopicBroadcastRequest $tmpReq  GetHotTopicBroadcastRequest
-     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
+     * 查询新闻播报单.
      *
-     * @return GetHotTopicBroadcastResponse GetHotTopicBroadcastResponse
+     * @param tmpReq - GetHotTopicBroadcastRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetHotTopicBroadcastResponse
+     *
+     * @param GetHotTopicBroadcastRequest $tmpReq
+     * @param RuntimeOptions              $runtime
+     *
+     * @return GetHotTopicBroadcastResponse
      */
     public function getHotTopicBroadcastWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new GetHotTopicBroadcastShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->stepForCustomSummaryStyleConfig)) {
-            $request->stepForCustomSummaryStyleConfigShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->stepForCustomSummaryStyleConfig, 'StepForCustomSummaryStyleConfig', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->locations) {
+            $request->locationsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->locations, 'Locations', 'json');
         }
-        if (!Utils::isUnset($tmpReq->stepForNewsBroadcastContentConfig)) {
-            $request->stepForNewsBroadcastContentConfigShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->stepForNewsBroadcastContentConfig, 'StepForNewsBroadcastContentConfig', 'json');
+
+        if (null !== $tmpReq->stepForCustomSummaryStyleConfig) {
+            $request->stepForCustomSummaryStyleConfigShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->stepForCustomSummaryStyleConfig, 'StepForCustomSummaryStyleConfig', 'json');
         }
-        if (!Utils::isUnset($tmpReq->topics)) {
-            $request->topicsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->topics, 'Topics', 'json');
+
+        if (null !== $tmpReq->stepForNewsBroadcastContentConfig) {
+            $request->stepForNewsBroadcastContentConfigShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->stepForNewsBroadcastContentConfig, 'StepForNewsBroadcastContentConfig', 'json');
         }
+
+        if (null !== $tmpReq->topics) {
+            $request->topicsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->topics, 'Topics', 'json');
+        }
+
         $body = [];
-        if (!Utils::isUnset($request->calcTotalToken)) {
-            $body['CalcTotalToken'] = $request->calcTotalToken;
+        if (null !== $request->calcTotalToken) {
+            @$body['CalcTotalToken'] = $request->calcTotalToken;
         }
-        if (!Utils::isUnset($request->category)) {
-            $body['Category'] = $request->category;
+
+        if (null !== $request->category) {
+            @$body['Category'] = $request->category;
         }
-        if (!Utils::isUnset($request->current)) {
-            $body['Current'] = $request->current;
+
+        if (null !== $request->current) {
+            @$body['Current'] = $request->current;
         }
-        if (!Utils::isUnset($request->hotTopicVersion)) {
-            $body['HotTopicVersion'] = $request->hotTopicVersion;
+
+        if (null !== $request->hotTopicVersion) {
+            @$body['HotTopicVersion'] = $request->hotTopicVersion;
         }
-        if (!Utils::isUnset($request->size)) {
-            $body['Size'] = $request->size;
+
+        if (null !== $request->locationQuery) {
+            @$body['LocationQuery'] = $request->locationQuery;
         }
-        if (!Utils::isUnset($request->stepForCustomSummaryStyleConfigShrink)) {
-            $body['StepForCustomSummaryStyleConfig'] = $request->stepForCustomSummaryStyleConfigShrink;
+
+        if (null !== $request->locationsShrink) {
+            @$body['Locations'] = $request->locationsShrink;
         }
-        if (!Utils::isUnset($request->stepForNewsBroadcastContentConfigShrink)) {
-            $body['StepForNewsBroadcastContentConfig'] = $request->stepForNewsBroadcastContentConfigShrink;
+
+        if (null !== $request->query) {
+            @$body['Query'] = $request->query;
         }
-        if (!Utils::isUnset($request->topicsShrink)) {
-            $body['Topics'] = $request->topicsShrink;
+
+        if (null !== $request->size) {
+            @$body['Size'] = $request->size;
         }
-        if (!Utils::isUnset($request->workspaceId)) {
-            $body['WorkspaceId'] = $request->workspaceId;
+
+        if (null !== $request->stepForCustomSummaryStyleConfigShrink) {
+            @$body['StepForCustomSummaryStyleConfig'] = $request->stepForCustomSummaryStyleConfigShrink;
         }
+
+        if (null !== $request->stepForNewsBroadcastContentConfigShrink) {
+            @$body['StepForNewsBroadcastContentConfig'] = $request->stepForNewsBroadcastContentConfigShrink;
+        }
+
+        if (null !== $request->topicsShrink) {
+            @$body['Topics'] = $request->topicsShrink;
+        }
+
+        if (null !== $request->workspaceId) {
+            @$body['WorkspaceId'] = $request->workspaceId;
+        }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'GetHotTopicBroadcast',
@@ -2608,7 +3100,7 @@ class AiMiaoBi extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return GetHotTopicBroadcastResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -2616,11 +3108,15 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * @summary 查询新闻播报单
-     *  *
-     * @param GetHotTopicBroadcastRequest $request GetHotTopicBroadcastRequest
+     * 查询新闻播报单.
      *
-     * @return GetHotTopicBroadcastResponse GetHotTopicBroadcastResponse
+     * @param request - GetHotTopicBroadcastRequest
+     *
+     * @returns GetHotTopicBroadcastResponse
+     *
+     * @param GetHotTopicBroadcastRequest $request
+     *
+     * @return GetHotTopicBroadcastResponse
      */
     public function getHotTopicBroadcast($request)
     {
@@ -2630,22 +3126,28 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * @summary 获得干预全局回复
-     *  *
-     * @param GetInterveneGlobalReplyRequest $request GetInterveneGlobalReplyRequest
-     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
+     * 获得干预全局回复.
      *
-     * @return GetInterveneGlobalReplyResponse GetInterveneGlobalReplyResponse
+     * @param request - GetInterveneGlobalReplyRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetInterveneGlobalReplyResponse
+     *
+     * @param GetInterveneGlobalReplyRequest $request
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return GetInterveneGlobalReplyResponse
      */
     public function getInterveneGlobalReplyWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->agentKey)) {
-            $query['AgentKey'] = $request->agentKey;
+        if (null !== $request->agentKey) {
+            @$query['AgentKey'] = $request->agentKey;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'GetInterveneGlobalReply',
@@ -2658,7 +3160,7 @@ class AiMiaoBi extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return GetInterveneGlobalReplyResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -2666,11 +3168,15 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * @summary 获得干预全局回复
-     *  *
-     * @param GetInterveneGlobalReplyRequest $request GetInterveneGlobalReplyRequest
+     * 获得干预全局回复.
      *
-     * @return GetInterveneGlobalReplyResponse GetInterveneGlobalReplyResponse
+     * @param request - GetInterveneGlobalReplyRequest
+     *
+     * @returns GetInterveneGlobalReplyResponse
+     *
+     * @param GetInterveneGlobalReplyRequest $request
+     *
+     * @return GetInterveneGlobalReplyResponse
      */
     public function getInterveneGlobalReply($request)
     {
@@ -2680,27 +3186,34 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * @summary 获得导入任务信息
-     *  *
-     * @param GetInterveneImportTaskInfoRequest $request GetInterveneImportTaskInfoRequest
-     * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
+     * 获得导入任务信息.
      *
-     * @return GetInterveneImportTaskInfoResponse GetInterveneImportTaskInfoResponse
+     * @param request - GetInterveneImportTaskInfoRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetInterveneImportTaskInfoResponse
+     *
+     * @param GetInterveneImportTaskInfoRequest $request
+     * @param RuntimeOptions                    $runtime
+     *
+     * @return GetInterveneImportTaskInfoResponse
      */
     public function getInterveneImportTaskInfoWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->agentKey)) {
-            $query['AgentKey'] = $request->agentKey;
+        if (null !== $request->agentKey) {
+            @$query['AgentKey'] = $request->agentKey;
         }
+
         $body = [];
-        if (!Utils::isUnset($request->taskId)) {
-            $body['TaskId'] = $request->taskId;
+        if (null !== $request->taskId) {
+            @$body['TaskId'] = $request->taskId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'GetInterveneImportTaskInfo',
@@ -2713,7 +3226,7 @@ class AiMiaoBi extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return GetInterveneImportTaskInfoResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -2721,11 +3234,15 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * @summary 获得导入任务信息
-     *  *
-     * @param GetInterveneImportTaskInfoRequest $request GetInterveneImportTaskInfoRequest
+     * 获得导入任务信息.
      *
-     * @return GetInterveneImportTaskInfoResponse GetInterveneImportTaskInfoResponse
+     * @param request - GetInterveneImportTaskInfoRequest
+     *
+     * @returns GetInterveneImportTaskInfoResponse
+     *
+     * @param GetInterveneImportTaskInfoRequest $request
+     *
+     * @return GetInterveneImportTaskInfoResponse
      */
     public function getInterveneImportTaskInfo($request)
     {
@@ -2735,27 +3252,34 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * @summary 获得干预项规则详情
-     *  *
-     * @param GetInterveneRuleDetailRequest $request GetInterveneRuleDetailRequest
-     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
+     * 获得干预项规则详情.
      *
-     * @return GetInterveneRuleDetailResponse GetInterveneRuleDetailResponse
+     * @param request - GetInterveneRuleDetailRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetInterveneRuleDetailResponse
+     *
+     * @param GetInterveneRuleDetailRequest $request
+     * @param RuntimeOptions                $runtime
+     *
+     * @return GetInterveneRuleDetailResponse
      */
     public function getInterveneRuleDetailWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->agentKey)) {
-            $query['AgentKey'] = $request->agentKey;
+        if (null !== $request->agentKey) {
+            @$query['AgentKey'] = $request->agentKey;
         }
+
         $body = [];
-        if (!Utils::isUnset($request->ruleId)) {
-            $body['RuleId'] = $request->ruleId;
+        if (null !== $request->ruleId) {
+            @$body['RuleId'] = $request->ruleId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'GetInterveneRuleDetail',
@@ -2768,7 +3292,7 @@ class AiMiaoBi extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return GetInterveneRuleDetailResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -2776,11 +3300,15 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * @summary 获得干预项规则详情
-     *  *
-     * @param GetInterveneRuleDetailRequest $request GetInterveneRuleDetailRequest
+     * 获得干预项规则详情.
      *
-     * @return GetInterveneRuleDetailResponse GetInterveneRuleDetailResponse
+     * @param request - GetInterveneRuleDetailRequest
+     *
+     * @returns GetInterveneRuleDetailResponse
+     *
+     * @param GetInterveneRuleDetailRequest $request
+     *
+     * @return GetInterveneRuleDetailResponse
      */
     public function getInterveneRuleDetail($request)
     {
@@ -2790,22 +3318,28 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * @summary 获得干预导入模版文件下载地址
-     *  *
-     * @param GetInterveneTemplateFileUrlRequest $request GetInterveneTemplateFileUrlRequest
-     * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
+     * 获得干预导入模版文件下载地址
      *
-     * @return GetInterveneTemplateFileUrlResponse GetInterveneTemplateFileUrlResponse
+     * @param request - GetInterveneTemplateFileUrlRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetInterveneTemplateFileUrlResponse
+     *
+     * @param GetInterveneTemplateFileUrlRequest $request
+     * @param RuntimeOptions                     $runtime
+     *
+     * @return GetInterveneTemplateFileUrlResponse
      */
     public function getInterveneTemplateFileUrlWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->agentKey)) {
-            $query['AgentKey'] = $request->agentKey;
+        if (null !== $request->agentKey) {
+            @$query['AgentKey'] = $request->agentKey;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'GetInterveneTemplateFileUrl',
@@ -2818,7 +3352,7 @@ class AiMiaoBi extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return GetInterveneTemplateFileUrlResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -2826,11 +3360,15 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * @summary 获得干预导入模版文件下载地址
-     *  *
-     * @param GetInterveneTemplateFileUrlRequest $request GetInterveneTemplateFileUrlRequest
+     * 获得干预导入模版文件下载地址
      *
-     * @return GetInterveneTemplateFileUrlResponse GetInterveneTemplateFileUrlResponse
+     * @param request - GetInterveneTemplateFileUrlRequest
+     *
+     * @returns GetInterveneTemplateFileUrlResponse
+     *
+     * @param GetInterveneTemplateFileUrlRequest $request
+     *
+     * @return GetInterveneTemplateFileUrlResponse
      */
     public function getInterveneTemplateFileUrl($request)
     {
@@ -2840,27 +3378,34 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * @summary 根据ID获取素材内容
-     *  *
-     * @param GetMaterialByIdRequest $request GetMaterialByIdRequest
-     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
+     * 根据ID获取素材内容.
      *
-     * @return GetMaterialByIdResponse GetMaterialByIdResponse
+     * @param request - GetMaterialByIdRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetMaterialByIdResponse
+     *
+     * @param GetMaterialByIdRequest $request
+     * @param RuntimeOptions         $runtime
+     *
+     * @return GetMaterialByIdResponse
      */
     public function getMaterialByIdWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->agentKey)) {
-            $query['AgentKey'] = $request->agentKey;
+        if (null !== $request->agentKey) {
+            @$query['AgentKey'] = $request->agentKey;
         }
+
         $body = [];
-        if (!Utils::isUnset($request->id)) {
-            $body['Id'] = $request->id;
+        if (null !== $request->id) {
+            @$body['Id'] = $request->id;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'GetMaterialById',
@@ -2873,7 +3418,7 @@ class AiMiaoBi extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return GetMaterialByIdResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -2881,11 +3426,15 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * @summary 根据ID获取素材内容
-     *  *
-     * @param GetMaterialByIdRequest $request GetMaterialByIdRequest
+     * 根据ID获取素材内容.
      *
-     * @return GetMaterialByIdResponse GetMaterialByIdResponse
+     * @param request - GetMaterialByIdRequest
+     *
+     * @returns GetMaterialByIdResponse
+     *
+     * @param GetMaterialByIdRequest $request
+     *
+     * @return GetMaterialByIdResponse
      */
     public function getMaterialById($request)
     {
@@ -2895,22 +3444,28 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * @summary 获取当前用户的配置
-     *  *
-     * @param GetPropertiesRequest $request GetPropertiesRequest
-     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
+     * 获取当前用户的配置.
      *
-     * @return GetPropertiesResponse GetPropertiesResponse
+     * @param request - GetPropertiesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetPropertiesResponse
+     *
+     * @param GetPropertiesRequest $request
+     * @param RuntimeOptions       $runtime
+     *
+     * @return GetPropertiesResponse
      */
     public function getPropertiesWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->agentKey)) {
-            $query['AgentKey'] = $request->agentKey;
+        if (null !== $request->agentKey) {
+            @$query['AgentKey'] = $request->agentKey;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'GetProperties',
@@ -2923,7 +3478,7 @@ class AiMiaoBi extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return GetPropertiesResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -2931,11 +3486,15 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * @summary 获取当前用户的配置
-     *  *
-     * @param GetPropertiesRequest $request GetPropertiesRequest
+     * 获取当前用户的配置.
      *
-     * @return GetPropertiesResponse GetPropertiesResponse
+     * @param request - GetPropertiesRequest
+     *
+     * @returns GetPropertiesResponse
+     *
+     * @param GetPropertiesRequest $request
+     *
+     * @return GetPropertiesResponse
      */
     public function getProperties($request)
     {
@@ -2945,25 +3504,32 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * @summary 查询一键成片剪辑任务
-     *  *
-     * @param GetSmartClipTaskRequest $request GetSmartClipTaskRequest
-     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
+     * 查询一键成片剪辑任务
      *
-     * @return GetSmartClipTaskResponse GetSmartClipTaskResponse
+     * @param request - GetSmartClipTaskRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetSmartClipTaskResponse
+     *
+     * @param GetSmartClipTaskRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return GetSmartClipTaskResponse
      */
     public function getSmartClipTaskWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->taskId)) {
-            $body['TaskId'] = $request->taskId;
+        if (null !== $request->taskId) {
+            @$body['TaskId'] = $request->taskId;
         }
-        if (!Utils::isUnset($request->workspaceId)) {
-            $body['WorkspaceId'] = $request->workspaceId;
+
+        if (null !== $request->workspaceId) {
+            @$body['WorkspaceId'] = $request->workspaceId;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'GetSmartClipTask',
@@ -2976,7 +3542,7 @@ class AiMiaoBi extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return GetSmartClipTaskResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -2984,11 +3550,15 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * @summary 查询一键成片剪辑任务
-     *  *
-     * @param GetSmartClipTaskRequest $request GetSmartClipTaskRequest
+     * 查询一键成片剪辑任务
      *
-     * @return GetSmartClipTaskResponse GetSmartClipTaskResponse
+     * @param request - GetSmartClipTaskRequest
+     *
+     * @returns GetSmartClipTaskResponse
+     *
+     * @param GetSmartClipTaskRequest $request
+     *
+     * @return GetSmartClipTaskResponse
      */
     public function getSmartClipTask($request)
     {
@@ -2998,27 +3568,34 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * @summary 根据ID获取热点事件信息
-     *  *
-     * @param GetTopicByIdRequest $request GetTopicByIdRequest
-     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
+     * 根据ID获取热点事件信息.
      *
-     * @return GetTopicByIdResponse GetTopicByIdResponse
+     * @param request - GetTopicByIdRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetTopicByIdResponse
+     *
+     * @param GetTopicByIdRequest $request
+     * @param RuntimeOptions      $runtime
+     *
+     * @return GetTopicByIdResponse
      */
     public function getTopicByIdWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->agentKey)) {
-            $query['AgentKey'] = $request->agentKey;
+        if (null !== $request->agentKey) {
+            @$query['AgentKey'] = $request->agentKey;
         }
+
         $body = [];
-        if (!Utils::isUnset($request->id)) {
-            $body['Id'] = $request->id;
+        if (null !== $request->id) {
+            @$body['Id'] = $request->id;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'GetTopicById',
@@ -3031,7 +3608,7 @@ class AiMiaoBi extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return GetTopicByIdResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -3039,11 +3616,15 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * @summary 根据ID获取热点事件信息
-     *  *
-     * @param GetTopicByIdRequest $request GetTopicByIdRequest
+     * 根据ID获取热点事件信息.
      *
-     * @return GetTopicByIdResponse GetTopicByIdResponse
+     * @param request - GetTopicByIdRequest
+     *
+     * @returns GetTopicByIdResponse
+     *
+     * @param GetTopicByIdRequest $request
+     *
+     * @return GetTopicByIdResponse
      */
     public function getTopicById($request)
     {
@@ -3053,27 +3634,34 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * @summary 获取选题视角分析任务结果
-     *  *
-     * @param GetTopicSelectionPerspectiveAnalysisTaskRequest $request GetTopicSelectionPerspectiveAnalysisTaskRequest
-     * @param RuntimeOptions                                  $runtime runtime options for this request RuntimeOptions
+     * 获取选题视角分析任务结果.
      *
-     * @return GetTopicSelectionPerspectiveAnalysisTaskResponse GetTopicSelectionPerspectiveAnalysisTaskResponse
+     * @param request - GetTopicSelectionPerspectiveAnalysisTaskRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetTopicSelectionPerspectiveAnalysisTaskResponse
+     *
+     * @param GetTopicSelectionPerspectiveAnalysisTaskRequest $request
+     * @param RuntimeOptions                                  $runtime
+     *
+     * @return GetTopicSelectionPerspectiveAnalysisTaskResponse
      */
     public function getTopicSelectionPerspectiveAnalysisTaskWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->agentKey)) {
-            $query['AgentKey'] = $request->agentKey;
+        if (null !== $request->agentKey) {
+            @$query['AgentKey'] = $request->agentKey;
         }
+
         $body = [];
-        if (!Utils::isUnset($request->taskId)) {
-            $body['TaskId'] = $request->taskId;
+        if (null !== $request->taskId) {
+            @$body['TaskId'] = $request->taskId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'GetTopicSelectionPerspectiveAnalysisTask',
@@ -3086,7 +3674,7 @@ class AiMiaoBi extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return GetTopicSelectionPerspectiveAnalysisTaskResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -3094,11 +3682,15 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * @summary 获取选题视角分析任务结果
-     *  *
-     * @param GetTopicSelectionPerspectiveAnalysisTaskRequest $request GetTopicSelectionPerspectiveAnalysisTaskRequest
+     * 获取选题视角分析任务结果.
      *
-     * @return GetTopicSelectionPerspectiveAnalysisTaskResponse GetTopicSelectionPerspectiveAnalysisTaskResponse
+     * @param request - GetTopicSelectionPerspectiveAnalysisTaskRequest
+     *
+     * @returns GetTopicSelectionPerspectiveAnalysisTaskResponse
+     *
+     * @param GetTopicSelectionPerspectiveAnalysisTaskRequest $request
+     *
+     * @return GetTopicSelectionPerspectiveAnalysisTaskResponse
      */
     public function getTopicSelectionPerspectiveAnalysisTask($request)
     {
@@ -3108,33 +3700,42 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * @summary 导入干预文件
-     *  *
-     * @param ImportInterveneFileRequest $request ImportInterveneFileRequest
-     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
+     * 导入干预文件.
      *
-     * @return ImportInterveneFileResponse ImportInterveneFileResponse
+     * @param request - ImportInterveneFileRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ImportInterveneFileResponse
+     *
+     * @param ImportInterveneFileRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return ImportInterveneFileResponse
      */
     public function importInterveneFileWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->agentKey)) {
-            $query['AgentKey'] = $request->agentKey;
+        if (null !== $request->agentKey) {
+            @$query['AgentKey'] = $request->agentKey;
         }
+
         $body = [];
-        if (!Utils::isUnset($request->docName)) {
-            $body['DocName'] = $request->docName;
+        if (null !== $request->docName) {
+            @$body['DocName'] = $request->docName;
         }
-        if (!Utils::isUnset($request->fileKey)) {
-            $body['FileKey'] = $request->fileKey;
+
+        if (null !== $request->fileKey) {
+            @$body['FileKey'] = $request->fileKey;
         }
-        if (!Utils::isUnset($request->fileUrl)) {
-            $body['FileUrl'] = $request->fileUrl;
+
+        if (null !== $request->fileUrl) {
+            @$body['FileUrl'] = $request->fileUrl;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'ImportInterveneFile',
@@ -3147,7 +3748,7 @@ class AiMiaoBi extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return ImportInterveneFileResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -3155,11 +3756,15 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * @summary 导入干预文件
-     *  *
-     * @param ImportInterveneFileRequest $request ImportInterveneFileRequest
+     * 导入干预文件.
      *
-     * @return ImportInterveneFileResponse ImportInterveneFileResponse
+     * @param request - ImportInterveneFileRequest
+     *
+     * @returns ImportInterveneFileResponse
+     *
+     * @param ImportInterveneFileRequest $request
+     *
+     * @return ImportInterveneFileResponse
      */
     public function importInterveneFile($request)
     {
@@ -3169,33 +3774,42 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * @summary 异步导入干预文件
-     *  *
-     * @param ImportInterveneFileAsyncRequest $request ImportInterveneFileAsyncRequest
-     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
+     * 异步导入干预文件.
      *
-     * @return ImportInterveneFileAsyncResponse ImportInterveneFileAsyncResponse
+     * @param request - ImportInterveneFileAsyncRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ImportInterveneFileAsyncResponse
+     *
+     * @param ImportInterveneFileAsyncRequest $request
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return ImportInterveneFileAsyncResponse
      */
     public function importInterveneFileAsyncWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->agentKey)) {
-            $query['AgentKey'] = $request->agentKey;
+        if (null !== $request->agentKey) {
+            @$query['AgentKey'] = $request->agentKey;
         }
+
         $body = [];
-        if (!Utils::isUnset($request->docName)) {
-            $body['DocName'] = $request->docName;
+        if (null !== $request->docName) {
+            @$body['DocName'] = $request->docName;
         }
-        if (!Utils::isUnset($request->fileKey)) {
-            $body['FileKey'] = $request->fileKey;
+
+        if (null !== $request->fileKey) {
+            @$body['FileKey'] = $request->fileKey;
         }
-        if (!Utils::isUnset($request->fileUrl)) {
-            $body['FileUrl'] = $request->fileUrl;
+
+        if (null !== $request->fileUrl) {
+            @$body['FileUrl'] = $request->fileUrl;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'ImportInterveneFileAsync',
@@ -3208,7 +3822,7 @@ class AiMiaoBi extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return ImportInterveneFileAsyncResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -3216,11 +3830,15 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * @summary 异步导入干预文件
-     *  *
-     * @param ImportInterveneFileAsyncRequest $request ImportInterveneFileAsyncRequest
+     * 异步导入干预文件.
      *
-     * @return ImportInterveneFileAsyncResponse ImportInterveneFileAsyncResponse
+     * @param request - ImportInterveneFileAsyncRequest
+     *
+     * @returns ImportInterveneFileAsyncResponse
+     *
+     * @param ImportInterveneFileAsyncRequest $request
+     *
+     * @return ImportInterveneFileAsyncResponse
      */
     public function importInterveneFileAsync($request)
     {
@@ -3230,32 +3848,40 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * @summary 设置干预全局回复
-     *  *
-     * @param InsertInterveneGlobalReplyRequest $tmpReq  InsertInterveneGlobalReplyRequest
-     * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
+     * 设置干预全局回复.
      *
-     * @return InsertInterveneGlobalReplyResponse InsertInterveneGlobalReplyResponse
+     * @param tmpReq - InsertInterveneGlobalReplyRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns InsertInterveneGlobalReplyResponse
+     *
+     * @param InsertInterveneGlobalReplyRequest $tmpReq
+     * @param RuntimeOptions                    $runtime
+     *
+     * @return InsertInterveneGlobalReplyResponse
      */
     public function insertInterveneGlobalReplyWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new InsertInterveneGlobalReplyShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->replyMessagList)) {
-            $request->replyMessagListShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->replyMessagList, 'ReplyMessagList', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->replyMessagList) {
+            $request->replyMessagListShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->replyMessagList, 'ReplyMessagList', 'json');
         }
+
         $query = [];
-        if (!Utils::isUnset($request->agentKey)) {
-            $query['AgentKey'] = $request->agentKey;
+        if (null !== $request->agentKey) {
+            @$query['AgentKey'] = $request->agentKey;
         }
+
         $body = [];
-        if (!Utils::isUnset($request->replyMessagListShrink)) {
-            $body['ReplyMessagList'] = $request->replyMessagListShrink;
+        if (null !== $request->replyMessagListShrink) {
+            @$body['ReplyMessagList'] = $request->replyMessagListShrink;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'InsertInterveneGlobalReply',
@@ -3268,7 +3894,7 @@ class AiMiaoBi extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return InsertInterveneGlobalReplyResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -3276,11 +3902,15 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * @summary 设置干预全局回复
-     *  *
-     * @param InsertInterveneGlobalReplyRequest $request InsertInterveneGlobalReplyRequest
+     * 设置干预全局回复.
      *
-     * @return InsertInterveneGlobalReplyResponse InsertInterveneGlobalReplyResponse
+     * @param request - InsertInterveneGlobalReplyRequest
+     *
+     * @returns InsertInterveneGlobalReplyResponse
+     *
+     * @param InsertInterveneGlobalReplyRequest $request
+     *
+     * @return InsertInterveneGlobalReplyResponse
      */
     public function insertInterveneGlobalReply($request)
     {
@@ -3290,32 +3920,40 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * @summary 插入干预规则
-     *  *
-     * @param InsertInterveneRuleRequest $tmpReq  InsertInterveneRuleRequest
-     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
+     * 插入干预规则.
      *
-     * @return InsertInterveneRuleResponse InsertInterveneRuleResponse
+     * @param tmpReq - InsertInterveneRuleRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns InsertInterveneRuleResponse
+     *
+     * @param InsertInterveneRuleRequest $tmpReq
+     * @param RuntimeOptions             $runtime
+     *
+     * @return InsertInterveneRuleResponse
      */
     public function insertInterveneRuleWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new InsertInterveneRuleShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->interveneRuleConfig)) {
-            $request->interveneRuleConfigShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->interveneRuleConfig, 'InterveneRuleConfig', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->interveneRuleConfig) {
+            $request->interveneRuleConfigShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->interveneRuleConfig, 'InterveneRuleConfig', 'json');
         }
+
         $query = [];
-        if (!Utils::isUnset($request->agentKey)) {
-            $query['AgentKey'] = $request->agentKey;
+        if (null !== $request->agentKey) {
+            @$query['AgentKey'] = $request->agentKey;
         }
+
         $body = [];
-        if (!Utils::isUnset($request->interveneRuleConfigShrink)) {
-            $body['InterveneRuleConfig'] = $request->interveneRuleConfigShrink;
+        if (null !== $request->interveneRuleConfigShrink) {
+            @$body['InterveneRuleConfig'] = $request->interveneRuleConfigShrink;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'InsertInterveneRule',
@@ -3328,7 +3966,7 @@ class AiMiaoBi extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return InsertInterveneRuleResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -3336,11 +3974,15 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * @summary 插入干预规则
-     *  *
-     * @param InsertInterveneRuleRequest $request InsertInterveneRuleRequest
+     * 插入干预规则.
      *
-     * @return InsertInterveneRuleResponse InsertInterveneRuleResponse
+     * @param request - InsertInterveneRuleRequest
+     *
+     * @returns InsertInterveneRuleResponse
+     *
+     * @param InsertInterveneRuleRequest $request
+     *
+     * @return InsertInterveneRuleResponse
      */
     public function insertInterveneRule($request)
     {
@@ -3350,45 +3992,58 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * @summary 分页获取企业VOC分析任务明细列表
-     *  *
-     * @param ListAnalysisTagDetailByTaskIdRequest $tmpReq  ListAnalysisTagDetailByTaskIdRequest
-     * @param RuntimeOptions                       $runtime runtime options for this request RuntimeOptions
+     * 分页获取企业VOC分析任务明细列表.
      *
-     * @return ListAnalysisTagDetailByTaskIdResponse ListAnalysisTagDetailByTaskIdResponse
+     * @param tmpReq - ListAnalysisTagDetailByTaskIdRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListAnalysisTagDetailByTaskIdResponse
+     *
+     * @param ListAnalysisTagDetailByTaskIdRequest $tmpReq
+     * @param RuntimeOptions                       $runtime
+     *
+     * @return ListAnalysisTagDetailByTaskIdResponse
      */
     public function listAnalysisTagDetailByTaskIdWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new ListAnalysisTagDetailByTaskIdShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->categories)) {
-            $request->categoriesShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->categories, 'Categories', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->categories) {
+            $request->categoriesShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->categories, 'Categories', 'json');
         }
+
         $body = [];
-        if (!Utils::isUnset($request->categoriesShrink)) {
-            $body['Categories'] = $request->categoriesShrink;
+        if (null !== $request->categoriesShrink) {
+            @$body['Categories'] = $request->categoriesShrink;
         }
-        if (!Utils::isUnset($request->current)) {
-            $body['Current'] = $request->current;
+
+        if (null !== $request->current) {
+            @$body['Current'] = $request->current;
         }
-        if (!Utils::isUnset($request->maxResults)) {
-            $body['MaxResults'] = $request->maxResults;
+
+        if (null !== $request->maxResults) {
+            @$body['MaxResults'] = $request->maxResults;
         }
-        if (!Utils::isUnset($request->nextToken)) {
-            $body['NextToken'] = $request->nextToken;
+
+        if (null !== $request->nextToken) {
+            @$body['NextToken'] = $request->nextToken;
         }
-        if (!Utils::isUnset($request->size)) {
-            $body['Size'] = $request->size;
+
+        if (null !== $request->size) {
+            @$body['Size'] = $request->size;
         }
-        if (!Utils::isUnset($request->taskId)) {
-            $body['TaskId'] = $request->taskId;
+
+        if (null !== $request->taskId) {
+            @$body['TaskId'] = $request->taskId;
         }
-        if (!Utils::isUnset($request->workspaceId)) {
-            $body['WorkspaceId'] = $request->workspaceId;
+
+        if (null !== $request->workspaceId) {
+            @$body['WorkspaceId'] = $request->workspaceId;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'ListAnalysisTagDetailByTaskId',
@@ -3401,7 +4056,7 @@ class AiMiaoBi extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return ListAnalysisTagDetailByTaskIdResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -3409,11 +4064,15 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * @summary 分页获取企业VOC分析任务明细列表
-     *  *
-     * @param ListAnalysisTagDetailByTaskIdRequest $request ListAnalysisTagDetailByTaskIdRequest
+     * 分页获取企业VOC分析任务明细列表.
      *
-     * @return ListAnalysisTagDetailByTaskIdResponse ListAnalysisTagDetailByTaskIdResponse
+     * @param request - ListAnalysisTagDetailByTaskIdRequest
+     *
+     * @returns ListAnalysisTagDetailByTaskIdResponse
+     *
+     * @param ListAnalysisTagDetailByTaskIdRequest $request
+     *
+     * @return ListAnalysisTagDetailByTaskIdResponse
      */
     public function listAnalysisTagDetailByTaskId($request)
     {
@@ -3423,62 +4082,80 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * @summary 查询任务列表
-     *  *
-     * @param ListAsyncTasksRequest $tmpReq  ListAsyncTasksRequest
-     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
+     * 查询任务列表.
      *
-     * @return ListAsyncTasksResponse ListAsyncTasksResponse
+     * @param tmpReq - ListAsyncTasksRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListAsyncTasksResponse
+     *
+     * @param ListAsyncTasksRequest $tmpReq
+     * @param RuntimeOptions        $runtime
+     *
+     * @return ListAsyncTasksResponse
      */
     public function listAsyncTasksWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new ListAsyncTasksShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->taskStatusList)) {
-            $request->taskStatusListShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->taskStatusList, 'TaskStatusList', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->taskStatusList) {
+            $request->taskStatusListShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->taskStatusList, 'TaskStatusList', 'json');
         }
-        if (!Utils::isUnset($tmpReq->taskTypeList)) {
-            $request->taskTypeListShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->taskTypeList, 'TaskTypeList', 'json');
+
+        if (null !== $tmpReq->taskTypeList) {
+            $request->taskTypeListShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->taskTypeList, 'TaskTypeList', 'json');
         }
+
         $query = [];
-        if (!Utils::isUnset($request->agentKey)) {
-            $query['AgentKey'] = $request->agentKey;
+        if (null !== $request->agentKey) {
+            @$query['AgentKey'] = $request->agentKey;
         }
+
         $body = [];
-        if (!Utils::isUnset($request->createTimeEnd)) {
-            $body['CreateTimeEnd'] = $request->createTimeEnd;
+        if (null !== $request->createTimeEnd) {
+            @$body['CreateTimeEnd'] = $request->createTimeEnd;
         }
-        if (!Utils::isUnset($request->createTimeStart)) {
-            $body['CreateTimeStart'] = $request->createTimeStart;
+
+        if (null !== $request->createTimeStart) {
+            @$body['CreateTimeStart'] = $request->createTimeStart;
         }
-        if (!Utils::isUnset($request->current)) {
-            $body['Current'] = $request->current;
+
+        if (null !== $request->current) {
+            @$body['Current'] = $request->current;
         }
-        if (!Utils::isUnset($request->size)) {
-            $body['Size'] = $request->size;
+
+        if (null !== $request->size) {
+            @$body['Size'] = $request->size;
         }
-        if (!Utils::isUnset($request->taskCode)) {
-            $body['TaskCode'] = $request->taskCode;
+
+        if (null !== $request->taskCode) {
+            @$body['TaskCode'] = $request->taskCode;
         }
-        if (!Utils::isUnset($request->taskName)) {
-            $body['TaskName'] = $request->taskName;
+
+        if (null !== $request->taskName) {
+            @$body['TaskName'] = $request->taskName;
         }
-        if (!Utils::isUnset($request->taskStatus)) {
-            $body['TaskStatus'] = $request->taskStatus;
+
+        if (null !== $request->taskStatus) {
+            @$body['TaskStatus'] = $request->taskStatus;
         }
-        if (!Utils::isUnset($request->taskStatusListShrink)) {
-            $body['TaskStatusList'] = $request->taskStatusListShrink;
+
+        if (null !== $request->taskStatusListShrink) {
+            @$body['TaskStatusList'] = $request->taskStatusListShrink;
         }
-        if (!Utils::isUnset($request->taskType)) {
-            $body['TaskType'] = $request->taskType;
+
+        if (null !== $request->taskType) {
+            @$body['TaskType'] = $request->taskType;
         }
-        if (!Utils::isUnset($request->taskTypeListShrink)) {
-            $body['TaskTypeList'] = $request->taskTypeListShrink;
+
+        if (null !== $request->taskTypeListShrink) {
+            @$body['TaskTypeList'] = $request->taskTypeListShrink;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'ListAsyncTasks',
@@ -3491,7 +4168,7 @@ class AiMiaoBi extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return ListAsyncTasksResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -3499,11 +4176,15 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * @summary 查询任务列表
-     *  *
-     * @param ListAsyncTasksRequest $request ListAsyncTasksRequest
+     * 查询任务列表.
      *
-     * @return ListAsyncTasksResponse ListAsyncTasksResponse
+     * @param request - ListAsyncTasksRequest
+     *
+     * @returns ListAsyncTasksResponse
+     *
+     * @param ListAsyncTasksRequest $request
+     *
+     * @return ListAsyncTasksResponse
      */
     public function listAsyncTasks($request)
     {
@@ -3513,30 +4194,38 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * @summary 获取系统自定义预设
-     *  *
-     * @param ListBuildConfigsRequest $request ListBuildConfigsRequest
-     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
+     * 获取系统自定义预设.
      *
-     * @return ListBuildConfigsResponse ListBuildConfigsResponse
+     * @param request - ListBuildConfigsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListBuildConfigsResponse
+     *
+     * @param ListBuildConfigsRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return ListBuildConfigsResponse
      */
     public function listBuildConfigsWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->agentKey)) {
-            $query['AgentKey'] = $request->agentKey;
+        if (null !== $request->agentKey) {
+            @$query['AgentKey'] = $request->agentKey;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
+
         $body = [];
-        if (!Utils::isUnset($request->type)) {
-            $body['Type'] = $request->type;
+        if (null !== $request->type) {
+            @$body['Type'] = $request->type;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'ListBuildConfigs',
@@ -3549,7 +4238,7 @@ class AiMiaoBi extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return ListBuildConfigsResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -3557,11 +4246,15 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * @summary 获取系统自定义预设
-     *  *
-     * @param ListBuildConfigsRequest $request ListBuildConfigsRequest
+     * 获取系统自定义预设.
      *
-     * @return ListBuildConfigsResponse ListBuildConfigsResponse
+     * @param request - ListBuildConfigsRequest
+     *
+     * @returns ListBuildConfigsResponse
+     *
+     * @param ListBuildConfigsRequest $request
+     *
+     * @return ListBuildConfigsResponse
      */
     public function listBuildConfigs($request)
     {
@@ -3571,27 +4264,34 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * @summary 自定义文本列表
-     *  *
-     * @param ListCustomTextRequest $request ListCustomTextRequest
-     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
+     * 自定义文本列表.
      *
-     * @return ListCustomTextResponse ListCustomTextResponse
+     * @param request - ListCustomTextRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListCustomTextResponse
+     *
+     * @param ListCustomTextRequest $request
+     * @param RuntimeOptions        $runtime
+     *
+     * @return ListCustomTextResponse
      */
     public function listCustomTextWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->agentKey)) {
-            $query['AgentKey'] = $request->agentKey;
+        if (null !== $request->agentKey) {
+            @$query['AgentKey'] = $request->agentKey;
         }
+
         $body = [];
-        if (!Utils::isUnset($request->commodityCode)) {
-            $body['CommodityCode'] = $request->commodityCode;
+        if (null !== $request->commodityCode) {
+            @$body['CommodityCode'] = $request->commodityCode;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'ListCustomText',
@@ -3604,7 +4304,7 @@ class AiMiaoBi extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return ListCustomTextResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -3612,11 +4312,15 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * @summary 自定义文本列表
-     *  *
-     * @param ListCustomTextRequest $request ListCustomTextRequest
+     * 自定义文本列表.
      *
-     * @return ListCustomTextResponse ListCustomTextResponse
+     * @param request - ListCustomTextRequest
+     *
+     * @returns ListCustomTextResponse
+     *
+     * @param ListCustomTextRequest $request
+     *
+     * @return ListCustomTextResponse
      */
     public function listCustomText($request)
     {
@@ -3626,56 +4330,72 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * @summary 自定义视角列表
-     *  *
-     * @param ListCustomViewPointsRequest $tmpReq  ListCustomViewPointsRequest
-     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
+     * 自定义视角列表.
      *
-     * @return ListCustomViewPointsResponse ListCustomViewPointsResponse
+     * @param tmpReq - ListCustomViewPointsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListCustomViewPointsResponse
+     *
+     * @param ListCustomViewPointsRequest $tmpReq
+     * @param RuntimeOptions              $runtime
+     *
+     * @return ListCustomViewPointsResponse
      */
     public function listCustomViewPointsWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new ListCustomViewPointsShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->attitudes)) {
-            $request->attitudesShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->attitudes, 'Attitudes', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->attitudes) {
+            $request->attitudesShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->attitudes, 'Attitudes', 'json');
         }
-        if (!Utils::isUnset($tmpReq->customViewPointIds)) {
-            $request->customViewPointIdsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->customViewPointIds, 'CustomViewPointIds', 'json');
+
+        if (null !== $tmpReq->customViewPointIds) {
+            $request->customViewPointIdsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->customViewPointIds, 'CustomViewPointIds', 'json');
         }
+
         $query = [];
-        if (!Utils::isUnset($request->agentKey)) {
-            $query['AgentKey'] = $request->agentKey;
+        if (null !== $request->agentKey) {
+            @$query['AgentKey'] = $request->agentKey;
         }
+
         $body = [];
-        if (!Utils::isUnset($request->attitude)) {
-            $body['Attitude'] = $request->attitude;
+        if (null !== $request->attitude) {
+            @$body['Attitude'] = $request->attitude;
         }
-        if (!Utils::isUnset($request->attitudesShrink)) {
-            $body['Attitudes'] = $request->attitudesShrink;
+
+        if (null !== $request->attitudesShrink) {
+            @$body['Attitudes'] = $request->attitudesShrink;
         }
-        if (!Utils::isUnset($request->customViewPointId)) {
-            $body['CustomViewPointId'] = $request->customViewPointId;
+
+        if (null !== $request->customViewPointId) {
+            @$body['CustomViewPointId'] = $request->customViewPointId;
         }
-        if (!Utils::isUnset($request->customViewPointIdsShrink)) {
-            $body['CustomViewPointIds'] = $request->customViewPointIdsShrink;
+
+        if (null !== $request->customViewPointIdsShrink) {
+            @$body['CustomViewPointIds'] = $request->customViewPointIdsShrink;
         }
-        if (!Utils::isUnset($request->maxResults)) {
-            $body['MaxResults'] = $request->maxResults;
+
+        if (null !== $request->maxResults) {
+            @$body['MaxResults'] = $request->maxResults;
         }
-        if (!Utils::isUnset($request->nextToken)) {
-            $body['NextToken'] = $request->nextToken;
+
+        if (null !== $request->nextToken) {
+            @$body['NextToken'] = $request->nextToken;
         }
-        if (!Utils::isUnset($request->topic)) {
-            $body['Topic'] = $request->topic;
+
+        if (null !== $request->topic) {
+            @$body['Topic'] = $request->topic;
         }
-        if (!Utils::isUnset($request->topicId)) {
-            $body['TopicId'] = $request->topicId;
+
+        if (null !== $request->topicId) {
+            @$body['TopicId'] = $request->topicId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'ListCustomViewPoints',
@@ -3688,7 +4408,7 @@ class AiMiaoBi extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return ListCustomViewPointsResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -3696,11 +4416,15 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * @summary 自定义视角列表
-     *  *
-     * @param ListCustomViewPointsRequest $request ListCustomViewPointsRequest
+     * 自定义视角列表.
      *
-     * @return ListCustomViewPointsResponse ListCustomViewPointsResponse
+     * @param request - ListCustomViewPointsRequest
+     *
+     * @returns ListCustomViewPointsResponse
+     *
+     * @param ListCustomViewPointsRequest $request
+     *
+     * @return ListCustomViewPointsResponse
      */
     public function listCustomViewPoints($request)
     {
@@ -3710,60 +4434,78 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * @summary 查询数据集文档列表
-     *  *
-     * @param ListDatasetDocumentsRequest $tmpReq  ListDatasetDocumentsRequest
-     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
+     * 查询数据集文档列表.
      *
-     * @return ListDatasetDocumentsResponse ListDatasetDocumentsResponse
+     * @param tmpReq - ListDatasetDocumentsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListDatasetDocumentsResponse
+     *
+     * @param ListDatasetDocumentsRequest $tmpReq
+     * @param RuntimeOptions              $runtime
+     *
+     * @return ListDatasetDocumentsResponse
      */
     public function listDatasetDocumentsWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new ListDatasetDocumentsShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->excludeFields)) {
-            $request->excludeFieldsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->excludeFields, 'ExcludeFields', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->excludeFields) {
+            $request->excludeFieldsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->excludeFields, 'ExcludeFields', 'json');
         }
-        if (!Utils::isUnset($tmpReq->includeFields)) {
-            $request->includeFieldsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->includeFields, 'IncludeFields', 'json');
+
+        if (null !== $tmpReq->includeFields) {
+            $request->includeFieldsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->includeFields, 'IncludeFields', 'json');
         }
+
         $body = [];
-        if (!Utils::isUnset($request->datasetDescription)) {
-            $body['DatasetDescription'] = $request->datasetDescription;
+        if (null !== $request->datasetDescription) {
+            @$body['DatasetDescription'] = $request->datasetDescription;
         }
-        if (!Utils::isUnset($request->datasetId)) {
-            $body['DatasetId'] = $request->datasetId;
+
+        if (null !== $request->datasetId) {
+            @$body['DatasetId'] = $request->datasetId;
         }
-        if (!Utils::isUnset($request->datasetName)) {
-            $body['DatasetName'] = $request->datasetName;
+
+        if (null !== $request->datasetName) {
+            @$body['DatasetName'] = $request->datasetName;
         }
-        if (!Utils::isUnset($request->docType)) {
-            $body['DocType'] = $request->docType;
+
+        if (null !== $request->docType) {
+            @$body['DocType'] = $request->docType;
         }
-        if (!Utils::isUnset($request->excludeFieldsShrink)) {
-            $body['ExcludeFields'] = $request->excludeFieldsShrink;
+
+        if (null !== $request->excludeFieldsShrink) {
+            @$body['ExcludeFields'] = $request->excludeFieldsShrink;
         }
-        if (!Utils::isUnset($request->includeFieldsShrink)) {
-            $body['IncludeFields'] = $request->includeFieldsShrink;
+
+        if (null !== $request->includeFieldsShrink) {
+            @$body['IncludeFields'] = $request->includeFieldsShrink;
         }
-        if (!Utils::isUnset($request->pageNumber)) {
-            $body['PageNumber'] = $request->pageNumber;
+
+        if (null !== $request->pageNumber) {
+            @$body['PageNumber'] = $request->pageNumber;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $body['PageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$body['PageSize'] = $request->pageSize;
         }
-        if (!Utils::isUnset($request->query)) {
-            $body['Query'] = $request->query;
+
+        if (null !== $request->query) {
+            @$body['Query'] = $request->query;
         }
-        if (!Utils::isUnset($request->status)) {
-            $body['Status'] = $request->status;
+
+        if (null !== $request->status) {
+            @$body['Status'] = $request->status;
         }
-        if (!Utils::isUnset($request->workspaceId)) {
-            $body['WorkspaceId'] = $request->workspaceId;
+
+        if (null !== $request->workspaceId) {
+            @$body['WorkspaceId'] = $request->workspaceId;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'ListDatasetDocuments',
@@ -3776,7 +4518,7 @@ class AiMiaoBi extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return ListDatasetDocumentsResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -3784,11 +4526,15 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * @summary 查询数据集文档列表
-     *  *
-     * @param ListDatasetDocumentsRequest $request ListDatasetDocumentsRequest
+     * 查询数据集文档列表.
      *
-     * @return ListDatasetDocumentsResponse ListDatasetDocumentsResponse
+     * @param request - ListDatasetDocumentsRequest
+     *
+     * @returns ListDatasetDocumentsResponse
+     *
+     * @param ListDatasetDocumentsRequest $request
+     *
+     * @return ListDatasetDocumentsResponse
      */
     public function listDatasetDocuments($request)
     {
@@ -3798,46 +4544,60 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * @summary 数据集管理-查询
-     *  *
-     * @param ListDatasetsRequest $request ListDatasetsRequest
-     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
+     * 数据集管理-查询.
      *
-     * @return ListDatasetsResponse ListDatasetsResponse
+     * @param request - ListDatasetsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListDatasetsResponse
+     *
+     * @param ListDatasetsRequest $request
+     * @param RuntimeOptions      $runtime
+     *
+     * @return ListDatasetsResponse
      */
     public function listDatasetsWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->datasetId)) {
-            $body['DatasetId'] = $request->datasetId;
+        if (null !== $request->datasetId) {
+            @$body['DatasetId'] = $request->datasetId;
         }
-        if (!Utils::isUnset($request->datasetName)) {
-            $body['DatasetName'] = $request->datasetName;
+
+        if (null !== $request->datasetName) {
+            @$body['DatasetName'] = $request->datasetName;
         }
-        if (!Utils::isUnset($request->datasetType)) {
-            $body['DatasetType'] = $request->datasetType;
+
+        if (null !== $request->datasetType) {
+            @$body['DatasetType'] = $request->datasetType;
         }
-        if (!Utils::isUnset($request->endTime)) {
-            $body['EndTime'] = $request->endTime;
+
+        if (null !== $request->endTime) {
+            @$body['EndTime'] = $request->endTime;
         }
-        if (!Utils::isUnset($request->pageNumber)) {
-            $body['PageNumber'] = $request->pageNumber;
+
+        if (null !== $request->pageNumber) {
+            @$body['PageNumber'] = $request->pageNumber;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $body['PageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$body['PageSize'] = $request->pageSize;
         }
-        if (!Utils::isUnset($request->searchDatasetEnable)) {
-            $body['SearchDatasetEnable'] = $request->searchDatasetEnable;
+
+        if (null !== $request->searchDatasetEnable) {
+            @$body['SearchDatasetEnable'] = $request->searchDatasetEnable;
         }
-        if (!Utils::isUnset($request->startTime)) {
-            $body['StartTime'] = $request->startTime;
+
+        if (null !== $request->startTime) {
+            @$body['StartTime'] = $request->startTime;
         }
-        if (!Utils::isUnset($request->workspaceId)) {
-            $body['WorkspaceId'] = $request->workspaceId;
+
+        if (null !== $request->workspaceId) {
+            @$body['WorkspaceId'] = $request->workspaceId;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'ListDatasets',
@@ -3850,7 +4610,7 @@ class AiMiaoBi extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return ListDatasetsResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -3858,11 +4618,15 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * @summary 数据集管理-查询
-     *  *
-     * @param ListDatasetsRequest $request ListDatasetsRequest
+     * 数据集管理-查询.
      *
-     * @return ListDatasetsResponse ListDatasetsResponse
+     * @param request - ListDatasetsRequest
+     *
+     * @returns ListDatasetsResponse
+     *
+     * @param ListDatasetsRequest $request
+     *
+     * @return ListDatasetsResponse
      */
     public function listDatasets($request)
     {
@@ -3872,42 +4636,54 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * @summary 生成历史列表
-     *  *
-     * @param ListDialoguesRequest $request ListDialoguesRequest
-     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
+     * 生成历史列表.
      *
-     * @return ListDialoguesResponse ListDialoguesResponse
+     * @param request - ListDialoguesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListDialoguesResponse
+     *
+     * @param ListDialoguesRequest $request
+     * @param RuntimeOptions       $runtime
+     *
+     * @return ListDialoguesResponse
      */
     public function listDialoguesWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->agentKey)) {
-            $query['AgentKey'] = $request->agentKey;
+        if (null !== $request->agentKey) {
+            @$query['AgentKey'] = $request->agentKey;
         }
+
         $body = [];
-        if (!Utils::isUnset($request->current)) {
-            $body['Current'] = $request->current;
+        if (null !== $request->current) {
+            @$body['Current'] = $request->current;
         }
-        if (!Utils::isUnset($request->dialogueType)) {
-            $body['DialogueType'] = $request->dialogueType;
+
+        if (null !== $request->dialogueType) {
+            @$body['DialogueType'] = $request->dialogueType;
         }
-        if (!Utils::isUnset($request->endTime)) {
-            $body['EndTime'] = $request->endTime;
+
+        if (null !== $request->endTime) {
+            @$body['EndTime'] = $request->endTime;
         }
-        if (!Utils::isUnset($request->size)) {
-            $body['Size'] = $request->size;
+
+        if (null !== $request->size) {
+            @$body['Size'] = $request->size;
         }
-        if (!Utils::isUnset($request->startTime)) {
-            $body['StartTime'] = $request->startTime;
+
+        if (null !== $request->startTime) {
+            @$body['StartTime'] = $request->startTime;
         }
-        if (!Utils::isUnset($request->taskId)) {
-            $body['TaskId'] = $request->taskId;
+
+        if (null !== $request->taskId) {
+            @$body['TaskId'] = $request->taskId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'ListDialogues',
@@ -3920,7 +4696,7 @@ class AiMiaoBi extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return ListDialoguesResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -3928,11 +4704,15 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * @summary 生成历史列表
-     *  *
-     * @param ListDialoguesRequest $request ListDialoguesRequest
+     * 生成历史列表.
      *
-     * @return ListDialoguesResponse ListDialoguesResponse
+     * @param request - ListDialoguesRequest
+     *
+     * @returns ListDialoguesResponse
+     *
+     * @param ListDialoguesRequest $request
+     *
+     * @return ListDialoguesResponse
      */
     public function listDialogues($request)
     {
@@ -3942,48 +4722,62 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * @summary 妙读获取文档列表
-     *  *
-     * @param ListDocsRequest $tmpReq  ListDocsRequest
-     * @param RuntimeOptions  $runtime runtime options for this request RuntimeOptions
+     * 妙读获取文档列表.
      *
-     * @return ListDocsResponse ListDocsResponse
+     * @param tmpReq - ListDocsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListDocsResponse
+     *
+     * @param ListDocsRequest $tmpReq
+     * @param RuntimeOptions  $runtime
+     *
+     * @return ListDocsResponse
      */
     public function listDocsWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new ListDocsShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->statuses)) {
-            $request->statusesShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->statuses, 'Statuses', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->statuses) {
+            $request->statusesShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->statuses, 'Statuses', 'json');
         }
+
         $body = [];
-        if (!Utils::isUnset($request->categoryId)) {
-            $body['CategoryId'] = $request->categoryId;
+        if (null !== $request->categoryId) {
+            @$body['CategoryId'] = $request->categoryId;
         }
-        if (!Utils::isUnset($request->docName)) {
-            $body['DocName'] = $request->docName;
+
+        if (null !== $request->docName) {
+            @$body['DocName'] = $request->docName;
         }
-        if (!Utils::isUnset($request->docType)) {
-            $body['DocType'] = $request->docType;
+
+        if (null !== $request->docType) {
+            @$body['DocType'] = $request->docType;
         }
-        if (!Utils::isUnset($request->maxResults)) {
-            $body['MaxResults'] = $request->maxResults;
+
+        if (null !== $request->maxResults) {
+            @$body['MaxResults'] = $request->maxResults;
         }
-        if (!Utils::isUnset($request->nextToken)) {
-            $body['NextToken'] = $request->nextToken;
+
+        if (null !== $request->nextToken) {
+            @$body['NextToken'] = $request->nextToken;
         }
-        if (!Utils::isUnset($request->skip)) {
-            $body['Skip'] = $request->skip;
+
+        if (null !== $request->skip) {
+            @$body['Skip'] = $request->skip;
         }
-        if (!Utils::isUnset($request->statusesShrink)) {
-            $body['Statuses'] = $request->statusesShrink;
+
+        if (null !== $request->statusesShrink) {
+            @$body['Statuses'] = $request->statusesShrink;
         }
-        if (!Utils::isUnset($request->workspaceId)) {
-            $body['WorkspaceId'] = $request->workspaceId;
+
+        if (null !== $request->workspaceId) {
+            @$body['WorkspaceId'] = $request->workspaceId;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'ListDocs',
@@ -3996,7 +4790,7 @@ class AiMiaoBi extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return ListDocsResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -4004,11 +4798,15 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * @summary 妙读获取文档列表
-     *  *
-     * @param ListDocsRequest $request ListDocsRequest
+     * 妙读获取文档列表.
      *
-     * @return ListDocsResponse ListDocsResponse
+     * @param request - ListDocsRequest
+     *
+     * @returns ListDocsResponse
+     *
+     * @param ListDocsRequest $request
+     *
+     * @return ListDocsResponse
      */
     public function listDocs($request)
     {
@@ -4018,36 +4816,46 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * @summary 新颖视角列表
-     *  *
-     * @param ListFreshViewPointsRequest $request ListFreshViewPointsRequest
-     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
+     * 新颖视角列表.
      *
-     * @return ListFreshViewPointsResponse ListFreshViewPointsResponse
+     * @param request - ListFreshViewPointsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListFreshViewPointsResponse
+     *
+     * @param ListFreshViewPointsRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return ListFreshViewPointsResponse
      */
     public function listFreshViewPointsWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->agentKey)) {
-            $query['AgentKey'] = $request->agentKey;
+        if (null !== $request->agentKey) {
+            @$query['AgentKey'] = $request->agentKey;
         }
+
         $body = [];
-        if (!Utils::isUnset($request->maxResults)) {
-            $body['MaxResults'] = $request->maxResults;
+        if (null !== $request->maxResults) {
+            @$body['MaxResults'] = $request->maxResults;
         }
-        if (!Utils::isUnset($request->nextToken)) {
-            $body['NextToken'] = $request->nextToken;
+
+        if (null !== $request->nextToken) {
+            @$body['NextToken'] = $request->nextToken;
         }
-        if (!Utils::isUnset($request->topic)) {
-            $body['Topic'] = $request->topic;
+
+        if (null !== $request->topic) {
+            @$body['Topic'] = $request->topic;
         }
-        if (!Utils::isUnset($request->topicSource)) {
-            $body['TopicSource'] = $request->topicSource;
+
+        if (null !== $request->topicSource) {
+            @$body['TopicSource'] = $request->topicSource;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'ListFreshViewPoints',
@@ -4060,7 +4868,7 @@ class AiMiaoBi extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return ListFreshViewPointsResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -4068,11 +4876,15 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * @summary 新颖视角列表
-     *  *
-     * @param ListFreshViewPointsRequest $request ListFreshViewPointsRequest
+     * 新颖视角列表.
      *
-     * @return ListFreshViewPointsResponse ListFreshViewPointsResponse
+     * @param request - ListFreshViewPointsRequest
+     *
+     * @returns ListFreshViewPointsResponse
+     *
+     * @param ListFreshViewPointsRequest $request
+     *
+     * @return ListFreshViewPointsResponse
      */
     public function listFreshViewPoints($request)
     {
@@ -4082,48 +4894,62 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * @summary 文档管理-列表。
-     *  *
-     * @param ListGeneratedContentsRequest $request ListGeneratedContentsRequest
-     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
+     * 文档管理-列表。
      *
-     * @return ListGeneratedContentsResponse ListGeneratedContentsResponse
+     * @param request - ListGeneratedContentsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListGeneratedContentsResponse
+     *
+     * @param ListGeneratedContentsRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return ListGeneratedContentsResponse
      */
     public function listGeneratedContentsWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->agentKey)) {
-            $query['AgentKey'] = $request->agentKey;
+        if (null !== $request->agentKey) {
+            @$query['AgentKey'] = $request->agentKey;
         }
+
         $body = [];
-        if (!Utils::isUnset($request->contentDomain)) {
-            $body['ContentDomain'] = $request->contentDomain;
+        if (null !== $request->contentDomain) {
+            @$body['ContentDomain'] = $request->contentDomain;
         }
-        if (!Utils::isUnset($request->current)) {
-            $body['Current'] = $request->current;
+
+        if (null !== $request->current) {
+            @$body['Current'] = $request->current;
         }
-        if (!Utils::isUnset($request->endTime)) {
-            $body['EndTime'] = $request->endTime;
+
+        if (null !== $request->endTime) {
+            @$body['EndTime'] = $request->endTime;
         }
-        if (!Utils::isUnset($request->query)) {
-            $body['Query'] = $request->query;
+
+        if (null !== $request->query) {
+            @$body['Query'] = $request->query;
         }
-        if (!Utils::isUnset($request->size)) {
-            $body['Size'] = $request->size;
+
+        if (null !== $request->size) {
+            @$body['Size'] = $request->size;
         }
-        if (!Utils::isUnset($request->startTime)) {
-            $body['StartTime'] = $request->startTime;
+
+        if (null !== $request->startTime) {
+            @$body['StartTime'] = $request->startTime;
         }
-        if (!Utils::isUnset($request->taskId)) {
-            $body['TaskId'] = $request->taskId;
+
+        if (null !== $request->taskId) {
+            @$body['TaskId'] = $request->taskId;
         }
-        if (!Utils::isUnset($request->title)) {
-            $body['Title'] = $request->title;
+
+        if (null !== $request->title) {
+            @$body['Title'] = $request->title;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'ListGeneratedContents',
@@ -4136,7 +4962,7 @@ class AiMiaoBi extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return ListGeneratedContentsResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -4144,11 +4970,15 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * @summary 文档管理-列表。
-     *  *
-     * @param ListGeneratedContentsRequest $request ListGeneratedContentsRequest
+     * 文档管理-列表。
      *
-     * @return ListGeneratedContentsResponse ListGeneratedContentsResponse
+     * @param request - ListGeneratedContentsRequest
+     *
+     * @returns ListGeneratedContentsResponse
+     *
+     * @param ListGeneratedContentsRequest $request
+     *
+     * @return ListGeneratedContentsResponse
      */
     public function listGeneratedContents($request)
     {
@@ -4158,41 +4988,52 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * @summary 获取分类的热点新闻
-     *  *
-     * @param ListHotNewsWithTypeRequest $tmpReq  ListHotNewsWithTypeRequest
-     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
+     * 获取分类的热点新闻.
      *
-     * @return ListHotNewsWithTypeResponse ListHotNewsWithTypeResponse
+     * @param tmpReq - ListHotNewsWithTypeRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListHotNewsWithTypeResponse
+     *
+     * @param ListHotNewsWithTypeRequest $tmpReq
+     * @param RuntimeOptions             $runtime
+     *
+     * @return ListHotNewsWithTypeResponse
      */
     public function listHotNewsWithTypeWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new ListHotNewsWithTypeShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->newsTypes)) {
-            $request->newsTypesShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->newsTypes, 'NewsTypes', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->newsTypes) {
+            $request->newsTypesShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->newsTypes, 'NewsTypes', 'json');
         }
+
         $query = [];
-        if (!Utils::isUnset($request->agentKey)) {
-            $query['AgentKey'] = $request->agentKey;
+        if (null !== $request->agentKey) {
+            @$query['AgentKey'] = $request->agentKey;
         }
+
         $body = [];
-        if (!Utils::isUnset($request->current)) {
-            $body['Current'] = $request->current;
+        if (null !== $request->current) {
+            @$body['Current'] = $request->current;
         }
-        if (!Utils::isUnset($request->newsType)) {
-            $body['NewsType'] = $request->newsType;
+
+        if (null !== $request->newsType) {
+            @$body['NewsType'] = $request->newsType;
         }
-        if (!Utils::isUnset($request->newsTypesShrink)) {
-            $body['NewsTypes'] = $request->newsTypesShrink;
+
+        if (null !== $request->newsTypesShrink) {
+            @$body['NewsTypes'] = $request->newsTypesShrink;
         }
-        if (!Utils::isUnset($request->size)) {
-            $body['Size'] = $request->size;
+
+        if (null !== $request->size) {
+            @$body['Size'] = $request->size;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'ListHotNewsWithType',
@@ -4205,7 +5046,7 @@ class AiMiaoBi extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return ListHotNewsWithTypeResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -4213,11 +5054,15 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * @summary 获取分类的热点新闻
-     *  *
-     * @param ListHotNewsWithTypeRequest $request ListHotNewsWithTypeRequest
+     * 获取分类的热点新闻.
      *
-     * @return ListHotNewsWithTypeResponse ListHotNewsWithTypeResponse
+     * @param request - ListHotNewsWithTypeRequest
+     *
+     * @returns ListHotNewsWithTypeResponse
+     *
+     * @param ListHotNewsWithTypeRequest $request
+     *
+     * @return ListHotNewsWithTypeResponse
      */
     public function listHotNewsWithType($request)
     {
@@ -4227,30 +5072,38 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * @summary 获取所有平台热榜源列表
-     *  *
-     * @param ListHotSourcesRequest $request ListHotSourcesRequest
-     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
+     * 获取所有平台热榜源列表.
      *
-     * @return ListHotSourcesResponse ListHotSourcesResponse
+     * @param request - ListHotSourcesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListHotSourcesResponse
+     *
+     * @param ListHotSourcesRequest $request
+     * @param RuntimeOptions        $runtime
+     *
+     * @return ListHotSourcesResponse
      */
     public function listHotSourcesWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->agentKey)) {
-            $query['AgentKey'] = $request->agentKey;
+        if (null !== $request->agentKey) {
+            @$query['AgentKey'] = $request->agentKey;
         }
+
         $body = [];
-        if (!Utils::isUnset($request->maxResults)) {
-            $body['MaxResults'] = $request->maxResults;
+        if (null !== $request->maxResults) {
+            @$body['MaxResults'] = $request->maxResults;
         }
-        if (!Utils::isUnset($request->nextToken)) {
-            $body['NextToken'] = $request->nextToken;
+
+        if (null !== $request->nextToken) {
+            @$body['NextToken'] = $request->nextToken;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'ListHotSources',
@@ -4263,7 +5116,7 @@ class AiMiaoBi extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return ListHotSourcesResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -4271,11 +5124,15 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * @summary 获取所有平台热榜源列表
-     *  *
-     * @param ListHotSourcesRequest $request ListHotSourcesRequest
+     * 获取所有平台热榜源列表.
      *
-     * @return ListHotSourcesResponse ListHotSourcesResponse
+     * @param request - ListHotSourcesRequest
+     *
+     * @returns ListHotSourcesResponse
+     *
+     * @param ListHotSourcesRequest $request
+     *
+     * @return ListHotSourcesResponse
      */
     public function listHotSources($request)
     {
@@ -4285,56 +5142,72 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * @summary 获取热点事件列表
-     *  *
-     * @param ListHotTopicsRequest $tmpReq  ListHotTopicsRequest
-     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
+     * 获取热点事件列表.
      *
-     * @return ListHotTopicsResponse ListHotTopicsResponse
+     * @param tmpReq - ListHotTopicsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListHotTopicsResponse
+     *
+     * @param ListHotTopicsRequest $tmpReq
+     * @param RuntimeOptions       $runtime
+     *
+     * @return ListHotTopicsResponse
      */
     public function listHotTopicsWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new ListHotTopicsShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->topicIds)) {
-            $request->topicIdsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->topicIds, 'TopicIds', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->topicIds) {
+            $request->topicIdsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->topicIds, 'TopicIds', 'json');
         }
-        if (!Utils::isUnset($tmpReq->topics)) {
-            $request->topicsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->topics, 'Topics', 'json');
+
+        if (null !== $tmpReq->topics) {
+            $request->topicsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->topics, 'Topics', 'json');
         }
+
         $query = [];
-        if (!Utils::isUnset($request->agentKey)) {
-            $query['AgentKey'] = $request->agentKey;
+        if (null !== $request->agentKey) {
+            @$query['AgentKey'] = $request->agentKey;
         }
+
         $body = [];
-        if (!Utils::isUnset($request->maxResults)) {
-            $body['MaxResults'] = $request->maxResults;
+        if (null !== $request->maxResults) {
+            @$body['MaxResults'] = $request->maxResults;
         }
-        if (!Utils::isUnset($request->nextToken)) {
-            $body['NextToken'] = $request->nextToken;
+
+        if (null !== $request->nextToken) {
+            @$body['NextToken'] = $request->nextToken;
         }
-        if (!Utils::isUnset($request->topicIdsShrink)) {
-            $body['TopicIds'] = $request->topicIdsShrink;
+
+        if (null !== $request->topicIdsShrink) {
+            @$body['TopicIds'] = $request->topicIdsShrink;
         }
-        if (!Utils::isUnset($request->topicQuery)) {
-            $body['TopicQuery'] = $request->topicQuery;
+
+        if (null !== $request->topicQuery) {
+            @$body['TopicQuery'] = $request->topicQuery;
         }
-        if (!Utils::isUnset($request->topicSource)) {
-            $body['TopicSource'] = $request->topicSource;
+
+        if (null !== $request->topicSource) {
+            @$body['TopicSource'] = $request->topicSource;
         }
-        if (!Utils::isUnset($request->topicVersion)) {
-            $body['TopicVersion'] = $request->topicVersion;
+
+        if (null !== $request->topicVersion) {
+            @$body['TopicVersion'] = $request->topicVersion;
         }
-        if (!Utils::isUnset($request->topicsShrink)) {
-            $body['Topics'] = $request->topicsShrink;
+
+        if (null !== $request->topicsShrink) {
+            @$body['Topics'] = $request->topicsShrink;
         }
-        if (!Utils::isUnset($request->withNews)) {
-            $body['WithNews'] = $request->withNews;
+
+        if (null !== $request->withNews) {
+            @$body['WithNews'] = $request->withNews;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'ListHotTopics',
@@ -4347,7 +5220,7 @@ class AiMiaoBi extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return ListHotTopicsResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -4355,11 +5228,15 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * @summary 获取热点事件列表
-     *  *
-     * @param ListHotTopicsRequest $request ListHotTopicsRequest
+     * 获取热点事件列表.
      *
-     * @return ListHotTopicsResponse ListHotTopicsResponse
+     * @param request - ListHotTopicsRequest
+     *
+     * @returns ListHotTopicsResponse
+     *
+     * @param ListHotTopicsRequest $request
+     *
+     * @return ListHotTopicsResponse
      */
     public function listHotTopics($request)
     {
@@ -4369,36 +5246,46 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * @summary 热门视角列表
-     *  *
-     * @param ListHotViewPointsRequest $request ListHotViewPointsRequest
-     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
+     * 热门视角列表.
      *
-     * @return ListHotViewPointsResponse ListHotViewPointsResponse
+     * @param request - ListHotViewPointsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListHotViewPointsResponse
+     *
+     * @param ListHotViewPointsRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return ListHotViewPointsResponse
      */
     public function listHotViewPointsWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->agentKey)) {
-            $query['AgentKey'] = $request->agentKey;
+        if (null !== $request->agentKey) {
+            @$query['AgentKey'] = $request->agentKey;
         }
+
         $body = [];
-        if (!Utils::isUnset($request->maxResults)) {
-            $body['MaxResults'] = $request->maxResults;
+        if (null !== $request->maxResults) {
+            @$body['MaxResults'] = $request->maxResults;
         }
-        if (!Utils::isUnset($request->nextToken)) {
-            $body['NextToken'] = $request->nextToken;
+
+        if (null !== $request->nextToken) {
+            @$body['NextToken'] = $request->nextToken;
         }
-        if (!Utils::isUnset($request->topic)) {
-            $body['Topic'] = $request->topic;
+
+        if (null !== $request->topic) {
+            @$body['Topic'] = $request->topic;
         }
-        if (!Utils::isUnset($request->topicSource)) {
-            $body['TopicSource'] = $request->topicSource;
+
+        if (null !== $request->topicSource) {
+            @$body['TopicSource'] = $request->topicSource;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'ListHotViewPoints',
@@ -4411,7 +5298,7 @@ class AiMiaoBi extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return ListHotViewPointsResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -4419,11 +5306,15 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * @summary 热门视角列表
-     *  *
-     * @param ListHotViewPointsRequest $request ListHotViewPointsRequest
+     * 热门视角列表.
      *
-     * @return ListHotViewPointsResponse ListHotViewPointsResponse
+     * @param request - ListHotViewPointsRequest
+     *
+     * @returns ListHotViewPointsResponse
+     *
+     * @param ListHotViewPointsRequest $request
+     *
+     * @return ListHotViewPointsResponse
      */
     public function listHotViewPoints($request)
     {
@@ -4433,30 +5324,38 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * @summary 获得干预项目数量列表
-     *  *
-     * @param ListInterveneCntRequest $request ListInterveneCntRequest
-     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
+     * 获得干预项目数量列表.
      *
-     * @return ListInterveneCntResponse ListInterveneCntResponse
+     * @param request - ListInterveneCntRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListInterveneCntResponse
+     *
+     * @param ListInterveneCntRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return ListInterveneCntResponse
      */
     public function listInterveneCntWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->agentKey)) {
-            $query['AgentKey'] = $request->agentKey;
+        if (null !== $request->agentKey) {
+            @$query['AgentKey'] = $request->agentKey;
         }
+
         $body = [];
-        if (!Utils::isUnset($request->pageIndex)) {
-            $body['PageIndex'] = $request->pageIndex;
+        if (null !== $request->pageIndex) {
+            @$body['PageIndex'] = $request->pageIndex;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $body['PageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$body['PageSize'] = $request->pageSize;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'ListInterveneCnt',
@@ -4469,7 +5368,7 @@ class AiMiaoBi extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return ListInterveneCntResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -4477,11 +5376,15 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * @summary 获得干预项目数量列表
-     *  *
-     * @param ListInterveneCntRequest $request ListInterveneCntRequest
+     * 获得干预项目数量列表.
      *
-     * @return ListInterveneCntResponse ListInterveneCntResponse
+     * @param request - ListInterveneCntRequest
+     *
+     * @returns ListInterveneCntResponse
+     *
+     * @param ListInterveneCntRequest $request
+     *
+     * @return ListInterveneCntResponse
      */
     public function listInterveneCnt($request)
     {
@@ -4491,30 +5394,38 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * @summary 获得导入任务列表
-     *  *
-     * @param ListInterveneImportTasksRequest $request ListInterveneImportTasksRequest
-     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
+     * 获得导入任务列表.
      *
-     * @return ListInterveneImportTasksResponse ListInterveneImportTasksResponse
+     * @param request - ListInterveneImportTasksRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListInterveneImportTasksResponse
+     *
+     * @param ListInterveneImportTasksRequest $request
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return ListInterveneImportTasksResponse
      */
     public function listInterveneImportTasksWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->agentKey)) {
-            $query['AgentKey'] = $request->agentKey;
+        if (null !== $request->agentKey) {
+            @$query['AgentKey'] = $request->agentKey;
         }
+
         $body = [];
-        if (!Utils::isUnset($request->pageIndex)) {
-            $body['PageIndex'] = $request->pageIndex;
+        if (null !== $request->pageIndex) {
+            @$body['PageIndex'] = $request->pageIndex;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $body['PageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$body['PageSize'] = $request->pageSize;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'ListInterveneImportTasks',
@@ -4527,7 +5438,7 @@ class AiMiaoBi extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return ListInterveneImportTasksResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -4535,11 +5446,15 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * @summary 获得导入任务列表
-     *  *
-     * @param ListInterveneImportTasksRequest $request ListInterveneImportTasksRequest
+     * 获得导入任务列表.
      *
-     * @return ListInterveneImportTasksResponse ListInterveneImportTasksResponse
+     * @param request - ListInterveneImportTasksRequest
+     *
+     * @returns ListInterveneImportTasksResponse
+     *
+     * @param ListInterveneImportTasksRequest $request
+     *
+     * @return ListInterveneImportTasksResponse
      */
     public function listInterveneImportTasks($request)
     {
@@ -4549,30 +5464,38 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * @summary 获得干预规则列表
-     *  *
-     * @param ListInterveneRulesRequest $request ListInterveneRulesRequest
-     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
+     * 获得干预规则列表.
      *
-     * @return ListInterveneRulesResponse ListInterveneRulesResponse
+     * @param request - ListInterveneRulesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListInterveneRulesResponse
+     *
+     * @param ListInterveneRulesRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return ListInterveneRulesResponse
      */
     public function listInterveneRulesWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->agentKey)) {
-            $query['AgentKey'] = $request->agentKey;
+        if (null !== $request->agentKey) {
+            @$query['AgentKey'] = $request->agentKey;
         }
+
         $body = [];
-        if (!Utils::isUnset($request->pageIndex)) {
-            $body['PageIndex'] = $request->pageIndex;
+        if (null !== $request->pageIndex) {
+            @$body['PageIndex'] = $request->pageIndex;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $body['PageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$body['PageSize'] = $request->pageSize;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'ListInterveneRules',
@@ -4585,7 +5508,7 @@ class AiMiaoBi extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return ListInterveneRulesResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -4593,11 +5516,15 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * @summary 获得干预规则列表
-     *  *
-     * @param ListInterveneRulesRequest $request ListInterveneRulesRequest
+     * 获得干预规则列表.
      *
-     * @return ListInterveneRulesResponse ListInterveneRulesResponse
+     * @param request - ListInterveneRulesRequest
+     *
+     * @returns ListInterveneRulesResponse
+     *
+     * @param ListInterveneRulesRequest $request
+     *
+     * @return ListInterveneRulesResponse
      */
     public function listInterveneRules($request)
     {
@@ -4607,39 +5534,50 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * @summary 获得干预项列表
-     *  *
-     * @param ListIntervenesRequest $request ListIntervenesRequest
-     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
+     * 获得干预项列表.
      *
-     * @return ListIntervenesResponse ListIntervenesResponse
+     * @param request - ListIntervenesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListIntervenesResponse
+     *
+     * @param ListIntervenesRequest $request
+     * @param RuntimeOptions        $runtime
+     *
+     * @return ListIntervenesResponse
      */
     public function listIntervenesWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->agentKey)) {
-            $query['AgentKey'] = $request->agentKey;
+        if (null !== $request->agentKey) {
+            @$query['AgentKey'] = $request->agentKey;
         }
+
         $body = [];
-        if (!Utils::isUnset($request->interveneType)) {
-            $body['InterveneType'] = $request->interveneType;
+        if (null !== $request->interveneType) {
+            @$body['InterveneType'] = $request->interveneType;
         }
-        if (!Utils::isUnset($request->pageIndex)) {
-            $body['PageIndex'] = $request->pageIndex;
+
+        if (null !== $request->pageIndex) {
+            @$body['PageIndex'] = $request->pageIndex;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $body['PageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$body['PageSize'] = $request->pageSize;
         }
-        if (!Utils::isUnset($request->query)) {
-            $body['Query'] = $request->query;
+
+        if (null !== $request->query) {
+            @$body['Query'] = $request->query;
         }
-        if (!Utils::isUnset($request->ruleId)) {
-            $body['RuleId'] = $request->ruleId;
+
+        if (null !== $request->ruleId) {
+            @$body['RuleId'] = $request->ruleId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'ListIntervenes',
@@ -4652,7 +5590,7 @@ class AiMiaoBi extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return ListIntervenesResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -4660,11 +5598,15 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * @summary 获得干预项列表
-     *  *
-     * @param ListIntervenesRequest $request ListIntervenesRequest
+     * 获得干预项列表.
      *
-     * @return ListIntervenesResponse ListIntervenesResponse
+     * @param request - ListIntervenesRequest
+     *
+     * @returns ListIntervenesResponse
+     *
+     * @param ListIntervenesRequest $request
+     *
+     * @return ListIntervenesResponse
      */
     public function listIntervenes($request)
     {
@@ -4674,77 +5616,100 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * @summary 查询素材列表
-     *  *
-     * @param ListMaterialDocumentsRequest $tmpReq  ListMaterialDocumentsRequest
-     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
+     * 查询素材列表.
      *
-     * @return ListMaterialDocumentsResponse ListMaterialDocumentsResponse
+     * @param tmpReq - ListMaterialDocumentsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListMaterialDocumentsResponse
+     *
+     * @param ListMaterialDocumentsRequest $tmpReq
+     * @param RuntimeOptions               $runtime
+     *
+     * @return ListMaterialDocumentsResponse
      */
     public function listMaterialDocumentsWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new ListMaterialDocumentsShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->docTypeList)) {
-            $request->docTypeListShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->docTypeList, 'DocTypeList', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->docTypeList) {
+            $request->docTypeListShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->docTypeList, 'DocTypeList', 'json');
         }
-        if (!Utils::isUnset($tmpReq->keywords)) {
-            $request->keywordsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->keywords, 'Keywords', 'json');
+
+        if (null !== $tmpReq->keywords) {
+            $request->keywordsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->keywords, 'Keywords', 'json');
         }
+
         $query = [];
-        if (!Utils::isUnset($request->agentKey)) {
-            $query['AgentKey'] = $request->agentKey;
+        if (null !== $request->agentKey) {
+            @$query['AgentKey'] = $request->agentKey;
         }
+
         $body = [];
-        if (!Utils::isUnset($request->content)) {
-            $body['Content'] = $request->content;
+        if (null !== $request->content) {
+            @$body['Content'] = $request->content;
         }
-        if (!Utils::isUnset($request->createTimeEnd)) {
-            $body['CreateTimeEnd'] = $request->createTimeEnd;
+
+        if (null !== $request->createTimeEnd) {
+            @$body['CreateTimeEnd'] = $request->createTimeEnd;
         }
-        if (!Utils::isUnset($request->createTimeStart)) {
-            $body['CreateTimeStart'] = $request->createTimeStart;
+
+        if (null !== $request->createTimeStart) {
+            @$body['CreateTimeStart'] = $request->createTimeStart;
         }
-        if (!Utils::isUnset($request->current)) {
-            $body['Current'] = $request->current;
+
+        if (null !== $request->current) {
+            @$body['Current'] = $request->current;
         }
-        if (!Utils::isUnset($request->docType)) {
-            $body['DocType'] = $request->docType;
+
+        if (null !== $request->docType) {
+            @$body['DocType'] = $request->docType;
         }
-        if (!Utils::isUnset($request->docTypeListShrink)) {
-            $body['DocTypeList'] = $request->docTypeListShrink;
+
+        if (null !== $request->docTypeListShrink) {
+            @$body['DocTypeList'] = $request->docTypeListShrink;
         }
-        if (!Utils::isUnset($request->generatePublicUrl)) {
-            $body['GeneratePublicUrl'] = $request->generatePublicUrl;
+
+        if (null !== $request->generatePublicUrl) {
+            @$body['GeneratePublicUrl'] = $request->generatePublicUrl;
         }
-        if (!Utils::isUnset($request->id)) {
-            $body['Id'] = $request->id;
+
+        if (null !== $request->id) {
+            @$body['Id'] = $request->id;
         }
-        if (!Utils::isUnset($request->keywordsShrink)) {
-            $body['Keywords'] = $request->keywordsShrink;
+
+        if (null !== $request->keywordsShrink) {
+            @$body['Keywords'] = $request->keywordsShrink;
         }
-        if (!Utils::isUnset($request->query)) {
-            $body['Query'] = $request->query;
+
+        if (null !== $request->query) {
+            @$body['Query'] = $request->query;
         }
-        if (!Utils::isUnset($request->shareAttr)) {
-            $body['ShareAttr'] = $request->shareAttr;
+
+        if (null !== $request->shareAttr) {
+            @$body['ShareAttr'] = $request->shareAttr;
         }
-        if (!Utils::isUnset($request->size)) {
-            $body['Size'] = $request->size;
+
+        if (null !== $request->size) {
+            @$body['Size'] = $request->size;
         }
-        if (!Utils::isUnset($request->title)) {
-            $body['Title'] = $request->title;
+
+        if (null !== $request->title) {
+            @$body['Title'] = $request->title;
         }
-        if (!Utils::isUnset($request->updateTimeEnd)) {
-            $body['UpdateTimeEnd'] = $request->updateTimeEnd;
+
+        if (null !== $request->updateTimeEnd) {
+            @$body['UpdateTimeEnd'] = $request->updateTimeEnd;
         }
-        if (!Utils::isUnset($request->updateTimeStart)) {
-            $body['UpdateTimeStart'] = $request->updateTimeStart;
+
+        if (null !== $request->updateTimeStart) {
+            @$body['UpdateTimeStart'] = $request->updateTimeStart;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'ListMaterialDocuments',
@@ -4757,7 +5722,7 @@ class AiMiaoBi extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return ListMaterialDocumentsResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -4765,11 +5730,15 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * @summary 查询素材列表
-     *  *
-     * @param ListMaterialDocumentsRequest $request ListMaterialDocumentsRequest
+     * 查询素材列表.
      *
-     * @return ListMaterialDocumentsResponse ListMaterialDocumentsResponse
+     * @param request - ListMaterialDocumentsRequest
+     *
+     * @returns ListMaterialDocumentsResponse
+     *
+     * @param ListMaterialDocumentsRequest $request
+     *
+     * @return ListMaterialDocumentsResponse
      */
     public function listMaterialDocuments($request)
     {
@@ -4779,59 +5748,76 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * @summary 获取选题策划列表
-     *  *
-     * @param ListPlanningProposalRequest $tmpReq  ListPlanningProposalRequest
-     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
+     * 获取选题策划列表.
      *
-     * @return ListPlanningProposalResponse ListPlanningProposalResponse
+     * @param tmpReq - ListPlanningProposalRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListPlanningProposalResponse
+     *
+     * @param ListPlanningProposalRequest $tmpReq
+     * @param RuntimeOptions              $runtime
+     *
+     * @return ListPlanningProposalResponse
      */
     public function listPlanningProposalWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new ListPlanningProposalShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->customViewPointIds)) {
-            $request->customViewPointIdsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->customViewPointIds, 'CustomViewPointIds', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->customViewPointIds) {
+            $request->customViewPointIdsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->customViewPointIds, 'CustomViewPointIds', 'json');
         }
-        if (!Utils::isUnset($tmpReq->titles)) {
-            $request->titlesShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->titles, 'Titles', 'json');
+
+        if (null !== $tmpReq->titles) {
+            $request->titlesShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->titles, 'Titles', 'json');
         }
+
         $query = [];
-        if (!Utils::isUnset($request->agentKey)) {
-            $query['AgentKey'] = $request->agentKey;
+        if (null !== $request->agentKey) {
+            @$query['AgentKey'] = $request->agentKey;
         }
+
         $body = [];
-        if (!Utils::isUnset($request->customViewPointId)) {
-            $body['CustomViewPointId'] = $request->customViewPointId;
+        if (null !== $request->customViewPointId) {
+            @$body['CustomViewPointId'] = $request->customViewPointId;
         }
-        if (!Utils::isUnset($request->customViewPointIdsShrink)) {
-            $body['CustomViewPointIds'] = $request->customViewPointIdsShrink;
+
+        if (null !== $request->customViewPointIdsShrink) {
+            @$body['CustomViewPointIds'] = $request->customViewPointIdsShrink;
         }
-        if (!Utils::isUnset($request->maxResults)) {
-            $body['MaxResults'] = $request->maxResults;
+
+        if (null !== $request->maxResults) {
+            @$body['MaxResults'] = $request->maxResults;
         }
-        if (!Utils::isUnset($request->nextToken)) {
-            $body['NextToken'] = $request->nextToken;
+
+        if (null !== $request->nextToken) {
+            @$body['NextToken'] = $request->nextToken;
         }
-        if (!Utils::isUnset($request->titlesShrink)) {
-            $body['Titles'] = $request->titlesShrink;
+
+        if (null !== $request->titlesShrink) {
+            @$body['Titles'] = $request->titlesShrink;
         }
-        if (!Utils::isUnset($request->topic)) {
-            $body['Topic'] = $request->topic;
+
+        if (null !== $request->topic) {
+            @$body['Topic'] = $request->topic;
         }
-        if (!Utils::isUnset($request->topicSource)) {
-            $body['TopicSource'] = $request->topicSource;
+
+        if (null !== $request->topicSource) {
+            @$body['TopicSource'] = $request->topicSource;
         }
-        if (!Utils::isUnset($request->topicVersion)) {
-            $body['TopicVersion'] = $request->topicVersion;
+
+        if (null !== $request->topicVersion) {
+            @$body['TopicVersion'] = $request->topicVersion;
         }
-        if (!Utils::isUnset($request->viewPointType)) {
-            $body['ViewPointType'] = $request->viewPointType;
+
+        if (null !== $request->viewPointType) {
+            @$body['ViewPointType'] = $request->viewPointType;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'ListPlanningProposal',
@@ -4844,7 +5830,7 @@ class AiMiaoBi extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return ListPlanningProposalResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -4852,11 +5838,15 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * @summary 获取选题策划列表
-     *  *
-     * @param ListPlanningProposalRequest $request ListPlanningProposalRequest
+     * 获取选题策划列表.
      *
-     * @return ListPlanningProposalResponse ListPlanningProposalResponse
+     * @param request - ListPlanningProposalRequest
+     *
+     * @returns ListPlanningProposalResponse
+     *
+     * @param ListPlanningProposalRequest $request
+     *
+     * @return ListPlanningProposalResponse
      */
     public function listPlanningProposal($request)
     {
@@ -4866,52 +5856,68 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * @summary 查询搜索生成任务对话详情中数据列表
-     *  *
-     * @param ListSearchTaskDialogueDatasRequest $request ListSearchTaskDialogueDatasRequest
-     * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
+     * 查询搜索生成任务对话详情中数据列表.
      *
-     * @return ListSearchTaskDialogueDatasResponse ListSearchTaskDialogueDatasResponse
+     * @param request - ListSearchTaskDialogueDatasRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListSearchTaskDialogueDatasResponse
+     *
+     * @param ListSearchTaskDialogueDatasRequest $request
+     * @param RuntimeOptions                     $runtime
+     *
+     * @return ListSearchTaskDialogueDatasResponse
      */
     public function listSearchTaskDialogueDatasWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->includeContent)) {
-            $body['IncludeContent'] = $request->includeContent;
+        if (null !== $request->includeContent) {
+            @$body['IncludeContent'] = $request->includeContent;
         }
-        if (!Utils::isUnset($request->multimodalSearchType)) {
-            $body['MultimodalSearchType'] = $request->multimodalSearchType;
+
+        if (null !== $request->multimodalSearchType) {
+            @$body['MultimodalSearchType'] = $request->multimodalSearchType;
         }
-        if (!Utils::isUnset($request->originalSessionId)) {
-            $body['OriginalSessionId'] = $request->originalSessionId;
+
+        if (null !== $request->originalSessionId) {
+            @$body['OriginalSessionId'] = $request->originalSessionId;
         }
-        if (!Utils::isUnset($request->pageNumber)) {
-            $body['PageNumber'] = $request->pageNumber;
+
+        if (null !== $request->pageNumber) {
+            @$body['PageNumber'] = $request->pageNumber;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $body['PageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$body['PageSize'] = $request->pageSize;
         }
-        if (!Utils::isUnset($request->query)) {
-            $body['Query'] = $request->query;
+
+        if (null !== $request->query) {
+            @$body['Query'] = $request->query;
         }
-        if (!Utils::isUnset($request->searchModel)) {
-            $body['SearchModel'] = $request->searchModel;
+
+        if (null !== $request->searchModel) {
+            @$body['SearchModel'] = $request->searchModel;
         }
-        if (!Utils::isUnset($request->searchModelDataValue)) {
-            $body['SearchModelDataValue'] = $request->searchModelDataValue;
+
+        if (null !== $request->searchModelDataValue) {
+            @$body['SearchModelDataValue'] = $request->searchModelDataValue;
         }
-        if (!Utils::isUnset($request->sessionId)) {
-            $body['SessionId'] = $request->sessionId;
+
+        if (null !== $request->sessionId) {
+            @$body['SessionId'] = $request->sessionId;
         }
-        if (!Utils::isUnset($request->taskId)) {
-            $body['TaskId'] = $request->taskId;
+
+        if (null !== $request->taskId) {
+            @$body['TaskId'] = $request->taskId;
         }
-        if (!Utils::isUnset($request->workspaceId)) {
-            $body['WorkspaceId'] = $request->workspaceId;
+
+        if (null !== $request->workspaceId) {
+            @$body['WorkspaceId'] = $request->workspaceId;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'ListSearchTaskDialogueDatas',
@@ -4924,7 +5930,7 @@ class AiMiaoBi extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return ListSearchTaskDialogueDatasResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -4932,11 +5938,15 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * @summary 查询搜索生成任务对话详情中数据列表
-     *  *
-     * @param ListSearchTaskDialogueDatasRequest $request ListSearchTaskDialogueDatasRequest
+     * 查询搜索生成任务对话详情中数据列表.
      *
-     * @return ListSearchTaskDialogueDatasResponse ListSearchTaskDialogueDatasResponse
+     * @param request - ListSearchTaskDialogueDatasRequest
+     *
+     * @returns ListSearchTaskDialogueDatasResponse
+     *
+     * @param ListSearchTaskDialogueDatasRequest $request
+     *
+     * @return ListSearchTaskDialogueDatasResponse
      */
     public function listSearchTaskDialogueDatas($request)
     {
@@ -4946,31 +5956,40 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * @summary 查询妙搜搜索生成任务详情列表
-     *  *
-     * @param ListSearchTaskDialoguesRequest $request ListSearchTaskDialoguesRequest
-     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
+     * 查询妙搜搜索生成任务详情列表.
      *
-     * @return ListSearchTaskDialoguesResponse ListSearchTaskDialoguesResponse
+     * @param request - ListSearchTaskDialoguesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListSearchTaskDialoguesResponse
+     *
+     * @param ListSearchTaskDialoguesRequest $request
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return ListSearchTaskDialoguesResponse
      */
     public function listSearchTaskDialoguesWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->pageNumber)) {
-            $body['PageNumber'] = $request->pageNumber;
+        if (null !== $request->pageNumber) {
+            @$body['PageNumber'] = $request->pageNumber;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $body['PageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$body['PageSize'] = $request->pageSize;
         }
-        if (!Utils::isUnset($request->taskId)) {
-            $body['TaskId'] = $request->taskId;
+
+        if (null !== $request->taskId) {
+            @$body['TaskId'] = $request->taskId;
         }
-        if (!Utils::isUnset($request->workspaceId)) {
-            $body['WorkspaceId'] = $request->workspaceId;
+
+        if (null !== $request->workspaceId) {
+            @$body['WorkspaceId'] = $request->workspaceId;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'ListSearchTaskDialogues',
@@ -4983,7 +6002,7 @@ class AiMiaoBi extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return ListSearchTaskDialoguesResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -4991,11 +6010,15 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * @summary 查询妙搜搜索生成任务详情列表
-     *  *
-     * @param ListSearchTaskDialoguesRequest $request ListSearchTaskDialoguesRequest
+     * 查询妙搜搜索生成任务详情列表.
      *
-     * @return ListSearchTaskDialoguesResponse ListSearchTaskDialoguesResponse
+     * @param request - ListSearchTaskDialoguesRequest
+     *
+     * @returns ListSearchTaskDialoguesResponse
+     *
+     * @param ListSearchTaskDialoguesRequest $request
+     *
+     * @return ListSearchTaskDialoguesResponse
      */
     public function listSearchTaskDialogues($request)
     {
@@ -5005,36 +6028,46 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * @summary 查询妙搜搜索生成历史任务列表
-     *  *
-     * @param ListSearchTasksRequest $tmpReq  ListSearchTasksRequest
-     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
+     * 查询妙搜搜索生成历史任务列表.
      *
-     * @return ListSearchTasksResponse ListSearchTasksResponse
+     * @param tmpReq - ListSearchTasksRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListSearchTasksResponse
+     *
+     * @param ListSearchTasksRequest $tmpReq
+     * @param RuntimeOptions         $runtime
+     *
+     * @return ListSearchTasksResponse
      */
     public function listSearchTasksWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new ListSearchTasksShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->dialogueTypes)) {
-            $request->dialogueTypesShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->dialogueTypes, 'DialogueTypes', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->dialogueTypes) {
+            $request->dialogueTypesShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->dialogueTypes, 'DialogueTypes', 'json');
         }
+
         $body = [];
-        if (!Utils::isUnset($request->dialogueTypesShrink)) {
-            $body['DialogueTypes'] = $request->dialogueTypesShrink;
+        if (null !== $request->dialogueTypesShrink) {
+            @$body['DialogueTypes'] = $request->dialogueTypesShrink;
         }
-        if (!Utils::isUnset($request->pageNumber)) {
-            $body['PageNumber'] = $request->pageNumber;
+
+        if (null !== $request->pageNumber) {
+            @$body['PageNumber'] = $request->pageNumber;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $body['PageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$body['PageSize'] = $request->pageSize;
         }
-        if (!Utils::isUnset($request->workspaceId)) {
-            $body['WorkspaceId'] = $request->workspaceId;
+
+        if (null !== $request->workspaceId) {
+            @$body['WorkspaceId'] = $request->workspaceId;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'ListSearchTasks',
@@ -5047,7 +6080,7 @@ class AiMiaoBi extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return ListSearchTasksResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -5055,11 +6088,15 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * @summary 查询妙搜搜索生成历史任务列表
-     *  *
-     * @param ListSearchTasksRequest $request ListSearchTasksRequest
+     * 查询妙搜搜索生成历史任务列表.
      *
-     * @return ListSearchTasksResponse ListSearchTasksResponse
+     * @param request - ListSearchTasksRequest
+     *
+     * @returns ListSearchTasksResponse
+     *
+     * @param ListSearchTasksRequest $request
+     *
+     * @return ListSearchTasksResponse
      */
     public function listSearchTasks($request)
     {
@@ -5069,30 +6106,38 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * @summary 获取文体学习分析结果列表
-     *  *
-     * @param ListStyleLearningResultRequest $request ListStyleLearningResultRequest
-     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
+     * 获取文体学习分析结果列表.
      *
-     * @return ListStyleLearningResultResponse ListStyleLearningResultResponse
+     * @param request - ListStyleLearningResultRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListStyleLearningResultResponse
+     *
+     * @param ListStyleLearningResultRequest $request
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return ListStyleLearningResultResponse
      */
     public function listStyleLearningResultWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->agentKey)) {
-            $query['AgentKey'] = $request->agentKey;
+        if (null !== $request->agentKey) {
+            @$query['AgentKey'] = $request->agentKey;
         }
+
         $body = [];
-        if (!Utils::isUnset($request->current)) {
-            $body['Current'] = $request->current;
+        if (null !== $request->current) {
+            @$body['Current'] = $request->current;
         }
-        if (!Utils::isUnset($request->size)) {
-            $body['Size'] = $request->size;
+
+        if (null !== $request->size) {
+            @$body['Size'] = $request->size;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'ListStyleLearningResult',
@@ -5105,7 +6150,7 @@ class AiMiaoBi extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return ListStyleLearningResultResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -5113,11 +6158,15 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * @summary 获取文体学习分析结果列表
-     *  *
-     * @param ListStyleLearningResultRequest $request ListStyleLearningResultRequest
+     * 获取文体学习分析结果列表.
      *
-     * @return ListStyleLearningResultResponse ListStyleLearningResultResponse
+     * @param request - ListStyleLearningResultRequest
+     *
+     * @returns ListStyleLearningResultResponse
+     *
+     * @param ListStyleLearningResultRequest $request
+     *
+     * @return ListStyleLearningResultResponse
      */
     public function listStyleLearningResult($request)
     {
@@ -5127,36 +6176,46 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * @summary 时效性视角列表
-     *  *
-     * @param ListTimedViewAttitudeRequest $request ListTimedViewAttitudeRequest
-     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
+     * 时效性视角列表.
      *
-     * @return ListTimedViewAttitudeResponse ListTimedViewAttitudeResponse
+     * @param request - ListTimedViewAttitudeRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListTimedViewAttitudeResponse
+     *
+     * @param ListTimedViewAttitudeRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return ListTimedViewAttitudeResponse
      */
     public function listTimedViewAttitudeWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->agentKey)) {
-            $query['AgentKey'] = $request->agentKey;
+        if (null !== $request->agentKey) {
+            @$query['AgentKey'] = $request->agentKey;
         }
+
         $body = [];
-        if (!Utils::isUnset($request->maxResults)) {
-            $body['MaxResults'] = $request->maxResults;
+        if (null !== $request->maxResults) {
+            @$body['MaxResults'] = $request->maxResults;
         }
-        if (!Utils::isUnset($request->nextToken)) {
-            $body['NextToken'] = $request->nextToken;
+
+        if (null !== $request->nextToken) {
+            @$body['NextToken'] = $request->nextToken;
         }
-        if (!Utils::isUnset($request->topic)) {
-            $body['Topic'] = $request->topic;
+
+        if (null !== $request->topic) {
+            @$body['Topic'] = $request->topic;
         }
-        if (!Utils::isUnset($request->topicSource)) {
-            $body['TopicSource'] = $request->topicSource;
+
+        if (null !== $request->topicSource) {
+            @$body['TopicSource'] = $request->topicSource;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'ListTimedViewAttitude',
@@ -5169,7 +6228,7 @@ class AiMiaoBi extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return ListTimedViewAttitudeResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -5177,11 +6236,15 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * @summary 时效性视角列表
-     *  *
-     * @param ListTimedViewAttitudeRequest $request ListTimedViewAttitudeRequest
+     * 时效性视角列表.
      *
-     * @return ListTimedViewAttitudeResponse ListTimedViewAttitudeResponse
+     * @param request - ListTimedViewAttitudeRequest
+     *
+     * @returns ListTimedViewAttitudeResponse
+     *
+     * @param ListTimedViewAttitudeRequest $request
+     *
+     * @return ListTimedViewAttitudeResponse
      */
     public function listTimedViewAttitude($request)
     {
@@ -5191,30 +6254,38 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * @summary 获取热点推荐事件
-     *  *
-     * @param ListTopicRecommendEventListRequest $request ListTopicRecommendEventListRequest
-     * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
+     * 获取热点推荐事件.
      *
-     * @return ListTopicRecommendEventListResponse ListTopicRecommendEventListResponse
+     * @param request - ListTopicRecommendEventListRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListTopicRecommendEventListResponse
+     *
+     * @param ListTopicRecommendEventListRequest $request
+     * @param RuntimeOptions                     $runtime
+     *
+     * @return ListTopicRecommendEventListResponse
      */
     public function listTopicRecommendEventListWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->agentKey)) {
-            $query['AgentKey'] = $request->agentKey;
+        if (null !== $request->agentKey) {
+            @$query['AgentKey'] = $request->agentKey;
         }
+
         $body = [];
-        if (!Utils::isUnset($request->maxResults)) {
-            $body['MaxResults'] = $request->maxResults;
+        if (null !== $request->maxResults) {
+            @$body['MaxResults'] = $request->maxResults;
         }
-        if (!Utils::isUnset($request->nextToken)) {
-            $body['NextToken'] = $request->nextToken;
+
+        if (null !== $request->nextToken) {
+            @$body['NextToken'] = $request->nextToken;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'ListTopicRecommendEventList',
@@ -5227,7 +6298,7 @@ class AiMiaoBi extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return ListTopicRecommendEventListResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -5235,11 +6306,15 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * @summary 获取热点推荐事件
-     *  *
-     * @param ListTopicRecommendEventListRequest $request ListTopicRecommendEventListRequest
+     * 获取热点推荐事件.
      *
-     * @return ListTopicRecommendEventListResponse ListTopicRecommendEventListResponse
+     * @param request - ListTopicRecommendEventListRequest
+     *
+     * @returns ListTopicRecommendEventListResponse
+     *
+     * @param ListTopicRecommendEventListRequest $request
+     *
+     * @return ListTopicRecommendEventListResponse
      */
     public function listTopicRecommendEventList($request)
     {
@@ -5249,33 +6324,42 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * @summary 获取主题事件推荐观点列表
-     *  *
-     * @param ListTopicViewPointRecommendEventListRequest $request ListTopicViewPointRecommendEventListRequest
-     * @param RuntimeOptions                              $runtime runtime options for this request RuntimeOptions
+     * 获取主题事件推荐观点列表.
      *
-     * @return ListTopicViewPointRecommendEventListResponse ListTopicViewPointRecommendEventListResponse
+     * @param request - ListTopicViewPointRecommendEventListRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListTopicViewPointRecommendEventListResponse
+     *
+     * @param ListTopicViewPointRecommendEventListRequest $request
+     * @param RuntimeOptions                              $runtime
+     *
+     * @return ListTopicViewPointRecommendEventListResponse
      */
     public function listTopicViewPointRecommendEventListWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->agentKey)) {
-            $query['AgentKey'] = $request->agentKey;
+        if (null !== $request->agentKey) {
+            @$query['AgentKey'] = $request->agentKey;
         }
+
         $body = [];
-        if (!Utils::isUnset($request->id)) {
-            $body['Id'] = $request->id;
+        if (null !== $request->id) {
+            @$body['Id'] = $request->id;
         }
-        if (!Utils::isUnset($request->maxResults)) {
-            $body['MaxResults'] = $request->maxResults;
+
+        if (null !== $request->maxResults) {
+            @$body['MaxResults'] = $request->maxResults;
         }
-        if (!Utils::isUnset($request->nextToken)) {
-            $body['NextToken'] = $request->nextToken;
+
+        if (null !== $request->nextToken) {
+            @$body['NextToken'] = $request->nextToken;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'ListTopicViewPointRecommendEventList',
@@ -5288,7 +6372,7 @@ class AiMiaoBi extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return ListTopicViewPointRecommendEventListResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -5296,11 +6380,15 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * @summary 获取主题事件推荐观点列表
-     *  *
-     * @param ListTopicViewPointRecommendEventListRequest $request ListTopicViewPointRecommendEventListRequest
+     * 获取主题事件推荐观点列表.
      *
-     * @return ListTopicViewPointRecommendEventListResponse ListTopicViewPointRecommendEventListResponse
+     * @param request - ListTopicViewPointRecommendEventListRequest
+     *
+     * @returns ListTopicViewPointRecommendEventListResponse
+     *
+     * @param ListTopicViewPointRecommendEventListRequest $request
+     *
+     * @return ListTopicViewPointRecommendEventListResponse
      */
     public function listTopicViewPointRecommendEventList($request)
     {
@@ -5310,22 +6398,28 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * @summary 获取系统所有实例信息
-     *  *
-     * @param ListVersionsRequest $request ListVersionsRequest
-     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
+     * 获取系统所有实例信息.
      *
-     * @return ListVersionsResponse ListVersionsResponse
+     * @param request - ListVersionsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListVersionsResponse
+     *
+     * @param ListVersionsRequest $request
+     * @param RuntimeOptions      $runtime
+     *
+     * @return ListVersionsResponse
      */
     public function listVersionsWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->agentKey)) {
-            $query['AgentKey'] = $request->agentKey;
+        if (null !== $request->agentKey) {
+            @$query['AgentKey'] = $request->agentKey;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'ListVersions',
@@ -5338,7 +6432,7 @@ class AiMiaoBi extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return ListVersionsResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -5346,11 +6440,15 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * @summary 获取系统所有实例信息
-     *  *
-     * @param ListVersionsRequest $request ListVersionsRequest
+     * 获取系统所有实例信息.
      *
-     * @return ListVersionsResponse ListVersionsResponse
+     * @param request - ListVersionsRequest
+     *
+     * @returns ListVersionsResponse
+     *
+     * @param ListVersionsRequest $request
+     *
+     * @return ListVersionsResponse
      */
     public function listVersions($request)
     {
@@ -5360,36 +6458,46 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * @summary 网友视角列表
-     *  *
-     * @param ListWebReviewPointsRequest $request ListWebReviewPointsRequest
-     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
+     * 网友视角列表.
      *
-     * @return ListWebReviewPointsResponse ListWebReviewPointsResponse
+     * @param request - ListWebReviewPointsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListWebReviewPointsResponse
+     *
+     * @param ListWebReviewPointsRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return ListWebReviewPointsResponse
      */
     public function listWebReviewPointsWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->agentKey)) {
-            $query['AgentKey'] = $request->agentKey;
+        if (null !== $request->agentKey) {
+            @$query['AgentKey'] = $request->agentKey;
         }
+
         $body = [];
-        if (!Utils::isUnset($request->maxResults)) {
-            $body['MaxResults'] = $request->maxResults;
+        if (null !== $request->maxResults) {
+            @$body['MaxResults'] = $request->maxResults;
         }
-        if (!Utils::isUnset($request->nextToken)) {
-            $body['NextToken'] = $request->nextToken;
+
+        if (null !== $request->nextToken) {
+            @$body['NextToken'] = $request->nextToken;
         }
-        if (!Utils::isUnset($request->topic)) {
-            $body['Topic'] = $request->topic;
+
+        if (null !== $request->topic) {
+            @$body['Topic'] = $request->topic;
         }
-        if (!Utils::isUnset($request->topicSource)) {
-            $body['TopicSource'] = $request->topicSource;
+
+        if (null !== $request->topicSource) {
+            @$body['TopicSource'] = $request->topicSource;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'ListWebReviewPoints',
@@ -5402,7 +6510,7 @@ class AiMiaoBi extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return ListWebReviewPointsResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -5410,11 +6518,15 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * @summary 网友视角列表
-     *  *
-     * @param ListWebReviewPointsRequest $request ListWebReviewPointsRequest
+     * 网友视角列表.
      *
-     * @return ListWebReviewPointsResponse ListWebReviewPointsResponse
+     * @param request - ListWebReviewPointsRequest
+     *
+     * @returns ListWebReviewPointsResponse
+     *
+     * @param ListWebReviewPointsRequest $request
+     *
+     * @return ListWebReviewPointsResponse
      */
     public function listWebReviewPoints($request)
     {
@@ -5424,27 +6536,34 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * @summary 根据taskId查询异步任务状态
-     *  *
-     * @param QueryAsyncTaskRequest $request QueryAsyncTaskRequest
-     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
+     * 根据taskId查询异步任务状态
      *
-     * @return QueryAsyncTaskResponse QueryAsyncTaskResponse
+     * @param request - QueryAsyncTaskRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns QueryAsyncTaskResponse
+     *
+     * @param QueryAsyncTaskRequest $request
+     * @param RuntimeOptions        $runtime
+     *
+     * @return QueryAsyncTaskResponse
      */
     public function queryAsyncTaskWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->agentKey)) {
-            $query['AgentKey'] = $request->agentKey;
+        if (null !== $request->agentKey) {
+            @$query['AgentKey'] = $request->agentKey;
         }
+
         $body = [];
-        if (!Utils::isUnset($request->taskId)) {
-            $body['TaskId'] = $request->taskId;
+        if (null !== $request->taskId) {
+            @$body['TaskId'] = $request->taskId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'QueryAsyncTask',
@@ -5457,7 +6576,7 @@ class AiMiaoBi extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return QueryAsyncTaskResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -5465,11 +6584,15 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * @summary 根据taskId查询异步任务状态
-     *  *
-     * @param QueryAsyncTaskRequest $request QueryAsyncTaskRequest
+     * 根据taskId查询异步任务状态
      *
-     * @return QueryAsyncTaskResponse QueryAsyncTaskResponse
+     * @param request - QueryAsyncTaskRequest
+     *
+     * @returns QueryAsyncTaskResponse
+     *
+     * @param QueryAsyncTaskRequest $request
+     *
+     * @return QueryAsyncTaskResponse
      */
     public function queryAsyncTask($request)
     {
@@ -5479,25 +6602,32 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * @summary 内容缩写
-     *  *
-     * @param RunAbbreviationContentRequest $request RunAbbreviationContentRequest
-     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
+     * 内容缩写.
      *
-     * @return RunAbbreviationContentResponse RunAbbreviationContentResponse
+     * @param request - RunAbbreviationContentRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns RunAbbreviationContentResponse
+     *
+     * @param RunAbbreviationContentRequest $request
+     * @param RuntimeOptions                $runtime
+     *
+     * @return RunAbbreviationContentResponse
      */
     public function runAbbreviationContentWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->content)) {
-            $body['Content'] = $request->content;
+        if (null !== $request->content) {
+            @$body['Content'] = $request->content;
         }
-        if (!Utils::isUnset($request->workspaceId)) {
-            $body['WorkspaceId'] = $request->workspaceId;
+
+        if (null !== $request->workspaceId) {
+            @$body['WorkspaceId'] = $request->workspaceId;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'RunAbbreviationContent',
@@ -5510,7 +6640,7 @@ class AiMiaoBi extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return RunAbbreviationContentResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -5518,11 +6648,15 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * @summary 内容缩写
-     *  *
-     * @param RunAbbreviationContentRequest $request RunAbbreviationContentRequest
+     * 内容缩写.
      *
-     * @return RunAbbreviationContentResponse RunAbbreviationContentResponse
+     * @param request - RunAbbreviationContentRequest
+     *
+     * @returns RunAbbreviationContentResponse
+     *
+     * @param RunAbbreviationContentRequest $request
+     *
+     * @return RunAbbreviationContentResponse
      */
     public function runAbbreviationContent($request)
     {
@@ -5532,34 +6666,44 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * @summary 书籍导读接口
-     *  *
-     * @param RunBookIntroductionRequest $request RunBookIntroductionRequest
-     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
+     * 书籍导读接口.
      *
-     * @return RunBookIntroductionResponse RunBookIntroductionResponse
+     * @param request - RunBookIntroductionRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns RunBookIntroductionResponse
+     *
+     * @param RunBookIntroductionRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return RunBookIntroductionResponse
      */
     public function runBookIntroductionWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->docId)) {
-            $body['DocId'] = $request->docId;
+        if (null !== $request->docId) {
+            @$body['DocId'] = $request->docId;
         }
-        if (!Utils::isUnset($request->keyPointPrompt)) {
-            $body['KeyPointPrompt'] = $request->keyPointPrompt;
+
+        if (null !== $request->keyPointPrompt) {
+            @$body['KeyPointPrompt'] = $request->keyPointPrompt;
         }
-        if (!Utils::isUnset($request->sessionId)) {
-            $body['SessionId'] = $request->sessionId;
+
+        if (null !== $request->sessionId) {
+            @$body['SessionId'] = $request->sessionId;
         }
-        if (!Utils::isUnset($request->summaryPrompt)) {
-            $body['SummaryPrompt'] = $request->summaryPrompt;
+
+        if (null !== $request->summaryPrompt) {
+            @$body['SummaryPrompt'] = $request->summaryPrompt;
         }
-        if (!Utils::isUnset($request->workspaceId)) {
-            $body['WorkspaceId'] = $request->workspaceId;
+
+        if (null !== $request->workspaceId) {
+            @$body['WorkspaceId'] = $request->workspaceId;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'RunBookIntroduction',
@@ -5572,7 +6716,7 @@ class AiMiaoBi extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return RunBookIntroductionResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -5580,11 +6724,15 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * @summary 书籍导读接口
-     *  *
-     * @param RunBookIntroductionRequest $request RunBookIntroductionRequest
+     * 书籍导读接口.
      *
-     * @return RunBookIntroductionResponse RunBookIntroductionResponse
+     * @param request - RunBookIntroductionRequest
+     *
+     * @returns RunBookIntroductionResponse
+     *
+     * @param RunBookIntroductionRequest $request
+     *
+     * @return RunBookIntroductionResponse
      */
     public function runBookIntroduction($request)
     {
@@ -5594,28 +6742,36 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * @summary 书籍智能卡片接口
-     *  *
-     * @param RunBookSmartCardRequest $request RunBookSmartCardRequest
-     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
+     * 书籍智能卡片接口.
      *
-     * @return RunBookSmartCardResponse RunBookSmartCardResponse
+     * @param request - RunBookSmartCardRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns RunBookSmartCardResponse
+     *
+     * @param RunBookSmartCardRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return RunBookSmartCardResponse
      */
     public function runBookSmartCardWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->docId)) {
-            $body['DocId'] = $request->docId;
+        if (null !== $request->docId) {
+            @$body['DocId'] = $request->docId;
         }
-        if (!Utils::isUnset($request->sessionId)) {
-            $body['SessionId'] = $request->sessionId;
+
+        if (null !== $request->sessionId) {
+            @$body['SessionId'] = $request->sessionId;
         }
-        if (!Utils::isUnset($request->workspaceId)) {
-            $body['WorkspaceId'] = $request->workspaceId;
+
+        if (null !== $request->workspaceId) {
+            @$body['WorkspaceId'] = $request->workspaceId;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'RunBookSmartCard',
@@ -5628,7 +6784,7 @@ class AiMiaoBi extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return RunBookSmartCardResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -5636,11 +6792,15 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * @summary 书籍智能卡片接口
-     *  *
-     * @param RunBookSmartCardRequest $request RunBookSmartCardRequest
+     * 书籍智能卡片接口.
      *
-     * @return RunBookSmartCardResponse RunBookSmartCardResponse
+     * @param request - RunBookSmartCardRequest
+     *
+     * @returns RunBookSmartCardResponse
+     *
+     * @param RunBookSmartCardRequest $request
+     *
+     * @return RunBookSmartCardResponse
      */
     public function runBookSmartCard($request)
     {
@@ -5650,63 +6810,82 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * @summary 客户之声预测
-     *  *
-     * @param RunCommentGenerationRequest $tmpReq  RunCommentGenerationRequest
-     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
+     * 客户之声预测.
      *
-     * @return RunCommentGenerationResponse RunCommentGenerationResponse
+     * @param tmpReq - RunCommentGenerationRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns RunCommentGenerationResponse
+     *
+     * @param RunCommentGenerationRequest $tmpReq
+     * @param RuntimeOptions              $runtime
+     *
+     * @return RunCommentGenerationResponse
      */
     public function runCommentGenerationWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new RunCommentGenerationShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->lengthRange)) {
-            $request->lengthRangeShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->lengthRange, 'LengthRange', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->lengthRange) {
+            $request->lengthRangeShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->lengthRange, 'LengthRange', 'json');
         }
-        if (!Utils::isUnset($tmpReq->sentiment)) {
-            $request->sentimentShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->sentiment, 'Sentiment', 'json');
+
+        if (null !== $tmpReq->sentiment) {
+            $request->sentimentShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->sentiment, 'Sentiment', 'json');
         }
-        if (!Utils::isUnset($tmpReq->type)) {
-            $request->typeShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->type, 'Type', 'json');
+
+        if (null !== $tmpReq->type) {
+            $request->typeShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->type, 'Type', 'json');
         }
+
         $body = [];
-        if (!Utils::isUnset($request->allowEmoji)) {
-            $body['AllowEmoji'] = $request->allowEmoji;
+        if (null !== $request->allowEmoji) {
+            @$body['AllowEmoji'] = $request->allowEmoji;
         }
-        if (!Utils::isUnset($request->extraInfo)) {
-            $body['ExtraInfo'] = $request->extraInfo;
+
+        if (null !== $request->extraInfo) {
+            @$body['ExtraInfo'] = $request->extraInfo;
         }
-        if (!Utils::isUnset($request->length)) {
-            $body['Length'] = $request->length;
+
+        if (null !== $request->length) {
+            @$body['Length'] = $request->length;
         }
-        if (!Utils::isUnset($request->lengthRangeShrink)) {
-            $body['LengthRange'] = $request->lengthRangeShrink;
+
+        if (null !== $request->lengthRangeShrink) {
+            @$body['LengthRange'] = $request->lengthRangeShrink;
         }
-        if (!Utils::isUnset($request->numComments)) {
-            $body['NumComments'] = $request->numComments;
+
+        if (null !== $request->numComments) {
+            @$body['NumComments'] = $request->numComments;
         }
-        if (!Utils::isUnset($request->sentimentShrink)) {
-            $body['Sentiment'] = $request->sentimentShrink;
+
+        if (null !== $request->sentimentShrink) {
+            @$body['Sentiment'] = $request->sentimentShrink;
         }
-        if (!Utils::isUnset($request->sessionId)) {
-            $body['SessionId'] = $request->sessionId;
+
+        if (null !== $request->sessionId) {
+            @$body['SessionId'] = $request->sessionId;
         }
-        if (!Utils::isUnset($request->sourceMaterial)) {
-            $body['SourceMaterial'] = $request->sourceMaterial;
+
+        if (null !== $request->sourceMaterial) {
+            @$body['SourceMaterial'] = $request->sourceMaterial;
         }
-        if (!Utils::isUnset($request->style)) {
-            $body['Style'] = $request->style;
+
+        if (null !== $request->style) {
+            @$body['Style'] = $request->style;
         }
-        if (!Utils::isUnset($request->typeShrink)) {
-            $body['Type'] = $request->typeShrink;
+
+        if (null !== $request->typeShrink) {
+            @$body['Type'] = $request->typeShrink;
         }
-        if (!Utils::isUnset($request->workspaceId)) {
-            $body['WorkspaceId'] = $request->workspaceId;
+
+        if (null !== $request->workspaceId) {
+            @$body['WorkspaceId'] = $request->workspaceId;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'RunCommentGeneration',
@@ -5719,7 +6898,7 @@ class AiMiaoBi extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return RunCommentGenerationResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -5727,11 +6906,15 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * @summary 客户之声预测
-     *  *
-     * @param RunCommentGenerationRequest $request RunCommentGenerationRequest
+     * 客户之声预测.
      *
-     * @return RunCommentGenerationResponse RunCommentGenerationResponse
+     * @param request - RunCommentGenerationRequest
+     *
+     * @returns RunCommentGenerationResponse
+     *
+     * @param RunCommentGenerationRequest $request
+     *
+     * @return RunCommentGenerationResponse
      */
     public function runCommentGeneration($request)
     {
@@ -5741,25 +6924,32 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * @summary 内容续写
-     *  *
-     * @param RunContinueContentRequest $request RunContinueContentRequest
-     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
+     * 内容续写.
      *
-     * @return RunContinueContentResponse RunContinueContentResponse
+     * @param request - RunContinueContentRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns RunContinueContentResponse
+     *
+     * @param RunContinueContentRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return RunContinueContentResponse
      */
     public function runContinueContentWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->content)) {
-            $body['Content'] = $request->content;
+        if (null !== $request->content) {
+            @$body['Content'] = $request->content;
         }
-        if (!Utils::isUnset($request->workspaceId)) {
-            $body['WorkspaceId'] = $request->workspaceId;
+
+        if (null !== $request->workspaceId) {
+            @$body['WorkspaceId'] = $request->workspaceId;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'RunContinueContent',
@@ -5772,7 +6962,7 @@ class AiMiaoBi extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return RunContinueContentResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -5780,11 +6970,15 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * @summary 内容续写
-     *  *
-     * @param RunContinueContentRequest $request RunContinueContentRequest
+     * 内容续写.
      *
-     * @return RunContinueContentResponse RunContinueContentResponse
+     * @param request - RunContinueContentRequest
+     *
+     * @returns RunContinueContentResponse
+     *
+     * @param RunContinueContentRequest $request
+     *
+     * @return RunContinueContentResponse
      */
     public function runContinueContent($request)
     {
@@ -5794,40 +6988,52 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * @summary 自定义热点话题分析
-     *  *
-     * @param RunCustomHotTopicAnalysisRequest $request RunCustomHotTopicAnalysisRequest
-     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
+     * 自定义热点话题分析.
      *
-     * @return RunCustomHotTopicAnalysisResponse RunCustomHotTopicAnalysisResponse
+     * @param request - RunCustomHotTopicAnalysisRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns RunCustomHotTopicAnalysisResponse
+     *
+     * @param RunCustomHotTopicAnalysisRequest $request
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return RunCustomHotTopicAnalysisResponse
      */
     public function runCustomHotTopicAnalysisWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->askUser)) {
-            $body['AskUser'] = $request->askUser;
+        if (null !== $request->askUser) {
+            @$body['AskUser'] = $request->askUser;
         }
-        if (!Utils::isUnset($request->forceAnalysisExistsTopic)) {
-            $body['ForceAnalysisExistsTopic'] = $request->forceAnalysisExistsTopic;
+
+        if (null !== $request->forceAnalysisExistsTopic) {
+            @$body['ForceAnalysisExistsTopic'] = $request->forceAnalysisExistsTopic;
         }
-        if (!Utils::isUnset($request->prompt)) {
-            $body['Prompt'] = $request->prompt;
+
+        if (null !== $request->prompt) {
+            @$body['Prompt'] = $request->prompt;
         }
-        if (!Utils::isUnset($request->sessionId)) {
-            $body['SessionId'] = $request->sessionId;
+
+        if (null !== $request->sessionId) {
+            @$body['SessionId'] = $request->sessionId;
         }
-        if (!Utils::isUnset($request->taskId)) {
-            $body['TaskId'] = $request->taskId;
+
+        if (null !== $request->taskId) {
+            @$body['TaskId'] = $request->taskId;
         }
-        if (!Utils::isUnset($request->userBack)) {
-            $body['UserBack'] = $request->userBack;
+
+        if (null !== $request->userBack) {
+            @$body['UserBack'] = $request->userBack;
         }
-        if (!Utils::isUnset($request->workspaceId)) {
-            $body['WorkspaceId'] = $request->workspaceId;
+
+        if (null !== $request->workspaceId) {
+            @$body['WorkspaceId'] = $request->workspaceId;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'RunCustomHotTopicAnalysis',
@@ -5840,7 +7046,7 @@ class AiMiaoBi extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return RunCustomHotTopicAnalysisResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -5848,11 +7054,15 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * @summary 自定义热点话题分析
-     *  *
-     * @param RunCustomHotTopicAnalysisRequest $request RunCustomHotTopicAnalysisRequest
+     * 自定义热点话题分析.
      *
-     * @return RunCustomHotTopicAnalysisResponse RunCustomHotTopicAnalysisResponse
+     * @param request - RunCustomHotTopicAnalysisRequest
+     *
+     * @returns RunCustomHotTopicAnalysisResponse
+     *
+     * @param RunCustomHotTopicAnalysisRequest $request
+     *
+     * @return RunCustomHotTopicAnalysisResponse
      */
     public function runCustomHotTopicAnalysis($request)
     {
@@ -5862,49 +7072,64 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * @summary 自定义选题视角分析
-     *  *
-     * @param RunCustomHotTopicViewPointAnalysisRequest $request RunCustomHotTopicViewPointAnalysisRequest
-     * @param RuntimeOptions                            $runtime runtime options for this request RuntimeOptions
+     * 自定义选题视角分析.
      *
-     * @return RunCustomHotTopicViewPointAnalysisResponse RunCustomHotTopicViewPointAnalysisResponse
+     * @param request - RunCustomHotTopicViewPointAnalysisRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns RunCustomHotTopicViewPointAnalysisResponse
+     *
+     * @param RunCustomHotTopicViewPointAnalysisRequest $request
+     * @param RuntimeOptions                            $runtime
+     *
+     * @return RunCustomHotTopicViewPointAnalysisResponse
      */
     public function runCustomHotTopicViewPointAnalysisWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->askUser)) {
-            $body['AskUser'] = $request->askUser;
+        if (null !== $request->askUser) {
+            @$body['AskUser'] = $request->askUser;
         }
-        if (!Utils::isUnset($request->prompt)) {
-            $body['Prompt'] = $request->prompt;
+
+        if (null !== $request->prompt) {
+            @$body['Prompt'] = $request->prompt;
         }
-        if (!Utils::isUnset($request->searchQuery)) {
-            $body['SearchQuery'] = $request->searchQuery;
+
+        if (null !== $request->searchQuery) {
+            @$body['SearchQuery'] = $request->searchQuery;
         }
-        if (!Utils::isUnset($request->skipAskUser)) {
-            $body['SkipAskUser'] = $request->skipAskUser;
+
+        if (null !== $request->skipAskUser) {
+            @$body['SkipAskUser'] = $request->skipAskUser;
         }
-        if (!Utils::isUnset($request->topic)) {
-            $body['Topic'] = $request->topic;
+
+        if (null !== $request->topic) {
+            @$body['Topic'] = $request->topic;
         }
-        if (!Utils::isUnset($request->topicId)) {
-            $body['TopicId'] = $request->topicId;
+
+        if (null !== $request->topicId) {
+            @$body['TopicId'] = $request->topicId;
         }
-        if (!Utils::isUnset($request->topicSource)) {
-            $body['TopicSource'] = $request->topicSource;
+
+        if (null !== $request->topicSource) {
+            @$body['TopicSource'] = $request->topicSource;
         }
-        if (!Utils::isUnset($request->topicVersion)) {
-            $body['TopicVersion'] = $request->topicVersion;
+
+        if (null !== $request->topicVersion) {
+            @$body['TopicVersion'] = $request->topicVersion;
         }
-        if (!Utils::isUnset($request->userBack)) {
-            $body['UserBack'] = $request->userBack;
+
+        if (null !== $request->userBack) {
+            @$body['UserBack'] = $request->userBack;
         }
-        if (!Utils::isUnset($request->workspaceId)) {
-            $body['WorkspaceId'] = $request->workspaceId;
+
+        if (null !== $request->workspaceId) {
+            @$body['WorkspaceId'] = $request->workspaceId;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'RunCustomHotTopicViewPointAnalysis',
@@ -5917,7 +7142,7 @@ class AiMiaoBi extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return RunCustomHotTopicViewPointAnalysisResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -5925,11 +7150,15 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * @summary 自定义选题视角分析
-     *  *
-     * @param RunCustomHotTopicViewPointAnalysisRequest $request RunCustomHotTopicViewPointAnalysisRequest
+     * 自定义选题视角分析.
      *
-     * @return RunCustomHotTopicViewPointAnalysisResponse RunCustomHotTopicViewPointAnalysisResponse
+     * @param request - RunCustomHotTopicViewPointAnalysisRequest
+     *
+     * @returns RunCustomHotTopicViewPointAnalysisResponse
+     *
+     * @param RunCustomHotTopicViewPointAnalysisRequest $request
+     *
+     * @return RunCustomHotTopicViewPointAnalysisResponse
      */
     public function runCustomHotTopicViewPointAnalysis($request)
     {
@@ -5939,40 +7168,52 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * @summary 妙读脑图生成接口
-     *  *
-     * @param RunDocBrainmapRequest $request RunDocBrainmapRequest
-     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
+     * 妙读脑图生成接口.
      *
-     * @return RunDocBrainmapResponse RunDocBrainmapResponse
+     * @param request - RunDocBrainmapRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns RunDocBrainmapResponse
+     *
+     * @param RunDocBrainmapRequest $request
+     * @param RuntimeOptions        $runtime
+     *
+     * @return RunDocBrainmapResponse
      */
     public function runDocBrainmapWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->cleanCache)) {
-            $body['CleanCache'] = $request->cleanCache;
+        if (null !== $request->cleanCache) {
+            @$body['CleanCache'] = $request->cleanCache;
         }
-        if (!Utils::isUnset($request->docId)) {
-            $body['DocId'] = $request->docId;
+
+        if (null !== $request->docId) {
+            @$body['DocId'] = $request->docId;
         }
-        if (!Utils::isUnset($request->nodeNumber)) {
-            $body['NodeNumber'] = $request->nodeNumber;
+
+        if (null !== $request->nodeNumber) {
+            @$body['NodeNumber'] = $request->nodeNumber;
         }
-        if (!Utils::isUnset($request->prompt)) {
-            $body['Prompt'] = $request->prompt;
+
+        if (null !== $request->prompt) {
+            @$body['Prompt'] = $request->prompt;
         }
-        if (!Utils::isUnset($request->sessionId)) {
-            $body['SessionId'] = $request->sessionId;
+
+        if (null !== $request->sessionId) {
+            @$body['SessionId'] = $request->sessionId;
         }
-        if (!Utils::isUnset($request->wordNumber)) {
-            $body['WordNumber'] = $request->wordNumber;
+
+        if (null !== $request->wordNumber) {
+            @$body['WordNumber'] = $request->wordNumber;
         }
-        if (!Utils::isUnset($request->workspaceId)) {
-            $body['WorkspaceId'] = $request->workspaceId;
+
+        if (null !== $request->workspaceId) {
+            @$body['WorkspaceId'] = $request->workspaceId;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'RunDocBrainmap',
@@ -5985,7 +7226,7 @@ class AiMiaoBi extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return RunDocBrainmapResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -5993,11 +7234,15 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * @summary 妙读脑图生成接口
-     *  *
-     * @param RunDocBrainmapRequest $request RunDocBrainmapRequest
+     * 妙读脑图生成接口.
      *
-     * @return RunDocBrainmapResponse RunDocBrainmapResponse
+     * @param request - RunDocBrainmapRequest
+     *
+     * @returns RunDocBrainmapResponse
+     *
+     * @param RunDocBrainmapRequest $request
+     *
+     * @return RunDocBrainmapResponse
      */
     public function runDocBrainmap($request)
     {
@@ -6007,42 +7252,54 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * @summary 妙读文档导读接口
-     *  *
-     * @param RunDocIntroductionRequest $request RunDocIntroductionRequest
-     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
+     * 妙读文档导读接口.
      *
-     * @return RunDocIntroductionResponse RunDocIntroductionResponse
+     * @param request - RunDocIntroductionRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns RunDocIntroductionResponse
+     *
+     * @param RunDocIntroductionRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return RunDocIntroductionResponse
      */
     public function runDocIntroductionWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->cleanCache)) {
-            $query['CleanCache'] = $request->cleanCache;
+        if (null !== $request->cleanCache) {
+            @$query['CleanCache'] = $request->cleanCache;
         }
+
         $body = [];
-        if (!Utils::isUnset($request->docId)) {
-            $body['DocId'] = $request->docId;
+        if (null !== $request->docId) {
+            @$body['DocId'] = $request->docId;
         }
-        if (!Utils::isUnset($request->introductionPrompt)) {
-            $body['IntroductionPrompt'] = $request->introductionPrompt;
+
+        if (null !== $request->introductionPrompt) {
+            @$body['IntroductionPrompt'] = $request->introductionPrompt;
         }
-        if (!Utils::isUnset($request->keyPointPrompt)) {
-            $body['KeyPointPrompt'] = $request->keyPointPrompt;
+
+        if (null !== $request->keyPointPrompt) {
+            @$body['KeyPointPrompt'] = $request->keyPointPrompt;
         }
-        if (!Utils::isUnset($request->sessionId)) {
-            $body['SessionId'] = $request->sessionId;
+
+        if (null !== $request->sessionId) {
+            @$body['SessionId'] = $request->sessionId;
         }
-        if (!Utils::isUnset($request->summaryPrompt)) {
-            $body['SummaryPrompt'] = $request->summaryPrompt;
+
+        if (null !== $request->summaryPrompt) {
+            @$body['SummaryPrompt'] = $request->summaryPrompt;
         }
-        if (!Utils::isUnset($request->workspaceId)) {
-            $body['WorkspaceId'] = $request->workspaceId;
+
+        if (null !== $request->workspaceId) {
+            @$body['WorkspaceId'] = $request->workspaceId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'RunDocIntroduction',
@@ -6055,7 +7312,7 @@ class AiMiaoBi extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return RunDocIntroductionResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -6063,11 +7320,15 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * @summary 妙读文档导读接口
-     *  *
-     * @param RunDocIntroductionRequest $request RunDocIntroductionRequest
+     * 妙读文档导读接口.
      *
-     * @return RunDocIntroductionResponse RunDocIntroductionResponse
+     * @param request - RunDocIntroductionRequest
+     *
+     * @returns RunDocIntroductionResponse
+     *
+     * @param RunDocIntroductionRequest $request
+     *
+     * @return RunDocIntroductionResponse
      */
     public function runDocIntroduction($request)
     {
@@ -6077,54 +7338,70 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * @summary 妙读问答接口
-     *  *
-     * @param RunDocQaRequest $tmpReq  RunDocQaRequest
-     * @param RuntimeOptions  $runtime runtime options for this request RuntimeOptions
+     * 妙读问答接口.
      *
-     * @return RunDocQaResponse RunDocQaResponse
+     * @param tmpReq - RunDocQaRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns RunDocQaResponse
+     *
+     * @param RunDocQaRequest $tmpReq
+     * @param RuntimeOptions  $runtime
+     *
+     * @return RunDocQaResponse
      */
     public function runDocQaWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new RunDocQaShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->categoryIds)) {
-            $request->categoryIdsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->categoryIds, 'CategoryIds', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->categoryIds) {
+            $request->categoryIdsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->categoryIds, 'CategoryIds', 'json');
         }
-        if (!Utils::isUnset($tmpReq->conversationContexts)) {
-            $request->conversationContextsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->conversationContexts, 'ConversationContexts', 'json');
+
+        if (null !== $tmpReq->conversationContexts) {
+            $request->conversationContextsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->conversationContexts, 'ConversationContexts', 'json');
         }
-        if (!Utils::isUnset($tmpReq->docIds)) {
-            $request->docIdsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->docIds, 'DocIds', 'json');
+
+        if (null !== $tmpReq->docIds) {
+            $request->docIdsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->docIds, 'DocIds', 'json');
         }
+
         $body = [];
-        if (!Utils::isUnset($request->categoryIdsShrink)) {
-            $body['CategoryIds'] = $request->categoryIdsShrink;
+        if (null !== $request->categoryIdsShrink) {
+            @$body['CategoryIds'] = $request->categoryIdsShrink;
         }
-        if (!Utils::isUnset($request->conversationContextsShrink)) {
-            $body['ConversationContexts'] = $request->conversationContextsShrink;
+
+        if (null !== $request->conversationContextsShrink) {
+            @$body['ConversationContexts'] = $request->conversationContextsShrink;
         }
-        if (!Utils::isUnset($request->docIdsShrink)) {
-            $body['DocIds'] = $request->docIdsShrink;
+
+        if (null !== $request->docIdsShrink) {
+            @$body['DocIds'] = $request->docIdsShrink;
         }
-        if (!Utils::isUnset($request->query)) {
-            $body['Query'] = $request->query;
+
+        if (null !== $request->query) {
+            @$body['Query'] = $request->query;
         }
-        if (!Utils::isUnset($request->referenceContent)) {
-            $body['ReferenceContent'] = $request->referenceContent;
+
+        if (null !== $request->referenceContent) {
+            @$body['ReferenceContent'] = $request->referenceContent;
         }
-        if (!Utils::isUnset($request->searchSource)) {
-            $body['SearchSource'] = $request->searchSource;
+
+        if (null !== $request->searchSource) {
+            @$body['SearchSource'] = $request->searchSource;
         }
-        if (!Utils::isUnset($request->sessionId)) {
-            $body['SessionId'] = $request->sessionId;
+
+        if (null !== $request->sessionId) {
+            @$body['SessionId'] = $request->sessionId;
         }
-        if (!Utils::isUnset($request->workspaceId)) {
-            $body['WorkspaceId'] = $request->workspaceId;
+
+        if (null !== $request->workspaceId) {
+            @$body['WorkspaceId'] = $request->workspaceId;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'RunDocQa',
@@ -6137,7 +7414,7 @@ class AiMiaoBi extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return RunDocQaResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -6145,11 +7422,15 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * @summary 妙读问答接口
-     *  *
-     * @param RunDocQaRequest $request RunDocQaRequest
+     * 妙读问答接口.
      *
-     * @return RunDocQaResponse RunDocQaResponse
+     * @param request - RunDocQaRequest
+     *
+     * @returns RunDocQaResponse
+     *
+     * @param RunDocQaRequest $request
+     *
+     * @return RunDocQaResponse
      */
     public function runDocQa($request)
     {
@@ -6159,28 +7440,36 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * @summary 文档智能卡片接口
-     *  *
-     * @param RunDocSmartCardRequest $request RunDocSmartCardRequest
-     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
+     * 文档智能卡片接口.
      *
-     * @return RunDocSmartCardResponse RunDocSmartCardResponse
+     * @param request - RunDocSmartCardRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns RunDocSmartCardResponse
+     *
+     * @param RunDocSmartCardRequest $request
+     * @param RuntimeOptions         $runtime
+     *
+     * @return RunDocSmartCardResponse
      */
     public function runDocSmartCardWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->docId)) {
-            $body['DocId'] = $request->docId;
+        if (null !== $request->docId) {
+            @$body['DocId'] = $request->docId;
         }
-        if (!Utils::isUnset($request->sessionId)) {
-            $body['SessionId'] = $request->sessionId;
+
+        if (null !== $request->sessionId) {
+            @$body['SessionId'] = $request->sessionId;
         }
-        if (!Utils::isUnset($request->workspaceId)) {
-            $body['WorkspaceId'] = $request->workspaceId;
+
+        if (null !== $request->workspaceId) {
+            @$body['WorkspaceId'] = $request->workspaceId;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'RunDocSmartCard',
@@ -6193,7 +7482,7 @@ class AiMiaoBi extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return RunDocSmartCardResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -6201,11 +7490,15 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * @summary 文档智能卡片接口
-     *  *
-     * @param RunDocSmartCardRequest $request RunDocSmartCardRequest
+     * 文档智能卡片接口.
      *
-     * @return RunDocSmartCardResponse RunDocSmartCardResponse
+     * @param request - RunDocSmartCardRequest
+     *
+     * @returns RunDocSmartCardResponse
+     *
+     * @param RunDocSmartCardRequest $request
+     *
+     * @return RunDocSmartCardResponse
      */
     public function runDocSmartCard($request)
     {
@@ -6215,37 +7508,48 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * @summary 妙读文档总结摘要接口
-     *  *
-     * @param RunDocSummaryRequest $request RunDocSummaryRequest
-     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
+     * 妙读文档总结摘要接口.
      *
-     * @return RunDocSummaryResponse RunDocSummaryResponse
+     * @param request - RunDocSummaryRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns RunDocSummaryResponse
+     *
+     * @param RunDocSummaryRequest $request
+     * @param RuntimeOptions       $runtime
+     *
+     * @return RunDocSummaryResponse
      */
     public function runDocSummaryWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->cleanCache)) {
-            $body['CleanCache'] = $request->cleanCache;
+        if (null !== $request->cleanCache) {
+            @$body['CleanCache'] = $request->cleanCache;
         }
-        if (!Utils::isUnset($request->docId)) {
-            $body['DocId'] = $request->docId;
+
+        if (null !== $request->docId) {
+            @$body['DocId'] = $request->docId;
         }
-        if (!Utils::isUnset($request->query)) {
-            $body['Query'] = $request->query;
+
+        if (null !== $request->query) {
+            @$body['Query'] = $request->query;
         }
-        if (!Utils::isUnset($request->recommendContent)) {
-            $body['RecommendContent'] = $request->recommendContent;
+
+        if (null !== $request->recommendContent) {
+            @$body['RecommendContent'] = $request->recommendContent;
         }
-        if (!Utils::isUnset($request->sessionId)) {
-            $body['SessionId'] = $request->sessionId;
+
+        if (null !== $request->sessionId) {
+            @$body['SessionId'] = $request->sessionId;
         }
-        if (!Utils::isUnset($request->workspaceId)) {
-            $body['WorkspaceId'] = $request->workspaceId;
+
+        if (null !== $request->workspaceId) {
+            @$body['WorkspaceId'] = $request->workspaceId;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'RunDocSummary',
@@ -6258,7 +7562,7 @@ class AiMiaoBi extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return RunDocSummaryResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -6266,11 +7570,15 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * @summary 妙读文档总结摘要接口
-     *  *
-     * @param RunDocSummaryRequest $request RunDocSummaryRequest
+     * 妙读文档总结摘要接口.
      *
-     * @return RunDocSummaryResponse RunDocSummaryResponse
+     * @param request - RunDocSummaryRequest
+     *
+     * @returns RunDocSummaryResponse
+     *
+     * @param RunDocSummaryRequest $request
+     *
+     * @return RunDocSummaryResponse
      */
     public function runDocSummary($request)
     {
@@ -6280,37 +7588,48 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * @summary 妙读文档翻译接口
-     *  *
-     * @param RunDocTranslationRequest $request RunDocTranslationRequest
-     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
+     * 妙读文档翻译接口.
      *
-     * @return RunDocTranslationResponse RunDocTranslationResponse
+     * @param request - RunDocTranslationRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns RunDocTranslationResponse
+     *
+     * @param RunDocTranslationRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return RunDocTranslationResponse
      */
     public function runDocTranslationWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->cleanCache)) {
-            $body['CleanCache'] = $request->cleanCache;
+        if (null !== $request->cleanCache) {
+            @$body['CleanCache'] = $request->cleanCache;
         }
-        if (!Utils::isUnset($request->docId)) {
-            $body['DocId'] = $request->docId;
+
+        if (null !== $request->docId) {
+            @$body['DocId'] = $request->docId;
         }
-        if (!Utils::isUnset($request->recommendContent)) {
-            $body['RecommendContent'] = $request->recommendContent;
+
+        if (null !== $request->recommendContent) {
+            @$body['RecommendContent'] = $request->recommendContent;
         }
-        if (!Utils::isUnset($request->sessionId)) {
-            $body['SessionId'] = $request->sessionId;
+
+        if (null !== $request->sessionId) {
+            @$body['SessionId'] = $request->sessionId;
         }
-        if (!Utils::isUnset($request->transType)) {
-            $body['TransType'] = $request->transType;
+
+        if (null !== $request->transType) {
+            @$body['TransType'] = $request->transType;
         }
-        if (!Utils::isUnset($request->workspaceId)) {
-            $body['WorkspaceId'] = $request->workspaceId;
+
+        if (null !== $request->workspaceId) {
+            @$body['WorkspaceId'] = $request->workspaceId;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'RunDocTranslation',
@@ -6323,7 +7642,7 @@ class AiMiaoBi extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return RunDocTranslationResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -6331,11 +7650,15 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * @summary 妙读文档翻译接口
-     *  *
-     * @param RunDocTranslationRequest $request RunDocTranslationRequest
+     * 妙读文档翻译接口.
      *
-     * @return RunDocTranslationResponse RunDocTranslationResponse
+     * @param request - RunDocTranslationRequest
+     *
+     * @returns RunDocTranslationResponse
+     *
+     * @param RunDocTranslationRequest $request
+     *
+     * @return RunDocTranslationResponse
      */
     public function runDocTranslation($request)
     {
@@ -6345,43 +7668,56 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * @summary 文档改写
-     *  *
-     * @param RunDocWashingRequest $request RunDocWashingRequest
-     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
+     * 文档改写.
      *
-     * @return RunDocWashingResponse RunDocWashingResponse
+     * @param request - RunDocWashingRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns RunDocWashingResponse
+     *
+     * @param RunDocWashingRequest $request
+     * @param RuntimeOptions       $runtime
+     *
+     * @return RunDocWashingResponse
      */
     public function runDocWashingWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->prompt)) {
-            $body['Prompt'] = $request->prompt;
+        if (null !== $request->prompt) {
+            @$body['Prompt'] = $request->prompt;
         }
-        if (!Utils::isUnset($request->referenceContent)) {
-            $body['ReferenceContent'] = $request->referenceContent;
+
+        if (null !== $request->referenceContent) {
+            @$body['ReferenceContent'] = $request->referenceContent;
         }
-        if (!Utils::isUnset($request->sessionId)) {
-            $body['SessionId'] = $request->sessionId;
+
+        if (null !== $request->sessionId) {
+            @$body['SessionId'] = $request->sessionId;
         }
-        if (!Utils::isUnset($request->topic)) {
-            $body['Topic'] = $request->topic;
+
+        if (null !== $request->topic) {
+            @$body['Topic'] = $request->topic;
         }
-        if (!Utils::isUnset($request->wordNumber)) {
-            $body['WordNumber'] = $request->wordNumber;
+
+        if (null !== $request->wordNumber) {
+            @$body['WordNumber'] = $request->wordNumber;
         }
-        if (!Utils::isUnset($request->workspaceId)) {
-            $body['WorkspaceId'] = $request->workspaceId;
+
+        if (null !== $request->workspaceId) {
+            @$body['WorkspaceId'] = $request->workspaceId;
         }
-        if (!Utils::isUnset($request->writingTypeName)) {
-            $body['WritingTypeName'] = $request->writingTypeName;
+
+        if (null !== $request->writingTypeName) {
+            @$body['WritingTypeName'] = $request->writingTypeName;
         }
-        if (!Utils::isUnset($request->writingTypeRefDoc)) {
-            $body['WritingTypeRefDoc'] = $request->writingTypeRefDoc;
+
+        if (null !== $request->writingTypeRefDoc) {
+            @$body['WritingTypeRefDoc'] = $request->writingTypeRefDoc;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'RunDocWashing',
@@ -6394,7 +7730,7 @@ class AiMiaoBi extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return RunDocWashingResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -6402,11 +7738,15 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * @summary 文档改写
-     *  *
-     * @param RunDocWashingRequest $request RunDocWashingRequest
+     * 文档改写.
      *
-     * @return RunDocWashingResponse RunDocWashingResponse
+     * @param request - RunDocWashingRequest
+     *
+     * @returns RunDocWashingResponse
+     *
+     * @param RunDocWashingRequest $request
+     *
+     * @return RunDocWashingResponse
      */
     public function runDocWashing($request)
     {
@@ -6416,25 +7756,32 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * @summary 内容扩写
-     *  *
-     * @param RunExpandContentRequest $request RunExpandContentRequest
-     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
+     * 内容扩写.
      *
-     * @return RunExpandContentResponse RunExpandContentResponse
+     * @param request - RunExpandContentRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns RunExpandContentResponse
+     *
+     * @param RunExpandContentRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return RunExpandContentResponse
      */
     public function runExpandContentWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->content)) {
-            $body['Content'] = $request->content;
+        if (null !== $request->content) {
+            @$body['Content'] = $request->content;
         }
-        if (!Utils::isUnset($request->workspaceId)) {
-            $body['WorkspaceId'] = $request->workspaceId;
+
+        if (null !== $request->workspaceId) {
+            @$body['WorkspaceId'] = $request->workspaceId;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'RunExpandContent',
@@ -6447,7 +7794,7 @@ class AiMiaoBi extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return RunExpandContentResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -6455,11 +7802,15 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * @summary 内容扩写
-     *  *
-     * @param RunExpandContentRequest $request RunExpandContentRequest
+     * 内容扩写.
      *
-     * @return RunExpandContentResponse RunExpandContentResponse
+     * @param request - RunExpandContentRequest
+     *
+     * @returns RunExpandContentResponse
+     *
+     * @param RunExpandContentRequest $request
+     *
+     * @return RunExpandContentResponse
      */
     public function runExpandContent($request)
     {
@@ -6469,31 +7820,40 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * @summary 妙读猜你想问接口
-     *  *
-     * @param RunGenerateQuestionsRequest $request RunGenerateQuestionsRequest
-     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
+     * 妙读猜你想问接口.
      *
-     * @return RunGenerateQuestionsResponse RunGenerateQuestionsResponse
+     * @param request - RunGenerateQuestionsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns RunGenerateQuestionsResponse
+     *
+     * @param RunGenerateQuestionsRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return RunGenerateQuestionsResponse
      */
     public function runGenerateQuestionsWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->docId)) {
-            $body['DocId'] = $request->docId;
+        if (null !== $request->docId) {
+            @$body['DocId'] = $request->docId;
         }
-        if (!Utils::isUnset($request->referenceContent)) {
-            $body['ReferenceContent'] = $request->referenceContent;
+
+        if (null !== $request->referenceContent) {
+            @$body['ReferenceContent'] = $request->referenceContent;
         }
-        if (!Utils::isUnset($request->sessionId)) {
-            $body['SessionId'] = $request->sessionId;
+
+        if (null !== $request->sessionId) {
+            @$body['SessionId'] = $request->sessionId;
         }
-        if (!Utils::isUnset($request->workspaceId)) {
-            $body['WorkspaceId'] = $request->workspaceId;
+
+        if (null !== $request->workspaceId) {
+            @$body['WorkspaceId'] = $request->workspaceId;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'RunGenerateQuestions',
@@ -6506,7 +7866,7 @@ class AiMiaoBi extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return RunGenerateQuestionsResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -6514,11 +7874,15 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * @summary 妙读猜你想问接口
-     *  *
-     * @param RunGenerateQuestionsRequest $request RunGenerateQuestionsRequest
+     * 妙读猜你想问接口.
      *
-     * @return RunGenerateQuestionsResponse RunGenerateQuestionsResponse
+     * @param request - RunGenerateQuestionsRequest
+     *
+     * @returns RunGenerateQuestionsResponse
+     *
+     * @param RunGenerateQuestionsRequest $request
+     *
+     * @return RunGenerateQuestionsResponse
      */
     public function runGenerateQuestions($request)
     {
@@ -6528,34 +7892,44 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * @summary 妙读文档关键词抽取接口
-     *  *
-     * @param RunHotwordRequest $request RunHotwordRequest
-     * @param RuntimeOptions    $runtime runtime options for this request RuntimeOptions
+     * 妙读文档关键词抽取接口.
      *
-     * @return RunHotwordResponse RunHotwordResponse
+     * @param request - RunHotwordRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns RunHotwordResponse
+     *
+     * @param RunHotwordRequest $request
+     * @param RuntimeOptions    $runtime
+     *
+     * @return RunHotwordResponse
      */
     public function runHotwordWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->docId)) {
-            $body['DocId'] = $request->docId;
+        if (null !== $request->docId) {
+            @$body['DocId'] = $request->docId;
         }
-        if (!Utils::isUnset($request->prompt)) {
-            $body['Prompt'] = $request->prompt;
+
+        if (null !== $request->prompt) {
+            @$body['Prompt'] = $request->prompt;
         }
-        if (!Utils::isUnset($request->referenceContent)) {
-            $body['ReferenceContent'] = $request->referenceContent;
+
+        if (null !== $request->referenceContent) {
+            @$body['ReferenceContent'] = $request->referenceContent;
         }
-        if (!Utils::isUnset($request->sessionId)) {
-            $body['SessionId'] = $request->sessionId;
+
+        if (null !== $request->sessionId) {
+            @$body['SessionId'] = $request->sessionId;
         }
-        if (!Utils::isUnset($request->workspaceId)) {
-            $body['WorkspaceId'] = $request->workspaceId;
+
+        if (null !== $request->workspaceId) {
+            @$body['WorkspaceId'] = $request->workspaceId;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'RunHotword',
@@ -6568,7 +7942,7 @@ class AiMiaoBi extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return RunHotwordResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -6576,11 +7950,15 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * @summary 妙读文档关键词抽取接口
-     *  *
-     * @param RunHotwordRequest $request RunHotwordRequest
+     * 妙读文档关键词抽取接口.
      *
-     * @return RunHotwordResponse RunHotwordResponse
+     * @param request - RunHotwordRequest
+     *
+     * @returns RunHotwordResponse
+     *
+     * @param RunHotwordRequest $request
+     *
+     * @return RunHotwordResponse
      */
     public function runHotword($request)
     {
@@ -6590,33 +7968,42 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * @summary AI妙笔-创作-抽取关键词
-     *  *
-     * @param RunKeywordsExtractionGenerationRequest $tmpReq  RunKeywordsExtractionGenerationRequest
-     * @param RuntimeOptions                         $runtime runtime options for this request RuntimeOptions
+     * AI妙笔-创作-抽取关键词.
      *
-     * @return RunKeywordsExtractionGenerationResponse RunKeywordsExtractionGenerationResponse
+     * @param tmpReq - RunKeywordsExtractionGenerationRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns RunKeywordsExtractionGenerationResponse
+     *
+     * @param RunKeywordsExtractionGenerationRequest $tmpReq
+     * @param RuntimeOptions                         $runtime
+     *
+     * @return RunKeywordsExtractionGenerationResponse
      */
     public function runKeywordsExtractionGenerationWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new RunKeywordsExtractionGenerationShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->referenceData)) {
-            $request->referenceDataShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->referenceData, 'ReferenceData', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->referenceData) {
+            $request->referenceDataShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->referenceData, 'ReferenceData', 'json');
         }
+
         $body = [];
-        if (!Utils::isUnset($request->referenceDataShrink)) {
-            $body['ReferenceData'] = $request->referenceDataShrink;
+        if (null !== $request->referenceDataShrink) {
+            @$body['ReferenceData'] = $request->referenceDataShrink;
         }
-        if (!Utils::isUnset($request->taskId)) {
-            $body['TaskId'] = $request->taskId;
+
+        if (null !== $request->taskId) {
+            @$body['TaskId'] = $request->taskId;
         }
-        if (!Utils::isUnset($request->workspaceId)) {
-            $body['WorkspaceId'] = $request->workspaceId;
+
+        if (null !== $request->workspaceId) {
+            @$body['WorkspaceId'] = $request->workspaceId;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'RunKeywordsExtractionGeneration',
@@ -6629,7 +8016,7 @@ class AiMiaoBi extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return RunKeywordsExtractionGenerationResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -6637,11 +8024,15 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * @summary AI妙笔-创作-抽取关键词
-     *  *
-     * @param RunKeywordsExtractionGenerationRequest $request RunKeywordsExtractionGenerationRequest
+     * AI妙笔-创作-抽取关键词.
      *
-     * @return RunKeywordsExtractionGenerationResponse RunKeywordsExtractionGenerationResponse
+     * @param request - RunKeywordsExtractionGenerationRequest
+     *
+     * @returns RunKeywordsExtractionGenerationResponse
+     *
+     * @param RunKeywordsExtractionGenerationRequest $request
+     *
+     * @return RunKeywordsExtractionGenerationResponse
      */
     public function runKeywordsExtractionGeneration($request)
     {
@@ -6651,39 +8042,50 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * @summary 文档批量导读
-     *  *
-     * @param RunMultiDocIntroductionRequest $tmpReq  RunMultiDocIntroductionRequest
-     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
+     * 文档批量导读.
      *
-     * @return RunMultiDocIntroductionResponse RunMultiDocIntroductionResponse
+     * @param tmpReq - RunMultiDocIntroductionRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns RunMultiDocIntroductionResponse
+     *
+     * @param RunMultiDocIntroductionRequest $tmpReq
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return RunMultiDocIntroductionResponse
      */
     public function runMultiDocIntroductionWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new RunMultiDocIntroductionShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->docIds)) {
-            $request->docIdsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->docIds, 'DocIds', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->docIds) {
+            $request->docIdsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->docIds, 'DocIds', 'json');
         }
+
         $body = [];
-        if (!Utils::isUnset($request->docIdsShrink)) {
-            $body['DocIds'] = $request->docIdsShrink;
+        if (null !== $request->docIdsShrink) {
+            @$body['DocIds'] = $request->docIdsShrink;
         }
-        if (!Utils::isUnset($request->keyPointPrompt)) {
-            $body['KeyPointPrompt'] = $request->keyPointPrompt;
+
+        if (null !== $request->keyPointPrompt) {
+            @$body['KeyPointPrompt'] = $request->keyPointPrompt;
         }
-        if (!Utils::isUnset($request->sessionId)) {
-            $body['SessionId'] = $request->sessionId;
+
+        if (null !== $request->sessionId) {
+            @$body['SessionId'] = $request->sessionId;
         }
-        if (!Utils::isUnset($request->summaryPrompt)) {
-            $body['SummaryPrompt'] = $request->summaryPrompt;
+
+        if (null !== $request->summaryPrompt) {
+            @$body['SummaryPrompt'] = $request->summaryPrompt;
         }
-        if (!Utils::isUnset($request->workspaceId)) {
-            $body['WorkspaceId'] = $request->workspaceId;
+
+        if (null !== $request->workspaceId) {
+            @$body['WorkspaceId'] = $request->workspaceId;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'RunMultiDocIntroduction',
@@ -6696,7 +8098,7 @@ class AiMiaoBi extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return RunMultiDocIntroductionResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -6704,11 +8106,15 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * @summary 文档批量导读
-     *  *
-     * @param RunMultiDocIntroductionRequest $request RunMultiDocIntroductionRequest
+     * 文档批量导读.
      *
-     * @return RunMultiDocIntroductionResponse RunMultiDocIntroductionResponse
+     * @param request - RunMultiDocIntroductionRequest
+     *
+     * @returns RunMultiDocIntroductionResponse
+     *
+     * @param RunMultiDocIntroductionRequest $request
+     *
+     * @return RunMultiDocIntroductionResponse
      */
     public function runMultiDocIntroduction($request)
     {
@@ -6718,45 +8124,58 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * @summary AI妙搜-智能搜索生成
-     *  *
-     * @param RunSearchGenerationRequest $tmpReq  RunSearchGenerationRequest
-     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
+     * AI妙搜-智能搜索生成.
      *
-     * @return RunSearchGenerationResponse RunSearchGenerationResponse
+     * @param tmpReq - RunSearchGenerationRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns RunSearchGenerationResponse
+     *
+     * @param RunSearchGenerationRequest $tmpReq
+     * @param RuntimeOptions             $runtime
+     *
+     * @return RunSearchGenerationResponse
      */
     public function runSearchGenerationWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new RunSearchGenerationShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->agentContext)) {
-            $request->agentContextShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->agentContext, 'AgentContext', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->agentContext) {
+            $request->agentContextShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->agentContext, 'AgentContext', 'json');
         }
-        if (!Utils::isUnset($tmpReq->chatConfig)) {
-            $request->chatConfigShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->chatConfig, 'ChatConfig', 'json');
+
+        if (null !== $tmpReq->chatConfig) {
+            $request->chatConfigShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->chatConfig, 'ChatConfig', 'json');
         }
+
         $body = [];
-        if (!Utils::isUnset($request->agentContextShrink)) {
-            $body['AgentContext'] = $request->agentContextShrink;
+        if (null !== $request->agentContextShrink) {
+            @$body['AgentContext'] = $request->agentContextShrink;
         }
-        if (!Utils::isUnset($request->chatConfigShrink)) {
-            $body['ChatConfig'] = $request->chatConfigShrink;
+
+        if (null !== $request->chatConfigShrink) {
+            @$body['ChatConfig'] = $request->chatConfigShrink;
         }
-        if (!Utils::isUnset($request->originalSessionId)) {
-            $body['OriginalSessionId'] = $request->originalSessionId;
+
+        if (null !== $request->originalSessionId) {
+            @$body['OriginalSessionId'] = $request->originalSessionId;
         }
-        if (!Utils::isUnset($request->prompt)) {
-            $body['Prompt'] = $request->prompt;
+
+        if (null !== $request->prompt) {
+            @$body['Prompt'] = $request->prompt;
         }
-        if (!Utils::isUnset($request->taskId)) {
-            $body['TaskId'] = $request->taskId;
+
+        if (null !== $request->taskId) {
+            @$body['TaskId'] = $request->taskId;
         }
-        if (!Utils::isUnset($request->workspaceId)) {
-            $body['WorkspaceId'] = $request->workspaceId;
+
+        if (null !== $request->workspaceId) {
+            @$body['WorkspaceId'] = $request->workspaceId;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'RunSearchGeneration',
@@ -6769,7 +8188,7 @@ class AiMiaoBi extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return RunSearchGenerationResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -6777,11 +8196,15 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * @summary AI妙搜-智能搜索生成
-     *  *
-     * @param RunSearchGenerationRequest $request RunSearchGenerationRequest
+     * AI妙搜-智能搜索生成.
      *
-     * @return RunSearchGenerationResponse RunSearchGenerationResponse
+     * @param request - RunSearchGenerationRequest
+     *
+     * @returns RunSearchGenerationResponse
+     *
+     * @param RunSearchGenerationRequest $request
+     *
+     * @return RunSearchGenerationResponse
      */
     public function runSearchGeneration($request)
     {
@@ -6791,39 +8214,50 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * @summary 妙搜-文搜文
-     *  *
-     * @param RunSearchSimilarArticlesRequest $tmpReq  RunSearchSimilarArticlesRequest
-     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
+     * 妙搜-文搜文.
      *
-     * @return RunSearchSimilarArticlesResponse RunSearchSimilarArticlesResponse
+     * @param tmpReq - RunSearchSimilarArticlesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns RunSearchSimilarArticlesResponse
+     *
+     * @param RunSearchSimilarArticlesRequest $tmpReq
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return RunSearchSimilarArticlesResponse
      */
     public function runSearchSimilarArticlesWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new RunSearchSimilarArticlesShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->chatConfig)) {
-            $request->chatConfigShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->chatConfig, 'ChatConfig', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->chatConfig) {
+            $request->chatConfigShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->chatConfig, 'ChatConfig', 'json');
         }
+
         $body = [];
-        if (!Utils::isUnset($request->chatConfigShrink)) {
-            $body['ChatConfig'] = $request->chatConfigShrink;
+        if (null !== $request->chatConfigShrink) {
+            @$body['ChatConfig'] = $request->chatConfigShrink;
         }
-        if (!Utils::isUnset($request->docType)) {
-            $body['DocType'] = $request->docType;
+
+        if (null !== $request->docType) {
+            @$body['DocType'] = $request->docType;
         }
-        if (!Utils::isUnset($request->title)) {
-            $body['Title'] = $request->title;
+
+        if (null !== $request->title) {
+            @$body['Title'] = $request->title;
         }
-        if (!Utils::isUnset($request->url)) {
-            $body['Url'] = $request->url;
+
+        if (null !== $request->url) {
+            @$body['Url'] = $request->url;
         }
-        if (!Utils::isUnset($request->workspaceId)) {
-            $body['WorkspaceId'] = $request->workspaceId;
+
+        if (null !== $request->workspaceId) {
+            @$body['WorkspaceId'] = $request->workspaceId;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'RunSearchSimilarArticles',
@@ -6836,7 +8270,7 @@ class AiMiaoBi extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return RunSearchSimilarArticlesResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -6844,11 +8278,15 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * @summary 妙搜-文搜文
-     *  *
-     * @param RunSearchSimilarArticlesRequest $request RunSearchSimilarArticlesRequest
+     * 妙搜-文搜文.
      *
-     * @return RunSearchSimilarArticlesResponse RunSearchSimilarArticlesResponse
+     * @param request - RunSearchSimilarArticlesRequest
+     *
+     * @returns RunSearchSimilarArticlesResponse
+     *
+     * @param RunSearchSimilarArticlesRequest $request
+     *
+     * @return RunSearchSimilarArticlesResponse
      */
     public function runSearchSimilarArticles($request)
     {
@@ -6858,48 +8296,62 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * @summary 创作-分步骤写作
-     *  *
-     * @param RunStepByStepWritingRequest $tmpReq  RunStepByStepWritingRequest
-     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
+     * 创作-分步骤写作.
      *
-     * @return RunStepByStepWritingResponse RunStepByStepWritingResponse
+     * @param tmpReq - RunStepByStepWritingRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns RunStepByStepWritingResponse
+     *
+     * @param RunStepByStepWritingRequest $tmpReq
+     * @param RuntimeOptions              $runtime
+     *
+     * @return RunStepByStepWritingResponse
      */
     public function runStepByStepWritingWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new RunStepByStepWritingShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->referenceData)) {
-            $request->referenceDataShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->referenceData, 'ReferenceData', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->referenceData) {
+            $request->referenceDataShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->referenceData, 'ReferenceData', 'json');
         }
-        if (!Utils::isUnset($tmpReq->writingConfig)) {
-            $request->writingConfigShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->writingConfig, 'WritingConfig', 'json');
+
+        if (null !== $tmpReq->writingConfig) {
+            $request->writingConfigShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->writingConfig, 'WritingConfig', 'json');
         }
+
         $body = [];
-        if (!Utils::isUnset($request->originSessionId)) {
-            $body['OriginSessionId'] = $request->originSessionId;
+        if (null !== $request->originSessionId) {
+            @$body['OriginSessionId'] = $request->originSessionId;
         }
-        if (!Utils::isUnset($request->prompt)) {
-            $body['Prompt'] = $request->prompt;
+
+        if (null !== $request->prompt) {
+            @$body['Prompt'] = $request->prompt;
         }
-        if (!Utils::isUnset($request->referenceDataShrink)) {
-            $body['ReferenceData'] = $request->referenceDataShrink;
+
+        if (null !== $request->referenceDataShrink) {
+            @$body['ReferenceData'] = $request->referenceDataShrink;
         }
-        if (!Utils::isUnset($request->sessionId)) {
-            $body['SessionId'] = $request->sessionId;
+
+        if (null !== $request->sessionId) {
+            @$body['SessionId'] = $request->sessionId;
         }
-        if (!Utils::isUnset($request->taskId)) {
-            $body['TaskId'] = $request->taskId;
+
+        if (null !== $request->taskId) {
+            @$body['TaskId'] = $request->taskId;
         }
-        if (!Utils::isUnset($request->workspaceId)) {
-            $body['WorkspaceId'] = $request->workspaceId;
+
+        if (null !== $request->workspaceId) {
+            @$body['WorkspaceId'] = $request->workspaceId;
         }
-        if (!Utils::isUnset($request->writingConfigShrink)) {
-            $body['WritingConfig'] = $request->writingConfigShrink;
+
+        if (null !== $request->writingConfigShrink) {
+            @$body['WritingConfig'] = $request->writingConfigShrink;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'RunStepByStepWriting',
@@ -6912,7 +8364,7 @@ class AiMiaoBi extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return RunStepByStepWritingResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -6920,11 +8372,15 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * @summary 创作-分步骤写作
-     *  *
-     * @param RunStepByStepWritingRequest $request RunStepByStepWritingRequest
+     * 创作-分步骤写作.
      *
-     * @return RunStepByStepWritingResponse RunStepByStepWritingResponse
+     * @param request - RunStepByStepWritingRequest
+     *
+     * @returns RunStepByStepWritingResponse
+     *
+     * @param RunStepByStepWritingRequest $request
+     *
+     * @return RunStepByStepWritingResponse
      */
     public function runStepByStepWriting($request)
     {
@@ -6934,36 +8390,46 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * @summary 内容特点分析
-     *  *
-     * @param RunStyleFeatureAnalysisRequest $tmpReq  RunStyleFeatureAnalysisRequest
-     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
+     * 内容特点分析.
      *
-     * @return RunStyleFeatureAnalysisResponse RunStyleFeatureAnalysisResponse
+     * @param tmpReq - RunStyleFeatureAnalysisRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns RunStyleFeatureAnalysisResponse
+     *
+     * @param RunStyleFeatureAnalysisRequest $tmpReq
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return RunStyleFeatureAnalysisResponse
      */
     public function runStyleFeatureAnalysisWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new RunStyleFeatureAnalysisShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->contents)) {
-            $request->contentsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->contents, 'Contents', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->contents) {
+            $request->contentsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->contents, 'Contents', 'json');
         }
-        if (!Utils::isUnset($tmpReq->materialIds)) {
-            $request->materialIdsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->materialIds, 'MaterialIds', 'json');
+
+        if (null !== $tmpReq->materialIds) {
+            $request->materialIdsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->materialIds, 'MaterialIds', 'json');
         }
+
         $body = [];
-        if (!Utils::isUnset($request->contentsShrink)) {
-            $body['Contents'] = $request->contentsShrink;
+        if (null !== $request->contentsShrink) {
+            @$body['Contents'] = $request->contentsShrink;
         }
-        if (!Utils::isUnset($request->materialIdsShrink)) {
-            $body['MaterialIds'] = $request->materialIdsShrink;
+
+        if (null !== $request->materialIdsShrink) {
+            @$body['MaterialIds'] = $request->materialIdsShrink;
         }
-        if (!Utils::isUnset($request->workspaceId)) {
-            $body['WorkspaceId'] = $request->workspaceId;
+
+        if (null !== $request->workspaceId) {
+            @$body['WorkspaceId'] = $request->workspaceId;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'RunStyleFeatureAnalysis',
@@ -6976,7 +8442,7 @@ class AiMiaoBi extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return RunStyleFeatureAnalysisResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -6984,11 +8450,15 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * @summary 内容特点分析
-     *  *
-     * @param RunStyleFeatureAnalysisRequest $request RunStyleFeatureAnalysisRequest
+     * 内容特点分析.
      *
-     * @return RunStyleFeatureAnalysisResponse RunStyleFeatureAnalysisResponse
+     * @param request - RunStyleFeatureAnalysisRequest
+     *
+     * @returns RunStyleFeatureAnalysisResponse
+     *
+     * @param RunStyleFeatureAnalysisRequest $request
+     *
+     * @return RunStyleFeatureAnalysisResponse
      */
     public function runStyleFeatureAnalysis($request)
     {
@@ -6998,28 +8468,36 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * @summary 内容摘要生成
-     *  *
-     * @param RunSummaryGenerateRequest $request RunSummaryGenerateRequest
-     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
+     * 内容摘要生成.
      *
-     * @return RunSummaryGenerateResponse RunSummaryGenerateResponse
+     * @param request - RunSummaryGenerateRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns RunSummaryGenerateResponse
+     *
+     * @param RunSummaryGenerateRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return RunSummaryGenerateResponse
      */
     public function runSummaryGenerateWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->content)) {
-            $body['Content'] = $request->content;
+        if (null !== $request->content) {
+            @$body['Content'] = $request->content;
         }
-        if (!Utils::isUnset($request->prompt)) {
-            $body['Prompt'] = $request->prompt;
+
+        if (null !== $request->prompt) {
+            @$body['Prompt'] = $request->prompt;
         }
-        if (!Utils::isUnset($request->workspaceId)) {
-            $body['WorkspaceId'] = $request->workspaceId;
+
+        if (null !== $request->workspaceId) {
+            @$body['WorkspaceId'] = $request->workspaceId;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'RunSummaryGenerate',
@@ -7032,7 +8510,7 @@ class AiMiaoBi extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return RunSummaryGenerateResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -7040,11 +8518,15 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * @summary 内容摘要生成
-     *  *
-     * @param RunSummaryGenerateRequest $request RunSummaryGenerateRequest
+     * 内容摘要生成.
      *
-     * @return RunSummaryGenerateResponse RunSummaryGenerateResponse
+     * @param request - RunSummaryGenerateRequest
+     *
+     * @returns RunSummaryGenerateResponse
+     *
+     * @param RunSummaryGenerateRequest $request
+     *
+     * @return RunSummaryGenerateResponse
      */
     public function runSummaryGenerate($request)
     {
@@ -7054,25 +8536,32 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * @summary 创作-文本润色
-     *  *
-     * @param RunTextPolishingRequest $request RunTextPolishingRequest
-     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
+     * 创作-文本润色.
      *
-     * @return RunTextPolishingResponse RunTextPolishingResponse
+     * @param request - RunTextPolishingRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns RunTextPolishingResponse
+     *
+     * @param RunTextPolishingRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return RunTextPolishingResponse
      */
     public function runTextPolishingWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->content)) {
-            $body['Content'] = $request->content;
+        if (null !== $request->content) {
+            @$body['Content'] = $request->content;
         }
-        if (!Utils::isUnset($request->workspaceId)) {
-            $body['WorkspaceId'] = $request->workspaceId;
+
+        if (null !== $request->workspaceId) {
+            @$body['WorkspaceId'] = $request->workspaceId;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'RunTextPolishing',
@@ -7085,7 +8574,7 @@ class AiMiaoBi extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return RunTextPolishingResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -7093,11 +8582,15 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * @summary 创作-文本润色
-     *  *
-     * @param RunTextPolishingRequest $request RunTextPolishingRequest
+     * 创作-文本润色.
      *
-     * @return RunTextPolishingResponse RunTextPolishingResponse
+     * @param request - RunTextPolishingRequest
+     *
+     * @returns RunTextPolishingResponse
+     *
+     * @param RunTextPolishingRequest $request
+     *
+     * @return RunTextPolishingResponse
      */
     public function runTextPolishing($request)
     {
@@ -7107,33 +8600,54 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * @summary 妙笔：标题生成
-     *  *
-     * @param RunTitleGenerationRequest $tmpReq  RunTitleGenerationRequest
-     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
+     * 妙笔：标题生成.
      *
-     * @return RunTitleGenerationResponse RunTitleGenerationResponse
+     * @param tmpReq - RunTitleGenerationRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns RunTitleGenerationResponse
+     *
+     * @param RunTitleGenerationRequest $tmpReq
+     * @param RuntimeOptions            $runtime
+     *
+     * @return RunTitleGenerationResponse
      */
     public function runTitleGenerationWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new RunTitleGenerationShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->referenceData)) {
-            $request->referenceDataShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->referenceData, 'ReferenceData', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->deduplicatedTitles) {
+            $request->deduplicatedTitlesShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->deduplicatedTitles, 'DeduplicatedTitles', 'json');
         }
+
+        if (null !== $tmpReq->referenceData) {
+            $request->referenceDataShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->referenceData, 'ReferenceData', 'json');
+        }
+
         $body = [];
-        if (!Utils::isUnset($request->referenceDataShrink)) {
-            $body['ReferenceData'] = $request->referenceDataShrink;
+        if (null !== $request->deduplicatedTitlesShrink) {
+            @$body['DeduplicatedTitles'] = $request->deduplicatedTitlesShrink;
         }
-        if (!Utils::isUnset($request->taskId)) {
-            $body['TaskId'] = $request->taskId;
+
+        if (null !== $request->referenceDataShrink) {
+            @$body['ReferenceData'] = $request->referenceDataShrink;
         }
-        if (!Utils::isUnset($request->workspaceId)) {
-            $body['WorkspaceId'] = $request->workspaceId;
+
+        if (null !== $request->taskId) {
+            @$body['TaskId'] = $request->taskId;
         }
+
+        if (null !== $request->titleCount) {
+            @$body['TitleCount'] = $request->titleCount;
+        }
+
+        if (null !== $request->workspaceId) {
+            @$body['WorkspaceId'] = $request->workspaceId;
+        }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'RunTitleGeneration',
@@ -7146,7 +8660,7 @@ class AiMiaoBi extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return RunTitleGenerationResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -7154,11 +8668,15 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * @summary 妙笔：标题生成
-     *  *
-     * @param RunTitleGenerationRequest $request RunTitleGenerationRequest
+     * 妙笔：标题生成.
      *
-     * @return RunTitleGenerationResponse RunTitleGenerationResponse
+     * @param request - RunTitleGenerationRequest
+     *
+     * @returns RunTitleGenerationResponse
+     *
+     * @param RunTitleGenerationRequest $request
+     *
+     * @return RunTitleGenerationResponse
      */
     public function runTitleGeneration($request)
     {
@@ -7168,36 +8686,46 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * @summary AI妙笔-创作-中英文翻译
-     *  *
-     * @param RunTranslateGenerationRequest $tmpReq  RunTranslateGenerationRequest
-     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
+     * AI妙笔-创作-中英文翻译.
      *
-     * @return RunTranslateGenerationResponse RunTranslateGenerationResponse
+     * @param tmpReq - RunTranslateGenerationRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns RunTranslateGenerationResponse
+     *
+     * @param RunTranslateGenerationRequest $tmpReq
+     * @param RuntimeOptions                $runtime
+     *
+     * @return RunTranslateGenerationResponse
      */
     public function runTranslateGenerationWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new RunTranslateGenerationShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->referenceData)) {
-            $request->referenceDataShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->referenceData, 'ReferenceData', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->referenceData) {
+            $request->referenceDataShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->referenceData, 'ReferenceData', 'json');
         }
+
         $body = [];
-        if (!Utils::isUnset($request->prompt)) {
-            $body['Prompt'] = $request->prompt;
+        if (null !== $request->prompt) {
+            @$body['Prompt'] = $request->prompt;
         }
-        if (!Utils::isUnset($request->referenceDataShrink)) {
-            $body['ReferenceData'] = $request->referenceDataShrink;
+
+        if (null !== $request->referenceDataShrink) {
+            @$body['ReferenceData'] = $request->referenceDataShrink;
         }
-        if (!Utils::isUnset($request->taskId)) {
-            $body['TaskId'] = $request->taskId;
+
+        if (null !== $request->taskId) {
+            @$body['TaskId'] = $request->taskId;
         }
-        if (!Utils::isUnset($request->workspaceId)) {
-            $body['WorkspaceId'] = $request->workspaceId;
+
+        if (null !== $request->workspaceId) {
+            @$body['WorkspaceId'] = $request->workspaceId;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'RunTranslateGeneration',
@@ -7210,7 +8738,7 @@ class AiMiaoBi extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return RunTranslateGenerationResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -7218,11 +8746,15 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * @summary AI妙笔-创作-中英文翻译
-     *  *
-     * @param RunTranslateGenerationRequest $request RunTranslateGenerationRequest
+     * AI妙笔-创作-中英文翻译.
      *
-     * @return RunTranslateGenerationResponse RunTranslateGenerationResponse
+     * @param request - RunTranslateGenerationRequest
+     *
+     * @returns RunTranslateGenerationResponse
+     *
+     * @param RunTranslateGenerationRequest $request
+     *
+     * @return RunTranslateGenerationResponse
      */
     public function runTranslateGeneration($request)
     {
@@ -7232,36 +8764,46 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * @summary AI妙笔-创作-文风改写
-     *  *
-     * @param RunWriteToneGenerationRequest $tmpReq  RunWriteToneGenerationRequest
-     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
+     * AI妙笔-创作-文风改写.
      *
-     * @return RunWriteToneGenerationResponse RunWriteToneGenerationResponse
+     * @param tmpReq - RunWriteToneGenerationRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns RunWriteToneGenerationResponse
+     *
+     * @param RunWriteToneGenerationRequest $tmpReq
+     * @param RuntimeOptions                $runtime
+     *
+     * @return RunWriteToneGenerationResponse
      */
     public function runWriteToneGenerationWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new RunWriteToneGenerationShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->referenceData)) {
-            $request->referenceDataShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->referenceData, 'ReferenceData', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->referenceData) {
+            $request->referenceDataShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->referenceData, 'ReferenceData', 'json');
         }
+
         $body = [];
-        if (!Utils::isUnset($request->prompt)) {
-            $body['Prompt'] = $request->prompt;
+        if (null !== $request->prompt) {
+            @$body['Prompt'] = $request->prompt;
         }
-        if (!Utils::isUnset($request->referenceDataShrink)) {
-            $body['ReferenceData'] = $request->referenceDataShrink;
+
+        if (null !== $request->referenceDataShrink) {
+            @$body['ReferenceData'] = $request->referenceDataShrink;
         }
-        if (!Utils::isUnset($request->taskId)) {
-            $body['TaskId'] = $request->taskId;
+
+        if (null !== $request->taskId) {
+            @$body['TaskId'] = $request->taskId;
         }
-        if (!Utils::isUnset($request->workspaceId)) {
-            $body['WorkspaceId'] = $request->workspaceId;
+
+        if (null !== $request->workspaceId) {
+            @$body['WorkspaceId'] = $request->workspaceId;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'RunWriteToneGeneration',
@@ -7274,7 +8816,7 @@ class AiMiaoBi extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return RunWriteToneGenerationResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -7282,11 +8824,15 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * @summary AI妙笔-创作-文风改写
-     *  *
-     * @param RunWriteToneGenerationRequest $request RunWriteToneGenerationRequest
+     * AI妙笔-创作-文风改写.
      *
-     * @return RunWriteToneGenerationResponse RunWriteToneGenerationResponse
+     * @param request - RunWriteToneGenerationRequest
+     *
+     * @returns RunWriteToneGenerationResponse
+     *
+     * @param RunWriteToneGenerationRequest $request
+     *
+     * @return RunWriteToneGenerationResponse
      */
     public function runWriteToneGeneration($request)
     {
@@ -7296,48 +8842,62 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * @summary 直接写作
-     *  *
-     * @param RunWritingRequest $tmpReq  RunWritingRequest
-     * @param RuntimeOptions    $runtime runtime options for this request RuntimeOptions
+     * 直接写作.
      *
-     * @return RunWritingResponse RunWritingResponse
+     * @param tmpReq - RunWritingRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns RunWritingResponse
+     *
+     * @param RunWritingRequest $tmpReq
+     * @param RuntimeOptions    $runtime
+     *
+     * @return RunWritingResponse
      */
     public function runWritingWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new RunWritingShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->referenceData)) {
-            $request->referenceDataShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->referenceData, 'ReferenceData', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->referenceData) {
+            $request->referenceDataShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->referenceData, 'ReferenceData', 'json');
         }
-        if (!Utils::isUnset($tmpReq->writingConfig)) {
-            $request->writingConfigShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->writingConfig, 'WritingConfig', 'json');
+
+        if (null !== $tmpReq->writingConfig) {
+            $request->writingConfigShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->writingConfig, 'WritingConfig', 'json');
         }
+
         $body = [];
-        if (!Utils::isUnset($request->originSessionId)) {
-            $body['OriginSessionId'] = $request->originSessionId;
+        if (null !== $request->originSessionId) {
+            @$body['OriginSessionId'] = $request->originSessionId;
         }
-        if (!Utils::isUnset($request->prompt)) {
-            $body['Prompt'] = $request->prompt;
+
+        if (null !== $request->prompt) {
+            @$body['Prompt'] = $request->prompt;
         }
-        if (!Utils::isUnset($request->referenceDataShrink)) {
-            $body['ReferenceData'] = $request->referenceDataShrink;
+
+        if (null !== $request->referenceDataShrink) {
+            @$body['ReferenceData'] = $request->referenceDataShrink;
         }
-        if (!Utils::isUnset($request->sessionId)) {
-            $body['SessionId'] = $request->sessionId;
+
+        if (null !== $request->sessionId) {
+            @$body['SessionId'] = $request->sessionId;
         }
-        if (!Utils::isUnset($request->taskId)) {
-            $body['TaskId'] = $request->taskId;
+
+        if (null !== $request->taskId) {
+            @$body['TaskId'] = $request->taskId;
         }
-        if (!Utils::isUnset($request->workspaceId)) {
-            $body['WorkspaceId'] = $request->workspaceId;
+
+        if (null !== $request->workspaceId) {
+            @$body['WorkspaceId'] = $request->workspaceId;
         }
-        if (!Utils::isUnset($request->writingConfigShrink)) {
-            $body['WritingConfig'] = $request->writingConfigShrink;
+
+        if (null !== $request->writingConfigShrink) {
+            @$body['WritingConfig'] = $request->writingConfigShrink;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'RunWriting',
@@ -7350,7 +8910,7 @@ class AiMiaoBi extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return RunWritingResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -7358,11 +8918,15 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * @summary 直接写作
-     *  *
-     * @param RunWritingRequest $request RunWritingRequest
+     * 直接写作.
      *
-     * @return RunWritingResponse RunWritingResponse
+     * @param request - RunWritingRequest
+     *
+     * @returns RunWritingResponse
+     *
+     * @param RunWritingRequest $request
+     *
+     * @return RunWritingResponse
      */
     public function runWriting($request)
     {
@@ -7372,33 +8936,42 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * @summary 保存自定义文本
-     *  *
-     * @param SaveCustomTextRequest $request SaveCustomTextRequest
-     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
+     * 保存自定义文本.
      *
-     * @return SaveCustomTextResponse SaveCustomTextResponse
+     * @param request - SaveCustomTextRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns SaveCustomTextResponse
+     *
+     * @param SaveCustomTextRequest $request
+     * @param RuntimeOptions        $runtime
+     *
+     * @return SaveCustomTextResponse
      */
     public function saveCustomTextWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->agentKey)) {
-            $query['AgentKey'] = $request->agentKey;
+        if (null !== $request->agentKey) {
+            @$query['AgentKey'] = $request->agentKey;
         }
+
         $body = [];
-        if (!Utils::isUnset($request->commodityCode)) {
-            $body['CommodityCode'] = $request->commodityCode;
+        if (null !== $request->commodityCode) {
+            @$body['CommodityCode'] = $request->commodityCode;
         }
-        if (!Utils::isUnset($request->content)) {
-            $body['Content'] = $request->content;
+
+        if (null !== $request->content) {
+            @$body['Content'] = $request->content;
         }
-        if (!Utils::isUnset($request->title)) {
-            $body['Title'] = $request->title;
+
+        if (null !== $request->title) {
+            @$body['Title'] = $request->title;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'SaveCustomText',
@@ -7411,7 +8984,7 @@ class AiMiaoBi extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return SaveCustomTextResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -7419,11 +8992,15 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * @summary 保存自定义文本
-     *  *
-     * @param SaveCustomTextRequest $request SaveCustomTextRequest
+     * 保存自定义文本.
      *
-     * @return SaveCustomTextResponse SaveCustomTextResponse
+     * @param request - SaveCustomTextRequest
+     *
+     * @returns SaveCustomTextResponse
+     *
+     * @param SaveCustomTextRequest $request
+     *
+     * @return SaveCustomTextResponse
      */
     public function saveCustomText($request)
     {
@@ -7433,35 +9010,44 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * @summary 保存用户的信源配置
-     *  *
-     * @param SaveDataSourceOrderConfigRequest $tmpReq  SaveDataSourceOrderConfigRequest
-     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
+     * 保存用户的信源配置.
      *
-     * @return SaveDataSourceOrderConfigResponse SaveDataSourceOrderConfigResponse
+     * @param tmpReq - SaveDataSourceOrderConfigRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns SaveDataSourceOrderConfigResponse
+     *
+     * @param SaveDataSourceOrderConfigRequest $tmpReq
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return SaveDataSourceOrderConfigResponse
      */
     public function saveDataSourceOrderConfigWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new SaveDataSourceOrderConfigShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->userConfigDataSourceList)) {
-            $request->userConfigDataSourceListShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->userConfigDataSourceList, 'UserConfigDataSourceList', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->userConfigDataSourceList) {
+            $request->userConfigDataSourceListShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->userConfigDataSourceList, 'UserConfigDataSourceList', 'json');
         }
+
         $query = [];
-        if (!Utils::isUnset($request->agentKey)) {
-            $query['AgentKey'] = $request->agentKey;
+        if (null !== $request->agentKey) {
+            @$query['AgentKey'] = $request->agentKey;
         }
+
         $body = [];
-        if (!Utils::isUnset($request->productCode)) {
-            $body['ProductCode'] = $request->productCode;
+        if (null !== $request->productCode) {
+            @$body['ProductCode'] = $request->productCode;
         }
-        if (!Utils::isUnset($request->userConfigDataSourceListShrink)) {
-            $body['UserConfigDataSourceList'] = $request->userConfigDataSourceListShrink;
+
+        if (null !== $request->userConfigDataSourceListShrink) {
+            @$body['UserConfigDataSourceList'] = $request->userConfigDataSourceListShrink;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'SaveDataSourceOrderConfig',
@@ -7474,7 +9060,7 @@ class AiMiaoBi extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return SaveDataSourceOrderConfigResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -7482,11 +9068,15 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * @summary 保存用户的信源配置
-     *  *
-     * @param SaveDataSourceOrderConfigRequest $request SaveDataSourceOrderConfigRequest
+     * 保存用户的信源配置.
      *
-     * @return SaveDataSourceOrderConfigResponse SaveDataSourceOrderConfigResponse
+     * @param request - SaveDataSourceOrderConfigRequest
+     *
+     * @returns SaveDataSourceOrderConfigResponse
+     *
+     * @param SaveDataSourceOrderConfigRequest $request
+     *
+     * @return SaveDataSourceOrderConfigResponse
      */
     public function saveDataSourceOrderConfig($request)
     {
@@ -7496,68 +9086,88 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * @summary 保存素材
-     *  *
-     * @param SaveMaterialDocumentRequest $tmpReq  SaveMaterialDocumentRequest
-     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
+     * 保存素材.
      *
-     * @return SaveMaterialDocumentResponse SaveMaterialDocumentResponse
+     * @param tmpReq - SaveMaterialDocumentRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns SaveMaterialDocumentResponse
+     *
+     * @param SaveMaterialDocumentRequest $tmpReq
+     * @param RuntimeOptions              $runtime
+     *
+     * @return SaveMaterialDocumentResponse
      */
     public function saveMaterialDocumentWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new SaveMaterialDocumentShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->docKeywords)) {
-            $request->docKeywordsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->docKeywords, 'DocKeywords', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->docKeywords) {
+            $request->docKeywordsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->docKeywords, 'DocKeywords', 'json');
         }
+
         $query = [];
-        if (!Utils::isUnset($request->agentKey)) {
-            $query['AgentKey'] = $request->agentKey;
+        if (null !== $request->agentKey) {
+            @$query['AgentKey'] = $request->agentKey;
         }
+
         $body = [];
-        if (!Utils::isUnset($request->author)) {
-            $body['Author'] = $request->author;
+        if (null !== $request->author) {
+            @$body['Author'] = $request->author;
         }
-        if (!Utils::isUnset($request->bothSavePrivateAndShare)) {
-            $body['BothSavePrivateAndShare'] = $request->bothSavePrivateAndShare;
+
+        if (null !== $request->bothSavePrivateAndShare) {
+            @$body['BothSavePrivateAndShare'] = $request->bothSavePrivateAndShare;
         }
-        if (!Utils::isUnset($request->docKeywordsShrink)) {
-            $body['DocKeywords'] = $request->docKeywordsShrink;
+
+        if (null !== $request->docKeywordsShrink) {
+            @$body['DocKeywords'] = $request->docKeywordsShrink;
         }
-        if (!Utils::isUnset($request->docType)) {
-            $body['DocType'] = $request->docType;
+
+        if (null !== $request->docType) {
+            @$body['DocType'] = $request->docType;
         }
-        if (!Utils::isUnset($request->externalUrl)) {
-            $body['ExternalUrl'] = $request->externalUrl;
+
+        if (null !== $request->externalUrl) {
+            @$body['ExternalUrl'] = $request->externalUrl;
         }
-        if (!Utils::isUnset($request->htmlContent)) {
-            $body['HtmlContent'] = $request->htmlContent;
+
+        if (null !== $request->htmlContent) {
+            @$body['HtmlContent'] = $request->htmlContent;
         }
-        if (!Utils::isUnset($request->pubTime)) {
-            $body['PubTime'] = $request->pubTime;
+
+        if (null !== $request->pubTime) {
+            @$body['PubTime'] = $request->pubTime;
         }
-        if (!Utils::isUnset($request->shareAttr)) {
-            $body['ShareAttr'] = $request->shareAttr;
+
+        if (null !== $request->shareAttr) {
+            @$body['ShareAttr'] = $request->shareAttr;
         }
-        if (!Utils::isUnset($request->srcFrom)) {
-            $body['SrcFrom'] = $request->srcFrom;
+
+        if (null !== $request->srcFrom) {
+            @$body['SrcFrom'] = $request->srcFrom;
         }
-        if (!Utils::isUnset($request->summary)) {
-            $body['Summary'] = $request->summary;
+
+        if (null !== $request->summary) {
+            @$body['Summary'] = $request->summary;
         }
-        if (!Utils::isUnset($request->textContent)) {
-            $body['TextContent'] = $request->textContent;
+
+        if (null !== $request->textContent) {
+            @$body['TextContent'] = $request->textContent;
         }
-        if (!Utils::isUnset($request->title)) {
-            $body['Title'] = $request->title;
+
+        if (null !== $request->title) {
+            @$body['Title'] = $request->title;
         }
-        if (!Utils::isUnset($request->url)) {
-            $body['Url'] = $request->url;
+
+        if (null !== $request->url) {
+            @$body['Url'] = $request->url;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'SaveMaterialDocument',
@@ -7570,7 +9180,7 @@ class AiMiaoBi extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return SaveMaterialDocumentResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -7578,11 +9188,15 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * @summary 保存素材
-     *  *
-     * @param SaveMaterialDocumentRequest $request SaveMaterialDocumentRequest
+     * 保存素材.
      *
-     * @return SaveMaterialDocumentResponse SaveMaterialDocumentResponse
+     * @param request - SaveMaterialDocumentRequest
+     *
+     * @returns SaveMaterialDocumentResponse
+     *
+     * @param SaveMaterialDocumentRequest $request
+     *
+     * @return SaveMaterialDocumentResponse
      */
     public function saveMaterialDocument($request)
     {
@@ -7592,40 +9206,52 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * @summary 搜索数据集文档
-     *  *
-     * @param SearchDatasetDocumentsRequest $request SearchDatasetDocumentsRequest
-     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
+     * 搜索数据集文档.
      *
-     * @return SearchDatasetDocumentsResponse SearchDatasetDocumentsResponse
+     * @param request - SearchDatasetDocumentsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns SearchDatasetDocumentsResponse
+     *
+     * @param SearchDatasetDocumentsRequest $request
+     * @param RuntimeOptions                $runtime
+     *
+     * @return SearchDatasetDocumentsResponse
      */
     public function searchDatasetDocumentsWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->datasetId)) {
-            $body['DatasetId'] = $request->datasetId;
+        if (null !== $request->datasetId) {
+            @$body['DatasetId'] = $request->datasetId;
         }
-        if (!Utils::isUnset($request->datasetName)) {
-            $body['DatasetName'] = $request->datasetName;
+
+        if (null !== $request->datasetName) {
+            @$body['DatasetName'] = $request->datasetName;
         }
-        if (!Utils::isUnset($request->extend1)) {
-            $body['Extend1'] = $request->extend1;
+
+        if (null !== $request->extend1) {
+            @$body['Extend1'] = $request->extend1;
         }
-        if (!Utils::isUnset($request->includeContent)) {
-            $body['IncludeContent'] = $request->includeContent;
+
+        if (null !== $request->includeContent) {
+            @$body['IncludeContent'] = $request->includeContent;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $body['PageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$body['PageSize'] = $request->pageSize;
         }
-        if (!Utils::isUnset($request->query)) {
-            $body['Query'] = $request->query;
+
+        if (null !== $request->query) {
+            @$body['Query'] = $request->query;
         }
-        if (!Utils::isUnset($request->workspaceId)) {
-            $body['WorkspaceId'] = $request->workspaceId;
+
+        if (null !== $request->workspaceId) {
+            @$body['WorkspaceId'] = $request->workspaceId;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'SearchDatasetDocuments',
@@ -7638,7 +9264,7 @@ class AiMiaoBi extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return SearchDatasetDocumentsResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -7646,11 +9272,15 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * @summary 搜索数据集文档
-     *  *
-     * @param SearchDatasetDocumentsRequest $request SearchDatasetDocumentsRequest
+     * 搜索数据集文档.
      *
-     * @return SearchDatasetDocumentsResponse SearchDatasetDocumentsResponse
+     * @param request - SearchDatasetDocumentsRequest
+     *
+     * @returns SearchDatasetDocumentsResponse
+     *
+     * @param SearchDatasetDocumentsRequest $request
+     *
+     * @return SearchDatasetDocumentsResponse
      */
     public function searchDatasetDocuments($request)
     {
@@ -7660,47 +9290,60 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * @summary 新闻检索
-     *  *
-     * @param SearchNewsRequest $tmpReq  SearchNewsRequest
-     * @param RuntimeOptions    $runtime runtime options for this request RuntimeOptions
+     * 新闻检索.
      *
-     * @return SearchNewsResponse SearchNewsResponse
+     * @param tmpReq - SearchNewsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns SearchNewsResponse
+     *
+     * @param SearchNewsRequest $tmpReq
+     * @param RuntimeOptions    $runtime
+     *
+     * @return SearchNewsResponse
      */
     public function searchNewsWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new SearchNewsShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->searchSources)) {
-            $request->searchSourcesShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->searchSources, 'SearchSources', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->searchSources) {
+            $request->searchSourcesShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->searchSources, 'SearchSources', 'json');
         }
+
         $query = [];
-        if (!Utils::isUnset($request->agentKey)) {
-            $query['AgentKey'] = $request->agentKey;
+        if (null !== $request->agentKey) {
+            @$query['AgentKey'] = $request->agentKey;
         }
+
         $body = [];
-        if (!Utils::isUnset($request->filterNotNull)) {
-            $body['FilterNotNull'] = $request->filterNotNull;
+        if (null !== $request->filterNotNull) {
+            @$body['FilterNotNull'] = $request->filterNotNull;
         }
-        if (!Utils::isUnset($request->includeContent)) {
-            $body['IncludeContent'] = $request->includeContent;
+
+        if (null !== $request->includeContent) {
+            @$body['IncludeContent'] = $request->includeContent;
         }
-        if (!Utils::isUnset($request->page)) {
-            $body['Page'] = $request->page;
+
+        if (null !== $request->page) {
+            @$body['Page'] = $request->page;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $body['PageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$body['PageSize'] = $request->pageSize;
         }
-        if (!Utils::isUnset($request->query)) {
-            $body['Query'] = $request->query;
+
+        if (null !== $request->query) {
+            @$body['Query'] = $request->query;
         }
-        if (!Utils::isUnset($request->searchSourcesShrink)) {
-            $body['SearchSources'] = $request->searchSourcesShrink;
+
+        if (null !== $request->searchSourcesShrink) {
+            @$body['SearchSources'] = $request->searchSourcesShrink;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'SearchNews',
@@ -7713,7 +9356,7 @@ class AiMiaoBi extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return SearchNewsResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -7721,11 +9364,15 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * @summary 新闻检索
-     *  *
-     * @param SearchNewsRequest $request SearchNewsRequest
+     * 新闻检索.
      *
-     * @return SearchNewsResponse SearchNewsResponse
+     * @param request - SearchNewsRequest
+     *
+     * @returns SearchNewsResponse
+     *
+     * @param SearchNewsRequest $request
+     *
+     * @return SearchNewsResponse
      */
     public function searchNews($request)
     {
@@ -7735,36 +9382,46 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * @summary 提交异步任务
-     *  *
-     * @param SubmitAsyncTaskRequest $request SubmitAsyncTaskRequest
-     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
+     * 提交异步任务
      *
-     * @return SubmitAsyncTaskResponse SubmitAsyncTaskResponse
+     * @param request - SubmitAsyncTaskRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns SubmitAsyncTaskResponse
+     *
+     * @param SubmitAsyncTaskRequest $request
+     * @param RuntimeOptions         $runtime
+     *
+     * @return SubmitAsyncTaskResponse
      */
     public function submitAsyncTaskWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->agentKey)) {
-            $query['AgentKey'] = $request->agentKey;
+        if (null !== $request->agentKey) {
+            @$query['AgentKey'] = $request->agentKey;
         }
+
         $body = [];
-        if (!Utils::isUnset($request->taskCode)) {
-            $body['TaskCode'] = $request->taskCode;
+        if (null !== $request->taskCode) {
+            @$body['TaskCode'] = $request->taskCode;
         }
-        if (!Utils::isUnset($request->taskExecuteTime)) {
-            $body['TaskExecuteTime'] = $request->taskExecuteTime;
+
+        if (null !== $request->taskExecuteTime) {
+            @$body['TaskExecuteTime'] = $request->taskExecuteTime;
         }
-        if (!Utils::isUnset($request->taskName)) {
-            $body['TaskName'] = $request->taskName;
+
+        if (null !== $request->taskName) {
+            @$body['TaskName'] = $request->taskName;
         }
-        if (!Utils::isUnset($request->taskParam)) {
-            $body['TaskParam'] = $request->taskParam;
+
+        if (null !== $request->taskParam) {
+            @$body['TaskParam'] = $request->taskParam;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'SubmitAsyncTask',
@@ -7777,7 +9434,7 @@ class AiMiaoBi extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return SubmitAsyncTaskResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -7785,11 +9442,15 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * @summary 提交异步任务
-     *  *
-     * @param SubmitAsyncTaskRequest $request SubmitAsyncTaskRequest
+     * 提交异步任务
      *
-     * @return SubmitAsyncTaskResponse SubmitAsyncTaskResponse
+     * @param request - SubmitAsyncTaskRequest
+     *
+     * @returns SubmitAsyncTaskResponse
+     *
+     * @param SubmitAsyncTaskRequest $request
+     *
+     * @return SubmitAsyncTaskResponse
      */
     public function submitAsyncTask($request)
     {
@@ -7799,39 +9460,50 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * @summary 提交自定义播报单任务
-     *  *
-     * @param SubmitCustomHotTopicBroadcastJobRequest $tmpReq  SubmitCustomHotTopicBroadcastJobRequest
-     * @param RuntimeOptions                          $runtime runtime options for this request RuntimeOptions
+     * 提交自定义播报单任务
      *
-     * @return SubmitCustomHotTopicBroadcastJobResponse SubmitCustomHotTopicBroadcastJobResponse
+     * @param tmpReq - SubmitCustomHotTopicBroadcastJobRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns SubmitCustomHotTopicBroadcastJobResponse
+     *
+     * @param SubmitCustomHotTopicBroadcastJobRequest $tmpReq
+     * @param RuntimeOptions                          $runtime
+     *
+     * @return SubmitCustomHotTopicBroadcastJobResponse
      */
     public function submitCustomHotTopicBroadcastJobWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new SubmitCustomHotTopicBroadcastJobShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->hotTopicBroadcastConfig)) {
-            $request->hotTopicBroadcastConfigShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->hotTopicBroadcastConfig, 'HotTopicBroadcastConfig', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->hotTopicBroadcastConfig) {
+            $request->hotTopicBroadcastConfigShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->hotTopicBroadcastConfig, 'HotTopicBroadcastConfig', 'json');
         }
-        if (!Utils::isUnset($tmpReq->topics)) {
-            $request->topicsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->topics, 'Topics', 'json');
+
+        if (null !== $tmpReq->topics) {
+            $request->topicsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->topics, 'Topics', 'json');
         }
+
         $body = [];
-        if (!Utils::isUnset($request->hotTopicBroadcastConfigShrink)) {
-            $body['HotTopicBroadcastConfig'] = $request->hotTopicBroadcastConfigShrink;
+        if (null !== $request->hotTopicBroadcastConfigShrink) {
+            @$body['HotTopicBroadcastConfig'] = $request->hotTopicBroadcastConfigShrink;
         }
-        if (!Utils::isUnset($request->hotTopicVersion)) {
-            $body['HotTopicVersion'] = $request->hotTopicVersion;
+
+        if (null !== $request->hotTopicVersion) {
+            @$body['HotTopicVersion'] = $request->hotTopicVersion;
         }
-        if (!Utils::isUnset($request->topicsShrink)) {
-            $body['Topics'] = $request->topicsShrink;
+
+        if (null !== $request->topicsShrink) {
+            @$body['Topics'] = $request->topicsShrink;
         }
-        if (!Utils::isUnset($request->workspaceId)) {
-            $body['WorkspaceId'] = $request->workspaceId;
+
+        if (null !== $request->workspaceId) {
+            @$body['WorkspaceId'] = $request->workspaceId;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'SubmitCustomHotTopicBroadcastJob',
@@ -7844,7 +9516,7 @@ class AiMiaoBi extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return SubmitCustomHotTopicBroadcastJobResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -7852,11 +9524,15 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * @summary 提交自定义播报单任务
-     *  *
-     * @param SubmitCustomHotTopicBroadcastJobRequest $request SubmitCustomHotTopicBroadcastJobRequest
+     * 提交自定义播报单任务
      *
-     * @return SubmitCustomHotTopicBroadcastJobResponse SubmitCustomHotTopicBroadcastJobResponse
+     * @param request - SubmitCustomHotTopicBroadcastJobRequest
+     *
+     * @returns SubmitCustomHotTopicBroadcastJobResponse
+     *
+     * @param SubmitCustomHotTopicBroadcastJobRequest $request
+     *
+     * @return SubmitCustomHotTopicBroadcastJobResponse
      */
     public function submitCustomHotTopicBroadcastJob($request)
     {
@@ -7866,38 +9542,48 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * @summary 提交自定义热点选题视角分析任务
-     *  *
-     * @param SubmitCustomTopicSelectionPerspectiveAnalysisTaskRequest $tmpReq  SubmitCustomTopicSelectionPerspectiveAnalysisTaskRequest
-     * @param RuntimeOptions                                           $runtime runtime options for this request RuntimeOptions
+     * 提交自定义热点选题视角分析任务
      *
-     * @return SubmitCustomTopicSelectionPerspectiveAnalysisTaskResponse SubmitCustomTopicSelectionPerspectiveAnalysisTaskResponse
+     * @param tmpReq - SubmitCustomTopicSelectionPerspectiveAnalysisTaskRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns SubmitCustomTopicSelectionPerspectiveAnalysisTaskResponse
+     *
+     * @param SubmitCustomTopicSelectionPerspectiveAnalysisTaskRequest $tmpReq
+     * @param RuntimeOptions                                           $runtime
+     *
+     * @return SubmitCustomTopicSelectionPerspectiveAnalysisTaskResponse
      */
     public function submitCustomTopicSelectionPerspectiveAnalysisTaskWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new SubmitCustomTopicSelectionPerspectiveAnalysisTaskShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->documents)) {
-            $request->documentsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->documents, 'Documents', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->documents) {
+            $request->documentsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->documents, 'Documents', 'json');
         }
+
         $query = [];
-        if (!Utils::isUnset($request->agentKey)) {
-            $query['AgentKey'] = $request->agentKey;
+        if (null !== $request->agentKey) {
+            @$query['AgentKey'] = $request->agentKey;
         }
+
         $body = [];
-        if (!Utils::isUnset($request->documentsShrink)) {
-            $body['Documents'] = $request->documentsShrink;
+        if (null !== $request->documentsShrink) {
+            @$body['Documents'] = $request->documentsShrink;
         }
-        if (!Utils::isUnset($request->prompt)) {
-            $body['Prompt'] = $request->prompt;
+
+        if (null !== $request->prompt) {
+            @$body['Prompt'] = $request->prompt;
         }
-        if (!Utils::isUnset($request->topic)) {
-            $body['Topic'] = $request->topic;
+
+        if (null !== $request->topic) {
+            @$body['Topic'] = $request->topic;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'SubmitCustomTopicSelectionPerspectiveAnalysisTask',
@@ -7910,7 +9596,7 @@ class AiMiaoBi extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return SubmitCustomTopicSelectionPerspectiveAnalysisTaskResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -7918,11 +9604,15 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * @summary 提交自定义热点选题视角分析任务
-     *  *
-     * @param SubmitCustomTopicSelectionPerspectiveAnalysisTaskRequest $request SubmitCustomTopicSelectionPerspectiveAnalysisTaskRequest
+     * 提交自定义热点选题视角分析任务
      *
-     * @return SubmitCustomTopicSelectionPerspectiveAnalysisTaskResponse SubmitCustomTopicSelectionPerspectiveAnalysisTaskResponse
+     * @param request - SubmitCustomTopicSelectionPerspectiveAnalysisTaskRequest
+     *
+     * @returns SubmitCustomTopicSelectionPerspectiveAnalysisTaskResponse
+     *
+     * @param SubmitCustomTopicSelectionPerspectiveAnalysisTaskRequest $request
+     *
+     * @return SubmitCustomTopicSelectionPerspectiveAnalysisTaskResponse
      */
     public function submitCustomTopicSelectionPerspectiveAnalysisTask($request)
     {
@@ -7932,41 +9622,52 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * @summary 提交文档聚合任务
-     *  *
-     * @param SubmitDocClusterTaskRequest $tmpReq  SubmitDocClusterTaskRequest
-     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
+     * 提交文档聚合任务
      *
-     * @return SubmitDocClusterTaskResponse SubmitDocClusterTaskResponse
+     * @param tmpReq - SubmitDocClusterTaskRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns SubmitDocClusterTaskResponse
+     *
+     * @param SubmitDocClusterTaskRequest $tmpReq
+     * @param RuntimeOptions              $runtime
+     *
+     * @return SubmitDocClusterTaskResponse
      */
     public function submitDocClusterTaskWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new SubmitDocClusterTaskShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->documents)) {
-            $request->documentsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->documents, 'Documents', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->documents) {
+            $request->documentsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->documents, 'Documents', 'json');
         }
+
         $query = [];
-        if (!Utils::isUnset($request->agentKey)) {
-            $query['AgentKey'] = $request->agentKey;
+        if (null !== $request->agentKey) {
+            @$query['AgentKey'] = $request->agentKey;
         }
+
         $body = [];
-        if (!Utils::isUnset($request->documentsShrink)) {
-            $body['Documents'] = $request->documentsShrink;
+        if (null !== $request->documentsShrink) {
+            @$body['Documents'] = $request->documentsShrink;
         }
-        if (!Utils::isUnset($request->summaryLength)) {
-            $body['SummaryLength'] = $request->summaryLength;
+
+        if (null !== $request->summaryLength) {
+            @$body['SummaryLength'] = $request->summaryLength;
         }
-        if (!Utils::isUnset($request->titleLength)) {
-            $body['TitleLength'] = $request->titleLength;
+
+        if (null !== $request->titleLength) {
+            @$body['TitleLength'] = $request->titleLength;
         }
-        if (!Utils::isUnset($request->topicCount)) {
-            $body['TopicCount'] = $request->topicCount;
+
+        if (null !== $request->topicCount) {
+            @$body['TopicCount'] = $request->topicCount;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'SubmitDocClusterTask',
@@ -7979,7 +9680,7 @@ class AiMiaoBi extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return SubmitDocClusterTaskResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -7987,11 +9688,15 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * @summary 提交文档聚合任务
-     *  *
-     * @param SubmitDocClusterTaskRequest $request SubmitDocClusterTaskRequest
+     * 提交文档聚合任务
      *
-     * @return SubmitDocClusterTaskResponse SubmitDocClusterTaskResponse
+     * @param request - SubmitDocClusterTaskRequest
+     *
+     * @returns SubmitDocClusterTaskResponse
+     *
+     * @param SubmitDocClusterTaskRequest $request
+     *
+     * @return SubmitDocClusterTaskResponse
      */
     public function submitDocClusterTask($request)
     {
@@ -8001,60 +9706,78 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * @summary 提交VOC异步任务
-     *  *
-     * @param SubmitEnterpriseVocAnalysisTaskRequest $tmpReq  SubmitEnterpriseVocAnalysisTaskRequest
-     * @param RuntimeOptions                         $runtime runtime options for this request RuntimeOptions
+     * 提交VOC异步任务
      *
-     * @return SubmitEnterpriseVocAnalysisTaskResponse SubmitEnterpriseVocAnalysisTaskResponse
+     * @param tmpReq - SubmitEnterpriseVocAnalysisTaskRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns SubmitEnterpriseVocAnalysisTaskResponse
+     *
+     * @param SubmitEnterpriseVocAnalysisTaskRequest $tmpReq
+     * @param RuntimeOptions                         $runtime
+     *
+     * @return SubmitEnterpriseVocAnalysisTaskResponse
      */
     public function submitEnterpriseVocAnalysisTaskWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new SubmitEnterpriseVocAnalysisTaskShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->contentTags)) {
-            $request->contentTagsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->contentTags, 'ContentTags', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->contentTags) {
+            $request->contentTagsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->contentTags, 'ContentTags', 'json');
         }
-        if (!Utils::isUnset($tmpReq->contents)) {
-            $request->contentsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->contents, 'Contents', 'json');
+
+        if (null !== $tmpReq->contents) {
+            $request->contentsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->contents, 'Contents', 'json');
         }
-        if (!Utils::isUnset($tmpReq->filterTags)) {
-            $request->filterTagsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->filterTags, 'FilterTags', 'json');
+
+        if (null !== $tmpReq->filterTags) {
+            $request->filterTagsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->filterTags, 'FilterTags', 'json');
         }
+
         $body = [];
-        if (!Utils::isUnset($request->contentTagsShrink)) {
-            $body['ContentTags'] = $request->contentTagsShrink;
+        if (null !== $request->contentTagsShrink) {
+            @$body['ContentTags'] = $request->contentTagsShrink;
         }
-        if (!Utils::isUnset($request->contentsShrink)) {
-            $body['Contents'] = $request->contentsShrink;
+
+        if (null !== $request->contentsShrink) {
+            @$body['Contents'] = $request->contentsShrink;
         }
-        if (!Utils::isUnset($request->fileKey)) {
-            $body['FileKey'] = $request->fileKey;
+
+        if (null !== $request->fileKey) {
+            @$body['FileKey'] = $request->fileKey;
         }
-        if (!Utils::isUnset($request->filterTagsShrink)) {
-            $body['FilterTags'] = $request->filterTagsShrink;
+
+        if (null !== $request->filterTagsShrink) {
+            @$body['FilterTags'] = $request->filterTagsShrink;
         }
-        if (!Utils::isUnset($request->materialType)) {
-            $body['MaterialType'] = $request->materialType;
+
+        if (null !== $request->materialType) {
+            @$body['MaterialType'] = $request->materialType;
         }
-        if (!Utils::isUnset($request->modelId)) {
-            $body['ModelId'] = $request->modelId;
+
+        if (null !== $request->modelId) {
+            @$body['ModelId'] = $request->modelId;
         }
-        if (!Utils::isUnset($request->positiveSample)) {
-            $body['PositiveSample'] = $request->positiveSample;
+
+        if (null !== $request->positiveSample) {
+            @$body['PositiveSample'] = $request->positiveSample;
         }
-        if (!Utils::isUnset($request->positiveSampleFileKey)) {
-            $body['PositiveSampleFileKey'] = $request->positiveSampleFileKey;
+
+        if (null !== $request->positiveSampleFileKey) {
+            @$body['PositiveSampleFileKey'] = $request->positiveSampleFileKey;
         }
-        if (!Utils::isUnset($request->taskType)) {
-            $body['TaskType'] = $request->taskType;
+
+        if (null !== $request->taskType) {
+            @$body['TaskType'] = $request->taskType;
         }
-        if (!Utils::isUnset($request->workspaceId)) {
-            $body['WorkspaceId'] = $request->workspaceId;
+
+        if (null !== $request->workspaceId) {
+            @$body['WorkspaceId'] = $request->workspaceId;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'SubmitEnterpriseVocAnalysisTask',
@@ -8067,7 +9790,7 @@ class AiMiaoBi extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return SubmitEnterpriseVocAnalysisTaskResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -8075,11 +9798,15 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * @summary 提交VOC异步任务
-     *  *
-     * @param SubmitEnterpriseVocAnalysisTaskRequest $request SubmitEnterpriseVocAnalysisTaskRequest
+     * 提交VOC异步任务
      *
-     * @return SubmitEnterpriseVocAnalysisTaskResponse SubmitEnterpriseVocAnalysisTaskResponse
+     * @param request - SubmitEnterpriseVocAnalysisTaskRequest
+     *
+     * @returns SubmitEnterpriseVocAnalysisTaskResponse
+     *
+     * @param SubmitEnterpriseVocAnalysisTaskRequest $request
+     *
+     * @return SubmitEnterpriseVocAnalysisTaskResponse
      */
     public function submitEnterpriseVocAnalysisTask($request)
     {
@@ -8089,45 +9816,58 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * @summary 提交一键成片剪辑任务
-     *  *
-     * @param SubmitSmartClipTaskRequest $tmpReq  SubmitSmartClipTaskRequest
-     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
+     * 提交一键成片剪辑任务
      *
-     * @return SubmitSmartClipTaskResponse SubmitSmartClipTaskResponse
+     * @param tmpReq - SubmitSmartClipTaskRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns SubmitSmartClipTaskResponse
+     *
+     * @param SubmitSmartClipTaskRequest $tmpReq
+     * @param RuntimeOptions             $runtime
+     *
+     * @return SubmitSmartClipTaskResponse
      */
     public function submitSmartClipTaskWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new SubmitSmartClipTaskShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->editingConfig)) {
-            $request->editingConfigShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->editingConfig, 'EditingConfig', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->editingConfig) {
+            $request->editingConfigShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->editingConfig, 'EditingConfig', 'json');
         }
-        if (!Utils::isUnset($tmpReq->inputConfig)) {
-            $request->inputConfigShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->inputConfig, 'InputConfig', 'json');
+
+        if (null !== $tmpReq->inputConfig) {
+            $request->inputConfigShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->inputConfig, 'InputConfig', 'json');
         }
-        if (!Utils::isUnset($tmpReq->outputConfig)) {
-            $request->outputConfigShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->outputConfig, 'OutputConfig', 'json');
+
+        if (null !== $tmpReq->outputConfig) {
+            $request->outputConfigShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->outputConfig, 'OutputConfig', 'json');
         }
+
         $body = [];
-        if (!Utils::isUnset($request->editingConfigShrink)) {
-            $body['EditingConfig'] = $request->editingConfigShrink;
+        if (null !== $request->editingConfigShrink) {
+            @$body['EditingConfig'] = $request->editingConfigShrink;
         }
-        if (!Utils::isUnset($request->extendParam)) {
-            $body['ExtendParam'] = $request->extendParam;
+
+        if (null !== $request->extendParam) {
+            @$body['ExtendParam'] = $request->extendParam;
         }
-        if (!Utils::isUnset($request->inputConfigShrink)) {
-            $body['InputConfig'] = $request->inputConfigShrink;
+
+        if (null !== $request->inputConfigShrink) {
+            @$body['InputConfig'] = $request->inputConfigShrink;
         }
-        if (!Utils::isUnset($request->outputConfigShrink)) {
-            $body['OutputConfig'] = $request->outputConfigShrink;
+
+        if (null !== $request->outputConfigShrink) {
+            @$body['OutputConfig'] = $request->outputConfigShrink;
         }
-        if (!Utils::isUnset($request->workspaceId)) {
-            $body['WorkspaceId'] = $request->workspaceId;
+
+        if (null !== $request->workspaceId) {
+            @$body['WorkspaceId'] = $request->workspaceId;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'SubmitSmartClipTask',
@@ -8140,7 +9880,7 @@ class AiMiaoBi extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return SubmitSmartClipTaskResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -8148,11 +9888,15 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * @summary 提交一键成片剪辑任务
-     *  *
-     * @param SubmitSmartClipTaskRequest $request SubmitSmartClipTaskRequest
+     * 提交一键成片剪辑任务
      *
-     * @return SubmitSmartClipTaskResponse SubmitSmartClipTaskResponse
+     * @param request - SubmitSmartClipTaskRequest
+     *
+     * @returns SubmitSmartClipTaskResponse
+     *
+     * @param SubmitSmartClipTaskRequest $request
+     *
+     * @return SubmitSmartClipTaskResponse
      */
     public function submitSmartClipTask($request)
     {
@@ -8162,41 +9906,52 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * @summary 提交选题热点分析任务
-     *  *
-     * @param SubmitTopicSelectionPerspectiveAnalysisTaskRequest $tmpReq  SubmitTopicSelectionPerspectiveAnalysisTaskRequest
-     * @param RuntimeOptions                                     $runtime runtime options for this request RuntimeOptions
+     * 提交选题热点分析任务
      *
-     * @return SubmitTopicSelectionPerspectiveAnalysisTaskResponse SubmitTopicSelectionPerspectiveAnalysisTaskResponse
+     * @param tmpReq - SubmitTopicSelectionPerspectiveAnalysisTaskRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns SubmitTopicSelectionPerspectiveAnalysisTaskResponse
+     *
+     * @param SubmitTopicSelectionPerspectiveAnalysisTaskRequest $tmpReq
+     * @param RuntimeOptions                                     $runtime
+     *
+     * @return SubmitTopicSelectionPerspectiveAnalysisTaskResponse
      */
     public function submitTopicSelectionPerspectiveAnalysisTaskWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new SubmitTopicSelectionPerspectiveAnalysisTaskShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->documents)) {
-            $request->documentsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->documents, 'Documents', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->documents) {
+            $request->documentsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->documents, 'Documents', 'json');
         }
-        if (!Utils::isUnset($tmpReq->perspectiveTypes)) {
-            $request->perspectiveTypesShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->perspectiveTypes, 'PerspectiveTypes', 'json');
+
+        if (null !== $tmpReq->perspectiveTypes) {
+            $request->perspectiveTypesShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->perspectiveTypes, 'PerspectiveTypes', 'json');
         }
+
         $query = [];
-        if (!Utils::isUnset($request->agentKey)) {
-            $query['AgentKey'] = $request->agentKey;
+        if (null !== $request->agentKey) {
+            @$query['AgentKey'] = $request->agentKey;
         }
+
         $body = [];
-        if (!Utils::isUnset($request->documentsShrink)) {
-            $body['Documents'] = $request->documentsShrink;
+        if (null !== $request->documentsShrink) {
+            @$body['Documents'] = $request->documentsShrink;
         }
-        if (!Utils::isUnset($request->perspectiveTypesShrink)) {
-            $body['PerspectiveTypes'] = $request->perspectiveTypesShrink;
+
+        if (null !== $request->perspectiveTypesShrink) {
+            @$body['PerspectiveTypes'] = $request->perspectiveTypesShrink;
         }
-        if (!Utils::isUnset($request->topic)) {
-            $body['Topic'] = $request->topic;
+
+        if (null !== $request->topic) {
+            @$body['Topic'] = $request->topic;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'SubmitTopicSelectionPerspectiveAnalysisTask',
@@ -8209,7 +9964,7 @@ class AiMiaoBi extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return SubmitTopicSelectionPerspectiveAnalysisTaskResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -8217,11 +9972,15 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * @summary 提交选题热点分析任务
-     *  *
-     * @param SubmitTopicSelectionPerspectiveAnalysisTaskRequest $request SubmitTopicSelectionPerspectiveAnalysisTaskRequest
+     * 提交选题热点分析任务
      *
-     * @return SubmitTopicSelectionPerspectiveAnalysisTaskResponse SubmitTopicSelectionPerspectiveAnalysisTaskResponse
+     * @param request - SubmitTopicSelectionPerspectiveAnalysisTaskRequest
+     *
+     * @returns SubmitTopicSelectionPerspectiveAnalysisTaskResponse
+     *
+     * @param SubmitTopicSelectionPerspectiveAnalysisTaskRequest $request
+     *
+     * @return SubmitTopicSelectionPerspectiveAnalysisTaskResponse
      */
     public function submitTopicSelectionPerspectiveAnalysisTask($request)
     {
@@ -8231,36 +9990,46 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * @summary 更新自定义文本
-     *  *
-     * @param UpdateCustomTextRequest $request UpdateCustomTextRequest
-     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
+     * 更新自定义文本.
      *
-     * @return UpdateCustomTextResponse UpdateCustomTextResponse
+     * @param request - UpdateCustomTextRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateCustomTextResponse
+     *
+     * @param UpdateCustomTextRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return UpdateCustomTextResponse
      */
     public function updateCustomTextWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->agentKey)) {
-            $query['AgentKey'] = $request->agentKey;
+        if (null !== $request->agentKey) {
+            @$query['AgentKey'] = $request->agentKey;
         }
+
         $body = [];
-        if (!Utils::isUnset($request->commodityCode)) {
-            $body['CommodityCode'] = $request->commodityCode;
+        if (null !== $request->commodityCode) {
+            @$body['CommodityCode'] = $request->commodityCode;
         }
-        if (!Utils::isUnset($request->content)) {
-            $body['Content'] = $request->content;
+
+        if (null !== $request->content) {
+            @$body['Content'] = $request->content;
         }
-        if (!Utils::isUnset($request->id)) {
-            $body['Id'] = $request->id;
+
+        if (null !== $request->id) {
+            @$body['Id'] = $request->id;
         }
-        if (!Utils::isUnset($request->title)) {
-            $body['Title'] = $request->title;
+
+        if (null !== $request->title) {
+            @$body['Title'] = $request->title;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'UpdateCustomText',
@@ -8273,7 +10042,7 @@ class AiMiaoBi extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return UpdateCustomTextResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -8281,11 +10050,15 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * @summary 更新自定义文本
-     *  *
-     * @param UpdateCustomTextRequest $request UpdateCustomTextRequest
+     * 更新自定义文本.
      *
-     * @return UpdateCustomTextResponse UpdateCustomTextResponse
+     * @param request - UpdateCustomTextRequest
+     *
+     * @returns UpdateCustomTextResponse
+     *
+     * @param UpdateCustomTextRequest $request
+     *
+     * @return UpdateCustomTextResponse
      */
     public function updateCustomText($request)
     {
@@ -8295,39 +10068,50 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * @summary 数据集管理-更新
-     *  *
-     * @param UpdateDatasetRequest $tmpReq  UpdateDatasetRequest
-     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
+     * 数据集管理-更新.
      *
-     * @return UpdateDatasetResponse UpdateDatasetResponse
+     * @param tmpReq - UpdateDatasetRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateDatasetResponse
+     *
+     * @param UpdateDatasetRequest $tmpReq
+     * @param RuntimeOptions       $runtime
+     *
+     * @return UpdateDatasetResponse
      */
     public function updateDatasetWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new UpdateDatasetShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->datasetConfig)) {
-            $request->datasetConfigShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->datasetConfig, 'DatasetConfig', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->datasetConfig) {
+            $request->datasetConfigShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->datasetConfig, 'DatasetConfig', 'json');
         }
+
         $body = [];
-        if (!Utils::isUnset($request->datasetConfigShrink)) {
-            $body['DatasetConfig'] = $request->datasetConfigShrink;
+        if (null !== $request->datasetConfigShrink) {
+            @$body['DatasetConfig'] = $request->datasetConfigShrink;
         }
-        if (!Utils::isUnset($request->datasetDescription)) {
-            $body['DatasetDescription'] = $request->datasetDescription;
+
+        if (null !== $request->datasetDescription) {
+            @$body['DatasetDescription'] = $request->datasetDescription;
         }
-        if (!Utils::isUnset($request->datasetId)) {
-            $body['DatasetId'] = $request->datasetId;
+
+        if (null !== $request->datasetId) {
+            @$body['DatasetId'] = $request->datasetId;
         }
-        if (!Utils::isUnset($request->searchDatasetEnable)) {
-            $body['SearchDatasetEnable'] = $request->searchDatasetEnable;
+
+        if (null !== $request->searchDatasetEnable) {
+            @$body['SearchDatasetEnable'] = $request->searchDatasetEnable;
         }
-        if (!Utils::isUnset($request->workspaceId)) {
-            $body['WorkspaceId'] = $request->workspaceId;
+
+        if (null !== $request->workspaceId) {
+            @$body['WorkspaceId'] = $request->workspaceId;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'UpdateDataset',
@@ -8340,7 +10124,7 @@ class AiMiaoBi extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return UpdateDatasetResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -8348,11 +10132,15 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * @summary 数据集管理-更新
-     *  *
-     * @param UpdateDatasetRequest $request UpdateDatasetRequest
+     * 数据集管理-更新.
      *
-     * @return UpdateDatasetResponse UpdateDatasetResponse
+     * @param request - UpdateDatasetRequest
+     *
+     * @returns UpdateDatasetResponse
+     *
+     * @param UpdateDatasetRequest $request
+     *
+     * @return UpdateDatasetResponse
      */
     public function updateDataset($request)
     {
@@ -8362,36 +10150,46 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * @summary 修改数据集文档
-     *  *
-     * @param UpdateDatasetDocumentRequest $tmpReq  UpdateDatasetDocumentRequest
-     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
+     * 修改数据集文档.
      *
-     * @return UpdateDatasetDocumentResponse UpdateDatasetDocumentResponse
+     * @param tmpReq - UpdateDatasetDocumentRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateDatasetDocumentResponse
+     *
+     * @param UpdateDatasetDocumentRequest $tmpReq
+     * @param RuntimeOptions               $runtime
+     *
+     * @return UpdateDatasetDocumentResponse
      */
     public function updateDatasetDocumentWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new UpdateDatasetDocumentShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->document)) {
-            $request->documentShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->document, 'Document', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->document) {
+            $request->documentShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->document, 'Document', 'json');
         }
+
         $body = [];
-        if (!Utils::isUnset($request->datasetId)) {
-            $body['DatasetId'] = $request->datasetId;
+        if (null !== $request->datasetId) {
+            @$body['DatasetId'] = $request->datasetId;
         }
-        if (!Utils::isUnset($request->datasetName)) {
-            $body['DatasetName'] = $request->datasetName;
+
+        if (null !== $request->datasetName) {
+            @$body['DatasetName'] = $request->datasetName;
         }
-        if (!Utils::isUnset($request->documentShrink)) {
-            $body['Document'] = $request->documentShrink;
+
+        if (null !== $request->documentShrink) {
+            @$body['Document'] = $request->documentShrink;
         }
-        if (!Utils::isUnset($request->workspaceId)) {
-            $body['WorkspaceId'] = $request->workspaceId;
+
+        if (null !== $request->workspaceId) {
+            @$body['WorkspaceId'] = $request->workspaceId;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'UpdateDatasetDocument',
@@ -8404,7 +10202,7 @@ class AiMiaoBi extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return UpdateDatasetDocumentResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -8412,11 +10210,15 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * @summary 修改数据集文档
-     *  *
-     * @param UpdateDatasetDocumentRequest $request UpdateDatasetDocumentRequest
+     * 修改数据集文档.
      *
-     * @return UpdateDatasetDocumentResponse UpdateDatasetDocumentResponse
+     * @param request - UpdateDatasetDocumentRequest
+     *
+     * @returns UpdateDatasetDocumentResponse
+     *
+     * @param UpdateDatasetDocumentRequest $request
+     *
+     * @return UpdateDatasetDocumentResponse
      */
     public function updateDatasetDocument($request)
     {
@@ -8426,47 +10228,60 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * @summary 文档管理-更新。
-     *  *
-     * @param UpdateGeneratedContentRequest $tmpReq  UpdateGeneratedContentRequest
-     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
+     * 文档管理-更新。
      *
-     * @return UpdateGeneratedContentResponse UpdateGeneratedContentResponse
+     * @param tmpReq - UpdateGeneratedContentRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateGeneratedContentResponse
+     *
+     * @param UpdateGeneratedContentRequest $tmpReq
+     * @param RuntimeOptions                $runtime
+     *
+     * @return UpdateGeneratedContentResponse
      */
     public function updateGeneratedContentWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new UpdateGeneratedContentShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->keywords)) {
-            $request->keywordsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->keywords, 'Keywords', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->keywords) {
+            $request->keywordsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->keywords, 'Keywords', 'json');
         }
+
         $query = [];
-        if (!Utils::isUnset($request->agentKey)) {
-            $query['AgentKey'] = $request->agentKey;
+        if (null !== $request->agentKey) {
+            @$query['AgentKey'] = $request->agentKey;
         }
+
         $body = [];
-        if (!Utils::isUnset($request->content)) {
-            $body['Content'] = $request->content;
+        if (null !== $request->content) {
+            @$body['Content'] = $request->content;
         }
-        if (!Utils::isUnset($request->contentText)) {
-            $body['ContentText'] = $request->contentText;
+
+        if (null !== $request->contentText) {
+            @$body['ContentText'] = $request->contentText;
         }
-        if (!Utils::isUnset($request->id)) {
-            $body['Id'] = $request->id;
+
+        if (null !== $request->id) {
+            @$body['Id'] = $request->id;
         }
-        if (!Utils::isUnset($request->keywordsShrink)) {
-            $body['Keywords'] = $request->keywordsShrink;
+
+        if (null !== $request->keywordsShrink) {
+            @$body['Keywords'] = $request->keywordsShrink;
         }
-        if (!Utils::isUnset($request->prompt)) {
-            $body['Prompt'] = $request->prompt;
+
+        if (null !== $request->prompt) {
+            @$body['Prompt'] = $request->prompt;
         }
-        if (!Utils::isUnset($request->title)) {
-            $body['Title'] = $request->title;
+
+        if (null !== $request->title) {
+            @$body['Title'] = $request->title;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'UpdateGeneratedContent',
@@ -8479,7 +10294,7 @@ class AiMiaoBi extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return UpdateGeneratedContentResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -8487,11 +10302,15 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * @summary 文档管理-更新。
-     *  *
-     * @param UpdateGeneratedContentRequest $request UpdateGeneratedContentRequest
+     * 文档管理-更新。
      *
-     * @return UpdateGeneratedContentResponse UpdateGeneratedContentResponse
+     * @param request - UpdateGeneratedContentRequest
+     *
+     * @returns UpdateGeneratedContentResponse
+     *
+     * @param UpdateGeneratedContentRequest $request
+     *
+     * @return UpdateGeneratedContentResponse
      */
     public function updateGeneratedContent($request)
     {
@@ -8501,71 +10320,92 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * @summary 根据ID更新素材
-     *  *
-     * @param UpdateMaterialDocumentRequest $tmpReq  UpdateMaterialDocumentRequest
-     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
+     * 根据ID更新素材.
      *
-     * @return UpdateMaterialDocumentResponse UpdateMaterialDocumentResponse
+     * @param tmpReq - UpdateMaterialDocumentRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateMaterialDocumentResponse
+     *
+     * @param UpdateMaterialDocumentRequest $tmpReq
+     * @param RuntimeOptions                $runtime
+     *
+     * @return UpdateMaterialDocumentResponse
      */
     public function updateMaterialDocumentWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new UpdateMaterialDocumentShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->docKeywords)) {
-            $request->docKeywordsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->docKeywords, 'DocKeywords', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->docKeywords) {
+            $request->docKeywordsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->docKeywords, 'DocKeywords', 'json');
         }
+
         $query = [];
-        if (!Utils::isUnset($request->agentKey)) {
-            $query['AgentKey'] = $request->agentKey;
+        if (null !== $request->agentKey) {
+            @$query['AgentKey'] = $request->agentKey;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
+
         $body = [];
-        if (!Utils::isUnset($request->author)) {
-            $body['Author'] = $request->author;
+        if (null !== $request->author) {
+            @$body['Author'] = $request->author;
         }
-        if (!Utils::isUnset($request->docKeywordsShrink)) {
-            $body['DocKeywords'] = $request->docKeywordsShrink;
+
+        if (null !== $request->docKeywordsShrink) {
+            @$body['DocKeywords'] = $request->docKeywordsShrink;
         }
-        if (!Utils::isUnset($request->docType)) {
-            $body['DocType'] = $request->docType;
+
+        if (null !== $request->docType) {
+            @$body['DocType'] = $request->docType;
         }
-        if (!Utils::isUnset($request->externalUrl)) {
-            $body['ExternalUrl'] = $request->externalUrl;
+
+        if (null !== $request->externalUrl) {
+            @$body['ExternalUrl'] = $request->externalUrl;
         }
-        if (!Utils::isUnset($request->htmlContent)) {
-            $body['HtmlContent'] = $request->htmlContent;
+
+        if (null !== $request->htmlContent) {
+            @$body['HtmlContent'] = $request->htmlContent;
         }
-        if (!Utils::isUnset($request->id)) {
-            $body['Id'] = $request->id;
+
+        if (null !== $request->id) {
+            @$body['Id'] = $request->id;
         }
-        if (!Utils::isUnset($request->pubTime)) {
-            $body['PubTime'] = $request->pubTime;
+
+        if (null !== $request->pubTime) {
+            @$body['PubTime'] = $request->pubTime;
         }
-        if (!Utils::isUnset($request->shareAttr)) {
-            $body['ShareAttr'] = $request->shareAttr;
+
+        if (null !== $request->shareAttr) {
+            @$body['ShareAttr'] = $request->shareAttr;
         }
-        if (!Utils::isUnset($request->srcFrom)) {
-            $body['SrcFrom'] = $request->srcFrom;
+
+        if (null !== $request->srcFrom) {
+            @$body['SrcFrom'] = $request->srcFrom;
         }
-        if (!Utils::isUnset($request->summary)) {
-            $body['Summary'] = $request->summary;
+
+        if (null !== $request->summary) {
+            @$body['Summary'] = $request->summary;
         }
-        if (!Utils::isUnset($request->textContent)) {
-            $body['TextContent'] = $request->textContent;
+
+        if (null !== $request->textContent) {
+            @$body['TextContent'] = $request->textContent;
         }
-        if (!Utils::isUnset($request->title)) {
-            $body['Title'] = $request->title;
+
+        if (null !== $request->title) {
+            @$body['Title'] = $request->title;
         }
-        if (!Utils::isUnset($request->url)) {
-            $body['Url'] = $request->url;
+
+        if (null !== $request->url) {
+            @$body['Url'] = $request->url;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'UpdateMaterialDocument',
@@ -8578,7 +10418,7 @@ class AiMiaoBi extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return UpdateMaterialDocumentResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -8586,11 +10426,15 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * @summary 根据ID更新素材
-     *  *
-     * @param UpdateMaterialDocumentRequest $request UpdateMaterialDocumentRequest
+     * 根据ID更新素材.
      *
-     * @return UpdateMaterialDocumentResponse UpdateMaterialDocumentResponse
+     * @param request - UpdateMaterialDocumentRequest
+     *
+     * @returns UpdateMaterialDocumentResponse
+     *
+     * @param UpdateMaterialDocumentRequest $request
+     *
+     * @return UpdateMaterialDocumentResponse
      */
     public function updateMaterialDocument($request)
     {
@@ -8600,33 +10444,42 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * @summary 妙读上传书籍
-     *  *
-     * @param UploadBookRequest $tmpReq  UploadBookRequest
-     * @param RuntimeOptions    $runtime runtime options for this request RuntimeOptions
+     * 妙读上传书籍.
      *
-     * @return UploadBookResponse UploadBookResponse
+     * @param tmpReq - UploadBookRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UploadBookResponse
+     *
+     * @param UploadBookRequest $tmpReq
+     * @param RuntimeOptions    $runtime
+     *
+     * @return UploadBookResponse
      */
     public function uploadBookWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new UploadBookShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->docs)) {
-            $request->docsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->docs, 'Docs', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->docs) {
+            $request->docsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->docs, 'Docs', 'json');
         }
+
         $body = [];
-        if (!Utils::isUnset($request->categoryId)) {
-            $body['CategoryId'] = $request->categoryId;
+        if (null !== $request->categoryId) {
+            @$body['CategoryId'] = $request->categoryId;
         }
-        if (!Utils::isUnset($request->docsShrink)) {
-            $body['Docs'] = $request->docsShrink;
+
+        if (null !== $request->docsShrink) {
+            @$body['Docs'] = $request->docsShrink;
         }
-        if (!Utils::isUnset($request->workspaceId)) {
-            $body['WorkspaceId'] = $request->workspaceId;
+
+        if (null !== $request->workspaceId) {
+            @$body['WorkspaceId'] = $request->workspaceId;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'UploadBook',
@@ -8639,7 +10492,7 @@ class AiMiaoBi extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return UploadBookResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -8647,11 +10500,15 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * @summary 妙读上传书籍
-     *  *
-     * @param UploadBookRequest $request UploadBookRequest
+     * 妙读上传书籍.
      *
-     * @return UploadBookResponse UploadBookResponse
+     * @param request - UploadBookRequest
+     *
+     * @returns UploadBookResponse
+     *
+     * @param UploadBookRequest $request
+     *
+     * @return UploadBookResponse
      */
     public function uploadBook($request)
     {
@@ -8661,33 +10518,42 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * @summary 妙读上传文档接口
-     *  *
-     * @param UploadDocRequest $tmpReq  UploadDocRequest
-     * @param RuntimeOptions   $runtime runtime options for this request RuntimeOptions
+     * 妙读上传文档接口.
      *
-     * @return UploadDocResponse UploadDocResponse
+     * @param tmpReq - UploadDocRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UploadDocResponse
+     *
+     * @param UploadDocRequest $tmpReq
+     * @param RuntimeOptions   $runtime
+     *
+     * @return UploadDocResponse
      */
     public function uploadDocWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new UploadDocShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->docs)) {
-            $request->docsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->docs, 'Docs', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->docs) {
+            $request->docsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->docs, 'Docs', 'json');
         }
+
         $body = [];
-        if (!Utils::isUnset($request->categoryId)) {
-            $body['CategoryId'] = $request->categoryId;
+        if (null !== $request->categoryId) {
+            @$body['CategoryId'] = $request->categoryId;
         }
-        if (!Utils::isUnset($request->docsShrink)) {
-            $body['Docs'] = $request->docsShrink;
+
+        if (null !== $request->docsShrink) {
+            @$body['Docs'] = $request->docsShrink;
         }
-        if (!Utils::isUnset($request->workspaceId)) {
-            $body['WorkspaceId'] = $request->workspaceId;
+
+        if (null !== $request->workspaceId) {
+            @$body['WorkspaceId'] = $request->workspaceId;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'UploadDoc',
@@ -8700,7 +10566,7 @@ class AiMiaoBi extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return UploadDocResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -8708,11 +10574,15 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * @summary 妙读上传文档接口
-     *  *
-     * @param UploadDocRequest $request UploadDocRequest
+     * 妙读上传文档接口.
      *
-     * @return UploadDocResponse UploadDocResponse
+     * @param request - UploadDocRequest
+     *
+     * @returns UploadDocResponse
+     *
+     * @param UploadDocRequest $request
+     *
+     * @return UploadDocResponse
      */
     public function uploadDoc($request)
     {
@@ -8722,31 +10592,40 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * @summary 校验企业VOC上传模板
-     *  *
-     * @param ValidateUploadTemplateRequest $request ValidateUploadTemplateRequest
-     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
+     * 校验企业VOC上传模板
      *
-     * @return ValidateUploadTemplateResponse ValidateUploadTemplateResponse
+     * @param request - ValidateUploadTemplateRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ValidateUploadTemplateResponse
+     *
+     * @param ValidateUploadTemplateRequest $request
+     * @param RuntimeOptions                $runtime
+     *
+     * @return ValidateUploadTemplateResponse
      */
     public function validateUploadTemplateWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->fileKey)) {
-            $body['FileKey'] = $request->fileKey;
+        if (null !== $request->fileKey) {
+            @$body['FileKey'] = $request->fileKey;
         }
-        if (!Utils::isUnset($request->taskType)) {
-            $body['TaskType'] = $request->taskType;
+
+        if (null !== $request->taskType) {
+            @$body['TaskType'] = $request->taskType;
         }
-        if (!Utils::isUnset($request->templateType)) {
-            $body['TemplateType'] = $request->templateType;
+
+        if (null !== $request->templateType) {
+            @$body['TemplateType'] = $request->templateType;
         }
-        if (!Utils::isUnset($request->workspaceId)) {
-            $body['WorkspaceId'] = $request->workspaceId;
+
+        if (null !== $request->workspaceId) {
+            @$body['WorkspaceId'] = $request->workspaceId;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'ValidateUploadTemplate',
@@ -8759,7 +10638,7 @@ class AiMiaoBi extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return ValidateUploadTemplateResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -8767,11 +10646,15 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * @summary 校验企业VOC上传模板
-     *  *
-     * @param ValidateUploadTemplateRequest $request ValidateUploadTemplateRequest
+     * 校验企业VOC上传模板
      *
-     * @return ValidateUploadTemplateResponse ValidateUploadTemplateResponse
+     * @param request - ValidateUploadTemplateRequest
+     *
+     * @returns ValidateUploadTemplateResponse
+     *
+     * @param ValidateUploadTemplateRequest $request
+     *
+     * @return ValidateUploadTemplateResponse
      */
     public function validateUploadTemplate($request)
     {

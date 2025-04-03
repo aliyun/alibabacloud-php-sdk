@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\RunSearchGenerationRequest\agentContext\bizContext\multimodalMediaSelection\textSearchResult;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class searchResult extends Model
 {
@@ -14,85 +14,61 @@ class searchResult extends Model
     public $chunks;
 
     /**
-     * @example 文章内容
-     *
      * @var string
      */
     public $content;
 
     /**
-     * @example 文档-自定义的唯一ID
-     *
      * @var string
      */
     public $docId;
 
     /**
-     * @example xxx
-     *
      * @var string
      */
     public $docUuid;
 
     /**
-     * @example 2024-11-25 14:25:59
-     *
      * @var string
      */
     public $pubTime;
 
     /**
-     * @example 1
-     *
      * @var float
      */
     public $score;
 
     /**
-     * @example QuarkCommonNews
-     *
      * @var string
      */
     public $searchSource;
 
     /**
-     * @example 互联网搜索
-     *
      * @var string
      */
     public $searchSourceName;
 
     /**
-     * @example SystemSearch
-     *
      * @var string
      */
     public $searchSourceType;
 
     /**
-     * @example 新华社
-     *
      * @var string
      */
     public $source;
 
     /**
-     * @example 文章摘要
-     *
      * @var string
      */
     public $summary;
 
     /**
-     * @example 文章标题
-     *
      * @var string
      */
     public $title;
 
     /**
-     * @example https://www.example.com/aaa.docx
-     *
      * @var string
      */
     public $url;
@@ -112,47 +88,71 @@ class searchResult extends Model
         'url' => 'Url',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->chunks)) {
+            Model::validateArray($this->chunks);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->chunks) {
-            $res['Chunks'] = $this->chunks;
+            if (\is_array($this->chunks)) {
+                $res['Chunks'] = [];
+                $n1 = 0;
+                foreach ($this->chunks as $item1) {
+                    $res['Chunks'][$n1++] = $item1;
+                }
+            }
         }
+
         if (null !== $this->content) {
             $res['Content'] = $this->content;
         }
+
         if (null !== $this->docId) {
             $res['DocId'] = $this->docId;
         }
+
         if (null !== $this->docUuid) {
             $res['DocUuid'] = $this->docUuid;
         }
+
         if (null !== $this->pubTime) {
             $res['PubTime'] = $this->pubTime;
         }
+
         if (null !== $this->score) {
             $res['Score'] = $this->score;
         }
+
         if (null !== $this->searchSource) {
             $res['SearchSource'] = $this->searchSource;
         }
+
         if (null !== $this->searchSourceName) {
             $res['SearchSourceName'] = $this->searchSourceName;
         }
+
         if (null !== $this->searchSourceType) {
             $res['SearchSourceType'] = $this->searchSourceType;
         }
+
         if (null !== $this->source) {
             $res['Source'] = $this->source;
         }
+
         if (null !== $this->summary) {
             $res['Summary'] = $this->summary;
         }
+
         if (null !== $this->title) {
             $res['Title'] = $this->title;
         }
+
         if (null !== $this->url) {
             $res['Url'] = $this->url;
         }
@@ -160,52 +160,68 @@ class searchResult extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return searchResult
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Chunks'])) {
             if (!empty($map['Chunks'])) {
-                $model->chunks = $map['Chunks'];
+                $model->chunks = [];
+                $n1 = 0;
+                foreach ($map['Chunks'] as $item1) {
+                    $model->chunks[$n1++] = $item1;
+                }
             }
         }
+
         if (isset($map['Content'])) {
             $model->content = $map['Content'];
         }
+
         if (isset($map['DocId'])) {
             $model->docId = $map['DocId'];
         }
+
         if (isset($map['DocUuid'])) {
             $model->docUuid = $map['DocUuid'];
         }
+
         if (isset($map['PubTime'])) {
             $model->pubTime = $map['PubTime'];
         }
+
         if (isset($map['Score'])) {
             $model->score = $map['Score'];
         }
+
         if (isset($map['SearchSource'])) {
             $model->searchSource = $map['SearchSource'];
         }
+
         if (isset($map['SearchSourceName'])) {
             $model->searchSourceName = $map['SearchSourceName'];
         }
+
         if (isset($map['SearchSourceType'])) {
             $model->searchSourceType = $map['SearchSourceType'];
         }
+
         if (isset($map['Source'])) {
             $model->source = $map['Source'];
         }
+
         if (isset($map['Summary'])) {
             $model->summary = $map['Summary'];
         }
+
         if (isset($map['Title'])) {
             $model->title = $map['Title'];
         }
+
         if (isset($map['Url'])) {
             $model->url = $map['Url'];
         }

@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\GetDataSourceOrderConfigResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\GetDataSourceOrderConfigResponseBody\data\userConfigDataSourceList;
-use AlibabaCloud\Tea\Model;
 
 class data extends Model
 {
@@ -17,17 +17,23 @@ class data extends Model
         'userConfigDataSourceList' => 'UserConfigDataSourceList',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->userConfigDataSourceList)) {
+            Model::validateArray($this->userConfigDataSourceList);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->userConfigDataSourceList) {
-            $res['UserConfigDataSourceList'] = [];
-            if (null !== $this->userConfigDataSourceList && \is_array($this->userConfigDataSourceList)) {
-                $n = 0;
-                foreach ($this->userConfigDataSourceList as $item) {
-                    $res['UserConfigDataSourceList'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->userConfigDataSourceList)) {
+                $res['UserConfigDataSourceList'] = [];
+                $n1 = 0;
+                foreach ($this->userConfigDataSourceList as $item1) {
+                    $res['UserConfigDataSourceList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
@@ -35,20 +41,20 @@ class data extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return data
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['UserConfigDataSourceList'])) {
             if (!empty($map['UserConfigDataSourceList'])) {
                 $model->userConfigDataSourceList = [];
-                $n = 0;
-                foreach ($map['UserConfigDataSourceList'] as $item) {
-                    $model->userConfigDataSourceList[$n++] = null !== $item ? userConfigDataSourceList::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['UserConfigDataSourceList'] as $item1) {
+                    $model->userConfigDataSourceList[$n1++] = userConfigDataSourceList::fromMap($item1);
                 }
             }
         }

@@ -4,50 +4,79 @@
 
 namespace AlibabaCloud\SDK\AiMiaoBi\V20230801\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\RunTitleGenerationRequest\referenceData;
-use AlibabaCloud\Tea\Model;
 
 class RunTitleGenerationRequest extends Model
 {
     /**
-     * @description This parameter is required.
-     *
+     * @var string[]
+     */
+    public $deduplicatedTitles;
+
+    /**
      * @var referenceData
      */
     public $referenceData;
 
     /**
-     * @example xxxx
-     *
      * @var string
      */
     public $taskId;
 
     /**
-     * @description This parameter is required.
-     *
-     * @example llm-xxx
-     *
+     * @var string
+     */
+    public $titleCount;
+
+    /**
      * @var string
      */
     public $workspaceId;
     protected $_name = [
+        'deduplicatedTitles' => 'DeduplicatedTitles',
         'referenceData' => 'ReferenceData',
         'taskId' => 'TaskId',
+        'titleCount' => 'TitleCount',
         'workspaceId' => 'WorkspaceId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->deduplicatedTitles)) {
+            Model::validateArray($this->deduplicatedTitles);
+        }
+        if (null !== $this->referenceData) {
+            $this->referenceData->validate();
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
-        if (null !== $this->referenceData) {
-            $res['ReferenceData'] = null !== $this->referenceData ? $this->referenceData->toMap() : null;
+        if (null !== $this->deduplicatedTitles) {
+            if (\is_array($this->deduplicatedTitles)) {
+                $res['DeduplicatedTitles'] = [];
+                $n1 = 0;
+                foreach ($this->deduplicatedTitles as $item1) {
+                    $res['DeduplicatedTitles'][$n1++] = $item1;
+                }
+            }
         }
+
+        if (null !== $this->referenceData) {
+            $res['ReferenceData'] = null !== $this->referenceData ? $this->referenceData->toArray($noStream) : $this->referenceData;
+        }
+
         if (null !== $this->taskId) {
             $res['TaskId'] = $this->taskId;
         }
+
+        if (null !== $this->titleCount) {
+            $res['TitleCount'] = $this->titleCount;
+        }
+
         if (null !== $this->workspaceId) {
             $res['WorkspaceId'] = $this->workspaceId;
         }
@@ -55,20 +84,36 @@ class RunTitleGenerationRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return RunTitleGenerationRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['DeduplicatedTitles'])) {
+            if (!empty($map['DeduplicatedTitles'])) {
+                $model->deduplicatedTitles = [];
+                $n1 = 0;
+                foreach ($map['DeduplicatedTitles'] as $item1) {
+                    $model->deduplicatedTitles[$n1++] = $item1;
+                }
+            }
+        }
+
         if (isset($map['ReferenceData'])) {
             $model->referenceData = referenceData::fromMap($map['ReferenceData']);
         }
+
         if (isset($map['TaskId'])) {
             $model->taskId = $map['TaskId'];
         }
+
+        if (isset($map['TitleCount'])) {
+            $model->titleCount = $map['TitleCount'];
+        }
+
         if (isset($map['WorkspaceId'])) {
             $model->workspaceId = $map['WorkspaceId'];
         }

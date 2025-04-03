@@ -4,13 +4,11 @@
 
 namespace AlibabaCloud\SDK\AiMiaoBi\V20230801\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class RunCommentGenerationRequest extends Model
 {
     /**
-     * @example true
-     *
      * @var bool
      */
     public $allowEmoji;
@@ -21,35 +19,21 @@ class RunCommentGenerationRequest extends Model
     public $extraInfo;
 
     /**
-     * @example 20
-     *
      * @var string
      */
     public $length;
 
     /**
-     * @description This parameter is required.
-     *
-     * @example {"short":"50","long":“50”}
-     *
      * @var mixed[]
      */
     public $lengthRange;
 
     /**
-     * @description This parameter is required.
-     *
-     * @example 10
-     *
      * @var string
      */
     public $numComments;
 
     /**
-     * @description This parameter is required.
-     *
-     * @example {"positive":"50","negative":"50"}
-     *
      * @var mixed[]
      */
     public $sentiment;
@@ -60,8 +44,6 @@ class RunCommentGenerationRequest extends Model
     public $sessionId;
 
     /**
-     * @description This parameter is required.
-     *
      * @var string
      */
     public $sourceMaterial;
@@ -72,19 +54,11 @@ class RunCommentGenerationRequest extends Model
     public $style;
 
     /**
-     * @description This parameter is required.
-     *
-     * @example {"emotion":"50","opinion":"50"}
-     *
      * @var mixed[]
      */
     public $type;
 
     /**
-     * @description This parameter is required.
-     *
-     * @example llm-3kcs1w3lltrtbfkr
-     *
      * @var string
      */
     public $workspaceId;
@@ -102,41 +76,78 @@ class RunCommentGenerationRequest extends Model
         'workspaceId' => 'WorkspaceId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->lengthRange)) {
+            Model::validateArray($this->lengthRange);
+        }
+        if (\is_array($this->sentiment)) {
+            Model::validateArray($this->sentiment);
+        }
+        if (\is_array($this->type)) {
+            Model::validateArray($this->type);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->allowEmoji) {
             $res['AllowEmoji'] = $this->allowEmoji;
         }
+
         if (null !== $this->extraInfo) {
             $res['ExtraInfo'] = $this->extraInfo;
         }
+
         if (null !== $this->length) {
             $res['Length'] = $this->length;
         }
+
         if (null !== $this->lengthRange) {
-            $res['LengthRange'] = $this->lengthRange;
+            if (\is_array($this->lengthRange)) {
+                $res['LengthRange'] = [];
+                foreach ($this->lengthRange as $key1 => $value1) {
+                    $res['LengthRange'][$key1] = $value1;
+                }
+            }
         }
+
         if (null !== $this->numComments) {
             $res['NumComments'] = $this->numComments;
         }
+
         if (null !== $this->sentiment) {
-            $res['Sentiment'] = $this->sentiment;
+            if (\is_array($this->sentiment)) {
+                $res['Sentiment'] = [];
+                foreach ($this->sentiment as $key1 => $value1) {
+                    $res['Sentiment'][$key1] = $value1;
+                }
+            }
         }
+
         if (null !== $this->sessionId) {
             $res['SessionId'] = $this->sessionId;
         }
+
         if (null !== $this->sourceMaterial) {
             $res['SourceMaterial'] = $this->sourceMaterial;
         }
+
         if (null !== $this->style) {
             $res['Style'] = $this->style;
         }
+
         if (null !== $this->type) {
-            $res['Type'] = $this->type;
+            if (\is_array($this->type)) {
+                $res['Type'] = [];
+                foreach ($this->type as $key1 => $value1) {
+                    $res['Type'][$key1] = $value1;
+                }
+            }
         }
+
         if (null !== $this->workspaceId) {
             $res['WorkspaceId'] = $this->workspaceId;
         }
@@ -144,44 +155,69 @@ class RunCommentGenerationRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return RunCommentGenerationRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AllowEmoji'])) {
             $model->allowEmoji = $map['AllowEmoji'];
         }
+
         if (isset($map['ExtraInfo'])) {
             $model->extraInfo = $map['ExtraInfo'];
         }
+
         if (isset($map['Length'])) {
             $model->length = $map['Length'];
         }
+
         if (isset($map['LengthRange'])) {
-            $model->lengthRange = $map['LengthRange'];
+            if (!empty($map['LengthRange'])) {
+                $model->lengthRange = [];
+                foreach ($map['LengthRange'] as $key1 => $value1) {
+                    $model->lengthRange[$key1] = $value1;
+                }
+            }
         }
+
         if (isset($map['NumComments'])) {
             $model->numComments = $map['NumComments'];
         }
+
         if (isset($map['Sentiment'])) {
-            $model->sentiment = $map['Sentiment'];
+            if (!empty($map['Sentiment'])) {
+                $model->sentiment = [];
+                foreach ($map['Sentiment'] as $key1 => $value1) {
+                    $model->sentiment[$key1] = $value1;
+                }
+            }
         }
+
         if (isset($map['SessionId'])) {
             $model->sessionId = $map['SessionId'];
         }
+
         if (isset($map['SourceMaterial'])) {
             $model->sourceMaterial = $map['SourceMaterial'];
         }
+
         if (isset($map['Style'])) {
             $model->style = $map['Style'];
         }
+
         if (isset($map['Type'])) {
-            $model->type = $map['Type'];
+            if (!empty($map['Type'])) {
+                $model->type = [];
+                foreach ($map['Type'] as $key1 => $value1) {
+                    $model->type[$key1] = $value1;
+                }
+            }
         }
+
         if (isset($map['WorkspaceId'])) {
             $model->workspaceId = $map['WorkspaceId'];
         }

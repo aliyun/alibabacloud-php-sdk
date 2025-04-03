@@ -4,15 +4,11 @@
 
 namespace AlibabaCloud\SDK\AiMiaoBi\V20230801\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class SaveMaterialDocumentRequest extends Model
 {
     /**
-     * @description This parameter is required.
-     *
-     * @example c160c841c8e54295bf2f441432785944_p_efm
-     *
      * @var string
      */
     public $agentKey;
@@ -23,8 +19,6 @@ class SaveMaterialDocumentRequest extends Model
     public $author;
 
     /**
-     * @example false
-     *
      * @var bool
      */
     public $bothSavePrivateAndShare;
@@ -35,17 +29,11 @@ class SaveMaterialDocumentRequest extends Model
     public $docKeywords;
 
     /**
-     * @description This parameter is required.
-     *
-     * @example excel
-     *
      * @var string
      */
     public $docType;
 
     /**
-     * @example http://xxxxx/xxx
-     *
      * @var string
      */
     public $externalUrl;
@@ -56,22 +44,16 @@ class SaveMaterialDocumentRequest extends Model
     public $htmlContent;
 
     /**
-     * @example 2023-04-11 06:14:07
-     *
      * @var string
      */
     public $pubTime;
 
     /**
-     * @example 1
-     *
      * @var int
      */
     public $shareAttr;
 
     /**
-     * @example IntellijSearch
-     *
      * @var string
      */
     public $srcFrom;
@@ -92,8 +74,6 @@ class SaveMaterialDocumentRequest extends Model
     public $title;
 
     /**
-     * @example http://xxxxx/xxx
-     *
      * @var string
      */
     public $url;
@@ -114,50 +94,75 @@ class SaveMaterialDocumentRequest extends Model
         'url' => 'Url',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->docKeywords)) {
+            Model::validateArray($this->docKeywords);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->agentKey) {
             $res['AgentKey'] = $this->agentKey;
         }
+
         if (null !== $this->author) {
             $res['Author'] = $this->author;
         }
+
         if (null !== $this->bothSavePrivateAndShare) {
             $res['BothSavePrivateAndShare'] = $this->bothSavePrivateAndShare;
         }
+
         if (null !== $this->docKeywords) {
-            $res['DocKeywords'] = $this->docKeywords;
+            if (\is_array($this->docKeywords)) {
+                $res['DocKeywords'] = [];
+                $n1 = 0;
+                foreach ($this->docKeywords as $item1) {
+                    $res['DocKeywords'][$n1++] = $item1;
+                }
+            }
         }
+
         if (null !== $this->docType) {
             $res['DocType'] = $this->docType;
         }
+
         if (null !== $this->externalUrl) {
             $res['ExternalUrl'] = $this->externalUrl;
         }
+
         if (null !== $this->htmlContent) {
             $res['HtmlContent'] = $this->htmlContent;
         }
+
         if (null !== $this->pubTime) {
             $res['PubTime'] = $this->pubTime;
         }
+
         if (null !== $this->shareAttr) {
             $res['ShareAttr'] = $this->shareAttr;
         }
+
         if (null !== $this->srcFrom) {
             $res['SrcFrom'] = $this->srcFrom;
         }
+
         if (null !== $this->summary) {
             $res['Summary'] = $this->summary;
         }
+
         if (null !== $this->textContent) {
             $res['TextContent'] = $this->textContent;
         }
+
         if (null !== $this->title) {
             $res['Title'] = $this->title;
         }
+
         if (null !== $this->url) {
             $res['Url'] = $this->url;
         }
@@ -165,55 +170,72 @@ class SaveMaterialDocumentRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return SaveMaterialDocumentRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AgentKey'])) {
             $model->agentKey = $map['AgentKey'];
         }
+
         if (isset($map['Author'])) {
             $model->author = $map['Author'];
         }
+
         if (isset($map['BothSavePrivateAndShare'])) {
             $model->bothSavePrivateAndShare = $map['BothSavePrivateAndShare'];
         }
+
         if (isset($map['DocKeywords'])) {
             if (!empty($map['DocKeywords'])) {
-                $model->docKeywords = $map['DocKeywords'];
+                $model->docKeywords = [];
+                $n1 = 0;
+                foreach ($map['DocKeywords'] as $item1) {
+                    $model->docKeywords[$n1++] = $item1;
+                }
             }
         }
+
         if (isset($map['DocType'])) {
             $model->docType = $map['DocType'];
         }
+
         if (isset($map['ExternalUrl'])) {
             $model->externalUrl = $map['ExternalUrl'];
         }
+
         if (isset($map['HtmlContent'])) {
             $model->htmlContent = $map['HtmlContent'];
         }
+
         if (isset($map['PubTime'])) {
             $model->pubTime = $map['PubTime'];
         }
+
         if (isset($map['ShareAttr'])) {
             $model->shareAttr = $map['ShareAttr'];
         }
+
         if (isset($map['SrcFrom'])) {
             $model->srcFrom = $map['SrcFrom'];
         }
+
         if (isset($map['Summary'])) {
             $model->summary = $map['Summary'];
         }
+
         if (isset($map['TextContent'])) {
             $model->textContent = $map['TextContent'];
         }
+
         if (isset($map['Title'])) {
             $model->title = $map['Title'];
         }
+
         if (isset($map['Url'])) {
             $model->url = $map['Url'];
         }

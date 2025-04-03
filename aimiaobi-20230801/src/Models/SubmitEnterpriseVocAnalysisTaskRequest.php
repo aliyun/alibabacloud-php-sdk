@@ -4,16 +4,14 @@
 
 namespace AlibabaCloud\SDK\AiMiaoBi\V20230801\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\SubmitEnterpriseVocAnalysisTaskRequest\contents;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\SubmitEnterpriseVocAnalysisTaskRequest\contentTags;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\SubmitEnterpriseVocAnalysisTaskRequest\filterTags;
-use AlibabaCloud\Tea\Model;
 
 class SubmitEnterpriseVocAnalysisTaskRequest extends Model
 {
     /**
-     * @description This parameter is required.
-     *
      * @var contentTags[]
      */
     public $contentTags;
@@ -24,8 +22,6 @@ class SubmitEnterpriseVocAnalysisTaskRequest extends Model
     public $contents;
 
     /**
-     * @example oss://default/bucket-name/materialDocument/tenant_agent/fileName
-     *
      * @var string
      */
     public $fileKey;
@@ -36,17 +32,11 @@ class SubmitEnterpriseVocAnalysisTaskRequest extends Model
     public $filterTags;
 
     /**
-     * @example shortContent
-     *
      * @var string
      */
     public $materialType;
 
     /**
-     * @description This parameter is required.
-     *
-     * @example qwen-max
-     *
      * @var string
      */
     public $modelId;
@@ -57,24 +47,16 @@ class SubmitEnterpriseVocAnalysisTaskRequest extends Model
     public $positiveSample;
 
     /**
-     * @example oss://default/bucket-name/path/xxx.xlsx
-     *
      * @var string
      */
     public $positiveSampleFileKey;
 
     /**
-     * @example lightAppSass
-     *
      * @var string
      */
     public $taskType;
 
     /**
-     * @description This parameter is required.
-     *
-     * @example xxxx
-     *
      * @var string
      */
     public $workspaceId;
@@ -91,56 +73,77 @@ class SubmitEnterpriseVocAnalysisTaskRequest extends Model
         'workspaceId' => 'WorkspaceId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->contentTags)) {
+            Model::validateArray($this->contentTags);
+        }
+        if (\is_array($this->contents)) {
+            Model::validateArray($this->contents);
+        }
+        if (\is_array($this->filterTags)) {
+            Model::validateArray($this->filterTags);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->contentTags) {
-            $res['ContentTags'] = [];
-            if (null !== $this->contentTags && \is_array($this->contentTags)) {
-                $n = 0;
-                foreach ($this->contentTags as $item) {
-                    $res['ContentTags'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->contentTags)) {
+                $res['ContentTags'] = [];
+                $n1 = 0;
+                foreach ($this->contentTags as $item1) {
+                    $res['ContentTags'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
+
         if (null !== $this->contents) {
-            $res['Contents'] = [];
-            if (null !== $this->contents && \is_array($this->contents)) {
-                $n = 0;
-                foreach ($this->contents as $item) {
-                    $res['Contents'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->contents)) {
+                $res['Contents'] = [];
+                $n1 = 0;
+                foreach ($this->contents as $item1) {
+                    $res['Contents'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
+
         if (null !== $this->fileKey) {
             $res['FileKey'] = $this->fileKey;
         }
+
         if (null !== $this->filterTags) {
-            $res['FilterTags'] = [];
-            if (null !== $this->filterTags && \is_array($this->filterTags)) {
-                $n = 0;
-                foreach ($this->filterTags as $item) {
-                    $res['FilterTags'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->filterTags)) {
+                $res['FilterTags'] = [];
+                $n1 = 0;
+                foreach ($this->filterTags as $item1) {
+                    $res['FilterTags'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
+
         if (null !== $this->materialType) {
             $res['MaterialType'] = $this->materialType;
         }
+
         if (null !== $this->modelId) {
             $res['ModelId'] = $this->modelId;
         }
+
         if (null !== $this->positiveSample) {
             $res['PositiveSample'] = $this->positiveSample;
         }
+
         if (null !== $this->positiveSampleFileKey) {
             $res['PositiveSampleFileKey'] = $this->positiveSampleFileKey;
         }
+
         if (null !== $this->taskType) {
             $res['TaskType'] = $this->taskType;
         }
+
         if (null !== $this->workspaceId) {
             $res['WorkspaceId'] = $this->workspaceId;
         }
@@ -148,59 +151,68 @@ class SubmitEnterpriseVocAnalysisTaskRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return SubmitEnterpriseVocAnalysisTaskRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ContentTags'])) {
             if (!empty($map['ContentTags'])) {
                 $model->contentTags = [];
-                $n = 0;
-                foreach ($map['ContentTags'] as $item) {
-                    $model->contentTags[$n++] = null !== $item ? contentTags::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['ContentTags'] as $item1) {
+                    $model->contentTags[$n1++] = contentTags::fromMap($item1);
                 }
             }
         }
+
         if (isset($map['Contents'])) {
             if (!empty($map['Contents'])) {
                 $model->contents = [];
-                $n = 0;
-                foreach ($map['Contents'] as $item) {
-                    $model->contents[$n++] = null !== $item ? contents::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['Contents'] as $item1) {
+                    $model->contents[$n1++] = contents::fromMap($item1);
                 }
             }
         }
+
         if (isset($map['FileKey'])) {
             $model->fileKey = $map['FileKey'];
         }
+
         if (isset($map['FilterTags'])) {
             if (!empty($map['FilterTags'])) {
                 $model->filterTags = [];
-                $n = 0;
-                foreach ($map['FilterTags'] as $item) {
-                    $model->filterTags[$n++] = null !== $item ? filterTags::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['FilterTags'] as $item1) {
+                    $model->filterTags[$n1++] = filterTags::fromMap($item1);
                 }
             }
         }
+
         if (isset($map['MaterialType'])) {
             $model->materialType = $map['MaterialType'];
         }
+
         if (isset($map['ModelId'])) {
             $model->modelId = $map['ModelId'];
         }
+
         if (isset($map['PositiveSample'])) {
             $model->positiveSample = $map['PositiveSample'];
         }
+
         if (isset($map['PositiveSampleFileKey'])) {
             $model->positiveSampleFileKey = $map['PositiveSampleFileKey'];
         }
+
         if (isset($map['TaskType'])) {
             $model->taskType = $map['TaskType'];
         }
+
         if (isset($map['WorkspaceId'])) {
             $model->workspaceId = $map['WorkspaceId'];
         }

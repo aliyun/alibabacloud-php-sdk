@@ -4,36 +4,26 @@
 
 namespace AlibabaCloud\SDK\AiMiaoBi\V20230801\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class ImportInterveneFileAsyncRequest extends Model
 {
     /**
-     * @description This parameter is required.
-     *
-     * @example c160c841c8e54295bf2f441432785944_p_efm
-     *
      * @var string
      */
     public $agentKey;
 
     /**
-     * @example import.xls
-     *
      * @var string
      */
     public $docName;
 
     /**
-     * @example import.xls
-     *
      * @var string
      */
     public $fileKey;
 
     /**
-     * @example https://xxx/import.xls
-     *
      * @var string
      */
     public $fileUrl;
@@ -44,20 +34,26 @@ class ImportInterveneFileAsyncRequest extends Model
         'fileUrl' => 'FileUrl',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->agentKey) {
             $res['AgentKey'] = $this->agentKey;
         }
+
         if (null !== $this->docName) {
             $res['DocName'] = $this->docName;
         }
+
         if (null !== $this->fileKey) {
             $res['FileKey'] = $this->fileKey;
         }
+
         if (null !== $this->fileUrl) {
             $res['FileUrl'] = $this->fileUrl;
         }
@@ -65,23 +61,26 @@ class ImportInterveneFileAsyncRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ImportInterveneFileAsyncRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AgentKey'])) {
             $model->agentKey = $map['AgentKey'];
         }
+
         if (isset($map['DocName'])) {
             $model->docName = $map['DocName'];
         }
+
         if (isset($map['FileKey'])) {
             $model->fileKey = $map['FileKey'];
         }
+
         if (isset($map['FileUrl'])) {
             $model->fileUrl = $map['FileUrl'];
         }

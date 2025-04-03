@@ -4,37 +4,27 @@
 
 namespace AlibabaCloud\SDK\AiMiaoBi\V20230801\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\RunWriteToneGenerationRequest\referenceData;
-use AlibabaCloud\Tea\Model;
 
 class RunWriteToneGenerationRequest extends Model
 {
     /**
-     * @description This parameter is required.
-     *
      * @var string
      */
     public $prompt;
 
     /**
-     * @description This parameter is required.
-     *
      * @var referenceData
      */
     public $referenceData;
 
     /**
-     * @example 7AA2AE16-D873-5C5F-9708-15396C382EB1
-     *
      * @var string
      */
     public $taskId;
 
     /**
-     * @description This parameter is required.
-     *
-     * @example llm-xxx
-     *
      * @var string
      */
     public $workspaceId;
@@ -45,20 +35,29 @@ class RunWriteToneGenerationRequest extends Model
         'workspaceId' => 'WorkspaceId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (null !== $this->referenceData) {
+            $this->referenceData->validate();
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->prompt) {
             $res['Prompt'] = $this->prompt;
         }
+
         if (null !== $this->referenceData) {
-            $res['ReferenceData'] = null !== $this->referenceData ? $this->referenceData->toMap() : null;
+            $res['ReferenceData'] = null !== $this->referenceData ? $this->referenceData->toArray($noStream) : $this->referenceData;
         }
+
         if (null !== $this->taskId) {
             $res['TaskId'] = $this->taskId;
         }
+
         if (null !== $this->workspaceId) {
             $res['WorkspaceId'] = $this->workspaceId;
         }
@@ -66,23 +65,26 @@ class RunWriteToneGenerationRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return RunWriteToneGenerationRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Prompt'])) {
             $model->prompt = $map['Prompt'];
         }
+
         if (isset($map['ReferenceData'])) {
             $model->referenceData = referenceData::fromMap($map['ReferenceData']);
         }
+
         if (isset($map['TaskId'])) {
             $model->taskId = $map['TaskId'];
         }
+
         if (isset($map['WorkspaceId'])) {
             $model->workspaceId = $map['WorkspaceId'];
         }

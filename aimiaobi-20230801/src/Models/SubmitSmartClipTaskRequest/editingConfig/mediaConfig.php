@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\SubmitSmartClipTaskRequest\editingConfig;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class mediaConfig extends Model
 {
@@ -16,9 +16,12 @@ class mediaConfig extends Model
         'volume' => 'Volume',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->volume) {
@@ -28,11 +31,11 @@ class mediaConfig extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return mediaConfig
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

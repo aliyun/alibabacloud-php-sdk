@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\AiMiaoBi\V20230801\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class CreateDatasetShrinkRequest extends Model
 {
@@ -14,24 +14,16 @@ class CreateDatasetShrinkRequest extends Model
     public $datasetConfigShrink;
 
     /**
-     * @example 企业自定义数据集
-     *
      * @var string
      */
     public $datasetDescription;
 
     /**
-     * @description This parameter is required.
-     *
-     * @example businessDataset
-     *
      * @var string
      */
     public $datasetName;
 
     /**
-     * @example CustomSemanticSearch
-     *
      * @var string
      */
     public $datasetType;
@@ -42,17 +34,11 @@ class CreateDatasetShrinkRequest extends Model
     public $documentHandleConfigShrink;
 
     /**
-     * @example 3
-     *
      * @var int
      */
     public $searchDatasetEnable;
 
     /**
-     * @description This parameter is required.
-     *
-     * @example llm-xxx
-     *
      * @var string
      */
     public $workspaceId;
@@ -66,29 +52,38 @@ class CreateDatasetShrinkRequest extends Model
         'workspaceId' => 'WorkspaceId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->datasetConfigShrink) {
             $res['DatasetConfig'] = $this->datasetConfigShrink;
         }
+
         if (null !== $this->datasetDescription) {
             $res['DatasetDescription'] = $this->datasetDescription;
         }
+
         if (null !== $this->datasetName) {
             $res['DatasetName'] = $this->datasetName;
         }
+
         if (null !== $this->datasetType) {
             $res['DatasetType'] = $this->datasetType;
         }
+
         if (null !== $this->documentHandleConfigShrink) {
             $res['DocumentHandleConfig'] = $this->documentHandleConfigShrink;
         }
+
         if (null !== $this->searchDatasetEnable) {
             $res['SearchDatasetEnable'] = $this->searchDatasetEnable;
         }
+
         if (null !== $this->workspaceId) {
             $res['WorkspaceId'] = $this->workspaceId;
         }
@@ -96,32 +91,38 @@ class CreateDatasetShrinkRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return CreateDatasetShrinkRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['DatasetConfig'])) {
             $model->datasetConfigShrink = $map['DatasetConfig'];
         }
+
         if (isset($map['DatasetDescription'])) {
             $model->datasetDescription = $map['DatasetDescription'];
         }
+
         if (isset($map['DatasetName'])) {
             $model->datasetName = $map['DatasetName'];
         }
+
         if (isset($map['DatasetType'])) {
             $model->datasetType = $map['DatasetType'];
         }
+
         if (isset($map['DocumentHandleConfig'])) {
             $model->documentHandleConfigShrink = $map['DocumentHandleConfig'];
         }
+
         if (isset($map['SearchDatasetEnable'])) {
             $model->searchDatasetEnable = $map['SearchDatasetEnable'];
         }
+
         if (isset($map['WorkspaceId'])) {
             $model->workspaceId = $map['WorkspaceId'];
         }

@@ -4,41 +4,31 @@
 
 namespace AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\RunSearchGenerationResponseBody\payload\output\agentContext\bizContext\generatedContent\clusterTopicResult\clusterTopics\videoSearchResult\searchResult;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class clipInfos extends Model
 {
     /**
-     * @example 1
-     *
      * @var float
      */
     public $from;
 
     /**
-     * @example 0.9
-     *
      * @var float
      */
     public $score;
 
     /**
-     * @example xx
-     *
      * @var string
      */
     public $text;
 
     /**
-     * @example 1
-     *
      * @var float
      */
     public $to;
 
     /**
-     * @example asr
-     *
      * @var string
      */
     public $type;
@@ -50,23 +40,30 @@ class clipInfos extends Model
         'type' => 'Type',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->from) {
             $res['From'] = $this->from;
         }
+
         if (null !== $this->score) {
             $res['Score'] = $this->score;
         }
+
         if (null !== $this->text) {
             $res['Text'] = $this->text;
         }
+
         if (null !== $this->to) {
             $res['To'] = $this->to;
         }
+
         if (null !== $this->type) {
             $res['Type'] = $this->type;
         }
@@ -74,26 +71,30 @@ class clipInfos extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return clipInfos
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['From'])) {
             $model->from = $map['From'];
         }
+
         if (isset($map['Score'])) {
             $model->score = $map['Score'];
         }
+
         if (isset($map['Text'])) {
             $model->text = $map['Text'];
         }
+
         if (isset($map['To'])) {
             $model->to = $map['To'];
         }
+
         if (isset($map['Type'])) {
             $model->type = $map['Type'];
         }

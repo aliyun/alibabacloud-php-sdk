@@ -4,27 +4,21 @@
 
 namespace AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\RunStepByStepWritingRequest\referenceData\outlines;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class articles extends Model
 {
     /**
-     * @example 文章内容
-     *
      * @var string
      */
     public $content;
 
     /**
-     * @example 文章标题
-     *
      * @var string
      */
     public $title;
 
     /**
-     * @example 文章链接
-     *
      * @var string
      */
     public $url;
@@ -34,17 +28,22 @@ class articles extends Model
         'url' => 'Url',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->content) {
             $res['Content'] = $this->content;
         }
+
         if (null !== $this->title) {
             $res['Title'] = $this->title;
         }
+
         if (null !== $this->url) {
             $res['Url'] = $this->url;
         }
@@ -52,20 +51,22 @@ class articles extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return articles
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Content'])) {
             $model->content = $map['Content'];
         }
+
         if (isset($map['Title'])) {
             $model->title = $map['Title'];
         }
+
         if (isset($map['Url'])) {
             $model->url = $map['Url'];
         }
