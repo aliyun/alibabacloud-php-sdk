@@ -12,23 +12,26 @@ class TagResourcesShrinkRequest extends Model
      * @var string
      */
     public $regionId;
+
     /**
      * @var string[]
      */
     public $resourceId;
+
     /**
      * @var string
      */
     public $resourceType;
+
     /**
      * @var string
      */
     public $tagShrink;
     protected $_name = [
-        'regionId'     => 'RegionId',
-        'resourceId'   => 'ResourceId',
+        'regionId' => 'RegionId',
+        'resourceId' => 'ResourceId',
         'resourceType' => 'ResourceType',
-        'tagShrink'    => 'Tag',
+        'tagShrink' => 'Tag',
     ];
 
     public function validate()
@@ -49,7 +52,7 @@ class TagResourcesShrinkRequest extends Model
         if (null !== $this->resourceId) {
             if (\is_array($this->resourceId)) {
                 $res['ResourceId'] = [];
-                $n1                = 0;
+                $n1 = 0;
                 foreach ($this->resourceId as $item1) {
                     $res['ResourceId'][$n1++] = $item1;
                 }
@@ -82,7 +85,7 @@ class TagResourcesShrinkRequest extends Model
         if (isset($map['ResourceId'])) {
             if (!empty($map['ResourceId'])) {
                 $model->resourceId = [];
-                $n1                = 0;
+                $n1 = 0;
                 foreach ($map['ResourceId'] as $item1) {
                     $model->resourceId[$n1++] = $item1;
                 }

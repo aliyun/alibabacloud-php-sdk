@@ -12,23 +12,26 @@ class DeleteAggregateCompliancePacksRequest extends Model
      * @var string
      */
     public $aggregatorId;
+
     /**
      * @var string
      */
     public $clientToken;
+
     /**
      * @var string
      */
     public $compliancePackIds;
+
     /**
      * @var bool
      */
     public $deleteRule;
     protected $_name = [
-        'aggregatorId'      => 'AggregatorId',
-        'clientToken'       => 'ClientToken',
+        'aggregatorId' => 'AggregatorId',
+        'clientToken' => 'ClientToken',
         'compliancePackIds' => 'CompliancePackIds',
-        'deleteRule'        => 'DeleteRule',
+        'deleteRule' => 'DeleteRule',
     ];
 
     public function validate()

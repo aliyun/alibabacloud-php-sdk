@@ -13,13 +13,14 @@ class evaluationResultIdentifier extends Model
      * @var evaluationResultQualifier
      */
     public $evaluationResultQualifier;
+
     /**
      * @var int
      */
     public $orderingTimestamp;
     protected $_name = [
         'evaluationResultQualifier' => 'EvaluationResultQualifier',
-        'orderingTimestamp'         => 'OrderingTimestamp',
+        'orderingTimestamp' => 'OrderingTimestamp',
     ];
 
     public function validate()

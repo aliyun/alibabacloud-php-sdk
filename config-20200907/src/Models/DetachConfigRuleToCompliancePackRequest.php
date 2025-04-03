@@ -12,13 +12,14 @@ class DetachConfigRuleToCompliancePackRequest extends Model
      * @var string
      */
     public $compliancePackId;
+
     /**
      * @var string
      */
     public $configRuleIds;
     protected $_name = [
         'compliancePackId' => 'CompliancePackId',
-        'configRuleIds'    => 'ConfigRuleIds',
+        'configRuleIds' => 'ConfigRuleIds',
     ];
 
     public function validate()

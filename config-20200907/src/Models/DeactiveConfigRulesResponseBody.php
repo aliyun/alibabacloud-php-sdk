@@ -13,13 +13,14 @@ class DeactiveConfigRulesResponseBody extends Model
      * @var operateRuleResult
      */
     public $operateRuleResult;
+
     /**
      * @var string
      */
     public $requestId;
     protected $_name = [
         'operateRuleResult' => 'OperateRuleResult',
-        'requestId'         => 'RequestId',
+        'requestId' => 'RequestId',
     ];
 
     public function validate()

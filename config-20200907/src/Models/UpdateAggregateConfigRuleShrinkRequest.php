@@ -14,128 +14,164 @@ class UpdateAggregateConfigRuleShrinkRequest extends Model
      * @var string
      */
     public $accountIdsScope;
+
     /**
      * @var string
      */
     public $aggregatorId;
+
     /**
      * @var string
      */
     public $clientToken;
+
     /**
      * @var string
      */
     public $configRuleId;
+
     /**
      * @var string
      */
     public $configRuleName;
+
     /**
      * @var string
      */
     public $configRuleTriggerTypes;
+
     /**
      * @var string
      */
     public $description;
+
     /**
      * @var string
      */
     public $excludeAccountIdsScope;
+
     /**
      * @var string
      */
     public $excludeFolderIdsScope;
+
     /**
      * @var string
      */
     public $excludeRegionIdsScope;
+
     /**
      * @var string
      */
     public $excludeResourceGroupIdsScope;
+
     /**
      * @var string
      */
     public $excludeResourceIdsScope;
+
     /**
      * @var excludeTagsScope[]
      */
     public $excludeTagsScope;
+
     /**
      * @var string
      */
     public $folderIdsScope;
+
     /**
      * @var string
      */
     public $inputParametersShrink;
+
     /**
      * @var string
      */
     public $maximumExecutionFrequency;
+
     /**
      * @var string
      */
     public $regionIdsScope;
+
     /**
      * @var string
      */
     public $resourceGroupIdsScope;
+
     /**
      * @var string
      */
     public $resourceIdsScope;
+
+    /**
+     * @var string
+     */
+    public $resourceNameScope;
+
     /**
      * @var string
      */
     public $resourceTypesScopeShrink;
+
     /**
      * @var int
      */
     public $riskLevel;
+
+    /**
+     * @var string
+     */
+    public $tagShrink;
+
     /**
      * @var string
      */
     public $tagKeyLogicScope;
+
     /**
      * @var string
      */
     public $tagKeyScope;
+
     /**
      * @var string
      */
     public $tagValueScope;
+
     /**
      * @var tagsScope[]
      */
     public $tagsScope;
     protected $_name = [
-        'accountIdsScope'              => 'AccountIdsScope',
-        'aggregatorId'                 => 'AggregatorId',
-        'clientToken'                  => 'ClientToken',
-        'configRuleId'                 => 'ConfigRuleId',
-        'configRuleName'               => 'ConfigRuleName',
-        'configRuleTriggerTypes'       => 'ConfigRuleTriggerTypes',
-        'description'                  => 'Description',
-        'excludeAccountIdsScope'       => 'ExcludeAccountIdsScope',
-        'excludeFolderIdsScope'        => 'ExcludeFolderIdsScope',
-        'excludeRegionIdsScope'        => 'ExcludeRegionIdsScope',
+        'accountIdsScope' => 'AccountIdsScope',
+        'aggregatorId' => 'AggregatorId',
+        'clientToken' => 'ClientToken',
+        'configRuleId' => 'ConfigRuleId',
+        'configRuleName' => 'ConfigRuleName',
+        'configRuleTriggerTypes' => 'ConfigRuleTriggerTypes',
+        'description' => 'Description',
+        'excludeAccountIdsScope' => 'ExcludeAccountIdsScope',
+        'excludeFolderIdsScope' => 'ExcludeFolderIdsScope',
+        'excludeRegionIdsScope' => 'ExcludeRegionIdsScope',
         'excludeResourceGroupIdsScope' => 'ExcludeResourceGroupIdsScope',
-        'excludeResourceIdsScope'      => 'ExcludeResourceIdsScope',
-        'excludeTagsScope'             => 'ExcludeTagsScope',
-        'folderIdsScope'               => 'FolderIdsScope',
-        'inputParametersShrink'        => 'InputParameters',
-        'maximumExecutionFrequency'    => 'MaximumExecutionFrequency',
-        'regionIdsScope'               => 'RegionIdsScope',
-        'resourceGroupIdsScope'        => 'ResourceGroupIdsScope',
-        'resourceIdsScope'             => 'ResourceIdsScope',
-        'resourceTypesScopeShrink'     => 'ResourceTypesScope',
-        'riskLevel'                    => 'RiskLevel',
-        'tagKeyLogicScope'             => 'TagKeyLogicScope',
-        'tagKeyScope'                  => 'TagKeyScope',
-        'tagValueScope'                => 'TagValueScope',
-        'tagsScope'                    => 'TagsScope',
+        'excludeResourceIdsScope' => 'ExcludeResourceIdsScope',
+        'excludeTagsScope' => 'ExcludeTagsScope',
+        'folderIdsScope' => 'FolderIdsScope',
+        'inputParametersShrink' => 'InputParameters',
+        'maximumExecutionFrequency' => 'MaximumExecutionFrequency',
+        'regionIdsScope' => 'RegionIdsScope',
+        'resourceGroupIdsScope' => 'ResourceGroupIdsScope',
+        'resourceIdsScope' => 'ResourceIdsScope',
+        'resourceNameScope' => 'ResourceNameScope',
+        'resourceTypesScopeShrink' => 'ResourceTypesScope',
+        'riskLevel' => 'RiskLevel',
+        'tagShrink' => 'Tag',
+        'tagKeyLogicScope' => 'TagKeyLogicScope',
+        'tagKeyScope' => 'TagKeyScope',
+        'tagValueScope' => 'TagValueScope',
+        'tagsScope' => 'TagsScope',
     ];
 
     public function validate()
@@ -203,7 +239,7 @@ class UpdateAggregateConfigRuleShrinkRequest extends Model
         if (null !== $this->excludeTagsScope) {
             if (\is_array($this->excludeTagsScope)) {
                 $res['ExcludeTagsScope'] = [];
-                $n1                      = 0;
+                $n1 = 0;
                 foreach ($this->excludeTagsScope as $item1) {
                     $res['ExcludeTagsScope'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -234,12 +270,20 @@ class UpdateAggregateConfigRuleShrinkRequest extends Model
             $res['ResourceIdsScope'] = $this->resourceIdsScope;
         }
 
+        if (null !== $this->resourceNameScope) {
+            $res['ResourceNameScope'] = $this->resourceNameScope;
+        }
+
         if (null !== $this->resourceTypesScopeShrink) {
             $res['ResourceTypesScope'] = $this->resourceTypesScopeShrink;
         }
 
         if (null !== $this->riskLevel) {
             $res['RiskLevel'] = $this->riskLevel;
+        }
+
+        if (null !== $this->tagShrink) {
+            $res['Tag'] = $this->tagShrink;
         }
 
         if (null !== $this->tagKeyLogicScope) {
@@ -257,7 +301,7 @@ class UpdateAggregateConfigRuleShrinkRequest extends Model
         if (null !== $this->tagsScope) {
             if (\is_array($this->tagsScope)) {
                 $res['TagsScope'] = [];
-                $n1               = 0;
+                $n1 = 0;
                 foreach ($this->tagsScope as $item1) {
                     $res['TagsScope'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -326,7 +370,7 @@ class UpdateAggregateConfigRuleShrinkRequest extends Model
         if (isset($map['ExcludeTagsScope'])) {
             if (!empty($map['ExcludeTagsScope'])) {
                 $model->excludeTagsScope = [];
-                $n1                      = 0;
+                $n1 = 0;
                 foreach ($map['ExcludeTagsScope'] as $item1) {
                     $model->excludeTagsScope[$n1++] = excludeTagsScope::fromMap($item1);
                 }
@@ -357,12 +401,20 @@ class UpdateAggregateConfigRuleShrinkRequest extends Model
             $model->resourceIdsScope = $map['ResourceIdsScope'];
         }
 
+        if (isset($map['ResourceNameScope'])) {
+            $model->resourceNameScope = $map['ResourceNameScope'];
+        }
+
         if (isset($map['ResourceTypesScope'])) {
             $model->resourceTypesScopeShrink = $map['ResourceTypesScope'];
         }
 
         if (isset($map['RiskLevel'])) {
             $model->riskLevel = $map['RiskLevel'];
+        }
+
+        if (isset($map['Tag'])) {
+            $model->tagShrink = $map['Tag'];
         }
 
         if (isset($map['TagKeyLogicScope'])) {
@@ -380,7 +432,7 @@ class UpdateAggregateConfigRuleShrinkRequest extends Model
         if (isset($map['TagsScope'])) {
             if (!empty($map['TagsScope'])) {
                 $model->tagsScope = [];
-                $n1               = 0;
+                $n1 = 0;
                 foreach ($map['TagsScope'] as $item1) {
                     $model->tagsScope[$n1++] = tagsScope::fromMap($item1);
                 }

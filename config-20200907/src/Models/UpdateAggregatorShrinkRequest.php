@@ -12,28 +12,44 @@ class UpdateAggregatorShrinkRequest extends Model
      * @var string
      */
     public $aggregatorAccountsShrink;
+
     /**
      * @var string
      */
     public $aggregatorId;
+
     /**
      * @var string
      */
     public $aggregatorName;
+
     /**
      * @var string
      */
     public $clientToken;
+
     /**
      * @var string
      */
     public $description;
+
+    /**
+     * @var string
+     */
+    public $folderId;
+
+    /**
+     * @var string
+     */
+    public $tagShrink;
     protected $_name = [
         'aggregatorAccountsShrink' => 'AggregatorAccounts',
-        'aggregatorId'             => 'AggregatorId',
-        'aggregatorName'           => 'AggregatorName',
-        'clientToken'              => 'ClientToken',
-        'description'              => 'Description',
+        'aggregatorId' => 'AggregatorId',
+        'aggregatorName' => 'AggregatorName',
+        'clientToken' => 'ClientToken',
+        'description' => 'Description',
+        'folderId' => 'FolderId',
+        'tagShrink' => 'Tag',
     ];
 
     public function validate()
@@ -62,6 +78,14 @@ class UpdateAggregatorShrinkRequest extends Model
 
         if (null !== $this->description) {
             $res['Description'] = $this->description;
+        }
+
+        if (null !== $this->folderId) {
+            $res['FolderId'] = $this->folderId;
+        }
+
+        if (null !== $this->tagShrink) {
+            $res['Tag'] = $this->tagShrink;
         }
 
         return $res;
@@ -93,6 +117,14 @@ class UpdateAggregatorShrinkRequest extends Model
 
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
+        }
+
+        if (isset($map['FolderId'])) {
+            $model->folderId = $map['FolderId'];
+        }
+
+        if (isset($map['Tag'])) {
+            $model->tagShrink = $map['Tag'];
         }
 
         return $model;

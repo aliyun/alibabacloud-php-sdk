@@ -13,17 +13,19 @@ class source extends Model
      * @var string
      */
     public $identifier;
+
     /**
      * @var string
      */
     public $owner;
+
     /**
      * @var sourceDetails[]
      */
     public $sourceDetails;
     protected $_name = [
-        'identifier'    => 'Identifier',
-        'owner'         => 'Owner',
+        'identifier' => 'Identifier',
+        'owner' => 'Owner',
         'sourceDetails' => 'SourceDetails',
     ];
 
@@ -49,7 +51,7 @@ class source extends Model
         if (null !== $this->sourceDetails) {
             if (\is_array($this->sourceDetails)) {
                 $res['SourceDetails'] = [];
-                $n1                   = 0;
+                $n1 = 0;
                 foreach ($this->sourceDetails as $item1) {
                     $res['SourceDetails'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -78,7 +80,7 @@ class source extends Model
         if (isset($map['SourceDetails'])) {
             if (!empty($map['SourceDetails'])) {
                 $model->sourceDetails = [];
-                $n1                   = 0;
+                $n1 = 0;
                 foreach ($map['SourceDetails'] as $item1) {
                     $model->sourceDetails[$n1++] = sourceDetails::fromMap($item1);
                 }

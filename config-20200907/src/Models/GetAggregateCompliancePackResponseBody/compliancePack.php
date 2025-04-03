@@ -7,6 +7,7 @@ namespace AlibabaCloud\SDK\Config\V20200907\Models\GetAggregateCompliancePackRes
 use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Config\V20200907\Models\GetAggregateCompliancePackResponseBody\compliancePack\configRules;
 use AlibabaCloud\SDK\Config\V20200907\Models\GetAggregateCompliancePackResponseBody\compliancePack\scope;
+use AlibabaCloud\SDK\Config\V20200907\Models\GetAggregateCompliancePackResponseBody\compliancePack\tags;
 
 class compliancePack extends Model
 {
@@ -14,63 +15,80 @@ class compliancePack extends Model
      * @var int
      */
     public $accountId;
+
     /**
      * @var string
      */
     public $aggregatorId;
+
     /**
      * @var string
      */
     public $compliancePackId;
+
     /**
      * @var string
      */
     public $compliancePackName;
+
     /**
      * @var string
      */
     public $compliancePackTemplateId;
+
     /**
      * @var configRules[]
      */
     public $configRules;
+
     /**
      * @var int
      */
     public $createTimestamp;
+
     /**
      * @var string
      */
     public $description;
+
     /**
      * @var int
      */
     public $riskLevel;
+
     /**
      * @var scope
      */
     public $scope;
+
     /**
      * @var string
      */
     public $status;
+
+    /**
+     * @var tags[]
+     */
+    public $tags;
+
     /**
      * @var string
      */
     public $templateContent;
     protected $_name = [
-        'accountId'                => 'AccountId',
-        'aggregatorId'             => 'AggregatorId',
-        'compliancePackId'         => 'CompliancePackId',
-        'compliancePackName'       => 'CompliancePackName',
+        'accountId' => 'AccountId',
+        'aggregatorId' => 'AggregatorId',
+        'compliancePackId' => 'CompliancePackId',
+        'compliancePackName' => 'CompliancePackName',
         'compliancePackTemplateId' => 'CompliancePackTemplateId',
-        'configRules'              => 'ConfigRules',
-        'createTimestamp'          => 'CreateTimestamp',
-        'description'              => 'Description',
-        'riskLevel'                => 'RiskLevel',
-        'scope'                    => 'Scope',
-        'status'                   => 'Status',
-        'templateContent'          => 'TemplateContent',
+        'configRules' => 'ConfigRules',
+        'createTimestamp' => 'CreateTimestamp',
+        'description' => 'Description',
+        'riskLevel' => 'RiskLevel',
+        'scope' => 'Scope',
+        'status' => 'Status',
+        'tags' => 'Tags',
+        'templateContent' => 'TemplateContent',
     ];
 
     public function validate()
@@ -80,6 +98,9 @@ class compliancePack extends Model
         }
         if (null !== $this->scope) {
             $this->scope->validate();
+        }
+        if (\is_array($this->tags)) {
+            Model::validateArray($this->tags);
         }
         parent::validate();
     }
@@ -110,7 +131,7 @@ class compliancePack extends Model
         if (null !== $this->configRules) {
             if (\is_array($this->configRules)) {
                 $res['ConfigRules'] = [];
-                $n1                 = 0;
+                $n1 = 0;
                 foreach ($this->configRules as $item1) {
                     $res['ConfigRules'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -135,6 +156,16 @@ class compliancePack extends Model
 
         if (null !== $this->status) {
             $res['Status'] = $this->status;
+        }
+
+        if (null !== $this->tags) {
+            if (\is_array($this->tags)) {
+                $res['Tags'] = [];
+                $n1 = 0;
+                foreach ($this->tags as $item1) {
+                    $res['Tags'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                }
+            }
         }
 
         if (null !== $this->templateContent) {
@@ -175,7 +206,7 @@ class compliancePack extends Model
         if (isset($map['ConfigRules'])) {
             if (!empty($map['ConfigRules'])) {
                 $model->configRules = [];
-                $n1                 = 0;
+                $n1 = 0;
                 foreach ($map['ConfigRules'] as $item1) {
                     $model->configRules[$n1++] = configRules::fromMap($item1);
                 }
@@ -200,6 +231,16 @@ class compliancePack extends Model
 
         if (isset($map['Status'])) {
             $model->status = $map['Status'];
+        }
+
+        if (isset($map['Tags'])) {
+            if (!empty($map['Tags'])) {
+                $model->tags = [];
+                $n1 = 0;
+                foreach ($map['Tags'] as $item1) {
+                    $model->tags[$n1++] = tags::fromMap($item1);
+                }
+            }
         }
 
         if (isset($map['TemplateContent'])) {

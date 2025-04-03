@@ -13,13 +13,14 @@ class ListManagedRulesResponseBody extends Model
      * @var managedRules
      */
     public $managedRules;
+
     /**
      * @var string
      */
     public $requestId;
     protected $_name = [
         'managedRules' => 'ManagedRules',
-        'requestId'    => 'RequestId',
+        'requestId' => 'RequestId',
     ];
 
     public function validate()

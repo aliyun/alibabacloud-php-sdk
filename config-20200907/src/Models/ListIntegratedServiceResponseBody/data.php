@@ -12,28 +12,32 @@ class data extends Model
      * @var string
      */
     public $aggregatorDeliveryDataType;
+
     /**
      * @var string
      */
     public $integratedTypes;
+
     /**
      * @var string
      */
     public $serviceCode;
+
     /**
      * @var string
      */
     public $serviceName;
+
     /**
      * @var bool
      */
     public $status;
     protected $_name = [
         'aggregatorDeliveryDataType' => 'AggregatorDeliveryDataType',
-        'integratedTypes'            => 'IntegratedTypes',
-        'serviceCode'                => 'ServiceCode',
-        'serviceName'                => 'ServiceName',
-        'status'                     => 'Status',
+        'integratedTypes' => 'IntegratedTypes',
+        'serviceCode' => 'ServiceCode',
+        'serviceName' => 'ServiceName',
+        'status' => 'Status',
     ];
 
     public function validate()

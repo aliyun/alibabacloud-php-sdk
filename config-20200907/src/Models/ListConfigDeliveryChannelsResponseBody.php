@@ -13,13 +13,14 @@ class ListConfigDeliveryChannelsResponseBody extends Model
      * @var deliveryChannels[]
      */
     public $deliveryChannels;
+
     /**
      * @var string
      */
     public $requestId;
     protected $_name = [
         'deliveryChannels' => 'DeliveryChannels',
-        'requestId'        => 'RequestId',
+        'requestId' => 'RequestId',
     ];
 
     public function validate()
@@ -36,7 +37,7 @@ class ListConfigDeliveryChannelsResponseBody extends Model
         if (null !== $this->deliveryChannels) {
             if (\is_array($this->deliveryChannels)) {
                 $res['DeliveryChannels'] = [];
-                $n1                      = 0;
+                $n1 = 0;
                 foreach ($this->deliveryChannels as $item1) {
                     $res['DeliveryChannels'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -61,7 +62,7 @@ class ListConfigDeliveryChannelsResponseBody extends Model
         if (isset($map['DeliveryChannels'])) {
             if (!empty($map['DeliveryChannels'])) {
                 $model->deliveryChannels = [];
-                $n1                      = 0;
+                $n1 = 0;
                 foreach ($map['DeliveryChannels'] as $item1) {
                     $model->deliveryChannels[$n1++] = deliveryChannels::fromMap($item1);
                 }

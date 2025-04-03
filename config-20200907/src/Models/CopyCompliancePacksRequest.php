@@ -12,17 +12,19 @@ class CopyCompliancePacksRequest extends Model
      * @var string
      */
     public $desAggregatorIds;
+
     /**
      * @var string
      */
     public $srcAggregatorId;
+
     /**
      * @var string
      */
     public $srcCompliancePackIds;
     protected $_name = [
-        'desAggregatorIds'     => 'DesAggregatorIds',
-        'srcAggregatorId'      => 'SrcAggregatorId',
+        'desAggregatorIds' => 'DesAggregatorIds',
+        'srcAggregatorId' => 'SrcAggregatorId',
         'srcCompliancePackIds' => 'SrcCompliancePackIds',
     ];
 

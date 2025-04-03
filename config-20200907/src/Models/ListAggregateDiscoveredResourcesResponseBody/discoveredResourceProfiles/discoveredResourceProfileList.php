@@ -12,68 +12,80 @@ class discoveredResourceProfileList extends Model
      * @var int
      */
     public $accountId;
+
     /**
      * @var string
      */
     public $availabilityZone;
+
     /**
      * @var string
      */
     public $region;
+
     /**
      * @var int
      */
     public $resourceCreationTime;
+
     /**
      * @var int
      */
     public $resourceDeleted;
+
     /**
      * @var string
      */
     public $resourceId;
+
     /**
      * @var string
      */
     public $resourceName;
+
     /**
      * @var int
      */
     public $resourceOwnerId;
+
     /**
      * @var string
      */
     public $resourceStatus;
+
     /**
      * @var string
      */
     public $resourceType;
+
     /**
      * @var string
      */
     public $tags;
+
     /**
      * @var int
      */
     public $updateTime;
+
     /**
      * @var int
      */
     public $version;
     protected $_name = [
-        'accountId'            => 'AccountId',
-        'availabilityZone'     => 'AvailabilityZone',
-        'region'               => 'Region',
+        'accountId' => 'AccountId',
+        'availabilityZone' => 'AvailabilityZone',
+        'region' => 'Region',
         'resourceCreationTime' => 'ResourceCreationTime',
-        'resourceDeleted'      => 'ResourceDeleted',
-        'resourceId'           => 'ResourceId',
-        'resourceName'         => 'ResourceName',
-        'resourceOwnerId'      => 'ResourceOwnerId',
-        'resourceStatus'       => 'ResourceStatus',
-        'resourceType'         => 'ResourceType',
-        'tags'                 => 'Tags',
-        'updateTime'           => 'UpdateTime',
-        'version'              => 'Version',
+        'resourceDeleted' => 'ResourceDeleted',
+        'resourceId' => 'ResourceId',
+        'resourceName' => 'ResourceName',
+        'resourceOwnerId' => 'ResourceOwnerId',
+        'resourceStatus' => 'ResourceStatus',
+        'resourceType' => 'ResourceType',
+        'tags' => 'Tags',
+        'updateTime' => 'UpdateTime',
+        'version' => 'Version',
     ];
 
     public function validate()

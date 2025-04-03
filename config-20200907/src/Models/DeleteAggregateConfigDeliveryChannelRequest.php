@@ -12,12 +12,13 @@ class DeleteAggregateConfigDeliveryChannelRequest extends Model
      * @var string
      */
     public $aggregatorId;
+
     /**
      * @var string
      */
     public $deliveryChannelId;
     protected $_name = [
-        'aggregatorId'      => 'AggregatorId',
+        'aggregatorId' => 'AggregatorId',
         'deliveryChannelId' => 'DeliveryChannelId',
     ];
 

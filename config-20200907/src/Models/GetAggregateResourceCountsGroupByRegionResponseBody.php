@@ -13,13 +13,14 @@ class GetAggregateResourceCountsGroupByRegionResponseBody extends Model
      * @var discoveredResourceCountsSummary[]
      */
     public $discoveredResourceCountsSummary;
+
     /**
      * @var string
      */
     public $requestId;
     protected $_name = [
         'discoveredResourceCountsSummary' => 'DiscoveredResourceCountsSummary',
-        'requestId'                       => 'RequestId',
+        'requestId' => 'RequestId',
     ];
 
     public function validate()
@@ -36,7 +37,7 @@ class GetAggregateResourceCountsGroupByRegionResponseBody extends Model
         if (null !== $this->discoveredResourceCountsSummary) {
             if (\is_array($this->discoveredResourceCountsSummary)) {
                 $res['DiscoveredResourceCountsSummary'] = [];
-                $n1                                     = 0;
+                $n1 = 0;
                 foreach ($this->discoveredResourceCountsSummary as $item1) {
                     $res['DiscoveredResourceCountsSummary'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -61,7 +62,7 @@ class GetAggregateResourceCountsGroupByRegionResponseBody extends Model
         if (isset($map['DiscoveredResourceCountsSummary'])) {
             if (!empty($map['DiscoveredResourceCountsSummary'])) {
                 $model->discoveredResourceCountsSummary = [];
-                $n1                                     = 0;
+                $n1 = 0;
                 foreach ($map['DiscoveredResourceCountsSummary'] as $item1) {
                     $model->discoveredResourceCountsSummary[$n1++] = discoveredResourceCountsSummary::fromMap($item1);
                 }

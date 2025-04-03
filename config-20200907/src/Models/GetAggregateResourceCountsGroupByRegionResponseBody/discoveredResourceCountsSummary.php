@@ -12,17 +12,19 @@ class discoveredResourceCountsSummary extends Model
      * @var string
      */
     public $groupName;
+
     /**
      * @var string
      */
     public $region;
+
     /**
      * @var int
      */
     public $resourceCount;
     protected $_name = [
-        'groupName'     => 'GroupName',
-        'region'        => 'Region',
+        'groupName' => 'GroupName',
+        'region' => 'Region',
         'resourceCount' => 'ResourceCount',
     ];
 

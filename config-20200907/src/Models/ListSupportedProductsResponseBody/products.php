@@ -13,17 +13,19 @@ class products extends Model
      * @var string
      */
     public $productNameEn;
+
     /**
      * @var string
      */
     public $productNameZh;
+
     /**
      * @var resourceTypeList[]
      */
     public $resourceTypeList;
     protected $_name = [
-        'productNameEn'    => 'ProductNameEn',
-        'productNameZh'    => 'ProductNameZh',
+        'productNameEn' => 'ProductNameEn',
+        'productNameZh' => 'ProductNameZh',
         'resourceTypeList' => 'ResourceTypeList',
     ];
 
@@ -49,7 +51,7 @@ class products extends Model
         if (null !== $this->resourceTypeList) {
             if (\is_array($this->resourceTypeList)) {
                 $res['ResourceTypeList'] = [];
-                $n1                      = 0;
+                $n1 = 0;
                 foreach ($this->resourceTypeList as $item1) {
                     $res['ResourceTypeList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -78,7 +80,7 @@ class products extends Model
         if (isset($map['ResourceTypeList'])) {
             if (!empty($map['ResourceTypeList'])) {
                 $model->resourceTypeList = [];
-                $n1                      = 0;
+                $n1 = 0;
                 foreach ($map['ResourceTypeList'] as $item1) {
                     $model->resourceTypeList[$n1++] = resourceTypeList::fromMap($item1);
                 }

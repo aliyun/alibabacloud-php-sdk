@@ -12,32 +12,37 @@ class ResourceDirectoryFolderNode extends Model
      * @var string
      */
     public $accountId;
+
     /**
      * @var ResourceDirectoryFolderNode[]
      */
     public $children;
+
     /**
      * @var string
      */
     public $displayName;
+
     /**
      * @var string
      */
     public $folderId;
+
     /**
      * @var string
      */
     public $folderName;
+
     /**
      * @var string
      */
     public $parentFolderId;
     protected $_name = [
-        'accountId'      => 'AccountId',
-        'children'       => 'Children',
-        'displayName'    => 'DisplayName',
-        'folderId'       => 'FolderId',
-        'folderName'     => 'FolderName',
+        'accountId' => 'AccountId',
+        'children' => 'Children',
+        'displayName' => 'DisplayName',
+        'folderId' => 'FolderId',
+        'folderName' => 'FolderName',
         'parentFolderId' => 'ParentFolderId',
     ];
 
@@ -59,7 +64,7 @@ class ResourceDirectoryFolderNode extends Model
         if (null !== $this->children) {
             if (\is_array($this->children)) {
                 $res['Children'] = [];
-                $n1              = 0;
+                $n1 = 0;
                 foreach ($this->children as $item1) {
                     $res['Children'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -100,7 +105,7 @@ class ResourceDirectoryFolderNode extends Model
         if (isset($map['Children'])) {
             if (!empty($map['Children'])) {
                 $model->children = [];
-                $n1              = 0;
+                $n1 = 0;
                 foreach ($map['Children'] as $item1) {
                     $model->children[$n1++] = self::fromMap($item1);
                 }

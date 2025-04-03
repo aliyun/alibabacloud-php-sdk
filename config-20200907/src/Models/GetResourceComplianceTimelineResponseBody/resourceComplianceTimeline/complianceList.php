@@ -12,63 +12,74 @@ class complianceList extends Model
      * @var string
      */
     public $accountId;
+
     /**
      * @var string
      */
     public $availabilityZone;
+
     /**
      * @var int
      */
     public $captureTime;
+
     /**
      * @var string
      */
     public $configuration;
+
     /**
      * @var string
      */
     public $configurationDiff;
+
     /**
      * @var string
      */
     public $region;
+
     /**
      * @var int
      */
     public $resourceCreateTime;
+
     /**
      * @var string
      */
     public $resourceId;
+
     /**
      * @var string
      */
     public $resourceName;
+
     /**
      * @var string
      */
     public $resourceStatus;
+
     /**
      * @var string
      */
     public $resourceType;
+
     /**
      * @var string
      */
     public $tags;
     protected $_name = [
-        'accountId'          => 'AccountId',
-        'availabilityZone'   => 'AvailabilityZone',
-        'captureTime'        => 'CaptureTime',
-        'configuration'      => 'Configuration',
-        'configurationDiff'  => 'ConfigurationDiff',
-        'region'             => 'Region',
+        'accountId' => 'AccountId',
+        'availabilityZone' => 'AvailabilityZone',
+        'captureTime' => 'CaptureTime',
+        'configuration' => 'Configuration',
+        'configurationDiff' => 'ConfigurationDiff',
+        'region' => 'Region',
         'resourceCreateTime' => 'ResourceCreateTime',
-        'resourceId'         => 'ResourceId',
-        'resourceName'       => 'ResourceName',
-        'resourceStatus'     => 'ResourceStatus',
-        'resourceType'       => 'ResourceType',
-        'tags'               => 'Tags',
+        'resourceId' => 'ResourceId',
+        'resourceName' => 'ResourceName',
+        'resourceStatus' => 'ResourceStatus',
+        'resourceType' => 'ResourceType',
+        'tags' => 'Tags',
     ];
 
     public function validate()

@@ -12,23 +12,26 @@ class complianceSummaryByConfigRule extends Model
      * @var int
      */
     public $complianceSummaryTimestamp;
+
     /**
      * @var int
      */
     public $compliantCount;
+
     /**
      * @var int
      */
     public $nonCompliantCount;
+
     /**
      * @var int
      */
     public $totalCount;
     protected $_name = [
         'complianceSummaryTimestamp' => 'ComplianceSummaryTimestamp',
-        'compliantCount'             => 'CompliantCount',
-        'nonCompliantCount'          => 'NonCompliantCount',
-        'totalCount'                 => 'TotalCount',
+        'compliantCount' => 'CompliantCount',
+        'nonCompliantCount' => 'NonCompliantCount',
+        'totalCount' => 'TotalCount',
     ];
 
     public function validate()

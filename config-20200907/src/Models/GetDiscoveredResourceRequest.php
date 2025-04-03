@@ -12,23 +12,26 @@ class GetDiscoveredResourceRequest extends Model
      * @var int
      */
     public $complianceOption;
+
     /**
      * @var string
      */
     public $region;
+
     /**
      * @var string
      */
     public $resourceId;
+
     /**
      * @var string
      */
     public $resourceType;
     protected $_name = [
         'complianceOption' => 'ComplianceOption',
-        'region'           => 'Region',
-        'resourceId'       => 'ResourceId',
-        'resourceType'     => 'ResourceType',
+        'region' => 'Region',
+        'resourceId' => 'ResourceId',
+        'resourceType' => 'ResourceType',
     ];
 
     public function validate()

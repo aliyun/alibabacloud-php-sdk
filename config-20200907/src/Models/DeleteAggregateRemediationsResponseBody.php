@@ -13,13 +13,14 @@ class DeleteAggregateRemediationsResponseBody extends Model
      * @var remediationDeleteResults[]
      */
     public $remediationDeleteResults;
+
     /**
      * @var string
      */
     public $requestId;
     protected $_name = [
         'remediationDeleteResults' => 'RemediationDeleteResults',
-        'requestId'                => 'RequestId',
+        'requestId' => 'RequestId',
     ];
 
     public function validate()
@@ -36,7 +37,7 @@ class DeleteAggregateRemediationsResponseBody extends Model
         if (null !== $this->remediationDeleteResults) {
             if (\is_array($this->remediationDeleteResults)) {
                 $res['RemediationDeleteResults'] = [];
-                $n1                              = 0;
+                $n1 = 0;
                 foreach ($this->remediationDeleteResults as $item1) {
                     $res['RemediationDeleteResults'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -61,7 +62,7 @@ class DeleteAggregateRemediationsResponseBody extends Model
         if (isset($map['RemediationDeleteResults'])) {
             if (!empty($map['RemediationDeleteResults'])) {
                 $model->remediationDeleteResults = [];
-                $n1                              = 0;
+                $n1 = 0;
                 foreach ($map['RemediationDeleteResults'] as $item1) {
                     $model->remediationDeleteResults[$n1++] = remediationDeleteResults::fromMap($item1);
                 }

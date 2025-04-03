@@ -12,13 +12,14 @@ class configurationRecorder extends Model
      * @var string
      */
     public $configurationRecorderStatus;
+
     /**
      * @var string[]
      */
     public $resourceTypes;
     protected $_name = [
         'configurationRecorderStatus' => 'ConfigurationRecorderStatus',
-        'resourceTypes'               => 'ResourceTypes',
+        'resourceTypes' => 'ResourceTypes',
     ];
 
     public function validate()
@@ -39,7 +40,7 @@ class configurationRecorder extends Model
         if (null !== $this->resourceTypes) {
             if (\is_array($this->resourceTypes)) {
                 $res['ResourceTypes'] = [];
-                $n1                   = 0;
+                $n1 = 0;
                 foreach ($this->resourceTypes as $item1) {
                     $res['ResourceTypes'][$n1++] = $item1;
                 }
@@ -64,7 +65,7 @@ class configurationRecorder extends Model
         if (isset($map['ResourceTypes'])) {
             if (!empty($map['ResourceTypes'])) {
                 $model->resourceTypes = [];
-                $n1                   = 0;
+                $n1 = 0;
                 foreach ($map['ResourceTypes'] as $item1) {
                     $model->resourceTypes[$n1++] = $item1;
                 }

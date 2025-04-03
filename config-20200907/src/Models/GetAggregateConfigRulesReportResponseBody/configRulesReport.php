@@ -12,33 +12,38 @@ class configRulesReport extends Model
      * @var int
      */
     public $accountId;
+
     /**
      * @var string
      */
     public $aggregatorId;
+
     /**
      * @var int
      */
     public $reportCreateTimestamp;
+
     /**
      * @var string
      */
     public $reportId;
+
     /**
      * @var string
      */
     public $reportStatus;
+
     /**
      * @var string
      */
     public $reportUrl;
     protected $_name = [
-        'accountId'             => 'AccountId',
-        'aggregatorId'          => 'AggregatorId',
+        'accountId' => 'AccountId',
+        'aggregatorId' => 'AggregatorId',
         'reportCreateTimestamp' => 'ReportCreateTimestamp',
-        'reportId'              => 'ReportId',
-        'reportStatus'          => 'ReportStatus',
-        'reportUrl'             => 'ReportUrl',
+        'reportId' => 'ReportId',
+        'reportStatus' => 'ReportStatus',
+        'reportUrl' => 'ReportUrl',
     ];
 
     public function validate()

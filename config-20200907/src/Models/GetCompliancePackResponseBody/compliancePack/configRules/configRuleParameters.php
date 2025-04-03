@@ -12,18 +12,20 @@ class configRuleParameters extends Model
      * @var string
      */
     public $parameterName;
+
     /**
      * @var string
      */
     public $parameterValue;
+
     /**
      * @var bool
      */
     public $required;
     protected $_name = [
-        'parameterName'  => 'ParameterName',
+        'parameterName' => 'ParameterName',
         'parameterValue' => 'ParameterValue',
-        'required'       => 'Required',
+        'required' => 'Required',
     ];
 
     public function validate()

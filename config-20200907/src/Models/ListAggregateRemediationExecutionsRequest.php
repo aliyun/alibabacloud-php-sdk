@@ -12,32 +12,37 @@ class ListAggregateRemediationExecutionsRequest extends Model
      * @var string
      */
     public $aggregatorId;
+
     /**
      * @var string
      */
     public $configRuleId;
+
     /**
      * @var string
      */
     public $executionStatus;
+
     /**
      * @var int
      */
     public $maxResults;
+
     /**
      * @var string
      */
     public $nextToken;
+
     /**
      * @var int
      */
     public $resourceAccountId;
     protected $_name = [
-        'aggregatorId'      => 'AggregatorId',
-        'configRuleId'      => 'ConfigRuleId',
-        'executionStatus'   => 'ExecutionStatus',
-        'maxResults'        => 'MaxResults',
-        'nextToken'         => 'NextToken',
+        'aggregatorId' => 'AggregatorId',
+        'configRuleId' => 'ConfigRuleId',
+        'executionStatus' => 'ExecutionStatus',
+        'maxResults' => 'MaxResults',
+        'nextToken' => 'NextToken',
         'resourceAccountId' => 'ResourceAccountId',
     ];
 

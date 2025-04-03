@@ -12,28 +12,32 @@ class GenerateAggregateResourceInventoryRequest extends Model
      * @var string
      */
     public $accountIds;
+
     /**
      * @var string
      */
     public $aggregatorId;
+
     /**
      * @var string
      */
     public $regions;
+
     /**
      * @var int
      */
     public $resourceDeleted;
+
     /**
      * @var string
      */
     public $resourceTypes;
     protected $_name = [
-        'accountIds'      => 'AccountIds',
-        'aggregatorId'    => 'AggregatorId',
-        'regions'         => 'Regions',
+        'accountIds' => 'AccountIds',
+        'aggregatorId' => 'AggregatorId',
+        'regions' => 'Regions',
         'resourceDeleted' => 'ResourceDeleted',
-        'resourceTypes'   => 'ResourceTypes',
+        'resourceTypes' => 'ResourceTypes',
     ];
 
     public function validate()

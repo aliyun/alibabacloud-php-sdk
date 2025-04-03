@@ -13,13 +13,14 @@ class GetAggregateConfigRuleComplianceByPackResponseBody extends Model
      * @var configRuleComplianceResult
      */
     public $configRuleComplianceResult;
+
     /**
      * @var string
      */
     public $requestId;
     protected $_name = [
         'configRuleComplianceResult' => 'ConfigRuleComplianceResult',
-        'requestId'                  => 'RequestId',
+        'requestId' => 'RequestId',
     ];
 
     public function validate()

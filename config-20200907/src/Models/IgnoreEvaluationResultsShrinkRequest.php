@@ -12,22 +12,25 @@ class IgnoreEvaluationResultsShrinkRequest extends Model
      * @var string
      */
     public $configRuleId;
+
     /**
      * @var string
      */
     public $ignoreDate;
+
     /**
      * @var string
      */
     public $reason;
+
     /**
      * @var string
      */
     public $resourcesShrink;
     protected $_name = [
-        'configRuleId'    => 'ConfigRuleId',
-        'ignoreDate'      => 'IgnoreDate',
-        'reason'          => 'Reason',
+        'configRuleId' => 'ConfigRuleId',
+        'ignoreDate' => 'IgnoreDate',
+        'reason' => 'Reason',
         'resourcesShrink' => 'Resources',
     ];
 

@@ -13,13 +13,14 @@ class ListAggregateConfigRuleEvaluationResultsResponseBody extends Model
      * @var evaluationResults
      */
     public $evaluationResults;
+
     /**
      * @var string
      */
     public $requestId;
     protected $_name = [
         'evaluationResults' => 'EvaluationResults',
-        'requestId'         => 'RequestId',
+        'requestId' => 'RequestId',
     ];
 
     public function validate()

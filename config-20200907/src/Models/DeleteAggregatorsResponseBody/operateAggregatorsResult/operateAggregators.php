@@ -12,18 +12,20 @@ class operateAggregators extends Model
      * @var string
      */
     public $aggregatorId;
+
     /**
      * @var string
      */
     public $errorCode;
+
     /**
      * @var bool
      */
     public $success;
     protected $_name = [
         'aggregatorId' => 'AggregatorId',
-        'errorCode'    => 'ErrorCode',
-        'success'      => 'Success',
+        'errorCode' => 'ErrorCode',
+        'success' => 'Success',
     ];
 
     public function validate()

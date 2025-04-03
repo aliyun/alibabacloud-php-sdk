@@ -13,13 +13,14 @@ class GetAggregatorResponseBody extends Model
      * @var aggregator
      */
     public $aggregator;
+
     /**
      * @var string
      */
     public $requestId;
     protected $_name = [
         'aggregator' => 'Aggregator',
-        'requestId'  => 'RequestId',
+        'requestId' => 'RequestId',
     ];
 
     public function validate()

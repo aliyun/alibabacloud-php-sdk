@@ -13,12 +13,13 @@ class GetAdvancedSearchFileResponseBody extends Model
      * @var string
      */
     public $requestId;
+
     /**
      * @var resourceSearch
      */
     public $resourceSearch;
     protected $_name = [
-        'requestId'      => 'RequestId',
+        'requestId' => 'RequestId',
         'resourceSearch' => 'ResourceSearch',
     ];
 

@@ -12,13 +12,14 @@ class CopyCompliancePacksResponseBody extends Model
      * @var bool
      */
     public $copyRulesResult;
+
     /**
      * @var string
      */
     public $requestId;
     protected $_name = [
         'copyRulesResult' => 'CopyRulesResult',
-        'requestId'       => 'RequestId',
+        'requestId' => 'RequestId',
     ];
 
     public function validate()

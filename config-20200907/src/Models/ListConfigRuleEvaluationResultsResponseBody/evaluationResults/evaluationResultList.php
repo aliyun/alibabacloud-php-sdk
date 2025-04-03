@@ -13,43 +13,50 @@ class evaluationResultList extends Model
      * @var string
      */
     public $annotation;
+
     /**
      * @var string
      */
     public $complianceType;
+
     /**
      * @var int
      */
     public $configRuleInvokedTimestamp;
+
     /**
      * @var evaluationResultIdentifier
      */
     public $evaluationResultIdentifier;
+
     /**
      * @var string
      */
     public $invokingEventMessageType;
+
     /**
      * @var bool
      */
     public $remediationEnabled;
+
     /**
      * @var int
      */
     public $resultRecordedTimestamp;
+
     /**
      * @var int
      */
     public $riskLevel;
     protected $_name = [
-        'annotation'                 => 'Annotation',
-        'complianceType'             => 'ComplianceType',
+        'annotation' => 'Annotation',
+        'complianceType' => 'ComplianceType',
         'configRuleInvokedTimestamp' => 'ConfigRuleInvokedTimestamp',
         'evaluationResultIdentifier' => 'EvaluationResultIdentifier',
-        'invokingEventMessageType'   => 'InvokingEventMessageType',
-        'remediationEnabled'         => 'RemediationEnabled',
-        'resultRecordedTimestamp'    => 'ResultRecordedTimestamp',
-        'riskLevel'                  => 'RiskLevel',
+        'invokingEventMessageType' => 'InvokingEventMessageType',
+        'remediationEnabled' => 'RemediationEnabled',
+        'resultRecordedTimestamp' => 'ResultRecordedTimestamp',
+        'riskLevel' => 'RiskLevel',
     ];
 
     public function validate()

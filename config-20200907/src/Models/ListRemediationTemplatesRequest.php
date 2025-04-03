@@ -12,23 +12,26 @@ class ListRemediationTemplatesRequest extends Model
      * @var string
      */
     public $managedRuleIdentifier;
+
     /**
      * @var int
      */
     public $pageNumber;
+
     /**
      * @var int
      */
     public $pageSize;
+
     /**
      * @var string
      */
     public $remediationType;
     protected $_name = [
         'managedRuleIdentifier' => 'ManagedRuleIdentifier',
-        'pageNumber'            => 'PageNumber',
-        'pageSize'              => 'PageSize',
-        'remediationType'       => 'RemediationType',
+        'pageNumber' => 'PageNumber',
+        'pageSize' => 'PageSize',
+        'remediationType' => 'RemediationType',
     ];
 
     public function validate()

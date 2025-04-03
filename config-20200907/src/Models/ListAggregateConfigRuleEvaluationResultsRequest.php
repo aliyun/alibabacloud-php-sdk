@@ -12,58 +12,68 @@ class ListAggregateConfigRuleEvaluationResultsRequest extends Model
      * @var string
      */
     public $aggregatorId;
+
     /**
      * @var string
      */
     public $compliancePackId;
+
     /**
      * @var string
      */
     public $complianceType;
+
     /**
      * @var string
      */
     public $configRuleId;
+
     /**
      * @var int
      */
     public $maxResults;
+
     /**
      * @var string
      */
     public $nextToken;
+
     /**
      * @var string
      */
     public $regions;
+
     /**
      * @var int
      */
     public $resourceAccountId;
+
     /**
      * @var string
      */
     public $resourceGroupIds;
+
     /**
      * @var int
      */
     public $resourceOwnerId;
+
     /**
      * @var string
      */
     public $resourceTypes;
     protected $_name = [
-        'aggregatorId'      => 'AggregatorId',
-        'compliancePackId'  => 'CompliancePackId',
-        'complianceType'    => 'ComplianceType',
-        'configRuleId'      => 'ConfigRuleId',
-        'maxResults'        => 'MaxResults',
-        'nextToken'         => 'NextToken',
-        'regions'           => 'Regions',
+        'aggregatorId' => 'AggregatorId',
+        'compliancePackId' => 'CompliancePackId',
+        'complianceType' => 'ComplianceType',
+        'configRuleId' => 'ConfigRuleId',
+        'maxResults' => 'MaxResults',
+        'nextToken' => 'NextToken',
+        'regions' => 'Regions',
         'resourceAccountId' => 'ResourceAccountId',
-        'resourceGroupIds'  => 'ResourceGroupIds',
-        'resourceOwnerId'   => 'ResourceOwnerId',
-        'resourceTypes'     => 'ResourceTypes',
+        'resourceGroupIds' => 'ResourceGroupIds',
+        'resourceOwnerId' => 'ResourceOwnerId',
+        'resourceTypes' => 'ResourceTypes',
     ];
 
     public function validate()

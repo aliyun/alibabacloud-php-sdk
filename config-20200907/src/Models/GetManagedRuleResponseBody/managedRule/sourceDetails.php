@@ -12,13 +12,14 @@ class sourceDetails extends Model
      * @var string
      */
     public $maximumExecutionFrequency;
+
     /**
      * @var string
      */
     public $messageType;
     protected $_name = [
         'maximumExecutionFrequency' => 'MaximumExecutionFrequency',
-        'messageType'               => 'MessageType',
+        'messageType' => 'MessageType',
     ];
 
     public function validate()

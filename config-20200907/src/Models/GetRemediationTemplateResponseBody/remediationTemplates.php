@@ -12,33 +12,38 @@ class remediationTemplates extends Model
      * @var string
      */
     public $managedRuleIdentifier;
+
     /**
      * @var string
      */
     public $remediationType;
+
     /**
      * @var string
      */
     public $templateDefinition;
+
     /**
      * @var string
      */
     public $templateDescription;
+
     /**
      * @var string
      */
     public $templateIdentifier;
+
     /**
      * @var string
      */
     public $templateName;
     protected $_name = [
         'managedRuleIdentifier' => 'ManagedRuleIdentifier',
-        'remediationType'       => 'RemediationType',
-        'templateDefinition'    => 'TemplateDefinition',
-        'templateDescription'   => 'TemplateDescription',
-        'templateIdentifier'    => 'TemplateIdentifier',
-        'templateName'          => 'TemplateName',
+        'remediationType' => 'RemediationType',
+        'templateDefinition' => 'TemplateDefinition',
+        'templateDescription' => 'TemplateDescription',
+        'templateIdentifier' => 'TemplateIdentifier',
+        'templateName' => 'TemplateName',
     ];
 
     public function validate()

@@ -12,43 +12,50 @@ class evaluationResultQualifier extends Model
      * @var string
      */
     public $configRuleArn;
+
     /**
      * @var string
      */
     public $configRuleId;
+
     /**
      * @var string
      */
     public $configRuleName;
+
     /**
      * @var string
      */
     public $ignoreDate;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $resourceId;
+
     /**
      * @var string
      */
     public $resourceName;
+
     /**
      * @var string
      */
     public $resourceType;
     protected $_name = [
-        'configRuleArn'  => 'ConfigRuleArn',
-        'configRuleId'   => 'ConfigRuleId',
+        'configRuleArn' => 'ConfigRuleArn',
+        'configRuleId' => 'ConfigRuleId',
         'configRuleName' => 'ConfigRuleName',
-        'ignoreDate'     => 'IgnoreDate',
-        'regionId'       => 'RegionId',
-        'resourceId'     => 'ResourceId',
-        'resourceName'   => 'ResourceName',
-        'resourceType'   => 'ResourceType',
+        'ignoreDate' => 'IgnoreDate',
+        'regionId' => 'RegionId',
+        'resourceId' => 'ResourceId',
+        'resourceName' => 'ResourceName',
+        'resourceType' => 'ResourceType',
     ];
 
     public function validate()

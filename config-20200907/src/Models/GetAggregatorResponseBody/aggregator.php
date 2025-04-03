@@ -6,6 +6,7 @@ namespace AlibabaCloud\SDK\Config\V20200907\Models\GetAggregatorResponseBody;
 
 use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Config\V20200907\Models\GetAggregatorResponseBody\aggregator\aggregatorAccounts;
+use AlibabaCloud\SDK\Config\V20200907\Models\GetAggregatorResponseBody\aggregator\tags;
 
 class aggregator extends Model
 {
@@ -13,59 +14,77 @@ class aggregator extends Model
      * @var int
      */
     public $accountId;
+
     /**
      * @var int
      */
     public $aggregatorAccountCount;
+
     /**
      * @var aggregatorAccounts[]
      */
     public $aggregatorAccounts;
+
     /**
      * @var string
      */
     public $aggregatorCreateTimestamp;
+
     /**
      * @var string
      */
     public $aggregatorId;
+
     /**
      * @var string
      */
     public $aggregatorName;
+
     /**
      * @var int
      */
     public $aggregatorStatus;
+
     /**
      * @var string
      */
     public $aggregatorType;
+
     /**
      * @var string
      */
     public $description;
+
     /**
      * @var string
      */
     public $folderId;
+
+    /**
+     * @var tags[]
+     */
+    public $tags;
     protected $_name = [
-        'accountId'                 => 'AccountId',
-        'aggregatorAccountCount'    => 'AggregatorAccountCount',
-        'aggregatorAccounts'        => 'AggregatorAccounts',
+        'accountId' => 'AccountId',
+        'aggregatorAccountCount' => 'AggregatorAccountCount',
+        'aggregatorAccounts' => 'AggregatorAccounts',
         'aggregatorCreateTimestamp' => 'AggregatorCreateTimestamp',
-        'aggregatorId'              => 'AggregatorId',
-        'aggregatorName'            => 'AggregatorName',
-        'aggregatorStatus'          => 'AggregatorStatus',
-        'aggregatorType'            => 'AggregatorType',
-        'description'               => 'Description',
-        'folderId'                  => 'FolderId',
+        'aggregatorId' => 'AggregatorId',
+        'aggregatorName' => 'AggregatorName',
+        'aggregatorStatus' => 'AggregatorStatus',
+        'aggregatorType' => 'AggregatorType',
+        'description' => 'Description',
+        'folderId' => 'FolderId',
+        'tags' => 'Tags',
     ];
 
     public function validate()
     {
         if (\is_array($this->aggregatorAccounts)) {
             Model::validateArray($this->aggregatorAccounts);
+        }
+        if (\is_array($this->tags)) {
+            Model::validateArray($this->tags);
         }
         parent::validate();
     }
@@ -84,7 +103,7 @@ class aggregator extends Model
         if (null !== $this->aggregatorAccounts) {
             if (\is_array($this->aggregatorAccounts)) {
                 $res['AggregatorAccounts'] = [];
-                $n1                        = 0;
+                $n1 = 0;
                 foreach ($this->aggregatorAccounts as $item1) {
                     $res['AggregatorAccounts'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -119,6 +138,16 @@ class aggregator extends Model
             $res['FolderId'] = $this->folderId;
         }
 
+        if (null !== $this->tags) {
+            if (\is_array($this->tags)) {
+                $res['Tags'] = [];
+                $n1 = 0;
+                foreach ($this->tags as $item1) {
+                    $res['Tags'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                }
+            }
+        }
+
         return $res;
     }
 
@@ -141,7 +170,7 @@ class aggregator extends Model
         if (isset($map['AggregatorAccounts'])) {
             if (!empty($map['AggregatorAccounts'])) {
                 $model->aggregatorAccounts = [];
-                $n1                        = 0;
+                $n1 = 0;
                 foreach ($map['AggregatorAccounts'] as $item1) {
                     $model->aggregatorAccounts[$n1++] = aggregatorAccounts::fromMap($item1);
                 }
@@ -174,6 +203,16 @@ class aggregator extends Model
 
         if (isset($map['FolderId'])) {
             $model->folderId = $map['FolderId'];
+        }
+
+        if (isset($map['Tags'])) {
+            if (!empty($map['Tags'])) {
+                $model->tags = [];
+                $n1 = 0;
+                foreach ($map['Tags'] as $item1) {
+                    $model->tags[$n1++] = tags::fromMap($item1);
+                }
+            }
         }
 
         return $model;

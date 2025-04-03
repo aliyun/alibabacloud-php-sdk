@@ -12,17 +12,19 @@ class StartAggregateRemediationRequest extends Model
      * @var string
      */
     public $aggregatorId;
+
     /**
      * @var string
      */
     public $configRuleId;
+
     /**
      * @var int
      */
     public $resourceAccountId;
     protected $_name = [
-        'aggregatorId'      => 'AggregatorId',
-        'configRuleId'      => 'ConfigRuleId',
+        'aggregatorId' => 'AggregatorId',
+        'configRuleId' => 'ConfigRuleId',
         'resourceAccountId' => 'ResourceAccountId',
     ];
 

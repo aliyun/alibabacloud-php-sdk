@@ -5,6 +5,7 @@
 namespace AlibabaCloud\SDK\Config\V20200907\Models\ListAggregateCompliancePacksResponseBody\compliancePacksResult;
 
 use AlibabaCloud\Dara\Model;
+use AlibabaCloud\SDK\Config\V20200907\Models\ListAggregateCompliancePacksResponseBody\compliancePacksResult\compliancePacks\tags;
 
 class compliancePacks extends Model
 {
@@ -12,52 +13,69 @@ class compliancePacks extends Model
      * @var int
      */
     public $accountId;
+
     /**
      * @var string
      */
     public $aggregatorId;
+
     /**
      * @var string
      */
     public $compliancePackId;
+
     /**
      * @var string
      */
     public $compliancePackName;
+
     /**
      * @var string
      */
     public $compliancePackTemplateId;
+
     /**
      * @var int
      */
     public $createTimestamp;
+
     /**
      * @var string
      */
     public $description;
+
     /**
      * @var int
      */
     public $riskLevel;
+
     /**
      * @var string
      */
     public $status;
+
+    /**
+     * @var tags[]
+     */
+    public $tags;
     protected $_name = [
-        'accountId'                => 'AccountId',
-        'aggregatorId'             => 'AggregatorId',
-        'compliancePackId'         => 'CompliancePackId',
-        'compliancePackName'       => 'CompliancePackName',
+        'accountId' => 'AccountId',
+        'aggregatorId' => 'AggregatorId',
+        'compliancePackId' => 'CompliancePackId',
+        'compliancePackName' => 'CompliancePackName',
         'compliancePackTemplateId' => 'CompliancePackTemplateId',
-        'createTimestamp'          => 'CreateTimestamp',
-        'description'              => 'Description',
-        'riskLevel'                => 'RiskLevel',
-        'status'                   => 'Status',
+        'createTimestamp' => 'CreateTimestamp',
+        'description' => 'Description',
+        'riskLevel' => 'RiskLevel',
+        'status' => 'Status',
+        'tags' => 'Tags',
     ];
 
     public function validate()
     {
+        if (\is_array($this->tags)) {
+            Model::validateArray($this->tags);
+        }
         parent::validate();
     }
 
@@ -98,6 +116,16 @@ class compliancePacks extends Model
 
         if (null !== $this->status) {
             $res['Status'] = $this->status;
+        }
+
+        if (null !== $this->tags) {
+            if (\is_array($this->tags)) {
+                $res['Tags'] = [];
+                $n1 = 0;
+                foreach ($this->tags as $item1) {
+                    $res['Tags'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                }
+            }
         }
 
         return $res;
@@ -145,6 +173,16 @@ class compliancePacks extends Model
 
         if (isset($map['Status'])) {
             $model->status = $map['Status'];
+        }
+
+        if (isset($map['Tags'])) {
+            if (!empty($map['Tags'])) {
+                $model->tags = [];
+                $n1 = 0;
+                foreach ($map['Tags'] as $item1) {
+                    $model->tags[$n1++] = tags::fromMap($item1);
+                }
+            }
         }
 
         return $model;

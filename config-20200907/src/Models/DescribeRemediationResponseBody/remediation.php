@@ -12,58 +12,68 @@ class remediation extends Model
      * @var int
      */
     public $accountId;
+
     /**
      * @var string
      */
     public $configRuleId;
+
     /**
      * @var string
      */
     public $invokeType;
+
     /**
      * @var string
      */
     public $lastSuccessfulInvocationId;
+
     /**
      * @var int
      */
     public $lastSuccessfulInvocationTime;
+
     /**
      * @var string
      */
     public $lastSuccessfulInvocationType;
+
     /**
      * @var string
      */
     public $remediationId;
+
     /**
      * @var string
      */
     public $remediationOriginParams;
+
     /**
      * @var string
      */
     public $remediationSourceType;
+
     /**
      * @var string
      */
     public $remediationTemplateId;
+
     /**
      * @var string
      */
     public $remediationType;
     protected $_name = [
-        'accountId'                    => 'AccountId',
-        'configRuleId'                 => 'ConfigRuleId',
-        'invokeType'                   => 'InvokeType',
-        'lastSuccessfulInvocationId'   => 'LastSuccessfulInvocationId',
+        'accountId' => 'AccountId',
+        'configRuleId' => 'ConfigRuleId',
+        'invokeType' => 'InvokeType',
+        'lastSuccessfulInvocationId' => 'LastSuccessfulInvocationId',
         'lastSuccessfulInvocationTime' => 'LastSuccessfulInvocationTime',
         'lastSuccessfulInvocationType' => 'LastSuccessfulInvocationType',
-        'remediationId'                => 'RemediationId',
-        'remediationOriginParams'      => 'RemediationOriginParams',
-        'remediationSourceType'        => 'RemediationSourceType',
-        'remediationTemplateId'        => 'RemediationTemplateId',
-        'remediationType'              => 'RemediationType',
+        'remediationId' => 'RemediationId',
+        'remediationOriginParams' => 'RemediationOriginParams',
+        'remediationSourceType' => 'RemediationSourceType',
+        'remediationTemplateId' => 'RemediationTemplateId',
+        'remediationType' => 'RemediationType',
     ];
 
     public function validate()

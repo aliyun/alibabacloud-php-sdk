@@ -98,6 +98,7 @@ use AlibabaCloud\SDK\Config\V20200907\Models\GetAggregateCompliancePackReportReq
 use AlibabaCloud\SDK\Config\V20200907\Models\GetAggregateCompliancePackReportResponse;
 use AlibabaCloud\SDK\Config\V20200907\Models\GetAggregateCompliancePackRequest;
 use AlibabaCloud\SDK\Config\V20200907\Models\GetAggregateCompliancePackResponse;
+use AlibabaCloud\SDK\Config\V20200907\Models\GetAggregateCompliancePackShrinkRequest;
 use AlibabaCloud\SDK\Config\V20200907\Models\GetAggregateComplianceSummaryRequest;
 use AlibabaCloud\SDK\Config\V20200907\Models\GetAggregateComplianceSummaryResponse;
 use AlibabaCloud\SDK\Config\V20200907\Models\GetAggregateConfigDeliveryChannelRequest;
@@ -133,10 +134,12 @@ use AlibabaCloud\SDK\Config\V20200907\Models\GetAggregateResourceInventoryReques
 use AlibabaCloud\SDK\Config\V20200907\Models\GetAggregateResourceInventoryResponse;
 use AlibabaCloud\SDK\Config\V20200907\Models\GetAggregatorRequest;
 use AlibabaCloud\SDK\Config\V20200907\Models\GetAggregatorResponse;
+use AlibabaCloud\SDK\Config\V20200907\Models\GetAggregatorShrinkRequest;
 use AlibabaCloud\SDK\Config\V20200907\Models\GetCompliancePackReportRequest;
 use AlibabaCloud\SDK\Config\V20200907\Models\GetCompliancePackReportResponse;
 use AlibabaCloud\SDK\Config\V20200907\Models\GetCompliancePackRequest;
 use AlibabaCloud\SDK\Config\V20200907\Models\GetCompliancePackResponse;
+use AlibabaCloud\SDK\Config\V20200907\Models\GetCompliancePackShrinkRequest;
 use AlibabaCloud\SDK\Config\V20200907\Models\GetComplianceSummaryResponse;
 use AlibabaCloud\SDK\Config\V20200907\Models\GetConfigDeliveryChannelRequest;
 use AlibabaCloud\SDK\Config\V20200907\Models\GetConfigDeliveryChannelResponse;
@@ -184,6 +187,7 @@ use AlibabaCloud\SDK\Config\V20200907\Models\IgnoreEvaluationResultsResponse;
 use AlibabaCloud\SDK\Config\V20200907\Models\IgnoreEvaluationResultsShrinkRequest;
 use AlibabaCloud\SDK\Config\V20200907\Models\ListAggregateCompliancePacksRequest;
 use AlibabaCloud\SDK\Config\V20200907\Models\ListAggregateCompliancePacksResponse;
+use AlibabaCloud\SDK\Config\V20200907\Models\ListAggregateCompliancePacksShrinkRequest;
 use AlibabaCloud\SDK\Config\V20200907\Models\ListAggregateConfigDeliveryChannelsRequest;
 use AlibabaCloud\SDK\Config\V20200907\Models\ListAggregateConfigDeliveryChannelsResponse;
 use AlibabaCloud\SDK\Config\V20200907\Models\ListAggregateConfigRuleEvaluationResultsRequest;
@@ -192,6 +196,7 @@ use AlibabaCloud\SDK\Config\V20200907\Models\ListAggregateConfigRuleEvaluationSt
 use AlibabaCloud\SDK\Config\V20200907\Models\ListAggregateConfigRuleEvaluationStatisticsResponse;
 use AlibabaCloud\SDK\Config\V20200907\Models\ListAggregateConfigRulesRequest;
 use AlibabaCloud\SDK\Config\V20200907\Models\ListAggregateConfigRulesResponse;
+use AlibabaCloud\SDK\Config\V20200907\Models\ListAggregateConfigRulesShrinkRequest;
 use AlibabaCloud\SDK\Config\V20200907\Models\ListAggregateDiscoveredResourcesRequest;
 use AlibabaCloud\SDK\Config\V20200907\Models\ListAggregateDiscoveredResourcesResponse;
 use AlibabaCloud\SDK\Config\V20200907\Models\ListAggregateRemediationExecutionsRequest;
@@ -206,8 +211,10 @@ use AlibabaCloud\SDK\Config\V20200907\Models\ListAggregateResourcesByAdvancedSea
 use AlibabaCloud\SDK\Config\V20200907\Models\ListAggregateResourcesByAdvancedSearchResponse;
 use AlibabaCloud\SDK\Config\V20200907\Models\ListAggregatorsRequest;
 use AlibabaCloud\SDK\Config\V20200907\Models\ListAggregatorsResponse;
+use AlibabaCloud\SDK\Config\V20200907\Models\ListAggregatorsShrinkRequest;
 use AlibabaCloud\SDK\Config\V20200907\Models\ListCompliancePacksRequest;
 use AlibabaCloud\SDK\Config\V20200907\Models\ListCompliancePacksResponse;
+use AlibabaCloud\SDK\Config\V20200907\Models\ListCompliancePacksShrinkRequest;
 use AlibabaCloud\SDK\Config\V20200907\Models\ListCompliancePackTemplatesRequest;
 use AlibabaCloud\SDK\Config\V20200907\Models\ListCompliancePackTemplatesResponse;
 use AlibabaCloud\SDK\Config\V20200907\Models\ListConfigDeliveryChannelsRequest;
@@ -306,8 +313,8 @@ class Config extends OpenApiClient
     {
         parent::__construct($config);
         $this->_endpointRule = 'central';
-        $this->_endpointMap  = [
-            'cn-shanghai'    => 'config.cn-shanghai.aliyuncs.com',
+        $this->_endpointMap = [
+            'cn-shanghai' => 'config.cn-shanghai.aliyuncs.com',
             'ap-southeast-1' => 'config.ap-southeast-1.aliyuncs.com',
         ];
         $this->checkConfig($config);
@@ -346,6 +353,7 @@ class Config extends OpenApiClient
      *
      * @param request - ActiveAggregateConfigRulesRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ActiveAggregateConfigRulesResponse
      *
      * @param ActiveAggregateConfigRulesRequest $request
@@ -373,18 +381,21 @@ class Config extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ActiveAggregateConfigRules',
-            'version'     => '2020-09-07',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ActiveAggregateConfigRules',
+            'version' => '2020-09-07',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ActiveAggregateConfigRulesResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ActiveAggregateConfigRulesResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ActiveAggregateConfigRulesResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -394,6 +405,7 @@ class Config extends OpenApiClient
      * Enables one or more rules in an account group. After a rule is enabled, the rule continues to automatically evaluate resources based on the trigger mechanism.
      *
      * @param request - ActiveAggregateConfigRulesRequest
+     *
      * @returns ActiveAggregateConfigRulesResponse
      *
      * @param ActiveAggregateConfigRulesRequest $request
@@ -416,6 +428,7 @@ class Config extends OpenApiClient
      *
      * @param request - ActiveConfigRulesRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ActiveConfigRulesResponse
      *
      * @param ActiveConfigRulesRequest $request
@@ -439,18 +452,21 @@ class Config extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ActiveConfigRules',
-            'version'     => '2020-09-07',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ActiveConfigRules',
+            'version' => '2020-09-07',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ActiveConfigRulesResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ActiveConfigRulesResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ActiveConfigRulesResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -461,6 +477,7 @@ class Config extends OpenApiClient
      * The rule is in the `INACTIVE` state.
      *
      * @param request - ActiveConfigRulesRequest
+     *
      * @returns ActiveConfigRulesResponse
      *
      * @param ActiveConfigRulesRequest $request
@@ -482,6 +499,7 @@ class Config extends OpenApiClient
      *
      * @param request - AttachAggregateConfigRuleToCompliancePackRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns AttachAggregateConfigRuleToCompliancePackResponse
      *
      * @param AttachAggregateConfigRuleToCompliancePackRequest $request
@@ -509,18 +527,21 @@ class Config extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'AttachAggregateConfigRuleToCompliancePack',
-            'version'     => '2020-09-07',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'AttachAggregateConfigRuleToCompliancePack',
+            'version' => '2020-09-07',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return AttachAggregateConfigRuleToCompliancePackResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return AttachAggregateConfigRuleToCompliancePackResponse::fromMap($this->callApi($params, $req, $runtime));
+        return AttachAggregateConfigRuleToCompliancePackResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -530,6 +551,7 @@ class Config extends OpenApiClient
      * The sample request in this topic shows you how to add the `cr-6cc4626622af00e7****` rule in the `ca-75b4626622af00c3****` account group to the `cp-5bb1626622af00bd****` compliance package.
      *
      * @param request - AttachAggregateConfigRuleToCompliancePackRequest
+     *
      * @returns AttachAggregateConfigRuleToCompliancePackResponse
      *
      * @param AttachAggregateConfigRuleToCompliancePackRequest $request
@@ -551,6 +573,7 @@ class Config extends OpenApiClient
      *
      * @param request - AttachConfigRuleToCompliancePackRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns AttachConfigRuleToCompliancePackResponse
      *
      * @param AttachConfigRuleToCompliancePackRequest $request
@@ -574,18 +597,21 @@ class Config extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'AttachConfigRuleToCompliancePack',
-            'version'     => '2020-09-07',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'AttachConfigRuleToCompliancePack',
+            'version' => '2020-09-07',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return AttachConfigRuleToCompliancePackResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return AttachConfigRuleToCompliancePackResponse::fromMap($this->callApi($params, $req, $runtime));
+        return AttachConfigRuleToCompliancePackResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -595,6 +621,7 @@ class Config extends OpenApiClient
      * This topic provides an example on how to add the `cr-6cc4626622af00e7****` rule to the `cp-5bb1626622af00bd****` compliance package.
      *
      * @param request - AttachConfigRuleToCompliancePackRequest
+     *
      * @returns AttachConfigRuleToCompliancePackResponse
      *
      * @param AttachConfigRuleToCompliancePackRequest $request
@@ -613,6 +640,7 @@ class Config extends OpenApiClient
      *
      * @param request - CopyCompliancePacksRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns CopyCompliancePacksResponse
      *
      * @param CopyCompliancePacksRequest $request
@@ -640,24 +668,28 @@ class Config extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'CopyCompliancePacks',
-            'version'     => '2020-09-07',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CopyCompliancePacks',
+            'version' => '2020-09-07',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return CopyCompliancePacksResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return CopyCompliancePacksResponse::fromMap($this->callApi($params, $req, $runtime));
+        return CopyCompliancePacksResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
      * Replicates compliance packages.
      *
      * @param request - CopyCompliancePacksRequest
+     *
      * @returns CopyCompliancePacksResponse
      *
      * @param CopyCompliancePacksRequest $request
@@ -676,6 +708,7 @@ class Config extends OpenApiClient
      *
      * @param request - CopyConfigRulesRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns CopyConfigRulesResponse
      *
      * @param CopyConfigRulesRequest $request
@@ -703,24 +736,28 @@ class Config extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'CopyConfigRules',
-            'version'     => '2020-09-07',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CopyConfigRules',
+            'version' => '2020-09-07',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return CopyConfigRulesResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return CopyConfigRulesResponse::fromMap($this->callApi($params, $req, $runtime));
+        return CopyConfigRulesResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
      * Replicates rules.
      *
      * @param request - CopyConfigRulesRequest
+     *
      * @returns CopyConfigRulesResponse
      *
      * @param CopyConfigRulesRequest $request
@@ -739,6 +776,7 @@ class Config extends OpenApiClient
      *
      * @param request - CreateAdvancedSearchFileRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns CreateAdvancedSearchFileResponse
      *
      * @param CreateAdvancedSearchFileRequest $request
@@ -758,24 +796,28 @@ class Config extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'CreateAdvancedSearchFile',
-            'version'     => '2020-09-07',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CreateAdvancedSearchFile',
+            'version' => '2020-09-07',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return CreateAdvancedSearchFileResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return CreateAdvancedSearchFileResponse::fromMap($this->callApi($params, $req, $runtime));
+        return CreateAdvancedSearchFileResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
      * Creates a downloadable resource file for the current Alibaba Cloud account.
      *
      * @param request - CreateAdvancedSearchFileRequest
+     *
      * @returns CreateAdvancedSearchFileResponse
      *
      * @param CreateAdvancedSearchFileRequest $request
@@ -797,6 +839,7 @@ class Config extends OpenApiClient
      *
      * @param request - CreateAggregateAdvancedSearchFileRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns CreateAggregateAdvancedSearchFileResponse
      *
      * @param CreateAggregateAdvancedSearchFileRequest $request
@@ -820,18 +863,21 @@ class Config extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'CreateAggregateAdvancedSearchFile',
-            'version'     => '2020-09-07',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CreateAggregateAdvancedSearchFile',
+            'version' => '2020-09-07',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return CreateAggregateAdvancedSearchFileResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return CreateAggregateAdvancedSearchFileResponse::fromMap($this->callApi($params, $req, $runtime));
+        return CreateAggregateAdvancedSearchFileResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -841,6 +887,7 @@ class Config extends OpenApiClient
      * This topic provides an example on how to create a downloadable resource file for an account group whose ID is `ca-edd3626622af00b3****`. The resource file includes all the ECS instances in the account group.
      *
      * @param request - CreateAggregateAdvancedSearchFileRequest
+     *
      * @returns CreateAggregateAdvancedSearchFileResponse
      *
      * @param CreateAggregateAdvancedSearchFileRequest $request
@@ -862,6 +909,7 @@ class Config extends OpenApiClient
      *
      * @param tmpReq - CreateAggregateCompliancePackRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns CreateAggregateCompliancePackResponse
      *
      * @param CreateAggregateCompliancePackRequest $tmpReq
@@ -876,6 +924,15 @@ class Config extends OpenApiClient
         Utils::convert($tmpReq, $request);
         if (null !== $tmpReq->configRules) {
             $request->configRulesShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->configRules, 'ConfigRules', 'json');
+        }
+
+        if (null !== $tmpReq->tag) {
+            $request->tagShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->tag, 'Tag', 'json');
+        }
+
+        $query = [];
+        if (null !== $request->tagShrink) {
+            @$query['Tag'] = $request->tagShrink;
         }
 
         $body = [];
@@ -959,21 +1016,25 @@ class Config extends OpenApiClient
         $body = Dara::merge([
         ], $body, Utils::query($bodyFlat));
         $req = new OpenApiRequest([
+            'query' => Utils::query($query),
             'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'CreateAggregateCompliancePack',
-            'version'     => '2020-09-07',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CreateAggregateCompliancePack',
+            'version' => '2020-09-07',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return CreateAggregateCompliancePackResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return CreateAggregateCompliancePackResponse::fromMap($this->callApi($params, $req, $runtime));
+        return CreateAggregateCompliancePackResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -983,6 +1044,7 @@ class Config extends OpenApiClient
      * This topic provides an example on how to create a compliance package for the account group `ca-f632626622af0079****` by using the compliance package template `ClassifiedProtectionPreCheck`.
      *
      * @param request - CreateAggregateCompliancePackRequest
+     *
      * @returns CreateAggregateCompliancePackResponse
      *
      * @param CreateAggregateCompliancePackRequest $request
@@ -1004,6 +1066,7 @@ class Config extends OpenApiClient
      *
      * @param request - CreateAggregateConfigDeliveryChannelRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns CreateAggregateConfigDeliveryChannelResponse
      *
      * @param CreateAggregateConfigDeliveryChannelRequest $request
@@ -1071,18 +1134,21 @@ class Config extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'CreateAggregateConfigDeliveryChannel',
-            'version'     => '2020-09-07',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CreateAggregateConfigDeliveryChannel',
+            'version' => '2020-09-07',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return CreateAggregateConfigDeliveryChannelResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return CreateAggregateConfigDeliveryChannelResponse::fromMap($this->callApi($params, $req, $runtime));
+        return CreateAggregateConfigDeliveryChannelResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -1092,6 +1158,7 @@ class Config extends OpenApiClient
      * In this example, a delivery channel is created for an account group. The ID of the account group is `ca-a4e5626622af0079****`. The type of the delivery channel is `OSS` and the Alibaba Cloud Resource Name (ARN) of the delivery destination is `acs:oss:cn-shanghai:100931896542****:new-bucket`. The result indicates that the delivery channel is created. The ID of the delivery channel is `cdc-8e45ff4e06a3a8****`.
      *
      * @param request - CreateAggregateConfigDeliveryChannelRequest
+     *
      * @returns CreateAggregateConfigDeliveryChannelResponse
      *
      * @param CreateAggregateConfigDeliveryChannelRequest $request
@@ -1116,6 +1183,7 @@ class Config extends OpenApiClient
      *
      * @param tmpReq - CreateAggregateConfigRuleRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns CreateAggregateConfigRuleResponse
      *
      * @param CreateAggregateConfigRuleRequest $tmpReq
@@ -1134,6 +1202,19 @@ class Config extends OpenApiClient
 
         if (null !== $tmpReq->resourceTypesScope) {
             $request->resourceTypesScopeShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->resourceTypesScope, 'ResourceTypesScope', 'simple');
+        }
+
+        if (null !== $tmpReq->tag) {
+            $request->tagShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->tag, 'Tag', 'json');
+        }
+
+        $query = [];
+        if (null !== $request->resourceNameScope) {
+            @$query['ResourceNameScope'] = $request->resourceNameScope;
+        }
+
+        if (null !== $request->tagShrink) {
+            @$query['Tag'] = $request->tagShrink;
         }
 
         $body = [];
@@ -1249,21 +1330,25 @@ class Config extends OpenApiClient
         $body = Dara::merge([
         ], $body, Utils::query($bodyFlat));
         $req = new OpenApiRequest([
+            'query' => Utils::query($query),
             'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'CreateAggregateConfigRule',
-            'version'     => '2020-09-07',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CreateAggregateConfigRule',
+            'version' => '2020-09-07',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return CreateAggregateConfigRuleResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return CreateAggregateConfigRuleResponse::fromMap($this->callApi($params, $req, $runtime));
+        return CreateAggregateConfigRuleResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -1276,6 +1361,7 @@ class Config extends OpenApiClient
      * This topic provides an example on how to create a rule based on the required-tags managed rule in the `ca-a4e5626622af0079****` account group. The returned result shows that the rule is created and its ID is `cr-4e3d626622af0080****`.
      *
      * @param request - CreateAggregateConfigRuleRequest
+     *
      * @returns CreateAggregateConfigRuleResponse
      *
      * @param CreateAggregateConfigRuleRequest $request
@@ -1297,6 +1383,7 @@ class Config extends OpenApiClient
      *
      * @param request - CreateAggregateRemediationRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns CreateAggregateRemediationResponse
      *
      * @param CreateAggregateRemediationRequest $request
@@ -1344,18 +1431,21 @@ class Config extends OpenApiClient
             'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'CreateAggregateRemediation',
-            'version'     => '2020-09-07',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CreateAggregateRemediation',
+            'version' => '2020-09-07',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return CreateAggregateRemediationResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return CreateAggregateRemediationResponse::fromMap($this->callApi($params, $req, $runtime));
+        return CreateAggregateRemediationResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -1365,6 +1455,7 @@ class Config extends OpenApiClient
      * This topic provides an example on how to create a remediation template for the rule whose ID is `cr-6b7c626622af00b4****` in the account group whose ID is `ca-6b4a626622af0012****`. The returned result shows that a remediation template is created and the ID of the remediation template is `crr-909ba2d4716700eb****`.
      *
      * @param request - CreateAggregateRemediationRequest
+     *
      * @returns CreateAggregateRemediationResponse
      *
      * @param CreateAggregateRemediationRequest $request
@@ -1392,6 +1483,7 @@ class Config extends OpenApiClient
      *
      * @param tmpReq - CreateAggregatorRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns CreateAggregatorResponse
      *
      * @param CreateAggregatorRequest $tmpReq
@@ -1406,6 +1498,15 @@ class Config extends OpenApiClient
         Utils::convert($tmpReq, $request);
         if (null !== $tmpReq->aggregatorAccounts) {
             $request->aggregatorAccountsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->aggregatorAccounts, 'AggregatorAccounts', 'json');
+        }
+
+        if (null !== $tmpReq->tag) {
+            $request->tagShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->tag, 'Tag', 'json');
+        }
+
+        $query = [];
+        if (null !== $request->tagShrink) {
+            @$query['Tag'] = $request->tagShrink;
         }
 
         $body = [];
@@ -1434,21 +1535,25 @@ class Config extends OpenApiClient
         }
 
         $req = new OpenApiRequest([
+            'query' => Utils::query($query),
             'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'CreateAggregator',
-            'version'     => '2020-09-07',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CreateAggregator',
+            'version' => '2020-09-07',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return CreateAggregatorResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return CreateAggregatorResponse::fromMap($this->callApi($params, $req, $runtime));
+        return CreateAggregatorResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -1464,6 +1569,7 @@ class Config extends OpenApiClient
      * *   Member account ID: `100532098349****`. Member account name: `Tom`.
      *
      * @param request - CreateAggregatorRequest
+     *
      * @returns CreateAggregatorResponse
      *
      * @param CreateAggregatorRequest $request
@@ -1486,6 +1592,7 @@ class Config extends OpenApiClient
      *
      * @param tmpReq - CreateCompliancePackRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns CreateCompliancePackResponse
      *
      * @param CreateCompliancePackRequest $tmpReq
@@ -1500,6 +1607,15 @@ class Config extends OpenApiClient
         Utils::convert($tmpReq, $request);
         if (null !== $tmpReq->configRules) {
             $request->configRulesShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->configRules, 'ConfigRules', 'json');
+        }
+
+        if (null !== $tmpReq->tag) {
+            $request->tagShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->tag, 'Tag', 'json');
+        }
+
+        $query = [];
+        if (null !== $request->tagShrink) {
+            @$query['Tag'] = $request->tagShrink;
         }
 
         $body = [];
@@ -1579,21 +1695,25 @@ class Config extends OpenApiClient
         $body = Dara::merge([
         ], $body, Utils::query($bodyFlat));
         $req = new OpenApiRequest([
+            'query' => Utils::query($query),
             'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'CreateCompliancePack',
-            'version'     => '2020-09-07',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CreateCompliancePack',
+            'version' => '2020-09-07',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return CreateCompliancePackResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return CreateCompliancePackResponse::fromMap($this->callApi($params, $req, $runtime));
+        return CreateCompliancePackResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -1604,6 +1724,7 @@ class Config extends OpenApiClient
      * This topic provides an example on how to create a compliance package named ClassifiedProtectionPreCheck. The compliance package contains a managed rule named `eip-bandwidth-limit`.
      *
      * @param request - CreateCompliancePackRequest
+     *
      * @returns CreateCompliancePackResponse
      *
      * @param CreateCompliancePackRequest $request
@@ -1625,6 +1746,7 @@ class Config extends OpenApiClient
      *
      * @param request - CreateConfigDeliveryChannelRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns CreateConfigDeliveryChannelResponse
      *
      * @param CreateConfigDeliveryChannelRequest $request
@@ -1688,18 +1810,21 @@ class Config extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'CreateConfigDeliveryChannel',
-            'version'     => '2020-09-07',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CreateConfigDeliveryChannel',
+            'version' => '2020-09-07',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return CreateConfigDeliveryChannelResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return CreateConfigDeliveryChannelResponse::fromMap($this->callApi($params, $req, $runtime));
+        return CreateConfigDeliveryChannelResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -1709,6 +1834,7 @@ class Config extends OpenApiClient
      * In this example, a delivery channel is created. The type of the delivery channel is `OSS` and the Alibaba Cloud Resource Name (ARN) of the delivery destination is `acs:oss:cn-shanghai:100931896542****:new-bucket`. The result indicates that the delivery channel is created, and the ID of the delivery channel is `cdc-8e45ff4e06a3a8****`.
      *
      * @param request - CreateConfigDeliveryChannelRequest
+     *
      * @returns CreateConfigDeliveryChannelResponse
      *
      * @param CreateConfigDeliveryChannelRequest $request
@@ -1731,6 +1857,7 @@ class Config extends OpenApiClient
      *
      * @param tmpReq - CreateConfigRuleRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns CreateConfigRuleResponse
      *
      * @param CreateConfigRuleRequest $tmpReq
@@ -1818,6 +1945,10 @@ class Config extends OpenApiClient
             @$body['ResourceIdsScope'] = $request->resourceIdsScope;
         }
 
+        if (null !== $request->resourceNameScope) {
+            @$body['ResourceNameScope'] = $request->resourceNameScope;
+        }
+
         if (null !== $request->resourceTypesScopeShrink) {
             @$body['ResourceTypesScope'] = $request->resourceTypesScopeShrink;
         }
@@ -1854,21 +1985,24 @@ class Config extends OpenApiClient
         ], $body, Utils::query($bodyFlat));
         $req = new OpenApiRequest([
             'query' => Utils::query($query),
-            'body'  => Utils::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'CreateConfigRule',
-            'version'     => '2020-09-07',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CreateConfigRule',
+            'version' => '2020-09-07',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return CreateConfigRuleResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return CreateConfigRuleResponse::fromMap($this->callApi($params, $req, $runtime));
+        return CreateConfigRuleResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -1879,6 +2013,7 @@ class Config extends OpenApiClient
      * You can use a common account to create up to 200 rules.
      *
      * @param request - CreateConfigRuleRequest
+     *
      * @returns CreateConfigRuleResponse
      *
      * @param CreateConfigRuleRequest $request
@@ -1893,7 +2028,6 @@ class Config extends OpenApiClient
     }
 
     // Deprecated
-
     /**
      * Creates a delivery channel.
      *
@@ -1904,6 +2038,7 @@ class Config extends OpenApiClient
      *
      * @param request - CreateDeliveryChannelRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns CreateDeliveryChannelResponse
      *
      * @param CreateDeliveryChannelRequest $request
@@ -1963,22 +2098,24 @@ class Config extends OpenApiClient
             'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'CreateDeliveryChannel',
-            'version'     => '2020-09-07',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CreateDeliveryChannel',
+            'version' => '2020-09-07',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return CreateDeliveryChannelResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return CreateDeliveryChannelResponse::fromMap($this->callApi($params, $req, $runtime));
+        return CreateDeliveryChannelResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     // Deprecated
-
     /**
      * Creates a delivery channel.
      *
@@ -1988,6 +2125,7 @@ class Config extends OpenApiClient
      * @deprecated openAPI CreateDeliveryChannel is deprecated, please use Config::2020-09-07::CreateConfigDeliveryChannel,Config::2020-09-07::CreateAggregateConfigDeliveryChannel instead
      *
      * @param request - CreateDeliveryChannelRequest
+     *
      * @returns CreateDeliveryChannelResponse
      *
      * @param CreateDeliveryChannelRequest $request
@@ -2009,6 +2147,7 @@ class Config extends OpenApiClient
      *
      * @param request - CreateRemediationRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns CreateRemediationResponse
      *
      * @param CreateRemediationRequest $request
@@ -2052,18 +2191,21 @@ class Config extends OpenApiClient
             'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'CreateRemediation',
-            'version'     => '2020-09-07',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CreateRemediation',
+            'version' => '2020-09-07',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return CreateRemediationResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return CreateRemediationResponse::fromMap($this->callApi($params, $req, $runtime));
+        return CreateRemediationResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -2073,6 +2215,7 @@ class Config extends OpenApiClient
      * This topic provides an example on how to create a remediation template for the rule `cr-8a973ac2e2be00a2****`. The returned result shows that a remediation template is created and the ID of the remediation template is `crr-909ba2d4716700eb****`.
      *
      * @param request - CreateRemediationRequest
+     *
      * @returns CreateRemediationResponse
      *
      * @param CreateRemediationRequest $request
@@ -2097,6 +2240,7 @@ class Config extends OpenApiClient
      *
      * @param request - DeactiveAggregateConfigRulesRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DeactiveAggregateConfigRulesResponse
      *
      * @param DeactiveAggregateConfigRulesRequest $request
@@ -2124,18 +2268,21 @@ class Config extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DeactiveAggregateConfigRules',
-            'version'     => '2020-09-07',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DeactiveAggregateConfigRules',
+            'version' => '2020-09-07',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DeactiveAggregateConfigRulesResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DeactiveAggregateConfigRulesResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DeactiveAggregateConfigRulesResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -2148,6 +2295,7 @@ class Config extends OpenApiClient
      * This topic provides an example on how to disable the `cr-5772ba41209e007b****` rule in the `ca-04b3fd170e340007****` account group.
      *
      * @param request - DeactiveAggregateConfigRulesRequest
+     *
      * @returns DeactiveAggregateConfigRulesResponse
      *
      * @param DeactiveAggregateConfigRulesRequest $request
@@ -2172,6 +2320,7 @@ class Config extends OpenApiClient
      *
      * @param request - DeactiveConfigRulesRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DeactiveConfigRulesResponse
      *
      * @param DeactiveConfigRulesRequest $request
@@ -2195,18 +2344,21 @@ class Config extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DeactiveConfigRules',
-            'version'     => '2020-09-07',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DeactiveConfigRules',
+            'version' => '2020-09-07',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DeactiveConfigRulesResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DeactiveConfigRulesResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DeactiveConfigRulesResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -2219,6 +2371,7 @@ class Config extends OpenApiClient
      * This topic provides an example on how to disable the `cr-19a56457e0d90058****` rule.
      *
      * @param request - DeactiveConfigRulesRequest
+     *
      * @returns DeactiveConfigRulesResponse
      *
      * @param DeactiveConfigRulesRequest $request
@@ -2240,6 +2393,7 @@ class Config extends OpenApiClient
      *
      * @param request - DeleteAggregateCompliancePacksRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DeleteAggregateCompliancePacksResponse
      *
      * @param DeleteAggregateCompliancePacksRequest $request
@@ -2271,18 +2425,21 @@ class Config extends OpenApiClient
             'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'DeleteAggregateCompliancePacks',
-            'version'     => '2020-09-07',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DeleteAggregateCompliancePacks',
+            'version' => '2020-09-07',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DeleteAggregateCompliancePacksResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DeleteAggregateCompliancePacksResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DeleteAggregateCompliancePacksResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -2292,6 +2449,7 @@ class Config extends OpenApiClient
      * This topic provides an example on how to delete the `cp-541e626622af0087****` compliance package from the `ca-04b3fd170e340007****` account group.
      *
      * @param request - DeleteAggregateCompliancePacksRequest
+     *
      * @returns DeleteAggregateCompliancePacksResponse
      *
      * @param DeleteAggregateCompliancePacksRequest $request
@@ -2313,6 +2471,7 @@ class Config extends OpenApiClient
      *
      * @param request - DeleteAggregateConfigDeliveryChannelRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DeleteAggregateConfigDeliveryChannelResponse
      *
      * @param DeleteAggregateConfigDeliveryChannelRequest $request
@@ -2336,18 +2495,21 @@ class Config extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DeleteAggregateConfigDeliveryChannel',
-            'version'     => '2020-09-07',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DeleteAggregateConfigDeliveryChannel',
+            'version' => '2020-09-07',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DeleteAggregateConfigDeliveryChannelResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DeleteAggregateConfigDeliveryChannelResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DeleteAggregateConfigDeliveryChannelResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -2357,6 +2519,7 @@ class Config extends OpenApiClient
      * This topic provides an example on how to delete the `cdc-38c3013b46c9002c****` delivery channel from the `ca-23c6626622af0041****` account group. The returned result shows that the `cdc-38c3013b46c9002c****` delivery channel is deleted.
      *
      * @param request - DeleteAggregateConfigDeliveryChannelRequest
+     *
      * @returns DeleteAggregateConfigDeliveryChannelResponse
      *
      * @param DeleteAggregateConfigDeliveryChannelRequest $request
@@ -2378,6 +2541,7 @@ class Config extends OpenApiClient
      *
      * @param request - DeleteAggregateConfigRulesRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DeleteAggregateConfigRulesResponse
      *
      * @param DeleteAggregateConfigRulesRequest $request
@@ -2401,18 +2565,21 @@ class Config extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DeleteAggregateConfigRules',
-            'version'     => '2020-09-07',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DeleteAggregateConfigRules',
+            'version' => '2020-09-07',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DeleteAggregateConfigRulesResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DeleteAggregateConfigRulesResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DeleteAggregateConfigRulesResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -2422,6 +2589,7 @@ class Config extends OpenApiClient
      * This topic provides an example on how to delete the `cr-4e3d626622af0080****` rule from the `ca-a4e5626622af0079****` account group.
      *
      * @param request - DeleteAggregateConfigRulesRequest
+     *
      * @returns DeleteAggregateConfigRulesResponse
      *
      * @param DeleteAggregateConfigRulesRequest $request
@@ -2443,6 +2611,7 @@ class Config extends OpenApiClient
      *
      * @param request - DeleteAggregateRemediationsRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DeleteAggregateRemediationsResponse
      *
      * @param DeleteAggregateRemediationsRequest $request
@@ -2466,18 +2635,21 @@ class Config extends OpenApiClient
             'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'DeleteAggregateRemediations',
-            'version'     => '2020-09-07',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DeleteAggregateRemediations',
+            'version' => '2020-09-07',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DeleteAggregateRemediationsResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DeleteAggregateRemediationsResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DeleteAggregateRemediationsResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -2487,6 +2659,7 @@ class Config extends OpenApiClient
      * This topic provides an example on how to delete the remediation template whose ID is `crr-909ba2d4716700eb****` from the account group whose ID is `ca-6b4a626622af0012****`. The returned result shows that the remediation template whose ID is `crr-909ba2d4716700eb****` is deleted.
      *
      * @param request - DeleteAggregateRemediationsRequest
+     *
      * @returns DeleteAggregateRemediationsResponse
      *
      * @param DeleteAggregateRemediationsRequest $request
@@ -2515,6 +2688,7 @@ class Config extends OpenApiClient
      *
      * @param request - DeleteAggregatorsRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DeleteAggregatorsResponse
      *
      * @param DeleteAggregatorsRequest $request
@@ -2538,18 +2712,21 @@ class Config extends OpenApiClient
             'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'DeleteAggregators',
-            'version'     => '2020-09-07',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DeleteAggregators',
+            'version' => '2020-09-07',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DeleteAggregatorsResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DeleteAggregatorsResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DeleteAggregatorsResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -2566,6 +2743,7 @@ class Config extends OpenApiClient
      * This topic provides an example on how to delete the account group whose ID is `ca-9190626622af00a9****`.
      *
      * @param request - DeleteAggregatorsRequest
+     *
      * @returns DeleteAggregatorsResponse
      *
      * @param DeleteAggregatorsRequest $request
@@ -2587,6 +2765,7 @@ class Config extends OpenApiClient
      *
      * @param request - DeleteCompliancePacksRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DeleteCompliancePacksResponse
      *
      * @param DeleteCompliancePacksRequest $request
@@ -2614,18 +2793,21 @@ class Config extends OpenApiClient
             'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'DeleteCompliancePacks',
-            'version'     => '2020-09-07',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DeleteCompliancePacks',
+            'version' => '2020-09-07',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DeleteCompliancePacksResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DeleteCompliancePacksResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DeleteCompliancePacksResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -2635,6 +2817,7 @@ class Config extends OpenApiClient
      * This topic provides an example on how to delete the `cp-541e626622af0087****` compliance package.
      *
      * @param request - DeleteCompliancePacksRequest
+     *
      * @returns DeleteCompliancePacksResponse
      *
      * @param DeleteCompliancePacksRequest $request
@@ -2656,6 +2839,7 @@ class Config extends OpenApiClient
      *
      * @param request - DeleteConfigDeliveryChannelRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DeleteConfigDeliveryChannelResponse
      *
      * @param DeleteConfigDeliveryChannelRequest $request
@@ -2675,18 +2859,21 @@ class Config extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DeleteConfigDeliveryChannel',
-            'version'     => '2020-09-07',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DeleteConfigDeliveryChannel',
+            'version' => '2020-09-07',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DeleteConfigDeliveryChannelResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DeleteConfigDeliveryChannelResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DeleteConfigDeliveryChannelResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -2696,6 +2883,7 @@ class Config extends OpenApiClient
      * This topic provides an example on how to delete the `cdc-38c3013b46c9002c****` delivery channel. The returned result shows that the `cdc-38c3013b46c9002c****` delivery channel is deleted.
      *
      * @param request - DeleteConfigDeliveryChannelRequest
+     *
      * @returns DeleteConfigDeliveryChannelResponse
      *
      * @param DeleteConfigDeliveryChannelRequest $request
@@ -2717,6 +2905,7 @@ class Config extends OpenApiClient
      *
      * @param request - DeleteConfigRulesRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DeleteConfigRulesResponse
      *
      * @param DeleteConfigRulesRequest $request
@@ -2736,18 +2925,21 @@ class Config extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DeleteConfigRules',
-            'version'     => '2020-09-07',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DeleteConfigRules',
+            'version' => '2020-09-07',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DeleteConfigRulesResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DeleteConfigRulesResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DeleteConfigRulesResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -2757,6 +2949,7 @@ class Config extends OpenApiClient
      * In this example, the rule whose ID is cr-9908626622af0035\\*\\*\\*\\* is deleted.
      *
      * @param request - DeleteConfigRulesRequest
+     *
      * @returns DeleteConfigRulesResponse
      *
      * @param DeleteConfigRulesRequest $request
@@ -2778,6 +2971,7 @@ class Config extends OpenApiClient
      *
      * @param request - DeleteRemediationsRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DeleteRemediationsResponse
      *
      * @param DeleteRemediationsRequest $request
@@ -2797,18 +2991,21 @@ class Config extends OpenApiClient
             'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'DeleteRemediations',
-            'version'     => '2020-09-07',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DeleteRemediations',
+            'version' => '2020-09-07',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DeleteRemediationsResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DeleteRemediationsResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DeleteRemediationsResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -2818,6 +3015,7 @@ class Config extends OpenApiClient
      * This topic provides an example on how to delete the remediation template `crr-909ba2d4716700eb****`. The returned result shows that the remediation template whose ID is `crr-909ba2d4716700eb****` is deleted.
      *
      * @param request - DeleteRemediationsRequest
+     *
      * @returns DeleteRemediationsResponse
      *
      * @param DeleteRemediationsRequest $request
@@ -2836,6 +3034,7 @@ class Config extends OpenApiClient
      *
      * @param request - DescribeRemediationRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribeRemediationResponse
      *
      * @param DescribeRemediationRequest $request
@@ -2847,28 +3046,32 @@ class Config extends OpenApiClient
     {
         $request->validate();
         $query = Utils::query($request->toMap());
-        $req   = new OpenApiRequest([
+        $req = new OpenApiRequest([
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeRemediation',
-            'version'     => '2020-09-07',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeRemediation',
+            'version' => '2020-09-07',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DescribeRemediationResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DescribeRemediationResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DescribeRemediationResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
      * This topic provides an example on how to query the details of a remediation configuration whose ID is crr-f381cf0c1c2f004e\\*\\*\\*\\*.
      *
      * @param request - DescribeRemediationRequest
+     *
      * @returns DescribeRemediationResponse
      *
      * @param DescribeRemediationRequest $request
@@ -2893,6 +3096,7 @@ class Config extends OpenApiClient
      *
      * @param request - DetachAggregateConfigRuleToCompliancePackRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DetachAggregateConfigRuleToCompliancePackResponse
      *
      * @param DetachAggregateConfigRuleToCompliancePackRequest $request
@@ -2920,18 +3124,21 @@ class Config extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DetachAggregateConfigRuleToCompliancePack',
-            'version'     => '2020-09-07',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DetachAggregateConfigRuleToCompliancePack',
+            'version' => '2020-09-07',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DetachAggregateConfigRuleToCompliancePackResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DetachAggregateConfigRuleToCompliancePackResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DetachAggregateConfigRuleToCompliancePackResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -2944,6 +3151,7 @@ class Config extends OpenApiClient
      * The sample request in this topic shows you how to remove the `cr-6cc4626622af00e7****` rule in the `ca-75b4626622af00c3****` account group from the `cp-5bb1626622af00bd****` compliance package.
      *
      * @param request - DetachAggregateConfigRuleToCompliancePackRequest
+     *
      * @returns DetachAggregateConfigRuleToCompliancePackResponse
      *
      * @param DetachAggregateConfigRuleToCompliancePackRequest $request
@@ -2968,6 +3176,7 @@ class Config extends OpenApiClient
      *
      * @param request - DetachConfigRuleToCompliancePackRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DetachConfigRuleToCompliancePackResponse
      *
      * @param DetachConfigRuleToCompliancePackRequest $request
@@ -2991,18 +3200,21 @@ class Config extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DetachConfigRuleToCompliancePack',
-            'version'     => '2020-09-07',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DetachConfigRuleToCompliancePack',
+            'version' => '2020-09-07',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DetachConfigRuleToCompliancePackResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DetachConfigRuleToCompliancePackResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DetachConfigRuleToCompliancePackResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -3015,6 +3227,7 @@ class Config extends OpenApiClient
      * This topic provides an example on how to remove the `cr-6cc4626622af00e7****` rule from the `cp-5bb1626622af00bd****` compliance package.
      *
      * @param request - DetachConfigRuleToCompliancePackRequest
+     *
      * @returns DetachConfigRuleToCompliancePackResponse
      *
      * @param DetachConfigRuleToCompliancePackRequest $request
@@ -3033,6 +3246,7 @@ class Config extends OpenApiClient
      *
      * @param tmpReq - EvaluatePreConfigRulesRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns EvaluatePreConfigRulesResponse
      *
      * @param EvaluatePreConfigRulesRequest $tmpReq
@@ -3066,24 +3280,28 @@ class Config extends OpenApiClient
             'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'EvaluatePreConfigRules',
-            'version'     => '2020-09-07',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'EvaluatePreConfigRules',
+            'version' => '2020-09-07',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return EvaluatePreConfigRulesResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return EvaluatePreConfigRulesResponse::fromMap($this->callApi($params, $req, $runtime));
+        return EvaluatePreConfigRulesResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
      * Executes evaluation rules to evaluate resources.
      *
      * @param request - EvaluatePreConfigRulesRequest
+     *
      * @returns EvaluatePreConfigRulesResponse
      *
      * @param EvaluatePreConfigRulesRequest $request
@@ -3106,6 +3324,7 @@ class Config extends OpenApiClient
      *
      * @param request - GenerateAggregateCompliancePackReportRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns GenerateAggregateCompliancePackReportResponse
      *
      * @param GenerateAggregateCompliancePackReportRequest $request
@@ -3133,18 +3352,21 @@ class Config extends OpenApiClient
             'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'GenerateAggregateCompliancePackReport',
-            'version'     => '2020-09-07',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GenerateAggregateCompliancePackReport',
+            'version' => '2020-09-07',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return GenerateAggregateCompliancePackReportResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GenerateAggregateCompliancePackReportResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GenerateAggregateCompliancePackReportResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -3155,6 +3377,7 @@ class Config extends OpenApiClient
      * This topic provides an example on how to generate a compliance evaluation report based on the `cp-fdc8626622af00f9****` compliance package in the `ca-f632626622af0079****` account group.
      *
      * @param request - GenerateAggregateCompliancePackReportRequest
+     *
      * @returns GenerateAggregateCompliancePackReportResponse
      *
      * @param GenerateAggregateCompliancePackReportRequest $request
@@ -3177,6 +3400,7 @@ class Config extends OpenApiClient
      *
      * @param request - GenerateAggregateConfigRulesReportRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns GenerateAggregateConfigRulesReportResponse
      *
      * @param GenerateAggregateConfigRulesReportRequest $request
@@ -3204,18 +3428,21 @@ class Config extends OpenApiClient
             'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'GenerateAggregateConfigRulesReport',
-            'version'     => '2020-09-07',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GenerateAggregateConfigRulesReport',
+            'version' => '2020-09-07',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return GenerateAggregateConfigRulesReportResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GenerateAggregateConfigRulesReportResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GenerateAggregateConfigRulesReportResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -3226,6 +3453,7 @@ class Config extends OpenApiClient
      * The topic provides an example on how to generate a compliance evaluation report based on all rules in the `ca-f632626622af0079****` account group.
      *
      * @param request - GenerateAggregateConfigRulesReportRequest
+     *
      * @returns GenerateAggregateConfigRulesReportResponse
      *
      * @param GenerateAggregateConfigRulesReportRequest $request
@@ -3247,6 +3475,7 @@ class Config extends OpenApiClient
      *
      * @param request - GenerateAggregateResourceInventoryRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns GenerateAggregateResourceInventoryResponse
      *
      * @param GenerateAggregateResourceInventoryRequest $request
@@ -3282,18 +3511,21 @@ class Config extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'GenerateAggregateResourceInventory',
-            'version'     => '2020-09-07',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GenerateAggregateResourceInventory',
+            'version' => '2020-09-07',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return GenerateAggregateResourceInventoryResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GenerateAggregateResourceInventoryResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GenerateAggregateResourceInventoryResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -3303,6 +3535,7 @@ class Config extends OpenApiClient
      * This topic provides an example to show how to generate a downloadable inventory for global resources in the account group ca-a91d626622af0035\\*\\*\\*\\*.
      *
      * @param request - GenerateAggregateResourceInventoryRequest
+     *
      * @returns GenerateAggregateResourceInventoryResponse
      *
      * @param GenerateAggregateResourceInventoryRequest $request
@@ -3325,6 +3558,7 @@ class Config extends OpenApiClient
      *
      * @param request - GenerateCompliancePackReportRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns GenerateCompliancePackReportResponse
      *
      * @param GenerateCompliancePackReportRequest $request
@@ -3348,18 +3582,21 @@ class Config extends OpenApiClient
             'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'GenerateCompliancePackReport',
-            'version'     => '2020-09-07',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GenerateCompliancePackReport',
+            'version' => '2020-09-07',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return GenerateCompliancePackReportResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GenerateCompliancePackReportResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GenerateCompliancePackReportResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -3370,6 +3607,7 @@ class Config extends OpenApiClient
      * This topic provides an example on how to generate a compliance evaluation report based on the `cp-a8a8626622af0082****` compliance package.
      *
      * @param request - GenerateCompliancePackReportRequest
+     *
      * @returns GenerateCompliancePackReportResponse
      *
      * @param GenerateCompliancePackReportRequest $request
@@ -3392,6 +3630,7 @@ class Config extends OpenApiClient
      *
      * @param request - GenerateConfigRulesReportRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns GenerateConfigRulesReportResponse
      *
      * @param GenerateConfigRulesReportRequest $request
@@ -3415,18 +3654,21 @@ class Config extends OpenApiClient
             'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'GenerateConfigRulesReport',
-            'version'     => '2020-09-07',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GenerateConfigRulesReport',
+            'version' => '2020-09-07',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return GenerateConfigRulesReportResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GenerateConfigRulesReportResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GenerateConfigRulesReportResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -3437,6 +3679,7 @@ class Config extends OpenApiClient
      * This topic provides an example of how to generate a compliance evaluation report based on all existing rules.
      *
      * @param request - GenerateConfigRulesReportRequest
+     *
      * @returns GenerateConfigRulesReportResponse
      *
      * @param GenerateConfigRulesReportRequest $request
@@ -3458,6 +3701,7 @@ class Config extends OpenApiClient
      *
      * @param request - GenerateResourceInventoryRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns GenerateResourceInventoryResponse
      *
      * @param GenerateResourceInventoryRequest $request
@@ -3485,18 +3729,21 @@ class Config extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'GenerateResourceInventory',
-            'version'     => '2020-09-07',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GenerateResourceInventory',
+            'version' => '2020-09-07',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return GenerateResourceInventoryResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GenerateResourceInventoryResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GenerateResourceInventoryResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -3506,6 +3753,7 @@ class Config extends OpenApiClient
      * This topic provides an example on how to generate a resource inventory for global resources of the current account.
      *
      * @param request - GenerateResourceInventoryRequest
+     *
      * @returns GenerateResourceInventoryResponse
      *
      * @param GenerateResourceInventoryRequest $request
@@ -3528,6 +3776,7 @@ class Config extends OpenApiClient
      *
      * @param request - GetAdvancedSearchFileRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns GetAdvancedSearchFileResponse
      *
      * @param RuntimeOptions $runtime
@@ -3536,20 +3785,23 @@ class Config extends OpenApiClient
      */
     public function getAdvancedSearchFileWithOptions($runtime)
     {
-        $req    = new OpenApiRequest([]);
+        $req = new OpenApiRequest([]);
         $params = new Params([
-            'action'      => 'GetAdvancedSearchFile',
-            'version'     => '2020-09-07',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetAdvancedSearchFile',
+            'version' => '2020-09-07',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return GetAdvancedSearchFileResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GetAdvancedSearchFileResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetAdvancedSearchFileResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -3558,6 +3810,7 @@ class Config extends OpenApiClient
      * @remarks
      * ### [](#)Prerequisites
      * You must call the [CreateAdvancedSearchFile](https://help.aliyun.com/document_detail/2511967.html) operation to create a resource advanced search file. Then, you can call this operation to obtain the URL of the resource advanced search file.
+     *
      * @returns GetAdvancedSearchFileResponse
      *
      * @return GetAdvancedSearchFileResponse
@@ -3577,6 +3830,7 @@ class Config extends OpenApiClient
      *
      * @param request - GetAggregateAccountComplianceByPackRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns GetAggregateAccountComplianceByPackResponse
      *
      * @param GetAggregateAccountComplianceByPackRequest $request
@@ -3588,22 +3842,25 @@ class Config extends OpenApiClient
     {
         $request->validate();
         $query = Utils::query($request->toMap());
-        $req   = new OpenApiRequest([
+        $req = new OpenApiRequest([
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'GetAggregateAccountComplianceByPack',
-            'version'     => '2020-09-07',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetAggregateAccountComplianceByPack',
+            'version' => '2020-09-07',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return GetAggregateAccountComplianceByPackResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GetAggregateAccountComplianceByPackResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetAggregateAccountComplianceByPackResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -3613,6 +3870,7 @@ class Config extends OpenApiClient
      * This topic provides an example on how to query the compliance evaluation results of member accounts for which the `cp-541e626622af0087****` compliance package takes effect in the `ca-04b3fd170e340007****` account group. The returned result shows that two member accounts are monitored by the compliance package and they are both evaluated as compliant.
      *
      * @param request - GetAggregateAccountComplianceByPackRequest
+     *
      * @returns GetAggregateAccountComplianceByPackResponse
      *
      * @param GetAggregateAccountComplianceByPackRequest $request
@@ -3631,6 +3889,7 @@ class Config extends OpenApiClient
      *
      * @param request - GetAggregateAdvancedSearchFileRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns GetAggregateAdvancedSearchFileResponse
      *
      * @param GetAggregateAdvancedSearchFileRequest $request
@@ -3650,24 +3909,28 @@ class Config extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'GetAggregateAdvancedSearchFile',
-            'version'     => '2020-09-07',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetAggregateAdvancedSearchFile',
+            'version' => '2020-09-07',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return GetAggregateAdvancedSearchFileResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GetAggregateAdvancedSearchFileResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetAggregateAdvancedSearchFileResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
      * Queries the most recently generated resource file of an account group.
      *
      * @param request - GetAggregateAdvancedSearchFileRequest
+     *
      * @returns GetAggregateAdvancedSearchFileResponse
      *
      * @param GetAggregateAdvancedSearchFileRequest $request
@@ -3687,35 +3950,45 @@ class Config extends OpenApiClient
      * @remarks
      * The topic provides an example on how to query the details of a compliance package whose ID is `cp-fdc8626622af00f9****` in an account group whose ID is `ca-f632626622af0079****`.
      *
-     * @param request - GetAggregateCompliancePackRequest
+     * @param tmpReq - GetAggregateCompliancePackRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns GetAggregateCompliancePackResponse
      *
-     * @param GetAggregateCompliancePackRequest $request
+     * @param GetAggregateCompliancePackRequest $tmpReq
      * @param RuntimeOptions                    $runtime
      *
      * @return GetAggregateCompliancePackResponse
      */
-    public function getAggregateCompliancePackWithOptions($request, $runtime)
+    public function getAggregateCompliancePackWithOptions($tmpReq, $runtime)
     {
-        $request->validate();
+        $tmpReq->validate();
+        $request = new GetAggregateCompliancePackShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->tag) {
+            $request->tagShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->tag, 'Tag', 'json');
+        }
+
         $query = Utils::query($request->toMap());
-        $req   = new OpenApiRequest([
+        $req = new OpenApiRequest([
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'GetAggregateCompliancePack',
-            'version'     => '2020-09-07',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetAggregateCompliancePack',
+            'version' => '2020-09-07',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return GetAggregateCompliancePackResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GetAggregateCompliancePackResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetAggregateCompliancePackResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -3725,6 +3998,7 @@ class Config extends OpenApiClient
      * The topic provides an example on how to query the details of a compliance package whose ID is `cp-fdc8626622af00f9****` in an account group whose ID is `ca-f632626622af0079****`.
      *
      * @param request - GetAggregateCompliancePackRequest
+     *
      * @returns GetAggregateCompliancePackResponse
      *
      * @param GetAggregateCompliancePackRequest $request
@@ -3747,6 +4021,7 @@ class Config extends OpenApiClient
      *
      * @param request - GetAggregateCompliancePackReportRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns GetAggregateCompliancePackReportResponse
      *
      * @param GetAggregateCompliancePackReportRequest $request
@@ -3758,22 +4033,25 @@ class Config extends OpenApiClient
     {
         $request->validate();
         $query = Utils::query($request->toMap());
-        $req   = new OpenApiRequest([
+        $req = new OpenApiRequest([
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'GetAggregateCompliancePackReport',
-            'version'     => '2020-09-07',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetAggregateCompliancePackReport',
+            'version' => '2020-09-07',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return GetAggregateCompliancePackReportResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GetAggregateCompliancePackReportResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetAggregateCompliancePackReportResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -3784,6 +4062,7 @@ class Config extends OpenApiClient
      * This topic provides an example on how to query the compliance evaluation report that is generated based on the `cp-fdc8626622af00f9****` compliance package in the `ca-f632626622af0079****` account group.
      *
      * @param request - GetAggregateCompliancePackReportRequest
+     *
      * @returns GetAggregateCompliancePackReportResponse
      *
      * @param GetAggregateCompliancePackReportRequest $request
@@ -3805,6 +4084,7 @@ class Config extends OpenApiClient
      *
      * @param request - GetAggregateComplianceSummaryRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns GetAggregateComplianceSummaryResponse
      *
      * @param GetAggregateComplianceSummaryRequest $request
@@ -3824,18 +4104,21 @@ class Config extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'GetAggregateComplianceSummary',
-            'version'     => '2020-09-07',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetAggregateComplianceSummary',
+            'version' => '2020-09-07',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return GetAggregateComplianceSummaryResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GetAggregateComplianceSummaryResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetAggregateComplianceSummaryResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -3845,6 +4128,7 @@ class Config extends OpenApiClient
      * This topic provides an example on how to query the compliance statistics of resources and rules in the account group ca-a91d626622af0035\\*\\*\\*\\*.
      *
      * @param request - GetAggregateComplianceSummaryRequest
+     *
      * @returns GetAggregateComplianceSummaryResponse
      *
      * @param GetAggregateComplianceSummaryRequest $request
@@ -3863,6 +4147,7 @@ class Config extends OpenApiClient
      *
      * @param request - GetAggregateConfigDeliveryChannelRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns GetAggregateConfigDeliveryChannelResponse
      *
      * @param GetAggregateConfigDeliveryChannelRequest $request
@@ -3886,24 +4171,28 @@ class Config extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'GetAggregateConfigDeliveryChannel',
-            'version'     => '2020-09-07',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetAggregateConfigDeliveryChannel',
+            'version' => '2020-09-07',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return GetAggregateConfigDeliveryChannelResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GetAggregateConfigDeliveryChannelResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetAggregateConfigDeliveryChannelResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
      * Queries the information about a delivery channel in an account group.
      *
      * @param request - GetAggregateConfigDeliveryChannelRequest
+     *
      * @returns GetAggregateConfigDeliveryChannelResponse
      *
      * @param GetAggregateConfigDeliveryChannelRequest $request
@@ -3925,6 +4214,7 @@ class Config extends OpenApiClient
      *
      * @param tmpReq - GetAggregateConfigRuleRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns GetAggregateConfigRuleResponse
      *
      * @param GetAggregateConfigRuleRequest $tmpReq
@@ -3958,18 +4248,21 @@ class Config extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'GetAggregateConfigRule',
-            'version'     => '2020-09-07',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetAggregateConfigRule',
+            'version' => '2020-09-07',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return GetAggregateConfigRuleResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GetAggregateConfigRuleResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetAggregateConfigRuleResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -3979,6 +4272,7 @@ class Config extends OpenApiClient
      * This example shows how to query the details of the `cr-7f7d626622af0041****` rule in the `ca-7f00626622af0041****` account group.
      *
      * @param request - GetAggregateConfigRuleRequest
+     *
      * @returns GetAggregateConfigRuleResponse
      *
      * @param GetAggregateConfigRuleRequest $request
@@ -4000,6 +4294,7 @@ class Config extends OpenApiClient
      *
      * @param request - GetAggregateConfigRuleComplianceByPackRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns GetAggregateConfigRuleComplianceByPackResponse
      *
      * @param GetAggregateConfigRuleComplianceByPackRequest $request
@@ -4011,22 +4306,25 @@ class Config extends OpenApiClient
     {
         $request->validate();
         $query = Utils::query($request->toMap());
-        $req   = new OpenApiRequest([
+        $req = new OpenApiRequest([
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'GetAggregateConfigRuleComplianceByPack',
-            'version'     => '2020-09-07',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetAggregateConfigRuleComplianceByPack',
+            'version' => '2020-09-07',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return GetAggregateConfigRuleComplianceByPackResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GetAggregateConfigRuleComplianceByPackResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetAggregateConfigRuleComplianceByPackResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -4036,6 +4334,7 @@ class Config extends OpenApiClient
      * The sample request in this topic shows you how to query the compliance evaluation results based on rules in the `cp-541e626622af0087****` compliance package that is created for the `ca-04b3fd170e340007****` account group. The return result shows a total of `one` rule. `No resources` are evaluated as non-compliant based on the rule.
      *
      * @param request - GetAggregateConfigRuleComplianceByPackRequest
+     *
      * @returns GetAggregateConfigRuleComplianceByPackResponse
      *
      * @param GetAggregateConfigRuleComplianceByPackRequest $request
@@ -4057,6 +4356,7 @@ class Config extends OpenApiClient
      *
      * @param request - GetAggregateConfigRuleSummaryByRiskLevelRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns GetAggregateConfigRuleSummaryByRiskLevelResponse
      *
      * @param GetAggregateConfigRuleSummaryByRiskLevelRequest $request
@@ -4076,18 +4376,21 @@ class Config extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'GetAggregateConfigRuleSummaryByRiskLevel',
-            'version'     => '2020-09-07',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetAggregateConfigRuleSummaryByRiskLevel',
+            'version' => '2020-09-07',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return GetAggregateConfigRuleSummaryByRiskLevelResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GetAggregateConfigRuleSummaryByRiskLevelResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetAggregateConfigRuleSummaryByRiskLevelResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -4097,6 +4400,7 @@ class Config extends OpenApiClient
      * This topic provides an example on how to query the summary of compliance evaluation results by rule risk level in the `ca-3a58626622af0005****` account group. The returned result shows four rules that are specified with the high risk level. One of the rules detects non-compliant resources, and the resources evaluated by the remaining three are compliant.
      *
      * @param request - GetAggregateConfigRuleSummaryByRiskLevelRequest
+     *
      * @returns GetAggregateConfigRuleSummaryByRiskLevelResponse
      *
      * @param GetAggregateConfigRuleSummaryByRiskLevelRequest $request
@@ -4119,6 +4423,7 @@ class Config extends OpenApiClient
      *
      * @param request - GetAggregateConfigRulesReportRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns GetAggregateConfigRulesReportResponse
      *
      * @param GetAggregateConfigRulesReportRequest $request
@@ -4142,18 +4447,21 @@ class Config extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'GetAggregateConfigRulesReport',
-            'version'     => '2020-09-07',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetAggregateConfigRulesReport',
+            'version' => '2020-09-07',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return GetAggregateConfigRulesReportResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GetAggregateConfigRulesReportResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetAggregateConfigRulesReportResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -4164,6 +4472,7 @@ class Config extends OpenApiClient
      * This topic provides an example on how to query the compliance evaluation report that is generated based on all rules in the `ca-f632626622af0079****` account group.
      *
      * @param request - GetAggregateConfigRulesReportRequest
+     *
      * @returns GetAggregateConfigRulesReportResponse
      *
      * @param GetAggregateConfigRulesReportRequest $request
@@ -4185,6 +4494,7 @@ class Config extends OpenApiClient
      *
      * @param request - GetAggregateDiscoveredResourceRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns GetAggregateDiscoveredResourceResponse
      *
      * @param GetAggregateDiscoveredResourceRequest $request
@@ -4228,18 +4538,21 @@ class Config extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'GetAggregateDiscoveredResource',
-            'version'     => '2020-09-07',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetAggregateDiscoveredResource',
+            'version' => '2020-09-07',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return GetAggregateDiscoveredResourceResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GetAggregateDiscoveredResourceResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetAggregateDiscoveredResourceResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -4249,6 +4562,7 @@ class Config extends OpenApiClient
      * This topic provides an example on how to query the details of an Elastic Compute Service (ECS) instance `i-bp12g4xbl4i0brkn****` that resides in the China (Hangzhou) region in the account group `ca-5885626622af0008****`.
      *
      * @param request - GetAggregateDiscoveredResourceRequest
+     *
      * @returns GetAggregateDiscoveredResourceResponse
      *
      * @param GetAggregateDiscoveredResourceRequest $request
@@ -4270,6 +4584,7 @@ class Config extends OpenApiClient
      *
      * @param request - GetAggregateResourceComplianceByConfigRuleRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns GetAggregateResourceComplianceByConfigRuleResponse
      *
      * @param GetAggregateResourceComplianceByConfigRuleRequest $request
@@ -4305,18 +4620,21 @@ class Config extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'GetAggregateResourceComplianceByConfigRule',
-            'version'     => '2020-09-07',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetAggregateResourceComplianceByConfigRule',
+            'version' => '2020-09-07',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return GetAggregateResourceComplianceByConfigRuleResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GetAggregateResourceComplianceByConfigRuleResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetAggregateResourceComplianceByConfigRuleResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -4326,6 +4644,7 @@ class Config extends OpenApiClient
      * This topic provides an example on how to query the compliance evaluation results based on the `cr-d369626622af008e****` rule in the `ca-a4e5626622af0079****` account group. The returned result shows that a total of 10 resources are evaluated by the rule and five of them are evaluated as compliant.
      *
      * @param request - GetAggregateResourceComplianceByConfigRuleRequest
+     *
      * @returns GetAggregateResourceComplianceByConfigRuleResponse
      *
      * @param GetAggregateResourceComplianceByConfigRuleRequest $request
@@ -4347,6 +4666,7 @@ class Config extends OpenApiClient
      *
      * @param request - GetAggregateResourceComplianceByPackRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns GetAggregateResourceComplianceByPackResponse
      *
      * @param GetAggregateResourceComplianceByPackRequest $request
@@ -4358,22 +4678,25 @@ class Config extends OpenApiClient
     {
         $request->validate();
         $query = Utils::query($request->toMap());
-        $req   = new OpenApiRequest([
+        $req = new OpenApiRequest([
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'GetAggregateResourceComplianceByPack',
-            'version'     => '2020-09-07',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetAggregateResourceComplianceByPack',
+            'version' => '2020-09-07',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return GetAggregateResourceComplianceByPackResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GetAggregateResourceComplianceByPackResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetAggregateResourceComplianceByPackResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -4383,6 +4706,7 @@ class Config extends OpenApiClient
      * This topic provides an example on how to query the compliance evaluation results of resources monitored based on the `cp-fdc8626622af00f9****` compliance package in the `ca-f632626622af0079****`account group. The returned result shows that the total number of monitored resources is `10` and the number of non-compliant resources is `7`.
      *
      * @param request - GetAggregateResourceComplianceByPackRequest
+     *
      * @returns GetAggregateResourceComplianceByPackResponse
      *
      * @param GetAggregateResourceComplianceByPackRequest $request
@@ -4401,6 +4725,7 @@ class Config extends OpenApiClient
      *
      * @param request - GetAggregateResourceComplianceGroupByRegionRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns GetAggregateResourceComplianceGroupByRegionResponse
      *
      * @param GetAggregateResourceComplianceGroupByRegionRequest $request
@@ -4424,24 +4749,28 @@ class Config extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'GetAggregateResourceComplianceGroupByRegion',
-            'version'     => '2020-09-07',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetAggregateResourceComplianceGroupByRegion',
+            'version' => '2020-09-07',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return GetAggregateResourceComplianceGroupByRegionResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GetAggregateResourceComplianceGroupByRegionResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetAggregateResourceComplianceGroupByRegionResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
      * Queries the evaluation results grouped by resource type for an account group rule.
      *
      * @param request - GetAggregateResourceComplianceGroupByRegionRequest
+     *
      * @returns GetAggregateResourceComplianceGroupByRegionResponse
      *
      * @param GetAggregateResourceComplianceGroupByRegionRequest $request
@@ -4460,6 +4789,7 @@ class Config extends OpenApiClient
      *
      * @param request - GetAggregateResourceComplianceGroupByResourceTypeRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns GetAggregateResourceComplianceGroupByResourceTypeResponse
      *
      * @param GetAggregateResourceComplianceGroupByResourceTypeRequest $request
@@ -4483,24 +4813,28 @@ class Config extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'GetAggregateResourceComplianceGroupByResourceType',
-            'version'     => '2020-09-07',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetAggregateResourceComplianceGroupByResourceType',
+            'version' => '2020-09-07',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return GetAggregateResourceComplianceGroupByResourceTypeResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GetAggregateResourceComplianceGroupByResourceTypeResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetAggregateResourceComplianceGroupByResourceTypeResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
      * Queries the evaluation results grouped by resource type for an account group rule.
      *
      * @param request - GetAggregateResourceComplianceGroupByResourceTypeRequest
+     *
      * @returns GetAggregateResourceComplianceGroupByResourceTypeResponse
      *
      * @param GetAggregateResourceComplianceGroupByResourceTypeRequest $request
@@ -4522,6 +4856,7 @@ class Config extends OpenApiClient
      *
      * @param request - GetAggregateResourceComplianceTimelineRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns GetAggregateResourceComplianceTimelineResponse
      *
      * @param GetAggregateResourceComplianceTimelineRequest $request
@@ -4533,22 +4868,25 @@ class Config extends OpenApiClient
     {
         $request->validate();
         $query = Utils::query($request->toMap());
-        $req   = new OpenApiRequest([
+        $req = new OpenApiRequest([
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'GetAggregateResourceComplianceTimeline',
-            'version'     => '2020-09-07',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetAggregateResourceComplianceTimeline',
+            'version' => '2020-09-07',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return GetAggregateResourceComplianceTimelineResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GetAggregateResourceComplianceTimelineResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetAggregateResourceComplianceTimelineResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -4558,6 +4896,7 @@ class Config extends OpenApiClient
      * The sample request in this topic shows you how to query the compliance timeline of the `new-bucket` resource that resides in the `cn-hangzhou` region within the `100931896542****` member account of the `ca-5885626622af0008****` account group. The new-bucket resource is an Object Storage Service (OSS) bucket. The return result shows the following two timestamps on the compliance timeline: `1625200295276` and `1625200228510`. The first timestamp indicates 12:31:35 on July 2, 2021 (UTC+8), and the second timestamp indicates 12:30:28 on July 2, 2021 (UTC+8).
      *
      * @param request - GetAggregateResourceComplianceTimelineRequest
+     *
      * @returns GetAggregateResourceComplianceTimelineResponse
      *
      * @param GetAggregateResourceComplianceTimelineRequest $request
@@ -4579,6 +4918,7 @@ class Config extends OpenApiClient
      *
      * @param request - GetAggregateResourceConfigurationTimelineRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns GetAggregateResourceConfigurationTimelineResponse
      *
      * @param GetAggregateResourceConfigurationTimelineRequest $request
@@ -4590,22 +4930,25 @@ class Config extends OpenApiClient
     {
         $request->validate();
         $query = Utils::query($request->toMap());
-        $req   = new OpenApiRequest([
+        $req = new OpenApiRequest([
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'GetAggregateResourceConfigurationTimeline',
-            'version'     => '2020-09-07',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetAggregateResourceConfigurationTimeline',
+            'version' => '2020-09-07',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return GetAggregateResourceConfigurationTimelineResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GetAggregateResourceConfigurationTimelineResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetAggregateResourceConfigurationTimelineResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -4615,6 +4958,7 @@ class Config extends OpenApiClient
      * The sample request in this topic shows you how to query the configuration timeline of the `new-bucket` resource that resides in the `cn-hangzhou` region within the `100931896542****` member account of the `ca-5885626622af0008****` account group. The new-bucket resource is an Object Storage Service (OSS) bucket. The return result shows that the timestamp when the resource configuration changes is `1624961112000`. The timestamp indicates 18:05:12 on June 29, 2021 (UTC+8).
      *
      * @param request - GetAggregateResourceConfigurationTimelineRequest
+     *
      * @returns GetAggregateResourceConfigurationTimelineResponse
      *
      * @param GetAggregateResourceConfigurationTimelineRequest $request
@@ -4636,6 +4980,7 @@ class Config extends OpenApiClient
      *
      * @param request - GetAggregateResourceCountsGroupByRegionRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns GetAggregateResourceCountsGroupByRegionResponse
      *
      * @param GetAggregateResourceCountsGroupByRegionRequest $request
@@ -4671,18 +5016,21 @@ class Config extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'GetAggregateResourceCountsGroupByRegion',
-            'version'     => '2020-09-07',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetAggregateResourceCountsGroupByRegion',
+            'version' => '2020-09-07',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return GetAggregateResourceCountsGroupByRegionResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GetAggregateResourceCountsGroupByRegionResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetAggregateResourceCountsGroupByRegionResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -4692,6 +5040,7 @@ class Config extends OpenApiClient
      * This topic provides an example on how to query the statistics on the resources in an account group named `ca-a260626622af0005****` by region. The returned result shows that a total of `10` resources exist in the `cn-hangzhou` region.
      *
      * @param request - GetAggregateResourceCountsGroupByRegionRequest
+     *
      * @returns GetAggregateResourceCountsGroupByRegionResponse
      *
      * @param GetAggregateResourceCountsGroupByRegionRequest $request
@@ -4713,6 +5062,7 @@ class Config extends OpenApiClient
      *
      * @param request - GetAggregateResourceCountsGroupByResourceTypeRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns GetAggregateResourceCountsGroupByResourceTypeResponse
      *
      * @param GetAggregateResourceCountsGroupByResourceTypeRequest $request
@@ -4748,18 +5098,21 @@ class Config extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'GetAggregateResourceCountsGroupByResourceType',
-            'version'     => '2020-09-07',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetAggregateResourceCountsGroupByResourceType',
+            'version' => '2020-09-07',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return GetAggregateResourceCountsGroupByResourceTypeResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GetAggregateResourceCountsGroupByResourceTypeResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetAggregateResourceCountsGroupByResourceTypeResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -4769,6 +5122,7 @@ class Config extends OpenApiClient
      * This topic provides an example on how to query the statistics on the resources in an account group whose ID is `ca-a260626622af0005****` by resource type. The returned result shows that the account group has a total of `seven` resources of the `ACS::RAM::Role` resource type.
      *
      * @param request - GetAggregateResourceCountsGroupByResourceTypeRequest
+     *
      * @returns GetAggregateResourceCountsGroupByResourceTypeResponse
      *
      * @param GetAggregateResourceCountsGroupByResourceTypeRequest $request
@@ -4793,6 +5147,7 @@ class Config extends OpenApiClient
      *
      * @param request - GetAggregateResourceInventoryRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns GetAggregateResourceInventoryResponse
      *
      * @param GetAggregateResourceInventoryRequest $request
@@ -4812,18 +5167,21 @@ class Config extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'GetAggregateResourceInventory',
-            'version'     => '2020-09-07',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetAggregateResourceInventory',
+            'version' => '2020-09-07',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return GetAggregateResourceInventoryResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GetAggregateResourceInventoryResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetAggregateResourceInventoryResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -4836,6 +5194,7 @@ class Config extends OpenApiClient
      * This topic provides an example on how to obtain the last resource inventory that is generated within the account group ca-a91d626622af0035\\*\\*\\*\\*.
      *
      * @param request - GetAggregateResourceInventoryRequest
+     *
      * @returns GetAggregateResourceInventoryResponse
      *
      * @param GetAggregateResourceInventoryRequest $request
@@ -4855,39 +5214,53 @@ class Config extends OpenApiClient
      * @remarks
      * The sample request in this topic shows you how to query the details of the `ca-88ea626622af0055****` account group. The return result shows that the account group is named `Test_Group`, its description is `Test account group`, and it is of the `CUSTOM` type. The account group is in the `1` state, which indicates that it is created.
      *
-     * @param request - GetAggregatorRequest
+     * @param tmpReq - GetAggregatorRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns GetAggregatorResponse
      *
-     * @param GetAggregatorRequest $request
+     * @param GetAggregatorRequest $tmpReq
      * @param RuntimeOptions       $runtime
      *
      * @return GetAggregatorResponse
      */
-    public function getAggregatorWithOptions($request, $runtime)
+    public function getAggregatorWithOptions($tmpReq, $runtime)
     {
-        $request->validate();
+        $tmpReq->validate();
+        $request = new GetAggregatorShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->tag) {
+            $request->tagShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->tag, 'Tag', 'json');
+        }
+
         $query = [];
         if (null !== $request->aggregatorId) {
             @$query['AggregatorId'] = $request->aggregatorId;
+        }
+
+        if (null !== $request->tagShrink) {
+            @$query['Tag'] = $request->tagShrink;
         }
 
         $req = new OpenApiRequest([
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'GetAggregator',
-            'version'     => '2020-09-07',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetAggregator',
+            'version' => '2020-09-07',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return GetAggregatorResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GetAggregatorResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetAggregatorResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -4897,6 +5270,7 @@ class Config extends OpenApiClient
      * The sample request in this topic shows you how to query the details of the `ca-88ea626622af0055****` account group. The return result shows that the account group is named `Test_Group`, its description is `Test account group`, and it is of the `CUSTOM` type. The account group is in the `1` state, which indicates that it is created.
      *
      * @param request - GetAggregatorRequest
+     *
      * @returns GetAggregatorResponse
      *
      * @param GetAggregatorRequest $request
@@ -4916,35 +5290,45 @@ class Config extends OpenApiClient
      * @remarks
      * This topic provides an example on how to query the details of a compliance package whose ID is `cp-fdc8626622af00f9****`. The returned result shows that the name of the compliance package is `ClassifiedProtectionPreCheck`, the compliance package is in the `ACTIVE` state, and the risk level of the rules in the compliance package is `1`, which indicates high risk level.
      *
-     * @param request - GetCompliancePackRequest
+     * @param tmpReq - GetCompliancePackRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns GetCompliancePackResponse
      *
-     * @param GetCompliancePackRequest $request
+     * @param GetCompliancePackRequest $tmpReq
      * @param RuntimeOptions           $runtime
      *
      * @return GetCompliancePackResponse
      */
-    public function getCompliancePackWithOptions($request, $runtime)
+    public function getCompliancePackWithOptions($tmpReq, $runtime)
     {
-        $request->validate();
+        $tmpReq->validate();
+        $request = new GetCompliancePackShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->tag) {
+            $request->tagShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->tag, 'Tag', 'json');
+        }
+
         $query = Utils::query($request->toMap());
-        $req   = new OpenApiRequest([
+        $req = new OpenApiRequest([
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'GetCompliancePack',
-            'version'     => '2020-09-07',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetCompliancePack',
+            'version' => '2020-09-07',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return GetCompliancePackResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GetCompliancePackResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetCompliancePackResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -4954,6 +5338,7 @@ class Config extends OpenApiClient
      * This topic provides an example on how to query the details of a compliance package whose ID is `cp-fdc8626622af00f9****`. The returned result shows that the name of the compliance package is `ClassifiedProtectionPreCheck`, the compliance package is in the `ACTIVE` state, and the risk level of the rules in the compliance package is `1`, which indicates high risk level.
      *
      * @param request - GetCompliancePackRequest
+     *
      * @returns GetCompliancePackResponse
      *
      * @param GetCompliancePackRequest $request
@@ -4976,6 +5361,7 @@ class Config extends OpenApiClient
      *
      * @param request - GetCompliancePackReportRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns GetCompliancePackReportResponse
      *
      * @param GetCompliancePackReportRequest $request
@@ -4987,22 +5373,25 @@ class Config extends OpenApiClient
     {
         $request->validate();
         $query = Utils::query($request->toMap());
-        $req   = new OpenApiRequest([
+        $req = new OpenApiRequest([
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'GetCompliancePackReport',
-            'version'     => '2020-09-07',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetCompliancePackReport',
+            'version' => '2020-09-07',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return GetCompliancePackReportResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GetCompliancePackReportResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetCompliancePackReportResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -5013,6 +5402,7 @@ class Config extends OpenApiClient
      * This topic provides an example on how to query the compliance evaluation report that is generated based on the `cp-fdc8626622af00f9****` compliance package.
      *
      * @param request - GetCompliancePackReportRequest
+     *
      * @returns GetCompliancePackReportResponse
      *
      * @param GetCompliancePackReportRequest $request
@@ -5034,6 +5424,7 @@ class Config extends OpenApiClient
      *
      * @param request - GetComplianceSummaryRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns GetComplianceSummaryResponse
      *
      * @param RuntimeOptions $runtime
@@ -5042,20 +5433,23 @@ class Config extends OpenApiClient
      */
     public function getComplianceSummaryWithOptions($runtime)
     {
-        $req    = new OpenApiRequest([]);
+        $req = new OpenApiRequest([]);
         $params = new Params([
-            'action'      => 'GetComplianceSummary',
-            'version'     => '2020-09-07',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetComplianceSummary',
+            'version' => '2020-09-07',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return GetComplianceSummaryResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GetComplianceSummaryResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetComplianceSummaryResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -5063,6 +5457,7 @@ class Config extends OpenApiClient
      *
      * @remarks
      * This topic provides an example on how to query the compliance statistics of resources and rules in the current account group.
+     *
      * @returns GetComplianceSummaryResponse
      *
      * @return GetComplianceSummaryResponse
@@ -5079,6 +5474,7 @@ class Config extends OpenApiClient
      *
      * @param request - GetConfigDeliveryChannelRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns GetConfigDeliveryChannelResponse
      *
      * @param GetConfigDeliveryChannelRequest $request
@@ -5098,24 +5494,28 @@ class Config extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'GetConfigDeliveryChannel',
-            'version'     => '2020-09-07',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetConfigDeliveryChannel',
+            'version' => '2020-09-07',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return GetConfigDeliveryChannelResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GetConfigDeliveryChannelResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetConfigDeliveryChannelResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
      * Queries the information about a delivery channel.
      *
      * @param request - GetConfigDeliveryChannelRequest
+     *
      * @returns GetConfigDeliveryChannelResponse
      *
      * @param GetConfigDeliveryChannelRequest $request
@@ -5137,6 +5537,7 @@ class Config extends OpenApiClient
      *
      * @param tmpReq - GetConfigRuleRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns GetConfigRuleResponse
      *
      * @param GetConfigRuleRequest $tmpReq
@@ -5166,18 +5567,21 @@ class Config extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'GetConfigRule',
-            'version'     => '2020-09-07',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetConfigRule',
+            'version' => '2020-09-07',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return GetConfigRuleResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GetConfigRuleResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetConfigRuleResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -5187,6 +5591,7 @@ class Config extends OpenApiClient
      * This topic provides an example on how to query the details of the `cr-7f7d626622af0041****` rule.
      *
      * @param request - GetConfigRuleRequest
+     *
      * @returns GetConfigRuleResponse
      *
      * @param GetConfigRuleRequest $request
@@ -5208,6 +5613,7 @@ class Config extends OpenApiClient
      *
      * @param request - GetConfigRuleComplianceByPackRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns GetConfigRuleComplianceByPackResponse
      *
      * @param GetConfigRuleComplianceByPackRequest $request
@@ -5219,22 +5625,25 @@ class Config extends OpenApiClient
     {
         $request->validate();
         $query = Utils::query($request->toMap());
-        $req   = new OpenApiRequest([
+        $req = new OpenApiRequest([
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'GetConfigRuleComplianceByPack',
-            'version'     => '2020-09-07',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetConfigRuleComplianceByPack',
+            'version' => '2020-09-07',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return GetConfigRuleComplianceByPackResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GetConfigRuleComplianceByPackResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetConfigRuleComplianceByPackResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -5244,6 +5653,7 @@ class Config extends OpenApiClient
      * In this topic, the `cp-541e626622af0087****` compliance package is used as an example. The return result shows a total of one rule against which specific resources are evaluated as compliant.
      *
      * @param request - GetConfigRuleComplianceByPackRequest
+     *
      * @returns GetConfigRuleComplianceByPackResponse
      *
      * @param GetConfigRuleComplianceByPackRequest $request
@@ -5265,6 +5675,7 @@ class Config extends OpenApiClient
      *
      * @param request - GetConfigRuleSummaryByRiskLevelRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns GetConfigRuleSummaryByRiskLevelResponse
      *
      * @param RuntimeOptions $runtime
@@ -5273,20 +5684,23 @@ class Config extends OpenApiClient
      */
     public function getConfigRuleSummaryByRiskLevelWithOptions($runtime)
     {
-        $req    = new OpenApiRequest([]);
+        $req = new OpenApiRequest([]);
         $params = new Params([
-            'action'      => 'GetConfigRuleSummaryByRiskLevel',
-            'version'     => '2020-09-07',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetConfigRuleSummaryByRiskLevel',
+            'version' => '2020-09-07',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return GetConfigRuleSummaryByRiskLevelResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GetConfigRuleSummaryByRiskLevelResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetConfigRuleSummaryByRiskLevelResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -5294,6 +5708,7 @@ class Config extends OpenApiClient
      *
      * @remarks
      * This topic provides an example of how to query the summary of compliance evaluation results by rule risk level. The return result shows four rules that are specified with the high risk level. One of them detects non-compliant resources, and the resources evaluated by the remaining three are all compliant.
+     *
      * @returns GetConfigRuleSummaryByRiskLevelResponse
      *
      * @return GetConfigRuleSummaryByRiskLevelResponse
@@ -5314,6 +5729,7 @@ class Config extends OpenApiClient
      *
      * @param request - GetConfigRulesReportRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns GetConfigRulesReportResponse
      *
      * @param GetConfigRulesReportRequest $request
@@ -5333,18 +5749,21 @@ class Config extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'GetConfigRulesReport',
-            'version'     => '2020-09-07',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetConfigRulesReport',
+            'version' => '2020-09-07',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return GetConfigRulesReportResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GetConfigRulesReportResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetConfigRulesReportResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -5355,6 +5774,7 @@ class Config extends OpenApiClient
      * This topic provides an example of how to query the compliance evaluation report that is generated based on all existing rules.
      *
      * @param request - GetConfigRulesReportRequest
+     *
      * @returns GetConfigRulesReportResponse
      *
      * @param GetConfigRulesReportRequest $request
@@ -5376,6 +5796,7 @@ class Config extends OpenApiClient
      *
      * @param request - GetConfigurationRecorderRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns GetConfigurationRecorderResponse
      *
      * @param RuntimeOptions $runtime
@@ -5384,20 +5805,23 @@ class Config extends OpenApiClient
      */
     public function getConfigurationRecorderWithOptions($runtime)
     {
-        $req    = new OpenApiRequest([]);
+        $req = new OpenApiRequest([]);
         $params = new Params([
-            'action'      => 'GetConfigurationRecorder',
-            'version'     => '2020-09-07',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetConfigurationRecorder',
+            'version' => '2020-09-07',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return GetConfigurationRecorderResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GetConfigurationRecorderResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetConfigurationRecorderResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -5405,6 +5829,7 @@ class Config extends OpenApiClient
      *
      * @remarks
      * This topic provides an example on how to query the activation status and resource monitoring scope of Cloud Config for the current account.
+     *
      * @returns GetConfigurationRecorderResponse
      *
      * @return GetConfigurationRecorderResponse
@@ -5424,6 +5849,7 @@ class Config extends OpenApiClient
      *
      * @param request - GetDiscoveredResourceRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns GetDiscoveredResourceResponse
      *
      * @param GetDiscoveredResourceRequest $request
@@ -5455,18 +5881,21 @@ class Config extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'GetDiscoveredResource',
-            'version'     => '2020-09-07',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetDiscoveredResource',
+            'version' => '2020-09-07',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return GetDiscoveredResourceResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GetDiscoveredResourceResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetDiscoveredResourceResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -5476,6 +5905,7 @@ class Config extends OpenApiClient
      * This topic provides an example on how to query the details of the Elastic Compute Service (ECS) instance `i-bp12g4xbl4i0brkn****` that resides in the China (Hangzhou) region.
      *
      * @param request - GetDiscoveredResourceRequest
+     *
      * @returns GetDiscoveredResourceResponse
      *
      * @param GetDiscoveredResourceRequest $request
@@ -5497,6 +5927,7 @@ class Config extends OpenApiClient
      *
      * @param request - GetDiscoveredResourceCountsGroupByRegionRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns GetDiscoveredResourceCountsGroupByRegionResponse
      *
      * @param GetDiscoveredResourceCountsGroupByRegionRequest $request
@@ -5516,18 +5947,21 @@ class Config extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'GetDiscoveredResourceCountsGroupByRegion',
-            'version'     => '2020-09-07',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetDiscoveredResourceCountsGroupByRegion',
+            'version' => '2020-09-07',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return GetDiscoveredResourceCountsGroupByRegionResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GetDiscoveredResourceCountsGroupByRegionResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetDiscoveredResourceCountsGroupByRegionResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -5537,6 +5971,7 @@ class Config extends OpenApiClient
      * This topic provides an example to demonstrate how to query the statistics on resources by region. The returned result shows that a total of 10 resources exist in the `cn-hangzhou` region.
      *
      * @param request - GetDiscoveredResourceCountsGroupByRegionRequest
+     *
      * @returns GetDiscoveredResourceCountsGroupByRegionResponse
      *
      * @param GetDiscoveredResourceCountsGroupByRegionRequest $request
@@ -5558,6 +5993,7 @@ class Config extends OpenApiClient
      *
      * @param request - GetDiscoveredResourceCountsGroupByResourceTypeRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns GetDiscoveredResourceCountsGroupByResourceTypeResponse
      *
      * @param GetDiscoveredResourceCountsGroupByResourceTypeRequest $request
@@ -5577,18 +6013,21 @@ class Config extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'GetDiscoveredResourceCountsGroupByResourceType',
-            'version'     => '2020-09-07',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetDiscoveredResourceCountsGroupByResourceType',
+            'version' => '2020-09-07',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return GetDiscoveredResourceCountsGroupByResourceTypeResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GetDiscoveredResourceCountsGroupByResourceTypeResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetDiscoveredResourceCountsGroupByResourceTypeResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -5598,6 +6037,7 @@ class Config extends OpenApiClient
      * This topic describes how to query the statistics on resources by resource type. The returned result shows that a total of 10 resources of the `ACS::ECS::Instance` resource type exist.
      *
      * @param request - GetDiscoveredResourceCountsGroupByResourceTypeRequest
+     *
      * @returns GetDiscoveredResourceCountsGroupByResourceTypeResponse
      *
      * @param GetDiscoveredResourceCountsGroupByResourceTypeRequest $request
@@ -5616,6 +6056,7 @@ class Config extends OpenApiClient
      *
      * @param request - GetIntegratedServiceStatusRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns GetIntegratedServiceStatusResponse
      *
      * @param GetIntegratedServiceStatusRequest $request
@@ -5635,24 +6076,28 @@ class Config extends OpenApiClient
             'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'GetIntegratedServiceStatus',
-            'version'     => '2020-09-07',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetIntegratedServiceStatus',
+            'version' => '2020-09-07',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return GetIntegratedServiceStatusResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GetIntegratedServiceStatusResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetIntegratedServiceStatusResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
      * Queries the integration status of a specific cloud service.
      *
      * @param request - GetIntegratedServiceStatusRequest
+     *
      * @returns GetIntegratedServiceStatusResponse
      *
      * @param GetIntegratedServiceStatusRequest $request
@@ -5674,6 +6119,7 @@ class Config extends OpenApiClient
      *
      * @param request - GetManagedRuleRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns GetManagedRuleResponse
      *
      * @param GetManagedRuleRequest $request
@@ -5693,18 +6139,21 @@ class Config extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'GetManagedRule',
-            'version'     => '2020-09-07',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetManagedRule',
+            'version' => '2020-09-07',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return GetManagedRuleResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GetManagedRuleResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetManagedRuleResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -5714,6 +6163,7 @@ class Config extends OpenApiClient
      * This topic provides an example on how to query the details of the managed rule `cdn-domain-https-enabled`.
      *
      * @param request - GetManagedRuleRequest
+     *
      * @returns GetManagedRuleResponse
      *
      * @param GetManagedRuleRequest $request
@@ -5735,6 +6185,7 @@ class Config extends OpenApiClient
      *
      * @param request - GetRemediationTemplateRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns GetRemediationTemplateResponse
      *
      * @param GetRemediationTemplateRequest $request
@@ -5754,18 +6205,21 @@ class Config extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'GetRemediationTemplate',
-            'version'     => '2020-09-07',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetRemediationTemplate',
+            'version' => '2020-09-07',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return GetRemediationTemplateResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GetRemediationTemplateResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetRemediationTemplateResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -5775,6 +6229,7 @@ class Config extends OpenApiClient
      * This topic provides an example on how to query the details of the automatic remediation template ACS-ALB-BulkyEnableDeletionProtection.
      *
      * @param request - GetRemediationTemplateRequest
+     *
      * @returns GetRemediationTemplateResponse
      *
      * @param GetRemediationTemplateRequest $request
@@ -5796,6 +6251,7 @@ class Config extends OpenApiClient
      *
      * @param request - GetResourceComplianceByConfigRuleRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns GetResourceComplianceByConfigRuleResponse
      *
      * @param GetResourceComplianceByConfigRuleRequest $request
@@ -5807,22 +6263,25 @@ class Config extends OpenApiClient
     {
         $request->validate();
         $query = Utils::query($request->toMap());
-        $req   = new OpenApiRequest([
+        $req = new OpenApiRequest([
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'GetResourceComplianceByConfigRule',
-            'version'     => '2020-09-07',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetResourceComplianceByConfigRule',
+            'version' => '2020-09-07',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return GetResourceComplianceByConfigRuleResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GetResourceComplianceByConfigRuleResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetResourceComplianceByConfigRuleResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -5832,6 +6291,7 @@ class Config extends OpenApiClient
      * In this topic, the `cr-d369626622af008e****` rule is used as an example. The return result shows that a total of 10 resources are evaluated by the rule and `five` of them are evaluated as compliant.
      *
      * @param request - GetResourceComplianceByConfigRuleRequest
+     *
      * @returns GetResourceComplianceByConfigRuleResponse
      *
      * @param GetResourceComplianceByConfigRuleRequest $request
@@ -5853,6 +6313,7 @@ class Config extends OpenApiClient
      *
      * @param request - GetResourceComplianceByPackRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns GetResourceComplianceByPackResponse
      *
      * @param GetResourceComplianceByPackRequest $request
@@ -5864,22 +6325,25 @@ class Config extends OpenApiClient
     {
         $request->validate();
         $query = Utils::query($request->toMap());
-        $req   = new OpenApiRequest([
+        $req = new OpenApiRequest([
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'GetResourceComplianceByPack',
-            'version'     => '2020-09-07',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetResourceComplianceByPack',
+            'version' => '2020-09-07',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return GetResourceComplianceByPackResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GetResourceComplianceByPackResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetResourceComplianceByPackResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -5889,6 +6353,7 @@ class Config extends OpenApiClient
      * This topic provides an example on how to query the compliance evaluation results of resources monitored by using the `cp-541e626622af0087****` compliance package. The returned result shows a total of 10 resources and seven of them are evaluated as non-compliant.
      *
      * @param request - GetResourceComplianceByPackRequest
+     *
      * @returns GetResourceComplianceByPackResponse
      *
      * @param GetResourceComplianceByPackRequest $request
@@ -5907,6 +6372,7 @@ class Config extends OpenApiClient
      *
      * @param request - GetResourceComplianceGroupByRegionRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns GetResourceComplianceGroupByRegionResponse
      *
      * @param GetResourceComplianceGroupByRegionRequest $request
@@ -5926,24 +6392,28 @@ class Config extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'GetResourceComplianceGroupByRegion',
-            'version'     => '2020-09-07',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetResourceComplianceGroupByRegion',
+            'version' => '2020-09-07',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return GetResourceComplianceGroupByRegionResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GetResourceComplianceGroupByRegionResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetResourceComplianceGroupByRegionResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
      * Queries the evaluation results grouped by region for a rule.
      *
      * @param request - GetResourceComplianceGroupByRegionRequest
+     *
      * @returns GetResourceComplianceGroupByRegionResponse
      *
      * @param GetResourceComplianceGroupByRegionRequest $request
@@ -5962,6 +6432,7 @@ class Config extends OpenApiClient
      *
      * @param request - GetResourceComplianceGroupByResourceTypeRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns GetResourceComplianceGroupByResourceTypeResponse
      *
      * @param GetResourceComplianceGroupByResourceTypeRequest $request
@@ -5981,24 +6452,28 @@ class Config extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'GetResourceComplianceGroupByResourceType',
-            'version'     => '2020-09-07',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetResourceComplianceGroupByResourceType',
+            'version' => '2020-09-07',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return GetResourceComplianceGroupByResourceTypeResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GetResourceComplianceGroupByResourceTypeResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetResourceComplianceGroupByResourceTypeResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
      * Queries the evaluation results grouped by resource type for a rule.
      *
      * @param request - GetResourceComplianceGroupByResourceTypeRequest
+     *
      * @returns GetResourceComplianceGroupByResourceTypeResponse
      *
      * @param GetResourceComplianceGroupByResourceTypeRequest $request
@@ -6021,6 +6496,7 @@ class Config extends OpenApiClient
      *
      * @param request - GetResourceComplianceTimelineRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns GetResourceComplianceTimelineResponse
      *
      * @param GetResourceComplianceTimelineRequest $request
@@ -6032,22 +6508,25 @@ class Config extends OpenApiClient
     {
         $request->validate();
         $query = Utils::query($request->toMap());
-        $req   = new OpenApiRequest([
+        $req = new OpenApiRequest([
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'GetResourceComplianceTimeline',
-            'version'     => '2020-09-07',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetResourceComplianceTimeline',
+            'version' => '2020-09-07',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return GetResourceComplianceTimelineResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GetResourceComplianceTimelineResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetResourceComplianceTimelineResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -6058,6 +6537,7 @@ class Config extends OpenApiClient
      * This topic provides an example on how to query the compliance timeline of the `new-bucket` resource that resides in the `cn-hangzhou` region. The resource is an Object Storage Service (OSS) bucket. The returned result shows the following two timestamps on the compliance timeline: `1625200295276` and `1625200228510`. The first timestamp indicates 12:31:35 on July 2, 2021 (UTC+8) and the second timestamp indicates 12:30:28 on July 2, 2021 (UTC+8).
      *
      * @param request - GetResourceComplianceTimelineRequest
+     *
      * @returns GetResourceComplianceTimelineResponse
      *
      * @param GetResourceComplianceTimelineRequest $request
@@ -6079,6 +6559,7 @@ class Config extends OpenApiClient
      *
      * @param request - GetResourceConfigurationTimelineRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns GetResourceConfigurationTimelineResponse
      *
      * @param GetResourceConfigurationTimelineRequest $request
@@ -6090,22 +6571,25 @@ class Config extends OpenApiClient
     {
         $request->validate();
         $query = Utils::query($request->toMap());
-        $req   = new OpenApiRequest([
+        $req = new OpenApiRequest([
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'GetResourceConfigurationTimeline',
-            'version'     => '2020-09-07',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetResourceConfigurationTimeline',
+            'version' => '2020-09-07',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return GetResourceConfigurationTimelineResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GetResourceConfigurationTimelineResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetResourceConfigurationTimelineResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -6115,6 +6599,7 @@ class Config extends OpenApiClient
      * The sample request in this topic shows you how to query the configuration timeline of the `new-bucket` resource that resides in the `cn-hangzhou` region. The new-bucket resource is an Object Storage Service (OSS) bucket. The return result shows that the timestamp when the resource configuration changes is `1624961112000`. The timestamp indicates 18:05:12 on June 29, 2021 (UTC+8).
      *
      * @param request - GetResourceConfigurationTimelineRequest
+     *
      * @returns GetResourceConfigurationTimelineResponse
      *
      * @param GetResourceConfigurationTimelineRequest $request
@@ -6139,6 +6624,7 @@ class Config extends OpenApiClient
      *
      * @param request - GetResourceInventoryRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns GetResourceInventoryResponse
      *
      * @param RuntimeOptions $runtime
@@ -6147,20 +6633,23 @@ class Config extends OpenApiClient
      */
     public function getResourceInventoryWithOptions($runtime)
     {
-        $req    = new OpenApiRequest([]);
+        $req = new OpenApiRequest([]);
         $params = new Params([
-            'action'      => 'GetResourceInventory',
-            'version'     => '2020-09-07',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetResourceInventory',
+            'version' => '2020-09-07',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return GetResourceInventoryResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GetResourceInventoryResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetResourceInventoryResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -6171,6 +6660,7 @@ class Config extends OpenApiClient
      * You can call the [GenerateResourceInventory](https://help.aliyun.com/document_detail/2398354.html) operation to generate a resource inventory. Then, you can call the GetResourceInventory operation to obtain the URL of the resource inventory.
      * ### [](#)Description
      * This topic provides an example on how to obtain the last resource inventory that is generated within the current Alibaba Cloud account.
+     *
      * @returns GetResourceInventoryResponse
      *
      * @return GetResourceInventoryResponse
@@ -6190,6 +6680,7 @@ class Config extends OpenApiClient
      *
      * @param request - GetSupportedResourceRelationConfigRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns GetSupportedResourceRelationConfigResponse
      *
      * @param GetSupportedResourceRelationConfigRequest $request
@@ -6209,18 +6700,21 @@ class Config extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'GetSupportedResourceRelationConfig',
-            'version'     => '2020-09-07',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetSupportedResourceRelationConfig',
+            'version' => '2020-09-07',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return GetSupportedResourceRelationConfigResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GetSupportedResourceRelationConfigResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetSupportedResourceRelationConfigResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -6230,6 +6724,7 @@ class Config extends OpenApiClient
      * This topic provides an example to show how to query the resource relationships that are supported by the ACS::ECS::Instance resource type.
      *
      * @param request - GetSupportedResourceRelationConfigRequest
+     *
      * @returns GetSupportedResourceRelationConfigResponse
      *
      * @param GetSupportedResourceRelationConfigRequest $request
@@ -6252,6 +6747,7 @@ class Config extends OpenApiClient
      *
      * @param tmpReq - IgnoreAggregateEvaluationResultsRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns IgnoreAggregateEvaluationResultsResponse
      *
      * @param IgnoreAggregateEvaluationResultsRequest $tmpReq
@@ -6293,18 +6789,21 @@ class Config extends OpenApiClient
             'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'IgnoreAggregateEvaluationResults',
-            'version'     => '2020-09-07',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'IgnoreAggregateEvaluationResults',
+            'version' => '2020-09-07',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return IgnoreAggregateEvaluationResultsResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return IgnoreAggregateEvaluationResultsResponse::fromMap($this->callApi($params, $req, $runtime));
+        return IgnoreAggregateEvaluationResultsResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -6315,6 +6814,7 @@ class Config extends OpenApiClient
      * This example shows how to ignore the `lb-hp3a3b4ztyfm2plgm****` incompliant resource that is evaluated by using the `cr-7e72626622af0051***` rule in the `120886317861****` member account of the `ca-5b6c626622af008f****` account group. The ID of the region where the resource resides is `cn-beijing`, and the type of the resource is `ACS::SLB::LoadBalancer`.
      *
      * @param request - IgnoreAggregateEvaluationResultsRequest
+     *
      * @returns IgnoreAggregateEvaluationResultsResponse
      *
      * @param IgnoreAggregateEvaluationResultsRequest $request
@@ -6337,6 +6837,7 @@ class Config extends OpenApiClient
      *
      * @param tmpReq - IgnoreEvaluationResultsRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns IgnoreEvaluationResultsResponse
      *
      * @param IgnoreEvaluationResultsRequest $tmpReq
@@ -6374,18 +6875,21 @@ class Config extends OpenApiClient
             'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'IgnoreEvaluationResults',
-            'version'     => '2020-09-07',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'IgnoreEvaluationResults',
+            'version' => '2020-09-07',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return IgnoreEvaluationResultsResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return IgnoreEvaluationResultsResponse::fromMap($this->callApi($params, $req, $runtime));
+        return IgnoreEvaluationResultsResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -6396,6 +6900,7 @@ class Config extends OpenApiClient
      * This example shows how to ignore the `lb-hp3a3b4ztyfm2plgm****` resource that is evaluated as incompliant by using the `cr-7e72626622af0051****` rule in the `100931896542****` account. The ID of the region in which the resource resides is `cn-beijing`, and the type of the resource is `ACS::SLB::LoadBalancer`.
      *
      * @param request - IgnoreEvaluationResultsRequest
+     *
      * @returns IgnoreEvaluationResultsResponse
      *
      * @param IgnoreEvaluationResultsRequest $request
@@ -6415,18 +6920,25 @@ class Config extends OpenApiClient
      * @remarks
      * In this topic, the `ca-f632626622af0079****` account group is used as an example. The return result shows one compliance package whose ID is `cp-fdc8626622af00f9****`.
      *
-     * @param request - ListAggregateCompliancePacksRequest
+     * @param tmpReq - ListAggregateCompliancePacksRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ListAggregateCompliancePacksResponse
      *
-     * @param ListAggregateCompliancePacksRequest $request
+     * @param ListAggregateCompliancePacksRequest $tmpReq
      * @param RuntimeOptions                      $runtime
      *
      * @return ListAggregateCompliancePacksResponse
      */
-    public function listAggregateCompliancePacksWithOptions($request, $runtime)
+    public function listAggregateCompliancePacksWithOptions($tmpReq, $runtime)
     {
-        $request->validate();
+        $tmpReq->validate();
+        $request = new ListAggregateCompliancePacksShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->tag) {
+            $request->tagShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->tag, 'Tag', 'json');
+        }
+
         $query = [];
         if (null !== $request->aggregatorId) {
             @$query['AggregatorId'] = $request->aggregatorId;
@@ -6444,22 +6956,29 @@ class Config extends OpenApiClient
             @$query['Status'] = $request->status;
         }
 
+        if (null !== $request->tagShrink) {
+            @$query['Tag'] = $request->tagShrink;
+        }
+
         $req = new OpenApiRequest([
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListAggregateCompliancePacks',
-            'version'     => '2020-09-07',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListAggregateCompliancePacks',
+            'version' => '2020-09-07',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ListAggregateCompliancePacksResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ListAggregateCompliancePacksResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListAggregateCompliancePacksResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -6469,6 +6988,7 @@ class Config extends OpenApiClient
      * In this topic, the `ca-f632626622af0079****` account group is used as an example. The return result shows one compliance package whose ID is `cp-fdc8626622af00f9****`.
      *
      * @param request - ListAggregateCompliancePacksRequest
+     *
      * @returns ListAggregateCompliancePacksResponse
      *
      * @param ListAggregateCompliancePacksRequest $request
@@ -6487,6 +7007,7 @@ class Config extends OpenApiClient
      *
      * @param request - ListAggregateConfigDeliveryChannelsRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ListAggregateConfigDeliveryChannelsResponse
      *
      * @param ListAggregateConfigDeliveryChannelsRequest $request
@@ -6510,24 +7031,28 @@ class Config extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListAggregateConfigDeliveryChannels',
-            'version'     => '2020-09-07',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListAggregateConfigDeliveryChannels',
+            'version' => '2020-09-07',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ListAggregateConfigDeliveryChannelsResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ListAggregateConfigDeliveryChannelsResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListAggregateConfigDeliveryChannelsResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
      * Queries the information about all delivery channels in an account group.
      *
      * @param request - ListAggregateConfigDeliveryChannelsRequest
+     *
      * @returns ListAggregateConfigDeliveryChannelsResponse
      *
      * @param ListAggregateConfigDeliveryChannelsRequest $request
@@ -6549,6 +7074,7 @@ class Config extends OpenApiClient
      *
      * @param request - ListAggregateConfigRuleEvaluationResultsRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ListAggregateConfigRuleEvaluationResultsResponse
      *
      * @param ListAggregateConfigRuleEvaluationResultsRequest $request
@@ -6608,18 +7134,21 @@ class Config extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListAggregateConfigRuleEvaluationResults',
-            'version'     => '2020-09-07',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListAggregateConfigRuleEvaluationResults',
+            'version' => '2020-09-07',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ListAggregateConfigRuleEvaluationResultsResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ListAggregateConfigRuleEvaluationResultsResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListAggregateConfigRuleEvaluationResultsResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -6629,6 +7158,7 @@ class Config extends OpenApiClient
      * This topic provides an example on how to query the compliance evaluation results of resources based on the `cr-888f626622af00ae****` rule in the `ca-d1e3326622af00cb****` account group. The returned result indicates that the `Bucket-test` resource is evaluated as `NON_COMPLIANT` by using the rule. The resource is an Object Storage Service (OSS) bucket.
      *
      * @param request - ListAggregateConfigRuleEvaluationResultsRequest
+     *
      * @returns ListAggregateConfigRuleEvaluationResultsResponse
      *
      * @param ListAggregateConfigRuleEvaluationResultsRequest $request
@@ -6650,6 +7180,7 @@ class Config extends OpenApiClient
      *
      * @param request - ListAggregateConfigRuleEvaluationStatisticsRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ListAggregateConfigRuleEvaluationStatisticsResponse
      *
      * @param ListAggregateConfigRuleEvaluationStatisticsRequest $request
@@ -6669,18 +7200,21 @@ class Config extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListAggregateConfigRuleEvaluationStatistics',
-            'version'     => '2020-09-07',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListAggregateConfigRuleEvaluationStatistics',
+            'version' => '2020-09-07',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ListAggregateConfigRuleEvaluationStatisticsResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ListAggregateConfigRuleEvaluationStatisticsResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListAggregateConfigRuleEvaluationStatisticsResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -6690,6 +7224,7 @@ class Config extends OpenApiClient
      * This topic provides an example on how to query the statistics of compliance evaluation results of an account group whose ID is ca-edd3626622af00b3\\*\\*\\*\\*.
      *
      * @param request - ListAggregateConfigRuleEvaluationStatisticsRequest
+     *
      * @returns ListAggregateConfigRuleEvaluationStatisticsResponse
      *
      * @param ListAggregateConfigRuleEvaluationStatisticsRequest $request
@@ -6709,18 +7244,25 @@ class Config extends OpenApiClient
      * @remarks
      * This topic provides an example on how to query the rules in an account group whose ID is `ca-f632626622af0079****`. The returned result shows a total of one rule and two evaluated resources. The resources are both evaluated as `COMPLIANT`.
      *
-     * @param request - ListAggregateConfigRulesRequest
+     * @param tmpReq - ListAggregateConfigRulesRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ListAggregateConfigRulesResponse
      *
-     * @param ListAggregateConfigRulesRequest $request
+     * @param ListAggregateConfigRulesRequest $tmpReq
      * @param RuntimeOptions                  $runtime
      *
      * @return ListAggregateConfigRulesResponse
      */
-    public function listAggregateConfigRulesWithOptions($request, $runtime)
+    public function listAggregateConfigRulesWithOptions($tmpReq, $runtime)
     {
-        $request->validate();
+        $tmpReq->validate();
+        $request = new ListAggregateConfigRulesShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->tag) {
+            $request->tagShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->tag, 'Tag', 'json');
+        }
+
         $query = [];
         if (null !== $request->aggregatorId) {
             @$query['AggregatorId'] = $request->aggregatorId;
@@ -6762,22 +7304,29 @@ class Config extends OpenApiClient
             @$query['RiskLevel'] = $request->riskLevel;
         }
 
+        if (null !== $request->tagShrink) {
+            @$query['Tag'] = $request->tagShrink;
+        }
+
         $req = new OpenApiRequest([
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListAggregateConfigRules',
-            'version'     => '2020-09-07',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListAggregateConfigRules',
+            'version' => '2020-09-07',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ListAggregateConfigRulesResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ListAggregateConfigRulesResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListAggregateConfigRulesResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -6787,6 +7336,7 @@ class Config extends OpenApiClient
      * This topic provides an example on how to query the rules in an account group whose ID is `ca-f632626622af0079****`. The returned result shows a total of one rule and two evaluated resources. The resources are both evaluated as `COMPLIANT`.
      *
      * @param request - ListAggregateConfigRulesRequest
+     *
      * @returns ListAggregateConfigRulesResponse
      *
      * @param ListAggregateConfigRulesRequest $request
@@ -6808,6 +7358,7 @@ class Config extends OpenApiClient
      *
      * @param request - ListAggregateDiscoveredResourcesRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ListAggregateDiscoveredResourcesResponse
      *
      * @param ListAggregateDiscoveredResourcesRequest $request
@@ -6871,18 +7422,21 @@ class Config extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListAggregateDiscoveredResources',
-            'version'     => '2020-09-07',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListAggregateDiscoveredResources',
+            'version' => '2020-09-07',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ListAggregateDiscoveredResourcesResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ListAggregateDiscoveredResourcesResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListAggregateDiscoveredResourcesResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -6892,6 +7446,7 @@ class Config extends OpenApiClient
      * This topic provides an example on how to query the resources within the member account `100931896542****` of the account group `ca-c560626622af0005****`. The result indicates that eight resources are queried.
      *
      * @param request - ListAggregateDiscoveredResourcesRequest
+     *
      * @returns ListAggregateDiscoveredResourcesResponse
      *
      * @param ListAggregateDiscoveredResourcesRequest $request
@@ -6913,6 +7468,7 @@ class Config extends OpenApiClient
      *
      * @param request - ListAggregateRemediationExecutionsRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ListAggregateRemediationExecutionsResponse
      *
      * @param ListAggregateRemediationExecutionsRequest $request
@@ -6952,18 +7508,21 @@ class Config extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListAggregateRemediationExecutions',
-            'version'     => '2020-09-07',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListAggregateRemediationExecutions',
+            'version' => '2020-09-07',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ListAggregateRemediationExecutionsResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ListAggregateRemediationExecutionsResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListAggregateRemediationExecutionsResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -6973,6 +7532,7 @@ class Config extends OpenApiClient
      * This topic provides an example on how to query the remediation records of the `cr-d04a626622af00af****` rule in the `ca-edd3626622af00b3****` account group.
      *
      * @param request - ListAggregateRemediationExecutionsRequest
+     *
      * @returns ListAggregateRemediationExecutionsResponse
      *
      * @param ListAggregateRemediationExecutionsRequest $request
@@ -6994,6 +7554,7 @@ class Config extends OpenApiClient
      *
      * @param request - ListAggregateRemediationsRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ListAggregateRemediationsResponse
      *
      * @param ListAggregateRemediationsRequest $request
@@ -7017,18 +7578,21 @@ class Config extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListAggregateRemediations',
-            'version'     => '2020-09-07',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListAggregateRemediations',
+            'version' => '2020-09-07',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ListAggregateRemediationsResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ListAggregateRemediationsResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListAggregateRemediationsResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -7038,6 +7602,7 @@ class Config extends OpenApiClient
      * This topic provides an example on how to query the remediation templates of the rule whose ID is `cr-6b7c626622af00b4****` in the account group whose ID is `ca-6b4a626622af0012****`.
      *
      * @param request - ListAggregateRemediationsRequest
+     *
      * @returns ListAggregateRemediationsResponse
      *
      * @param ListAggregateRemediationsRequest $request
@@ -7059,6 +7624,7 @@ class Config extends OpenApiClient
      *
      * @param request - ListAggregateResourceEvaluationResultsRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ListAggregateResourceEvaluationResultsResponse
      *
      * @param ListAggregateResourceEvaluationResultsRequest $request
@@ -7102,18 +7668,21 @@ class Config extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListAggregateResourceEvaluationResults',
-            'version'     => '2020-09-07',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListAggregateResourceEvaluationResults',
+            'version' => '2020-09-07',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ListAggregateResourceEvaluationResultsResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ListAggregateResourceEvaluationResultsResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListAggregateResourceEvaluationResultsResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -7123,6 +7692,7 @@ class Config extends OpenApiClient
      * This example shows how to query the compliance evaluation result of the `23642660635396****` resource in the `ca-7f00626622af0041****` account group. The resource is a RAM user. The returned result indicates that the resource is evaluated as `NON_COMPLIANT` by using the `cr-7f7d626622af0041****` rule.
      *
      * @param request - ListAggregateResourceEvaluationResultsRequest
+     *
      * @returns ListAggregateResourceEvaluationResultsResponse
      *
      * @param ListAggregateResourceEvaluationResultsRequest $request
@@ -7144,6 +7714,7 @@ class Config extends OpenApiClient
      *
      * @param request - ListAggregateResourceRelationsRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ListAggregateResourceRelationsResponse
      *
      * @param ListAggregateResourceRelationsRequest $request
@@ -7199,18 +7770,21 @@ class Config extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListAggregateResourceRelations',
-            'version'     => '2020-09-07',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListAggregateResourceRelations',
+            'version' => '2020-09-07',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ListAggregateResourceRelationsResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ListAggregateResourceRelationsResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListAggregateResourceRelationsResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -7220,6 +7794,7 @@ class Config extends OpenApiClient
      * This topic provides an example on how to query the disks that are associated with an Elastic Compute Service (ECS) instance in an account group.
      *
      * @param request - ListAggregateResourceRelationsRequest
+     *
      * @returns ListAggregateResourceRelationsResponse
      *
      * @param ListAggregateResourceRelationsRequest $request
@@ -7245,6 +7820,7 @@ class Config extends OpenApiClient
      *
      * @param request - ListAggregateResourcesByAdvancedSearchRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ListAggregateResourcesByAdvancedSearchResponse
      *
      * @param ListAggregateResourcesByAdvancedSearchRequest $request
@@ -7268,18 +7844,21 @@ class Config extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListAggregateResourcesByAdvancedSearch',
-            'version'     => '2020-09-07',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListAggregateResourcesByAdvancedSearch',
+            'version' => '2020-09-07',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ListAggregateResourcesByAdvancedSearchResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ListAggregateResourcesByAdvancedSearchResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListAggregateResourcesByAdvancedSearchResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -7293,6 +7872,7 @@ class Config extends OpenApiClient
      * This topic provides an example on how to obtain all resources whose tag key is `business` and whose tag value is `online` in the account group `ca-4b05626622af000c****` by using the advanced search feature.
      *
      * @param request - ListAggregateResourcesByAdvancedSearchRequest
+     *
      * @returns ListAggregateResourcesByAdvancedSearchResponse
      *
      * @param ListAggregateResourcesByAdvancedSearchRequest $request
@@ -7312,18 +7892,25 @@ class Config extends OpenApiClient
      * @remarks
      * The sample request in this topic shows you how to query account groups. A maximum of 10 entries can be returned for the request. As shown in the responses, the account group returned is named as `Test_Group`, its description is `Test account group`, and it is of the `CUSTOM` type, which indicates a custom account group. The account group contains two member accounts.
      *
-     * @param request - ListAggregatorsRequest
+     * @param tmpReq - ListAggregatorsRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ListAggregatorsResponse
      *
-     * @param ListAggregatorsRequest $request
+     * @param ListAggregatorsRequest $tmpReq
      * @param RuntimeOptions         $runtime
      *
      * @return ListAggregatorsResponse
      */
-    public function listAggregatorsWithOptions($request, $runtime)
+    public function listAggregatorsWithOptions($tmpReq, $runtime)
     {
-        $request->validate();
+        $tmpReq->validate();
+        $request = new ListAggregatorsShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->tag) {
+            $request->tagShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->tag, 'Tag', 'json');
+        }
+
         $query = [];
         if (null !== $request->maxResults) {
             @$query['MaxResults'] = $request->maxResults;
@@ -7333,22 +7920,29 @@ class Config extends OpenApiClient
             @$query['NextToken'] = $request->nextToken;
         }
 
+        if (null !== $request->tagShrink) {
+            @$query['Tag'] = $request->tagShrink;
+        }
+
         $req = new OpenApiRequest([
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListAggregators',
-            'version'     => '2020-09-07',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListAggregators',
+            'version' => '2020-09-07',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ListAggregatorsResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ListAggregatorsResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListAggregatorsResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -7358,6 +7952,7 @@ class Config extends OpenApiClient
      * The sample request in this topic shows you how to query account groups. A maximum of 10 entries can be returned for the request. As shown in the responses, the account group returned is named as `Test_Group`, its description is `Test account group`, and it is of the `CUSTOM` type, which indicates a custom account group. The account group contains two member accounts.
      *
      * @param request - ListAggregatorsRequest
+     *
      * @returns ListAggregatorsResponse
      *
      * @param ListAggregatorsRequest $request
@@ -7379,6 +7974,7 @@ class Config extends OpenApiClient
      *
      * @param request - ListCompliancePackTemplatesRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ListCompliancePackTemplatesResponse
      *
      * @param ListCompliancePackTemplatesRequest $request
@@ -7410,18 +8006,21 @@ class Config extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListCompliancePackTemplates',
-            'version'     => '2020-09-07',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListCompliancePackTemplates',
+            'version' => '2020-09-07',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ListCompliancePackTemplatesResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ListCompliancePackTemplatesResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListCompliancePackTemplatesResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -7431,6 +8030,7 @@ class Config extends OpenApiClient
      * A compliance package template is a collection of rules that Cloud Config can create based on compliance scenarios.
      *
      * @param request - ListCompliancePackTemplatesRequest
+     *
      * @returns ListCompliancePackTemplatesResponse
      *
      * @param ListCompliancePackTemplatesRequest $request
@@ -7450,18 +8050,25 @@ class Config extends OpenApiClient
      * @remarks
      * This topic provides an example of how to query compliance packages. The return result shows the details of the `cp-fdc8626622af00f9****` compliance package.
      *
-     * @param request - ListCompliancePacksRequest
+     * @param tmpReq - ListCompliancePacksRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ListCompliancePacksResponse
      *
-     * @param ListCompliancePacksRequest $request
+     * @param ListCompliancePacksRequest $tmpReq
      * @param RuntimeOptions             $runtime
      *
      * @return ListCompliancePacksResponse
      */
-    public function listCompliancePacksWithOptions($request, $runtime)
+    public function listCompliancePacksWithOptions($tmpReq, $runtime)
     {
-        $request->validate();
+        $tmpReq->validate();
+        $request = new ListCompliancePacksShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->tag) {
+            $request->tagShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->tag, 'Tag', 'json');
+        }
+
         $query = [];
         if (null !== $request->pageNumber) {
             @$query['PageNumber'] = $request->pageNumber;
@@ -7475,22 +8082,29 @@ class Config extends OpenApiClient
             @$query['Status'] = $request->status;
         }
 
+        if (null !== $request->tagShrink) {
+            @$query['Tag'] = $request->tagShrink;
+        }
+
         $req = new OpenApiRequest([
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListCompliancePacks',
-            'version'     => '2020-09-07',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListCompliancePacks',
+            'version' => '2020-09-07',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ListCompliancePacksResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ListCompliancePacksResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListCompliancePacksResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -7500,6 +8114,7 @@ class Config extends OpenApiClient
      * This topic provides an example of how to query compliance packages. The return result shows the details of the `cp-fdc8626622af00f9****` compliance package.
      *
      * @param request - ListCompliancePacksRequest
+     *
      * @returns ListCompliancePacksResponse
      *
      * @param ListCompliancePacksRequest $request
@@ -7518,6 +8133,7 @@ class Config extends OpenApiClient
      *
      * @param request - ListConfigDeliveryChannelsRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ListConfigDeliveryChannelsResponse
      *
      * @param ListConfigDeliveryChannelsRequest $request
@@ -7537,24 +8153,28 @@ class Config extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListConfigDeliveryChannels',
-            'version'     => '2020-09-07',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListConfigDeliveryChannels',
+            'version' => '2020-09-07',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ListConfigDeliveryChannelsResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ListConfigDeliveryChannelsResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListConfigDeliveryChannelsResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
      * Queries a list of delivery channels.
      *
      * @param request - ListConfigDeliveryChannelsRequest
+     *
      * @returns ListConfigDeliveryChannelsResponse
      *
      * @param ListConfigDeliveryChannelsRequest $request
@@ -7576,6 +8196,7 @@ class Config extends OpenApiClient
      *
      * @param request - ListConfigRuleEvaluationResultsRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ListConfigRuleEvaluationResultsResponse
      *
      * @param ListConfigRuleEvaluationResultsRequest $request
@@ -7587,22 +8208,25 @@ class Config extends OpenApiClient
     {
         $request->validate();
         $query = Utils::query($request->toMap());
-        $req   = new OpenApiRequest([
+        $req = new OpenApiRequest([
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListConfigRuleEvaluationResults',
-            'version'     => '2020-09-07',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListConfigRuleEvaluationResults',
+            'version' => '2020-09-07',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ListConfigRuleEvaluationResultsResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ListConfigRuleEvaluationResultsResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListConfigRuleEvaluationResultsResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -7612,6 +8236,7 @@ class Config extends OpenApiClient
      * This topic provides an example on how to query the compliance evaluation result of resources based on a rule whose ID is `cr-cac56457e0d900d3****`. The returned result indicates that the `i-hp3e4kvhzqn2s11t****` resource is evaluated as `NON_COMPLIANT` by using the rule. The resource is an Elastic Compute Service (ECS) instance.
      *
      * @param request - ListConfigRuleEvaluationResultsRequest
+     *
      * @returns ListConfigRuleEvaluationResultsResponse
      *
      * @param ListConfigRuleEvaluationResultsRequest $request
@@ -7630,6 +8255,7 @@ class Config extends OpenApiClient
      *
      * @param request - ListConfigRuleEvaluationStatisticsRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ListConfigRuleEvaluationStatisticsResponse
      *
      * @param RuntimeOptions $runtime
@@ -7638,20 +8264,23 @@ class Config extends OpenApiClient
      */
     public function listConfigRuleEvaluationStatisticsWithOptions($runtime)
     {
-        $req    = new OpenApiRequest([]);
+        $req = new OpenApiRequest([]);
         $params = new Params([
-            'action'      => 'ListConfigRuleEvaluationStatistics',
-            'version'     => '2020-09-07',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListConfigRuleEvaluationStatistics',
+            'version' => '2020-09-07',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ListConfigRuleEvaluationStatisticsResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ListConfigRuleEvaluationStatisticsResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListConfigRuleEvaluationStatisticsResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -7676,6 +8305,7 @@ class Config extends OpenApiClient
      *
      * @param tmpReq - ListConfigRulesRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ListConfigRulesResponse
      *
      * @param ListConfigRulesRequest $tmpReq
@@ -7737,18 +8367,21 @@ class Config extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListConfigRules',
-            'version'     => '2020-09-07',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListConfigRules',
+            'version' => '2020-09-07',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ListConfigRulesResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ListConfigRulesResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListConfigRulesResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -7758,6 +8391,7 @@ class Config extends OpenApiClient
      * This topic provides an example on how to query the rules of the current account. The response shows that the current account has a total of one rule and three evaluated resources. The resources are evaluated as compliant.
      *
      * @param request - ListConfigRulesRequest
+     *
      * @returns ListConfigRulesResponse
      *
      * @param ListConfigRulesRequest $request
@@ -7779,6 +8413,7 @@ class Config extends OpenApiClient
      *
      * @param request - ListDiscoveredResourcesRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ListDiscoveredResourcesResponse
      *
      * @param ListDiscoveredResourcesRequest $request
@@ -7830,18 +8465,21 @@ class Config extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListDiscoveredResources',
-            'version'     => '2020-09-07',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListDiscoveredResources',
+            'version' => '2020-09-07',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ListDiscoveredResourcesResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ListDiscoveredResourcesResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListDiscoveredResourcesResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -7851,6 +8489,7 @@ class Config extends OpenApiClient
      * This topic provides an example on how to call the ListDiscoveredResources operation to query the resources in the current Alibaba Cloud account. The returned result indicates that a total of eight resources exist in the account.
      *
      * @param request - ListDiscoveredResourcesRequest
+     *
      * @returns ListDiscoveredResourcesResponse
      *
      * @param ListDiscoveredResourcesRequest $request
@@ -7872,6 +8511,7 @@ class Config extends OpenApiClient
      *
      * @param request - ListIntegratedServiceRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ListIntegratedServiceResponse
      *
      * @param RuntimeOptions $runtime
@@ -7880,20 +8520,23 @@ class Config extends OpenApiClient
      */
     public function listIntegratedServiceWithOptions($runtime)
     {
-        $req    = new OpenApiRequest([]);
+        $req = new OpenApiRequest([]);
         $params = new Params([
-            'action'      => 'ListIntegratedService',
-            'version'     => '2020-09-07',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListIntegratedService',
+            'version' => '2020-09-07',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ListIntegratedServiceResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ListIntegratedServiceResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListIntegratedServiceResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -7901,6 +8544,7 @@ class Config extends OpenApiClient
      *
      * @remarks
      * This topic provides an example on how to query the cloud services that can be integrated by the current Alibaba Cloud account.
+     *
      * @returns ListIntegratedServiceResponse
      *
      * @return ListIntegratedServiceResponse
@@ -7923,6 +8567,7 @@ class Config extends OpenApiClient
      *
      * @param request - ListManagedRulesRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ListManagedRulesResponse
      *
      * @param ListManagedRulesRequest $request
@@ -7934,6 +8579,10 @@ class Config extends OpenApiClient
     {
         $request->validate();
         $query = [];
+        if (null !== $request->filterType) {
+            @$query['FilterType'] = $request->filterType;
+        }
+
         if (null !== $request->keyword) {
             @$query['Keyword'] = $request->keyword;
         }
@@ -7958,18 +8607,21 @@ class Config extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListManagedRules',
-            'version'     => '2020-09-07',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListManagedRules',
+            'version' => '2020-09-07',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ListManagedRulesResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ListManagedRulesResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListManagedRulesResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -7982,6 +8634,7 @@ class Config extends OpenApiClient
      * This topic provides an example on how to query all managed rules whose keyword is `CDN`. The response shows that 21 managed rules exist.
      *
      * @param request - ListManagedRulesRequest
+     *
      * @returns ListManagedRulesResponse
      *
      * @param ListManagedRulesRequest $request
@@ -8004,6 +8657,7 @@ class Config extends OpenApiClient
      *
      * @param tmpReq - ListPreManagedRulesRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ListPreManagedRulesResponse
      *
      * @param ListPreManagedRulesRequest $tmpReq
@@ -8037,18 +8691,21 @@ class Config extends OpenApiClient
             'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'ListPreManagedRules',
-            'version'     => '2020-09-07',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListPreManagedRules',
+            'version' => '2020-09-07',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ListPreManagedRulesResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ListPreManagedRulesResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListPreManagedRulesResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -8059,6 +8716,7 @@ class Config extends OpenApiClient
      * After you create an evaluation rule, a managed rule that has the same settings as the evaluation rule is created. After you create a resource, the managed rule can be used to continuously check the compliance of the resource.
      *
      * @param request - ListPreManagedRulesRequest
+     *
      * @returns ListPreManagedRulesResponse
      *
      * @param ListPreManagedRulesRequest $request
@@ -8080,6 +8738,7 @@ class Config extends OpenApiClient
      *
      * @param request - ListRemediationExecutionsRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ListRemediationExecutionsResponse
      *
      * @param ListRemediationExecutionsRequest $request
@@ -8111,18 +8770,21 @@ class Config extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListRemediationExecutions',
-            'version'     => '2020-09-07',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListRemediationExecutions',
+            'version' => '2020-09-07',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ListRemediationExecutionsResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ListRemediationExecutionsResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListRemediationExecutionsResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -8132,6 +8794,7 @@ class Config extends OpenApiClient
      * This topic provides an example on how to query the remediation records of the rule cr-5392626622af0000\\*\\*\\*\\*.
      *
      * @param request - ListRemediationExecutionsRequest
+     *
      * @returns ListRemediationExecutionsResponse
      *
      * @param ListRemediationExecutionsRequest $request
@@ -8153,6 +8816,7 @@ class Config extends OpenApiClient
      *
      * @param request - ListRemediationTemplatesRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ListRemediationTemplatesResponse
      *
      * @param ListRemediationTemplatesRequest $request
@@ -8184,18 +8848,21 @@ class Config extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListRemediationTemplates',
-            'version'     => '2020-09-07',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListRemediationTemplates',
+            'version' => '2020-09-07',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ListRemediationTemplatesResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ListRemediationTemplatesResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListRemediationTemplatesResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -8205,6 +8872,7 @@ class Config extends OpenApiClient
      * In this topic, the `oss-bucket-public-write-prohibited` managed rule is used as an example. The return result shows the details of the remediation template of the `OOS` type for the managed rule. OOS represents Operation Orchestration Service.
      *
      * @param request - ListRemediationTemplatesRequest
+     *
      * @returns ListRemediationTemplatesResponse
      *
      * @param ListRemediationTemplatesRequest $request
@@ -8226,6 +8894,7 @@ class Config extends OpenApiClient
      *
      * @param request - ListRemediationsRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ListRemediationsResponse
      *
      * @param ListRemediationsRequest $request
@@ -8253,18 +8922,21 @@ class Config extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListRemediations',
-            'version'     => '2020-09-07',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListRemediations',
+            'version' => '2020-09-07',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ListRemediationsResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ListRemediationsResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListRemediationsResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -8274,6 +8946,7 @@ class Config extends OpenApiClient
      * This topic provides an example on how to query the remediation templates for the rule whose ID is `cr-6b7c626622af00b4****`.
      *
      * @param request - ListRemediationsRequest
+     *
      * @returns ListRemediationsResponse
      *
      * @param ListRemediationsRequest $request
@@ -8295,6 +8968,7 @@ class Config extends OpenApiClient
      *
      * @param request - ListResourceEvaluationResultsRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ListResourceEvaluationResultsResponse
      *
      * @param ListResourceEvaluationResultsRequest $request
@@ -8334,18 +9008,21 @@ class Config extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListResourceEvaluationResults',
-            'version'     => '2020-09-07',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListResourceEvaluationResults',
+            'version' => '2020-09-07',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ListResourceEvaluationResultsResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ListResourceEvaluationResultsResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListResourceEvaluationResultsResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -8355,6 +9032,7 @@ class Config extends OpenApiClient
      * In this example, the compliance evaluation result of the `23642660635396****` resource is queried and the resource is a RAM user. The returned result indicates that the resource is evaluated as `NON_COMPLIANT` by using the `cr-7f7d626622af0041****` rule.
      *
      * @param request - ListResourceEvaluationResultsRequest
+     *
      * @returns ListResourceEvaluationResultsResponse
      *
      * @param ListResourceEvaluationResultsRequest $request
@@ -8377,6 +9055,7 @@ class Config extends OpenApiClient
      *
      * @param request - ListResourceRelationsRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ListResourceRelationsResponse
      *
      * @param ListResourceRelationsRequest $request
@@ -8424,18 +9103,21 @@ class Config extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListResourceRelations',
-            'version'     => '2020-09-07',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListResourceRelations',
+            'version' => '2020-09-07',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ListResourceRelationsResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ListResourceRelationsResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListResourceRelationsResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -8446,6 +9128,7 @@ class Config extends OpenApiClient
      * This topic provides an example on how to query the information about the disks that are attached to an Elastic Compute Service (ECS) instance named `i-j6cajg9yrfoh4sas****` that is created by the current Alibaba Cloud account in the China (Shanghai) region.
      *
      * @param request - ListResourceRelationsRequest
+     *
      * @returns ListResourceRelationsResponse
      *
      * @param ListResourceRelationsRequest $request
@@ -8471,6 +9154,7 @@ class Config extends OpenApiClient
      *
      * @param request - ListResourcesByAdvancedSearchRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ListResourcesByAdvancedSearchResponse
      *
      * @param ListResourcesByAdvancedSearchRequest $request
@@ -8490,18 +9174,21 @@ class Config extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListResourcesByAdvancedSearch',
-            'version'     => '2020-09-07',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListResourcesByAdvancedSearch',
+            'version' => '2020-09-07',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ListResourcesByAdvancedSearchResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ListResourcesByAdvancedSearchResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListResourcesByAdvancedSearchResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -8515,6 +9202,7 @@ class Config extends OpenApiClient
      * This topic provides an example on how to obtain all resources whose tag key is `business` and whose tag value is `online` within the current account by using the advanced search feature.
      *
      * @param request - ListResourcesByAdvancedSearchRequest
+     *
      * @returns ListResourcesByAdvancedSearchResponse
      *
      * @param ListResourcesByAdvancedSearchRequest $request
@@ -8536,6 +9224,7 @@ class Config extends OpenApiClient
      *
      * @param request - ListSupportedProductsRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ListSupportedProductsResponse
      *
      * @param ListSupportedProductsRequest $request
@@ -8559,18 +9248,21 @@ class Config extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListSupportedProducts',
-            'version'     => '2020-09-07',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListSupportedProducts',
+            'version' => '2020-09-07',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ListSupportedProductsResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ListSupportedProductsResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListSupportedProductsResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -8580,6 +9272,7 @@ class Config extends OpenApiClient
      * This topic provides an example on how to query the Alibaba Cloud services and resource types supported by a Cloud Config.
      *
      * @param request - ListSupportedProductsRequest
+     *
      * @returns ListSupportedProductsResponse
      *
      * @param ListSupportedProductsRequest $request
@@ -8598,6 +9291,7 @@ class Config extends OpenApiClient
      *
      * @param tmpReq - ListTagResourcesRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ListTagResourcesResponse
      *
      * @param ListTagResourcesRequest $tmpReq
@@ -8639,24 +9333,28 @@ class Config extends OpenApiClient
             'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'ListTagResources',
-            'version'     => '2020-09-07',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListTagResources',
+            'version' => '2020-09-07',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ListTagResourcesResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ListTagResourcesResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListTagResourcesResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
      * Queries tags that are added to specified resources.
      *
      * @param request - ListTagResourcesRequest
+     *
      * @returns ListTagResourcesResponse
      *
      * @param ListTagResourcesRequest $request
@@ -8678,6 +9376,7 @@ class Config extends OpenApiClient
      *
      * @param request - PutEvaluationsRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns PutEvaluationsResponse
      *
      * @param PutEvaluationsRequest $request
@@ -8705,18 +9404,21 @@ class Config extends OpenApiClient
             'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'PutEvaluations',
-            'version'     => '2020-09-07',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'PutEvaluations',
+            'version' => '2020-09-07',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return PutEvaluationsResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return PutEvaluationsResponse::fromMap($this->callApi($params, $req, $runtime));
+        return PutEvaluationsResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -8726,6 +9428,7 @@ class Config extends OpenApiClient
      * For more information about the definition, use scenarios, and execution of custom function rules, see [Definition and execution of custom function rules](https://help.aliyun.com/document_detail/127405.html).
      *
      * @param request - PutEvaluationsRequest
+     *
      * @returns PutEvaluationsResponse
      *
      * @param PutEvaluationsRequest $request
@@ -8750,6 +9453,7 @@ class Config extends OpenApiClient
      *
      * @param tmpReq - RevertAggregateEvaluationResultsRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns RevertAggregateEvaluationResultsResponse
      *
      * @param RevertAggregateEvaluationResultsRequest $tmpReq
@@ -8783,18 +9487,21 @@ class Config extends OpenApiClient
             'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'RevertAggregateEvaluationResults',
-            'version'     => '2020-09-07',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'RevertAggregateEvaluationResults',
+            'version' => '2020-09-07',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return RevertAggregateEvaluationResultsResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return RevertAggregateEvaluationResultsResponse::fromMap($this->callApi($params, $req, $runtime));
+        return RevertAggregateEvaluationResultsResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -8807,6 +9514,7 @@ class Config extends OpenApiClient
      * This topic provides an example on how to re-evaluate the non-compliant resource that is evaluated by the `cr-7e72626622af0051****` rule of the `120886317861****` member in the `ca-5b6c626622af008f****` group account. The ID of the region in which the resource resides is `cn-beijing`, the type of the resource is `ACS::SLB::LoadBalancer`, and the ID of the resource is `lb-hp3a3b4ztyfm2plgm****`.
      *
      * @param request - RevertAggregateEvaluationResultsRequest
+     *
      * @returns RevertAggregateEvaluationResultsResponse
      *
      * @param RevertAggregateEvaluationResultsRequest $request
@@ -8831,6 +9539,7 @@ class Config extends OpenApiClient
      *
      * @param tmpReq - RevertEvaluationResultsRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns RevertEvaluationResultsResponse
      *
      * @param RevertEvaluationResultsRequest $tmpReq
@@ -8860,18 +9569,21 @@ class Config extends OpenApiClient
             'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'RevertEvaluationResults',
-            'version'     => '2020-09-07',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'RevertEvaluationResults',
+            'version' => '2020-09-07',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return RevertEvaluationResultsResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return RevertEvaluationResultsResponse::fromMap($this->callApi($params, $req, $runtime));
+        return RevertEvaluationResultsResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -8884,6 +9596,7 @@ class Config extends OpenApiClient
      * This topic provides an example on how to re-evaluate the `lb-hp3a3b4ztyfm2plgm****` non-compliant resource that is evaluated by the `cr-7e72626622af0051****` rule. The ID of the region in which the resource resides is`cn-beijing`, the type of the resource is `ACS::SLB::LoadBalancer`, and the ID of the resource is `lb-hp3a3b4ztyfm2plgm****`.
      *
      * @param request - RevertEvaluationResultsRequest
+     *
      * @returns RevertEvaluationResultsResponse
      *
      * @param RevertEvaluationResultsRequest $request
@@ -8906,6 +9619,7 @@ class Config extends OpenApiClient
      *
      * @param request - StartAggregateConfigRuleEvaluationRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns StartAggregateConfigRuleEvaluationResponse
      *
      * @param StartAggregateConfigRuleEvaluationRequest $request
@@ -8937,18 +9651,21 @@ class Config extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'StartAggregateConfigRuleEvaluation',
-            'version'     => '2020-09-07',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'StartAggregateConfigRuleEvaluation',
+            'version' => '2020-09-07',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return StartAggregateConfigRuleEvaluationResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return StartAggregateConfigRuleEvaluationResponse::fromMap($this->callApi($params, $req, $runtime));
+        return StartAggregateConfigRuleEvaluationResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -8959,6 +9676,7 @@ class Config extends OpenApiClient
      * The sample request in this topic shows how to use the `cr-c169626622af009f****` rule in the `ca-3a58626622af0005****` account group to evaluate resources.
      *
      * @param request - StartAggregateConfigRuleEvaluationRequest
+     *
      * @returns StartAggregateConfigRuleEvaluationResponse
      *
      * @param StartAggregateConfigRuleEvaluationRequest $request
@@ -8980,6 +9698,7 @@ class Config extends OpenApiClient
      *
      * @param request - StartAggregateRemediationRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns StartAggregateRemediationResponse
      *
      * @param StartAggregateRemediationRequest $request
@@ -9007,18 +9726,21 @@ class Config extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'StartAggregateRemediation',
-            'version'     => '2020-09-07',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'StartAggregateRemediation',
+            'version' => '2020-09-07',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return StartAggregateRemediationResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return StartAggregateRemediationResponse::fromMap($this->callApi($params, $req, $runtime));
+        return StartAggregateRemediationResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -9028,6 +9750,7 @@ class Config extends OpenApiClient
      * This topic provides an example on how to manually perform a remediation operation by using the rule whose ID is `cr-6b7c626622af00b4****` in the account group whose ID is `ca-6b4a626622af0012****`. The return result shows that the manual execution is successful.
      *
      * @param request - StartAggregateRemediationRequest
+     *
      * @returns StartAggregateRemediationResponse
      *
      * @param StartAggregateRemediationRequest $request
@@ -9049,6 +9772,7 @@ class Config extends OpenApiClient
      *
      * @param request - StartConfigRuleEvaluationRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns StartConfigRuleEvaluationResponse
      *
      * @param StartConfigRuleEvaluationRequest $request
@@ -9076,18 +9800,21 @@ class Config extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'StartConfigRuleEvaluation',
-            'version'     => '2020-09-07',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'StartConfigRuleEvaluation',
+            'version' => '2020-09-07',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return StartConfigRuleEvaluationResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return StartConfigRuleEvaluationResponse::fromMap($this->callApi($params, $req, $runtime));
+        return StartConfigRuleEvaluationResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -9097,6 +9824,7 @@ class Config extends OpenApiClient
      * In this example, the cr-9920626622af0035\\*\\*\\*\\* rule is used to re-evaluate the compliance of resources.
      *
      * @param request - StartConfigRuleEvaluationRequest
+     *
      * @returns StartConfigRuleEvaluationResponse
      *
      * @param StartConfigRuleEvaluationRequest $request
@@ -9118,6 +9846,7 @@ class Config extends OpenApiClient
      *
      * @param request - StartConfigurationRecorderRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns StartConfigurationRecorderResponse
      *
      * @param RuntimeOptions $runtime
@@ -9126,20 +9855,23 @@ class Config extends OpenApiClient
      */
     public function startConfigurationRecorderWithOptions($runtime)
     {
-        $req    = new OpenApiRequest([]);
+        $req = new OpenApiRequest([]);
         $params = new Params([
-            'action'      => 'StartConfigurationRecorder',
-            'version'     => '2020-09-07',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'StartConfigurationRecorder',
+            'version' => '2020-09-07',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return StartConfigurationRecorderResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return StartConfigurationRecorderResponse::fromMap($this->callApi($params, $req, $runtime));
+        return StartConfigurationRecorderResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -9147,6 +9879,7 @@ class Config extends OpenApiClient
      *
      * @remarks
      * This topic provides an example on how to enable Cloud Config to monitor the resources of your Alibaba Cloud account.
+     *
      * @returns StartConfigurationRecorderResponse
      *
      * @return StartConfigurationRecorderResponse
@@ -9166,6 +9899,7 @@ class Config extends OpenApiClient
      *
      * @param request - StartRemediationRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns StartRemediationResponse
      *
      * @param StartRemediationRequest $request
@@ -9185,18 +9919,21 @@ class Config extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'StartRemediation',
-            'version'     => '2020-09-07',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'StartRemediation',
+            'version' => '2020-09-07',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return StartRemediationResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return StartRemediationResponse::fromMap($this->callApi($params, $req, $runtime));
+        return StartRemediationResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -9206,6 +9943,7 @@ class Config extends OpenApiClient
      * This topic provides an example on how to perform a remediation operation by using the rule whose ID is `cr-8a973ac2e2be00a2****`. The returned result shows that the manual execution is successful.
      *
      * @param request - StartRemediationRequest
+     *
      * @returns StartRemediationResponse
      *
      * @param StartRemediationRequest $request
@@ -9227,6 +9965,7 @@ class Config extends OpenApiClient
      *
      * @param request - StopConfigurationRecorderRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns StopConfigurationRecorderResponse
      *
      * @param RuntimeOptions $runtime
@@ -9235,20 +9974,23 @@ class Config extends OpenApiClient
      */
     public function stopConfigurationRecorderWithOptions($runtime)
     {
-        $req    = new OpenApiRequest([]);
+        $req = new OpenApiRequest([]);
         $params = new Params([
-            'action'      => 'StopConfigurationRecorder',
-            'version'     => '2020-09-07',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'StopConfigurationRecorder',
+            'version' => '2020-09-07',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return StopConfigurationRecorderResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return StopConfigurationRecorderResponse::fromMap($this->callApi($params, $req, $runtime));
+        return StopConfigurationRecorderResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -9256,6 +9998,7 @@ class Config extends OpenApiClient
      *
      * @remarks
      * >  After you deactivate Cloud Config, the resource configurations, created rules, and compliance evaluation results that are stored in Cloud Config are automatically cleared and cannot be restored. Proceed with caution.
+     *
      * @returns StopConfigurationRecorderResponse
      *
      * @return StopConfigurationRecorderResponse
@@ -9272,6 +10015,7 @@ class Config extends OpenApiClient
      *
      * @param tmpReq - TagResourcesRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns TagResourcesResponse
      *
      * @param TagResourcesRequest $tmpReq
@@ -9309,24 +10053,28 @@ class Config extends OpenApiClient
             'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'TagResources',
-            'version'     => '2020-09-07',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'TagResources',
+            'version' => '2020-09-07',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return TagResourcesResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return TagResourcesResponse::fromMap($this->callApi($params, $req, $runtime));
+        return TagResourcesResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
      * Adds tags to resources.
      *
      * @param request - TagResourcesRequest
+     *
      * @returns TagResourcesResponse
      *
      * @param TagResourcesRequest $request
@@ -9345,6 +10093,7 @@ class Config extends OpenApiClient
      *
      * @param request - UntagResourcesRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns UntagResourcesResponse
      *
      * @param UntagResourcesRequest $request
@@ -9380,24 +10129,28 @@ class Config extends OpenApiClient
             'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'UntagResources',
-            'version'     => '2020-09-07',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'UntagResources',
+            'version' => '2020-09-07',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return UntagResourcesResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return UntagResourcesResponse::fromMap($this->callApi($params, $req, $runtime));
+        return UntagResourcesResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
      * Removes tags from specified resources.
      *
      * @param request - UntagResourcesRequest
+     *
      * @returns UntagResourcesResponse
      *
      * @param UntagResourcesRequest $request
@@ -9419,6 +10172,7 @@ class Config extends OpenApiClient
      *
      * @param tmpReq - UpdateAggregateCompliancePackRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns UpdateAggregateCompliancePackResponse
      *
      * @param UpdateAggregateCompliancePackRequest $tmpReq
@@ -9433,6 +10187,15 @@ class Config extends OpenApiClient
         Utils::convert($tmpReq, $request);
         if (null !== $tmpReq->configRules) {
             $request->configRulesShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->configRules, 'ConfigRules', 'json');
+        }
+
+        if (null !== $tmpReq->tag) {
+            $request->tagShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->tag, 'Tag', 'json');
+        }
+
+        $query = [];
+        if (null !== $request->tagShrink) {
+            @$query['Tag'] = $request->tagShrink;
         }
 
         $body = [];
@@ -9508,21 +10271,25 @@ class Config extends OpenApiClient
         $body = Dara::merge([
         ], $body, Utils::query($bodyFlat));
         $req = new OpenApiRequest([
+            'query' => Utils::query($query),
             'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'UpdateAggregateCompliancePack',
-            'version'     => '2020-09-07',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'UpdateAggregateCompliancePack',
+            'version' => '2020-09-07',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return UpdateAggregateCompliancePackResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return UpdateAggregateCompliancePackResponse::fromMap($this->callApi($params, $req, $runtime));
+        return UpdateAggregateCompliancePackResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -9532,6 +10299,7 @@ class Config extends OpenApiClient
      * This topic provides an example on how to change the value of the `eip-bandwidth-limit` parameter in the rule template of the compliance package `cp-fdc8626622af00f9****` in the account group `ca-f632626622af0079****` to `20`.
      *
      * @param request - UpdateAggregateCompliancePackRequest
+     *
      * @returns UpdateAggregateCompliancePackResponse
      *
      * @param UpdateAggregateCompliancePackRequest $request
@@ -9553,6 +10321,7 @@ class Config extends OpenApiClient
      *
      * @param request - UpdateAggregateConfigDeliveryChannelRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns UpdateAggregateConfigDeliveryChannelResponse
      *
      * @param UpdateAggregateConfigDeliveryChannelRequest $request
@@ -9624,18 +10393,21 @@ class Config extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'UpdateAggregateConfigDeliveryChannel',
-            'version'     => '2020-09-07',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'UpdateAggregateConfigDeliveryChannel',
+            'version' => '2020-09-07',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return UpdateAggregateConfigDeliveryChannelResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return UpdateAggregateConfigDeliveryChannelResponse::fromMap($this->callApi($params, $req, $runtime));
+        return UpdateAggregateConfigDeliveryChannelResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -9645,6 +10417,7 @@ class Config extends OpenApiClient
      * This topic provides an example on how to disable a delivery channel in an account group. The ID of the account group is `ca-a4e5626622af0079****`, and the ID of the delivery channel is `cdc-8e45ff4e06a3a8****`. The Status parameter is set to `0`. After the delivery channel is disabled, Cloud Config retains the most recent delivery configuration and stops resource data delivery.
      *
      * @param request - UpdateAggregateConfigDeliveryChannelRequest
+     *
      * @returns UpdateAggregateConfigDeliveryChannelResponse
      *
      * @param UpdateAggregateConfigDeliveryChannelRequest $request
@@ -9666,6 +10439,7 @@ class Config extends OpenApiClient
      *
      * @param tmpReq - UpdateAggregateConfigRuleRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns UpdateAggregateConfigRuleResponse
      *
      * @param UpdateAggregateConfigRuleRequest $tmpReq
@@ -9684,6 +10458,15 @@ class Config extends OpenApiClient
 
         if (null !== $tmpReq->resourceTypesScope) {
             $request->resourceTypesScopeShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->resourceTypesScope, 'ResourceTypesScope', 'simple');
+        }
+
+        if (null !== $tmpReq->tag) {
+            $request->tagShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->tag, 'Tag', 'json');
+        }
+
+        $query = [];
+        if (null !== $request->tagShrink) {
+            @$query['Tag'] = $request->tagShrink;
         }
 
         $body = [];
@@ -9764,6 +10547,10 @@ class Config extends OpenApiClient
             @$body['ResourceIdsScope'] = $request->resourceIdsScope;
         }
 
+        if (null !== $request->resourceNameScope) {
+            @$body['ResourceNameScope'] = $request->resourceNameScope;
+        }
+
         if (null !== $request->resourceTypesScopeShrink) {
             @$body['ResourceTypesScope'] = $request->resourceTypesScopeShrink;
         }
@@ -9791,21 +10578,25 @@ class Config extends OpenApiClient
         $body = Dara::merge([
         ], $body, Utils::query($bodyFlat));
         $req = new OpenApiRequest([
+            'query' => Utils::query($query),
             'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'UpdateAggregateConfigRule',
-            'version'     => '2020-09-07',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'UpdateAggregateConfigRule',
+            'version' => '2020-09-07',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return UpdateAggregateConfigRuleResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return UpdateAggregateConfigRuleResponse::fromMap($this->callApi($params, $req, $runtime));
+        return UpdateAggregateConfigRuleResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -9815,6 +10606,7 @@ class Config extends OpenApiClient
      * This topic provides an example on how to change the risk level of the rule `cr-4e3d626622af0080****` in an account group `ca-a4e5626622af0079****` to `3`, which indicates low risk level.
      *
      * @param request - UpdateAggregateConfigRuleRequest
+     *
      * @returns UpdateAggregateConfigRuleResponse
      *
      * @param UpdateAggregateConfigRuleRequest $request
@@ -9836,6 +10628,7 @@ class Config extends OpenApiClient
      *
      * @param request - UpdateAggregateRemediationRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns UpdateAggregateRemediationResponse
      *
      * @param UpdateAggregateRemediationRequest $request
@@ -9879,18 +10672,21 @@ class Config extends OpenApiClient
             'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'UpdateAggregateRemediation',
-            'version'     => '2020-09-07',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'UpdateAggregateRemediation',
+            'version' => '2020-09-07',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return UpdateAggregateRemediationResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return UpdateAggregateRemediationResponse::fromMap($this->callApi($params, $req, $runtime));
+        return UpdateAggregateRemediationResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -9900,6 +10696,7 @@ class Config extends OpenApiClient
      * This topic describes how to change the execution mode of the `crr-909ba2d4716700eb****` remediation setting for a rule in the `ca-6b4a626622af0012****` account group to `AUTO_EXECUTION`, which specifies automatic remediation. This topic also provides a sample request.
      *
      * @param request - UpdateAggregateRemediationRequest
+     *
      * @returns UpdateAggregateRemediationResponse
      *
      * @param UpdateAggregateRemediationRequest $request
@@ -9921,6 +10718,7 @@ class Config extends OpenApiClient
      *
      * @param tmpReq - UpdateAggregatorRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns UpdateAggregatorResponse
      *
      * @param UpdateAggregatorRequest $tmpReq
@@ -9935,6 +10733,15 @@ class Config extends OpenApiClient
         Utils::convert($tmpReq, $request);
         if (null !== $tmpReq->aggregatorAccounts) {
             $request->aggregatorAccountsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->aggregatorAccounts, 'AggregatorAccounts', 'json');
+        }
+
+        if (null !== $tmpReq->tag) {
+            $request->tagShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->tag, 'Tag', 'json');
+        }
+
+        $query = [];
+        if (null !== $request->tagShrink) {
+            @$query['Tag'] = $request->tagShrink;
         }
 
         $body = [];
@@ -9958,22 +10765,30 @@ class Config extends OpenApiClient
             @$body['Description'] = $request->description;
         }
 
+        if (null !== $request->folderId) {
+            @$body['FolderId'] = $request->folderId;
+        }
+
         $req = new OpenApiRequest([
+            'query' => Utils::query($query),
             'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'UpdateAggregator',
-            'version'     => '2020-09-07',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'UpdateAggregator',
+            'version' => '2020-09-07',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return UpdateAggregatorResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return UpdateAggregatorResponse::fromMap($this->callApi($params, $req, $runtime));
+        return UpdateAggregatorResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -9983,6 +10798,7 @@ class Config extends OpenApiClient
      * This topic provides an example on how to add a member to the account group `ca-dacf86d8314e00eb****`. The member ID is `173808452267****`, the member name is `Tony`, and the member belongs to the resource directory `ResourceDirectory`.
      *
      * @param request - UpdateAggregatorRequest
+     *
      * @returns UpdateAggregatorResponse
      *
      * @param UpdateAggregatorRequest $request
@@ -10004,6 +10820,7 @@ class Config extends OpenApiClient
      *
      * @param tmpReq - UpdateCompliancePackRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns UpdateCompliancePackResponse
      *
      * @param UpdateCompliancePackRequest $tmpReq
@@ -10018,6 +10835,15 @@ class Config extends OpenApiClient
         Utils::convert($tmpReq, $request);
         if (null !== $tmpReq->configRules) {
             $request->configRulesShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->configRules, 'ConfigRules', 'json');
+        }
+
+        if (null !== $tmpReq->tag) {
+            $request->tagShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->tag, 'Tag', 'json');
+        }
+
+        $query = [];
+        if (null !== $request->tagShrink) {
+            @$query['Tag'] = $request->tagShrink;
         }
 
         $body = [];
@@ -10089,21 +10915,25 @@ class Config extends OpenApiClient
         $body = Dara::merge([
         ], $body, Utils::query($bodyFlat));
         $req = new OpenApiRequest([
+            'query' => Utils::query($query),
             'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'UpdateCompliancePack',
-            'version'     => '2020-09-07',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'UpdateCompliancePack',
+            'version' => '2020-09-07',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return UpdateCompliancePackResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return UpdateCompliancePackResponse::fromMap($this->callApi($params, $req, $runtime));
+        return UpdateCompliancePackResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -10113,6 +10943,7 @@ class Config extends OpenApiClient
      * This topic provides an example on how to change the value of the `eip-bandwidth-limit` parameter of a rule in the compliance package `cp-a8a8626622af0082****` to `20`.
      *
      * @param request - UpdateCompliancePackRequest
+     *
      * @returns UpdateCompliancePackResponse
      *
      * @param UpdateCompliancePackRequest $request
@@ -10134,6 +10965,7 @@ class Config extends OpenApiClient
      *
      * @param request - UpdateConfigDeliveryChannelRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns UpdateConfigDeliveryChannelResponse
      *
      * @param UpdateConfigDeliveryChannelRequest $request
@@ -10201,18 +11033,21 @@ class Config extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'UpdateConfigDeliveryChannel',
-            'version'     => '2020-09-07',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'UpdateConfigDeliveryChannel',
+            'version' => '2020-09-07',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return UpdateConfigDeliveryChannelResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return UpdateConfigDeliveryChannelResponse::fromMap($this->callApi($params, $req, $runtime));
+        return UpdateConfigDeliveryChannelResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -10222,6 +11057,7 @@ class Config extends OpenApiClient
      * In this example, a delivery channel is disabled. The ID of the delivery channel is `cdc-8e45ff4e06a3a8****```. The Status parameter is set to 0. After the delivery channel is disabled, Cloud Config retains the most recent delivery configuration and stops the delivery of resource data.
      *
      * @param request - UpdateConfigDeliveryChannelRequest
+     *
      * @returns UpdateConfigDeliveryChannelResponse
      *
      * @param UpdateConfigDeliveryChannelRequest $request
@@ -10243,6 +11079,7 @@ class Config extends OpenApiClient
      *
      * @param tmpReq - UpdateConfigRuleRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns UpdateConfigRuleResponse
      *
      * @param UpdateConfigRuleRequest $tmpReq
@@ -10334,6 +11171,10 @@ class Config extends OpenApiClient
             @$body['ResourceIdsScope'] = $request->resourceIdsScope;
         }
 
+        if (null !== $request->resourceNameScope) {
+            @$body['ResourceNameScope'] = $request->resourceNameScope;
+        }
+
         if (null !== $request->resourceTypesScopeShrink) {
             @$body['ResourceTypesScope'] = $request->resourceTypesScopeShrink;
         }
@@ -10362,21 +11203,24 @@ class Config extends OpenApiClient
         ], $body, Utils::query($bodyFlat));
         $req = new OpenApiRequest([
             'query' => Utils::query($query),
-            'body'  => Utils::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'UpdateConfigRule',
-            'version'     => '2020-09-07',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'UpdateConfigRule',
+            'version' => '2020-09-07',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return UpdateConfigRuleResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return UpdateConfigRuleResponse::fromMap($this->callApi($params, $req, $runtime));
+        return UpdateConfigRuleResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -10386,6 +11230,7 @@ class Config extends OpenApiClient
      * This topic provides an example on how to change the risk level of the rule `cr-a260626622af0005****` to `3`, which indicates low risk level.
      *
      * @param request - UpdateConfigRuleRequest
+     *
      * @returns UpdateConfigRuleResponse
      *
      * @param UpdateConfigRuleRequest $request
@@ -10407,6 +11252,7 @@ class Config extends OpenApiClient
      *
      * @param request - UpdateConfigurationRecorderRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns UpdateConfigurationRecorderResponse
      *
      * @param UpdateConfigurationRecorderRequest $request
@@ -10426,18 +11272,21 @@ class Config extends OpenApiClient
             'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'UpdateConfigurationRecorder',
-            'version'     => '2020-09-07',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'UpdateConfigurationRecorder',
+            'version' => '2020-09-07',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return UpdateConfigurationRecorderResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return UpdateConfigurationRecorderResponse::fromMap($this->callApi($params, $req, $runtime));
+        return UpdateConfigurationRecorderResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -10447,6 +11296,7 @@ class Config extends OpenApiClient
      * This topic provides an example on how to change the resource monitoring scope of the current account to ACS::ECS::Instance.
      *
      * @param request - UpdateConfigurationRecorderRequest
+     *
      * @returns UpdateConfigurationRecorderResponse
      *
      * @param UpdateConfigurationRecorderRequest $request
@@ -10461,7 +11311,6 @@ class Config extends OpenApiClient
     }
 
     // Deprecated
-
     /**
      * Modifies a delivery channel.
      *
@@ -10472,6 +11321,7 @@ class Config extends OpenApiClient
      *
      * @param request - UpdateDeliveryChannelRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns UpdateDeliveryChannelResponse
      *
      * @param UpdateDeliveryChannelRequest $request
@@ -10535,22 +11385,24 @@ class Config extends OpenApiClient
             'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'UpdateDeliveryChannel',
-            'version'     => '2020-09-07',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'UpdateDeliveryChannel',
+            'version' => '2020-09-07',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return UpdateDeliveryChannelResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return UpdateDeliveryChannelResponse::fromMap($this->callApi($params, $req, $runtime));
+        return UpdateDeliveryChannelResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     // Deprecated
-
     /**
      * Modifies a delivery channel.
      *
@@ -10560,6 +11412,7 @@ class Config extends OpenApiClient
      * @deprecated openAPI UpdateDeliveryChannel is deprecated, please use Config::2020-09-07::UpdateConfigDeliveryChannel,Config::2020-09-07::UpdateAggregateConfigDeliveryChannel instead
      *
      * @param request - UpdateDeliveryChannelRequest
+     *
      * @returns UpdateDeliveryChannelResponse
      *
      * @param UpdateDeliveryChannelRequest $request
@@ -10578,6 +11431,7 @@ class Config extends OpenApiClient
      *
      * @param request - UpdateIntegratedServiceStatusRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns UpdateIntegratedServiceStatusResponse
      *
      * @param UpdateIntegratedServiceStatusRequest $request
@@ -10609,24 +11463,28 @@ class Config extends OpenApiClient
             'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'UpdateIntegratedServiceStatus',
-            'version'     => '2020-09-07',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'UpdateIntegratedServiceStatus',
+            'version' => '2020-09-07',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return UpdateIntegratedServiceStatusResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return UpdateIntegratedServiceStatusResponse::fromMap($this->callApi($params, $req, $runtime));
+        return UpdateIntegratedServiceStatusResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
      * Enables or disables the integration of a cloud service.
      *
      * @param request - UpdateIntegratedServiceStatusRequest
+     *
      * @returns UpdateIntegratedServiceStatusResponse
      *
      * @param UpdateIntegratedServiceStatusRequest $request
@@ -10648,6 +11506,7 @@ class Config extends OpenApiClient
      *
      * @param request - UpdateRemediationRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns UpdateRemediationResponse
      *
      * @param UpdateRemediationRequest $request
@@ -10691,18 +11550,21 @@ class Config extends OpenApiClient
             'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'UpdateRemediation',
-            'version'     => '2020-09-07',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'UpdateRemediation',
+            'version' => '2020-09-07',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return UpdateRemediationResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return UpdateRemediationResponse::fromMap($this->callApi($params, $req, $runtime));
+        return UpdateRemediationResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -10712,6 +11574,7 @@ class Config extends OpenApiClient
      * This topic describes how to change the execution mode of the `crr-909ba2d4716700eb****` remediation setting to `AUTO_EXECUTION`, which specifies automatic remediation. This topic also provides a sample request.
      *
      * @param request - UpdateRemediationRequest
+     *
      * @returns UpdateRemediationResponse
      *
      * @param UpdateRemediationRequest $request

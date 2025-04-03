@@ -12,18 +12,20 @@ class EvaluatePreConfigRulesShrinkRequest extends Model
      * @var bool
      */
     public $enableManagedRules;
+
     /**
      * @var string
      */
     public $resourceEvaluateItemsShrink;
+
     /**
      * @var string
      */
     public $resourceTypeFormat;
     protected $_name = [
-        'enableManagedRules'          => 'EnableManagedRules',
+        'enableManagedRules' => 'EnableManagedRules',
         'resourceEvaluateItemsShrink' => 'ResourceEvaluateItems',
-        'resourceTypeFormat'          => 'ResourceTypeFormat',
+        'resourceTypeFormat' => 'ResourceTypeFormat',
     ];
 
     public function validate()

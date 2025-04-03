@@ -12,18 +12,20 @@ class resourceComplianceResult extends Model
      * @var string
      */
     public $compliancePackId;
+
     /**
      * @var int
      */
     public $nonCompliantCount;
+
     /**
      * @var int
      */
     public $totalCount;
     protected $_name = [
-        'compliancePackId'  => 'CompliancePackId',
+        'compliancePackId' => 'CompliancePackId',
         'nonCompliantCount' => 'NonCompliantCount',
-        'totalCount'        => 'TotalCount',
+        'totalCount' => 'TotalCount',
     ];
 
     public function validate()

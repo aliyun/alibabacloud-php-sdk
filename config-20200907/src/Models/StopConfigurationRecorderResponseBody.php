@@ -12,12 +12,13 @@ class StopConfigurationRecorderResponseBody extends Model
      * @var string
      */
     public $requestId;
+
     /**
      * @var bool
      */
     public $stopConfigurationRecorderResult;
     protected $_name = [
-        'requestId'                       => 'RequestId',
+        'requestId' => 'RequestId',
         'stopConfigurationRecorderResult' => 'StopConfigurationRecorderResult',
     ];
 

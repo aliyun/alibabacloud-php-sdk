@@ -12,52 +12,61 @@ class ListAggregateResourceRelationsRequest extends Model
      * @var string
      */
     public $aggregatorId;
+
     /**
      * @var int
      */
     public $maxResults;
+
     /**
      * @var string
      */
     public $nextToken;
+
     /**
      * @var string
      */
     public $region;
+
     /**
      * @var string
      */
     public $relationType;
+
     /**
      * @var int
      */
     public $resourceAccountId;
+
     /**
      * @var string
      */
     public $resourceId;
+
     /**
      * @var string
      */
     public $resourceType;
+
     /**
      * @var string
      */
     public $targetResourceId;
+
     /**
      * @var string
      */
     public $targetResourceType;
     protected $_name = [
-        'aggregatorId'       => 'AggregatorId',
-        'maxResults'         => 'MaxResults',
-        'nextToken'          => 'NextToken',
-        'region'             => 'Region',
-        'relationType'       => 'RelationType',
-        'resourceAccountId'  => 'ResourceAccountId',
-        'resourceId'         => 'ResourceId',
-        'resourceType'       => 'ResourceType',
-        'targetResourceId'   => 'TargetResourceId',
+        'aggregatorId' => 'AggregatorId',
+        'maxResults' => 'MaxResults',
+        'nextToken' => 'NextToken',
+        'region' => 'Region',
+        'relationType' => 'RelationType',
+        'resourceAccountId' => 'ResourceAccountId',
+        'resourceId' => 'ResourceId',
+        'resourceType' => 'ResourceType',
+        'targetResourceId' => 'TargetResourceId',
         'targetResourceType' => 'TargetResourceType',
     ];
 

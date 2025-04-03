@@ -13,12 +13,13 @@ class ListAggregateResourceRelationsResponseBody extends Model
      * @var string
      */
     public $requestId;
+
     /**
      * @var resourceRelations
      */
     public $resourceRelations;
     protected $_name = [
-        'requestId'         => 'RequestId',
+        'requestId' => 'RequestId',
         'resourceRelations' => 'ResourceRelations',
     ];
 

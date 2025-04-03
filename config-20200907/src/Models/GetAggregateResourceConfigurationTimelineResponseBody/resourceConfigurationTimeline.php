@@ -13,18 +13,20 @@ class resourceConfigurationTimeline extends Model
      * @var configurationList[]
      */
     public $configurationList;
+
     /**
      * @var int
      */
     public $maxResults;
+
     /**
      * @var string
      */
     public $nextToken;
     protected $_name = [
         'configurationList' => 'ConfigurationList',
-        'maxResults'        => 'MaxResults',
-        'nextToken'         => 'NextToken',
+        'maxResults' => 'MaxResults',
+        'nextToken' => 'NextToken',
     ];
 
     public function validate()
@@ -41,7 +43,7 @@ class resourceConfigurationTimeline extends Model
         if (null !== $this->configurationList) {
             if (\is_array($this->configurationList)) {
                 $res['ConfigurationList'] = [];
-                $n1                       = 0;
+                $n1 = 0;
                 foreach ($this->configurationList as $item1) {
                     $res['ConfigurationList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -70,7 +72,7 @@ class resourceConfigurationTimeline extends Model
         if (isset($map['ConfigurationList'])) {
             if (!empty($map['ConfigurationList'])) {
                 $model->configurationList = [];
-                $n1                       = 0;
+                $n1 = 0;
                 foreach ($map['ConfigurationList'] as $item1) {
                     $model->configurationList[$n1++] = configurationList::fromMap($item1);
                 }

@@ -12,42 +12,49 @@ class ListResourceRelationsRequest extends Model
      * @var int
      */
     public $maxResults;
+
     /**
      * @var string
      */
     public $nextToken;
+
     /**
      * @var string
      */
     public $region;
+
     /**
      * @var string
      */
     public $relationType;
+
     /**
      * @var string
      */
     public $resourceId;
+
     /**
      * @var string
      */
     public $resourceType;
+
     /**
      * @var string
      */
     public $targetResourceId;
+
     /**
      * @var string
      */
     public $targetResourceType;
     protected $_name = [
-        'maxResults'         => 'MaxResults',
-        'nextToken'          => 'NextToken',
-        'region'             => 'Region',
-        'relationType'       => 'RelationType',
-        'resourceId'         => 'ResourceId',
-        'resourceType'       => 'ResourceType',
-        'targetResourceId'   => 'TargetResourceId',
+        'maxResults' => 'MaxResults',
+        'nextToken' => 'NextToken',
+        'region' => 'Region',
+        'relationType' => 'RelationType',
+        'resourceId' => 'ResourceId',
+        'resourceType' => 'ResourceType',
+        'targetResourceId' => 'TargetResourceId',
         'targetResourceType' => 'TargetResourceType',
     ];
 

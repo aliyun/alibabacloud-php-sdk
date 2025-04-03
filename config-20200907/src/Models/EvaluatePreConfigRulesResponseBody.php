@@ -13,12 +13,13 @@ class EvaluatePreConfigRulesResponseBody extends Model
      * @var string
      */
     public $requestId;
+
     /**
      * @var resourceEvaluations[]
      */
     public $resourceEvaluations;
     protected $_name = [
-        'requestId'           => 'RequestId',
+        'requestId' => 'RequestId',
         'resourceEvaluations' => 'ResourceEvaluations',
     ];
 
@@ -40,7 +41,7 @@ class EvaluatePreConfigRulesResponseBody extends Model
         if (null !== $this->resourceEvaluations) {
             if (\is_array($this->resourceEvaluations)) {
                 $res['ResourceEvaluations'] = [];
-                $n1                         = 0;
+                $n1 = 0;
                 foreach ($this->resourceEvaluations as $item1) {
                     $res['ResourceEvaluations'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -65,7 +66,7 @@ class EvaluatePreConfigRulesResponseBody extends Model
         if (isset($map['ResourceEvaluations'])) {
             if (!empty($map['ResourceEvaluations'])) {
                 $model->resourceEvaluations = [];
-                $n1                         = 0;
+                $n1 = 0;
                 foreach ($map['ResourceEvaluations'] as $item1) {
                     $model->resourceEvaluations[$n1++] = resourceEvaluations::fromMap($item1);
                 }

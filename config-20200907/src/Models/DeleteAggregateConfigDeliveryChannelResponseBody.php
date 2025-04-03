@@ -12,13 +12,14 @@ class DeleteAggregateConfigDeliveryChannelResponseBody extends Model
      * @var string
      */
     public $deliveryChannelId;
+
     /**
      * @var string
      */
     public $requestId;
     protected $_name = [
         'deliveryChannelId' => 'DeliveryChannelId',
-        'requestId'         => 'RequestId',
+        'requestId' => 'RequestId',
     ];
 
     public function validate()

@@ -12,12 +12,13 @@ class configRuleParameters extends Model
      * @var string
      */
     public $parameterName;
+
     /**
      * @var string
      */
     public $parameterValue;
     protected $_name = [
-        'parameterName'  => 'ParameterName',
+        'parameterName' => 'ParameterName',
         'parameterValue' => 'ParameterValue',
     ];
 

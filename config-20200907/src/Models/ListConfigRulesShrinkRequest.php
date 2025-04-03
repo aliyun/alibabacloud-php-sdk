@@ -12,53 +12,62 @@ class ListConfigRulesShrinkRequest extends Model
      * @var string
      */
     public $compliancePackId;
+
     /**
      * @var string
      */
     public $complianceType;
+
     /**
      * @var string
      */
     public $configRuleName;
+
     /**
      * @var string
      */
     public $configRuleState;
+
     /**
      * @var string
      */
     public $keyword;
+
     /**
      * @var int
      */
     public $pageNumber;
+
     /**
      * @var int
      */
     public $pageSize;
+
     /**
      * @var string
      */
     public $resourceTypes;
+
     /**
      * @var int
      */
     public $riskLevel;
+
     /**
      * @var string
      */
     public $tagShrink;
     protected $_name = [
         'compliancePackId' => 'CompliancePackId',
-        'complianceType'   => 'ComplianceType',
-        'configRuleName'   => 'ConfigRuleName',
-        'configRuleState'  => 'ConfigRuleState',
-        'keyword'          => 'Keyword',
-        'pageNumber'       => 'PageNumber',
-        'pageSize'         => 'PageSize',
-        'resourceTypes'    => 'ResourceTypes',
-        'riskLevel'        => 'RiskLevel',
-        'tagShrink'        => 'Tag',
+        'complianceType' => 'ComplianceType',
+        'configRuleName' => 'ConfigRuleName',
+        'configRuleState' => 'ConfigRuleState',
+        'keyword' => 'Keyword',
+        'pageNumber' => 'PageNumber',
+        'pageSize' => 'PageSize',
+        'resourceTypes' => 'ResourceTypes',
+        'riskLevel' => 'RiskLevel',
+        'tagShrink' => 'Tag',
     ];
 
     public function validate()

@@ -13,17 +13,19 @@ class remediationExecutionData extends Model
      * @var int
      */
     public $maxResults;
+
     /**
      * @var string
      */
     public $nextToken;
+
     /**
      * @var remediationExecutions[]
      */
     public $remediationExecutions;
     protected $_name = [
-        'maxResults'            => 'MaxResults',
-        'nextToken'             => 'NextToken',
+        'maxResults' => 'MaxResults',
+        'nextToken' => 'NextToken',
         'remediationExecutions' => 'RemediationExecutions',
     ];
 
@@ -49,7 +51,7 @@ class remediationExecutionData extends Model
         if (null !== $this->remediationExecutions) {
             if (\is_array($this->remediationExecutions)) {
                 $res['RemediationExecutions'] = [];
-                $n1                           = 0;
+                $n1 = 0;
                 foreach ($this->remediationExecutions as $item1) {
                     $res['RemediationExecutions'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -78,7 +80,7 @@ class remediationExecutionData extends Model
         if (isset($map['RemediationExecutions'])) {
             if (!empty($map['RemediationExecutions'])) {
                 $model->remediationExecutions = [];
-                $n1                           = 0;
+                $n1 = 0;
                 foreach ($map['RemediationExecutions'] as $item1) {
                     $model->remediationExecutions[$n1++] = remediationExecutions::fromMap($item1);
                 }

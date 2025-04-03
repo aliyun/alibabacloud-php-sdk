@@ -12,43 +12,50 @@ class ListConfigRuleEvaluationResultsRequest extends Model
      * @var string
      */
     public $compliancePackId;
+
     /**
      * @var string
      */
     public $complianceType;
+
     /**
      * @var string
      */
     public $configRuleId;
+
     /**
      * @var int
      */
     public $maxResults;
+
     /**
      * @var string
      */
     public $nextToken;
+
     /**
      * @var string
      */
     public $regions;
+
     /**
      * @var string
      */
     public $resourceGroupIds;
+
     /**
      * @var string
      */
     public $resourceTypes;
     protected $_name = [
         'compliancePackId' => 'CompliancePackId',
-        'complianceType'   => 'ComplianceType',
-        'configRuleId'     => 'ConfigRuleId',
-        'maxResults'       => 'MaxResults',
-        'nextToken'        => 'NextToken',
-        'regions'          => 'Regions',
+        'complianceType' => 'ComplianceType',
+        'configRuleId' => 'ConfigRuleId',
+        'maxResults' => 'MaxResults',
+        'nextToken' => 'NextToken',
+        'regions' => 'Regions',
         'resourceGroupIds' => 'ResourceGroupIds',
-        'resourceTypes'    => 'ResourceTypes',
+        'resourceTypes' => 'ResourceTypes',
     ];
 
     public function validate()

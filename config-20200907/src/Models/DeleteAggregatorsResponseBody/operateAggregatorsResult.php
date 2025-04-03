@@ -31,7 +31,7 @@ class operateAggregatorsResult extends Model
         if (null !== $this->operateAggregators) {
             if (\is_array($this->operateAggregators)) {
                 $res['OperateAggregators'] = [];
-                $n1                        = 0;
+                $n1 = 0;
                 foreach ($this->operateAggregators as $item1) {
                     $res['OperateAggregators'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -52,7 +52,7 @@ class operateAggregatorsResult extends Model
         if (isset($map['OperateAggregators'])) {
             if (!empty($map['OperateAggregators'])) {
                 $model->operateAggregators = [];
-                $n1                        = 0;
+                $n1 = 0;
                 foreach ($map['OperateAggregators'] as $item1) {
                     $model->operateAggregators[$n1++] = operateAggregators::fromMap($item1);
                 }

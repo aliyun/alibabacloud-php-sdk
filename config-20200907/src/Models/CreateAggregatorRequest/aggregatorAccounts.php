@@ -12,16 +12,18 @@ class aggregatorAccounts extends Model
      * @var int
      */
     public $accountId;
+
     /**
      * @var string
      */
     public $accountName;
+
     /**
      * @var string
      */
     public $accountType;
     protected $_name = [
-        'accountId'   => 'AccountId',
+        'accountId' => 'AccountId',
         'accountName' => 'AccountName',
         'accountType' => 'AccountType',
     ];

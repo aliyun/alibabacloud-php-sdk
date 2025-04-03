@@ -12,18 +12,20 @@ class sourceDetails extends Model
      * @var string
      */
     public $eventSource;
+
     /**
      * @var string
      */
     public $maximumExecutionFrequency;
+
     /**
      * @var string
      */
     public $messageType;
     protected $_name = [
-        'eventSource'               => 'EventSource',
+        'eventSource' => 'EventSource',
         'maximumExecutionFrequency' => 'MaximumExecutionFrequency',
-        'messageType'               => 'MessageType',
+        'messageType' => 'MessageType',
     ];
 
     public function validate()

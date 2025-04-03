@@ -14,93 +14,116 @@ class CreateCompliancePackShrinkRequest extends Model
      * @var string
      */
     public $clientToken;
+
     /**
      * @var string
      */
     public $compliancePackName;
+
     /**
      * @var string
      */
     public $compliancePackTemplateId;
+
     /**
      * @var string
      */
     public $configRulesShrink;
+
     /**
      * @var bool
      */
     public $defaultEnable;
+
     /**
      * @var string
      */
     public $description;
+
     /**
      * @var string
      */
     public $excludeRegionIdsScope;
+
     /**
      * @var string
      */
     public $excludeResourceGroupIdsScope;
+
     /**
      * @var string
      */
     public $excludeResourceIdsScope;
+
     /**
      * @var excludeTagsScope[]
      */
     public $excludeTagsScope;
+
     /**
      * @var string
      */
     public $regionIdsScope;
+
     /**
      * @var string
      */
     public $resourceGroupIdsScope;
+
     /**
      * @var string
      */
     public $resourceIdsScope;
+
     /**
      * @var int
      */
     public $riskLevel;
+
+    /**
+     * @var string
+     */
+    public $tagShrink;
+
     /**
      * @var string
      */
     public $tagKeyScope;
+
     /**
      * @var string
      */
     public $tagValueScope;
+
     /**
      * @var tagsScope[]
      */
     public $tagsScope;
+
     /**
      * @var string
      */
     public $templateContent;
     protected $_name = [
-        'clientToken'                  => 'ClientToken',
-        'compliancePackName'           => 'CompliancePackName',
-        'compliancePackTemplateId'     => 'CompliancePackTemplateId',
-        'configRulesShrink'            => 'ConfigRules',
-        'defaultEnable'                => 'DefaultEnable',
-        'description'                  => 'Description',
-        'excludeRegionIdsScope'        => 'ExcludeRegionIdsScope',
+        'clientToken' => 'ClientToken',
+        'compliancePackName' => 'CompliancePackName',
+        'compliancePackTemplateId' => 'CompliancePackTemplateId',
+        'configRulesShrink' => 'ConfigRules',
+        'defaultEnable' => 'DefaultEnable',
+        'description' => 'Description',
+        'excludeRegionIdsScope' => 'ExcludeRegionIdsScope',
         'excludeResourceGroupIdsScope' => 'ExcludeResourceGroupIdsScope',
-        'excludeResourceIdsScope'      => 'ExcludeResourceIdsScope',
-        'excludeTagsScope'             => 'ExcludeTagsScope',
-        'regionIdsScope'               => 'RegionIdsScope',
-        'resourceGroupIdsScope'        => 'ResourceGroupIdsScope',
-        'resourceIdsScope'             => 'ResourceIdsScope',
-        'riskLevel'                    => 'RiskLevel',
-        'tagKeyScope'                  => 'TagKeyScope',
-        'tagValueScope'                => 'TagValueScope',
-        'tagsScope'                    => 'TagsScope',
-        'templateContent'              => 'TemplateContent',
+        'excludeResourceIdsScope' => 'ExcludeResourceIdsScope',
+        'excludeTagsScope' => 'ExcludeTagsScope',
+        'regionIdsScope' => 'RegionIdsScope',
+        'resourceGroupIdsScope' => 'ResourceGroupIdsScope',
+        'resourceIdsScope' => 'ResourceIdsScope',
+        'riskLevel' => 'RiskLevel',
+        'tagShrink' => 'Tag',
+        'tagKeyScope' => 'TagKeyScope',
+        'tagValueScope' => 'TagValueScope',
+        'tagsScope' => 'TagsScope',
+        'templateContent' => 'TemplateContent',
     ];
 
     public function validate()
@@ -156,7 +179,7 @@ class CreateCompliancePackShrinkRequest extends Model
         if (null !== $this->excludeTagsScope) {
             if (\is_array($this->excludeTagsScope)) {
                 $res['ExcludeTagsScope'] = [];
-                $n1                      = 0;
+                $n1 = 0;
                 foreach ($this->excludeTagsScope as $item1) {
                     $res['ExcludeTagsScope'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -179,6 +202,10 @@ class CreateCompliancePackShrinkRequest extends Model
             $res['RiskLevel'] = $this->riskLevel;
         }
 
+        if (null !== $this->tagShrink) {
+            $res['Tag'] = $this->tagShrink;
+        }
+
         if (null !== $this->tagKeyScope) {
             $res['TagKeyScope'] = $this->tagKeyScope;
         }
@@ -190,7 +217,7 @@ class CreateCompliancePackShrinkRequest extends Model
         if (null !== $this->tagsScope) {
             if (\is_array($this->tagsScope)) {
                 $res['TagsScope'] = [];
-                $n1               = 0;
+                $n1 = 0;
                 foreach ($this->tagsScope as $item1) {
                     $res['TagsScope'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -251,7 +278,7 @@ class CreateCompliancePackShrinkRequest extends Model
         if (isset($map['ExcludeTagsScope'])) {
             if (!empty($map['ExcludeTagsScope'])) {
                 $model->excludeTagsScope = [];
-                $n1                      = 0;
+                $n1 = 0;
                 foreach ($map['ExcludeTagsScope'] as $item1) {
                     $model->excludeTagsScope[$n1++] = excludeTagsScope::fromMap($item1);
                 }
@@ -274,6 +301,10 @@ class CreateCompliancePackShrinkRequest extends Model
             $model->riskLevel = $map['RiskLevel'];
         }
 
+        if (isset($map['Tag'])) {
+            $model->tagShrink = $map['Tag'];
+        }
+
         if (isset($map['TagKeyScope'])) {
             $model->tagKeyScope = $map['TagKeyScope'];
         }
@@ -285,7 +316,7 @@ class CreateCompliancePackShrinkRequest extends Model
         if (isset($map['TagsScope'])) {
             if (!empty($map['TagsScope'])) {
                 $model->tagsScope = [];
-                $n1               = 0;
+                $n1 = 0;
                 foreach ($map['TagsScope'] as $item1) {
                     $model->tagsScope[$n1++] = tagsScope::fromMap($item1);
                 }

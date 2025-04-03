@@ -12,18 +12,20 @@ class discoveredResourceCountsSummary extends Model
      * @var string
      */
     public $groupName;
+
     /**
      * @var int
      */
     public $resourceCount;
+
     /**
      * @var string
      */
     public $resourceType;
     protected $_name = [
-        'groupName'     => 'GroupName',
+        'groupName' => 'GroupName',
         'resourceCount' => 'ResourceCount',
-        'resourceType'  => 'ResourceType',
+        'resourceType' => 'ResourceType',
     ];
 
     public function validate()

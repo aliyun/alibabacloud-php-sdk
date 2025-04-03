@@ -13,12 +13,13 @@ class GetResourceComplianceByPackResponseBody extends Model
      * @var string
      */
     public $requestId;
+
     /**
      * @var resourceComplianceResult
      */
     public $resourceComplianceResult;
     protected $_name = [
-        'requestId'                => 'RequestId',
+        'requestId' => 'RequestId',
         'resourceComplianceResult' => 'ResourceComplianceResult',
     ];
 

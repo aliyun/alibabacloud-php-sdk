@@ -12,47 +12,55 @@ class ListDiscoveredResourcesRequest extends Model
      * @var int
      */
     public $endUpdateTimestamp;
+
     /**
      * @var string
      */
     public $excludeResourceTypes;
+
     /**
      * @var int
      */
     public $maxResults;
+
     /**
      * @var string
      */
     public $nextToken;
+
     /**
      * @var string
      */
     public $regions;
+
     /**
      * @var int
      */
     public $resourceDeleted;
+
     /**
      * @var string
      */
     public $resourceId;
+
     /**
      * @var string
      */
     public $resourceTypes;
+
     /**
      * @var int
      */
     public $startUpdateTimestamp;
     protected $_name = [
-        'endUpdateTimestamp'   => 'EndUpdateTimestamp',
+        'endUpdateTimestamp' => 'EndUpdateTimestamp',
         'excludeResourceTypes' => 'ExcludeResourceTypes',
-        'maxResults'           => 'MaxResults',
-        'nextToken'            => 'NextToken',
-        'regions'              => 'Regions',
-        'resourceDeleted'      => 'ResourceDeleted',
-        'resourceId'           => 'ResourceId',
-        'resourceTypes'        => 'ResourceTypes',
+        'maxResults' => 'MaxResults',
+        'nextToken' => 'NextToken',
+        'regions' => 'Regions',
+        'resourceDeleted' => 'ResourceDeleted',
+        'resourceId' => 'ResourceId',
+        'resourceTypes' => 'ResourceTypes',
         'startUpdateTimestamp' => 'StartUpdateTimestamp',
     ];
 

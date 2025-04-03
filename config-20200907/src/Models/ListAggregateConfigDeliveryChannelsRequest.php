@@ -12,12 +12,13 @@ class ListAggregateConfigDeliveryChannelsRequest extends Model
      * @var string
      */
     public $aggregatorId;
+
     /**
      * @var string
      */
     public $deliveryChannelIds;
     protected $_name = [
-        'aggregatorId'       => 'AggregatorId',
+        'aggregatorId' => 'AggregatorId',
         'deliveryChannelIds' => 'DeliveryChannelIds',
     ];
 

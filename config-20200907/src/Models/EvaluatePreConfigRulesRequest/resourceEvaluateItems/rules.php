@@ -12,12 +12,13 @@ class rules extends Model
      * @var string
      */
     public $identifier;
+
     /**
      * @var string
      */
     public $inputParameters;
     protected $_name = [
-        'identifier'      => 'Identifier',
+        'identifier' => 'Identifier',
         'inputParameters' => 'InputParameters',
     ];
 

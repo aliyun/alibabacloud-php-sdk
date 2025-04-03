@@ -12,18 +12,20 @@ class DeactiveAggregateConfigRulesRequest extends Model
      * @var string
      */
     public $aggregatorId;
+
     /**
      * @var string
      */
     public $compliancePackId;
+
     /**
      * @var string
      */
     public $configRuleIds;
     protected $_name = [
-        'aggregatorId'     => 'AggregatorId',
+        'aggregatorId' => 'AggregatorId',
         'compliancePackId' => 'CompliancePackId',
-        'configRuleIds'    => 'ConfigRuleIds',
+        'configRuleIds' => 'ConfigRuleIds',
     ];
 
     public function validate()

@@ -12,63 +12,74 @@ class discoveredResourceDetail extends Model
      * @var int
      */
     public $accountId;
+
     /**
      * @var string
      */
     public $availabilityZone;
+
     /**
      * @var string
      */
     public $complianceType;
+
     /**
      * @var string
      */
     public $configuration;
+
     /**
      * @var string
      */
     public $region;
+
     /**
      * @var int
      */
     public $resourceCreationTime;
+
     /**
      * @var int
      */
     public $resourceDeleted;
+
     /**
      * @var string
      */
     public $resourceId;
+
     /**
      * @var string
      */
     public $resourceName;
+
     /**
      * @var string
      */
     public $resourceStatus;
+
     /**
      * @var string
      */
     public $resourceType;
+
     /**
      * @var string
      */
     public $tags;
     protected $_name = [
-        'accountId'            => 'AccountId',
-        'availabilityZone'     => 'AvailabilityZone',
-        'complianceType'       => 'ComplianceType',
-        'configuration'        => 'Configuration',
-        'region'               => 'Region',
+        'accountId' => 'AccountId',
+        'availabilityZone' => 'AvailabilityZone',
+        'complianceType' => 'ComplianceType',
+        'configuration' => 'Configuration',
+        'region' => 'Region',
         'resourceCreationTime' => 'ResourceCreationTime',
-        'resourceDeleted'      => 'ResourceDeleted',
-        'resourceId'           => 'ResourceId',
-        'resourceName'         => 'ResourceName',
-        'resourceStatus'       => 'ResourceStatus',
-        'resourceType'         => 'ResourceType',
-        'tags'                 => 'Tags',
+        'resourceDeleted' => 'ResourceDeleted',
+        'resourceId' => 'ResourceId',
+        'resourceName' => 'ResourceName',
+        'resourceStatus' => 'ResourceStatus',
+        'resourceType' => 'ResourceType',
+        'tags' => 'Tags',
     ];
 
     public function validate()

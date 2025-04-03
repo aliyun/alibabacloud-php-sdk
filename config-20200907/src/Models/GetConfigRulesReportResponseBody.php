@@ -13,13 +13,14 @@ class GetConfigRulesReportResponseBody extends Model
      * @var configRulesReport
      */
     public $configRulesReport;
+
     /**
      * @var string
      */
     public $requestId;
     protected $_name = [
         'configRulesReport' => 'ConfigRulesReport',
-        'requestId'         => 'RequestId',
+        'requestId' => 'RequestId',
     ];
 
     public function validate()

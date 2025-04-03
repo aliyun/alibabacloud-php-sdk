@@ -13,13 +13,14 @@ class GetAggregateConfigRuleSummaryByRiskLevelResponseBody extends Model
      * @var configRuleSummaries[]
      */
     public $configRuleSummaries;
+
     /**
      * @var string
      */
     public $requestId;
     protected $_name = [
         'configRuleSummaries' => 'ConfigRuleSummaries',
-        'requestId'           => 'RequestId',
+        'requestId' => 'RequestId',
     ];
 
     public function validate()
@@ -36,7 +37,7 @@ class GetAggregateConfigRuleSummaryByRiskLevelResponseBody extends Model
         if (null !== $this->configRuleSummaries) {
             if (\is_array($this->configRuleSummaries)) {
                 $res['ConfigRuleSummaries'] = [];
-                $n1                         = 0;
+                $n1 = 0;
                 foreach ($this->configRuleSummaries as $item1) {
                     $res['ConfigRuleSummaries'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -61,7 +62,7 @@ class GetAggregateConfigRuleSummaryByRiskLevelResponseBody extends Model
         if (isset($map['ConfigRuleSummaries'])) {
             if (!empty($map['ConfigRuleSummaries'])) {
                 $model->configRuleSummaries = [];
-                $n1                         = 0;
+                $n1 = 0;
                 foreach ($map['ConfigRuleSummaries'] as $item1) {
                     $model->configRuleSummaries[$n1++] = configRuleSummaries::fromMap($item1);
                 }

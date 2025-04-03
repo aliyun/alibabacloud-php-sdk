@@ -12,16 +12,18 @@ class PutEvaluationsRequest extends Model
      * @var bool
      */
     public $deleteMode;
+
     /**
      * @var string
      */
     public $evaluations;
+
     /**
      * @var string
      */
     public $resultToken;
     protected $_name = [
-        'deleteMode'  => 'DeleteMode',
+        'deleteMode' => 'DeleteMode',
         'evaluations' => 'Evaluations',
         'resultToken' => 'ResultToken',
     ];

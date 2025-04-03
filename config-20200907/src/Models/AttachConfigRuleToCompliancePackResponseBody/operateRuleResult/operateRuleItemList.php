@@ -12,18 +12,20 @@ class operateRuleItemList extends Model
      * @var string
      */
     public $configRuleId;
+
     /**
      * @var string
      */
     public $errorCode;
+
     /**
      * @var bool
      */
     public $success;
     protected $_name = [
         'configRuleId' => 'ConfigRuleId',
-        'errorCode'    => 'ErrorCode',
-        'success'      => 'Success',
+        'errorCode' => 'ErrorCode',
+        'success' => 'Success',
     ];
 
     public function validate()

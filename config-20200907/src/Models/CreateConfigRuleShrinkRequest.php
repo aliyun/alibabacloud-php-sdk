@@ -14,118 +14,146 @@ class CreateConfigRuleShrinkRequest extends Model
      * @var string
      */
     public $clientToken;
+
     /**
      * @var string
      */
     public $configRuleName;
+
     /**
      * @var string
      */
     public $configRuleTriggerTypes;
+
     /**
      * @var string
      */
     public $description;
+
     /**
      * @var string
      */
     public $excludeRegionIdsScope;
+
     /**
      * @var string
      */
     public $excludeResourceGroupIdsScope;
+
     /**
      * @var string
      */
     public $excludeResourceIdsScope;
+
     /**
      * @var excludeTagsScope[]
      */
     public $excludeTagsScope;
+
     /**
      * @var string
      */
     public $extendContent;
+
     /**
      * @var string
      */
     public $inputParametersShrink;
+
     /**
      * @var string
      */
     public $maximumExecutionFrequency;
+
     /**
      * @var string
      */
     public $regionIdsScope;
+
     /**
      * @var string
      */
     public $resourceGroupIdsScope;
+
     /**
      * @var string
      */
     public $resourceIdsScope;
+
+    /**
+     * @var string
+     */
+    public $resourceNameScope;
+
     /**
      * @var string
      */
     public $resourceTypesScopeShrink;
+
     /**
      * @var int
      */
     public $riskLevel;
+
     /**
      * @var string
      */
     public $sourceIdentifier;
+
     /**
      * @var string
      */
     public $sourceOwner;
+
     /**
      * @var string
      */
     public $tagShrink;
+
     /**
      * @var string
      */
     public $tagKeyLogicScope;
+
     /**
      * @var string
      */
     public $tagKeyScope;
+
     /**
      * @var string
      */
     public $tagValueScope;
+
     /**
      * @var tagsScope[]
      */
     public $tagsScope;
     protected $_name = [
-        'clientToken'                  => 'ClientToken',
-        'configRuleName'               => 'ConfigRuleName',
-        'configRuleTriggerTypes'       => 'ConfigRuleTriggerTypes',
-        'description'                  => 'Description',
-        'excludeRegionIdsScope'        => 'ExcludeRegionIdsScope',
+        'clientToken' => 'ClientToken',
+        'configRuleName' => 'ConfigRuleName',
+        'configRuleTriggerTypes' => 'ConfigRuleTriggerTypes',
+        'description' => 'Description',
+        'excludeRegionIdsScope' => 'ExcludeRegionIdsScope',
         'excludeResourceGroupIdsScope' => 'ExcludeResourceGroupIdsScope',
-        'excludeResourceIdsScope'      => 'ExcludeResourceIdsScope',
-        'excludeTagsScope'             => 'ExcludeTagsScope',
-        'extendContent'                => 'ExtendContent',
-        'inputParametersShrink'        => 'InputParameters',
-        'maximumExecutionFrequency'    => 'MaximumExecutionFrequency',
-        'regionIdsScope'               => 'RegionIdsScope',
-        'resourceGroupIdsScope'        => 'ResourceGroupIdsScope',
-        'resourceIdsScope'             => 'ResourceIdsScope',
-        'resourceTypesScopeShrink'     => 'ResourceTypesScope',
-        'riskLevel'                    => 'RiskLevel',
-        'sourceIdentifier'             => 'SourceIdentifier',
-        'sourceOwner'                  => 'SourceOwner',
-        'tagShrink'                    => 'Tag',
-        'tagKeyLogicScope'             => 'TagKeyLogicScope',
-        'tagKeyScope'                  => 'TagKeyScope',
-        'tagValueScope'                => 'TagValueScope',
-        'tagsScope'                    => 'TagsScope',
+        'excludeResourceIdsScope' => 'ExcludeResourceIdsScope',
+        'excludeTagsScope' => 'ExcludeTagsScope',
+        'extendContent' => 'ExtendContent',
+        'inputParametersShrink' => 'InputParameters',
+        'maximumExecutionFrequency' => 'MaximumExecutionFrequency',
+        'regionIdsScope' => 'RegionIdsScope',
+        'resourceGroupIdsScope' => 'ResourceGroupIdsScope',
+        'resourceIdsScope' => 'ResourceIdsScope',
+        'resourceNameScope' => 'ResourceNameScope',
+        'resourceTypesScopeShrink' => 'ResourceTypesScope',
+        'riskLevel' => 'RiskLevel',
+        'sourceIdentifier' => 'SourceIdentifier',
+        'sourceOwner' => 'SourceOwner',
+        'tagShrink' => 'Tag',
+        'tagKeyLogicScope' => 'TagKeyLogicScope',
+        'tagKeyScope' => 'TagKeyScope',
+        'tagValueScope' => 'TagValueScope',
+        'tagsScope' => 'TagsScope',
     ];
 
     public function validate()
@@ -173,7 +201,7 @@ class CreateConfigRuleShrinkRequest extends Model
         if (null !== $this->excludeTagsScope) {
             if (\is_array($this->excludeTagsScope)) {
                 $res['ExcludeTagsScope'] = [];
-                $n1                      = 0;
+                $n1 = 0;
                 foreach ($this->excludeTagsScope as $item1) {
                     $res['ExcludeTagsScope'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -202,6 +230,10 @@ class CreateConfigRuleShrinkRequest extends Model
 
         if (null !== $this->resourceIdsScope) {
             $res['ResourceIdsScope'] = $this->resourceIdsScope;
+        }
+
+        if (null !== $this->resourceNameScope) {
+            $res['ResourceNameScope'] = $this->resourceNameScope;
         }
 
         if (null !== $this->resourceTypesScopeShrink) {
@@ -239,7 +271,7 @@ class CreateConfigRuleShrinkRequest extends Model
         if (null !== $this->tagsScope) {
             if (\is_array($this->tagsScope)) {
                 $res['TagsScope'] = [];
-                $n1               = 0;
+                $n1 = 0;
                 foreach ($this->tagsScope as $item1) {
                     $res['TagsScope'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -288,7 +320,7 @@ class CreateConfigRuleShrinkRequest extends Model
         if (isset($map['ExcludeTagsScope'])) {
             if (!empty($map['ExcludeTagsScope'])) {
                 $model->excludeTagsScope = [];
-                $n1                      = 0;
+                $n1 = 0;
                 foreach ($map['ExcludeTagsScope'] as $item1) {
                     $model->excludeTagsScope[$n1++] = excludeTagsScope::fromMap($item1);
                 }
@@ -317,6 +349,10 @@ class CreateConfigRuleShrinkRequest extends Model
 
         if (isset($map['ResourceIdsScope'])) {
             $model->resourceIdsScope = $map['ResourceIdsScope'];
+        }
+
+        if (isset($map['ResourceNameScope'])) {
+            $model->resourceNameScope = $map['ResourceNameScope'];
         }
 
         if (isset($map['ResourceTypesScope'])) {
@@ -354,7 +390,7 @@ class CreateConfigRuleShrinkRequest extends Model
         if (isset($map['TagsScope'])) {
             if (!empty($map['TagsScope'])) {
                 $model->tagsScope = [];
-                $n1               = 0;
+                $n1 = 0;
                 foreach ($map['TagsScope'] as $item1) {
                     $model->tagsScope[$n1++] = tagsScope::fromMap($item1);
                 }

@@ -12,38 +12,44 @@ class CreateRemediationRequest extends Model
      * @var string
      */
     public $clientToken;
+
     /**
      * @var string
      */
     public $configRuleId;
+
     /**
      * @var string
      */
     public $invokeType;
+
     /**
      * @var string
      */
     public $params;
+
     /**
      * @var string
      */
     public $remediationTemplateId;
+
     /**
      * @var string
      */
     public $remediationType;
+
     /**
      * @var string
      */
     public $sourceType;
     protected $_name = [
-        'clientToken'           => 'ClientToken',
-        'configRuleId'          => 'ConfigRuleId',
-        'invokeType'            => 'InvokeType',
-        'params'                => 'Params',
+        'clientToken' => 'ClientToken',
+        'configRuleId' => 'ConfigRuleId',
+        'invokeType' => 'InvokeType',
+        'params' => 'Params',
         'remediationTemplateId' => 'RemediationTemplateId',
-        'remediationType'       => 'RemediationType',
-        'sourceType'            => 'SourceType',
+        'remediationType' => 'RemediationType',
+        'sourceType' => 'SourceType',
     ];
 
     public function validate()

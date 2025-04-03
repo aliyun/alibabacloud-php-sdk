@@ -13,13 +13,14 @@ class DeleteAggregatorsResponseBody extends Model
      * @var operateAggregatorsResult
      */
     public $operateAggregatorsResult;
+
     /**
      * @var string
      */
     public $requestId;
     protected $_name = [
         'operateAggregatorsResult' => 'OperateAggregatorsResult',
-        'requestId'                => 'RequestId',
+        'requestId' => 'RequestId',
     ];
 
     public function validate()

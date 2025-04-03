@@ -12,12 +12,13 @@ class GenerateCompliancePackReportRequest extends Model
      * @var string
      */
     public $clientToken;
+
     /**
      * @var string
      */
     public $compliancePackId;
     protected $_name = [
-        'clientToken'      => 'ClientToken',
+        'clientToken' => 'ClientToken',
         'compliancePackId' => 'CompliancePackId',
     ];
 

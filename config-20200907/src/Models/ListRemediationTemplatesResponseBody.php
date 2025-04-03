@@ -13,28 +13,32 @@ class ListRemediationTemplatesResponseBody extends Model
      * @var int
      */
     public $pageNumber;
+
     /**
      * @var int
      */
     public $pageSize;
+
     /**
      * @var remediationTemplates[]
      */
     public $remediationTemplates;
+
     /**
      * @var string
      */
     public $requestId;
+
     /**
      * @var string
      */
     public $totalCount;
     protected $_name = [
-        'pageNumber'           => 'PageNumber',
-        'pageSize'             => 'PageSize',
+        'pageNumber' => 'PageNumber',
+        'pageSize' => 'PageSize',
         'remediationTemplates' => 'RemediationTemplates',
-        'requestId'            => 'RequestId',
-        'totalCount'           => 'TotalCount',
+        'requestId' => 'RequestId',
+        'totalCount' => 'TotalCount',
     ];
 
     public function validate()
@@ -59,7 +63,7 @@ class ListRemediationTemplatesResponseBody extends Model
         if (null !== $this->remediationTemplates) {
             if (\is_array($this->remediationTemplates)) {
                 $res['RemediationTemplates'] = [];
-                $n1                          = 0;
+                $n1 = 0;
                 foreach ($this->remediationTemplates as $item1) {
                     $res['RemediationTemplates'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -96,7 +100,7 @@ class ListRemediationTemplatesResponseBody extends Model
         if (isset($map['RemediationTemplates'])) {
             if (!empty($map['RemediationTemplates'])) {
                 $model->remediationTemplates = [];
-                $n1                          = 0;
+                $n1 = 0;
                 foreach ($map['RemediationTemplates'] as $item1) {
                     $model->remediationTemplates[$n1++] = remediationTemplates::fromMap($item1);
                 }

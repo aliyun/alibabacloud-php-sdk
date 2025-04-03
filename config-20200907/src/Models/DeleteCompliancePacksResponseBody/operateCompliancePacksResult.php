@@ -31,7 +31,7 @@ class operateCompliancePacksResult extends Model
         if (null !== $this->operateCompliancePacks) {
             if (\is_array($this->operateCompliancePacks)) {
                 $res['OperateCompliancePacks'] = [];
-                $n1                            = 0;
+                $n1 = 0;
                 foreach ($this->operateCompliancePacks as $item1) {
                     $res['OperateCompliancePacks'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -52,7 +52,7 @@ class operateCompliancePacksResult extends Model
         if (isset($map['OperateCompliancePacks'])) {
             if (!empty($map['OperateCompliancePacks'])) {
                 $model->operateCompliancePacks = [];
-                $n1                            = 0;
+                $n1 = 0;
                 foreach ($map['OperateCompliancePacks'] as $item1) {
                     $model->operateCompliancePacks[$n1++] = operateCompliancePacks::fromMap($item1);
                 }

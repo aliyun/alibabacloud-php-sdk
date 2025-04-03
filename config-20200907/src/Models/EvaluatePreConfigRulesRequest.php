@@ -13,18 +13,20 @@ class EvaluatePreConfigRulesRequest extends Model
      * @var bool
      */
     public $enableManagedRules;
+
     /**
      * @var resourceEvaluateItems[]
      */
     public $resourceEvaluateItems;
+
     /**
      * @var string
      */
     public $resourceTypeFormat;
     protected $_name = [
-        'enableManagedRules'    => 'EnableManagedRules',
+        'enableManagedRules' => 'EnableManagedRules',
         'resourceEvaluateItems' => 'ResourceEvaluateItems',
-        'resourceTypeFormat'    => 'ResourceTypeFormat',
+        'resourceTypeFormat' => 'ResourceTypeFormat',
     ];
 
     public function validate()
@@ -45,7 +47,7 @@ class EvaluatePreConfigRulesRequest extends Model
         if (null !== $this->resourceEvaluateItems) {
             if (\is_array($this->resourceEvaluateItems)) {
                 $res['ResourceEvaluateItems'] = [];
-                $n1                           = 0;
+                $n1 = 0;
                 foreach ($this->resourceEvaluateItems as $item1) {
                     $res['ResourceEvaluateItems'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -74,7 +76,7 @@ class EvaluatePreConfigRulesRequest extends Model
         if (isset($map['ResourceEvaluateItems'])) {
             if (!empty($map['ResourceEvaluateItems'])) {
                 $model->resourceEvaluateItems = [];
-                $n1                           = 0;
+                $n1 = 0;
                 foreach ($map['ResourceEvaluateItems'] as $item1) {
                     $model->resourceEvaluateItems[$n1++] = resourceEvaluateItems::fromMap($item1);
                 }

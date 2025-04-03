@@ -12,58 +12,68 @@ class configurationList extends Model
      * @var int
      */
     public $accountId;
+
     /**
      * @var string
      */
     public $availabilityZone;
+
     /**
      * @var string
      */
     public $captureTime;
+
     /**
      * @var string
      */
     public $configurationDiff;
+
     /**
      * @var string
      */
     public $region;
+
     /**
      * @var string
      */
     public $resourceCreateTime;
+
     /**
      * @var string
      */
     public $resourceEventType;
+
     /**
      * @var string
      */
     public $resourceId;
+
     /**
      * @var string
      */
     public $resourceName;
+
     /**
      * @var string
      */
     public $resourceType;
+
     /**
      * @var string
      */
     public $tags;
     protected $_name = [
-        'accountId'          => 'AccountId',
-        'availabilityZone'   => 'AvailabilityZone',
-        'captureTime'        => 'CaptureTime',
-        'configurationDiff'  => 'ConfigurationDiff',
-        'region'             => 'Region',
+        'accountId' => 'AccountId',
+        'availabilityZone' => 'AvailabilityZone',
+        'captureTime' => 'CaptureTime',
+        'configurationDiff' => 'ConfigurationDiff',
+        'region' => 'Region',
         'resourceCreateTime' => 'ResourceCreateTime',
-        'resourceEventType'  => 'ResourceEventType',
-        'resourceId'         => 'ResourceId',
-        'resourceName'       => 'ResourceName',
-        'resourceType'       => 'ResourceType',
-        'tags'               => 'Tags',
+        'resourceEventType' => 'ResourceEventType',
+        'resourceId' => 'ResourceId',
+        'resourceName' => 'ResourceName',
+        'resourceType' => 'ResourceType',
+        'tags' => 'Tags',
     ];
 
     public function validate()

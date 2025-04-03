@@ -12,18 +12,20 @@ class remediationDeleteResults extends Model
      * @var string
      */
     public $errorMessage;
+
     /**
      * @var string
      */
     public $remediationId;
+
     /**
      * @var bool
      */
     public $success;
     protected $_name = [
-        'errorMessage'  => 'ErrorMessage',
+        'errorMessage' => 'ErrorMessage',
         'remediationId' => 'RemediationId',
-        'success'       => 'Success',
+        'success' => 'Success',
     ];
 
     public function validate()

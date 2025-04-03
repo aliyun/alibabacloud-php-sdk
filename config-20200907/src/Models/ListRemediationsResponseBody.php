@@ -13,28 +13,32 @@ class ListRemediationsResponseBody extends Model
      * @var int
      */
     public $pageNumber;
+
     /**
      * @var int
      */
     public $pageSize;
+
     /**
      * @var remediations[]
      */
     public $remediations;
+
     /**
      * @var string
      */
     public $requestId;
+
     /**
      * @var string
      */
     public $totalCount;
     protected $_name = [
-        'pageNumber'   => 'PageNumber',
-        'pageSize'     => 'PageSize',
+        'pageNumber' => 'PageNumber',
+        'pageSize' => 'PageSize',
         'remediations' => 'Remediations',
-        'requestId'    => 'RequestId',
-        'totalCount'   => 'TotalCount',
+        'requestId' => 'RequestId',
+        'totalCount' => 'TotalCount',
     ];
 
     public function validate()
@@ -59,7 +63,7 @@ class ListRemediationsResponseBody extends Model
         if (null !== $this->remediations) {
             if (\is_array($this->remediations)) {
                 $res['Remediations'] = [];
-                $n1                  = 0;
+                $n1 = 0;
                 foreach ($this->remediations as $item1) {
                     $res['Remediations'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -96,7 +100,7 @@ class ListRemediationsResponseBody extends Model
         if (isset($map['Remediations'])) {
             if (!empty($map['Remediations'])) {
                 $model->remediations = [];
-                $n1                  = 0;
+                $n1 = 0;
                 foreach ($map['Remediations'] as $item1) {
                     $model->remediations[$n1++] = remediations::fromMap($item1);
                 }

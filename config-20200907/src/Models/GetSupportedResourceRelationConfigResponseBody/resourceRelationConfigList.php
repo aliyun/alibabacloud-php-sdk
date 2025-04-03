@@ -12,12 +12,13 @@ class resourceRelationConfigList extends Model
      * @var string
      */
     public $relationType;
+
     /**
      * @var string
      */
     public $targetResourceType;
     protected $_name = [
-        'relationType'       => 'RelationType',
+        'relationType' => 'RelationType',
         'targetResourceType' => 'TargetResourceType',
     ];
 

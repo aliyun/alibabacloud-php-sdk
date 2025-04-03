@@ -12,13 +12,14 @@ class queryResultList extends Model
      * @var string[]
      */
     public $columns;
+
     /**
      * @var mixed[]
      */
     public $values;
     protected $_name = [
         'columns' => 'Columns',
-        'values'  => 'Values',
+        'values' => 'Values',
     ];
 
     public function validate()
@@ -38,7 +39,7 @@ class queryResultList extends Model
         if (null !== $this->columns) {
             if (\is_array($this->columns)) {
                 $res['Columns'] = [];
-                $n1             = 0;
+                $n1 = 0;
                 foreach ($this->columns as $item1) {
                     $res['Columns'][$n1++] = $item1;
                 }
@@ -48,7 +49,7 @@ class queryResultList extends Model
         if (null !== $this->values) {
             if (\is_array($this->values)) {
                 $res['Values'] = [];
-                $n1            = 0;
+                $n1 = 0;
                 foreach ($this->values as $item1) {
                     $res['Values'][$n1++] = $item1;
                 }
@@ -69,7 +70,7 @@ class queryResultList extends Model
         if (isset($map['Columns'])) {
             if (!empty($map['Columns'])) {
                 $model->columns = [];
-                $n1             = 0;
+                $n1 = 0;
                 foreach ($map['Columns'] as $item1) {
                     $model->columns[$n1++] = $item1;
                 }
@@ -79,7 +80,7 @@ class queryResultList extends Model
         if (isset($map['Values'])) {
             if (!empty($map['Values'])) {
                 $model->values = [];
-                $n1            = 0;
+                $n1 = 0;
                 foreach ($map['Values'] as $item1) {
                     $model->values[$n1++] = $item1;
                 }

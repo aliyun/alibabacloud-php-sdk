@@ -12,12 +12,13 @@ class GetAggregateCompliancePackReportRequest extends Model
      * @var string
      */
     public $aggregatorId;
+
     /**
      * @var string
      */
     public $compliancePackId;
     protected $_name = [
-        'aggregatorId'     => 'AggregatorId',
+        'aggregatorId' => 'AggregatorId',
         'compliancePackId' => 'CompliancePackId',
     ];
 

@@ -13,13 +13,14 @@ class GetRemediationTemplateResponseBody extends Model
      * @var remediationTemplates[]
      */
     public $remediationTemplates;
+
     /**
      * @var string
      */
     public $requestId;
     protected $_name = [
         'remediationTemplates' => 'RemediationTemplates',
-        'requestId'            => 'RequestId',
+        'requestId' => 'RequestId',
     ];
 
     public function validate()
@@ -36,7 +37,7 @@ class GetRemediationTemplateResponseBody extends Model
         if (null !== $this->remediationTemplates) {
             if (\is_array($this->remediationTemplates)) {
                 $res['RemediationTemplates'] = [];
-                $n1                          = 0;
+                $n1 = 0;
                 foreach ($this->remediationTemplates as $item1) {
                     $res['RemediationTemplates'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -61,7 +62,7 @@ class GetRemediationTemplateResponseBody extends Model
         if (isset($map['RemediationTemplates'])) {
             if (!empty($map['RemediationTemplates'])) {
                 $model->remediationTemplates = [];
-                $n1                          = 0;
+                $n1 = 0;
                 foreach ($map['RemediationTemplates'] as $item1) {
                     $model->remediationTemplates[$n1++] = remediationTemplates::fromMap($item1);
                 }

@@ -13,13 +13,14 @@ class DeleteCompliancePacksResponseBody extends Model
      * @var operateCompliancePacksResult
      */
     public $operateCompliancePacksResult;
+
     /**
      * @var string
      */
     public $requestId;
     protected $_name = [
         'operateCompliancePacksResult' => 'OperateCompliancePacksResult',
-        'requestId'                    => 'RequestId',
+        'requestId' => 'RequestId',
     ];
 
     public function validate()

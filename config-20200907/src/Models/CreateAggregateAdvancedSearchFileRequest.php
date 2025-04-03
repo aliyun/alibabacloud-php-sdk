@@ -12,13 +12,14 @@ class CreateAggregateAdvancedSearchFileRequest extends Model
      * @var string
      */
     public $aggregatorId;
+
     /**
      * @var string
      */
     public $sql;
     protected $_name = [
         'aggregatorId' => 'AggregatorId',
-        'sql'          => 'Sql',
+        'sql' => 'Sql',
     ];
 
     public function validate()

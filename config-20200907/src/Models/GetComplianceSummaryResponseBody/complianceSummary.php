@@ -14,13 +14,14 @@ class complianceSummary extends Model
      * @var complianceSummaryByConfigRule
      */
     public $complianceSummaryByConfigRule;
+
     /**
      * @var complianceSummaryByResource
      */
     public $complianceSummaryByResource;
     protected $_name = [
         'complianceSummaryByConfigRule' => 'ComplianceSummaryByConfigRule',
-        'complianceSummaryByResource'   => 'ComplianceSummaryByResource',
+        'complianceSummaryByResource' => 'ComplianceSummaryByResource',
     ];
 
     public function validate()

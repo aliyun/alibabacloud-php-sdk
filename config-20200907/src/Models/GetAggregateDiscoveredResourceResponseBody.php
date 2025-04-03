@@ -13,13 +13,14 @@ class GetAggregateDiscoveredResourceResponseBody extends Model
      * @var discoveredResourceDetail
      */
     public $discoveredResourceDetail;
+
     /**
      * @var string
      */
     public $requestId;
     protected $_name = [
         'discoveredResourceDetail' => 'DiscoveredResourceDetail',
-        'requestId'                => 'RequestId',
+        'requestId' => 'RequestId',
     ];
 
     public function validate()

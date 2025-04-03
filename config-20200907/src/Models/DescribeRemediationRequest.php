@@ -12,12 +12,13 @@ class DescribeRemediationRequest extends Model
      * @var string
      */
     public $configRuleId;
+
     /**
      * @var string
      */
     public $remediationId;
     protected $_name = [
-        'configRuleId'  => 'ConfigRuleId',
+        'configRuleId' => 'ConfigRuleId',
         'remediationId' => 'RemediationId',
     ];
 

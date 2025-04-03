@@ -13,12 +13,13 @@ class GetResourceInventoryResponseBody extends Model
      * @var string
      */
     public $requestId;
+
     /**
      * @var resourceInventory
      */
     public $resourceInventory;
     protected $_name = [
-        'requestId'         => 'RequestId',
+        'requestId' => 'RequestId',
         'resourceInventory' => 'ResourceInventory',
     ];
 

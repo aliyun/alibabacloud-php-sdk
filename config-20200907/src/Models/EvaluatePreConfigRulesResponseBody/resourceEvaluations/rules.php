@@ -12,23 +12,26 @@ class rules extends Model
      * @var string
      */
     public $annotation;
+
     /**
      * @var string
      */
     public $complianceType;
+
     /**
      * @var string
      */
     public $helpUrl;
+
     /**
      * @var string
      */
     public $identifier;
     protected $_name = [
-        'annotation'     => 'Annotation',
+        'annotation' => 'Annotation',
         'complianceType' => 'ComplianceType',
-        'helpUrl'        => 'HelpUrl',
-        'identifier'     => 'Identifier',
+        'helpUrl' => 'HelpUrl',
+        'identifier' => 'Identifier',
     ];
 
     public function validate()

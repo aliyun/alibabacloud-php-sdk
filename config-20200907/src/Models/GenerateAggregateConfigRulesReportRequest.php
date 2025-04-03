@@ -12,17 +12,19 @@ class GenerateAggregateConfigRulesReportRequest extends Model
      * @var string
      */
     public $aggregatorId;
+
     /**
      * @var string
      */
     public $clientToken;
+
     /**
      * @var string
      */
     public $configRuleIds;
     protected $_name = [
-        'aggregatorId'  => 'AggregatorId',
-        'clientToken'   => 'ClientToken',
+        'aggregatorId' => 'AggregatorId',
+        'clientToken' => 'ClientToken',
         'configRuleIds' => 'ConfigRuleIds',
     ];
 

@@ -13,23 +13,26 @@ class configRuleComplianceResult extends Model
      * @var string
      */
     public $compliancePackId;
+
     /**
      * @var configRuleCompliances[]
      */
     public $configRuleCompliances;
+
     /**
      * @var int
      */
     public $nonCompliantCount;
+
     /**
      * @var int
      */
     public $totalCount;
     protected $_name = [
-        'compliancePackId'      => 'CompliancePackId',
+        'compliancePackId' => 'CompliancePackId',
         'configRuleCompliances' => 'ConfigRuleCompliances',
-        'nonCompliantCount'     => 'NonCompliantCount',
-        'totalCount'            => 'TotalCount',
+        'nonCompliantCount' => 'NonCompliantCount',
+        'totalCount' => 'TotalCount',
     ];
 
     public function validate()
@@ -50,7 +53,7 @@ class configRuleComplianceResult extends Model
         if (null !== $this->configRuleCompliances) {
             if (\is_array($this->configRuleCompliances)) {
                 $res['ConfigRuleCompliances'] = [];
-                $n1                           = 0;
+                $n1 = 0;
                 foreach ($this->configRuleCompliances as $item1) {
                     $res['ConfigRuleCompliances'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -83,7 +86,7 @@ class configRuleComplianceResult extends Model
         if (isset($map['ConfigRuleCompliances'])) {
             if (!empty($map['ConfigRuleCompliances'])) {
                 $model->configRuleCompliances = [];
-                $n1                           = 0;
+                $n1 = 0;
                 foreach ($map['ConfigRuleCompliances'] as $item1) {
                     $model->configRuleCompliances[$n1++] = configRuleCompliances::fromMap($item1);
                 }

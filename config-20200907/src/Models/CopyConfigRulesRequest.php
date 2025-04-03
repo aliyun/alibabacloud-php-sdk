@@ -12,17 +12,19 @@ class CopyConfigRulesRequest extends Model
      * @var string
      */
     public $desAggregatorIds;
+
     /**
      * @var string
      */
     public $srcAggregatorId;
+
     /**
      * @var string
      */
     public $srcConfigRuleIds;
     protected $_name = [
         'desAggregatorIds' => 'DesAggregatorIds',
-        'srcAggregatorId'  => 'SrcAggregatorId',
+        'srcAggregatorId' => 'SrcAggregatorId',
         'srcConfigRuleIds' => 'SrcConfigRuleIds',
     ];
 

@@ -12,38 +12,44 @@ class GetResourceConfigurationTimelineRequest extends Model
      * @var int
      */
     public $endTime;
+
     /**
      * @var int
      */
     public $maxResults;
+
     /**
      * @var string
      */
     public $nextToken;
+
     /**
      * @var string
      */
     public $region;
+
     /**
      * @var string
      */
     public $resourceId;
+
     /**
      * @var string
      */
     public $resourceType;
+
     /**
      * @var int
      */
     public $startTime;
     protected $_name = [
-        'endTime'      => 'EndTime',
-        'maxResults'   => 'MaxResults',
-        'nextToken'    => 'NextToken',
-        'region'       => 'Region',
-        'resourceId'   => 'ResourceId',
+        'endTime' => 'EndTime',
+        'maxResults' => 'MaxResults',
+        'nextToken' => 'NextToken',
+        'region' => 'Region',
+        'resourceId' => 'ResourceId',
         'resourceType' => 'ResourceType',
-        'startTime'    => 'StartTime',
+        'startTime' => 'StartTime',
     ];
 
     public function validate()

@@ -12,38 +12,44 @@ class UpdateAggregateRemediationRequest extends Model
      * @var string
      */
     public $aggregatorId;
+
     /**
      * @var string
      */
     public $invokeType;
+
     /**
      * @var string
      */
     public $params;
+
     /**
      * @var string
      */
     public $remediationId;
+
     /**
      * @var string
      */
     public $remediationTemplateId;
+
     /**
      * @var string
      */
     public $remediationType;
+
     /**
      * @var string
      */
     public $sourceType;
     protected $_name = [
-        'aggregatorId'          => 'AggregatorId',
-        'invokeType'            => 'InvokeType',
-        'params'                => 'Params',
-        'remediationId'         => 'RemediationId',
+        'aggregatorId' => 'AggregatorId',
+        'invokeType' => 'InvokeType',
+        'params' => 'Params',
+        'remediationId' => 'RemediationId',
         'remediationTemplateId' => 'RemediationTemplateId',
-        'remediationType'       => 'RemediationType',
-        'sourceType'            => 'SourceType',
+        'remediationType' => 'RemediationType',
+        'sourceType' => 'SourceType',
     ];
 
     public function validate()

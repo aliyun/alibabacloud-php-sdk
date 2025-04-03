@@ -12,12 +12,13 @@ class GenerateConfigRulesReportRequest extends Model
      * @var string
      */
     public $clientToken;
+
     /**
      * @var string
      */
     public $configRuleIds;
     protected $_name = [
-        'clientToken'   => 'ClientToken',
+        'clientToken' => 'ClientToken',
         'configRuleIds' => 'ConfigRuleIds',
     ];
 

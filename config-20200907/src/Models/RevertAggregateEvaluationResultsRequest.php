@@ -13,10 +13,12 @@ class RevertAggregateEvaluationResultsRequest extends Model
      * @var string
      */
     public $aggregatorId;
+
     /**
      * @var string
      */
     public $configRuleId;
+
     /**
      * @var resources[]
      */
@@ -24,7 +26,7 @@ class RevertAggregateEvaluationResultsRequest extends Model
     protected $_name = [
         'aggregatorId' => 'AggregatorId',
         'configRuleId' => 'ConfigRuleId',
-        'resources'    => 'Resources',
+        'resources' => 'Resources',
     ];
 
     public function validate()
@@ -49,7 +51,7 @@ class RevertAggregateEvaluationResultsRequest extends Model
         if (null !== $this->resources) {
             if (\is_array($this->resources)) {
                 $res['Resources'] = [];
-                $n1               = 0;
+                $n1 = 0;
                 foreach ($this->resources as $item1) {
                     $res['Resources'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -78,7 +80,7 @@ class RevertAggregateEvaluationResultsRequest extends Model
         if (isset($map['Resources'])) {
             if (!empty($map['Resources'])) {
                 $model->resources = [];
-                $n1               = 0;
+                $n1 = 0;
                 foreach ($map['Resources'] as $item1) {
                     $model->resources[$n1++] = resources::fromMap($item1);
                 }

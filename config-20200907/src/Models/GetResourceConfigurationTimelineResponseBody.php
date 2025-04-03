@@ -13,12 +13,13 @@ class GetResourceConfigurationTimelineResponseBody extends Model
      * @var string
      */
     public $requestId;
+
     /**
      * @var resourceConfigurationTimeline
      */
     public $resourceConfigurationTimeline;
     protected $_name = [
-        'requestId'                     => 'RequestId',
+        'requestId' => 'RequestId',
         'resourceConfigurationTimeline' => 'ResourceConfigurationTimeline',
     ];
 

@@ -13,23 +13,26 @@ class compliancePackTemplatesResult extends Model
      * @var compliancePackTemplates[]
      */
     public $compliancePackTemplates;
+
     /**
      * @var int
      */
     public $pageNumber;
+
     /**
      * @var int
      */
     public $pageSize;
+
     /**
      * @var int
      */
     public $totalCount;
     protected $_name = [
         'compliancePackTemplates' => 'CompliancePackTemplates',
-        'pageNumber'              => 'PageNumber',
-        'pageSize'                => 'PageSize',
-        'totalCount'              => 'TotalCount',
+        'pageNumber' => 'PageNumber',
+        'pageSize' => 'PageSize',
+        'totalCount' => 'TotalCount',
     ];
 
     public function validate()
@@ -46,7 +49,7 @@ class compliancePackTemplatesResult extends Model
         if (null !== $this->compliancePackTemplates) {
             if (\is_array($this->compliancePackTemplates)) {
                 $res['CompliancePackTemplates'] = [];
-                $n1                             = 0;
+                $n1 = 0;
                 foreach ($this->compliancePackTemplates as $item1) {
                     $res['CompliancePackTemplates'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -79,7 +82,7 @@ class compliancePackTemplatesResult extends Model
         if (isset($map['CompliancePackTemplates'])) {
             if (!empty($map['CompliancePackTemplates'])) {
                 $model->compliancePackTemplates = [];
-                $n1                             = 0;
+                $n1 = 0;
                 foreach ($map['CompliancePackTemplates'] as $item1) {
                     $model->compliancePackTemplates[$n1++] = compliancePackTemplates::fromMap($item1);
                 }

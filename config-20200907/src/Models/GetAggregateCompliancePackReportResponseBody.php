@@ -13,13 +13,14 @@ class GetAggregateCompliancePackReportResponseBody extends Model
      * @var compliancePackReport
      */
     public $compliancePackReport;
+
     /**
      * @var string
      */
     public $requestId;
     protected $_name = [
         'compliancePackReport' => 'CompliancePackReport',
-        'requestId'            => 'RequestId',
+        'requestId' => 'RequestId',
     ];
 
     public function validate()

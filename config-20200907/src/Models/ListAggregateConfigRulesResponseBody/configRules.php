@@ -13,23 +13,26 @@ class configRules extends Model
      * @var configRuleList[]
      */
     public $configRuleList;
+
     /**
      * @var int
      */
     public $pageNumber;
+
     /**
      * @var int
      */
     public $pageSize;
+
     /**
      * @var int
      */
     public $totalCount;
     protected $_name = [
         'configRuleList' => 'ConfigRuleList',
-        'pageNumber'     => 'PageNumber',
-        'pageSize'       => 'PageSize',
-        'totalCount'     => 'TotalCount',
+        'pageNumber' => 'PageNumber',
+        'pageSize' => 'PageSize',
+        'totalCount' => 'TotalCount',
     ];
 
     public function validate()
@@ -46,7 +49,7 @@ class configRules extends Model
         if (null !== $this->configRuleList) {
             if (\is_array($this->configRuleList)) {
                 $res['ConfigRuleList'] = [];
-                $n1                    = 0;
+                $n1 = 0;
                 foreach ($this->configRuleList as $item1) {
                     $res['ConfigRuleList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -79,7 +82,7 @@ class configRules extends Model
         if (isset($map['ConfigRuleList'])) {
             if (!empty($map['ConfigRuleList'])) {
                 $model->configRuleList = [];
-                $n1                    = 0;
+                $n1 = 0;
                 foreach ($map['ConfigRuleList'] as $item1) {
                     $model->configRuleList[$n1++] = configRuleList::fromMap($item1);
                 }

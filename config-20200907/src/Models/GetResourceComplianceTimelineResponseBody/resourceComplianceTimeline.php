@@ -13,18 +13,20 @@ class resourceComplianceTimeline extends Model
      * @var complianceList[]
      */
     public $complianceList;
+
     /**
      * @var int
      */
     public $maxResults;
+
     /**
      * @var string
      */
     public $nextToken;
     protected $_name = [
         'complianceList' => 'ComplianceList',
-        'maxResults'     => 'MaxResults',
-        'nextToken'      => 'NextToken',
+        'maxResults' => 'MaxResults',
+        'nextToken' => 'NextToken',
     ];
 
     public function validate()
@@ -41,7 +43,7 @@ class resourceComplianceTimeline extends Model
         if (null !== $this->complianceList) {
             if (\is_array($this->complianceList)) {
                 $res['ComplianceList'] = [];
-                $n1                    = 0;
+                $n1 = 0;
                 foreach ($this->complianceList as $item1) {
                     $res['ComplianceList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -70,7 +72,7 @@ class resourceComplianceTimeline extends Model
         if (isset($map['ComplianceList'])) {
             if (!empty($map['ComplianceList'])) {
                 $model->complianceList = [];
-                $n1                    = 0;
+                $n1 = 0;
                 foreach ($map['ComplianceList'] as $item1) {
                     $model->complianceList[$n1++] = complianceList::fromMap($item1);
                 }

@@ -12,22 +12,25 @@ class resourceTypeList extends Model
      * @var string
      */
     public $resourceType;
+
     /**
      * @var string
      */
     public $typeNameEn;
+
     /**
      * @var string
      */
     public $typeNameZh;
+
     /**
      * @var string
      */
     public $typePageLink;
     protected $_name = [
         'resourceType' => 'ResourceType',
-        'typeNameEn'   => 'TypeNameEn',
-        'typeNameZh'   => 'TypeNameZh',
+        'typeNameEn' => 'TypeNameEn',
+        'typeNameZh' => 'TypeNameZh',
         'typePageLink' => 'TypePageLink',
     ];
 

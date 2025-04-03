@@ -13,38 +13,44 @@ class configRules extends Model
      * @var string
      */
     public $configRuleId;
+
     /**
      * @var string
      */
     public $configRuleName;
+
     /**
      * @var configRuleParameters[]
      */
     public $configRuleParameters;
+
     /**
      * @var string
      */
     public $description;
+
     /**
      * @var string
      */
     public $managedRuleIdentifier;
+
     /**
      * @var string
      */
     public $resourceTypesScope;
+
     /**
      * @var int
      */
     public $riskLevel;
     protected $_name = [
-        'configRuleId'          => 'ConfigRuleId',
-        'configRuleName'        => 'ConfigRuleName',
-        'configRuleParameters'  => 'ConfigRuleParameters',
-        'description'           => 'Description',
+        'configRuleId' => 'ConfigRuleId',
+        'configRuleName' => 'ConfigRuleName',
+        'configRuleParameters' => 'ConfigRuleParameters',
+        'description' => 'Description',
         'managedRuleIdentifier' => 'ManagedRuleIdentifier',
-        'resourceTypesScope'    => 'ResourceTypesScope',
-        'riskLevel'             => 'RiskLevel',
+        'resourceTypesScope' => 'ResourceTypesScope',
+        'riskLevel' => 'RiskLevel',
     ];
 
     public function validate()
@@ -69,7 +75,7 @@ class configRules extends Model
         if (null !== $this->configRuleParameters) {
             if (\is_array($this->configRuleParameters)) {
                 $res['ConfigRuleParameters'] = [];
-                $n1                          = 0;
+                $n1 = 0;
                 foreach ($this->configRuleParameters as $item1) {
                     $res['ConfigRuleParameters'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -114,7 +120,7 @@ class configRules extends Model
         if (isset($map['ConfigRuleParameters'])) {
             if (!empty($map['ConfigRuleParameters'])) {
                 $model->configRuleParameters = [];
-                $n1                          = 0;
+                $n1 = 0;
                 foreach ($map['ConfigRuleParameters'] as $item1) {
                     $model->configRuleParameters[$n1++] = configRuleParameters::fromMap($item1);
                 }

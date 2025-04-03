@@ -12,38 +12,44 @@ class resourceRelationList extends Model
      * @var int
      */
     public $accountId;
+
     /**
      * @var string
      */
     public $relationType;
+
     /**
      * @var string
      */
     public $sourceResourceId;
+
     /**
      * @var string
      */
     public $sourceResourceRegionId;
+
     /**
      * @var string
      */
     public $sourceResourceType;
+
     /**
      * @var string
      */
     public $targetResourceId;
+
     /**
      * @var string
      */
     public $targetResourceType;
     protected $_name = [
-        'accountId'              => 'AccountId',
-        'relationType'           => 'RelationType',
-        'sourceResourceId'       => 'SourceResourceId',
+        'accountId' => 'AccountId',
+        'relationType' => 'RelationType',
+        'sourceResourceId' => 'SourceResourceId',
         'sourceResourceRegionId' => 'SourceResourceRegionId',
-        'sourceResourceType'     => 'SourceResourceType',
-        'targetResourceId'       => 'TargetResourceId',
-        'targetResourceType'     => 'TargetResourceType',
+        'sourceResourceType' => 'SourceResourceType',
+        'targetResourceId' => 'TargetResourceId',
+        'targetResourceType' => 'TargetResourceType',
     ];
 
     public function validate()

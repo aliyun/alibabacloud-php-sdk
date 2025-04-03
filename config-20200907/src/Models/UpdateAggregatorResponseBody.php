@@ -12,13 +12,14 @@ class UpdateAggregatorResponseBody extends Model
      * @var string
      */
     public $aggregatorId;
+
     /**
      * @var string
      */
     public $requestId;
     protected $_name = [
         'aggregatorId' => 'AggregatorId',
-        'requestId'    => 'RequestId',
+        'requestId' => 'RequestId',
     ];
 
     public function validate()

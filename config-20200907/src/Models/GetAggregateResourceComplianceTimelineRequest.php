@@ -12,53 +12,62 @@ class GetAggregateResourceComplianceTimelineRequest extends Model
      * @var string
      */
     public $aggregatorId;
+
     /**
      * @var int
      */
     public $endTime;
+
     /**
      * @var int
      */
     public $maxResults;
+
     /**
      * @var string
      */
     public $nextToken;
+
     /**
      * @var string
      */
     public $region;
+
     /**
      * @var int
      */
     public $resourceAccountId;
+
     /**
      * @var string
      */
     public $resourceId;
+
     /**
      * @var int
      */
     public $resourceOwnerId;
+
     /**
      * @var string
      */
     public $resourceType;
+
     /**
      * @var int
      */
     public $startTime;
     protected $_name = [
-        'aggregatorId'      => 'AggregatorId',
-        'endTime'           => 'EndTime',
-        'maxResults'        => 'MaxResults',
-        'nextToken'         => 'NextToken',
-        'region'            => 'Region',
+        'aggregatorId' => 'AggregatorId',
+        'endTime' => 'EndTime',
+        'maxResults' => 'MaxResults',
+        'nextToken' => 'NextToken',
+        'region' => 'Region',
         'resourceAccountId' => 'ResourceAccountId',
-        'resourceId'        => 'ResourceId',
-        'resourceOwnerId'   => 'ResourceOwnerId',
-        'resourceType'      => 'ResourceType',
-        'startTime'         => 'StartTime',
+        'resourceId' => 'ResourceId',
+        'resourceOwnerId' => 'ResourceOwnerId',
+        'resourceType' => 'ResourceType',
+        'startTime' => 'StartTime',
     ];
 
     public function validate()

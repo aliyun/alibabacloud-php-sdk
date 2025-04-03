@@ -12,18 +12,20 @@ class resourceSearch extends Model
      * @var string
      */
     public $downloadUrl;
+
     /**
      * @var int
      */
     public $resourceInventoryGenerateTime;
+
     /**
      * @var string
      */
     public $status;
     protected $_name = [
-        'downloadUrl'                   => 'DownloadUrl',
+        'downloadUrl' => 'DownloadUrl',
         'resourceInventoryGenerateTime' => 'ResourceInventoryGenerateTime',
-        'status'                        => 'Status',
+        'status' => 'Status',
     ];
 
     public function validate()

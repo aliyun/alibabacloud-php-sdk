@@ -13,38 +13,44 @@ class managedRule extends Model
      * @var mixed[]
      */
     public $compulsoryInputParameterDetails;
+
     /**
      * @var string
      */
     public $description;
+
     /**
      * @var string
      */
     public $identifier;
+
     /**
      * @var string[]
      */
     public $labels;
+
     /**
      * @var string
      */
     public $managedRuleName;
+
     /**
      * @var mixed[]
      */
     public $optionalInputParameterDetails;
+
     /**
      * @var sourceDetails[]
      */
     public $sourceDetails;
     protected $_name = [
         'compulsoryInputParameterDetails' => 'CompulsoryInputParameterDetails',
-        'description'                     => 'Description',
-        'identifier'                      => 'Identifier',
-        'labels'                          => 'Labels',
-        'managedRuleName'                 => 'ManagedRuleName',
-        'optionalInputParameterDetails'   => 'OptionalInputParameterDetails',
-        'sourceDetails'                   => 'SourceDetails',
+        'description' => 'Description',
+        'identifier' => 'Identifier',
+        'labels' => 'Labels',
+        'managedRuleName' => 'ManagedRuleName',
+        'optionalInputParameterDetails' => 'OptionalInputParameterDetails',
+        'sourceDetails' => 'SourceDetails',
     ];
 
     public function validate()
@@ -87,7 +93,7 @@ class managedRule extends Model
         if (null !== $this->labels) {
             if (\is_array($this->labels)) {
                 $res['Labels'] = [];
-                $n1            = 0;
+                $n1 = 0;
                 foreach ($this->labels as $item1) {
                     $res['Labels'][$n1++] = $item1;
                 }
@@ -110,7 +116,7 @@ class managedRule extends Model
         if (null !== $this->sourceDetails) {
             if (\is_array($this->sourceDetails)) {
                 $res['SourceDetails'] = [];
-                $n1                   = 0;
+                $n1 = 0;
                 foreach ($this->sourceDetails as $item1) {
                     $res['SourceDetails'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -148,7 +154,7 @@ class managedRule extends Model
         if (isset($map['Labels'])) {
             if (!empty($map['Labels'])) {
                 $model->labels = [];
-                $n1            = 0;
+                $n1 = 0;
                 foreach ($map['Labels'] as $item1) {
                     $model->labels[$n1++] = $item1;
                 }
@@ -171,7 +177,7 @@ class managedRule extends Model
         if (isset($map['SourceDetails'])) {
             if (!empty($map['SourceDetails'])) {
                 $model->sourceDetails = [];
-                $n1                   = 0;
+                $n1 = 0;
                 foreach ($map['SourceDetails'] as $item1) {
                     $model->sourceDetails[$n1++] = sourceDetails::fromMap($item1);
                 }

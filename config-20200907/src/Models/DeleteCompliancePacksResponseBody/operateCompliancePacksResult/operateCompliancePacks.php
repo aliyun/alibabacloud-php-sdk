@@ -12,18 +12,20 @@ class operateCompliancePacks extends Model
      * @var string
      */
     public $compliancePackId;
+
     /**
      * @var string
      */
     public $errorCode;
+
     /**
      * @var bool
      */
     public $success;
     protected $_name = [
         'compliancePackId' => 'CompliancePackId',
-        'errorCode'        => 'ErrorCode',
-        'success'          => 'Success',
+        'errorCode' => 'ErrorCode',
+        'success' => 'Success',
     ];
 
     public function validate()

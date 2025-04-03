@@ -13,23 +13,26 @@ class ListSupportedProductsResponseBody extends Model
      * @var string
      */
     public $maxResults;
+
     /**
      * @var string
      */
     public $nextToken;
+
     /**
      * @var products[]
      */
     public $products;
+
     /**
      * @var string
      */
     public $requestId;
     protected $_name = [
         'maxResults' => 'MaxResults',
-        'nextToken'  => 'NextToken',
-        'products'   => 'Products',
-        'requestId'  => 'RequestId',
+        'nextToken' => 'NextToken',
+        'products' => 'Products',
+        'requestId' => 'RequestId',
     ];
 
     public function validate()
@@ -54,7 +57,7 @@ class ListSupportedProductsResponseBody extends Model
         if (null !== $this->products) {
             if (\is_array($this->products)) {
                 $res['Products'] = [];
-                $n1              = 0;
+                $n1 = 0;
                 foreach ($this->products as $item1) {
                     $res['Products'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -87,7 +90,7 @@ class ListSupportedProductsResponseBody extends Model
         if (isset($map['Products'])) {
             if (!empty($map['Products'])) {
                 $model->products = [];
-                $n1              = 0;
+                $n1 = 0;
                 foreach ($map['Products'] as $item1) {
                     $model->products[$n1++] = products::fromMap($item1);
                 }

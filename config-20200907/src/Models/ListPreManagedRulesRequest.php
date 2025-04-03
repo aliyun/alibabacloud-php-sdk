@@ -12,17 +12,19 @@ class ListPreManagedRulesRequest extends Model
      * @var int
      */
     public $pageNumber;
+
     /**
      * @var int
      */
     public $pageSize;
+
     /**
      * @var string[]
      */
     public $resourceTypes;
     protected $_name = [
-        'pageNumber'    => 'PageNumber',
-        'pageSize'      => 'PageSize',
+        'pageNumber' => 'PageNumber',
+        'pageSize' => 'PageSize',
         'resourceTypes' => 'ResourceTypes',
     ];
 
@@ -48,7 +50,7 @@ class ListPreManagedRulesRequest extends Model
         if (null !== $this->resourceTypes) {
             if (\is_array($this->resourceTypes)) {
                 $res['ResourceTypes'] = [];
-                $n1                   = 0;
+                $n1 = 0;
                 foreach ($this->resourceTypes as $item1) {
                     $res['ResourceTypes'][$n1++] = $item1;
                 }
@@ -77,7 +79,7 @@ class ListPreManagedRulesRequest extends Model
         if (isset($map['ResourceTypes'])) {
             if (!empty($map['ResourceTypes'])) {
                 $model->resourceTypes = [];
-                $n1                   = 0;
+                $n1 = 0;
                 foreach ($map['ResourceTypes'] as $item1) {
                     $model->resourceTypes[$n1++] = $item1;
                 }

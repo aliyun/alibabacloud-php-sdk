@@ -12,18 +12,20 @@ class configRuleSummaries extends Model
      * @var int
      */
     public $compliantCount;
+
     /**
      * @var int
      */
     public $nonCompliantCount;
+
     /**
      * @var int
      */
     public $riskLevel;
     protected $_name = [
-        'compliantCount'    => 'CompliantCount',
+        'compliantCount' => 'CompliantCount',
         'nonCompliantCount' => 'NonCompliantCount',
-        'riskLevel'         => 'RiskLevel',
+        'riskLevel' => 'RiskLevel',
     ];
 
     public function validate()

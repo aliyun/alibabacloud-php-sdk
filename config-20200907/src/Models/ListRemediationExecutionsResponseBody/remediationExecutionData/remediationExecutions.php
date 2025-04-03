@@ -12,32 +12,37 @@ class remediationExecutions extends Model
      * @var string
      */
     public $executionCreateDate;
+
     /**
      * @var string
      */
     public $executionInvocationId;
+
     /**
      * @var string
      */
     public $executionResourceIds;
+
     /**
      * @var string
      */
     public $executionResourceType;
+
     /**
      * @var string
      */
     public $executionStatus;
+
     /**
      * @var string
      */
     public $executionStatusMessage;
     protected $_name = [
-        'executionCreateDate'    => 'ExecutionCreateDate',
-        'executionInvocationId'  => 'ExecutionInvocationId',
-        'executionResourceIds'   => 'ExecutionResourceIds',
-        'executionResourceType'  => 'ExecutionResourceType',
-        'executionStatus'        => 'ExecutionStatus',
+        'executionCreateDate' => 'ExecutionCreateDate',
+        'executionInvocationId' => 'ExecutionInvocationId',
+        'executionResourceIds' => 'ExecutionResourceIds',
+        'executionResourceType' => 'ExecutionResourceType',
+        'executionStatus' => 'ExecutionStatus',
         'executionStatusMessage' => 'ExecutionStatusMessage',
     ];
 

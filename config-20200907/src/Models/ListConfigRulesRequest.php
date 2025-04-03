@@ -13,53 +13,62 @@ class ListConfigRulesRequest extends Model
      * @var string
      */
     public $compliancePackId;
+
     /**
      * @var string
      */
     public $complianceType;
+
     /**
      * @var string
      */
     public $configRuleName;
+
     /**
      * @var string
      */
     public $configRuleState;
+
     /**
      * @var string
      */
     public $keyword;
+
     /**
      * @var int
      */
     public $pageNumber;
+
     /**
      * @var int
      */
     public $pageSize;
+
     /**
      * @var string
      */
     public $resourceTypes;
+
     /**
      * @var int
      */
     public $riskLevel;
+
     /**
      * @var tag[]
      */
     public $tag;
     protected $_name = [
         'compliancePackId' => 'CompliancePackId',
-        'complianceType'   => 'ComplianceType',
-        'configRuleName'   => 'ConfigRuleName',
-        'configRuleState'  => 'ConfigRuleState',
-        'keyword'          => 'Keyword',
-        'pageNumber'       => 'PageNumber',
-        'pageSize'         => 'PageSize',
-        'resourceTypes'    => 'ResourceTypes',
-        'riskLevel'        => 'RiskLevel',
-        'tag'              => 'Tag',
+        'complianceType' => 'ComplianceType',
+        'configRuleName' => 'ConfigRuleName',
+        'configRuleState' => 'ConfigRuleState',
+        'keyword' => 'Keyword',
+        'pageNumber' => 'PageNumber',
+        'pageSize' => 'PageSize',
+        'resourceTypes' => 'ResourceTypes',
+        'riskLevel' => 'RiskLevel',
+        'tag' => 'Tag',
     ];
 
     public function validate()
@@ -112,7 +121,7 @@ class ListConfigRulesRequest extends Model
         if (null !== $this->tag) {
             if (\is_array($this->tag)) {
                 $res['Tag'] = [];
-                $n1         = 0;
+                $n1 = 0;
                 foreach ($this->tag as $item1) {
                     $res['Tag'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -169,7 +178,7 @@ class ListConfigRulesRequest extends Model
         if (isset($map['Tag'])) {
             if (!empty($map['Tag'])) {
                 $model->tag = [];
-                $n1         = 0;
+                $n1 = 0;
                 foreach ($map['Tag'] as $item1) {
                     $model->tag[$n1++] = tag::fromMap($item1);
                 }

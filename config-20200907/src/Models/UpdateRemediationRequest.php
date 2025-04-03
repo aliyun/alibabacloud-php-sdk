@@ -12,38 +12,44 @@ class UpdateRemediationRequest extends Model
      * @var string
      */
     public $clientToken;
+
     /**
      * @var string
      */
     public $invokeType;
+
     /**
      * @var string
      */
     public $params;
+
     /**
      * @var string
      */
     public $remediationId;
+
     /**
      * @var string
      */
     public $remediationTemplateId;
+
     /**
      * @var string
      */
     public $remediationType;
+
     /**
      * @var string
      */
     public $sourceType;
     protected $_name = [
-        'clientToken'           => 'ClientToken',
-        'invokeType'            => 'InvokeType',
-        'params'                => 'Params',
-        'remediationId'         => 'RemediationId',
+        'clientToken' => 'ClientToken',
+        'invokeType' => 'InvokeType',
+        'params' => 'Params',
+        'remediationId' => 'RemediationId',
         'remediationTemplateId' => 'RemediationTemplateId',
-        'remediationType'       => 'RemediationType',
-        'sourceType'            => 'SourceType',
+        'remediationType' => 'RemediationType',
+        'sourceType' => 'SourceType',
     ];
 
     public function validate()

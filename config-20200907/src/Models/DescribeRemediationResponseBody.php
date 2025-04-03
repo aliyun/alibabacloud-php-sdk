@@ -13,13 +13,14 @@ class DescribeRemediationResponseBody extends Model
      * @var remediation
      */
     public $remediation;
+
     /**
      * @var string
      */
     public $requestId;
     protected $_name = [
         'remediation' => 'Remediation',
-        'requestId'   => 'RequestId',
+        'requestId' => 'RequestId',
     ];
 
     public function validate()

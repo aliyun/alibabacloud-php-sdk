@@ -12,18 +12,20 @@ class GenerateResourceInventoryRequest extends Model
      * @var string
      */
     public $regions;
+
     /**
      * @var int
      */
     public $resourceDeleted;
+
     /**
      * @var string
      */
     public $resourceTypes;
     protected $_name = [
-        'regions'         => 'Regions',
+        'regions' => 'Regions',
         'resourceDeleted' => 'ResourceDeleted',
-        'resourceTypes'   => 'ResourceTypes',
+        'resourceTypes' => 'ResourceTypes',
     ];
 
     public function validate()

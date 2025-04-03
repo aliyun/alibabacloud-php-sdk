@@ -13,38 +13,44 @@ class compliancePackTemplates extends Model
      * @var string
      */
     public $compliancePackTemplateId;
+
     /**
      * @var string
      */
     public $compliancePackTemplateName;
+
     /**
      * @var configRules[]
      */
     public $configRules;
+
     /**
      * @var string
      */
     public $description;
+
     /**
      * @var string
      */
     public $labels;
+
     /**
      * @var int
      */
     public $lastUpdate;
+
     /**
      * @var int
      */
     public $riskLevel;
     protected $_name = [
-        'compliancePackTemplateId'   => 'CompliancePackTemplateId',
+        'compliancePackTemplateId' => 'CompliancePackTemplateId',
         'compliancePackTemplateName' => 'CompliancePackTemplateName',
-        'configRules'                => 'ConfigRules',
-        'description'                => 'Description',
-        'labels'                     => 'Labels',
-        'lastUpdate'                 => 'LastUpdate',
-        'riskLevel'                  => 'RiskLevel',
+        'configRules' => 'ConfigRules',
+        'description' => 'Description',
+        'labels' => 'Labels',
+        'lastUpdate' => 'LastUpdate',
+        'riskLevel' => 'RiskLevel',
     ];
 
     public function validate()
@@ -69,7 +75,7 @@ class compliancePackTemplates extends Model
         if (null !== $this->configRules) {
             if (\is_array($this->configRules)) {
                 $res['ConfigRules'] = [];
-                $n1                 = 0;
+                $n1 = 0;
                 foreach ($this->configRules as $item1) {
                     $res['ConfigRules'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -114,7 +120,7 @@ class compliancePackTemplates extends Model
         if (isset($map['ConfigRules'])) {
             if (!empty($map['ConfigRules'])) {
                 $model->configRules = [];
-                $n1                 = 0;
+                $n1 = 0;
                 foreach ($map['ConfigRules'] as $item1) {
                     $model->configRules[$n1++] = configRules::fromMap($item1);
                 }

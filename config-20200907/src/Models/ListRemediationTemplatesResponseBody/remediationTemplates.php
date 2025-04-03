@@ -12,28 +12,32 @@ class remediationTemplates extends Model
      * @var string
      */
     public $remediationType;
+
     /**
      * @var string
      */
     public $templateDefinition;
+
     /**
      * @var string
      */
     public $templateDescription;
+
     /**
      * @var string
      */
     public $templateIdentifier;
+
     /**
      * @var string
      */
     public $templateName;
     protected $_name = [
-        'remediationType'     => 'RemediationType',
-        'templateDefinition'  => 'TemplateDefinition',
+        'remediationType' => 'RemediationType',
+        'templateDefinition' => 'TemplateDefinition',
         'templateDescription' => 'TemplateDescription',
-        'templateIdentifier'  => 'TemplateIdentifier',
-        'templateName'        => 'TemplateName',
+        'templateIdentifier' => 'TemplateIdentifier',
+        'templateName' => 'TemplateName',
     ];
 
     public function validate()

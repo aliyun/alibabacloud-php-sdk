@@ -12,12 +12,13 @@ class GetAggregateResourceComplianceGroupByResourceTypeRequest extends Model
      * @var string
      */
     public $aggregatorId;
+
     /**
      * @var string
      */
     public $configRuleIds;
     protected $_name = [
-        'aggregatorId'  => 'AggregatorId',
+        'aggregatorId' => 'AggregatorId',
         'configRuleIds' => 'ConfigRuleIds',
     ];
 

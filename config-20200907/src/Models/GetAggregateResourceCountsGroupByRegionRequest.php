@@ -12,28 +12,32 @@ class GetAggregateResourceCountsGroupByRegionRequest extends Model
      * @var string
      */
     public $aggregatorId;
+
     /**
      * @var string
      */
     public $folderId;
+
     /**
      * @var int
      */
     public $resourceAccountId;
+
     /**
      * @var int
      */
     public $resourceOwnerId;
+
     /**
      * @var string
      */
     public $resourceType;
     protected $_name = [
-        'aggregatorId'      => 'AggregatorId',
-        'folderId'          => 'FolderId',
+        'aggregatorId' => 'AggregatorId',
+        'folderId' => 'FolderId',
         'resourceAccountId' => 'ResourceAccountId',
-        'resourceOwnerId'   => 'ResourceOwnerId',
-        'resourceType'      => 'ResourceType',
+        'resourceOwnerId' => 'ResourceOwnerId',
+        'resourceType' => 'ResourceType',
     ];
 
     public function validate()

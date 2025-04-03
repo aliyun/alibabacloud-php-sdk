@@ -12,13 +12,14 @@ class compliance extends Model
      * @var string
      */
     public $complianceType;
+
     /**
      * @var int
      */
     public $count;
     protected $_name = [
         'complianceType' => 'ComplianceType',
-        'count'          => 'Count',
+        'count' => 'Count',
     ];
 
     public function validate()

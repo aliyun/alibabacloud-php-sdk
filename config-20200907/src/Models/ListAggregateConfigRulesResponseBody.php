@@ -13,13 +13,14 @@ class ListAggregateConfigRulesResponseBody extends Model
      * @var configRules
      */
     public $configRules;
+
     /**
      * @var string
      */
     public $requestId;
     protected $_name = [
         'configRules' => 'ConfigRules',
-        'requestId'   => 'RequestId',
+        'requestId' => 'RequestId',
     ];
 
     public function validate()

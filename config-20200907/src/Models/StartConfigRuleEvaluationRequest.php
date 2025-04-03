@@ -12,17 +12,19 @@ class StartConfigRuleEvaluationRequest extends Model
      * @var string
      */
     public $compliancePackId;
+
     /**
      * @var string
      */
     public $configRuleId;
+
     /**
      * @var bool
      */
     public $revertEvaluation;
     protected $_name = [
         'compliancePackId' => 'CompliancePackId',
-        'configRuleId'     => 'ConfigRuleId',
+        'configRuleId' => 'ConfigRuleId',
         'revertEvaluation' => 'RevertEvaluation',
     ];
 

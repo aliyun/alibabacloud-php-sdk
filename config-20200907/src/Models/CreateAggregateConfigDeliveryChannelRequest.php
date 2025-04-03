@@ -12,68 +12,80 @@ class CreateAggregateConfigDeliveryChannelRequest extends Model
      * @var string
      */
     public $aggregatorId;
+
     /**
      * @var string
      */
     public $clientToken;
+
     /**
      * @var bool
      */
     public $compliantSnapshot;
+
     /**
      * @var bool
      */
     public $configurationItemChangeNotification;
+
     /**
      * @var bool
      */
     public $configurationSnapshot;
+
     /**
      * @var string
      */
     public $deliveryChannelCondition;
+
     /**
      * @var string
      */
     public $deliveryChannelName;
+
     /**
      * @var string
      */
     public $deliveryChannelTargetArn;
+
     /**
      * @var string
      */
     public $deliveryChannelType;
+
     /**
      * @var string
      */
     public $deliverySnapshotTime;
+
     /**
      * @var string
      */
     public $description;
+
     /**
      * @var bool
      */
     public $nonCompliantNotification;
+
     /**
      * @var string
      */
     public $oversizedDataOSSTargetArn;
     protected $_name = [
-        'aggregatorId'                        => 'AggregatorId',
-        'clientToken'                         => 'ClientToken',
-        'compliantSnapshot'                   => 'CompliantSnapshot',
+        'aggregatorId' => 'AggregatorId',
+        'clientToken' => 'ClientToken',
+        'compliantSnapshot' => 'CompliantSnapshot',
         'configurationItemChangeNotification' => 'ConfigurationItemChangeNotification',
-        'configurationSnapshot'               => 'ConfigurationSnapshot',
-        'deliveryChannelCondition'            => 'DeliveryChannelCondition',
-        'deliveryChannelName'                 => 'DeliveryChannelName',
-        'deliveryChannelTargetArn'            => 'DeliveryChannelTargetArn',
-        'deliveryChannelType'                 => 'DeliveryChannelType',
-        'deliverySnapshotTime'                => 'DeliverySnapshotTime',
-        'description'                         => 'Description',
-        'nonCompliantNotification'            => 'NonCompliantNotification',
-        'oversizedDataOSSTargetArn'           => 'OversizedDataOSSTargetArn',
+        'configurationSnapshot' => 'ConfigurationSnapshot',
+        'deliveryChannelCondition' => 'DeliveryChannelCondition',
+        'deliveryChannelName' => 'DeliveryChannelName',
+        'deliveryChannelTargetArn' => 'DeliveryChannelTargetArn',
+        'deliveryChannelType' => 'DeliveryChannelType',
+        'deliverySnapshotTime' => 'DeliverySnapshotTime',
+        'description' => 'Description',
+        'nonCompliantNotification' => 'NonCompliantNotification',
+        'oversizedDataOSSTargetArn' => 'OversizedDataOSSTargetArn',
     ];
 
     public function validate()

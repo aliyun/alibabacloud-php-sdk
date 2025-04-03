@@ -12,13 +12,14 @@ class GetAggregateConfigRulesReportRequest extends Model
      * @var string
      */
     public $aggregatorId;
+
     /**
      * @var string
      */
     public $reportId;
     protected $_name = [
         'aggregatorId' => 'AggregatorId',
-        'reportId'     => 'ReportId',
+        'reportId' => 'ReportId',
     ];
 
     public function validate()

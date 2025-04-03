@@ -12,41 +12,48 @@ class configRuleEvaluationStatus extends Model
      * @var int
      */
     public $firstActivatedTimestamp;
+
     /**
      * @var bool
      */
     public $firstEvaluationStarted;
+
     /**
      * @var string
      */
     public $lastErrorCode;
+
     /**
      * @var string
      */
     public $lastErrorMessage;
+
     /**
      * @var int
      */
     public $lastFailedEvaluationTimestamp;
+
     /**
      * @var int
      */
     public $lastFailedInvocationTimestamp;
+
     /**
      * @var int
      */
     public $lastSuccessfulEvaluationTimestamp;
+
     /**
      * @var int
      */
     public $lastSuccessfulInvocationTimestamp;
     protected $_name = [
-        'firstActivatedTimestamp'           => 'FirstActivatedTimestamp',
-        'firstEvaluationStarted'            => 'FirstEvaluationStarted',
-        'lastErrorCode'                     => 'LastErrorCode',
-        'lastErrorMessage'                  => 'LastErrorMessage',
-        'lastFailedEvaluationTimestamp'     => 'LastFailedEvaluationTimestamp',
-        'lastFailedInvocationTimestamp'     => 'LastFailedInvocationTimestamp',
+        'firstActivatedTimestamp' => 'FirstActivatedTimestamp',
+        'firstEvaluationStarted' => 'FirstEvaluationStarted',
+        'lastErrorCode' => 'LastErrorCode',
+        'lastErrorMessage' => 'LastErrorMessage',
+        'lastFailedEvaluationTimestamp' => 'LastFailedEvaluationTimestamp',
+        'lastFailedInvocationTimestamp' => 'LastFailedInvocationTimestamp',
         'lastSuccessfulEvaluationTimestamp' => 'LastSuccessfulEvaluationTimestamp',
         'lastSuccessfulInvocationTimestamp' => 'LastSuccessfulInvocationTimestamp',
     ];

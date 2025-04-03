@@ -5,6 +5,7 @@
 namespace AlibabaCloud\SDK\Config\V20200907\Models;
 
 use AlibabaCloud\Dara\Model;
+use AlibabaCloud\SDK\Config\V20200907\Models\ListCompliancePacksRequest\tag;
 
 class ListCompliancePacksRequest extends Model
 {
@@ -12,22 +13,33 @@ class ListCompliancePacksRequest extends Model
      * @var int
      */
     public $pageNumber;
+
     /**
      * @var int
      */
     public $pageSize;
+
     /**
      * @var string
      */
     public $status;
+
+    /**
+     * @var tag[]
+     */
+    public $tag;
     protected $_name = [
         'pageNumber' => 'PageNumber',
-        'pageSize'   => 'PageSize',
-        'status'     => 'Status',
+        'pageSize' => 'PageSize',
+        'status' => 'Status',
+        'tag' => 'Tag',
     ];
 
     public function validate()
     {
+        if (\is_array($this->tag)) {
+            Model::validateArray($this->tag);
+        }
         parent::validate();
     }
 
@@ -44,6 +56,16 @@ class ListCompliancePacksRequest extends Model
 
         if (null !== $this->status) {
             $res['Status'] = $this->status;
+        }
+
+        if (null !== $this->tag) {
+            if (\is_array($this->tag)) {
+                $res['Tag'] = [];
+                $n1 = 0;
+                foreach ($this->tag as $item1) {
+                    $res['Tag'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                }
+            }
         }
 
         return $res;
@@ -67,6 +89,16 @@ class ListCompliancePacksRequest extends Model
 
         if (isset($map['Status'])) {
             $model->status = $map['Status'];
+        }
+
+        if (isset($map['Tag'])) {
+            if (!empty($map['Tag'])) {
+                $model->tag = [];
+                $n1 = 0;
+                foreach ($map['Tag'] as $item1) {
+                    $model->tag[$n1++] = tag::fromMap($item1);
+                }
+            }
         }
 
         return $model;

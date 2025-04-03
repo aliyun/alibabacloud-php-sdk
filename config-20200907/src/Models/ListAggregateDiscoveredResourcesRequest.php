@@ -12,62 +12,73 @@ class ListAggregateDiscoveredResourcesRequest extends Model
      * @var string
      */
     public $aggregatorId;
+
     /**
      * @var int
      */
     public $endUpdateTimestamp;
+
     /**
      * @var string
      */
     public $excludeResourceTypes;
+
     /**
      * @var int
      */
     public $maxResults;
+
     /**
      * @var string
      */
     public $nextToken;
+
     /**
      * @var string
      */
     public $regions;
+
     /**
      * @var int
      */
     public $resourceAccountId;
+
     /**
      * @var int
      */
     public $resourceDeleted;
+
     /**
      * @var string
      */
     public $resourceId;
+
     /**
      * @var int
      */
     public $resourceOwnerId;
+
     /**
      * @var string
      */
     public $resourceTypes;
+
     /**
      * @var int
      */
     public $startUpdateTimestamp;
     protected $_name = [
-        'aggregatorId'         => 'AggregatorId',
-        'endUpdateTimestamp'   => 'EndUpdateTimestamp',
+        'aggregatorId' => 'AggregatorId',
+        'endUpdateTimestamp' => 'EndUpdateTimestamp',
         'excludeResourceTypes' => 'ExcludeResourceTypes',
-        'maxResults'           => 'MaxResults',
-        'nextToken'            => 'NextToken',
-        'regions'              => 'Regions',
-        'resourceAccountId'    => 'ResourceAccountId',
-        'resourceDeleted'      => 'ResourceDeleted',
-        'resourceId'           => 'ResourceId',
-        'resourceOwnerId'      => 'ResourceOwnerId',
-        'resourceTypes'        => 'ResourceTypes',
+        'maxResults' => 'MaxResults',
+        'nextToken' => 'NextToken',
+        'regions' => 'Regions',
+        'resourceAccountId' => 'ResourceAccountId',
+        'resourceDeleted' => 'ResourceDeleted',
+        'resourceId' => 'ResourceId',
+        'resourceOwnerId' => 'ResourceOwnerId',
+        'resourceTypes' => 'ResourceTypes',
         'startUpdateTimestamp' => 'StartUpdateTimestamp',
     ];
 

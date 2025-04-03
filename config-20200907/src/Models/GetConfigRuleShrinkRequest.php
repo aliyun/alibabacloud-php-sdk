@@ -12,13 +12,14 @@ class GetConfigRuleShrinkRequest extends Model
      * @var string
      */
     public $configRuleId;
+
     /**
      * @var string
      */
     public $tagShrink;
     protected $_name = [
         'configRuleId' => 'ConfigRuleId',
-        'tagShrink'    => 'Tag',
+        'tagShrink' => 'Tag',
     ];
 
     public function validate()

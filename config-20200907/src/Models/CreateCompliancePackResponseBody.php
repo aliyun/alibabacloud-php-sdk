@@ -12,13 +12,14 @@ class CreateCompliancePackResponseBody extends Model
      * @var string
      */
     public $compliancePackId;
+
     /**
      * @var string
      */
     public $requestId;
     protected $_name = [
         'compliancePackId' => 'CompliancePackId',
-        'requestId'        => 'RequestId',
+        'requestId' => 'RequestId',
     ];
 
     public function validate()

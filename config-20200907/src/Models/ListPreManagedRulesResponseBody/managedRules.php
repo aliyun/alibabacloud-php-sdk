@@ -12,38 +12,44 @@ class managedRules extends Model
      * @var mixed[]
      */
     public $compulsoryInputParameterDetails;
+
     /**
      * @var string
      */
     public $configRuleName;
+
     /**
      * @var string
      */
     public $description;
+
     /**
      * @var string
      */
     public $helpUrls;
+
     /**
      * @var string
      */
     public $identifier;
+
     /**
      * @var mixed[]
      */
     public $optionalInputParameterDetails;
+
     /**
      * @var string
      */
     public $resourceType;
     protected $_name = [
         'compulsoryInputParameterDetails' => 'CompulsoryInputParameterDetails',
-        'configRuleName'                  => 'ConfigRuleName',
-        'description'                     => 'Description',
-        'helpUrls'                        => 'HelpUrls',
-        'identifier'                      => 'Identifier',
-        'optionalInputParameterDetails'   => 'OptionalInputParameterDetails',
-        'resourceType'                    => 'ResourceType',
+        'configRuleName' => 'ConfigRuleName',
+        'description' => 'Description',
+        'helpUrls' => 'HelpUrls',
+        'identifier' => 'Identifier',
+        'optionalInputParameterDetails' => 'OptionalInputParameterDetails',
+        'resourceType' => 'ResourceType',
     ];
 
     public function validate()

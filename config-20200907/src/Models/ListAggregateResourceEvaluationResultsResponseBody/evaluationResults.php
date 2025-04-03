@@ -13,18 +13,20 @@ class evaluationResults extends Model
      * @var evaluationResultList[]
      */
     public $evaluationResultList;
+
     /**
      * @var int
      */
     public $maxResults;
+
     /**
      * @var string
      */
     public $nextToken;
     protected $_name = [
         'evaluationResultList' => 'EvaluationResultList',
-        'maxResults'           => 'MaxResults',
-        'nextToken'            => 'NextToken',
+        'maxResults' => 'MaxResults',
+        'nextToken' => 'NextToken',
     ];
 
     public function validate()
@@ -41,7 +43,7 @@ class evaluationResults extends Model
         if (null !== $this->evaluationResultList) {
             if (\is_array($this->evaluationResultList)) {
                 $res['EvaluationResultList'] = [];
-                $n1                          = 0;
+                $n1 = 0;
                 foreach ($this->evaluationResultList as $item1) {
                     $res['EvaluationResultList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -70,7 +72,7 @@ class evaluationResults extends Model
         if (isset($map['EvaluationResultList'])) {
             if (!empty($map['EvaluationResultList'])) {
                 $model->evaluationResultList = [];
-                $n1                          = 0;
+                $n1 = 0;
                 foreach ($map['EvaluationResultList'] as $item1) {
                     $model->evaluationResultList[$n1++] = evaluationResultList::fromMap($item1);
                 }

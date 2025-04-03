@@ -12,18 +12,20 @@ class ListRemediationsRequest extends Model
      * @var string
      */
     public $configRuleIds;
+
     /**
      * @var int
      */
     public $pageNumber;
+
     /**
      * @var int
      */
     public $pageSize;
     protected $_name = [
         'configRuleIds' => 'ConfigRuleIds',
-        'pageNumber'    => 'PageNumber',
-        'pageSize'      => 'PageSize',
+        'pageNumber' => 'PageNumber',
+        'pageSize' => 'PageSize',
     ];
 
     public function validate()

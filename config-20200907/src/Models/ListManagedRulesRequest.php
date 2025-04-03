@@ -11,29 +11,39 @@ class ListManagedRulesRequest extends Model
     /**
      * @var string
      */
+    public $filterType;
+
+    /**
+     * @var string
+     */
     public $keyword;
+
     /**
      * @var int
      */
     public $pageNumber;
+
     /**
      * @var int
      */
     public $pageSize;
+
     /**
      * @var string
      */
     public $resourceTypes;
+
     /**
      * @var int
      */
     public $riskLevel;
     protected $_name = [
-        'keyword'       => 'Keyword',
-        'pageNumber'    => 'PageNumber',
-        'pageSize'      => 'PageSize',
+        'filterType' => 'FilterType',
+        'keyword' => 'Keyword',
+        'pageNumber' => 'PageNumber',
+        'pageSize' => 'PageSize',
         'resourceTypes' => 'ResourceTypes',
-        'riskLevel'     => 'RiskLevel',
+        'riskLevel' => 'RiskLevel',
     ];
 
     public function validate()
@@ -44,6 +54,10 @@ class ListManagedRulesRequest extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->filterType) {
+            $res['FilterType'] = $this->filterType;
+        }
+
         if (null !== $this->keyword) {
             $res['Keyword'] = $this->keyword;
         }
@@ -75,6 +89,10 @@ class ListManagedRulesRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['FilterType'])) {
+            $model->filterType = $map['FilterType'];
+        }
+
         if (isset($map['Keyword'])) {
             $model->keyword = $map['Keyword'];
         }

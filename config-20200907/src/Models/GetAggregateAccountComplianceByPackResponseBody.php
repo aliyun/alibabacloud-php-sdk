@@ -13,13 +13,14 @@ class GetAggregateAccountComplianceByPackResponseBody extends Model
      * @var accountComplianceResult
      */
     public $accountComplianceResult;
+
     /**
      * @var string
      */
     public $requestId;
     protected $_name = [
         'accountComplianceResult' => 'AccountComplianceResult',
-        'requestId'               => 'RequestId',
+        'requestId' => 'RequestId',
     ];
 
     public function validate()

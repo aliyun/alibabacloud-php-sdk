@@ -13,13 +13,14 @@ class ListConfigRuleEvaluationStatisticsResponseBody extends Model
      * @var evaluationResults[]
      */
     public $evaluationResults;
+
     /**
      * @var string
      */
     public $requestId;
     protected $_name = [
         'evaluationResults' => 'EvaluationResults',
-        'requestId'         => 'RequestId',
+        'requestId' => 'RequestId',
     ];
 
     public function validate()
@@ -36,7 +37,7 @@ class ListConfigRuleEvaluationStatisticsResponseBody extends Model
         if (null !== $this->evaluationResults) {
             if (\is_array($this->evaluationResults)) {
                 $res['EvaluationResults'] = [];
-                $n1                       = 0;
+                $n1 = 0;
                 foreach ($this->evaluationResults as $item1) {
                     $res['EvaluationResults'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -61,7 +62,7 @@ class ListConfigRuleEvaluationStatisticsResponseBody extends Model
         if (isset($map['EvaluationResults'])) {
             if (!empty($map['EvaluationResults'])) {
                 $model->evaluationResults = [];
-                $n1                       = 0;
+                $n1 = 0;
                 foreach ($map['EvaluationResults'] as $item1) {
                     $model->evaluationResults[$n1++] = evaluationResults::fromMap($item1);
                 }

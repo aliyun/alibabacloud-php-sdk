@@ -13,23 +13,26 @@ class discoveredResourceProfiles extends Model
      * @var discoveredResourceProfileList[]
      */
     public $discoveredResourceProfileList;
+
     /**
      * @var int
      */
     public $maxResults;
+
     /**
      * @var string
      */
     public $nextToken;
+
     /**
      * @var int
      */
     public $totalCount;
     protected $_name = [
         'discoveredResourceProfileList' => 'DiscoveredResourceProfileList',
-        'maxResults'                    => 'MaxResults',
-        'nextToken'                     => 'NextToken',
-        'totalCount'                    => 'TotalCount',
+        'maxResults' => 'MaxResults',
+        'nextToken' => 'NextToken',
+        'totalCount' => 'TotalCount',
     ];
 
     public function validate()
@@ -46,7 +49,7 @@ class discoveredResourceProfiles extends Model
         if (null !== $this->discoveredResourceProfileList) {
             if (\is_array($this->discoveredResourceProfileList)) {
                 $res['DiscoveredResourceProfileList'] = [];
-                $n1                                   = 0;
+                $n1 = 0;
                 foreach ($this->discoveredResourceProfileList as $item1) {
                     $res['DiscoveredResourceProfileList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -79,7 +82,7 @@ class discoveredResourceProfiles extends Model
         if (isset($map['DiscoveredResourceProfileList'])) {
             if (!empty($map['DiscoveredResourceProfileList'])) {
                 $model->discoveredResourceProfileList = [];
-                $n1                                   = 0;
+                $n1 = 0;
                 foreach ($map['DiscoveredResourceProfileList'] as $item1) {
                     $model->discoveredResourceProfileList[$n1++] = discoveredResourceProfileList::fromMap($item1);
                 }

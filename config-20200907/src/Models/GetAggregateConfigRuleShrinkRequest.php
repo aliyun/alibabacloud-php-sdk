@@ -12,10 +12,12 @@ class GetAggregateConfigRuleShrinkRequest extends Model
      * @var string
      */
     public $aggregatorId;
+
     /**
      * @var string
      */
     public $configRuleId;
+
     /**
      * @var string
      */
@@ -23,7 +25,7 @@ class GetAggregateConfigRuleShrinkRequest extends Model
     protected $_name = [
         'aggregatorId' => 'AggregatorId',
         'configRuleId' => 'ConfigRuleId',
-        'tagShrink'    => 'Tag',
+        'tagShrink' => 'Tag',
     ];
 
     public function validate()

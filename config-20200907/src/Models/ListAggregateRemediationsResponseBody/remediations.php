@@ -12,63 +12,74 @@ class remediations extends Model
      * @var int
      */
     public $accountId;
+
     /**
      * @var string
      */
     public $aggregatorId;
+
     /**
      * @var string
      */
     public $configRuleId;
+
     /**
      * @var string
      */
     public $invokeType;
+
     /**
      * @var string
      */
     public $lastSuccessfulInvocationId;
+
     /**
      * @var int
      */
     public $lastSuccessfulInvocationTime;
+
     /**
      * @var string
      */
     public $lastSuccessfulInvocationType;
+
     /**
      * @var string
      */
     public $remediaitonOriginParams;
+
     /**
      * @var string
      */
     public $remediationId;
+
     /**
      * @var string
      */
     public $remediationSourceType;
+
     /**
      * @var string
      */
     public $remediationTemplateId;
+
     /**
      * @var string
      */
     public $remediationType;
     protected $_name = [
-        'accountId'                    => 'AccountId',
-        'aggregatorId'                 => 'AggregatorId',
-        'configRuleId'                 => 'ConfigRuleId',
-        'invokeType'                   => 'InvokeType',
-        'lastSuccessfulInvocationId'   => 'LastSuccessfulInvocationId',
+        'accountId' => 'AccountId',
+        'aggregatorId' => 'AggregatorId',
+        'configRuleId' => 'ConfigRuleId',
+        'invokeType' => 'InvokeType',
+        'lastSuccessfulInvocationId' => 'LastSuccessfulInvocationId',
         'lastSuccessfulInvocationTime' => 'LastSuccessfulInvocationTime',
         'lastSuccessfulInvocationType' => 'LastSuccessfulInvocationType',
-        'remediaitonOriginParams'      => 'RemediaitonOriginParams',
-        'remediationId'                => 'RemediationId',
-        'remediationSourceType'        => 'RemediationSourceType',
-        'remediationTemplateId'        => 'RemediationTemplateId',
-        'remediationType'              => 'RemediationType',
+        'remediaitonOriginParams' => 'RemediaitonOriginParams',
+        'remediationId' => 'RemediationId',
+        'remediationSourceType' => 'RemediationSourceType',
+        'remediationTemplateId' => 'RemediationTemplateId',
+        'remediationType' => 'RemediationType',
     ];
 
     public function validate()

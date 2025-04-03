@@ -6,6 +6,7 @@ namespace AlibabaCloud\SDK\Config\V20200907\Models;
 
 use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Config\V20200907\Models\UpdateAggregatorRequest\aggregatorAccounts;
+use AlibabaCloud\SDK\Config\V20200907\Models\UpdateAggregatorRequest\tag;
 
 class UpdateAggregatorRequest extends Model
 {
@@ -13,34 +14,53 @@ class UpdateAggregatorRequest extends Model
      * @var aggregatorAccounts[]
      */
     public $aggregatorAccounts;
+
     /**
      * @var string
      */
     public $aggregatorId;
+
     /**
      * @var string
      */
     public $aggregatorName;
+
     /**
      * @var string
      */
     public $clientToken;
+
     /**
      * @var string
      */
     public $description;
+
+    /**
+     * @var string
+     */
+    public $folderId;
+
+    /**
+     * @var tag[]
+     */
+    public $tag;
     protected $_name = [
         'aggregatorAccounts' => 'AggregatorAccounts',
-        'aggregatorId'       => 'AggregatorId',
-        'aggregatorName'     => 'AggregatorName',
-        'clientToken'        => 'ClientToken',
-        'description'        => 'Description',
+        'aggregatorId' => 'AggregatorId',
+        'aggregatorName' => 'AggregatorName',
+        'clientToken' => 'ClientToken',
+        'description' => 'Description',
+        'folderId' => 'FolderId',
+        'tag' => 'Tag',
     ];
 
     public function validate()
     {
         if (\is_array($this->aggregatorAccounts)) {
             Model::validateArray($this->aggregatorAccounts);
+        }
+        if (\is_array($this->tag)) {
+            Model::validateArray($this->tag);
         }
         parent::validate();
     }
@@ -51,7 +71,7 @@ class UpdateAggregatorRequest extends Model
         if (null !== $this->aggregatorAccounts) {
             if (\is_array($this->aggregatorAccounts)) {
                 $res['AggregatorAccounts'] = [];
-                $n1                        = 0;
+                $n1 = 0;
                 foreach ($this->aggregatorAccounts as $item1) {
                     $res['AggregatorAccounts'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -74,6 +94,20 @@ class UpdateAggregatorRequest extends Model
             $res['Description'] = $this->description;
         }
 
+        if (null !== $this->folderId) {
+            $res['FolderId'] = $this->folderId;
+        }
+
+        if (null !== $this->tag) {
+            if (\is_array($this->tag)) {
+                $res['Tag'] = [];
+                $n1 = 0;
+                foreach ($this->tag as $item1) {
+                    $res['Tag'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                }
+            }
+        }
+
         return $res;
     }
 
@@ -88,7 +122,7 @@ class UpdateAggregatorRequest extends Model
         if (isset($map['AggregatorAccounts'])) {
             if (!empty($map['AggregatorAccounts'])) {
                 $model->aggregatorAccounts = [];
-                $n1                        = 0;
+                $n1 = 0;
                 foreach ($map['AggregatorAccounts'] as $item1) {
                     $model->aggregatorAccounts[$n1++] = aggregatorAccounts::fromMap($item1);
                 }
@@ -109,6 +143,20 @@ class UpdateAggregatorRequest extends Model
 
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
+        }
+
+        if (isset($map['FolderId'])) {
+            $model->folderId = $map['FolderId'];
+        }
+
+        if (isset($map['Tag'])) {
+            if (!empty($map['Tag'])) {
+                $model->tag = [];
+                $n1 = 0;
+                foreach ($map['Tag'] as $item1) {
+                    $model->tag[$n1++] = tag::fromMap($item1);
+                }
+            }
         }
 
         return $model;

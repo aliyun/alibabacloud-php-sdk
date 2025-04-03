@@ -12,23 +12,26 @@ class GetIntegratedServiceStatusResponseBody extends Model
      * @var string
      */
     public $aggregatorDeliveryDataType;
+
     /**
      * @var bool
      */
     public $data;
+
     /**
      * @var string
      */
     public $integratedTypes;
+
     /**
      * @var string
      */
     public $requestId;
     protected $_name = [
         'aggregatorDeliveryDataType' => 'AggregatorDeliveryDataType',
-        'data'                       => 'Data',
-        'integratedTypes'            => 'IntegratedTypes',
-        'requestId'                  => 'RequestId',
+        'data' => 'Data',
+        'integratedTypes' => 'IntegratedTypes',
+        'requestId' => 'RequestId',
     ];
 
     public function validate()

@@ -13,13 +13,14 @@ class GetAggregateResourceComplianceGroupByResourceTypeResponseBody extends Mode
      * @var complianceResult
      */
     public $complianceResult;
+
     /**
      * @var string
      */
     public $requestId;
     protected $_name = [
         'complianceResult' => 'ComplianceResult',
-        'requestId'        => 'RequestId',
+        'requestId' => 'RequestId',
     ];
 
     public function validate()

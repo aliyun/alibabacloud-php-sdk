@@ -12,28 +12,32 @@ class GetAggregateResourceComplianceByConfigRuleRequest extends Model
      * @var string
      */
     public $aggregatorId;
+
     /**
      * @var string
      */
     public $complianceType;
+
     /**
      * @var string
      */
     public $configRuleId;
+
     /**
      * @var int
      */
     public $resourceAccountId;
+
     /**
      * @var int
      */
     public $resourceOwnerId;
     protected $_name = [
-        'aggregatorId'      => 'AggregatorId',
-        'complianceType'    => 'ComplianceType',
-        'configRuleId'      => 'ConfigRuleId',
+        'aggregatorId' => 'AggregatorId',
+        'complianceType' => 'ComplianceType',
+        'configRuleId' => 'ConfigRuleId',
         'resourceAccountId' => 'ResourceAccountId',
-        'resourceOwnerId'   => 'ResourceOwnerId',
+        'resourceOwnerId' => 'ResourceOwnerId',
     ];
 
     public function validate()

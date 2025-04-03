@@ -12,33 +12,38 @@ class evaluationResults extends Model
      * @var string
      */
     public $aggregatorId;
+
     /**
      * @var int
      */
     public $nonCompliantResourceCnt;
+
     /**
      * @var int
      */
     public $nonCompliantRuleCnt;
+
     /**
      * @var string
      */
     public $statisticDate;
+
     /**
      * @var int
      */
     public $totalResourceCnt;
+
     /**
      * @var int
      */
     public $totalRuleCnt;
     protected $_name = [
-        'aggregatorId'            => 'AggregatorId',
+        'aggregatorId' => 'AggregatorId',
         'nonCompliantResourceCnt' => 'NonCompliantResourceCnt',
-        'nonCompliantRuleCnt'     => 'NonCompliantRuleCnt',
-        'statisticDate'           => 'StatisticDate',
-        'totalResourceCnt'        => 'TotalResourceCnt',
-        'totalRuleCnt'            => 'TotalRuleCnt',
+        'nonCompliantRuleCnt' => 'NonCompliantRuleCnt',
+        'statisticDate' => 'StatisticDate',
+        'totalResourceCnt' => 'TotalResourceCnt',
+        'totalRuleCnt' => 'TotalRuleCnt',
     ];
 
     public function validate()

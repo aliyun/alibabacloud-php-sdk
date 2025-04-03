@@ -13,13 +13,14 @@ class GetAggregateConfigDeliveryChannelResponseBody extends Model
      * @var deliveryChannel
      */
     public $deliveryChannel;
+
     /**
      * @var string
      */
     public $requestId;
     protected $_name = [
         'deliveryChannel' => 'DeliveryChannel',
-        'requestId'       => 'RequestId',
+        'requestId' => 'RequestId',
     ];
 
     public function validate()

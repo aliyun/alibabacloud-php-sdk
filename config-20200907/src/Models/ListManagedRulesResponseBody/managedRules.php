@@ -13,23 +13,26 @@ class managedRules extends Model
      * @var managedRuleList[]
      */
     public $managedRuleList;
+
     /**
      * @var int
      */
     public $pageNumber;
+
     /**
      * @var int
      */
     public $pageSize;
+
     /**
      * @var int
      */
     public $totalCount;
     protected $_name = [
         'managedRuleList' => 'ManagedRuleList',
-        'pageNumber'      => 'PageNumber',
-        'pageSize'        => 'PageSize',
-        'totalCount'      => 'TotalCount',
+        'pageNumber' => 'PageNumber',
+        'pageSize' => 'PageSize',
+        'totalCount' => 'TotalCount',
     ];
 
     public function validate()
@@ -46,7 +49,7 @@ class managedRules extends Model
         if (null !== $this->managedRuleList) {
             if (\is_array($this->managedRuleList)) {
                 $res['ManagedRuleList'] = [];
-                $n1                     = 0;
+                $n1 = 0;
                 foreach ($this->managedRuleList as $item1) {
                     $res['ManagedRuleList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -79,7 +82,7 @@ class managedRules extends Model
         if (isset($map['ManagedRuleList'])) {
             if (!empty($map['ManagedRuleList'])) {
                 $model->managedRuleList = [];
-                $n1                     = 0;
+                $n1 = 0;
                 foreach ($map['ManagedRuleList'] as $item1) {
                     $model->managedRuleList[$n1++] = managedRuleList::fromMap($item1);
                 }

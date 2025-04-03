@@ -12,18 +12,20 @@ class GenerateAggregateConfigRulesReportResponseBody extends Model
      * @var string
      */
     public $aggregatorId;
+
     /**
      * @var string
      */
     public $reportId;
+
     /**
      * @var string
      */
     public $requestId;
     protected $_name = [
         'aggregatorId' => 'AggregatorId',
-        'reportId'     => 'ReportId',
-        'requestId'    => 'RequestId',
+        'reportId' => 'ReportId',
+        'requestId' => 'RequestId',
     ];
 
     public function validate()

@@ -13,12 +13,13 @@ class GetResourceComplianceTimelineResponseBody extends Model
      * @var string
      */
     public $requestId;
+
     /**
      * @var resourceComplianceTimeline
      */
     public $resourceComplianceTimeline;
     protected $_name = [
-        'requestId'                  => 'RequestId',
+        'requestId' => 'RequestId',
         'resourceComplianceTimeline' => 'ResourceComplianceTimeline',
     ];
 

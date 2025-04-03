@@ -12,17 +12,19 @@ class accountCompliances extends Model
      * @var int
      */
     public $accountId;
+
     /**
      * @var string
      */
     public $accountName;
+
     /**
      * @var string
      */
     public $complianceType;
     protected $_name = [
-        'accountId'      => 'AccountId',
-        'accountName'    => 'AccountName',
+        'accountId' => 'AccountId',
+        'accountName' => 'AccountName',
         'complianceType' => 'ComplianceType',
     ];
 

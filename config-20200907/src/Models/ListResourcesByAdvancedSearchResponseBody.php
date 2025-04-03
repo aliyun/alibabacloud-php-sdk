@@ -13,13 +13,14 @@ class ListResourcesByAdvancedSearchResponseBody extends Model
      * @var queryResults
      */
     public $queryResults;
+
     /**
      * @var string
      */
     public $requestId;
     protected $_name = [
         'queryResults' => 'QueryResults',
-        'requestId'    => 'RequestId',
+        'requestId' => 'RequestId',
     ];
 
     public function validate()

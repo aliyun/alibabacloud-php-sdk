@@ -13,13 +13,14 @@ class GetComplianceSummaryResponseBody extends Model
      * @var complianceSummary
      */
     public $complianceSummary;
+
     /**
      * @var string
      */
     public $requestId;
     protected $_name = [
         'complianceSummary' => 'ComplianceSummary',
-        'requestId'         => 'RequestId',
+        'requestId' => 'RequestId',
     ];
 
     public function validate()

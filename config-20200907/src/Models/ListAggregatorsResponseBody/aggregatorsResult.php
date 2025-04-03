@@ -13,13 +13,14 @@ class aggregatorsResult extends Model
      * @var aggregators[]
      */
     public $aggregators;
+
     /**
      * @var string
      */
     public $nextToken;
     protected $_name = [
         'aggregators' => 'Aggregators',
-        'nextToken'   => 'NextToken',
+        'nextToken' => 'NextToken',
     ];
 
     public function validate()
@@ -36,7 +37,7 @@ class aggregatorsResult extends Model
         if (null !== $this->aggregators) {
             if (\is_array($this->aggregators)) {
                 $res['Aggregators'] = [];
-                $n1                 = 0;
+                $n1 = 0;
                 foreach ($this->aggregators as $item1) {
                     $res['Aggregators'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -61,7 +62,7 @@ class aggregatorsResult extends Model
         if (isset($map['Aggregators'])) {
             if (!empty($map['Aggregators'])) {
                 $model->aggregators = [];
-                $n1                 = 0;
+                $n1 = 0;
                 foreach ($map['Aggregators'] as $item1) {
                     $model->aggregators[$n1++] = aggregators::fromMap($item1);
                 }

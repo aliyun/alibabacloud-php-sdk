@@ -12,38 +12,44 @@ class createBy extends Model
      * @var string
      */
     public $aggregatorId;
+
     /**
      * @var string
      */
     public $aggregatorName;
+
     /**
      * @var string
      */
     public $compliancePackId;
+
     /**
      * @var string
      */
     public $compliancePackName;
+
     /**
      * @var string
      */
     public $creatorId;
+
     /**
      * @var string
      */
     public $creatorName;
+
     /**
      * @var string
      */
     public $creatorType;
     protected $_name = [
-        'aggregatorId'       => 'AggregatorId',
-        'aggregatorName'     => 'AggregatorName',
-        'compliancePackId'   => 'CompliancePackId',
+        'aggregatorId' => 'AggregatorId',
+        'aggregatorName' => 'AggregatorName',
+        'compliancePackId' => 'CompliancePackId',
         'compliancePackName' => 'CompliancePackName',
-        'creatorId'          => 'CreatorId',
-        'creatorName'        => 'CreatorName',
-        'creatorType'        => 'CreatorType',
+        'creatorId' => 'CreatorId',
+        'creatorName' => 'CreatorName',
+        'creatorType' => 'CreatorType',
     ];
 
     public function validate()

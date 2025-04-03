@@ -12,12 +12,13 @@ class DeleteAggregateRemediationsRequest extends Model
      * @var string
      */
     public $aggregatorId;
+
     /**
      * @var string
      */
     public $remediationIds;
     protected $_name = [
-        'aggregatorId'   => 'AggregatorId',
+        'aggregatorId' => 'AggregatorId',
         'remediationIds' => 'RemediationIds',
     ];
 

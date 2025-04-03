@@ -12,18 +12,20 @@ class DeleteCompliancePacksRequest extends Model
      * @var string
      */
     public $clientToken;
+
     /**
      * @var string
      */
     public $compliancePackIds;
+
     /**
      * @var bool
      */
     public $deleteRule;
     protected $_name = [
-        'clientToken'       => 'ClientToken',
+        'clientToken' => 'ClientToken',
         'compliancePackIds' => 'CompliancePackIds',
-        'deleteRule'        => 'DeleteRule',
+        'deleteRule' => 'DeleteRule',
     ];
 
     public function validate()

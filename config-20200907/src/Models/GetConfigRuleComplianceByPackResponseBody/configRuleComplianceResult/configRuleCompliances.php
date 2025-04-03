@@ -12,17 +12,19 @@ class configRuleCompliances extends Model
      * @var string
      */
     public $complianceType;
+
     /**
      * @var string
      */
     public $configRuleId;
+
     /**
      * @var string
      */
     public $configRuleName;
     protected $_name = [
         'complianceType' => 'ComplianceType',
-        'configRuleId'   => 'ConfigRuleId',
+        'configRuleId' => 'ConfigRuleId',
         'configRuleName' => 'ConfigRuleName',
     ];
 

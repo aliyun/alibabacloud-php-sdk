@@ -12,58 +12,68 @@ class CreateDeliveryChannelRequest extends Model
      * @var string
      */
     public $clientToken;
+
     /**
      * @var bool
      */
     public $configurationItemChangeNotification;
+
     /**
      * @var bool
      */
     public $configurationSnapshot;
+
     /**
      * @var string
      */
     public $deliveryChannelAssumeRoleArn;
+
     /**
      * @var string
      */
     public $deliveryChannelCondition;
+
     /**
      * @var string
      */
     public $deliveryChannelName;
+
     /**
      * @var string
      */
     public $deliveryChannelTargetArn;
+
     /**
      * @var string
      */
     public $deliveryChannelType;
+
     /**
      * @var string
      */
     public $description;
+
     /**
      * @var bool
      */
     public $nonCompliantNotification;
+
     /**
      * @var string
      */
     public $oversizedDataOSSTargetArn;
     protected $_name = [
-        'clientToken'                         => 'ClientToken',
+        'clientToken' => 'ClientToken',
         'configurationItemChangeNotification' => 'ConfigurationItemChangeNotification',
-        'configurationSnapshot'               => 'ConfigurationSnapshot',
-        'deliveryChannelAssumeRoleArn'        => 'DeliveryChannelAssumeRoleArn',
-        'deliveryChannelCondition'            => 'DeliveryChannelCondition',
-        'deliveryChannelName'                 => 'DeliveryChannelName',
-        'deliveryChannelTargetArn'            => 'DeliveryChannelTargetArn',
-        'deliveryChannelType'                 => 'DeliveryChannelType',
-        'description'                         => 'Description',
-        'nonCompliantNotification'            => 'NonCompliantNotification',
-        'oversizedDataOSSTargetArn'           => 'OversizedDataOSSTargetArn',
+        'configurationSnapshot' => 'ConfigurationSnapshot',
+        'deliveryChannelAssumeRoleArn' => 'DeliveryChannelAssumeRoleArn',
+        'deliveryChannelCondition' => 'DeliveryChannelCondition',
+        'deliveryChannelName' => 'DeliveryChannelName',
+        'deliveryChannelTargetArn' => 'DeliveryChannelTargetArn',
+        'deliveryChannelType' => 'DeliveryChannelType',
+        'description' => 'Description',
+        'nonCompliantNotification' => 'NonCompliantNotification',
+        'oversizedDataOSSTargetArn' => 'OversizedDataOSSTargetArn',
     ];
 
     public function validate()

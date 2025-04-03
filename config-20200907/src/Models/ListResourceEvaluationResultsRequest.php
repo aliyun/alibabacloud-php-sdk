@@ -12,33 +12,38 @@ class ListResourceEvaluationResultsRequest extends Model
      * @var string
      */
     public $complianceType;
+
     /**
      * @var int
      */
     public $maxResults;
+
     /**
      * @var string
      */
     public $nextToken;
+
     /**
      * @var string
      */
     public $region;
+
     /**
      * @var string
      */
     public $resourceId;
+
     /**
      * @var string
      */
     public $resourceType;
     protected $_name = [
         'complianceType' => 'ComplianceType',
-        'maxResults'     => 'MaxResults',
-        'nextToken'      => 'NextToken',
-        'region'         => 'Region',
-        'resourceId'     => 'ResourceId',
-        'resourceType'   => 'ResourceType',
+        'maxResults' => 'MaxResults',
+        'nextToken' => 'NextToken',
+        'region' => 'Region',
+        'resourceId' => 'ResourceId',
+        'resourceType' => 'ResourceType',
     ];
 
     public function validate()

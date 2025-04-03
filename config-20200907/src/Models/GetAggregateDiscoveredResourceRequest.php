@@ -12,38 +12,44 @@ class GetAggregateDiscoveredResourceRequest extends Model
      * @var string
      */
     public $aggregatorId;
+
     /**
      * @var int
      */
     public $complianceOption;
+
     /**
      * @var string
      */
     public $region;
+
     /**
      * @var int
      */
     public $resourceAccountId;
+
     /**
      * @var string
      */
     public $resourceId;
+
     /**
      * @var int
      */
     public $resourceOwnerId;
+
     /**
      * @var string
      */
     public $resourceType;
     protected $_name = [
-        'aggregatorId'      => 'AggregatorId',
-        'complianceOption'  => 'ComplianceOption',
-        'region'            => 'Region',
+        'aggregatorId' => 'AggregatorId',
+        'complianceOption' => 'ComplianceOption',
+        'region' => 'Region',
         'resourceAccountId' => 'ResourceAccountId',
-        'resourceId'        => 'ResourceId',
-        'resourceOwnerId'   => 'ResourceOwnerId',
-        'resourceType'      => 'ResourceType',
+        'resourceId' => 'ResourceId',
+        'resourceOwnerId' => 'ResourceOwnerId',
+        'resourceType' => 'ResourceType',
     ];
 
     public function validate()

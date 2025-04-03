@@ -12,12 +12,13 @@ class RevertEvaluationResultsShrinkRequest extends Model
      * @var string
      */
     public $configRuleId;
+
     /**
      * @var string
      */
     public $resourcesShrink;
     protected $_name = [
-        'configRuleId'    => 'ConfigRuleId',
+        'configRuleId' => 'ConfigRuleId',
         'resourcesShrink' => 'Resources',
     ];
 

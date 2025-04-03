@@ -12,23 +12,26 @@ class resources extends Model
      * @var string
      */
     public $region;
+
     /**
      * @var int
      */
     public $resourceAccountId;
+
     /**
      * @var string
      */
     public $resourceId;
+
     /**
      * @var string
      */
     public $resourceType;
     protected $_name = [
-        'region'            => 'Region',
+        'region' => 'Region',
         'resourceAccountId' => 'ResourceAccountId',
-        'resourceId'        => 'ResourceId',
-        'resourceType'      => 'ResourceType',
+        'resourceId' => 'ResourceId',
+        'resourceType' => 'ResourceType',
     ];
 
     public function validate()

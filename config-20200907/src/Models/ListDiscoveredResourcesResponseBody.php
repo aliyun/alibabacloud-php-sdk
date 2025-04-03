@@ -13,13 +13,14 @@ class ListDiscoveredResourcesResponseBody extends Model
      * @var discoveredResourceProfiles
      */
     public $discoveredResourceProfiles;
+
     /**
      * @var string
      */
     public $requestId;
     protected $_name = [
         'discoveredResourceProfiles' => 'DiscoveredResourceProfiles',
-        'requestId'                  => 'RequestId',
+        'requestId' => 'RequestId',
     ];
 
     public function validate()

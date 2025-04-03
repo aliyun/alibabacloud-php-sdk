@@ -13,53 +13,62 @@ class managedRuleList extends Model
      * @var string
      */
     public $configRuleName;
+
     /**
      * @var string
      */
     public $description;
+
     /**
      * @var string
      */
     public $helpUrls;
+
     /**
      * @var string
      */
     public $identifier;
+
     /**
      * @var string[]
      */
     public $labels;
+
     /**
      * @var string
      */
     public $remediationTemplateIdentifier;
+
     /**
      * @var string
      */
     public $remediationTemplateName;
+
     /**
      * @var int
      */
     public $riskLevel;
+
     /**
      * @var scope
      */
     public $scope;
+
     /**
      * @var bool
      */
     public $supportPreviewManagedRule;
     protected $_name = [
-        'configRuleName'                => 'ConfigRuleName',
-        'description'                   => 'Description',
-        'helpUrls'                      => 'HelpUrls',
-        'identifier'                    => 'Identifier',
-        'labels'                        => 'Labels',
+        'configRuleName' => 'ConfigRuleName',
+        'description' => 'Description',
+        'helpUrls' => 'HelpUrls',
+        'identifier' => 'Identifier',
+        'labels' => 'Labels',
         'remediationTemplateIdentifier' => 'RemediationTemplateIdentifier',
-        'remediationTemplateName'       => 'RemediationTemplateName',
-        'riskLevel'                     => 'RiskLevel',
-        'scope'                         => 'Scope',
-        'supportPreviewManagedRule'     => 'SupportPreviewManagedRule',
+        'remediationTemplateName' => 'RemediationTemplateName',
+        'riskLevel' => 'RiskLevel',
+        'scope' => 'Scope',
+        'supportPreviewManagedRule' => 'SupportPreviewManagedRule',
     ];
 
     public function validate()
@@ -95,7 +104,7 @@ class managedRuleList extends Model
         if (null !== $this->labels) {
             if (\is_array($this->labels)) {
                 $res['Labels'] = [];
-                $n1            = 0;
+                $n1 = 0;
                 foreach ($this->labels as $item1) {
                     $res['Labels'][$n1++] = $item1;
                 }
@@ -152,7 +161,7 @@ class managedRuleList extends Model
         if (isset($map['Labels'])) {
             if (!empty($map['Labels'])) {
                 $model->labels = [];
-                $n1            = 0;
+                $n1 = 0;
                 foreach ($map['Labels'] as $item1) {
                     $model->labels[$n1++] = $item1;
                 }

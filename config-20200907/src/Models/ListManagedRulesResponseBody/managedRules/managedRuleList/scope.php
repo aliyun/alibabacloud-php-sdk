@@ -30,7 +30,7 @@ class scope extends Model
         if (null !== $this->complianceResourceTypes) {
             if (\is_array($this->complianceResourceTypes)) {
                 $res['ComplianceResourceTypes'] = [];
-                $n1                             = 0;
+                $n1 = 0;
                 foreach ($this->complianceResourceTypes as $item1) {
                     $res['ComplianceResourceTypes'][$n1++] = $item1;
                 }
@@ -51,7 +51,7 @@ class scope extends Model
         if (isset($map['ComplianceResourceTypes'])) {
             if (!empty($map['ComplianceResourceTypes'])) {
                 $model->complianceResourceTypes = [];
-                $n1                             = 0;
+                $n1 = 0;
                 foreach ($map['ComplianceResourceTypes'] as $item1) {
                     $model->complianceResourceTypes[$n1++] = $item1;
                 }

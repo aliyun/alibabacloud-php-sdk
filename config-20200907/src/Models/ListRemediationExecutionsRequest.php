@@ -12,23 +12,26 @@ class ListRemediationExecutionsRequest extends Model
      * @var string
      */
     public $configRuleId;
+
     /**
      * @var string
      */
     public $executionStatus;
+
     /**
      * @var int
      */
     public $maxResults;
+
     /**
      * @var string
      */
     public $nextToken;
     protected $_name = [
-        'configRuleId'    => 'ConfigRuleId',
+        'configRuleId' => 'ConfigRuleId',
         'executionStatus' => 'ExecutionStatus',
-        'maxResults'      => 'MaxResults',
-        'nextToken'       => 'NextToken',
+        'maxResults' => 'MaxResults',
+        'nextToken' => 'NextToken',
     ];
 
     public function validate()

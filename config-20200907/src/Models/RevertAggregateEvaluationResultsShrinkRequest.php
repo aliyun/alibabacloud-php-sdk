@@ -12,17 +12,19 @@ class RevertAggregateEvaluationResultsShrinkRequest extends Model
      * @var string
      */
     public $aggregatorId;
+
     /**
      * @var string
      */
     public $configRuleId;
+
     /**
      * @var string
      */
     public $resourcesShrink;
     protected $_name = [
-        'aggregatorId'    => 'AggregatorId',
-        'configRuleId'    => 'ConfigRuleId',
+        'aggregatorId' => 'AggregatorId',
+        'configRuleId' => 'ConfigRuleId',
         'resourcesShrink' => 'Resources',
     ];
 

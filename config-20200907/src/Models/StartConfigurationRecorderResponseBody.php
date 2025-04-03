@@ -13,13 +13,14 @@ class StartConfigurationRecorderResponseBody extends Model
      * @var configurationRecorder
      */
     public $configurationRecorder;
+
     /**
      * @var string
      */
     public $requestId;
     protected $_name = [
         'configurationRecorder' => 'ConfigurationRecorder',
-        'requestId'             => 'RequestId',
+        'requestId' => 'RequestId',
     ];
 
     public function validate()

@@ -12,13 +12,14 @@ class DeleteAggregatorsRequest extends Model
      * @var string
      */
     public $aggregatorIds;
+
     /**
      * @var string
      */
     public $clientToken;
     protected $_name = [
         'aggregatorIds' => 'AggregatorIds',
-        'clientToken'   => 'ClientToken',
+        'clientToken' => 'ClientToken',
     ];
 
     public function validate()

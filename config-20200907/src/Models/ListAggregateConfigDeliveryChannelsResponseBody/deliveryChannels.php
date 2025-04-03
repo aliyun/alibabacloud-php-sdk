@@ -12,83 +12,98 @@ class deliveryChannels extends Model
      * @var int
      */
     public $accountId;
+
     /**
      * @var string
      */
     public $aggregatorId;
+
     /**
      * @var bool
      */
     public $compliantSnapshot;
+
     /**
      * @var bool
      */
     public $configurationItemChangeNotification;
+
     /**
      * @var bool
      */
     public $configurationSnapshot;
+
     /**
      * @var string
      */
     public $deliveryChannelAssumeRoleArn;
+
     /**
      * @var string
      */
     public $deliveryChannelCondition;
+
     /**
      * @var string
      */
     public $deliveryChannelId;
+
     /**
      * @var string
      */
     public $deliveryChannelName;
+
     /**
      * @var string
      */
     public $deliveryChannelTargetArn;
+
     /**
      * @var string
      */
     public $deliveryChannelType;
+
     /**
      * @var string
      */
     public $deliverySnapshotTime;
+
     /**
      * @var string
      */
     public $description;
+
     /**
      * @var bool
      */
     public $nonCompliantNotification;
+
     /**
      * @var string
      */
     public $oversizedDataOSSTargetArn;
+
     /**
      * @var int
      */
     public $status;
     protected $_name = [
-        'accountId'                           => 'AccountId',
-        'aggregatorId'                        => 'AggregatorId',
-        'compliantSnapshot'                   => 'CompliantSnapshot',
+        'accountId' => 'AccountId',
+        'aggregatorId' => 'AggregatorId',
+        'compliantSnapshot' => 'CompliantSnapshot',
         'configurationItemChangeNotification' => 'ConfigurationItemChangeNotification',
-        'configurationSnapshot'               => 'ConfigurationSnapshot',
-        'deliveryChannelAssumeRoleArn'        => 'DeliveryChannelAssumeRoleArn',
-        'deliveryChannelCondition'            => 'DeliveryChannelCondition',
-        'deliveryChannelId'                   => 'DeliveryChannelId',
-        'deliveryChannelName'                 => 'DeliveryChannelName',
-        'deliveryChannelTargetArn'            => 'DeliveryChannelTargetArn',
-        'deliveryChannelType'                 => 'DeliveryChannelType',
-        'deliverySnapshotTime'                => 'DeliverySnapshotTime',
-        'description'                         => 'Description',
-        'nonCompliantNotification'            => 'NonCompliantNotification',
-        'oversizedDataOSSTargetArn'           => 'OversizedDataOSSTargetArn',
-        'status'                              => 'Status',
+        'configurationSnapshot' => 'ConfigurationSnapshot',
+        'deliveryChannelAssumeRoleArn' => 'DeliveryChannelAssumeRoleArn',
+        'deliveryChannelCondition' => 'DeliveryChannelCondition',
+        'deliveryChannelId' => 'DeliveryChannelId',
+        'deliveryChannelName' => 'DeliveryChannelName',
+        'deliveryChannelTargetArn' => 'DeliveryChannelTargetArn',
+        'deliveryChannelType' => 'DeliveryChannelType',
+        'deliverySnapshotTime' => 'DeliverySnapshotTime',
+        'description' => 'Description',
+        'nonCompliantNotification' => 'NonCompliantNotification',
+        'oversizedDataOSSTargetArn' => 'OversizedDataOSSTargetArn',
+        'status' => 'Status',
     ];
 
     public function validate()

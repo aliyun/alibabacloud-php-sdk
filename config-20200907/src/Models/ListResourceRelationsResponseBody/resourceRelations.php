@@ -13,17 +13,19 @@ class resourceRelations extends Model
      * @var int
      */
     public $maxResults;
+
     /**
      * @var string
      */
     public $nextToken;
+
     /**
      * @var resourceRelationList[]
      */
     public $resourceRelationList;
     protected $_name = [
-        'maxResults'           => 'MaxResults',
-        'nextToken'            => 'NextToken',
+        'maxResults' => 'MaxResults',
+        'nextToken' => 'NextToken',
         'resourceRelationList' => 'ResourceRelationList',
     ];
 
@@ -49,7 +51,7 @@ class resourceRelations extends Model
         if (null !== $this->resourceRelationList) {
             if (\is_array($this->resourceRelationList)) {
                 $res['ResourceRelationList'] = [];
-                $n1                          = 0;
+                $n1 = 0;
                 foreach ($this->resourceRelationList as $item1) {
                     $res['ResourceRelationList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -78,7 +80,7 @@ class resourceRelations extends Model
         if (isset($map['ResourceRelationList'])) {
             if (!empty($map['ResourceRelationList'])) {
                 $model->resourceRelationList = [];
-                $n1                          = 0;
+                $n1 = 0;
                 foreach ($map['ResourceRelationList'] as $item1) {
                     $model->resourceRelationList[$n1++] = resourceRelationList::fromMap($item1);
                 }

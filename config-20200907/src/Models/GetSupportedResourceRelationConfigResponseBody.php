@@ -13,12 +13,13 @@ class GetSupportedResourceRelationConfigResponseBody extends Model
      * @var string
      */
     public $requestId;
+
     /**
      * @var resourceRelationConfigList[]
      */
     public $resourceRelationConfigList;
     protected $_name = [
-        'requestId'                  => 'RequestId',
+        'requestId' => 'RequestId',
         'resourceRelationConfigList' => 'ResourceRelationConfigList',
     ];
 
@@ -40,7 +41,7 @@ class GetSupportedResourceRelationConfigResponseBody extends Model
         if (null !== $this->resourceRelationConfigList) {
             if (\is_array($this->resourceRelationConfigList)) {
                 $res['ResourceRelationConfigList'] = [];
-                $n1                                = 0;
+                $n1 = 0;
                 foreach ($this->resourceRelationConfigList as $item1) {
                     $res['ResourceRelationConfigList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -65,7 +66,7 @@ class GetSupportedResourceRelationConfigResponseBody extends Model
         if (isset($map['ResourceRelationConfigList'])) {
             if (!empty($map['ResourceRelationConfigList'])) {
                 $model->resourceRelationConfigList = [];
-                $n1                                = 0;
+                $n1 = 0;
                 foreach ($map['ResourceRelationConfigList'] as $item1) {
                     $model->resourceRelationConfigList[$n1++] = resourceRelationConfigList::fromMap($item1);
                 }

@@ -13,13 +13,14 @@ class ListRemediationExecutionsResponseBody extends Model
      * @var remediationExecutionData
      */
     public $remediationExecutionData;
+
     /**
      * @var string
      */
     public $requestId;
     protected $_name = [
         'remediationExecutionData' => 'RemediationExecutionData',
-        'requestId'                => 'RequestId',
+        'requestId' => 'RequestId',
     ];
 
     public function validate()

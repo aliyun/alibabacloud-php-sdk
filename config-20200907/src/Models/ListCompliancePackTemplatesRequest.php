@@ -12,23 +12,26 @@ class ListCompliancePackTemplatesRequest extends Model
      * @var string
      */
     public $compliancePackTemplateId;
+
     /**
      * @var int
      */
     public $pageNumber;
+
     /**
      * @var int
      */
     public $pageSize;
+
     /**
      * @var string
      */
     public $resourceTypes;
     protected $_name = [
         'compliancePackTemplateId' => 'CompliancePackTemplateId',
-        'pageNumber'               => 'PageNumber',
-        'pageSize'                 => 'PageSize',
-        'resourceTypes'            => 'ResourceTypes',
+        'pageNumber' => 'PageNumber',
+        'pageSize' => 'PageSize',
+        'resourceTypes' => 'ResourceTypes',
     ];
 
     public function validate()

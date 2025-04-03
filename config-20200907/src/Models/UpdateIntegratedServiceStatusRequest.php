@@ -12,23 +12,26 @@ class UpdateIntegratedServiceStatusRequest extends Model
      * @var string
      */
     public $aggregatorDeliveryDataType;
+
     /**
      * @var string
      */
     public $integratedTypes;
+
     /**
      * @var string
      */
     public $serviceCode;
+
     /**
      * @var bool
      */
     public $status;
     protected $_name = [
         'aggregatorDeliveryDataType' => 'AggregatorDeliveryDataType',
-        'integratedTypes'            => 'IntegratedTypes',
-        'serviceCode'                => 'ServiceCode',
-        'status'                     => 'Status',
+        'integratedTypes' => 'IntegratedTypes',
+        'serviceCode' => 'ServiceCode',
+        'status' => 'Status',
     ];
 
     public function validate()

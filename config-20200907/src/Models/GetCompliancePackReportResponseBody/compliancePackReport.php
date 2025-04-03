@@ -12,28 +12,32 @@ class compliancePackReport extends Model
      * @var int
      */
     public $accountId;
+
     /**
      * @var string
      */
     public $compliancePackId;
+
     /**
      * @var int
      */
     public $reportCreateTimestamp;
+
     /**
      * @var string
      */
     public $reportStatus;
+
     /**
      * @var string
      */
     public $reportUrl;
     protected $_name = [
-        'accountId'             => 'AccountId',
-        'compliancePackId'      => 'CompliancePackId',
+        'accountId' => 'AccountId',
+        'compliancePackId' => 'CompliancePackId',
         'reportCreateTimestamp' => 'ReportCreateTimestamp',
-        'reportStatus'          => 'ReportStatus',
-        'reportUrl'             => 'ReportUrl',
+        'reportStatus' => 'ReportStatus',
+        'reportUrl' => 'ReportUrl',
     ];
 
     public function validate()

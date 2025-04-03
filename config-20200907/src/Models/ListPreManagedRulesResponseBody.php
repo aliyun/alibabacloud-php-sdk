@@ -13,23 +13,26 @@ class ListPreManagedRulesResponseBody extends Model
      * @var managedRules[]
      */
     public $managedRules;
+
     /**
      * @var int
      */
     public $pageNumber;
+
     /**
      * @var int
      */
     public $pageSize;
+
     /**
      * @var string
      */
     public $requestId;
     protected $_name = [
         'managedRules' => 'ManagedRules',
-        'pageNumber'   => 'PageNumber',
-        'pageSize'     => 'PageSize',
-        'requestId'    => 'RequestId',
+        'pageNumber' => 'PageNumber',
+        'pageSize' => 'PageSize',
+        'requestId' => 'RequestId',
     ];
 
     public function validate()
@@ -46,7 +49,7 @@ class ListPreManagedRulesResponseBody extends Model
         if (null !== $this->managedRules) {
             if (\is_array($this->managedRules)) {
                 $res['ManagedRules'] = [];
-                $n1                  = 0;
+                $n1 = 0;
                 foreach ($this->managedRules as $item1) {
                     $res['ManagedRules'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -79,7 +82,7 @@ class ListPreManagedRulesResponseBody extends Model
         if (isset($map['ManagedRules'])) {
             if (!empty($map['ManagedRules'])) {
                 $model->managedRules = [];
-                $n1                  = 0;
+                $n1 = 0;
                 foreach ($map['ManagedRules'] as $item1) {
                     $model->managedRules[$n1++] = managedRules::fromMap($item1);
                 }

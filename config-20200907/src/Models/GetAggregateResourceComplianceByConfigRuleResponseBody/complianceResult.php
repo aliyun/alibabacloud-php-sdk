@@ -13,13 +13,14 @@ class complianceResult extends Model
      * @var compliances[]
      */
     public $compliances;
+
     /**
      * @var int
      */
     public $totalCount;
     protected $_name = [
         'compliances' => 'Compliances',
-        'totalCount'  => 'TotalCount',
+        'totalCount' => 'TotalCount',
     ];
 
     public function validate()
@@ -36,7 +37,7 @@ class complianceResult extends Model
         if (null !== $this->compliances) {
             if (\is_array($this->compliances)) {
                 $res['Compliances'] = [];
-                $n1                 = 0;
+                $n1 = 0;
                 foreach ($this->compliances as $item1) {
                     $res['Compliances'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -61,7 +62,7 @@ class complianceResult extends Model
         if (isset($map['Compliances'])) {
             if (!empty($map['Compliances'])) {
                 $model->compliances = [];
-                $n1                 = 0;
+                $n1 = 0;
                 foreach ($map['Compliances'] as $item1) {
                     $model->compliances[$n1++] = compliances::fromMap($item1);
                 }

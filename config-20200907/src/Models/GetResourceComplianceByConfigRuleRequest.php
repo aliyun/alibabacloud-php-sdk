@@ -12,13 +12,14 @@ class GetResourceComplianceByConfigRuleRequest extends Model
      * @var string
      */
     public $complianceType;
+
     /**
      * @var string
      */
     public $configRuleId;
     protected $_name = [
         'complianceType' => 'ComplianceType',
-        'configRuleId'   => 'ConfigRuleId',
+        'configRuleId' => 'ConfigRuleId',
     ];
 
     public function validate()

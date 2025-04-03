@@ -6,6 +6,7 @@ namespace AlibabaCloud\SDK\Config\V20200907\Models;
 
 use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Config\V20200907\Models\CreateAggregateConfigRuleRequest\excludeTagsScope;
+use AlibabaCloud\SDK\Config\V20200907\Models\CreateAggregateConfigRuleRequest\tag;
 use AlibabaCloud\SDK\Config\V20200907\Models\CreateAggregateConfigRuleRequest\tagsScope;
 
 class CreateAggregateConfigRuleRequest extends Model
@@ -14,138 +15,176 @@ class CreateAggregateConfigRuleRequest extends Model
      * @var string
      */
     public $accountIdsScope;
+
     /**
      * @var string
      */
     public $aggregatorId;
+
     /**
      * @var string
      */
     public $clientToken;
+
     /**
      * @var string
      */
     public $configRuleName;
+
     /**
      * @var string
      */
     public $configRuleTriggerTypes;
+
     /**
      * @var string
      */
     public $description;
+
     /**
      * @var string
      */
     public $excludeAccountIdsScope;
+
     /**
      * @var string
      */
     public $excludeFolderIdsScope;
+
     /**
      * @var string
      */
     public $excludeRegionIdsScope;
+
     /**
      * @var string
      */
     public $excludeResourceGroupIdsScope;
+
     /**
      * @var string
      */
     public $excludeResourceIdsScope;
+
     /**
      * @var excludeTagsScope[]
      */
     public $excludeTagsScope;
+
     /**
      * @var string
      */
     public $extendContent;
+
     /**
      * @var string
      */
     public $folderIdsScope;
+
     /**
      * @var mixed[]
      */
     public $inputParameters;
+
     /**
      * @var string
      */
     public $maximumExecutionFrequency;
+
     /**
      * @var string
      */
     public $regionIdsScope;
+
     /**
      * @var string
      */
     public $resourceGroupIdsScope;
+
     /**
      * @var string
      */
     public $resourceIdsScope;
+
+    /**
+     * @var string
+     */
+    public $resourceNameScope;
+
     /**
      * @var string[]
      */
     public $resourceTypesScope;
+
     /**
      * @var int
      */
     public $riskLevel;
+
     /**
      * @var string
      */
     public $sourceIdentifier;
+
     /**
      * @var string
      */
     public $sourceOwner;
+
+    /**
+     * @var tag[]
+     */
+    public $tag;
+
     /**
      * @var string
      */
     public $tagKeyLogicScope;
+
     /**
      * @var string
      */
     public $tagKeyScope;
+
     /**
      * @var string
      */
     public $tagValueScope;
+
     /**
      * @var tagsScope[]
      */
     public $tagsScope;
     protected $_name = [
-        'accountIdsScope'              => 'AccountIdsScope',
-        'aggregatorId'                 => 'AggregatorId',
-        'clientToken'                  => 'ClientToken',
-        'configRuleName'               => 'ConfigRuleName',
-        'configRuleTriggerTypes'       => 'ConfigRuleTriggerTypes',
-        'description'                  => 'Description',
-        'excludeAccountIdsScope'       => 'ExcludeAccountIdsScope',
-        'excludeFolderIdsScope'        => 'ExcludeFolderIdsScope',
-        'excludeRegionIdsScope'        => 'ExcludeRegionIdsScope',
+        'accountIdsScope' => 'AccountIdsScope',
+        'aggregatorId' => 'AggregatorId',
+        'clientToken' => 'ClientToken',
+        'configRuleName' => 'ConfigRuleName',
+        'configRuleTriggerTypes' => 'ConfigRuleTriggerTypes',
+        'description' => 'Description',
+        'excludeAccountIdsScope' => 'ExcludeAccountIdsScope',
+        'excludeFolderIdsScope' => 'ExcludeFolderIdsScope',
+        'excludeRegionIdsScope' => 'ExcludeRegionIdsScope',
         'excludeResourceGroupIdsScope' => 'ExcludeResourceGroupIdsScope',
-        'excludeResourceIdsScope'      => 'ExcludeResourceIdsScope',
-        'excludeTagsScope'             => 'ExcludeTagsScope',
-        'extendContent'                => 'ExtendContent',
-        'folderIdsScope'               => 'FolderIdsScope',
-        'inputParameters'              => 'InputParameters',
-        'maximumExecutionFrequency'    => 'MaximumExecutionFrequency',
-        'regionIdsScope'               => 'RegionIdsScope',
-        'resourceGroupIdsScope'        => 'ResourceGroupIdsScope',
-        'resourceIdsScope'             => 'ResourceIdsScope',
-        'resourceTypesScope'           => 'ResourceTypesScope',
-        'riskLevel'                    => 'RiskLevel',
-        'sourceIdentifier'             => 'SourceIdentifier',
-        'sourceOwner'                  => 'SourceOwner',
-        'tagKeyLogicScope'             => 'TagKeyLogicScope',
-        'tagKeyScope'                  => 'TagKeyScope',
-        'tagValueScope'                => 'TagValueScope',
-        'tagsScope'                    => 'TagsScope',
+        'excludeResourceIdsScope' => 'ExcludeResourceIdsScope',
+        'excludeTagsScope' => 'ExcludeTagsScope',
+        'extendContent' => 'ExtendContent',
+        'folderIdsScope' => 'FolderIdsScope',
+        'inputParameters' => 'InputParameters',
+        'maximumExecutionFrequency' => 'MaximumExecutionFrequency',
+        'regionIdsScope' => 'RegionIdsScope',
+        'resourceGroupIdsScope' => 'ResourceGroupIdsScope',
+        'resourceIdsScope' => 'ResourceIdsScope',
+        'resourceNameScope' => 'ResourceNameScope',
+        'resourceTypesScope' => 'ResourceTypesScope',
+        'riskLevel' => 'RiskLevel',
+        'sourceIdentifier' => 'SourceIdentifier',
+        'sourceOwner' => 'SourceOwner',
+        'tag' => 'Tag',
+        'tagKeyLogicScope' => 'TagKeyLogicScope',
+        'tagKeyScope' => 'TagKeyScope',
+        'tagValueScope' => 'TagValueScope',
+        'tagsScope' => 'TagsScope',
     ];
 
     public function validate()
@@ -158,6 +197,9 @@ class CreateAggregateConfigRuleRequest extends Model
         }
         if (\is_array($this->resourceTypesScope)) {
             Model::validateArray($this->resourceTypesScope);
+        }
+        if (\is_array($this->tag)) {
+            Model::validateArray($this->tag);
         }
         if (\is_array($this->tagsScope)) {
             Model::validateArray($this->tagsScope);
@@ -215,7 +257,7 @@ class CreateAggregateConfigRuleRequest extends Model
         if (null !== $this->excludeTagsScope) {
             if (\is_array($this->excludeTagsScope)) {
                 $res['ExcludeTagsScope'] = [];
-                $n1                      = 0;
+                $n1 = 0;
                 foreach ($this->excludeTagsScope as $item1) {
                     $res['ExcludeTagsScope'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -255,10 +297,14 @@ class CreateAggregateConfigRuleRequest extends Model
             $res['ResourceIdsScope'] = $this->resourceIdsScope;
         }
 
+        if (null !== $this->resourceNameScope) {
+            $res['ResourceNameScope'] = $this->resourceNameScope;
+        }
+
         if (null !== $this->resourceTypesScope) {
             if (\is_array($this->resourceTypesScope)) {
                 $res['ResourceTypesScope'] = [];
-                $n1                        = 0;
+                $n1 = 0;
                 foreach ($this->resourceTypesScope as $item1) {
                     $res['ResourceTypesScope'][$n1++] = $item1;
                 }
@@ -277,6 +323,16 @@ class CreateAggregateConfigRuleRequest extends Model
             $res['SourceOwner'] = $this->sourceOwner;
         }
 
+        if (null !== $this->tag) {
+            if (\is_array($this->tag)) {
+                $res['Tag'] = [];
+                $n1 = 0;
+                foreach ($this->tag as $item1) {
+                    $res['Tag'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                }
+            }
+        }
+
         if (null !== $this->tagKeyLogicScope) {
             $res['TagKeyLogicScope'] = $this->tagKeyLogicScope;
         }
@@ -292,7 +348,7 @@ class CreateAggregateConfigRuleRequest extends Model
         if (null !== $this->tagsScope) {
             if (\is_array($this->tagsScope)) {
                 $res['TagsScope'] = [];
-                $n1               = 0;
+                $n1 = 0;
                 foreach ($this->tagsScope as $item1) {
                     $res['TagsScope'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -357,7 +413,7 @@ class CreateAggregateConfigRuleRequest extends Model
         if (isset($map['ExcludeTagsScope'])) {
             if (!empty($map['ExcludeTagsScope'])) {
                 $model->excludeTagsScope = [];
-                $n1                      = 0;
+                $n1 = 0;
                 foreach ($map['ExcludeTagsScope'] as $item1) {
                     $model->excludeTagsScope[$n1++] = excludeTagsScope::fromMap($item1);
                 }
@@ -397,10 +453,14 @@ class CreateAggregateConfigRuleRequest extends Model
             $model->resourceIdsScope = $map['ResourceIdsScope'];
         }
 
+        if (isset($map['ResourceNameScope'])) {
+            $model->resourceNameScope = $map['ResourceNameScope'];
+        }
+
         if (isset($map['ResourceTypesScope'])) {
             if (!empty($map['ResourceTypesScope'])) {
                 $model->resourceTypesScope = [];
-                $n1                        = 0;
+                $n1 = 0;
                 foreach ($map['ResourceTypesScope'] as $item1) {
                     $model->resourceTypesScope[$n1++] = $item1;
                 }
@@ -419,6 +479,16 @@ class CreateAggregateConfigRuleRequest extends Model
             $model->sourceOwner = $map['SourceOwner'];
         }
 
+        if (isset($map['Tag'])) {
+            if (!empty($map['Tag'])) {
+                $model->tag = [];
+                $n1 = 0;
+                foreach ($map['Tag'] as $item1) {
+                    $model->tag[$n1++] = tag::fromMap($item1);
+                }
+            }
+        }
+
         if (isset($map['TagKeyLogicScope'])) {
             $model->tagKeyLogicScope = $map['TagKeyLogicScope'];
         }
@@ -434,7 +504,7 @@ class CreateAggregateConfigRuleRequest extends Model
         if (isset($map['TagsScope'])) {
             if (!empty($map['TagsScope'])) {
                 $model->tagsScope = [];
-                $n1               = 0;
+                $n1 = 0;
                 foreach ($map['TagsScope'] as $item1) {
                     $model->tagsScope[$n1++] = tagsScope::fromMap($item1);
                 }

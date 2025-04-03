@@ -12,12 +12,13 @@ class createBy extends Model
      * @var string
      */
     public $compliancePackId;
+
     /**
      * @var string
      */
     public $compliancePackName;
     protected $_name = [
-        'compliancePackId'   => 'CompliancePackId',
+        'compliancePackId' => 'CompliancePackId',
         'compliancePackName' => 'CompliancePackName',
     ];
 

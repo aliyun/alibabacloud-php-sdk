@@ -31,7 +31,7 @@ class complianceResult extends Model
         if (null !== $this->complianceResultList) {
             if (\is_array($this->complianceResultList)) {
                 $res['ComplianceResultList'] = [];
-                $n1                          = 0;
+                $n1 = 0;
                 foreach ($this->complianceResultList as $item1) {
                     $res['ComplianceResultList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -52,7 +52,7 @@ class complianceResult extends Model
         if (isset($map['ComplianceResultList'])) {
             if (!empty($map['ComplianceResultList'])) {
                 $model->complianceResultList = [];
-                $n1                          = 0;
+                $n1 = 0;
                 foreach ($map['ComplianceResultList'] as $item1) {
                     $model->complianceResultList[$n1++] = complianceResultList::fromMap($item1);
                 }
