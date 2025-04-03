@@ -44,6 +44,11 @@ class CreatePolicyGroupShrinkRequest extends Model
     public $policyGroupName;
 
     /**
+     * @var string
+     */
+    public $policyType;
+
+    /**
      * @var int
      */
     public $resolutionHeight;
@@ -60,6 +65,7 @@ class CreatePolicyGroupShrinkRequest extends Model
         'lockResolution' => 'LockResolution',
         'netRedirectPolicyShrink' => 'NetRedirectPolicy',
         'policyGroupName' => 'PolicyGroupName',
+        'policyType' => 'PolicyType',
         'resolutionHeight' => 'ResolutionHeight',
         'resolutionWidth' => 'ResolutionWidth',
     ];
@@ -98,6 +104,10 @@ class CreatePolicyGroupShrinkRequest extends Model
 
         if (null !== $this->policyGroupName) {
             $res['PolicyGroupName'] = $this->policyGroupName;
+        }
+
+        if (null !== $this->policyType) {
+            $res['PolicyType'] = $this->policyType;
         }
 
         if (null !== $this->resolutionHeight) {
@@ -145,6 +155,10 @@ class CreatePolicyGroupShrinkRequest extends Model
 
         if (isset($map['PolicyGroupName'])) {
             $model->policyGroupName = $map['PolicyGroupName'];
+        }
+
+        if (isset($map['PolicyType'])) {
+            $model->policyType = $map['PolicyType'];
         }
 
         if (isset($map['ResolutionHeight'])) {

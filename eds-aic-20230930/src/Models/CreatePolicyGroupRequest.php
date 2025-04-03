@@ -45,6 +45,11 @@ class CreatePolicyGroupRequest extends Model
     public $policyGroupName;
 
     /**
+     * @var string
+     */
+    public $policyType;
+
+    /**
      * @var int
      */
     public $resolutionHeight;
@@ -61,6 +66,7 @@ class CreatePolicyGroupRequest extends Model
         'lockResolution' => 'LockResolution',
         'netRedirectPolicy' => 'NetRedirectPolicy',
         'policyGroupName' => 'PolicyGroupName',
+        'policyType' => 'PolicyType',
         'resolutionHeight' => 'ResolutionHeight',
         'resolutionWidth' => 'ResolutionWidth',
     ];
@@ -102,6 +108,10 @@ class CreatePolicyGroupRequest extends Model
 
         if (null !== $this->policyGroupName) {
             $res['PolicyGroupName'] = $this->policyGroupName;
+        }
+
+        if (null !== $this->policyType) {
+            $res['PolicyType'] = $this->policyType;
         }
 
         if (null !== $this->resolutionHeight) {
@@ -149,6 +159,10 @@ class CreatePolicyGroupRequest extends Model
 
         if (isset($map['PolicyGroupName'])) {
             $model->policyGroupName = $map['PolicyGroupName'];
+        }
+
+        if (isset($map['PolicyType'])) {
+            $model->policyType = $map['PolicyType'];
         }
 
         if (isset($map['ResolutionHeight'])) {

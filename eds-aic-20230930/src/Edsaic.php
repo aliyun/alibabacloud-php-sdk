@@ -22,6 +22,7 @@ use AlibabaCloud\SDK\Edsaic\V20230930\Models\CreateAppResponse;
 use AlibabaCloud\SDK\Edsaic\V20230930\Models\CreateAppShrinkRequest;
 use AlibabaCloud\SDK\Edsaic\V20230930\Models\CreateCloudPhoneNodeRequest;
 use AlibabaCloud\SDK\Edsaic\V20230930\Models\CreateCloudPhoneNodeResponse;
+use AlibabaCloud\SDK\Edsaic\V20230930\Models\CreateCloudPhoneNodeShrinkRequest;
 use AlibabaCloud\SDK\Edsaic\V20230930\Models\CreateCustomImageRequest;
 use AlibabaCloud\SDK\Edsaic\V20230930\Models\CreateCustomImageResponse;
 use AlibabaCloud\SDK\Edsaic\V20230930\Models\CreateKeyPairRequest;
@@ -418,7 +419,7 @@ class Edsaic extends OpenApiClient
     }
 
     /**
-     * Retrieves connection tickets in bulk.
+     * Retrieves connection tickets in batch.
      *
      * @param request - BatchGetAcpConnectionTicketRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -472,7 +473,7 @@ class Edsaic extends OpenApiClient
     }
 
     /**
-     * Retrieves connection tickets in bulk.
+     * Retrieves connection tickets in batch.
      *
      * @param request - BatchGetAcpConnectionTicketRequest
      *
@@ -715,8 +716,17 @@ class Edsaic extends OpenApiClient
      * Creates an Android application.
      *
      * @remarks
-     * ### [](#)Preparations
-     * Before you proceed, log on to the [Elastic Desktop Service (EDS) Enterprise console](https://eds.console.aliyun.com/osshelp) and follow the on-screen instructions to upload the application file to Application Center to obtain the values of request parameters `FileName`, `FilePath`, and `OssAppUrl`.
+     * When creating an app, you can provide app information to the system in one of the following ways:
+     * *   Way 1: Apps from the Application Center
+     *     *   You can use one of the following methods:
+     *         *   Method 1: Pass in the `FileName` and `FilePath` parameters at the same time.
+     *         *   Method 2: Pass in the `OssAppUrl` parameter
+     *     *   Rule: If your app is from the Alibaba Cloud Workspace Application Center, you must use either Method 1 or Method 2. If both are used, Method 1 takes priority.
+     *     *   Condition: Before you proceed, log on to the [Elastic Desktop Service (EDS) Enterprise console](https://eds.console.aliyun.com/osshelp) and follow the on-screen instructions to upload the app file to the Application Center to obtain the values of the `FileName`, `FilePath`, and `OssAppUrl` parameters.
+     * *   Way 2: Custom apps
+     *     *   Pass in the `CustomAppInfo` parameter.
+     *     *   Rule: If you pass in the `CustomAppInfo` parameter, all six fields within it are required.
+     * >  If Way 1 and Way 2 are adopted simultaneously, the information from Way 2 takes priority.
      *
      * @param tmpReq - CreateAppRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -799,8 +809,17 @@ class Edsaic extends OpenApiClient
      * Creates an Android application.
      *
      * @remarks
-     * ### [](#)Preparations
-     * Before you proceed, log on to the [Elastic Desktop Service (EDS) Enterprise console](https://eds.console.aliyun.com/osshelp) and follow the on-screen instructions to upload the application file to Application Center to obtain the values of request parameters `FileName`, `FilePath`, and `OssAppUrl`.
+     * When creating an app, you can provide app information to the system in one of the following ways:
+     * *   Way 1: Apps from the Application Center
+     *     *   You can use one of the following methods:
+     *         *   Method 1: Pass in the `FileName` and `FilePath` parameters at the same time.
+     *         *   Method 2: Pass in the `OssAppUrl` parameter
+     *     *   Rule: If your app is from the Alibaba Cloud Workspace Application Center, you must use either Method 1 or Method 2. If both are used, Method 1 takes priority.
+     *     *   Condition: Before you proceed, log on to the [Elastic Desktop Service (EDS) Enterprise console](https://eds.console.aliyun.com/osshelp) and follow the on-screen instructions to upload the app file to the Application Center to obtain the values of the `FileName`, `FilePath`, and `OssAppUrl` parameters.
+     * *   Way 2: Custom apps
+     *     *   Pass in the `CustomAppInfo` parameter.
+     *     *   Rule: If you pass in the `CustomAppInfo` parameter, all six fields within it are required.
+     * >  If Way 1 and Way 2 are adopted simultaneously, the information from Way 2 takes priority.
      *
      * @param request - CreateAppRequest
      *
@@ -820,19 +839,25 @@ class Edsaic extends OpenApiClient
     /**
      * 创建云机节点.
      *
-     * @param request - CreateCloudPhoneNodeRequest
+     * @param tmpReq - CreateCloudPhoneNodeRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns CreateCloudPhoneNodeResponse
      *
-     * @param CreateCloudPhoneNodeRequest $request
+     * @param CreateCloudPhoneNodeRequest $tmpReq
      * @param RuntimeOptions              $runtime
      *
      * @return CreateCloudPhoneNodeResponse
      */
-    public function createCloudPhoneNodeWithOptions($request, $runtime)
+    public function createCloudPhoneNodeWithOptions($tmpReq, $runtime)
     {
-        $request->validate();
+        $tmpReq->validate();
+        $request = new CreateCloudPhoneNodeShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->displayConfig) {
+            $request->displayConfigShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->displayConfig, 'DisplayConfig', 'json');
+        }
+
         $query = [];
         if (null !== $request->autoPay) {
             @$query['AutoPay'] = $request->autoPay;
@@ -906,8 +931,14 @@ class Edsaic extends OpenApiClient
             @$query['VSwitchId'] = $request->vSwitchId;
         }
 
+        $body = [];
+        if (null !== $request->displayConfigShrink) {
+            @$body['DisplayConfig'] = $request->displayConfigShrink;
+        }
+
         $req = new OpenApiRequest([
             'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'CreateCloudPhoneNode',
@@ -946,7 +977,7 @@ class Edsaic extends OpenApiClient
     }
 
     /**
-     * Create Custom Image.
+     * Creates a custom image from a cloud phone instance.
      *
      * @param request - CreateCustomImageRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1000,7 +1031,7 @@ class Edsaic extends OpenApiClient
     }
 
     /**
-     * Create Custom Image.
+     * Creates a custom image from a cloud phone instance.
      *
      * @param request - CreateCustomImageRequest
      *
@@ -1134,6 +1165,10 @@ class Edsaic extends OpenApiClient
 
         if (null !== $request->policyGroupName) {
             @$body['PolicyGroupName'] = $request->policyGroupName;
+        }
+
+        if (null !== $request->policyType) {
+            @$body['PolicyType'] = $request->policyType;
         }
 
         if (null !== $request->resolutionHeight) {
@@ -1386,7 +1421,10 @@ class Edsaic extends OpenApiClient
     }
 
     /**
-     * 释放服务器.
+     * Deletes a cloud phone matrix.
+     *
+     * @remarks
+     * Before you proceed, make sure that the cloud phone matrix that you want to delete expired.
      *
      * @param request - DeleteCloudPhoneNodesRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1428,7 +1466,10 @@ class Edsaic extends OpenApiClient
     }
 
     /**
-     * 释放服务器.
+     * Deletes a cloud phone matrix.
+     *
+     * @remarks
+     * Before you proceed, make sure that the cloud phone matrix that you want to delete expired.
      *
      * @param request - DeleteCloudPhoneNodesRequest
      *
@@ -3072,7 +3113,10 @@ class Edsaic extends OpenApiClient
     }
 
     /**
-     * 获取协同码
+     * Generates a collaboration code for the cloud phone being accessed by using the current convenience account, and shares this code with other convenience accounts to allow them to access the same cloud phone.
+     *
+     * @remarks
+     * You can call this operation to generate a collaboration code for a cloud phone accessed by your current account and share this code with other convenience users to allow them to access the same cloud phone over the desktop, mobile, or web client. They can then call the [ApplyCoordinationWithCode](https://help.aliyun.com/zh/wuying-workspace/developer-reference/api-metaspace-2022-03-07-applycoordinationwithcode?spm=a2c4g.11174283.help-menu-68242.d_5_3_2_1.70e5e380fUFgOH\\&scm=20140722.H_2863194._.OR_help-T_cn~zh-V_1) operation to initiate a coordination request, which will provide them with a connection token.
      *
      * @param request - GenerateCoordinationCodeRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3118,7 +3162,10 @@ class Edsaic extends OpenApiClient
     }
 
     /**
-     * 获取协同码
+     * Generates a collaboration code for the cloud phone being accessed by using the current convenience account, and shares this code with other convenience accounts to allow them to access the same cloud phone.
+     *
+     * @remarks
+     * You can call this operation to generate a collaboration code for a cloud phone accessed by your current account and share this code with other convenience users to allow them to access the same cloud phone over the desktop, mobile, or web client. They can then call the [ApplyCoordinationWithCode](https://help.aliyun.com/zh/wuying-workspace/developer-reference/api-metaspace-2022-03-07-applycoordinationwithcode?spm=a2c4g.11174283.help-menu-68242.d_5_3_2_1.70e5e380fUFgOH\\&scm=20140722.H_2863194._.OR_help-T_cn~zh-V_1) operation to initiate a coordination request, which will provide them with a connection token.
      *
      * @param request - GenerateCoordinationCodeRequest
      *
@@ -3209,7 +3256,7 @@ class Edsaic extends OpenApiClient
      * Installs an app on multiple cloud phone instances at the same time.
      *
      * @remarks
-     * This operation runs asynchronously. To check the installation result, you can query the installation history for the app.
+     * This operation runs asynchronously. To check the operation result, visit the Task Center. To retrieve task details, call the [DescribeTasks](~~DescribeTasks~~) operation.
      *
      * @param request - InstallAppRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3262,7 +3309,7 @@ class Edsaic extends OpenApiClient
      * Installs an app on multiple cloud phone instances at the same time.
      *
      * @remarks
-     * This operation runs asynchronously. To check the installation result, you can query the installation history for the app.
+     * This operation runs asynchronously. To check the operation result, visit the Task Center. To retrieve task details, call the [DescribeTasks](~~DescribeTasks~~) operation.
      *
      * @param request - InstallAppRequest
      *
@@ -3310,6 +3357,10 @@ class Edsaic extends OpenApiClient
 
         if (null !== $request->policyGroupName) {
             @$body['PolicyGroupName'] = $request->policyGroupName;
+        }
+
+        if (null !== $request->policyType) {
+            @$body['PolicyType'] = $request->policyType;
         }
 
         $req = new OpenApiRequest([
@@ -3556,7 +3607,7 @@ class Edsaic extends OpenApiClient
     }
 
     /**
-     * 修改云机节点信息.
+     * Modifies a cloud phone matrix. Currently, you can only modify the name of a cloud phone matrix.
      *
      * @param request - ModifyCloudPhoneNodeRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3594,7 +3645,7 @@ class Edsaic extends OpenApiClient
     }
 
     /**
-     * 修改云机节点信息.
+     * Modifies a cloud phone matrix. Currently, you can only modify the name of a cloud phone matrix.
      *
      * @param request - ModifyCloudPhoneNodeRequest
      *
@@ -3860,6 +3911,9 @@ class Edsaic extends OpenApiClient
     /**
      * Operates apps in a cloud phone, such as opening, closing, and reopening apps.
      *
+     * @remarks
+     * This operation runs asynchronously. To check the operation result, visit the Task Center. To retrieve task details, call the [DescribeTasks](~~DescribeTasks~~) operation.
+     *
      * @param request - OperateAppRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -3909,6 +3963,9 @@ class Edsaic extends OpenApiClient
 
     /**
      * Operates apps in a cloud phone, such as opening, closing, and reopening apps.
+     *
+     * @remarks
+     * This operation runs asynchronously. To check the operation result, visit the Task Center. To retrieve task details, call the [DescribeTasks](~~DescribeTasks~~) operation.
      *
      * @param request - OperateAppRequest
      *
@@ -4154,7 +4211,7 @@ class Edsaic extends OpenApiClient
     }
 
     /**
-     * 续费服务器.
+     * Renews a cloud mobile matrix.
      *
      * @param request - RenewCloudPhoneNodesRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -4208,7 +4265,7 @@ class Edsaic extends OpenApiClient
     }
 
     /**
-     * 续费服务器.
+     * Renews a cloud mobile matrix.
      *
      * @param request - RenewCloudPhoneNodesRequest
      *
@@ -4656,7 +4713,10 @@ class Edsaic extends OpenApiClient
     }
 
     /**
-     * Uninstalls an app from multiple cloud phone instances. This operation runs asynchronously. You can check the result of the task by using the task ID.
+     * Uninstalls an app from multiple cloud phone instances.
+     *
+     * @remarks
+     * This operation runs asynchronously. To check the operation result, you can visit the Task Center. To retrieve task details, call the [DescribeTasks](~~DescribeTasks~~) operation.
      *
      * @param request - UninstallAppRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -4706,7 +4766,10 @@ class Edsaic extends OpenApiClient
     }
 
     /**
-     * Uninstalls an app from multiple cloud phone instances. This operation runs asynchronously. You can check the result of the task by using the task ID.
+     * Uninstalls an app from multiple cloud phone instances.
+     *
+     * @remarks
+     * This operation runs asynchronously. To check the operation result, you can visit the Task Center. To retrieve task details, call the [DescribeTasks](~~DescribeTasks~~) operation.
      *
      * @param request - UninstallAppRequest
      *

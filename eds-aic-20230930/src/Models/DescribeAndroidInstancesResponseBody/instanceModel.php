@@ -6,6 +6,7 @@ namespace AlibabaCloud\SDK\Edsaic\V20230930\Models\DescribeAndroidInstancesRespo
 
 use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Edsaic\V20230930\Models\DescribeAndroidInstancesResponseBody\instanceModel\disks;
+use AlibabaCloud\SDK\Edsaic\V20230930\Models\DescribeAndroidInstancesResponseBody\instanceModel\displayConfig;
 use AlibabaCloud\SDK\Edsaic\V20230930\Models\DescribeAndroidInstancesResponseBody\instanceModel\tags;
 
 class instanceModel extends Model
@@ -69,6 +70,11 @@ class instanceModel extends Model
      * @var disks[]
      */
     public $disks;
+
+    /**
+     * @var displayConfig
+     */
+    public $displayConfig;
 
     /**
      * @var string
@@ -187,6 +193,7 @@ class instanceModel extends Model
         'chargeType' => 'ChargeType',
         'cpu' => 'Cpu',
         'disks' => 'Disks',
+        'displayConfig' => 'DisplayConfig',
         'errorCode' => 'ErrorCode',
         'gmtCreate' => 'GmtCreate',
         'gmtExpired' => 'GmtExpired',
@@ -214,6 +221,9 @@ class instanceModel extends Model
     {
         if (\is_array($this->disks)) {
             Model::validateArray($this->disks);
+        }
+        if (null !== $this->displayConfig) {
+            $this->displayConfig->validate();
         }
         if (\is_array($this->tags)) {
             Model::validateArray($this->tags);
@@ -276,6 +286,10 @@ class instanceModel extends Model
                     $res['Disks'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
+        }
+
+        if (null !== $this->displayConfig) {
+            $res['DisplayConfig'] = null !== $this->displayConfig ? $this->displayConfig->toArray($noStream) : $this->displayConfig;
         }
 
         if (null !== $this->errorCode) {
@@ -431,6 +445,10 @@ class instanceModel extends Model
                     $model->disks[$n1++] = disks::fromMap($item1);
                 }
             }
+        }
+
+        if (isset($map['DisplayConfig'])) {
+            $model->displayConfig = displayConfig::fromMap($map['DisplayConfig']);
         }
 
         if (isset($map['ErrorCode'])) {

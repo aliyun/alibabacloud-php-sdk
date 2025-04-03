@@ -34,6 +34,11 @@ class nodeModel extends Model
     public $gmtModified;
 
     /**
+     * @var string
+     */
+    public $instanceType;
+
+    /**
      * @var int
      */
     public $memory;
@@ -98,6 +103,7 @@ class nodeModel extends Model
         'gmtCreate' => 'GmtCreate',
         'gmtExpired' => 'GmtExpired',
         'gmtModified' => 'GmtModified',
+        'instanceType' => 'InstanceType',
         'memory' => 'Memory',
         'networkId' => 'NetworkId',
         'nodeId' => 'NodeId',
@@ -138,6 +144,10 @@ class nodeModel extends Model
 
         if (null !== $this->gmtModified) {
             $res['GmtModified'] = $this->gmtModified;
+        }
+
+        if (null !== $this->instanceType) {
+            $res['InstanceType'] = $this->instanceType;
         }
 
         if (null !== $this->memory) {
@@ -217,6 +227,10 @@ class nodeModel extends Model
 
         if (isset($map['GmtModified'])) {
             $model->gmtModified = $map['GmtModified'];
+        }
+
+        if (isset($map['InstanceType'])) {
+            $model->instanceType = $map['InstanceType'];
         }
 
         if (isset($map['Memory'])) {

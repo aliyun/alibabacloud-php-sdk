@@ -5,10 +5,9 @@
 namespace AlibabaCloud\SDK\Edsaic\V20230930\Models;
 
 use AlibabaCloud\Dara\Model;
-use AlibabaCloud\SDK\Edsaic\V20230930\Models\CreateCloudPhoneNodeRequest\displayConfig;
-use AlibabaCloud\SDK\Edsaic\V20230930\Models\CreateCloudPhoneNodeRequest\tag;
+use AlibabaCloud\SDK\Edsaic\V20230930\Models\CreateCloudPhoneNodeShrinkRequest\tag;
 
-class CreateCloudPhoneNodeRequest extends Model
+class CreateCloudPhoneNodeShrinkRequest extends Model
 {
     /**
      * @var bool
@@ -36,9 +35,9 @@ class CreateCloudPhoneNodeRequest extends Model
     public $count;
 
     /**
-     * @var displayConfig
+     * @var string
      */
-    public $displayConfig;
+    public $displayConfigShrink;
 
     /**
      * @var string
@@ -110,7 +109,7 @@ class CreateCloudPhoneNodeRequest extends Model
         'bizRegionId' => 'BizRegionId',
         'chargeType' => 'ChargeType',
         'count' => 'Count',
-        'displayConfig' => 'DisplayConfig',
+        'displayConfigShrink' => 'DisplayConfig',
         'imageId' => 'ImageId',
         'instanceType' => 'InstanceType',
         'networkId' => 'NetworkId',
@@ -128,9 +127,6 @@ class CreateCloudPhoneNodeRequest extends Model
 
     public function validate()
     {
-        if (null !== $this->displayConfig) {
-            $this->displayConfig->validate();
-        }
         if (\is_array($this->tag)) {
             Model::validateArray($this->tag);
         }
@@ -160,8 +156,8 @@ class CreateCloudPhoneNodeRequest extends Model
             $res['Count'] = $this->count;
         }
 
-        if (null !== $this->displayConfig) {
-            $res['DisplayConfig'] = null !== $this->displayConfig ? $this->displayConfig->toArray($noStream) : $this->displayConfig;
+        if (null !== $this->displayConfigShrink) {
+            $res['DisplayConfig'] = $this->displayConfigShrink;
         }
 
         if (null !== $this->imageId) {
@@ -254,7 +250,7 @@ class CreateCloudPhoneNodeRequest extends Model
         }
 
         if (isset($map['DisplayConfig'])) {
-            $model->displayConfig = displayConfig::fromMap($map['DisplayConfig']);
+            $model->displayConfigShrink = $map['DisplayConfig'];
         }
 
         if (isset($map['ImageId'])) {

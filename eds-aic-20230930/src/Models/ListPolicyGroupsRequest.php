@@ -27,11 +27,17 @@ class ListPolicyGroupsRequest extends Model
      * @var string
      */
     public $policyGroupName;
+
+    /**
+     * @var string
+     */
+    public $policyType;
     protected $_name = [
         'maxResults' => 'MaxResults',
         'nextToken' => 'NextToken',
         'policyGroupIds' => 'PolicyGroupIds',
         'policyGroupName' => 'PolicyGroupName',
+        'policyType' => 'PolicyType',
     ];
 
     public function validate()
@@ -67,6 +73,10 @@ class ListPolicyGroupsRequest extends Model
             $res['PolicyGroupName'] = $this->policyGroupName;
         }
 
+        if (null !== $this->policyType) {
+            $res['PolicyType'] = $this->policyType;
+        }
+
         return $res;
     }
 
@@ -98,6 +108,10 @@ class ListPolicyGroupsRequest extends Model
 
         if (isset($map['PolicyGroupName'])) {
             $model->policyGroupName = $map['PolicyGroupName'];
+        }
+
+        if (isset($map['PolicyType'])) {
+            $model->policyType = $map['PolicyType'];
         }
 
         return $model;
