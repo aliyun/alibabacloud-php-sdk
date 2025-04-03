@@ -17,9 +17,15 @@ class nodePolicy extends Model
     /**
      * @var string
      */
+    public $hostname;
+
+    /**
+     * @var string
+     */
     public $nodeId;
     protected $_name = [
         'bonds' => 'Bonds',
+        'hostname' => 'Hostname',
         'nodeId' => 'NodeId',
     ];
 
@@ -42,6 +48,10 @@ class nodePolicy extends Model
                     $res['Bonds'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
+        }
+
+        if (null !== $this->hostname) {
+            $res['Hostname'] = $this->hostname;
         }
 
         if (null !== $this->nodeId) {
@@ -67,6 +77,10 @@ class nodePolicy extends Model
                     $model->bonds[$n1++] = bonds::fromMap($item1);
                 }
             }
+        }
+
+        if (isset($map['Hostname'])) {
+            $model->hostname = $map['Hostname'];
         }
 
         if (isset($map['NodeId'])) {
