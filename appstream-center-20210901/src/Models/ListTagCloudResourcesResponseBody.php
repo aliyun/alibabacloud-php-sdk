@@ -4,27 +4,41 @@
 
 namespace AlibabaCloud\SDK\Appstreamcenter\V20210901\Models;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\ListTagCloudResourcesResponseBody\resourceTags;
+use AlibabaCloud\Tea\Model;
 
 class ListTagCloudResourcesResponseBody extends Model
 {
     /**
+     * @description Indicates whether the next query is required.
+     *
+     * @example AAAAAYRHtOLVQzCYj17y+OP7LZRrUJaF4rnBGQkWwMiVHlLZBB1w3Us37CVvhvyM0TXavA==
+     *
      * @var string
      */
     public $nextToken;
 
     /**
+     * @description The request ID.
+     *
+     * @example 1CBAFFAB-B697-4049-A9B1-67E1FC5F****
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description The tags added to the cloud resources.
+     *
      * @var resourceTags[]
      */
     public $resourceTags;
 
     /**
+     * @description The total number of entries.
+     *
+     * @example 15
+     *
      * @var int
      */
     public $totalCount;
@@ -35,35 +49,26 @@ class ListTagCloudResourcesResponseBody extends Model
         'totalCount' => 'TotalCount',
     ];
 
-    public function validate()
-    {
-        if (\is_array($this->resourceTags)) {
-            Model::validateArray($this->resourceTags);
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->nextToken) {
             $res['NextToken'] = $this->nextToken;
         }
-
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
-
         if (null !== $this->resourceTags) {
-            if (\is_array($this->resourceTags)) {
-                $res['ResourceTags'] = [];
-                $n1 = 0;
-                foreach ($this->resourceTags as $item1) {
-                    $res['ResourceTags'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+            $res['ResourceTags'] = [];
+            if (null !== $this->resourceTags && \is_array($this->resourceTags)) {
+                $n = 0;
+                foreach ($this->resourceTags as $item) {
+                    $res['ResourceTags'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
         }
-
         if (null !== $this->totalCount) {
             $res['TotalCount'] = $this->totalCount;
         }
@@ -71,32 +76,29 @@ class ListTagCloudResourcesResponseBody extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return ListTagCloudResourcesResponseBody
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['NextToken'])) {
             $model->nextToken = $map['NextToken'];
         }
-
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
-
         if (isset($map['ResourceTags'])) {
             if (!empty($map['ResourceTags'])) {
                 $model->resourceTags = [];
-                $n1 = 0;
-                foreach ($map['ResourceTags'] as $item1) {
-                    $model->resourceTags[$n1++] = resourceTags::fromMap($item1);
+                $n = 0;
+                foreach ($map['ResourceTags'] as $item) {
+                    $model->resourceTags[$n++] = null !== $item ? resourceTags::fromMap($item) : $item;
                 }
             }
         }
-
         if (isset($map['TotalCount'])) {
             $model->totalCount = $map['TotalCount'];
         }

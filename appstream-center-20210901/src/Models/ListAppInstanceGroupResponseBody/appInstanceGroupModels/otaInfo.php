@@ -4,21 +4,33 @@
 
 namespace AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\ListAppInstanceGroupResponseBody\appInstanceGroupModels;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class otaInfo extends Model
 {
     /**
+     * @description The new OTA version. A null value indicates that no new version is available.
+     *
+     * @example 0.0.1-D-20220630.11****
+     *
      * @var string
      */
     public $newOtaVersion;
 
     /**
+     * @description The current OTA version.
+     *
+     * @example 0.0.1-D-20220615.11****
+     *
      * @var string
      */
     public $otaVersion;
 
     /**
+     * @description The ID of the OTA update task.
+     *
+     * @example ota-e49929gv8acz5****
+     *
      * @var string
      */
     public $taskId;
@@ -28,22 +40,17 @@ class otaInfo extends Model
         'taskId' => 'TaskId',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->newOtaVersion) {
             $res['NewOtaVersion'] = $this->newOtaVersion;
         }
-
         if (null !== $this->otaVersion) {
             $res['OtaVersion'] = $this->otaVersion;
         }
-
         if (null !== $this->taskId) {
             $res['TaskId'] = $this->taskId;
         }
@@ -51,22 +58,20 @@ class otaInfo extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return otaInfo
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['NewOtaVersion'])) {
             $model->newOtaVersion = $map['NewOtaVersion'];
         }
-
         if (isset($map['OtaVersion'])) {
             $model->otaVersion = $map['OtaVersion'];
         }
-
         if (isset($map['TaskId'])) {
             $model->taskId = $map['TaskId'];
         }

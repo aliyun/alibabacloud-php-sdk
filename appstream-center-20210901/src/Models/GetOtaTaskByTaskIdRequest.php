@@ -4,11 +4,17 @@
 
 namespace AlibabaCloud\SDK\Appstreamcenter\V20210901\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class GetOtaTaskByTaskIdRequest extends Model
 {
     /**
+     * @description The ID of the OTA update task. You can call the [ListAppInstanceGroup](https://help.aliyun.com/document_detail/428506.html) operation to obtain the ID.
+     *
+     * This parameter is required.
+     *
+     * @example ota-be7jzm29wrrz5****
+     *
      * @var string
      */
     public $taskId;
@@ -16,12 +22,9 @@ class GetOtaTaskByTaskIdRequest extends Model
         'taskId' => 'TaskId',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->taskId) {
@@ -31,11 +34,11 @@ class GetOtaTaskByTaskIdRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return GetOtaTaskByTaskIdRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();

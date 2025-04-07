@@ -4,11 +4,13 @@
 
 namespace AlibabaCloud\SDK\Appstreamcenter\V20210901\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class ListAccessPagesRequest extends Model
 {
     /**
+     * @example a-062wec3cwmayw****
+     *
      * @var string
      */
     public $accessPageId;
@@ -19,21 +21,29 @@ class ListAccessPagesRequest extends Model
     public $accessPageName;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @example 100
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @example p-065zdecaer07h****
+     *
      * @var string
      */
     public $projectId;
 
     /**
+     * @example ASC
+     *
      * @var string
      */
     public $sortType;
@@ -46,34 +56,26 @@ class ListAccessPagesRequest extends Model
         'sortType' => 'SortType',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->accessPageId) {
             $res['AccessPageId'] = $this->accessPageId;
         }
-
         if (null !== $this->accessPageName) {
             $res['AccessPageName'] = $this->accessPageName;
         }
-
         if (null !== $this->pageNumber) {
             $res['PageNumber'] = $this->pageNumber;
         }
-
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
         }
-
         if (null !== $this->projectId) {
             $res['ProjectId'] = $this->projectId;
         }
-
         if (null !== $this->sortType) {
             $res['SortType'] = $this->sortType;
         }
@@ -81,34 +83,29 @@ class ListAccessPagesRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return ListAccessPagesRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AccessPageId'])) {
             $model->accessPageId = $map['AccessPageId'];
         }
-
         if (isset($map['AccessPageName'])) {
             $model->accessPageName = $map['AccessPageName'];
         }
-
         if (isset($map['PageNumber'])) {
             $model->pageNumber = $map['PageNumber'];
         }
-
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
         }
-
         if (isset($map['ProjectId'])) {
             $model->projectId = $map['ProjectId'];
         }
-
         if (isset($map['SortType'])) {
             $model->sortType = $map['SortType'];
         }

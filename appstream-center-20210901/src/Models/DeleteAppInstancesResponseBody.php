@@ -4,17 +4,23 @@
 
 namespace AlibabaCloud\SDK\Appstreamcenter\V20210901\Models;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\DeleteAppInstancesResponseBody\deleteAppInstanceModels;
+use AlibabaCloud\Tea\Model;
 
 class DeleteAppInstancesResponseBody extends Model
 {
     /**
+     * @description The data returned.
+     *
      * @var deleteAppInstanceModels[]
      */
     public $deleteAppInstanceModels;
 
     /**
+     * @description The request ID.
+     *
+     * @example 1CBAFFAB-B697-4049-A9B1-67E1FC5F****
+     *
      * @var string
      */
     public $requestId;
@@ -23,27 +29,20 @@ class DeleteAppInstancesResponseBody extends Model
         'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-        if (\is_array($this->deleteAppInstanceModels)) {
-            Model::validateArray($this->deleteAppInstanceModels);
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->deleteAppInstanceModels) {
-            if (\is_array($this->deleteAppInstanceModels)) {
-                $res['DeleteAppInstanceModels'] = [];
-                $n1 = 0;
-                foreach ($this->deleteAppInstanceModels as $item1) {
-                    $res['DeleteAppInstanceModels'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+            $res['DeleteAppInstanceModels'] = [];
+            if (null !== $this->deleteAppInstanceModels && \is_array($this->deleteAppInstanceModels)) {
+                $n = 0;
+                foreach ($this->deleteAppInstanceModels as $item) {
+                    $res['DeleteAppInstanceModels'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
         }
-
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -51,24 +50,23 @@ class DeleteAppInstancesResponseBody extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return DeleteAppInstancesResponseBody
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['DeleteAppInstanceModels'])) {
             if (!empty($map['DeleteAppInstanceModels'])) {
                 $model->deleteAppInstanceModels = [];
-                $n1 = 0;
-                foreach ($map['DeleteAppInstanceModels'] as $item1) {
-                    $model->deleteAppInstanceModels[$n1++] = deleteAppInstanceModels::fromMap($item1);
+                $n = 0;
+                foreach ($map['DeleteAppInstanceModels'] as $item) {
+                    $model->deleteAppInstanceModels[$n++] = null !== $item ? deleteAppInstanceModels::fromMap($item) : $item;
                 }
             }
         }
-
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

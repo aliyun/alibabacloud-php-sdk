@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Appstreamcenter\V20210901\Models;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\TagCloudResourcesResponseBody\failedResources;
+use AlibabaCloud\Tea\Model;
 
 class TagCloudResourcesResponseBody extends Model
 {
@@ -15,6 +15,8 @@ class TagCloudResourcesResponseBody extends Model
     public $failedResources;
 
     /**
+     * @example 1CBAFFAB-B697-4049-A9B1-67E1FC5F****
+     *
      * @var string
      */
     public $requestId;
@@ -23,27 +25,20 @@ class TagCloudResourcesResponseBody extends Model
         'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-        if (\is_array($this->failedResources)) {
-            Model::validateArray($this->failedResources);
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->failedResources) {
-            if (\is_array($this->failedResources)) {
-                $res['FailedResources'] = [];
-                $n1 = 0;
-                foreach ($this->failedResources as $item1) {
-                    $res['FailedResources'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+            $res['FailedResources'] = [];
+            if (null !== $this->failedResources && \is_array($this->failedResources)) {
+                $n = 0;
+                foreach ($this->failedResources as $item) {
+                    $res['FailedResources'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
         }
-
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -51,24 +46,23 @@ class TagCloudResourcesResponseBody extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return TagCloudResourcesResponseBody
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['FailedResources'])) {
             if (!empty($map['FailedResources'])) {
                 $model->failedResources = [];
-                $n1 = 0;
-                foreach ($map['FailedResources'] as $item1) {
-                    $model->failedResources[$n1++] = failedResources::fromMap($item1);
+                $n = 0;
+                foreach ($map['FailedResources'] as $item) {
+                    $model->failedResources[$n++] = null !== $item ? failedResources::fromMap($item) : $item;
                 }
             }
         }
-
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

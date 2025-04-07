@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\CreateAppInstanceGroupRequest;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class userDefinePolicy extends Model
 {
@@ -16,12 +16,9 @@ class userDefinePolicy extends Model
         'customConfig' => 'CustomConfig',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->customConfig) {
@@ -31,11 +28,11 @@ class userDefinePolicy extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return userDefinePolicy
+     */
     public static function fromMap($map = [])
     {
         $model = new self();

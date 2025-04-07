@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\AskSessionPackagePriceResponseBody;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\AskSessionPackagePriceResponseBody\data\price;
+use AlibabaCloud\Tea\Model;
 
 class data extends Model
 {
@@ -17,29 +17,23 @@ class data extends Model
         'price' => 'Price',
     ];
 
-    public function validate()
-    {
-        if (null !== $this->price) {
-            $this->price->validate();
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->price) {
-            $res['Price'] = null !== $this->price ? $this->price->toArray($noStream) : $this->price;
+            $res['Price'] = null !== $this->price ? $this->price->toMap() : null;
         }
 
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return data
+     */
     public static function fromMap($map = [])
     {
         $model = new self();

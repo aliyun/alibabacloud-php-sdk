@@ -4,16 +4,28 @@
 
 namespace AlibabaCloud\SDK\Appstreamcenter\V20210901\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class ListRegionsRequest extends Model
 {
     /**
+     * @description >  This parameter is not publicly available.
+     *
+     * @example null
+     *
      * @var string
      */
     public $bizSource;
 
     /**
+     * @description The product type.
+     *
+     * Valid value:
+     *
+     *   CloudApp: App Streaming
+     *
+     * @example CloudApp
+     *
      * @var string
      */
     public $productType;
@@ -22,18 +34,14 @@ class ListRegionsRequest extends Model
         'productType' => 'ProductType',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->bizSource) {
             $res['BizSource'] = $this->bizSource;
         }
-
         if (null !== $this->productType) {
             $res['ProductType'] = $this->productType;
         }
@@ -41,18 +49,17 @@ class ListRegionsRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return ListRegionsRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['BizSource'])) {
             $model->bizSource = $map['BizSource'];
         }
-
         if (isset($map['ProductType'])) {
             $model->productType = $map['ProductType'];
         }

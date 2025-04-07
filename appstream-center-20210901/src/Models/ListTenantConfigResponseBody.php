@@ -4,17 +4,23 @@
 
 namespace AlibabaCloud\SDK\Appstreamcenter\V20210901\Models;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\ListTenantConfigResponseBody\tenantConfigModel;
+use AlibabaCloud\Tea\Model;
 
 class ListTenantConfigResponseBody extends Model
 {
     /**
+     * @description The request ID.
+     *
+     * @example 1CBAFFAB-B697-4049-A9B1-67E1FC5F****
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description The user configurations.
+     *
      * @var tenantConfigModel
      */
     public $tenantConfigModel;
@@ -23,40 +29,32 @@ class ListTenantConfigResponseBody extends Model
         'tenantConfigModel' => 'TenantConfigModel',
     ];
 
-    public function validate()
-    {
-        if (null !== $this->tenantConfigModel) {
-            $this->tenantConfigModel->validate();
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
-
         if (null !== $this->tenantConfigModel) {
-            $res['TenantConfigModel'] = null !== $this->tenantConfigModel ? $this->tenantConfigModel->toArray($noStream) : $this->tenantConfigModel;
+            $res['TenantConfigModel'] = null !== $this->tenantConfigModel ? $this->tenantConfigModel->toMap() : null;
         }
 
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return ListTenantConfigResponseBody
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
-
         if (isset($map['TenantConfigModel'])) {
             $model->tenantConfigModel = tenantConfigModel::fromMap($map['TenantConfigModel']);
         }

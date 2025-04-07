@@ -4,7 +4,8 @@
 
 namespace AlibabaCloud\SDK\Appstreamcenter\V20210901;
 
-use AlibabaCloud\Dara\Models\RuntimeOptions;
+use AlibabaCloud\Endpoint\Endpoint;
+use AlibabaCloud\OpenApiUtil\OpenApiUtilClient;
 use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\AccessPageSetAclRequest;
 use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\AccessPageSetAclResponse;
 use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\ApproveOtaTaskRequest;
@@ -94,10 +95,12 @@ use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\UntagCloudResourcesRequest
 use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\UntagCloudResourcesResponse;
 use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\UpdateAppInstanceGroupImageRequest;
 use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\UpdateAppInstanceGroupImageResponse;
+use AlibabaCloud\Tea\Tea;
+use AlibabaCloud\Tea\Utils\Utils;
+use AlibabaCloud\Tea\Utils\Utils\RuntimeOptions;
 use Darabonba\OpenApi\Models\OpenApiRequest;
 use Darabonba\OpenApi\Models\Params;
 use Darabonba\OpenApi\OpenApiClient;
-use Darabonba\OpenApi\Utils;
 
 class Appstreamcenter extends OpenApiClient
 {
@@ -123,56 +126,45 @@ class Appstreamcenter extends OpenApiClient
      */
     public function getEndpoint($productId, $regionId, $endpointRule, $network, $suffix, $endpointMap, $endpoint)
     {
-        if (null !== $endpoint) {
+        if (!Utils::empty_($endpoint)) {
             return $endpoint;
         }
-
-        if (null !== $endpointMap && null !== @$endpointMap[$regionId]) {
+        if (!Utils::isUnset($endpointMap) && !Utils::empty_(@$endpointMap[$regionId])) {
             return @$endpointMap[$regionId];
         }
 
-        return Utils::getEndpointRules($productId, $regionId, $endpointRule, $network, $suffix);
+        return Endpoint::getEndpointRules($productId, $regionId, $endpointRule, $network, $suffix);
     }
 
     /**
-     * 更新访问管理.
+     * @summary 更新访问管理
+     *  *
+     * @param AccessPageSetAclRequest $request AccessPageSetAclRequest
+     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - AccessPageSetAclRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns AccessPageSetAclResponse
-     *
-     * @param AccessPageSetAclRequest $request
-     * @param RuntimeOptions          $runtime
-     *
-     * @return AccessPageSetAclResponse
+     * @return AccessPageSetAclResponse AccessPageSetAclResponse
      */
     public function accessPageSetAclWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->accessMode) {
-            @$query['AccessMode'] = $request->accessMode;
+        if (!Utils::isUnset($request->accessMode)) {
+            $query['AccessMode'] = $request->accessMode;
         }
-
-        if (null !== $request->accessPageId) {
-            @$query['AccessPageId'] = $request->accessPageId;
+        if (!Utils::isUnset($request->accessPageId)) {
+            $query['AccessPageId'] = $request->accessPageId;
         }
-
-        if (null !== $request->accessPageName) {
-            @$query['AccessPageName'] = $request->accessPageName;
+        if (!Utils::isUnset($request->accessPageName)) {
+            $query['AccessPageName'] = $request->accessPageName;
         }
-
-        if (null !== $request->effectTime) {
-            @$query['EffectTime'] = $request->effectTime;
+        if (!Utils::isUnset($request->effectTime)) {
+            $query['EffectTime'] = $request->effectTime;
         }
-
-        if (null !== $request->unit) {
-            @$query['Unit'] = $request->unit;
+        if (!Utils::isUnset($request->unit)) {
+            $query['Unit'] = $request->unit;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'AccessPageSetAcl',
@@ -185,7 +177,7 @@ class Appstreamcenter extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return AccessPageSetAclResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -193,15 +185,11 @@ class Appstreamcenter extends OpenApiClient
     }
 
     /**
-     * 更新访问管理.
+     * @summary 更新访问管理
+     *  *
+     * @param AccessPageSetAclRequest $request AccessPageSetAclRequest
      *
-     * @param request - AccessPageSetAclRequest
-     *
-     * @returns AccessPageSetAclResponse
-     *
-     * @param AccessPageSetAclRequest $request
-     *
-     * @return AccessPageSetAclResponse
+     * @return AccessPageSetAclResponse AccessPageSetAclResponse
      */
     public function accessPageSetAcl($request)
     {
@@ -211,44 +199,34 @@ class Appstreamcenter extends OpenApiClient
     }
 
     /**
-     * Sets the execution time of an over-the-air (OTA) update task.
+     * @summary Sets the execution time of an over-the-air (OTA) update task.
+     *  *
+     * @param ApproveOtaTaskRequest $request ApproveOtaTaskRequest
+     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - ApproveOtaTaskRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns ApproveOtaTaskResponse
-     *
-     * @param ApproveOtaTaskRequest $request
-     * @param RuntimeOptions        $runtime
-     *
-     * @return ApproveOtaTaskResponse
+     * @return ApproveOtaTaskResponse ApproveOtaTaskResponse
      */
     public function approveOtaTaskWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $body = [];
-        if (null !== $request->appInstanceGroupId) {
-            @$body['AppInstanceGroupId'] = $request->appInstanceGroupId;
+        if (!Utils::isUnset($request->appInstanceGroupId)) {
+            $body['AppInstanceGroupId'] = $request->appInstanceGroupId;
         }
-
-        if (null !== $request->bizRegionId) {
-            @$body['BizRegionId'] = $request->bizRegionId;
+        if (!Utils::isUnset($request->bizRegionId)) {
+            $body['BizRegionId'] = $request->bizRegionId;
         }
-
-        if (null !== $request->otaType) {
-            @$body['OtaType'] = $request->otaType;
+        if (!Utils::isUnset($request->otaType)) {
+            $body['OtaType'] = $request->otaType;
         }
-
-        if (null !== $request->startTime) {
-            @$body['StartTime'] = $request->startTime;
+        if (!Utils::isUnset($request->startTime)) {
+            $body['StartTime'] = $request->startTime;
         }
-
-        if (null !== $request->taskId) {
-            @$body['TaskId'] = $request->taskId;
+        if (!Utils::isUnset($request->taskId)) {
+            $body['TaskId'] = $request->taskId;
         }
-
         $req = new OpenApiRequest([
-            'body' => Utils::parseToMap($body),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'ApproveOtaTask',
@@ -261,7 +239,7 @@ class Appstreamcenter extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return ApproveOtaTaskResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -269,15 +247,11 @@ class Appstreamcenter extends OpenApiClient
     }
 
     /**
-     * Sets the execution time of an over-the-air (OTA) update task.
+     * @summary Sets the execution time of an over-the-air (OTA) update task.
+     *  *
+     * @param ApproveOtaTaskRequest $request ApproveOtaTaskRequest
      *
-     * @param request - ApproveOtaTaskRequest
-     *
-     * @returns ApproveOtaTaskResponse
-     *
-     * @param ApproveOtaTaskRequest $request
-     *
-     * @return ApproveOtaTaskResponse
+     * @return ApproveOtaTaskResponse ApproveOtaTaskResponse
      */
     public function approveOtaTask($request)
     {
@@ -287,56 +261,43 @@ class Appstreamcenter extends OpenApiClient
     }
 
     /**
-     * 会话包收费查询.
+     * @summary 会话包收费查询
+     *  *
+     * @param AskSessionPackagePriceRequest $request AskSessionPackagePriceRequest
+     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - AskSessionPackagePriceRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns AskSessionPackagePriceResponse
-     *
-     * @param AskSessionPackagePriceRequest $request
-     * @param RuntimeOptions                $runtime
-     *
-     * @return AskSessionPackagePriceResponse
+     * @return AskSessionPackagePriceResponse AskSessionPackagePriceResponse
      */
     public function askSessionPackagePriceWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->chargeType) {
-            @$query['ChargeType'] = $request->chargeType;
+        if (!Utils::isUnset($request->chargeType)) {
+            $query['ChargeType'] = $request->chargeType;
         }
-
-        if (null !== $request->maxSessions) {
-            @$query['MaxSessions'] = $request->maxSessions;
+        if (!Utils::isUnset($request->maxSessions)) {
+            $query['MaxSessions'] = $request->maxSessions;
         }
-
-        if (null !== $request->period) {
-            @$query['Period'] = $request->period;
+        if (!Utils::isUnset($request->period)) {
+            $query['Period'] = $request->period;
         }
-
-        if (null !== $request->periodUnit) {
-            @$query['PeriodUnit'] = $request->periodUnit;
+        if (!Utils::isUnset($request->periodUnit)) {
+            $query['PeriodUnit'] = $request->periodUnit;
         }
-
-        if (null !== $request->region) {
-            @$query['Region'] = $request->region;
+        if (!Utils::isUnset($request->region)) {
+            $query['Region'] = $request->region;
         }
-
-        if (null !== $request->sessionPackageType) {
-            @$query['SessionPackageType'] = $request->sessionPackageType;
+        if (!Utils::isUnset($request->sessionPackageType)) {
+            $query['SessionPackageType'] = $request->sessionPackageType;
         }
-
-        if (null !== $request->sessionSpec) {
-            @$query['SessionSpec'] = $request->sessionSpec;
+        if (!Utils::isUnset($request->sessionSpec)) {
+            $query['SessionSpec'] = $request->sessionSpec;
         }
-
-        if (null !== $request->sessionType) {
-            @$query['SessionType'] = $request->sessionType;
+        if (!Utils::isUnset($request->sessionType)) {
+            $query['SessionType'] = $request->sessionType;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'AskSessionPackagePrice',
@@ -349,7 +310,7 @@ class Appstreamcenter extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return AskSessionPackagePriceResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -357,15 +318,11 @@ class Appstreamcenter extends OpenApiClient
     }
 
     /**
-     * 会话包收费查询.
+     * @summary 会话包收费查询
+     *  *
+     * @param AskSessionPackagePriceRequest $request AskSessionPackagePriceRequest
      *
-     * @param request - AskSessionPackagePriceRequest
-     *
-     * @returns AskSessionPackagePriceResponse
-     *
-     * @param AskSessionPackagePriceRequest $request
-     *
-     * @return AskSessionPackagePriceResponse
+     * @return AskSessionPackagePriceResponse AskSessionPackagePriceResponse
      */
     public function askSessionPackagePrice($request)
     {
@@ -375,57 +332,44 @@ class Appstreamcenter extends OpenApiClient
     }
 
     /**
-     * 授权用户.
+     * @summary 授权用户
+     *  *
+     * @param AuthorizeInstanceGroupRequest $tmpReq  AuthorizeInstanceGroupRequest
+     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
      *
-     * @param tmpReq - AuthorizeInstanceGroupRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns AuthorizeInstanceGroupResponse
-     *
-     * @param AuthorizeInstanceGroupRequest $tmpReq
-     * @param RuntimeOptions                $runtime
-     *
-     * @return AuthorizeInstanceGroupResponse
+     * @return AuthorizeInstanceGroupResponse AuthorizeInstanceGroupResponse
      */
     public function authorizeInstanceGroupWithOptions($tmpReq, $runtime)
     {
-        $tmpReq->validate();
+        Utils::validateModel($tmpReq);
         $request = new AuthorizeInstanceGroupShrinkRequest([]);
-        Utils::convert($tmpReq, $request);
-        if (null !== $tmpReq->userMeta) {
-            $request->userMetaShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->userMeta, 'UserMeta', 'json');
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->userMeta)) {
+            $request->userMetaShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->userMeta, 'UserMeta', 'json');
         }
-
         $body = [];
-        if (null !== $request->appInstanceGroupId) {
-            @$body['AppInstanceGroupId'] = $request->appInstanceGroupId;
+        if (!Utils::isUnset($request->appInstanceGroupId)) {
+            $body['AppInstanceGroupId'] = $request->appInstanceGroupId;
         }
-
-        if (null !== $request->appInstancePersistentId) {
-            @$body['AppInstancePersistentId'] = $request->appInstancePersistentId;
+        if (!Utils::isUnset($request->appInstancePersistentId)) {
+            $body['AppInstancePersistentId'] = $request->appInstancePersistentId;
         }
-
         $bodyFlat = [];
-        if (null !== $request->authorizeUserIds) {
-            @$bodyFlat['AuthorizeUserIds'] = $request->authorizeUserIds;
+        if (!Utils::isUnset($request->authorizeUserIds)) {
+            $bodyFlat['AuthorizeUserIds'] = $request->authorizeUserIds;
         }
-
-        if (null !== $request->productType) {
-            @$body['ProductType'] = $request->productType;
+        if (!Utils::isUnset($request->productType)) {
+            $body['ProductType'] = $request->productType;
         }
-
-        if (null !== $request->unAuthorizeUserIds) {
-            @$bodyFlat['UnAuthorizeUserIds'] = $request->unAuthorizeUserIds;
+        if (!Utils::isUnset($request->unAuthorizeUserIds)) {
+            $bodyFlat['UnAuthorizeUserIds'] = $request->unAuthorizeUserIds;
         }
-
-        if (null !== $request->userMetaShrink) {
-            @$body['UserMeta'] = $request->userMetaShrink;
+        if (!Utils::isUnset($request->userMetaShrink)) {
+            $body['UserMeta'] = $request->userMetaShrink;
         }
-
-        $body = Dara::merge([
-        ], $body, Utils::query($bodyFlat));
+        $body = Tea::merge($body, OpenApiUtilClient::query($bodyFlat));
         $req = new OpenApiRequest([
-            'body' => Utils::parseToMap($body),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'AuthorizeInstanceGroup',
@@ -438,7 +382,7 @@ class Appstreamcenter extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return AuthorizeInstanceGroupResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -446,15 +390,11 @@ class Appstreamcenter extends OpenApiClient
     }
 
     /**
-     * 授权用户.
+     * @summary 授权用户
+     *  *
+     * @param AuthorizeInstanceGroupRequest $request AuthorizeInstanceGroupRequest
      *
-     * @param request - AuthorizeInstanceGroupRequest
-     *
-     * @returns AuthorizeInstanceGroupResponse
-     *
-     * @param AuthorizeInstanceGroupRequest $request
-     *
-     * @return AuthorizeInstanceGroupResponse
+     * @return AuthorizeInstanceGroupResponse AuthorizeInstanceGroupResponse
      */
     public function authorizeInstanceGroup($request)
     {
@@ -464,68 +404,52 @@ class Appstreamcenter extends OpenApiClient
     }
 
     /**
-     * 配置会话包.
+     * @summary 配置会话包
+     *  *
+     * @param BuySessionPackageRequest $request BuySessionPackageRequest
+     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - BuySessionPackageRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns BuySessionPackageResponse
-     *
-     * @param BuySessionPackageRequest $request
-     * @param RuntimeOptions           $runtime
-     *
-     * @return BuySessionPackageResponse
+     * @return BuySessionPackageResponse BuySessionPackageResponse
      */
     public function buySessionPackageWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->autoPay) {
-            @$query['AutoPay'] = $request->autoPay;
+        if (!Utils::isUnset($request->autoPay)) {
+            $query['AutoPay'] = $request->autoPay;
         }
-
-        if (null !== $request->chargeType) {
-            @$query['ChargeType'] = $request->chargeType;
+        if (!Utils::isUnset($request->chargeType)) {
+            $query['ChargeType'] = $request->chargeType;
         }
-
-        if (null !== $request->maxSessions) {
-            @$query['MaxSessions'] = $request->maxSessions;
+        if (!Utils::isUnset($request->maxSessions)) {
+            $query['MaxSessions'] = $request->maxSessions;
         }
-
-        if (null !== $request->period) {
-            @$query['Period'] = $request->period;
+        if (!Utils::isUnset($request->period)) {
+            $query['Period'] = $request->period;
         }
-
-        if (null !== $request->periodUnit) {
-            @$query['PeriodUnit'] = $request->periodUnit;
+        if (!Utils::isUnset($request->periodUnit)) {
+            $query['PeriodUnit'] = $request->periodUnit;
         }
-
-        if (null !== $request->projectId) {
-            @$query['ProjectId'] = $request->projectId;
+        if (!Utils::isUnset($request->projectId)) {
+            $query['ProjectId'] = $request->projectId;
         }
-
-        if (null !== $request->region) {
-            @$query['Region'] = $request->region;
+        if (!Utils::isUnset($request->region)) {
+            $query['Region'] = $request->region;
         }
-
-        if (null !== $request->sessionPackageName) {
-            @$query['SessionPackageName'] = $request->sessionPackageName;
+        if (!Utils::isUnset($request->sessionPackageName)) {
+            $query['SessionPackageName'] = $request->sessionPackageName;
         }
-
-        if (null !== $request->sessionPackageType) {
-            @$query['SessionPackageType'] = $request->sessionPackageType;
+        if (!Utils::isUnset($request->sessionPackageType)) {
+            $query['SessionPackageType'] = $request->sessionPackageType;
         }
-
-        if (null !== $request->sessionSpec) {
-            @$query['SessionSpec'] = $request->sessionSpec;
+        if (!Utils::isUnset($request->sessionSpec)) {
+            $query['SessionSpec'] = $request->sessionSpec;
         }
-
-        if (null !== $request->sessionType) {
-            @$query['SessionType'] = $request->sessionType;
+        if (!Utils::isUnset($request->sessionType)) {
+            $query['SessionType'] = $request->sessionType;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'BuySessionPackage',
@@ -538,7 +462,7 @@ class Appstreamcenter extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return BuySessionPackageResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -546,15 +470,11 @@ class Appstreamcenter extends OpenApiClient
     }
 
     /**
-     * 配置会话包.
+     * @summary 配置会话包
+     *  *
+     * @param BuySessionPackageRequest $request BuySessionPackageRequest
      *
-     * @param request - BuySessionPackageRequest
-     *
-     * @returns BuySessionPackageResponse
-     *
-     * @param BuySessionPackageRequest $request
-     *
-     * @return BuySessionPackageResponse
+     * @return BuySessionPackageResponse BuySessionPackageResponse
      */
     public function buySessionPackage($request)
     {
@@ -564,48 +484,37 @@ class Appstreamcenter extends OpenApiClient
     }
 
     /**
-     * 创建访问页面.
+     * @summary 创建访问页面
+     *  *
+     * @param CreateAccessPageRequest $request CreateAccessPageRequest
+     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - CreateAccessPageRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns CreateAccessPageResponse
-     *
-     * @param CreateAccessPageRequest $request
-     * @param RuntimeOptions          $runtime
-     *
-     * @return CreateAccessPageResponse
+     * @return CreateAccessPageResponse CreateAccessPageResponse
      */
     public function createAccessPageWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->accessPageName) {
-            @$query['AccessPageName'] = $request->accessPageName;
+        if (!Utils::isUnset($request->accessPageName)) {
+            $query['AccessPageName'] = $request->accessPageName;
         }
-
-        if (null !== $request->cloudEnvId) {
-            @$query['CloudEnvId'] = $request->cloudEnvId;
+        if (!Utils::isUnset($request->cloudEnvId)) {
+            $query['CloudEnvId'] = $request->cloudEnvId;
         }
-
-        if (null !== $request->effectTime) {
-            @$query['EffectTime'] = $request->effectTime;
+        if (!Utils::isUnset($request->effectTime)) {
+            $query['EffectTime'] = $request->effectTime;
         }
-
-        if (null !== $request->projectId) {
-            @$query['ProjectId'] = $request->projectId;
+        if (!Utils::isUnset($request->projectId)) {
+            $query['ProjectId'] = $request->projectId;
         }
-
-        if (null !== $request->projectName) {
-            @$query['ProjectName'] = $request->projectName;
+        if (!Utils::isUnset($request->projectName)) {
+            $query['ProjectName'] = $request->projectName;
         }
-
-        if (null !== $request->unit) {
-            @$query['Unit'] = $request->unit;
+        if (!Utils::isUnset($request->unit)) {
+            $query['Unit'] = $request->unit;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'CreateAccessPage',
@@ -618,7 +527,7 @@ class Appstreamcenter extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return CreateAccessPageResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -626,15 +535,11 @@ class Appstreamcenter extends OpenApiClient
     }
 
     /**
-     * 创建访问页面.
+     * @summary 创建访问页面
+     *  *
+     * @param CreateAccessPageRequest $request CreateAccessPageRequest
      *
-     * @param request - CreateAccessPageRequest
-     *
-     * @returns CreateAccessPageResponse
-     *
-     * @param CreateAccessPageRequest $request
-     *
-     * @return CreateAccessPageResponse
+     * @return CreateAccessPageResponse CreateAccessPageResponse
      */
     public function createAccessPage($request)
     {
@@ -644,168 +549,128 @@ class Appstreamcenter extends OpenApiClient
     }
 
     /**
-     * 创建云应用交付组.
+     * @summary 创建云应用交付组
+     *  *
+     * @param CreateAppInstanceGroupRequest $tmpReq  CreateAppInstanceGroupRequest
+     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
      *
-     * @param tmpReq - CreateAppInstanceGroupRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns CreateAppInstanceGroupResponse
-     *
-     * @param CreateAppInstanceGroupRequest $tmpReq
-     * @param RuntimeOptions                $runtime
-     *
-     * @return CreateAppInstanceGroupResponse
+     * @return CreateAppInstanceGroupResponse CreateAppInstanceGroupResponse
      */
     public function createAppInstanceGroupWithOptions($tmpReq, $runtime)
     {
-        $tmpReq->validate();
+        Utils::validateModel($tmpReq);
         $request = new CreateAppInstanceGroupShrinkRequest([]);
-        Utils::convert($tmpReq, $request);
-        if (null !== $tmpReq->network) {
-            $request->networkShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->network, 'Network', 'json');
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->network)) {
+            $request->networkShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->network, 'Network', 'json');
         }
-
-        if (null !== $tmpReq->nodePool) {
-            $request->nodePoolShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->nodePool, 'NodePool', 'json');
+        if (!Utils::isUnset($tmpReq->nodePool)) {
+            $request->nodePoolShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->nodePool, 'NodePool', 'json');
         }
-
-        if (null !== $tmpReq->runtimePolicy) {
-            $request->runtimePolicyShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->runtimePolicy, 'RuntimePolicy', 'json');
+        if (!Utils::isUnset($tmpReq->runtimePolicy)) {
+            $request->runtimePolicyShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->runtimePolicy, 'RuntimePolicy', 'json');
         }
-
-        if (null !== $tmpReq->securityPolicy) {
-            $request->securityPolicyShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->securityPolicy, 'SecurityPolicy', 'json');
+        if (!Utils::isUnset($tmpReq->securityPolicy)) {
+            $request->securityPolicyShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->securityPolicy, 'SecurityPolicy', 'json');
         }
-
-        if (null !== $tmpReq->storagePolicy) {
-            $request->storagePolicyShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->storagePolicy, 'StoragePolicy', 'json');
+        if (!Utils::isUnset($tmpReq->storagePolicy)) {
+            $request->storagePolicyShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->storagePolicy, 'StoragePolicy', 'json');
         }
-
-        if (null !== $tmpReq->userDefinePolicy) {
-            $request->userDefinePolicyShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->userDefinePolicy, 'UserDefinePolicy', 'json');
+        if (!Utils::isUnset($tmpReq->userDefinePolicy)) {
+            $request->userDefinePolicyShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->userDefinePolicy, 'UserDefinePolicy', 'json');
         }
-
-        if (null !== $tmpReq->userInfo) {
-            $request->userInfoShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->userInfo, 'UserInfo', 'json');
+        if (!Utils::isUnset($tmpReq->userInfo)) {
+            $request->userInfoShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->userInfo, 'UserInfo', 'json');
         }
-
-        if (null !== $tmpReq->videoPolicy) {
-            $request->videoPolicyShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->videoPolicy, 'VideoPolicy', 'json');
+        if (!Utils::isUnset($tmpReq->videoPolicy)) {
+            $request->videoPolicyShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->videoPolicy, 'VideoPolicy', 'json');
         }
-
         $query = [];
-        if (null !== $request->userDefinePolicyShrink) {
-            @$query['UserDefinePolicy'] = $request->userDefinePolicyShrink;
+        if (!Utils::isUnset($request->userDefinePolicyShrink)) {
+            $query['UserDefinePolicy'] = $request->userDefinePolicyShrink;
         }
-
         $body = [];
-        if (null !== $request->appCenterImageId) {
-            @$body['AppCenterImageId'] = $request->appCenterImageId;
+        if (!Utils::isUnset($request->appCenterImageId)) {
+            $body['AppCenterImageId'] = $request->appCenterImageId;
         }
-
-        if (null !== $request->appInstanceGroupName) {
-            @$body['AppInstanceGroupName'] = $request->appInstanceGroupName;
+        if (!Utils::isUnset($request->appInstanceGroupName)) {
+            $body['AppInstanceGroupName'] = $request->appInstanceGroupName;
         }
-
-        if (null !== $request->appPackageType) {
-            @$body['AppPackageType'] = $request->appPackageType;
+        if (!Utils::isUnset($request->appPackageType)) {
+            $body['AppPackageType'] = $request->appPackageType;
         }
-
-        if (null !== $request->appPolicyId) {
-            @$body['AppPolicyId'] = $request->appPolicyId;
+        if (!Utils::isUnset($request->appPolicyId)) {
+            $body['AppPolicyId'] = $request->appPolicyId;
         }
-
-        if (null !== $request->authMode) {
-            @$body['AuthMode'] = $request->authMode;
+        if (!Utils::isUnset($request->authMode)) {
+            $body['AuthMode'] = $request->authMode;
         }
-
-        if (null !== $request->autoPay) {
-            @$body['AutoPay'] = $request->autoPay;
+        if (!Utils::isUnset($request->autoPay)) {
+            $body['AutoPay'] = $request->autoPay;
         }
-
-        if (null !== $request->autoRenew) {
-            @$body['AutoRenew'] = $request->autoRenew;
+        if (!Utils::isUnset($request->autoRenew)) {
+            $body['AutoRenew'] = $request->autoRenew;
         }
-
-        if (null !== $request->bizRegionId) {
-            @$body['BizRegionId'] = $request->bizRegionId;
+        if (!Utils::isUnset($request->bizRegionId)) {
+            $body['BizRegionId'] = $request->bizRegionId;
         }
-
-        if (null !== $request->chargeResourceMode) {
-            @$body['ChargeResourceMode'] = $request->chargeResourceMode;
+        if (!Utils::isUnset($request->chargeResourceMode)) {
+            $body['ChargeResourceMode'] = $request->chargeResourceMode;
         }
-
-        if (null !== $request->chargeType) {
-            @$body['ChargeType'] = $request->chargeType;
+        if (!Utils::isUnset($request->chargeType)) {
+            $body['ChargeType'] = $request->chargeType;
         }
-
-        if (null !== $request->clusterId) {
-            @$body['ClusterId'] = $request->clusterId;
+        if (!Utils::isUnset($request->clusterId)) {
+            $body['ClusterId'] = $request->clusterId;
         }
-
-        if (null !== $request->networkShrink) {
-            @$body['Network'] = $request->networkShrink;
+        if (!Utils::isUnset($request->networkShrink)) {
+            $body['Network'] = $request->networkShrink;
         }
-
-        if (null !== $request->nodePoolShrink) {
-            @$body['NodePool'] = $request->nodePoolShrink;
+        if (!Utils::isUnset($request->nodePoolShrink)) {
+            $body['NodePool'] = $request->nodePoolShrink;
         }
-
-        if (null !== $request->period) {
-            @$body['Period'] = $request->period;
+        if (!Utils::isUnset($request->period)) {
+            $body['Period'] = $request->period;
         }
-
-        if (null !== $request->periodUnit) {
-            @$body['PeriodUnit'] = $request->periodUnit;
+        if (!Utils::isUnset($request->periodUnit)) {
+            $body['PeriodUnit'] = $request->periodUnit;
         }
-
-        if (null !== $request->preOpenAppId) {
-            @$body['PreOpenAppId'] = $request->preOpenAppId;
+        if (!Utils::isUnset($request->preOpenAppId)) {
+            $body['PreOpenAppId'] = $request->preOpenAppId;
         }
-
-        if (null !== $request->productType) {
-            @$body['ProductType'] = $request->productType;
+        if (!Utils::isUnset($request->productType)) {
+            $body['ProductType'] = $request->productType;
         }
-
-        if (null !== $request->promotionId) {
-            @$body['PromotionId'] = $request->promotionId;
+        if (!Utils::isUnset($request->promotionId)) {
+            $body['PromotionId'] = $request->promotionId;
         }
-
-        if (null !== $request->runtimePolicyShrink) {
-            @$body['RuntimePolicy'] = $request->runtimePolicyShrink;
+        if (!Utils::isUnset($request->runtimePolicyShrink)) {
+            $body['RuntimePolicy'] = $request->runtimePolicyShrink;
         }
-
-        if (null !== $request->securityPolicyShrink) {
-            @$body['SecurityPolicy'] = $request->securityPolicyShrink;
+        if (!Utils::isUnset($request->securityPolicyShrink)) {
+            $body['SecurityPolicy'] = $request->securityPolicyShrink;
         }
-
-        if (null !== $request->sessionTimeout) {
-            @$body['SessionTimeout'] = $request->sessionTimeout;
+        if (!Utils::isUnset($request->sessionTimeout)) {
+            $body['SessionTimeout'] = $request->sessionTimeout;
         }
-
-        if (null !== $request->storagePolicyShrink) {
-            @$body['StoragePolicy'] = $request->storagePolicyShrink;
+        if (!Utils::isUnset($request->storagePolicyShrink)) {
+            $body['StoragePolicy'] = $request->storagePolicyShrink;
         }
-
-        if (null !== $request->subPayType) {
-            @$body['SubPayType'] = $request->subPayType;
+        if (!Utils::isUnset($request->subPayType)) {
+            $body['SubPayType'] = $request->subPayType;
         }
-
-        if (null !== $request->userInfoShrink) {
-            @$body['UserInfo'] = $request->userInfoShrink;
+        if (!Utils::isUnset($request->userInfoShrink)) {
+            $body['UserInfo'] = $request->userInfoShrink;
         }
-
-        if (null !== $request->users) {
-            @$body['Users'] = $request->users;
+        if (!Utils::isUnset($request->users)) {
+            $body['Users'] = $request->users;
         }
-
-        if (null !== $request->videoPolicyShrink) {
-            @$body['VideoPolicy'] = $request->videoPolicyShrink;
+        if (!Utils::isUnset($request->videoPolicyShrink)) {
+            $body['VideoPolicy'] = $request->videoPolicyShrink;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
-            'body' => Utils::parseToMap($body),
+            'query' => OpenApiUtilClient::query($query),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'CreateAppInstanceGroup',
@@ -818,7 +683,7 @@ class Appstreamcenter extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return CreateAppInstanceGroupResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -826,15 +691,11 @@ class Appstreamcenter extends OpenApiClient
     }
 
     /**
-     * 创建云应用交付组.
+     * @summary 创建云应用交付组
+     *  *
+     * @param CreateAppInstanceGroupRequest $request CreateAppInstanceGroupRequest
      *
-     * @param request - CreateAppInstanceGroupRequest
-     *
-     * @returns CreateAppInstanceGroupResponse
-     *
-     * @param CreateAppInstanceGroupRequest $request
-     *
-     * @return CreateAppInstanceGroupResponse
+     * @return CreateAppInstanceGroupResponse CreateAppInstanceGroupResponse
      */
     public function createAppInstanceGroup($request)
     {
@@ -844,36 +705,28 @@ class Appstreamcenter extends OpenApiClient
     }
 
     /**
-     * Creates a new image by debugging the delivery group.
+     * @summary Creates a new image by debugging the delivery group.
+     *  *
+     * @param CreateImageFromAppInstanceGroupRequest $request CreateImageFromAppInstanceGroupRequest
+     * @param RuntimeOptions                         $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - CreateImageFromAppInstanceGroupRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns CreateImageFromAppInstanceGroupResponse
-     *
-     * @param CreateImageFromAppInstanceGroupRequest $request
-     * @param RuntimeOptions                         $runtime
-     *
-     * @return CreateImageFromAppInstanceGroupResponse
+     * @return CreateImageFromAppInstanceGroupResponse CreateImageFromAppInstanceGroupResponse
      */
     public function createImageFromAppInstanceGroupWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $body = [];
-        if (null !== $request->appCenterImageName) {
-            @$body['AppCenterImageName'] = $request->appCenterImageName;
+        if (!Utils::isUnset($request->appCenterImageName)) {
+            $body['AppCenterImageName'] = $request->appCenterImageName;
         }
-
-        if (null !== $request->appInstanceGroupId) {
-            @$body['AppInstanceGroupId'] = $request->appInstanceGroupId;
+        if (!Utils::isUnset($request->appInstanceGroupId)) {
+            $body['AppInstanceGroupId'] = $request->appInstanceGroupId;
         }
-
-        if (null !== $request->productType) {
-            @$body['ProductType'] = $request->productType;
+        if (!Utils::isUnset($request->productType)) {
+            $body['ProductType'] = $request->productType;
         }
-
         $req = new OpenApiRequest([
-            'body' => Utils::parseToMap($body),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'CreateImageFromAppInstanceGroup',
@@ -886,7 +739,7 @@ class Appstreamcenter extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return CreateImageFromAppInstanceGroupResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -894,15 +747,11 @@ class Appstreamcenter extends OpenApiClient
     }
 
     /**
-     * Creates a new image by debugging the delivery group.
+     * @summary Creates a new image by debugging the delivery group.
+     *  *
+     * @param CreateImageFromAppInstanceGroupRequest $request CreateImageFromAppInstanceGroupRequest
      *
-     * @param request - CreateImageFromAppInstanceGroupRequest
-     *
-     * @returns CreateImageFromAppInstanceGroupResponse
-     *
-     * @param CreateImageFromAppInstanceGroupRequest $request
-     *
-     * @return CreateImageFromAppInstanceGroupResponse
+     * @return CreateImageFromAppInstanceGroupResponse CreateImageFromAppInstanceGroupResponse
      */
     public function createImageFromAppInstanceGroup($request)
     {
@@ -912,28 +761,22 @@ class Appstreamcenter extends OpenApiClient
     }
 
     /**
-     * 删除访问页面.
+     * @summary 删除访问页面
+     *  *
+     * @param DeleteAccessPageRequest $request DeleteAccessPageRequest
+     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - DeleteAccessPageRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns DeleteAccessPageResponse
-     *
-     * @param DeleteAccessPageRequest $request
-     * @param RuntimeOptions          $runtime
-     *
-     * @return DeleteAccessPageResponse
+     * @return DeleteAccessPageResponse DeleteAccessPageResponse
      */
     public function deleteAccessPageWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->accessPageId) {
-            @$query['AccessPageId'] = $request->accessPageId;
+        if (!Utils::isUnset($request->accessPageId)) {
+            $query['AccessPageId'] = $request->accessPageId;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'DeleteAccessPage',
@@ -946,7 +789,7 @@ class Appstreamcenter extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return DeleteAccessPageResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -954,15 +797,11 @@ class Appstreamcenter extends OpenApiClient
     }
 
     /**
-     * 删除访问页面.
+     * @summary 删除访问页面
+     *  *
+     * @param DeleteAccessPageRequest $request DeleteAccessPageRequest
      *
-     * @param request - DeleteAccessPageRequest
-     *
-     * @returns DeleteAccessPageResponse
-     *
-     * @param DeleteAccessPageRequest $request
-     *
-     * @return DeleteAccessPageResponse
+     * @return DeleteAccessPageResponse DeleteAccessPageResponse
      */
     public function deleteAccessPage($request)
     {
@@ -972,35 +811,27 @@ class Appstreamcenter extends OpenApiClient
     }
 
     /**
-     * Deletes a delivery group that uses the By Resource - Pay-as-you-go billing method.
+     * @summary Deletes a delivery group that uses the By Resource - Pay-as-you-go billing method.
+     *  *
+     * @description >  You cannot call this operation to delete a subscription delivery group.
+     *  *
+     * @param DeleteAppInstanceGroupRequest $request DeleteAppInstanceGroupRequest
+     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
      *
-     * @remarks
-     * >  You cannot call this operation to delete a subscription delivery group.
-     *
-     * @param request - DeleteAppInstanceGroupRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns DeleteAppInstanceGroupResponse
-     *
-     * @param DeleteAppInstanceGroupRequest $request
-     * @param RuntimeOptions                $runtime
-     *
-     * @return DeleteAppInstanceGroupResponse
+     * @return DeleteAppInstanceGroupResponse DeleteAppInstanceGroupResponse
      */
     public function deleteAppInstanceGroupWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $body = [];
-        if (null !== $request->appInstanceGroupId) {
-            @$body['AppInstanceGroupId'] = $request->appInstanceGroupId;
+        if (!Utils::isUnset($request->appInstanceGroupId)) {
+            $body['AppInstanceGroupId'] = $request->appInstanceGroupId;
         }
-
-        if (null !== $request->productType) {
-            @$body['ProductType'] = $request->productType;
+        if (!Utils::isUnset($request->productType)) {
+            $body['ProductType'] = $request->productType;
         }
-
         $req = new OpenApiRequest([
-            'body' => Utils::parseToMap($body),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'DeleteAppInstanceGroup',
@@ -1013,7 +844,7 @@ class Appstreamcenter extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return DeleteAppInstanceGroupResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -1021,18 +852,13 @@ class Appstreamcenter extends OpenApiClient
     }
 
     /**
-     * Deletes a delivery group that uses the By Resource - Pay-as-you-go billing method.
+     * @summary Deletes a delivery group that uses the By Resource - Pay-as-you-go billing method.
+     *  *
+     * @description >  You cannot call this operation to delete a subscription delivery group.
+     *  *
+     * @param DeleteAppInstanceGroupRequest $request DeleteAppInstanceGroupRequest
      *
-     * @remarks
-     * >  You cannot call this operation to delete a subscription delivery group.
-     *
-     * @param request - DeleteAppInstanceGroupRequest
-     *
-     * @returns DeleteAppInstanceGroupResponse
-     *
-     * @param DeleteAppInstanceGroupRequest $request
-     *
-     * @return DeleteAppInstanceGroupResponse
+     * @return DeleteAppInstanceGroupResponse DeleteAppInstanceGroupResponse
      */
     public function deleteAppInstanceGroup($request)
     {
@@ -1042,39 +868,30 @@ class Appstreamcenter extends OpenApiClient
     }
 
     /**
-     * Deletes an application instance.
+     * @summary Deletes an application instance.
+     *  *
+     * @description Only application instances that are in the Initializing or Idle state can be deleted. The operation can be called only by specific customers.
+     *  *
+     * @param DeleteAppInstancesRequest $request DeleteAppInstancesRequest
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
-     * @remarks
-     * Only application instances that are in the Initializing or Idle state can be deleted. The operation can be called only by specific customers.
-     *
-     * @param request - DeleteAppInstancesRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns DeleteAppInstancesResponse
-     *
-     * @param DeleteAppInstancesRequest $request
-     * @param RuntimeOptions            $runtime
-     *
-     * @return DeleteAppInstancesResponse
+     * @return DeleteAppInstancesResponse DeleteAppInstancesResponse
      */
     public function deleteAppInstancesWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $body = [];
-        if (null !== $request->appInstanceGroupId) {
-            @$body['AppInstanceGroupId'] = $request->appInstanceGroupId;
+        if (!Utils::isUnset($request->appInstanceGroupId)) {
+            $body['AppInstanceGroupId'] = $request->appInstanceGroupId;
         }
-
-        if (null !== $request->appInstanceIds) {
-            @$body['AppInstanceIds'] = $request->appInstanceIds;
+        if (!Utils::isUnset($request->appInstanceIds)) {
+            $body['AppInstanceIds'] = $request->appInstanceIds;
         }
-
-        if (null !== $request->productType) {
-            @$body['ProductType'] = $request->productType;
+        if (!Utils::isUnset($request->productType)) {
+            $body['ProductType'] = $request->productType;
         }
-
         $req = new OpenApiRequest([
-            'body' => Utils::parseToMap($body),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'DeleteAppInstances',
@@ -1087,7 +904,7 @@ class Appstreamcenter extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return DeleteAppInstancesResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -1095,18 +912,13 @@ class Appstreamcenter extends OpenApiClient
     }
 
     /**
-     * Deletes an application instance.
+     * @summary Deletes an application instance.
+     *  *
+     * @description Only application instances that are in the Initializing or Idle state can be deleted. The operation can be called only by specific customers.
+     *  *
+     * @param DeleteAppInstancesRequest $request DeleteAppInstancesRequest
      *
-     * @remarks
-     * Only application instances that are in the Initializing or Idle state can be deleted. The operation can be called only by specific customers.
-     *
-     * @param request - DeleteAppInstancesRequest
-     *
-     * @returns DeleteAppInstancesResponse
-     *
-     * @param DeleteAppInstancesRequest $request
-     *
-     * @return DeleteAppInstancesResponse
+     * @return DeleteAppInstancesResponse DeleteAppInstancesResponse
      */
     public function deleteAppInstances($request)
     {
@@ -1116,36 +928,28 @@ class Appstreamcenter extends OpenApiClient
     }
 
     /**
-     * 访客进入访问页面的匿名api.
+     * @summary 访客进入访问页面的匿名api
+     *  *
+     * @param GetAccessPageSessionRequest $request GetAccessPageSessionRequest
+     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - GetAccessPageSessionRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns GetAccessPageSessionResponse
-     *
-     * @param GetAccessPageSessionRequest $request
-     * @param RuntimeOptions              $runtime
-     *
-     * @return GetAccessPageSessionResponse
+     * @return GetAccessPageSessionResponse GetAccessPageSessionResponse
      */
     public function getAccessPageSessionWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->accessPageId) {
-            @$query['AccessPageId'] = $request->accessPageId;
+        if (!Utils::isUnset($request->accessPageId)) {
+            $query['AccessPageId'] = $request->accessPageId;
         }
-
-        if (null !== $request->accessPageToken) {
-            @$query['AccessPageToken'] = $request->accessPageToken;
+        if (!Utils::isUnset($request->accessPageToken)) {
+            $query['AccessPageToken'] = $request->accessPageToken;
         }
-
-        if (null !== $request->externalUserId) {
-            @$query['ExternalUserId'] = $request->externalUserId;
+        if (!Utils::isUnset($request->externalUserId)) {
+            $query['ExternalUserId'] = $request->externalUserId;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'GetAccessPageSession',
@@ -1158,7 +962,7 @@ class Appstreamcenter extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return GetAccessPageSessionResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -1166,15 +970,11 @@ class Appstreamcenter extends OpenApiClient
     }
 
     /**
-     * 访客进入访问页面的匿名api.
+     * @summary 访客进入访问页面的匿名api
+     *  *
+     * @param GetAccessPageSessionRequest $request GetAccessPageSessionRequest
      *
-     * @param request - GetAccessPageSessionRequest
-     *
-     * @returns GetAccessPageSessionResponse
-     *
-     * @param GetAccessPageSessionRequest $request
-     *
-     * @return GetAccessPageSessionResponse
+     * @return GetAccessPageSessionResponse GetAccessPageSessionResponse
      */
     public function getAccessPageSession($request)
     {
@@ -1184,32 +984,25 @@ class Appstreamcenter extends OpenApiClient
     }
 
     /**
-     * 获取交付组详情.
+     * @summary 获取交付组详情
+     *  *
+     * @param GetAppInstanceGroupRequest $request GetAppInstanceGroupRequest
+     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - GetAppInstanceGroupRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns GetAppInstanceGroupResponse
-     *
-     * @param GetAppInstanceGroupRequest $request
-     * @param RuntimeOptions             $runtime
-     *
-     * @return GetAppInstanceGroupResponse
+     * @return GetAppInstanceGroupResponse GetAppInstanceGroupResponse
      */
     public function getAppInstanceGroupWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->appInstanceGroupId) {
-            @$query['AppInstanceGroupId'] = $request->appInstanceGroupId;
+        if (!Utils::isUnset($request->appInstanceGroupId)) {
+            $query['AppInstanceGroupId'] = $request->appInstanceGroupId;
         }
-
-        if (null !== $request->productType) {
-            @$query['ProductType'] = $request->productType;
+        if (!Utils::isUnset($request->productType)) {
+            $query['ProductType'] = $request->productType;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'GetAppInstanceGroup',
@@ -1222,7 +1015,7 @@ class Appstreamcenter extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return GetAppInstanceGroupResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -1230,15 +1023,11 @@ class Appstreamcenter extends OpenApiClient
     }
 
     /**
-     * 获取交付组详情.
+     * @summary 获取交付组详情
+     *  *
+     * @param GetAppInstanceGroupRequest $request GetAppInstanceGroupRequest
      *
-     * @param request - GetAppInstanceGroupRequest
-     *
-     * @returns GetAppInstanceGroupResponse
-     *
-     * @param GetAppInstanceGroupRequest $request
-     *
-     * @return GetAppInstanceGroupResponse
+     * @return GetAppInstanceGroupResponse GetAppInstanceGroupResponse
      */
     public function getAppInstanceGroup($request)
     {
@@ -1248,69 +1037,56 @@ class Appstreamcenter extends OpenApiClient
     }
 
     /**
-     * Queries the credential that is used to connect to App Streaming.
-     *
-     * @remarks
-     * You must call this operation at least twice to obtain a connection credential.
+     * @summary Queries the credential that is used to connect to App Streaming.
+     *  *
+     * @description You must call this operation at least twice to obtain a connection credential.
      * The first time you call this operation, the system assigns an application instance to the specified convenience account and then starts the application. In this case, the ID of the started task, which is indicated by `TaskID`, is returned.
      * In subsequent calls, you must configure `TaskID` to query whether the task is completed. If the value of `TaskStatus` in the response is `Finished`, the connection credential, which is indicated by `Ticket`, is returned.
+     *  *
+     * @param GetConnectionTicketRequest $request GetConnectionTicketRequest
+     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - GetConnectionTicketRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns GetConnectionTicketResponse
-     *
-     * @param GetConnectionTicketRequest $request
-     * @param RuntimeOptions             $runtime
-     *
-     * @return GetConnectionTicketResponse
+     * @return GetConnectionTicketResponse GetConnectionTicketResponse
      */
     public function getConnectionTicketWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $body = [];
-        if (null !== $request->appId) {
-            @$body['AppId'] = $request->appId;
+        if (!Utils::isUnset($request->accessType)) {
+            $body['AccessType'] = $request->accessType;
         }
-
-        if (null !== $request->appInstanceGroupIdList) {
-            @$body['AppInstanceGroupIdList'] = $request->appInstanceGroupIdList;
+        if (!Utils::isUnset($request->appId)) {
+            $body['AppId'] = $request->appId;
         }
-
-        if (null !== $request->appInstanceId) {
-            @$body['AppInstanceId'] = $request->appInstanceId;
+        if (!Utils::isUnset($request->appInstanceGroupIdList)) {
+            $body['AppInstanceGroupIdList'] = $request->appInstanceGroupIdList;
         }
-
-        if (null !== $request->appInstancePersistentId) {
-            @$body['AppInstancePersistentId'] = $request->appInstancePersistentId;
+        if (!Utils::isUnset($request->appInstanceId)) {
+            $body['AppInstanceId'] = $request->appInstanceId;
         }
-
-        if (null !== $request->appStartParam) {
-            @$body['AppStartParam'] = $request->appStartParam;
+        if (!Utils::isUnset($request->appInstancePersistentId)) {
+            $body['AppInstancePersistentId'] = $request->appInstancePersistentId;
         }
-
-        if (null !== $request->appVersion) {
-            @$body['AppVersion'] = $request->appVersion;
+        if (!Utils::isUnset($request->appStartParam)) {
+            $body['AppStartParam'] = $request->appStartParam;
         }
-
-        if (null !== $request->bizRegionId) {
-            @$body['BizRegionId'] = $request->bizRegionId;
+        if (!Utils::isUnset($request->appVersion)) {
+            $body['AppVersion'] = $request->appVersion;
         }
-
-        if (null !== $request->endUserId) {
-            @$body['EndUserId'] = $request->endUserId;
+        if (!Utils::isUnset($request->bizRegionId)) {
+            $body['BizRegionId'] = $request->bizRegionId;
         }
-
-        if (null !== $request->productType) {
-            @$body['ProductType'] = $request->productType;
+        if (!Utils::isUnset($request->endUserId)) {
+            $body['EndUserId'] = $request->endUserId;
         }
-
-        if (null !== $request->taskId) {
-            @$body['TaskId'] = $request->taskId;
+        if (!Utils::isUnset($request->productType)) {
+            $body['ProductType'] = $request->productType;
         }
-
+        if (!Utils::isUnset($request->taskId)) {
+            $body['TaskId'] = $request->taskId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::parseToMap($body),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'GetConnectionTicket',
@@ -1323,7 +1099,7 @@ class Appstreamcenter extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return GetConnectionTicketResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -1331,20 +1107,15 @@ class Appstreamcenter extends OpenApiClient
     }
 
     /**
-     * Queries the credential that is used to connect to App Streaming.
-     *
-     * @remarks
-     * You must call this operation at least twice to obtain a connection credential.
+     * @summary Queries the credential that is used to connect to App Streaming.
+     *  *
+     * @description You must call this operation at least twice to obtain a connection credential.
      * The first time you call this operation, the system assigns an application instance to the specified convenience account and then starts the application. In this case, the ID of the started task, which is indicated by `TaskID`, is returned.
      * In subsequent calls, you must configure `TaskID` to query whether the task is completed. If the value of `TaskStatus` in the response is `Finished`, the connection credential, which is indicated by `Ticket`, is returned.
+     *  *
+     * @param GetConnectionTicketRequest $request GetConnectionTicketRequest
      *
-     * @param request - GetConnectionTicketRequest
-     *
-     * @returns GetConnectionTicketResponse
-     *
-     * @param GetConnectionTicketRequest $request
-     *
-     * @return GetConnectionTicketResponse
+     * @return GetConnectionTicketResponse GetConnectionTicketResponse
      */
     public function getConnectionTicket($request)
     {
@@ -1354,32 +1125,25 @@ class Appstreamcenter extends OpenApiClient
     }
 
     /**
-     * Queries information that is used to debug an application instance.
+     * @summary Queries information that is used to debug an application instance.
+     *  *
+     * @param GetDebugAppInstanceRequest $request GetDebugAppInstanceRequest
+     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - GetDebugAppInstanceRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns GetDebugAppInstanceResponse
-     *
-     * @param GetDebugAppInstanceRequest $request
-     * @param RuntimeOptions             $runtime
-     *
-     * @return GetDebugAppInstanceResponse
+     * @return GetDebugAppInstanceResponse GetDebugAppInstanceResponse
      */
     public function getDebugAppInstanceWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $body = [];
-        if (null !== $request->appInstanceGroupId) {
-            @$body['AppInstanceGroupId'] = $request->appInstanceGroupId;
+        if (!Utils::isUnset($request->appInstanceGroupId)) {
+            $body['AppInstanceGroupId'] = $request->appInstanceGroupId;
         }
-
-        if (null !== $request->productType) {
-            @$body['ProductType'] = $request->productType;
+        if (!Utils::isUnset($request->productType)) {
+            $body['ProductType'] = $request->productType;
         }
-
         $req = new OpenApiRequest([
-            'body' => Utils::parseToMap($body),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'GetDebugAppInstance',
@@ -1392,7 +1156,7 @@ class Appstreamcenter extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return GetDebugAppInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -1400,15 +1164,11 @@ class Appstreamcenter extends OpenApiClient
     }
 
     /**
-     * Queries information that is used to debug an application instance.
+     * @summary Queries information that is used to debug an application instance.
+     *  *
+     * @param GetDebugAppInstanceRequest $request GetDebugAppInstanceRequest
      *
-     * @param request - GetDebugAppInstanceRequest
-     *
-     * @returns GetDebugAppInstanceResponse
-     *
-     * @param GetDebugAppInstanceRequest $request
-     *
-     * @return GetDebugAppInstanceResponse
+     * @return GetDebugAppInstanceResponse GetDebugAppInstanceResponse
      */
     public function getDebugAppInstance($request)
     {
@@ -1418,28 +1178,22 @@ class Appstreamcenter extends OpenApiClient
     }
 
     /**
-     * Queries the details of an over-the-air (OTA) update task, including the available versions and version description.
+     * @summary Queries the details of an over-the-air (OTA) update task, including the available versions and version description.
+     *  *
+     * @param GetOtaTaskByTaskIdRequest $request GetOtaTaskByTaskIdRequest
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - GetOtaTaskByTaskIdRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns GetOtaTaskByTaskIdResponse
-     *
-     * @param GetOtaTaskByTaskIdRequest $request
-     * @param RuntimeOptions            $runtime
-     *
-     * @return GetOtaTaskByTaskIdResponse
+     * @return GetOtaTaskByTaskIdResponse GetOtaTaskByTaskIdResponse
      */
     public function getOtaTaskByTaskIdWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $body = [];
-        if (null !== $request->taskId) {
-            @$body['TaskId'] = $request->taskId;
+        if (!Utils::isUnset($request->taskId)) {
+            $body['TaskId'] = $request->taskId;
         }
-
         $req = new OpenApiRequest([
-            'body' => Utils::parseToMap($body),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'GetOtaTaskByTaskId',
@@ -1452,7 +1206,7 @@ class Appstreamcenter extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return GetOtaTaskByTaskIdResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -1460,15 +1214,11 @@ class Appstreamcenter extends OpenApiClient
     }
 
     /**
-     * Queries the details of an over-the-air (OTA) update task, including the available versions and version description.
+     * @summary Queries the details of an over-the-air (OTA) update task, including the available versions and version description.
+     *  *
+     * @param GetOtaTaskByTaskIdRequest $request GetOtaTaskByTaskIdRequest
      *
-     * @param request - GetOtaTaskByTaskIdRequest
-     *
-     * @returns GetOtaTaskByTaskIdResponse
-     *
-     * @param GetOtaTaskByTaskIdRequest $request
-     *
-     * @return GetOtaTaskByTaskIdResponse
+     * @return GetOtaTaskByTaskIdResponse GetOtaTaskByTaskIdResponse
      */
     public function getOtaTaskByTaskId($request)
     {
@@ -1478,56 +1228,43 @@ class Appstreamcenter extends OpenApiClient
     }
 
     /**
-     * Queries resource prices.
+     * @summary Queries resource prices.
+     *  *
+     * @param GetResourcePriceRequest $request GetResourcePriceRequest
+     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - GetResourcePriceRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns GetResourcePriceResponse
-     *
-     * @param GetResourcePriceRequest $request
-     * @param RuntimeOptions          $runtime
-     *
-     * @return GetResourcePriceResponse
+     * @return GetResourcePriceResponse GetResourcePriceResponse
      */
     public function getResourcePriceWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->amount) {
-            @$query['Amount'] = $request->amount;
+        if (!Utils::isUnset($request->amount)) {
+            $query['Amount'] = $request->amount;
         }
-
-        if (null !== $request->appInstanceType) {
-            @$query['AppInstanceType'] = $request->appInstanceType;
+        if (!Utils::isUnset($request->appInstanceType)) {
+            $query['AppInstanceType'] = $request->appInstanceType;
         }
-
-        if (null !== $request->bizRegionId) {
-            @$query['BizRegionId'] = $request->bizRegionId;
+        if (!Utils::isUnset($request->bizRegionId)) {
+            $query['BizRegionId'] = $request->bizRegionId;
         }
-
-        if (null !== $request->chargeType) {
-            @$query['ChargeType'] = $request->chargeType;
+        if (!Utils::isUnset($request->chargeType)) {
+            $query['ChargeType'] = $request->chargeType;
         }
-
-        if (null !== $request->nodeInstanceType) {
-            @$query['NodeInstanceType'] = $request->nodeInstanceType;
+        if (!Utils::isUnset($request->nodeInstanceType)) {
+            $query['NodeInstanceType'] = $request->nodeInstanceType;
         }
-
-        if (null !== $request->period) {
-            @$query['Period'] = $request->period;
+        if (!Utils::isUnset($request->period)) {
+            $query['Period'] = $request->period;
         }
-
-        if (null !== $request->periodUnit) {
-            @$query['PeriodUnit'] = $request->periodUnit;
+        if (!Utils::isUnset($request->periodUnit)) {
+            $query['PeriodUnit'] = $request->periodUnit;
         }
-
-        if (null !== $request->productType) {
-            @$query['ProductType'] = $request->productType;
+        if (!Utils::isUnset($request->productType)) {
+            $query['ProductType'] = $request->productType;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'GetResourcePrice',
@@ -1540,7 +1277,7 @@ class Appstreamcenter extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return GetResourcePriceResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -1548,15 +1285,11 @@ class Appstreamcenter extends OpenApiClient
     }
 
     /**
-     * Queries resource prices.
+     * @summary Queries resource prices.
+     *  *
+     * @param GetResourcePriceRequest $request GetResourcePriceRequest
      *
-     * @param request - GetResourcePriceRequest
-     *
-     * @returns GetResourcePriceResponse
-     *
-     * @param GetResourcePriceRequest $request
-     *
-     * @return GetResourcePriceResponse
+     * @return GetResourcePriceResponse GetResourcePriceResponse
      */
     public function getResourcePrice($request)
     {
@@ -1566,40 +1299,31 @@ class Appstreamcenter extends OpenApiClient
     }
 
     /**
-     * Queries the renewal prices of App Streaming resources.
+     * @summary Queries the renewal prices of App Streaming resources.
+     *  *
+     * @param GetResourceRenewPriceRequest $request GetResourceRenewPriceRequest
+     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - GetResourceRenewPriceRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns GetResourceRenewPriceResponse
-     *
-     * @param GetResourceRenewPriceRequest $request
-     * @param RuntimeOptions               $runtime
-     *
-     * @return GetResourceRenewPriceResponse
+     * @return GetResourceRenewPriceResponse GetResourceRenewPriceResponse
      */
     public function getResourceRenewPriceWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->appInstanceGroupId) {
-            @$query['AppInstanceGroupId'] = $request->appInstanceGroupId;
+        if (!Utils::isUnset($request->appInstanceGroupId)) {
+            $query['AppInstanceGroupId'] = $request->appInstanceGroupId;
         }
-
-        if (null !== $request->period) {
-            @$query['Period'] = $request->period;
+        if (!Utils::isUnset($request->period)) {
+            $query['Period'] = $request->period;
         }
-
-        if (null !== $request->periodUnit) {
-            @$query['PeriodUnit'] = $request->periodUnit;
+        if (!Utils::isUnset($request->periodUnit)) {
+            $query['PeriodUnit'] = $request->periodUnit;
         }
-
-        if (null !== $request->productType) {
-            @$query['ProductType'] = $request->productType;
+        if (!Utils::isUnset($request->productType)) {
+            $query['ProductType'] = $request->productType;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'GetResourceRenewPrice',
@@ -1612,7 +1336,7 @@ class Appstreamcenter extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return GetResourceRenewPriceResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -1620,15 +1344,11 @@ class Appstreamcenter extends OpenApiClient
     }
 
     /**
-     * Queries the renewal prices of App Streaming resources.
+     * @summary Queries the renewal prices of App Streaming resources.
+     *  *
+     * @param GetResourceRenewPriceRequest $request GetResourceRenewPriceRequest
      *
-     * @param request - GetResourceRenewPriceRequest
-     *
-     * @returns GetResourceRenewPriceResponse
-     *
-     * @param GetResourceRenewPriceRequest $request
-     *
-     * @return GetResourceRenewPriceResponse
+     * @return GetResourceRenewPriceResponse GetResourceRenewPriceResponse
      */
     public function getResourceRenewPrice($request)
     {
@@ -1638,48 +1358,37 @@ class Appstreamcenter extends OpenApiClient
     }
 
     /**
-     * 访问页面分页查询.
+     * @summary 访问页面分页查询
+     *  *
+     * @param ListAccessPagesRequest $request ListAccessPagesRequest
+     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - ListAccessPagesRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns ListAccessPagesResponse
-     *
-     * @param ListAccessPagesRequest $request
-     * @param RuntimeOptions         $runtime
-     *
-     * @return ListAccessPagesResponse
+     * @return ListAccessPagesResponse ListAccessPagesResponse
      */
     public function listAccessPagesWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->accessPageId) {
-            @$query['AccessPageId'] = $request->accessPageId;
+        if (!Utils::isUnset($request->accessPageId)) {
+            $query['AccessPageId'] = $request->accessPageId;
         }
-
-        if (null !== $request->accessPageName) {
-            @$query['AccessPageName'] = $request->accessPageName;
+        if (!Utils::isUnset($request->accessPageName)) {
+            $query['AccessPageName'] = $request->accessPageName;
         }
-
-        if (null !== $request->pageNumber) {
-            @$query['PageNumber'] = $request->pageNumber;
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['PageNumber'] = $request->pageNumber;
         }
-
-        if (null !== $request->pageSize) {
-            @$query['PageSize'] = $request->pageSize;
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
         }
-
-        if (null !== $request->projectId) {
-            @$query['ProjectId'] = $request->projectId;
+        if (!Utils::isUnset($request->projectId)) {
+            $query['ProjectId'] = $request->projectId;
         }
-
-        if (null !== $request->sortType) {
-            @$query['SortType'] = $request->sortType;
+        if (!Utils::isUnset($request->sortType)) {
+            $query['SortType'] = $request->sortType;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'ListAccessPages',
@@ -1692,7 +1401,7 @@ class Appstreamcenter extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return ListAccessPagesResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -1700,15 +1409,11 @@ class Appstreamcenter extends OpenApiClient
     }
 
     /**
-     * 访问页面分页查询.
+     * @summary 访问页面分页查询
+     *  *
+     * @param ListAccessPagesRequest $request ListAccessPagesRequest
      *
-     * @param request - ListAccessPagesRequest
-     *
-     * @returns ListAccessPagesResponse
-     *
-     * @param ListAccessPagesRequest $request
-     *
-     * @return ListAccessPagesResponse
+     * @return ListAccessPagesResponse ListAccessPagesResponse
      */
     public function listAccessPages($request)
     {
@@ -1718,70 +1423,54 @@ class Appstreamcenter extends OpenApiClient
     }
 
     /**
-     * Queries the details of multiple delivery groups that meet the query conditions.
+     * @summary Queries the details of multiple delivery groups that meet the query conditions.
+     *  *
+     * @param ListAppInstanceGroupRequest $request ListAppInstanceGroupRequest
+     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - ListAppInstanceGroupRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns ListAppInstanceGroupResponse
-     *
-     * @param ListAppInstanceGroupRequest $request
-     * @param RuntimeOptions              $runtime
-     *
-     * @return ListAppInstanceGroupResponse
+     * @return ListAppInstanceGroupResponse ListAppInstanceGroupResponse
      */
     public function listAppInstanceGroupWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->appCenterImageId) {
-            @$query['AppCenterImageId'] = $request->appCenterImageId;
+        if (!Utils::isUnset($request->appCenterImageId)) {
+            $query['AppCenterImageId'] = $request->appCenterImageId;
         }
-
-        if (null !== $request->appInstanceGroupId) {
-            @$query['AppInstanceGroupId'] = $request->appInstanceGroupId;
+        if (!Utils::isUnset($request->appInstanceGroupId)) {
+            $query['AppInstanceGroupId'] = $request->appInstanceGroupId;
         }
-
-        if (null !== $request->appInstanceGroupName) {
-            @$query['AppInstanceGroupName'] = $request->appInstanceGroupName;
+        if (!Utils::isUnset($request->appInstanceGroupName)) {
+            $query['AppInstanceGroupName'] = $request->appInstanceGroupName;
         }
-
-        if (null !== $request->bizRegionId) {
-            @$query['BizRegionId'] = $request->bizRegionId;
+        if (!Utils::isUnset($request->bizRegionId)) {
+            $query['BizRegionId'] = $request->bizRegionId;
         }
-
-        if (null !== $request->nodeInstanceType) {
-            @$query['NodeInstanceType'] = $request->nodeInstanceType;
+        if (!Utils::isUnset($request->nodeInstanceType)) {
+            $query['NodeInstanceType'] = $request->nodeInstanceType;
         }
-
-        if (null !== $request->officeSiteId) {
-            @$query['OfficeSiteId'] = $request->officeSiteId;
+        if (!Utils::isUnset($request->officeSiteId)) {
+            $query['OfficeSiteId'] = $request->officeSiteId;
         }
-
-        if (null !== $request->pageNumber) {
-            @$query['PageNumber'] = $request->pageNumber;
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['PageNumber'] = $request->pageNumber;
         }
-
-        if (null !== $request->pageSize) {
-            @$query['PageSize'] = $request->pageSize;
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
         }
-
-        if (null !== $request->productType) {
-            @$query['ProductType'] = $request->productType;
+        if (!Utils::isUnset($request->productType)) {
+            $query['ProductType'] = $request->productType;
         }
-
-        if (null !== $request->regionId) {
-            @$query['RegionId'] = $request->regionId;
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
         }
-
         $body = [];
-        if (null !== $request->status) {
-            @$body['Status'] = $request->status;
+        if (!Utils::isUnset($request->status)) {
+            $body['Status'] = $request->status;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
-            'body' => Utils::parseToMap($body),
+            'query' => OpenApiUtilClient::query($query),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'ListAppInstanceGroup',
@@ -1794,7 +1483,7 @@ class Appstreamcenter extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return ListAppInstanceGroupResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -1802,15 +1491,11 @@ class Appstreamcenter extends OpenApiClient
     }
 
     /**
-     * Queries the details of multiple delivery groups that meet the query conditions.
+     * @summary Queries the details of multiple delivery groups that meet the query conditions.
+     *  *
+     * @param ListAppInstanceGroupRequest $request ListAppInstanceGroupRequest
      *
-     * @param request - ListAppInstanceGroupRequest
-     *
-     * @returns ListAppInstanceGroupResponse
-     *
-     * @param ListAppInstanceGroupRequest $request
-     *
-     * @return ListAppInstanceGroupResponse
+     * @return ListAppInstanceGroupResponse ListAppInstanceGroupResponse
      */
     public function listAppInstanceGroup($request)
     {
@@ -1820,58 +1505,45 @@ class Appstreamcenter extends OpenApiClient
     }
 
     /**
-     * Queries the details of application instances in a delivery group, including the IDs, status, creation time, update time, session status, and public IP addresses associated with the primary NICs of the instances.
+     * @summary Queries the details of application instances in a delivery group, including the IDs, status, creation time, update time, session status, and public IP addresses associated with the primary NICs of the instances.
+     *  *
+     * @param ListAppInstancesRequest $request ListAppInstancesRequest
+     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - ListAppInstancesRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns ListAppInstancesResponse
-     *
-     * @param ListAppInstancesRequest $request
-     * @param RuntimeOptions          $runtime
-     *
-     * @return ListAppInstancesResponse
+     * @return ListAppInstancesResponse ListAppInstancesResponse
      */
     public function listAppInstancesWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->appInstanceGroupId) {
-            @$query['AppInstanceGroupId'] = $request->appInstanceGroupId;
+        if (!Utils::isUnset($request->appInstanceGroupId)) {
+            $query['AppInstanceGroupId'] = $request->appInstanceGroupId;
         }
-
-        if (null !== $request->appInstanceId) {
-            @$query['AppInstanceId'] = $request->appInstanceId;
+        if (!Utils::isUnset($request->appInstanceId)) {
+            $query['AppInstanceId'] = $request->appInstanceId;
         }
-
-        if (null !== $request->includeDeleted) {
-            @$query['IncludeDeleted'] = $request->includeDeleted;
+        if (!Utils::isUnset($request->includeDeleted)) {
+            $query['IncludeDeleted'] = $request->includeDeleted;
         }
-
-        if (null !== $request->pageNumber) {
-            @$query['PageNumber'] = $request->pageNumber;
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['PageNumber'] = $request->pageNumber;
         }
-
-        if (null !== $request->pageSize) {
-            @$query['PageSize'] = $request->pageSize;
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
         }
-
-        if (null !== $request->userIdList) {
-            @$query['UserIdList'] = $request->userIdList;
+        if (!Utils::isUnset($request->userIdList)) {
+            $query['UserIdList'] = $request->userIdList;
         }
-
         $body = [];
-        if (null !== $request->appInstanceIdList) {
-            @$body['AppInstanceIdList'] = $request->appInstanceIdList;
+        if (!Utils::isUnset($request->appInstanceIdList)) {
+            $body['AppInstanceIdList'] = $request->appInstanceIdList;
         }
-
-        if (null !== $request->status) {
-            @$body['Status'] = $request->status;
+        if (!Utils::isUnset($request->status)) {
+            $body['Status'] = $request->status;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
-            'body' => Utils::parseToMap($body),
+            'query' => OpenApiUtilClient::query($query),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'ListAppInstances',
@@ -1884,7 +1556,7 @@ class Appstreamcenter extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return ListAppInstancesResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -1892,15 +1564,11 @@ class Appstreamcenter extends OpenApiClient
     }
 
     /**
-     * Queries the details of application instances in a delivery group, including the IDs, status, creation time, update time, session status, and public IP addresses associated with the primary NICs of the instances.
+     * @summary Queries the details of application instances in a delivery group, including the IDs, status, creation time, update time, session status, and public IP addresses associated with the primary NICs of the instances.
+     *  *
+     * @param ListAppInstancesRequest $request ListAppInstancesRequest
      *
-     * @param request - ListAppInstancesRequest
-     *
-     * @returns ListAppInstancesResponse
-     *
-     * @param ListAppInstancesRequest $request
-     *
-     * @return ListAppInstancesResponse
+     * @return ListAppInstancesResponse ListAppInstancesResponse
      */
     public function listAppInstances($request)
     {
@@ -1910,52 +1578,40 @@ class Appstreamcenter extends OpenApiClient
     }
 
     /**
-     * 查询绑定信息，支持分页.
+     * @summary 查询绑定信息，支持分页
+     *  *
+     * @param ListBindInfoRequest $request ListBindInfoRequest
+     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - ListBindInfoRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns ListBindInfoResponse
-     *
-     * @param ListBindInfoRequest $request
-     * @param RuntimeOptions      $runtime
-     *
-     * @return ListBindInfoResponse
+     * @return ListBindInfoResponse ListBindInfoResponse
      */
     public function listBindInfoWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $body = [];
-        if (null !== $request->appIdList) {
-            @$body['AppIdList'] = $request->appIdList;
+        if (!Utils::isUnset($request->appIdList)) {
+            $body['AppIdList'] = $request->appIdList;
         }
-
-        if (null !== $request->appInstanceGroupIdList) {
-            @$body['AppInstanceGroupIdList'] = $request->appInstanceGroupIdList;
+        if (!Utils::isUnset($request->appInstanceGroupIdList)) {
+            $body['AppInstanceGroupIdList'] = $request->appInstanceGroupIdList;
         }
-
-        if (null !== $request->appInstanceIdList) {
-            @$body['AppInstanceIdList'] = $request->appInstanceIdList;
+        if (!Utils::isUnset($request->appInstanceIdList)) {
+            $body['AppInstanceIdList'] = $request->appInstanceIdList;
         }
-
-        if (null !== $request->pageNumber) {
-            @$body['PageNumber'] = $request->pageNumber;
+        if (!Utils::isUnset($request->pageNumber)) {
+            $body['PageNumber'] = $request->pageNumber;
         }
-
-        if (null !== $request->pageSize) {
-            @$body['PageSize'] = $request->pageSize;
+        if (!Utils::isUnset($request->pageSize)) {
+            $body['PageSize'] = $request->pageSize;
         }
-
-        if (null !== $request->userIdList) {
-            @$body['UserIdList'] = $request->userIdList;
+        if (!Utils::isUnset($request->userIdList)) {
+            $body['UserIdList'] = $request->userIdList;
         }
-
-        if (null !== $request->wyIdList) {
-            @$body['WyIdList'] = $request->wyIdList;
+        if (!Utils::isUnset($request->wyIdList)) {
+            $body['WyIdList'] = $request->wyIdList;
         }
-
         $req = new OpenApiRequest([
-            'body' => Utils::parseToMap($body),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'ListBindInfo',
@@ -1968,7 +1624,7 @@ class Appstreamcenter extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return ListBindInfoResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -1976,15 +1632,11 @@ class Appstreamcenter extends OpenApiClient
     }
 
     /**
-     * 查询绑定信息，支持分页.
+     * @summary 查询绑定信息，支持分页
+     *  *
+     * @param ListBindInfoRequest $request ListBindInfoRequest
      *
-     * @param request - ListBindInfoRequest
-     *
-     * @returns ListBindInfoResponse
-     *
-     * @param ListBindInfoRequest $request
-     *
-     * @return ListBindInfoResponse
+     * @return ListBindInfoResponse ListBindInfoResponse
      */
     public function listBindInfo($request)
     {
@@ -1994,80 +1646,61 @@ class Appstreamcenter extends OpenApiClient
     }
 
     /**
-     * Queries the resource types that are available for purchase when you create a delivery group.
+     * @summary Queries the resource types that are available for purchase when you create a delivery group.
+     *  *
+     * @param ListNodeInstanceTypeRequest $request ListNodeInstanceTypeRequest
+     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - ListNodeInstanceTypeRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns ListNodeInstanceTypeResponse
-     *
-     * @param ListNodeInstanceTypeRequest $request
-     * @param RuntimeOptions              $runtime
-     *
-     * @return ListNodeInstanceTypeResponse
+     * @return ListNodeInstanceTypeResponse ListNodeInstanceTypeResponse
      */
     public function listNodeInstanceTypeWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->bizRegionId) {
-            @$query['BizRegionId'] = $request->bizRegionId;
+        if (!Utils::isUnset($request->bizRegionId)) {
+            $query['BizRegionId'] = $request->bizRegionId;
         }
-
-        if (null !== $request->cpu) {
-            @$query['Cpu'] = $request->cpu;
+        if (!Utils::isUnset($request->cpu)) {
+            $query['Cpu'] = $request->cpu;
         }
-
-        if (null !== $request->gpu) {
-            @$query['Gpu'] = $request->gpu;
+        if (!Utils::isUnset($request->gpu)) {
+            $query['Gpu'] = $request->gpu;
         }
-
-        if (null !== $request->gpuMemory) {
-            @$query['GpuMemory'] = $request->gpuMemory;
+        if (!Utils::isUnset($request->gpuMemory)) {
+            $query['GpuMemory'] = $request->gpuMemory;
         }
-
-        if (null !== $request->language) {
-            @$query['Language'] = $request->language;
+        if (!Utils::isUnset($request->language)) {
+            $query['Language'] = $request->language;
         }
-
-        if (null !== $request->memory) {
-            @$query['Memory'] = $request->memory;
+        if (!Utils::isUnset($request->memory)) {
+            $query['Memory'] = $request->memory;
         }
-
-        if (null !== $request->nodeInstanceType) {
-            @$query['NodeInstanceType'] = $request->nodeInstanceType;
+        if (!Utils::isUnset($request->nodeInstanceType)) {
+            $query['NodeInstanceType'] = $request->nodeInstanceType;
         }
-
-        if (null !== $request->nodeInstanceTypeFamily) {
-            @$query['NodeInstanceTypeFamily'] = $request->nodeInstanceTypeFamily;
+        if (!Utils::isUnset($request->nodeInstanceTypeFamily)) {
+            $query['NodeInstanceTypeFamily'] = $request->nodeInstanceTypeFamily;
         }
-
-        if (null !== $request->orderBy) {
-            @$query['OrderBy'] = $request->orderBy;
+        if (!Utils::isUnset($request->orderBy)) {
+            $query['OrderBy'] = $request->orderBy;
         }
-
-        if (null !== $request->osType) {
-            @$query['OsType'] = $request->osType;
+        if (!Utils::isUnset($request->osType)) {
+            $query['OsType'] = $request->osType;
         }
-
-        if (null !== $request->pageNumber) {
-            @$query['PageNumber'] = $request->pageNumber;
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['PageNumber'] = $request->pageNumber;
         }
-
-        if (null !== $request->pageSize) {
-            @$query['PageSize'] = $request->pageSize;
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
         }
-
-        if (null !== $request->productType) {
-            @$query['ProductType'] = $request->productType;
+        if (!Utils::isUnset($request->productType)) {
+            $query['ProductType'] = $request->productType;
         }
-
-        if (null !== $request->sortType) {
-            @$query['SortType'] = $request->sortType;
+        if (!Utils::isUnset($request->sortType)) {
+            $query['SortType'] = $request->sortType;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'ListNodeInstanceType',
@@ -2080,7 +1713,7 @@ class Appstreamcenter extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return ListNodeInstanceTypeResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -2088,15 +1721,11 @@ class Appstreamcenter extends OpenApiClient
     }
 
     /**
-     * Queries the resource types that are available for purchase when you create a delivery group.
+     * @summary Queries the resource types that are available for purchase when you create a delivery group.
+     *  *
+     * @param ListNodeInstanceTypeRequest $request ListNodeInstanceTypeRequest
      *
-     * @param request - ListNodeInstanceTypeRequest
-     *
-     * @returns ListNodeInstanceTypeResponse
-     *
-     * @param ListNodeInstanceTypeRequest $request
-     *
-     * @return ListNodeInstanceTypeResponse
+     * @return ListNodeInstanceTypeResponse ListNodeInstanceTypeResponse
      */
     public function listNodeInstanceType($request)
     {
@@ -2106,40 +1735,31 @@ class Appstreamcenter extends OpenApiClient
     }
 
     /**
-     * Queries resource nodes.
+     * @summary Queries resource nodes.
+     *  *
+     * @param ListNodesRequest $request ListNodesRequest
+     * @param RuntimeOptions   $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - ListNodesRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns ListNodesResponse
-     *
-     * @param ListNodesRequest $request
-     * @param RuntimeOptions   $runtime
-     *
-     * @return ListNodesResponse
+     * @return ListNodesResponse ListNodesResponse
      */
     public function listNodesWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $body = [];
-        if (null !== $request->appInstanceGroupId) {
-            @$body['AppInstanceGroupId'] = $request->appInstanceGroupId;
+        if (!Utils::isUnset($request->appInstanceGroupId)) {
+            $body['AppInstanceGroupId'] = $request->appInstanceGroupId;
         }
-
-        if (null !== $request->pageNumber) {
-            @$body['PageNumber'] = $request->pageNumber;
+        if (!Utils::isUnset($request->pageNumber)) {
+            $body['PageNumber'] = $request->pageNumber;
         }
-
-        if (null !== $request->pageSize) {
-            @$body['PageSize'] = $request->pageSize;
+        if (!Utils::isUnset($request->pageSize)) {
+            $body['PageSize'] = $request->pageSize;
         }
-
-        if (null !== $request->productType) {
-            @$body['ProductType'] = $request->productType;
+        if (!Utils::isUnset($request->productType)) {
+            $body['ProductType'] = $request->productType;
         }
-
         $req = new OpenApiRequest([
-            'body' => Utils::parseToMap($body),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'ListNodes',
@@ -2152,7 +1772,7 @@ class Appstreamcenter extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return ListNodesResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -2160,15 +1780,11 @@ class Appstreamcenter extends OpenApiClient
     }
 
     /**
-     * Queries resource nodes.
+     * @summary Queries resource nodes.
+     *  *
+     * @param ListNodesRequest $request ListNodesRequest
      *
-     * @param request - ListNodesRequest
-     *
-     * @returns ListNodesResponse
-     *
-     * @param ListNodesRequest $request
-     *
-     * @return ListNodesResponse
+     * @return ListNodesResponse ListNodesResponse
      */
     public function listNodes($request)
     {
@@ -2178,40 +1794,31 @@ class Appstreamcenter extends OpenApiClient
     }
 
     /**
-     * Queries the information about over-the-air (OTA) update tasks.
+     * @summary Queries the information about over-the-air (OTA) update tasks.
+     *  *
+     * @param ListOtaTaskRequest $request ListOtaTaskRequest
+     * @param RuntimeOptions     $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - ListOtaTaskRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns ListOtaTaskResponse
-     *
-     * @param ListOtaTaskRequest $request
-     * @param RuntimeOptions     $runtime
-     *
-     * @return ListOtaTaskResponse
+     * @return ListOtaTaskResponse ListOtaTaskResponse
      */
     public function listOtaTaskWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $body = [];
-        if (null !== $request->appInstanceGroupId) {
-            @$body['AppInstanceGroupId'] = $request->appInstanceGroupId;
+        if (!Utils::isUnset($request->appInstanceGroupId)) {
+            $body['AppInstanceGroupId'] = $request->appInstanceGroupId;
         }
-
-        if (null !== $request->otaType) {
-            @$body['OtaType'] = $request->otaType;
+        if (!Utils::isUnset($request->otaType)) {
+            $body['OtaType'] = $request->otaType;
         }
-
-        if (null !== $request->pageNumber) {
-            @$body['PageNumber'] = $request->pageNumber;
+        if (!Utils::isUnset($request->pageNumber)) {
+            $body['PageNumber'] = $request->pageNumber;
         }
-
-        if (null !== $request->pageSize) {
-            @$body['PageSize'] = $request->pageSize;
+        if (!Utils::isUnset($request->pageSize)) {
+            $body['PageSize'] = $request->pageSize;
         }
-
         $req = new OpenApiRequest([
-            'body' => Utils::parseToMap($body),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'ListOtaTask',
@@ -2224,7 +1831,7 @@ class Appstreamcenter extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return ListOtaTaskResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -2232,15 +1839,11 @@ class Appstreamcenter extends OpenApiClient
     }
 
     /**
-     * Queries the information about over-the-air (OTA) update tasks.
+     * @summary Queries the information about over-the-air (OTA) update tasks.
+     *  *
+     * @param ListOtaTaskRequest $request ListOtaTaskRequest
      *
-     * @param request - ListOtaTaskRequest
-     *
-     * @returns ListOtaTaskResponse
-     *
-     * @param ListOtaTaskRequest $request
-     *
-     * @return ListOtaTaskResponse
+     * @return ListOtaTaskResponse ListOtaTaskResponse
      */
     public function listOtaTask($request)
     {
@@ -2250,44 +1853,34 @@ class Appstreamcenter extends OpenApiClient
     }
 
     /**
-     * 查询交付组内持久会话列表.
+     * @summary 查询交付组内持久会话列表
+     *  *
+     * @param ListPersistentAppInstancesRequest $request ListPersistentAppInstancesRequest
+     * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - ListPersistentAppInstancesRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns ListPersistentAppInstancesResponse
-     *
-     * @param ListPersistentAppInstancesRequest $request
-     * @param RuntimeOptions                    $runtime
-     *
-     * @return ListPersistentAppInstancesResponse
+     * @return ListPersistentAppInstancesResponse ListPersistentAppInstancesResponse
      */
     public function listPersistentAppInstancesWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->appInstanceGroupId) {
-            @$query['AppInstanceGroupId'] = $request->appInstanceGroupId;
+        if (!Utils::isUnset($request->appInstanceGroupId)) {
+            $query['AppInstanceGroupId'] = $request->appInstanceGroupId;
         }
-
-        if (null !== $request->appInstancePersistentIds) {
-            @$query['AppInstancePersistentIds'] = $request->appInstancePersistentIds;
+        if (!Utils::isUnset($request->appInstancePersistentIds)) {
+            $query['AppInstancePersistentIds'] = $request->appInstancePersistentIds;
         }
-
-        if (null !== $request->pageNumber) {
-            @$query['PageNumber'] = $request->pageNumber;
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['PageNumber'] = $request->pageNumber;
         }
-
-        if (null !== $request->pageSize) {
-            @$query['PageSize'] = $request->pageSize;
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
         }
-
-        if (null !== $request->productType) {
-            @$query['ProductType'] = $request->productType;
+        if (!Utils::isUnset($request->productType)) {
+            $query['ProductType'] = $request->productType;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'ListPersistentAppInstances',
@@ -2300,7 +1893,7 @@ class Appstreamcenter extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return ListPersistentAppInstancesResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -2308,15 +1901,11 @@ class Appstreamcenter extends OpenApiClient
     }
 
     /**
-     * 查询交付组内持久会话列表.
+     * @summary 查询交付组内持久会话列表
+     *  *
+     * @param ListPersistentAppInstancesRequest $request ListPersistentAppInstancesRequest
      *
-     * @param request - ListPersistentAppInstancesRequest
-     *
-     * @returns ListPersistentAppInstancesResponse
-     *
-     * @param ListPersistentAppInstancesRequest $request
-     *
-     * @return ListPersistentAppInstancesResponse
+     * @return ListPersistentAppInstancesResponse ListPersistentAppInstancesResponse
      */
     public function listPersistentAppInstances($request)
     {
@@ -2326,35 +1915,27 @@ class Appstreamcenter extends OpenApiClient
     }
 
     /**
-     * Queries the regions that are supported by App Streaming.
+     * @summary Queries the regions that are supported by App Streaming.
+     *  *
+     * @description >  All supported regions instead of available regions are returned by this operation. For more information, see [Supported regions](https://help.aliyun.com/document_detail/426036.html).
+     *  *
+     * @param ListRegionsRequest $request ListRegionsRequest
+     * @param RuntimeOptions     $runtime runtime options for this request RuntimeOptions
      *
-     * @remarks
-     * >  All supported regions instead of available regions are returned by this operation. For more information, see [Supported regions](https://help.aliyun.com/document_detail/426036.html).
-     *
-     * @param request - ListRegionsRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns ListRegionsResponse
-     *
-     * @param ListRegionsRequest $request
-     * @param RuntimeOptions     $runtime
-     *
-     * @return ListRegionsResponse
+     * @return ListRegionsResponse ListRegionsResponse
      */
     public function listRegionsWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->bizSource) {
-            @$query['BizSource'] = $request->bizSource;
+        if (!Utils::isUnset($request->bizSource)) {
+            $query['BizSource'] = $request->bizSource;
         }
-
-        if (null !== $request->productType) {
-            @$query['ProductType'] = $request->productType;
+        if (!Utils::isUnset($request->productType)) {
+            $query['ProductType'] = $request->productType;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'ListRegions',
@@ -2367,7 +1948,7 @@ class Appstreamcenter extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return ListRegionsResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -2375,18 +1956,13 @@ class Appstreamcenter extends OpenApiClient
     }
 
     /**
-     * Queries the regions that are supported by App Streaming.
+     * @summary Queries the regions that are supported by App Streaming.
+     *  *
+     * @description >  All supported regions instead of available regions are returned by this operation. For more information, see [Supported regions](https://help.aliyun.com/document_detail/426036.html).
+     *  *
+     * @param ListRegionsRequest $request ListRegionsRequest
      *
-     * @remarks
-     * >  All supported regions instead of available regions are returned by this operation. For more information, see [Supported regions](https://help.aliyun.com/document_detail/426036.html).
-     *
-     * @param request - ListRegionsRequest
-     *
-     * @returns ListRegionsResponse
-     *
-     * @param ListRegionsRequest $request
-     *
-     * @return ListRegionsResponse
+     * @return ListRegionsResponse ListRegionsResponse
      */
     public function listRegions($request)
     {
@@ -2396,52 +1972,40 @@ class Appstreamcenter extends OpenApiClient
     }
 
     /**
-     * 项目的会话包列表.
+     * @summary 项目的会话包列表
+     *  *
+     * @param ListSessionPackagesRequest $request ListSessionPackagesRequest
+     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - ListSessionPackagesRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns ListSessionPackagesResponse
-     *
-     * @param ListSessionPackagesRequest $request
-     * @param RuntimeOptions             $runtime
-     *
-     * @return ListSessionPackagesResponse
+     * @return ListSessionPackagesResponse ListSessionPackagesResponse
      */
     public function listSessionPackagesWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->pageNumber) {
-            @$query['PageNumber'] = $request->pageNumber;
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['PageNumber'] = $request->pageNumber;
         }
-
-        if (null !== $request->pageSize) {
-            @$query['PageSize'] = $request->pageSize;
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
         }
-
-        if (null !== $request->projectId) {
-            @$query['ProjectId'] = $request->projectId;
+        if (!Utils::isUnset($request->projectId)) {
+            $query['ProjectId'] = $request->projectId;
         }
-
-        if (null !== $request->sessionPackageId) {
-            @$query['SessionPackageId'] = $request->sessionPackageId;
+        if (!Utils::isUnset($request->sessionPackageId)) {
+            $query['SessionPackageId'] = $request->sessionPackageId;
         }
-
-        if (null !== $request->sessionPackageName) {
-            @$query['SessionPackageName'] = $request->sessionPackageName;
+        if (!Utils::isUnset($request->sessionPackageName)) {
+            $query['SessionPackageName'] = $request->sessionPackageName;
         }
-
-        if (null !== $request->sortType) {
-            @$query['SortType'] = $request->sortType;
+        if (!Utils::isUnset($request->sortType)) {
+            $query['SortType'] = $request->sortType;
         }
-
-        if (null !== $request->stateList) {
-            @$query['StateList'] = $request->stateList;
+        if (!Utils::isUnset($request->stateList)) {
+            $query['StateList'] = $request->stateList;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'ListSessionPackages',
@@ -2454,7 +2018,7 @@ class Appstreamcenter extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return ListSessionPackagesResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -2462,15 +2026,11 @@ class Appstreamcenter extends OpenApiClient
     }
 
     /**
-     * 项目的会话包列表.
+     * @summary 项目的会话包列表
+     *  *
+     * @param ListSessionPackagesRequest $request ListSessionPackagesRequest
      *
-     * @param request - ListSessionPackagesRequest
-     *
-     * @returns ListSessionPackagesResponse
-     *
-     * @param ListSessionPackagesRequest $request
-     *
-     * @return ListSessionPackagesResponse
+     * @return ListSessionPackagesResponse ListSessionPackagesResponse
      */
     public function listSessionPackages($request)
     {
@@ -2480,44 +2040,34 @@ class Appstreamcenter extends OpenApiClient
     }
 
     /**
-     * Queries the tags added to one or more cloud resources.
+     * @summary Queries the tags added to one or more cloud resources.
+     *  *
+     * @param ListTagCloudResourcesRequest $request ListTagCloudResourcesRequest
+     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - ListTagCloudResourcesRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns ListTagCloudResourcesResponse
-     *
-     * @param ListTagCloudResourcesRequest $request
-     * @param RuntimeOptions               $runtime
-     *
-     * @return ListTagCloudResourcesResponse
+     * @return ListTagCloudResourcesResponse ListTagCloudResourcesResponse
      */
     public function listTagCloudResourcesWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $body = [];
-        if (null !== $request->maxResults) {
-            @$body['MaxResults'] = $request->maxResults;
+        if (!Utils::isUnset($request->maxResults)) {
+            $body['MaxResults'] = $request->maxResults;
         }
-
-        if (null !== $request->nextToken) {
-            @$body['NextToken'] = $request->nextToken;
+        if (!Utils::isUnset($request->nextToken)) {
+            $body['NextToken'] = $request->nextToken;
         }
-
-        if (null !== $request->resourceIds) {
-            @$body['ResourceIds'] = $request->resourceIds;
+        if (!Utils::isUnset($request->resourceIds)) {
+            $body['ResourceIds'] = $request->resourceIds;
         }
-
-        if (null !== $request->resourceType) {
-            @$body['ResourceType'] = $request->resourceType;
+        if (!Utils::isUnset($request->resourceType)) {
+            $body['ResourceType'] = $request->resourceType;
         }
-
-        if (null !== $request->scope) {
-            @$body['Scope'] = $request->scope;
+        if (!Utils::isUnset($request->scope)) {
+            $body['Scope'] = $request->scope;
         }
-
         $req = new OpenApiRequest([
-            'body' => Utils::parseToMap($body),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'ListTagCloudResources',
@@ -2530,7 +2080,7 @@ class Appstreamcenter extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return ListTagCloudResourcesResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -2538,15 +2088,11 @@ class Appstreamcenter extends OpenApiClient
     }
 
     /**
-     * Queries the tags added to one or more cloud resources.
+     * @summary Queries the tags added to one or more cloud resources.
+     *  *
+     * @param ListTagCloudResourcesRequest $request ListTagCloudResourcesRequest
      *
-     * @param request - ListTagCloudResourcesRequest
-     *
-     * @returns ListTagCloudResourcesResponse
-     *
-     * @param ListTagCloudResourcesRequest $request
-     *
-     * @return ListTagCloudResourcesResponse
+     * @return ListTagCloudResourcesResponse ListTagCloudResourcesResponse
      */
     public function listTagCloudResources($request)
     {
@@ -2556,16 +2102,11 @@ class Appstreamcenter extends OpenApiClient
     }
 
     /**
-     * Queries the configurations of the administrator account, such as whether the resource expiration reminder feature is enabled.
+     * @summary Queries the configurations of the administrator account, such as whether the resource expiration reminder feature is enabled.
+     *  *
+     * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - ListTenantConfigRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns ListTenantConfigResponse
-     *
-     * @param RuntimeOptions $runtime
-     *
-     * @return ListTenantConfigResponse
+     * @return ListTenantConfigResponse ListTenantConfigResponse
      */
     public function listTenantConfigWithOptions($runtime)
     {
@@ -2581,7 +2122,7 @@ class Appstreamcenter extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return ListTenantConfigResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -2589,11 +2130,9 @@ class Appstreamcenter extends OpenApiClient
     }
 
     /**
-     * Queries the configurations of the administrator account, such as whether the resource expiration reminder feature is enabled.
-     *
-     * @returns ListTenantConfigResponse
-     *
-     * @return ListTenantConfigResponse
+     * @summary Queries the configurations of the administrator account, such as whether the resource expiration reminder feature is enabled.
+     *  *
+     * @return ListTenantConfigResponse ListTenantConfigResponse
      */
     public function listTenantConfig()
     {
@@ -2603,35 +2142,27 @@ class Appstreamcenter extends OpenApiClient
     }
 
     /**
-     * Closes all sessions in a pay-as-you-go delivery group for which a scheduled scaling policy is used.
+     * @summary Closes all sessions in a pay-as-you-go delivery group for which a scheduled scaling policy is used.
+     *  *
+     * @description >  This operation can be called only if you use a pay-as-you-go delivery group for which a scheduled scaling policy is used and if you call the operation at a time other than the scheduled time.
+     *  *
+     * @param LogOffAllSessionsInAppInstanceGroupRequest $request LogOffAllSessionsInAppInstanceGroupRequest
+     * @param RuntimeOptions                             $runtime runtime options for this request RuntimeOptions
      *
-     * @remarks
-     * >  This operation can be called only if you use a pay-as-you-go delivery group for which a scheduled scaling policy is used and if you call the operation at a time other than the scheduled time.
-     *
-     * @param request - LogOffAllSessionsInAppInstanceGroupRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns LogOffAllSessionsInAppInstanceGroupResponse
-     *
-     * @param LogOffAllSessionsInAppInstanceGroupRequest $request
-     * @param RuntimeOptions                             $runtime
-     *
-     * @return LogOffAllSessionsInAppInstanceGroupResponse
+     * @return LogOffAllSessionsInAppInstanceGroupResponse LogOffAllSessionsInAppInstanceGroupResponse
      */
     public function logOffAllSessionsInAppInstanceGroupWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $body = [];
-        if (null !== $request->appInstanceGroupId) {
-            @$body['AppInstanceGroupId'] = $request->appInstanceGroupId;
+        if (!Utils::isUnset($request->appInstanceGroupId)) {
+            $body['AppInstanceGroupId'] = $request->appInstanceGroupId;
         }
-
-        if (null !== $request->productType) {
-            @$body['ProductType'] = $request->productType;
+        if (!Utils::isUnset($request->productType)) {
+            $body['ProductType'] = $request->productType;
         }
-
         $req = new OpenApiRequest([
-            'body' => Utils::parseToMap($body),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'LogOffAllSessionsInAppInstanceGroup',
@@ -2644,7 +2175,7 @@ class Appstreamcenter extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return LogOffAllSessionsInAppInstanceGroupResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -2652,18 +2183,13 @@ class Appstreamcenter extends OpenApiClient
     }
 
     /**
-     * Closes all sessions in a pay-as-you-go delivery group for which a scheduled scaling policy is used.
+     * @summary Closes all sessions in a pay-as-you-go delivery group for which a scheduled scaling policy is used.
+     *  *
+     * @description >  This operation can be called only if you use a pay-as-you-go delivery group for which a scheduled scaling policy is used and if you call the operation at a time other than the scheduled time.
+     *  *
+     * @param LogOffAllSessionsInAppInstanceGroupRequest $request LogOffAllSessionsInAppInstanceGroupRequest
      *
-     * @remarks
-     * >  This operation can be called only if you use a pay-as-you-go delivery group for which a scheduled scaling policy is used and if you call the operation at a time other than the scheduled time.
-     *
-     * @param request - LogOffAllSessionsInAppInstanceGroupRequest
-     *
-     * @returns LogOffAllSessionsInAppInstanceGroupResponse
-     *
-     * @param LogOffAllSessionsInAppInstanceGroupRequest $request
-     *
-     * @return LogOffAllSessionsInAppInstanceGroupResponse
+     * @return LogOffAllSessionsInAppInstanceGroupResponse LogOffAllSessionsInAppInstanceGroupResponse
      */
     public function logOffAllSessionsInAppInstanceGroup($request)
     {
@@ -2673,88 +2199,68 @@ class Appstreamcenter extends OpenApiClient
     }
 
     /**
-     * Modifies the general policies of a delivery group, including the number of concurrent sessions and the retention period of disconnected sessions.
+     * @summary Modifies the general policies of a delivery group, including the number of concurrent sessions and the retention period of disconnected sessions.
+     *  *
+     * @param ModifyAppInstanceGroupAttributeRequest $tmpReq  ModifyAppInstanceGroupAttributeRequest
+     * @param RuntimeOptions                         $runtime runtime options for this request RuntimeOptions
      *
-     * @param tmpReq - ModifyAppInstanceGroupAttributeRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns ModifyAppInstanceGroupAttributeResponse
-     *
-     * @param ModifyAppInstanceGroupAttributeRequest $tmpReq
-     * @param RuntimeOptions                         $runtime
-     *
-     * @return ModifyAppInstanceGroupAttributeResponse
+     * @return ModifyAppInstanceGroupAttributeResponse ModifyAppInstanceGroupAttributeResponse
      */
     public function modifyAppInstanceGroupAttributeWithOptions($tmpReq, $runtime)
     {
-        $tmpReq->validate();
+        Utils::validateModel($tmpReq);
         $request = new ModifyAppInstanceGroupAttributeShrinkRequest([]);
-        Utils::convert($tmpReq, $request);
-        if (null !== $tmpReq->network) {
-            $request->networkShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->network, 'Network', 'json');
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->network)) {
+            $request->networkShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->network, 'Network', 'json');
         }
-
-        if (null !== $tmpReq->nodePool) {
-            $request->nodePoolShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->nodePool, 'NodePool', 'json');
+        if (!Utils::isUnset($tmpReq->nodePool)) {
+            $request->nodePoolShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->nodePool, 'NodePool', 'json');
         }
-
-        if (null !== $tmpReq->securityPolicy) {
-            $request->securityPolicyShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->securityPolicy, 'SecurityPolicy', 'json');
+        if (!Utils::isUnset($tmpReq->securityPolicy)) {
+            $request->securityPolicyShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->securityPolicy, 'SecurityPolicy', 'json');
         }
-
-        if (null !== $tmpReq->storagePolicy) {
-            $request->storagePolicyShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->storagePolicy, 'StoragePolicy', 'json');
+        if (!Utils::isUnset($tmpReq->storagePolicy)) {
+            $request->storagePolicyShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->storagePolicy, 'StoragePolicy', 'json');
         }
-
         $query = [];
-        if (null !== $request->appInstanceGroupId) {
-            @$query['AppInstanceGroupId'] = $request->appInstanceGroupId;
+        if (!Utils::isUnset($request->appInstanceGroupId)) {
+            $query['AppInstanceGroupId'] = $request->appInstanceGroupId;
         }
-
-        if (null !== $request->appInstanceGroupName) {
-            @$query['AppInstanceGroupName'] = $request->appInstanceGroupName;
+        if (!Utils::isUnset($request->appInstanceGroupName)) {
+            $query['AppInstanceGroupName'] = $request->appInstanceGroupName;
         }
-
-        if (null !== $request->nodePoolShrink) {
-            @$query['NodePool'] = $request->nodePoolShrink;
+        if (!Utils::isUnset($request->nodePoolShrink)) {
+            $query['NodePool'] = $request->nodePoolShrink;
         }
-
-        if (null !== $request->productType) {
-            @$query['ProductType'] = $request->productType;
+        if (!Utils::isUnset($request->productType)) {
+            $query['ProductType'] = $request->productType;
         }
-
-        if (null !== $request->sessionTimeout) {
-            @$query['SessionTimeout'] = $request->sessionTimeout;
+        if (!Utils::isUnset($request->sessionTimeout)) {
+            $query['SessionTimeout'] = $request->sessionTimeout;
         }
-
         $body = [];
-        if (null !== $request->networkShrink) {
-            @$body['Network'] = $request->networkShrink;
+        if (!Utils::isUnset($request->networkShrink)) {
+            $body['Network'] = $request->networkShrink;
         }
-
-        if (null !== $request->perSessionPerApp) {
-            @$body['PerSessionPerApp'] = $request->perSessionPerApp;
+        if (!Utils::isUnset($request->perSessionPerApp)) {
+            $body['PerSessionPerApp'] = $request->perSessionPerApp;
         }
-
-        if (null !== $request->preOpenAppId) {
-            @$body['PreOpenAppId'] = $request->preOpenAppId;
+        if (!Utils::isUnset($request->preOpenAppId)) {
+            $body['PreOpenAppId'] = $request->preOpenAppId;
         }
-
-        if (null !== $request->preOpenMode) {
-            @$body['PreOpenMode'] = $request->preOpenMode;
+        if (!Utils::isUnset($request->preOpenMode)) {
+            $body['PreOpenMode'] = $request->preOpenMode;
         }
-
-        if (null !== $request->securityPolicyShrink) {
-            @$body['SecurityPolicy'] = $request->securityPolicyShrink;
+        if (!Utils::isUnset($request->securityPolicyShrink)) {
+            $body['SecurityPolicy'] = $request->securityPolicyShrink;
         }
-
-        if (null !== $request->storagePolicyShrink) {
-            @$body['StoragePolicy'] = $request->storagePolicyShrink;
+        if (!Utils::isUnset($request->storagePolicyShrink)) {
+            $body['StoragePolicy'] = $request->storagePolicyShrink;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
-            'body' => Utils::parseToMap($body),
+            'query' => OpenApiUtilClient::query($query),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'ModifyAppInstanceGroupAttribute',
@@ -2767,7 +2273,7 @@ class Appstreamcenter extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return ModifyAppInstanceGroupAttributeResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -2775,15 +2281,11 @@ class Appstreamcenter extends OpenApiClient
     }
 
     /**
-     * Modifies the general policies of a delivery group, including the number of concurrent sessions and the retention period of disconnected sessions.
+     * @summary Modifies the general policies of a delivery group, including the number of concurrent sessions and the retention period of disconnected sessions.
+     *  *
+     * @param ModifyAppInstanceGroupAttributeRequest $request ModifyAppInstanceGroupAttributeRequest
      *
-     * @param request - ModifyAppInstanceGroupAttributeRequest
-     *
-     * @returns ModifyAppInstanceGroupAttributeResponse
-     *
-     * @param ModifyAppInstanceGroupAttributeRequest $request
-     *
-     * @return ModifyAppInstanceGroupAttributeResponse
+     * @return ModifyAppInstanceGroupAttributeResponse ModifyAppInstanceGroupAttributeResponse
      */
     public function modifyAppInstanceGroupAttribute($request)
     {
@@ -2793,42 +2295,33 @@ class Appstreamcenter extends OpenApiClient
     }
 
     /**
-     * 修改策略信息.
+     * @summary 修改策略信息
+     *  *
+     * @param ModifyAppPolicyRequest $tmpReq  ModifyAppPolicyRequest
+     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
      *
-     * @param tmpReq - ModifyAppPolicyRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns ModifyAppPolicyResponse
-     *
-     * @param ModifyAppPolicyRequest $tmpReq
-     * @param RuntimeOptions         $runtime
-     *
-     * @return ModifyAppPolicyResponse
+     * @return ModifyAppPolicyResponse ModifyAppPolicyResponse
      */
     public function modifyAppPolicyWithOptions($tmpReq, $runtime)
     {
-        $tmpReq->validate();
+        Utils::validateModel($tmpReq);
         $request = new ModifyAppPolicyShrinkRequest([]);
-        Utils::convert($tmpReq, $request);
-        if (null !== $tmpReq->videoPolicy) {
-            $request->videoPolicyShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->videoPolicy, 'VideoPolicy', 'json');
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->videoPolicy)) {
+            $request->videoPolicyShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->videoPolicy, 'VideoPolicy', 'json');
         }
-
         $query = [];
-        if (null !== $request->appPolicyId) {
-            @$query['AppPolicyId'] = $request->appPolicyId;
+        if (!Utils::isUnset($request->appPolicyId)) {
+            $query['AppPolicyId'] = $request->appPolicyId;
         }
-
-        if (null !== $request->productType) {
-            @$query['ProductType'] = $request->productType;
+        if (!Utils::isUnset($request->productType)) {
+            $query['ProductType'] = $request->productType;
         }
-
-        if (null !== $request->videoPolicyShrink) {
-            @$query['VideoPolicy'] = $request->videoPolicyShrink;
+        if (!Utils::isUnset($request->videoPolicyShrink)) {
+            $query['VideoPolicy'] = $request->videoPolicyShrink;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'ModifyAppPolicy',
@@ -2841,7 +2334,7 @@ class Appstreamcenter extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return ModifyAppPolicyResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -2849,15 +2342,11 @@ class Appstreamcenter extends OpenApiClient
     }
 
     /**
-     * 修改策略信息.
+     * @summary 修改策略信息
+     *  *
+     * @param ModifyAppPolicyRequest $request ModifyAppPolicyRequest
      *
-     * @param request - ModifyAppPolicyRequest
-     *
-     * @returns ModifyAppPolicyResponse
-     *
-     * @param ModifyAppPolicyRequest $request
-     *
-     * @return ModifyAppPolicyResponse
+     * @return ModifyAppPolicyResponse ModifyAppPolicyResponse
      */
     public function modifyAppPolicy($request)
     {
@@ -2867,42 +2356,33 @@ class Appstreamcenter extends OpenApiClient
     }
 
     /**
-     * Changes the number of nodes in a subscription delivery group.
+     * @summary Changes the number of nodes in a subscription delivery group.
+     *  *
+     * @param ModifyNodePoolAmountRequest $tmpReq  ModifyNodePoolAmountRequest
+     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
      *
-     * @param tmpReq - ModifyNodePoolAmountRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns ModifyNodePoolAmountResponse
-     *
-     * @param ModifyNodePoolAmountRequest $tmpReq
-     * @param RuntimeOptions              $runtime
-     *
-     * @return ModifyNodePoolAmountResponse
+     * @return ModifyNodePoolAmountResponse ModifyNodePoolAmountResponse
      */
     public function modifyNodePoolAmountWithOptions($tmpReq, $runtime)
     {
-        $tmpReq->validate();
+        Utils::validateModel($tmpReq);
         $request = new ModifyNodePoolAmountShrinkRequest([]);
-        Utils::convert($tmpReq, $request);
-        if (null !== $tmpReq->nodePool) {
-            $request->nodePoolShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->nodePool, 'NodePool', 'json');
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->nodePool)) {
+            $request->nodePoolShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->nodePool, 'NodePool', 'json');
         }
-
         $body = [];
-        if (null !== $request->appInstanceGroupId) {
-            @$body['AppInstanceGroupId'] = $request->appInstanceGroupId;
+        if (!Utils::isUnset($request->appInstanceGroupId)) {
+            $body['AppInstanceGroupId'] = $request->appInstanceGroupId;
         }
-
-        if (null !== $request->nodePoolShrink) {
-            @$body['NodePool'] = $request->nodePoolShrink;
+        if (!Utils::isUnset($request->nodePoolShrink)) {
+            $body['NodePool'] = $request->nodePoolShrink;
         }
-
-        if (null !== $request->productType) {
-            @$body['ProductType'] = $request->productType;
+        if (!Utils::isUnset($request->productType)) {
+            $body['ProductType'] = $request->productType;
         }
-
         $req = new OpenApiRequest([
-            'body' => Utils::parseToMap($body),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'ModifyNodePoolAmount',
@@ -2915,7 +2395,7 @@ class Appstreamcenter extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return ModifyNodePoolAmountResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -2923,15 +2403,11 @@ class Appstreamcenter extends OpenApiClient
     }
 
     /**
-     * Changes the number of nodes in a subscription delivery group.
+     * @summary Changes the number of nodes in a subscription delivery group.
+     *  *
+     * @param ModifyNodePoolAmountRequest $request ModifyNodePoolAmountRequest
      *
-     * @param request - ModifyNodePoolAmountRequest
-     *
-     * @returns ModifyNodePoolAmountResponse
-     *
-     * @param ModifyNodePoolAmountRequest $request
-     *
-     * @return ModifyNodePoolAmountResponse
+     * @return ModifyNodePoolAmountResponse ModifyNodePoolAmountResponse
      */
     public function modifyNodePoolAmount($request)
     {
@@ -2941,48 +2417,37 @@ class Appstreamcenter extends OpenApiClient
     }
 
     /**
-     * @param tmpReq - ModifyNodePoolAttributeRequest
-     * @param runtime - runtime options for this request RuntimeOptions
+     * @param ModifyNodePoolAttributeRequest $tmpReq  ModifyNodePoolAttributeRequest
+     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
      *
-     * @returns ModifyNodePoolAttributeResponse
-     *
-     * @param ModifyNodePoolAttributeRequest $tmpReq
-     * @param RuntimeOptions                 $runtime
-     *
-     * @return ModifyNodePoolAttributeResponse
+     * @return ModifyNodePoolAttributeResponse ModifyNodePoolAttributeResponse
      */
     public function modifyNodePoolAttributeWithOptions($tmpReq, $runtime)
     {
-        $tmpReq->validate();
+        Utils::validateModel($tmpReq);
         $request = new ModifyNodePoolAttributeShrinkRequest([]);
-        Utils::convert($tmpReq, $request);
-        if (null !== $tmpReq->nodePoolStrategy) {
-            $request->nodePoolStrategyShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->nodePoolStrategy, 'NodePoolStrategy', 'json');
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->nodePoolStrategy)) {
+            $request->nodePoolStrategyShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->nodePoolStrategy, 'NodePoolStrategy', 'json');
         }
-
         $body = [];
-        if (null !== $request->bizRegionId) {
-            @$body['BizRegionId'] = $request->bizRegionId;
+        if (!Utils::isUnset($request->bizRegionId)) {
+            $body['BizRegionId'] = $request->bizRegionId;
         }
-
-        if (null !== $request->nodeCapacity) {
-            @$body['NodeCapacity'] = $request->nodeCapacity;
+        if (!Utils::isUnset($request->nodeCapacity)) {
+            $body['NodeCapacity'] = $request->nodeCapacity;
         }
-
-        if (null !== $request->nodePoolStrategyShrink) {
-            @$body['NodePoolStrategy'] = $request->nodePoolStrategyShrink;
+        if (!Utils::isUnset($request->nodePoolStrategyShrink)) {
+            $body['NodePoolStrategy'] = $request->nodePoolStrategyShrink;
         }
-
-        if (null !== $request->poolId) {
-            @$body['PoolId'] = $request->poolId;
+        if (!Utils::isUnset($request->poolId)) {
+            $body['PoolId'] = $request->poolId;
         }
-
-        if (null !== $request->productType) {
-            @$body['ProductType'] = $request->productType;
+        if (!Utils::isUnset($request->productType)) {
+            $body['ProductType'] = $request->productType;
         }
-
         $req = new OpenApiRequest([
-            'body' => Utils::parseToMap($body),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'ModifyNodePoolAttribute',
@@ -2995,7 +2460,7 @@ class Appstreamcenter extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return ModifyNodePoolAttributeResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -3003,13 +2468,9 @@ class Appstreamcenter extends OpenApiClient
     }
 
     /**
-     * @param request - ModifyNodePoolAttributeRequest
+     * @param ModifyNodePoolAttributeRequest $request ModifyNodePoolAttributeRequest
      *
-     * @returns ModifyNodePoolAttributeResponse
-     *
-     * @param ModifyNodePoolAttributeRequest $request
-     *
-     * @return ModifyNodePoolAttributeResponse
+     * @return ModifyNodePoolAttributeResponse ModifyNodePoolAttributeResponse
      */
     public function modifyNodePoolAttribute($request)
     {
@@ -3019,28 +2480,22 @@ class Appstreamcenter extends OpenApiClient
     }
 
     /**
-     * Modifies the configurations of the administrator account, such as whether to enable the resource expiration reminder feature.
+     * @summary Modifies the configurations of the administrator account, such as whether to enable the resource expiration reminder feature.
+     *  *
+     * @param ModifyTenantConfigRequest $request ModifyTenantConfigRequest
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - ModifyTenantConfigRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns ModifyTenantConfigResponse
-     *
-     * @param ModifyTenantConfigRequest $request
-     * @param RuntimeOptions            $runtime
-     *
-     * @return ModifyTenantConfigResponse
+     * @return ModifyTenantConfigResponse ModifyTenantConfigResponse
      */
     public function modifyTenantConfigWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $body = [];
-        if (null !== $request->appInstanceGroupExpireRemind) {
-            @$body['AppInstanceGroupExpireRemind'] = $request->appInstanceGroupExpireRemind;
+        if (!Utils::isUnset($request->appInstanceGroupExpireRemind)) {
+            $body['AppInstanceGroupExpireRemind'] = $request->appInstanceGroupExpireRemind;
         }
-
         $req = new OpenApiRequest([
-            'body' => Utils::parseToMap($body),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'ModifyTenantConfig',
@@ -3053,7 +2508,7 @@ class Appstreamcenter extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return ModifyTenantConfigResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -3061,15 +2516,11 @@ class Appstreamcenter extends OpenApiClient
     }
 
     /**
-     * Modifies the configurations of the administrator account, such as whether to enable the resource expiration reminder feature.
+     * @summary Modifies the configurations of the administrator account, such as whether to enable the resource expiration reminder feature.
+     *  *
+     * @param ModifyTenantConfigRequest $request ModifyTenantConfigRequest
      *
-     * @param request - ModifyTenantConfigRequest
-     *
-     * @returns ModifyTenantConfigResponse
-     *
-     * @param ModifyTenantConfigRequest $request
-     *
-     * @return ModifyTenantConfigResponse
+     * @return ModifyTenantConfigResponse ModifyTenantConfigResponse
      */
     public function modifyTenantConfig($request)
     {
@@ -3079,40 +2530,31 @@ class Appstreamcenter extends OpenApiClient
     }
 
     /**
-     * Queries the assigned users that are added to a delivery group by page.
+     * @summary Queries the assigned users that are added to a delivery group by page.
+     *  *
+     * @param PageListAppInstanceGroupUserRequest $request PageListAppInstanceGroupUserRequest
+     * @param RuntimeOptions                      $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - PageListAppInstanceGroupUserRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns PageListAppInstanceGroupUserResponse
-     *
-     * @param PageListAppInstanceGroupUserRequest $request
-     * @param RuntimeOptions                      $runtime
-     *
-     * @return PageListAppInstanceGroupUserResponse
+     * @return PageListAppInstanceGroupUserResponse PageListAppInstanceGroupUserResponse
      */
     public function pageListAppInstanceGroupUserWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $body = [];
-        if (null !== $request->appInstanceGroupId) {
-            @$body['AppInstanceGroupId'] = $request->appInstanceGroupId;
+        if (!Utils::isUnset($request->appInstanceGroupId)) {
+            $body['AppInstanceGroupId'] = $request->appInstanceGroupId;
         }
-
-        if (null !== $request->pageNumber) {
-            @$body['PageNumber'] = $request->pageNumber;
+        if (!Utils::isUnset($request->pageNumber)) {
+            $body['PageNumber'] = $request->pageNumber;
         }
-
-        if (null !== $request->pageSize) {
-            @$body['PageSize'] = $request->pageSize;
+        if (!Utils::isUnset($request->pageSize)) {
+            $body['PageSize'] = $request->pageSize;
         }
-
-        if (null !== $request->productType) {
-            @$body['ProductType'] = $request->productType;
+        if (!Utils::isUnset($request->productType)) {
+            $body['ProductType'] = $request->productType;
         }
-
         $req = new OpenApiRequest([
-            'body' => Utils::parseToMap($body),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'PageListAppInstanceGroupUser',
@@ -3125,7 +2567,7 @@ class Appstreamcenter extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return PageListAppInstanceGroupUserResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -3133,15 +2575,11 @@ class Appstreamcenter extends OpenApiClient
     }
 
     /**
-     * Queries the assigned users that are added to a delivery group by page.
+     * @summary Queries the assigned users that are added to a delivery group by page.
+     *  *
+     * @param PageListAppInstanceGroupUserRequest $request PageListAppInstanceGroupUserRequest
      *
-     * @param request - PageListAppInstanceGroupUserRequest
-     *
-     * @returns PageListAppInstanceGroupUserResponse
-     *
-     * @param PageListAppInstanceGroupUserRequest $request
-     *
-     * @return PageListAppInstanceGroupUserResponse
+     * @return PageListAppInstanceGroupUserResponse PageListAppInstanceGroupUserResponse
      */
     public function pageListAppInstanceGroupUser($request)
     {
@@ -3151,51 +2589,39 @@ class Appstreamcenter extends OpenApiClient
     }
 
     /**
-     * Renews a delivery group.
+     * @summary Renews a delivery group.
+     *  *
+     * @description Before you call this operation, make sure that you fully understand the [billing methods and prices](https://help.aliyun.com/document_detail/426039.html) of App Streaming.
+     *  *
+     * @param RenewAppInstanceGroupRequest $request RenewAppInstanceGroupRequest
+     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
      *
-     * @remarks
-     * Before you call this operation, make sure that you fully understand the [billing methods and prices](https://help.aliyun.com/document_detail/426039.html) of App Streaming.
-     *
-     * @param request - RenewAppInstanceGroupRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns RenewAppInstanceGroupResponse
-     *
-     * @param RenewAppInstanceGroupRequest $request
-     * @param RuntimeOptions               $runtime
-     *
-     * @return RenewAppInstanceGroupResponse
+     * @return RenewAppInstanceGroupResponse RenewAppInstanceGroupResponse
      */
     public function renewAppInstanceGroupWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->appInstanceGroupId) {
-            @$query['AppInstanceGroupId'] = $request->appInstanceGroupId;
+        if (!Utils::isUnset($request->appInstanceGroupId)) {
+            $query['AppInstanceGroupId'] = $request->appInstanceGroupId;
         }
-
-        if (null !== $request->autoPay) {
-            @$query['AutoPay'] = $request->autoPay;
+        if (!Utils::isUnset($request->autoPay)) {
+            $query['AutoPay'] = $request->autoPay;
         }
-
-        if (null !== $request->period) {
-            @$query['Period'] = $request->period;
+        if (!Utils::isUnset($request->period)) {
+            $query['Period'] = $request->period;
         }
-
-        if (null !== $request->periodUnit) {
-            @$query['PeriodUnit'] = $request->periodUnit;
+        if (!Utils::isUnset($request->periodUnit)) {
+            $query['PeriodUnit'] = $request->periodUnit;
         }
-
-        if (null !== $request->productType) {
-            @$query['ProductType'] = $request->productType;
+        if (!Utils::isUnset($request->productType)) {
+            $query['ProductType'] = $request->productType;
         }
-
-        if (null !== $request->promotionId) {
-            @$query['PromotionId'] = $request->promotionId;
+        if (!Utils::isUnset($request->promotionId)) {
+            $query['PromotionId'] = $request->promotionId;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'RenewAppInstanceGroup',
@@ -3208,7 +2634,7 @@ class Appstreamcenter extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return RenewAppInstanceGroupResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -3216,18 +2642,13 @@ class Appstreamcenter extends OpenApiClient
     }
 
     /**
-     * Renews a delivery group.
+     * @summary Renews a delivery group.
+     *  *
+     * @description Before you call this operation, make sure that you fully understand the [billing methods and prices](https://help.aliyun.com/document_detail/426039.html) of App Streaming.
+     *  *
+     * @param RenewAppInstanceGroupRequest $request RenewAppInstanceGroupRequest
      *
-     * @remarks
-     * Before you call this operation, make sure that you fully understand the [billing methods and prices](https://help.aliyun.com/document_detail/426039.html) of App Streaming.
-     *
-     * @param request - RenewAppInstanceGroupRequest
-     *
-     * @returns RenewAppInstanceGroupResponse
-     *
-     * @param RenewAppInstanceGroupRequest $request
-     *
-     * @return RenewAppInstanceGroupResponse
+     * @return RenewAppInstanceGroupResponse RenewAppInstanceGroupResponse
      */
     public function renewAppInstanceGroup($request)
     {
@@ -3237,36 +2658,28 @@ class Appstreamcenter extends OpenApiClient
     }
 
     /**
-     * 为云资源创建并绑定标签.
+     * @summary 为云资源创建并绑定标签
+     *  *
+     * @param TagCloudResourcesRequest $request TagCloudResourcesRequest
+     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - TagCloudResourcesRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns TagCloudResourcesResponse
-     *
-     * @param TagCloudResourcesRequest $request
-     * @param RuntimeOptions           $runtime
-     *
-     * @return TagCloudResourcesResponse
+     * @return TagCloudResourcesResponse TagCloudResourcesResponse
      */
     public function tagCloudResourcesWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $body = [];
-        if (null !== $request->resourceIds) {
-            @$body['ResourceIds'] = $request->resourceIds;
+        if (!Utils::isUnset($request->resourceIds)) {
+            $body['ResourceIds'] = $request->resourceIds;
         }
-
-        if (null !== $request->resourceType) {
-            @$body['ResourceType'] = $request->resourceType;
+        if (!Utils::isUnset($request->resourceType)) {
+            $body['ResourceType'] = $request->resourceType;
         }
-
-        if (null !== $request->tags) {
-            @$body['Tags'] = $request->tags;
+        if (!Utils::isUnset($request->tags)) {
+            $body['Tags'] = $request->tags;
         }
-
         $req = new OpenApiRequest([
-            'body' => Utils::parseToMap($body),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'TagCloudResources',
@@ -3279,7 +2692,7 @@ class Appstreamcenter extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return TagCloudResourcesResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -3287,15 +2700,11 @@ class Appstreamcenter extends OpenApiClient
     }
 
     /**
-     * 为云资源创建并绑定标签.
+     * @summary 为云资源创建并绑定标签
+     *  *
+     * @param TagCloudResourcesRequest $request TagCloudResourcesRequest
      *
-     * @param request - TagCloudResourcesRequest
-     *
-     * @returns TagCloudResourcesResponse
-     *
-     * @param TagCloudResourcesRequest $request
-     *
-     * @return TagCloudResourcesResponse
+     * @return TagCloudResourcesResponse TagCloudResourcesResponse
      */
     public function tagCloudResources($request)
     {
@@ -3305,44 +2714,34 @@ class Appstreamcenter extends OpenApiClient
     }
 
     /**
-     * Unbinds a user and a session.
+     * @summary Unbinds a user and a session.
+     *  *
+     * @param UnbindRequest  $request UnbindRequest
+     * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - UnbindRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns UnbindResponse
-     *
-     * @param UnbindRequest  $request
-     * @param RuntimeOptions $runtime
-     *
-     * @return UnbindResponse
+     * @return UnbindResponse UnbindResponse
      */
     public function unbindWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $body = [];
-        if (null !== $request->appInstanceGroupId) {
-            @$body['AppInstanceGroupId'] = $request->appInstanceGroupId;
+        if (!Utils::isUnset($request->appInstanceGroupId)) {
+            $body['AppInstanceGroupId'] = $request->appInstanceGroupId;
         }
-
-        if (null !== $request->appInstanceId) {
-            @$body['AppInstanceId'] = $request->appInstanceId;
+        if (!Utils::isUnset($request->appInstanceId)) {
+            $body['AppInstanceId'] = $request->appInstanceId;
         }
-
-        if (null !== $request->appInstancePersistentId) {
-            @$body['AppInstancePersistentId'] = $request->appInstancePersistentId;
+        if (!Utils::isUnset($request->appInstancePersistentId)) {
+            $body['AppInstancePersistentId'] = $request->appInstancePersistentId;
         }
-
-        if (null !== $request->endUserId) {
-            @$body['EndUserId'] = $request->endUserId;
+        if (!Utils::isUnset($request->endUserId)) {
+            $body['EndUserId'] = $request->endUserId;
         }
-
-        if (null !== $request->productType) {
-            @$body['ProductType'] = $request->productType;
+        if (!Utils::isUnset($request->productType)) {
+            $body['ProductType'] = $request->productType;
         }
-
         $req = new OpenApiRequest([
-            'body' => Utils::parseToMap($body),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'Unbind',
@@ -3355,7 +2754,7 @@ class Appstreamcenter extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return UnbindResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -3363,15 +2762,11 @@ class Appstreamcenter extends OpenApiClient
     }
 
     /**
-     * Unbinds a user and a session.
+     * @summary Unbinds a user and a session.
+     *  *
+     * @param UnbindRequest $request UnbindRequest
      *
-     * @param request - UnbindRequest
-     *
-     * @returns UnbindResponse
-     *
-     * @param UnbindRequest $request
-     *
-     * @return UnbindResponse
+     * @return UnbindResponse UnbindResponse
      */
     public function unbind($request)
     {
@@ -3381,36 +2776,28 @@ class Appstreamcenter extends OpenApiClient
     }
 
     /**
-     * Removes tags from cloud resources.
+     * @summary Removes tags from cloud resources.
+     *  *
+     * @param UntagCloudResourcesRequest $request UntagCloudResourcesRequest
+     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - UntagCloudResourcesRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns UntagCloudResourcesResponse
-     *
-     * @param UntagCloudResourcesRequest $request
-     * @param RuntimeOptions             $runtime
-     *
-     * @return UntagCloudResourcesResponse
+     * @return UntagCloudResourcesResponse UntagCloudResourcesResponse
      */
     public function untagCloudResourcesWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $body = [];
-        if (null !== $request->resourceIds) {
-            @$body['ResourceIds'] = $request->resourceIds;
+        if (!Utils::isUnset($request->resourceIds)) {
+            $body['ResourceIds'] = $request->resourceIds;
         }
-
-        if (null !== $request->resourceType) {
-            @$body['ResourceType'] = $request->resourceType;
+        if (!Utils::isUnset($request->resourceType)) {
+            $body['ResourceType'] = $request->resourceType;
         }
-
-        if (null !== $request->tagKeys) {
-            @$body['TagKeys'] = $request->tagKeys;
+        if (!Utils::isUnset($request->tagKeys)) {
+            $body['TagKeys'] = $request->tagKeys;
         }
-
         $req = new OpenApiRequest([
-            'body' => Utils::parseToMap($body),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'UntagCloudResources',
@@ -3423,7 +2810,7 @@ class Appstreamcenter extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return UntagCloudResourcesResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -3431,15 +2818,11 @@ class Appstreamcenter extends OpenApiClient
     }
 
     /**
-     * Removes tags from cloud resources.
+     * @summary Removes tags from cloud resources.
+     *  *
+     * @param UntagCloudResourcesRequest $request UntagCloudResourcesRequest
      *
-     * @param request - UntagCloudResourcesRequest
-     *
-     * @returns UntagCloudResourcesResponse
-     *
-     * @param UntagCloudResourcesRequest $request
-     *
-     * @return UntagCloudResourcesResponse
+     * @return UntagCloudResourcesResponse UntagCloudResourcesResponse
      */
     public function untagCloudResources($request)
     {
@@ -3449,45 +2832,35 @@ class Appstreamcenter extends OpenApiClient
     }
 
     /**
-     * Updates the image of a delivery group.
-     *
-     * @remarks
-     * *
+     * @summary Updates the image of a delivery group.
+     *  *
+     * @description **
      * **Warning** After the image is updated, the end user session accessing the cloud application will be disconnected. Exercise caution to avoid end user data loss.
      * >  After the image of the delivery group is updated, the change takes effect on the terminal in approximately 2 minutes.
+     *  *
+     * @param UpdateAppInstanceGroupImageRequest $request UpdateAppInstanceGroupImageRequest
+     * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - UpdateAppInstanceGroupImageRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns UpdateAppInstanceGroupImageResponse
-     *
-     * @param UpdateAppInstanceGroupImageRequest $request
-     * @param RuntimeOptions                     $runtime
-     *
-     * @return UpdateAppInstanceGroupImageResponse
+     * @return UpdateAppInstanceGroupImageResponse UpdateAppInstanceGroupImageResponse
      */
     public function updateAppInstanceGroupImageWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->appCenterImageId) {
-            @$query['AppCenterImageId'] = $request->appCenterImageId;
+        if (!Utils::isUnset($request->appCenterImageId)) {
+            $query['AppCenterImageId'] = $request->appCenterImageId;
         }
-
-        if (null !== $request->appInstanceGroupId) {
-            @$query['AppInstanceGroupId'] = $request->appInstanceGroupId;
+        if (!Utils::isUnset($request->appInstanceGroupId)) {
+            $query['AppInstanceGroupId'] = $request->appInstanceGroupId;
         }
-
-        if (null !== $request->bizRegionId) {
-            @$query['BizRegionId'] = $request->bizRegionId;
+        if (!Utils::isUnset($request->bizRegionId)) {
+            $query['BizRegionId'] = $request->bizRegionId;
         }
-
-        if (null !== $request->productType) {
-            @$query['ProductType'] = $request->productType;
+        if (!Utils::isUnset($request->productType)) {
+            $query['ProductType'] = $request->productType;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'UpdateAppInstanceGroupImage',
@@ -3500,7 +2873,7 @@ class Appstreamcenter extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return UpdateAppInstanceGroupImageResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -3508,20 +2881,15 @@ class Appstreamcenter extends OpenApiClient
     }
 
     /**
-     * Updates the image of a delivery group.
-     *
-     * @remarks
-     * *
+     * @summary Updates the image of a delivery group.
+     *  *
+     * @description **
      * **Warning** After the image is updated, the end user session accessing the cloud application will be disconnected. Exercise caution to avoid end user data loss.
      * >  After the image of the delivery group is updated, the change takes effect on the terminal in approximately 2 minutes.
+     *  *
+     * @param UpdateAppInstanceGroupImageRequest $request UpdateAppInstanceGroupImageRequest
      *
-     * @param request - UpdateAppInstanceGroupImageRequest
-     *
-     * @returns UpdateAppInstanceGroupImageResponse
-     *
-     * @param UpdateAppInstanceGroupImageRequest $request
-     *
-     * @return UpdateAppInstanceGroupImageResponse
+     * @return UpdateAppInstanceGroupImageResponse UpdateAppInstanceGroupImageResponse
      */
     public function updateAppInstanceGroupImage($request)
     {

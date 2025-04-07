@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\ModifyAppInstanceGroupAttributeRequest\storagePolicy;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class userProfileFollow extends Model
 {
@@ -22,18 +22,14 @@ class userProfileFollow extends Model
         'profileFollowSwitch' => 'ProfileFollowSwitch',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->fileSystemId) {
             $res['FileSystemId'] = $this->fileSystemId;
         }
-
         if (null !== $this->profileFollowSwitch) {
             $res['ProfileFollowSwitch'] = $this->profileFollowSwitch;
         }
@@ -41,18 +37,17 @@ class userProfileFollow extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return userProfileFollow
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['FileSystemId'])) {
             $model->fileSystemId = $map['FileSystemId'];
         }
-
         if (isset($map['ProfileFollowSwitch'])) {
             $model->profileFollowSwitch = $map['ProfileFollowSwitch'];
         }

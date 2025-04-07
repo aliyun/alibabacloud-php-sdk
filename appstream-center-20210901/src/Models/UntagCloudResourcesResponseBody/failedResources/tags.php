@@ -4,16 +4,29 @@
 
 namespace AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\UntagCloudResourcesResponseBody\failedResources;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class tags extends Model
 {
     /**
+     * @description The tag key.
+     *
+     * @example Resolution
+     *
      * @var string
      */
     public $key;
 
     /**
+     * @description The tag type.
+     *
+     * Valid values:
+     *
+     *   Custom: custom tag.
+     *   System: system tag.
+     *
+     * @example Custom
+     *
      * @var string
      */
     public $scope;
@@ -22,18 +35,14 @@ class tags extends Model
         'scope' => 'Scope',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->key) {
             $res['Key'] = $this->key;
         }
-
         if (null !== $this->scope) {
             $res['Scope'] = $this->scope;
         }
@@ -41,18 +50,17 @@ class tags extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return tags
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Key'])) {
             $model->key = $map['Key'];
         }
-
         if (isset($map['Scope'])) {
             $model->scope = $map['Scope'];
         }

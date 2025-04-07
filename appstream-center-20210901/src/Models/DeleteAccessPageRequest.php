@@ -4,11 +4,13 @@
 
 namespace AlibabaCloud\SDK\Appstreamcenter\V20210901\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class DeleteAccessPageRequest extends Model
 {
     /**
+     * @example a-075nu7bcqim2wvxli
+     *
      * @var string
      */
     public $accessPageId;
@@ -16,12 +18,9 @@ class DeleteAccessPageRequest extends Model
         'accessPageId' => 'AccessPageId',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->accessPageId) {
@@ -31,11 +30,11 @@ class DeleteAccessPageRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return DeleteAccessPageRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();

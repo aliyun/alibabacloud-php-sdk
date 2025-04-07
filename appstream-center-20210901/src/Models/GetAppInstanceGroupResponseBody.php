@@ -4,17 +4,21 @@
 
 namespace AlibabaCloud\SDK\Appstreamcenter\V20210901\Models;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\GetAppInstanceGroupResponseBody\appInstanceGroupModels;
+use AlibabaCloud\Tea\Model;
 
 class GetAppInstanceGroupResponseBody extends Model
 {
     /**
+     * @description AppInstanceGroupModels
+     *
      * @var appInstanceGroupModels
      */
     public $appInstanceGroupModels;
 
     /**
+     * @example 1CBAFFAB-B697-4049-A9B1-67E1FC5F****
+     *
      * @var string
      */
     public $requestId;
@@ -23,21 +27,14 @@ class GetAppInstanceGroupResponseBody extends Model
         'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-        if (null !== $this->appInstanceGroupModels) {
-            $this->appInstanceGroupModels->validate();
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->appInstanceGroupModels) {
-            $res['AppInstanceGroupModels'] = null !== $this->appInstanceGroupModels ? $this->appInstanceGroupModels->toArray($noStream) : $this->appInstanceGroupModels;
+            $res['AppInstanceGroupModels'] = null !== $this->appInstanceGroupModels ? $this->appInstanceGroupModels->toMap() : null;
         }
-
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -45,18 +42,17 @@ class GetAppInstanceGroupResponseBody extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return GetAppInstanceGroupResponseBody
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AppInstanceGroupModels'])) {
             $model->appInstanceGroupModels = appInstanceGroupModels::fromMap($map['AppInstanceGroupModels']);
         }
-
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

@@ -4,32 +4,50 @@
 
 namespace AlibabaCloud\SDK\Appstreamcenter\V20210901\Models;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\ListAppInstanceGroupResponseBody\appInstanceGroupModels;
+use AlibabaCloud\Tea\Model;
 
 class ListAppInstanceGroupResponseBody extends Model
 {
     /**
+     * @description The delivery groups.
+     *
      * @var appInstanceGroupModels[]
      */
     public $appInstanceGroupModels;
 
     /**
+     * @description The page number.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @description The number of entries per page.
+     *
+     * @example 10
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @description The request ID.
+     *
+     * @example 1CBAFFAB-B697-4049-A9B1-67E1FC5F****
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description The total number of entries returned.
+     *
+     * @example 15
+     *
      * @var int
      */
     public $totalCount;
@@ -41,39 +59,29 @@ class ListAppInstanceGroupResponseBody extends Model
         'totalCount' => 'TotalCount',
     ];
 
-    public function validate()
-    {
-        if (\is_array($this->appInstanceGroupModels)) {
-            Model::validateArray($this->appInstanceGroupModels);
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->appInstanceGroupModels) {
-            if (\is_array($this->appInstanceGroupModels)) {
-                $res['AppInstanceGroupModels'] = [];
-                $n1 = 0;
-                foreach ($this->appInstanceGroupModels as $item1) {
-                    $res['AppInstanceGroupModels'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+            $res['AppInstanceGroupModels'] = [];
+            if (null !== $this->appInstanceGroupModels && \is_array($this->appInstanceGroupModels)) {
+                $n = 0;
+                foreach ($this->appInstanceGroupModels as $item) {
+                    $res['AppInstanceGroupModels'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
         }
-
         if (null !== $this->pageNumber) {
             $res['PageNumber'] = $this->pageNumber;
         }
-
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
         }
-
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
-
         if (null !== $this->totalCount) {
             $res['TotalCount'] = $this->totalCount;
         }
@@ -81,36 +89,32 @@ class ListAppInstanceGroupResponseBody extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return ListAppInstanceGroupResponseBody
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AppInstanceGroupModels'])) {
             if (!empty($map['AppInstanceGroupModels'])) {
                 $model->appInstanceGroupModels = [];
-                $n1 = 0;
-                foreach ($map['AppInstanceGroupModels'] as $item1) {
-                    $model->appInstanceGroupModels[$n1++] = appInstanceGroupModels::fromMap($item1);
+                $n = 0;
+                foreach ($map['AppInstanceGroupModels'] as $item) {
+                    $model->appInstanceGroupModels[$n++] = null !== $item ? appInstanceGroupModels::fromMap($item) : $item;
                 }
             }
         }
-
         if (isset($map['PageNumber'])) {
             $model->pageNumber = $map['PageNumber'];
         }
-
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
         }
-
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
-
         if (isset($map['TotalCount'])) {
             $model->totalCount = $map['TotalCount'];
         }

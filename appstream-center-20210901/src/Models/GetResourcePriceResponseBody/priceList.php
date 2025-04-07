@@ -4,23 +4,36 @@
 
 namespace AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\GetResourcePriceResponseBody;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\GetResourcePriceResponseBody\priceList\price;
 use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\GetResourcePriceResponseBody\priceList\rules;
+use AlibabaCloud\Tea\Model;
 
 class priceList extends Model
 {
     /**
+     * @description The price details.
+     *
      * @var price
      */
     public $price;
 
     /**
+     * @description The price type.
+     *
+     * Valid values:
+     *
+     *   Connected: in use
+     *   Standby: pending for use.
+     *
+     * @example Standby
+     *
      * @var string
      */
     public $priceType;
 
     /**
+     * @description The price calculation rules.
+     *
      * @var rules[]
      */
     public $rules;
@@ -30,34 +43,23 @@ class priceList extends Model
         'rules' => 'Rules',
     ];
 
-    public function validate()
-    {
-        if (null !== $this->price) {
-            $this->price->validate();
-        }
-        if (\is_array($this->rules)) {
-            Model::validateArray($this->rules);
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->price) {
-            $res['Price'] = null !== $this->price ? $this->price->toArray($noStream) : $this->price;
+            $res['Price'] = null !== $this->price ? $this->price->toMap() : null;
         }
-
         if (null !== $this->priceType) {
             $res['PriceType'] = $this->priceType;
         }
-
         if (null !== $this->rules) {
-            if (\is_array($this->rules)) {
-                $res['Rules'] = [];
-                $n1 = 0;
-                foreach ($this->rules as $item1) {
-                    $res['Rules'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+            $res['Rules'] = [];
+            if (null !== $this->rules && \is_array($this->rules)) {
+                $n = 0;
+                foreach ($this->rules as $item) {
+                    $res['Rules'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
         }
@@ -65,28 +67,26 @@ class priceList extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return priceList
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Price'])) {
             $model->price = price::fromMap($map['Price']);
         }
-
         if (isset($map['PriceType'])) {
             $model->priceType = $map['PriceType'];
         }
-
         if (isset($map['Rules'])) {
             if (!empty($map['Rules'])) {
                 $model->rules = [];
-                $n1 = 0;
-                foreach ($map['Rules'] as $item1) {
-                    $model->rules[$n1++] = rules::fromMap($item1);
+                $n = 0;
+                foreach ($map['Rules'] as $item) {
+                    $model->rules[$n++] = null !== $item ? rules::fromMap($item) : $item;
                 }
             }
         }
