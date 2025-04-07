@@ -106,6 +106,8 @@ use AlibabaCloud\SDK\ESA\V20240910\Models\CreateRoutineRelatedRouteRequest;
 use AlibabaCloud\SDK\ESA\V20240910\Models\CreateRoutineRelatedRouteResponse;
 use AlibabaCloud\SDK\ESA\V20240910\Models\CreateRoutineRequest;
 use AlibabaCloud\SDK\ESA\V20240910\Models\CreateRoutineResponse;
+use AlibabaCloud\SDK\ESA\V20240910\Models\CreateRoutineRouteRequest;
+use AlibabaCloud\SDK\ESA\V20240910\Models\CreateRoutineRouteResponse;
 use AlibabaCloud\SDK\ESA\V20240910\Models\CreateScheduledPreloadExecutionsRequest;
 use AlibabaCloud\SDK\ESA\V20240910\Models\CreateScheduledPreloadExecutionsResponse;
 use AlibabaCloud\SDK\ESA\V20240910\Models\CreateScheduledPreloadExecutionsShrinkRequest;
@@ -201,6 +203,8 @@ use AlibabaCloud\SDK\ESA\V20240910\Models\DeleteRoutineRelatedRouteRequest;
 use AlibabaCloud\SDK\ESA\V20240910\Models\DeleteRoutineRelatedRouteResponse;
 use AlibabaCloud\SDK\ESA\V20240910\Models\DeleteRoutineRequest;
 use AlibabaCloud\SDK\ESA\V20240910\Models\DeleteRoutineResponse;
+use AlibabaCloud\SDK\ESA\V20240910\Models\DeleteRoutineRouteRequest;
+use AlibabaCloud\SDK\ESA\V20240910\Models\DeleteRoutineRouteResponse;
 use AlibabaCloud\SDK\ESA\V20240910\Models\DeleteScheduledPreloadExecutionRequest;
 use AlibabaCloud\SDK\ESA\V20240910\Models\DeleteScheduledPreloadExecutionResponse;
 use AlibabaCloud\SDK\ESA\V20240910\Models\DeleteScheduledPreloadJobRequest;
@@ -353,6 +357,8 @@ use AlibabaCloud\SDK\ESA\V20240910\Models\GetRewriteUrlRuleRequest;
 use AlibabaCloud\SDK\ESA\V20240910\Models\GetRewriteUrlRuleResponse;
 use AlibabaCloud\SDK\ESA\V20240910\Models\GetRoutineRequest;
 use AlibabaCloud\SDK\ESA\V20240910\Models\GetRoutineResponse;
+use AlibabaCloud\SDK\ESA\V20240910\Models\GetRoutineRouteRequest;
+use AlibabaCloud\SDK\ESA\V20240910\Models\GetRoutineRouteResponse;
 use AlibabaCloud\SDK\ESA\V20240910\Models\GetRoutineStagingCodeUploadInfoRequest;
 use AlibabaCloud\SDK\ESA\V20240910\Models\GetRoutineStagingCodeUploadInfoResponse;
 use AlibabaCloud\SDK\ESA\V20240910\Models\GetRoutineStagingEnvIpResponse;
@@ -469,12 +475,16 @@ use AlibabaCloud\SDK\ESA\V20240910\Models\ListRewriteUrlRulesRequest;
 use AlibabaCloud\SDK\ESA\V20240910\Models\ListRewriteUrlRulesResponse;
 use AlibabaCloud\SDK\ESA\V20240910\Models\ListRoutineCanaryAreasResponse;
 use AlibabaCloud\SDK\ESA\V20240910\Models\ListRoutineOptionalSpecsResponse;
+use AlibabaCloud\SDK\ESA\V20240910\Models\ListRoutineRoutesRequest;
+use AlibabaCloud\SDK\ESA\V20240910\Models\ListRoutineRoutesResponse;
 use AlibabaCloud\SDK\ESA\V20240910\Models\ListScheduledPreloadExecutionsRequest;
 use AlibabaCloud\SDK\ESA\V20240910\Models\ListScheduledPreloadExecutionsResponse;
 use AlibabaCloud\SDK\ESA\V20240910\Models\ListScheduledPreloadJobsRequest;
 use AlibabaCloud\SDK\ESA\V20240910\Models\ListScheduledPreloadJobsResponse;
 use AlibabaCloud\SDK\ESA\V20240910\Models\ListSiteDeliveryTasksRequest;
 use AlibabaCloud\SDK\ESA\V20240910\Models\ListSiteDeliveryTasksResponse;
+use AlibabaCloud\SDK\ESA\V20240910\Models\ListSiteRoutesRequest;
+use AlibabaCloud\SDK\ESA\V20240910\Models\ListSiteRoutesResponse;
 use AlibabaCloud\SDK\ESA\V20240910\Models\ListSitesRequest;
 use AlibabaCloud\SDK\ESA\V20240910\Models\ListSitesResponse;
 use AlibabaCloud\SDK\ESA\V20240910\Models\ListSitesShrinkRequest;
@@ -620,6 +630,8 @@ use AlibabaCloud\SDK\ESA\V20240910\Models\UpdateRedirectRuleRequest;
 use AlibabaCloud\SDK\ESA\V20240910\Models\UpdateRedirectRuleResponse;
 use AlibabaCloud\SDK\ESA\V20240910\Models\UpdateRewriteUrlRuleRequest;
 use AlibabaCloud\SDK\ESA\V20240910\Models\UpdateRewriteUrlRuleResponse;
+use AlibabaCloud\SDK\ESA\V20240910\Models\UpdateRoutineRouteRequest;
+use AlibabaCloud\SDK\ESA\V20240910\Models\UpdateRoutineRouteResponse;
 use AlibabaCloud\SDK\ESA\V20240910\Models\UpdateScheduledPreloadExecutionRequest;
 use AlibabaCloud\SDK\ESA\V20240910\Models\UpdateScheduledPreloadExecutionResponse;
 use AlibabaCloud\SDK\ESA\V20240910\Models\UpdateSeoBypassRequest;
@@ -4589,6 +4601,90 @@ class ESA extends OpenApiClient
     }
 
     /**
+     * 新增边缘函数路由配置.
+     *
+     * @param request - CreateRoutineRouteRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateRoutineRouteResponse
+     *
+     * @param CreateRoutineRouteRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return CreateRoutineRouteResponse
+     */
+    public function createRoutineRouteWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->bypass) {
+            @$query['Bypass'] = $request->bypass;
+        }
+
+        if (null !== $request->routeEnable) {
+            @$query['RouteEnable'] = $request->routeEnable;
+        }
+
+        if (null !== $request->routeName) {
+            @$query['RouteName'] = $request->routeName;
+        }
+
+        if (null !== $request->routineName) {
+            @$query['RoutineName'] = $request->routineName;
+        }
+
+        if (null !== $request->rule) {
+            @$query['Rule'] = $request->rule;
+        }
+
+        if (null !== $request->sequence) {
+            @$query['Sequence'] = $request->sequence;
+        }
+
+        if (null !== $request->siteId) {
+            @$query['SiteId'] = $request->siteId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'CreateRoutineRoute',
+            'version' => '2024-09-10',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return CreateRoutineRouteResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
+
+        return CreateRoutineRouteResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * 新增边缘函数路由配置.
+     *
+     * @param request - CreateRoutineRouteRequest
+     *
+     * @returns CreateRoutineRouteResponse
+     *
+     * @param CreateRoutineRouteRequest $request
+     *
+     * @return CreateRoutineRouteResponse
+     */
+    public function createRoutineRoute($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createRoutineRouteWithOptions($request, $runtime);
+    }
+
+    /**
      * Creates scheduled prefetch plans.
      *
      * @param tmpReq - CreateScheduledPreloadExecutionsRequest
@@ -7797,6 +7893,70 @@ class ESA extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->deleteRoutineRelatedRouteWithOptions($request, $runtime);
+    }
+
+    /**
+     * 删除边缘函数路由配置.
+     *
+     * @param request - DeleteRoutineRouteRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteRoutineRouteResponse
+     *
+     * @param DeleteRoutineRouteRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return DeleteRoutineRouteResponse
+     */
+    public function deleteRoutineRouteWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->configId) {
+            @$query['ConfigId'] = $request->configId;
+        }
+
+        if (null !== $request->siteId) {
+            @$query['SiteId'] = $request->siteId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DeleteRoutineRoute',
+            'version' => '2024-09-10',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DeleteRoutineRouteResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
+
+        return DeleteRoutineRouteResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * 删除边缘函数路由配置.
+     *
+     * @param request - DeleteRoutineRouteRequest
+     *
+     * @returns DeleteRoutineRouteResponse
+     *
+     * @param DeleteRoutineRouteRequest $request
+     *
+     * @return DeleteRoutineRouteResponse
+     */
+    public function deleteRoutineRoute($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteRoutineRouteWithOptions($request, $runtime);
     }
 
     /**
@@ -12325,6 +12485,70 @@ class ESA extends OpenApiClient
     }
 
     /**
+     * 查询单条边缘函数路由配置.
+     *
+     * @param request - GetRoutineRouteRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetRoutineRouteResponse
+     *
+     * @param GetRoutineRouteRequest $request
+     * @param RuntimeOptions         $runtime
+     *
+     * @return GetRoutineRouteResponse
+     */
+    public function getRoutineRouteWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->configId) {
+            @$query['ConfigId'] = $request->configId;
+        }
+
+        if (null !== $request->siteId) {
+            @$query['SiteId'] = $request->siteId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'GetRoutineRoute',
+            'version' => '2024-09-10',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return GetRoutineRouteResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
+
+        return GetRoutineRouteResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * 查询单条边缘函数路由配置.
+     *
+     * @param request - GetRoutineRouteRequest
+     *
+     * @returns GetRoutineRouteResponse
+     *
+     * @param GetRoutineRouteRequest $request
+     *
+     * @return GetRoutineRouteResponse
+     */
+    public function getRoutineRoute($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getRoutineRouteWithOptions($request, $runtime);
+    }
+
+    /**
      * Obtains the release information about the routine code that is released to the staging environment. This information can be used to upload the test code to Object Storage Service (OSS).
      *
      * @remarks
@@ -15847,6 +16071,74 @@ class ESA extends OpenApiClient
     }
 
     /**
+     * 查询边缘程序的函数路由列表.
+     *
+     * @param request - ListRoutineRoutesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListRoutineRoutesResponse
+     *
+     * @param ListRoutineRoutesRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return ListRoutineRoutesResponse
+     */
+    public function listRoutineRoutesWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->pageNumber) {
+            @$query['PageNumber'] = $request->pageNumber;
+        }
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
+        }
+
+        if (null !== $request->routineName) {
+            @$query['RoutineName'] = $request->routineName;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListRoutineRoutes',
+            'version' => '2024-09-10',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ListRoutineRoutesResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
+
+        return ListRoutineRoutesResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * 查询边缘程序的函数路由列表.
+     *
+     * @param request - ListRoutineRoutesRequest
+     *
+     * @returns ListRoutineRoutesResponse
+     *
+     * @param ListRoutineRoutesRequest $request
+     *
+     * @return ListRoutineRoutesResponse
+     */
+    public function listRoutineRoutes($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listRoutineRoutesWithOptions($request, $runtime);
+    }
+
+    /**
      * Lists the plans in a scheduled prefetch task by task ID.
      *
      * @param request - ListScheduledPreloadExecutionsRequest
@@ -16012,6 +16304,86 @@ class ESA extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->listSiteDeliveryTasksWithOptions($request, $runtime);
+    }
+
+    /**
+     * 查询站点的函数路由列表.
+     *
+     * @param request - ListSiteRoutesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListSiteRoutesResponse
+     *
+     * @param ListSiteRoutesRequest $request
+     * @param RuntimeOptions        $runtime
+     *
+     * @return ListSiteRoutesResponse
+     */
+    public function listSiteRoutesWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->configId) {
+            @$query['ConfigId'] = $request->configId;
+        }
+
+        if (null !== $request->configType) {
+            @$query['ConfigType'] = $request->configType;
+        }
+
+        if (null !== $request->pageNumber) {
+            @$query['PageNumber'] = $request->pageNumber;
+        }
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
+        }
+
+        if (null !== $request->routeName) {
+            @$query['RouteName'] = $request->routeName;
+        }
+
+        if (null !== $request->siteId) {
+            @$query['SiteId'] = $request->siteId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListSiteRoutes',
+            'version' => '2024-09-10',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ListSiteRoutesResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
+
+        return ListSiteRoutesResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * 查询站点的函数路由列表.
+     *
+     * @param request - ListSiteRoutesRequest
+     *
+     * @returns ListSiteRoutesResponse
+     *
+     * @param ListSiteRoutesRequest $request
+     *
+     * @return ListSiteRoutesResponse
+     */
+    public function listSiteRoutes($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listSiteRoutesWithOptions($request, $runtime);
     }
 
     /**
@@ -21229,6 +21601,94 @@ class ESA extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->updateRewriteUrlRuleWithOptions($request, $runtime);
+    }
+
+    /**
+     * 修改边缘函数路由配置.
+     *
+     * @param request - UpdateRoutineRouteRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateRoutineRouteResponse
+     *
+     * @param UpdateRoutineRouteRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return UpdateRoutineRouteResponse
+     */
+    public function updateRoutineRouteWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->bypass) {
+            @$query['Bypass'] = $request->bypass;
+        }
+
+        if (null !== $request->configId) {
+            @$query['ConfigId'] = $request->configId;
+        }
+
+        if (null !== $request->routeEnable) {
+            @$query['RouteEnable'] = $request->routeEnable;
+        }
+
+        if (null !== $request->routeName) {
+            @$query['RouteName'] = $request->routeName;
+        }
+
+        if (null !== $request->routineName) {
+            @$query['RoutineName'] = $request->routineName;
+        }
+
+        if (null !== $request->rule) {
+            @$query['Rule'] = $request->rule;
+        }
+
+        if (null !== $request->sequence) {
+            @$query['Sequence'] = $request->sequence;
+        }
+
+        if (null !== $request->siteId) {
+            @$query['SiteId'] = $request->siteId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'UpdateRoutineRoute',
+            'version' => '2024-09-10',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return UpdateRoutineRouteResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
+
+        return UpdateRoutineRouteResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * 修改边缘函数路由配置.
+     *
+     * @param request - UpdateRoutineRouteRequest
+     *
+     * @returns UpdateRoutineRouteResponse
+     *
+     * @param UpdateRoutineRouteRequest $request
+     *
+     * @return UpdateRoutineRouteResponse
+     */
+    public function updateRoutineRoute($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->updateRoutineRouteWithOptions($request, $runtime);
     }
 
     /**
