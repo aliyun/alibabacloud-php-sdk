@@ -9,6 +9,13 @@ use AlibabaCloud\Tea\Model;
 class GetConnectionTicketRequest extends Model
 {
     /**
+     * @example INTERNET
+     *
+     * @var string
+     */
+    public $accessType;
+
+    /**
      * @example ca-etn4zizgaezo9gis9
      *
      * @var string
@@ -159,6 +166,7 @@ class GetConnectionTicketRequest extends Model
      */
     public $uuid;
     protected $_name = [
+        'accessType' => 'AccessType',
         'appId' => 'AppId',
         'appInstanceGroupId' => 'AppInstanceGroupId',
         'appInstanceId' => 'AppInstanceId',
@@ -189,6 +197,9 @@ class GetConnectionTicketRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->accessType) {
+            $res['AccessType'] = $this->accessType;
+        }
         if (null !== $this->appId) {
             $res['AppId'] = $this->appId;
         }
@@ -270,6 +281,9 @@ class GetConnectionTicketRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AccessType'])) {
+            $model->accessType = $map['AccessType'];
+        }
         if (isset($map['AppId'])) {
             $model->appId = $map['AppId'];
         }

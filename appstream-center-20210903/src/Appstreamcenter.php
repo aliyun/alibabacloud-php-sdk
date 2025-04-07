@@ -76,6 +76,9 @@ class Appstreamcenter extends OpenApiClient
     {
         Utils::validateModel($request);
         $body = [];
+        if (!Utils::isUnset($request->accessType)) {
+            $body['AccessType'] = $request->accessType;
+        }
         if (!Utils::isUnset($request->appId)) {
             $body['AppId'] = $request->appId;
         }
