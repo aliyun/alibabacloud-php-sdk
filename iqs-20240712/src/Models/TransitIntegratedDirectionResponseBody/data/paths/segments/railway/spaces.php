@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\IQS\V20240712\Models\TransitIntegratedDirectionResponseBody\data\paths\segments\railway;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class spaces extends Model
 {
@@ -14,8 +14,6 @@ class spaces extends Model
     public $code;
 
     /**
-     * @example 150
-     *
      * @var string
      */
     public $cost;
@@ -26,14 +24,16 @@ class spaces extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->code) {
             $res['code'] = $this->code;
         }
+
         if (null !== $this->cost) {
             $res['cost'] = $this->cost;
         }
@@ -41,17 +41,18 @@ class spaces extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return spaces
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['code'])) {
             $model->code = $map['code'];
         }
+
         if (isset($map['cost'])) {
             $model->cost = $map['cost'];
         }

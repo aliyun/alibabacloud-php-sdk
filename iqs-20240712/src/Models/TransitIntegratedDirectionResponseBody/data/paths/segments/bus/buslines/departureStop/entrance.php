@@ -4,20 +4,16 @@
 
 namespace AlibabaCloud\SDK\IQS\V20240712\Models\TransitIntegratedDirectionResponseBody\data\paths\segments\bus\buslines\departureStop;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class entrance extends Model
 {
     /**
-     * @example 99088345834
-     *
      * @var string
      */
     public $id;
 
     /**
-     * @example 116.468213,39.998876
-     *
      * @var string
      */
     public $location;
@@ -27,24 +23,27 @@ class entrance extends Model
      */
     public $name;
     protected $_name = [
-        'id'       => 'id',
+        'id' => 'id',
         'location' => 'location',
-        'name'     => 'name',
+        'name' => 'name',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->id) {
             $res['id'] = $this->id;
         }
+
         if (null !== $this->location) {
             $res['location'] = $this->location;
         }
+
         if (null !== $this->name) {
             $res['name'] = $this->name;
         }
@@ -52,20 +51,22 @@ class entrance extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return entrance
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['id'])) {
             $model->id = $map['id'];
         }
+
         if (isset($map['location'])) {
             $model->location = $map['location'];
         }
+
         if (isset($map['name'])) {
             $model->name = $map['name'];
         }

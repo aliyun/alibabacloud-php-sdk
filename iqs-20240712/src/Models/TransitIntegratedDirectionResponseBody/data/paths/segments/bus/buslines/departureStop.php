@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\IQS\V20240712\Models\TransitIntegratedDirectionResponseBody\data\paths\segments\bus\buslines;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\IQS\V20240712\Models\TransitIntegratedDirectionResponseBody\data\paths\segments\bus\buslines\departureStop\entrance;
-use AlibabaCloud\Tea\Model;
 
 class departureStop extends Model
 {
@@ -15,15 +15,11 @@ class departureStop extends Model
     public $entrance;
 
     /**
-     * @example 60852
-     *
      * @var string
      */
     public $id;
 
     /**
-     * @example 116.468213,39.998876
-     *
      * @var string
      */
     public $location;
@@ -34,27 +30,34 @@ class departureStop extends Model
     public $name;
     protected $_name = [
         'entrance' => 'entrance',
-        'id'       => 'id',
+        'id' => 'id',
         'location' => 'location',
-        'name'     => 'name',
+        'name' => 'name',
     ];
 
     public function validate()
     {
+        if (null !== $this->entrance) {
+            $this->entrance->validate();
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->entrance) {
-            $res['entrance'] = null !== $this->entrance ? $this->entrance->toMap() : null;
+            $res['entrance'] = null !== $this->entrance ? $this->entrance->toArray($noStream) : $this->entrance;
         }
+
         if (null !== $this->id) {
             $res['id'] = $this->id;
         }
+
         if (null !== $this->location) {
             $res['location'] = $this->location;
         }
+
         if (null !== $this->name) {
             $res['name'] = $this->name;
         }
@@ -62,23 +65,26 @@ class departureStop extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return departureStop
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['entrance'])) {
             $model->entrance = entrance::fromMap($map['entrance']);
         }
+
         if (isset($map['id'])) {
             $model->id = $map['id'];
         }
+
         if (isset($map['location'])) {
             $model->location = $map['location'];
         }
+
         if (isset($map['name'])) {
             $model->name = $map['name'];
         }
