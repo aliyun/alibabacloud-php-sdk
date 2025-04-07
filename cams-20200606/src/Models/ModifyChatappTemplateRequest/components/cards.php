@@ -13,6 +13,7 @@ class cards extends Model
      * @description The components of the carousel card.
      *
      * This parameter is required.
+     *
      * @var cardComponents[]
      */
     public $cardComponents;
@@ -20,9 +21,7 @@ class cards extends Model
         'cardComponents' => 'CardComponents',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -51,7 +50,7 @@ class cards extends Model
         if (isset($map['CardComponents'])) {
             if (!empty($map['CardComponents'])) {
                 $model->cardComponents = [];
-                $n                     = 0;
+                $n = 0;
                 foreach ($map['CardComponents'] as $item) {
                     $model->cardComponents[$n++] = null !== $item ? cardComponents::fromMap($item) : $item;
                 }

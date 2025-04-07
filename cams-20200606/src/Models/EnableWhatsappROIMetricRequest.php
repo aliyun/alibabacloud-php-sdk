@@ -27,12 +27,10 @@ class EnableWhatsappROIMetricRequest extends Model
     public $isvCode;
     protected $_name = [
         'custSpaceId' => 'CustSpaceId',
-        'isvCode'     => 'IsvCode',
+        'isvCode' => 'IsvCode',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

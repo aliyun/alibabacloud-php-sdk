@@ -45,6 +45,7 @@ class cardComponents extends Model
      *   **BUTTONS**
      *
      * This parameter is required.
+     *
      * @example BODY
      *
      * @var string
@@ -61,15 +62,13 @@ class cardComponents extends Model
     public $url;
     protected $_name = [
         'buttons' => 'Buttons',
-        'format'  => 'Format',
-        'text'    => 'Text',
-        'type'    => 'Type',
-        'url'     => 'Url',
+        'format' => 'Format',
+        'text' => 'Text',
+        'type' => 'Type',
+        'url' => 'Url',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -110,7 +109,7 @@ class cardComponents extends Model
         if (isset($map['Buttons'])) {
             if (!empty($map['Buttons'])) {
                 $model->buttons = [];
-                $n              = 0;
+                $n = 0;
                 foreach ($map['Buttons'] as $item) {
                     $model->buttons[$n++] = null !== $item ? buttons::fromMap($item) : $item;
                 }

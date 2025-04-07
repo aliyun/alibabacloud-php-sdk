@@ -22,6 +22,7 @@ class ModifyChatappTemplateShrinkRequest extends Model
      *   **text_image**: the template that contains text and images
      *
      * > This parameter applies only to Viber message templates.
+     *
      * @example text
      *
      * @var string
@@ -31,7 +32,10 @@ class ModifyChatappTemplateShrinkRequest extends Model
     /**
      * @description The components of the message template.
      *
+     * >  If Category is set to AUTHENTICATION, the Type sub-parameter of the Components parameter cannot be set to HEADER. If the Type sub-parameter is set to BODY or FOOTER, you do not need to set the Text sub-parameter of the Components parameter because the value is automatically generated.
+     *
      * This parameter is required.
+     *
      * @var string
      */
     public $componentsShrink;
@@ -49,6 +53,7 @@ class ModifyChatappTemplateShrinkRequest extends Model
      * @description The WhatsApp Business account (WABA) ID of the user within the independent software vendor (ISV) account.
      *
      * > CustWabaId is an obsolete parameter. Use CustSpaceId instead.
+     *
      * @example 659216218162179
      *
      * @deprecated
@@ -77,6 +82,7 @@ class ModifyChatappTemplateShrinkRequest extends Model
      * @description The language that is used in the message template. For more information, see [Language codes](https://help.aliyun.com/document_detail/463420.html).
      *
      * This parameter is required.
+     *
      * @example en
      *
      * @var string
@@ -87,6 +93,7 @@ class ModifyChatappTemplateShrinkRequest extends Model
      * @description Validity period of authentication template message sending in WhatsApp
      *
      * >This attribute requires providing waba in advance to Alibaba operators to open the whitelist, otherwise it will result in template submission failure
+     *
      * @example 120
      *
      * @var int
@@ -124,22 +131,20 @@ class ModifyChatappTemplateShrinkRequest extends Model
      */
     public $templateType;
     protected $_name = [
-        'category'              => 'Category',
-        'componentsShrink'      => 'Components',
-        'custSpaceId'           => 'CustSpaceId',
-        'custWabaId'            => 'CustWabaId',
-        'exampleShrink'         => 'Example',
-        'isvCode'               => 'IsvCode',
-        'language'              => 'Language',
+        'category' => 'Category',
+        'componentsShrink' => 'Components',
+        'custSpaceId' => 'CustSpaceId',
+        'custWabaId' => 'CustWabaId',
+        'exampleShrink' => 'Example',
+        'isvCode' => 'IsvCode',
+        'language' => 'Language',
         'messageSendTtlSeconds' => 'MessageSendTtlSeconds',
-        'templateCode'          => 'TemplateCode',
-        'templateName'          => 'TemplateName',
-        'templateType'          => 'TemplateType',
+        'templateCode' => 'TemplateCode',
+        'templateName' => 'TemplateName',
+        'templateType' => 'TemplateType',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

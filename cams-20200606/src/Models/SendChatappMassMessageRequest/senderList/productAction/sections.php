@@ -26,12 +26,10 @@ class sections extends Model
     public $title;
     protected $_name = [
         'productItems' => 'ProductItems',
-        'title'        => 'Title',
+        'title' => 'Title',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -63,7 +61,7 @@ class sections extends Model
         if (isset($map['ProductItems'])) {
             if (!empty($map['ProductItems'])) {
                 $model->productItems = [];
-                $n                   = 0;
+                $n = 0;
                 foreach ($map['ProductItems'] as $item) {
                     $model->productItems[$n++] = null !== $item ? productItems::fromMap($item) : $item;
                 }

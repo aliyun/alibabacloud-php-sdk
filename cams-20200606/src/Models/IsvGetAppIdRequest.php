@@ -27,6 +27,7 @@ class IsvGetAppIdRequest extends Model
      * @description The type of the app. Valid value: WHATSAPP.
      *
      * This parameter is required.
+     *
      * @example WHATSAPP
      *
      * @var string
@@ -34,12 +35,10 @@ class IsvGetAppIdRequest extends Model
     public $type;
     protected $_name = [
         'permissions' => 'Permissions',
-        'type'        => 'Type',
+        'type' => 'Type',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

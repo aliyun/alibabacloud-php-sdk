@@ -71,18 +71,16 @@ class data extends Model
      */
     public $securityToken;
     protected $_name = [
-        'accessKeyId'     => 'AccessKeyId',
+        'accessKeyId' => 'AccessKeyId',
         'accessKeySecret' => 'AccessKeySecret',
-        'bucketName'      => 'BucketName',
-        'dir'             => 'Dir',
-        'endPoint'        => 'EndPoint',
-        'expire'          => 'Expire',
-        'securityToken'   => 'SecurityToken',
+        'bucketName' => 'BucketName',
+        'dir' => 'Dir',
+        'endPoint' => 'EndPoint',
+        'expire' => 'Expire',
+        'securityToken' => 'SecurityToken',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

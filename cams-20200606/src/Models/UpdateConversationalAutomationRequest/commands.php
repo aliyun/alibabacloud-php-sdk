@@ -27,12 +27,10 @@ class commands extends Model
     public $commandName;
     protected $_name = [
         'commandDescription' => 'CommandDescription',
-        'commandName'        => 'CommandName',
+        'commandName' => 'CommandName',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

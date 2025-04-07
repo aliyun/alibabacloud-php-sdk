@@ -68,16 +68,14 @@ class GetCommerceSettingResponseBody extends Model
     public $success;
     protected $_name = [
         'accessDeniedDetail' => 'AccessDeniedDetail',
-        'code'               => 'Code',
-        'data'               => 'Data',
-        'message'            => 'Message',
-        'requestId'          => 'RequestId',
-        'success'            => 'Success',
+        'code' => 'Code',
+        'data' => 'Data',
+        'message' => 'Message',
+        'requestId' => 'RequestId',
+        'success' => 'Success',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

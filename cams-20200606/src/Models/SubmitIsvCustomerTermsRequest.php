@@ -12,6 +12,7 @@ class SubmitIsvCustomerTermsRequest extends Model
      * @description The business scenario.
      *
      * This parameter is required.
+     *
      * @example Marketing products
      *
      * @var string
@@ -22,6 +23,7 @@ class SubmitIsvCustomerTermsRequest extends Model
      * @description The enterprise mail.
      *
      * This parameter is required.
+     *
      * @example partner@aliyun.com
      *
      * @var string
@@ -31,7 +33,10 @@ class SubmitIsvCustomerTermsRequest extends Model
     /**
      * @description The country code.
      *
+     * >  For more information about country codes, see [Country codes](https://help.aliyun.com/document_detail/608210.html).
+     *
      * This parameter is required.
+     *
      * @example CN
      *
      * @var string
@@ -42,6 +47,7 @@ class SubmitIsvCustomerTermsRequest extends Model
      * @description The enterprise name.
      *
      * This parameter is required.
+     *
      * @example Aliyun
      *
      * @var string
@@ -52,6 +58,7 @@ class SubmitIsvCustomerTermsRequest extends Model
      * @description The space ID of the user within the independent software vendor (ISV) account.
      *
      * This parameter is required.
+     *
      * @example 293483938849493
      *
      * @var string
@@ -62,6 +69,7 @@ class SubmitIsvCustomerTermsRequest extends Model
      * @description The ISV or Client agreement.
      *
      * This parameter is required.
+     *
      * @example isvTerms.pdf
      *
      * @var string
@@ -72,24 +80,23 @@ class SubmitIsvCustomerTermsRequest extends Model
      * @description The enterprise address.
      *
      * This parameter is required.
+     *
      * @example Hangzhou
      *
      * @var string
      */
     public $officeAddress;
     protected $_name = [
-        'businessDesc'  => 'BusinessDesc',
-        'contactMail'   => 'ContactMail',
-        'countryId'     => 'CountryId',
-        'custName'      => 'CustName',
-        'custSpaceId'   => 'CustSpaceId',
-        'isvTerms'      => 'IsvTerms',
+        'businessDesc' => 'BusinessDesc',
+        'contactMail' => 'ContactMail',
+        'countryId' => 'CountryId',
+        'custName' => 'CustName',
+        'custSpaceId' => 'CustSpaceId',
+        'isvTerms' => 'IsvTerms',
         'officeAddress' => 'OfficeAddress',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

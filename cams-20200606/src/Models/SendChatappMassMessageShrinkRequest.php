@@ -16,6 +16,7 @@ class SendChatappMassMessageShrinkRequest extends Model
      *   **line** (under development)
      *
      * This parameter is required.
+     *
      * @example whatsapp
      *
      * @var string
@@ -35,6 +36,7 @@ class SendChatappMassMessageShrinkRequest extends Model
      * @description The WhatsApp Business Account (WABA) ID of the RAM user within the independent software vendor (ISV) account.
      *
      * >  CustWabaId is an obsolete parameter. Use CustSpaceId instead.
+     *
      * @example 65921621816****
      *
      * @deprecated
@@ -86,6 +88,7 @@ class SendChatappMassMessageShrinkRequest extends Model
      * @description The mobile phone number of the message sender.
      *
      * This parameter is required.
+     *
      * @example 861387777****
      *
      * @var string
@@ -117,6 +120,7 @@ class SendChatappMassMessageShrinkRequest extends Model
      * @description The language. For more information about language codes, see [Language codes](https://help.aliyun.com/document_detail/463420.html).
      *
      * This parameter is required.
+     *
      * @example en
      *
      * @var string
@@ -127,6 +131,7 @@ class SendChatappMassMessageShrinkRequest extends Model
      * @description The mobile phone numbers of the message receivers.
      *
      * This parameter is required.
+     *
      * @var string
      */
     public $senderListShrink;
@@ -176,28 +181,26 @@ class SendChatappMassMessageShrinkRequest extends Model
      */
     public $ttl;
     protected $_name = [
-        'channelType'      => 'ChannelType',
-        'custSpaceId'      => 'CustSpaceId',
-        'custWabaId'       => 'CustWabaId',
-        'fallBackContent'  => 'FallBackContent',
+        'channelType' => 'ChannelType',
+        'custSpaceId' => 'CustSpaceId',
+        'custWabaId' => 'CustWabaId',
+        'fallBackContent' => 'FallBackContent',
         'fallBackDuration' => 'FallBackDuration',
-        'fallBackId'       => 'FallBackId',
-        'fallBackRule'     => 'FallBackRule',
-        'from'             => 'From',
-        'isvCode'          => 'IsvCode',
-        'label'            => 'Label',
-        'language'         => 'Language',
+        'fallBackId' => 'FallBackId',
+        'fallBackRule' => 'FallBackRule',
+        'from' => 'From',
+        'isvCode' => 'IsvCode',
+        'label' => 'Label',
+        'language' => 'Language',
         'senderListShrink' => 'SenderList',
-        'tag'              => 'Tag',
-        'taskId'           => 'TaskId',
-        'templateCode'     => 'TemplateCode',
-        'templateName'     => 'TemplateName',
-        'ttl'              => 'Ttl',
+        'tag' => 'Tag',
+        'taskId' => 'TaskId',
+        'templateCode' => 'TemplateCode',
+        'templateName' => 'TemplateName',
+        'ttl' => 'Ttl',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

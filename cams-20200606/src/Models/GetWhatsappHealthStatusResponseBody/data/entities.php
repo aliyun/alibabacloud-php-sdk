@@ -79,19 +79,17 @@ class entities extends Model
      */
     public $wabaId;
     protected $_name = [
-        'businessId'     => 'BusinessId',
+        'businessId' => 'BusinessId',
         'canSendMessage' => 'CanSendMessage',
-        'entityType'     => 'EntityType',
-        'errors'         => 'Errors',
-        'language'       => 'Language',
-        'phoneNumber'    => 'PhoneNumber',
-        'templateCode'   => 'TemplateCode',
-        'wabaId'         => 'WabaId',
+        'entityType' => 'EntityType',
+        'errors' => 'Errors',
+        'language' => 'Language',
+        'phoneNumber' => 'PhoneNumber',
+        'templateCode' => 'TemplateCode',
+        'wabaId' => 'WabaId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -150,7 +148,7 @@ class entities extends Model
         if (isset($map['Errors'])) {
             if (!empty($map['Errors'])) {
                 $model->errors = [];
-                $n             = 0;
+                $n = 0;
                 foreach ($map['Errors'] as $item) {
                     $model->errors[$n++] = null !== $item ? errors::fromMap($item) : $item;
                 }

@@ -65,16 +65,14 @@ class ListChatappTemplateResponseBody extends Model
     public $total;
     protected $_name = [
         'accessDeniedDetail' => 'AccessDeniedDetail',
-        'code'               => 'Code',
-        'listTemplate'       => 'ListTemplate',
-        'message'            => 'Message',
-        'requestId'          => 'RequestId',
-        'total'              => 'Total',
+        'code' => 'Code',
+        'listTemplate' => 'ListTemplate',
+        'message' => 'Message',
+        'requestId' => 'RequestId',
+        'total' => 'Total',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -124,7 +122,7 @@ class ListChatappTemplateResponseBody extends Model
         if (isset($map['ListTemplate'])) {
             if (!empty($map['ListTemplate'])) {
                 $model->listTemplate = [];
-                $n                   = 0;
+                $n = 0;
                 foreach ($map['ListTemplate'] as $item) {
                     $model->listTemplate[$n++] = null !== $item ? listTemplate::fromMap($item) : $item;
                 }

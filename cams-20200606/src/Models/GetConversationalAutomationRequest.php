@@ -12,6 +12,7 @@ class GetConversationalAutomationRequest extends Model
      * @description The space ID of the RAM user within the independent software vendor (ISV) account or the instance ID of the customer of Alibaba Cloud.
      *
      * This parameter is required.
+     *
      * @example cams-3ie***
      *
      * @var string
@@ -27,6 +28,7 @@ class GetConversationalAutomationRequest extends Model
      * @description The phone number of the enterprise.
      *
      * This parameter is required.
+     *
      * @example 86130000***
      *
      * @var string
@@ -43,16 +45,14 @@ class GetConversationalAutomationRequest extends Model
      */
     public $resourceOwnerId;
     protected $_name = [
-        'custSpaceId'          => 'CustSpaceId',
-        'ownerId'              => 'OwnerId',
-        'phoneNumber'          => 'PhoneNumber',
+        'custSpaceId' => 'CustSpaceId',
+        'ownerId' => 'OwnerId',
+        'phoneNumber' => 'PhoneNumber',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
-        'resourceOwnerId'      => 'ResourceOwnerId',
+        'resourceOwnerId' => 'ResourceOwnerId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

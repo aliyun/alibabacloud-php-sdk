@@ -26,13 +26,11 @@ class associate extends Model
      */
     public $title;
     protected $_name = [
-        'meta'  => 'Meta',
+        'meta' => 'Meta',
         'title' => 'Title',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

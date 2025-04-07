@@ -35,13 +35,11 @@ class ListFlowRequest extends Model
     public $page;
     protected $_name = [
         'custSpaceId' => 'CustSpaceId',
-        'flowName'    => 'FlowName',
-        'page'        => 'Page',
+        'flowName' => 'FlowName',
+        'page' => 'Page',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

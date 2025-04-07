@@ -57,6 +57,7 @@ class TriggerChatFlowResponseBody extends Model
      * @description Whether the call was successful.
      * - **true**: Call succeeded.
      * - **false**: Call failed.
+     *
      * @example true
      *
      * @var bool
@@ -64,16 +65,14 @@ class TriggerChatFlowResponseBody extends Model
     public $success;
     protected $_name = [
         'accessDeniedDetail' => 'AccessDeniedDetail',
-        'code'               => 'Code',
-        'data'               => 'Data',
-        'message'            => 'Message',
-        'requestId'          => 'RequestId',
-        'success'            => 'Success',
+        'code' => 'Code',
+        'data' => 'Data',
+        'message' => 'Message',
+        'requestId' => 'RequestId',
+        'success' => 'Success',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

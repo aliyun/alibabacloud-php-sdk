@@ -120,24 +120,22 @@ class text extends Model
      */
     public $userDefinedChatTitle;
     protected $_name = [
-        'answerSource'         => 'AnswerSource',
-        'content'              => 'Content',
-        'contentType'          => 'ContentType',
-        'dialogName'           => 'DialogName',
-        'ext'                  => 'Ext',
-        'externalFlags'        => 'ExternalFlags',
-        'hitStatement'         => 'HitStatement',
-        'intentName'           => 'IntentName',
-        'metaData'             => 'MetaData',
-        'nodeId'               => 'NodeId',
-        'nodeName'             => 'NodeName',
-        'slots'                => 'Slots',
+        'answerSource' => 'AnswerSource',
+        'content' => 'Content',
+        'contentType' => 'ContentType',
+        'dialogName' => 'DialogName',
+        'ext' => 'Ext',
+        'externalFlags' => 'ExternalFlags',
+        'hitStatement' => 'HitStatement',
+        'intentName' => 'IntentName',
+        'metaData' => 'MetaData',
+        'nodeId' => 'NodeId',
+        'nodeName' => 'NodeName',
+        'slots' => 'Slots',
         'userDefinedChatTitle' => 'UserDefinedChatTitle',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -235,7 +233,7 @@ class text extends Model
         if (isset($map['Slots'])) {
             if (!empty($map['Slots'])) {
                 $model->slots = [];
-                $n            = 0;
+                $n = 0;
                 foreach ($map['Slots'] as $item) {
                     $model->slots[$n++] = null !== $item ? slots::fromMap($item) : $item;
                 }

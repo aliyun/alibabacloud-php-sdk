@@ -12,6 +12,7 @@ class GetPermissionByCodeShrinkRequest extends Model
      * @description Authorize code information.
      *
      * This parameter is required.
+     *
      * @example flow_001
      *
      * @var string
@@ -34,14 +35,12 @@ class GetPermissionByCodeShrinkRequest extends Model
      */
     public $permissionsShrink;
     protected $_name = [
-        'code'              => 'Code',
-        'custSpaceId'       => 'CustSpaceId',
+        'code' => 'Code',
+        'custSpaceId' => 'CustSpaceId',
         'permissionsShrink' => 'Permissions',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

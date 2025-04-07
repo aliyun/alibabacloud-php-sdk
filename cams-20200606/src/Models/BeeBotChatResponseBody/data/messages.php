@@ -51,15 +51,13 @@ class messages extends Model
     public $text;
     protected $_name = [
         'answerSource' => 'AnswerSource',
-        'answerType'   => 'AnswerType',
-        'knowledge'    => 'Knowledge',
-        'recommends'   => 'Recommends',
-        'text'         => 'Text',
+        'answerType' => 'AnswerType',
+        'knowledge' => 'Knowledge',
+        'recommends' => 'Recommends',
+        'text' => 'Text',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -109,7 +107,7 @@ class messages extends Model
         if (isset($map['Recommends'])) {
             if (!empty($map['Recommends'])) {
                 $model->recommends = [];
-                $n                 = 0;
+                $n = 0;
                 foreach ($map['Recommends'] as $item) {
                     $model->recommends[$n++] = null !== $item ? recommends::fromMap($item) : $item;
                 }

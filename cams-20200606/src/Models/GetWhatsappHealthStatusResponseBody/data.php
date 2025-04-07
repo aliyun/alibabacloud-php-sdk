@@ -26,12 +26,10 @@ class data extends Model
     public $entities;
     protected $_name = [
         'canSendMessage' => 'CanSendMessage',
-        'entities'       => 'Entities',
+        'entities' => 'Entities',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -66,7 +64,7 @@ class data extends Model
         if (isset($map['Entities'])) {
             if (!empty($map['Entities'])) {
                 $model->entities = [];
-                $n               = 0;
+                $n = 0;
                 foreach ($map['Entities'] as $item) {
                     $model->entities[$n++] = null !== $item ? entities::fromMap($item) : $item;
                 }

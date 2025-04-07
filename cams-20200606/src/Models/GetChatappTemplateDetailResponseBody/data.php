@@ -43,6 +43,7 @@ class data extends Model
      *   **text_image**: a template that contains text and images
      *
      * > If Category is set to text_video_button, users cannot open a web page by clicking the button. Users can open only the video in the message. In this case, you do not need to specify the Url parameter for the URL button in the template.
+     *
      * @example TRANSACTIONAL
      *
      * @var string
@@ -130,22 +131,20 @@ class data extends Model
      */
     public $templateType;
     protected $_name = [
-        'auditStatus'           => 'AuditStatus',
-        'category'              => 'Category',
-        'components'            => 'Components',
-        'example'               => 'Example',
-        'language'              => 'Language',
+        'auditStatus' => 'AuditStatus',
+        'category' => 'Category',
+        'components' => 'Components',
+        'example' => 'Example',
+        'language' => 'Language',
         'messageSendTtlSeconds' => 'MessageSendTtlSeconds',
-        'name'                  => 'Name',
-        'qualityScore'          => 'QualityScore',
-        'reason'                => 'Reason',
-        'templateCode'          => 'TemplateCode',
-        'templateType'          => 'TemplateType',
+        'name' => 'Name',
+        'qualityScore' => 'QualityScore',
+        'reason' => 'Reason',
+        'templateCode' => 'TemplateCode',
+        'templateType' => 'TemplateType',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -210,7 +209,7 @@ class data extends Model
         if (isset($map['Components'])) {
             if (!empty($map['Components'])) {
                 $model->components = [];
-                $n                 = 0;
+                $n = 0;
                 foreach ($map['Components'] as $item) {
                     $model->components[$n++] = null !== $item ? components::fromMap($item) : $item;
                 }

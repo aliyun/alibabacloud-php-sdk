@@ -12,6 +12,7 @@ class ModifyFlowRequest extends Model
      * @description The information about the categories of the Flow.
      *
      * This parameter is required.
+     *
      * @var string[]
      */
     public $categories;
@@ -38,21 +39,20 @@ class ModifyFlowRequest extends Model
      * @description The name of the Flow.
      *
      * This parameter is required.
+     *
      * @example flow_001
      *
      * @var string
      */
     public $flowName;
     protected $_name = [
-        'categories'  => 'Categories',
+        'categories' => 'Categories',
         'custSpaceId' => 'CustSpaceId',
-        'flowId'      => 'FlowId',
-        'flowName'    => 'FlowName',
+        'flowId' => 'FlowId',
+        'flowName' => 'FlowName',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

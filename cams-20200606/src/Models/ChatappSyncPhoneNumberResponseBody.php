@@ -59,16 +59,14 @@ class ChatappSyncPhoneNumberResponseBody extends Model
     public $success;
     protected $_name = [
         'accessDeniedDetail' => 'AccessDeniedDetail',
-        'code'               => 'Code',
-        'message'            => 'Message',
-        'phoneNumbers'       => 'PhoneNumbers',
-        'requestId'          => 'RequestId',
-        'success'            => 'Success',
+        'code' => 'Code',
+        'message' => 'Message',
+        'phoneNumbers' => 'PhoneNumbers',
+        'requestId' => 'RequestId',
+        'success' => 'Success',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -121,7 +119,7 @@ class ChatappSyncPhoneNumberResponseBody extends Model
         if (isset($map['PhoneNumbers'])) {
             if (!empty($map['PhoneNumbers'])) {
                 $model->phoneNumbers = [];
-                $n                   = 0;
+                $n = 0;
                 foreach ($map['PhoneNumbers'] as $item) {
                     $model->phoneNumbers[$n++] = null !== $item ? phoneNumbers::fromMap($item) : $item;
                 }

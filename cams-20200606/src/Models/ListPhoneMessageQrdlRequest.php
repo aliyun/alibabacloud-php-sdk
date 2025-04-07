@@ -21,6 +21,7 @@ class ListPhoneMessageQrdlRequest extends Model
      * @description The phone number. Add the country code before the phone number.
      *
      * This parameter is required.
+     *
      * @example 861380000
      *
      * @var string
@@ -31,9 +32,7 @@ class ListPhoneMessageQrdlRequest extends Model
         'phoneNumber' => 'PhoneNumber',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

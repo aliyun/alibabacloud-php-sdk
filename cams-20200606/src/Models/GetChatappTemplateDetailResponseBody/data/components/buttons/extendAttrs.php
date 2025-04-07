@@ -53,16 +53,14 @@ class extendAttrs extends Model
      */
     public $nextTemplateName;
     protected $_name = [
-        'action'           => 'Action',
-        'intentCode'       => 'IntentCode',
+        'action' => 'Action',
+        'intentCode' => 'IntentCode',
         'nextLanguageCode' => 'NextLanguageCode',
         'nextTemplateCode' => 'NextTemplateCode',
         'nextTemplateName' => 'NextTemplateName',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

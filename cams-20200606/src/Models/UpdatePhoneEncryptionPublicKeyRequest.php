@@ -21,8 +21,17 @@ class UpdatePhoneEncryptionPublicKeyRequest extends Model
      * @description Encrypt the public key.
      *
      * This parameter is required.
+     *
      * @example -----BEGIN PUBLIC KEY-----
+     * AAA
+     * BBB
+     * CCC
+     * DDD
+     * EEE
+     * FFF
+     * GGG
      * -----END PUBLIC KEY-----
+     *
      * @var string
      */
     public $encryptionPublicKey;
@@ -31,20 +40,19 @@ class UpdatePhoneEncryptionPublicKeyRequest extends Model
      * @description The phone number.
      *
      * This parameter is required.
+     *
      * @example 86138000
      *
      * @var string
      */
     public $phoneNumber;
     protected $_name = [
-        'custSpaceId'         => 'CustSpaceId',
+        'custSpaceId' => 'CustSpaceId',
         'encryptionPublicKey' => 'EncryptionPublicKey',
-        'phoneNumber'         => 'PhoneNumber',
+        'phoneNumber' => 'PhoneNumber',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

@@ -53,16 +53,14 @@ class wabas extends Model
      */
     public $name;
     protected $_name = [
-        'accountReviewStatus'      => 'AccountReviewStatus',
-        'currency'                 => 'Currency',
-        'id'                       => 'Id',
+        'accountReviewStatus' => 'AccountReviewStatus',
+        'currency' => 'Currency',
+        'id' => 'Id',
         'messageTemplateNamespace' => 'MessageTemplateNamespace',
-        'name'                     => 'Name',
+        'name' => 'Name',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

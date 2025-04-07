@@ -12,6 +12,7 @@ class GetWhatsappHealthStatusRequest extends Model
      * @description The space ID of the RAM user within the independent software vendor (ISV) account or the instance ID of the customer of Alibaba Cloud.
      *
      * This parameter is required.
+     *
      * @example 2993****
      *
      * @var string
@@ -37,6 +38,7 @@ class GetWhatsappHealthStatusRequest extends Model
      *   waba: WhatsApp Business Account (WABA)
      *
      * This parameter is required.
+     *
      * @example waba
      *
      * @var string
@@ -85,20 +87,18 @@ class GetWhatsappHealthStatusRequest extends Model
      */
     public $wabaId;
     protected $_name = [
-        'custSpaceId'          => 'CustSpaceId',
-        'language'             => 'Language',
-        'nodeType'             => 'NodeType',
-        'ownerId'              => 'OwnerId',
-        'phoneNumber'          => 'PhoneNumber',
+        'custSpaceId' => 'CustSpaceId',
+        'language' => 'Language',
+        'nodeType' => 'NodeType',
+        'ownerId' => 'OwnerId',
+        'phoneNumber' => 'PhoneNumber',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
-        'resourceOwnerId'      => 'ResourceOwnerId',
-        'templateCode'         => 'TemplateCode',
-        'wabaId'               => 'WabaId',
+        'resourceOwnerId' => 'ResourceOwnerId',
+        'templateCode' => 'TemplateCode',
+        'wabaId' => 'WabaId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

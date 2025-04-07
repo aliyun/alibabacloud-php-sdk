@@ -62,17 +62,15 @@ class data extends Model
      */
     public $qrdlCode;
     protected $_name = [
-        'deepLinkUrl'      => 'DeepLinkUrl',
-        'generateQrImage'  => 'GenerateQrImage',
-        'phoneNumber'      => 'PhoneNumber',
+        'deepLinkUrl' => 'DeepLinkUrl',
+        'generateQrImage' => 'GenerateQrImage',
+        'phoneNumber' => 'PhoneNumber',
         'prefilledMessage' => 'PrefilledMessage',
-        'qrImageUrl'       => 'QrImageUrl',
-        'qrdlCode'         => 'QrdlCode',
+        'qrImageUrl' => 'QrImageUrl',
+        'qrdlCode' => 'QrdlCode',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

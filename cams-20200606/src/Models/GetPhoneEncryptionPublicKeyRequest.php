@@ -21,6 +21,7 @@ class GetPhoneEncryptionPublicKeyRequest extends Model
      * @description The phone number.
      *
      * This parameter is required.
+     *
      * @example flow_001
      *
      * @var string
@@ -31,9 +32,7 @@ class GetPhoneEncryptionPublicKeyRequest extends Model
         'phoneNumber' => 'PhoneNumber',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

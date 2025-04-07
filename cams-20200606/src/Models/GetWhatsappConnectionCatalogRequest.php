@@ -36,22 +36,21 @@ class GetWhatsappConnectionCatalogRequest extends Model
      * @description The WABA ID.
      *
      * This parameter is required.
+     *
      * @example 292939399393
      *
      * @var string
      */
     public $wabaId;
     protected $_name = [
-        'custSpaceId'          => 'CustSpaceId',
-        'ownerId'              => 'OwnerId',
+        'custSpaceId' => 'CustSpaceId',
+        'ownerId' => 'OwnerId',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
-        'resourceOwnerId'      => 'ResourceOwnerId',
-        'wabaId'               => 'WabaId',
+        'resourceOwnerId' => 'ResourceOwnerId',
+        'wabaId' => 'WabaId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

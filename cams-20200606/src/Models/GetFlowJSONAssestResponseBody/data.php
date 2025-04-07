@@ -27,12 +27,10 @@ class data extends Model
     public $flowId;
     protected $_name = [
         'filePath' => 'FilePath',
-        'flowId'   => 'FlowId',
+        'flowId' => 'FlowId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

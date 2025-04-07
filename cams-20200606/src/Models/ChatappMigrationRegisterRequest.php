@@ -12,6 +12,7 @@ class ChatappMigrationRegisterRequest extends Model
      * @description None
      *
      * This parameter is required.
+     *
      * @example 29348393884****
      *
      * @var string
@@ -22,6 +23,7 @@ class ChatappMigrationRegisterRequest extends Model
      * @description phone number.
      *
      * This parameter is required.
+     *
      * @example 8613800****
      *
      * @var string
@@ -32,9 +34,7 @@ class ChatappMigrationRegisterRequest extends Model
         'phoneNumber' => 'PhoneNumber',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

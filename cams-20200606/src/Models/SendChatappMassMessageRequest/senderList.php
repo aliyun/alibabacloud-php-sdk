@@ -42,22 +42,21 @@ class senderList extends Model
      * @description The mobile phone number of the message receiver.
      *
      * This parameter is required.
+     *
      * @example 861388988****
      *
      * @var string
      */
     public $to;
     protected $_name = [
-        'flowAction'     => 'FlowAction',
-        'payload'        => 'Payload',
-        'productAction'  => 'ProductAction',
+        'flowAction' => 'FlowAction',
+        'payload' => 'Payload',
+        'productAction' => 'ProductAction',
         'templateParams' => 'TemplateParams',
-        'to'             => 'To',
+        'to' => 'To',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

@@ -21,6 +21,7 @@ class DeletePhoneMessageQrdlRequest extends Model
      * @description The phone number. Add the country code before the phone number.
      *
      * This parameter is required.
+     *
      * @example 861380000
      *
      * @var string
@@ -31,6 +32,7 @@ class DeletePhoneMessageQrdlRequest extends Model
      * @description QR code encoding.
      *
      * This parameter is required.
+     *
      * @example 29338838
      *
      * @var string
@@ -39,12 +41,10 @@ class DeletePhoneMessageQrdlRequest extends Model
     protected $_name = [
         'custSpaceId' => 'CustSpaceId',
         'phoneNumber' => 'PhoneNumber',
-        'qrdlCode'    => 'QrdlCode',
+        'qrdlCode' => 'QrdlCode',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

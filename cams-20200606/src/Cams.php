@@ -223,18 +223,21 @@ class Cams extends OpenApiClient
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'AddChatappPhoneNumber',
-            'version'     => '2020-06-06',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'AddChatappPhoneNumber',
+            'version' => '2020-06-06',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return AddChatappPhoneNumberResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return AddChatappPhoneNumberResponse::fromMap($this->callApi($params, $req, $runtime));
+        return AddChatappPhoneNumberResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -295,18 +298,21 @@ class Cams extends OpenApiClient
             'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'BeeBotAssociate',
-            'version'     => '2020-06-06',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'BeeBotAssociate',
+            'version' => '2020-06-06',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return BeeBotAssociateResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return BeeBotAssociateResponse::fromMap($this->callApi($params, $req, $runtime));
+        return BeeBotAssociateResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -384,18 +390,21 @@ class Cams extends OpenApiClient
             'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'BeeBotChat',
-            'version'     => '2020-06-06',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'BeeBotChat',
+            'version' => '2020-06-06',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return BeeBotChatResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return BeeBotChatResponse::fromMap($this->callApi($params, $req, $runtime));
+        return BeeBotChatResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -444,18 +453,21 @@ class Cams extends OpenApiClient
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ChatappBindWaba',
-            'version'     => '2020-06-06',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ChatappBindWaba',
+            'version' => '2020-06-06',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return ChatappBindWabaResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ChatappBindWabaResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ChatappBindWabaResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -495,18 +507,21 @@ class Cams extends OpenApiClient
             'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'ChatappEmbedSignUp',
-            'version'     => '2020-06-06',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ChatappEmbedSignUp',
+            'version' => '2020-06-06',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return ChatappEmbedSignUpResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ChatappEmbedSignUpResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ChatappEmbedSignUpResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -549,18 +564,21 @@ class Cams extends OpenApiClient
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ChatappMigrationRegister',
-            'version'     => '2020-06-06',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ChatappMigrationRegister',
+            'version' => '2020-06-06',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return ChatappMigrationRegisterResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ChatappMigrationRegisterResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ChatappMigrationRegisterResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -606,18 +624,21 @@ class Cams extends OpenApiClient
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ChatappMigrationVerified',
-            'version'     => '2020-06-06',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ChatappMigrationVerified',
+            'version' => '2020-06-06',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return ChatappMigrationVerifiedResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ChatappMigrationVerifiedResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ChatappMigrationVerifiedResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -660,18 +681,21 @@ class Cams extends OpenApiClient
             'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'ChatappPhoneNumberDeregister',
-            'version'     => '2020-06-06',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ChatappPhoneNumberDeregister',
+            'version' => '2020-06-06',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return ChatappPhoneNumberDeregisterResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ChatappPhoneNumberDeregisterResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ChatappPhoneNumberDeregisterResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -723,18 +747,21 @@ class Cams extends OpenApiClient
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ChatappPhoneNumberRegister',
-            'version'     => '2020-06-06',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ChatappPhoneNumberRegister',
+            'version' => '2020-06-06',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return ChatappPhoneNumberRegisterResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ChatappPhoneNumberRegisterResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ChatappPhoneNumberRegisterResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -783,18 +810,21 @@ class Cams extends OpenApiClient
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ChatappSyncPhoneNumber',
-            'version'     => '2020-06-06',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ChatappSyncPhoneNumber',
+            'version' => '2020-06-06',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return ChatappSyncPhoneNumberResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ChatappSyncPhoneNumberResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ChatappSyncPhoneNumberResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -849,18 +879,21 @@ class Cams extends OpenApiClient
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ChatappVerifyAndRegister',
-            'version'     => '2020-06-06',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ChatappVerifyAndRegister',
+            'version' => '2020-06-06',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return ChatappVerifyAndRegisterResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ChatappVerifyAndRegisterResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ChatappVerifyAndRegisterResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -906,18 +939,21 @@ class Cams extends OpenApiClient
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'CreateChatappMigrationInitiate',
-            'version'     => '2020-06-06',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CreateChatappMigrationInitiate',
+            'version' => '2020-06-06',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return CreateChatappMigrationInitiateResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return CreateChatappMigrationInitiateResponse::fromMap($this->callApi($params, $req, $runtime));
+        return CreateChatappMigrationInitiateResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -998,18 +1034,21 @@ class Cams extends OpenApiClient
             'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'CreateChatappTemplate',
-            'version'     => '2020-06-06',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CreateChatappTemplate',
+            'version' => '2020-06-06',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return CreateChatappTemplateResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return CreateChatappTemplateResponse::fromMap($this->callApi($params, $req, $runtime));
+        return CreateChatappTemplateResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -1063,18 +1102,21 @@ class Cams extends OpenApiClient
             'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'CreateFlow',
-            'version'     => '2020-06-06',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CreateFlow',
+            'version' => '2020-06-06',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return CreateFlowResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return CreateFlowResponse::fromMap($this->callApi($params, $req, $runtime));
+        return CreateFlowResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -1121,18 +1163,21 @@ class Cams extends OpenApiClient
             'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'CreatePhoneMessageQrdl',
-            'version'     => '2020-06-06',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CreatePhoneMessageQrdl',
+            'version' => '2020-06-06',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return CreatePhoneMessageQrdlResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return CreatePhoneMessageQrdlResponse::fromMap($this->callApi($params, $req, $runtime));
+        return CreatePhoneMessageQrdlResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -1198,18 +1243,21 @@ class Cams extends OpenApiClient
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DeleteChatappTemplate',
-            'version'     => '2020-06-06',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DeleteChatappTemplate',
+            'version' => '2020-06-06',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return DeleteChatappTemplateResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DeleteChatappTemplateResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DeleteChatappTemplateResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -1253,18 +1301,21 @@ class Cams extends OpenApiClient
             'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'DeleteFlow',
-            'version'     => '2020-06-06',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DeleteFlow',
+            'version' => '2020-06-06',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return DeleteFlowResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DeleteFlowResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DeleteFlowResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -1308,18 +1359,21 @@ class Cams extends OpenApiClient
             'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'DeletePhoneMessageQrdl',
-            'version'     => '2020-06-06',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DeletePhoneMessageQrdl',
+            'version' => '2020-06-06',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return DeletePhoneMessageQrdlResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DeletePhoneMessageQrdlResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DeletePhoneMessageQrdlResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -1358,18 +1412,21 @@ class Cams extends OpenApiClient
             'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'DeprecateFlow',
-            'version'     => '2020-06-06',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DeprecateFlow',
+            'version' => '2020-06-06',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return DeprecateFlowResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DeprecateFlowResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DeprecateFlowResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -1410,18 +1467,21 @@ class Cams extends OpenApiClient
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'EnableWhatsappROIMetric',
-            'version'     => '2020-06-06',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'EnableWhatsappROIMetric',
+            'version' => '2020-06-06',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return EnableWhatsappROIMetricResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return EnableWhatsappROIMetricResponse::fromMap($this->callApi($params, $req, $runtime));
+        return EnableWhatsappROIMetricResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -1476,18 +1536,21 @@ class Cams extends OpenApiClient
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'GetChatappPhoneNumberMetric',
-            'version'     => '2020-06-06',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetChatappPhoneNumberMetric',
+            'version' => '2020-06-06',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return GetChatappPhoneNumberMetricResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GetChatappPhoneNumberMetricResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetChatappPhoneNumberMetricResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -1546,18 +1609,21 @@ class Cams extends OpenApiClient
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'GetChatappTemplateDetail',
-            'version'     => '2020-06-06',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetChatappTemplateDetail',
+            'version' => '2020-06-06',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return GetChatappTemplateDetailResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GetChatappTemplateDetailResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetChatappTemplateDetailResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -1619,18 +1685,21 @@ class Cams extends OpenApiClient
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'GetChatappTemplateMetric',
-            'version'     => '2020-06-06',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetChatappTemplateMetric',
+            'version' => '2020-06-06',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return GetChatappTemplateMetricResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GetChatappTemplateMetricResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetChatappTemplateMetricResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -1670,18 +1739,21 @@ class Cams extends OpenApiClient
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'GetChatappUploadAuthorization',
-            'version'     => '2020-06-06',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetChatappUploadAuthorization',
+            'version' => '2020-06-06',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return GetChatappUploadAuthorizationResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GetChatappUploadAuthorizationResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetChatappUploadAuthorizationResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -1739,18 +1811,21 @@ class Cams extends OpenApiClient
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'GetChatappVerifyCode',
-            'version'     => '2020-06-06',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetChatappVerifyCode',
+            'version' => '2020-06-06',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return GetChatappVerifyCodeResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GetChatappVerifyCodeResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetChatappVerifyCodeResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -1802,18 +1877,21 @@ class Cams extends OpenApiClient
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'GetCommerceSetting',
-            'version'     => '2020-06-06',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetCommerceSetting',
+            'version' => '2020-06-06',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return GetCommerceSettingResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GetCommerceSettingResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetCommerceSettingResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -1867,18 +1945,21 @@ class Cams extends OpenApiClient
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'GetConversationalAutomation',
-            'version'     => '2020-06-06',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetConversationalAutomation',
+            'version' => '2020-06-06',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return GetConversationalAutomationResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GetConversationalAutomationResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetConversationalAutomationResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -1923,18 +2004,21 @@ class Cams extends OpenApiClient
             'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'GetFlow',
-            'version'     => '2020-06-06',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetFlow',
+            'version' => '2020-06-06',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return GetFlowResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GetFlowResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetFlowResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -1975,18 +2059,21 @@ class Cams extends OpenApiClient
             'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'GetFlowJSONAssest',
-            'version'     => '2020-06-06',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetFlowJSONAssest',
+            'version' => '2020-06-06',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return GetFlowJSONAssestResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GetFlowJSONAssestResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetFlowJSONAssestResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -2027,18 +2114,21 @@ class Cams extends OpenApiClient
             'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'GetFlowPreviewUrl',
-            'version'     => '2020-06-06',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetFlowPreviewUrl',
+            'version' => '2020-06-06',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return GetFlowPreviewUrlResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GetFlowPreviewUrlResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetFlowPreviewUrlResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -2087,18 +2177,21 @@ class Cams extends OpenApiClient
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'GetMigrationVerifyCode',
-            'version'     => '2020-06-06',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetMigrationVerifyCode',
+            'version' => '2020-06-06',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return GetMigrationVerifyCodeResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GetMigrationVerifyCodeResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetMigrationVerifyCodeResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -2147,18 +2240,21 @@ class Cams extends OpenApiClient
             'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'GetPermissionByCode',
-            'version'     => '2020-06-06',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetPermissionByCode',
+            'version' => '2020-06-06',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return GetPermissionByCodeResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GetPermissionByCodeResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetPermissionByCodeResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -2197,18 +2293,21 @@ class Cams extends OpenApiClient
             'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'GetPhoneEncryptionPublicKey',
-            'version'     => '2020-06-06',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetPhoneEncryptionPublicKey',
+            'version' => '2020-06-06',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return GetPhoneEncryptionPublicKeyResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GetPhoneEncryptionPublicKeyResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetPhoneEncryptionPublicKeyResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -2249,18 +2348,21 @@ class Cams extends OpenApiClient
             'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'GetPhoneNumberVerificationStatus',
-            'version'     => '2020-06-06',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetPhoneNumberVerificationStatus',
+            'version' => '2020-06-06',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return GetPhoneNumberVerificationStatusResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GetPhoneNumberVerificationStatusResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetPhoneNumberVerificationStatusResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -2303,18 +2405,21 @@ class Cams extends OpenApiClient
             'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'GetPreValidatePhoneId',
-            'version'     => '2020-06-06',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetPreValidatePhoneId',
+            'version' => '2020-06-06',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return GetPreValidatePhoneIdResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GetPreValidatePhoneIdResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetPreValidatePhoneIdResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -2366,18 +2471,21 @@ class Cams extends OpenApiClient
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'GetWhatsappConnectionCatalog',
-            'version'     => '2020-06-06',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetWhatsappConnectionCatalog',
+            'version' => '2020-06-06',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return GetWhatsappConnectionCatalogResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GetWhatsappConnectionCatalogResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetWhatsappConnectionCatalogResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -2443,18 +2551,21 @@ class Cams extends OpenApiClient
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'GetWhatsappHealthStatus',
-            'version'     => '2020-06-06',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetWhatsappHealthStatus',
+            'version' => '2020-06-06',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return GetWhatsappHealthStatusResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GetWhatsappHealthStatusResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetWhatsappHealthStatusResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -2499,18 +2610,21 @@ class Cams extends OpenApiClient
             'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'IsvGetAppId',
-            'version'     => '2020-06-06',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'IsvGetAppId',
+            'version' => '2020-06-06',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return IsvGetAppIdResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return IsvGetAppIdResponse::fromMap($this->callApi($params, $req, $runtime));
+        return IsvGetAppIdResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -2580,18 +2694,21 @@ class Cams extends OpenApiClient
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListChatappTemplate',
-            'version'     => '2020-06-06',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListChatappTemplate',
+            'version' => '2020-06-06',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return ListChatappTemplateResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ListChatappTemplateResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListChatappTemplateResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -2643,18 +2760,21 @@ class Cams extends OpenApiClient
             'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'ListFlow',
-            'version'     => '2020-06-06',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListFlow',
+            'version' => '2020-06-06',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return ListFlowResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ListFlowResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListFlowResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -2695,18 +2815,21 @@ class Cams extends OpenApiClient
             'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'ListPhoneMessageQrdl',
-            'version'     => '2020-06-06',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListPhoneMessageQrdl',
+            'version' => '2020-06-06',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return ListPhoneMessageQrdlResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ListPhoneMessageQrdlResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListPhoneMessageQrdlResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -2771,18 +2894,21 @@ class Cams extends OpenApiClient
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListProduct',
-            'version'     => '2020-06-06',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListProduct',
+            'version' => '2020-06-06',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return ListProductResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ListProductResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListProductResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -2846,18 +2972,21 @@ class Cams extends OpenApiClient
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListProductCatalog',
-            'version'     => '2020-06-06',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListProductCatalog',
+            'version' => '2020-06-06',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return ListProductCatalogResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ListProductCatalogResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListProductCatalogResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -2935,18 +3064,21 @@ class Cams extends OpenApiClient
             'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'ModifyChatappTemplate',
-            'version'     => '2020-06-06',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ModifyChatappTemplate',
+            'version' => '2020-06-06',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return ModifyChatappTemplateResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ModifyChatappTemplateResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ModifyChatappTemplateResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -3000,18 +3132,21 @@ class Cams extends OpenApiClient
             'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'ModifyFlow',
-            'version'     => '2020-06-06',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ModifyFlow',
+            'version' => '2020-06-06',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return ModifyFlowResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ModifyFlowResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ModifyFlowResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -3089,18 +3224,21 @@ class Cams extends OpenApiClient
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ModifyPhoneBusinessProfile',
-            'version'     => '2020-06-06',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ModifyPhoneBusinessProfile',
+            'version' => '2020-06-06',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return ModifyPhoneBusinessProfileResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ModifyPhoneBusinessProfileResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ModifyPhoneBusinessProfileResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -3143,18 +3281,21 @@ class Cams extends OpenApiClient
             'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'PublishFlow',
-            'version'     => '2020-06-06',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'PublishFlow',
+            'version' => '2020-06-06',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return PublishFlowResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return PublishFlowResponse::fromMap($this->callApi($params, $req, $runtime));
+        return PublishFlowResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -3206,18 +3347,21 @@ class Cams extends OpenApiClient
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'QueryChatappBindWaba',
-            'version'     => '2020-06-06',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'QueryChatappBindWaba',
+            'version' => '2020-06-06',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return QueryChatappBindWabaResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return QueryChatappBindWabaResponse::fromMap($this->callApi($params, $req, $runtime));
+        return QueryChatappBindWabaResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -3256,6 +3400,15 @@ class Cams extends OpenApiClient
         if (!Utils::isUnset($request->isvCode)) {
             $query['IsvCode'] = $request->isvCode;
         }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
         if (!Utils::isUnset($request->status)) {
             $query['Status'] = $request->status;
         }
@@ -3263,18 +3416,21 @@ class Cams extends OpenApiClient
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'QueryChatappPhoneNumbers',
-            'version'     => '2020-06-06',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'QueryChatappPhoneNumbers',
+            'version' => '2020-06-06',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return QueryChatappPhoneNumbersResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return QueryChatappPhoneNumbersResponse::fromMap($this->callApi($params, $req, $runtime));
+        return QueryChatappPhoneNumbersResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -3326,18 +3482,21 @@ class Cams extends OpenApiClient
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'QueryPhoneBusinessProfile',
-            'version'     => '2020-06-06',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'QueryPhoneBusinessProfile',
+            'version' => '2020-06-06',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return QueryPhoneBusinessProfileResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return QueryPhoneBusinessProfileResponse::fromMap($this->callApi($params, $req, $runtime));
+        return QueryPhoneBusinessProfileResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -3389,18 +3548,21 @@ class Cams extends OpenApiClient
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'QueryWabaBusinessInfo',
-            'version'     => '2020-06-06',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'QueryWabaBusinessInfo',
+            'version' => '2020-06-06',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return QueryWabaBusinessInfoResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return QueryWabaBusinessInfoResponse::fromMap($this->callApi($params, $req, $runtime));
+        return QueryWabaBusinessInfoResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -3494,18 +3656,21 @@ class Cams extends OpenApiClient
             'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'SendChatappMassMessage',
-            'version'     => '2020-06-06',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'SendChatappMassMessage',
+            'version' => '2020-06-06',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return SendChatappMassMessageResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return SendChatappMassMessageResponse::fromMap($this->callApi($params, $req, $runtime));
+        return SendChatappMassMessageResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -3634,21 +3799,24 @@ class Cams extends OpenApiClient
         }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => OpenApiUtilClient::parseToMap($body),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'SendChatappMessage',
-            'version'     => '2020-06-06',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'SendChatappMessage',
+            'version' => '2020-06-06',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return SendChatappMessageResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return SendChatappMessageResponse::fromMap($this->callApi($params, $req, $runtime));
+        return SendChatappMessageResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -3707,18 +3875,21 @@ class Cams extends OpenApiClient
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'SubmitIsvCustomerTerms',
-            'version'     => '2020-06-06',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'SubmitIsvCustomerTerms',
+            'version' => '2020-06-06',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return SubmitIsvCustomerTermsResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return SubmitIsvCustomerTermsResponse::fromMap($this->callApi($params, $req, $runtime));
+        return SubmitIsvCustomerTermsResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -3788,18 +3959,21 @@ class Cams extends OpenApiClient
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'TriggerChatFlow',
-            'version'     => '2020-06-06',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'TriggerChatFlow',
+            'version' => '2020-06-06',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return TriggerChatFlowResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return TriggerChatFlowResponse::fromMap($this->callApi($params, $req, $runtime));
+        return TriggerChatFlowResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -3848,18 +4022,21 @@ class Cams extends OpenApiClient
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'UpdateAccountWebhook',
-            'version'     => '2020-06-06',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'UpdateAccountWebhook',
+            'version' => '2020-06-06',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return UpdateAccountWebhookResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return UpdateAccountWebhookResponse::fromMap($this->callApi($params, $req, $runtime));
+        return UpdateAccountWebhookResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -3917,18 +4094,21 @@ class Cams extends OpenApiClient
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'UpdateCommerceSetting',
-            'version'     => '2020-06-06',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'UpdateCommerceSetting',
+            'version' => '2020-06-06',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return UpdateCommerceSettingResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return UpdateCommerceSettingResponse::fromMap($this->callApi($params, $req, $runtime));
+        return UpdateCommerceSettingResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -3999,18 +4179,21 @@ class Cams extends OpenApiClient
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'UpdateConversationalAutomation',
-            'version'     => '2020-06-06',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'UpdateConversationalAutomation',
+            'version' => '2020-06-06',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return UpdateConversationalAutomationResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return UpdateConversationalAutomationResponse::fromMap($this->callApi($params, $req, $runtime));
+        return UpdateConversationalAutomationResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -4056,18 +4239,21 @@ class Cams extends OpenApiClient
             'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'UpdateFlowJSONAsset',
-            'version'     => '2020-06-06',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'UpdateFlowJSONAsset',
+            'version' => '2020-06-06',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return UpdateFlowJSONAssetResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return UpdateFlowJSONAssetResponse::fromMap($this->callApi($params, $req, $runtime));
+        return UpdateFlowJSONAssetResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -4109,18 +4295,21 @@ class Cams extends OpenApiClient
             'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'UpdatePhoneEncryptionPublicKey',
-            'version'     => '2020-06-06',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'UpdatePhoneEncryptionPublicKey',
+            'version' => '2020-06-06',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return UpdatePhoneEncryptionPublicKeyResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return UpdatePhoneEncryptionPublicKeyResponse::fromMap($this->callApi($params, $req, $runtime));
+        return UpdatePhoneEncryptionPublicKeyResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -4168,18 +4357,21 @@ class Cams extends OpenApiClient
             'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'UpdatePhoneMessageQrdl',
-            'version'     => '2020-06-06',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'UpdatePhoneMessageQrdl',
+            'version' => '2020-06-06',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return UpdatePhoneMessageQrdlResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return UpdatePhoneMessageQrdlResponse::fromMap($this->callApi($params, $req, $runtime));
+        return UpdatePhoneMessageQrdlResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -4234,18 +4426,21 @@ class Cams extends OpenApiClient
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'UpdatePhoneWebhook',
-            'version'     => '2020-06-06',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'UpdatePhoneWebhook',
+            'version' => '2020-06-06',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return UpdatePhoneWebhookResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return UpdatePhoneWebhookResponse::fromMap($this->callApi($params, $req, $runtime));
+        return UpdatePhoneWebhookResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**

@@ -12,6 +12,7 @@ class GetMigrationVerifyCodeRequest extends Model
      * @description The space ID of the user under the independent software vendor (ISV) account.
      *
      * This parameter is required.
+     *
      * @example 293483938849493
      *
      * @var string
@@ -22,6 +23,7 @@ class GetMigrationVerifyCodeRequest extends Model
      * @description The language.
      *
      * This parameter is required.
+     *
      * @example zh_CN
      *
      * @var string
@@ -32,6 +34,7 @@ class GetMigrationVerifyCodeRequest extends Model
      * @description The method to obtain the verification code. Valid values: SMS and VOICE.
      *
      * This parameter is required.
+     *
      * @example sms
      *
      * @var string
@@ -42,6 +45,7 @@ class GetMigrationVerifyCodeRequest extends Model
      * @description Phone number.
      *
      * This parameter is required.
+     *
      * @example 8613800001234
      *
      * @var string
@@ -49,14 +53,12 @@ class GetMigrationVerifyCodeRequest extends Model
     public $phoneNumber;
     protected $_name = [
         'custSpaceId' => 'CustSpaceId',
-        'locale'      => 'Locale',
-        'method'      => 'Method',
+        'locale' => 'Locale',
+        'method' => 'Method',
         'phoneNumber' => 'PhoneNumber',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

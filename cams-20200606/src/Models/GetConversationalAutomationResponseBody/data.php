@@ -41,15 +41,13 @@ class data extends Model
      */
     public $prompts;
     protected $_name = [
-        'commands'             => 'Commands',
+        'commands' => 'Commands',
         'enableWelcomeMessage' => 'EnableWelcomeMessage',
-        'phoneNumber'          => 'PhoneNumber',
-        'prompts'              => 'Prompts',
+        'phoneNumber' => 'PhoneNumber',
+        'prompts' => 'Prompts',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -87,7 +85,7 @@ class data extends Model
         if (isset($map['Commands'])) {
             if (!empty($map['Commands'])) {
                 $model->commands = [];
-                $n               = 0;
+                $n = 0;
                 foreach ($map['Commands'] as $item) {
                     $model->commands[$n++] = null !== $item ? commands::fromMap($item) : $item;
                 }

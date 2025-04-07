@@ -66,16 +66,14 @@ class IsvGetAppIdResponseBody extends Model
     public $requestId;
     protected $_name = [
         'accessDeniedDetail' => 'AccessDeniedDetail',
-        'appId'              => 'AppId',
-        'code'               => 'Code',
-        'configId'           => 'ConfigId',
-        'message'            => 'Message',
-        'requestId'          => 'RequestId',
+        'appId' => 'AppId',
+        'code' => 'Code',
+        'configId' => 'ConfigId',
+        'message' => 'Message',
+        'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

@@ -12,6 +12,7 @@ class QueryPhoneBusinessProfileRequest extends Model
      * @description The space ID of the user within the independent software vendor (ISV) account.
      *
      * This parameter is required.
+     *
      * @example 2934839388494***
      *
      * @var string
@@ -27,6 +28,7 @@ class QueryPhoneBusinessProfileRequest extends Model
      * @description The phone number.
      *
      * This parameter is required.
+     *
      * @example 8613800001234
      *
      * @var string
@@ -43,16 +45,14 @@ class QueryPhoneBusinessProfileRequest extends Model
      */
     public $resourceOwnerId;
     protected $_name = [
-        'custSpaceId'          => 'CustSpaceId',
-        'ownerId'              => 'OwnerId',
-        'phoneNumber'          => 'PhoneNumber',
+        'custSpaceId' => 'CustSpaceId',
+        'ownerId' => 'OwnerId',
+        'phoneNumber' => 'PhoneNumber',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
-        'resourceOwnerId'      => 'ResourceOwnerId',
+        'resourceOwnerId' => 'ResourceOwnerId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

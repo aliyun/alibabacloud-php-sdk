@@ -26,13 +26,11 @@ class cursors extends Model
      */
     public $before;
     protected $_name = [
-        'after'  => 'After',
+        'after' => 'After',
         'before' => 'Before',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

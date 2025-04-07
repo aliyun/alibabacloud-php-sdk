@@ -16,6 +16,7 @@ class SendChatappMessageShrinkRequest extends Model
      *   **line** (under development)
      *
      * This parameter is required.
+     *
      * @example whatsapp
      *
      * @var string
@@ -77,6 +78,7 @@ class SendChatappMessageShrinkRequest extends Model
      * @description The WhatsApp Business Account (WABA) ID of the RAM user within the independent software vendor (ISV) account.
      *
      * >  CustWabaId is an obsolete parameter. Use CustSpaceId instead.
+     *
      * @example 65921621816****
      *
      * @deprecated
@@ -134,7 +136,10 @@ class SendChatappMessageShrinkRequest extends Model
     /**
      * @description The mobile phone number of the message sender.
      *
+     * >  You can specify a mobile phone number that is registered for a WhatsApp account and is approved in the Chat App Message Service console.
+     *
      * This parameter is required.
+     *
      * @example 1360000****
      *
      * @var string
@@ -200,6 +205,7 @@ class SendChatappMessageShrinkRequest extends Model
      *   **text_image**: a message that contains the text and image media objects.
      *
      * > For more information, see [Parameters of a message template](https://help.aliyun.com/document_detail/454530.html).
+     *
      * @example text
      *
      * @var string
@@ -269,6 +275,7 @@ class SendChatappMessageShrinkRequest extends Model
      * @description The mobile phone number of the message receiver.
      *
      * This parameter is required.
+     *
      * @example 1390000****
      *
      * @var string
@@ -300,43 +307,42 @@ class SendChatappMessageShrinkRequest extends Model
      *   **message**: the custom message. You can send a custom WhatsApp message to a user only within 24 hours after you receive the last message from the user. This limit does not apply to custom Viber messages.
      *
      * This parameter is required.
+     *
      * @example template
      *
      * @var string
      */
     public $type;
     protected $_name = [
-        'channelType'          => 'ChannelType',
-        'content'              => 'Content',
-        'contextMessageId'     => 'ContextMessageId',
-        'custSpaceId'          => 'CustSpaceId',
-        'custWabaId'           => 'CustWabaId',
-        'fallBackContent'      => 'FallBackContent',
-        'fallBackDuration'     => 'FallBackDuration',
-        'fallBackId'           => 'FallBackId',
-        'fallBackRule'         => 'FallBackRule',
-        'flowActionShrink'     => 'FlowAction',
-        'from'                 => 'From',
-        'isvCode'              => 'IsvCode',
-        'label'                => 'Label',
-        'language'             => 'Language',
-        'messageType'          => 'MessageType',
-        'payloadShrink'        => 'Payload',
-        'productActionShrink'  => 'ProductAction',
-        'tag'                  => 'Tag',
-        'taskId'               => 'TaskId',
-        'templateCode'         => 'TemplateCode',
-        'templateName'         => 'TemplateName',
+        'channelType' => 'ChannelType',
+        'content' => 'Content',
+        'contextMessageId' => 'ContextMessageId',
+        'custSpaceId' => 'CustSpaceId',
+        'custWabaId' => 'CustWabaId',
+        'fallBackContent' => 'FallBackContent',
+        'fallBackDuration' => 'FallBackDuration',
+        'fallBackId' => 'FallBackId',
+        'fallBackRule' => 'FallBackRule',
+        'flowActionShrink' => 'FlowAction',
+        'from' => 'From',
+        'isvCode' => 'IsvCode',
+        'label' => 'Label',
+        'language' => 'Language',
+        'messageType' => 'MessageType',
+        'payloadShrink' => 'Payload',
+        'productActionShrink' => 'ProductAction',
+        'tag' => 'Tag',
+        'taskId' => 'TaskId',
+        'templateCode' => 'TemplateCode',
+        'templateName' => 'TemplateName',
         'templateParamsShrink' => 'TemplateParams',
-        'to'                   => 'To',
-        'trackingData'         => 'TrackingData',
-        'ttl'                  => 'Ttl',
-        'type'                 => 'Type',
+        'to' => 'To',
+        'trackingData' => 'TrackingData',
+        'ttl' => 'Ttl',
+        'type' => 'Type',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

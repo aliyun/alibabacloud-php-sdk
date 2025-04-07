@@ -156,26 +156,24 @@ class buttons extends Model
      */
     public $urlType;
     protected $_name = [
-        'autofillText'   => 'AutofillText',
-        'couponCode'     => 'CouponCode',
-        'extendAttrs'    => 'ExtendAttrs',
-        'flowAction'     => 'FlowAction',
-        'flowId'         => 'FlowId',
-        'isOptOut'       => 'IsOptOut',
+        'autofillText' => 'AutofillText',
+        'couponCode' => 'CouponCode',
+        'extendAttrs' => 'ExtendAttrs',
+        'flowAction' => 'FlowAction',
+        'flowId' => 'FlowId',
+        'isOptOut' => 'IsOptOut',
         'navigateScreen' => 'NavigateScreen',
-        'packageName'    => 'PackageName',
-        'phoneNumber'    => 'PhoneNumber',
-        'signatureHash'  => 'SignatureHash',
-        'supportedApps'  => 'SupportedApps',
-        'text'           => 'Text',
-        'type'           => 'Type',
-        'url'            => 'Url',
-        'urlType'        => 'UrlType',
+        'packageName' => 'PackageName',
+        'phoneNumber' => 'PhoneNumber',
+        'signatureHash' => 'SignatureHash',
+        'supportedApps' => 'SupportedApps',
+        'text' => 'Text',
+        'type' => 'Type',
+        'url' => 'Url',
+        'urlType' => 'UrlType',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -276,7 +274,7 @@ class buttons extends Model
         if (isset($map['SupportedApps'])) {
             if (!empty($map['SupportedApps'])) {
                 $model->supportedApps = [];
-                $n                    = 0;
+                $n = 0;
                 foreach ($map['SupportedApps'] as $item) {
                     $model->supportedApps[$n++] = null !== $item ? supportedApps::fromMap($item) : $item;
                 }

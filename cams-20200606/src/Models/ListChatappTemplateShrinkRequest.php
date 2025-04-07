@@ -44,6 +44,7 @@ class ListChatappTemplateShrinkRequest extends Model
      * @description The WhatsApp Business account (WABA) ID of the user within the independent software vendor (ISV) account.
      *
      * >  CustWabaId is an obsolete parameter. Use CustSpaceId instead.
+     *
      * @example 65921621816****
      *
      * @deprecated
@@ -101,20 +102,18 @@ class ListChatappTemplateShrinkRequest extends Model
      */
     public $templateType;
     protected $_name = [
-        'auditStatus'  => 'AuditStatus',
-        'code'         => 'Code',
-        'custSpaceId'  => 'CustSpaceId',
-        'custWabaId'   => 'CustWabaId',
-        'isvCode'      => 'IsvCode',
-        'language'     => 'Language',
-        'name'         => 'Name',
-        'pageShrink'   => 'Page',
+        'auditStatus' => 'AuditStatus',
+        'code' => 'Code',
+        'custSpaceId' => 'CustSpaceId',
+        'custWabaId' => 'CustWabaId',
+        'isvCode' => 'IsvCode',
+        'language' => 'Language',
+        'name' => 'Name',
+        'pageShrink' => 'Page',
         'templateType' => 'TemplateType',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

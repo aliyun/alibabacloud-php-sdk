@@ -203,29 +203,27 @@ class components extends Model
     public $hasExpiration;
     protected $_name = [
         'addSecretRecommendation' => 'AddSecretRecommendation',
-        'buttons'                 => 'Buttons',
-        'caption'                 => 'Caption',
-        'cards'                   => 'Cards',
-        'codeExpirationMinutes'   => 'CodeExpirationMinutes',
-        'duration'                => 'Duration',
-        'fileName'                => 'FileName',
-        'fileType'                => 'FileType',
-        'format'                  => 'Format',
-        'latitude'                => 'Latitude',
-        'locationAddress'         => 'LocationAddress',
-        'locationName'            => 'LocationName',
-        'longitude'               => 'Longitude',
-        'offerExpirationTimeMs'   => 'OfferExpirationTimeMs',
-        'text'                    => 'Text',
-        'thumbUrl'                => 'ThumbUrl',
-        'type'                    => 'Type',
-        'url'                     => 'Url',
-        'hasExpiration'           => 'hasExpiration',
+        'buttons' => 'Buttons',
+        'caption' => 'Caption',
+        'cards' => 'Cards',
+        'codeExpirationMinutes' => 'CodeExpirationMinutes',
+        'duration' => 'Duration',
+        'fileName' => 'FileName',
+        'fileType' => 'FileType',
+        'format' => 'Format',
+        'latitude' => 'Latitude',
+        'locationAddress' => 'LocationAddress',
+        'locationName' => 'LocationName',
+        'longitude' => 'Longitude',
+        'offerExpirationTimeMs' => 'OfferExpirationTimeMs',
+        'text' => 'Text',
+        'thumbUrl' => 'ThumbUrl',
+        'type' => 'Type',
+        'url' => 'Url',
+        'hasExpiration' => 'hasExpiration',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -317,7 +315,7 @@ class components extends Model
         if (isset($map['Buttons'])) {
             if (!empty($map['Buttons'])) {
                 $model->buttons = [];
-                $n              = 0;
+                $n = 0;
                 foreach ($map['Buttons'] as $item) {
                     $model->buttons[$n++] = null !== $item ? buttons::fromMap($item) : $item;
                 }
@@ -329,7 +327,7 @@ class components extends Model
         if (isset($map['Cards'])) {
             if (!empty($map['Cards'])) {
                 $model->cards = [];
-                $n            = 0;
+                $n = 0;
                 foreach ($map['Cards'] as $item) {
                     $model->cards[$n++] = null !== $item ? cards::fromMap($item) : $item;
                 }

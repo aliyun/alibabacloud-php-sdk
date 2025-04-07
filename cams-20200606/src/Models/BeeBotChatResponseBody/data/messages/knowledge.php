@@ -88,20 +88,18 @@ class knowledge extends Model
      */
     public $title;
     protected $_name = [
-        'answerSource'      => 'AnswerSource',
-        'category'          => 'Category',
-        'content'           => 'Content',
-        'contentType'       => 'ContentType',
-        'hitStatement'      => 'HitStatement',
-        'id'                => 'Id',
+        'answerSource' => 'AnswerSource',
+        'category' => 'Category',
+        'content' => 'Content',
+        'contentType' => 'ContentType',
+        'hitStatement' => 'HitStatement',
+        'id' => 'Id',
         'relatedKnowledges' => 'RelatedKnowledges',
-        'summary'           => 'Summary',
-        'title'             => 'Title',
+        'summary' => 'Summary',
+        'title' => 'Title',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -172,7 +170,7 @@ class knowledge extends Model
         if (isset($map['RelatedKnowledges'])) {
             if (!empty($map['RelatedKnowledges'])) {
                 $model->relatedKnowledges = [];
-                $n                        = 0;
+                $n = 0;
                 foreach ($map['RelatedKnowledges'] as $item) {
                     $model->relatedKnowledges[$n++] = null !== $item ? relatedKnowledges::fromMap($item) : $item;
                 }

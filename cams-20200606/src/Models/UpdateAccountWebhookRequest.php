@@ -12,6 +12,7 @@ class UpdateAccountWebhookRequest extends Model
      * @description The space ID of the RAM user within the independent software vendor (ISV) account.
      *
      * This parameter is required.
+     *
      * @example 293483938849493**
      *
      * @var string
@@ -51,15 +52,13 @@ class UpdateAccountWebhookRequest extends Model
      */
     public $statusCallbackUrl;
     protected $_name = [
-        'custSpaceId'       => 'CustSpaceId',
-        'httpFlag'          => 'HttpFlag',
-        'queueFlag'         => 'QueueFlag',
+        'custSpaceId' => 'CustSpaceId',
+        'httpFlag' => 'HttpFlag',
+        'queueFlag' => 'QueueFlag',
         'statusCallbackUrl' => 'StatusCallbackUrl',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

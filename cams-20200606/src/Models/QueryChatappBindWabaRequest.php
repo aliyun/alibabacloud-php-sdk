@@ -41,16 +41,14 @@ class QueryChatappBindWabaRequest extends Model
      */
     public $resourceOwnerId;
     protected $_name = [
-        'custSpaceId'          => 'CustSpaceId',
-        'isvCode'              => 'IsvCode',
-        'ownerId'              => 'OwnerId',
+        'custSpaceId' => 'CustSpaceId',
+        'isvCode' => 'IsvCode',
+        'ownerId' => 'OwnerId',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
-        'resourceOwnerId'      => 'ResourceOwnerId',
+        'resourceOwnerId' => 'ResourceOwnerId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

@@ -50,17 +50,15 @@ class ChatappVerifyAndRegisterRequest extends Model
      */
     public $verifyCode;
     protected $_name = [
-        'custSpaceId'          => 'CustSpaceId',
-        'ownerId'              => 'OwnerId',
-        'phoneNumber'          => 'PhoneNumber',
+        'custSpaceId' => 'CustSpaceId',
+        'ownerId' => 'OwnerId',
+        'phoneNumber' => 'PhoneNumber',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
-        'resourceOwnerId'      => 'ResourceOwnerId',
-        'verifyCode'           => 'VerifyCode',
+        'resourceOwnerId' => 'ResourceOwnerId',
+        'verifyCode' => 'VerifyCode',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

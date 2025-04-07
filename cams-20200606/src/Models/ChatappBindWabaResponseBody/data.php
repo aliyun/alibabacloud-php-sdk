@@ -27,12 +27,10 @@ class data extends Model
     public $wabaId;
     protected $_name = [
         'custSpaceId' => 'CustSpaceId',
-        'wabaId'      => 'WabaId',
+        'wabaId' => 'WabaId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

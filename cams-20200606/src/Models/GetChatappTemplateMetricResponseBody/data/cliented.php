@@ -42,13 +42,11 @@ class cliented extends Model
     public $type;
     protected $_name = [
         'buttonContent' => 'ButtonContent',
-        'count'         => 'Count',
-        'type'          => 'Type',
+        'count' => 'Count',
+        'type' => 'Type',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

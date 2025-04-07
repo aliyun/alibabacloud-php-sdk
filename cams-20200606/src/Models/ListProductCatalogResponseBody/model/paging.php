@@ -19,9 +19,7 @@ class paging extends Model
         'cursors' => 'Cursors',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

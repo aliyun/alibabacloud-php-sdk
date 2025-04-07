@@ -12,6 +12,7 @@ class BeeBotChatShrinkRequest extends Model
      * @description Indicates whether the answer is in plain text or rich text.
      *
      * This parameter is required.
+     *
      * @example 1
      *
      * @var string
@@ -92,6 +93,7 @@ class BeeBotChatShrinkRequest extends Model
      * @description The title of the hit question.
      *
      * This parameter is required.
+     *
      * @example 659216218162179
      *
      * @var string
@@ -108,21 +110,19 @@ class BeeBotChatShrinkRequest extends Model
     public $vendorParamShrink;
     protected $_name = [
         'chatBotInstanceId' => 'ChatBotInstanceId',
-        'custSpaceId'       => 'CustSpaceId',
-        'intentName'        => 'IntentName',
-        'isvCode'           => 'IsvCode',
-        'knowledgeId'       => 'KnowledgeId',
+        'custSpaceId' => 'CustSpaceId',
+        'intentName' => 'IntentName',
+        'isvCode' => 'IsvCode',
+        'knowledgeId' => 'KnowledgeId',
         'perspectiveShrink' => 'Perspective',
-        'senderId'          => 'SenderId',
-        'senderNick'        => 'SenderNick',
-        'sessionId'         => 'SessionId',
-        'utterance'         => 'Utterance',
+        'senderId' => 'SenderId',
+        'senderNick' => 'SenderNick',
+        'sessionId' => 'SessionId',
+        'utterance' => 'Utterance',
         'vendorParamShrink' => 'VendorParam',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

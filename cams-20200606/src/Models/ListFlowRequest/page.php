@@ -27,12 +27,10 @@ class page extends Model
     public $size;
     protected $_name = [
         'index' => 'Index',
-        'size'  => 'Size',
+        'size' => 'Size',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

@@ -56,15 +56,13 @@ class ChatappEmbedSignUpResponseBody extends Model
     public $wabas;
     protected $_name = [
         'accessDeniedDetail' => 'AccessDeniedDetail',
-        'code'               => 'Code',
-        'message'            => 'Message',
-        'requestId'          => 'RequestId',
-        'wabas'              => 'Wabas',
+        'code' => 'Code',
+        'message' => 'Message',
+        'requestId' => 'RequestId',
+        'wabas' => 'Wabas',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -117,7 +115,7 @@ class ChatappEmbedSignUpResponseBody extends Model
         if (isset($map['Wabas'])) {
             if (!empty($map['Wabas'])) {
                 $model->wabas = [];
-                $n            = 0;
+                $n = 0;
                 foreach ($map['Wabas'] as $item) {
                     $model->wabas[$n++] = null !== $item ? wabas::fromMap($item) : $item;
                 }

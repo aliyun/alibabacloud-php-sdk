@@ -25,13 +25,11 @@ class productAction extends Model
      */
     public $thumbnailProductRetailerId;
     protected $_name = [
-        'sections'                   => 'Sections',
+        'sections' => 'Sections',
         'thumbnailProductRetailerId' => 'ThumbnailProductRetailerId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -63,7 +61,7 @@ class productAction extends Model
         if (isset($map['Sections'])) {
             if (!empty($map['Sections'])) {
                 $model->sections = [];
-                $n               = 0;
+                $n = 0;
                 foreach ($map['Sections'] as $item) {
                     $model->sections[$n++] = null !== $item ? sections::fromMap($item) : $item;
                 }

@@ -97,20 +97,18 @@ class data extends Model
      */
     public $primaryBusinessLocation;
     protected $_name = [
-        'accountReviewStatus'              => 'AccountReviewStatus',
+        'accountReviewStatus' => 'AccountReviewStatus',
         'authInternationalRateEligibility' => 'AuthInternationalRateEligibility',
-        'businessId'                       => 'BusinessId',
-        'businessName'                     => 'BusinessName',
-        'currency'                         => 'Currency',
-        'id'                               => 'Id',
-        'messageTemplateNamespace'         => 'MessageTemplateNamespace',
-        'name'                             => 'Name',
-        'primaryBusinessLocation'          => 'PrimaryBusinessLocation',
+        'businessId' => 'BusinessId',
+        'businessName' => 'BusinessName',
+        'currency' => 'Currency',
+        'id' => 'Id',
+        'messageTemplateNamespace' => 'MessageTemplateNamespace',
+        'name' => 'Name',
+        'primaryBusinessLocation' => 'PrimaryBusinessLocation',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

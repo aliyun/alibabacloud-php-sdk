@@ -35,14 +35,12 @@ class data extends Model
      */
     public $previewUrlExpires;
     protected $_name = [
-        'flowId'            => 'FlowId',
-        'previewUrl'        => 'PreviewUrl',
+        'flowId' => 'FlowId',
+        'previewUrl' => 'PreviewUrl',
         'previewUrlExpires' => 'PreviewUrlExpires',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

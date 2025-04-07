@@ -15,6 +15,7 @@ class UpdateCommerceSettingRequest extends Model
      *   false
      *
      * This parameter is required.
+     *
      * @example true
      *
      * @var bool
@@ -28,6 +29,7 @@ class UpdateCommerceSettingRequest extends Model
      *   false
      *
      * This parameter is required.
+     *
      * @example false
      *
      * @var bool
@@ -38,6 +40,7 @@ class UpdateCommerceSettingRequest extends Model
      * @description The space ID of the user within the independent software vendor (ISV) account.
      *
      * This parameter is required.
+     *
      * @example 293483938849493
      *
      * @var string
@@ -53,6 +56,7 @@ class UpdateCommerceSettingRequest extends Model
      * @description The phone number.
      *
      * This parameter is required.
+     *
      * @example 1380000****
      *
      * @var string
@@ -69,18 +73,16 @@ class UpdateCommerceSettingRequest extends Model
      */
     public $resourceOwnerId;
     protected $_name = [
-        'cartEnable'           => 'CartEnable',
-        'catalogVisible'       => 'CatalogVisible',
-        'custSpaceId'          => 'CustSpaceId',
-        'ownerId'              => 'OwnerId',
-        'phoneNumber'          => 'PhoneNumber',
+        'cartEnable' => 'CartEnable',
+        'catalogVisible' => 'CatalogVisible',
+        'custSpaceId' => 'CustSpaceId',
+        'ownerId' => 'OwnerId',
+        'phoneNumber' => 'PhoneNumber',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
-        'resourceOwnerId'      => 'ResourceOwnerId',
+        'resourceOwnerId' => 'ResourceOwnerId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

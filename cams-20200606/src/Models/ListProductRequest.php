@@ -30,6 +30,7 @@ class ListProductRequest extends Model
      * @description The catalog ID.
      *
      * This parameter is required.
+     *
      * @example 29398389292
      *
      * @var string
@@ -49,6 +50,7 @@ class ListProductRequest extends Model
      * @description The fields. Separate multiple fields with commas (,).
      *
      * see [product fields](https://help.aliyun.com/document_detail/2579419.html)
+     *
      * @example id,name
      *
      * @var string
@@ -83,27 +85,26 @@ class ListProductRequest extends Model
      * @description The ID of the WhatsApp Business account (WABA).
      *
      * This parameter is required.
+     *
      * @example 38487474747
      *
      * @var string
      */
     public $wabaId;
     protected $_name = [
-        'after'                => 'After',
-        'before'               => 'Before',
-        'catalogId'            => 'CatalogId',
-        'custSpaceId'          => 'CustSpaceId',
-        'fields'               => 'Fields',
-        'limit'                => 'Limit',
-        'ownerId'              => 'OwnerId',
+        'after' => 'After',
+        'before' => 'Before',
+        'catalogId' => 'CatalogId',
+        'custSpaceId' => 'CustSpaceId',
+        'fields' => 'Fields',
+        'limit' => 'Limit',
+        'ownerId' => 'OwnerId',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
-        'resourceOwnerId'      => 'ResourceOwnerId',
-        'wabaId'               => 'WabaId',
+        'resourceOwnerId' => 'ResourceOwnerId',
+        'wabaId' => 'WabaId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

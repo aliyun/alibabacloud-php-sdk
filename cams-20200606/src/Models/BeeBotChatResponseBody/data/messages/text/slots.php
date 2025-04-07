@@ -44,15 +44,13 @@ class slots extends Model
      */
     public $value;
     protected $_name = [
-        'hit'    => 'Hit',
-        'name'   => 'Name',
+        'hit' => 'Hit',
+        'name' => 'Name',
         'origin' => 'Origin',
-        'value'  => 'Value',
+        'value' => 'Value',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

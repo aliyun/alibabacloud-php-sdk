@@ -40,19 +40,19 @@ class data extends Model
      *
      * @example Retail
      *
+     * @deprecated
+     *
      * @var string
      */
     public $vertical;
     protected $_name = [
-        'businessId'         => 'BusinessId',
-        'businessName'       => 'BusinessName',
+        'businessId' => 'BusinessId',
+        'businessName' => 'BusinessName',
         'verificationStatus' => 'VerificationStatus',
-        'vertical'           => 'Vertical',
+        'vertical' => 'Vertical',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

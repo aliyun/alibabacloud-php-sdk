@@ -32,15 +32,13 @@ class ChatappBindWabaRequest extends Model
      */
     public $wabaId;
     protected $_name = [
-        'ownerId'              => 'OwnerId',
+        'ownerId' => 'OwnerId',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
-        'resourceOwnerId'      => 'ResourceOwnerId',
-        'wabaId'               => 'WabaId',
+        'resourceOwnerId' => 'ResourceOwnerId',
+        'wabaId' => 'WabaId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

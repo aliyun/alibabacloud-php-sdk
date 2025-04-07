@@ -26,13 +26,11 @@ class data extends Model
      */
     public $phoneNumber;
     protected $_name = [
-        'id'          => 'Id',
+        'id' => 'Id',
         'phoneNumber' => 'PhoneNumber',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

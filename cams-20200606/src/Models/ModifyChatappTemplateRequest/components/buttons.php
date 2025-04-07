@@ -131,6 +131,7 @@ class buttons extends Model
      *   You can add only one button to a Viber message template, and you must set the Type sub-parameter of the Buttons parameter to URL.
      *
      * This parameter is required.
+     *
      * @example PHONE_NUMBER
      *
      * @var string
@@ -158,25 +159,23 @@ class buttons extends Model
      */
     public $urlType;
     protected $_name = [
-        'autofillText'   => 'AutofillText',
-        'couponCode'     => 'CouponCode',
-        'flowAction'     => 'FlowAction',
-        'flowId'         => 'FlowId',
-        'isOptOut'       => 'IsOptOut',
+        'autofillText' => 'AutofillText',
+        'couponCode' => 'CouponCode',
+        'flowAction' => 'FlowAction',
+        'flowId' => 'FlowId',
+        'isOptOut' => 'IsOptOut',
         'navigateScreen' => 'NavigateScreen',
-        'packageName'    => 'PackageName',
-        'phoneNumber'    => 'PhoneNumber',
-        'signatureHash'  => 'SignatureHash',
-        'supportedApps'  => 'SupportedApps',
-        'text'           => 'Text',
-        'type'           => 'Type',
-        'url'            => 'Url',
-        'urlType'        => 'UrlType',
+        'packageName' => 'PackageName',
+        'phoneNumber' => 'PhoneNumber',
+        'signatureHash' => 'SignatureHash',
+        'supportedApps' => 'SupportedApps',
+        'text' => 'Text',
+        'type' => 'Type',
+        'url' => 'Url',
+        'urlType' => 'UrlType',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -271,7 +270,7 @@ class buttons extends Model
         if (isset($map['SupportedApps'])) {
             if (!empty($map['SupportedApps'])) {
                 $model->supportedApps = [];
-                $n                    = 0;
+                $n = 0;
                 foreach ($map['SupportedApps'] as $item) {
                     $model->supportedApps[$n++] = null !== $item ? supportedApps::fromMap($item) : $item;
                 }

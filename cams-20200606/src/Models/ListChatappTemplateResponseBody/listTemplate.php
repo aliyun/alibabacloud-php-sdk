@@ -101,19 +101,17 @@ class listTemplate extends Model
      */
     public $templateType;
     protected $_name = [
-        'auditStatus'    => 'AuditStatus',
-        'category'       => 'Category',
-        'language'       => 'Language',
+        'auditStatus' => 'AuditStatus',
+        'category' => 'Category',
+        'language' => 'Language',
         'lastUpdateTime' => 'LastUpdateTime',
-        'reason'         => 'Reason',
-        'templateCode'   => 'TemplateCode',
-        'templateName'   => 'TemplateName',
-        'templateType'   => 'TemplateType',
+        'reason' => 'Reason',
+        'templateCode' => 'TemplateCode',
+        'templateName' => 'TemplateName',
+        'templateType' => 'TemplateType',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

@@ -69,18 +69,16 @@ class data extends Model
      */
     public $websites;
     protected $_name = [
-        'about'             => 'About',
-        'address'           => 'Address',
-        'description'       => 'Description',
-        'email'             => 'Email',
+        'about' => 'About',
+        'address' => 'Address',
+        'description' => 'Description',
+        'email' => 'Email',
         'profilePictureUrl' => 'ProfilePictureUrl',
-        'vertical'          => 'Vertical',
-        'websites'          => 'Websites',
+        'vertical' => 'Vertical',
+        'websites' => 'Websites',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

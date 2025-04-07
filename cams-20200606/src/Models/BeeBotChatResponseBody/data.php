@@ -35,13 +35,11 @@ class data extends Model
     public $sessionId;
     protected $_name = [
         'messageId' => 'MessageId',
-        'messages'  => 'Messages',
+        'messages' => 'Messages',
         'sessionId' => 'SessionId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -79,7 +77,7 @@ class data extends Model
         if (isset($map['Messages'])) {
             if (!empty($map['Messages'])) {
                 $model->messages = [];
-                $n               = 0;
+                $n = 0;
                 foreach ($map['Messages'] as $item) {
                     $model->messages[$n++] = null !== $item ? messages::fromMap($item) : $item;
                 }

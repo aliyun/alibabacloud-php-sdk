@@ -25,12 +25,10 @@ class flowAction extends Model
     public $flowToken;
     protected $_name = [
         'flowActionData' => 'FlowActionData',
-        'flowToken'      => 'FlowToken',
+        'flowToken' => 'FlowToken',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

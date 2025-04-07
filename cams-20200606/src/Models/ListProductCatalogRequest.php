@@ -30,6 +30,7 @@ class ListProductCatalogRequest extends Model
      * @description The Business Manager ID.
      *
      * This parameter is required.
+     *
      * @example 28
      *
      * @var int
@@ -48,6 +49,7 @@ class ListProductCatalogRequest extends Model
     /**
      * @description The fields. Separate multiple fields with commas (,).
      * see  [catalog fields](https://help.aliyun.com/document_detail/2579419.html)
+     *
      * @example id,name
      *
      * @var string
@@ -78,20 +80,18 @@ class ListProductCatalogRequest extends Model
      */
     public $resourceOwnerId;
     protected $_name = [
-        'after'                => 'After',
-        'before'               => 'Before',
-        'businessId'           => 'BusinessId',
-        'custSpaceId'          => 'CustSpaceId',
-        'fields'               => 'Fields',
-        'limit'                => 'Limit',
-        'ownerId'              => 'OwnerId',
+        'after' => 'After',
+        'before' => 'Before',
+        'businessId' => 'BusinessId',
+        'custSpaceId' => 'CustSpaceId',
+        'fields' => 'Fields',
+        'limit' => 'Limit',
+        'ownerId' => 'OwnerId',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
-        'resourceOwnerId'      => 'ResourceOwnerId',
+        'resourceOwnerId' => 'ResourceOwnerId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

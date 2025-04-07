@@ -27,6 +27,21 @@ class QueryChatappPhoneNumbersRequest extends Model
     public $isvCode;
 
     /**
+     * @var int
+     */
+    public $ownerId;
+
+    /**
+     * @var string
+     */
+    public $resourceOwnerAccount;
+
+    /**
+     * @var int
+     */
+    public $resourceOwnerId;
+
+    /**
      * @description The state of the phone number.
      *
      * @example VERIFIED
@@ -36,13 +51,14 @@ class QueryChatappPhoneNumbersRequest extends Model
     public $status;
     protected $_name = [
         'custSpaceId' => 'CustSpaceId',
-        'isvCode'     => 'IsvCode',
-        'status'      => 'Status',
+        'isvCode' => 'IsvCode',
+        'ownerId' => 'OwnerId',
+        'resourceOwnerAccount' => 'ResourceOwnerAccount',
+        'resourceOwnerId' => 'ResourceOwnerId',
+        'status' => 'Status',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -52,6 +68,15 @@ class QueryChatappPhoneNumbersRequest extends Model
         }
         if (null !== $this->isvCode) {
             $res['IsvCode'] = $this->isvCode;
+        }
+        if (null !== $this->ownerId) {
+            $res['OwnerId'] = $this->ownerId;
+        }
+        if (null !== $this->resourceOwnerAccount) {
+            $res['ResourceOwnerAccount'] = $this->resourceOwnerAccount;
+        }
+        if (null !== $this->resourceOwnerId) {
+            $res['ResourceOwnerId'] = $this->resourceOwnerId;
         }
         if (null !== $this->status) {
             $res['Status'] = $this->status;
@@ -73,6 +98,15 @@ class QueryChatappPhoneNumbersRequest extends Model
         }
         if (isset($map['IsvCode'])) {
             $model->isvCode = $map['IsvCode'];
+        }
+        if (isset($map['OwnerId'])) {
+            $model->ownerId = $map['OwnerId'];
+        }
+        if (isset($map['ResourceOwnerAccount'])) {
+            $model->resourceOwnerAccount = $map['ResourceOwnerAccount'];
+        }
+        if (isset($map['ResourceOwnerId'])) {
+            $model->resourceOwnerId = $map['ResourceOwnerId'];
         }
         if (isset($map['Status'])) {
             $model->status = $map['Status'];

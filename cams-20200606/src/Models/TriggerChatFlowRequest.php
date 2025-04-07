@@ -39,6 +39,7 @@ class TriggerChatFlowRequest extends Model
      * @description Flow code.
      *
      * This parameter is required.
+     *
      * @example f4912c16943b4dfba44bd6fedacf8c70
      *
      * @var string
@@ -78,20 +79,18 @@ class TriggerChatFlowRequest extends Model
      */
     public $uuid;
     protected $_name = [
-        'claimTimeMillis'      => 'ClaimTimeMillis',
-        'data'                 => 'Data',
-        'discardTimeMillis'    => 'DiscardTimeMillis',
-        'flowCode'             => 'FlowCode',
-        'outId'                => 'OutId',
-        'ownerId'              => 'OwnerId',
+        'claimTimeMillis' => 'ClaimTimeMillis',
+        'data' => 'Data',
+        'discardTimeMillis' => 'DiscardTimeMillis',
+        'flowCode' => 'FlowCode',
+        'outId' => 'OutId',
+        'ownerId' => 'OwnerId',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
-        'resourceOwnerId'      => 'ResourceOwnerId',
-        'uuid'                 => 'Uuid',
+        'resourceOwnerId' => 'ResourceOwnerId',
+        'uuid' => 'Uuid',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

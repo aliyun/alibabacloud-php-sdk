@@ -23,13 +23,11 @@ class model_ extends Model
      */
     public $paging;
     protected $_name = [
-        'data'   => 'Data',
+        'data' => 'Data',
         'paging' => 'Paging',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

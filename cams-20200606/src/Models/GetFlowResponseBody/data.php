@@ -78,32 +78,43 @@ class data extends Model
      *
      * <!-- -->
      *
+     * <!-- -->
+     *
+     * <!-- -->
+     *
      *   DRAFT
+     *
+     * <!-- -->
+     *
+     * <!-- -->
      *
      * <!-- -->
      *
      *   DEPRECATED
      *
      * <!-- -->
+     *
+     * <!-- -->
+     *
+     * <!-- -->
+     *
      * @example DRAFT
      *
      * @var string
      */
     public $status;
     protected $_name = [
-        'categories'        => 'Categories',
-        'dataApiVersion'    => 'DataApiVersion',
-        'flowId'            => 'FlowId',
-        'flowName'          => 'FlowName',
-        'JSONVersion'       => 'JSONVersion',
-        'previewUrl'        => 'PreviewUrl',
+        'categories' => 'Categories',
+        'dataApiVersion' => 'DataApiVersion',
+        'flowId' => 'FlowId',
+        'flowName' => 'FlowName',
+        'JSONVersion' => 'JSONVersion',
+        'previewUrl' => 'PreviewUrl',
         'previewUrlExpires' => 'PreviewUrlExpires',
-        'status'            => 'Status',
+        'status' => 'Status',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

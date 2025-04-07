@@ -12,6 +12,7 @@ class ChatappSyncPhoneNumberRequest extends Model
      * @description The space ID of the user under the independent software vendor (ISV) account.
      *
      * This parameter is required.
+     *
      * @example 293483938849493****
      *
      * @var string
@@ -33,15 +34,13 @@ class ChatappSyncPhoneNumberRequest extends Model
      */
     public $resourceOwnerId;
     protected $_name = [
-        'custSpaceId'          => 'CustSpaceId',
-        'ownerId'              => 'OwnerId',
+        'custSpaceId' => 'CustSpaceId',
+        'ownerId' => 'OwnerId',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
-        'resourceOwnerId'      => 'ResourceOwnerId',
+        'resourceOwnerId' => 'ResourceOwnerId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

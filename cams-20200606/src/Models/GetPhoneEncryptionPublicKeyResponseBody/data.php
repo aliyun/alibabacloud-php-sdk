@@ -12,7 +12,15 @@ class data extends Model
      * @description The public key.
      *
      * @example -----BEGIN PUBLIC KEY-----
+     * AAA
+     * BBB
+     * CCC
+     * DDD
+     * EEE
+     * FFF
+     * GGG
      * -----END PUBLIC KEY-----
+     *
      * @var string
      */
     public $encryptionPublicKey;
@@ -38,14 +46,12 @@ class data extends Model
      */
     public $phoneNumber;
     protected $_name = [
-        'encryptionPublicKey'       => 'EncryptionPublicKey',
+        'encryptionPublicKey' => 'EncryptionPublicKey',
         'encryptionPublicKeyStatus' => 'EncryptionPublicKeyStatus',
-        'phoneNumber'               => 'PhoneNumber',
+        'phoneNumber' => 'PhoneNumber',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

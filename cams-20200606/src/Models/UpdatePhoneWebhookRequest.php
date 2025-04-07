@@ -12,6 +12,7 @@ class UpdatePhoneWebhookRequest extends Model
      * @description SpaceId for ISV sub clients.
      *
      * This parameter is required.
+     *
      * @example 293483938849493****
      *
      * @var string
@@ -33,6 +34,7 @@ class UpdatePhoneWebhookRequest extends Model
      * @description phone number.
      *
      * This parameter is required.
+     *
      * @example 8613800001234
      *
      * @var string
@@ -68,17 +70,15 @@ class UpdatePhoneWebhookRequest extends Model
      */
     public $upCallbackUrl;
     protected $_name = [
-        'custSpaceId'       => 'CustSpaceId',
-        'httpFlag'          => 'HttpFlag',
-        'phoneNumber'       => 'PhoneNumber',
-        'queueFlag'         => 'QueueFlag',
+        'custSpaceId' => 'CustSpaceId',
+        'httpFlag' => 'HttpFlag',
+        'phoneNumber' => 'PhoneNumber',
+        'queueFlag' => 'QueueFlag',
         'statusCallbackUrl' => 'StatusCallbackUrl',
-        'upCallbackUrl'     => 'UpCallbackUrl',
+        'upCallbackUrl' => 'UpCallbackUrl',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

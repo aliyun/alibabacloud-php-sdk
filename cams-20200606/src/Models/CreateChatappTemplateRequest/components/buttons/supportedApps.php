@@ -26,13 +26,11 @@ class supportedApps extends Model
      */
     public $signatureHash;
     protected $_name = [
-        'packageName'   => 'PackageName',
+        'packageName' => 'PackageName',
         'signatureHash' => 'SignatureHash',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

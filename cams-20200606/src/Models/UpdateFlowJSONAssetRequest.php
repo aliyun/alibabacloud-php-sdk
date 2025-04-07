@@ -21,6 +21,7 @@ class UpdateFlowJSONAssetRequest extends Model
      * @description JSON file generated according to Facebook flow rules.
      *
      * This parameter is required.
+     *
      * @example https://aliyun/json.json
      *
      * @var string
@@ -31,6 +32,7 @@ class UpdateFlowJSONAssetRequest extends Model
      * @description The Flow ID.
      *
      * This parameter is required.
+     *
      * @example flow_001
      *
      * @var string
@@ -38,13 +40,11 @@ class UpdateFlowJSONAssetRequest extends Model
     public $flowId;
     protected $_name = [
         'custSpaceId' => 'CustSpaceId',
-        'filePath'    => 'FilePath',
-        'flowId'      => 'FlowId',
+        'filePath' => 'FilePath',
+        'flowId' => 'FlowId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

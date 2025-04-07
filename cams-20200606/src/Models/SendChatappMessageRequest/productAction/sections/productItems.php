@@ -20,9 +20,7 @@ class productItems extends Model
         'productRetailerId' => 'ProductRetailerId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

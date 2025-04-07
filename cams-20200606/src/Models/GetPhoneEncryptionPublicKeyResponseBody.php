@@ -13,7 +13,7 @@ class GetPhoneEncryptionPublicKeyResponseBody extends Model
      * @description The response code.
      *
      *   The value OK indicates that the request was successful.
-     *   For more information about other response codes, see [Error codes](https://www.alibabacloud.com/help/zh/cams/latest/api-error-codes).
+     *   For more information about other response codes, see [Error codes](https://help.aliyun.com/document_detail/196974.html).
      *
      * @example OK
      *
@@ -46,15 +46,13 @@ class GetPhoneEncryptionPublicKeyResponseBody extends Model
      */
     public $requestId;
     protected $_name = [
-        'code'      => 'Code',
-        'data'      => 'Data',
-        'message'   => 'Message',
+        'code' => 'Code',
+        'data' => 'Data',
+        'message' => 'Message',
         'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

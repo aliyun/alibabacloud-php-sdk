@@ -18,6 +18,13 @@ class phoneNumbers extends Model
     public $codeVerificationStatus;
 
     /**
+     * @example N
+     *
+     * @var string
+     */
+    public $isOfficial;
+
+    /**
      * @description The number of phone numbers to which messages can be sent in a day.
      *
      * @example TIER_10
@@ -117,28 +124,30 @@ class phoneNumbers extends Model
     public $verifiedName;
     protected $_name = [
         'codeVerificationStatus' => 'CodeVerificationStatus',
-        'messagingLimitTier'     => 'MessagingLimitTier',
-        'nameStatus'             => 'NameStatus',
-        'newNameStatus'          => 'NewNameStatus',
-        'phoneNumber'            => 'PhoneNumber',
-        'qualityRating'          => 'QualityRating',
-        'status'                 => 'Status',
-        'statusCallbackUrl'      => 'StatusCallbackUrl',
-        'statusQueue'            => 'StatusQueue',
-        'upCallbackUrl'          => 'UpCallbackUrl',
-        'upQueue'                => 'UpQueue',
-        'verifiedName'           => 'VerifiedName',
+        'isOfficial' => 'IsOfficial',
+        'messagingLimitTier' => 'MessagingLimitTier',
+        'nameStatus' => 'NameStatus',
+        'newNameStatus' => 'NewNameStatus',
+        'phoneNumber' => 'PhoneNumber',
+        'qualityRating' => 'QualityRating',
+        'status' => 'Status',
+        'statusCallbackUrl' => 'StatusCallbackUrl',
+        'statusQueue' => 'StatusQueue',
+        'upCallbackUrl' => 'UpCallbackUrl',
+        'upQueue' => 'UpQueue',
+        'verifiedName' => 'VerifiedName',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
         $res = [];
         if (null !== $this->codeVerificationStatus) {
             $res['CodeVerificationStatus'] = $this->codeVerificationStatus;
+        }
+        if (null !== $this->isOfficial) {
+            $res['IsOfficial'] = $this->isOfficial;
         }
         if (null !== $this->messagingLimitTier) {
             $res['MessagingLimitTier'] = $this->messagingLimitTier;
@@ -187,6 +196,9 @@ class phoneNumbers extends Model
         $model = new self();
         if (isset($map['CodeVerificationStatus'])) {
             $model->codeVerificationStatus = $map['CodeVerificationStatus'];
+        }
+        if (isset($map['IsOfficial'])) {
+            $model->isOfficial = $map['IsOfficial'];
         }
         if (isset($map['MessagingLimitTier'])) {
             $model->messagingLimitTier = $map['MessagingLimitTier'];

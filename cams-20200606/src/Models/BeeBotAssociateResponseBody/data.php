@@ -39,9 +39,7 @@ class data extends Model
         'sessionId' => 'SessionId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -76,7 +74,7 @@ class data extends Model
         if (isset($map['Associate'])) {
             if (!empty($map['Associate'])) {
                 $model->associate = [];
-                $n                = 0;
+                $n = 0;
                 foreach ($map['Associate'] as $item) {
                     $model->associate[$n++] = null !== $item ? associate::fromMap($item) : $item;
                 }

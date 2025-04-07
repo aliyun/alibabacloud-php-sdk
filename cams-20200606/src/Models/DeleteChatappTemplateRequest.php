@@ -21,6 +21,7 @@ class DeleteChatappTemplateRequest extends Model
      * @description The WhatsApp Business Account (WABA) ID of the RAM user within the independent software vendor (ISV) account.
      *
      * >  CustWabaId is an obsolete parameter. Use CustSpaceId instead.
+     *
      * @example 65921621816****
      *
      * @var string
@@ -87,21 +88,19 @@ class DeleteChatappTemplateRequest extends Model
      */
     public $templateType;
     protected $_name = [
-        'custSpaceId'          => 'CustSpaceId',
-        'custWabaId'           => 'CustWabaId',
-        'isvCode'              => 'IsvCode',
-        'language'             => 'Language',
-        'ownerId'              => 'OwnerId',
+        'custSpaceId' => 'CustSpaceId',
+        'custWabaId' => 'CustWabaId',
+        'isvCode' => 'IsvCode',
+        'language' => 'Language',
+        'ownerId' => 'OwnerId',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
-        'resourceOwnerId'      => 'ResourceOwnerId',
-        'templateCode'         => 'TemplateCode',
-        'templateName'         => 'TemplateName',
-        'templateType'         => 'TemplateType',
+        'resourceOwnerId' => 'ResourceOwnerId',
+        'templateCode' => 'TemplateCode',
+        'templateName' => 'TemplateName',
+        'templateType' => 'TemplateType',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

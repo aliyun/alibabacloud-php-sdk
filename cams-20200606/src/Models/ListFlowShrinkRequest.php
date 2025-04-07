@@ -34,13 +34,11 @@ class ListFlowShrinkRequest extends Model
     public $pageShrink;
     protected $_name = [
         'custSpaceId' => 'CustSpaceId',
-        'flowName'    => 'FlowName',
-        'pageShrink'  => 'Page',
+        'flowName' => 'FlowName',
+        'pageShrink' => 'Page',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

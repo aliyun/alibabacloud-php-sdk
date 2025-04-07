@@ -35,14 +35,12 @@ class errors extends Model
      */
     public $possibleSolution;
     protected $_name = [
-        'errorCode'        => 'ErrorCode',
+        'errorCode' => 'ErrorCode',
         'errorDescription' => 'ErrorDescription',
         'possibleSolution' => 'PossibleSolution',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

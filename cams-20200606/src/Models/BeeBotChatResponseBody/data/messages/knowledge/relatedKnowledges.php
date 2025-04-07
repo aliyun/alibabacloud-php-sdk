@@ -27,12 +27,10 @@ class relatedKnowledges extends Model
     public $title;
     protected $_name = [
         'knowledgeId' => 'KnowledgeId',
-        'title'       => 'Title',
+        'title' => 'Title',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

@@ -40,6 +40,7 @@ class components extends Model
      * @description The description of the media resource.
      *
      * >  If the Type sub-parameter of the Components parameter is set to **HEADER** and the Format parameter is set to **IMAGE, DOCUMENT, or VIDEO**, you can specify this parameter.
+     *
      * @example This is a video
      *
      * @var string
@@ -75,6 +76,7 @@ class components extends Model
      * @description The name of the document.
      *
      * >  If the Type sub-parameter of the Components parameter is set to **HEADER** and the Format parameter is set to **DOCUMENT**, you can specify this parameter.
+     *
      * @example video name
      *
      * @var string
@@ -117,6 +119,7 @@ class components extends Model
      * @description The text of the message that you want to send.
      *
      * >  If Category is set to AUTHENTICATION, do not specify the Text sub-parameter of the Components parameter.
+     *
      * @example hello chatapp
      *
      * @var string
@@ -151,6 +154,7 @@ class components extends Model
      *   In Viber message templates, media resources such as images, videos, and documents are placed in the **HEADER** component. If a Viber message contains text and an image, the image is placed below the text in the message received on a device.
      *
      * This parameter is required.
+     *
      * @example BODY
      *
      * @var string
@@ -167,24 +171,22 @@ class components extends Model
     public $url;
     protected $_name = [
         'addSecretRecommendation' => 'AddSecretRecommendation',
-        'buttons'                 => 'Buttons',
-        'caption'                 => 'Caption',
-        'cards'                   => 'Cards',
-        'codeExpirationMinutes'   => 'CodeExpirationMinutes',
-        'duration'                => 'Duration',
-        'fileName'                => 'FileName',
-        'fileType'                => 'FileType',
-        'format'                  => 'Format',
-        'hasExpiration'           => 'HasExpiration',
-        'text'                    => 'Text',
-        'thumbUrl'                => 'ThumbUrl',
-        'type'                    => 'Type',
-        'url'                     => 'Url',
+        'buttons' => 'Buttons',
+        'caption' => 'Caption',
+        'cards' => 'Cards',
+        'codeExpirationMinutes' => 'CodeExpirationMinutes',
+        'duration' => 'Duration',
+        'fileName' => 'FileName',
+        'fileType' => 'FileType',
+        'format' => 'Format',
+        'hasExpiration' => 'HasExpiration',
+        'text' => 'Text',
+        'thumbUrl' => 'ThumbUrl',
+        'type' => 'Type',
+        'url' => 'Url',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -261,7 +263,7 @@ class components extends Model
         if (isset($map['Buttons'])) {
             if (!empty($map['Buttons'])) {
                 $model->buttons = [];
-                $n              = 0;
+                $n = 0;
                 foreach ($map['Buttons'] as $item) {
                     $model->buttons[$n++] = null !== $item ? buttons::fromMap($item) : $item;
                 }
@@ -273,7 +275,7 @@ class components extends Model
         if (isset($map['Cards'])) {
             if (!empty($map['Cards'])) {
                 $model->cards = [];
-                $n            = 0;
+                $n = 0;
                 foreach ($map['Cards'] as $item) {
                     $model->cards[$n++] = null !== $item ? cards::fromMap($item) : $item;
                 }

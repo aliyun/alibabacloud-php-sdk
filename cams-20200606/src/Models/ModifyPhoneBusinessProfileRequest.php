@@ -30,6 +30,7 @@ class ModifyPhoneBusinessProfileRequest extends Model
      * @description The space ID of the RAM user within the independent software vendor (ISV) account.
      *
      * This parameter is required.
+     *
      * @example 293483938849****
      *
      * @var string
@@ -63,6 +64,7 @@ class ModifyPhoneBusinessProfileRequest extends Model
      * @description The mobile phone number.
      *
      * This parameter is required.
+     *
      * @example 8613800001234
      *
      * @var string
@@ -92,6 +94,7 @@ class ModifyPhoneBusinessProfileRequest extends Model
      * @description The industry.
      *
      * >  Valid values: OTHER, AUTO, BEAUTY, APPAREL, EDU, ENTERTAIN, EVENT_PLAN, FINANCE, GROCERY, GOVT, HOTEL, HEALTH, NONPROFIT, PROF_SERVICES, RETAIL, TRAVEL, and RESTAURANT.
+     *
      * @example OTHER
      *
      * @var string
@@ -105,23 +108,21 @@ class ModifyPhoneBusinessProfileRequest extends Model
      */
     public $websites;
     protected $_name = [
-        'about'                => 'About',
-        'address'              => 'Address',
-        'custSpaceId'          => 'CustSpaceId',
-        'description'          => 'Description',
-        'email'                => 'Email',
-        'ownerId'              => 'OwnerId',
-        'phoneNumber'          => 'PhoneNumber',
-        'profilePictureUrl'    => 'ProfilePictureUrl',
+        'about' => 'About',
+        'address' => 'Address',
+        'custSpaceId' => 'CustSpaceId',
+        'description' => 'Description',
+        'email' => 'Email',
+        'ownerId' => 'OwnerId',
+        'phoneNumber' => 'PhoneNumber',
+        'profilePictureUrl' => 'ProfilePictureUrl',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
-        'resourceOwnerId'      => 'ResourceOwnerId',
-        'vertical'             => 'Vertical',
-        'websites'             => 'Websites',
+        'resourceOwnerId' => 'ResourceOwnerId',
+        'vertical' => 'Vertical',
+        'websites' => 'Websites',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

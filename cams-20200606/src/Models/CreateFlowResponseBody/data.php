@@ -34,13 +34,11 @@ class data extends Model
     public $flowName;
     protected $_name = [
         'categories' => 'Categories',
-        'flowId'     => 'FlowId',
-        'flowName'   => 'FlowName',
+        'flowId' => 'FlowId',
+        'flowName' => 'FlowName',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

@@ -79,19 +79,17 @@ class data extends Model
      */
     public $templateCode;
     protected $_name = [
-        'cliented'       => 'Cliented',
+        'cliented' => 'Cliented',
         'deliveredCount' => 'DeliveredCount',
-        'end'            => 'End',
-        'language'       => 'Language',
-        'readCount'      => 'ReadCount',
-        'sentCount'      => 'SentCount',
-        'start'          => 'Start',
-        'templateCode'   => 'TemplateCode',
+        'end' => 'End',
+        'language' => 'Language',
+        'readCount' => 'ReadCount',
+        'sentCount' => 'SentCount',
+        'start' => 'Start',
+        'templateCode' => 'TemplateCode',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -141,7 +139,7 @@ class data extends Model
         if (isset($map['Cliented'])) {
             if (!empty($map['Cliented'])) {
                 $model->cliented = [];
-                $n               = 0;
+                $n = 0;
                 foreach ($map['Cliented'] as $item) {
                     $model->cliented[$n++] = null !== $item ? cliented::fromMap($item) : $item;
                 }

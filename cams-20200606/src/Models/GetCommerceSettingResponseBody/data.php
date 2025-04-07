@@ -32,13 +32,11 @@ class data extends Model
      */
     public $catalogVisible;
     protected $_name = [
-        'cartEnable'     => 'CartEnable',
+        'cartEnable' => 'CartEnable',
         'catalogVisible' => 'CatalogVisible',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

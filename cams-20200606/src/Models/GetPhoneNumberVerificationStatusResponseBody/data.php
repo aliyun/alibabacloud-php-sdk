@@ -36,13 +36,11 @@ class data extends Model
     public $phoneNumber;
     protected $_name = [
         'codeVerificationStatus' => 'CodeVerificationStatus',
-        'id'                     => 'Id',
-        'phoneNumber'            => 'PhoneNumber',
+        'id' => 'Id',
+        'phoneNumber' => 'PhoneNumber',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

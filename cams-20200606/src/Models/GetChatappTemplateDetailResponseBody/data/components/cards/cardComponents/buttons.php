@@ -54,15 +54,13 @@ class buttons extends Model
     public $urlType;
     protected $_name = [
         'phoneNumber' => 'PhoneNumber',
-        'text'        => 'Text',
-        'type'        => 'Type',
-        'url'         => 'Url',
-        'urlType'     => 'UrlType',
+        'text' => 'Text',
+        'type' => 'Type',
+        'url' => 'Url',
+        'urlType' => 'UrlType',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

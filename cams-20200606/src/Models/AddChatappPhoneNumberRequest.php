@@ -12,6 +12,7 @@ class AddChatappPhoneNumberRequest extends Model
      * @description You can call this operation up to 10 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
      *
      * This parameter is required.
+     *
      * @example 86
      *
      * @var string
@@ -22,6 +23,7 @@ class AddChatappPhoneNumberRequest extends Model
      * @description Adds a phone number for a WhatsApp Business account (WABA).
      *
      * This parameter is required.
+     *
      * @example 93928389****
      *
      * @var string
@@ -37,6 +39,7 @@ class AddChatappPhoneNumberRequest extends Model
      * @description AddChatappPhoneNumber
      *
      * This parameter is required.
+     *
      * @example 1380000****
      *
      * @var string
@@ -68,25 +71,24 @@ class AddChatappPhoneNumberRequest extends Model
      * @description Private
      *
      * This parameter is required.
+     *
      * @example Alibaba
      *
      * @var string
      */
     public $verifiedName;
     protected $_name = [
-        'cc'                   => 'Cc',
-        'custSpaceId'          => 'CustSpaceId',
-        'ownerId'              => 'OwnerId',
-        'phoneNumber'          => 'PhoneNumber',
-        'preValidateId'        => 'PreValidateId',
+        'cc' => 'Cc',
+        'custSpaceId' => 'CustSpaceId',
+        'ownerId' => 'OwnerId',
+        'phoneNumber' => 'PhoneNumber',
+        'preValidateId' => 'PreValidateId',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
-        'resourceOwnerId'      => 'ResourceOwnerId',
-        'verifiedName'         => 'VerifiedName',
+        'resourceOwnerId' => 'ResourceOwnerId',
+        'verifiedName' => 'VerifiedName',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

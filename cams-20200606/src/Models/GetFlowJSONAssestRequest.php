@@ -21,6 +21,7 @@ class GetFlowJSONAssestRequest extends Model
      * @description The Flow ID.
      *
      * This parameter is required.
+     *
      * @example flow_001
      *
      * @var string
@@ -28,12 +29,10 @@ class GetFlowJSONAssestRequest extends Model
     public $flowId;
     protected $_name = [
         'custSpaceId' => 'CustSpaceId',
-        'flowId'      => 'FlowId',
+        'flowId' => 'FlowId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

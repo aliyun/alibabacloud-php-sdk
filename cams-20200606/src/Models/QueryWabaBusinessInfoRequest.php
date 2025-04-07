@@ -12,6 +12,7 @@ class QueryWabaBusinessInfoRequest extends Model
      * @description The space ID of the RAM user within the independent software vendor (ISV) account.
      *
      * This parameter is required.
+     *
      * @example 293483938849493****
      *
      * @var string
@@ -37,22 +38,21 @@ class QueryWabaBusinessInfoRequest extends Model
      * @description The ID of the WhatsApp Business Account (WABA).
      *
      * This parameter is required.
+     *
      * @example 293848822333
      *
      * @var string
      */
     public $wabaId;
     protected $_name = [
-        'custSpaceId'          => 'CustSpaceId',
-        'ownerId'              => 'OwnerId',
+        'custSpaceId' => 'CustSpaceId',
+        'ownerId' => 'OwnerId',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
-        'resourceOwnerId'      => 'ResourceOwnerId',
-        'wabaId'               => 'WabaId',
+        'resourceOwnerId' => 'ResourceOwnerId',
+        'wabaId' => 'WabaId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

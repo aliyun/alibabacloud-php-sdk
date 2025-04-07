@@ -12,6 +12,7 @@ class BeeBotAssociateShrinkRequest extends Model
      * @description The ID of a bot instance.
      *
      * This parameter is required.
+     *
      * @example 1
      *
      * @var string
@@ -71,17 +72,15 @@ class BeeBotAssociateShrinkRequest extends Model
     public $utterance;
     protected $_name = [
         'chatBotInstanceId' => 'ChatBotInstanceId',
-        'custSpaceId'       => 'CustSpaceId',
-        'isvCode'           => 'IsvCode',
+        'custSpaceId' => 'CustSpaceId',
+        'isvCode' => 'IsvCode',
         'perspectiveShrink' => 'Perspective',
-        'recommendNum'      => 'RecommendNum',
-        'sessionId'         => 'SessionId',
-        'utterance'         => 'Utterance',
+        'recommendNum' => 'RecommendNum',
+        'sessionId' => 'SessionId',
+        'utterance' => 'Utterance',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

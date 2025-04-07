@@ -12,6 +12,7 @@ class ChatappPhoneNumberDeregisterRequest extends Model
      * @description The space ID of the RAM user within the independent software vendor (ISV) account.
      *
      * This parameter is required.
+     *
      * @example 939283893939
      *
      * @var string
@@ -22,6 +23,7 @@ class ChatappPhoneNumberDeregisterRequest extends Model
      * @description The phone number that you want to deregister.
      *
      * This parameter is required.
+     *
      * @example 8613800000000
      *
      * @var string
@@ -32,9 +34,7 @@ class ChatappPhoneNumberDeregisterRequest extends Model
         'phoneNumber' => 'PhoneNumber',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

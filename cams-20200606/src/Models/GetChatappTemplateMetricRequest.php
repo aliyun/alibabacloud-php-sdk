@@ -21,6 +21,7 @@ class GetChatappTemplateMetricRequest extends Model
      * @description The end of the time range to query.
      *
      * This parameter is required.
+     *
      * @example 1693407714687
      *
      * @var int
@@ -63,6 +64,7 @@ class GetChatappTemplateMetricRequest extends Model
      * @description The beginning of the time range to query.
      *
      * This parameter is required.
+     *
      * @example 1693107714687
      *
      * @var int
@@ -73,6 +75,7 @@ class GetChatappTemplateMetricRequest extends Model
      * @description The template code.
      *
      * This parameter is required.
+     *
      * @example 744c4b5c79c9432497a075bdfca36bf5
      *
      * @var string
@@ -93,19 +96,17 @@ class GetChatappTemplateMetricRequest extends Model
      */
     public $templateType;
     protected $_name = [
-        'custSpaceId'  => 'CustSpaceId',
-        'end'          => 'End',
-        'granularity'  => 'Granularity',
-        'isvCode'      => 'IsvCode',
-        'language'     => 'Language',
-        'start'        => 'Start',
+        'custSpaceId' => 'CustSpaceId',
+        'end' => 'End',
+        'granularity' => 'Granularity',
+        'isvCode' => 'IsvCode',
+        'language' => 'Language',
+        'start' => 'Start',
         'templateCode' => 'TemplateCode',
         'templateType' => 'TemplateType',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

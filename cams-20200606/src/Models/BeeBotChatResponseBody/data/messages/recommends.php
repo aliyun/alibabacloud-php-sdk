@@ -36,13 +36,11 @@ class recommends extends Model
     public $title;
     protected $_name = [
         'answerSource' => 'AnswerSource',
-        'knowledgeId'  => 'KnowledgeId',
-        'title'        => 'Title',
+        'knowledgeId' => 'KnowledgeId',
+        'title' => 'Title',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

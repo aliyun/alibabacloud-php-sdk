@@ -68,16 +68,14 @@ class data extends Model
     public $start;
     protected $_name = [
         'deliveredCount' => 'DeliveredCount',
-        'end'            => 'End',
-        'granularity'    => 'Granularity',
-        'phoneNumber'    => 'PhoneNumber',
-        'sentCount'      => 'SentCount',
-        'start'          => 'Start',
+        'end' => 'End',
+        'granularity' => 'Granularity',
+        'phoneNumber' => 'PhoneNumber',
+        'sentCount' => 'SentCount',
+        'start' => 'Start',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

@@ -21,6 +21,7 @@ class GetChatappPhoneNumberMetricRequest extends Model
      * @description The end of the time range to query.
      *
      * This parameter is required.
+     *
      * @example 1693407714687
      *
      * @var int
@@ -63,6 +64,7 @@ class GetChatappPhoneNumberMetricRequest extends Model
      * @description The beginning of the time range to query.
      *
      * This parameter is required.
+     *
      * @example 1693107714687
      *
      * @var int
@@ -70,16 +72,14 @@ class GetChatappPhoneNumberMetricRequest extends Model
     public $start;
     protected $_name = [
         'custSpaceId' => 'CustSpaceId',
-        'end'         => 'End',
+        'end' => 'End',
         'granularity' => 'Granularity',
-        'isvCode'     => 'IsvCode',
+        'isvCode' => 'IsvCode',
         'phoneNumber' => 'PhoneNumber',
-        'start'       => 'Start',
+        'start' => 'Start',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

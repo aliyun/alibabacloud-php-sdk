@@ -21,6 +21,7 @@ class GetChatappTemplateDetailRequest extends Model
      * @description The WhatsApp Business account (WABA) ID of the user within the independent software vendor (ISV) account.
      *
      * >  CustWabaId is an obsolete parameter. Use CustSpaceId instead.
+     *
      * @example 65921621816****
      *
      * @deprecated
@@ -42,6 +43,7 @@ class GetChatappTemplateDetailRequest extends Model
      * @description The language that is used in the message template. For more information, see [Language codes](https://help.aliyun.com/document_detail/463420.html).
      *
      * This parameter is required.
+     *
      * @example en_US
      *
      * @var string
@@ -79,18 +81,16 @@ class GetChatappTemplateDetailRequest extends Model
      */
     public $templateType;
     protected $_name = [
-        'custSpaceId'  => 'CustSpaceId',
-        'custWabaId'   => 'CustWabaId',
-        'isvCode'      => 'IsvCode',
-        'language'     => 'Language',
+        'custSpaceId' => 'CustSpaceId',
+        'custWabaId' => 'CustWabaId',
+        'isvCode' => 'IsvCode',
+        'language' => 'Language',
         'templateCode' => 'TemplateCode',
         'templateName' => 'TemplateName',
         'templateType' => 'TemplateType',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

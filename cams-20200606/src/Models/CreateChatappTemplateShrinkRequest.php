@@ -37,6 +37,7 @@ class CreateChatappTemplateShrinkRequest extends Model
      *   **text_image**: the template that contains text and images
      *
      * This parameter is required.
+     *
      * @example The code of the message template.
      *
      * @var string
@@ -46,7 +47,10 @@ class CreateChatappTemplateShrinkRequest extends Model
     /**
      * @description The components of the message template.
      *
+     * >  If Category is set to AUTHENTICATION, the Type sub-parameter of the Components parameter cannot be set to HEADER. If the Type sub-parameter is set to BODY or FOOTER, the Text sub-parameter of the Components parameter must be empty.
+     *
      * This parameter is required.
+     *
      * @var string
      */
     public $componentsShrink;
@@ -64,6 +68,7 @@ class CreateChatappTemplateShrinkRequest extends Model
      * @description The WhatsApp Business account (WABA) ID of the user within the independent software vendor (ISV) account.
      *
      * > CustWabaId is an obsolete parameter. Use CustSpaceId instead.
+     *
      * @example 65921621816****
      *
      * @deprecated
@@ -92,6 +97,7 @@ class CreateChatappTemplateShrinkRequest extends Model
      * @description The language that is used in the message template. For more information, see [Language codes](https://help.aliyun.com/document_detail/463420.html).
      *
      * This parameter is required.
+     *
      * @example en
      *
      * @var string
@@ -102,6 +108,7 @@ class CreateChatappTemplateShrinkRequest extends Model
      * @description Validity period of authentication template message sending in WhatsApp
      *
      * > This attribute requires providing waba in advance to Alibaba operators to open the whitelist, otherwise it will result in template submission failure
+     *
      * @example 120
      *
      * @var int
@@ -112,6 +119,7 @@ class CreateChatappTemplateShrinkRequest extends Model
      * @description The name of the message template.
      *
      * This parameter is required.
+     *
      * @example hello_whatsapp
      *
      * @var string
@@ -126,28 +134,27 @@ class CreateChatappTemplateShrinkRequest extends Model
      *   LINE: the Line message template. This type of message template will be released later.
      *
      * This parameter is required.
+     *
      * @example WHATSAPP
      *
      * @var string
      */
     public $templateType;
     protected $_name = [
-        'allowCategoryChange'   => 'AllowCategoryChange',
-        'category'              => 'Category',
-        'componentsShrink'      => 'Components',
-        'custSpaceId'           => 'CustSpaceId',
-        'custWabaId'            => 'CustWabaId',
-        'exampleShrink'         => 'Example',
-        'isvCode'               => 'IsvCode',
-        'language'              => 'Language',
+        'allowCategoryChange' => 'AllowCategoryChange',
+        'category' => 'Category',
+        'componentsShrink' => 'Components',
+        'custSpaceId' => 'CustSpaceId',
+        'custWabaId' => 'CustWabaId',
+        'exampleShrink' => 'Example',
+        'isvCode' => 'IsvCode',
+        'language' => 'Language',
         'messageSendTtlSeconds' => 'MessageSendTtlSeconds',
-        'name'                  => 'Name',
-        'templateType'          => 'TemplateType',
+        'name' => 'Name',
+        'templateType' => 'TemplateType',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

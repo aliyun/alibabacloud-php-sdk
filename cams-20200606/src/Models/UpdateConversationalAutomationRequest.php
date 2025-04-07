@@ -20,6 +20,7 @@ class UpdateConversationalAutomationRequest extends Model
      * @description The space ID of the RAM user within the independent software vendor (ISV) account or the instance ID of the customer of Alibaba Cloud.
      *
      * This parameter is required.
+     *
      * @example 2993****
      *
      * @var string
@@ -44,6 +45,7 @@ class UpdateConversationalAutomationRequest extends Model
      * @description The phone number of the enterprise.
      *
      * This parameter is required.
+     *
      * @example 86130000***
      *
      * @var string
@@ -67,19 +69,17 @@ class UpdateConversationalAutomationRequest extends Model
      */
     public $resourceOwnerId;
     protected $_name = [
-        'commands'             => 'Commands',
-        'custSpaceId'          => 'CustSpaceId',
+        'commands' => 'Commands',
+        'custSpaceId' => 'CustSpaceId',
         'enableWelcomeMessage' => 'EnableWelcomeMessage',
-        'ownerId'              => 'OwnerId',
-        'phoneNumber'          => 'PhoneNumber',
-        'prompts'              => 'Prompts',
+        'ownerId' => 'OwnerId',
+        'phoneNumber' => 'PhoneNumber',
+        'prompts' => 'Prompts',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
-        'resourceOwnerId'      => 'ResourceOwnerId',
+        'resourceOwnerId' => 'ResourceOwnerId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -129,7 +129,7 @@ class UpdateConversationalAutomationRequest extends Model
         if (isset($map['Commands'])) {
             if (!empty($map['Commands'])) {
                 $model->commands = [];
-                $n               = 0;
+                $n = 0;
                 foreach ($map['Commands'] as $item) {
                     $model->commands[$n++] = null !== $item ? commands::fromMap($item) : $item;
                 }

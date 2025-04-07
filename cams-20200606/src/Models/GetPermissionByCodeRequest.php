@@ -12,6 +12,7 @@ class GetPermissionByCodeRequest extends Model
      * @description Authorize code information.
      *
      * This parameter is required.
+     *
      * @example flow_001
      *
      * @var string
@@ -34,14 +35,12 @@ class GetPermissionByCodeRequest extends Model
      */
     public $permissions;
     protected $_name = [
-        'code'        => 'Code',
+        'code' => 'Code',
         'custSpaceId' => 'CustSpaceId',
         'permissions' => 'Permissions',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

@@ -21,6 +21,7 @@ class CreatePhoneMessageQrdlRequest extends Model
      * @description Produce QR code image format.
      *
      * This parameter is required.
+     *
      * @example PNG
      *
      * @var string
@@ -31,6 +32,7 @@ class CreatePhoneMessageQrdlRequest extends Model
      * @description The phone number. Add the country code before the phone number.
      *
      * This parameter is required.
+     *
      * @example 861380000
      *
      * @var string
@@ -41,21 +43,20 @@ class CreatePhoneMessageQrdlRequest extends Model
      * @description Message content.
      *
      * This parameter is required.
+     *
      * @example Hello
      *
      * @var string
      */
     public $prefilledMessage;
     protected $_name = [
-        'custSpaceId'      => 'CustSpaceId',
-        'generateQrImage'  => 'GenerateQrImage',
-        'phoneNumber'      => 'PhoneNumber',
+        'custSpaceId' => 'CustSpaceId',
+        'generateQrImage' => 'GenerateQrImage',
+        'phoneNumber' => 'PhoneNumber',
         'prefilledMessage' => 'PrefilledMessage',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
