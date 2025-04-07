@@ -12,6 +12,7 @@ class DeleteBackupPlanRequest extends Model
      * @description The ID of the backup plan.
      *
      * This parameter is required.
+     *
      * @example plan-*********************
      *
      * @var string
@@ -51,15 +52,13 @@ class DeleteBackupPlanRequest extends Model
      */
     public $vaultId;
     protected $_name = [
-        'planId'               => 'PlanId',
+        'planId' => 'PlanId',
         'requireNoRunningJobs' => 'RequireNoRunningJobs',
-        'sourceType'           => 'SourceType',
-        'vaultId'              => 'VaultId',
+        'sourceType' => 'SourceType',
+        'vaultId' => 'VaultId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

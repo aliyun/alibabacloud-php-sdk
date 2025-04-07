@@ -13,6 +13,7 @@ class CreateBackupPlanShrinkRequest extends Model
      * @description Backup type. Value: **COMPLETE**, indicating a full backup.
      *
      * This parameter is required.
+     *
      * @example COMPLETE
      *
      * @var string
@@ -66,7 +67,9 @@ class CreateBackupPlanShrinkRequest extends Model
 
     /**
      * @description Cross-account backup type. Supported values:
+     * - SELF_ACCOUNT: Backup within the same account
      * - CROSS_ACCOUNT: Cross-account backup
+     *
      * @example CROSS_ACCOUNT
      *
      * @var string
@@ -188,7 +191,9 @@ class CreateBackupPlanShrinkRequest extends Model
 
     /**
      * @description Whether to enable retaining at least one backup version.
+     * - 0 - Do not retain
      * - 1 - Retain
+     *
      * @example 1
      *
      * @var int
@@ -198,7 +203,10 @@ class CreateBackupPlanShrinkRequest extends Model
     /**
      * @description This parameter is required when **SourceType** is set to **ECS_FILE**. It indicates whether to use the Windows system VSS to define the backup path.
      *
+     * - This feature only supports Windows type ECS instances.
+     * - If there are data changes in the backup source and you need to ensure consistency between the backup data and the source data, you can configure it as `["UseVSS":true]`.
      * - After choosing to use VSS, multiple file directories cannot be backed up simultaneously.
+     *
      * @example {"UseVSS":false}
      *
      * @var string
@@ -223,6 +231,7 @@ class CreateBackupPlanShrinkRequest extends Model
      * @description Name of the backup plan. 1 to 64 characters. The name must be unique for each data source type within a single backup vault.
      *
      * This parameter is required.
+     *
      * @example planname
      *
      * @var string
@@ -261,6 +270,7 @@ class CreateBackupPlanShrinkRequest extends Model
      * - **interval**: ISO8601 time interval. For example, PT1H indicates an interval of one hour, and P1D indicates an interval of one day.
      *
      * This parameter is required.
+     *
      * @example I|1602673264|P1D
      *
      * @var string
@@ -278,6 +288,7 @@ class CreateBackupPlanShrinkRequest extends Model
      *   **SYNC**: data synchronization
      *
      * This parameter is required.
+     *
      * @example ECS_FILE
      *
      * @var string
@@ -290,6 +301,7 @@ class CreateBackupPlanShrinkRequest extends Model
      * - **start**: Start hour.
      * - **end**: End hour.
      * - **bandwidth**: Limit rate, in KB/s.
+     *
      * @example 0:24:5120
      *
      * @var string
@@ -314,43 +326,41 @@ class CreateBackupPlanShrinkRequest extends Model
      */
     public $vaultId;
     protected $_name = [
-        'backupType'                 => 'BackupType',
-        'bucket'                     => 'Bucket',
-        'changeListPath'             => 'ChangeListPath',
-        'clusterId'                  => 'ClusterId',
-        'createTime'                 => 'CreateTime',
-        'crossAccountRoleName'       => 'CrossAccountRoleName',
-        'crossAccountType'           => 'CrossAccountType',
-        'crossAccountUserId'         => 'CrossAccountUserId',
-        'dataSourceId'               => 'DataSourceId',
+        'backupType' => 'BackupType',
+        'bucket' => 'Bucket',
+        'changeListPath' => 'ChangeListPath',
+        'clusterId' => 'ClusterId',
+        'createTime' => 'CreateTime',
+        'crossAccountRoleName' => 'CrossAccountRoleName',
+        'crossAccountType' => 'CrossAccountType',
+        'crossAccountUserId' => 'CrossAccountUserId',
+        'dataSourceId' => 'DataSourceId',
         'destDataSourceDetailShrink' => 'DestDataSourceDetail',
-        'destDataSourceId'           => 'DestDataSourceId',
-        'destSourceType'             => 'DestSourceType',
-        'detailShrink'               => 'Detail',
-        'disabled'                   => 'Disabled',
-        'exclude'                    => 'Exclude',
-        'fileSystemId'               => 'FileSystemId',
-        'include'                    => 'Include',
-        'instanceId'                 => 'InstanceId',
-        'instanceName'               => 'InstanceName',
-        'keepLatestSnapshots'        => 'KeepLatestSnapshots',
-        'options'                    => 'Options',
-        'otsDetailShrink'            => 'OtsDetail',
-        'path'                       => 'Path',
-        'planName'                   => 'PlanName',
-        'prefix'                     => 'Prefix',
-        'retention'                  => 'Retention',
-        'rule'                       => 'Rule',
-        'schedule'                   => 'Schedule',
-        'sourceType'                 => 'SourceType',
-        'speedLimit'                 => 'SpeedLimit',
-        'udmRegionId'                => 'UdmRegionId',
-        'vaultId'                    => 'VaultId',
+        'destDataSourceId' => 'DestDataSourceId',
+        'destSourceType' => 'DestSourceType',
+        'detailShrink' => 'Detail',
+        'disabled' => 'Disabled',
+        'exclude' => 'Exclude',
+        'fileSystemId' => 'FileSystemId',
+        'include' => 'Include',
+        'instanceId' => 'InstanceId',
+        'instanceName' => 'InstanceName',
+        'keepLatestSnapshots' => 'KeepLatestSnapshots',
+        'options' => 'Options',
+        'otsDetailShrink' => 'OtsDetail',
+        'path' => 'Path',
+        'planName' => 'PlanName',
+        'prefix' => 'Prefix',
+        'retention' => 'Retention',
+        'rule' => 'Rule',
+        'schedule' => 'Schedule',
+        'sourceType' => 'SourceType',
+        'speedLimit' => 'SpeedLimit',
+        'udmRegionId' => 'UdmRegionId',
+        'vaultId' => 'VaultId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -552,7 +562,7 @@ class CreateBackupPlanShrinkRequest extends Model
         if (isset($map['Rule'])) {
             if (!empty($map['Rule'])) {
                 $model->rule = [];
-                $n           = 0;
+                $n = 0;
                 foreach ($map['Rule'] as $item) {
                     $model->rule[$n++] = null !== $item ? rule::fromMap($item) : $item;
                 }

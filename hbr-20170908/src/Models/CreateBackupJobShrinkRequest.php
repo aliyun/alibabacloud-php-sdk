@@ -105,7 +105,19 @@ class CreateBackupJobShrinkRequest extends Model
      *   timeoutSeconds: This parameter is required only if you set the **AppConsistent** parameter to **true**. This parameter specifies the I/O freeze timeout period. Default value: 30. Unit: seconds.
      *
      * @example {
+     * "doCopy": false,
+     * "destinationRegionId": "",
+     * "destinationRetention": null,
+     * "diskIdList": [],
+     * "snapshotGroup": false,
+     * "appConsistent": false,
+     * "enableWriters": true,
+     * "preScriptPath": "",
+     * "postScriptPath": "",
+     * "enableFsFreeze": true,
+     * "timeoutInSeconds": 60
      * }
+     *
      * @var string
      */
     public $detailShrink;
@@ -179,6 +191,7 @@ class CreateBackupJobShrinkRequest extends Model
      *   **UDM_ECS**: Elastic Compute Service (ECS) instance
      *
      * This parameter is required.
+     *
      * @example CONTAINER
      *
      * @var string
@@ -207,29 +220,27 @@ class CreateBackupJobShrinkRequest extends Model
      */
     public $vaultId;
     protected $_name = [
-        'backupType'           => 'BackupType',
-        'clusterId'            => 'ClusterId',
-        'containerClusterId'   => 'ContainerClusterId',
-        'containerResources'   => 'ContainerResources',
+        'backupType' => 'BackupType',
+        'clusterId' => 'ClusterId',
+        'containerClusterId' => 'ContainerClusterId',
+        'containerResources' => 'ContainerResources',
         'crossAccountRoleName' => 'CrossAccountRoleName',
-        'crossAccountType'     => 'CrossAccountType',
-        'crossAccountUserId'   => 'CrossAccountUserId',
-        'detailShrink'         => 'Detail',
-        'exclude'              => 'Exclude',
-        'include'              => 'Include',
-        'initiatedByAck'       => 'InitiatedByAck',
-        'instanceId'           => 'InstanceId',
-        'jobName'              => 'JobName',
-        'options'              => 'Options',
-        'retention'            => 'Retention',
-        'sourceType'           => 'SourceType',
-        'speedLimit'           => 'SpeedLimit',
-        'vaultId'              => 'VaultId',
+        'crossAccountType' => 'CrossAccountType',
+        'crossAccountUserId' => 'CrossAccountUserId',
+        'detailShrink' => 'Detail',
+        'exclude' => 'Exclude',
+        'include' => 'Include',
+        'initiatedByAck' => 'InitiatedByAck',
+        'instanceId' => 'InstanceId',
+        'jobName' => 'JobName',
+        'options' => 'Options',
+        'retention' => 'Retention',
+        'sourceType' => 'SourceType',
+        'speedLimit' => 'SpeedLimit',
+        'vaultId' => 'VaultId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

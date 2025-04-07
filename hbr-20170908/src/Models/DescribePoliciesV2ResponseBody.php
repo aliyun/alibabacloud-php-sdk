@@ -22,6 +22,7 @@ class DescribePoliciesV2ResponseBody extends Model
      * @description The number of results for each query.
      *
      * Valid values: 10 to 100. Default value: 10.
+     *
      * @example 10
      *
      * @var int
@@ -83,19 +84,17 @@ class DescribePoliciesV2ResponseBody extends Model
      */
     public $totalCount;
     protected $_name = [
-        'code'       => 'Code',
+        'code' => 'Code',
         'maxResults' => 'MaxResults',
-        'message'    => 'Message',
-        'nextToken'  => 'NextToken',
-        'policies'   => 'Policies',
-        'requestId'  => 'RequestId',
-        'success'    => 'Success',
+        'message' => 'Message',
+        'nextToken' => 'NextToken',
+        'policies' => 'Policies',
+        'requestId' => 'RequestId',
+        'success' => 'Success',
         'totalCount' => 'TotalCount',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -157,7 +156,7 @@ class DescribePoliciesV2ResponseBody extends Model
         if (isset($map['Policies'])) {
             if (!empty($map['Policies'])) {
                 $model->policies = [];
-                $n               = 0;
+                $n = 0;
                 foreach ($map['Policies'] as $item) {
                     $model->policies[$n++] = null !== $item ? policies::fromMap($item) : $item;
                 }

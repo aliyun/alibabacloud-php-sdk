@@ -19,9 +19,7 @@ class otsDetail extends Model
         'tableNames' => 'TableNames',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

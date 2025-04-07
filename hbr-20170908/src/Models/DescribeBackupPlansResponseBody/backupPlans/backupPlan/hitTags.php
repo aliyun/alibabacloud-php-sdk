@@ -17,9 +17,7 @@ class hitTags extends Model
         'hitTag' => 'HitTag',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -48,7 +46,7 @@ class hitTags extends Model
         if (isset($map['HitTag'])) {
             if (!empty($map['HitTag'])) {
                 $model->hitTag = [];
-                $n             = 0;
+                $n = 0;
                 foreach ($map['HitTag'] as $item) {
                     $model->hitTag[$n++] = null !== $item ? hitTag::fromMap($item) : $item;
                 }

@@ -12,6 +12,7 @@ class UninstallClientRequest extends Model
      * @description The ID of the HBR client.
      *
      * This parameter is required.
+     *
      * @example c-000iuqo******zi3rn
      *
      * @var string
@@ -36,14 +37,12 @@ class UninstallClientRequest extends Model
      */
     public $vaultId;
     protected $_name = [
-        'clientId'        => 'ClientId',
+        'clientId' => 'ClientId',
         'resourceGroupId' => 'ResourceGroupId',
-        'vaultId'         => 'VaultId',
+        'vaultId' => 'VaultId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

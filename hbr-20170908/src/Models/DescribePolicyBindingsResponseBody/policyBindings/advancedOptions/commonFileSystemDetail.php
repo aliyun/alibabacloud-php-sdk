@@ -21,19 +21,18 @@ class commonFileSystemDetail extends Model
      * @description Whether to switch to a full backup when an incremental backup fails. Values:
      * - **true**: Switch to full backup on failure.
      * - **false**: Do not switch to full backup on failure.
+     *
      * @example true
      *
      * @var bool
      */
     public $fullOnIncrementFail;
     protected $_name = [
-        'fetchSliceSize'      => 'FetchSliceSize',
+        'fetchSliceSize' => 'FetchSliceSize',
         'fullOnIncrementFail' => 'FullOnIncrementFail',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

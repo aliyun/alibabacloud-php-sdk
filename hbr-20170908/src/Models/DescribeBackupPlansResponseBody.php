@@ -83,18 +83,16 @@ class DescribeBackupPlansResponseBody extends Model
     public $totalCount;
     protected $_name = [
         'backupPlans' => 'BackupPlans',
-        'code'        => 'Code',
-        'message'     => 'Message',
-        'pageNumber'  => 'PageNumber',
-        'pageSize'    => 'PageSize',
-        'requestId'   => 'RequestId',
-        'success'     => 'Success',
-        'totalCount'  => 'TotalCount',
+        'code' => 'Code',
+        'message' => 'Message',
+        'pageNumber' => 'PageNumber',
+        'pageSize' => 'PageSize',
+        'requestId' => 'RequestId',
+        'success' => 'Success',
+        'totalCount' => 'TotalCount',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

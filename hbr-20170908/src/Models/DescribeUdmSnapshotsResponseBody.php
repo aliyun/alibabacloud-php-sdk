@@ -64,17 +64,15 @@ class DescribeUdmSnapshotsResponseBody extends Model
      */
     public $totalCount;
     protected $_name = [
-        'code'       => 'Code',
-        'message'    => 'Message',
-        'requestId'  => 'RequestId',
-        'snapshots'  => 'Snapshots',
-        'success'    => 'Success',
+        'code' => 'Code',
+        'message' => 'Message',
+        'requestId' => 'RequestId',
+        'snapshots' => 'Snapshots',
+        'success' => 'Success',
         'totalCount' => 'TotalCount',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -127,7 +125,7 @@ class DescribeUdmSnapshotsResponseBody extends Model
         if (isset($map['Snapshots'])) {
             if (!empty($map['Snapshots'])) {
                 $model->snapshots = [];
-                $n                = 0;
+                $n = 0;
                 foreach ($map['Snapshots'] as $item) {
                     $model->snapshots[$n++] = null !== $item ? snapshots::fromMap($item) : $item;
                 }

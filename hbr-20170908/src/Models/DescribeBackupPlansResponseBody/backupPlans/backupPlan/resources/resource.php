@@ -35,14 +35,12 @@ class resource extends Model
      */
     public $sourceType;
     protected $_name = [
-        'extra'      => 'Extra',
+        'extra' => 'Extra',
         'resourceId' => 'ResourceId',
         'sourceType' => 'SourceType',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

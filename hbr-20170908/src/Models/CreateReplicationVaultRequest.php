@@ -54,6 +54,7 @@ class CreateReplicationVaultRequest extends Model
      * @description The ID of the region where the source vault resides.
      *
      * This parameter is required.
+     *
      * @example cn-hangzhou
      *
      * @var string
@@ -64,6 +65,7 @@ class CreateReplicationVaultRequest extends Model
      * @description The ID of the source vault.
      *
      * This parameter is required.
+     *
      * @example v-*********************
      *
      * @var string
@@ -74,6 +76,7 @@ class CreateReplicationVaultRequest extends Model
      * @description The name of the backup vault. The name must be 1 to 64 characters in length.
      *
      * This parameter is required.
+     *
      * @example mirrorvaultname
      *
      * @var string
@@ -84,6 +87,7 @@ class CreateReplicationVaultRequest extends Model
      * @description The ID of the region where the backup vault resides.
      *
      * This parameter is required.
+     *
      * @example cn-shanghai
      *
      * @var string
@@ -99,20 +103,18 @@ class CreateReplicationVaultRequest extends Model
      */
     public $vaultStorageClass;
     protected $_name = [
-        'description'               => 'Description',
-        'encryptType'               => 'EncryptType',
-        'kmsKeyId'                  => 'KmsKeyId',
-        'redundancyType'            => 'RedundancyType',
+        'description' => 'Description',
+        'encryptType' => 'EncryptType',
+        'kmsKeyId' => 'KmsKeyId',
+        'redundancyType' => 'RedundancyType',
         'replicationSourceRegionId' => 'ReplicationSourceRegionId',
-        'replicationSourceVaultId'  => 'ReplicationSourceVaultId',
-        'vaultName'                 => 'VaultName',
-        'vaultRegionId'             => 'VaultRegionId',
-        'vaultStorageClass'         => 'VaultStorageClass',
+        'replicationSourceVaultId' => 'ReplicationSourceVaultId',
+        'vaultName' => 'VaultName',
+        'vaultRegionId' => 'VaultRegionId',
+        'vaultStorageClass' => 'VaultStorageClass',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

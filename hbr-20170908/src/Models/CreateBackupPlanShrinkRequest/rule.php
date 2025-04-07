@@ -74,26 +74,26 @@ class rule extends Model
     /**
      * @description Backup strategy. Optional format: I|{startTime}|{interval}. This means that a backup task is executed every {interval} starting from {startTime}. Backup tasks for past times will not be executed. If the previous backup task has not been completed, the next backup task will not be triggered. For example, I|1631685600|P1D means a backup is performed every day starting from 2021-09-15 14:00:00.
      *
+     * - startTime: The start time of the backup, in UNIX time, in seconds.
      * - interval: ISO8601 time interval. For example, PT1H means an interval of one hour. P1D means an interval of one day.
+     *
      * @example I|1602673264|P1D
      *
      * @var string
      */
     public $schedule;
     protected $_name = [
-        'backupType'           => 'BackupType',
-        'destinationRegionId'  => 'DestinationRegionId',
+        'backupType' => 'BackupType',
+        'destinationRegionId' => 'DestinationRegionId',
         'destinationRetention' => 'DestinationRetention',
-        'disabled'             => 'Disabled',
-        'doCopy'               => 'DoCopy',
-        'retention'            => 'Retention',
-        'ruleName'             => 'RuleName',
-        'schedule'             => 'Schedule',
+        'disabled' => 'Disabled',
+        'doCopy' => 'DoCopy',
+        'retention' => 'Retention',
+        'ruleName' => 'RuleName',
+        'schedule' => 'Schedule',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

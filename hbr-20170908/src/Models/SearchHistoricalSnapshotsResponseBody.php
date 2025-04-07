@@ -82,19 +82,17 @@ class SearchHistoricalSnapshotsResponseBody extends Model
      */
     public $totalCount;
     protected $_name = [
-        'code'       => 'Code',
-        'limit'      => 'Limit',
-        'message'    => 'Message',
-        'nextToken'  => 'NextToken',
-        'requestId'  => 'RequestId',
-        'snapshots'  => 'Snapshots',
-        'success'    => 'Success',
+        'code' => 'Code',
+        'limit' => 'Limit',
+        'message' => 'Message',
+        'nextToken' => 'NextToken',
+        'requestId' => 'RequestId',
+        'snapshots' => 'Snapshots',
+        'success' => 'Success',
         'totalCount' => 'TotalCount',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

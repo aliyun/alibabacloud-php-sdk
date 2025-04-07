@@ -21,6 +21,7 @@ class UpdateClientSettingsRequest extends Model
      * @description The ID of the HBR client.
      *
      * This parameter is required.
+     *
      * @example c-*********************
      *
      * @var string
@@ -147,24 +148,22 @@ class UpdateClientSettingsRequest extends Model
     public $vaultId;
     protected $_name = [
         'alertOnPartialComplete' => 'AlertOnPartialComplete',
-        'clientId'               => 'ClientId',
-        'dataNetworkType'        => 'DataNetworkType',
-        'dataProxySetting'       => 'DataProxySetting',
-        'maxCpuCore'             => 'MaxCpuCore',
-        'maxMemory'              => 'MaxMemory',
-        'maxWorker'              => 'MaxWorker',
-        'proxyHost'              => 'ProxyHost',
-        'proxyPassword'          => 'ProxyPassword',
-        'proxyPort'              => 'ProxyPort',
-        'proxyUser'              => 'ProxyUser',
-        'resourceGroupId'        => 'ResourceGroupId',
-        'useHttps'               => 'UseHttps',
-        'vaultId'                => 'VaultId',
+        'clientId' => 'ClientId',
+        'dataNetworkType' => 'DataNetworkType',
+        'dataProxySetting' => 'DataProxySetting',
+        'maxCpuCore' => 'MaxCpuCore',
+        'maxMemory' => 'MaxMemory',
+        'maxWorker' => 'MaxWorker',
+        'proxyHost' => 'ProxyHost',
+        'proxyPassword' => 'ProxyPassword',
+        'proxyPort' => 'ProxyPort',
+        'proxyUser' => 'ProxyUser',
+        'resourceGroupId' => 'ResourceGroupId',
+        'useHttps' => 'UseHttps',
+        'vaultId' => 'VaultId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

@@ -12,6 +12,7 @@ class DeleteBackupClientRequest extends Model
      * @description The ID of the Cloud Backup client.
      *
      * This parameter is required.
+     *
      * @example c-*********************
      *
      * @var string
@@ -21,9 +22,7 @@ class DeleteBackupClientRequest extends Model
         'clientId' => 'ClientId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

@@ -12,6 +12,7 @@ class DescribeHanaDatabasesRequest extends Model
      * @description The ID of the SAP HANA instance.
      *
      * This parameter is required.
+     *
      * @example cl-000hpc******uv14x
      *
      * @var string
@@ -54,16 +55,14 @@ class DescribeHanaDatabasesRequest extends Model
      */
     public $vaultId;
     protected $_name = [
-        'clusterId'       => 'ClusterId',
-        'pageNumber'      => 'PageNumber',
-        'pageSize'        => 'PageSize',
+        'clusterId' => 'ClusterId',
+        'pageNumber' => 'PageNumber',
+        'pageSize' => 'PageSize',
         'resourceGroupId' => 'ResourceGroupId',
-        'vaultId'         => 'VaultId',
+        'vaultId' => 'VaultId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

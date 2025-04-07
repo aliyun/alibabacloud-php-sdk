@@ -21,6 +21,7 @@ class DescribeUdmSnapshotsShrinkRequest extends Model
      * @description The end of the time range to query. The value must be a UNIX timestamp. Unit: seconds.
      *
      * This parameter is required.
+     *
      * @example 1643092168
      *
      * @var int
@@ -62,6 +63,7 @@ class DescribeUdmSnapshotsShrinkRequest extends Model
      *   **UDM_DISK**: disk backup
      *
      * This parameter is required.
+     *
      * @example UDM_ECS
      *
      * @var string
@@ -72,6 +74,7 @@ class DescribeUdmSnapshotsShrinkRequest extends Model
      * @description The beginning of the time range to query. The value must be a UNIX timestamp. Unit: seconds.
      *
      * This parameter is required.
+     *
      * @example 1642057551
      *
      * @var int
@@ -82,25 +85,24 @@ class DescribeUdmSnapshotsShrinkRequest extends Model
      * @description The ID of the region where the ECS instance resides.
      *
      * This parameter is required.
+     *
      * @example cn-hangzhou
      *
      * @var string
      */
     public $udmRegionId;
     protected $_name = [
-        'diskId'            => 'DiskId',
-        'endTime'           => 'EndTime',
-        'instanceId'        => 'InstanceId',
-        'jobId'             => 'JobId',
+        'diskId' => 'DiskId',
+        'endTime' => 'EndTime',
+        'instanceId' => 'InstanceId',
+        'jobId' => 'JobId',
         'snapshotIdsShrink' => 'SnapshotIds',
-        'sourceType'        => 'SourceType',
-        'startTime'         => 'StartTime',
-        'udmRegionId'       => 'UdmRegionId',
+        'sourceType' => 'SourceType',
+        'startTime' => 'StartTime',
+        'udmRegionId' => 'UdmRegionId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

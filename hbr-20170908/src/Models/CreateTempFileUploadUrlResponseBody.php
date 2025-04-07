@@ -110,22 +110,20 @@ class CreateTempFileUploadUrlResponseBody extends Model
      */
     public $tempFileKey;
     protected $_name = [
-        'bucketName'     => 'BucketName',
-        'code'           => 'Code',
-        'endpoint'       => 'Endpoint',
-        'expireTime'     => 'ExpireTime',
-        'message'        => 'Message',
+        'bucketName' => 'BucketName',
+        'code' => 'Code',
+        'endpoint' => 'Endpoint',
+        'expireTime' => 'ExpireTime',
+        'message' => 'Message',
         'ossAccessKeyId' => 'OssAccessKeyId',
-        'policy'         => 'Policy',
-        'requestId'      => 'RequestId',
-        'signature'      => 'Signature',
-        'success'        => 'Success',
-        'tempFileKey'    => 'TempFileKey',
+        'policy' => 'Policy',
+        'requestId' => 'RequestId',
+        'signature' => 'Signature',
+        'success' => 'Success',
+        'tempFileKey' => 'TempFileKey',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

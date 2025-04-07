@@ -55,16 +55,14 @@ class DescribeRecoverableOtsInstancesResponseBody extends Model
      */
     public $success;
     protected $_name = [
-        'code'         => 'Code',
-        'message'      => 'Message',
+        'code' => 'Code',
+        'message' => 'Message',
         'otsInstances' => 'OtsInstances',
-        'requestId'    => 'RequestId',
-        'success'      => 'Success',
+        'requestId' => 'RequestId',
+        'success' => 'Success',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -111,7 +109,7 @@ class DescribeRecoverableOtsInstancesResponseBody extends Model
         if (isset($map['OtsInstances'])) {
             if (!empty($map['OtsInstances'])) {
                 $model->otsInstances = [];
-                $n                   = 0;
+                $n = 0;
                 foreach ($map['OtsInstances'] as $item) {
                     $model->otsInstances[$n++] = null !== $item ? otsInstances::fromMap($item) : $item;
                 }

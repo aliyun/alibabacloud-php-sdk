@@ -71,18 +71,16 @@ class crossAccount extends Model
      */
     public $updatedTime;
     protected $_name = [
-        'alias'                => 'Alias',
-        'createdTime'          => 'CreatedTime',
+        'alias' => 'Alias',
+        'createdTime' => 'CreatedTime',
         'crossAccountRoleName' => 'CrossAccountRoleName',
-        'crossAccountUserId'   => 'CrossAccountUserId',
-        'id'                   => 'Id',
-        'ownerId'              => 'OwnerId',
-        'updatedTime'          => 'UpdatedTime',
+        'crossAccountUserId' => 'CrossAccountUserId',
+        'id' => 'Id',
+        'ownerId' => 'OwnerId',
+        'updatedTime' => 'UpdatedTime',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

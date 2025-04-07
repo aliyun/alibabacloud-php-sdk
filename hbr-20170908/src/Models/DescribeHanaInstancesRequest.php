@@ -61,17 +61,15 @@ class DescribeHanaInstancesRequest extends Model
      */
     public $vaultId;
     protected $_name = [
-        'clusterId'       => 'ClusterId',
-        'pageNumber'      => 'PageNumber',
-        'pageSize'        => 'PageSize',
+        'clusterId' => 'ClusterId',
+        'pageNumber' => 'PageNumber',
+        'pageSize' => 'PageSize',
         'resourceGroupId' => 'ResourceGroupId',
-        'tag'             => 'Tag',
-        'vaultId'         => 'VaultId',
+        'tag' => 'Tag',
+        'vaultId' => 'VaultId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -127,7 +125,7 @@ class DescribeHanaInstancesRequest extends Model
         if (isset($map['Tag'])) {
             if (!empty($map['Tag'])) {
                 $model->tag = [];
-                $n          = 0;
+                $n = 0;
                 foreach ($map['Tag'] as $item) {
                     $model->tag[$n++] = null !== $item ? tag::fromMap($item) : $item;
                 }

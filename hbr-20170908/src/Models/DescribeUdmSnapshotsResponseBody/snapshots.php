@@ -141,7 +141,33 @@ class snapshots extends Model
      * @description The snapshot information.
      *
      * @example {
+     * "sourceDiskId":"d-bp17misjuy636t82v7b0",
+     * "lastModifiedTime":"2022-03-09T11:35:12Z",
+     * "snapshotSN":"64588-429372675-857161235",
+     * "snapshotId":"s-bp1fbtwv3e6xr6wpe9e0",
+     * "creationTime":"2022-03-09T11:31:12Z",
+     * "snapshotType":"user",
+     * "usage":"none",
+     * "description":"",
+     * "sourceStorageType":"disk",
+     * "tags":[
+     * {
+     * "tagValue":"job-0007e0wqjl0imbrtkmnm",
+     * "tagKey":"HBR JobId"
      * }
+     * ],
+     * "productCode":"",
+     * "encrypted":false,
+     * "sourceDiskType":"system",
+     * "retentionDays":30,
+     * "snapshotName":"Created-from-HBR-job:job-0007e0wqjl0imbrtkmnm",
+     * "kMSKeyId":"",
+     * "progress":"100%",
+     * "category":"standard",
+     * "sourceDiskSize":"20",
+     * "status":"accomplished"
+     * }
+     *
      * @var string
      */
     public $nativeSnapshotInfo;
@@ -244,36 +270,34 @@ class snapshots extends Model
      */
     public $updatedTime;
     protected $_name = [
-        'actualBytes'           => 'ActualBytes',
+        'actualBytes' => 'ActualBytes',
         'advancedRetentionType' => 'AdvancedRetentionType',
-        'backupType'            => 'BackupType',
-        'bytesTotal'            => 'BytesTotal',
-        'canBeDeleted'          => 'CanBeDeleted',
-        'completeTime'          => 'CompleteTime',
-        'createTime'            => 'CreateTime',
-        'createdTime'           => 'CreatedTime',
-        'detail'                => 'Detail',
-        'diskId'                => 'DiskId',
-        'expireTime'            => 'ExpireTime',
-        'instanceId'            => 'InstanceId',
-        'jobId'                 => 'JobId',
-        'nativeSnapshotId'      => 'NativeSnapshotId',
-        'nativeSnapshotInfo'    => 'NativeSnapshotInfo',
-        'parentSnapshotHash'    => 'ParentSnapshotHash',
-        'prefix'                => 'Prefix',
-        'realSnapshotTime'      => 'RealSnapshotTime',
-        'retention'             => 'Retention',
-        'snapshotHash'          => 'SnapshotHash',
-        'snapshotId'            => 'SnapshotId',
-        'sourceType'            => 'SourceType',
-        'startTime'             => 'StartTime',
-        'status'                => 'Status',
-        'updatedTime'           => 'UpdatedTime',
+        'backupType' => 'BackupType',
+        'bytesTotal' => 'BytesTotal',
+        'canBeDeleted' => 'CanBeDeleted',
+        'completeTime' => 'CompleteTime',
+        'createTime' => 'CreateTime',
+        'createdTime' => 'CreatedTime',
+        'detail' => 'Detail',
+        'diskId' => 'DiskId',
+        'expireTime' => 'ExpireTime',
+        'instanceId' => 'InstanceId',
+        'jobId' => 'JobId',
+        'nativeSnapshotId' => 'NativeSnapshotId',
+        'nativeSnapshotInfo' => 'NativeSnapshotInfo',
+        'parentSnapshotHash' => 'ParentSnapshotHash',
+        'prefix' => 'Prefix',
+        'realSnapshotTime' => 'RealSnapshotTime',
+        'retention' => 'Retention',
+        'snapshotHash' => 'SnapshotHash',
+        'snapshotId' => 'SnapshotId',
+        'sourceType' => 'SourceType',
+        'startTime' => 'StartTime',
+        'status' => 'Status',
+        'updatedTime' => 'UpdatedTime',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

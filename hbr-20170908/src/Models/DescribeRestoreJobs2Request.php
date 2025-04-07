@@ -49,15 +49,13 @@ class DescribeRestoreJobs2Request extends Model
      */
     public $restoreType;
     protected $_name = [
-        'filters'     => 'Filters',
-        'pageNumber'  => 'PageNumber',
-        'pageSize'    => 'PageSize',
+        'filters' => 'Filters',
+        'pageNumber' => 'PageNumber',
+        'pageSize' => 'PageSize',
         'restoreType' => 'RestoreType',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -95,7 +93,7 @@ class DescribeRestoreJobs2Request extends Model
         if (isset($map['Filters'])) {
             if (!empty($map['Filters'])) {
                 $model->filters = [];
-                $n              = 0;
+                $n = 0;
                 foreach ($map['Filters'] as $item) {
                     $model->filters[$n++] = null !== $item ? filters::fromMap($item) : $item;
                 }

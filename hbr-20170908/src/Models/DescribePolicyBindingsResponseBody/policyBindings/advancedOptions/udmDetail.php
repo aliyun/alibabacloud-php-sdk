@@ -48,6 +48,7 @@ class udmDetail extends Model
      * - **false**: Create a file system-consistent snapshot
      *
      * The default value is true.
+     *
      * @example true
      *
      * @var bool
@@ -106,22 +107,20 @@ class udmDetail extends Model
      */
     public $timeoutInSeconds;
     protected $_name = [
-        'appConsistent'       => 'AppConsistent',
+        'appConsistent' => 'AppConsistent',
         'destinationKmsKeyId' => 'DestinationKmsKeyId',
-        'diskIdList'          => 'DiskIdList',
-        'enableFsFreeze'      => 'EnableFsFreeze',
-        'enableWriters'       => 'EnableWriters',
-        'excludeDiskIdList'   => 'ExcludeDiskIdList',
-        'postScriptPath'      => 'PostScriptPath',
-        'preScriptPath'       => 'PreScriptPath',
-        'ramRoleName'         => 'RamRoleName',
-        'snapshotGroup'       => 'SnapshotGroup',
-        'timeoutInSeconds'    => 'TimeoutInSeconds',
+        'diskIdList' => 'DiskIdList',
+        'enableFsFreeze' => 'EnableFsFreeze',
+        'enableWriters' => 'EnableWriters',
+        'excludeDiskIdList' => 'ExcludeDiskIdList',
+        'postScriptPath' => 'PostScriptPath',
+        'preScriptPath' => 'PreScriptPath',
+        'ramRoleName' => 'RamRoleName',
+        'snapshotGroup' => 'SnapshotGroup',
+        'timeoutInSeconds' => 'TimeoutInSeconds',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

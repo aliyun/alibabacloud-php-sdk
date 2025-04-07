@@ -107,21 +107,19 @@ class DescribeHanaRetentionSettingResponseBody extends Model
      */
     public $vaultId;
     protected $_name = [
-        'clusterId'     => 'ClusterId',
-        'code'          => 'Code',
-        'databaseName'  => 'DatabaseName',
-        'disabled'      => 'Disabled',
-        'message'       => 'Message',
-        'requestId'     => 'RequestId',
+        'clusterId' => 'ClusterId',
+        'code' => 'Code',
+        'databaseName' => 'DatabaseName',
+        'disabled' => 'Disabled',
+        'message' => 'Message',
+        'requestId' => 'RequestId',
         'retentionDays' => 'RetentionDays',
-        'schedule'      => 'Schedule',
-        'success'       => 'Success',
-        'vaultId'       => 'VaultId',
+        'schedule' => 'Schedule',
+        'success' => 'Success',
+        'vaultId' => 'VaultId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

@@ -22,6 +22,7 @@ class snapshot extends Model
      * @description The actual number of backup snapshots.
      *
      * >  This parameter is available only for file backup.
+     *
      * @example 6
      *
      * @var int
@@ -176,6 +177,7 @@ class snapshot extends Model
      * @description The number of objects that are backed up.
      *
      * >  This parameter is available only for file backup.
+     *
      * @example 8
      *
      * @var int
@@ -186,6 +188,7 @@ class snapshot extends Model
      * @description The total number of objects in the data source.
      *
      * >  This parameter is available only for file backup.
+     *
      * @example 10
      *
      * @var int
@@ -340,6 +343,7 @@ class snapshot extends Model
      * - **Standard**: Standard.
      * - **Archive**: Archive.
      * - **ColdArchive**: Cold Archive.
+     *
      * @example STANDARD
      *
      * @var string
@@ -382,51 +386,49 @@ class snapshot extends Model
      */
     public $vaultId;
     protected $_name = [
-        'actualBytes'              => 'ActualBytes',
-        'actualItems'              => 'ActualItems',
-        'archiveTime'              => 'ArchiveTime',
-        'backupType'               => 'BackupType',
-        'bucket'                   => 'Bucket',
-        'bytesDone'                => 'BytesDone',
-        'bytesTotal'               => 'BytesTotal',
-        'clientId'                 => 'ClientId',
-        'completeTime'             => 'CompleteTime',
-        'createTime'               => 'CreateTime',
-        'createdTime'              => 'CreatedTime',
-        'errorFile'                => 'ErrorFile',
-        'exclude'                  => 'Exclude',
-        'expireTime'               => 'ExpireTime',
-        'fileSystemId'             => 'FileSystemId',
-        'include'                  => 'Include',
-        'instanceId'               => 'InstanceId',
-        'instanceName'             => 'InstanceName',
-        'itemsDone'                => 'ItemsDone',
-        'itemsTotal'               => 'ItemsTotal',
-        'jobId'                    => 'JobId',
-        'parentSnapshotHash'       => 'ParentSnapshotHash',
-        'path'                     => 'Path',
-        'paths'                    => 'Paths',
-        'prefix'                   => 'Prefix',
-        'rangeEnd'                 => 'RangeEnd',
-        'rangeStart'               => 'RangeStart',
-        'retention'                => 'Retention',
-        'snapshotHash'             => 'SnapshotHash',
-        'snapshotId'               => 'SnapshotId',
+        'actualBytes' => 'ActualBytes',
+        'actualItems' => 'ActualItems',
+        'archiveTime' => 'ArchiveTime',
+        'backupType' => 'BackupType',
+        'bucket' => 'Bucket',
+        'bytesDone' => 'BytesDone',
+        'bytesTotal' => 'BytesTotal',
+        'clientId' => 'ClientId',
+        'completeTime' => 'CompleteTime',
+        'createTime' => 'CreateTime',
+        'createdTime' => 'CreatedTime',
+        'errorFile' => 'ErrorFile',
+        'exclude' => 'Exclude',
+        'expireTime' => 'ExpireTime',
+        'fileSystemId' => 'FileSystemId',
+        'include' => 'Include',
+        'instanceId' => 'InstanceId',
+        'instanceName' => 'InstanceName',
+        'itemsDone' => 'ItemsDone',
+        'itemsTotal' => 'ItemsTotal',
+        'jobId' => 'JobId',
+        'parentSnapshotHash' => 'ParentSnapshotHash',
+        'path' => 'Path',
+        'paths' => 'Paths',
+        'prefix' => 'Prefix',
+        'rangeEnd' => 'RangeEnd',
+        'rangeStart' => 'RangeStart',
+        'retention' => 'Retention',
+        'snapshotHash' => 'SnapshotHash',
+        'snapshotId' => 'SnapshotId',
         'sourceParentSnapshotHash' => 'SourceParentSnapshotHash',
-        'sourceSnapshotHash'       => 'SourceSnapshotHash',
-        'sourceType'               => 'SourceType',
-        'startTime'                => 'StartTime',
-        'status'                   => 'Status',
-        'storageClass'             => 'StorageClass',
-        'tableName'                => 'TableName',
-        'updatedTime'              => 'UpdatedTime',
-        'useCommonNas'             => 'UseCommonNas',
-        'vaultId'                  => 'VaultId',
+        'sourceSnapshotHash' => 'SourceSnapshotHash',
+        'sourceType' => 'SourceType',
+        'startTime' => 'StartTime',
+        'status' => 'Status',
+        'storageClass' => 'StorageClass',
+        'tableName' => 'TableName',
+        'updatedTime' => 'UpdatedTime',
+        'useCommonNas' => 'UseCommonNas',
+        'vaultId' => 'VaultId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

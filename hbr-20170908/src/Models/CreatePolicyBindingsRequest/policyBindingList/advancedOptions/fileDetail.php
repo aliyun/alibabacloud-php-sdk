@@ -33,12 +33,10 @@ class fileDetail extends Model
     public $useVSS;
     protected $_name = [
         'advPolicy' => 'AdvPolicy',
-        'useVSS'    => 'UseVSS',
+        'useVSS' => 'UseVSS',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

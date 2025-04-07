@@ -17,9 +17,7 @@ class backupJobs extends Model
         'backupJob' => 'BackupJob',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -48,7 +46,7 @@ class backupJobs extends Model
         if (isset($map['BackupJob'])) {
             if (!empty($map['BackupJob'])) {
                 $model->backupJob = [];
-                $n                = 0;
+                $n = 0;
                 foreach ($map['BackupJob'] as $item) {
                     $model->backupJob[$n++] = null !== $item ? backupJob::fromMap($item) : $item;
                 }

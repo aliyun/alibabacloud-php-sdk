@@ -16,9 +16,7 @@ class diskNativeSnapshotIdList extends Model
         'diskNativeSnapshotId' => 'DiskNativeSnapshotId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

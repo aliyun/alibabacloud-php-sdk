@@ -48,19 +48,17 @@ class Rule extends Model
      */
     public $schedule;
     protected $_name = [
-        'backupType'           => 'BackupType',
-        'destinationRegionId'  => 'DestinationRegionId',
+        'backupType' => 'BackupType',
+        'destinationRegionId' => 'DestinationRegionId',
         'destinationRetention' => 'DestinationRetention',
-        'disabled'             => 'Disabled',
-        'doCopy'               => 'DoCopy',
-        'retention'            => 'Retention',
-        'ruleName'             => 'RuleName',
-        'schedule'             => 'Schedule',
+        'disabled' => 'Disabled',
+        'doCopy' => 'DoCopy',
+        'retention' => 'Retention',
+        'ruleName' => 'RuleName',
+        'schedule' => 'Schedule',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

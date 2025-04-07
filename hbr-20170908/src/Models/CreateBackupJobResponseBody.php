@@ -56,16 +56,14 @@ class CreateBackupJobResponseBody extends Model
      */
     public $success;
     protected $_name = [
-        'code'      => 'Code',
-        'jobId'     => 'JobId',
-        'message'   => 'Message',
+        'code' => 'Code',
+        'jobId' => 'JobId',
+        'message' => 'Message',
         'requestId' => 'RequestId',
-        'success'   => 'Success',
+        'success' => 'Success',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

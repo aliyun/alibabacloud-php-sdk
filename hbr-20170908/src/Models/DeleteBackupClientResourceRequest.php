@@ -12,6 +12,7 @@ class DeleteBackupClientResourceRequest extends Model
      * @description The IDs of HBR clients. The value can be a JSON array that consists of up to 100 client IDs. Separate the IDs with commas (,).
      *
      * This parameter is required.
+     *
      * @example ["c-0007kyu045r0********", "c-000b6818umvo********"]
      *
      * @var mixed[]
@@ -21,9 +22,7 @@ class DeleteBackupClientResourceRequest extends Model
         'clientIds' => 'ClientIds',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

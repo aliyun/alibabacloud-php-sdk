@@ -41,12 +41,27 @@ class SearchHistoricalSnapshotsRequest extends Model
     /**
      * @description The query conditions. Example:
      *
+     * [
+     * {
      * "field": "VaultId",
      * "value": "v-0003rf9m*****qx5",
+     * "operation": "MATCH_TERM"
+     * },
+     * {
      * "field": "InstanceId",
      * "value": "i-bp1i20zq2*****e9368m",
+     * "operation": "MATCH_TERM"
+     * },
+     * {
      * "field": "PlanId",
      * "value": "plan-0005vk*****gkd1iu4f",
+     * "operation": "MATCH_TERM"
+     * },
+     * {
+     * "field": "CompleteTime",
+     * "value": "1626769913",
+     * "operation": "GREATER_THAN_OR_EQUAL"
+     * }
      * ]
      *
      *   The following fields are supported:
@@ -98,17 +113,15 @@ class SearchHistoricalSnapshotsRequest extends Model
      */
     public $sourceType;
     protected $_name = [
-        'limit'      => 'Limit',
-        'nextToken'  => 'NextToken',
-        'order'      => 'Order',
-        'query'      => 'Query',
-        'sortBy'     => 'SortBy',
+        'limit' => 'Limit',
+        'nextToken' => 'NextToken',
+        'order' => 'Order',
+        'query' => 'Query',
+        'sortBy' => 'SortBy',
         'sourceType' => 'SourceType',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

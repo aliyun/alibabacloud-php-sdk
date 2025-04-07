@@ -16,9 +16,7 @@ class paths extends Model
         'path' => 'Path',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

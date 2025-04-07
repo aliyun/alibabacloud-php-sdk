@@ -38,7 +38,9 @@ class UpdateContainerClusterResponseBody extends Model
     /**
      * @description Indicates if the request was successful.
      *
+     * - true: Success
      * - false: Failure
+     *
      * @example true
      *
      * @var bool
@@ -63,17 +65,15 @@ class UpdateContainerClusterResponseBody extends Model
      */
     public $tokenUpdated;
     protected $_name = [
-        'code'         => 'Code',
-        'message'      => 'Message',
-        'requestId'    => 'RequestId',
-        'success'      => 'Success',
-        'token'        => 'Token',
+        'code' => 'Code',
+        'message' => 'Message',
+        'requestId' => 'RequestId',
+        'success' => 'Success',
+        'token' => 'Token',
         'tokenUpdated' => 'TokenUpdated',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

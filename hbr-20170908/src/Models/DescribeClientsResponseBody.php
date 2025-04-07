@@ -82,19 +82,17 @@ class DescribeClientsResponseBody extends Model
      */
     public $totalCount;
     protected $_name = [
-        'clients'    => 'Clients',
-        'code'       => 'Code',
-        'message'    => 'Message',
+        'clients' => 'Clients',
+        'code' => 'Code',
+        'message' => 'Message',
         'pageNumber' => 'PageNumber',
-        'pageSize'   => 'PageSize',
-        'requestId'  => 'RequestId',
-        'success'    => 'Success',
+        'pageSize' => 'PageSize',
+        'requestId' => 'RequestId',
+        'success' => 'Success',
         'totalCount' => 'TotalCount',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

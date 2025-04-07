@@ -25,12 +25,10 @@ class CreatePolicyBindingsShrinkRequest extends Model
     public $policyId;
     protected $_name = [
         'policyBindingListShrink' => 'PolicyBindingList',
-        'policyId'                => 'PolicyId',
+        'policyId' => 'PolicyId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

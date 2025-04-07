@@ -72,6 +72,10 @@ class client extends Model
     public $createdTime;
 
     /**
+     * @description The latest heartbeat time of the Cloud Backup client. This value is a UNIX timestamp. Unit: seconds.
+     *
+     * @example 1554347313
+     *
      * @var int
      */
     public $heartBeatTime;
@@ -176,28 +180,26 @@ class client extends Model
      */
     public $vaultId;
     protected $_name = [
-        'alertSetting'  => 'AlertSetting',
-        'clientId'      => 'ClientId',
-        'clientName'    => 'ClientName',
-        'clientType'    => 'ClientType',
+        'alertSetting' => 'AlertSetting',
+        'clientId' => 'ClientId',
+        'clientName' => 'ClientName',
+        'clientType' => 'ClientType',
         'clientVersion' => 'ClientVersion',
-        'clusterId'     => 'ClusterId',
-        'createdTime'   => 'CreatedTime',
+        'clusterId' => 'ClusterId',
+        'createdTime' => 'CreatedTime',
         'heartBeatTime' => 'HeartBeatTime',
-        'instanceId'    => 'InstanceId',
-        'instanceName'  => 'InstanceName',
-        'maxVersion'    => 'MaxVersion',
-        'networkType'   => 'NetworkType',
-        'status'        => 'Status',
+        'instanceId' => 'InstanceId',
+        'instanceName' => 'InstanceName',
+        'maxVersion' => 'MaxVersion',
+        'networkType' => 'NetworkType',
+        'status' => 'Status',
         'statusMessage' => 'StatusMessage',
-        'updatedTime'   => 'UpdatedTime',
-        'useHttps'      => 'UseHttps',
-        'vaultId'       => 'VaultId',
+        'updatedTime' => 'UpdatedTime',
+        'useHttps' => 'UseHttps',
+        'vaultId' => 'VaultId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

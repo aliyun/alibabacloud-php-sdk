@@ -12,6 +12,7 @@ class DescribeHanaRetentionSettingRequest extends Model
      * @description The ID of the SAP HANA instance.
      *
      * This parameter is required.
+     *
      * @example cl-0002ys1i******wwtf
      *
      * @var string
@@ -31,20 +32,19 @@ class DescribeHanaRetentionSettingRequest extends Model
      * @description The ID of the backup vault.
      *
      * This parameter is required.
+     *
      * @example v-000ii8t******ntrt2
      *
      * @var string
      */
     public $vaultId;
     protected $_name = [
-        'clusterId'    => 'ClusterId',
+        'clusterId' => 'ClusterId',
         'databaseName' => 'DatabaseName',
-        'vaultId'      => 'VaultId',
+        'vaultId' => 'VaultId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

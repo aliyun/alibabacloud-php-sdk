@@ -41,13 +41,11 @@ class retentionRules extends Model
     public $whichSnapshot;
     protected $_name = [
         'advancedRetentionType' => 'AdvancedRetentionType',
-        'retention'             => 'Retention',
-        'whichSnapshot'         => 'WhichSnapshot',
+        'retention' => 'Retention',
+        'whichSnapshot' => 'WhichSnapshot',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

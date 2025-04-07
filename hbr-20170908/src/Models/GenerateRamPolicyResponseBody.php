@@ -56,16 +56,14 @@ class GenerateRamPolicyResponseBody extends Model
      */
     public $success;
     protected $_name = [
-        'code'           => 'Code',
-        'message'        => 'Message',
+        'code' => 'Code',
+        'message' => 'Message',
         'policyDocument' => 'PolicyDocument',
-        'requestId'      => 'RequestId',
-        'success'        => 'Success',
+        'requestId' => 'RequestId',
+        'success' => 'Success',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

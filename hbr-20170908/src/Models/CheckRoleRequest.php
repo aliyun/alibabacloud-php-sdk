@@ -46,14 +46,12 @@ class CheckRoleRequest extends Model
      */
     public $crossAccountUserId;
     protected $_name = [
-        'checkRoleType'        => 'CheckRoleType',
+        'checkRoleType' => 'CheckRoleType',
         'crossAccountRoleName' => 'CrossAccountRoleName',
-        'crossAccountUserId'   => 'CrossAccountUserId',
+        'crossAccountUserId' => 'CrossAccountUserId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

@@ -57,6 +57,7 @@ class DescribeVaultsResponseBody extends Model
     /**
      * @description Whether the request was successful.
      * - true: Success - false: Failure
+     *
      * @example true
      *
      * @var bool
@@ -81,19 +82,17 @@ class DescribeVaultsResponseBody extends Model
      */
     public $vaults;
     protected $_name = [
-        'code'       => 'Code',
-        'message'    => 'Message',
+        'code' => 'Code',
+        'message' => 'Message',
         'pageNumber' => 'PageNumber',
-        'pageSize'   => 'PageSize',
-        'requestId'  => 'RequestId',
-        'success'    => 'Success',
+        'pageSize' => 'PageSize',
+        'requestId' => 'RequestId',
+        'success' => 'Success',
         'totalCount' => 'TotalCount',
-        'vaults'     => 'Vaults',
+        'vaults' => 'Vaults',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

@@ -16,9 +16,7 @@ class tableNames extends Model
         'tableName' => 'TableName',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

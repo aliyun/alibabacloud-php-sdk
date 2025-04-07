@@ -115,22 +115,20 @@ class DescribeTaskResponseBody extends Model
      */
     public $updatedTime;
     protected $_name = [
-        'code'          => 'Code',
+        'code' => 'Code',
         'completedTime' => 'CompletedTime',
-        'createdTime'   => 'CreatedTime',
-        'description'   => 'Description',
-        'message'       => 'Message',
-        'name'          => 'Name',
-        'progress'      => 'Progress',
-        'requestId'     => 'RequestId',
-        'result'        => 'Result',
-        'success'       => 'Success',
-        'updatedTime'   => 'UpdatedTime',
+        'createdTime' => 'CreatedTime',
+        'description' => 'Description',
+        'message' => 'Message',
+        'name' => 'Name',
+        'progress' => 'Progress',
+        'requestId' => 'RequestId',
+        'result' => 'Result',
+        'success' => 'Success',
+        'updatedTime' => 'UpdatedTime',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

@@ -28,13 +28,11 @@ class DescribeVaultReplicationRegionsRequest extends Model
      */
     public $vaultId;
     protected $_name = [
-        'token'   => 'Token',
+        'token' => 'Token',
         'vaultId' => 'VaultId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

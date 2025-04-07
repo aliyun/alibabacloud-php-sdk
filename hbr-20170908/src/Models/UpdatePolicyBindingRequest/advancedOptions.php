@@ -33,13 +33,11 @@ class advancedOptions extends Model
     public $udmDetail;
     protected $_name = [
         'commonFileSystemDetail' => 'CommonFileSystemDetail',
-        'ossDetail'              => 'OssDetail',
-        'udmDetail'              => 'UdmDetail',
+        'ossDetail' => 'OssDetail',
+        'udmDetail' => 'UdmDetail',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

@@ -88,18 +88,16 @@ class clusters extends Model
     public $token;
     protected $_name = [
         'agentStatus' => 'AgentStatus',
-        'clusterId'   => 'ClusterId',
+        'clusterId' => 'ClusterId',
         'clusterType' => 'ClusterType',
         'description' => 'Description',
-        'identifier'  => 'Identifier',
-        'name'        => 'Name',
+        'identifier' => 'Identifier',
+        'name' => 'Name',
         'networkType' => 'NetworkType',
-        'token'       => 'Token',
+        'token' => 'Token',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

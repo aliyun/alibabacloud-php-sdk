@@ -55,16 +55,14 @@ class DescribeHanaBackupSettingResponseBody extends Model
      */
     public $success;
     protected $_name = [
-        'code'              => 'Code',
+        'code' => 'Code',
         'hanaBackupSetting' => 'HanaBackupSetting',
-        'message'           => 'Message',
-        'requestId'         => 'RequestId',
-        'success'           => 'Success',
+        'message' => 'Message',
+        'requestId' => 'RequestId',
+        'success' => 'Success',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

@@ -62,16 +62,14 @@ class DescribeBackupJobs2Request extends Model
      */
     public $sourceType;
     protected $_name = [
-        'filters'       => 'Filters',
-        'pageNumber'    => 'PageNumber',
-        'pageSize'      => 'PageSize',
+        'filters' => 'Filters',
+        'pageNumber' => 'PageNumber',
+        'pageSize' => 'PageSize',
         'sortDirection' => 'SortDirection',
-        'sourceType'    => 'SourceType',
+        'sourceType' => 'SourceType',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -112,7 +110,7 @@ class DescribeBackupJobs2Request extends Model
         if (isset($map['Filters'])) {
             if (!empty($map['Filters'])) {
                 $model->filters = [];
-                $n              = 0;
+                $n = 0;
                 foreach ($map['Filters'] as $item) {
                     $model->filters[$n++] = null !== $item ? filters::fromMap($item) : $item;
                 }

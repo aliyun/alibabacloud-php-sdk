@@ -49,15 +49,13 @@ class advancedOptions extends Model
     public $udmDetail;
     protected $_name = [
         'commonFileSystemDetail' => 'CommonFileSystemDetail',
-        'commonNasDetail'        => 'CommonNasDetail',
-        'fileDetail'             => 'FileDetail',
-        'ossDetail'              => 'OssDetail',
-        'udmDetail'              => 'UdmDetail',
+        'commonNasDetail' => 'CommonNasDetail',
+        'fileDetail' => 'FileDetail',
+        'ossDetail' => 'OssDetail',
+        'udmDetail' => 'UdmDetail',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

@@ -45,14 +45,12 @@ class trialInfo extends Model
     public $trialVaultReleaseTime;
     protected $_name = [
         'keepAfterTrialExpiration' => 'KeepAfterTrialExpiration',
-        'trialExpireTime'          => 'TrialExpireTime',
-        'trialStartTime'           => 'TrialStartTime',
-        'trialVaultReleaseTime'    => 'TrialVaultReleaseTime',
+        'trialExpireTime' => 'TrialExpireTime',
+        'trialStartTime' => 'TrialStartTime',
+        'trialVaultReleaseTime' => 'TrialVaultReleaseTime',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

@@ -22,6 +22,7 @@ class ossDetail extends Model
      * - **NO_CLEANUP**: Do not delete.
      * - **DELETE_CURRENT**: Delete the current file.
      * - **DELETE_CURRENT_AND_PREVIOUS**: Delete all files.
+     *
      * @example DELETE_CURRENT_AND_PREVIOUS
      *
      * @var string
@@ -30,21 +31,21 @@ class ossDetail extends Model
 
     /**
      * @description The name of the OSS inventory. If this value is not empty, the OSS inventory will be used for performance optimization.
+     * - It is recommended to use an inventory for backing up more than 100 million OSS objects to improve incremental performance. Storage costs for the inventory files are charged separately by the OSS service.
      * - The generation of the OSS inventory file takes time, and the backup may fail before the inventory file is generated. You can wait for the next cycle to execute.
+     *
      * @example inventory_test
      *
      * @var string
      */
     public $inventoryId;
     protected $_name = [
-        'ignoreArchiveObject'    => 'IgnoreArchiveObject',
+        'ignoreArchiveObject' => 'IgnoreArchiveObject',
         'inventoryCleanupPolicy' => 'InventoryCleanupPolicy',
-        'inventoryId'            => 'InventoryId',
+        'inventoryId' => 'InventoryId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

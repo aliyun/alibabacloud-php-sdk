@@ -83,18 +83,16 @@ class DescribeBackupJobs2ResponseBody extends Model
     public $totalCount;
     protected $_name = [
         'backupJobs' => 'BackupJobs',
-        'code'       => 'Code',
-        'message'    => 'Message',
+        'code' => 'Code',
+        'message' => 'Message',
         'pageNumber' => 'PageNumber',
-        'pageSize'   => 'PageSize',
-        'requestId'  => 'RequestId',
-        'success'    => 'Success',
+        'pageSize' => 'PageSize',
+        'requestId' => 'RequestId',
+        'success' => 'Success',
         'totalCount' => 'TotalCount',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

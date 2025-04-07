@@ -22,6 +22,7 @@ class DescribePolicyBindingsResponseBody extends Model
      * @description The number of results per query.
      *
      * Range: 10~100. Default: 10.
+     *
      * @example 10
      *
      * @var int
@@ -65,7 +66,9 @@ class DescribePolicyBindingsResponseBody extends Model
     /**
      * @description Indicates whether the request was successful.
      *
+     * - true: Success
      * - false: Failure
+     *
      * @example true
      *
      * @var bool
@@ -81,19 +84,17 @@ class DescribePolicyBindingsResponseBody extends Model
      */
     public $totalCount;
     protected $_name = [
-        'code'           => 'Code',
-        'maxResults'     => 'MaxResults',
-        'message'        => 'Message',
-        'nextToken'      => 'NextToken',
+        'code' => 'Code',
+        'maxResults' => 'MaxResults',
+        'message' => 'Message',
+        'nextToken' => 'NextToken',
         'policyBindings' => 'PolicyBindings',
-        'requestId'      => 'RequestId',
-        'success'        => 'Success',
-        'totalCount'     => 'TotalCount',
+        'requestId' => 'RequestId',
+        'success' => 'Success',
+        'totalCount' => 'TotalCount',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -155,7 +156,7 @@ class DescribePolicyBindingsResponseBody extends Model
         if (isset($map['PolicyBindings'])) {
             if (!empty($map['PolicyBindings'])) {
                 $model->policyBindings = [];
-                $n                     = 0;
+                $n = 0;
                 foreach ($map['PolicyBindings'] as $item) {
                     $model->policyBindings[$n++] = null !== $item ? policyBindings::fromMap($item) : $item;
                 }

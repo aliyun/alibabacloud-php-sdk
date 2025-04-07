@@ -36,13 +36,11 @@ class DeleteVaultRequest extends Model
     public $vaultId;
     protected $_name = [
         'resourceGroupId' => 'ResourceGroupId',
-        'token'           => 'Token',
-        'vaultId'         => 'VaultId',
+        'token' => 'Token',
+        'vaultId' => 'VaultId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

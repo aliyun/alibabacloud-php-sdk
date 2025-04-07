@@ -24,6 +24,7 @@ class UpdateHanaBackupSettingRequest extends Model
      *   false: Backint is not used to back up catalogs.
      *
      * This parameter is required.
+     *
      * @example true
      *
      * @var bool
@@ -34,6 +35,7 @@ class UpdateHanaBackupSettingRequest extends Model
      * @description The ID of the SAP HANA instance.
      *
      * This parameter is required.
+     *
      * @example cl-000ezvg******8znz
      *
      * @var string
@@ -53,6 +55,7 @@ class UpdateHanaBackupSettingRequest extends Model
      * @description The name of the database.
      *
      * This parameter is required.
+     *
      * @example SYSTEMDB
      *
      * @var string
@@ -66,6 +69,7 @@ class UpdateHanaBackupSettingRequest extends Model
      *   **false**: disables automatic log backup.
      *
      * This parameter is required.
+     *
      * @example true
      *
      * @var bool
@@ -97,6 +101,7 @@ class UpdateHanaBackupSettingRequest extends Model
      *   false: Backint is not used to back up logs.
      *
      * This parameter is required.
+     *
      * @example true
      *
      * @var bool
@@ -113,20 +118,18 @@ class UpdateHanaBackupSettingRequest extends Model
     public $vaultId;
     protected $_name = [
         'catalogBackupParameterFile' => 'CatalogBackupParameterFile',
-        'catalogBackupUsingBackint'  => 'CatalogBackupUsingBackint',
-        'clusterId'                  => 'ClusterId',
-        'dataBackupParameterFile'    => 'DataBackupParameterFile',
-        'databaseName'               => 'DatabaseName',
-        'enableAutoLogBackup'        => 'EnableAutoLogBackup',
-        'logBackupParameterFile'     => 'LogBackupParameterFile',
-        'logBackupTimeout'           => 'LogBackupTimeout',
-        'logBackupUsingBackint'      => 'LogBackupUsingBackint',
-        'vaultId'                    => 'VaultId',
+        'catalogBackupUsingBackint' => 'CatalogBackupUsingBackint',
+        'clusterId' => 'ClusterId',
+        'dataBackupParameterFile' => 'DataBackupParameterFile',
+        'databaseName' => 'DatabaseName',
+        'enableAutoLogBackup' => 'EnableAutoLogBackup',
+        'logBackupParameterFile' => 'LogBackupParameterFile',
+        'logBackupTimeout' => 'LogBackupTimeout',
+        'logBackupUsingBackint' => 'LogBackupUsingBackint',
+        'vaultId' => 'VaultId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

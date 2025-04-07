@@ -40,6 +40,7 @@ class CreateClientsRequest extends Model
      *
      * - **SELF_ACCOUNT**: Data is backed up within the same Alibaba Cloud account.
      * - **CROSS_ACCOUNT**: Data is backed up across Alibaba Cloud accounts.
+     *
      * @example CROSS_ACCOUNT
      *
      * @var string
@@ -80,25 +81,24 @@ class CreateClientsRequest extends Model
      * @description The ID of the backup vault.
      *
      * This parameter is required.
+     *
      * @example v-0001ufe******kgm
      *
      * @var string
      */
     public $vaultId;
     protected $_name = [
-        'alertSetting'         => 'AlertSetting',
-        'clientInfo'           => 'ClientInfo',
+        'alertSetting' => 'AlertSetting',
+        'clientInfo' => 'ClientInfo',
         'crossAccountRoleName' => 'CrossAccountRoleName',
-        'crossAccountType'     => 'CrossAccountType',
-        'crossAccountUserId'   => 'CrossAccountUserId',
-        'resourceGroupId'      => 'ResourceGroupId',
-        'useHttps'             => 'UseHttps',
-        'vaultId'              => 'VaultId',
+        'crossAccountType' => 'CrossAccountType',
+        'crossAccountUserId' => 'CrossAccountUserId',
+        'resourceGroupId' => 'ResourceGroupId',
+        'useHttps' => 'UseHttps',
+        'vaultId' => 'VaultId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

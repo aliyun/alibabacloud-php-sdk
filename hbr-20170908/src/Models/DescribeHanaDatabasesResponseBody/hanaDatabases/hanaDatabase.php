@@ -67,15 +67,13 @@ class hanaDatabase extends Model
     protected $_name = [
         'activeStatus' => 'ActiveStatus',
         'databaseName' => 'DatabaseName',
-        'detail'       => 'Detail',
-        'host'         => 'Host',
-        'serviceName'  => 'ServiceName',
-        'sqlPort'      => 'SqlPort',
+        'detail' => 'Detail',
+        'host' => 'Host',
+        'serviceName' => 'ServiceName',
+        'sqlPort' => 'SqlPort',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

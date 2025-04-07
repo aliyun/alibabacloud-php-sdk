@@ -35,14 +35,12 @@ class DeleteClientRequest extends Model
      */
     public $vaultId;
     protected $_name = [
-        'clientId'        => 'ClientId',
+        'clientId' => 'ClientId',
         'resourceGroupId' => 'ResourceGroupId',
-        'vaultId'         => 'VaultId',
+        'vaultId' => 'VaultId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

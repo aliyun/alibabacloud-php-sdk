@@ -17,9 +17,7 @@ class restoreJobs extends Model
         'restoreJob' => 'RestoreJob',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -48,7 +46,7 @@ class restoreJobs extends Model
         if (isset($map['RestoreJob'])) {
             if (!empty($map['RestoreJob'])) {
                 $model->restoreJob = [];
-                $n                 = 0;
+                $n = 0;
                 foreach ($map['RestoreJob'] as $item) {
                     $model->restoreJob[$n++] = null !== $item ? restoreJob::fromMap($item) : $item;
                 }

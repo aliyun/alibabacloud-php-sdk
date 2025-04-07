@@ -143,23 +143,21 @@ class policyBindingList extends Model
      */
     public $speedLimit;
     protected $_name = [
-        'advancedOptions'          => 'AdvancedOptions',
-        'crossAccountRoleName'     => 'CrossAccountRoleName',
-        'crossAccountType'         => 'CrossAccountType',
-        'crossAccountUserId'       => 'CrossAccountUserId',
-        'dataSourceId'             => 'DataSourceId',
-        'disabled'                 => 'Disabled',
-        'exclude'                  => 'Exclude',
-        'include'                  => 'Include',
+        'advancedOptions' => 'AdvancedOptions',
+        'crossAccountRoleName' => 'CrossAccountRoleName',
+        'crossAccountType' => 'CrossAccountType',
+        'crossAccountUserId' => 'CrossAccountUserId',
+        'dataSourceId' => 'DataSourceId',
+        'disabled' => 'Disabled',
+        'exclude' => 'Exclude',
+        'include' => 'Include',
         'policyBindingDescription' => 'PolicyBindingDescription',
-        'source'                   => 'Source',
-        'sourceType'               => 'SourceType',
-        'speedLimit'               => 'SpeedLimit',
+        'source' => 'Source',
+        'sourceType' => 'SourceType',
+        'speedLimit' => 'SpeedLimit',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

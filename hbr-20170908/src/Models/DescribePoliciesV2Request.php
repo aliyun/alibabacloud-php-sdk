@@ -12,6 +12,7 @@ class DescribePoliciesV2Request extends Model
      * @description The number of results for each query.
      *
      * Valid values: 10 to 100. Default value: 10.
+     *
      * @example 10
      *
      * @var int
@@ -37,13 +38,11 @@ class DescribePoliciesV2Request extends Model
     public $policyId;
     protected $_name = [
         'maxResults' => 'MaxResults',
-        'nextToken'  => 'NextToken',
-        'policyId'   => 'PolicyId',
+        'nextToken' => 'NextToken',
+        'policyId' => 'PolicyId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

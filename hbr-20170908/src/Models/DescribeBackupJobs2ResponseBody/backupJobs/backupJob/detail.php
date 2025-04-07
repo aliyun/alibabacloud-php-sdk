@@ -83,7 +83,21 @@ class detail extends Model
      * @description The ecs instance infos.
      *
      * @example {
+     * "i-xxxxxxxx": {
+     * "hostName": "test",
+     * "instanceName": "test",
+     * "instanceType": "ecs.c7.xlarge",
+     * "osType": "linux",
+     * "diskIds": [
+     * "d-xxxxxxxx01",
+     * "d-xxxxxxxx02"
+     * ],
+     * "osNameEn": "Rocky Linux 8.8 64 bit",
+     * "osName": "Rocky Linux 8.8 64位",
+     * "platform": "Rocky Linux"
      * }
+     * }
+     *
      * @var mixed[]
      */
     public $instanceInfos;
@@ -98,20 +112,18 @@ class detail extends Model
     public $nativeSnapshotId;
     protected $_name = [
         'destinationNativeSnapshotErrorMessage' => 'DestinationNativeSnapshotErrorMessage',
-        'destinationNativeSnapshotId'           => 'DestinationNativeSnapshotId',
-        'destinationNativeSnapshotProgress'     => 'DestinationNativeSnapshotProgress',
-        'destinationNativeSnapshotStatus'       => 'DestinationNativeSnapshotStatus',
-        'destinationRetention'                  => 'DestinationRetention',
-        'destinationSnapshotId'                 => 'DestinationSnapshotId',
-        'diskNativeSnapshotIdList'              => 'DiskNativeSnapshotIdList',
-        'doCopy'                                => 'DoCopy',
-        'instanceInfos'                         => 'InstanceInfos',
-        'nativeSnapshotId'                      => 'NativeSnapshotId',
+        'destinationNativeSnapshotId' => 'DestinationNativeSnapshotId',
+        'destinationNativeSnapshotProgress' => 'DestinationNativeSnapshotProgress',
+        'destinationNativeSnapshotStatus' => 'DestinationNativeSnapshotStatus',
+        'destinationRetention' => 'DestinationRetention',
+        'destinationSnapshotId' => 'DestinationSnapshotId',
+        'diskNativeSnapshotIdList' => 'DiskNativeSnapshotIdList',
+        'doCopy' => 'DoCopy',
+        'instanceInfos' => 'InstanceInfos',
+        'nativeSnapshotId' => 'NativeSnapshotId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

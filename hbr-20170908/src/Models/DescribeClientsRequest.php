@@ -80,19 +80,17 @@ class DescribeClientsRequest extends Model
      */
     public $vaultId;
     protected $_name = [
-        'clientId'        => 'ClientId',
-        'clientType'      => 'ClientType',
-        'clusterId'       => 'ClusterId',
-        'pageNumber'      => 'PageNumber',
-        'pageSize'        => 'PageSize',
+        'clientId' => 'ClientId',
+        'clientType' => 'ClientType',
+        'clusterId' => 'ClusterId',
+        'pageNumber' => 'PageNumber',
+        'pageSize' => 'PageSize',
         'resourceGroupId' => 'ResourceGroupId',
-        'sourceType'      => 'SourceType',
-        'vaultId'         => 'VaultId',
+        'sourceType' => 'SourceType',
+        'vaultId' => 'VaultId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

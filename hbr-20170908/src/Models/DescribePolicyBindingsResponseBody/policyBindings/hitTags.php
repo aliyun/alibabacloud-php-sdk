@@ -21,6 +21,7 @@ class hitTags extends Model
      * @description Tag matching rule.
      * - **EQUAL**: Matches both the tag key and tag value.
      * - **NOT**: Matches the tag key but not the tag value.
+     *
      * @example EQUAL
      *
      * @var string
@@ -36,14 +37,12 @@ class hitTags extends Model
      */
     public $value;
     protected $_name = [
-        'key'      => 'Key',
+        'key' => 'Key',
         'operator' => 'Operator',
-        'value'    => 'Value',
+        'value' => 'Value',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

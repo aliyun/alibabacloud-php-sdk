@@ -357,6 +357,7 @@ class backupPlan extends Model
      *   **NAS**: NAS file systems
      *   **OTS**: Tablestore instances
      *   **UDM_ECS**: ECS instances
+     *   **SYNC**: data synchronization
      *
      * @example ECS_FILE
      *
@@ -402,53 +403,51 @@ class backupPlan extends Model
      */
     public $vaultId;
     protected $_name = [
-        'backupSourceGroupId'  => 'BackupSourceGroupId',
-        'backupType'           => 'BackupType',
-        'bucket'               => 'Bucket',
-        'changeListPath'       => 'ChangeListPath',
-        'clientId'             => 'ClientId',
-        'clusterId'            => 'ClusterId',
-        'createTime'           => 'CreateTime',
-        'createdByTag'         => 'CreatedByTag',
-        'createdTime'          => 'CreatedTime',
+        'backupSourceGroupId' => 'BackupSourceGroupId',
+        'backupType' => 'BackupType',
+        'bucket' => 'Bucket',
+        'changeListPath' => 'ChangeListPath',
+        'clientId' => 'ClientId',
+        'clusterId' => 'ClusterId',
+        'createTime' => 'CreateTime',
+        'createdByTag' => 'CreatedByTag',
+        'createdTime' => 'CreatedTime',
         'crossAccountRoleName' => 'CrossAccountRoleName',
-        'crossAccountType'     => 'CrossAccountType',
-        'crossAccountUserId'   => 'CrossAccountUserId',
-        'dataSourceId'         => 'DataSourceId',
+        'crossAccountType' => 'CrossAccountType',
+        'crossAccountUserId' => 'CrossAccountUserId',
+        'dataSourceId' => 'DataSourceId',
         'destDataSourceDetail' => 'DestDataSourceDetail',
-        'destDataSourceId'     => 'DestDataSourceId',
-        'destSourceType'       => 'DestSourceType',
-        'detail'               => 'Detail',
-        'disabled'             => 'Disabled',
-        'exclude'              => 'Exclude',
-        'fileSystemId'         => 'FileSystemId',
-        'hitTags'              => 'HitTags',
-        'include'              => 'Include',
-        'instanceGroupId'      => 'InstanceGroupId',
-        'instanceId'           => 'InstanceId',
-        'instanceName'         => 'InstanceName',
-        'keepLatestSnapshots'  => 'KeepLatestSnapshots',
-        'latestExecuteJobId'   => 'LatestExecuteJobId',
-        'options'              => 'Options',
-        'otsDetail'            => 'OtsDetail',
-        'paths'                => 'Paths',
-        'planId'               => 'PlanId',
-        'planName'             => 'PlanName',
-        'prefix'               => 'Prefix',
-        'resources'            => 'Resources',
-        'retention'            => 'Retention',
-        'rules'                => 'Rules',
-        'schedule'             => 'Schedule',
-        'sourceType'           => 'SourceType',
-        'speedLimit'           => 'SpeedLimit',
-        'trialInfo'            => 'TrialInfo',
-        'updatedTime'          => 'UpdatedTime',
-        'vaultId'              => 'VaultId',
+        'destDataSourceId' => 'DestDataSourceId',
+        'destSourceType' => 'DestSourceType',
+        'detail' => 'Detail',
+        'disabled' => 'Disabled',
+        'exclude' => 'Exclude',
+        'fileSystemId' => 'FileSystemId',
+        'hitTags' => 'HitTags',
+        'include' => 'Include',
+        'instanceGroupId' => 'InstanceGroupId',
+        'instanceId' => 'InstanceId',
+        'instanceName' => 'InstanceName',
+        'keepLatestSnapshots' => 'KeepLatestSnapshots',
+        'latestExecuteJobId' => 'LatestExecuteJobId',
+        'options' => 'Options',
+        'otsDetail' => 'OtsDetail',
+        'paths' => 'Paths',
+        'planId' => 'PlanId',
+        'planName' => 'PlanName',
+        'prefix' => 'Prefix',
+        'resources' => 'Resources',
+        'retention' => 'Retention',
+        'rules' => 'Rules',
+        'schedule' => 'Schedule',
+        'sourceType' => 'SourceType',
+        'speedLimit' => 'SpeedLimit',
+        'trialInfo' => 'TrialInfo',
+        'updatedTime' => 'UpdatedTime',
+        'vaultId' => 'VaultId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

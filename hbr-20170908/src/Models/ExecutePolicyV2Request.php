@@ -21,6 +21,7 @@ class ExecutePolicyV2Request extends Model
      * @description Policy ID.
      *
      * This parameter is required.
+     *
      * @example po-000************hky
      *
      * @var string
@@ -31,6 +32,7 @@ class ExecutePolicyV2Request extends Model
      * @description Rule ID, limited to executing rules of **RuleType** **BACKUP**.
      *
      * This parameter is required.
+     *
      * @example rule-0002*****ux8
      *
      * @var string
@@ -41,6 +43,7 @@ class ExecutePolicyV2Request extends Model
      * @description Data source type, with the value range as follows:
      *
      * - **UDM_ECS**: Represents ECS full machine backup.
+     *
      * @example UDM_ECS
      *
      * @var string
@@ -48,14 +51,12 @@ class ExecutePolicyV2Request extends Model
     public $sourceType;
     protected $_name = [
         'dataSourceId' => 'DataSourceId',
-        'policyId'     => 'PolicyId',
-        'ruleId'       => 'RuleId',
-        'sourceType'   => 'SourceType',
+        'policyId' => 'PolicyId',
+        'ruleId' => 'RuleId',
+        'sourceType' => 'SourceType',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

@@ -19,7 +19,9 @@ class CreateRestoreJobShrinkRequest extends Model
 
     /**
      * @description Cross-account backup type. Supported values:
+     * - SELF_ACCOUNT: Backup within the same account
      * - CROSS_ACCOUNT: Cross-account backup
+     *
      * @example SELF_ACCOUNT
      *
      * @var string
@@ -94,6 +96,7 @@ class CreateRestoreJobShrinkRequest extends Model
      * - **UDM_ECS_ROLLBACK**: Restore to Alibaba Cloud ECS whole machine.
      *
      * This parameter is required.
+     *
      * @example ECS_FILE
      *
      * @var string
@@ -127,6 +130,7 @@ class CreateRestoreJobShrinkRequest extends Model
      * - **UDM_ECS**: Restore to Alibaba Cloud ECS whole machine.
      *
      * This parameter is required.
+     *
      * @example ECS_FILE
      *
      * @var string
@@ -233,7 +237,30 @@ class CreateRestoreJobShrinkRequest extends Model
     public $targetTime;
 
     /**
-     * @description Details of the whole machine backup.
+     * @description The parameter is valid only when the SourceType is set to UDM_ECS. It represents the details of the entire machine backup and is a JSON string. Depending on the value of RestoreType, different details must be passed as follows:
+     * - **UDM_ECS_DISK**: ECS disk cloning.
+     * - **targetInstanceId**: string (required). Specifies the target ECS instance ID to which the cloned disk will be attached.
+     * - **diskCategory**: string (required). Specifies the type of the target disk.
+     * - **diskPerformanceLevel**: string. When diskCategory is "essd", this indicates the disk performance level, supporting PL0, PL1, PL2, and PL3, with PL1 as the default.
+     * - **UDM_ECS_DISK_ROLLBACK**: ECS disk rollback.
+     * - **sourceInstanceId**: string (required). Specifies the source ECS instance ID.
+     * - **forceRestore**: bool (default: false). Indicates whether to force restore. NOTE: If forceRestore is set to true, the disk restoration will proceed even if the backup disk has been unmounted from the original ECS instance or mounted to another instance. Exercise caution when using this option.
+     * - **bootAfterRestore**: bool (default: false). Indicates whether to start the ECS instance after restoration.
+     * - **UDM_ECS**: Full ECS cloning.
+     * - **bootAfterRestore**: bool (default: false). Indicates whether to start the ECS instance after restoration.
+     * - **diskCategory**: string (required). Specifies the type of the target disk.
+     * - **diskPerformanceLevel**: string. When diskCategory is "essd", this indicates the disk performance level (PL0/PL1/PL2/PL3), defaulting to PL1.
+     * - **instanceType**: string (required). Specifies the specification of the target ECS instance.
+     * - **restoredNetwork**: string (required). Specifies the vSwitch ID for the target ECS instance.
+     * - **securityGroup**: string (required). Specifies the security group ID for the target ECS instance.
+     * - **restoredName:** string (required). Specifies the instance name of the target ECS instance.
+     * - **restoredHostName**: string (required). Specifies the host name of the target ECS instance.
+     * - **allocatePublicIp**: bool (default: false). Indicates whether to assign a public IP to the target ECS instance.
+     * - **privateIpAddress**: string. Specifies the internal IP address of the target ECS instance. If not specified, an IP will be assigned via DHCP.
+     * - **UDM_ECS_ROLLBACK**: Full ECS rollback.
+     * - **sourceInstanceId**: string (required). Specifies the source ECS instance ID.
+     * - **forceRestore**: bool (default: false). Indicates whether to force restore. NOTE: If forceRestore is set to true, the disk restoration will proceed even if the backup disk has been unmounted from the original ECS instance or mounted to another instance. Exercise caution when using this option.
+     * - **bootAfterRestore**: bool (default: false). Indicates whether to start the ECS instance after restoration.
      *
      * @example {\\"sourceInstanceId\\":\\"i-uf62te6pm3iwsyxyz66q\\",\\"bootAfterRestore\\":false}
      *
@@ -259,38 +286,36 @@ class CreateRestoreJobShrinkRequest extends Model
      */
     public $vaultId;
     protected $_name = [
-        'crossAccountRoleName'     => 'CrossAccountRoleName',
-        'crossAccountType'         => 'CrossAccountType',
-        'crossAccountUserId'       => 'CrossAccountUserId',
-        'exclude'                  => 'Exclude',
-        'failbackDetailShrink'     => 'FailbackDetail',
-        'include'                  => 'Include',
-        'initiatedByAck'           => 'InitiatedByAck',
-        'options'                  => 'Options',
-        'otsDetailShrink'          => 'OtsDetail',
-        'restoreType'              => 'RestoreType',
-        'snapshotHash'             => 'SnapshotHash',
-        'snapshotId'               => 'SnapshotId',
-        'sourceType'               => 'SourceType',
-        'targetBucket'             => 'TargetBucket',
-        'targetContainer'          => 'TargetContainer',
+        'crossAccountRoleName' => 'CrossAccountRoleName',
+        'crossAccountType' => 'CrossAccountType',
+        'crossAccountUserId' => 'CrossAccountUserId',
+        'exclude' => 'Exclude',
+        'failbackDetailShrink' => 'FailbackDetail',
+        'include' => 'Include',
+        'initiatedByAck' => 'InitiatedByAck',
+        'options' => 'Options',
+        'otsDetailShrink' => 'OtsDetail',
+        'restoreType' => 'RestoreType',
+        'snapshotHash' => 'SnapshotHash',
+        'snapshotId' => 'SnapshotId',
+        'sourceType' => 'SourceType',
+        'targetBucket' => 'TargetBucket',
+        'targetContainer' => 'TargetContainer',
         'targetContainerClusterId' => 'TargetContainerClusterId',
-        'targetCreateTime'         => 'TargetCreateTime',
-        'targetFileSystemId'       => 'TargetFileSystemId',
-        'targetInstanceId'         => 'TargetInstanceId',
-        'targetInstanceName'       => 'TargetInstanceName',
-        'targetPath'               => 'TargetPath',
-        'targetPrefix'             => 'TargetPrefix',
-        'targetTableName'          => 'TargetTableName',
-        'targetTime'               => 'TargetTime',
-        'udmDetailShrink'          => 'UdmDetail',
-        'udmRegionId'              => 'UdmRegionId',
-        'vaultId'                  => 'VaultId',
+        'targetCreateTime' => 'TargetCreateTime',
+        'targetFileSystemId' => 'TargetFileSystemId',
+        'targetInstanceId' => 'TargetInstanceId',
+        'targetInstanceName' => 'TargetInstanceName',
+        'targetPath' => 'TargetPath',
+        'targetPrefix' => 'TargetPrefix',
+        'targetTableName' => 'TargetTableName',
+        'targetTime' => 'TargetTime',
+        'udmDetailShrink' => 'UdmDetail',
+        'udmRegionId' => 'UdmRegionId',
+        'vaultId' => 'VaultId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

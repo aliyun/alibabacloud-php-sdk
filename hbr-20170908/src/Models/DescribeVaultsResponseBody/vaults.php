@@ -17,9 +17,7 @@ class vaults extends Model
         'vault' => 'Vault',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -48,7 +46,7 @@ class vaults extends Model
         if (isset($map['Vault'])) {
             if (!empty($map['Vault'])) {
                 $model->vault = [];
-                $n            = 0;
+                $n = 0;
                 foreach ($map['Vault'] as $item) {
                     $model->vault[$n++] = null !== $item ? vault::fromMap($item) : $item;
                 }

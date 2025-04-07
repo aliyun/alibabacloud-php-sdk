@@ -12,6 +12,7 @@ class DescribeHanaBackupsAsyncRequest extends Model
      * @description The ID of the SAP HANA instance.
      *
      * This parameter is required.
+     *
      * @example cl-00098******yuqvu
      *
      * @var string
@@ -182,28 +183,26 @@ class DescribeHanaBackupsAsyncRequest extends Model
      */
     public $volumeId;
     protected $_name = [
-        'clusterId'           => 'ClusterId',
-        'databaseName'        => 'DatabaseName',
+        'clusterId' => 'ClusterId',
+        'databaseName' => 'DatabaseName',
         'includeDifferential' => 'IncludeDifferential',
-        'includeIncremental'  => 'IncludeIncremental',
-        'includeLog'          => 'IncludeLog',
-        'logPosition'         => 'LogPosition',
-        'mode'                => 'Mode',
-        'pageNumber'          => 'PageNumber',
-        'pageSize'            => 'PageSize',
+        'includeIncremental' => 'IncludeIncremental',
+        'includeLog' => 'IncludeLog',
+        'logPosition' => 'LogPosition',
+        'mode' => 'Mode',
+        'pageNumber' => 'PageNumber',
+        'pageSize' => 'PageSize',
         'recoveryPointInTime' => 'RecoveryPointInTime',
-        'resourceGroupId'     => 'ResourceGroupId',
-        'source'              => 'Source',
-        'sourceClusterId'     => 'SourceClusterId',
-        'systemCopy'          => 'SystemCopy',
-        'useBackint'          => 'UseBackint',
-        'vaultId'             => 'VaultId',
-        'volumeId'            => 'VolumeId',
+        'resourceGroupId' => 'ResourceGroupId',
+        'source' => 'Source',
+        'sourceClusterId' => 'SourceClusterId',
+        'systemCopy' => 'SystemCopy',
+        'useBackint' => 'UseBackint',
+        'vaultId' => 'VaultId',
+        'volumeId' => 'VolumeId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

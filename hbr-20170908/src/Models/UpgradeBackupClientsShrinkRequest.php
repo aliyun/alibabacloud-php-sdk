@@ -56,16 +56,14 @@ class UpgradeBackupClientsShrinkRequest extends Model
      */
     public $instanceIdsShrink;
     protected $_name = [
-        'clientIdsShrink'      => 'ClientIds',
+        'clientIdsShrink' => 'ClientIds',
         'crossAccountRoleName' => 'CrossAccountRoleName',
-        'crossAccountType'     => 'CrossAccountType',
-        'crossAccountUserId'   => 'CrossAccountUserId',
-        'instanceIdsShrink'    => 'InstanceIds',
+        'crossAccountType' => 'CrossAccountType',
+        'crossAccountUserId' => 'CrossAccountUserId',
+        'instanceIdsShrink' => 'InstanceIds',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

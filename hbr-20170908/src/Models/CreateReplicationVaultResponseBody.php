@@ -65,17 +65,15 @@ class CreateReplicationVaultResponseBody extends Model
      */
     public $vaultId;
     protected $_name = [
-        'code'      => 'Code',
-        'message'   => 'Message',
+        'code' => 'Code',
+        'message' => 'Message',
         'requestId' => 'RequestId',
-        'success'   => 'Success',
-        'taskId'    => 'TaskId',
-        'vaultId'   => 'VaultId',
+        'success' => 'Success',
+        'taskId' => 'TaskId',
+        'vaultId' => 'VaultId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

@@ -30,9 +30,7 @@ class otsDetail extends Model
         'overwriteExisting' => 'OverwriteExisting',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

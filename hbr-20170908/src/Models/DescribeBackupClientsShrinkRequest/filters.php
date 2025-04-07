@@ -2,34 +2,18 @@
 
 // This file is auto-generated, don't edit it. Thanks.
 
-namespace AlibabaCloud\SDK\Hbr\V20170908\Models\DescribeBackupPlansRequest;
+namespace AlibabaCloud\SDK\Hbr\V20170908\Models\DescribeBackupClientsShrinkRequest;
 
 use AlibabaCloud\Tea\Model;
 
 class filters extends Model
 {
     /**
-     * @description The keys in the filter. Valid values:
-     *
-     *   **regionId**: the ID of a region
-     *   **planId**: the ID of a backup plan
-     *   **sourceType**: the type of a data source
-     *   **vaultId**: the ID of a backup vault
-     *   **instanceName**: the name of an instance
-     *   **instanceId**: the ID of an instance
-     *   **planName**: the name of a backup plan
-     *
-     * @example vaultId
-     *
      * @var string
      */
     public $key;
 
     /**
-     * @description The values that you want to match in the filter.
-     *
-     * @example ["v-*********************"]
-     *
      * @var string[]
      */
     public $values;

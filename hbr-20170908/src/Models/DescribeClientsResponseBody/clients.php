@@ -17,9 +17,7 @@ class clients extends Model
         'client' => 'Client',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -48,7 +46,7 @@ class clients extends Model
         if (isset($map['Client'])) {
             if (!empty($map['Client'])) {
                 $model->client = [];
-                $n             = 0;
+                $n = 0;
                 foreach ($map['Client'] as $item) {
                     $model->client[$n++] = null !== $item ? client::fromMap($item) : $item;
                 }

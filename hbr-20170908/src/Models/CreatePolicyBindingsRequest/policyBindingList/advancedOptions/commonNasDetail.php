@@ -38,14 +38,12 @@ class commonNasDetail extends Model
      */
     public $fullOnIncrementFail;
     protected $_name = [
-        'clusterId'           => 'ClusterId',
-        'fetchSliceSize'      => 'FetchSliceSize',
+        'clusterId' => 'ClusterId',
+        'fetchSliceSize' => 'FetchSliceSize',
         'fullOnIncrementFail' => 'FullOnIncrementFail',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

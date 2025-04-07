@@ -42,14 +42,12 @@ class ossDetail extends Model
      */
     public $inventoryId;
     protected $_name = [
-        'ignoreArchiveObject'    => 'IgnoreArchiveObject',
+        'ignoreArchiveObject' => 'IgnoreArchiveObject',
         'inventoryCleanupPolicy' => 'InventoryCleanupPolicy',
-        'inventoryId'            => 'InventoryId',
+        'inventoryId' => 'InventoryId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

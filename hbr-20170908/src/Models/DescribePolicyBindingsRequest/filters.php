@@ -14,6 +14,7 @@ class filters extends Model
      * - **PolicyId**: Backup policy ID
      * - **DataSourceId**: ECS instance ID
      * - **DataSourceType**: Data source type
+     *
      * @example DataSourceType
      *
      * @var string
@@ -31,6 +32,7 @@ class filters extends Model
      * - **LESS_THAN_OR_EQUAL**: Less than or equal to
      * - **BETWEEN**: Range, where value is a JSON array `[lower_bound, upper_bound]`.
      * - **IN**: In the set, where value is an array.
+     *
      * @example IN
      *
      * @var string
@@ -44,14 +46,12 @@ class filters extends Model
      */
     public $values;
     protected $_name = [
-        'key'      => 'Key',
+        'key' => 'Key',
         'operator' => 'Operator',
-        'values'   => 'Values',
+        'values' => 'Values',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

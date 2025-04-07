@@ -12,6 +12,7 @@ class ChangeResourceGroupRequest extends Model
      * @description The ID of the new resource group. You can view the available resource groups in the Resource Management console.
      *
      * This parameter is required.
+     *
      * @example rg-bp67acfmxazb4p****
      *
      * @var string
@@ -22,6 +23,7 @@ class ChangeResourceGroupRequest extends Model
      * @description The ID of the resource. The value of this parameter varies with the resource type. For example, if the ResourceType parameter is set to vault, the ResourceId parameter specifies the ID of the backup vault.
      *
      * This parameter is required.
+     *
      * @example v-0002vido6j5zyh5k****
      *
      * @var string
@@ -36,6 +38,7 @@ class ChangeResourceGroupRequest extends Model
      *   **hanainstance**: SAP HANA instance
      *
      * This parameter is required.
+     *
      * @example vault
      *
      * @var string
@@ -43,13 +46,11 @@ class ChangeResourceGroupRequest extends Model
     public $resourceType;
     protected $_name = [
         'newResourceGroupId' => 'NewResourceGroupId',
-        'resourceId'         => 'ResourceId',
-        'resourceType'       => 'ResourceType',
+        'resourceId' => 'ResourceId',
+        'resourceType' => 'ResourceType',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

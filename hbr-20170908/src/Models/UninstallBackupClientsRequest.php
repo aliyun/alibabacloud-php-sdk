@@ -56,16 +56,14 @@ class UninstallBackupClientsRequest extends Model
      */
     public $instanceIds;
     protected $_name = [
-        'clientIds'            => 'ClientIds',
+        'clientIds' => 'ClientIds',
         'crossAccountRoleName' => 'CrossAccountRoleName',
-        'crossAccountType'     => 'CrossAccountType',
-        'crossAccountUserId'   => 'CrossAccountUserId',
-        'instanceIds'          => 'InstanceIds',
+        'crossAccountType' => 'CrossAccountType',
+        'crossAccountUserId' => 'CrossAccountUserId',
+        'instanceIds' => 'InstanceIds',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

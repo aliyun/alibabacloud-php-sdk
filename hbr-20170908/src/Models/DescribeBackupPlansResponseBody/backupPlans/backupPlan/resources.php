@@ -17,9 +17,7 @@ class resources extends Model
         'resource' => 'Resource',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -48,7 +46,7 @@ class resources extends Model
         if (isset($map['Resource'])) {
             if (!empty($map['Resource'])) {
                 $model->resource = [];
-                $n               = 0;
+                $n = 0;
                 foreach ($map['Resource'] as $item) {
                     $model->resource[$n++] = null !== $item ? resource::fromMap($item) : $item;
                 }

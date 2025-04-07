@@ -17,9 +17,7 @@ class rules extends Model
         'rule' => 'Rule',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -48,7 +46,7 @@ class rules extends Model
         if (isset($map['Rule'])) {
             if (!empty($map['Rule'])) {
                 $model->rule = [];
-                $n           = 0;
+                $n = 0;
                 foreach ($map['Rule'] as $item) {
                     $model->rule[$n++] = null !== $item ? rule::fromMap($item) : $item;
                 }

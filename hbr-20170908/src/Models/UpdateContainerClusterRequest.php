@@ -12,6 +12,7 @@ class UpdateContainerClusterRequest extends Model
      * @description Cluster ID.
      *
      * This parameter is required.
+     *
      * @example cc-000**************134
      *
      * @var string
@@ -56,16 +57,14 @@ class UpdateContainerClusterRequest extends Model
      */
     public $renewToken;
     protected $_name = [
-        'clusterId'   => 'ClusterId',
+        'clusterId' => 'ClusterId',
         'description' => 'Description',
-        'name'        => 'Name',
+        'name' => 'Name',
         'networkType' => 'NetworkType',
-        'renewToken'  => 'RenewToken',
+        'renewToken' => 'RenewToken',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

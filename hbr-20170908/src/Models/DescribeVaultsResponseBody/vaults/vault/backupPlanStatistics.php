@@ -143,26 +143,24 @@ class backupPlanStatistics extends Model
      */
     public $sqlServer;
     protected $_name = [
-        'archive'          => 'Archive',
+        'archive' => 'Archive',
         'commonFileSystem' => 'CommonFileSystem',
-        'commonNas'        => 'CommonNas',
-        'csg'              => 'Csg',
-        'ecsFile'          => 'EcsFile',
-        'ecsHana'          => 'EcsHana',
-        'isilon'           => 'Isilon',
-        'localFile'        => 'LocalFile',
-        'localVm'          => 'LocalVm',
-        'mySql'            => 'MySql',
-        'nas'              => 'Nas',
-        'oracle'           => 'Oracle',
-        'oss'              => 'Oss',
-        'ots'              => 'Ots',
-        'sqlServer'        => 'SqlServer',
+        'commonNas' => 'CommonNas',
+        'csg' => 'Csg',
+        'ecsFile' => 'EcsFile',
+        'ecsHana' => 'EcsHana',
+        'isilon' => 'Isilon',
+        'localFile' => 'LocalFile',
+        'localVm' => 'LocalVm',
+        'mySql' => 'MySql',
+        'nas' => 'Nas',
+        'oracle' => 'Oracle',
+        'oss' => 'Oss',
+        'ots' => 'Ots',
+        'sqlServer' => 'SqlServer',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

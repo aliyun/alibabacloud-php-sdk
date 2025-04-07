@@ -36,15 +36,13 @@ class Report extends Model
      */
     public $totalFiles;
     protected $_name = [
-        'failedFiles'  => 'FailedFiles',
+        'failedFiles' => 'FailedFiles',
         'skippedFiles' => 'SkippedFiles',
         'successFiles' => 'SuccessFiles',
-        'totalFiles'   => 'TotalFiles',
+        'totalFiles' => 'TotalFiles',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

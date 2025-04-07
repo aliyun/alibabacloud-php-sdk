@@ -135,24 +135,22 @@ class rules extends Model
      */
     public $vaultId;
     protected $_name = [
-        'archiveDays'         => 'ArchiveDays',
-        'backupType'          => 'BackupType',
-        'dataSourceFilters'   => 'DataSourceFilters',
-        'immutable'           => 'Immutable',
+        'archiveDays' => 'ArchiveDays',
+        'backupType' => 'BackupType',
+        'dataSourceFilters' => 'DataSourceFilters',
+        'immutable' => 'Immutable',
         'keepLatestSnapshots' => 'KeepLatestSnapshots',
         'replicationRegionId' => 'ReplicationRegionId',
-        'retention'           => 'Retention',
-        'retentionRules'      => 'RetentionRules',
-        'ruleId'              => 'RuleId',
-        'ruleType'            => 'RuleType',
-        'schedule'            => 'Schedule',
-        'tagFilters'          => 'TagFilters',
-        'vaultId'             => 'VaultId',
+        'retention' => 'Retention',
+        'retentionRules' => 'RetentionRules',
+        'ruleId' => 'RuleId',
+        'ruleType' => 'RuleType',
+        'schedule' => 'Schedule',
+        'tagFilters' => 'TagFilters',
+        'vaultId' => 'VaultId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -235,7 +233,7 @@ class rules extends Model
         if (isset($map['DataSourceFilters'])) {
             if (!empty($map['DataSourceFilters'])) {
                 $model->dataSourceFilters = [];
-                $n                        = 0;
+                $n = 0;
                 foreach ($map['DataSourceFilters'] as $item) {
                     $model->dataSourceFilters[$n++] = null !== $item ? dataSourceFilters::fromMap($item) : $item;
                 }
@@ -256,7 +254,7 @@ class rules extends Model
         if (isset($map['RetentionRules'])) {
             if (!empty($map['RetentionRules'])) {
                 $model->retentionRules = [];
-                $n                     = 0;
+                $n = 0;
                 foreach ($map['RetentionRules'] as $item) {
                     $model->retentionRules[$n++] = null !== $item ? retentionRules::fromMap($item) : $item;
                 }
@@ -274,7 +272,7 @@ class rules extends Model
         if (isset($map['TagFilters'])) {
             if (!empty($map['TagFilters'])) {
                 $model->tagFilters = [];
-                $n                 = 0;
+                $n = 0;
                 foreach ($map['TagFilters'] as $item) {
                     $model->tagFilters[$n++] = null !== $item ? tagFilters::fromMap($item) : $item;
                 }

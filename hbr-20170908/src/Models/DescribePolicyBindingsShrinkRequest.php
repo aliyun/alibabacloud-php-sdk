@@ -27,6 +27,7 @@ class DescribePolicyBindingsShrinkRequest extends Model
      * @description Number of results per query.
      *
      * Range: 10~100. Default: 10.
+     *
      * @example 10
      *
      * @var int
@@ -62,16 +63,14 @@ class DescribePolicyBindingsShrinkRequest extends Model
     public $sourceType;
     protected $_name = [
         'dataSourceIdsShrink' => 'DataSourceIds',
-        'filters'             => 'Filters',
-        'maxResults'          => 'MaxResults',
-        'nextToken'           => 'NextToken',
-        'policyId'            => 'PolicyId',
-        'sourceType'          => 'SourceType',
+        'filters' => 'Filters',
+        'maxResults' => 'MaxResults',
+        'nextToken' => 'NextToken',
+        'policyId' => 'PolicyId',
+        'sourceType' => 'SourceType',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -118,7 +117,7 @@ class DescribePolicyBindingsShrinkRequest extends Model
         if (isset($map['Filters'])) {
             if (!empty($map['Filters'])) {
                 $model->filters = [];
-                $n              = 0;
+                $n = 0;
                 foreach ($map['Filters'] as $item) {
                     $model->filters[$n++] = null !== $item ? filters::fromMap($item) : $item;
                 }

@@ -56,16 +56,14 @@ class CreatePolicyV2ResponseBody extends Model
      */
     public $success;
     protected $_name = [
-        'code'      => 'Code',
-        'message'   => 'Message',
-        'policyId'  => 'PolicyId',
+        'code' => 'Code',
+        'message' => 'Message',
+        'policyId' => 'PolicyId',
         'requestId' => 'RequestId',
-        'success'   => 'Success',
+        'success' => 'Success',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

@@ -50,22 +50,20 @@ class GetTempFileDownloadLinkResponseBody extends Model
     /**
      * @description The download URL of the file.
      *
-     * @example https://a-hbr-temp-cn-hangzhou.oss-cn-hangzhou.aliyuncs.com/job-0007yg2i0m6705wdhgb6_0.csv?Expires=1649406469&OSSAccessKeyId=LTAIjGotF8wX****&Signature=26%2BgjegCrRmMDCpS5jzyG4ivKU8%3D
+     * @example https://a-hbr-temp-cn-hangzhou.oss-cn-hangzhou.aliyuncs.com/job-0007yg2i0m6705wdhgb6_0.csv?Expires=1649406469&OSSAccessKeyId=LTAI************&Signature=26%2BgjegCrRmMDCpS5jzyG4ivKU8%3D
      *
      * @var string
      */
     public $url;
     protected $_name = [
-        'code'      => 'Code',
-        'message'   => 'Message',
+        'code' => 'Code',
+        'message' => 'Message',
         'requestId' => 'RequestId',
-        'success'   => 'Success',
-        'url'       => 'Url',
+        'success' => 'Success',
+        'url' => 'Url',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

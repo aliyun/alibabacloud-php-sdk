@@ -26,12 +26,10 @@ class CreatePolicyBindingsRequest extends Model
     public $policyId;
     protected $_name = [
         'policyBindingList' => 'PolicyBindingList',
-        'policyId'          => 'PolicyId',
+        'policyId' => 'PolicyId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -63,7 +61,7 @@ class CreatePolicyBindingsRequest extends Model
         if (isset($map['PolicyBindingList'])) {
             if (!empty($map['PolicyBindingList'])) {
                 $model->policyBindingList = [];
-                $n                        = 0;
+                $n = 0;
                 foreach ($map['PolicyBindingList'] as $item) {
                     $model->policyBindingList[$n++] = null !== $item ? policyBindingList::fromMap($item) : $item;
                 }

@@ -64,17 +64,15 @@ class CreateClientsResponseBody extends Model
      */
     public $taskId;
     protected $_name = [
-        'code'             => 'Code',
+        'code' => 'Code',
         'instanceStatuses' => 'InstanceStatuses',
-        'message'          => 'Message',
-        'requestId'        => 'RequestId',
-        'success'          => 'Success',
-        'taskId'           => 'TaskId',
+        'message' => 'Message',
+        'requestId' => 'RequestId',
+        'success' => 'Success',
+        'taskId' => 'TaskId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

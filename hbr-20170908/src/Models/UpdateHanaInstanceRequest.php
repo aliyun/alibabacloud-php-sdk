@@ -48,6 +48,7 @@ class UpdateHanaInstanceRequest extends Model
      * @description The instance number of the SAP HANA system.
      *
      * This parameter is required.
+     *
      * @example 00
      *
      * @var int
@@ -79,6 +80,7 @@ class UpdateHanaInstanceRequest extends Model
      *   false: The SAP HANA database is not connected over SSL.
      *
      * This parameter is required.
+     *
      * @example true
      *
      * @var bool
@@ -101,6 +103,7 @@ class UpdateHanaInstanceRequest extends Model
      *   false: The SSL certificate of the SAP HANA database is not verified.
      *
      * This parameter is required.
+     *
      * @example false
      *
      * @var bool
@@ -116,22 +119,20 @@ class UpdateHanaInstanceRequest extends Model
      */
     public $vaultId;
     protected $_name = [
-        'alertSetting'        => 'AlertSetting',
-        'clusterId'           => 'ClusterId',
-        'hanaName'            => 'HanaName',
-        'host'                => 'Host',
-        'instanceNumber'      => 'InstanceNumber',
-        'password'            => 'Password',
-        'resourceGroupId'     => 'ResourceGroupId',
-        'useSsl'              => 'UseSsl',
-        'userName'            => 'UserName',
+        'alertSetting' => 'AlertSetting',
+        'clusterId' => 'ClusterId',
+        'hanaName' => 'HanaName',
+        'host' => 'Host',
+        'instanceNumber' => 'InstanceNumber',
+        'password' => 'Password',
+        'resourceGroupId' => 'ResourceGroupId',
+        'useSsl' => 'UseSsl',
+        'userName' => 'UserName',
         'validateCertificate' => 'ValidateCertificate',
-        'vaultId'             => 'VaultId',
+        'vaultId' => 'VaultId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

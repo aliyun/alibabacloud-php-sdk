@@ -46,7 +46,9 @@ class policyBindings extends Model
 
     /**
      * @description Cross-account backup type. Supported values:
+     * - SELF_ACCOUNT: Backup within the same account
      * - CROSS_ACCOUNT: Cross-account backup
+     *
      * @example CROSS_ACCOUNT
      *
      * @var string
@@ -72,8 +74,10 @@ class policyBindings extends Model
     public $dataSourceId;
 
     /**
-     * @description 策略是否对该数据源生效。
-     * - false：未暂停
+     * @description Whether the policy is disbaled for this data source.
+     * - true: disabled
+     * - false: Not disabled
+     *
      * @example true
      *
      * @var bool
@@ -135,6 +139,7 @@ class policyBindings extends Model
     /**
      * @description - When **SourceType** is **OSS**, it indicates the prefix to be backed up. If not specified, it means backing up the entire root directory of the Bucket.
      * - When **SourceType** is **ECS_FILE** or **File**, it indicates the file directory to be backed up. If not specified, it means backing up all directories.
+     *
      * @example backup/
      *
      * @var string
@@ -144,6 +149,7 @@ class policyBindings extends Model
     /**
      * @description Data source type, with the value range:
      * - **UDM_ECS**: indicates ECS full machine backup
+     *
      * @example UDM_ECS
      *
      * @var string
@@ -156,6 +162,7 @@ class policyBindings extends Model
      * - **start**: Start hour.
      * - **end**: End hour.
      * - **bandwidth**: Limit rate, in KB/s.
+     *
      * @example 0:24:10240
      *
      * @var string
@@ -171,29 +178,27 @@ class policyBindings extends Model
      */
     public $updatedTime;
     protected $_name = [
-        'advancedOptions'          => 'AdvancedOptions',
-        'createdByTag'             => 'CreatedByTag',
-        'createdTime'              => 'CreatedTime',
-        'crossAccountRoleName'     => 'CrossAccountRoleName',
-        'crossAccountType'         => 'CrossAccountType',
-        'crossAccountUserId'       => 'CrossAccountUserId',
-        'dataSourceId'             => 'DataSourceId',
-        'disabled'                 => 'Disabled',
-        'exclude'                  => 'Exclude',
-        'hitTags'                  => 'HitTags',
-        'include'                  => 'Include',
+        'advancedOptions' => 'AdvancedOptions',
+        'createdByTag' => 'CreatedByTag',
+        'createdTime' => 'CreatedTime',
+        'crossAccountRoleName' => 'CrossAccountRoleName',
+        'crossAccountType' => 'CrossAccountType',
+        'crossAccountUserId' => 'CrossAccountUserId',
+        'dataSourceId' => 'DataSourceId',
+        'disabled' => 'Disabled',
+        'exclude' => 'Exclude',
+        'hitTags' => 'HitTags',
+        'include' => 'Include',
         'policyBindingDescription' => 'PolicyBindingDescription',
-        'policyBindingId'          => 'PolicyBindingId',
-        'policyId'                 => 'PolicyId',
-        'source'                   => 'Source',
-        'sourceType'               => 'SourceType',
-        'speedLimit'               => 'SpeedLimit',
-        'updatedTime'              => 'UpdatedTime',
+        'policyBindingId' => 'PolicyBindingId',
+        'policyId' => 'PolicyId',
+        'source' => 'Source',
+        'sourceType' => 'SourceType',
+        'speedLimit' => 'SpeedLimit',
+        'updatedTime' => 'UpdatedTime',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -300,7 +305,7 @@ class policyBindings extends Model
         if (isset($map['HitTags'])) {
             if (!empty($map['HitTags'])) {
                 $model->hitTags = [];
-                $n              = 0;
+                $n = 0;
                 foreach ($map['HitTags'] as $item) {
                     $model->hitTags[$n++] = null !== $item ? hitTags::fromMap($item) : $item;
                 }

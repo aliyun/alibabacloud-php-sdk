@@ -31,6 +31,7 @@ class CreateHanaInstanceRequest extends Model
      *
      * - **SELF_ACCOUNT**: Data is backed up within the same Alibaba Cloud account.
      * - **CROSS_ACCOUNT**: Data is backed up across Alibaba Cloud accounts.
+     *
      * @example CROSS_ACCOUNT
      *
      * @var string
@@ -140,32 +141,31 @@ class CreateHanaInstanceRequest extends Model
      * @description The ID of the backup vault.
      *
      * This parameter is required.
+     *
      * @example v-0003v4a******gfv2
      *
      * @var string
      */
     public $vaultId;
     protected $_name = [
-        'alertSetting'         => 'AlertSetting',
+        'alertSetting' => 'AlertSetting',
         'crossAccountRoleName' => 'CrossAccountRoleName',
-        'crossAccountType'     => 'CrossAccountType',
-        'crossAccountUserId'   => 'CrossAccountUserId',
-        'ecsInstanceId'        => 'EcsInstanceId',
-        'hanaName'             => 'HanaName',
-        'host'                 => 'Host',
-        'instanceNumber'       => 'InstanceNumber',
-        'password'             => 'Password',
-        'resourceGroupId'      => 'ResourceGroupId',
-        'sid'                  => 'Sid',
-        'useSsl'               => 'UseSsl',
-        'userName'             => 'UserName',
-        'validateCertificate'  => 'ValidateCertificate',
-        'vaultId'              => 'VaultId',
+        'crossAccountType' => 'CrossAccountType',
+        'crossAccountUserId' => 'CrossAccountUserId',
+        'ecsInstanceId' => 'EcsInstanceId',
+        'hanaName' => 'HanaName',
+        'host' => 'Host',
+        'instanceNumber' => 'InstanceNumber',
+        'password' => 'Password',
+        'resourceGroupId' => 'ResourceGroupId',
+        'sid' => 'Sid',
+        'useSsl' => 'UseSsl',
+        'userName' => 'UserName',
+        'validateCertificate' => 'ValidateCertificate',
+        'vaultId' => 'VaultId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

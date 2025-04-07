@@ -69,6 +69,10 @@ class DescribeVaultsRequest extends Model
     public $vaultId;
 
     /**
+     * @description The name of the backup vault. The name must be 1 to 64 characters in length.
+     *
+     * @example vaultname
+     *
      * @var string
      */
     public $vaultName;
@@ -86,26 +90,25 @@ class DescribeVaultsRequest extends Model
      * @description Backup repository type. The values are as follows:
      * - **STANDARD**: Represents a standard repository, which can be used for ECS file backups, OSS backups, NAS backups, etc.
      * - **OTS_BACKUP**: Represents a TableStore repository, which is only used for TableStore backups, and TableStore must use this type of repository.
+     *
      * @example STANDARD
      *
      * @var string
      */
     public $vaultType;
     protected $_name = [
-        'pageNumber'      => 'PageNumber',
-        'pageSize'        => 'PageSize',
+        'pageNumber' => 'PageNumber',
+        'pageSize' => 'PageSize',
         'resourceGroupId' => 'ResourceGroupId',
-        'status'          => 'Status',
-        'tag'             => 'Tag',
-        'vaultId'         => 'VaultId',
-        'vaultName'       => 'VaultName',
-        'vaultRegionId'   => 'VaultRegionId',
-        'vaultType'       => 'VaultType',
+        'status' => 'Status',
+        'tag' => 'Tag',
+        'vaultId' => 'VaultId',
+        'vaultName' => 'VaultName',
+        'vaultRegionId' => 'VaultRegionId',
+        'vaultType' => 'VaultType',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -170,7 +173,7 @@ class DescribeVaultsRequest extends Model
         if (isset($map['Tag'])) {
             if (!empty($map['Tag'])) {
                 $model->tag = [];
-                $n          = 0;
+                $n = 0;
                 foreach ($map['Tag'] as $item) {
                     $model->tag[$n++] = null !== $item ? tag::fromMap($item) : $item;
                 }

@@ -12,6 +12,7 @@ class DisableBackupPlanRequest extends Model
      * @description The ID of the backup plan.
      *
      * This parameter is required.
+     *
      * @example plan-*********************
      *
      * @var string
@@ -40,14 +41,12 @@ class DisableBackupPlanRequest extends Model
      */
     public $vaultId;
     protected $_name = [
-        'planId'     => 'PlanId',
+        'planId' => 'PlanId',
         'sourceType' => 'SourceType',
-        'vaultId'    => 'VaultId',
+        'vaultId' => 'VaultId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

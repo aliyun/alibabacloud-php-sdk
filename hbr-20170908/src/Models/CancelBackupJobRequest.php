@@ -12,6 +12,7 @@ class CancelBackupJobRequest extends Model
      * @description The ID of the backup job.
      *
      * This parameter is required.
+     *
      * @example j-******************************
      *
      * @var string
@@ -27,13 +28,11 @@ class CancelBackupJobRequest extends Model
      */
     public $vaultId;
     protected $_name = [
-        'jobId'   => 'JobId',
+        'jobId' => 'JobId',
         'vaultId' => 'VaultId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

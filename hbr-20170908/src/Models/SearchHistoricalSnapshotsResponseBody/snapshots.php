@@ -17,9 +17,7 @@ class snapshots extends Model
         'snapshot' => 'Snapshot',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -48,7 +46,7 @@ class snapshots extends Model
         if (isset($map['Snapshot'])) {
             if (!empty($map['Snapshot'])) {
                 $model->snapshot = [];
-                $n               = 0;
+                $n = 0;
                 foreach ($map['Snapshot'] as $item) {
                     $model->snapshot[$n++] = null !== $item ? snapshot::fromMap($item) : $item;
                 }

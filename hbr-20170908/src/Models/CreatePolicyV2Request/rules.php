@@ -58,9 +58,9 @@ class rules extends Model
     public $replicationRegionId;
 
     /**
-     * @description This parameter is required only if the **RuleType** parameter is set to **BACKUP**, **TRANSITION** or **REPLICATION**.
+     * @description This parameter is required only if the **RuleType** parameter is set to **BACKUP**, **TRANSITION**, or **REPLICATION**.
      *
-     *   If the **RuleType** parameter is set to **BACKUP**, this parameter specifies the retention period of the backup data. The priority is lower than the Retention field of the rule with RuleType=TRANSITION. Minimum value: 1. Maximum value: 364635. Unit: days.
+     *   If the **RuleType** parameter is set to **BACKUP**, this parameter specifies the retention period of the backup data. The priority is lower than the retention period when the **RuleType** parameter is set to **TRANSITION**. Minimum value: 1. Maximum value: 364635. Unit: days.
      *   If the **RuleType** parameter is set to **TRANSITION**, this parameter specifies the retention period of the backup data. Minimum value: 1. Maximum value: 364635. Unit: days.
      *   If the **RuleType** parameter is set to **REPLICATION**, this parameter specifies the retention period of remote backups. Minimum value: 1. Maximum value: 364635. Unit: days.
      *
@@ -83,9 +83,10 @@ class rules extends Model
      *   **BACKUP**: backup rule
      *   **TRANSITION**: lifecycle rule
      *   **REPLICATION**: replication rule
-     *   **TAG**: tag rule
+     *   **TAG**: tag-based resource association rule
      *
      * This parameter is required.
+     *
      * @example BACKUP
      *
      * @var string
@@ -93,10 +94,19 @@ class rules extends Model
     public $ruleType;
 
     /**
-     * @description This parameter is required only if the **RuleType** parameter is set to **BACKUP**. This parameter specifies the backup schedule settings. Format: `I|{startTime}|{interval}`. The system runs the first backup job at a point in time that is specified in the {startTime} parameter and the subsequent backup jobs at an interval that is specified in the {interval} parameter. The system does not run a backup job before the specified point in time. Each backup job, except the first one, starts only after the previous backup job is completed. For example, `I|1631685600|P1D` specifies that the system runs the first backup job at 14:00:00 on September 15, 2021 and the subsequent backup jobs once a day.
+     * @description This parameter is required only if the **RuleType** parameter is set to **BACKUP**. This parameter specifies the backup schedule settings. Formats:
+     *
+     *   `I|{startTime}|{interval}`: The system runs the first backup job at a point in time that is specified in the {startTime} parameter and the subsequent backup jobs at an interval that is specified in the {interval} parameter. For example, `I|1631685600|P1D` indicates that the system runs the first backup job at 14:00:00 on September 15, 2021 and the subsequent backup jobs once a day.
      *
      *   startTime: the time at which the system starts to run a backup job. The time must follow the UNIX time format. Unit: seconds.
-     *   interval: the interval at which the system runs a backup job. The interval must follow the ISO 8601 standard. For example, PT1H specifies an interval of 1 hour. P1D specifies an interval of one day.
+     *   interval: the interval at which the system runs a backup job. The interval must follow the ISO 8601 standard. For example, `PT1H` specifies an interval of 1 hour. `P1D` specifies an interval of one day.
+     *
+     *   `C|{startTime}|{crontab}`: The system runs backup jobs at a point in time that is specified in the {startTime} parameter based on the {crontab} expression. For example, C|1631685600|0 0 2 ?\\* 3,5,7 indicates that the system runs backup jobs at 02:00:00 every Tuesday, Thursday, and Saturday from14:00:00 on September 15, 2021.``
+     *
+     *   startTime: the time at which the system starts to run a backup job. The time must follow the UNIX time format. Unit: seconds.
+     *   crontab: the crontab expression. For example, 0 0 2 ?\\* 3,5,7 indicates 02:00:00 every Tuesday, Thursday, and Saturday.``
+     *
+     * The system does not run a backup job before the specified point in time. Each backup job, except the first one, starts only after the previous backup job is completed.
      *
      * @example I|1648647166|P1D
      *
@@ -120,22 +130,20 @@ class rules extends Model
      */
     public $vaultId;
     protected $_name = [
-        'backupType'          => 'BackupType',
-        'dataSourceFilters'   => 'DataSourceFilters',
-        'immutable'           => 'Immutable',
+        'backupType' => 'BackupType',
+        'dataSourceFilters' => 'DataSourceFilters',
+        'immutable' => 'Immutable',
         'keepLatestSnapshots' => 'KeepLatestSnapshots',
         'replicationRegionId' => 'ReplicationRegionId',
-        'retention'           => 'Retention',
-        'retentionRules'      => 'RetentionRules',
-        'ruleType'            => 'RuleType',
-        'schedule'            => 'Schedule',
-        'tagFilters'          => 'TagFilters',
-        'vaultId'             => 'VaultId',
+        'retention' => 'Retention',
+        'retentionRules' => 'RetentionRules',
+        'ruleType' => 'RuleType',
+        'schedule' => 'Schedule',
+        'tagFilters' => 'TagFilters',
+        'vaultId' => 'VaultId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -209,7 +217,7 @@ class rules extends Model
         if (isset($map['DataSourceFilters'])) {
             if (!empty($map['DataSourceFilters'])) {
                 $model->dataSourceFilters = [];
-                $n                        = 0;
+                $n = 0;
                 foreach ($map['DataSourceFilters'] as $item) {
                     $model->dataSourceFilters[$n++] = null !== $item ? dataSourceFilters::fromMap($item) : $item;
                 }
@@ -230,7 +238,7 @@ class rules extends Model
         if (isset($map['RetentionRules'])) {
             if (!empty($map['RetentionRules'])) {
                 $model->retentionRules = [];
-                $n                     = 0;
+                $n = 0;
                 foreach ($map['RetentionRules'] as $item) {
                     $model->retentionRules[$n++] = null !== $item ? retentionRules::fromMap($item) : $item;
                 }
@@ -245,7 +253,7 @@ class rules extends Model
         if (isset($map['TagFilters'])) {
             if (!empty($map['TagFilters'])) {
                 $model->tagFilters = [];
-                $n                 = 0;
+                $n = 0;
                 foreach ($map['TagFilters'] as $item) {
                     $model->tagFilters[$n++] = null !== $item ? tagFilters::fromMap($item) : $item;
                 }

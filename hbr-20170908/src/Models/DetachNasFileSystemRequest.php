@@ -12,6 +12,7 @@ class DetachNasFileSystemRequest extends Model
      * @description The time when the file system was created. The value must be a UNIX timestamp. Unit: seconds.
      *
      * This parameter is required.
+     *
      * @example 1607436917
      *
      * @var string
@@ -52,22 +53,21 @@ class DetachNasFileSystemRequest extends Model
      * @description The ID of the file system.
      *
      * This parameter is required.
+     *
      * @example 005494
      *
      * @var string
      */
     public $fileSystemId;
     protected $_name = [
-        'createTime'           => 'CreateTime',
+        'createTime' => 'CreateTime',
         'crossAccountRoleName' => 'CrossAccountRoleName',
-        'crossAccountType'     => 'CrossAccountType',
-        'crossAccountUserId'   => 'CrossAccountUserId',
-        'fileSystemId'         => 'FileSystemId',
+        'crossAccountType' => 'CrossAccountType',
+        'crossAccountUserId' => 'CrossAccountUserId',
+        'fileSystemId' => 'FileSystemId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

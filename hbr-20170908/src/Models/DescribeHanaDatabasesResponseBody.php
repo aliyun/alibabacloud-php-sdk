@@ -82,19 +82,17 @@ class DescribeHanaDatabasesResponseBody extends Model
      */
     public $totalCount;
     protected $_name = [
-        'code'          => 'Code',
+        'code' => 'Code',
         'hanaDatabases' => 'HanaDatabases',
-        'message'       => 'Message',
-        'pageNumber'    => 'PageNumber',
-        'pageSize'      => 'PageSize',
-        'requestId'     => 'RequestId',
-        'success'       => 'Success',
-        'totalCount'    => 'TotalCount',
+        'message' => 'Message',
+        'pageNumber' => 'PageNumber',
+        'pageSize' => 'PageSize',
+        'requestId' => 'RequestId',
+        'success' => 'Success',
+        'totalCount' => 'TotalCount',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

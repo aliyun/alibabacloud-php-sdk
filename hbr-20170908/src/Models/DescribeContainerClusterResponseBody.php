@@ -82,19 +82,17 @@ class DescribeContainerClusterResponseBody extends Model
      */
     public $totalCount;
     protected $_name = [
-        'clusters'   => 'Clusters',
-        'code'       => 'Code',
-        'message'    => 'Message',
+        'clusters' => 'Clusters',
+        'code' => 'Code',
+        'message' => 'Message',
         'pageNumber' => 'PageNumber',
-        'pageSize'   => 'PageSize',
-        'requestId'  => 'RequestId',
-        'success'    => 'Success',
+        'pageSize' => 'PageSize',
+        'requestId' => 'RequestId',
+        'success' => 'Success',
         'totalCount' => 'TotalCount',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -144,7 +142,7 @@ class DescribeContainerClusterResponseBody extends Model
         if (isset($map['Clusters'])) {
             if (!empty($map['Clusters'])) {
                 $model->clusters = [];
-                $n               = 0;
+                $n = 0;
                 foreach ($map['Clusters'] as $item) {
                     $model->clusters[$n++] = null !== $item ? clusters::fromMap($item) : $item;
                 }

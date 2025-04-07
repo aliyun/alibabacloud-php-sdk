@@ -44,15 +44,13 @@ class DescribeContainerClusterRequest extends Model
      */
     public $pageSize;
     protected $_name = [
-        'clusterId'  => 'ClusterId',
+        'clusterId' => 'ClusterId',
         'identifier' => 'Identifier',
         'pageNumber' => 'PageNumber',
-        'pageSize'   => 'PageSize',
+        'pageSize' => 'PageSize',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

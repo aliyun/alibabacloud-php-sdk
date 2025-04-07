@@ -22,6 +22,7 @@ class dataSourceFilters extends Model
      * - **NAS**: Indicates Alibaba Cloud NAS backup.
      * - **ECS_FILE**: Indicates ECS file backup.
      * - **OTS**: Indicates Tablestore backup.
+     *
      * @example UDM_ECS
      *
      * @var string
@@ -29,12 +30,10 @@ class dataSourceFilters extends Model
     public $sourceType;
     protected $_name = [
         'dataSourceIds' => 'DataSourceIds',
-        'sourceType'    => 'SourceType',
+        'sourceType' => 'SourceType',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

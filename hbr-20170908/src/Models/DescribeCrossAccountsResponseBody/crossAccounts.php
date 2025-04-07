@@ -17,9 +17,7 @@ class crossAccounts extends Model
         'crossAccount' => 'CrossAccount',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -48,7 +46,7 @@ class crossAccounts extends Model
         if (isset($map['CrossAccount'])) {
             if (!empty($map['CrossAccount'])) {
                 $model->crossAccount = [];
-                $n                   = 0;
+                $n = 0;
                 foreach ($map['CrossAccount'] as $item) {
                     $model->crossAccount[$n++] = null !== $item ? crossAccount::fromMap($item) : $item;
                 }

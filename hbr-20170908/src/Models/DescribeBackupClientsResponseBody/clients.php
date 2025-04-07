@@ -205,30 +205,28 @@ class clients extends Model
      */
     public $zoneId;
     protected $_name = [
-        'appliance'         => 'Appliance',
-        'archType'          => 'ArchType',
-        'backupStatus'      => 'BackupStatus',
-        'clientId'          => 'ClientId',
-        'clientType'        => 'ClientType',
-        'clientVersion'     => 'ClientVersion',
-        'createdTime'       => 'CreatedTime',
-        'hostname'          => 'Hostname',
-        'instanceId'        => 'InstanceId',
-        'instanceName'      => 'InstanceName',
+        'appliance' => 'Appliance',
+        'archType' => 'ArchType',
+        'backupStatus' => 'BackupStatus',
+        'clientId' => 'ClientId',
+        'clientType' => 'ClientType',
+        'clientVersion' => 'ClientVersion',
+        'createdTime' => 'CreatedTime',
+        'hostname' => 'Hostname',
+        'instanceId' => 'InstanceId',
+        'instanceName' => 'InstanceName',
         'lastHeartBeatTime' => 'LastHeartBeatTime',
-        'maxClientVersion'  => 'MaxClientVersion',
-        'osType'            => 'OsType',
-        'privateIpV4'       => 'PrivateIpV4',
-        'settings'          => 'Settings',
-        'status'            => 'Status',
-        'tags'              => 'Tags',
-        'updatedTime'       => 'UpdatedTime',
-        'zoneId'            => 'ZoneId',
+        'maxClientVersion' => 'MaxClientVersion',
+        'osType' => 'OsType',
+        'privateIpV4' => 'PrivateIpV4',
+        'settings' => 'Settings',
+        'status' => 'Status',
+        'tags' => 'Tags',
+        'updatedTime' => 'UpdatedTime',
+        'zoneId' => 'ZoneId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -359,7 +357,7 @@ class clients extends Model
         if (isset($map['Tags'])) {
             if (!empty($map['Tags'])) {
                 $model->tags = [];
-                $n           = 0;
+                $n = 0;
                 foreach ($map['Tags'] as $item) {
                     $model->tags[$n++] = null !== $item ? tags::fromMap($item) : $item;
                 }

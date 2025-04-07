@@ -100,19 +100,17 @@ class hanaBackupPlan extends Model
     public $vaultId;
     protected $_name = [
         'backupPrefix' => 'BackupPrefix',
-        'backupType'   => 'BackupType',
-        'clusterId'    => 'ClusterId',
+        'backupType' => 'BackupType',
+        'clusterId' => 'ClusterId',
         'databaseName' => 'DatabaseName',
-        'disabled'     => 'Disabled',
-        'planId'       => 'PlanId',
-        'planName'     => 'PlanName',
-        'schedule'     => 'Schedule',
-        'vaultId'      => 'VaultId',
+        'disabled' => 'Disabled',
+        'planId' => 'PlanId',
+        'planName' => 'PlanName',
+        'schedule' => 'Schedule',
+        'vaultId' => 'VaultId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

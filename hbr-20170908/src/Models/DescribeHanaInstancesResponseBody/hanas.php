@@ -17,9 +17,7 @@ class hanas extends Model
         'hana' => 'Hana',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -48,7 +46,7 @@ class hanas extends Model
         if (isset($map['Hana'])) {
             if (!empty($map['Hana'])) {
                 $model->hana = [];
-                $n           = 0;
+                $n = 0;
                 foreach ($map['Hana'] as $item) {
                     $model->hana[$n++] = null !== $item ? hana::fromMap($item) : $item;
                 }

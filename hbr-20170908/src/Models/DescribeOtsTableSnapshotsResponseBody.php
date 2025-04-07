@@ -73,18 +73,16 @@ class DescribeOtsTableSnapshotsResponseBody extends Model
      */
     public $success;
     protected $_name = [
-        'code'      => 'Code',
-        'limit'     => 'Limit',
-        'message'   => 'Message',
+        'code' => 'Code',
+        'limit' => 'Limit',
+        'message' => 'Message',
         'nextToken' => 'NextToken',
         'requestId' => 'RequestId',
         'snapshots' => 'Snapshots',
-        'success'   => 'Success',
+        'success' => 'Success',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -146,7 +144,7 @@ class DescribeOtsTableSnapshotsResponseBody extends Model
         if (isset($map['Snapshots'])) {
             if (!empty($map['Snapshots'])) {
                 $model->snapshots = [];
-                $n                = 0;
+                $n = 0;
                 foreach ($map['Snapshots'] as $item) {
                     $model->snapshots[$n++] = null !== $item ? snapshots::fromMap($item) : $item;
                 }

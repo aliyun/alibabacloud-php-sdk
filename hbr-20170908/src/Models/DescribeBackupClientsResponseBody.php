@@ -84,19 +84,17 @@ class DescribeBackupClientsResponseBody extends Model
      */
     public $totalCount;
     protected $_name = [
-        'clients'    => 'Clients',
-        'code'       => 'Code',
-        'message'    => 'Message',
+        'clients' => 'Clients',
+        'code' => 'Code',
+        'message' => 'Message',
         'pageNumber' => 'PageNumber',
-        'pageSize'   => 'PageSize',
-        'requestId'  => 'RequestId',
-        'success'    => 'Success',
+        'pageSize' => 'PageSize',
+        'requestId' => 'RequestId',
+        'success' => 'Success',
         'totalCount' => 'TotalCount',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -146,7 +144,7 @@ class DescribeBackupClientsResponseBody extends Model
         if (isset($map['Clients'])) {
             if (!empty($map['Clients'])) {
                 $model->clients = [];
-                $n              = 0;
+                $n = 0;
                 foreach ($map['Clients'] as $item) {
                     $model->clients[$n++] = null !== $item ? clients::fromMap($item) : $item;
                 }

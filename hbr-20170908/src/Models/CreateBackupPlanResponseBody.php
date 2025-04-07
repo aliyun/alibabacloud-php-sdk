@@ -47,23 +47,23 @@ class CreateBackupPlanResponseBody extends Model
     /**
      * @description Whether the request was successful.
      *
+     * - true: Success.
      * - false: Failure.
+     *
      * @example true
      *
      * @var bool
      */
     public $success;
     protected $_name = [
-        'code'      => 'Code',
-        'message'   => 'Message',
-        'planId'    => 'PlanId',
+        'code' => 'Code',
+        'message' => 'Message',
+        'planId' => 'PlanId',
         'requestId' => 'RequestId',
-        'success'   => 'Success',
+        'success' => 'Success',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

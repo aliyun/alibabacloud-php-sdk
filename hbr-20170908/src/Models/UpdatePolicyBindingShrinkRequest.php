@@ -19,6 +19,7 @@ class UpdatePolicyBindingShrinkRequest extends Model
      * @description The ID of the data source.
      *
      * This parameter is required.
+     *
      * @example i-bp1************dtv
      *
      * @var string
@@ -68,6 +69,7 @@ class UpdatePolicyBindingShrinkRequest extends Model
      * @description The ID of the backup policy.
      *
      * This parameter is required.
+     *
      * @example po-000************ky9
      *
      * @var string
@@ -90,6 +92,7 @@ class UpdatePolicyBindingShrinkRequest extends Model
      *   **UDM_ECS**: ECS instance backup
      *
      * This parameter is required.
+     *
      * @example UDM_ECS
      *
      * @var string
@@ -109,21 +112,19 @@ class UpdatePolicyBindingShrinkRequest extends Model
      */
     public $speedLimit;
     protected $_name = [
-        'advancedOptionsShrink'    => 'AdvancedOptions',
-        'dataSourceId'             => 'DataSourceId',
-        'disabled'                 => 'Disabled',
-        'exclude'                  => 'Exclude',
-        'include'                  => 'Include',
+        'advancedOptionsShrink' => 'AdvancedOptions',
+        'dataSourceId' => 'DataSourceId',
+        'disabled' => 'Disabled',
+        'exclude' => 'Exclude',
+        'include' => 'Include',
         'policyBindingDescription' => 'PolicyBindingDescription',
-        'policyId'                 => 'PolicyId',
-        'source'                   => 'Source',
-        'sourceType'               => 'SourceType',
-        'speedLimit'               => 'SpeedLimit',
+        'policyId' => 'PolicyId',
+        'source' => 'Source',
+        'sourceType' => 'SourceType',
+        'speedLimit' => 'SpeedLimit',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

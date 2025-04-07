@@ -42,6 +42,7 @@ class InstallBackupClientsRequest extends Model
      * @description The IDs of the ECS instances. You can specify up to 20 IDs.
      *
      * This parameter is required.
+     *
      * @example ["i-0xi5wj5*****v3j3bh2gj5"]
      *
      * @var mixed[]
@@ -49,14 +50,12 @@ class InstallBackupClientsRequest extends Model
     public $instanceIds;
     protected $_name = [
         'crossAccountRoleName' => 'CrossAccountRoleName',
-        'crossAccountType'     => 'CrossAccountType',
-        'crossAccountUserId'   => 'CrossAccountUserId',
-        'instanceIds'          => 'InstanceIds',
+        'crossAccountType' => 'CrossAccountType',
+        'crossAccountUserId' => 'CrossAccountUserId',
+        'instanceIds' => 'InstanceIds',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

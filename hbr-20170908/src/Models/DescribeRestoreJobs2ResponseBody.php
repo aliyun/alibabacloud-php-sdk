@@ -84,19 +84,17 @@ class DescribeRestoreJobs2ResponseBody extends Model
      */
     public $totalCount;
     protected $_name = [
-        'code'        => 'Code',
-        'message'     => 'Message',
-        'pageNumber'  => 'PageNumber',
-        'pageSize'    => 'PageSize',
-        'requestId'   => 'RequestId',
+        'code' => 'Code',
+        'message' => 'Message',
+        'pageNumber' => 'PageNumber',
+        'pageSize' => 'PageSize',
+        'requestId' => 'RequestId',
         'restoreJobs' => 'RestoreJobs',
-        'success'     => 'Success',
-        'totalCount'  => 'TotalCount',
+        'success' => 'Success',
+        'totalCount' => 'TotalCount',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

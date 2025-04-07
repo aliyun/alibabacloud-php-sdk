@@ -51,14 +51,12 @@ class CreatePolicyV2ShrinkRequest extends Model
     public $rulesShrink;
     protected $_name = [
         'policyDescription' => 'PolicyDescription',
-        'policyName'        => 'PolicyName',
-        'policyType'        => 'PolicyType',
-        'rulesShrink'       => 'Rules',
+        'policyName' => 'PolicyName',
+        'policyType' => 'PolicyType',
+        'rulesShrink' => 'Rules',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

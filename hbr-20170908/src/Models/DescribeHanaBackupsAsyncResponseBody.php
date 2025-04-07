@@ -56,16 +56,14 @@ class DescribeHanaBackupsAsyncResponseBody extends Model
      */
     public $taskId;
     protected $_name = [
-        'code'      => 'Code',
-        'message'   => 'Message',
+        'code' => 'Code',
+        'message' => 'Message',
         'requestId' => 'RequestId',
-        'success'   => 'Success',
-        'taskId'    => 'TaskId',
+        'success' => 'Success',
+        'taskId' => 'TaskId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

@@ -19,6 +19,7 @@ class DeletePolicyBindingShrinkRequest extends Model
      * @description The ID of the backup policy.
      *
      * This parameter is required.
+     *
      * @example po-000************hgp
      *
      * @var string
@@ -37,13 +38,11 @@ class DeletePolicyBindingShrinkRequest extends Model
     public $sourceType;
     protected $_name = [
         'dataSourceIdsShrink' => 'DataSourceIds',
-        'policyId'            => 'PolicyId',
-        'sourceType'          => 'SourceType',
+        'policyId' => 'PolicyId',
+        'sourceType' => 'SourceType',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

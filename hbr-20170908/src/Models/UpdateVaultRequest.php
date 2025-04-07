@@ -30,6 +30,7 @@ class UpdateVaultRequest extends Model
      * @description The ID of the backup vault.
      *
      * This parameter is required.
+     *
      * @example v-*********************
      *
      * @var string
@@ -46,7 +47,7 @@ class UpdateVaultRequest extends Model
     public $vaultName;
 
     /**
-     * @description Whether to enable the vault worm feature. Once the worm feature is enabled, the vault and all its backup data cannot be deleted before they automatically expire. After enabling the worm feature, it is not supported to disable it. The worm feature is only effective for standard and archive backup vault.
+     * @description Specifies whether to enable the immutable backup feature for storage vaults. After the immutable backup feature is enabled, backup vaults and all backup data cannot be deleted until the retention period expires. The immutable backup feature cannot be disabled after it is enabled. Only standard backup vaults and archive vaults support the immutable backup feature.
      *
      * @example true
      *
@@ -54,16 +55,14 @@ class UpdateVaultRequest extends Model
      */
     public $wormEnabled;
     protected $_name = [
-        'description'     => 'Description',
+        'description' => 'Description',
         'resourceGroupId' => 'ResourceGroupId',
-        'vaultId'         => 'VaultId',
-        'vaultName'       => 'VaultName',
-        'wormEnabled'     => 'WormEnabled',
+        'vaultId' => 'VaultId',
+        'vaultName' => 'VaultName',
+        'wormEnabled' => 'WormEnabled',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

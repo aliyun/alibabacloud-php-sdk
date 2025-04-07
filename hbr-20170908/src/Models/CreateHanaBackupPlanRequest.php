@@ -25,6 +25,7 @@ class CreateHanaBackupPlanRequest extends Model
      *   DIFFERENTIAL: differential backup
      *
      * This parameter is required.
+     *
      * @example COMPLETE
      *
      * @var string
@@ -35,6 +36,7 @@ class CreateHanaBackupPlanRequest extends Model
      * @description The ID of the SAP HANA instance.
      *
      * This parameter is required.
+     *
      * @example cl-00024vyjj9******v
      *
      * @var string
@@ -45,6 +47,7 @@ class CreateHanaBackupPlanRequest extends Model
      * @description The name of the database.
      *
      * This parameter is required.
+     *
      * @example SYSTEMDB
      *
      * @var string
@@ -55,6 +58,7 @@ class CreateHanaBackupPlanRequest extends Model
      * @description The name of the backup plan.
      *
      * This parameter is required.
+     *
      * @example plan-20220110-113108
      *
      * @var string
@@ -77,6 +81,7 @@ class CreateHanaBackupPlanRequest extends Model
      *   interval: the interval at which the system runs a backup job. The interval must follow the ISO 8601 standard. For example, PT1H specifies an interval of one hour. P1D specifies an interval of one day.
      *
      * This parameter is required.
+     *
      * @example I|1602673264|P1D
      *
      * @var string
@@ -87,25 +92,24 @@ class CreateHanaBackupPlanRequest extends Model
      * @description The ID of the backup vault.
      *
      * This parameter is required.
+     *
      * @example v-0002pcwhdn******wmi
      *
      * @var string
      */
     public $vaultId;
     protected $_name = [
-        'backupPrefix'    => 'BackupPrefix',
-        'backupType'      => 'BackupType',
-        'clusterId'       => 'ClusterId',
-        'databaseName'    => 'DatabaseName',
-        'planName'        => 'PlanName',
+        'backupPrefix' => 'BackupPrefix',
+        'backupType' => 'BackupType',
+        'clusterId' => 'ClusterId',
+        'databaseName' => 'DatabaseName',
+        'planName' => 'PlanName',
         'resourceGroupId' => 'ResourceGroupId',
-        'schedule'        => 'Schedule',
-        'vaultId'         => 'VaultId',
+        'schedule' => 'Schedule',
+        'vaultId' => 'VaultId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

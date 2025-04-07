@@ -15,6 +15,7 @@ class GenerateRamPolicyRequest extends Model
      *   RESTORE: the permission to restore data from a backup vault
      *
      * This parameter is required.
+     *
      * @example system
      *
      * @var string
@@ -46,21 +47,20 @@ class GenerateRamPolicyRequest extends Model
      * @description The ID of the backup vault.
      *
      * This parameter is required.
+     *
      * @example v-0007al3m******7ao
      *
      * @var string
      */
     public $vaultId;
     protected $_name = [
-        'actionType'        => 'ActionType',
+        'actionType' => 'ActionType',
         'requireBasePolicy' => 'RequireBasePolicy',
-        'resourceGroupId'   => 'ResourceGroupId',
-        'vaultId'           => 'VaultId',
+        'resourceGroupId' => 'ResourceGroupId',
+        'vaultId' => 'VaultId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

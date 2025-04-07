@@ -162,27 +162,25 @@ class hana extends Model
      */
     public $vaultId;
     protected $_name = [
-        'alertSetting'         => 'AlertSetting',
-        'clusterId'            => 'ClusterId',
+        'alertSetting' => 'AlertSetting',
+        'clusterId' => 'ClusterId',
         'crossAccountRoleName' => 'CrossAccountRoleName',
-        'crossAccountType'     => 'CrossAccountType',
-        'crossAccountUserId'   => 'CrossAccountUserId',
-        'hanaName'             => 'HanaName',
-        'host'                 => 'Host',
-        'instanceNumber'       => 'InstanceNumber',
-        'resourceGroupId'      => 'ResourceGroupId',
-        'status'               => 'Status',
-        'statusMessage'        => 'StatusMessage',
-        'tags'                 => 'Tags',
-        'useSsl'               => 'UseSsl',
-        'userName'             => 'UserName',
-        'validateCertificate'  => 'ValidateCertificate',
-        'vaultId'              => 'VaultId',
+        'crossAccountType' => 'CrossAccountType',
+        'crossAccountUserId' => 'CrossAccountUserId',
+        'hanaName' => 'HanaName',
+        'host' => 'Host',
+        'instanceNumber' => 'InstanceNumber',
+        'resourceGroupId' => 'ResourceGroupId',
+        'status' => 'Status',
+        'statusMessage' => 'StatusMessage',
+        'tags' => 'Tags',
+        'useSsl' => 'UseSsl',
+        'userName' => 'UserName',
+        'validateCertificate' => 'ValidateCertificate',
+        'vaultId' => 'VaultId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

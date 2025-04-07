@@ -43,14 +43,12 @@ class instanceStatuses extends Model
      */
     public $validInstance;
     protected $_name = [
-        'errorCode'     => 'ErrorCode',
-        'instanceId'    => 'InstanceId',
+        'errorCode' => 'ErrorCode',
+        'instanceId' => 'InstanceId',
         'validInstance' => 'ValidInstance',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

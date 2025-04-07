@@ -21,6 +21,7 @@ class UpdateHanaBackupPlanRequest extends Model
      * @description The ID of the SAP HANA instance.
      *
      * This parameter is required.
+     *
      * @example cl-0005dhe******f38
      *
      * @var string
@@ -31,6 +32,7 @@ class UpdateHanaBackupPlanRequest extends Model
      * @description The ID of the backup plan.
      *
      * This parameter is required.
+     *
      * @example pl-000br3cm4dqvmtph7cul
      *
      * @var string
@@ -71,24 +73,23 @@ class UpdateHanaBackupPlanRequest extends Model
      * @description The ID of the backup vault.
      *
      * This parameter is required.
+     *
      * @example v-0000rcw******5c6
      *
      * @var string
      */
     public $vaultId;
     protected $_name = [
-        'backupPrefix'    => 'BackupPrefix',
-        'clusterId'       => 'ClusterId',
-        'planId'          => 'PlanId',
-        'planName'        => 'PlanName',
+        'backupPrefix' => 'BackupPrefix',
+        'clusterId' => 'ClusterId',
+        'planId' => 'PlanId',
+        'planName' => 'PlanName',
         'resourceGroupId' => 'ResourceGroupId',
-        'schedule'        => 'Schedule',
-        'vaultId'         => 'VaultId',
+        'schedule' => 'Schedule',
+        'vaultId' => 'VaultId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

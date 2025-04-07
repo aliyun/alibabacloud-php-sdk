@@ -90,19 +90,17 @@ class DescribeOtsTableSnapshotsRequest extends Model
     public $startTime;
     protected $_name = [
         'crossAccountRoleName' => 'CrossAccountRoleName',
-        'crossAccountType'     => 'CrossAccountType',
-        'crossAccountUserId'   => 'CrossAccountUserId',
-        'endTime'              => 'EndTime',
-        'limit'                => 'Limit',
-        'nextToken'            => 'NextToken',
-        'otsInstances'         => 'OtsInstances',
-        'snapshotIds'          => 'SnapshotIds',
-        'startTime'            => 'StartTime',
+        'crossAccountType' => 'CrossAccountType',
+        'crossAccountUserId' => 'CrossAccountUserId',
+        'endTime' => 'EndTime',
+        'limit' => 'Limit',
+        'nextToken' => 'NextToken',
+        'otsInstances' => 'OtsInstances',
+        'snapshotIds' => 'SnapshotIds',
+        'startTime' => 'StartTime',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -173,7 +171,7 @@ class DescribeOtsTableSnapshotsRequest extends Model
         if (isset($map['OtsInstances'])) {
             if (!empty($map['OtsInstances'])) {
                 $model->otsInstances = [];
-                $n                   = 0;
+                $n = 0;
                 foreach ($map['OtsInstances'] as $item) {
                     $model->otsInstances[$n++] = null !== $item ? otsInstances::fromMap($item) : $item;
                 }

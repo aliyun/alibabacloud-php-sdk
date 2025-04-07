@@ -82,19 +82,17 @@ class policies extends Model
      */
     public $updatedTime;
     protected $_name = [
-        'createdTime'        => 'CreatedTime',
+        'createdTime' => 'CreatedTime',
         'policyBindingCount' => 'PolicyBindingCount',
-        'policyDescription'  => 'PolicyDescription',
-        'policyId'           => 'PolicyId',
-        'policyName'         => 'PolicyName',
-        'policyType'         => 'PolicyType',
-        'rules'              => 'Rules',
-        'updatedTime'        => 'UpdatedTime',
+        'policyDescription' => 'PolicyDescription',
+        'policyId' => 'PolicyId',
+        'policyName' => 'PolicyName',
+        'policyType' => 'PolicyType',
+        'rules' => 'Rules',
+        'updatedTime' => 'UpdatedTime',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -162,7 +160,7 @@ class policies extends Model
         if (isset($map['Rules'])) {
             if (!empty($map['Rules'])) {
                 $model->rules = [];
-                $n            = 0;
+                $n = 0;
                 foreach ($map['Rules'] as $item) {
                     $model->rules[$n++] = null !== $item ? rules::fromMap($item) : $item;
                 }

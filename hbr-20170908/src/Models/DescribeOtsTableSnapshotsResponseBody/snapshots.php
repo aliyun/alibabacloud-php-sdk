@@ -197,31 +197,29 @@ class snapshots extends Model
      */
     public $vaultId;
     protected $_name = [
-        'actualBytes'        => 'ActualBytes',
-        'backupType'         => 'BackupType',
-        'bytesTotal'         => 'BytesTotal',
-        'completeTime'       => 'CompleteTime',
-        'createTime'         => 'CreateTime',
-        'createdTime'        => 'CreatedTime',
-        'instanceName'       => 'InstanceName',
-        'jobId'              => 'JobId',
+        'actualBytes' => 'ActualBytes',
+        'backupType' => 'BackupType',
+        'bytesTotal' => 'BytesTotal',
+        'completeTime' => 'CompleteTime',
+        'createTime' => 'CreateTime',
+        'createdTime' => 'CreatedTime',
+        'instanceName' => 'InstanceName',
+        'jobId' => 'JobId',
         'parentSnapshotHash' => 'ParentSnapshotHash',
-        'rangeEnd'           => 'RangeEnd',
-        'rangeStart'         => 'RangeStart',
-        'retention'          => 'Retention',
-        'snapshotHash'       => 'SnapshotHash',
-        'snapshotId'         => 'SnapshotId',
-        'sourceType'         => 'SourceType',
-        'startTime'          => 'StartTime',
-        'status'             => 'Status',
-        'tableName'          => 'TableName',
-        'updatedTime'        => 'UpdatedTime',
-        'vaultId'            => 'VaultId',
+        'rangeEnd' => 'RangeEnd',
+        'rangeStart' => 'RangeStart',
+        'retention' => 'Retention',
+        'snapshotHash' => 'SnapshotHash',
+        'snapshotId' => 'SnapshotId',
+        'sourceType' => 'SourceType',
+        'startTime' => 'StartTime',
+        'status' => 'Status',
+        'tableName' => 'TableName',
+        'updatedTime' => 'UpdatedTime',
+        'vaultId' => 'VaultId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

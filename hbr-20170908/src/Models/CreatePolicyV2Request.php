@@ -52,14 +52,12 @@ class CreatePolicyV2Request extends Model
     public $rules;
     protected $_name = [
         'policyDescription' => 'PolicyDescription',
-        'policyName'        => 'PolicyName',
-        'policyType'        => 'PolicyType',
-        'rules'             => 'Rules',
+        'policyName' => 'PolicyName',
+        'policyType' => 'PolicyType',
+        'rules' => 'Rules',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -106,7 +104,7 @@ class CreatePolicyV2Request extends Model
         if (isset($map['Rules'])) {
             if (!empty($map['Rules'])) {
                 $model->rules = [];
-                $n            = 0;
+                $n = 0;
                 foreach ($map['Rules'] as $item) {
                     $model->rules[$n++] = null !== $item ? rules::fromMap($item) : $item;
                 }

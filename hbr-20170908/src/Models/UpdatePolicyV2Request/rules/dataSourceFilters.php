@@ -31,12 +31,10 @@ class dataSourceFilters extends Model
     public $sourceType;
     protected $_name = [
         'dataSourceIds' => 'DataSourceIds',
-        'sourceType'    => 'SourceType',
+        'sourceType' => 'SourceType',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

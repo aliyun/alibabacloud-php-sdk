@@ -93,6 +93,7 @@ class UpdateBackupPlanRequest extends Model
      * @description The ID of the backup plan.
      *
      * This parameter is required.
+     *
      * @example plan-20211***735
      *
      * @var string
@@ -194,29 +195,27 @@ class UpdateBackupPlanRequest extends Model
      */
     public $vaultId;
     protected $_name = [
-        'changeListPath'      => 'ChangeListPath',
-        'detail'              => 'Detail',
-        'exclude'             => 'Exclude',
-        'include'             => 'Include',
+        'changeListPath' => 'ChangeListPath',
+        'detail' => 'Detail',
+        'exclude' => 'Exclude',
+        'include' => 'Include',
         'keepLatestSnapshots' => 'KeepLatestSnapshots',
-        'options'             => 'Options',
-        'otsDetail'           => 'OtsDetail',
-        'path'                => 'Path',
-        'planId'              => 'PlanId',
-        'planName'            => 'PlanName',
-        'prefix'              => 'Prefix',
-        'retention'           => 'Retention',
-        'rule'                => 'Rule',
-        'schedule'            => 'Schedule',
-        'sourceType'          => 'SourceType',
-        'speedLimit'          => 'SpeedLimit',
-        'updatePaths'         => 'UpdatePaths',
-        'vaultId'             => 'VaultId',
+        'options' => 'Options',
+        'otsDetail' => 'OtsDetail',
+        'path' => 'Path',
+        'planId' => 'PlanId',
+        'planName' => 'PlanName',
+        'prefix' => 'Prefix',
+        'retention' => 'Retention',
+        'rule' => 'Rule',
+        'schedule' => 'Schedule',
+        'sourceType' => 'SourceType',
+        'speedLimit' => 'SpeedLimit',
+        'updatePaths' => 'UpdatePaths',
+        'vaultId' => 'VaultId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -334,7 +333,7 @@ class UpdateBackupPlanRequest extends Model
         if (isset($map['Rule'])) {
             if (!empty($map['Rule'])) {
                 $model->rule = [];
-                $n           = 0;
+                $n = 0;
                 foreach ($map['Rule'] as $item) {
                     $model->rule[$n++] = null !== $item ? rule::fromMap($item) : $item;
                 }

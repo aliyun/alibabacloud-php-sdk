@@ -29,13 +29,11 @@ class commonFileSystemDetail extends Model
      */
     public $fullOnIncrementFail;
     protected $_name = [
-        'fetchSliceSize'      => 'FetchSliceSize',
+        'fetchSliceSize' => 'FetchSliceSize',
         'fullOnIncrementFail' => 'FullOnIncrementFail',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

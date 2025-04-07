@@ -90,18 +90,16 @@ class hanaBackupSetting extends Model
     public $logBackupUsingBackint;
     protected $_name = [
         'catalogBackupParameterFile' => 'CatalogBackupParameterFile',
-        'catalogBackupUsingBackint'  => 'CatalogBackupUsingBackint',
-        'dataBackupParameterFile'    => 'DataBackupParameterFile',
-        'databaseName'               => 'DatabaseName',
-        'enableAutoLogBackup'        => 'EnableAutoLogBackup',
-        'logBackupParameterFile'     => 'LogBackupParameterFile',
-        'logBackupTimeout'           => 'LogBackupTimeout',
-        'logBackupUsingBackint'      => 'LogBackupUsingBackint',
+        'catalogBackupUsingBackint' => 'CatalogBackupUsingBackint',
+        'dataBackupParameterFile' => 'DataBackupParameterFile',
+        'databaseName' => 'DatabaseName',
+        'enableAutoLogBackup' => 'EnableAutoLogBackup',
+        'logBackupParameterFile' => 'LogBackupParameterFile',
+        'logBackupTimeout' => 'LogBackupTimeout',
+        'logBackupUsingBackint' => 'LogBackupUsingBackint',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

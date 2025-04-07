@@ -119,21 +119,19 @@ class settings extends Model
     public $useHttps;
     protected $_name = [
         'alertOnPartialComplete' => 'AlertOnPartialComplete',
-        'dataNetworkType'        => 'DataNetworkType',
-        'dataProxySetting'       => 'DataProxySetting',
-        'maxCpuCore'             => 'MaxCpuCore',
-        'maxMemory'              => 'MaxMemory',
-        'maxWorker'              => 'MaxWorker',
-        'proxyHost'              => 'ProxyHost',
-        'proxyPassword'          => 'ProxyPassword',
-        'proxyPort'              => 'ProxyPort',
-        'proxyUser'              => 'ProxyUser',
-        'useHttps'               => 'UseHttps',
+        'dataNetworkType' => 'DataNetworkType',
+        'dataProxySetting' => 'DataProxySetting',
+        'maxCpuCore' => 'MaxCpuCore',
+        'maxMemory' => 'MaxMemory',
+        'maxWorker' => 'MaxWorker',
+        'proxyHost' => 'ProxyHost',
+        'proxyPassword' => 'ProxyPassword',
+        'proxyPort' => 'ProxyPort',
+        'proxyUser' => 'ProxyUser',
+        'useHttps' => 'UseHttps',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

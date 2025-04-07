@@ -4,6 +4,7 @@
 
 namespace AlibabaCloud\SDK\Hbr\V20170908\Models;
 
+use AlibabaCloud\SDK\Hbr\V20170908\Models\DescribeBackupClientsShrinkRequest\filters;
 use AlibabaCloud\SDK\Hbr\V20170908\Models\DescribeBackupClientsShrinkRequest\tag;
 use AlibabaCloud\Tea\Model;
 
@@ -25,6 +26,7 @@ class DescribeBackupClientsShrinkRequest extends Model
      *   **CONTAINER_CLIENT**: HBR client for container backup
      *
      * This parameter is required.
+     *
      * @example ECS_CLIENT
      *
      * @var string
@@ -71,6 +73,11 @@ class DescribeBackupClientsShrinkRequest extends Model
     public $crossAccountUserId;
 
     /**
+     * @var filters[]
+     */
+    public $filters;
+
+    /**
      * @description The IDs of ECS instances.
      *
      * @example ["i-*********************"]
@@ -106,21 +113,20 @@ class DescribeBackupClientsShrinkRequest extends Model
      */
     public $tag;
     protected $_name = [
-        'clientIdsShrink'      => 'ClientIds',
-        'clientType'           => 'ClientType',
-        'clusterId'            => 'ClusterId',
+        'clientIdsShrink' => 'ClientIds',
+        'clientType' => 'ClientType',
+        'clusterId' => 'ClusterId',
         'crossAccountRoleName' => 'CrossAccountRoleName',
-        'crossAccountType'     => 'CrossAccountType',
-        'crossAccountUserId'   => 'CrossAccountUserId',
-        'instanceIdsShrink'    => 'InstanceIds',
-        'pageNumber'           => 'PageNumber',
-        'pageSize'             => 'PageSize',
-        'tag'                  => 'Tag',
+        'crossAccountType' => 'CrossAccountType',
+        'crossAccountUserId' => 'CrossAccountUserId',
+        'filters' => 'Filters',
+        'instanceIdsShrink' => 'InstanceIds',
+        'pageNumber' => 'PageNumber',
+        'pageSize' => 'PageSize',
+        'tag' => 'Tag',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -142,6 +148,15 @@ class DescribeBackupClientsShrinkRequest extends Model
         }
         if (null !== $this->crossAccountUserId) {
             $res['CrossAccountUserId'] = $this->crossAccountUserId;
+        }
+        if (null !== $this->filters) {
+            $res['Filters'] = [];
+            if (null !== $this->filters && \is_array($this->filters)) {
+                $n = 0;
+                foreach ($this->filters as $item) {
+                    $res['Filters'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
         }
         if (null !== $this->instanceIdsShrink) {
             $res['InstanceIds'] = $this->instanceIdsShrink;
@@ -191,6 +206,15 @@ class DescribeBackupClientsShrinkRequest extends Model
         if (isset($map['CrossAccountUserId'])) {
             $model->crossAccountUserId = $map['CrossAccountUserId'];
         }
+        if (isset($map['Filters'])) {
+            if (!empty($map['Filters'])) {
+                $model->filters = [];
+                $n = 0;
+                foreach ($map['Filters'] as $item) {
+                    $model->filters[$n++] = null !== $item ? filters::fromMap($item) : $item;
+                }
+            }
+        }
         if (isset($map['InstanceIds'])) {
             $model->instanceIdsShrink = $map['InstanceIds'];
         }
@@ -203,7 +227,7 @@ class DescribeBackupClientsShrinkRequest extends Model
         if (isset($map['Tag'])) {
             if (!empty($map['Tag'])) {
                 $model->tag = [];
-                $n          = 0;
+                $n = 0;
                 foreach ($map['Tag'] as $item) {
                     $model->tag[$n++] = null !== $item ? tag::fromMap($item) : $item;
                 }

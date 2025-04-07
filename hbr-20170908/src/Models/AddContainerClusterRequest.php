@@ -12,6 +12,7 @@ class AddContainerClusterRequest extends Model
      * @description The type of the cluster. Only Container Service for Kubernetes (ACK) clusters are supported.
      *
      * This parameter is required.
+     *
      * @example ACK
      *
      * @var string
@@ -31,6 +32,7 @@ class AddContainerClusterRequest extends Model
      * @description The ID of the cluster that you want to register.
      *
      * This parameter is required.
+     *
      * @example cca8f35f0e0d84540b49d994511c2c87a
      *
      * @var string
@@ -53,6 +55,7 @@ class AddContainerClusterRequest extends Model
      *   **VPC**: a virtual private cloud (VPC)
      *
      * This parameter is required.
+     *
      * @example VPC
      *
      * @var string
@@ -61,14 +64,12 @@ class AddContainerClusterRequest extends Model
     protected $_name = [
         'clusterType' => 'ClusterType',
         'description' => 'Description',
-        'identifier'  => 'Identifier',
-        'name'        => 'Name',
+        'identifier' => 'Identifier',
+        'name' => 'Name',
         'networkType' => 'NetworkType',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

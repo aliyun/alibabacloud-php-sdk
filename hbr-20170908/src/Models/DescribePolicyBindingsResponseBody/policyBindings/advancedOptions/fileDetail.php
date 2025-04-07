@@ -12,6 +12,7 @@ class fileDetail extends Model
      * @description Whether to use advanced policies. Values:
      * - **true**: Use.
      * - **false**: Do not use.
+     *
      * @example false
      *
      * @var bool
@@ -22,6 +23,7 @@ class fileDetail extends Model
      * @description Whether to enable VSS (Windows) functionality. Values:
      * - **true**: Enable.
      * - **false**: Disable.
+     *
      * @example false
      *
      * @var bool
@@ -29,12 +31,10 @@ class fileDetail extends Model
     public $useVSS;
     protected $_name = [
         'advPolicy' => 'AdvPolicy',
-        'useVSS'    => 'UseVSS',
+        'useVSS' => 'UseVSS',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

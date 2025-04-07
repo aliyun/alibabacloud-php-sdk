@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class DeleteAirEcsInstanceRequest extends Model
 {
     /**
-     * @description The ID of the ECS instance.
+     * @description The ID of the Elastic Compute Service (ECS) instance.
      *
      * @example i-uf6ir9y******hvisj
      *
@@ -24,13 +24,11 @@ class DeleteAirEcsInstanceRequest extends Model
      */
     public $uninstallClientSourceTypes;
     protected $_name = [
-        'ecsInstanceId'              => 'EcsInstanceId',
+        'ecsInstanceId' => 'EcsInstanceId',
         'uninstallClientSourceTypes' => 'UninstallClientSourceTypes',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

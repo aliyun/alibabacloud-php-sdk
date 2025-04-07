@@ -43,18 +43,16 @@ class OtsTableRestoreDetail extends Model
      */
     public $searchIndexNameSuffix;
     protected $_name = [
-        'batchChannelCount'         => 'BatchChannelCount',
-        'indexNameSuffix'           => 'IndexNameSuffix',
-        'overwriteExisting'         => 'OverwriteExisting',
+        'batchChannelCount' => 'BatchChannelCount',
+        'indexNameSuffix' => 'IndexNameSuffix',
+        'overwriteExisting' => 'OverwriteExisting',
         'reGenerateAutoIncrementPK' => 'ReGenerateAutoIncrementPK',
-        'restoreIndex'              => 'RestoreIndex',
-        'restoreSearchIndex'        => 'RestoreSearchIndex',
-        'searchIndexNameSuffix'     => 'SearchIndexNameSuffix',
+        'restoreIndex' => 'RestoreIndex',
+        'restoreSearchIndex' => 'RestoreSearchIndex',
+        'searchIndexNameSuffix' => 'SearchIndexNameSuffix',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

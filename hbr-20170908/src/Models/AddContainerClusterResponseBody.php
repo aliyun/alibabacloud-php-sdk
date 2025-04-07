@@ -66,16 +66,14 @@ class AddContainerClusterResponseBody extends Model
     public $token;
     protected $_name = [
         'clusterId' => 'ClusterId',
-        'code'      => 'Code',
-        'message'   => 'Message',
+        'code' => 'Code',
+        'message' => 'Message',
         'requestId' => 'RequestId',
-        'success'   => 'Success',
-        'token'     => 'Token',
+        'success' => 'Success',
+        'token' => 'Token',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

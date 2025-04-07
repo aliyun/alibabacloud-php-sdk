@@ -42,6 +42,7 @@ class filters extends Model
      *   **IN**: specifies an array as a collection. The results must fall within the collection.
      *
      * >  If you specify **CompleteTime** as a key to query backup jobs, you cannot use the IN operator to perform a match.
+     *
      * @example IN
      *
      * @var string
@@ -55,14 +56,12 @@ class filters extends Model
      */
     public $values;
     protected $_name = [
-        'key'      => 'Key',
+        'key' => 'Key',
         'operator' => 'Operator',
-        'values'   => 'Values',
+        'values' => 'Values',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

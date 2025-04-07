@@ -16,7 +16,7 @@ class dataSourceFilters extends Model
     public $dataSourceIds;
 
     /**
-     * @description The type of the data source. Valid value:
+     * @description The type of the data source. Valid values:
      *
      *   **UDM_ECS**: Elastic Compute Service (ECS) instance This type of data source is supported only if the **PolicyType** parameter is set to **UDM_ECS_ONLY**.
      *   **OSS**: Object Storage Service (OSS) bucket This type of data source is supported only if the **PolicyType** parameter is set to **STANDARD**.
@@ -31,12 +31,10 @@ class dataSourceFilters extends Model
     public $sourceType;
     protected $_name = [
         'dataSourceIds' => 'DataSourceIds',
-        'sourceType'    => 'SourceType',
+        'sourceType' => 'SourceType',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

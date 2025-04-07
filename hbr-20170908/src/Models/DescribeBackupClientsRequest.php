@@ -4,6 +4,7 @@
 
 namespace AlibabaCloud\SDK\Hbr\V20170908\Models;
 
+use AlibabaCloud\SDK\Hbr\V20170908\Models\DescribeBackupClientsRequest\filters;
 use AlibabaCloud\SDK\Hbr\V20170908\Models\DescribeBackupClientsRequest\tag;
 use AlibabaCloud\Tea\Model;
 
@@ -25,6 +26,7 @@ class DescribeBackupClientsRequest extends Model
      *   **CONTAINER_CLIENT**: HBR client for container backup
      *
      * This parameter is required.
+     *
      * @example ECS_CLIENT
      *
      * @var string
@@ -71,6 +73,11 @@ class DescribeBackupClientsRequest extends Model
     public $crossAccountUserId;
 
     /**
+     * @var filters[]
+     */
+    public $filters;
+
+    /**
      * @description The IDs of ECS instances.
      *
      * @example ["i-*********************"]
@@ -106,21 +113,20 @@ class DescribeBackupClientsRequest extends Model
      */
     public $tag;
     protected $_name = [
-        'clientIds'            => 'ClientIds',
-        'clientType'           => 'ClientType',
-        'clusterId'            => 'ClusterId',
+        'clientIds' => 'ClientIds',
+        'clientType' => 'ClientType',
+        'clusterId' => 'ClusterId',
         'crossAccountRoleName' => 'CrossAccountRoleName',
-        'crossAccountType'     => 'CrossAccountType',
-        'crossAccountUserId'   => 'CrossAccountUserId',
-        'instanceIds'          => 'InstanceIds',
-        'pageNumber'           => 'PageNumber',
-        'pageSize'             => 'PageSize',
-        'tag'                  => 'Tag',
+        'crossAccountType' => 'CrossAccountType',
+        'crossAccountUserId' => 'CrossAccountUserId',
+        'filters' => 'Filters',
+        'instanceIds' => 'InstanceIds',
+        'pageNumber' => 'PageNumber',
+        'pageSize' => 'PageSize',
+        'tag' => 'Tag',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -142,6 +148,15 @@ class DescribeBackupClientsRequest extends Model
         }
         if (null !== $this->crossAccountUserId) {
             $res['CrossAccountUserId'] = $this->crossAccountUserId;
+        }
+        if (null !== $this->filters) {
+            $res['Filters'] = [];
+            if (null !== $this->filters && \is_array($this->filters)) {
+                $n = 0;
+                foreach ($this->filters as $item) {
+                    $res['Filters'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
         }
         if (null !== $this->instanceIds) {
             $res['InstanceIds'] = $this->instanceIds;
@@ -193,6 +208,15 @@ class DescribeBackupClientsRequest extends Model
         if (isset($map['CrossAccountUserId'])) {
             $model->crossAccountUserId = $map['CrossAccountUserId'];
         }
+        if (isset($map['Filters'])) {
+            if (!empty($map['Filters'])) {
+                $model->filters = [];
+                $n = 0;
+                foreach ($map['Filters'] as $item) {
+                    $model->filters[$n++] = null !== $item ? filters::fromMap($item) : $item;
+                }
+            }
+        }
         if (isset($map['InstanceIds'])) {
             if (!empty($map['InstanceIds'])) {
                 $model->instanceIds = $map['InstanceIds'];
@@ -207,7 +231,7 @@ class DescribeBackupClientsRequest extends Model
         if (isset($map['Tag'])) {
             if (!empty($map['Tag'])) {
                 $model->tag = [];
-                $n          = 0;
+                $n = 0;
                 foreach ($map['Tag'] as $item) {
                     $model->tag[$n++] = null !== $item ? tag::fromMap($item) : $item;
                 }

@@ -48,7 +48,10 @@ class detail extends Model
      * @description The mapping between the device and the recovery point ID.
      *
      * @example {
+     * "/dev/xvdb":"s-0000u7y6wm3v1e7hxh5a",
+     * "/dev/xvda":"s-0004bl6yr5pt89jjsv5a"
      * }
+     *
      * @var mixed[]
      */
     public $diskHbrSnapshotIdWithDeviceMap;
@@ -82,7 +85,10 @@ class detail extends Model
      * @description The mapping between the instance ID and the disk ID.
      *
      * @example {
+     * "i-bp1dlp0keohh7ids4uo6":"d-bp1e6427vhd320hifvs",
+     * "i-bp1dlp0keohh7ids4uo6":"d-bp1e6427vhd320hifvd"
      * }
+     *
      * @var mixed[]
      */
     public $instanceIdWithDiskIdListMap;
@@ -202,33 +208,31 @@ class detail extends Model
      */
     public $vmName;
     protected $_name = [
-        'consistentLevel'                => 'ConsistentLevel',
-        'containOsDisk'                  => 'ContainOsDisk',
-        'diskCategory'                   => 'DiskCategory',
-        'diskDevName'                    => 'DiskDevName',
+        'consistentLevel' => 'ConsistentLevel',
+        'containOsDisk' => 'ContainOsDisk',
+        'diskCategory' => 'DiskCategory',
+        'diskDevName' => 'DiskDevName',
         'diskHbrSnapshotIdWithDeviceMap' => 'DiskHbrSnapshotIdWithDeviceMap',
-        'diskIdList'                     => 'DiskIdList',
-        'downgradeReason'                => 'DowngradeReason',
-        'hostName'                       => 'HostName',
-        'instanceIdWithDiskIdListMap'    => 'InstanceIdWithDiskIdListMap',
-        'instanceName'                   => 'InstanceName',
-        'instanceType'                   => 'InstanceType',
-        'instantAccess'                  => 'InstantAccess',
-        'nativeSnapshotIdList'           => 'NativeSnapshotIdList',
-        'osDiskId'                       => 'OsDiskId',
-        'osName'                         => 'OsName',
-        'osNameEn'                       => 'OsNameEn',
-        'osType'                         => 'OsType',
-        'performanceLevel'               => 'PerformanceLevel',
-        'platform'                       => 'Platform',
-        'snapshotGroupId'                => 'SnapshotGroupId',
-        'systemDisk'                     => 'SystemDisk',
-        'vmName'                         => 'VmName',
+        'diskIdList' => 'DiskIdList',
+        'downgradeReason' => 'DowngradeReason',
+        'hostName' => 'HostName',
+        'instanceIdWithDiskIdListMap' => 'InstanceIdWithDiskIdListMap',
+        'instanceName' => 'InstanceName',
+        'instanceType' => 'InstanceType',
+        'instantAccess' => 'InstantAccess',
+        'nativeSnapshotIdList' => 'NativeSnapshotIdList',
+        'osDiskId' => 'OsDiskId',
+        'osName' => 'OsName',
+        'osNameEn' => 'OsNameEn',
+        'osType' => 'OsType',
+        'performanceLevel' => 'PerformanceLevel',
+        'platform' => 'Platform',
+        'snapshotGroupId' => 'SnapshotGroupId',
+        'systemDisk' => 'SystemDisk',
+        'vmName' => 'VmName',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

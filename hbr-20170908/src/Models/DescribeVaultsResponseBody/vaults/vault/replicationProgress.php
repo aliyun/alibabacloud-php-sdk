@@ -27,12 +27,10 @@ class replicationProgress extends Model
     public $newReplicationProgress;
     protected $_name = [
         'historicalReplicationProgress' => 'HistoricalReplicationProgress',
-        'newReplicationProgress'        => 'NewReplicationProgress',
+        'newReplicationProgress' => 'NewReplicationProgress',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

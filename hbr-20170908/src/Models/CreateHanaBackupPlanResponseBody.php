@@ -56,16 +56,14 @@ class CreateHanaBackupPlanResponseBody extends Model
      */
     public $success;
     protected $_name = [
-        'code'      => 'Code',
-        'message'   => 'Message',
-        'planId'    => 'PlanId',
+        'code' => 'Code',
+        'message' => 'Message',
+        'planId' => 'PlanId',
         'requestId' => 'RequestId',
-        'success'   => 'Success',
+        'success' => 'Success',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

@@ -12,6 +12,7 @@ class DeleteUdmEcsInstanceRequest extends Model
      * @description The ID of the ECS instance.
      *
      * This parameter is required.
+     *
      * @example i-2zed************tlrm
      *
      * @var string
@@ -21,9 +22,7 @@ class DeleteUdmEcsInstanceRequest extends Model
         'instanceId' => 'InstanceId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

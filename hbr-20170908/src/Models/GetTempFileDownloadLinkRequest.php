@@ -12,6 +12,7 @@ class GetTempFileDownloadLinkRequest extends Model
      * @description The key that is used to download a file.
      *
      * This parameter is required.
+     *
      * @example temp/1797733170015112/report/r-000jdzknbp39cnf9hs99/r-000jdzknbp39cnf9hs99-total.csv
      *
      * @var string
@@ -21,9 +22,7 @@ class GetTempFileDownloadLinkRequest extends Model
         'tempFileKey' => 'TempFileKey',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

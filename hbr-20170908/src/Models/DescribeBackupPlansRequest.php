@@ -39,9 +39,10 @@ class DescribeBackupPlansRequest extends Model
      *
      *   **ECS_FILE**: Elastic Compute Service (ECS) files
      *   **OSS**: Object Storage Service (OSS) buckets
-     *   **NAS**: Apsara File Storage NAS file systems
+     *   **NAS**: File Storage NAS (NAS) file systems
      *   **OTS**: Tablestore instances
      *   **UDM_ECS**: ECS instances
+     *   **SYNC**: data synchronization
      *
      * @example ECS_FILE
      *
@@ -49,15 +50,13 @@ class DescribeBackupPlansRequest extends Model
      */
     public $sourceType;
     protected $_name = [
-        'filters'    => 'Filters',
+        'filters' => 'Filters',
         'pageNumber' => 'PageNumber',
-        'pageSize'   => 'PageSize',
+        'pageSize' => 'PageSize',
         'sourceType' => 'SourceType',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -95,7 +94,7 @@ class DescribeBackupPlansRequest extends Model
         if (isset($map['Filters'])) {
             if (!empty($map['Filters'])) {
                 $model->filters = [];
-                $n              = 0;
+                $n = 0;
                 foreach ($map['Filters'] as $item) {
                     $model->filters[$n++] = null !== $item ? filters::fromMap($item) : $item;
                 }

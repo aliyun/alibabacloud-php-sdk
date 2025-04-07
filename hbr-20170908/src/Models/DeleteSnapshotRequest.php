@@ -18,12 +18,11 @@ class DeleteSnapshotRequest extends Model
     public $clientId;
 
     /**
-     * @description Specifies whether to forcibly delete the most recent backup snapshot. Valid values:
+     * @description This parameter is deprecated.
      *
-     *   true: The system forcibly deletes the most recent backup snapshot.
-     *   false (default): The system does not forcibly delete the most recent backup snapshot.
+     * @example Deprected.
      *
-     * @example false
+     * @deprecated
      *
      * @var bool
      */
@@ -42,6 +41,7 @@ class DeleteSnapshotRequest extends Model
      * @description The ID of the backup snapshot.
      *
      * This parameter is required.
+     *
      * @example s-*********************
      *
      * @var string
@@ -79,18 +79,16 @@ class DeleteSnapshotRequest extends Model
      */
     public $vaultId;
     protected $_name = [
-        'clientId'   => 'ClientId',
-        'force'      => 'Force',
+        'clientId' => 'ClientId',
+        'force' => 'Force',
         'instanceId' => 'InstanceId',
         'snapshotId' => 'SnapshotId',
         'sourceType' => 'SourceType',
-        'token'      => 'Token',
-        'vaultId'    => 'VaultId',
+        'token' => 'Token',
+        'vaultId' => 'VaultId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

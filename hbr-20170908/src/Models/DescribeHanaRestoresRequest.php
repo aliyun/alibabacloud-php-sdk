@@ -21,6 +21,7 @@ class DescribeHanaRestoresRequest extends Model
      * @description The ID of the SAP HANA instance.
      *
      * This parameter is required.
+     *
      * @example cl-000b******soejg
      *
      * @var string
@@ -97,20 +98,18 @@ class DescribeHanaRestoresRequest extends Model
      */
     public $vaultId;
     protected $_name = [
-        'backupId'        => 'BackupId',
-        'clusterId'       => 'ClusterId',
-        'databaseName'    => 'DatabaseName',
-        'pageNumber'      => 'PageNumber',
-        'pageSize'        => 'PageSize',
+        'backupId' => 'BackupId',
+        'clusterId' => 'ClusterId',
+        'databaseName' => 'DatabaseName',
+        'pageNumber' => 'PageNumber',
+        'pageSize' => 'PageSize',
         'resourceGroupId' => 'ResourceGroupId',
-        'restoreId'       => 'RestoreId',
-        'restoreStatus'   => 'RestoreStatus',
-        'vaultId'         => 'VaultId',
+        'restoreId' => 'RestoreId',
+        'restoreStatus' => 'RestoreStatus',
+        'vaultId' => 'VaultId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

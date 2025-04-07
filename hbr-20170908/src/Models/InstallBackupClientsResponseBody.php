@@ -64,17 +64,15 @@ class InstallBackupClientsResponseBody extends Model
      */
     public $taskId;
     protected $_name = [
-        'code'             => 'Code',
+        'code' => 'Code',
         'instanceStatuses' => 'InstanceStatuses',
-        'message'          => 'Message',
-        'requestId'        => 'RequestId',
-        'success'          => 'Success',
-        'taskId'           => 'TaskId',
+        'message' => 'Message',
+        'requestId' => 'RequestId',
+        'success' => 'Success',
+        'taskId' => 'TaskId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -121,7 +119,7 @@ class InstallBackupClientsResponseBody extends Model
         if (isset($map['InstanceStatuses'])) {
             if (!empty($map['InstanceStatuses'])) {
                 $model->instanceStatuses = [];
-                $n                       = 0;
+                $n = 0;
                 foreach ($map['InstanceStatuses'] as $item) {
                     $model->instanceStatuses[$n++] = null !== $item ? instanceStatuses::fromMap($item) : $item;
                 }

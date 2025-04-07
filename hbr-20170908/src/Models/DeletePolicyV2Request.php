@@ -20,9 +20,7 @@ class DeletePolicyV2Request extends Model
         'policyId' => 'PolicyId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

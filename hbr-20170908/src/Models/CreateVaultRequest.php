@@ -42,6 +42,7 @@ class CreateVaultRequest extends Model
      * @description The name of the backup vault. The name must be 1 to 64 characters in length.
      *
      * This parameter is required.
+     *
      * @example backupvaultname
      *
      * @var string
@@ -52,6 +53,7 @@ class CreateVaultRequest extends Model
      * @description The ID of the region where the backup vault resides.
      *
      * This parameter is required.
+     *
      * @example cn-shanghai
      *
      * @var string
@@ -59,11 +61,13 @@ class CreateVaultRequest extends Model
     public $vaultRegionId;
 
     /**
-     * @description The storage type of the backup vault. Valid value:
-     * - **STANDARD**: standard storage.
-     * - **ARCHIVE**: deprected.
-     * - **COLD_ARCHIVE**: deprected.
-     * - **IA**: deprected.
+     * @description The storage type of the backup vault.
+     *
+     *   **STANDARD**: standard storage.
+     *   **ARCHIVE**: This parameter is deprecated.
+     *   **COLD_ARCHIVE**: This parameter is deprecated.
+     *   **IA**: This parameter is deprecated.
+     *
      * @example STANDARD
      *
      * @var string
@@ -83,7 +87,7 @@ class CreateVaultRequest extends Model
     public $vaultType;
 
     /**
-     * @description Whether to enable the vault worm feature. Once the worm feature is enabled, the vault and all its backup data cannot be deleted before they automatically expire. After enabling the worm feature, it is not supported to disable it. The worm feature is only effective for standard and archive backup vault.
+     * @description Specifies whether to enable the immutable backup feature.
      *
      * @example false
      *
@@ -91,19 +95,17 @@ class CreateVaultRequest extends Model
      */
     public $wormEnabled;
     protected $_name = [
-        'description'       => 'Description',
-        'encryptType'       => 'EncryptType',
-        'kmsKeyId'          => 'KmsKeyId',
-        'vaultName'         => 'VaultName',
-        'vaultRegionId'     => 'VaultRegionId',
+        'description' => 'Description',
+        'encryptType' => 'EncryptType',
+        'kmsKeyId' => 'KmsKeyId',
+        'vaultName' => 'VaultName',
+        'vaultRegionId' => 'VaultRegionId',
         'vaultStorageClass' => 'VaultStorageClass',
-        'vaultType'         => 'VaultType',
-        'wormEnabled'       => 'WormEnabled',
+        'vaultType' => 'VaultType',
+        'wormEnabled' => 'WormEnabled',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

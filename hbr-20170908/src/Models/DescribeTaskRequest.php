@@ -36,13 +36,11 @@ class DescribeTaskRequest extends Model
     public $token;
     protected $_name = [
         'resourceGroupId' => 'ResourceGroupId',
-        'taskId'          => 'TaskId',
-        'token'           => 'Token',
+        'taskId' => 'TaskId',
+        'token' => 'Token',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

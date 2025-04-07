@@ -20,9 +20,7 @@ class DeleteUdmDiskRequest extends Model
         'diskId' => 'DiskId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

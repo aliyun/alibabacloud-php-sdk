@@ -25,12 +25,10 @@ class otsInstances extends Model
     public $tableNames;
     protected $_name = [
         'instanceName' => 'InstanceName',
-        'tableNames'   => 'TableNames',
+        'tableNames' => 'TableNames',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

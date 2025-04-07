@@ -55,16 +55,14 @@ class DescribeVaultReplicationRegionsResponseBody extends Model
      */
     public $success;
     protected $_name = [
-        'code'      => 'Code',
-        'message'   => 'Message',
-        'regions'   => 'Regions',
+        'code' => 'Code',
+        'message' => 'Message',
+        'regions' => 'Regions',
         'requestId' => 'RequestId',
-        'success'   => 'Success',
+        'success' => 'Success',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

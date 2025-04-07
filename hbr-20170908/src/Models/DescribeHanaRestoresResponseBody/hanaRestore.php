@@ -17,9 +17,7 @@ class hanaRestore extends Model
         'hanaRestores' => 'HanaRestores',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -48,7 +46,7 @@ class hanaRestore extends Model
         if (isset($map['HanaRestores'])) {
             if (!empty($map['HanaRestores'])) {
                 $model->hanaRestores = [];
-                $n                   = 0;
+                $n = 0;
                 foreach ($map['HanaRestores'] as $item) {
                     $model->hanaRestores[$n++] = null !== $item ? hanaRestores::fromMap($item) : $item;
                 }
