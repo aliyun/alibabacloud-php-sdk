@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Sae\V20190506\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class ListCustomDomainOutput extends Model
 {
@@ -28,31 +28,23 @@ class ListCustomDomainOutput extends Model
         'requestId' => 'requestId',
     ];
 
-    public function validate()
-    {
-        if (\is_array($this->customDomains)) {
-            Model::validateArray($this->customDomains);
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->customDomains) {
-            if (\is_array($this->customDomains)) {
-                $res['customDomains'] = [];
-                $n1 = 0;
-                foreach ($this->customDomains as $item1) {
-                    $res['customDomains'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+            $res['customDomains'] = [];
+            if (null !== $this->customDomains && \is_array($this->customDomains)) {
+                $n = 0;
+                foreach ($this->customDomains as $item) {
+                    $res['customDomains'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
         }
-
         if (null !== $this->nextToken) {
             $res['nextToken'] = $this->nextToken;
         }
-
         if (null !== $this->requestId) {
             $res['requestId'] = $this->requestId;
         }
@@ -60,28 +52,26 @@ class ListCustomDomainOutput extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return ListCustomDomainOutput
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['customDomains'])) {
             if (!empty($map['customDomains'])) {
                 $model->customDomains = [];
-                $n1 = 0;
-                foreach ($map['customDomains'] as $item1) {
-                    $model->customDomains[$n1++] = CustomDomain::fromMap($item1);
+                $n = 0;
+                foreach ($map['customDomains'] as $item) {
+                    $model->customDomains[$n++] = null !== $item ? CustomDomain::fromMap($item) : $item;
                 }
             }
         }
-
         if (isset($map['nextToken'])) {
             $model->nextToken = $map['nextToken'];
         }
-
         if (isset($map['requestId'])) {
             $model->requestId = $map['requestId'];
         }

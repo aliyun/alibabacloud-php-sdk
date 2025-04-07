@@ -4,11 +4,17 @@
 
 namespace AlibabaCloud\SDK\Sae\V20190506\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class QueryResourceStaticsRequest extends Model
 {
     /**
+     * @description 7171a6ca-d1cd-4928-8642-7d5cfe69\\*\\*\\*\\*
+     *
+     * This parameter is required.
+     *
+     * @example 7171a6ca-d1cd-4928-8642-7d5cfe69****
+     *
      * @var string
      */
     public $appId;
@@ -16,12 +22,9 @@ class QueryResourceStaticsRequest extends Model
         'appId' => 'AppId',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->appId) {
@@ -31,11 +34,11 @@ class QueryResourceStaticsRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return QueryResourceStaticsRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();

@@ -4,16 +4,26 @@
 
 namespace AlibabaCloud\SDK\Sae\V20190506\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class UpdateWebCustomDomainRequest extends Model
 {
     /**
+     * @description The namespace ID.
+     *
+     * This parameter is required.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $namespaceId;
 
     /**
+     * @description The information about the custom domain name.
+     *
+     * This parameter is required.
+     *
      * @var UpdateWebCustomDomainInput
      */
     public $body;
@@ -22,40 +32,32 @@ class UpdateWebCustomDomainRequest extends Model
         'body' => 'body',
     ];
 
-    public function validate()
-    {
-        if (null !== $this->body) {
-            $this->body->validate();
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->namespaceId) {
             $res['NamespaceId'] = $this->namespaceId;
         }
-
         if (null !== $this->body) {
-            $res['body'] = null !== $this->body ? $this->body->toArray($noStream) : $this->body;
+            $res['body'] = null !== $this->body ? $this->body->toMap() : null;
         }
 
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return UpdateWebCustomDomainRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['NamespaceId'])) {
             $model->namespaceId = $map['NamespaceId'];
         }
-
         if (isset($map['body'])) {
             $model->body = UpdateWebCustomDomainInput::fromMap($map['body']);
         }

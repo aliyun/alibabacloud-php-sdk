@@ -4,17 +4,25 @@
 
 namespace AlibabaCloud\SDK\Sae\V20190506\Models\DescribeGreyTagRouteResponseBody\data;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Sae\V20190506\Models\DescribeGreyTagRouteResponseBody\data\albRules\items;
+use AlibabaCloud\Tea\Model;
 
 class albRules extends Model
 {
     /**
+     * @description The condition mode of the canary release rule. Valid value: AND. This value indicates that that all conditions must be met.
+     *
+     * @example AND
+     *
      * @var string
      */
     public $condition;
 
     /**
+     * @description The ID of the gateway routing rule.
+     *
+     * @example 23
+     *
      * @var string
      */
     public $ingressId;
@@ -25,6 +33,10 @@ class albRules extends Model
     public $items;
 
     /**
+     * @description The service ID.
+     *
+     * @example 22
+     *
      * @var string
      */
     public $serviceId;
@@ -35,35 +47,26 @@ class albRules extends Model
         'serviceId' => 'serviceId',
     ];
 
-    public function validate()
-    {
-        if (\is_array($this->items)) {
-            Model::validateArray($this->items);
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->condition) {
             $res['condition'] = $this->condition;
         }
-
         if (null !== $this->ingressId) {
             $res['ingressId'] = $this->ingressId;
         }
-
         if (null !== $this->items) {
-            if (\is_array($this->items)) {
-                $res['items'] = [];
-                $n1 = 0;
-                foreach ($this->items as $item1) {
-                    $res['items'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+            $res['items'] = [];
+            if (null !== $this->items && \is_array($this->items)) {
+                $n = 0;
+                foreach ($this->items as $item) {
+                    $res['items'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
         }
-
         if (null !== $this->serviceId) {
             $res['serviceId'] = $this->serviceId;
         }
@@ -71,32 +74,29 @@ class albRules extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return albRules
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['condition'])) {
             $model->condition = $map['condition'];
         }
-
         if (isset($map['ingressId'])) {
             $model->ingressId = $map['ingressId'];
         }
-
         if (isset($map['items'])) {
             if (!empty($map['items'])) {
                 $model->items = [];
-                $n1 = 0;
-                foreach ($map['items'] as $item1) {
-                    $model->items[$n1++] = items::fromMap($item1);
+                $n = 0;
+                foreach ($map['items'] as $item) {
+                    $model->items[$n++] = null !== $item ? items::fromMap($item) : $item;
                 }
             }
         }
-
         if (isset($map['serviceId'])) {
             $model->serviceId = $map['serviceId'];
         }

@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Sae\V20190506\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class OSSMountConfig extends Model
 {
@@ -16,23 +16,17 @@ class OSSMountConfig extends Model
         'mountPoints' => 'mountPoints',
     ];
 
-    public function validate()
-    {
-        if (\is_array($this->mountPoints)) {
-            Model::validateArray($this->mountPoints);
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->mountPoints) {
-            if (\is_array($this->mountPoints)) {
-                $res['mountPoints'] = [];
-                $n1 = 0;
-                foreach ($this->mountPoints as $item1) {
-                    $res['mountPoints'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+            $res['mountPoints'] = [];
+            if (null !== $this->mountPoints && \is_array($this->mountPoints)) {
+                $n = 0;
+                foreach ($this->mountPoints as $item) {
+                    $res['mountPoints'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
         }
@@ -40,20 +34,20 @@ class OSSMountConfig extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return OSSMountConfig
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['mountPoints'])) {
             if (!empty($map['mountPoints'])) {
                 $model->mountPoints = [];
-                $n1 = 0;
-                foreach ($map['mountPoints'] as $item1) {
-                    $model->mountPoints[$n1++] = OSSMountPoint::fromMap($item1);
+                $n = 0;
+                foreach ($map['mountPoints'] as $item) {
+                    $model->mountPoints[$n++] = null !== $item ? OSSMountPoint::fromMap($item) : $item;
                 }
             }
         }

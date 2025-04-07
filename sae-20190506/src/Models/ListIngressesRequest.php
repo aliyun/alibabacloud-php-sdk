@@ -4,16 +4,26 @@
 
 namespace AlibabaCloud\SDK\Sae\V20190506\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class ListIngressesRequest extends Model
 {
     /**
+     * @description The ID of an application.
+     *
+     * @example bbf3a590-6d13-46fe-8ca9-c947a20b****
+     *
      * @var string
      */
     public $appId;
 
     /**
+     * @description The ID of a namespace.
+     *
+     * This parameter is required.
+     *
+     * @example cn-beijing
+     *
      * @var string
      */
     public $namespaceId;
@@ -22,18 +32,14 @@ class ListIngressesRequest extends Model
         'namespaceId' => 'NamespaceId',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->appId) {
             $res['AppId'] = $this->appId;
         }
-
         if (null !== $this->namespaceId) {
             $res['NamespaceId'] = $this->namespaceId;
         }
@@ -41,18 +47,17 @@ class ListIngressesRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return ListIngressesRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AppId'])) {
             $model->appId = $map['AppId'];
         }
-
         if (isset($map['NamespaceId'])) {
             $model->namespaceId = $map['NamespaceId'];
         }

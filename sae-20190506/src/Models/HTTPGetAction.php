@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Sae\V20190506\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class HTTPGetAction extends Model
 {
@@ -40,39 +40,29 @@ class HTTPGetAction extends Model
         'scheme' => 'Scheme',
     ];
 
-    public function validate()
-    {
-        if (\is_array($this->httpHeaders)) {
-            Model::validateArray($this->httpHeaders);
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->host) {
             $res['Host'] = $this->host;
         }
-
         if (null !== $this->httpHeaders) {
-            if (\is_array($this->httpHeaders)) {
-                $res['HttpHeaders'] = [];
-                $n1 = 0;
-                foreach ($this->httpHeaders as $item1) {
-                    $res['HttpHeaders'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+            $res['HttpHeaders'] = [];
+            if (null !== $this->httpHeaders && \is_array($this->httpHeaders)) {
+                $n = 0;
+                foreach ($this->httpHeaders as $item) {
+                    $res['HttpHeaders'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
         }
-
         if (null !== $this->path) {
             $res['Path'] = $this->path;
         }
-
         if (null !== $this->port) {
             $res['Port'] = $this->port;
         }
-
         if (null !== $this->scheme) {
             $res['Scheme'] = $this->scheme;
         }
@@ -80,36 +70,32 @@ class HTTPGetAction extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return HTTPGetAction
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Host'])) {
             $model->host = $map['Host'];
         }
-
         if (isset($map['HttpHeaders'])) {
             if (!empty($map['HttpHeaders'])) {
                 $model->httpHeaders = [];
-                $n1 = 0;
-                foreach ($map['HttpHeaders'] as $item1) {
-                    $model->httpHeaders[$n1++] = HTTPHeader::fromMap($item1);
+                $n = 0;
+                foreach ($map['HttpHeaders'] as $item) {
+                    $model->httpHeaders[$n++] = null !== $item ? HTTPHeader::fromMap($item) : $item;
                 }
             }
         }
-
         if (isset($map['Path'])) {
             $model->path = $map['Path'];
         }
-
         if (isset($map['Port'])) {
             $model->port = $map['Port'];
         }
-
         if (isset($map['Scheme'])) {
             $model->scheme = $map['Scheme'];
         }

@@ -4,11 +4,13 @@
 
 namespace AlibabaCloud\SDK\Sae\V20190506\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class WebAclConfig extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @var WebAclEntryConfig[]
      */
     public $webAclEntries;
@@ -16,23 +18,17 @@ class WebAclConfig extends Model
         'webAclEntries' => 'WebAclEntries',
     ];
 
-    public function validate()
-    {
-        if (\is_array($this->webAclEntries)) {
-            Model::validateArray($this->webAclEntries);
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->webAclEntries) {
-            if (\is_array($this->webAclEntries)) {
-                $res['WebAclEntries'] = [];
-                $n1 = 0;
-                foreach ($this->webAclEntries as $item1) {
-                    $res['WebAclEntries'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+            $res['WebAclEntries'] = [];
+            if (null !== $this->webAclEntries && \is_array($this->webAclEntries)) {
+                $n = 0;
+                foreach ($this->webAclEntries as $item) {
+                    $res['WebAclEntries'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
         }
@@ -40,20 +36,20 @@ class WebAclConfig extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return WebAclConfig
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['WebAclEntries'])) {
             if (!empty($map['WebAclEntries'])) {
                 $model->webAclEntries = [];
-                $n1 = 0;
-                foreach ($map['WebAclEntries'] as $item1) {
-                    $model->webAclEntries[$n1++] = WebAclEntryConfig::fromMap($item1);
+                $n = 0;
+                foreach ($map['WebAclEntries'] as $item) {
+                    $model->webAclEntries[$n++] = null !== $item ? WebAclEntryConfig::fromMap($item) : $item;
                 }
             }
         }

@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Sae\V20190506\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class LifecycleHook extends Model
 {
@@ -22,18 +22,14 @@ class LifecycleHook extends Model
         'timeout' => 'timeout',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->handler) {
             $res['handler'] = $this->handler;
         }
-
         if (null !== $this->timeout) {
             $res['timeout'] = $this->timeout;
         }
@@ -41,18 +37,17 @@ class LifecycleHook extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return LifecycleHook
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['handler'])) {
             $model->handler = $map['handler'];
         }
-
         if (isset($map['timeout'])) {
             $model->timeout = $map['timeout'];
         }

@@ -4,42 +4,54 @@
 
 namespace AlibabaCloud\SDK\Sae\V20190506\Models\DescribeConfigurationPriceResponseBody;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Sae\V20190506\Models\DescribeConfigurationPriceResponseBody\data\bagUsage;
 use AlibabaCloud\SDK\Sae\V20190506\Models\DescribeConfigurationPriceResponseBody\data\cpuMemPrice;
 use AlibabaCloud\SDK\Sae\V20190506\Models\DescribeConfigurationPriceResponseBody\data\order;
 use AlibabaCloud\SDK\Sae\V20190506\Models\DescribeConfigurationPriceResponseBody\data\requestPrice;
 use AlibabaCloud\SDK\Sae\V20190506\Models\DescribeConfigurationPriceResponseBody\data\rules;
 use AlibabaCloud\SDK\Sae\V20190506\Models\DescribeConfigurationPriceResponseBody\data\trafficPrice;
+use AlibabaCloud\Tea\Model;
 
 class data extends Model
 {
     /**
+     * @description The remaining capacity of the resource plan.
+     *
      * @var bagUsage
      */
     public $bagUsage;
 
     /**
+     * @description The price of CPU and memory.
+     *
      * @var cpuMemPrice
      */
     public $cpuMemPrice;
 
     /**
+     * @description The information about pricing.
+     *
      * @var order
      */
     public $order;
 
     /**
+     * @description The price based on the number of requests.
+     *
      * @var requestPrice
      */
     public $requestPrice;
 
     /**
+     * @description The promotion rules.
+     *
      * @var rules[]
      */
     public $rules;
 
     /**
+     * @description The traffic price.
+     *
      * @var trafficPrice
      */
     public $trafficPrice;
@@ -52,99 +64,68 @@ class data extends Model
         'trafficPrice' => 'TrafficPrice',
     ];
 
-    public function validate()
-    {
-        if (null !== $this->bagUsage) {
-            $this->bagUsage->validate();
-        }
-        if (null !== $this->cpuMemPrice) {
-            $this->cpuMemPrice->validate();
-        }
-        if (null !== $this->order) {
-            $this->order->validate();
-        }
-        if (null !== $this->requestPrice) {
-            $this->requestPrice->validate();
-        }
-        if (\is_array($this->rules)) {
-            Model::validateArray($this->rules);
-        }
-        if (null !== $this->trafficPrice) {
-            $this->trafficPrice->validate();
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->bagUsage) {
-            $res['BagUsage'] = null !== $this->bagUsage ? $this->bagUsage->toArray($noStream) : $this->bagUsage;
+            $res['BagUsage'] = null !== $this->bagUsage ? $this->bagUsage->toMap() : null;
         }
-
         if (null !== $this->cpuMemPrice) {
-            $res['CpuMemPrice'] = null !== $this->cpuMemPrice ? $this->cpuMemPrice->toArray($noStream) : $this->cpuMemPrice;
+            $res['CpuMemPrice'] = null !== $this->cpuMemPrice ? $this->cpuMemPrice->toMap() : null;
         }
-
         if (null !== $this->order) {
-            $res['Order'] = null !== $this->order ? $this->order->toArray($noStream) : $this->order;
+            $res['Order'] = null !== $this->order ? $this->order->toMap() : null;
         }
-
         if (null !== $this->requestPrice) {
-            $res['RequestPrice'] = null !== $this->requestPrice ? $this->requestPrice->toArray($noStream) : $this->requestPrice;
+            $res['RequestPrice'] = null !== $this->requestPrice ? $this->requestPrice->toMap() : null;
         }
-
         if (null !== $this->rules) {
-            if (\is_array($this->rules)) {
-                $res['Rules'] = [];
-                $n1 = 0;
-                foreach ($this->rules as $item1) {
-                    $res['Rules'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+            $res['Rules'] = [];
+            if (null !== $this->rules && \is_array($this->rules)) {
+                $n = 0;
+                foreach ($this->rules as $item) {
+                    $res['Rules'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
         }
-
         if (null !== $this->trafficPrice) {
-            $res['TrafficPrice'] = null !== $this->trafficPrice ? $this->trafficPrice->toArray($noStream) : $this->trafficPrice;
+            $res['TrafficPrice'] = null !== $this->trafficPrice ? $this->trafficPrice->toMap() : null;
         }
 
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return data
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['BagUsage'])) {
             $model->bagUsage = bagUsage::fromMap($map['BagUsage']);
         }
-
         if (isset($map['CpuMemPrice'])) {
             $model->cpuMemPrice = cpuMemPrice::fromMap($map['CpuMemPrice']);
         }
-
         if (isset($map['Order'])) {
             $model->order = order::fromMap($map['Order']);
         }
-
         if (isset($map['RequestPrice'])) {
             $model->requestPrice = requestPrice::fromMap($map['RequestPrice']);
         }
-
         if (isset($map['Rules'])) {
             if (!empty($map['Rules'])) {
                 $model->rules = [];
-                $n1 = 0;
-                foreach ($map['Rules'] as $item1) {
-                    $model->rules[$n1++] = rules::fromMap($item1);
+                $n = 0;
+                foreach ($map['Rules'] as $item) {
+                    $model->rules[$n++] = null !== $item ? rules::fromMap($item) : $item;
                 }
             }
         }
-
         if (isset($map['TrafficPrice'])) {
             $model->trafficPrice = trafficPrice::fromMap($map['TrafficPrice']);
         }

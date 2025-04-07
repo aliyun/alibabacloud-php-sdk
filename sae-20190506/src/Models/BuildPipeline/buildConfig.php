@@ -4,27 +4,37 @@
 
 namespace AlibabaCloud\SDK\Sae\V20190506\Models\BuildPipeline;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Sae\V20190506\Models\TomcatConfig;
+use AlibabaCloud\Tea\Model;
 
 class buildConfig extends Model
 {
     /**
+     * @example mvn clean package
+     *
      * @var string
      */
     public $beforeBuildCommand;
 
     /**
+     * @description This parameter is required.
+     *
+     * @example buildpacks/dockerfile
+     *
      * @var string
      */
     public $buildType;
 
     /**
+     * @example code/Dockerfile
+     *
      * @var string
      */
     public $dockerfilePath;
 
     /**
+     * @example java -jar target/app.jar
+     *
      * @var string
      */
     public $runCommand;
@@ -45,6 +55,8 @@ class buildConfig extends Model
     public $tomcatConfig;
 
     /**
+     * @example code
+     *
      * @var string
      */
     public $workingDir;
@@ -59,45 +71,32 @@ class buildConfig extends Model
         'workingDir' => 'WorkingDir',
     ];
 
-    public function validate()
-    {
-        if (null !== $this->tomcatConfig) {
-            $this->tomcatConfig->validate();
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->beforeBuildCommand) {
             $res['BeforeBuildCommand'] = $this->beforeBuildCommand;
         }
-
         if (null !== $this->buildType) {
             $res['BuildType'] = $this->buildType;
         }
-
         if (null !== $this->dockerfilePath) {
             $res['DockerfilePath'] = $this->dockerfilePath;
         }
-
         if (null !== $this->runCommand) {
             $res['RunCommand'] = $this->runCommand;
         }
-
         if (null !== $this->runtimeType) {
             $res['RuntimeType'] = $this->runtimeType;
         }
-
         if (null !== $this->runtimeVersion) {
             $res['RuntimeVersion'] = $this->runtimeVersion;
         }
-
         if (null !== $this->tomcatConfig) {
-            $res['TomcatConfig'] = null !== $this->tomcatConfig ? $this->tomcatConfig->toArray($noStream) : $this->tomcatConfig;
+            $res['TomcatConfig'] = null !== $this->tomcatConfig ? $this->tomcatConfig->toMap() : null;
         }
-
         if (null !== $this->workingDir) {
             $res['WorkingDir'] = $this->workingDir;
         }
@@ -105,42 +104,35 @@ class buildConfig extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return buildConfig
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['BeforeBuildCommand'])) {
             $model->beforeBuildCommand = $map['BeforeBuildCommand'];
         }
-
         if (isset($map['BuildType'])) {
             $model->buildType = $map['BuildType'];
         }
-
         if (isset($map['DockerfilePath'])) {
             $model->dockerfilePath = $map['DockerfilePath'];
         }
-
         if (isset($map['RunCommand'])) {
             $model->runCommand = $map['RunCommand'];
         }
-
         if (isset($map['RuntimeType'])) {
             $model->runtimeType = $map['RuntimeType'];
         }
-
         if (isset($map['RuntimeVersion'])) {
             $model->runtimeVersion = $map['RuntimeVersion'];
         }
-
         if (isset($map['TomcatConfig'])) {
             $model->tomcatConfig = TomcatConfig::fromMap($map['TomcatConfig']);
         }
-
         if (isset($map['WorkingDir'])) {
             $model->workingDir = $map['WorkingDir'];
         }

@@ -4,11 +4,13 @@
 
 namespace AlibabaCloud\SDK\Sae\V20190506\Models\GetWebshellTokenResponseBody;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class data extends Model
 {
     /**
+     * @example zWWpvRj_5pzof4hfo7-hGynM8oGMmO_7
+     *
      * @var string
      */
     public $token;
@@ -16,12 +18,9 @@ class data extends Model
         'token' => 'Token',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->token) {
@@ -31,11 +30,11 @@ class data extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return data
+     */
     public static function fromMap($map = [])
     {
         $model = new self();

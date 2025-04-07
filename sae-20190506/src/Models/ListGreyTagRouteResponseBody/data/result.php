@@ -4,10 +4,10 @@
 
 namespace AlibabaCloud\SDK\Sae\V20190506\Models\ListGreyTagRouteResponseBody\data;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Sae\V20190506\Models\ListGreyTagRouteResponseBody\data\result\albRules;
 use AlibabaCloud\SDK\Sae\V20190506\Models\ListGreyTagRouteResponseBody\data\result\dubboRules;
 use AlibabaCloud\SDK\Sae\V20190506\Models\ListGreyTagRouteResponseBody\data\result\scRules;
+use AlibabaCloud\Tea\Model;
 
 class result extends Model
 {
@@ -17,36 +17,60 @@ class result extends Model
     public $albRules;
 
     /**
+     * @description The timestamp when the canary release rule was created. Unit: milliseconds.
+     *
+     * @example 1619007592013
+     *
      * @var int
      */
     public $createTime;
 
     /**
+     * @description The description of the canary release rule.
+     *
+     * @example test
+     *
      * @var string
      */
     public $description;
 
     /**
+     * @description The canary release rule of the Dubbo service.
+     *
      * @var dubboRules[]
      */
     public $dubboRules;
 
     /**
+     * @description The ID of the canary release rule.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $greyTagRouteId;
 
     /**
+     * @description The name of the canary release rule.
+     *
+     * @example rule-name
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @description The canary release rule of the Spring Cloud application.
+     *
      * @var scRules[]
      */
     public $scRules;
 
     /**
+     * @description The timestamp when the canary release rule was updated. Unit: milliseconds.
+     *
+     * @example 1609434061000
+     *
      * @var int
      */
     public $updateTime;
@@ -61,69 +85,50 @@ class result extends Model
         'updateTime' => 'UpdateTime',
     ];
 
-    public function validate()
-    {
-        if (\is_array($this->albRules)) {
-            Model::validateArray($this->albRules);
-        }
-        if (\is_array($this->dubboRules)) {
-            Model::validateArray($this->dubboRules);
-        }
-        if (\is_array($this->scRules)) {
-            Model::validateArray($this->scRules);
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->albRules) {
-            if (\is_array($this->albRules)) {
-                $res['AlbRules'] = [];
-                $n1 = 0;
-                foreach ($this->albRules as $item1) {
-                    $res['AlbRules'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+            $res['AlbRules'] = [];
+            if (null !== $this->albRules && \is_array($this->albRules)) {
+                $n = 0;
+                foreach ($this->albRules as $item) {
+                    $res['AlbRules'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
         }
-
         if (null !== $this->createTime) {
             $res['CreateTime'] = $this->createTime;
         }
-
         if (null !== $this->description) {
             $res['Description'] = $this->description;
         }
-
         if (null !== $this->dubboRules) {
-            if (\is_array($this->dubboRules)) {
-                $res['DubboRules'] = [];
-                $n1 = 0;
-                foreach ($this->dubboRules as $item1) {
-                    $res['DubboRules'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+            $res['DubboRules'] = [];
+            if (null !== $this->dubboRules && \is_array($this->dubboRules)) {
+                $n = 0;
+                foreach ($this->dubboRules as $item) {
+                    $res['DubboRules'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
         }
-
         if (null !== $this->greyTagRouteId) {
             $res['GreyTagRouteId'] = $this->greyTagRouteId;
         }
-
         if (null !== $this->name) {
             $res['Name'] = $this->name;
         }
-
         if (null !== $this->scRules) {
-            if (\is_array($this->scRules)) {
-                $res['ScRules'] = [];
-                $n1 = 0;
-                foreach ($this->scRules as $item1) {
-                    $res['ScRules'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+            $res['ScRules'] = [];
+            if (null !== $this->scRules && \is_array($this->scRules)) {
+                $n = 0;
+                foreach ($this->scRules as $item) {
+                    $res['ScRules'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
         }
-
         if (null !== $this->updateTime) {
             $res['UpdateTime'] = $this->updateTime;
         }
@@ -131,60 +136,53 @@ class result extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return result
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AlbRules'])) {
             if (!empty($map['AlbRules'])) {
                 $model->albRules = [];
-                $n1 = 0;
-                foreach ($map['AlbRules'] as $item1) {
-                    $model->albRules[$n1++] = albRules::fromMap($item1);
+                $n = 0;
+                foreach ($map['AlbRules'] as $item) {
+                    $model->albRules[$n++] = null !== $item ? albRules::fromMap($item) : $item;
                 }
             }
         }
-
         if (isset($map['CreateTime'])) {
             $model->createTime = $map['CreateTime'];
         }
-
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
         }
-
         if (isset($map['DubboRules'])) {
             if (!empty($map['DubboRules'])) {
                 $model->dubboRules = [];
-                $n1 = 0;
-                foreach ($map['DubboRules'] as $item1) {
-                    $model->dubboRules[$n1++] = dubboRules::fromMap($item1);
+                $n = 0;
+                foreach ($map['DubboRules'] as $item) {
+                    $model->dubboRules[$n++] = null !== $item ? dubboRules::fromMap($item) : $item;
                 }
             }
         }
-
         if (isset($map['GreyTagRouteId'])) {
             $model->greyTagRouteId = $map['GreyTagRouteId'];
         }
-
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
         }
-
         if (isset($map['ScRules'])) {
             if (!empty($map['ScRules'])) {
                 $model->scRules = [];
-                $n1 = 0;
-                foreach ($map['ScRules'] as $item1) {
-                    $model->scRules[$n1++] = scRules::fromMap($item1);
+                $n = 0;
+                foreach ($map['ScRules'] as $item) {
+                    $model->scRules[$n++] = null !== $item ? scRules::fromMap($item) : $item;
                 }
             }
         }
-
         if (isset($map['UpdateTime'])) {
             $model->updateTime = $map['UpdateTime'];
         }

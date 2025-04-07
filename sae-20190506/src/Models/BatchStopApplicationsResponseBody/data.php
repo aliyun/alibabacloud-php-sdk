@@ -4,11 +4,18 @@
 
 namespace AlibabaCloud\SDK\Sae\V20190506\Models\BatchStopApplicationsResponseBody;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class data extends Model
 {
     /**
+     * @description The error code.
+     *
+     *   If the request is successful, this parameter is not returned.****
+     *   This parameter is returned only if the request failed.**** For more information, see the "**Error codes**" section in this topic.
+     *
+     * @example 4a815998-b468-4bea-b7d8-59f52a44****
+     *
      * @var string
      */
     public $changeOrderId;
@@ -16,12 +23,9 @@ class data extends Model
         'changeOrderId' => 'ChangeOrderId',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->changeOrderId) {
@@ -31,11 +35,11 @@ class data extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return data
+     */
     public static function fromMap($map = [])
     {
         $model = new self();

@@ -4,11 +4,15 @@
 
 namespace AlibabaCloud\SDK\Sae\V20190506\Models\DescribeConfigurationPriceResponseBody\data;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class bagUsage extends Model
 {
     /**
+     * @description The available CPU capacity. Unit: cores \\*.
+     *
+     * @example 497570.450009
+     *
      * @var float
      */
     public $cpu;
@@ -19,6 +23,10 @@ class bagUsage extends Model
     public $cu;
 
     /**
+     * @description The available memory size. Unit: GiB ×.
+     *
+     * @example 989802.563546
+     *
      * @var float
      */
     public $mem;
@@ -28,22 +36,17 @@ class bagUsage extends Model
         'mem' => 'Mem',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->cpu) {
             $res['Cpu'] = $this->cpu;
         }
-
         if (null !== $this->cu) {
             $res['Cu'] = $this->cu;
         }
-
         if (null !== $this->mem) {
             $res['Mem'] = $this->mem;
         }
@@ -51,22 +54,20 @@ class bagUsage extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return bagUsage
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Cpu'])) {
             $model->cpu = $map['Cpu'];
         }
-
         if (isset($map['Cu'])) {
             $model->cu = $map['Cu'];
         }
-
         if (isset($map['Mem'])) {
             $model->mem = $map['Mem'];
         }

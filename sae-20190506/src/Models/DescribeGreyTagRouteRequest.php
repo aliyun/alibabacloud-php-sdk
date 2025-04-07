@@ -4,11 +4,17 @@
 
 namespace AlibabaCloud\SDK\Sae\V20190506\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class DescribeGreyTagRouteRequest extends Model
 {
     /**
+     * @description The ID of the canary release rule.
+     *
+     * This parameter is required.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $greyTagRouteId;
@@ -16,12 +22,9 @@ class DescribeGreyTagRouteRequest extends Model
         'greyTagRouteId' => 'GreyTagRouteId',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->greyTagRouteId) {
@@ -31,11 +34,11 @@ class DescribeGreyTagRouteRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return DescribeGreyTagRouteRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();

@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Sae\V20190506\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class TLSConfig extends Model
 {
@@ -28,31 +28,17 @@ class TLSConfig extends Model
         'minVersion' => 'minVersion',
     ];
 
-    public function validate()
-    {
-        if (\is_array($this->cipherSuites)) {
-            Model::validateArray($this->cipherSuites);
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->cipherSuites) {
-            if (\is_array($this->cipherSuites)) {
-                $res['cipherSuites'] = [];
-                $n1 = 0;
-                foreach ($this->cipherSuites as $item1) {
-                    $res['cipherSuites'][$n1++] = $item1;
-                }
-            }
+            $res['cipherSuites'] = $this->cipherSuites;
         }
-
         if (null !== $this->maxVersion) {
             $res['maxVersion'] = $this->maxVersion;
         }
-
         if (null !== $this->minVersion) {
             $res['minVersion'] = $this->minVersion;
         }
@@ -60,28 +46,22 @@ class TLSConfig extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return TLSConfig
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['cipherSuites'])) {
             if (!empty($map['cipherSuites'])) {
-                $model->cipherSuites = [];
-                $n1 = 0;
-                foreach ($map['cipherSuites'] as $item1) {
-                    $model->cipherSuites[$n1++] = $item1;
-                }
+                $model->cipherSuites = $map['cipherSuites'];
             }
         }
-
         if (isset($map['maxVersion'])) {
             $model->maxVersion = $map['maxVersion'];
         }
-
         if (isset($map['minVersion'])) {
             $model->minVersion = $map['minVersion'];
         }

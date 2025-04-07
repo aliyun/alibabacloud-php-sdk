@@ -4,58 +4,89 @@
 
 namespace AlibabaCloud\SDK\Sae\V20190506\Models\DescribeApplicationSlbsResponseBody;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Sae\V20190506\Models\DescribeApplicationSlbsResponseBody\data\internet;
 use AlibabaCloud\SDK\Sae\V20190506\Models\DescribeApplicationSlbsResponseBody\data\intranet;
+use AlibabaCloud\Tea\Model;
 
 class data extends Model
 {
     /**
+     * @description The configurations of the Internet-facing SLB instance.
+     *
      * @var internet[]
      */
     public $internet;
 
     /**
+     * @description The ID of the Internet-facing SLB instance.
+     *
+     * @example ``59.74.**.**``
+     *
      * @var string
      */
     public $internetIp;
 
     /**
+     * @example PayBySpec
+     *
      * @var string
      */
     public $internetSlbChargeType;
 
     /**
+     * @example false
+     *
      * @var bool
      */
     public $internetSlbExpired;
 
     /**
+     * @description Configurations of Internet-facing SLB instances.
+     *
+     * @example lb-uf6xc7wybefehnv45****
+     *
      * @var string
      */
     public $internetSlbId;
 
     /**
+     * @description The configurations of the internal-facing SLB instance.
+     *
      * @var intranet[]
      */
     public $intranet;
 
     /**
+     * @description The error code.
+     *
+     *   The **ErrorCode** parameter is not returned when the request succeeds.
+     *   The **ErrorCode** parameter is returned when the request fails. For more information, see **Error codes** in this topic.
+     *
+     * @example 192.168.0.0
+     *
      * @var string
      */
     public $intranetIp;
 
     /**
+     * @example PayBySpec
+     *
      * @var string
      */
     public $intranetSlbChargeType;
 
     /**
+     * @example false
+     *
      * @var bool
      */
     public $intranetSlbExpired;
 
     /**
+     * @description The IP address of the internal-facing SLB instance.
+     *
+     * @example lb-uf6xc7wybefehnv45****
+     *
      * @var string
      */
     public $intranetSlbId;
@@ -72,68 +103,50 @@ class data extends Model
         'intranetSlbId' => 'IntranetSlbId',
     ];
 
-    public function validate()
-    {
-        if (\is_array($this->internet)) {
-            Model::validateArray($this->internet);
-        }
-        if (\is_array($this->intranet)) {
-            Model::validateArray($this->intranet);
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->internet) {
-            if (\is_array($this->internet)) {
-                $res['Internet'] = [];
-                $n1 = 0;
-                foreach ($this->internet as $item1) {
-                    $res['Internet'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+            $res['Internet'] = [];
+            if (null !== $this->internet && \is_array($this->internet)) {
+                $n = 0;
+                foreach ($this->internet as $item) {
+                    $res['Internet'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
         }
-
         if (null !== $this->internetIp) {
             $res['InternetIp'] = $this->internetIp;
         }
-
         if (null !== $this->internetSlbChargeType) {
             $res['InternetSlbChargeType'] = $this->internetSlbChargeType;
         }
-
         if (null !== $this->internetSlbExpired) {
             $res['InternetSlbExpired'] = $this->internetSlbExpired;
         }
-
         if (null !== $this->internetSlbId) {
             $res['InternetSlbId'] = $this->internetSlbId;
         }
-
         if (null !== $this->intranet) {
-            if (\is_array($this->intranet)) {
-                $res['Intranet'] = [];
-                $n1 = 0;
-                foreach ($this->intranet as $item1) {
-                    $res['Intranet'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+            $res['Intranet'] = [];
+            if (null !== $this->intranet && \is_array($this->intranet)) {
+                $n = 0;
+                foreach ($this->intranet as $item) {
+                    $res['Intranet'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
         }
-
         if (null !== $this->intranetIp) {
             $res['IntranetIp'] = $this->intranetIp;
         }
-
         if (null !== $this->intranetSlbChargeType) {
             $res['IntranetSlbChargeType'] = $this->intranetSlbChargeType;
         }
-
         if (null !== $this->intranetSlbExpired) {
             $res['IntranetSlbExpired'] = $this->intranetSlbExpired;
         }
-
         if (null !== $this->intranetSlbId) {
             $res['IntranetSlbId'] = $this->intranetSlbId;
         }
@@ -141,62 +154,53 @@ class data extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return data
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Internet'])) {
             if (!empty($map['Internet'])) {
                 $model->internet = [];
-                $n1 = 0;
-                foreach ($map['Internet'] as $item1) {
-                    $model->internet[$n1++] = internet::fromMap($item1);
+                $n = 0;
+                foreach ($map['Internet'] as $item) {
+                    $model->internet[$n++] = null !== $item ? internet::fromMap($item) : $item;
                 }
             }
         }
-
         if (isset($map['InternetIp'])) {
             $model->internetIp = $map['InternetIp'];
         }
-
         if (isset($map['InternetSlbChargeType'])) {
             $model->internetSlbChargeType = $map['InternetSlbChargeType'];
         }
-
         if (isset($map['InternetSlbExpired'])) {
             $model->internetSlbExpired = $map['InternetSlbExpired'];
         }
-
         if (isset($map['InternetSlbId'])) {
             $model->internetSlbId = $map['InternetSlbId'];
         }
-
         if (isset($map['Intranet'])) {
             if (!empty($map['Intranet'])) {
                 $model->intranet = [];
-                $n1 = 0;
-                foreach ($map['Intranet'] as $item1) {
-                    $model->intranet[$n1++] = intranet::fromMap($item1);
+                $n = 0;
+                foreach ($map['Intranet'] as $item) {
+                    $model->intranet[$n++] = null !== $item ? intranet::fromMap($item) : $item;
                 }
             }
         }
-
         if (isset($map['IntranetIp'])) {
             $model->intranetIp = $map['IntranetIp'];
         }
-
         if (isset($map['IntranetSlbChargeType'])) {
             $model->intranetSlbChargeType = $map['IntranetSlbChargeType'];
         }
-
         if (isset($map['IntranetSlbExpired'])) {
             $model->intranetSlbExpired = $map['IntranetSlbExpired'];
         }
-
         if (isset($map['IntranetSlbId'])) {
             $model->intranetSlbId = $map['IntranetSlbId'];
         }

@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Sae\V20190506\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class ListInstancesOutput extends Model
 {
@@ -34,43 +34,31 @@ class ListInstancesOutput extends Model
         'versionStatus' => 'versionStatus',
     ];
 
-    public function validate()
-    {
-        if (\is_array($this->instances)) {
-            Model::validateArray($this->instances);
-        }
-        if (\is_array($this->versionStatus)) {
-            Model::validateArray($this->versionStatus);
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->currentError) {
             $res['currentError'] = $this->currentError;
         }
-
         if (null !== $this->instances) {
-            if (\is_array($this->instances)) {
-                $res['instances'] = [];
-                $n1 = 0;
-                foreach ($this->instances as $item1) {
-                    $res['instances'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+            $res['instances'] = [];
+            if (null !== $this->instances && \is_array($this->instances)) {
+                $n = 0;
+                foreach ($this->instances as $item) {
+                    $res['instances'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
         }
-
         if (null !== $this->requestId) {
             $res['requestId'] = $this->requestId;
         }
-
         if (null !== $this->versionStatus) {
-            if (\is_array($this->versionStatus)) {
-                $res['versionStatus'] = [];
-                foreach ($this->versionStatus as $key1 => $value1) {
-                    $res['versionStatus'][$key1] = null !== $value1 ? $value1->toArray($noStream) : $value1;
+            $res['versionStatus'] = [];
+            if (null !== $this->versionStatus && \is_array($this->versionStatus)) {
+                foreach ($this->versionStatus as $key => $val) {
+                    $res['versionStatus'][$key] = null !== $val ? $val->toMap() : $val;
                 }
             }
         }
@@ -78,39 +66,31 @@ class ListInstancesOutput extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return ListInstancesOutput
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['currentError'])) {
             $model->currentError = $map['currentError'];
         }
-
         if (isset($map['instances'])) {
             if (!empty($map['instances'])) {
                 $model->instances = [];
-                $n1 = 0;
-                foreach ($map['instances'] as $item1) {
-                    $model->instances[$n1++] = InstanceInfo::fromMap($item1);
+                $n = 0;
+                foreach ($map['instances'] as $item) {
+                    $model->instances[$n++] = null !== $item ? InstanceInfo::fromMap($item) : $item;
                 }
             }
         }
-
         if (isset($map['requestId'])) {
             $model->requestId = $map['requestId'];
         }
-
         if (isset($map['versionStatus'])) {
-            if (!empty($map['versionStatus'])) {
-                $model->versionStatus = [];
-                foreach ($map['versionStatus'] as $key1 => $value1) {
-                    $model->versionStatus[$key1] = VersionStatus::fromMap($value1);
-                }
-            }
+            $model->versionStatus = $map['versionStatus'];
         }
 
         return $model;

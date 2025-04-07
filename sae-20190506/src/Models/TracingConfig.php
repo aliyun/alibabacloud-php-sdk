@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Sae\V20190506\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class TracingConfig extends Model
 {
@@ -28,25 +28,17 @@ class TracingConfig extends Model
         'type' => 'type',
     ];
 
-    public function validate()
-    {
-        if (null !== $this->jaegerConfig) {
-            $this->jaegerConfig->validate();
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->jaegerConfig) {
-            $res['jaegerConfig'] = null !== $this->jaegerConfig ? $this->jaegerConfig->toArray($noStream) : $this->jaegerConfig;
+            $res['jaegerConfig'] = null !== $this->jaegerConfig ? $this->jaegerConfig->toMap() : null;
         }
-
         if (null !== $this->params) {
             $res['params'] = $this->params;
         }
-
         if (null !== $this->type) {
             $res['type'] = $this->type;
         }
@@ -54,22 +46,20 @@ class TracingConfig extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return TracingConfig
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['jaegerConfig'])) {
             $model->jaegerConfig = JaegerConfig::fromMap($map['jaegerConfig']);
         }
-
         if (isset($map['params'])) {
             $model->params = $map['params'];
         }
-
         if (isset($map['type'])) {
             $model->type = $map['type'];
         }

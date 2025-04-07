@@ -4,16 +4,28 @@
 
 namespace AlibabaCloud\SDK\Sae\V20190506\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class DeleteHistoryJobRequest extends Model
 {
     /**
+     * @description The ID of the job template to which the job that you want to delete belongs.
+     *
+     * This parameter is required.
+     *
+     * @example 017f39b8-dfa4-4e16-a84b-1dcee4b1****
+     *
      * @var string
      */
     public $appId;
 
     /**
+     * @description The ID of the job.
+     *
+     * This parameter is required.
+     *
+     * @example manual-3db7a8fa-5d40-4edc-92e4-49d50eab****
+     *
      * @var string
      */
     public $jobId;
@@ -22,18 +34,14 @@ class DeleteHistoryJobRequest extends Model
         'jobId' => 'JobId',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->appId) {
             $res['AppId'] = $this->appId;
         }
-
         if (null !== $this->jobId) {
             $res['JobId'] = $this->jobId;
         }
@@ -41,18 +49,17 @@ class DeleteHistoryJobRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return DeleteHistoryJobRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AppId'])) {
             $model->appId = $map['AppId'];
         }
-
         if (isset($map['JobId'])) {
             $model->jobId = $map['JobId'];
         }

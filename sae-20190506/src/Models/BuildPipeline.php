@@ -4,32 +4,40 @@
 
 namespace AlibabaCloud\SDK\Sae\V20190506\Models;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Sae\V20190506\Models\BuildPipeline\buildConfig;
 use AlibabaCloud\SDK\Sae\V20190506\Models\BuildPipeline\codeConfig;
 use AlibabaCloud\SDK\Sae\V20190506\Models\BuildPipeline\deployConfig;
 use AlibabaCloud\SDK\Sae\V20190506\Models\BuildPipeline\imageConfig;
 use AlibabaCloud\SDK\Sae\V20190506\Models\BuildPipeline\packageConfig;
 use AlibabaCloud\SDK\Sae\V20190506\Models\BuildPipeline\triggerConfig;
+use AlibabaCloud\Tea\Model;
 
 class BuildPipeline extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $applicationId;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $applicationName;
 
     /**
+     * @description This parameter is required.
+     *
      * @var buildConfig
      */
     public $buildConfig;
 
     /**
+     * @description This parameter is required.
+     *
      * @var codeConfig
      */
     public $codeConfig;
@@ -55,6 +63,8 @@ class BuildPipeline extends Model
     public $packageConfig;
 
     /**
+     * @description This parameter is required.
+     *
      * @var triggerConfig
      */
     public $triggerConfig;
@@ -70,111 +80,74 @@ class BuildPipeline extends Model
         'triggerConfig' => 'TriggerConfig',
     ];
 
-    public function validate()
-    {
-        if (null !== $this->buildConfig) {
-            $this->buildConfig->validate();
-        }
-        if (null !== $this->codeConfig) {
-            $this->codeConfig->validate();
-        }
-        if (null !== $this->deployConfig) {
-            $this->deployConfig->validate();
-        }
-        if (null !== $this->imageConfig) {
-            $this->imageConfig->validate();
-        }
-        if (null !== $this->packageConfig) {
-            $this->packageConfig->validate();
-        }
-        if (null !== $this->triggerConfig) {
-            $this->triggerConfig->validate();
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->applicationId) {
             $res['ApplicationId'] = $this->applicationId;
         }
-
         if (null !== $this->applicationName) {
             $res['ApplicationName'] = $this->applicationName;
         }
-
         if (null !== $this->buildConfig) {
-            $res['BuildConfig'] = null !== $this->buildConfig ? $this->buildConfig->toArray($noStream) : $this->buildConfig;
+            $res['BuildConfig'] = null !== $this->buildConfig ? $this->buildConfig->toMap() : null;
         }
-
         if (null !== $this->codeConfig) {
-            $res['CodeConfig'] = null !== $this->codeConfig ? $this->codeConfig->toArray($noStream) : $this->codeConfig;
+            $res['CodeConfig'] = null !== $this->codeConfig ? $this->codeConfig->toMap() : null;
         }
-
         if (null !== $this->deployConfig) {
-            $res['DeployConfig'] = null !== $this->deployConfig ? $this->deployConfig->toArray($noStream) : $this->deployConfig;
+            $res['DeployConfig'] = null !== $this->deployConfig ? $this->deployConfig->toMap() : null;
         }
-
         if (null !== $this->enabled) {
             $res['Enabled'] = $this->enabled;
         }
-
         if (null !== $this->imageConfig) {
-            $res['ImageConfig'] = null !== $this->imageConfig ? $this->imageConfig->toArray($noStream) : $this->imageConfig;
+            $res['ImageConfig'] = null !== $this->imageConfig ? $this->imageConfig->toMap() : null;
         }
-
         if (null !== $this->packageConfig) {
-            $res['PackageConfig'] = null !== $this->packageConfig ? $this->packageConfig->toArray($noStream) : $this->packageConfig;
+            $res['PackageConfig'] = null !== $this->packageConfig ? $this->packageConfig->toMap() : null;
         }
-
         if (null !== $this->triggerConfig) {
-            $res['TriggerConfig'] = null !== $this->triggerConfig ? $this->triggerConfig->toArray($noStream) : $this->triggerConfig;
+            $res['TriggerConfig'] = null !== $this->triggerConfig ? $this->triggerConfig->toMap() : null;
         }
 
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return BuildPipeline
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ApplicationId'])) {
             $model->applicationId = $map['ApplicationId'];
         }
-
         if (isset($map['ApplicationName'])) {
             $model->applicationName = $map['ApplicationName'];
         }
-
         if (isset($map['BuildConfig'])) {
             $model->buildConfig = buildConfig::fromMap($map['BuildConfig']);
         }
-
         if (isset($map['CodeConfig'])) {
             $model->codeConfig = codeConfig::fromMap($map['CodeConfig']);
         }
-
         if (isset($map['DeployConfig'])) {
             $model->deployConfig = deployConfig::fromMap($map['DeployConfig']);
         }
-
         if (isset($map['Enabled'])) {
             $model->enabled = $map['Enabled'];
         }
-
         if (isset($map['ImageConfig'])) {
             $model->imageConfig = imageConfig::fromMap($map['ImageConfig']);
         }
-
         if (isset($map['PackageConfig'])) {
             $model->packageConfig = packageConfig::fromMap($map['PackageConfig']);
         }
-
         if (isset($map['TriggerConfig'])) {
             $model->triggerConfig = triggerConfig::fromMap($map['TriggerConfig']);
         }

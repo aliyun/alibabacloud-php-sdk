@@ -4,11 +4,15 @@
 
 namespace AlibabaCloud\SDK\Sae\V20190506\Models\RescaleApplicationVerticallyResponseBody;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class data extends Model
 {
     /**
+     * @description The ID of the change order.
+     *
+     * @example ffd8cd45-2b5f-415d-b4d0-1003e80b****
+     *
      * @var string
      */
     public $changeOrderId;
@@ -16,12 +20,9 @@ class data extends Model
         'changeOrderId' => 'ChangeOrderId',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->changeOrderId) {
@@ -31,11 +32,11 @@ class data extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return data
+     */
     public static function fromMap($map = [])
     {
         $model = new self();

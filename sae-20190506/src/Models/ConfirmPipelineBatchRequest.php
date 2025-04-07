@@ -4,16 +4,28 @@
 
 namespace AlibabaCloud\SDK\Sae\V20190506\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class ConfirmPipelineBatchRequest extends Model
 {
     /**
+     * @description true
+     *
+     * This parameter is required.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $confirm;
 
     /**
+     * @description e2e-vds-feh-\\*\\*\\*
+     *
+     * This parameter is required.
+     *
+     * @example e2e-vds-feh-***
+     *
      * @var string
      */
     public $pipelineId;
@@ -22,18 +34,14 @@ class ConfirmPipelineBatchRequest extends Model
         'pipelineId' => 'PipelineId',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->confirm) {
             $res['Confirm'] = $this->confirm;
         }
-
         if (null !== $this->pipelineId) {
             $res['PipelineId'] = $this->pipelineId;
         }
@@ -41,18 +49,17 @@ class ConfirmPipelineBatchRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return ConfirmPipelineBatchRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Confirm'])) {
             $model->confirm = $map['Confirm'];
         }
-
         if (isset($map['PipelineId'])) {
             $model->pipelineId = $map['PipelineId'];
         }

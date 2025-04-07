@@ -4,11 +4,17 @@
 
 namespace AlibabaCloud\SDK\Sae\V20190506\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class DeleteWebCustomDomainRequest extends Model
 {
     /**
+     * @description The namespace ID.
+     *
+     * This parameter is required.
+     *
+     * @example cn-shanghai
+     *
      * @var string
      */
     public $namespaceId;
@@ -16,12 +22,9 @@ class DeleteWebCustomDomainRequest extends Model
         'namespaceId' => 'NamespaceId',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->namespaceId) {
@@ -31,11 +34,11 @@ class DeleteWebCustomDomainRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return DeleteWebCustomDomainRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();

@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Sae\V20190506\Models\DescribeApplicationInstancesResponseBody\data\instances;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class sidecarContainersStatus extends Model
 {
@@ -28,22 +28,17 @@ class sidecarContainersStatus extends Model
         'imageUrl' => 'ImageUrl',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->containerId) {
             $res['ContainerId'] = $this->containerId;
         }
-
         if (null !== $this->containerStatus) {
             $res['ContainerStatus'] = $this->containerStatus;
         }
-
         if (null !== $this->imageUrl) {
             $res['ImageUrl'] = $this->imageUrl;
         }
@@ -51,22 +46,20 @@ class sidecarContainersStatus extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return sidecarContainersStatus
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ContainerId'])) {
             $model->containerId = $map['ContainerId'];
         }
-
         if (isset($map['ContainerStatus'])) {
             $model->containerStatus = $map['ContainerStatus'];
         }
-
         if (isset($map['ImageUrl'])) {
             $model->imageUrl = $map['ImageUrl'];
         }

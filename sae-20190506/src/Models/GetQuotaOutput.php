@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Sae\V20190506\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class GetQuotaOutput extends Model
 {
@@ -28,22 +28,17 @@ class GetQuotaOutput extends Model
         'instanceUsed' => 'instanceUsed',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
-
         if (null !== $this->instanceLimit) {
             $res['instanceLimit'] = $this->instanceLimit;
         }
-
         if (null !== $this->instanceUsed) {
             $res['instanceUsed'] = $this->instanceUsed;
         }
@@ -51,22 +46,20 @@ class GetQuotaOutput extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return GetQuotaOutput
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
-
         if (isset($map['instanceLimit'])) {
             $model->instanceLimit = $map['instanceLimit'];
         }
-
         if (isset($map['instanceUsed'])) {
             $model->instanceUsed = $map['instanceUsed'];
         }

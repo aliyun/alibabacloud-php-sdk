@@ -4,26 +4,42 @@
 
 namespace AlibabaCloud\SDK\Sae\V20190506\Models\DescribeApplicationScalingRulesResponseBody\data\applicationScalingRules\timer;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class schedules extends Model
 {
     /**
+     * @description The point in time. Format: **Hour:Minute**.
+     *
+     * @example 08:00
+     *
      * @var string
      */
     public $atTime;
 
     /**
+     * @description The maximum number of instances.
+     *
+     * @example 50
+     *
      * @var int
      */
     public $maxReplicas;
 
     /**
+     * @description The minimum number of instances.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $minReplicas;
 
     /**
+     * @description The expected number of instances.
+     *
+     * @example 3
+     *
      * @var int
      */
     public $targetReplicas;
@@ -34,26 +50,20 @@ class schedules extends Model
         'targetReplicas' => 'TargetReplicas',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->atTime) {
             $res['AtTime'] = $this->atTime;
         }
-
         if (null !== $this->maxReplicas) {
             $res['MaxReplicas'] = $this->maxReplicas;
         }
-
         if (null !== $this->minReplicas) {
             $res['MinReplicas'] = $this->minReplicas;
         }
-
         if (null !== $this->targetReplicas) {
             $res['TargetReplicas'] = $this->targetReplicas;
         }
@@ -61,26 +71,23 @@ class schedules extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return schedules
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AtTime'])) {
             $model->atTime = $map['AtTime'];
         }
-
         if (isset($map['MaxReplicas'])) {
             $model->maxReplicas = $map['MaxReplicas'];
         }
-
         if (isset($map['MinReplicas'])) {
             $model->minReplicas = $map['MinReplicas'];
         }
-
         if (isset($map['TargetReplicas'])) {
             $model->targetReplicas = $map['TargetReplicas'];
         }

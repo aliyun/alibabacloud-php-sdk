@@ -4,11 +4,13 @@
 
 namespace AlibabaCloud\SDK\Sae\V20190506\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class WebScalingConfig extends Model
 {
     /**
+     * @example 10
+     *
      * @var int
      */
     public $maximumInstanceCount;
@@ -22,18 +24,14 @@ class WebScalingConfig extends Model
         'minimumInstanceCount' => 'MinimumInstanceCount',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->maximumInstanceCount) {
             $res['MaximumInstanceCount'] = $this->maximumInstanceCount;
         }
-
         if (null !== $this->minimumInstanceCount) {
             $res['MinimumInstanceCount'] = $this->minimumInstanceCount;
         }
@@ -41,18 +39,17 @@ class WebScalingConfig extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return WebScalingConfig
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['MaximumInstanceCount'])) {
             $model->maximumInstanceCount = $map['MaximumInstanceCount'];
         }
-
         if (isset($map['MinimumInstanceCount'])) {
             $model->minimumInstanceCount = $map['MinimumInstanceCount'];
         }

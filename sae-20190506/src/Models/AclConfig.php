@@ -4,11 +4,13 @@
 
 namespace AlibabaCloud\SDK\Sae\V20190506\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class AclConfig extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @var AclEntryConfig[]
      */
     public $aclEntries;
@@ -16,23 +18,17 @@ class AclConfig extends Model
         'aclEntries' => 'aclEntries',
     ];
 
-    public function validate()
-    {
-        if (\is_array($this->aclEntries)) {
-            Model::validateArray($this->aclEntries);
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->aclEntries) {
-            if (\is_array($this->aclEntries)) {
-                $res['aclEntries'] = [];
-                $n1 = 0;
-                foreach ($this->aclEntries as $item1) {
-                    $res['aclEntries'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+            $res['aclEntries'] = [];
+            if (null !== $this->aclEntries && \is_array($this->aclEntries)) {
+                $n = 0;
+                foreach ($this->aclEntries as $item) {
+                    $res['aclEntries'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
         }
@@ -40,20 +36,20 @@ class AclConfig extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return AclConfig
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['aclEntries'])) {
             if (!empty($map['aclEntries'])) {
                 $model->aclEntries = [];
-                $n1 = 0;
-                foreach ($map['aclEntries'] as $item1) {
-                    $model->aclEntries[$n1++] = AclEntryConfig::fromMap($item1);
+                $n = 0;
+                foreach ($map['aclEntries'] as $item) {
+                    $model->aclEntries[$n++] = null !== $item ? AclEntryConfig::fromMap($item) : $item;
                 }
             }
         }

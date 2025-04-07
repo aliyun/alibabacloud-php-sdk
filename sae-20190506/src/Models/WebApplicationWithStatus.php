@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Sae\V20190506\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class WebApplicationWithStatus extends Model
 {
@@ -22,43 +22,32 @@ class WebApplicationWithStatus extends Model
         'webApplication' => 'WebApplication',
     ];
 
-    public function validate()
-    {
-        if (null !== $this->status) {
-            $this->status->validate();
-        }
-        if (null !== $this->webApplication) {
-            $this->webApplication->validate();
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->status) {
-            $res['Status'] = null !== $this->status ? $this->status->toArray($noStream) : $this->status;
+            $res['Status'] = null !== $this->status ? $this->status->toMap() : null;
         }
-
         if (null !== $this->webApplication) {
-            $res['WebApplication'] = null !== $this->webApplication ? $this->webApplication->toArray($noStream) : $this->webApplication;
+            $res['WebApplication'] = null !== $this->webApplication ? $this->webApplication->toMap() : null;
         }
 
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return WebApplicationWithStatus
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Status'])) {
             $model->status = WebApplicationStatus::fromMap($map['Status']);
         }
-
         if (isset($map['WebApplication'])) {
             $model->webApplication = WebApplication::fromMap($map['WebApplication']);
         }

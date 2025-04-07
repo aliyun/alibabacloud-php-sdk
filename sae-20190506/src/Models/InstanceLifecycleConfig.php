@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Sae\V20190506\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class InstanceLifecycleConfig extends Model
 {
@@ -22,43 +22,32 @@ class InstanceLifecycleConfig extends Model
         'preStop' => 'preStop',
     ];
 
-    public function validate()
-    {
-        if (null !== $this->preFreeze) {
-            $this->preFreeze->validate();
-        }
-        if (null !== $this->preStop) {
-            $this->preStop->validate();
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->preFreeze) {
-            $res['preFreeze'] = null !== $this->preFreeze ? $this->preFreeze->toArray($noStream) : $this->preFreeze;
+            $res['preFreeze'] = null !== $this->preFreeze ? $this->preFreeze->toMap() : null;
         }
-
         if (null !== $this->preStop) {
-            $res['preStop'] = null !== $this->preStop ? $this->preStop->toArray($noStream) : $this->preStop;
+            $res['preStop'] = null !== $this->preStop ? $this->preStop->toMap() : null;
         }
 
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return InstanceLifecycleConfig
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['preFreeze'])) {
             $model->preFreeze = LifecycleHook::fromMap($map['preFreeze']);
         }
-
         if (isset($map['preStop'])) {
             $model->preStop = LifecycleHook::fromMap($map['preStop']);
         }

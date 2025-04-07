@@ -4,11 +4,17 @@
 
 namespace AlibabaCloud\SDK\Sae\V20190506\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class DescribeIngressRequest extends Model
 {
     /**
+     * @description The ID of the routing rule to be queried.
+     *
+     * This parameter is required.
+     *
+     * @example 87
+     *
      * @var int
      */
     public $ingressId;
@@ -16,12 +22,9 @@ class DescribeIngressRequest extends Model
         'ingressId' => 'IngressId',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->ingressId) {
@@ -31,11 +34,11 @@ class DescribeIngressRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return DescribeIngressRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();

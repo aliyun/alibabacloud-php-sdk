@@ -4,66 +4,141 @@
 
 namespace AlibabaCloud\SDK\Sae\V20190506\Models\DescribeApplicationStatusResponseBody;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class data extends Model
 {
     /**
+     * @description The ID of the application.
+     *
+     * @example 0099b7be-5f5b-4512-a7fc-56049ef1****
+     *
      * @var string
      */
     public $appId;
 
     /**
+     * @description Indicates whether Application Real-Time Monitoring Service (ARMS) advanced monitoring is enabled. Valid values:
+     *
+     *   **true**
+     *   **false**
+     *
+     * @example false
+     *
      * @var string
      */
     public $armsAdvancedEnabled;
 
     /**
+     * @description The metadata of the application in ARMS.
+     *
+     * @example {"appId":"0099b7be-5f5b-4512-a7fc-56049ef1****","licenseKey":"d5cgdt5pu0@7303f55292a****"}
+     *
      * @var string
      */
     public $armsApmInfo;
 
     /**
+     * @description The time when the application was created.
+     *
+     * @example 1563373372746
+     *
      * @var string
      */
     public $createTime;
 
     /**
+     * @description The current status of the application. Valid values:
+     *
+     *   **RUNNING**
+     *   **STOPPED**
+     *   **UNKNOWN**
+     *
+     * @example RUNNING
+     *
      * @var string
      */
     public $currentStatus;
 
     /**
+     * @description Indicates whether SAE agent is enabled.
+     *
+     *   **true**
+     *   **false**
+     *
+     * @example false
+     *
      * @var bool
      */
     public $enableAgent;
 
     /**
+     * @description The file size limit. Unit: KB. Valid values: 0 to 10240.
+     *
+     * @example 10240
+     *
      * @var int
      */
     public $fileSizeLimit;
 
     /**
+     * @description The ID of the latest change order that is executed. If no change orders are executed or if change orders expire, this parameter is left empty.
+     *
+     * @example 1ccc2339-fc19-49aa-bda0-1e7b8497****
+     *
      * @var string
      */
     public $lastChangeOrderId;
 
     /**
+     * @description Indicates whether the latest change order is being executed. Valid values:
+     *
+     *   **true**
+     *   **false**
+     *
+     * @example false
+     *
      * @var bool
      */
     public $lastChangeOrderRunning;
 
     /**
+     * @description The status of the latest change order. Valid values:
+     *
+     *   **READY**: The change order is ready.
+     *   **RUNNING**: The change order is being executed.
+     *   **SUCCESS**: The change order was executed.
+     *   **FAIL**: The change order failed to be executed.
+     *   **ABORT**: The change order is stopped.
+     *   **WAIT_BATCH_CONFIRM**: The change order is pending execution. You must manually confirm the release batch.
+     *   **AUTO_BATCH_WAIT**: The change order is pending execution. SAE will automatically confirm the release batch.
+     *   **SYSTEM_FAIL**: A system exception occurred.
+     *   **WAIT_APPROVAL**: The change order is pending approval.
+     *   **APPROVED**: The change order is approved and is pending execution.
+     *
+     * @example SUCCESS
+     *
      * @var string
      */
     public $lastChangeOrderStatus;
 
     /**
+     * @description The number of running instances of the application.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $runningInstances;
 
     /**
+     * @description The substatus of the change order. This parameter indicates whether an exception occurred while the change order was being executed. Valid values:
+     *
+     *   **NORMAL**
+     *   **RUNNING_BUT_HAS_ERROR**: For example, if an error occurs during a phased release, you must manually roll back the application. In this case, the change order cannot be completed because the change order is still being executed.
+     *
+     * @example NORMAL
+     *
      * @var string
      */
     public $subStatus;
@@ -82,58 +157,44 @@ class data extends Model
         'subStatus' => 'SubStatus',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->appId) {
             $res['AppId'] = $this->appId;
         }
-
         if (null !== $this->armsAdvancedEnabled) {
             $res['ArmsAdvancedEnabled'] = $this->armsAdvancedEnabled;
         }
-
         if (null !== $this->armsApmInfo) {
             $res['ArmsApmInfo'] = $this->armsApmInfo;
         }
-
         if (null !== $this->createTime) {
             $res['CreateTime'] = $this->createTime;
         }
-
         if (null !== $this->currentStatus) {
             $res['CurrentStatus'] = $this->currentStatus;
         }
-
         if (null !== $this->enableAgent) {
             $res['EnableAgent'] = $this->enableAgent;
         }
-
         if (null !== $this->fileSizeLimit) {
             $res['FileSizeLimit'] = $this->fileSizeLimit;
         }
-
         if (null !== $this->lastChangeOrderId) {
             $res['LastChangeOrderId'] = $this->lastChangeOrderId;
         }
-
         if (null !== $this->lastChangeOrderRunning) {
             $res['LastChangeOrderRunning'] = $this->lastChangeOrderRunning;
         }
-
         if (null !== $this->lastChangeOrderStatus) {
             $res['LastChangeOrderStatus'] = $this->lastChangeOrderStatus;
         }
-
         if (null !== $this->runningInstances) {
             $res['RunningInstances'] = $this->runningInstances;
         }
-
         if (null !== $this->subStatus) {
             $res['SubStatus'] = $this->subStatus;
         }
@@ -141,58 +202,47 @@ class data extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return data
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AppId'])) {
             $model->appId = $map['AppId'];
         }
-
         if (isset($map['ArmsAdvancedEnabled'])) {
             $model->armsAdvancedEnabled = $map['ArmsAdvancedEnabled'];
         }
-
         if (isset($map['ArmsApmInfo'])) {
             $model->armsApmInfo = $map['ArmsApmInfo'];
         }
-
         if (isset($map['CreateTime'])) {
             $model->createTime = $map['CreateTime'];
         }
-
         if (isset($map['CurrentStatus'])) {
             $model->currentStatus = $map['CurrentStatus'];
         }
-
         if (isset($map['EnableAgent'])) {
             $model->enableAgent = $map['EnableAgent'];
         }
-
         if (isset($map['FileSizeLimit'])) {
             $model->fileSizeLimit = $map['FileSizeLimit'];
         }
-
         if (isset($map['LastChangeOrderId'])) {
             $model->lastChangeOrderId = $map['LastChangeOrderId'];
         }
-
         if (isset($map['LastChangeOrderRunning'])) {
             $model->lastChangeOrderRunning = $map['LastChangeOrderRunning'];
         }
-
         if (isset($map['LastChangeOrderStatus'])) {
             $model->lastChangeOrderStatus = $map['LastChangeOrderStatus'];
         }
-
         if (isset($map['RunningInstances'])) {
             $model->runningInstances = $map['RunningInstances'];
         }
-
         if (isset($map['SubStatus'])) {
             $model->subStatus = $map['SubStatus'];
         }

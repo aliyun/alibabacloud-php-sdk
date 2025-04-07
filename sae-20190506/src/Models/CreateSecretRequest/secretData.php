@@ -4,11 +4,13 @@
 
 namespace AlibabaCloud\SDK\Sae\V20190506\Models\CreateSecretRequest;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class secretData extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $secretData;
@@ -16,12 +18,9 @@ class secretData extends Model
         'secretData' => 'SecretData',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->secretData) {
@@ -31,11 +30,11 @@ class secretData extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return secretData
+     */
     public static function fromMap($map = [])
     {
         $model = new self();

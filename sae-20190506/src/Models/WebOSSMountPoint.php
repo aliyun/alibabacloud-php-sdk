@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Sae\V20190506\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class WebOSSMountPoint extends Model
 {
@@ -34,26 +34,20 @@ class WebOSSMountPoint extends Model
         'readOnly' => 'ReadOnly',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->bucketName) {
             $res['BucketName'] = $this->bucketName;
         }
-
         if (null !== $this->bucketPath) {
             $res['BucketPath'] = $this->bucketPath;
         }
-
         if (null !== $this->mountDir) {
             $res['MountDir'] = $this->mountDir;
         }
-
         if (null !== $this->readOnly) {
             $res['ReadOnly'] = $this->readOnly;
         }
@@ -61,26 +55,23 @@ class WebOSSMountPoint extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return WebOSSMountPoint
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['BucketName'])) {
             $model->bucketName = $map['BucketName'];
         }
-
         if (isset($map['BucketPath'])) {
             $model->bucketPath = $map['BucketPath'];
         }
-
         if (isset($map['MountDir'])) {
             $model->mountDir = $map['MountDir'];
         }
-
         if (isset($map['ReadOnly'])) {
             $model->readOnly = $map['ReadOnly'];
         }

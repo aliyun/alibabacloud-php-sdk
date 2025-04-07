@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Sae\V20190506\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class ArmsConfig extends Model
 {
@@ -28,22 +28,17 @@ class ArmsConfig extends Model
         'licenseKey' => 'licenseKey',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->agentVersion) {
             $res['agentVersion'] = $this->agentVersion;
         }
-
         if (null !== $this->appId) {
             $res['appId'] = $this->appId;
         }
-
         if (null !== $this->licenseKey) {
             $res['licenseKey'] = $this->licenseKey;
         }
@@ -51,22 +46,20 @@ class ArmsConfig extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return ArmsConfig
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['agentVersion'])) {
             $model->agentVersion = $map['agentVersion'];
         }
-
         if (isset($map['appId'])) {
             $model->appId = $map['appId'];
         }
-
         if (isset($map['licenseKey'])) {
             $model->licenseKey = $map['licenseKey'];
         }
