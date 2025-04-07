@@ -2,18 +2,18 @@
 
 // This file is auto-generated, don't edit it. Thanks.
 
-namespace AlibabaCloud\SDK\AliGenie\Voauth2_1_0\Models;
+namespace AlibabaCloud\SDK\AliGenie\Voauth2_1_0\Models\PushDeviceNotificationRequest;
 
 use AlibabaCloud\Dara\Model;
 
-class ExecuteSceneRequest extends Model
+class tenantInfo extends Model
 {
     /**
      * @var string
      */
-    public $sceneId;
+    public $subjectId;
     protected $_name = [
-        'sceneId' => 'SceneId',
+        'subjectId' => 'SubjectId',
     ];
 
     public function validate()
@@ -24,8 +24,8 @@ class ExecuteSceneRequest extends Model
     public function toArray($noStream = false)
     {
         $res = [];
-        if (null !== $this->sceneId) {
-            $res['SceneId'] = $this->sceneId;
+        if (null !== $this->subjectId) {
+            $res['SubjectId'] = $this->subjectId;
         }
 
         return $res;
@@ -39,8 +39,8 @@ class ExecuteSceneRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['SceneId'])) {
-            $model->sceneId = $map['SceneId'];
+        if (isset($map['SubjectId'])) {
+            $model->subjectId = $map['SubjectId'];
         }
 
         return $model;

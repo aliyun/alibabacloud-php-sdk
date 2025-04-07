@@ -6,7 +6,7 @@ namespace AlibabaCloud\SDK\AliGenie\Voauth2_1_0\Models;
 
 use AlibabaCloud\Dara\Model;
 
-class OAuth2TokenEndpointResponse extends Model
+class QueryDeviceListResponse extends Model
 {
     /**
      * @var string[]
@@ -19,7 +19,7 @@ class OAuth2TokenEndpointResponse extends Model
     public $statusCode;
 
     /**
-     * @var OAuth2TokenEndpointResponseBody
+     * @var QueryDeviceListResponseBody
      */
     public $body;
     protected $_name = [
@@ -84,7 +84,7 @@ class OAuth2TokenEndpointResponse extends Model
         }
 
         if (isset($map['body'])) {
-            $model->body = OAuth2TokenEndpointResponseBody::fromMap($map['body']);
+            $model->body = QueryDeviceListResponseBody::fromMap($map['body']);
         }
 
         return $model;

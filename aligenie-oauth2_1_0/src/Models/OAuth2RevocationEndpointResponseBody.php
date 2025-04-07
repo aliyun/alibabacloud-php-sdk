@@ -4,15 +4,11 @@
 
 namespace AlibabaCloud\SDK\AliGenie\Voauth2_1_0\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class OAuth2RevocationEndpointResponseBody extends Model
 {
     /**
-     * @description Id of the request
-     *
-     * @example 4070039E-5822-1F32-9295-1D2883E48BA5
-     *
      * @var string
      */
     public $requestId;
@@ -22,9 +18,10 @@ class OAuth2RevocationEndpointResponseBody extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->requestId) {
@@ -34,11 +31,11 @@ class OAuth2RevocationEndpointResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return OAuth2RevocationEndpointResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

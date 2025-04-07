@@ -4,13 +4,11 @@
 
 namespace AlibabaCloud\SDK\AliGenie\Voauth2_1_0\Models\GetSceneListResponseBody;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class sceneList extends Model
 {
     /**
-     * @example 840960b85c3c48e0bd7260c1718295fd
-     *
      * @var string
      */
     public $sceneId;
@@ -20,20 +18,22 @@ class sceneList extends Model
      */
     public $sceneName;
     protected $_name = [
-        'sceneId'   => 'SceneId',
+        'sceneId' => 'SceneId',
         'sceneName' => 'SceneName',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->sceneId) {
             $res['SceneId'] = $this->sceneId;
         }
+
         if (null !== $this->sceneName) {
             $res['SceneName'] = $this->sceneName;
         }
@@ -41,17 +41,18 @@ class sceneList extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return sceneList
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['SceneId'])) {
             $model->sceneId = $map['SceneId'];
         }
+
         if (isset($map['SceneName'])) {
             $model->sceneName = $map['SceneName'];
         }

@@ -2,11 +2,11 @@
 
 // This file is auto-generated, don't edit it. Thanks.
 
-namespace AlibabaCloud\SDK\AliGenie\Voauth2_1_0\Models\GetUserBasicInfoResponseBody;
+namespace AlibabaCloud\SDK\AliGenie\Voauth2_1_0\Models\QueryDeviceListResponseBody\deviceList;
 
 use AlibabaCloud\Dara\Model;
 
-class unionIds extends Model
+class deviceUnionIds extends Model
 {
     /**
      * @var string

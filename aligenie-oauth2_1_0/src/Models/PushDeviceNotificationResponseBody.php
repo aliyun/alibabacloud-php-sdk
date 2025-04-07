@@ -6,14 +6,14 @@ namespace AlibabaCloud\SDK\AliGenie\Voauth2_1_0\Models;
 
 use AlibabaCloud\Dara\Model;
 
-class ExecuteSceneRequest extends Model
+class PushDeviceNotificationResponseBody extends Model
 {
     /**
      * @var string
      */
-    public $sceneId;
+    public $requestId;
     protected $_name = [
-        'sceneId' => 'SceneId',
+        'requestId' => 'requestId',
     ];
 
     public function validate()
@@ -24,8 +24,8 @@ class ExecuteSceneRequest extends Model
     public function toArray($noStream = false)
     {
         $res = [];
-        if (null !== $this->sceneId) {
-            $res['SceneId'] = $this->sceneId;
+        if (null !== $this->requestId) {
+            $res['requestId'] = $this->requestId;
         }
 
         return $res;
@@ -39,8 +39,8 @@ class ExecuteSceneRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['SceneId'])) {
-            $model->sceneId = $map['SceneId'];
+        if (isset($map['requestId'])) {
+            $model->requestId = $map['requestId'];
         }
 
         return $model;
