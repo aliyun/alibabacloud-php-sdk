@@ -300,6 +300,9 @@ class Bailian extends OpenApiClient
         if (!Utils::isUnset($request->sizeInBytes)) {
             $body['SizeInBytes'] = $request->sizeInBytes;
         }
+        if (!Utils::isUnset($request->useInternalEndpoint)) {
+            $body['UseInternalEndpoint'] = $request->useInternalEndpoint;
+        }
         $req = new OpenApiRequest([
             'headers' => $headers,
             'body' => OpenApiUtilClient::parseToMap($body),

@@ -43,11 +43,17 @@ class ApplyFileUploadLeaseRequest extends Model
      * @var string
      */
     public $sizeInBytes;
+
+    /**
+     * @var bool
+     */
+    public $useInternalEndpoint;
     protected $_name = [
         'categoryType' => 'CategoryType',
         'fileName' => 'FileName',
         'md5' => 'Md5',
         'sizeInBytes' => 'SizeInBytes',
+        'useInternalEndpoint' => 'UseInternalEndpoint',
     ];
 
     public function validate() {}
@@ -66,6 +72,9 @@ class ApplyFileUploadLeaseRequest extends Model
         }
         if (null !== $this->sizeInBytes) {
             $res['SizeInBytes'] = $this->sizeInBytes;
+        }
+        if (null !== $this->useInternalEndpoint) {
+            $res['UseInternalEndpoint'] = $this->useInternalEndpoint;
         }
 
         return $res;
@@ -90,6 +99,9 @@ class ApplyFileUploadLeaseRequest extends Model
         }
         if (isset($map['SizeInBytes'])) {
             $model->sizeInBytes = $map['SizeInBytes'];
+        }
+        if (isset($map['UseInternalEndpoint'])) {
+            $model->useInternalEndpoint = $map['UseInternalEndpoint'];
         }
 
         return $model;
