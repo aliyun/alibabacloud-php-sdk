@@ -12,8 +12,14 @@ class StartAndroidInstanceRequest extends Model
      * @var string[]
      */
     public $androidInstanceIds;
+
+    /**
+     * @var string
+     */
+    public $saleMode;
     protected $_name = [
         'androidInstanceIds' => 'AndroidInstanceIds',
+        'saleMode' => 'SaleMode',
     ];
 
     public function validate()
@@ -37,6 +43,10 @@ class StartAndroidInstanceRequest extends Model
             }
         }
 
+        if (null !== $this->saleMode) {
+            $res['SaleMode'] = $this->saleMode;
+        }
+
         return $res;
     }
 
@@ -56,6 +66,10 @@ class StartAndroidInstanceRequest extends Model
                     $model->androidInstanceIds[$n1++] = $item1;
                 }
             }
+        }
+
+        if (isset($map['SaleMode'])) {
+            $model->saleMode = $map['SaleMode'];
         }
 
         return $model;

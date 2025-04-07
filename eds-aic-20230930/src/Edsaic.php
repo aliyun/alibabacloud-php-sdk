@@ -4010,6 +4010,10 @@ class Edsaic extends OpenApiClient
             @$query['ForceStop'] = $request->forceStop;
         }
 
+        if (null !== $request->saleMode) {
+            @$query['SaleMode'] = $request->saleMode;
+        }
+
         $req = new OpenApiRequest([
             'query' => Utils::query($query),
         ]);
@@ -4306,6 +4310,10 @@ class Edsaic extends OpenApiClient
             @$query['AndroidInstanceIds'] = $request->androidInstanceIds;
         }
 
+        if (null !== $request->saleMode) {
+            @$query['SaleMode'] = $request->saleMode;
+        }
+
         $req = new OpenApiRequest([
             'query' => Utils::query($query),
         ]);
@@ -4600,6 +4608,10 @@ class Edsaic extends OpenApiClient
             @$query['AndroidInstanceIds'] = $request->androidInstanceIds;
         }
 
+        if (null !== $request->saleMode) {
+            @$query['SaleMode'] = $request->saleMode;
+        }
+
         $req = new OpenApiRequest([
             'query' => Utils::query($query),
         ]);
@@ -4668,6 +4680,10 @@ class Edsaic extends OpenApiClient
 
         if (null !== $request->forceStop) {
             @$query['ForceStop'] = $request->forceStop;
+        }
+
+        if (null !== $request->saleMode) {
+            @$query['SaleMode'] = $request->saleMode;
         }
 
         $req = new OpenApiRequest([

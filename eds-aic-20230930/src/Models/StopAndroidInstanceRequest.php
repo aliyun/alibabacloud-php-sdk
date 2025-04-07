@@ -17,9 +17,15 @@ class StopAndroidInstanceRequest extends Model
      * @var bool
      */
     public $forceStop;
+
+    /**
+     * @var string
+     */
+    public $saleMode;
     protected $_name = [
         'androidInstanceIds' => 'AndroidInstanceIds',
         'forceStop' => 'ForceStop',
+        'saleMode' => 'SaleMode',
     ];
 
     public function validate()
@@ -47,6 +53,10 @@ class StopAndroidInstanceRequest extends Model
             $res['ForceStop'] = $this->forceStop;
         }
 
+        if (null !== $this->saleMode) {
+            $res['SaleMode'] = $this->saleMode;
+        }
+
         return $res;
     }
 
@@ -70,6 +80,10 @@ class StopAndroidInstanceRequest extends Model
 
         if (isset($map['ForceStop'])) {
             $model->forceStop = $map['ForceStop'];
+        }
+
+        if (isset($map['SaleMode'])) {
+            $model->saleMode = $map['SaleMode'];
         }
 
         return $model;
