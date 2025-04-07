@@ -4,26 +4,45 @@
 
 namespace AlibabaCloud\SDK\ComputeNestSupplier\V20210521\Models\GetServiceTestTaskResponseBody;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class executionDetails extends Model
 {
     /**
+     * @description The service test case name.
+     *
+     * @example case1
+     *
      * @var string
      */
     public $caseName;
 
     /**
+     * @description The execution report
+     *
+     * @example -----------------------------------------------------------------------------
+     * Region: cn-qingdao
+     * StackName: iact3-default-cn-qingd
+     * StackId: 009d2991-f494-d
+     *****************************************************************************
      * @var string
      */
     public $executionReport;
 
     /**
+     * @description The sub task status.
+     *
+     * @example Runing
+     *
      * @var string
      */
     public $status;
 
     /**
+     * @description The sub task id.
+     *
+     * @example stt-xxxx
+     *
      * @var string
      */
     public $subTaskId;
@@ -34,26 +53,20 @@ class executionDetails extends Model
         'subTaskId' => 'SubTaskId',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->caseName) {
             $res['CaseName'] = $this->caseName;
         }
-
         if (null !== $this->executionReport) {
             $res['ExecutionReport'] = $this->executionReport;
         }
-
         if (null !== $this->status) {
             $res['Status'] = $this->status;
         }
-
         if (null !== $this->subTaskId) {
             $res['SubTaskId'] = $this->subTaskId;
         }
@@ -61,26 +74,23 @@ class executionDetails extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return executionDetails
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['CaseName'])) {
             $model->caseName = $map['CaseName'];
         }
-
         if (isset($map['ExecutionReport'])) {
             $model->executionReport = $map['ExecutionReport'];
         }
-
         if (isset($map['Status'])) {
             $model->status = $map['Status'];
         }
-
         if (isset($map['SubTaskId'])) {
             $model->subTaskId = $map['SubTaskId'];
         }

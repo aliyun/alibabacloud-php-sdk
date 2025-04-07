@@ -4,12 +4,14 @@
 
 namespace AlibabaCloud\SDK\ComputeNestSupplier\V20210521\Models\CreateServiceResponseBody;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\ComputeNestSupplier\V20210521\Models\CreateServiceResponseBody\dryRunResult\rolePolicy;
+use AlibabaCloud\Tea\Model;
 
 class dryRunResult extends Model
 {
     /**
+     * @description The required ram policy for deploying role.
+     *
      * @var rolePolicy
      */
     public $rolePolicy;
@@ -17,29 +19,23 @@ class dryRunResult extends Model
         'rolePolicy' => 'RolePolicy',
     ];
 
-    public function validate()
-    {
-        if (null !== $this->rolePolicy) {
-            $this->rolePolicy->validate();
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->rolePolicy) {
-            $res['RolePolicy'] = null !== $this->rolePolicy ? $this->rolePolicy->toArray($noStream) : $this->rolePolicy;
+            $res['RolePolicy'] = null !== $this->rolePolicy ? $this->rolePolicy->toMap() : null;
         }
 
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return dryRunResult
+     */
     public static function fromMap($map = [])
     {
         $model = new self();

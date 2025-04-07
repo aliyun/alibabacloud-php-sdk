@@ -4,21 +4,37 @@
 
 namespace AlibabaCloud\SDK\ComputeNestSupplier\V20210521\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class LaunchServiceResponseBody extends Model
 {
     /**
+     * @description The request ID.
+     *
+     * @example 4DB0F536-B3BE-4F0D-BD29-E83FB56D550C
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description The mode of the service online. Valid Type
+     *
+     * - PublishNewVersion: Launch new version
+     * - PublishOfflineVersion:  The offline version is online again.
+     * - UpdateLatestVersion: Update the latest version online
+     *
+     * @example PublishNewVersion
+     *
      * @var string
      */
     public $serviceLaunchResultType;
 
     /**
+     * @description The service version.
+     *
+     * @example 1.0
+     *
      * @var string
      */
     public $version;
@@ -28,22 +44,17 @@ class LaunchServiceResponseBody extends Model
         'version' => 'Version',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
-
         if (null !== $this->serviceLaunchResultType) {
             $res['ServiceLaunchResultType'] = $this->serviceLaunchResultType;
         }
-
         if (null !== $this->version) {
             $res['Version'] = $this->version;
         }
@@ -51,22 +62,20 @@ class LaunchServiceResponseBody extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return LaunchServiceResponseBody
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
-
         if (isset($map['ServiceLaunchResultType'])) {
             $model->serviceLaunchResultType = $map['ServiceLaunchResultType'];
         }
-
         if (isset($map['Version'])) {
             $model->version = $map['Version'];
         }

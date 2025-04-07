@@ -4,11 +4,15 @@
 
 namespace AlibabaCloud\SDK\ComputeNestSupplier\V20210521\Models\UpdateServiceInstanceAttributeRequest;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class licenseData extends Model
 {
     /**
+     * @description The Custom Data
+     *
+     * @example {"Test"}
+     *
      * @var string
      */
     public $customData;
@@ -16,12 +20,9 @@ class licenseData extends Model
         'customData' => 'CustomData',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->customData) {
@@ -31,11 +32,11 @@ class licenseData extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return licenseData
+     */
     public static function fromMap($map = [])
     {
         $model = new self();

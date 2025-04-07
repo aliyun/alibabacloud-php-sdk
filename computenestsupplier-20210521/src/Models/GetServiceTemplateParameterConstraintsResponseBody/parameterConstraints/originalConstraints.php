@@ -4,26 +4,40 @@
 
 namespace AlibabaCloud\SDK\ComputeNestSupplier\V20210521\Models\GetServiceTemplateParameterConstraintsResponseBody\parameterConstraints;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class originalConstraints extends Model
 {
     /**
+     * @description The valid values of the parameter.
+     *
      * @var string[]
      */
     public $allowedValues;
 
     /**
+     * @description The property name.
+     *
+     * @example lnch_Source
+     *
      * @var string
      */
     public $propertyName;
 
     /**
+     * @description The resource name.
+     *
+     * @example i-8vb0smn1lf6g77md****
+     *
      * @var string
      */
     public $resourceName;
 
     /**
+     * @description The resource type.
+     *
+     * @example serviceinstance
+     *
      * @var string
      */
     public $resourceType;
@@ -34,35 +48,20 @@ class originalConstraints extends Model
         'resourceType' => 'ResourceType',
     ];
 
-    public function validate()
-    {
-        if (\is_array($this->allowedValues)) {
-            Model::validateArray($this->allowedValues);
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->allowedValues) {
-            if (\is_array($this->allowedValues)) {
-                $res['AllowedValues'] = [];
-                $n1 = 0;
-                foreach ($this->allowedValues as $item1) {
-                    $res['AllowedValues'][$n1++] = $item1;
-                }
-            }
+            $res['AllowedValues'] = $this->allowedValues;
         }
-
         if (null !== $this->propertyName) {
             $res['PropertyName'] = $this->propertyName;
         }
-
         if (null !== $this->resourceName) {
             $res['ResourceName'] = $this->resourceName;
         }
-
         if (null !== $this->resourceType) {
             $res['ResourceType'] = $this->resourceType;
         }
@@ -70,32 +69,25 @@ class originalConstraints extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return originalConstraints
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AllowedValues'])) {
             if (!empty($map['AllowedValues'])) {
-                $model->allowedValues = [];
-                $n1 = 0;
-                foreach ($map['AllowedValues'] as $item1) {
-                    $model->allowedValues[$n1++] = $item1;
-                }
+                $model->allowedValues = $map['AllowedValues'];
             }
         }
-
         if (isset($map['PropertyName'])) {
             $model->propertyName = $map['PropertyName'];
         }
-
         if (isset($map['ResourceName'])) {
             $model->resourceName = $map['ResourceName'];
         }
-
         if (isset($map['ResourceType'])) {
             $model->resourceType = $map['ResourceType'];
         }

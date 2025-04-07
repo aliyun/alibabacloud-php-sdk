@@ -4,27 +4,44 @@
 
 namespace AlibabaCloud\SDK\ComputeNestSupplier\V20210521\Models\GetServiceProvisionsResponseBody\serviceProvisions\roleProvision;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\ComputeNestSupplier\V20210521\Models\GetServiceProvisionsResponseBody\serviceProvisions\roleProvision\roles\apiForCreation;
+use AlibabaCloud\Tea\Model;
 
 class roles extends Model
 {
     /**
+     * @description The information about the API operation that is used to create the RAM role.
+     *
      * @var apiForCreation
      */
     public $apiForCreation;
 
     /**
+     * @description Indicates whether the RAM role is created. Valid values:
+     *
+     *   true
+     *   false
+     *
+     * @example true
+     *
      * @var bool
      */
     public $created;
 
     /**
+     * @description The purpose for which the RAM role is used. Default value: Default. A value of Default indicates that the RAM role is the default role of the service.
+     *
+     * @example Default
+     *
      * @var string
      */
     public $function;
 
     /**
+     * @description The name of the role.
+     *
+     * @example AliyunServiceRole
+     *
      * @var string
      */
     public $roleName;
@@ -35,29 +52,20 @@ class roles extends Model
         'roleName' => 'RoleName',
     ];
 
-    public function validate()
-    {
-        if (null !== $this->apiForCreation) {
-            $this->apiForCreation->validate();
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->apiForCreation) {
-            $res['ApiForCreation'] = null !== $this->apiForCreation ? $this->apiForCreation->toArray($noStream) : $this->apiForCreation;
+            $res['ApiForCreation'] = null !== $this->apiForCreation ? $this->apiForCreation->toMap() : null;
         }
-
         if (null !== $this->created) {
             $res['Created'] = $this->created;
         }
-
         if (null !== $this->function) {
             $res['Function'] = $this->function;
         }
-
         if (null !== $this->roleName) {
             $res['RoleName'] = $this->roleName;
         }
@@ -65,26 +73,23 @@ class roles extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return roles
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ApiForCreation'])) {
             $model->apiForCreation = apiForCreation::fromMap($map['ApiForCreation']);
         }
-
         if (isset($map['Created'])) {
             $model->created = $map['Created'];
         }
-
         if (isset($map['Function'])) {
             $model->function = $map['Function'];
         }
-
         if (isset($map['RoleName'])) {
             $model->roleName = $map['RoleName'];
         }

@@ -4,26 +4,47 @@
 
 namespace AlibabaCloud\SDK\ComputeNestSupplier\V20210521\Models\UpdateServiceRequest\commodity;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class meteringEntityExtraInfos extends Model
 {
     /**
+     * @description Metering entity ID.
+     *
+     * @example cmgj0006xxxx-Memory-1
+     *
      * @var string
      */
     public $entityId;
 
     /**
+     * @description Metric name, required when type is ComputeNestBill or ComputeNestPrometheus.
+     *
+     * @example VirtualCpu/ecs.InstanceType
+     *
      * @var string
      */
     public $metricName;
 
     /**
+     * @description Promql statement.
+     *
+     * @example avg_over_time(sum(rate(container_cpu_usage_seconds_total{namespace=~"ALIYUN::StackName"}[2m]))[1h:10s])
+     *
      * @var string
      */
     public $promql;
 
     /**
+     * @description Type. Valid values:
+     *
+     * - Custom
+     * - ComputeNestBill
+     * - ComputeNestPrometheus
+     * - ComputeNestTime
+     *
+     * @example Custom
+     *
      * @var string
      */
     public $type;
@@ -34,26 +55,20 @@ class meteringEntityExtraInfos extends Model
         'type' => 'Type',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->entityId) {
             $res['EntityId'] = $this->entityId;
         }
-
         if (null !== $this->metricName) {
             $res['MetricName'] = $this->metricName;
         }
-
         if (null !== $this->promql) {
             $res['Promql'] = $this->promql;
         }
-
         if (null !== $this->type) {
             $res['Type'] = $this->type;
         }
@@ -61,26 +76,23 @@ class meteringEntityExtraInfos extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return meteringEntityExtraInfos
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['EntityId'])) {
             $model->entityId = $map['EntityId'];
         }
-
         if (isset($map['MetricName'])) {
             $model->metricName = $map['MetricName'];
         }
-
         if (isset($map['Promql'])) {
             $model->promql = $map['Promql'];
         }
-
         if (isset($map['Type'])) {
             $model->type = $map['Type'];
         }

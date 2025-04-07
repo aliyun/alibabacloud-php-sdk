@@ -4,11 +4,15 @@
 
 namespace AlibabaCloud\SDK\ComputeNestSupplier\V20210521\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class CreateSupplierRegistrationResponseBody extends Model
 {
     /**
+     * @description Id of the request
+     *
+     * @example C4A145D8-xxxx-xxxx-xxxx-9730CDA27578
+     *
      * @var string
      */
     public $requestId;
@@ -16,12 +20,9 @@ class CreateSupplierRegistrationResponseBody extends Model
         'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->requestId) {
@@ -31,11 +32,11 @@ class CreateSupplierRegistrationResponseBody extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return CreateSupplierRegistrationResponseBody
+     */
     public static function fromMap($map = [])
     {
         $model = new self();

@@ -4,11 +4,13 @@
 
 namespace AlibabaCloud\SDK\ComputeNestSupplier\V20210521\Models\UpdateServiceRequest;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class complianceMetadata extends Model
 {
     /**
+     * @description The compliance pack.
+     *
      * @var string[]
      */
     public $compliancePacks;
@@ -16,45 +18,29 @@ class complianceMetadata extends Model
         'compliancePacks' => 'CompliancePacks',
     ];
 
-    public function validate()
-    {
-        if (\is_array($this->compliancePacks)) {
-            Model::validateArray($this->compliancePacks);
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->compliancePacks) {
-            if (\is_array($this->compliancePacks)) {
-                $res['CompliancePacks'] = [];
-                $n1 = 0;
-                foreach ($this->compliancePacks as $item1) {
-                    $res['CompliancePacks'][$n1++] = $item1;
-                }
-            }
+            $res['CompliancePacks'] = $this->compliancePacks;
         }
 
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return complianceMetadata
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['CompliancePacks'])) {
             if (!empty($map['CompliancePacks'])) {
-                $model->compliancePacks = [];
-                $n1 = 0;
-                foreach ($map['CompliancePacks'] as $item1) {
-                    $model->compliancePacks[$n1++] = $item1;
-                }
+                $model->compliancePacks = $map['CompliancePacks'];
             }
         }
 

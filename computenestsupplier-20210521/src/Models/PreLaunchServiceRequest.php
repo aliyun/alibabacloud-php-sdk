@@ -4,21 +4,39 @@
 
 namespace AlibabaCloud\SDK\ComputeNestSupplier\V20210521\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class PreLaunchServiceRequest extends Model
 {
     /**
+     * @description The client token that is used to ensure the idempotence of the request.
+     *
+     * You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters.
+     *
+     * @example 10CM943JP0EN9D51H
+     *
      * @var string
      */
     public $clientToken;
 
     /**
+     * @description The region ID.
+     *
+     * This parameter is required.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @description The service ID.
+     *
+     * This parameter is required.
+     *
+     * @example service-f7024a22ea5149xxxxxx
+     *
      * @var string
      */
     public $serviceId;
@@ -28,22 +46,17 @@ class PreLaunchServiceRequest extends Model
         'serviceId' => 'ServiceId',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->clientToken) {
             $res['ClientToken'] = $this->clientToken;
         }
-
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
-
         if (null !== $this->serviceId) {
             $res['ServiceId'] = $this->serviceId;
         }
@@ -51,22 +64,20 @@ class PreLaunchServiceRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return PreLaunchServiceRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ClientToken'])) {
             $model->clientToken = $map['ClientToken'];
         }
-
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
         }
-
         if (isset($map['ServiceId'])) {
             $model->serviceId = $map['ServiceId'];
         }

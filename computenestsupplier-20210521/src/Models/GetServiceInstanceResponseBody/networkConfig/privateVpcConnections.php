@@ -4,27 +4,41 @@
 
 namespace AlibabaCloud\SDK\ComputeNestSupplier\V20210521\Models\GetServiceInstanceResponseBody\networkConfig;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\ComputeNestSupplier\V20210521\Models\GetServiceInstanceResponseBody\networkConfig\privateVpcConnections\connectionConfigs;
+use AlibabaCloud\Tea\Model;
 
 class privateVpcConnections extends Model
 {
     /**
+     * @description The network configurations, which are mainly used for the private connection.
+     *
      * @var connectionConfigs[]
      */
     public $connectionConfigs;
 
     /**
+     * @description The ID of the endpoint for the private connection.
+     *
+     * @example ep-m5ei37240541816b****
+     *
      * @var string
      */
     public $endpointId;
 
     /**
+     * @description The ID of the endpoint service for the private connection.
+     *
+     * @example epsrv-5ei07324541816bxxxx
+     *
      * @var string
      */
     public $endpointServiceId;
 
     /**
+     * @description The custom domain name.
+     *
+     * @example test.computenest.aliyuncs.com
+     *
      * @var string
      */
     public $privateZoneName;
@@ -35,35 +49,26 @@ class privateVpcConnections extends Model
         'privateZoneName' => 'PrivateZoneName',
     ];
 
-    public function validate()
-    {
-        if (\is_array($this->connectionConfigs)) {
-            Model::validateArray($this->connectionConfigs);
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->connectionConfigs) {
-            if (\is_array($this->connectionConfigs)) {
-                $res['ConnectionConfigs'] = [];
-                $n1 = 0;
-                foreach ($this->connectionConfigs as $item1) {
-                    $res['ConnectionConfigs'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+            $res['ConnectionConfigs'] = [];
+            if (null !== $this->connectionConfigs && \is_array($this->connectionConfigs)) {
+                $n = 0;
+                foreach ($this->connectionConfigs as $item) {
+                    $res['ConnectionConfigs'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
         }
-
         if (null !== $this->endpointId) {
             $res['EndpointId'] = $this->endpointId;
         }
-
         if (null !== $this->endpointServiceId) {
             $res['EndpointServiceId'] = $this->endpointServiceId;
         }
-
         if (null !== $this->privateZoneName) {
             $res['PrivateZoneName'] = $this->privateZoneName;
         }
@@ -71,32 +76,29 @@ class privateVpcConnections extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return privateVpcConnections
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ConnectionConfigs'])) {
             if (!empty($map['ConnectionConfigs'])) {
                 $model->connectionConfigs = [];
-                $n1 = 0;
-                foreach ($map['ConnectionConfigs'] as $item1) {
-                    $model->connectionConfigs[$n1++] = connectionConfigs::fromMap($item1);
+                $n = 0;
+                foreach ($map['ConnectionConfigs'] as $item) {
+                    $model->connectionConfigs[$n++] = null !== $item ? connectionConfigs::fromMap($item) : $item;
                 }
             }
         }
-
         if (isset($map['EndpointId'])) {
             $model->endpointId = $map['EndpointId'];
         }
-
         if (isset($map['EndpointServiceId'])) {
             $model->endpointServiceId = $map['EndpointServiceId'];
         }
-
         if (isset($map['PrivateZoneName'])) {
             $model->privateZoneName = $map['PrivateZoneName'];
         }

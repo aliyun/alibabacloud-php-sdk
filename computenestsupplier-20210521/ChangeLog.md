@@ -1,3 +1,7 @@
+2025-04-07 Version: 6.0.4
+- Update API GetService: add response parameters Body.BuildParameters.
+
+
 2025-04-01 Version: 6.0.3
 - Generated php 2021-05-21 for ComputeNestSupplier.
 

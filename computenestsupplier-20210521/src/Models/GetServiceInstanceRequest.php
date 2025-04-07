@@ -4,16 +4,28 @@
 
 namespace AlibabaCloud\SDK\ComputeNestSupplier\V20210521\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class GetServiceInstanceRequest extends Model
 {
     /**
+     * @description The region ID.
+     *
+     * This parameter is required.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @description The ID of the service instance.
+     *
+     * This parameter is required.
+     *
+     * @example si-d6ab3a63ccbb4b17****
+     *
      * @var string
      */
     public $serviceInstanceId;
@@ -22,18 +34,14 @@ class GetServiceInstanceRequest extends Model
         'serviceInstanceId' => 'ServiceInstanceId',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
-
         if (null !== $this->serviceInstanceId) {
             $res['ServiceInstanceId'] = $this->serviceInstanceId;
         }
@@ -41,18 +49,17 @@ class GetServiceInstanceRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return GetServiceInstanceRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
         }
-
         if (isset($map['ServiceInstanceId'])) {
             $model->serviceInstanceId = $map['ServiceInstanceId'];
         }

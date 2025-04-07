@@ -4,21 +4,47 @@
 
 namespace AlibabaCloud\SDK\ComputeNestSupplier\V20210521\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class ModifyServiceInstanceResourcesRequest extends Model
 {
     /**
+     * @description The imported resources.
+     *
+     * @example {
+     * "RegionId": "cn-hangzhou",
+     * "Type": "ResourceIds",
+     * "ResourceIds": {
+     * "ALIYUN::ECS::INSTANCE": ["i-xxx", "i-yyy"],
+     * "ALIYUN::RDS::INSTANCE": ["rm-xxx", "rm-yyy"],
+     * "ALIYUN::VPC::VPC": ["vpc-xxx", "vpc-yyy"],
+     * "ALIYUN::SLB::INSTANCE": ["lb-xxx", "lb-yyy"]
+     * }
+     * }
+     *
      * @var string
      */
     public $resources;
 
     /**
+     * @description The ID of the service instance.
+     *
+     * This parameter is required.
+     *
+     * @example si-d8a0cc2a1ee04dce****
+     *
      * @var string
      */
     public $serviceInstanceId;
 
     /**
+     * @description The type of operation performed on the service instance resource. Valid values:
+     *
+     *   Import: The resource is imported.
+     *   UnImport: The resource import is canceled.
+     *
+     * @example Import
+     *
      * @var string
      */
     public $serviceInstanceResourcesAction;
@@ -28,22 +54,17 @@ class ModifyServiceInstanceResourcesRequest extends Model
         'serviceInstanceResourcesAction' => 'ServiceInstanceResourcesAction',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->resources) {
             $res['Resources'] = $this->resources;
         }
-
         if (null !== $this->serviceInstanceId) {
             $res['ServiceInstanceId'] = $this->serviceInstanceId;
         }
-
         if (null !== $this->serviceInstanceResourcesAction) {
             $res['ServiceInstanceResourcesAction'] = $this->serviceInstanceResourcesAction;
         }
@@ -51,22 +72,20 @@ class ModifyServiceInstanceResourcesRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return ModifyServiceInstanceResourcesRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Resources'])) {
             $model->resources = $map['Resources'];
         }
-
         if (isset($map['ServiceInstanceId'])) {
             $model->serviceInstanceId = $map['ServiceInstanceId'];
         }
-
         if (isset($map['ServiceInstanceResourcesAction'])) {
             $model->serviceInstanceResourcesAction = $map['ServiceInstanceResourcesAction'];
         }

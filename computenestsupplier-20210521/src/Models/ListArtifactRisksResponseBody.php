@@ -4,17 +4,23 @@
 
 namespace AlibabaCloud\SDK\ComputeNestSupplier\V20210521\Models;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\ComputeNestSupplier\V20210521\Models\ListArtifactRisksResponseBody\artifactRiskList;
+use AlibabaCloud\Tea\Model;
 
 class ListArtifactRisksResponseBody extends Model
 {
     /**
+     * @description List of artifact risks
+     *
      * @var artifactRiskList[]
      */
     public $artifactRiskList;
 
     /**
+     * @description Request ID.
+     *
+     * @example 52919DB1-03A0-55F5-BDD4-DB6DEBB8267A
+     *
      * @var string
      */
     public $requestId;
@@ -23,27 +29,20 @@ class ListArtifactRisksResponseBody extends Model
         'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-        if (\is_array($this->artifactRiskList)) {
-            Model::validateArray($this->artifactRiskList);
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->artifactRiskList) {
-            if (\is_array($this->artifactRiskList)) {
-                $res['ArtifactRiskList'] = [];
-                $n1 = 0;
-                foreach ($this->artifactRiskList as $item1) {
-                    $res['ArtifactRiskList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+            $res['ArtifactRiskList'] = [];
+            if (null !== $this->artifactRiskList && \is_array($this->artifactRiskList)) {
+                $n = 0;
+                foreach ($this->artifactRiskList as $item) {
+                    $res['ArtifactRiskList'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
         }
-
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -51,24 +50,23 @@ class ListArtifactRisksResponseBody extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return ListArtifactRisksResponseBody
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ArtifactRiskList'])) {
             if (!empty($map['ArtifactRiskList'])) {
                 $model->artifactRiskList = [];
-                $n1 = 0;
-                foreach ($map['ArtifactRiskList'] as $item1) {
-                    $model->artifactRiskList[$n1++] = artifactRiskList::fromMap($item1);
+                $n = 0;
+                foreach ($map['ArtifactRiskList'] as $item) {
+                    $model->artifactRiskList[$n++] = null !== $item ? artifactRiskList::fromMap($item) : $item;
                 }
             }
         }
-
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
