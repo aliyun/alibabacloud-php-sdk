@@ -11,7 +11,17 @@ class DescribeNotifyConfigResponseBody extends Model
     /**
      * @var string
      */
+    public $audioOssPath;
+
+    /**
+     * @var string
+     */
     public $callbackUrl;
+
+    /**
+     * @var bool
+     */
+    public $enableAudioRecording;
 
     /**
      * @var bool
@@ -33,7 +43,9 @@ class DescribeNotifyConfigResponseBody extends Model
      */
     public $token;
     protected $_name = [
+        'audioOssPath' => 'AudioOssPath',
         'callbackUrl' => 'CallbackUrl',
+        'enableAudioRecording' => 'EnableAudioRecording',
         'enableNotify' => 'EnableNotify',
         'eventTypes' => 'EventTypes',
         'requestId' => 'RequestId',
@@ -48,8 +60,16 @@ class DescribeNotifyConfigResponseBody extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->audioOssPath) {
+            $res['AudioOssPath'] = $this->audioOssPath;
+        }
+
         if (null !== $this->callbackUrl) {
             $res['CallbackUrl'] = $this->callbackUrl;
+        }
+
+        if (null !== $this->enableAudioRecording) {
+            $res['EnableAudioRecording'] = $this->enableAudioRecording;
         }
 
         if (null !== $this->enableNotify) {
@@ -79,8 +99,16 @@ class DescribeNotifyConfigResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AudioOssPath'])) {
+            $model->audioOssPath = $map['AudioOssPath'];
+        }
+
         if (isset($map['CallbackUrl'])) {
             $model->callbackUrl = $map['CallbackUrl'];
+        }
+
+        if (isset($map['EnableAudioRecording'])) {
+            $model->enableAudioRecording = $map['EnableAudioRecording'];
         }
 
         if (isset($map['EnableNotify'])) {

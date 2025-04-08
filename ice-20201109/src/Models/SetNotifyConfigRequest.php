@@ -16,7 +16,17 @@ class SetNotifyConfigRequest extends Model
     /**
      * @var string
      */
+    public $audioOssPath;
+
+    /**
+     * @var string
+     */
     public $callbackUrl;
+
+    /**
+     * @var bool
+     */
+    public $enableAudioRecording;
 
     /**
      * @var bool
@@ -34,7 +44,9 @@ class SetNotifyConfigRequest extends Model
     public $token;
     protected $_name = [
         'AIAgentId' => 'AIAgentId',
+        'audioOssPath' => 'AudioOssPath',
         'callbackUrl' => 'CallbackUrl',
+        'enableAudioRecording' => 'EnableAudioRecording',
         'enableNotify' => 'EnableNotify',
         'eventTypes' => 'EventTypes',
         'token' => 'Token',
@@ -52,8 +64,16 @@ class SetNotifyConfigRequest extends Model
             $res['AIAgentId'] = $this->AIAgentId;
         }
 
+        if (null !== $this->audioOssPath) {
+            $res['AudioOssPath'] = $this->audioOssPath;
+        }
+
         if (null !== $this->callbackUrl) {
             $res['CallbackUrl'] = $this->callbackUrl;
+        }
+
+        if (null !== $this->enableAudioRecording) {
+            $res['EnableAudioRecording'] = $this->enableAudioRecording;
         }
 
         if (null !== $this->enableNotify) {
@@ -83,8 +103,16 @@ class SetNotifyConfigRequest extends Model
             $model->AIAgentId = $map['AIAgentId'];
         }
 
+        if (isset($map['AudioOssPath'])) {
+            $model->audioOssPath = $map['AudioOssPath'];
+        }
+
         if (isset($map['CallbackUrl'])) {
             $model->callbackUrl = $map['CallbackUrl'];
+        }
+
+        if (isset($map['EnableAudioRecording'])) {
+            $model->enableAudioRecording = $map['EnableAudioRecording'];
         }
 
         if (isset($map['EnableNotify'])) {

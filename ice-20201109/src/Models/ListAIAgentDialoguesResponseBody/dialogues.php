@@ -5,9 +5,15 @@
 namespace AlibabaCloud\SDK\ICE\V20201109\Models\ListAIAgentDialoguesResponseBody;
 
 use AlibabaCloud\Dara\Model;
+use AlibabaCloud\SDK\ICE\V20201109\Models\ListAIAgentDialoguesResponseBody\dialogues\attachedFileList;
 
 class dialogues extends Model
 {
+    /**
+     * @var attachedFileList[]
+     */
+    public $attachedFileList;
+
     /**
      * @var string
      */
@@ -48,6 +54,7 @@ class dialogues extends Model
      */
     public $type;
     protected $_name = [
+        'attachedFileList' => 'AttachedFileList',
         'dialogueId' => 'DialogueId',
         'producer' => 'Producer',
         'reasoningText' => 'ReasoningText',
@@ -60,12 +67,25 @@ class dialogues extends Model
 
     public function validate()
     {
+        if (\is_array($this->attachedFileList)) {
+            Model::validateArray($this->attachedFileList);
+        }
         parent::validate();
     }
 
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->attachedFileList) {
+            if (\is_array($this->attachedFileList)) {
+                $res['AttachedFileList'] = [];
+                $n1 = 0;
+                foreach ($this->attachedFileList as $item1) {
+                    $res['AttachedFileList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                }
+            }
+        }
+
         if (null !== $this->dialogueId) {
             $res['DialogueId'] = $this->dialogueId;
         }
@@ -109,6 +129,16 @@ class dialogues extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AttachedFileList'])) {
+            if (!empty($map['AttachedFileList'])) {
+                $model->attachedFileList = [];
+                $n1 = 0;
+                foreach ($map['AttachedFileList'] as $item1) {
+                    $model->attachedFileList[$n1++] = attachedFileList::fromMap($item1);
+                }
+            }
+        }
+
         if (isset($map['DialogueId'])) {
             $model->dialogueId = $map['DialogueId'];
         }

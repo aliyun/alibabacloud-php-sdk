@@ -18654,8 +18654,16 @@ class ICE extends OpenApiClient
             @$query['AIAgentId'] = $request->AIAgentId;
         }
 
+        if (null !== $request->audioOssPath) {
+            @$query['AudioOssPath'] = $request->audioOssPath;
+        }
+
         if (null !== $request->callbackUrl) {
             @$query['CallbackUrl'] = $request->callbackUrl;
+        }
+
+        if (null !== $request->enableAudioRecording) {
+            @$query['EnableAudioRecording'] = $request->enableAudioRecording;
         }
 
         if (null !== $request->enableNotify) {
