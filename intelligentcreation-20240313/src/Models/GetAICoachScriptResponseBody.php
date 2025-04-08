@@ -5,6 +5,7 @@
 namespace AlibabaCloud\SDK\IntelligentCreation\V20240313\Models;
 
 use AlibabaCloud\Dara\Model;
+use AlibabaCloud\SDK\IntelligentCreation\V20240313\Models\GetAICoachScriptResponseBody\checkCheatConfig;
 use AlibabaCloud\SDK\IntelligentCreation\V20240313\Models\GetAICoachScriptResponseBody\completeStrategy;
 use AlibabaCloud\SDK\IntelligentCreation\V20240313\Models\GetAICoachScriptResponseBody\pointDeductionRuleList;
 use AlibabaCloud\SDK\IntelligentCreation\V20240313\Models\GetAICoachScriptResponseBody\points;
@@ -14,9 +15,19 @@ use AlibabaCloud\SDK\IntelligentCreation\V20240313\Models\GetAICoachScriptRespon
 class GetAICoachScriptResponseBody extends Model
 {
     /**
+     * @var bool
+     */
+    public $appendQuestionFlag;
+
+    /**
      * @var string
      */
     public $assessmentScope;
+
+    /**
+     * @var checkCheatConfig
+     */
+    public $checkCheatConfig;
 
     /**
      * @var completeStrategy
@@ -158,7 +169,9 @@ class GetAICoachScriptResponseBody extends Model
      */
     public $weights;
     protected $_name = [
+        'appendQuestionFlag' => 'appendQuestionFlag',
         'assessmentScope' => 'assessmentScope',
+        'checkCheatConfig' => 'checkCheatConfig',
         'completeStrategy' => 'completeStrategy',
         'coverUrl' => 'coverUrl',
         'dialogueInputTextLimit' => 'dialogueInputTextLimit',
@@ -191,6 +204,9 @@ class GetAICoachScriptResponseBody extends Model
 
     public function validate()
     {
+        if (null !== $this->checkCheatConfig) {
+            $this->checkCheatConfig->validate();
+        }
         if (null !== $this->completeStrategy) {
             $this->completeStrategy->validate();
         }
@@ -218,8 +234,16 @@ class GetAICoachScriptResponseBody extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->appendQuestionFlag) {
+            $res['appendQuestionFlag'] = $this->appendQuestionFlag;
+        }
+
         if (null !== $this->assessmentScope) {
             $res['assessmentScope'] = $this->assessmentScope;
+        }
+
+        if (null !== $this->checkCheatConfig) {
+            $res['checkCheatConfig'] = null !== $this->checkCheatConfig ? $this->checkCheatConfig->toArray($noStream) : $this->checkCheatConfig;
         }
 
         if (null !== $this->completeStrategy) {
@@ -374,8 +398,16 @@ class GetAICoachScriptResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['appendQuestionFlag'])) {
+            $model->appendQuestionFlag = $map['appendQuestionFlag'];
+        }
+
         if (isset($map['assessmentScope'])) {
             $model->assessmentScope = $map['assessmentScope'];
+        }
+
+        if (isset($map['checkCheatConfig'])) {
+            $model->checkCheatConfig = checkCheatConfig::fromMap($map['checkCheatConfig']);
         }
 
         if (isset($map['completeStrategy'])) {

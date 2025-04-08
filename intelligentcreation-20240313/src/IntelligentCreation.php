@@ -333,6 +333,10 @@ class IntelligentCreation extends OpenApiClient
             @$body['studentIds'] = $request->studentIds;
         }
 
+        if (null !== $request->studentList) {
+            @$body['studentList'] = $request->studentList;
+        }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
             'body' => Utils::parseToMap($body),
@@ -895,6 +899,10 @@ class IntelligentCreation extends OpenApiClient
 
         if (null !== $request->scriptRecordId) {
             @$body['scriptRecordId'] = $request->scriptRecordId;
+        }
+
+        if (null !== $request->studentAudioUrl) {
+            @$body['studentAudioUrl'] = $request->studentAudioUrl;
         }
 
         if (null !== $request->studentId) {

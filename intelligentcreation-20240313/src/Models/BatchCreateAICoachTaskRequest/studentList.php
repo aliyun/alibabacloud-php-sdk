@@ -2,22 +2,12 @@
 
 // This file is auto-generated, don't edit it. Thanks.
 
-namespace AlibabaCloud\SDK\IntelligentCreation\V20240313\Models;
+namespace AlibabaCloud\SDK\IntelligentCreation\V20240313\Models\BatchCreateAICoachTaskRequest;
 
 use AlibabaCloud\Dara\Model;
 
-class CreateAICoachTaskRequest extends Model
+class studentList extends Model
 {
-    /**
-     * @var string
-     */
-    public $requestId;
-
-    /**
-     * @var string
-     */
-    public $scriptRecordId;
-
     /**
      * @var string
      */
@@ -28,8 +18,6 @@ class CreateAICoachTaskRequest extends Model
      */
     public $studentId;
     protected $_name = [
-        'requestId' => 'requestId',
-        'scriptRecordId' => 'scriptRecordId',
         'studentAudioUrl' => 'studentAudioUrl',
         'studentId' => 'studentId',
     ];
@@ -42,14 +30,6 @@ class CreateAICoachTaskRequest extends Model
     public function toArray($noStream = false)
     {
         $res = [];
-        if (null !== $this->requestId) {
-            $res['requestId'] = $this->requestId;
-        }
-
-        if (null !== $this->scriptRecordId) {
-            $res['scriptRecordId'] = $this->scriptRecordId;
-        }
-
         if (null !== $this->studentAudioUrl) {
             $res['studentAudioUrl'] = $this->studentAudioUrl;
         }
@@ -69,14 +49,6 @@ class CreateAICoachTaskRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['requestId'])) {
-            $model->requestId = $map['requestId'];
-        }
-
-        if (isset($map['scriptRecordId'])) {
-            $model->scriptRecordId = $map['scriptRecordId'];
-        }
-
         if (isset($map['studentAudioUrl'])) {
             $model->studentAudioUrl = $map['studentAudioUrl'];
         }

@@ -5,6 +5,7 @@
 namespace AlibabaCloud\SDK\IntelligentCreation\V20240313\Models;
 
 use AlibabaCloud\Dara\Model;
+use AlibabaCloud\SDK\IntelligentCreation\V20240313\Models\BatchCreateAICoachTaskRequest\studentList;
 
 class BatchCreateAICoachTaskRequest extends Model
 {
@@ -22,16 +23,25 @@ class BatchCreateAICoachTaskRequest extends Model
      * @var string[]
      */
     public $studentIds;
+
+    /**
+     * @var studentList[]
+     */
+    public $studentList;
     protected $_name = [
         'requestId' => 'requestId',
         'scriptRecordId' => 'scriptRecordId',
         'studentIds' => 'studentIds',
+        'studentList' => 'studentList',
     ];
 
     public function validate()
     {
         if (\is_array($this->studentIds)) {
             Model::validateArray($this->studentIds);
+        }
+        if (\is_array($this->studentList)) {
+            Model::validateArray($this->studentList);
         }
         parent::validate();
     }
@@ -53,6 +63,16 @@ class BatchCreateAICoachTaskRequest extends Model
                 $n1 = 0;
                 foreach ($this->studentIds as $item1) {
                     $res['studentIds'][$n1++] = $item1;
+                }
+            }
+        }
+
+        if (null !== $this->studentList) {
+            if (\is_array($this->studentList)) {
+                $res['studentList'] = [];
+                $n1 = 0;
+                foreach ($this->studentList as $item1) {
+                    $res['studentList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
@@ -82,6 +102,16 @@ class BatchCreateAICoachTaskRequest extends Model
                 $n1 = 0;
                 foreach ($map['studentIds'] as $item1) {
                     $model->studentIds[$n1++] = $item1;
+                }
+            }
+        }
+
+        if (isset($map['studentList'])) {
+            if (!empty($map['studentList'])) {
+                $model->studentList = [];
+                $n1 = 0;
+                foreach ($map['studentList'] as $item1) {
+                    $model->studentList[$n1++] = studentList::fromMap($item1);
                 }
             }
         }
