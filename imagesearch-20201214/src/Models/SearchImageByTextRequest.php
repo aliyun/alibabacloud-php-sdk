@@ -6,18 +6,8 @@ namespace AlibabaCloud\SDK\ImageSearch\V20201214\Models;
 
 use AlibabaCloud\Dara\Model;
 
-class SearchImageByPicRequest extends Model
+class SearchImageByTextRequest extends Model
 {
-    /**
-     * @var int
-     */
-    public $categoryId;
-
-    /**
-     * @var bool
-     */
-    public $crop;
-
     /**
      * @var bool
      */
@@ -39,29 +29,21 @@ class SearchImageByPicRequest extends Model
     public $num;
 
     /**
-     * @var string
-     */
-    public $picContent;
-
-    /**
-     * @var string
-     */
-    public $region;
-
-    /**
      * @var int
      */
     public $start;
+
+    /**
+     * @var string
+     */
+    public $text;
     protected $_name = [
-        'categoryId' => 'CategoryId',
-        'crop' => 'Crop',
         'distinctProductId' => 'DistinctProductId',
         'filter' => 'Filter',
         'instanceName' => 'InstanceName',
         'num' => 'Num',
-        'picContent' => 'PicContent',
-        'region' => 'Region',
         'start' => 'Start',
+        'text' => 'Text',
     ];
 
     public function validate()
@@ -72,14 +54,6 @@ class SearchImageByPicRequest extends Model
     public function toArray($noStream = false)
     {
         $res = [];
-        if (null !== $this->categoryId) {
-            $res['CategoryId'] = $this->categoryId;
-        }
-
-        if (null !== $this->crop) {
-            $res['Crop'] = $this->crop;
-        }
-
         if (null !== $this->distinctProductId) {
             $res['DistinctProductId'] = $this->distinctProductId;
         }
@@ -96,16 +70,12 @@ class SearchImageByPicRequest extends Model
             $res['Num'] = $this->num;
         }
 
-        if (null !== $this->picContent) {
-            $res['PicContent'] = $this->picContent;
-        }
-
-        if (null !== $this->region) {
-            $res['Region'] = $this->region;
-        }
-
         if (null !== $this->start) {
             $res['Start'] = $this->start;
+        }
+
+        if (null !== $this->text) {
+            $res['Text'] = $this->text;
         }
 
         return $res;
@@ -119,14 +89,6 @@ class SearchImageByPicRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['CategoryId'])) {
-            $model->categoryId = $map['CategoryId'];
-        }
-
-        if (isset($map['Crop'])) {
-            $model->crop = $map['Crop'];
-        }
-
         if (isset($map['DistinctProductId'])) {
             $model->distinctProductId = $map['DistinctProductId'];
         }
@@ -143,16 +105,12 @@ class SearchImageByPicRequest extends Model
             $model->num = $map['Num'];
         }
 
-        if (isset($map['PicContent'])) {
-            $model->picContent = $map['PicContent'];
-        }
-
-        if (isset($map['Region'])) {
-            $model->region = $map['Region'];
-        }
-
         if (isset($map['Start'])) {
             $model->start = $map['Start'];
+        }
+
+        if (isset($map['Text'])) {
+            $model->text = $map['Text'];
         }
 
         return $model;

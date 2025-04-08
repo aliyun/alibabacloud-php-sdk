@@ -13,33 +13,38 @@ class CompareSimilarByImageResponseBody extends Model
      * @var accessDeniedDetail
      */
     public $accessDeniedDetail;
+
     /**
      * @var int
      */
     public $code;
+
     /**
      * @var string
      */
     public $msg;
+
     /**
      * @var string
      */
     public $requestId;
+
     /**
      * @var float
      */
     public $score;
+
     /**
      * @var bool
      */
     public $success;
     protected $_name = [
         'accessDeniedDetail' => 'AccessDeniedDetail',
-        'code'               => 'Code',
-        'msg'                => 'Msg',
-        'requestId'          => 'RequestId',
-        'score'              => 'Score',
-        'success'            => 'Success',
+        'code' => 'Code',
+        'msg' => 'Msg',
+        'requestId' => 'RequestId',
+        'score' => 'Score',
+        'success' => 'Success',
     ];
 
     public function validate()

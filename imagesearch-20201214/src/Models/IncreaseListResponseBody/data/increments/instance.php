@@ -12,53 +12,62 @@ class instance extends Model
      * @var string
      */
     public $bucketName;
+
     /**
      * @var string
      */
     public $callbackAddress;
+
     /**
      * @var string
      */
     public $code;
+
     /**
      * @var string
      */
     public $errorUrl;
+
     /**
      * @var int
      */
     public $id;
+
     /**
      * @var string
      */
     public $msg;
+
     /**
      * @var string
      */
     public $path;
+
     /**
      * @var string
      */
     public $status;
+
     /**
      * @var string
      */
     public $utcCreate;
+
     /**
      * @var int
      */
     public $utcModified;
     protected $_name = [
-        'bucketName'      => 'BucketName',
+        'bucketName' => 'BucketName',
         'callbackAddress' => 'CallbackAddress',
-        'code'            => 'Code',
-        'errorUrl'        => 'ErrorUrl',
-        'id'              => 'Id',
-        'msg'             => 'Msg',
-        'path'            => 'Path',
-        'status'          => 'Status',
-        'utcCreate'       => 'UtcCreate',
-        'utcModified'     => 'UtcModified',
+        'code' => 'Code',
+        'errorUrl' => 'ErrorUrl',
+        'id' => 'Id',
+        'msg' => 'Msg',
+        'path' => 'Path',
+        'status' => 'Status',
+        'utcCreate' => 'UtcCreate',
+        'utcModified' => 'UtcModified',
     ];
 
     public function validate()

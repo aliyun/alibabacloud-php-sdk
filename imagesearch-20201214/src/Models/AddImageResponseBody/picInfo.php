@@ -12,13 +12,14 @@ class picInfo extends Model
      * @var int
      */
     public $categoryId;
+
     /**
      * @var string
      */
     public $region;
     protected $_name = [
         'categoryId' => 'CategoryId',
-        'region'     => 'Region',
+        'region' => 'Region',
     ];
 
     public function validate()

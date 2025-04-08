@@ -31,7 +31,7 @@ class increments extends Model
         if (null !== $this->instance) {
             if (\is_array($this->instance)) {
                 $res['Instance'] = [];
-                $n1              = 0;
+                $n1 = 0;
                 foreach ($this->instance as $item1) {
                     $res['Instance'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -52,7 +52,7 @@ class increments extends Model
         if (isset($map['Instance'])) {
             if (!empty($map['Instance'])) {
                 $model->instance = [];
-                $n1              = 0;
+                $n1 = 0;
                 foreach ($map['Instance'] as $item1) {
                     $model->instance[$n1++] = instance::fromMap($item1);
                 }

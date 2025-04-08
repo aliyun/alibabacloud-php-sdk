@@ -12,28 +12,32 @@ class DeleteImageRequest extends Model
      * @var string
      */
     public $filter;
+
     /**
      * @var string
      */
     public $instanceName;
+
     /**
      * @var bool
      */
     public $isDeleteByFilter;
+
     /**
      * @var string
      */
     public $picName;
+
     /**
      * @var string
      */
     public $productId;
     protected $_name = [
-        'filter'           => 'Filter',
-        'instanceName'     => 'InstanceName',
+        'filter' => 'Filter',
+        'instanceName' => 'InstanceName',
         'isDeleteByFilter' => 'IsDeleteByFilter',
-        'picName'          => 'PicName',
-        'productId'        => 'ProductId',
+        'picName' => 'PicName',
+        'productId' => 'ProductId',
     ];
 
     public function validate()

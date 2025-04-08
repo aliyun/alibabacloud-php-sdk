@@ -12,16 +12,18 @@ class head extends Model
      * @var int
      */
     public $docsFound;
+
     /**
      * @var int
      */
     public $docsReturn;
+
     /**
      * @var int
      */
     public $searchTime;
     protected $_name = [
-        'docsFound'  => 'DocsFound',
+        'docsFound' => 'DocsFound',
         'docsReturn' => 'DocsReturn',
         'searchTime' => 'SearchTime',
     ];

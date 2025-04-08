@@ -12,43 +12,50 @@ class SearchImageByNameRequest extends Model
      * @var int
      */
     public $categoryId;
+
     /**
      * @var bool
      */
     public $distinctProductId;
+
     /**
      * @var string
      */
     public $filter;
+
     /**
      * @var string
      */
     public $instanceName;
+
     /**
      * @var int
      */
     public $num;
+
     /**
      * @var string
      */
     public $picName;
+
     /**
      * @var string
      */
     public $productId;
+
     /**
      * @var int
      */
     public $start;
     protected $_name = [
-        'categoryId'        => 'CategoryId',
+        'categoryId' => 'CategoryId',
         'distinctProductId' => 'DistinctProductId',
-        'filter'            => 'Filter',
-        'instanceName'      => 'InstanceName',
-        'num'               => 'Num',
-        'picName'           => 'PicName',
-        'productId'         => 'ProductId',
-        'start'             => 'Start',
+        'filter' => 'Filter',
+        'instanceName' => 'InstanceName',
+        'num' => 'Num',
+        'picName' => 'PicName',
+        'productId' => 'ProductId',
+        'start' => 'Start',
     ];
 
     public function validate()

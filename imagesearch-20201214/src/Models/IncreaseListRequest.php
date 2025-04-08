@@ -12,33 +12,38 @@ class IncreaseListRequest extends Model
      * @var string
      */
     public $bucketName;
+
     /**
      * @var int
      */
     public $id;
+
     /**
      * @var string
      */
     public $instanceName;
+
     /**
      * @var int
      */
     public $pageNumber;
+
     /**
      * @var int
      */
     public $pageSize;
+
     /**
      * @var string
      */
     public $path;
     protected $_name = [
-        'bucketName'   => 'BucketName',
-        'id'           => 'Id',
+        'bucketName' => 'BucketName',
+        'id' => 'Id',
         'instanceName' => 'InstanceName',
-        'pageNumber'   => 'PageNumber',
-        'pageSize'     => 'PageSize',
-        'path'         => 'Path',
+        'pageNumber' => 'PageNumber',
+        'pageSize' => 'PageSize',
+        'path' => 'Path',
     ];
 
     public function validate()

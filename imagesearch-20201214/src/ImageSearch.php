@@ -28,6 +28,8 @@ use AlibabaCloud\SDK\ImageSearch\V20201214\Models\SearchImageByNameResponse;
 use AlibabaCloud\SDK\ImageSearch\V20201214\Models\SearchImageByPicAdvanceRequest;
 use AlibabaCloud\SDK\ImageSearch\V20201214\Models\SearchImageByPicRequest;
 use AlibabaCloud\SDK\ImageSearch\V20201214\Models\SearchImageByPicResponse;
+use AlibabaCloud\SDK\ImageSearch\V20201214\Models\SearchImageByTextRequest;
+use AlibabaCloud\SDK\ImageSearch\V20201214\Models\SearchImageByTextResponse;
 use AlibabaCloud\SDK\ImageSearch\V20201214\Models\UpdateImageRequest;
 use AlibabaCloud\SDK\ImageSearch\V20201214\Models\UpdateImageResponse;
 use AlibabaCloud\SDK\OpenPlatform\V20191219\Models\AuthorizeFileUploadRequest;
@@ -88,6 +90,7 @@ class ImageSearch extends OpenApiClient
      *
      * @param request - AddImageRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns AddImageResponse
      *
      * @param AddImageRequest $request
@@ -167,15 +170,15 @@ class ImageSearch extends OpenApiClient
             'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'AddImage',
-            'version'     => '2020-12-14',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'AddImage',
+            'version' => '2020-12-14',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return AddImageResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -194,6 +197,7 @@ class ImageSearch extends OpenApiClient
      * By default, the concurrency limit for adding an image to instances whose image capacity specifications are 0.1 million images is 1. This means that the system can process up to one request of adding an image every second. By default, the concurrency limit for adding an image to instances of other image capacity specifications is 5. This means that the system can process up to five requests of adding an image every second.
      *
      * @param request - AddImageRequest
+     *
      * @returns AddImageResponse
      *
      * @param AddImageRequest $request
@@ -216,10 +220,10 @@ class ImageSearch extends OpenApiClient
     public function addImageAdvance($request, $runtime)
     {
         // Step 0: init client
-        $accessKeyId          = $this->_credential->getAccessKeyId();
-        $accessKeySecret      = $this->_credential->getAccessKeySecret();
-        $securityToken        = $this->_credential->getSecurityToken();
-        $credentialType       = $this->_credential->getType();
+        $accessKeyId = $this->_credential->getAccessKeyId();
+        $accessKeySecret = $this->_credential->getAccessKeySecret();
+        $securityToken = $this->_credential->getSecurityToken();
+        $credentialType = $this->_credential->getType();
         $openPlatformEndpoint = $this->_openPlatformEndpoint;
         if (null === $openPlatformEndpoint) {
             $openPlatformEndpoint = 'openplatform.aliyuncs.com';
@@ -230,56 +234,56 @@ class ImageSearch extends OpenApiClient
         }
 
         $authConfig = new Config([
-            'accessKeyId'     => $accessKeyId,
+            'accessKeyId' => $accessKeyId,
             'accessKeySecret' => $accessKeySecret,
-            'securityToken'   => $securityToken,
-            'type'            => $credentialType,
-            'endpoint'        => $openPlatformEndpoint,
-            'protocol'        => $this->_protocol,
-            'regionId'        => $this->_regionId,
+            'securityToken' => $securityToken,
+            'type' => $credentialType,
+            'endpoint' => $openPlatformEndpoint,
+            'protocol' => $this->_protocol,
+            'regionId' => $this->_regionId,
         ]);
-        $authClient  = new OpenPlatform($authConfig);
+        $authClient = new OpenPlatform($authConfig);
         $authRequest = new AuthorizeFileUploadRequest([
-            'product'  => 'ImageSearch',
+            'product' => 'ImageSearch',
             'regionId' => $this->_regionId,
         ]);
         $authResponse = new AuthorizeFileUploadResponse([]);
-        $ossConfig    = new \AlibabaCloud\SDK\OSS\OSS\Config([
-            'accessKeyId'     => $accessKeyId,
+        $ossConfig = new OSS\Config([
+            'accessKeyId' => $accessKeyId,
             'accessKeySecret' => $accessKeySecret,
-            'type'            => 'access_key',
-            'protocol'        => $this->_protocol,
-            'regionId'        => $this->_regionId,
+            'type' => 'access_key',
+            'protocol' => $this->_protocol,
+            'regionId' => $this->_regionId,
         ]);
-        $ossClient     = new OSS($ossConfig);
-        $fileObj       = new FileField([]);
-        $ossHeader     = new header([]);
+        $ossClient = new OSS($ossConfig);
+        $fileObj = new FileField([]);
+        $ossHeader = new header([]);
         $uploadRequest = new PostObjectRequest([]);
-        $ossRuntime    = new \AlibabaCloud\Tea\OSSUtils\OSSUtils\RuntimeOptions([]);
+        $ossRuntime = new \AlibabaCloud\Tea\OSSUtils\OSSUtils\RuntimeOptions([]);
         Utils::convert($runtime, $ossRuntime);
         $addImageReq = new AddImageRequest([]);
         Utils::convert($request, $addImageReq);
         if (null !== $request->picContentObject) {
-            $authResponse           = $authClient->authorizeFileUploadWithOptions($authRequest, $runtime);
+            $authResponse = $authClient->authorizeFileUploadWithOptions($authRequest, $runtime);
             $ossConfig->accessKeyId = $authResponse->body->accessKeyId;
-            $ossConfig->endpoint    = Utils::getEndpoint($authResponse->body->endpoint, $authResponse->body->useAccelerate, $this->_endpointType);
-            $ossClient              = new OSS($ossConfig);
-            $fileObj                = new FileField([
-                'filename'    => $authResponse->body->objectKey,
-                'content'     => $request->picContentObject,
+            $ossConfig->endpoint = Utils::getEndpoint($authResponse->body->endpoint, $authResponse->body->useAccelerate, $this->_endpointType);
+            $ossClient = new OSS($ossConfig);
+            $fileObj = new FileField([
+                'filename' => $authResponse->body->objectKey,
+                'content' => $request->picContentObject,
                 'contentType' => '',
             ]);
             $ossHeader = new header([
-                'accessKeyId'         => $authResponse->body->accessKeyId,
-                'policy'              => $authResponse->body->encodedPolicy,
-                'signature'           => $authResponse->body->signature,
-                'key'                 => $authResponse->body->objectKey,
-                'file'                => $fileObj,
+                'accessKeyId' => $authResponse->body->accessKeyId,
+                'policy' => $authResponse->body->encodedPolicy,
+                'signature' => $authResponse->body->signature,
+                'key' => $authResponse->body->objectKey,
+                'file' => $fileObj,
                 'successActionStatus' => '201',
             ]);
             $uploadRequest = new PostObjectRequest([
                 'bucketName' => $authResponse->body->bucket,
-                'header'     => $ossHeader,
+                'header' => $ossHeader,
             ]);
             $ossClient->postObject($uploadRequest, $ossRuntime);
             $addImageReq->picContent = 'http://' . $authResponse->body->bucket . '.' . $authResponse->body->endpoint . '/' . $authResponse->body->objectKey . '';
@@ -293,6 +297,7 @@ class ImageSearch extends OpenApiClient
      *
      * @param request - CompareSimilarByImageRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns CompareSimilarByImageResponse
      *
      * @param CompareSimilarByImageRequest $request
@@ -320,15 +325,15 @@ class ImageSearch extends OpenApiClient
             'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'CompareSimilarByImage',
-            'version'     => '2020-12-14',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CompareSimilarByImage',
+            'version' => '2020-12-14',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return CompareSimilarByImageResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -341,6 +346,7 @@ class ImageSearch extends OpenApiClient
      * 对比图片相似值
      *
      * @param request - CompareSimilarByImageRequest
+     *
      * @returns CompareSimilarByImageResponse
      *
      * @param CompareSimilarByImageRequest $request
@@ -363,10 +369,10 @@ class ImageSearch extends OpenApiClient
     public function compareSimilarByImageAdvance($request, $runtime)
     {
         // Step 0: init client
-        $accessKeyId          = $this->_credential->getAccessKeyId();
-        $accessKeySecret      = $this->_credential->getAccessKeySecret();
-        $securityToken        = $this->_credential->getSecurityToken();
-        $credentialType       = $this->_credential->getType();
+        $accessKeyId = $this->_credential->getAccessKeyId();
+        $accessKeySecret = $this->_credential->getAccessKeySecret();
+        $securityToken = $this->_credential->getSecurityToken();
+        $credentialType = $this->_credential->getType();
         $openPlatformEndpoint = $this->_openPlatformEndpoint;
         if (null === $openPlatformEndpoint) {
             $openPlatformEndpoint = 'openplatform.aliyuncs.com';
@@ -377,82 +383,82 @@ class ImageSearch extends OpenApiClient
         }
 
         $authConfig = new Config([
-            'accessKeyId'     => $accessKeyId,
+            'accessKeyId' => $accessKeyId,
             'accessKeySecret' => $accessKeySecret,
-            'securityToken'   => $securityToken,
-            'type'            => $credentialType,
-            'endpoint'        => $openPlatformEndpoint,
-            'protocol'        => $this->_protocol,
-            'regionId'        => $this->_regionId,
+            'securityToken' => $securityToken,
+            'type' => $credentialType,
+            'endpoint' => $openPlatformEndpoint,
+            'protocol' => $this->_protocol,
+            'regionId' => $this->_regionId,
         ]);
-        $authClient  = new OpenPlatform($authConfig);
+        $authClient = new OpenPlatform($authConfig);
         $authRequest = new AuthorizeFileUploadRequest([
-            'product'  => 'ImageSearch',
+            'product' => 'ImageSearch',
             'regionId' => $this->_regionId,
         ]);
         $authResponse = new AuthorizeFileUploadResponse([]);
-        $ossConfig    = new \AlibabaCloud\SDK\OSS\OSS\Config([
-            'accessKeyId'     => $accessKeyId,
+        $ossConfig = new OSS\Config([
+            'accessKeyId' => $accessKeyId,
             'accessKeySecret' => $accessKeySecret,
-            'type'            => 'access_key',
-            'protocol'        => $this->_protocol,
-            'regionId'        => $this->_regionId,
+            'type' => 'access_key',
+            'protocol' => $this->_protocol,
+            'regionId' => $this->_regionId,
         ]);
-        $ossClient     = new OSS($ossConfig);
-        $fileObj       = new FileField([]);
-        $ossHeader     = new header([]);
+        $ossClient = new OSS($ossConfig);
+        $fileObj = new FileField([]);
+        $ossHeader = new header([]);
         $uploadRequest = new PostObjectRequest([]);
-        $ossRuntime    = new \AlibabaCloud\Tea\OSSUtils\OSSUtils\RuntimeOptions([]);
+        $ossRuntime = new \AlibabaCloud\Tea\OSSUtils\OSSUtils\RuntimeOptions([]);
         Utils::convert($runtime, $ossRuntime);
         $compareSimilarByImageReq = new CompareSimilarByImageRequest([]);
         Utils::convert($request, $compareSimilarByImageReq);
         if (null !== $request->primaryPicContentObject) {
-            $authResponse           = $authClient->authorizeFileUploadWithOptions($authRequest, $runtime);
+            $authResponse = $authClient->authorizeFileUploadWithOptions($authRequest, $runtime);
             $ossConfig->accessKeyId = $authResponse->body->accessKeyId;
-            $ossConfig->endpoint    = Utils::getEndpoint($authResponse->body->endpoint, $authResponse->body->useAccelerate, $this->_endpointType);
-            $ossClient              = new OSS($ossConfig);
-            $fileObj                = new FileField([
-                'filename'    => $authResponse->body->objectKey,
-                'content'     => $request->primaryPicContentObject,
+            $ossConfig->endpoint = Utils::getEndpoint($authResponse->body->endpoint, $authResponse->body->useAccelerate, $this->_endpointType);
+            $ossClient = new OSS($ossConfig);
+            $fileObj = new FileField([
+                'filename' => $authResponse->body->objectKey,
+                'content' => $request->primaryPicContentObject,
                 'contentType' => '',
             ]);
             $ossHeader = new header([
-                'accessKeyId'         => $authResponse->body->accessKeyId,
-                'policy'              => $authResponse->body->encodedPolicy,
-                'signature'           => $authResponse->body->signature,
-                'key'                 => $authResponse->body->objectKey,
-                'file'                => $fileObj,
+                'accessKeyId' => $authResponse->body->accessKeyId,
+                'policy' => $authResponse->body->encodedPolicy,
+                'signature' => $authResponse->body->signature,
+                'key' => $authResponse->body->objectKey,
+                'file' => $fileObj,
                 'successActionStatus' => '201',
             ]);
             $uploadRequest = new PostObjectRequest([
                 'bucketName' => $authResponse->body->bucket,
-                'header'     => $ossHeader,
+                'header' => $ossHeader,
             ]);
             $ossClient->postObject($uploadRequest, $ossRuntime);
             $compareSimilarByImageReq->primaryPicContent = 'http://' . $authResponse->body->bucket . '.' . $authResponse->body->endpoint . '/' . $authResponse->body->objectKey . '';
         }
 
         if (null !== $request->secondaryPicContentObject) {
-            $authResponse           = $authClient->authorizeFileUploadWithOptions($authRequest, $runtime);
+            $authResponse = $authClient->authorizeFileUploadWithOptions($authRequest, $runtime);
             $ossConfig->accessKeyId = $authResponse->body->accessKeyId;
-            $ossConfig->endpoint    = Utils::getEndpoint($authResponse->body->endpoint, $authResponse->body->useAccelerate, $this->_endpointType);
-            $ossClient              = new OSS($ossConfig);
-            $fileObj                = new FileField([
-                'filename'    => $authResponse->body->objectKey,
-                'content'     => $request->secondaryPicContentObject,
+            $ossConfig->endpoint = Utils::getEndpoint($authResponse->body->endpoint, $authResponse->body->useAccelerate, $this->_endpointType);
+            $ossClient = new OSS($ossConfig);
+            $fileObj = new FileField([
+                'filename' => $authResponse->body->objectKey,
+                'content' => $request->secondaryPicContentObject,
                 'contentType' => '',
             ]);
             $ossHeader = new header([
-                'accessKeyId'         => $authResponse->body->accessKeyId,
-                'policy'              => $authResponse->body->encodedPolicy,
-                'signature'           => $authResponse->body->signature,
-                'key'                 => $authResponse->body->objectKey,
-                'file'                => $fileObj,
+                'accessKeyId' => $authResponse->body->accessKeyId,
+                'policy' => $authResponse->body->encodedPolicy,
+                'signature' => $authResponse->body->signature,
+                'key' => $authResponse->body->objectKey,
+                'file' => $fileObj,
                 'successActionStatus' => '201',
             ]);
             $uploadRequest = new PostObjectRequest([
                 'bucketName' => $authResponse->body->bucket,
-                'header'     => $ossHeader,
+                'header' => $ossHeader,
             ]);
             $ossClient->postObject($uploadRequest, $ossRuntime);
             $compareSimilarByImageReq->secondaryPicContent = 'http://' . $authResponse->body->bucket . '.' . $authResponse->body->endpoint . '/' . $authResponse->body->objectKey . '';
@@ -472,6 +478,7 @@ class ImageSearch extends OpenApiClient
      *
      * @param request - DeleteImageRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DeleteImageResponse
      *
      * @param DeleteImageRequest $request
@@ -507,15 +514,15 @@ class ImageSearch extends OpenApiClient
             'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'DeleteImage',
-            'version'     => '2020-12-14',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DeleteImage',
+            'version' => '2020-12-14',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DeleteImageResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -534,6 +541,7 @@ class ImageSearch extends OpenApiClient
      * By default, the maximum number of queries supported by this operation is 20. In this case, the system can process at most 20 requests every second.
      *
      * @param request - DeleteImageRequest
+     *
      * @returns DeleteImageResponse
      *
      * @param DeleteImageRequest $request
@@ -557,6 +565,7 @@ class ImageSearch extends OpenApiClient
      *
      * @param request - DetailRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DetailResponse
      *
      * @param DetailRequest  $request
@@ -576,15 +585,15 @@ class ImageSearch extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'Detail',
-            'version'     => '2020-12-14',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'Detail',
+            'version' => '2020-12-14',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DetailResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -602,6 +611,7 @@ class ImageSearch extends OpenApiClient
      * By default, the maximum number of queries supported by this operation is 1. In this case, the system can process only 1 request every second.
      *
      * @param request - DetailRequest
+     *
      * @returns DetailResponse
      *
      * @param DetailRequest $request
@@ -625,6 +635,7 @@ class ImageSearch extends OpenApiClient
      *
      * @param request - DumpMetaRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DumpMetaResponse
      *
      * @param DumpMetaRequest $request
@@ -644,15 +655,15 @@ class ImageSearch extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DumpMeta',
-            'version'     => '2020-12-14',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DumpMeta',
+            'version' => '2020-12-14',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DumpMetaResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -670,6 +681,7 @@ class ImageSearch extends OpenApiClient
      * By default, the maximum number of queries supported by this operation is 1. In this case, the system can process at most 1 request every second.
      *
      * @param request - DumpMetaRequest
+     *
      * @returns DumpMetaResponse
      *
      * @param DumpMetaRequest $request
@@ -693,6 +705,7 @@ class ImageSearch extends OpenApiClient
      *
      * @param request - DumpMetaListRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DumpMetaListResponse
      *
      * @param DumpMetaListRequest $request
@@ -724,15 +737,15 @@ class ImageSearch extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DumpMetaList',
-            'version'     => '2020-12-14',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DumpMetaList',
+            'version' => '2020-12-14',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DumpMetaListResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -750,6 +763,7 @@ class ImageSearch extends OpenApiClient
      * By default, the maximum number of queries supported by this operation is 1. In this case, the system can process at most 1 request every second.
      *
      * @param request - DumpMetaListRequest
+     *
      * @returns DumpMetaListResponse
      *
      * @param DumpMetaListRequest $request
@@ -773,6 +787,7 @@ class ImageSearch extends OpenApiClient
      *
      * @param request - IncreaseInstanceRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns IncreaseInstanceResponse
      *
      * @param IncreaseInstanceRequest $request
@@ -804,15 +819,15 @@ class ImageSearch extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'IncreaseInstance',
-            'version'     => '2020-12-14',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'IncreaseInstance',
+            'version' => '2020-12-14',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return IncreaseInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -830,6 +845,7 @@ class ImageSearch extends OpenApiClient
      * By default, the maximum number of queries supported by this operation is 1. In this case, the system can process at most 1 request every second.
      *
      * @param request - IncreaseInstanceRequest
+     *
      * @returns IncreaseInstanceResponse
      *
      * @param IncreaseInstanceRequest $request
@@ -853,6 +869,7 @@ class ImageSearch extends OpenApiClient
      *
      * @param request - IncreaseListRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns IncreaseListResponse
      *
      * @param IncreaseListRequest $request
@@ -892,15 +909,15 @@ class ImageSearch extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'IncreaseList',
-            'version'     => '2020-12-14',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'IncreaseList',
+            'version' => '2020-12-14',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return IncreaseListResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -918,6 +935,7 @@ class ImageSearch extends OpenApiClient
      * By default, the maximum number of queries supported by this operation is 1. In this case, the system can process at most 1 request every second.
      *
      * @param request - IncreaseListRequest
+     *
      * @returns IncreaseListResponse
      *
      * @param IncreaseListRequest $request
@@ -941,6 +959,7 @@ class ImageSearch extends OpenApiClient
      *
      * @param request - SearchImageByNameRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns SearchImageByNameResponse
      *
      * @param SearchImageByNameRequest $request
@@ -988,15 +1007,15 @@ class ImageSearch extends OpenApiClient
             'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'SearchImageByName',
-            'version'     => '2020-12-14',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'SearchImageByName',
+            'version' => '2020-12-14',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return SearchImageByNameResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -1014,6 +1033,7 @@ class ImageSearch extends OpenApiClient
      * The maximum number of queries per second is displayed in the Image Search console. The upper limit is specified when you purchase the instance. You can set the upper limit to 5 QPS or 10 QPS.
      *
      * @param request - SearchImageByNameRequest
+     *
      * @returns SearchImageByNameResponse
      *
      * @param SearchImageByNameRequest $request
@@ -1039,6 +1059,7 @@ class ImageSearch extends OpenApiClient
      *
      * @param request - SearchImageByPicRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns SearchImageByPicResponse
      *
      * @param SearchImageByPicRequest $request
@@ -1090,15 +1111,15 @@ class ImageSearch extends OpenApiClient
             'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'SearchImageByPic',
-            'version'     => '2020-12-14',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'SearchImageByPic',
+            'version' => '2020-12-14',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return SearchImageByPicResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -1118,6 +1139,7 @@ class ImageSearch extends OpenApiClient
      * The Image Search SDK has been upgraded to version 3.1.1, which supports multi-subject recognition and similarity scores. For more information, see [Image Search SDK for Java](/help/en/image-search/latest/version-v3-java-sdk).
      *
      * @param request - SearchImageByPicRequest
+     *
      * @returns SearchImageByPicResponse
      *
      * @param SearchImageByPicRequest $request
@@ -1140,10 +1162,10 @@ class ImageSearch extends OpenApiClient
     public function searchImageByPicAdvance($request, $runtime)
     {
         // Step 0: init client
-        $accessKeyId          = $this->_credential->getAccessKeyId();
-        $accessKeySecret      = $this->_credential->getAccessKeySecret();
-        $securityToken        = $this->_credential->getSecurityToken();
-        $credentialType       = $this->_credential->getType();
+        $accessKeyId = $this->_credential->getAccessKeyId();
+        $accessKeySecret = $this->_credential->getAccessKeySecret();
+        $securityToken = $this->_credential->getSecurityToken();
+        $credentialType = $this->_credential->getType();
         $openPlatformEndpoint = $this->_openPlatformEndpoint;
         if (null === $openPlatformEndpoint) {
             $openPlatformEndpoint = 'openplatform.aliyuncs.com';
@@ -1154,62 +1176,142 @@ class ImageSearch extends OpenApiClient
         }
 
         $authConfig = new Config([
-            'accessKeyId'     => $accessKeyId,
+            'accessKeyId' => $accessKeyId,
             'accessKeySecret' => $accessKeySecret,
-            'securityToken'   => $securityToken,
-            'type'            => $credentialType,
-            'endpoint'        => $openPlatformEndpoint,
-            'protocol'        => $this->_protocol,
-            'regionId'        => $this->_regionId,
+            'securityToken' => $securityToken,
+            'type' => $credentialType,
+            'endpoint' => $openPlatformEndpoint,
+            'protocol' => $this->_protocol,
+            'regionId' => $this->_regionId,
         ]);
-        $authClient  = new OpenPlatform($authConfig);
+        $authClient = new OpenPlatform($authConfig);
         $authRequest = new AuthorizeFileUploadRequest([
-            'product'  => 'ImageSearch',
+            'product' => 'ImageSearch',
             'regionId' => $this->_regionId,
         ]);
         $authResponse = new AuthorizeFileUploadResponse([]);
-        $ossConfig    = new \AlibabaCloud\SDK\OSS\OSS\Config([
-            'accessKeyId'     => $accessKeyId,
+        $ossConfig = new OSS\Config([
+            'accessKeyId' => $accessKeyId,
             'accessKeySecret' => $accessKeySecret,
-            'type'            => 'access_key',
-            'protocol'        => $this->_protocol,
-            'regionId'        => $this->_regionId,
+            'type' => 'access_key',
+            'protocol' => $this->_protocol,
+            'regionId' => $this->_regionId,
         ]);
-        $ossClient     = new OSS($ossConfig);
-        $fileObj       = new FileField([]);
-        $ossHeader     = new header([]);
+        $ossClient = new OSS($ossConfig);
+        $fileObj = new FileField([]);
+        $ossHeader = new header([]);
         $uploadRequest = new PostObjectRequest([]);
-        $ossRuntime    = new \AlibabaCloud\Tea\OSSUtils\OSSUtils\RuntimeOptions([]);
+        $ossRuntime = new \AlibabaCloud\Tea\OSSUtils\OSSUtils\RuntimeOptions([]);
         Utils::convert($runtime, $ossRuntime);
         $searchImageByPicReq = new SearchImageByPicRequest([]);
         Utils::convert($request, $searchImageByPicReq);
         if (null !== $request->picContentObject) {
-            $authResponse           = $authClient->authorizeFileUploadWithOptions($authRequest, $runtime);
+            $authResponse = $authClient->authorizeFileUploadWithOptions($authRequest, $runtime);
             $ossConfig->accessKeyId = $authResponse->body->accessKeyId;
-            $ossConfig->endpoint    = Utils::getEndpoint($authResponse->body->endpoint, $authResponse->body->useAccelerate, $this->_endpointType);
-            $ossClient              = new OSS($ossConfig);
-            $fileObj                = new FileField([
-                'filename'    => $authResponse->body->objectKey,
-                'content'     => $request->picContentObject,
+            $ossConfig->endpoint = Utils::getEndpoint($authResponse->body->endpoint, $authResponse->body->useAccelerate, $this->_endpointType);
+            $ossClient = new OSS($ossConfig);
+            $fileObj = new FileField([
+                'filename' => $authResponse->body->objectKey,
+                'content' => $request->picContentObject,
                 'contentType' => '',
             ]);
             $ossHeader = new header([
-                'accessKeyId'         => $authResponse->body->accessKeyId,
-                'policy'              => $authResponse->body->encodedPolicy,
-                'signature'           => $authResponse->body->signature,
-                'key'                 => $authResponse->body->objectKey,
-                'file'                => $fileObj,
+                'accessKeyId' => $authResponse->body->accessKeyId,
+                'policy' => $authResponse->body->encodedPolicy,
+                'signature' => $authResponse->body->signature,
+                'key' => $authResponse->body->objectKey,
+                'file' => $fileObj,
                 'successActionStatus' => '201',
             ]);
             $uploadRequest = new PostObjectRequest([
                 'bucketName' => $authResponse->body->bucket,
-                'header'     => $ossHeader,
+                'header' => $ossHeader,
             ]);
             $ossClient->postObject($uploadRequest, $ossRuntime);
             $searchImageByPicReq->picContent = 'http://' . $authResponse->body->bucket . '.' . $authResponse->body->endpoint . '/' . $authResponse->body->objectKey . '';
         }
 
         return $this->searchImageByPicWithOptions($searchImageByPicReq, $runtime);
+    }
+
+    /**
+     * SearchImageByText.
+     *
+     * @param request - SearchImageByTextRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns SearchImageByTextResponse
+     *
+     * @param SearchImageByTextRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return SearchImageByTextResponse
+     */
+    public function searchImageByTextWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->distinctProductId) {
+            @$body['DistinctProductId'] = $request->distinctProductId;
+        }
+
+        if (null !== $request->filter) {
+            @$body['Filter'] = $request->filter;
+        }
+
+        if (null !== $request->instanceName) {
+            @$body['InstanceName'] = $request->instanceName;
+        }
+
+        if (null !== $request->num) {
+            @$body['Num'] = $request->num;
+        }
+
+        if (null !== $request->start) {
+            @$body['Start'] = $request->start;
+        }
+
+        if (null !== $request->text) {
+            @$body['Text'] = $request->text;
+        }
+
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'SearchImageByText',
+            'version' => '2020-12-14',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return SearchImageByTextResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
+
+        return SearchImageByTextResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * SearchImageByText.
+     *
+     * @param request - SearchImageByTextRequest
+     *
+     * @returns SearchImageByTextResponse
+     *
+     * @param SearchImageByTextRequest $request
+     *
+     * @return SearchImageByTextResponse
+     */
+    public function searchImageByText($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->searchImageByTextWithOptions($request, $runtime);
     }
 
     /**
@@ -1224,6 +1326,7 @@ class ImageSearch extends OpenApiClient
      *
      * @param request - UpdateImageRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns UpdateImageResponse
      *
      * @param UpdateImageRequest $request
@@ -1286,18 +1389,18 @@ class ImageSearch extends OpenApiClient
 
         $req = new OpenApiRequest([
             'query' => Utils::query($query),
-            'body'  => Utils::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'UpdateImage',
-            'version'     => '2020-12-14',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'UpdateImage',
+            'version' => '2020-12-14',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return UpdateImageResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -1317,6 +1420,7 @@ class ImageSearch extends OpenApiClient
      * By default, the maximum number of queries supported by this operation is 20. In this case, the system can process at most 20 requests every second.
      *
      * @param request - UpdateImageRequest
+     *
      * @returns UpdateImageResponse
      *
      * @param UpdateImageRequest $request

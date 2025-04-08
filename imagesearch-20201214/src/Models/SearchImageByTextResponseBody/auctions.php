@@ -2,12 +2,11 @@
 
 // This file is auto-generated, don't edit it. Thanks.
 
-namespace AlibabaCloud\SDK\ImageSearch\V20201214\Models;
+namespace AlibabaCloud\SDK\ImageSearch\V20201214\Models\SearchImageByTextResponseBody;
 
 use AlibabaCloud\Dara\Model;
-use GuzzleHttp\Psr7\Stream;
 
-class AddImageAdvanceRequest extends Model
+class auctions extends Model
 {
     /**
      * @var int
@@ -15,19 +14,9 @@ class AddImageAdvanceRequest extends Model
     public $categoryId;
 
     /**
-     * @var bool
-     */
-    public $crop;
-
-    /**
      * @var string
      */
     public $customContent;
-
-    /**
-     * @var string
-     */
-    public $instanceName;
 
     /**
      * @var int
@@ -50,11 +39,6 @@ class AddImageAdvanceRequest extends Model
     public $intAttr4;
 
     /**
-     * @var Stream
-     */
-    public $picContentObject;
-
-    /**
      * @var string
      */
     public $picName;
@@ -65,9 +49,9 @@ class AddImageAdvanceRequest extends Model
     public $productId;
 
     /**
-     * @var string
+     * @var float
      */
-    public $region;
+    public $score;
 
     /**
      * @var string
@@ -90,17 +74,14 @@ class AddImageAdvanceRequest extends Model
     public $strAttr4;
     protected $_name = [
         'categoryId' => 'CategoryId',
-        'crop' => 'Crop',
         'customContent' => 'CustomContent',
-        'instanceName' => 'InstanceName',
         'intAttr' => 'IntAttr',
         'intAttr2' => 'IntAttr2',
         'intAttr3' => 'IntAttr3',
         'intAttr4' => 'IntAttr4',
-        'picContentObject' => 'PicContent',
         'picName' => 'PicName',
         'productId' => 'ProductId',
-        'region' => 'Region',
+        'score' => 'Score',
         'strAttr' => 'StrAttr',
         'strAttr2' => 'StrAttr2',
         'strAttr3' => 'StrAttr3',
@@ -119,16 +100,8 @@ class AddImageAdvanceRequest extends Model
             $res['CategoryId'] = $this->categoryId;
         }
 
-        if (null !== $this->crop) {
-            $res['Crop'] = $this->crop;
-        }
-
         if (null !== $this->customContent) {
             $res['CustomContent'] = $this->customContent;
-        }
-
-        if (null !== $this->instanceName) {
-            $res['InstanceName'] = $this->instanceName;
         }
 
         if (null !== $this->intAttr) {
@@ -147,10 +120,6 @@ class AddImageAdvanceRequest extends Model
             $res['IntAttr4'] = $this->intAttr4;
         }
 
-        if (null !== $this->picContentObject) {
-            $res['PicContent'] = $this->picContentObject;
-        }
-
         if (null !== $this->picName) {
             $res['PicName'] = $this->picName;
         }
@@ -159,8 +128,8 @@ class AddImageAdvanceRequest extends Model
             $res['ProductId'] = $this->productId;
         }
 
-        if (null !== $this->region) {
-            $res['Region'] = $this->region;
+        if (null !== $this->score) {
+            $res['Score'] = $this->score;
         }
 
         if (null !== $this->strAttr) {
@@ -194,16 +163,8 @@ class AddImageAdvanceRequest extends Model
             $model->categoryId = $map['CategoryId'];
         }
 
-        if (isset($map['Crop'])) {
-            $model->crop = $map['Crop'];
-        }
-
         if (isset($map['CustomContent'])) {
             $model->customContent = $map['CustomContent'];
-        }
-
-        if (isset($map['InstanceName'])) {
-            $model->instanceName = $map['InstanceName'];
         }
 
         if (isset($map['IntAttr'])) {
@@ -222,10 +183,6 @@ class AddImageAdvanceRequest extends Model
             $model->intAttr4 = $map['IntAttr4'];
         }
 
-        if (isset($map['PicContent'])) {
-            $model->picContentObject = $map['PicContent'];
-        }
-
         if (isset($map['PicName'])) {
             $model->picName = $map['PicName'];
         }
@@ -234,8 +191,8 @@ class AddImageAdvanceRequest extends Model
             $model->productId = $map['ProductId'];
         }
 
-        if (isset($map['Region'])) {
-            $model->region = $map['Region'];
+        if (isset($map['Score'])) {
+            $model->score = $map['Score'];
         }
 
         if (isset($map['StrAttr'])) {

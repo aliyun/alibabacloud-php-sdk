@@ -12,23 +12,26 @@ class IncreaseInstanceRequest extends Model
      * @var string
      */
     public $bucketName;
+
     /**
      * @var string
      */
     public $callbackAddress;
+
     /**
      * @var string
      */
     public $instanceName;
+
     /**
      * @var string
      */
     public $path;
     protected $_name = [
-        'bucketName'      => 'BucketName',
+        'bucketName' => 'BucketName',
         'callbackAddress' => 'CallbackAddress',
-        'instanceName'    => 'InstanceName',
-        'path'            => 'Path',
+        'instanceName' => 'InstanceName',
+        'path' => 'Path',
     ];
 
     public function validate()

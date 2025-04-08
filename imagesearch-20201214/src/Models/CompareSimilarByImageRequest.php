@@ -12,17 +12,19 @@ class CompareSimilarByImageRequest extends Model
      * @var string
      */
     public $instanceName;
+
     /**
      * @var string
      */
     public $primaryPicContent;
+
     /**
      * @var string
      */
     public $secondaryPicContent;
     protected $_name = [
-        'instanceName'        => 'InstanceName',
-        'primaryPicContent'   => 'PrimaryPicContent',
+        'instanceName' => 'InstanceName',
+        'primaryPicContent' => 'PrimaryPicContent',
         'secondaryPicContent' => 'SecondaryPicContent',
     ];
 

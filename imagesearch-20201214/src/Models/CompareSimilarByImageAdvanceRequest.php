@@ -13,17 +13,19 @@ class CompareSimilarByImageAdvanceRequest extends Model
      * @var string
      */
     public $instanceName;
+
     /**
      * @var Stream
      */
     public $primaryPicContentObject;
+
     /**
      * @var Stream
      */
     public $secondaryPicContentObject;
     protected $_name = [
-        'instanceName'              => 'InstanceName',
-        'primaryPicContentObject'   => 'PrimaryPicContent',
+        'instanceName' => 'InstanceName',
+        'primaryPicContentObject' => 'PrimaryPicContent',
         'secondaryPicContentObject' => 'SecondaryPicContent',
     ];
 

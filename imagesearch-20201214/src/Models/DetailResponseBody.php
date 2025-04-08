@@ -13,18 +13,20 @@ class DetailResponseBody extends Model
      * @var instance
      */
     public $instance;
+
     /**
      * @var string
      */
     public $requestId;
+
     /**
      * @var bool
      */
     public $success;
     protected $_name = [
-        'instance'  => 'Instance',
+        'instance' => 'Instance',
         'requestId' => 'RequestId',
-        'success'   => 'Success',
+        'success' => 'Success',
     ];
 
     public function validate()

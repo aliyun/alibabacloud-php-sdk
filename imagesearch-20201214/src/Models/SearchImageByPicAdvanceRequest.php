@@ -13,48 +13,56 @@ class SearchImageByPicAdvanceRequest extends Model
      * @var int
      */
     public $categoryId;
+
     /**
      * @var bool
      */
     public $crop;
+
     /**
      * @var bool
      */
     public $distinctProductId;
+
     /**
      * @var string
      */
     public $filter;
+
     /**
      * @var string
      */
     public $instanceName;
+
     /**
      * @var int
      */
     public $num;
+
     /**
      * @var Stream
      */
     public $picContentObject;
+
     /**
      * @var string
      */
     public $region;
+
     /**
      * @var int
      */
     public $start;
     protected $_name = [
-        'categoryId'        => 'CategoryId',
-        'crop'              => 'Crop',
+        'categoryId' => 'CategoryId',
+        'crop' => 'Crop',
         'distinctProductId' => 'DistinctProductId',
-        'filter'            => 'Filter',
-        'instanceName'      => 'InstanceName',
-        'num'               => 'Num',
-        'picContentObject'  => 'PicContent',
-        'region'            => 'Region',
-        'start'             => 'Start',
+        'filter' => 'Filter',
+        'instanceName' => 'InstanceName',
+        'num' => 'Num',
+        'picContentObject' => 'PicContent',
+        'region' => 'Region',
+        'start' => 'Start',
     ];
 
     public function validate()

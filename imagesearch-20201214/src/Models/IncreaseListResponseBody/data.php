@@ -13,14 +13,17 @@ class data extends Model
      * @var increments
      */
     public $increments;
+
     /**
      * @var int
      */
     public $pageNumber;
+
     /**
      * @var int
      */
     public $pageSize;
+
     /**
      * @var int
      */
@@ -28,7 +31,7 @@ class data extends Model
     protected $_name = [
         'increments' => 'Increments',
         'pageNumber' => 'PageNumber',
-        'pageSize'   => 'PageSize',
+        'pageSize' => 'PageSize',
         'totalCount' => 'TotalCount',
     ];
 

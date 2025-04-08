@@ -5,12 +5,18 @@
 namespace AlibabaCloud\SDK\ImageSearch\V20201214\Models;
 
 use AlibabaCloud\Dara\Model;
-use AlibabaCloud\SDK\ImageSearch\V20201214\Models\SearchImageByNameResponseBody\auctions;
-use AlibabaCloud\SDK\ImageSearch\V20201214\Models\SearchImageByNameResponseBody\head;
-use AlibabaCloud\SDK\ImageSearch\V20201214\Models\SearchImageByNameResponseBody\picInfo;
+use AlibabaCloud\SDK\ImageSearch\V20201214\Models\SearchImageByTextResponseBody\accessDeniedDetail;
+use AlibabaCloud\SDK\ImageSearch\V20201214\Models\SearchImageByTextResponseBody\auctions;
+use AlibabaCloud\SDK\ImageSearch\V20201214\Models\SearchImageByTextResponseBody\head;
+use AlibabaCloud\SDK\ImageSearch\V20201214\Models\SearchImageByTextResponseBody\picInfo;
 
-class SearchImageByNameResponseBody extends Model
+class SearchImageByTextResponseBody extends Model
 {
+    /**
+     * @var accessDeniedDetail
+     */
+    public $accessDeniedDetail;
+
     /**
      * @var auctions[]
      */
@@ -46,6 +52,7 @@ class SearchImageByNameResponseBody extends Model
      */
     public $success;
     protected $_name = [
+        'accessDeniedDetail' => 'AccessDeniedDetail',
         'auctions' => 'Auctions',
         'code' => 'Code',
         'head' => 'Head',
@@ -57,6 +64,9 @@ class SearchImageByNameResponseBody extends Model
 
     public function validate()
     {
+        if (null !== $this->accessDeniedDetail) {
+            $this->accessDeniedDetail->validate();
+        }
         if (\is_array($this->auctions)) {
             Model::validateArray($this->auctions);
         }
@@ -72,6 +82,10 @@ class SearchImageByNameResponseBody extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->accessDeniedDetail) {
+            $res['AccessDeniedDetail'] = null !== $this->accessDeniedDetail ? $this->accessDeniedDetail->toArray($noStream) : $this->accessDeniedDetail;
+        }
+
         if (null !== $this->auctions) {
             if (\is_array($this->auctions)) {
                 $res['Auctions'] = [];
@@ -117,6 +131,10 @@ class SearchImageByNameResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AccessDeniedDetail'])) {
+            $model->accessDeniedDetail = accessDeniedDetail::fromMap($map['AccessDeniedDetail']);
+        }
+
         if (isset($map['Auctions'])) {
             if (!empty($map['Auctions'])) {
                 $model->auctions = [];

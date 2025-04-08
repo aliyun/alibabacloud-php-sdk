@@ -12,42 +12,49 @@ class instance extends Model
      * @var int
      */
     public $capacity;
+
     /**
      * @var string
      */
     public $name;
+
     /**
      * @var int
      */
     public $qps;
+
     /**
      * @var string
      */
     public $region;
+
     /**
      * @var int
      */
     public $serviceType;
+
     /**
      * @var int
      */
     public $totalCount;
+
     /**
      * @var string
      */
     public $utcCreate;
+
     /**
      * @var string
      */
     public $utcExpireTime;
     protected $_name = [
-        'capacity'      => 'Capacity',
-        'name'          => 'Name',
-        'qps'           => 'Qps',
-        'region'        => 'Region',
-        'serviceType'   => 'ServiceType',
-        'totalCount'    => 'TotalCount',
-        'utcCreate'     => 'UtcCreate',
+        'capacity' => 'Capacity',
+        'name' => 'Name',
+        'qps' => 'Qps',
+        'region' => 'Region',
+        'serviceType' => 'ServiceType',
+        'totalCount' => 'TotalCount',
+        'utcCreate' => 'UtcCreate',
         'utcExpireTime' => 'UtcExpireTime',
     ];
 

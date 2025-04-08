@@ -12,37 +12,43 @@ class dumpMetaList extends Model
      * @var string
      */
     public $code;
+
     /**
      * @var int
      */
     public $id;
+
     /**
      * @var string
      */
     public $metaUrl;
+
     /**
      * @var string
      */
     public $msg;
+
     /**
      * @var string
      */
     public $status;
+
     /**
      * @var string
      */
     public $utcCreate;
+
     /**
      * @var int
      */
     public $utcModified;
     protected $_name = [
-        'code'        => 'Code',
-        'id'          => 'Id',
-        'metaUrl'     => 'MetaUrl',
-        'msg'         => 'Msg',
-        'status'      => 'Status',
-        'utcCreate'   => 'UtcCreate',
+        'code' => 'Code',
+        'id' => 'Id',
+        'metaUrl' => 'MetaUrl',
+        'msg' => 'Msg',
+        'status' => 'Status',
+        'utcCreate' => 'UtcCreate',
         'utcModified' => 'UtcModified',
     ];
 

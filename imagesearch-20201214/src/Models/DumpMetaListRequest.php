@@ -12,23 +12,26 @@ class DumpMetaListRequest extends Model
      * @var int
      */
     public $id;
+
     /**
      * @var string
      */
     public $instanceName;
+
     /**
      * @var int
      */
     public $pageNumber;
+
     /**
      * @var int
      */
     public $pageSize;
     protected $_name = [
-        'id'           => 'Id',
+        'id' => 'Id',
         'instanceName' => 'InstanceName',
-        'pageNumber'   => 'PageNumber',
-        'pageSize'     => 'PageSize',
+        'pageNumber' => 'PageNumber',
+        'pageSize' => 'PageSize',
     ];
 
     public function validate()

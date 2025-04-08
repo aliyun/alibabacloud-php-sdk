@@ -13,23 +13,26 @@ class data extends Model
      * @var dumpMetaList[]
      */
     public $dumpMetaList;
+
     /**
      * @var int
      */
     public $pageNumber;
+
     /**
      * @var int
      */
     public $pageSize;
+
     /**
      * @var int
      */
     public $totalCount;
     protected $_name = [
         'dumpMetaList' => 'DumpMetaList',
-        'pageNumber'   => 'PageNumber',
-        'pageSize'     => 'PageSize',
-        'totalCount'   => 'TotalCount',
+        'pageNumber' => 'PageNumber',
+        'pageSize' => 'PageSize',
+        'totalCount' => 'TotalCount',
     ];
 
     public function validate()
@@ -46,7 +49,7 @@ class data extends Model
         if (null !== $this->dumpMetaList) {
             if (\is_array($this->dumpMetaList)) {
                 $res['DumpMetaList'] = [];
-                $n1                  = 0;
+                $n1 = 0;
                 foreach ($this->dumpMetaList as $item1) {
                     $res['DumpMetaList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -79,7 +82,7 @@ class data extends Model
         if (isset($map['DumpMetaList'])) {
             if (!empty($map['DumpMetaList'])) {
                 $model->dumpMetaList = [];
-                $n1                  = 0;
+                $n1 = 0;
                 foreach ($map['DumpMetaList'] as $item1) {
                     $model->dumpMetaList[$n1++] = dumpMetaList::fromMap($item1);
                 }

@@ -12,83 +12,98 @@ class AddImageRequest extends Model
      * @var int
      */
     public $categoryId;
+
     /**
      * @var bool
      */
     public $crop;
+
     /**
      * @var string
      */
     public $customContent;
+
     /**
      * @var string
      */
     public $instanceName;
+
     /**
      * @var int
      */
     public $intAttr;
+
     /**
      * @var int
      */
     public $intAttr2;
+
     /**
      * @var int
      */
     public $intAttr3;
+
     /**
      * @var int
      */
     public $intAttr4;
+
     /**
      * @var string
      */
     public $picContent;
+
     /**
      * @var string
      */
     public $picName;
+
     /**
      * @var string
      */
     public $productId;
+
     /**
      * @var string
      */
     public $region;
+
     /**
      * @var string
      */
     public $strAttr;
+
     /**
      * @var string
      */
     public $strAttr2;
+
     /**
      * @var string
      */
     public $strAttr3;
+
     /**
      * @var string
      */
     public $strAttr4;
     protected $_name = [
-        'categoryId'    => 'CategoryId',
-        'crop'          => 'Crop',
+        'categoryId' => 'CategoryId',
+        'crop' => 'Crop',
         'customContent' => 'CustomContent',
-        'instanceName'  => 'InstanceName',
-        'intAttr'       => 'IntAttr',
-        'intAttr2'      => 'IntAttr2',
-        'intAttr3'      => 'IntAttr3',
-        'intAttr4'      => 'IntAttr4',
-        'picContent'    => 'PicContent',
-        'picName'       => 'PicName',
-        'productId'     => 'ProductId',
-        'region'        => 'Region',
-        'strAttr'       => 'StrAttr',
-        'strAttr2'      => 'StrAttr2',
-        'strAttr3'      => 'StrAttr3',
-        'strAttr4'      => 'StrAttr4',
+        'instanceName' => 'InstanceName',
+        'intAttr' => 'IntAttr',
+        'intAttr2' => 'IntAttr2',
+        'intAttr3' => 'IntAttr3',
+        'intAttr4' => 'IntAttr4',
+        'picContent' => 'PicContent',
+        'picName' => 'PicName',
+        'productId' => 'ProductId',
+        'region' => 'Region',
+        'strAttr' => 'StrAttr',
+        'strAttr2' => 'StrAttr2',
+        'strAttr3' => 'StrAttr3',
+        'strAttr4' => 'StrAttr4',
     ];
 
     public function validate()

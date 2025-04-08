@@ -14,23 +14,26 @@ class picInfo extends Model
      * @var allCategories[]
      */
     public $allCategories;
+
     /**
      * @var int
      */
     public $categoryId;
+
     /**
      * @var multiRegion[]
      */
     public $multiRegion;
+
     /**
      * @var string
      */
     public $region;
     protected $_name = [
         'allCategories' => 'AllCategories',
-        'categoryId'    => 'CategoryId',
-        'multiRegion'   => 'MultiRegion',
-        'region'        => 'Region',
+        'categoryId' => 'CategoryId',
+        'multiRegion' => 'MultiRegion',
+        'region' => 'Region',
     ];
 
     public function validate()
@@ -50,7 +53,7 @@ class picInfo extends Model
         if (null !== $this->allCategories) {
             if (\is_array($this->allCategories)) {
                 $res['AllCategories'] = [];
-                $n1                   = 0;
+                $n1 = 0;
                 foreach ($this->allCategories as $item1) {
                     $res['AllCategories'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -64,7 +67,7 @@ class picInfo extends Model
         if (null !== $this->multiRegion) {
             if (\is_array($this->multiRegion)) {
                 $res['MultiRegion'] = [];
-                $n1                 = 0;
+                $n1 = 0;
                 foreach ($this->multiRegion as $item1) {
                     $res['MultiRegion'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -89,7 +92,7 @@ class picInfo extends Model
         if (isset($map['AllCategories'])) {
             if (!empty($map['AllCategories'])) {
                 $model->allCategories = [];
-                $n1                   = 0;
+                $n1 = 0;
                 foreach ($map['AllCategories'] as $item1) {
                     $model->allCategories[$n1++] = allCategories::fromMap($item1);
                 }
@@ -103,7 +106,7 @@ class picInfo extends Model
         if (isset($map['MultiRegion'])) {
             if (!empty($map['MultiRegion'])) {
                 $model->multiRegion = [];
-                $n1                 = 0;
+                $n1 = 0;
                 foreach ($map['MultiRegion'] as $item1) {
                     $model->multiRegion[$n1++] = multiRegion::fromMap($item1);
                 }

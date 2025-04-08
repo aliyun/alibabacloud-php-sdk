@@ -6,7 +6,7 @@ namespace AlibabaCloud\SDK\ImageSearch\V20201214\Models;
 
 use AlibabaCloud\Dara\Model;
 
-class UpdateImageResponse extends Model
+class SearchImageByTextResponse extends Model
 {
     /**
      * @var string[]
@@ -19,7 +19,7 @@ class UpdateImageResponse extends Model
     public $statusCode;
 
     /**
-     * @var UpdateImageResponseBody
+     * @var SearchImageByTextResponseBody
      */
     public $body;
     protected $_name = [
@@ -84,7 +84,7 @@ class UpdateImageResponse extends Model
         }
 
         if (isset($map['body'])) {
-            $model->body = UpdateImageResponseBody::fromMap($map['body']);
+            $model->body = SearchImageByTextResponseBody::fromMap($map['body']);
         }
 
         return $model;

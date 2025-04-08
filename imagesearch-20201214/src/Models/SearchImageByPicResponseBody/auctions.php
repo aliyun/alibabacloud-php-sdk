@@ -12,73 +12,86 @@ class auctions extends Model
      * @var int
      */
     public $categoryId;
+
     /**
      * @var string
      */
     public $customContent;
+
     /**
      * @var int
      */
     public $intAttr;
+
     /**
      * @var int
      */
     public $intAttr2;
+
     /**
      * @var int
      */
     public $intAttr3;
+
     /**
      * @var int
      */
     public $intAttr4;
+
     /**
      * @var string
      */
     public $picName;
+
     /**
      * @var string
      */
     public $productId;
+
     /**
      * @var float
      */
     public $score;
+
     /**
      * @var string
      */
     public $sortExprValues;
+
     /**
      * @var string
      */
     public $strAttr;
+
     /**
      * @var string
      */
     public $strAttr2;
+
     /**
      * @var string
      */
     public $strAttr3;
+
     /**
      * @var string
      */
     public $strAttr4;
     protected $_name = [
-        'categoryId'     => 'CategoryId',
-        'customContent'  => 'CustomContent',
-        'intAttr'        => 'IntAttr',
-        'intAttr2'       => 'IntAttr2',
-        'intAttr3'       => 'IntAttr3',
-        'intAttr4'       => 'IntAttr4',
-        'picName'        => 'PicName',
-        'productId'      => 'ProductId',
-        'score'          => 'Score',
+        'categoryId' => 'CategoryId',
+        'customContent' => 'CustomContent',
+        'intAttr' => 'IntAttr',
+        'intAttr2' => 'IntAttr2',
+        'intAttr3' => 'IntAttr3',
+        'intAttr4' => 'IntAttr4',
+        'picName' => 'PicName',
+        'productId' => 'ProductId',
+        'score' => 'Score',
         'sortExprValues' => 'SortExprValues',
-        'strAttr'        => 'StrAttr',
-        'strAttr2'       => 'StrAttr2',
-        'strAttr3'       => 'StrAttr3',
-        'strAttr4'       => 'StrAttr4',
+        'strAttr' => 'StrAttr',
+        'strAttr2' => 'StrAttr2',
+        'strAttr3' => 'StrAttr3',
+        'strAttr4' => 'StrAttr4',
     ];
 
     public function validate()

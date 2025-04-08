@@ -30,7 +30,7 @@ class data extends Model
         if (null !== $this->picNames) {
             if (\is_array($this->picNames)) {
                 $res['PicNames'] = [];
-                $n1              = 0;
+                $n1 = 0;
                 foreach ($this->picNames as $item1) {
                     $res['PicNames'][$n1++] = $item1;
                 }
@@ -51,7 +51,7 @@ class data extends Model
         if (isset($map['PicNames'])) {
             if (!empty($map['PicNames'])) {
                 $model->picNames = [];
-                $n1              = 0;
+                $n1 = 0;
                 foreach ($map['PicNames'] as $item1) {
                     $model->picNames[$n1++] = $item1;
                 }

@@ -12,13 +12,14 @@ class data extends Model
      * @var string
      */
     public $dumpMetaStatus;
+
     /**
      * @var string
      */
     public $id;
     protected $_name = [
         'dumpMetaStatus' => 'DumpMetaStatus',
-        'id'             => 'Id',
+        'id' => 'Id',
     ];
 
     public function validate()

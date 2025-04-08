@@ -2,7 +2,7 @@
 
 // This file is auto-generated, don't edit it. Thanks.
 
-namespace AlibabaCloud\SDK\ImageSearch\V20201214\Models\SearchImageByPicResponseBody\picInfo;
+namespace AlibabaCloud\SDK\ImageSearch\V20201214\Models\SearchImageByTextResponseBody\picInfo;
 
 use AlibabaCloud\Dara\Model;
 
