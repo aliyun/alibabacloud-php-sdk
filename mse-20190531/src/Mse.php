@@ -903,6 +903,10 @@ class Mse extends OpenApiClient
             @$query['InternetSlbSpec'] = $request->internetSlbSpec;
         }
 
+        if (null !== $request->managedEntryNetworkType) {
+            @$query['ManagedEntryNetworkType'] = $request->managedEntryNetworkType;
+        }
+
         if (null !== $request->mserVersion) {
             @$query['MserVersion'] = $request->mserVersion;
         }

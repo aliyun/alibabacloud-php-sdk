@@ -52,6 +52,11 @@ class data extends Model
     /**
      * @var bool
      */
+    public $isManaged;
+
+    /**
+     * @var bool
+     */
     public $mustHttps;
 
     /**
@@ -92,6 +97,7 @@ class data extends Model
         'gmtModified' => 'GmtModified',
         'http2' => 'Http2',
         'id' => 'Id',
+        'isManaged' => 'IsManaged',
         'mustHttps' => 'MustHttps',
         'name' => 'Name',
         'protocol' => 'Protocol',
@@ -142,6 +148,10 @@ class data extends Model
 
         if (null !== $this->id) {
             $res['Id'] = $this->id;
+        }
+
+        if (null !== $this->isManaged) {
+            $res['IsManaged'] = $this->isManaged;
         }
 
         if (null !== $this->mustHttps) {
@@ -213,6 +223,10 @@ class data extends Model
 
         if (isset($map['Id'])) {
             $model->id = $map['Id'];
+        }
+
+        if (isset($map['IsManaged'])) {
+            $model->isManaged = $map['IsManaged'];
         }
 
         if (isset($map['MustHttps'])) {

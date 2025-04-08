@@ -14,11 +14,17 @@ class data extends Model
     public $localName;
 
     /**
+     * @var bool
+     */
+    public $supportQat;
+
+    /**
      * @var string
      */
     public $zoneId;
     protected $_name = [
         'localName' => 'LocalName',
+        'supportQat' => 'SupportQat',
         'zoneId' => 'ZoneId',
     ];
 
@@ -32,6 +38,10 @@ class data extends Model
         $res = [];
         if (null !== $this->localName) {
             $res['LocalName'] = $this->localName;
+        }
+
+        if (null !== $this->supportQat) {
+            $res['SupportQat'] = $this->supportQat;
         }
 
         if (null !== $this->zoneId) {
@@ -51,6 +61,10 @@ class data extends Model
         $model = new self();
         if (isset($map['LocalName'])) {
             $model->localName = $map['LocalName'];
+        }
+
+        if (isset($map['SupportQat'])) {
+            $model->supportQat = $map['SupportQat'];
         }
 
         if (isset($map['ZoneId'])) {

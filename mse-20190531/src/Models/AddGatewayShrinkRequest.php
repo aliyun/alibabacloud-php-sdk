@@ -52,6 +52,11 @@ class AddGatewayShrinkRequest extends Model
     /**
      * @var string
      */
+    public $managedEntryNetworkType;
+
+    /**
+     * @var string
+     */
     public $mserVersion;
 
     /**
@@ -132,6 +137,7 @@ class AddGatewayShrinkRequest extends Model
         'enableXtrace' => 'EnableXtrace',
         'enterpriseSecurityGroup' => 'EnterpriseSecurityGroup',
         'internetSlbSpec' => 'InternetSlbSpec',
+        'managedEntryNetworkType' => 'ManagedEntryNetworkType',
         'mserVersion' => 'MserVersion',
         'name' => 'Name',
         'nlbNetworkType' => 'NlbNetworkType',
@@ -190,6 +196,10 @@ class AddGatewayShrinkRequest extends Model
 
         if (null !== $this->internetSlbSpec) {
             $res['InternetSlbSpec'] = $this->internetSlbSpec;
+        }
+
+        if (null !== $this->managedEntryNetworkType) {
+            $res['ManagedEntryNetworkType'] = $this->managedEntryNetworkType;
         }
 
         if (null !== $this->mserVersion) {
@@ -299,6 +309,10 @@ class AddGatewayShrinkRequest extends Model
 
         if (isset($map['InternetSlbSpec'])) {
             $model->internetSlbSpec = $map['InternetSlbSpec'];
+        }
+
+        if (isset($map['ManagedEntryNetworkType'])) {
+            $model->managedEntryNetworkType = $map['ManagedEntryNetworkType'];
         }
 
         if (isset($map['MserVersion'])) {

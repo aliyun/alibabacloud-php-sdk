@@ -50,6 +50,11 @@ class data extends Model
     /**
      * @var bool
      */
+    public $enableGzipHardwareAccelerate;
+
+    /**
+     * @var bool
+     */
     public $enableHardwareAccelerate;
 
     /**
@@ -169,6 +174,7 @@ class data extends Model
         'enableCustomAuthConfigPush' => 'EnableCustomAuthConfigPush',
         'enableGenerateRequestId' => 'EnableGenerateRequestId',
         'enableGzip' => 'EnableGzip',
+        'enableGzipHardwareAccelerate' => 'EnableGzipHardwareAccelerate',
         'enableHardwareAccelerate' => 'EnableHardwareAccelerate',
         'enableHttp2' => 'EnableHttp2',
         'enableHttp3' => 'EnableHttp3',
@@ -240,6 +246,10 @@ class data extends Model
 
         if (null !== $this->enableGzip) {
             $res['EnableGzip'] = $this->enableGzip;
+        }
+
+        if (null !== $this->enableGzipHardwareAccelerate) {
+            $res['EnableGzipHardwareAccelerate'] = $this->enableGzipHardwareAccelerate;
         }
 
         if (null !== $this->enableHardwareAccelerate) {
@@ -371,6 +381,10 @@ class data extends Model
 
         if (isset($map['EnableGzip'])) {
             $model->enableGzip = $map['EnableGzip'];
+        }
+
+        if (isset($map['EnableGzipHardwareAccelerate'])) {
+            $model->enableGzipHardwareAccelerate = $map['EnableGzipHardwareAccelerate'];
         }
 
         if (isset($map['EnableHardwareAccelerate'])) {
