@@ -4,20 +4,16 @@
 
 namespace AlibabaCloud\SDK\Linkedmall\V20230930\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class RefundFeeData extends Model
 {
     /**
-     * @example 100
-     *
      * @var int
      */
     public $maxRefundFee;
 
     /**
-     * @example 1
-     *
      * @var int
      */
     public $minRefundFee;
@@ -26,14 +22,18 @@ class RefundFeeData extends Model
         'minRefundFee' => 'minRefundFee',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->maxRefundFee) {
             $res['maxRefundFee'] = $this->maxRefundFee;
         }
+
         if (null !== $this->minRefundFee) {
             $res['minRefundFee'] = $this->minRefundFee;
         }
@@ -41,17 +41,18 @@ class RefundFeeData extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return RefundFeeData
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['maxRefundFee'])) {
             $model->maxRefundFee = $map['maxRefundFee'];
         }
+
         if (isset($map['minRefundFee'])) {
             $model->minRefundFee = $map['minRefundFee'];
         }

@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Linkedmall\V20230930\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class OrderPageQuery extends Model
 {
@@ -14,26 +14,16 @@ class OrderPageQuery extends Model
     public $orderIdList;
 
     /**
-     * @description This parameter is required.
-     *
-     * @example 1
-     *
      * @var int
      */
     public $pageNumber;
 
     /**
-     * @description This parameter is required.
-     *
-     * @example 10
-     *
      * @var int
      */
     public $pageSize;
 
     /**
-     * @example 6692****5696
-     *
      * @var string
      */
     public $purchaseOrderId;
@@ -44,20 +34,35 @@ class OrderPageQuery extends Model
         'purchaseOrderId' => 'purchaseOrderId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->orderIdList)) {
+            Model::validateArray($this->orderIdList);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->orderIdList) {
-            $res['orderIdList'] = $this->orderIdList;
+            if (\is_array($this->orderIdList)) {
+                $res['orderIdList'] = [];
+                $n1 = 0;
+                foreach ($this->orderIdList as $item1) {
+                    $res['orderIdList'][$n1++] = $item1;
+                }
+            }
         }
+
         if (null !== $this->pageNumber) {
             $res['pageNumber'] = $this->pageNumber;
         }
+
         if (null !== $this->pageSize) {
             $res['pageSize'] = $this->pageSize;
         }
+
         if (null !== $this->purchaseOrderId) {
             $res['purchaseOrderId'] = $this->purchaseOrderId;
         }
@@ -65,25 +70,32 @@ class OrderPageQuery extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return OrderPageQuery
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['orderIdList'])) {
             if (!empty($map['orderIdList'])) {
-                $model->orderIdList = $map['orderIdList'];
+                $model->orderIdList = [];
+                $n1 = 0;
+                foreach ($map['orderIdList'] as $item1) {
+                    $model->orderIdList[$n1++] = $item1;
+                }
             }
         }
+
         if (isset($map['pageNumber'])) {
             $model->pageNumber = $map['pageNumber'];
         }
+
         if (isset($map['pageSize'])) {
             $model->pageSize = $map['pageSize'];
         }
+
         if (isset($map['purchaseOrderId'])) {
             $model->purchaseOrderId = $map['purchaseOrderId'];
         }

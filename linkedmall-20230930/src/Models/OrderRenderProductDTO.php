@@ -4,42 +4,26 @@
 
 namespace AlibabaCloud\SDK\Linkedmall\V20230930\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class OrderRenderProductDTO extends Model
 {
     /**
-     * @description This parameter is required.
-     *
-     * @example 6600****6736
-     *
      * @var string
      */
     public $productId;
 
     /**
-     * @description This parameter is required.
-     *
-     * @example 56****2304
-     *
      * @var string
      */
     public $purchaserId;
 
     /**
-     * @description This parameter is required.
-     *
-     * @example 1
-     *
      * @var int
      */
     public $quantity;
 
     /**
-     * @description This parameter is required.
-     *
-     * @example 6600****6737
-     *
      * @var string
      */
     public $skuId;
@@ -50,20 +34,26 @@ class OrderRenderProductDTO extends Model
         'skuId' => 'skuId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->productId) {
             $res['productId'] = $this->productId;
         }
+
         if (null !== $this->purchaserId) {
             $res['purchaserId'] = $this->purchaserId;
         }
+
         if (null !== $this->quantity) {
             $res['quantity'] = $this->quantity;
         }
+
         if (null !== $this->skuId) {
             $res['skuId'] = $this->skuId;
         }
@@ -71,23 +61,26 @@ class OrderRenderProductDTO extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return OrderRenderProductDTO
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['productId'])) {
             $model->productId = $map['productId'];
         }
+
         if (isset($map['purchaserId'])) {
             $model->purchaserId = $map['purchaserId'];
         }
+
         if (isset($map['quantity'])) {
             $model->quantity = $map['quantity'];
         }
+
         if (isset($map['skuId'])) {
             $model->skuId = $map['skuId'];
         }

@@ -4,20 +4,16 @@
 
 namespace AlibabaCloud\SDK\Linkedmall\V20230930\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class MemberAccountResult extends Model
 {
     /**
-     * @example "yue***@newburn.cn"
-     *
      * @var string[]
      */
     public $accountNo;
 
     /**
-     * @example 123
-     *
      * @var string
      */
     public $shopId;
@@ -26,14 +22,27 @@ class MemberAccountResult extends Model
         'shopId' => 'shopId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->accountNo)) {
+            Model::validateArray($this->accountNo);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->accountNo) {
-            $res['accountNo'] = $this->accountNo;
+            if (\is_array($this->accountNo)) {
+                $res['accountNo'] = [];
+                $n1 = 0;
+                foreach ($this->accountNo as $item1) {
+                    $res['accountNo'][$n1++] = $item1;
+                }
+            }
         }
+
         if (null !== $this->shopId) {
             $res['shopId'] = $this->shopId;
         }
@@ -41,19 +50,24 @@ class MemberAccountResult extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return MemberAccountResult
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['accountNo'])) {
             if (!empty($map['accountNo'])) {
-                $model->accountNo = $map['accountNo'];
+                $model->accountNo = [];
+                $n1 = 0;
+                foreach ($map['accountNo'] as $item1) {
+                    $model->accountNo[$n1++] = $item1;
+                }
             }
         }
+
         if (isset($map['shopId'])) {
             $model->shopId = $map['shopId'];
         }

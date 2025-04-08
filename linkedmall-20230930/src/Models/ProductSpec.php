@@ -4,20 +4,16 @@
 
 namespace AlibabaCloud\SDK\Linkedmall\V20230930\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class ProductSpec extends Model
 {
     /**
-     * @example 颜色分类
-     *
      * @var string
      */
     public $key;
 
     /**
-     * @example 1000
-     *
      * @var int
      */
     public $keyId;
@@ -32,23 +28,31 @@ class ProductSpec extends Model
         'values' => 'values',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->values)) {
+            Model::validateArray($this->values);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->key) {
             $res['key'] = $this->key;
         }
+
         if (null !== $this->keyId) {
             $res['keyId'] = $this->keyId;
         }
+
         if (null !== $this->values) {
-            $res['values'] = [];
-            if (null !== $this->values && \is_array($this->values)) {
-                $n = 0;
-                foreach ($this->values as $item) {
-                    $res['values'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->values)) {
+                $res['values'] = [];
+                $n1 = 0;
+                foreach ($this->values as $item1) {
+                    $res['values'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
@@ -56,26 +60,28 @@ class ProductSpec extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ProductSpec
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['key'])) {
             $model->key = $map['key'];
         }
+
         if (isset($map['keyId'])) {
             $model->keyId = $map['keyId'];
         }
+
         if (isset($map['values'])) {
             if (!empty($map['values'])) {
                 $model->values = [];
-                $n = 0;
-                foreach ($map['values'] as $item) {
-                    $model->values[$n++] = null !== $item ? ProductSpecValue::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['values'] as $item1) {
+                    $model->values[$n1++] = ProductSpecValue::fromMap($item1);
                 }
             }
         }

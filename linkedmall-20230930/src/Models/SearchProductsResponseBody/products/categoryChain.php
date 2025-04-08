@@ -4,21 +4,22 @@
 
 namespace AlibabaCloud\SDK\Linkedmall\V20230930\Models\SearchProductsResponseBody\products;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class categoryChain extends Model
 {
     /**
-     * @example 201792301
-     *
      * @var int
      */
     public $categoryId;
 
     /**
-     * @example 1
-     *
      * @var bool
+     */
+    public $isLeaf;
+
+    /**
+     * @var int
      */
     public $level;
 
@@ -28,32 +29,41 @@ class categoryChain extends Model
     public $name;
 
     /**
-     * @example 0
-     *
      * @var int
      */
     public $parentId;
     protected $_name = [
         'categoryId' => 'categoryId',
+        'isLeaf' => 'isLeaf',
         'level' => 'level',
         'name' => 'name',
         'parentId' => 'parentId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->categoryId) {
             $res['categoryId'] = $this->categoryId;
         }
+
+        if (null !== $this->isLeaf) {
+            $res['isLeaf'] = $this->isLeaf;
+        }
+
         if (null !== $this->level) {
             $res['level'] = $this->level;
         }
+
         if (null !== $this->name) {
             $res['name'] = $this->name;
         }
+
         if (null !== $this->parentId) {
             $res['parentId'] = $this->parentId;
         }
@@ -61,23 +71,30 @@ class categoryChain extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return categoryChain
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['categoryId'])) {
             $model->categoryId = $map['categoryId'];
         }
+
+        if (isset($map['isLeaf'])) {
+            $model->isLeaf = $map['isLeaf'];
+        }
+
         if (isset($map['level'])) {
             $model->level = $map['level'];
         }
+
         if (isset($map['name'])) {
             $model->name = $map['name'];
         }
+
         if (isset($map['parentId'])) {
             $model->parentId = $map['parentId'];
         }

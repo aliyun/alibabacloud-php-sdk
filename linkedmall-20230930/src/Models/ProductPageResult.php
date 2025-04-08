@@ -4,24 +4,16 @@
 
 namespace AlibabaCloud\SDK\Linkedmall\V20230930\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class ProductPageResult extends Model
 {
     /**
-     * @description This parameter is required.
-     *
-     * @example 1
-     *
      * @var int
      */
     public $pageNumber;
 
     /**
-     * @description This parameter is required.
-     *
-     * @example 10
-     *
      * @var int
      */
     public $pageSize;
@@ -32,17 +24,11 @@ class ProductPageResult extends Model
     public $products;
 
     /**
-     * @example 3239281273464326823
-     *
      * @var string
      */
     public $requestId;
 
     /**
-     * @description This parameter is required.
-     *
-     * @example 24
-     *
      * @var int
      */
     public $total;
@@ -54,29 +40,39 @@ class ProductPageResult extends Model
         'total' => 'total',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->products)) {
+            Model::validateArray($this->products);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->pageNumber) {
             $res['pageNumber'] = $this->pageNumber;
         }
+
         if (null !== $this->pageSize) {
             $res['pageSize'] = $this->pageSize;
         }
+
         if (null !== $this->products) {
-            $res['products'] = [];
-            if (null !== $this->products && \is_array($this->products)) {
-                $n = 0;
-                foreach ($this->products as $item) {
-                    $res['products'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->products)) {
+                $res['products'] = [];
+                $n1 = 0;
+                foreach ($this->products as $item1) {
+                    $res['products'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
+
         if (null !== $this->requestId) {
             $res['requestId'] = $this->requestId;
         }
+
         if (null !== $this->total) {
             $res['total'] = $this->total;
         }
@@ -84,32 +80,36 @@ class ProductPageResult extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ProductPageResult
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['pageNumber'])) {
             $model->pageNumber = $map['pageNumber'];
         }
+
         if (isset($map['pageSize'])) {
             $model->pageSize = $map['pageSize'];
         }
+
         if (isset($map['products'])) {
             if (!empty($map['products'])) {
                 $model->products = [];
-                $n = 0;
-                foreach ($map['products'] as $item) {
-                    $model->products[$n++] = null !== $item ? Product::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['products'] as $item1) {
+                    $model->products[$n1++] = Product::fromMap($item1);
                 }
             }
         }
+
         if (isset($map['requestId'])) {
             $model->requestId = $map['requestId'];
         }
+
         if (isset($map['total'])) {
             $model->total = $map['total'];
         }

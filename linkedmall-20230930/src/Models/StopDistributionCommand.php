@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Linkedmall\V20230930\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class StopDistributionCommand extends Model
 {
@@ -24,8 +24,6 @@ class StopDistributionCommand extends Model
     public $requestId;
 
     /**
-     * @example 2024-12-01 10:01:00
-     *
      * @var string
      */
     public $requestTime;
@@ -42,23 +40,30 @@ class StopDistributionCommand extends Model
         'requestUser' => 'requestUser',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->lmShopId) {
             $res['lmShopId'] = $this->lmShopId;
         }
+
         if (null !== $this->productId) {
             $res['productId'] = $this->productId;
         }
+
         if (null !== $this->requestId) {
             $res['requestId'] = $this->requestId;
         }
+
         if (null !== $this->requestTime) {
             $res['requestTime'] = $this->requestTime;
         }
+
         if (null !== $this->requestUser) {
             $res['requestUser'] = $this->requestUser;
         }
@@ -66,26 +71,30 @@ class StopDistributionCommand extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return StopDistributionCommand
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['lmShopId'])) {
             $model->lmShopId = $map['lmShopId'];
         }
+
         if (isset($map['productId'])) {
             $model->productId = $map['productId'];
         }
+
         if (isset($map['requestId'])) {
             $model->requestId = $map['requestId'];
         }
+
         if (isset($map['requestTime'])) {
             $model->requestTime = $map['requestTime'];
         }
+
         if (isset($map['requestUser'])) {
             $model->requestUser = $map['requestUser'];
         }

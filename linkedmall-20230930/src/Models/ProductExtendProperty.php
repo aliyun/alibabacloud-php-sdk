@@ -4,20 +4,16 @@
 
 namespace AlibabaCloud\SDK\Linkedmall\V20230930\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class ProductExtendProperty extends Model
 {
     /**
-     * @example ss_picture_scene
-     *
      * @var string
      */
     public $key;
 
     /**
-     * @example 场景图
-     *
      * @var string
      */
     public $value;
@@ -26,14 +22,18 @@ class ProductExtendProperty extends Model
         'value' => 'value',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->key) {
             $res['key'] = $this->key;
         }
+
         if (null !== $this->value) {
             $res['value'] = $this->value;
         }
@@ -41,17 +41,18 @@ class ProductExtendProperty extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ProductExtendProperty
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['key'])) {
             $model->key = $map['key'];
         }
+
         if (isset($map['value'])) {
             $model->value = $map['value'];
         }

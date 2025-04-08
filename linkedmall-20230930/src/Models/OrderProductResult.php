@@ -4,13 +4,11 @@
 
 namespace AlibabaCloud\SDK\Linkedmall\V20230930\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class OrderProductResult extends Model
 {
     /**
-     * @example true
-     *
      * @var bool
      */
     public $canSell;
@@ -21,64 +19,46 @@ class OrderProductResult extends Model
     public $features;
 
     /**
-     * @example 库存为0
-     *
      * @var string
      */
     public $message;
 
     /**
-     * @example 100
-     *
      * @var int
      */
     public $price;
 
     /**
-     * @example 6600****6736
-     *
      * @var string
      */
     public $productId;
 
     /**
-     * @example //img.alicdn.com/imgextra/i4/2216003305543/O1CN01bip3Un1qokG0
-     *
      * @var string
      */
     public $productPicUrl;
 
     /**
-     * @example 儿童学习桌
-     *
      * @var string
      */
     public $productTitle;
 
     /**
-     * @example 56****2304
-     *
      * @var string
      */
     public $purchaserId;
 
     /**
-     * @example 1
-     *
      * @var int
      */
     public $quantity;
 
     /**
-     * @example 6600****6737
-     *
      * @var string
      */
     public $skuId;
 
     /**
-     * @example 浅绿色
-     *
      * @var string
      */
     public $skuTitle;
@@ -96,41 +76,62 @@ class OrderProductResult extends Model
         'skuTitle' => 'skuTitle',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->features)) {
+            Model::validateArray($this->features);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->canSell) {
             $res['canSell'] = $this->canSell;
         }
+
         if (null !== $this->features) {
-            $res['features'] = $this->features;
+            if (\is_array($this->features)) {
+                $res['features'] = [];
+                foreach ($this->features as $key1 => $value1) {
+                    $res['features'][$key1] = $value1;
+                }
+            }
         }
+
         if (null !== $this->message) {
             $res['message'] = $this->message;
         }
+
         if (null !== $this->price) {
             $res['price'] = $this->price;
         }
+
         if (null !== $this->productId) {
             $res['productId'] = $this->productId;
         }
+
         if (null !== $this->productPicUrl) {
             $res['productPicUrl'] = $this->productPicUrl;
         }
+
         if (null !== $this->productTitle) {
             $res['productTitle'] = $this->productTitle;
         }
+
         if (null !== $this->purchaserId) {
             $res['purchaserId'] = $this->purchaserId;
         }
+
         if (null !== $this->quantity) {
             $res['quantity'] = $this->quantity;
         }
+
         if (null !== $this->skuId) {
             $res['skuId'] = $this->skuId;
         }
+
         if (null !== $this->skuTitle) {
             $res['skuTitle'] = $this->skuTitle;
         }
@@ -138,44 +139,59 @@ class OrderProductResult extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return OrderProductResult
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['canSell'])) {
             $model->canSell = $map['canSell'];
         }
+
         if (isset($map['features'])) {
-            $model->features = $map['features'];
+            if (!empty($map['features'])) {
+                $model->features = [];
+                foreach ($map['features'] as $key1 => $value1) {
+                    $model->features[$key1] = $value1;
+                }
+            }
         }
+
         if (isset($map['message'])) {
             $model->message = $map['message'];
         }
+
         if (isset($map['price'])) {
             $model->price = $map['price'];
         }
+
         if (isset($map['productId'])) {
             $model->productId = $map['productId'];
         }
+
         if (isset($map['productPicUrl'])) {
             $model->productPicUrl = $map['productPicUrl'];
         }
+
         if (isset($map['productTitle'])) {
             $model->productTitle = $map['productTitle'];
         }
+
         if (isset($map['purchaserId'])) {
             $model->purchaserId = $map['purchaserId'];
         }
+
         if (isset($map['quantity'])) {
             $model->quantity = $map['quantity'];
         }
+
         if (isset($map['skuId'])) {
             $model->skuId = $map['skuId'];
         }
+
         if (isset($map['skuTitle'])) {
             $model->skuTitle = $map['skuTitle'];
         }

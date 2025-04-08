@@ -4,13 +4,11 @@
 
 namespace AlibabaCloud\SDK\Linkedmall\V20230930\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class OrderRenderResult extends Model
 {
     /**
-     * @example true
-     *
      * @var bool
      */
     public $canSell;
@@ -26,8 +24,6 @@ class OrderRenderResult extends Model
     public $extInfo;
 
     /**
-     * @example 库存为0
-     *
      * @var string
      */
     public $message;
@@ -44,35 +40,56 @@ class OrderRenderResult extends Model
         'productList' => 'productList',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->deliveryInfoList)) {
+            Model::validateArray($this->deliveryInfoList);
+        }
+        if (\is_array($this->extInfo)) {
+            Model::validateArray($this->extInfo);
+        }
+        if (\is_array($this->productList)) {
+            Model::validateArray($this->productList);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->canSell) {
             $res['canSell'] = $this->canSell;
         }
+
         if (null !== $this->deliveryInfoList) {
-            $res['deliveryInfoList'] = [];
-            if (null !== $this->deliveryInfoList && \is_array($this->deliveryInfoList)) {
-                $n = 0;
-                foreach ($this->deliveryInfoList as $item) {
-                    $res['deliveryInfoList'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->deliveryInfoList)) {
+                $res['deliveryInfoList'] = [];
+                $n1 = 0;
+                foreach ($this->deliveryInfoList as $item1) {
+                    $res['deliveryInfoList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
+
         if (null !== $this->extInfo) {
-            $res['extInfo'] = $this->extInfo;
+            if (\is_array($this->extInfo)) {
+                $res['extInfo'] = [];
+                foreach ($this->extInfo as $key1 => $value1) {
+                    $res['extInfo'][$key1] = $value1;
+                }
+            }
         }
+
         if (null !== $this->message) {
             $res['message'] = $this->message;
         }
+
         if (null !== $this->productList) {
-            $res['productList'] = [];
-            if (null !== $this->productList && \is_array($this->productList)) {
-                $n = 0;
-                foreach ($this->productList as $item) {
-                    $res['productList'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->productList)) {
+                $res['productList'] = [];
+                $n1 = 0;
+                foreach ($this->productList as $item1) {
+                    $res['productList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
@@ -80,38 +97,47 @@ class OrderRenderResult extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return OrderRenderResult
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['canSell'])) {
             $model->canSell = $map['canSell'];
         }
+
         if (isset($map['deliveryInfoList'])) {
             if (!empty($map['deliveryInfoList'])) {
                 $model->deliveryInfoList = [];
-                $n = 0;
-                foreach ($map['deliveryInfoList'] as $item) {
-                    $model->deliveryInfoList[$n++] = null !== $item ? DeliveryInfo::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['deliveryInfoList'] as $item1) {
+                    $model->deliveryInfoList[$n1++] = DeliveryInfo::fromMap($item1);
                 }
             }
         }
+
         if (isset($map['extInfo'])) {
-            $model->extInfo = $map['extInfo'];
+            if (!empty($map['extInfo'])) {
+                $model->extInfo = [];
+                foreach ($map['extInfo'] as $key1 => $value1) {
+                    $model->extInfo[$key1] = $value1;
+                }
+            }
         }
+
         if (isset($map['message'])) {
             $model->message = $map['message'];
         }
+
         if (isset($map['productList'])) {
             if (!empty($map['productList'])) {
                 $model->productList = [];
-                $n = 0;
-                foreach ($map['productList'] as $item) {
-                    $model->productList[$n++] = null !== $item ? OrderProductResult::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['productList'] as $item1) {
+                    $model->productList[$n1++] = OrderProductResult::fromMap($item1);
                 }
             }
         }

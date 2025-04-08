@@ -4,65 +4,41 @@
 
 namespace AlibabaCloud\SDK\Linkedmall\V20230930\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class RefundOrderCmd extends Model
 {
     /**
-     * @description This parameter is required.
-     *
-     * @example 47821
-     *
      * @var int
      */
     public $applyReasonTextId;
 
     /**
-     * @example 不想要了
-     *
      * @var string
      */
     public $applyReasonTips;
 
     /**
-     * @description This parameter is required.
-     *
-     * @example 1
-     *
      * @var int
      */
     public $applyRefundCount;
 
     /**
-     * @description This parameter is required.
-     *
-     * @example 100
-     *
      * @var int
      */
     public $applyRefundFee;
 
     /**
-     * @description This parameter is required.
-     *
-     * @example 1
-     *
      * @var int
      */
     public $bizClaimType;
 
     /**
-     * @description This parameter is required.
-     *
-     * @example 1
-     *
      * @var int
      */
     public $goodsStatus;
 
     /**
-     * @example 不想要了
-     *
      * @var string
      */
     public $leaveMessage;
@@ -73,10 +49,6 @@ class RefundOrderCmd extends Model
     public $leavePictureLists;
 
     /**
-     * @description This parameter is required.
-     *
-     * @example 6692****5458
-     *
      * @var string
      */
     public $orderLineId;
@@ -92,41 +64,55 @@ class RefundOrderCmd extends Model
         'orderLineId' => 'orderLineId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->leavePictureLists)) {
+            Model::validateArray($this->leavePictureLists);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->applyReasonTextId) {
             $res['applyReasonTextId'] = $this->applyReasonTextId;
         }
+
         if (null !== $this->applyReasonTips) {
             $res['applyReasonTips'] = $this->applyReasonTips;
         }
+
         if (null !== $this->applyRefundCount) {
             $res['applyRefundCount'] = $this->applyRefundCount;
         }
+
         if (null !== $this->applyRefundFee) {
             $res['applyRefundFee'] = $this->applyRefundFee;
         }
+
         if (null !== $this->bizClaimType) {
             $res['bizClaimType'] = $this->bizClaimType;
         }
+
         if (null !== $this->goodsStatus) {
             $res['goodsStatus'] = $this->goodsStatus;
         }
+
         if (null !== $this->leaveMessage) {
             $res['leaveMessage'] = $this->leaveMessage;
         }
+
         if (null !== $this->leavePictureLists) {
-            $res['leavePictureLists'] = [];
-            if (null !== $this->leavePictureLists && \is_array($this->leavePictureLists)) {
-                $n = 0;
-                foreach ($this->leavePictureLists as $item) {
-                    $res['leavePictureLists'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->leavePictureLists)) {
+                $res['leavePictureLists'] = [];
+                $n1 = 0;
+                foreach ($this->leavePictureLists as $item1) {
+                    $res['leavePictureLists'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
+
         if (null !== $this->orderLineId) {
             $res['orderLineId'] = $this->orderLineId;
         }
@@ -134,44 +120,52 @@ class RefundOrderCmd extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return RefundOrderCmd
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['applyReasonTextId'])) {
             $model->applyReasonTextId = $map['applyReasonTextId'];
         }
+
         if (isset($map['applyReasonTips'])) {
             $model->applyReasonTips = $map['applyReasonTips'];
         }
+
         if (isset($map['applyRefundCount'])) {
             $model->applyRefundCount = $map['applyRefundCount'];
         }
+
         if (isset($map['applyRefundFee'])) {
             $model->applyRefundFee = $map['applyRefundFee'];
         }
+
         if (isset($map['bizClaimType'])) {
             $model->bizClaimType = $map['bizClaimType'];
         }
+
         if (isset($map['goodsStatus'])) {
             $model->goodsStatus = $map['goodsStatus'];
         }
+
         if (isset($map['leaveMessage'])) {
             $model->leaveMessage = $map['leaveMessage'];
         }
+
         if (isset($map['leavePictureLists'])) {
             if (!empty($map['leavePictureLists'])) {
                 $model->leavePictureLists = [];
-                $n = 0;
-                foreach ($map['leavePictureLists'] as $item) {
-                    $model->leavePictureLists[$n++] = null !== $item ? LeavePictureList::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['leavePictureLists'] as $item1) {
+                    $model->leavePictureLists[$n1++] = LeavePictureList::fromMap($item1);
                 }
             }
         }
+
         if (isset($map['orderLineId'])) {
             $model->orderLineId = $map['orderLineId'];
         }

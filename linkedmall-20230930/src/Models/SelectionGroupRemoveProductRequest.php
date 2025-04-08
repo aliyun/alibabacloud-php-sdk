@@ -4,22 +4,16 @@
 
 namespace AlibabaCloud\SDK\Linkedmall\V20230930\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class SelectionGroupRemoveProductRequest extends Model
 {
     /**
-     * @description This parameter is required.
-     *
      * @var string[]
      */
     public $productIds;
 
     /**
-     * @description This parameter is required.
-     *
-     * @example PIDxxxxx
-     *
      * @var string
      */
     public $purchaserId;
@@ -28,14 +22,27 @@ class SelectionGroupRemoveProductRequest extends Model
         'purchaserId' => 'purchaserId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->productIds)) {
+            Model::validateArray($this->productIds);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->productIds) {
-            $res['productIds'] = $this->productIds;
+            if (\is_array($this->productIds)) {
+                $res['productIds'] = [];
+                $n1 = 0;
+                foreach ($this->productIds as $item1) {
+                    $res['productIds'][$n1++] = $item1;
+                }
+            }
         }
+
         if (null !== $this->purchaserId) {
             $res['purchaserId'] = $this->purchaserId;
         }
@@ -43,19 +50,24 @@ class SelectionGroupRemoveProductRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return SelectionGroupRemoveProductRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['productIds'])) {
             if (!empty($map['productIds'])) {
-                $model->productIds = $map['productIds'];
+                $model->productIds = [];
+                $n1 = 0;
+                foreach ($map['productIds'] as $item1) {
+                    $model->productIds[$n1++] = $item1;
+                }
             }
         }
+
         if (isset($map['purchaserId'])) {
             $model->purchaserId = $map['purchaserId'];
         }

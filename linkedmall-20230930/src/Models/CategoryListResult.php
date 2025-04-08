@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Linkedmall\V20230930\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class CategoryListResult extends Model
 {
@@ -22,20 +22,27 @@ class CategoryListResult extends Model
         'requestId' => 'requestId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->categories)) {
+            Model::validateArray($this->categories);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->categories) {
-            $res['categories'] = [];
-            if (null !== $this->categories && \is_array($this->categories)) {
-                $n = 0;
-                foreach ($this->categories as $item) {
-                    $res['categories'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->categories)) {
+                $res['categories'] = [];
+                $n1 = 0;
+                foreach ($this->categories as $item1) {
+                    $res['categories'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
+
         if (null !== $this->requestId) {
             $res['requestId'] = $this->requestId;
         }
@@ -43,23 +50,24 @@ class CategoryListResult extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return CategoryListResult
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['categories'])) {
             if (!empty($map['categories'])) {
                 $model->categories = [];
-                $n = 0;
-                foreach ($map['categories'] as $item) {
-                    $model->categories[$n++] = null !== $item ? Category::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['categories'] as $item1) {
+                    $model->categories[$n1++] = Category::fromMap($item1);
                 }
             }
         }
+
         if (isset($map['requestId'])) {
             $model->requestId = $map['requestId'];
         }

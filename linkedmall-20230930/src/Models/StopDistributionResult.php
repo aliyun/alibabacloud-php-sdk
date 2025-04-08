@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Linkedmall\V20230930\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class StopDistributionResult extends Model
 {
@@ -34,26 +34,35 @@ class StopDistributionResult extends Model
         'requestId' => 'requestId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->products)) {
+            Model::validateArray($this->products);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->code) {
             $res['code'] = $this->code;
         }
+
         if (null !== $this->message) {
             $res['message'] = $this->message;
         }
+
         if (null !== $this->products) {
-            $res['products'] = [];
-            if (null !== $this->products && \is_array($this->products)) {
-                $n = 0;
-                foreach ($this->products as $item) {
-                    $res['products'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->products)) {
+                $res['products'] = [];
+                $n1 = 0;
+                foreach ($this->products as $item1) {
+                    $res['products'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
+
         if (null !== $this->requestId) {
             $res['requestId'] = $this->requestId;
         }
@@ -61,29 +70,32 @@ class StopDistributionResult extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return StopDistributionResult
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['code'])) {
             $model->code = $map['code'];
         }
+
         if (isset($map['message'])) {
             $model->message = $map['message'];
         }
+
         if (isset($map['products'])) {
             if (!empty($map['products'])) {
                 $model->products = [];
-                $n = 0;
-                foreach ($map['products'] as $item) {
-                    $model->products[$n++] = null !== $item ? DistributionProduct::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['products'] as $item1) {
+                    $model->products[$n1++] = DistributionProduct::fromMap($item1);
                 }
             }
         }
+
         if (isset($map['requestId'])) {
             $model->requestId = $map['requestId'];
         }
