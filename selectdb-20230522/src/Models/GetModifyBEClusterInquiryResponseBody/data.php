@@ -4,42 +4,36 @@
 
 namespace AlibabaCloud\SDK\Selectdb\V20230522\Models\GetModifyBEClusterInquiryResponseBody;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class data extends Model
 {
     /**
-     * @description The currency.
-     *
-     * @example CNY
-     *
      * @var string
      */
     public $currency;
 
     /**
-     * @description The amount of money.
-     *
-     * @example 1.76
-     *
      * @var string
      */
     public $tradeAmount;
     protected $_name = [
-        'currency'    => 'Currency',
+        'currency' => 'Currency',
         'tradeAmount' => 'TradeAmount',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->currency) {
             $res['Currency'] = $this->currency;
         }
+
         if (null !== $this->tradeAmount) {
             $res['TradeAmount'] = $this->tradeAmount;
         }
@@ -47,17 +41,18 @@ class data extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return data
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Currency'])) {
             $model->currency = $map['Currency'];
         }
+
         if (isset($map['TradeAmount'])) {
             $model->tradeAmount = $map['TradeAmount'];
         }

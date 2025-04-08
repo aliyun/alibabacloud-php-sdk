@@ -4,15 +4,11 @@
 
 namespace AlibabaCloud\SDK\Selectdb\V20230522\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class UpgradeDBInstanceEngineVersionResponseBody extends Model
 {
     /**
-     * @description The request ID.
-     *
-     * @example 4773E4EC-025D-509F-AEA9-D53123FDFB0F
-     *
      * @var string
      */
     public $requestId;
@@ -22,9 +18,10 @@ class UpgradeDBInstanceEngineVersionResponseBody extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->requestId) {
@@ -34,11 +31,11 @@ class UpgradeDBInstanceEngineVersionResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return UpgradeDBInstanceEngineVersionResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
