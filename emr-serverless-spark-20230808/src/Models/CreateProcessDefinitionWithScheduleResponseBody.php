@@ -4,14 +4,12 @@
 
 namespace AlibabaCloud\SDK\Emrserverlessspark\V20230808\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Emrserverlessspark\V20230808\Models\CreateProcessDefinitionWithScheduleResponseBody\data;
-use AlibabaCloud\Tea\Model;
 
 class CreateProcessDefinitionWithScheduleResponseBody extends Model
 {
     /**
-     * @example 1400009
-     *
      * @var int
      */
     public $code;
@@ -22,74 +20,74 @@ class CreateProcessDefinitionWithScheduleResponseBody extends Model
     public $data;
 
     /**
-     * @example false
-     *
      * @var string
      */
     public $failed;
 
     /**
-     * @example 200
-     *
      * @var int
      */
     public $httpStatusCode;
 
     /**
-     * @example No permission for resource action
-     *
      * @var string
      */
     public $msg;
 
     /**
-     * @example DD6B1B2A-5837-5237-ABE4-FF0C8944****
-     *
      * @var string
      */
     public $requestId;
 
     /**
-     * @example true
-     *
      * @var string
      */
     public $success;
     protected $_name = [
-        'code'           => 'code',
-        'data'           => 'data',
-        'failed'         => 'failed',
+        'code' => 'code',
+        'data' => 'data',
+        'failed' => 'failed',
         'httpStatusCode' => 'httpStatusCode',
-        'msg'            => 'msg',
-        'requestId'      => 'requestId',
-        'success'        => 'success',
+        'msg' => 'msg',
+        'requestId' => 'requestId',
+        'success' => 'success',
     ];
 
     public function validate()
     {
+        if (null !== $this->data) {
+            $this->data->validate();
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->code) {
             $res['code'] = $this->code;
         }
+
         if (null !== $this->data) {
-            $res['data'] = null !== $this->data ? $this->data->toMap() : null;
+            $res['data'] = null !== $this->data ? $this->data->toArray($noStream) : $this->data;
         }
+
         if (null !== $this->failed) {
             $res['failed'] = $this->failed;
         }
+
         if (null !== $this->httpStatusCode) {
             $res['httpStatusCode'] = $this->httpStatusCode;
         }
+
         if (null !== $this->msg) {
             $res['msg'] = $this->msg;
         }
+
         if (null !== $this->requestId) {
             $res['requestId'] = $this->requestId;
         }
+
         if (null !== $this->success) {
             $res['success'] = $this->success;
         }
@@ -97,32 +95,38 @@ class CreateProcessDefinitionWithScheduleResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return CreateProcessDefinitionWithScheduleResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['code'])) {
             $model->code = $map['code'];
         }
+
         if (isset($map['data'])) {
             $model->data = data::fromMap($map['data']);
         }
+
         if (isset($map['failed'])) {
             $model->failed = $map['failed'];
         }
+
         if (isset($map['httpStatusCode'])) {
             $model->httpStatusCode = $map['httpStatusCode'];
         }
+
         if (isset($map['msg'])) {
             $model->msg = $map['msg'];
         }
+
         if (isset($map['requestId'])) {
             $model->requestId = $map['requestId'];
         }
+
         if (isset($map['success'])) {
             $model->success = $map['success'];
         }

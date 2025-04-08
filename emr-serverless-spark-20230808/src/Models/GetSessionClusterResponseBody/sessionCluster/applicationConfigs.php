@@ -4,55 +4,46 @@
 
 namespace AlibabaCloud\SDK\Emrserverlessspark\V20230808\Models\GetSessionClusterResponseBody\sessionCluster;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class applicationConfigs extends Model
 {
     /**
-     * @description The name of the configuration file.
-     *
-     * @example spark-defaults.conf
-     *
      * @var string
      */
     public $configFileName;
 
     /**
-     * @description The key of the configuration.
-     *
-     * @example spark.app.name
-     *
      * @var string
      */
     public $configItemKey;
 
     /**
-     * @description The configuration value.
-     *
-     * @example test
-     *
      * @var string
      */
     public $configItemValue;
     protected $_name = [
-        'configFileName'  => 'configFileName',
-        'configItemKey'   => 'configItemKey',
+        'configFileName' => 'configFileName',
+        'configItemKey' => 'configItemKey',
         'configItemValue' => 'configItemValue',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->configFileName) {
             $res['configFileName'] = $this->configFileName;
         }
+
         if (null !== $this->configItemKey) {
             $res['configItemKey'] = $this->configItemKey;
         }
+
         if (null !== $this->configItemValue) {
             $res['configItemValue'] = $this->configItemValue;
         }
@@ -60,20 +51,22 @@ class applicationConfigs extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return applicationConfigs
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['configFileName'])) {
             $model->configFileName = $map['configFileName'];
         }
+
         if (isset($map['configItemKey'])) {
             $model->configItemKey = $map['configItemKey'];
         }
+
         if (isset($map['configItemValue'])) {
             $model->configItemValue = $map['configItemValue'];
         }

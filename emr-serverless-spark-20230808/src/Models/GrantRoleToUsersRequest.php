@@ -4,53 +4,55 @@
 
 namespace AlibabaCloud\SDK\Emrserverlessspark\V20230808\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class GrantRoleToUsersRequest extends Model
 {
     /**
-     * @description The Alibaba Cloud Resource Name (ARN) of the RAM role.
-     *
-     * @example acs:emr::w-975bcfda9625****:role/Owner
-     *
      * @var string
      */
     public $roleArn;
 
     /**
-     * @description The user ARNs.
-     *
      * @var string[]
      */
     public $userArns;
 
     /**
-     * @description The region ID.
-     *
-     * @example cn-hangzhou
-     *
      * @var string
      */
     public $regionId;
     protected $_name = [
-        'roleArn'  => 'roleArn',
+        'roleArn' => 'roleArn',
         'userArns' => 'userArns',
         'regionId' => 'regionId',
     ];
 
     public function validate()
     {
+        if (\is_array($this->userArns)) {
+            Model::validateArray($this->userArns);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->roleArn) {
             $res['roleArn'] = $this->roleArn;
         }
+
         if (null !== $this->userArns) {
-            $res['userArns'] = $this->userArns;
+            if (\is_array($this->userArns)) {
+                $res['userArns'] = [];
+                $n1 = 0;
+                foreach ($this->userArns as $item1) {
+                    $res['userArns'][$n1++] = $item1;
+                }
+            }
         }
+
         if (null !== $this->regionId) {
             $res['regionId'] = $this->regionId;
         }
@@ -58,22 +60,28 @@ class GrantRoleToUsersRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return GrantRoleToUsersRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['roleArn'])) {
             $model->roleArn = $map['roleArn'];
         }
+
         if (isset($map['userArns'])) {
             if (!empty($map['userArns'])) {
-                $model->userArns = $map['userArns'];
+                $model->userArns = [];
+                $n1 = 0;
+                foreach ($map['userArns'] as $item1) {
+                    $model->userArns[$n1++] = $item1;
+                }
             }
         }
+
         if (isset($map['regionId'])) {
             $model->regionId = $map['regionId'];
         }

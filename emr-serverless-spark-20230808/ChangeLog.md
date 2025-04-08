@@ -1,3 +1,19 @@
+2025-04-08 Version: 1.10.0
+- Support API GetDoctorApplication.
+- Update API CreateProcessDefinitionWithSchedule: add request parameters globalParams.
+- Update API CreateProcessDefinitionWithSchedule: add request parameters taskDefinitionJson.$.taskParams.localParams.
+- Update API CreateWorkspace: add request parameters body.tag.
+- Update API GetSqlStatement: add response parameters Body.data.sqlOutputs.$.rowsFilePath.
+- Update API ListWorkspaces: add request parameters tag.
+- Update API ListWorkspaces: add response parameters Body.workspaces.$.tags.
+- Update API StartProcessInstance: add request parameters action.
+- Update API StartProcessInstance: add request parameters comments.
+- Update API StartProcessInstance: add request parameters email.
+- Update API StartProcessInstance: add request parameters interval.
+- Update API UpdateProcessDefinitionWithSchedule: add request parameters globalParams.
+- Update API UpdateProcessDefinitionWithSchedule: add request parameters taskDefinitionJson.$.taskParams.localParams.
+
+
 2024-12-24 Version: 1.9.0
 - Support API CreateProcessDefinitionWithSchedule.
 - Support API StartProcessInstance.

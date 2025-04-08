@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Emrserverlessspark\V20230808\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class RunLog extends Model
 {
@@ -28,28 +28,32 @@ class RunLog extends Model
      */
     public $driverSyslog;
     protected $_name = [
-        'driverStartup'  => 'driverStartup',
+        'driverStartup' => 'driverStartup',
         'driverStdError' => 'driverStdError',
-        'driverStdOut'   => 'driverStdOut',
-        'driverSyslog'   => 'driverSyslog',
+        'driverStdOut' => 'driverStdOut',
+        'driverSyslog' => 'driverSyslog',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->driverStartup) {
             $res['driverStartup'] = $this->driverStartup;
         }
+
         if (null !== $this->driverStdError) {
             $res['driverStdError'] = $this->driverStdError;
         }
+
         if (null !== $this->driverStdOut) {
             $res['driverStdOut'] = $this->driverStdOut;
         }
+
         if (null !== $this->driverSyslog) {
             $res['driverSyslog'] = $this->driverSyslog;
         }
@@ -57,23 +61,26 @@ class RunLog extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return RunLog
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['driverStartup'])) {
             $model->driverStartup = $map['driverStartup'];
         }
+
         if (isset($map['driverStdError'])) {
             $model->driverStdError = $map['driverStdError'];
         }
+
         if (isset($map['driverStdOut'])) {
             $model->driverStdOut = $map['driverStdOut'];
         }
+
         if (isset($map['driverSyslog'])) {
             $model->driverSyslog = $map['driverSyslog'];
         }

@@ -4,86 +4,76 @@
 
 namespace AlibabaCloud\SDK\Emrserverlessspark\V20230808\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Emrserverlessspark\V20230808\Models\ListSessionClustersResponseBody\sessionClusters;
-use AlibabaCloud\Tea\Model;
 
 class ListSessionClustersResponseBody extends Model
 {
     /**
-     * @description The maximum number of entries returned.
-     *
-     * @example 20
-     *
      * @var int
      */
     public $maxResults;
 
     /**
-     * @description A pagination token.
-     *
-     * @example DD6B1B2A-5837-5237-ABE4-FF0C89568980
-     *
      * @var string
      */
     public $nextToken;
 
     /**
-     * @description The request ID.
-     *
-     * @example DD6B1B2A-5837-5237-ABE4-FF0C8944****
-     *
      * @var string
      */
     public $requestId;
 
     /**
-     * @description The sessions.
-     *
      * @var sessionClusters[]
      */
     public $sessionClusters;
 
     /**
-     * @description The total number of entries returned.
-     *
-     * @example 200
-     *
      * @var int
      */
     public $totalCount;
     protected $_name = [
-        'maxResults'      => 'maxResults',
-        'nextToken'       => 'nextToken',
-        'requestId'       => 'requestId',
+        'maxResults' => 'maxResults',
+        'nextToken' => 'nextToken',
+        'requestId' => 'requestId',
         'sessionClusters' => 'sessionClusters',
-        'totalCount'      => 'totalCount',
+        'totalCount' => 'totalCount',
     ];
 
     public function validate()
     {
+        if (\is_array($this->sessionClusters)) {
+            Model::validateArray($this->sessionClusters);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->maxResults) {
             $res['maxResults'] = $this->maxResults;
         }
+
         if (null !== $this->nextToken) {
             $res['nextToken'] = $this->nextToken;
         }
+
         if (null !== $this->requestId) {
             $res['requestId'] = $this->requestId;
         }
+
         if (null !== $this->sessionClusters) {
-            $res['sessionClusters'] = [];
-            if (null !== $this->sessionClusters && \is_array($this->sessionClusters)) {
-                $n = 0;
-                foreach ($this->sessionClusters as $item) {
-                    $res['sessionClusters'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->sessionClusters)) {
+                $res['sessionClusters'] = [];
+                $n1 = 0;
+                foreach ($this->sessionClusters as $item1) {
+                    $res['sessionClusters'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
+
         if (null !== $this->totalCount) {
             $res['totalCount'] = $this->totalCount;
         }
@@ -91,32 +81,36 @@ class ListSessionClustersResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ListSessionClustersResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['maxResults'])) {
             $model->maxResults = $map['maxResults'];
         }
+
         if (isset($map['nextToken'])) {
             $model->nextToken = $map['nextToken'];
         }
+
         if (isset($map['requestId'])) {
             $model->requestId = $map['requestId'];
         }
+
         if (isset($map['sessionClusters'])) {
             if (!empty($map['sessionClusters'])) {
                 $model->sessionClusters = [];
-                $n                      = 0;
-                foreach ($map['sessionClusters'] as $item) {
-                    $model->sessionClusters[$n++] = null !== $item ? sessionClusters::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['sessionClusters'] as $item1) {
+                    $model->sessionClusters[$n1++] = sessionClusters::fromMap($item1);
                 }
             }
         }
+
         if (isset($map['totalCount'])) {
             $model->totalCount = $map['totalCount'];
         }

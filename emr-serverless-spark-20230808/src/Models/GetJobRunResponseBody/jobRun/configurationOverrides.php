@@ -4,14 +4,12 @@
 
 namespace AlibabaCloud\SDK\Emrserverlessspark\V20230808\Models\GetJobRunResponseBody\jobRun;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Emrserverlessspark\V20230808\Models\Configuration;
-use AlibabaCloud\Tea\Model;
 
 class configurationOverrides extends Model
 {
     /**
-     * @description The configurations.
-     *
      * @var Configuration[]
      */
     public $configurations;
@@ -21,17 +19,21 @@ class configurationOverrides extends Model
 
     public function validate()
     {
+        if (\is_array($this->configurations)) {
+            Model::validateArray($this->configurations);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->configurations) {
-            $res['configurations'] = [];
-            if (null !== $this->configurations && \is_array($this->configurations)) {
-                $n = 0;
-                foreach ($this->configurations as $item) {
-                    $res['configurations'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->configurations)) {
+                $res['configurations'] = [];
+                $n1 = 0;
+                foreach ($this->configurations as $item1) {
+                    $res['configurations'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
@@ -39,20 +41,20 @@ class configurationOverrides extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return configurationOverrides
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['configurations'])) {
             if (!empty($map['configurations'])) {
                 $model->configurations = [];
-                $n                     = 0;
-                foreach ($map['configurations'] as $item) {
-                    $model->configurations[$n++] = null !== $item ? Configuration::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['configurations'] as $item1) {
+                    $model->configurations[$n1++] = Configuration::fromMap($item1);
                 }
             }
         }

@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Emrserverlessspark\V20230808\Models\ListLogContentsResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Emrserverlessspark\V20230808\Models\ListLogContentsResponseBody\listLogContent\contents;
-use AlibabaCloud\Tea\Model;
 
 class listLogContent extends Model
 {
@@ -15,32 +15,35 @@ class listLogContent extends Model
     public $contents;
 
     /**
-     * @example 10
-     *
      * @var int
      */
     public $totalLength;
     protected $_name = [
-        'contents'    => 'contents',
+        'contents' => 'contents',
         'totalLength' => 'totalLength',
     ];
 
     public function validate()
     {
+        if (\is_array($this->contents)) {
+            Model::validateArray($this->contents);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->contents) {
-            $res['contents'] = [];
-            if (null !== $this->contents && \is_array($this->contents)) {
-                $n = 0;
-                foreach ($this->contents as $item) {
-                    $res['contents'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->contents)) {
+                $res['contents'] = [];
+                $n1 = 0;
+                foreach ($this->contents as $item1) {
+                    $res['contents'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
+
         if (null !== $this->totalLength) {
             $res['totalLength'] = $this->totalLength;
         }
@@ -48,23 +51,24 @@ class listLogContent extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return listLogContent
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['contents'])) {
             if (!empty($map['contents'])) {
                 $model->contents = [];
-                $n               = 0;
-                foreach ($map['contents'] as $item) {
-                    $model->contents[$n++] = null !== $item ? contents::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['contents'] as $item1) {
+                    $model->contents[$n1++] = contents::fromMap($item1);
                 }
             }
         }
+
         if (isset($map['totalLength'])) {
             $model->totalLength = $map['totalLength'];
         }

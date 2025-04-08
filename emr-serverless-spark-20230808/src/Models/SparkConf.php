@@ -4,38 +4,36 @@
 
 namespace AlibabaCloud\SDK\Emrserverlessspark\V20230808\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class SparkConf extends Model
 {
     /**
-     * @description This parameter is required.
-     *
      * @var string
      */
     public $key;
 
     /**
-     * @description This parameter is required.
-     *
      * @var string
      */
     public $value;
     protected $_name = [
-        'key'   => 'key',
+        'key' => 'key',
         'value' => 'value',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->key) {
             $res['key'] = $this->key;
         }
+
         if (null !== $this->value) {
             $res['value'] = $this->value;
         }
@@ -43,17 +41,18 @@ class SparkConf extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return SparkConf
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['key'])) {
             $model->key = $map['key'];
         }
+
         if (isset($map['value'])) {
             $model->value = $map['value'];
         }

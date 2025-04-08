@@ -4,47 +4,36 @@
 
 namespace AlibabaCloud\SDK\Emrserverlessspark\V20230808\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class ListWorkspaceQueuesRequest extends Model
 {
     /**
-     * @description The environment type.
-     *
-     * Valid values:
-     *
-     *   dev
-     *   production
-     *
-     * @example production
-     *
      * @var string
      */
     public $environment;
 
     /**
-     * @description The region ID.
-     *
-     * @example cn-hangzhou
-     *
      * @var string
      */
     public $regionId;
     protected $_name = [
         'environment' => 'environment',
-        'regionId'    => 'regionId',
+        'regionId' => 'regionId',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->environment) {
             $res['environment'] = $this->environment;
         }
+
         if (null !== $this->regionId) {
             $res['regionId'] = $this->regionId;
         }
@@ -52,17 +41,18 @@ class ListWorkspaceQueuesRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ListWorkspaceQueuesRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['environment'])) {
             $model->environment = $map['environment'];
         }
+
         if (isset($map['regionId'])) {
             $model->regionId = $map['regionId'];
         }

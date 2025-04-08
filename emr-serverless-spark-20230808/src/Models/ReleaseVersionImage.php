@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Emrserverlessspark\V20230808\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class ReleaseVersionImage extends Model
 {
@@ -23,24 +23,27 @@ class ReleaseVersionImage extends Model
      */
     public $runtimeEngineType;
     protected $_name = [
-        'cpuArchitecture'   => 'cpuArchitecture',
-        'imageId'           => 'imageId',
+        'cpuArchitecture' => 'cpuArchitecture',
+        'imageId' => 'imageId',
         'runtimeEngineType' => 'runtimeEngineType',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->cpuArchitecture) {
             $res['cpuArchitecture'] = $this->cpuArchitecture;
         }
+
         if (null !== $this->imageId) {
             $res['imageId'] = $this->imageId;
         }
+
         if (null !== $this->runtimeEngineType) {
             $res['runtimeEngineType'] = $this->runtimeEngineType;
         }
@@ -48,20 +51,22 @@ class ReleaseVersionImage extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ReleaseVersionImage
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['cpuArchitecture'])) {
             $model->cpuArchitecture = $map['cpuArchitecture'];
         }
+
         if (isset($map['imageId'])) {
             $model->imageId = $map['imageId'];
         }
+
         if (isset($map['runtimeEngineType'])) {
             $model->runtimeEngineType = $map['runtimeEngineType'];
         }

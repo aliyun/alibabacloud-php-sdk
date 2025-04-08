@@ -4,55 +4,46 @@
 
 namespace AlibabaCloud\SDK\Emrserverlessspark\V20230808\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class StopSessionClusterRequest extends Model
 {
     /**
-     * @description The queue name.
-     *
-     * @example root_queue
-     *
      * @var string
      */
     public $queueName;
 
     /**
-     * @description The session ID.
-     *
-     * @example sc-xxxxxxxxxxxx
-     *
      * @var string
      */
     public $sessionClusterId;
 
     /**
-     * @description The region ID.
-     *
-     * @example cn-hangzhou
-     *
      * @var string
      */
     public $regionId;
     protected $_name = [
-        'queueName'        => 'queueName',
+        'queueName' => 'queueName',
         'sessionClusterId' => 'sessionClusterId',
-        'regionId'         => 'regionId',
+        'regionId' => 'regionId',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->queueName) {
             $res['queueName'] = $this->queueName;
         }
+
         if (null !== $this->sessionClusterId) {
             $res['sessionClusterId'] = $this->sessionClusterId;
         }
+
         if (null !== $this->regionId) {
             $res['regionId'] = $this->regionId;
         }
@@ -60,20 +51,22 @@ class StopSessionClusterRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return StopSessionClusterRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['queueName'])) {
             $model->queueName = $map['queueName'];
         }
+
         if (isset($map['sessionClusterId'])) {
             $model->sessionClusterId = $map['sessionClusterId'];
         }
+
         if (isset($map['regionId'])) {
             $model->regionId = $map['regionId'];
         }

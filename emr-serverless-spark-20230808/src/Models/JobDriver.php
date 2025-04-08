@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Emrserverlessspark\V20230808\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Emrserverlessspark\V20230808\Models\JobDriver\sparkSubmit;
-use AlibabaCloud\Tea\Model;
 
 class JobDriver extends Model
 {
@@ -19,23 +19,27 @@ class JobDriver extends Model
 
     public function validate()
     {
+        if (null !== $this->sparkSubmit) {
+            $this->sparkSubmit->validate();
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->sparkSubmit) {
-            $res['sparkSubmit'] = null !== $this->sparkSubmit ? $this->sparkSubmit->toMap() : null;
+            $res['sparkSubmit'] = null !== $this->sparkSubmit ? $this->sparkSubmit->toArray($noStream) : $this->sparkSubmit;
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return JobDriver
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

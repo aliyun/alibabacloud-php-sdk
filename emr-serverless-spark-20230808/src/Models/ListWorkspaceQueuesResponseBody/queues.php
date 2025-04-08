@@ -4,188 +4,185 @@
 
 namespace AlibabaCloud\SDK\Emrserverlessspark\V20230808\Models\ListWorkspaceQueuesResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Emrserverlessspark\V20230808\Models\ListWorkspaceQueuesResponseBody\queues\allowActions;
-use AlibabaCloud\Tea\Model;
 
 class queues extends Model
 {
     /**
-     * @description The operations allowed for the queue.
-     *
      * @var allowActions[]
      */
     public $allowActions;
 
     /**
-     * @description The ID of the user who created the queue.
-     *
-     * @example 237109
-     *
+     * @var int
+     */
+    public $createTime;
+
+    /**
      * @var string
      */
     public $creator;
 
     /**
-     * @description The environment types of the queue.
-     *
      * @var string[]
      */
     public $environments;
 
     /**
-     * @description The maximum capacity of resources that can be used in the queue.
-     *
-     * @example {"cpu": "2","memory": "2Gi"}
-     *
      * @var string
      */
     public $maxResource;
 
     /**
-     * @description The minimum capacity of resources that can be used in the queue.
-     *
-     * @example {"cpu": "2","memory": "2Gi"}
-     *
      * @var string
      */
     public $minResource;
 
     /**
-     * @description The queue label.
-     *
-     * @example dev_queue
-     *
+     * @var string
+     */
+    public $paymentType;
+
+    /**
      * @var string
      */
     public $properties;
 
     /**
-     * @description The name of the queue.
-     *
-     * @example dev_queue
-     *
      * @var string
      */
     public $queueName;
 
     /**
-     * @description The queue architecture.
-     *
-     * @example {"arch": "x86"}
-     *
      * @var string
      */
     public $queueScope;
 
     /**
-     * @description The status of the queue.
-     *
-     * @example RUNNING
-     *
      * @var string
      */
     public $queueStatus;
 
     /**
-     * @description The queue type.
-     *
-     * @example instance, instanceChildren
-     *
      * @var string
      */
     public $queueType;
 
     /**
-     * @description The region ID.
-     *
-     * @example cn-hangzhou
-     *
      * @var string
      */
     public $regionId;
 
     /**
-     * @description The capacity of resources that are used in the queue.
-     *
-     * @example {"cpu": "2","memory": "2Gi"}
-     *
      * @var string
      */
     public $usedResource;
 
     /**
-     * @description The workspace ID.
-     *
-     * @example w-1234abcd
-     *
      * @var string
      */
     public $workspaceId;
     protected $_name = [
         'allowActions' => 'allowActions',
-        'creator'      => 'creator',
+        'createTime' => 'createTime',
+        'creator' => 'creator',
         'environments' => 'environments',
-        'maxResource'  => 'maxResource',
-        'minResource'  => 'minResource',
-        'properties'   => 'properties',
-        'queueName'    => 'queueName',
-        'queueScope'   => 'queueScope',
-        'queueStatus'  => 'queueStatus',
-        'queueType'    => 'queueType',
-        'regionId'     => 'regionId',
+        'maxResource' => 'maxResource',
+        'minResource' => 'minResource',
+        'paymentType' => 'paymentType',
+        'properties' => 'properties',
+        'queueName' => 'queueName',
+        'queueScope' => 'queueScope',
+        'queueStatus' => 'queueStatus',
+        'queueType' => 'queueType',
+        'regionId' => 'regionId',
         'usedResource' => 'usedResource',
-        'workspaceId'  => 'workspaceId',
+        'workspaceId' => 'workspaceId',
     ];
 
     public function validate()
     {
+        if (\is_array($this->allowActions)) {
+            Model::validateArray($this->allowActions);
+        }
+        if (\is_array($this->environments)) {
+            Model::validateArray($this->environments);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->allowActions) {
-            $res['allowActions'] = [];
-            if (null !== $this->allowActions && \is_array($this->allowActions)) {
-                $n = 0;
-                foreach ($this->allowActions as $item) {
-                    $res['allowActions'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->allowActions)) {
+                $res['allowActions'] = [];
+                $n1 = 0;
+                foreach ($this->allowActions as $item1) {
+                    $res['allowActions'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
+
+        if (null !== $this->createTime) {
+            $res['createTime'] = $this->createTime;
+        }
+
         if (null !== $this->creator) {
             $res['creator'] = $this->creator;
         }
+
         if (null !== $this->environments) {
-            $res['environments'] = $this->environments;
+            if (\is_array($this->environments)) {
+                $res['environments'] = [];
+                $n1 = 0;
+                foreach ($this->environments as $item1) {
+                    $res['environments'][$n1++] = $item1;
+                }
+            }
         }
+
         if (null !== $this->maxResource) {
             $res['maxResource'] = $this->maxResource;
         }
+
         if (null !== $this->minResource) {
             $res['minResource'] = $this->minResource;
         }
+
+        if (null !== $this->paymentType) {
+            $res['paymentType'] = $this->paymentType;
+        }
+
         if (null !== $this->properties) {
             $res['properties'] = $this->properties;
         }
+
         if (null !== $this->queueName) {
             $res['queueName'] = $this->queueName;
         }
+
         if (null !== $this->queueScope) {
             $res['queueScope'] = $this->queueScope;
         }
+
         if (null !== $this->queueStatus) {
             $res['queueStatus'] = $this->queueStatus;
         }
+
         if (null !== $this->queueType) {
             $res['queueType'] = $this->queueType;
         }
+
         if (null !== $this->regionId) {
             $res['regionId'] = $this->regionId;
         }
+
         if (null !== $this->usedResource) {
             $res['usedResource'] = $this->usedResource;
         }
+
         if (null !== $this->workspaceId) {
             $res['workspaceId'] = $this->workspaceId;
         }
@@ -193,58 +190,82 @@ class queues extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return queues
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['allowActions'])) {
             if (!empty($map['allowActions'])) {
                 $model->allowActions = [];
-                $n                   = 0;
-                foreach ($map['allowActions'] as $item) {
-                    $model->allowActions[$n++] = null !== $item ? allowActions::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['allowActions'] as $item1) {
+                    $model->allowActions[$n1++] = allowActions::fromMap($item1);
                 }
             }
         }
+
+        if (isset($map['createTime'])) {
+            $model->createTime = $map['createTime'];
+        }
+
         if (isset($map['creator'])) {
             $model->creator = $map['creator'];
         }
+
         if (isset($map['environments'])) {
             if (!empty($map['environments'])) {
-                $model->environments = $map['environments'];
+                $model->environments = [];
+                $n1 = 0;
+                foreach ($map['environments'] as $item1) {
+                    $model->environments[$n1++] = $item1;
+                }
             }
         }
+
         if (isset($map['maxResource'])) {
             $model->maxResource = $map['maxResource'];
         }
+
         if (isset($map['minResource'])) {
             $model->minResource = $map['minResource'];
         }
+
+        if (isset($map['paymentType'])) {
+            $model->paymentType = $map['paymentType'];
+        }
+
         if (isset($map['properties'])) {
             $model->properties = $map['properties'];
         }
+
         if (isset($map['queueName'])) {
             $model->queueName = $map['queueName'];
         }
+
         if (isset($map['queueScope'])) {
             $model->queueScope = $map['queueScope'];
         }
+
         if (isset($map['queueStatus'])) {
             $model->queueStatus = $map['queueStatus'];
         }
+
         if (isset($map['queueType'])) {
             $model->queueType = $map['queueType'];
         }
+
         if (isset($map['regionId'])) {
             $model->regionId = $map['regionId'];
         }
+
         if (isset($map['usedResource'])) {
             $model->usedResource = $map['usedResource'];
         }
+
         if (isset($map['workspaceId'])) {
             $model->workspaceId = $map['workspaceId'];
         }

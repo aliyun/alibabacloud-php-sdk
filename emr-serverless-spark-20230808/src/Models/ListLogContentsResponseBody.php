@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Emrserverlessspark\V20230808\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Emrserverlessspark\V20230808\Models\ListLogContentsResponseBody\listLogContent;
-use AlibabaCloud\Tea\Model;
 
 class ListLogContentsResponseBody extends Model
 {
@@ -15,28 +15,29 @@ class ListLogContentsResponseBody extends Model
     public $listLogContent;
 
     /**
-     * @description 请求ID。
-     *
-     * @example DD6B1B2A-5837-5237-ABE4-FF0C8944****
-     *
      * @var string
      */
     public $requestId;
     protected $_name = [
         'listLogContent' => 'listLogContent',
-        'requestId'      => 'requestId',
+        'requestId' => 'requestId',
     ];
 
     public function validate()
     {
+        if (null !== $this->listLogContent) {
+            $this->listLogContent->validate();
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->listLogContent) {
-            $res['listLogContent'] = null !== $this->listLogContent ? $this->listLogContent->toMap() : null;
+            $res['listLogContent'] = null !== $this->listLogContent ? $this->listLogContent->toArray($noStream) : $this->listLogContent;
         }
+
         if (null !== $this->requestId) {
             $res['requestId'] = $this->requestId;
         }
@@ -44,17 +45,18 @@ class ListLogContentsResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ListLogContentsResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['listLogContent'])) {
             $model->listLogContent = listLogContent::fromMap($map['listLogContent']);
         }
+
         if (isset($map['requestId'])) {
             $model->requestId = $map['requestId'];
         }

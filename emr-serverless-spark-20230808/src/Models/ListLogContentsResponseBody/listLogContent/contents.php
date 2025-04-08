@@ -4,13 +4,11 @@
 
 namespace AlibabaCloud\SDK\Emrserverlessspark\V20230808\Models\ListLogContentsResponseBody\listLogContent;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class contents extends Model
 {
     /**
-     * @example spark pi is 3.14\\n
-     *
      * @var string
      */
     public $lineContent;
@@ -20,9 +18,10 @@ class contents extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->lineContent) {
@@ -32,11 +31,11 @@ class contents extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return contents
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

@@ -4,42 +4,36 @@
 
 namespace AlibabaCloud\SDK\Emrserverlessspark\V20230808\Models\ListJobRunsRequest;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class startTime extends Model
 {
     /**
-     * @description The end of the start time range.
-     *
-     * @example 1710432000000
-     *
      * @var int
      */
     public $endTime;
 
     /**
-     * @description The beginning of the start time range.
-     *
-     * @example 1709740800000
-     *
      * @var int
      */
     public $startTime;
     protected $_name = [
-        'endTime'   => 'endTime',
+        'endTime' => 'endTime',
         'startTime' => 'startTime',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->endTime) {
             $res['endTime'] = $this->endTime;
         }
+
         if (null !== $this->startTime) {
             $res['startTime'] = $this->startTime;
         }
@@ -47,17 +41,18 @@ class startTime extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return startTime
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['endTime'])) {
             $model->endTime = $map['endTime'];
         }
+
         if (isset($map['startTime'])) {
             $model->startTime = $map['startTime'];
         }

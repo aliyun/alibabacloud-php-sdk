@@ -4,38 +4,36 @@
 
 namespace AlibabaCloud\SDK\Emrserverlessspark\V20230808\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class PrincipalAction extends Model
 {
     /**
-     * @example acs:emr::workspaceId:action/create_queue
-     *
      * @var string
      */
     public $actionArn;
 
     /**
-     * @example acs:emr::workspaceId:user/237593691541622267
-     *
      * @var string
      */
     public $principalArn;
     protected $_name = [
-        'actionArn'    => 'actionArn',
+        'actionArn' => 'actionArn',
         'principalArn' => 'principalArn',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->actionArn) {
             $res['actionArn'] = $this->actionArn;
         }
+
         if (null !== $this->principalArn) {
             $res['principalArn'] = $this->principalArn;
         }
@@ -43,17 +41,18 @@ class PrincipalAction extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return PrincipalAction
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['actionArn'])) {
             $model->actionArn = $map['actionArn'];
         }
+
         if (isset($map['principalArn'])) {
             $model->principalArn = $map['principalArn'];
         }
