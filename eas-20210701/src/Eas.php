@@ -5353,6 +5353,10 @@ class Eas extends OpenApiClient
             @$query['GroupName'] = $request->groupName;
         }
 
+        if (null !== $request->includeNoWorkspace) {
+            @$query['IncludeNoWorkspace'] = $request->includeNoWorkspace;
+        }
+
         if (null !== $request->labelShrink) {
             @$query['Label'] = $request->labelShrink;
         }

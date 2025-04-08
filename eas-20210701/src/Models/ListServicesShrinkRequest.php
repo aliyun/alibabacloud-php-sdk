@@ -24,6 +24,11 @@ class ListServicesShrinkRequest extends Model
     public $groupName;
 
     /**
+     * @var bool
+     */
+    public $includeNoWorkspace;
+
+    /**
      * @var string
      */
     public $labelShrink;
@@ -101,6 +106,7 @@ class ListServicesShrinkRequest extends Model
         'filter' => 'Filter',
         'gateway' => 'Gateway',
         'groupName' => 'GroupName',
+        'includeNoWorkspace' => 'IncludeNoWorkspace',
         'labelShrink' => 'Label',
         'order' => 'Order',
         'pageNumber' => 'PageNumber',
@@ -136,6 +142,10 @@ class ListServicesShrinkRequest extends Model
 
         if (null !== $this->groupName) {
             $res['GroupName'] = $this->groupName;
+        }
+
+        if (null !== $this->includeNoWorkspace) {
+            $res['IncludeNoWorkspace'] = $this->includeNoWorkspace;
         }
 
         if (null !== $this->labelShrink) {
@@ -219,6 +229,10 @@ class ListServicesShrinkRequest extends Model
 
         if (isset($map['GroupName'])) {
             $model->groupName = $map['GroupName'];
+        }
+
+        if (isset($map['IncludeNoWorkspace'])) {
+            $model->includeNoWorkspace = $map['IncludeNoWorkspace'];
         }
 
         if (isset($map['Label'])) {

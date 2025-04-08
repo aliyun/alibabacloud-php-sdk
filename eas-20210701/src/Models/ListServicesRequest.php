@@ -24,6 +24,11 @@ class ListServicesRequest extends Model
     public $groupName;
 
     /**
+     * @var bool
+     */
+    public $includeNoWorkspace;
+
+    /**
      * @var string[]
      */
     public $label;
@@ -101,6 +106,7 @@ class ListServicesRequest extends Model
         'filter' => 'Filter',
         'gateway' => 'Gateway',
         'groupName' => 'GroupName',
+        'includeNoWorkspace' => 'IncludeNoWorkspace',
         'label' => 'Label',
         'order' => 'Order',
         'pageNumber' => 'PageNumber',
@@ -139,6 +145,10 @@ class ListServicesRequest extends Model
 
         if (null !== $this->groupName) {
             $res['GroupName'] = $this->groupName;
+        }
+
+        if (null !== $this->includeNoWorkspace) {
+            $res['IncludeNoWorkspace'] = $this->includeNoWorkspace;
         }
 
         if (null !== $this->label) {
@@ -227,6 +237,10 @@ class ListServicesRequest extends Model
 
         if (isset($map['GroupName'])) {
             $model->groupName = $map['GroupName'];
+        }
+
+        if (isset($map['IncludeNoWorkspace'])) {
+            $model->includeNoWorkspace = $map['IncludeNoWorkspace'];
         }
 
         if (isset($map['Label'])) {
