@@ -11,6 +11,8 @@ use AlibabaCloud\SDK\IQS\V20241111\Models\GenericAdvancedSearchRequest;
 use AlibabaCloud\SDK\IQS\V20241111\Models\GenericAdvancedSearchResponse;
 use AlibabaCloud\SDK\IQS\V20241111\Models\GenericSearchRequest;
 use AlibabaCloud\SDK\IQS\V20241111\Models\GenericSearchResponse;
+use AlibabaCloud\SDK\IQS\V20241111\Models\GlobalSearchRequest;
+use AlibabaCloud\SDK\IQS\V20241111\Models\GlobalSearchResponse;
 use Darabonba\OpenApi\Models\OpenApiRequest;
 use Darabonba\OpenApi\Models\Params;
 use Darabonba\OpenApi\OpenApiClient;
@@ -300,5 +302,81 @@ class IQS extends OpenApiClient
         $headers = [];
 
         return $this->genericSearchWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * 通晓搜索-出海版(全球信息搜索).
+     *
+     * @param request - GlobalSearchRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GlobalSearchResponse
+     *
+     * @param GlobalSearchRequest $request
+     * @param string[]            $headers
+     * @param RuntimeOptions      $runtime
+     *
+     * @return GlobalSearchResponse
+     */
+    public function globalSearchWithOptions($request, $headers, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->page) {
+            @$query['page'] = $request->page;
+        }
+
+        if (null !== $request->pageSize) {
+            @$query['pageSize'] = $request->pageSize;
+        }
+
+        if (null !== $request->query) {
+            @$query['query'] = $request->query;
+        }
+
+        if (null !== $request->timeRange) {
+            @$query['timeRange'] = $request->timeRange;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'GlobalSearch',
+            'version' => '2024-11-11',
+            'protocol' => 'HTTPS',
+            'pathname' => '/linked-retrieval/linked-retrieval-entry/v1/iqs/search/global',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return GlobalSearchResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
+
+        return GlobalSearchResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * 通晓搜索-出海版(全球信息搜索).
+     *
+     * @param request - GlobalSearchRequest
+     *
+     * @returns GlobalSearchResponse
+     *
+     * @param GlobalSearchRequest $request
+     *
+     * @return GlobalSearchResponse
+     */
+    public function globalSearch($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->globalSearchWithOptions($request, $headers, $runtime);
     }
 }
