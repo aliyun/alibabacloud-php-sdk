@@ -19,6 +19,11 @@ class ModifyInstanceAttributeRequest extends Model
     public $instanceId;
 
     /**
+     * @var string[]
+     */
+    public $instanceIds;
+
+    /**
      * @var int
      */
     public $ownerId;
@@ -40,6 +45,7 @@ class ModifyInstanceAttributeRequest extends Model
     protected $_name = [
         'entrusted' => 'Entrusted',
         'instanceId' => 'InstanceId',
+        'instanceIds' => 'InstanceIds',
         'ownerId' => 'OwnerId',
         'regionId' => 'RegionId',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
@@ -48,6 +54,9 @@ class ModifyInstanceAttributeRequest extends Model
 
     public function validate()
     {
+        if (\is_array($this->instanceIds)) {
+            Model::validateArray($this->instanceIds);
+        }
         parent::validate();
     }
 
@@ -60,6 +69,16 @@ class ModifyInstanceAttributeRequest extends Model
 
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
+        }
+
+        if (null !== $this->instanceIds) {
+            if (\is_array($this->instanceIds)) {
+                $res['InstanceIds'] = [];
+                $n1 = 0;
+                foreach ($this->instanceIds as $item1) {
+                    $res['InstanceIds'][$n1++] = $item1;
+                }
+            }
         }
 
         if (null !== $this->ownerId) {
@@ -95,6 +114,16 @@ class ModifyInstanceAttributeRequest extends Model
 
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
+        }
+
+        if (isset($map['InstanceIds'])) {
+            if (!empty($map['InstanceIds'])) {
+                $model->instanceIds = [];
+                $n1 = 0;
+                foreach ($map['InstanceIds'] as $item1) {
+                    $model->instanceIds[$n1++] = $item1;
+                }
+            }
         }
 
         if (isset($map['OwnerId'])) {

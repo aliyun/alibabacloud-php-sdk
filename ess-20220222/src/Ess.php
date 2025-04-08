@@ -7726,6 +7726,10 @@ class Ess extends OpenApiClient
             @$query['InstanceId'] = $request->instanceId;
         }
 
+        if (null !== $request->instanceIds) {
+            @$query['InstanceIds'] = $request->instanceIds;
+        }
+
         if (null !== $request->ownerId) {
             @$query['OwnerId'] = $request->ownerId;
         }
