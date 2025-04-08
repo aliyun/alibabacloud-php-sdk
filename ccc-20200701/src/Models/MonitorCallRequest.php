@@ -12,28 +12,32 @@ class MonitorCallRequest extends Model
      * @var string
      */
     public $deviceId;
+
     /**
      * @var string
      */
     public $instanceId;
+
     /**
      * @var string
      */
     public $monitoredUserId;
+
     /**
      * @var int
      */
     public $timeoutSeconds;
+
     /**
      * @var string
      */
     public $userId;
     protected $_name = [
-        'deviceId'        => 'DeviceId',
-        'instanceId'      => 'InstanceId',
+        'deviceId' => 'DeviceId',
+        'instanceId' => 'InstanceId',
         'monitoredUserId' => 'MonitoredUserId',
-        'timeoutSeconds'  => 'TimeoutSeconds',
-        'userId'          => 'UserId',
+        'timeoutSeconds' => 'TimeoutSeconds',
+        'userId' => 'UserId',
     ];
 
     public function validate()

@@ -12,12 +12,13 @@ class GetDataChannelCredentialsRequest extends Model
      * @var string
      */
     public $deviceId;
+
     /**
      * @var string
      */
     public $instanceId;
     protected $_name = [
-        'deviceId'   => 'DeviceId',
+        'deviceId' => 'DeviceId',
         'instanceId' => 'InstanceId',
     ];
 

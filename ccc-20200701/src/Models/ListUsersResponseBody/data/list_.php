@@ -14,93 +14,110 @@ class list_ extends Model
      * @var string
      */
     public $deviceExt;
+
     /**
      * @var string
      */
     public $deviceId;
+
     /**
      * @var string
      */
     public $deviceState;
+
     /**
      * @var string
      */
     public $displayId;
+
     /**
      * @var string
      */
     public $displayName;
+
     /**
      * @var string
      */
     public $email;
+
     /**
      * @var string
      */
     public $extension;
+
     /**
      * @var string
      */
     public $loginName;
+
     /**
      * @var string
      */
     public $mobile;
+
     /**
      * @var personalOutboundNumberList[]
      */
     public $personalOutboundNumberList;
+
     /**
      * @var bool
      */
     public $primary;
+
     /**
      * @var bool
      */
     public $primaryAccount;
+
     /**
      * @var int
      */
     public $ramId;
+
     /**
      * @var string
      */
     public $roleId;
+
     /**
      * @var string
      */
     public $roleName;
+
     /**
      * @var skillLevelList[]
      */
     public $skillLevelList;
+
     /**
      * @var string
      */
     public $userId;
+
     /**
      * @var string
      */
     public $workMode;
     protected $_name = [
-        'deviceExt'                  => 'DeviceExt',
-        'deviceId'                   => 'DeviceId',
-        'deviceState'                => 'DeviceState',
-        'displayId'                  => 'DisplayId',
-        'displayName'                => 'DisplayName',
-        'email'                      => 'Email',
-        'extension'                  => 'Extension',
-        'loginName'                  => 'LoginName',
-        'mobile'                     => 'Mobile',
+        'deviceExt' => 'DeviceExt',
+        'deviceId' => 'DeviceId',
+        'deviceState' => 'DeviceState',
+        'displayId' => 'DisplayId',
+        'displayName' => 'DisplayName',
+        'email' => 'Email',
+        'extension' => 'Extension',
+        'loginName' => 'LoginName',
+        'mobile' => 'Mobile',
         'personalOutboundNumberList' => 'PersonalOutboundNumberList',
-        'primary'                    => 'Primary',
-        'primaryAccount'             => 'PrimaryAccount',
-        'ramId'                      => 'RamId',
-        'roleId'                     => 'RoleId',
-        'roleName'                   => 'RoleName',
-        'skillLevelList'             => 'SkillLevelList',
-        'userId'                     => 'UserId',
-        'workMode'                   => 'WorkMode',
+        'primary' => 'Primary',
+        'primaryAccount' => 'PrimaryAccount',
+        'ramId' => 'RamId',
+        'roleId' => 'RoleId',
+        'roleName' => 'RoleName',
+        'skillLevelList' => 'SkillLevelList',
+        'userId' => 'UserId',
+        'workMode' => 'WorkMode',
     ];
 
     public function validate()
@@ -156,7 +173,7 @@ class list_ extends Model
         if (null !== $this->personalOutboundNumberList) {
             if (\is_array($this->personalOutboundNumberList)) {
                 $res['PersonalOutboundNumberList'] = [];
-                $n1                                = 0;
+                $n1 = 0;
                 foreach ($this->personalOutboundNumberList as $item1) {
                     $res['PersonalOutboundNumberList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -186,7 +203,7 @@ class list_ extends Model
         if (null !== $this->skillLevelList) {
             if (\is_array($this->skillLevelList)) {
                 $res['SkillLevelList'] = [];
-                $n1                    = 0;
+                $n1 = 0;
                 foreach ($this->skillLevelList as $item1) {
                     $res['SkillLevelList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -251,7 +268,7 @@ class list_ extends Model
         if (isset($map['PersonalOutboundNumberList'])) {
             if (!empty($map['PersonalOutboundNumberList'])) {
                 $model->personalOutboundNumberList = [];
-                $n1                                = 0;
+                $n1 = 0;
                 foreach ($map['PersonalOutboundNumberList'] as $item1) {
                     $model->personalOutboundNumberList[$n1++] = personalOutboundNumberList::fromMap($item1);
                 }
@@ -281,7 +298,7 @@ class list_ extends Model
         if (isset($map['SkillLevelList'])) {
             if (!empty($map['SkillLevelList'])) {
                 $model->skillLevelList = [];
-                $n1                    = 0;
+                $n1 = 0;
                 foreach ($map['SkillLevelList'] as $item1) {
                     $model->skillLevelList[$n1++] = skillLevelList::fromMap($item1);
                 }

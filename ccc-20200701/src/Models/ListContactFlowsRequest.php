@@ -12,33 +12,38 @@ class ListContactFlowsRequest extends Model
      * @var string
      */
     public $instanceId;
+
     /**
      * @var string
      */
     public $orderByField;
+
     /**
      * @var int
      */
     public $pageNumber;
+
     /**
      * @var int
      */
     public $pageSize;
+
     /**
      * @var string
      */
     public $sortOrder;
+
     /**
      * @var string
      */
     public $type;
     protected $_name = [
-        'instanceId'   => 'InstanceId',
+        'instanceId' => 'InstanceId',
         'orderByField' => 'OrderByField',
-        'pageNumber'   => 'PageNumber',
-        'pageSize'     => 'PageSize',
-        'sortOrder'    => 'SortOrder',
-        'type'         => 'Type',
+        'pageNumber' => 'PageNumber',
+        'pageSize' => 'PageSize',
+        'sortOrder' => 'SortOrder',
+        'type' => 'Type',
     ];
 
     public function validate()

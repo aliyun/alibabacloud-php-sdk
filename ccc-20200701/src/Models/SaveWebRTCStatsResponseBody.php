@@ -12,38 +12,44 @@ class SaveWebRTCStatsResponseBody extends Model
      * @var string
      */
     public $code;
+
     /**
      * @var int
      */
     public $httpStatusCode;
+
     /**
      * @var string
      */
     public $message;
+
     /**
      * @var string
      */
     public $requestId;
+
     /**
      * @var int
      */
     public $rowCount;
+
     /**
      * @var bool
      */
     public $success;
+
     /**
      * @var int
      */
     public $timeStamp;
     protected $_name = [
-        'code'           => 'Code',
+        'code' => 'Code',
         'httpStatusCode' => 'HttpStatusCode',
-        'message'        => 'Message',
-        'requestId'      => 'RequestId',
-        'rowCount'       => 'RowCount',
-        'success'        => 'Success',
-        'timeStamp'      => 'TimeStamp',
+        'message' => 'Message',
+        'requestId' => 'RequestId',
+        'rowCount' => 'RowCount',
+        'success' => 'Success',
+        'timeStamp' => 'TimeStamp',
     ];
 
     public function validate()

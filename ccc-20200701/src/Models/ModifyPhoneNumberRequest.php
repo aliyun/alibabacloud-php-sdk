@@ -12,23 +12,26 @@ class ModifyPhoneNumberRequest extends Model
      * @var string
      */
     public $contactFlowId;
+
     /**
      * @var string
      */
     public $instanceId;
+
     /**
      * @var string
      */
     public $number;
+
     /**
      * @var string
      */
     public $usage;
     protected $_name = [
         'contactFlowId' => 'ContactFlowId',
-        'instanceId'    => 'InstanceId',
-        'number'        => 'Number',
-        'usage'         => 'Usage',
+        'instanceId' => 'InstanceId',
+        'number' => 'Number',
+        'usage' => 'Usage',
     ];
 
     public function validate()

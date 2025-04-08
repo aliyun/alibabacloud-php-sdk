@@ -12,33 +12,38 @@ class CoachCallRequest extends Model
      * @var string
      */
     public $coachedUserId;
+
     /**
      * @var string
      */
     public $deviceId;
+
     /**
      * @var string
      */
     public $instanceId;
+
     /**
      * @var string
      */
     public $jobId;
+
     /**
      * @var int
      */
     public $timeoutSeconds;
+
     /**
      * @var string
      */
     public $userId;
     protected $_name = [
-        'coachedUserId'  => 'CoachedUserId',
-        'deviceId'       => 'DeviceId',
-        'instanceId'     => 'InstanceId',
-        'jobId'          => 'JobId',
+        'coachedUserId' => 'CoachedUserId',
+        'deviceId' => 'DeviceId',
+        'instanceId' => 'InstanceId',
+        'jobId' => 'JobId',
         'timeoutSeconds' => 'TimeoutSeconds',
-        'userId'         => 'UserId',
+        'userId' => 'UserId',
     ];
 
     public function validate()

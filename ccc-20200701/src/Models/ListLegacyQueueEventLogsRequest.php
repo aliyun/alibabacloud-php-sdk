@@ -12,33 +12,38 @@ class ListLegacyQueueEventLogsRequest extends Model
      * @var int
      */
     public $endTime;
+
     /**
      * @var string
      */
     public $instanceId;
+
     /**
      * @var int
      */
     public $pageNumber;
+
     /**
      * @var int
      */
     public $pageSize;
+
     /**
      * @var string
      */
     public $skillGroupId;
+
     /**
      * @var int
      */
     public $startTime;
     protected $_name = [
-        'endTime'      => 'EndTime',
-        'instanceId'   => 'InstanceId',
-        'pageNumber'   => 'PageNumber',
-        'pageSize'     => 'PageSize',
+        'endTime' => 'EndTime',
+        'instanceId' => 'InstanceId',
+        'pageNumber' => 'PageNumber',
+        'pageSize' => 'PageSize',
         'skillGroupId' => 'SkillGroupId',
-        'startTime'    => 'StartTime',
+        'startTime' => 'StartTime',
     ];
 
     public function validate()

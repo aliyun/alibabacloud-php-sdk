@@ -13,48 +13,56 @@ class data extends Model
      * @var string
      */
     public $categoryId;
+
     /**
      * @var string
      */
     public $editor;
+
     /**
      * @var string
      */
     public $instanceId;
+
     /**
      * @var string
      */
     public $name;
+
     /**
      * @var string
      */
     public $processDefinition;
+
     /**
      * @var string
      */
     public $state;
+
     /**
      * @var string
      */
     public $templateId;
+
     /**
      * @var ticketFields[]
      */
     public $ticketFields;
+
     /**
      * @var int
      */
     public $updatedTime;
     protected $_name = [
-        'categoryId'        => 'CategoryId',
-        'editor'            => 'Editor',
-        'instanceId'        => 'InstanceId',
-        'name'              => 'Name',
+        'categoryId' => 'CategoryId',
+        'editor' => 'Editor',
+        'instanceId' => 'InstanceId',
+        'name' => 'Name',
         'processDefinition' => 'ProcessDefinition',
-        'state'             => 'State',
-        'templateId'        => 'TemplateId',
-        'ticketFields'      => 'TicketFields',
-        'updatedTime'       => 'UpdatedTime',
+        'state' => 'State',
+        'templateId' => 'TemplateId',
+        'ticketFields' => 'TicketFields',
+        'updatedTime' => 'UpdatedTime',
     ];
 
     public function validate()
@@ -99,7 +107,7 @@ class data extends Model
         if (null !== $this->ticketFields) {
             if (\is_array($this->ticketFields)) {
                 $res['TicketFields'] = [];
-                $n1                  = 0;
+                $n1 = 0;
                 foreach ($this->ticketFields as $item1) {
                     $res['TicketFields'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -152,7 +160,7 @@ class data extends Model
         if (isset($map['TicketFields'])) {
             if (!empty($map['TicketFields'])) {
                 $model->ticketFields = [];
-                $n1                  = 0;
+                $n1 = 0;
                 foreach ($map['TicketFields'] as $item1) {
                     $model->ticketFields[$n1++] = ticketFields::fromMap($item1);
                 }

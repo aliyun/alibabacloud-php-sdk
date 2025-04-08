@@ -12,18 +12,20 @@ class skillLevelList extends Model
      * @var string
      */
     public $skillGroupId;
+
     /**
      * @var string
      */
     public $skillGroupName;
+
     /**
      * @var int
      */
     public $skillLevel;
     protected $_name = [
-        'skillGroupId'   => 'SkillGroupId',
+        'skillGroupId' => 'SkillGroupId',
         'skillGroupName' => 'SkillGroupName',
-        'skillLevel'     => 'SkillLevel',
+        'skillLevel' => 'SkillLevel',
     ];
 
     public function validate()

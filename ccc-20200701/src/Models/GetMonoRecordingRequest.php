@@ -12,18 +12,20 @@ class GetMonoRecordingRequest extends Model
      * @var string
      */
     public $contactId;
+
     /**
      * @var int
      */
     public $expireSeconds;
+
     /**
      * @var string
      */
     public $instanceId;
     protected $_name = [
-        'contactId'     => 'ContactId',
+        'contactId' => 'ContactId',
         'expireSeconds' => 'ExpireSeconds',
-        'instanceId'    => 'InstanceId',
+        'instanceId' => 'InstanceId',
     ];
 
     public function validate()

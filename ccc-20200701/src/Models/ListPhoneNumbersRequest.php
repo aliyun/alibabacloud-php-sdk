@@ -12,33 +12,38 @@ class ListPhoneNumbersRequest extends Model
      * @var bool
      */
     public $active;
+
     /**
      * @var string
      */
     public $instanceId;
+
     /**
      * @var int
      */
     public $pageNumber;
+
     /**
      * @var int
      */
     public $pageSize;
+
     /**
      * @var string
      */
     public $searchPattern;
+
     /**
      * @var string
      */
     public $usage;
     protected $_name = [
-        'active'        => 'Active',
-        'instanceId'    => 'InstanceId',
-        'pageNumber'    => 'PageNumber',
-        'pageSize'      => 'PageSize',
+        'active' => 'Active',
+        'instanceId' => 'InstanceId',
+        'pageNumber' => 'PageNumber',
+        'pageSize' => 'PageSize',
         'searchPattern' => 'SearchPattern',
-        'usage'         => 'Usage',
+        'usage' => 'Usage',
     ];
 
     public function validate()

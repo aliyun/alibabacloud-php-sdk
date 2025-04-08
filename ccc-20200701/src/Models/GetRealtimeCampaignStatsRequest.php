@@ -12,13 +12,14 @@ class GetRealtimeCampaignStatsRequest extends Model
      * @var string
      */
     public $instanceId;
+
     /**
      * @var string
      */
     public $queueId;
     protected $_name = [
         'instanceId' => 'InstanceId',
-        'queueId'    => 'QueueId',
+        'queueId' => 'QueueId',
     ];
 
     public function validate()

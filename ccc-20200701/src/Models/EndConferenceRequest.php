@@ -12,18 +12,20 @@ class EndConferenceRequest extends Model
      * @var string
      */
     public $instanceId;
+
     /**
      * @var string
      */
     public $jobId;
+
     /**
      * @var string
      */
     public $userId;
     protected $_name = [
         'instanceId' => 'InstanceId',
-        'jobId'      => 'JobId',
-        'userId'     => 'UserId',
+        'jobId' => 'JobId',
+        'userId' => 'UserId',
     ];
 
     public function validate()

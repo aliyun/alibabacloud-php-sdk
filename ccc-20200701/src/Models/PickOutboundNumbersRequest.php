@@ -12,22 +12,25 @@ class PickOutboundNumbersRequest extends Model
      * @var string
      */
     public $calledNumber;
+
     /**
      * @var int
      */
     public $count;
+
     /**
      * @var string
      */
     public $instanceId;
+
     /**
      * @var string
      */
     public $skillGroupIdList;
     protected $_name = [
-        'calledNumber'     => 'CalledNumber',
-        'count'            => 'Count',
-        'instanceId'       => 'InstanceId',
+        'calledNumber' => 'CalledNumber',
+        'count' => 'Count',
+        'instanceId' => 'InstanceId',
         'skillGroupIdList' => 'SkillGroupIdList',
     ];
 

@@ -12,83 +12,98 @@ class data extends Model
      * @var string
      */
     public $avatarUrl;
+
     /**
      * @var string
      */
     public $deviceExt;
+
     /**
      * @var string
      */
     public $deviceId;
+
     /**
      * @var string
      */
     public $deviceState;
+
     /**
      * @var string
      */
     public $displayId;
+
     /**
      * @var string
      */
     public $displayName;
+
     /**
      * @var string
      */
     public $email;
+
     /**
      * @var string
      */
     public $extension;
+
     /**
      * @var string
      */
     public $instanceId;
+
     /**
      * @var string
      */
     public $loginName;
+
     /**
      * @var string
      */
     public $mobile;
+
     /**
      * @var string
      */
     public $nickname;
+
     /**
      * @var string
      */
     public $roleId;
+
     /**
      * @var string
      */
     public $roleName;
+
     /**
      * @var string
      */
     public $userId;
+
     /**
      * @var string
      */
     public $workMode;
     protected $_name = [
-        'avatarUrl'   => 'AvatarUrl',
-        'deviceExt'   => 'DeviceExt',
-        'deviceId'    => 'DeviceId',
+        'avatarUrl' => 'AvatarUrl',
+        'deviceExt' => 'DeviceExt',
+        'deviceId' => 'DeviceId',
         'deviceState' => 'DeviceState',
-        'displayId'   => 'DisplayId',
+        'displayId' => 'DisplayId',
         'displayName' => 'DisplayName',
-        'email'       => 'Email',
-        'extension'   => 'Extension',
-        'instanceId'  => 'InstanceId',
-        'loginName'   => 'LoginName',
-        'mobile'      => 'Mobile',
-        'nickname'    => 'Nickname',
-        'roleId'      => 'RoleId',
-        'roleName'    => 'RoleName',
-        'userId'      => 'UserId',
-        'workMode'    => 'WorkMode',
+        'email' => 'Email',
+        'extension' => 'Extension',
+        'instanceId' => 'InstanceId',
+        'loginName' => 'LoginName',
+        'mobile' => 'Mobile',
+        'nickname' => 'Nickname',
+        'roleId' => 'RoleId',
+        'roleName' => 'RoleName',
+        'userId' => 'UserId',
+        'workMode' => 'WorkMode',
     ];
 
     public function validate()

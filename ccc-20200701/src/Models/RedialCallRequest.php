@@ -12,43 +12,50 @@ class RedialCallRequest extends Model
      * @var string
      */
     public $callee;
+
     /**
      * @var string
      */
     public $caller;
+
     /**
      * @var string
      */
     public $deviceId;
+
     /**
      * @var string
      */
     public $instanceId;
+
     /**
      * @var string
      */
     public $jobId;
+
     /**
      * @var string
      */
     public $tags;
+
     /**
      * @var int
      */
     public $timeoutSeconds;
+
     /**
      * @var string
      */
     public $userId;
     protected $_name = [
-        'callee'         => 'Callee',
-        'caller'         => 'Caller',
-        'deviceId'       => 'DeviceId',
-        'instanceId'     => 'InstanceId',
-        'jobId'          => 'JobId',
-        'tags'           => 'Tags',
+        'callee' => 'Callee',
+        'caller' => 'Caller',
+        'deviceId' => 'DeviceId',
+        'instanceId' => 'InstanceId',
+        'jobId' => 'JobId',
+        'tags' => 'Tags',
         'timeoutSeconds' => 'TimeoutSeconds',
-        'userId'         => 'UserId',
+        'userId' => 'UserId',
     ];
 
     public function validate()

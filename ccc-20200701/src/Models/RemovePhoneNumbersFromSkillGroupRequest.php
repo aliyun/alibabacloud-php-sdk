@@ -12,17 +12,19 @@ class RemovePhoneNumbersFromSkillGroupRequest extends Model
      * @var string
      */
     public $instanceId;
+
     /**
      * @var string
      */
     public $numberList;
+
     /**
      * @var string
      */
     public $skillGroupId;
     protected $_name = [
-        'instanceId'   => 'InstanceId',
-        'numberList'   => 'NumberList',
+        'instanceId' => 'InstanceId',
+        'numberList' => 'NumberList',
         'skillGroupId' => 'SkillGroupId',
     ];
 

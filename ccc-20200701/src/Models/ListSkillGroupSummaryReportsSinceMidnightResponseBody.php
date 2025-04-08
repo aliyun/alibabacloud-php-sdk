@@ -13,33 +13,38 @@ class ListSkillGroupSummaryReportsSinceMidnightResponseBody extends Model
      * @var string
      */
     public $code;
+
     /**
      * @var int
      */
     public $httpStatusCode;
+
     /**
      * @var string
      */
     public $message;
+
     /**
      * @var pagedSkillGroupSummaryReport
      */
     public $pagedSkillGroupSummaryReport;
+
     /**
      * @var string
      */
     public $requestId;
+
     /**
      * @var bool
      */
     public $success;
     protected $_name = [
-        'code'                         => 'Code',
-        'httpStatusCode'               => 'HttpStatusCode',
-        'message'                      => 'Message',
+        'code' => 'Code',
+        'httpStatusCode' => 'HttpStatusCode',
+        'message' => 'Message',
         'pagedSkillGroupSummaryReport' => 'PagedSkillGroupSummaryReport',
-        'requestId'                    => 'RequestId',
-        'success'                      => 'Success',
+        'requestId' => 'RequestId',
+        'success' => 'Success',
     ];
 
     public function validate()

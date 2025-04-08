@@ -12,38 +12,44 @@ class list_ extends Model
      * @var bool
      */
     public $active;
+
     /**
      * @var string
      */
     public $city;
+
     /**
      * @var string
      */
     public $contactFlowId;
+
     /**
      * @var string
      */
     public $instanceId;
+
     /**
      * @var string
      */
     public $number;
+
     /**
      * @var string
      */
     public $province;
+
     /**
      * @var string
      */
     public $usage;
     protected $_name = [
-        'active'        => 'Active',
-        'city'          => 'City',
+        'active' => 'Active',
+        'city' => 'City',
         'contactFlowId' => 'ContactFlowId',
-        'instanceId'    => 'InstanceId',
-        'number'        => 'Number',
-        'province'      => 'Province',
-        'usage'         => 'Usage',
+        'instanceId' => 'InstanceId',
+        'number' => 'Number',
+        'province' => 'Province',
+        'usage' => 'Usage',
     ];
 
     public function validate()

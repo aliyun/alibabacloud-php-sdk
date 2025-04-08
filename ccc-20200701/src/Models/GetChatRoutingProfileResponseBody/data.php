@@ -12,23 +12,26 @@ class data extends Model
      * @var string
      */
     public $agentConcurrencySettings;
+
     /**
      * @var string
      */
     public $chatSettings;
+
     /**
      * @var string
      */
     public $distributionSettings;
+
     /**
      * @var string
      */
     public $routingType;
     protected $_name = [
         'agentConcurrencySettings' => 'AgentConcurrencySettings',
-        'chatSettings'             => 'ChatSettings',
-        'distributionSettings'     => 'DistributionSettings',
-        'routingType'              => 'RoutingType',
+        'chatSettings' => 'ChatSettings',
+        'distributionSettings' => 'DistributionSettings',
+        'routingType' => 'RoutingType',
     ];
 
     public function validate()

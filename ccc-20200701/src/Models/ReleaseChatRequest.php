@@ -12,28 +12,32 @@ class ReleaseChatRequest extends Model
      * @var string
      */
     public $instanceId;
+
     /**
      * @var string
      */
     public $jobId;
+
     /**
      * @var string
      */
     public $token;
+
     /**
      * @var string
      */
     public $userId;
+
     /**
      * @var string
      */
     public $userType;
     protected $_name = [
         'instanceId' => 'InstanceId',
-        'jobId'      => 'JobId',
-        'token'      => 'Token',
-        'userId'     => 'UserId',
-        'userType'   => 'UserType',
+        'jobId' => 'JobId',
+        'token' => 'Token',
+        'userId' => 'UserId',
+        'userType' => 'UserType',
     ];
 
     public function validate()

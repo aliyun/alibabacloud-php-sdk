@@ -14,53 +14,62 @@ class list_ extends Model
      * @var adminList[]
      */
     public $adminList;
+
     /**
      * @var string
      */
     public $aliyunUid;
+
     /**
      * @var string
      */
     public $consoleUrl;
+
     /**
      * @var int
      */
     public $createTime;
+
     /**
      * @var string
      */
     public $description;
+
     /**
      * @var string
      */
     public $domainName;
+
     /**
      * @var string
      */
     public $id;
+
     /**
      * @var string
      */
     public $name;
+
     /**
      * @var numberList[]
      */
     public $numberList;
+
     /**
      * @var string
      */
     public $status;
     protected $_name = [
-        'adminList'   => 'AdminList',
-        'aliyunUid'   => 'AliyunUid',
-        'consoleUrl'  => 'ConsoleUrl',
-        'createTime'  => 'CreateTime',
+        'adminList' => 'AdminList',
+        'aliyunUid' => 'AliyunUid',
+        'consoleUrl' => 'ConsoleUrl',
+        'createTime' => 'CreateTime',
         'description' => 'Description',
-        'domainName'  => 'DomainName',
-        'id'          => 'Id',
-        'name'        => 'Name',
-        'numberList'  => 'NumberList',
-        'status'      => 'Status',
+        'domainName' => 'DomainName',
+        'id' => 'Id',
+        'name' => 'Name',
+        'numberList' => 'NumberList',
+        'status' => 'Status',
     ];
 
     public function validate()
@@ -80,7 +89,7 @@ class list_ extends Model
         if (null !== $this->adminList) {
             if (\is_array($this->adminList)) {
                 $res['AdminList'] = [];
-                $n1               = 0;
+                $n1 = 0;
                 foreach ($this->adminList as $item1) {
                     $res['AdminList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -118,7 +127,7 @@ class list_ extends Model
         if (null !== $this->numberList) {
             if (\is_array($this->numberList)) {
                 $res['NumberList'] = [];
-                $n1                = 0;
+                $n1 = 0;
                 foreach ($this->numberList as $item1) {
                     $res['NumberList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -143,7 +152,7 @@ class list_ extends Model
         if (isset($map['AdminList'])) {
             if (!empty($map['AdminList'])) {
                 $model->adminList = [];
-                $n1               = 0;
+                $n1 = 0;
                 foreach ($map['AdminList'] as $item1) {
                     $model->adminList[$n1++] = adminList::fromMap($item1);
                 }
@@ -181,7 +190,7 @@ class list_ extends Model
         if (isset($map['NumberList'])) {
             if (!empty($map['NumberList'])) {
                 $model->numberList = [];
-                $n1                = 0;
+                $n1 = 0;
                 foreach ($map['NumberList'] as $item1) {
                     $model->numberList[$n1++] = numberList::fromMap($item1);
                 }

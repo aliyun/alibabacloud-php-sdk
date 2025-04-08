@@ -12,13 +12,14 @@ class overall extends Model
      * @var int
      */
     public $maxLoggedInAgents;
+
     /**
      * @var int
      */
     public $statsTime;
     protected $_name = [
         'maxLoggedInAgents' => 'MaxLoggedInAgents',
-        'statsTime'         => 'StatsTime',
+        'statsTime' => 'StatsTime',
     ];
 
     public function validate()

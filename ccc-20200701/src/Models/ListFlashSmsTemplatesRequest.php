@@ -12,18 +12,20 @@ class ListFlashSmsTemplatesRequest extends Model
      * @var string
      */
     public $applicationId;
+
     /**
      * @var string
      */
     public $instanceId;
+
     /**
      * @var string
      */
     public $providerId;
     protected $_name = [
         'applicationId' => 'ApplicationId',
-        'instanceId'    => 'InstanceId',
-        'providerId'    => 'ProviderId',
+        'instanceId' => 'InstanceId',
+        'providerId' => 'ProviderId',
     ];
 
     public function validate()

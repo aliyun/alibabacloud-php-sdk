@@ -12,23 +12,26 @@ class userList extends Model
      * @var string
      */
     public $avatarUrl;
+
     /**
      * @var string
      */
     public $userId;
+
     /**
      * @var string
      */
     public $userName;
+
     /**
      * @var string
      */
     public $userType;
     protected $_name = [
         'avatarUrl' => 'AvatarUrl',
-        'userId'    => 'UserId',
-        'userName'  => 'UserName',
-        'userType'  => 'UserType',
+        'userId' => 'UserId',
+        'userName' => 'UserName',
+        'userType' => 'UserType',
     ];
 
     public function validate()

@@ -12,48 +12,56 @@ class list_ extends Model
      * @var string
      */
     public $displayName;
+
     /**
      * @var string
      */
     public $loginName;
+
     /**
      * @var string
      */
     public $ramId;
+
     /**
      * @var string
      */
     public $roleId;
+
     /**
      * @var string
      */
     public $roleName;
+
     /**
      * @var string
      */
     public $skillGroupId;
+
     /**
      * @var string
      */
     public $skillGroupName;
+
     /**
      * @var int
      */
     public $skillLevel;
+
     /**
      * @var string
      */
     public $userId;
     protected $_name = [
-        'displayName'    => 'DisplayName',
-        'loginName'      => 'LoginName',
-        'ramId'          => 'RamId',
-        'roleId'         => 'RoleId',
-        'roleName'       => 'RoleName',
-        'skillGroupId'   => 'SkillGroupId',
+        'displayName' => 'DisplayName',
+        'loginName' => 'LoginName',
+        'ramId' => 'RamId',
+        'roleId' => 'RoleId',
+        'roleName' => 'RoleName',
+        'skillGroupId' => 'SkillGroupId',
         'skillGroupName' => 'SkillGroupName',
-        'skillLevel'     => 'SkillLevel',
-        'userId'         => 'UserId',
+        'skillLevel' => 'SkillLevel',
+        'userId' => 'UserId',
     ];
 
     public function validate()

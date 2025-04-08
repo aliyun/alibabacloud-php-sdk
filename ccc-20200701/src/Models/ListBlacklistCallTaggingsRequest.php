@@ -12,6 +12,7 @@ class ListBlacklistCallTaggingsRequest extends Model
      * @var string
      */
     public $instanceId;
+
     /**
      * @var string
      */

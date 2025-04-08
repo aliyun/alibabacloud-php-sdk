@@ -12,17 +12,19 @@ class eventSequence extends Model
      * @var int
      */
     public $duration;
+
     /**
      * @var string
      */
     public $event;
+
     /**
      * @var int
      */
     public $eventTime;
     protected $_name = [
-        'duration'  => 'Duration',
-        'event'     => 'Event',
+        'duration' => 'Duration',
+        'event' => 'Event',
         'eventTime' => 'EventTime',
     ];
 

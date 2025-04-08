@@ -12,17 +12,19 @@ class GetTicketTemplateRequest extends Model
      * @var string
      */
     public $instanceId;
+
     /**
      * @var string
      */
     public $templateId;
+
     /**
      * @var string
      */
     public $templateVersion;
     protected $_name = [
-        'instanceId'      => 'InstanceId',
-        'templateId'      => 'TemplateId',
+        'instanceId' => 'InstanceId',
+        'templateId' => 'TemplateId',
         'templateVersion' => 'TemplateVersion',
     ];
 

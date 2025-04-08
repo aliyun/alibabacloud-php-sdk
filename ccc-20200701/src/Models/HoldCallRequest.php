@@ -12,33 +12,38 @@ class HoldCallRequest extends Model
      * @var string
      */
     public $channelId;
+
     /**
      * @var string
      */
     public $deviceId;
+
     /**
      * @var string
      */
     public $instanceId;
+
     /**
      * @var string
      */
     public $jobId;
+
     /**
      * @var string
      */
     public $music;
+
     /**
      * @var string
      */
     public $userId;
     protected $_name = [
-        'channelId'  => 'ChannelId',
-        'deviceId'   => 'DeviceId',
+        'channelId' => 'ChannelId',
+        'deviceId' => 'DeviceId',
         'instanceId' => 'InstanceId',
-        'jobId'      => 'JobId',
-        'music'      => 'Music',
-        'userId'     => 'UserId',
+        'jobId' => 'JobId',
+        'music' => 'Music',
+        'userId' => 'UserId',
     ];
 
     public function validate()

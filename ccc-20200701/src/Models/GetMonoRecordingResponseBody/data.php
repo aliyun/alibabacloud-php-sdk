@@ -12,10 +12,12 @@ class data extends Model
      * @var int
      */
     public $duration;
+
     /**
      * @var string
      */
     public $fileName;
+
     /**
      * @var string
      */
@@ -23,7 +25,7 @@ class data extends Model
     protected $_name = [
         'duration' => 'Duration',
         'fileName' => 'FileName',
-        'fileUrl'  => 'FileUrl',
+        'fileUrl' => 'FileUrl',
     ];
 
     public function validate()

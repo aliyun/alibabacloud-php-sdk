@@ -15,53 +15,62 @@ class list_ extends Model
      * @var string
      */
     public $agentId;
+
     /**
      * @var string
      */
     public $agentName;
+
     /**
      * @var inbound
      */
     public $inbound;
+
     /**
      * @var string
      */
     public $instanceId;
+
     /**
      * @var string
      */
     public $loginName;
+
     /**
      * @var outbound
      */
     public $outbound;
+
     /**
      * @var overall
      */
     public $overall;
+
     /**
      * @var string
      */
     public $skillGroupIds;
+
     /**
      * @var string
      */
     public $skillGroupNames;
+
     /**
      * @var string
      */
     public $timestamp;
     protected $_name = [
-        'agentId'         => 'AgentId',
-        'agentName'       => 'AgentName',
-        'inbound'         => 'Inbound',
-        'instanceId'      => 'InstanceId',
-        'loginName'       => 'LoginName',
-        'outbound'        => 'Outbound',
-        'overall'         => 'Overall',
-        'skillGroupIds'   => 'SkillGroupIds',
+        'agentId' => 'AgentId',
+        'agentName' => 'AgentName',
+        'inbound' => 'Inbound',
+        'instanceId' => 'InstanceId',
+        'loginName' => 'LoginName',
+        'outbound' => 'Outbound',
+        'overall' => 'Overall',
+        'skillGroupIds' => 'SkillGroupIds',
         'skillGroupNames' => 'SkillGroupNames',
-        'timestamp'       => 'Timestamp',
+        'timestamp' => 'Timestamp',
     ];
 
     public function validate()

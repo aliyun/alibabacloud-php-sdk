@@ -12,18 +12,20 @@ class GetLoginDetailsRequest extends Model
      * @var string
      */
     public $chatDeviceId;
+
     /**
      * @var string
      */
     public $instanceId;
+
     /**
      * @var string
      */
     public $userId;
     protected $_name = [
         'chatDeviceId' => 'ChatDeviceId',
-        'instanceId'   => 'InstanceId',
-        'userId'       => 'UserId',
+        'instanceId' => 'InstanceId',
+        'userId' => 'UserId',
     ];
 
     public function validate()

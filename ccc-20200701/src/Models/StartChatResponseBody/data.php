@@ -12,13 +12,14 @@ class data extends Model
      * @var string
      */
     public $chatConversationId;
+
     /**
      * @var string
      */
     public $jobId;
     protected $_name = [
         'chatConversationId' => 'ChatConversationId',
-        'jobId'              => 'JobId',
+        'jobId' => 'JobId',
     ];
 
     public function validate()

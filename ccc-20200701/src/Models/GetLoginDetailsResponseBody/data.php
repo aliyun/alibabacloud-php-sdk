@@ -12,108 +12,128 @@ class data extends Model
      * @var string
      */
     public $agentServerUrl;
+
     /**
      * @var string
      */
     public $avatarUrl;
+
     /**
      * @var string
      */
     public $chatAppId;
+
     /**
      * @var string
      */
     public $chatAppKey;
+
     /**
      * @var string
      */
     public $chatDeviceId;
+
     /**
      * @var string
      */
     public $chatLoginToken;
+
     /**
      * @var string
      */
     public $chatServerUrl;
+
     /**
      * @var string
      */
     public $chatUserId;
+
     /**
      * @var string
      */
     public $deviceExt;
+
     /**
      * @var string
      */
     public $deviceId;
+
     /**
      * @var string
      */
     public $deviceState;
+
     /**
      * @var string
      */
     public $displayName;
+
     /**
      * @var string
      */
     public $extension;
+
     /**
      * @var string
      */
     public $nickname;
+
     /**
      * @var string
      */
     public $signature;
+
     /**
      * @var string
      */
     public $signature2;
+
     /**
      * @var string
      */
     public $sipServerUrl;
+
     /**
      * @var string
      */
     public $userId;
+
     /**
      * @var string
      */
     public $userKey;
+
     /**
      * @var string
      */
     public $userKey2;
+
     /**
      * @var string
      */
     public $workMode;
     protected $_name = [
         'agentServerUrl' => 'AgentServerUrl',
-        'avatarUrl'      => 'AvatarUrl',
-        'chatAppId'      => 'ChatAppId',
-        'chatAppKey'     => 'ChatAppKey',
-        'chatDeviceId'   => 'ChatDeviceId',
+        'avatarUrl' => 'AvatarUrl',
+        'chatAppId' => 'ChatAppId',
+        'chatAppKey' => 'ChatAppKey',
+        'chatDeviceId' => 'ChatDeviceId',
         'chatLoginToken' => 'ChatLoginToken',
-        'chatServerUrl'  => 'ChatServerUrl',
-        'chatUserId'     => 'ChatUserId',
-        'deviceExt'      => 'DeviceExt',
-        'deviceId'       => 'DeviceId',
-        'deviceState'    => 'DeviceState',
-        'displayName'    => 'DisplayName',
-        'extension'      => 'Extension',
-        'nickname'       => 'Nickname',
-        'signature'      => 'Signature',
-        'signature2'     => 'Signature2',
-        'sipServerUrl'   => 'SipServerUrl',
-        'userId'         => 'UserId',
-        'userKey'        => 'UserKey',
-        'userKey2'       => 'UserKey2',
-        'workMode'       => 'WorkMode',
+        'chatServerUrl' => 'ChatServerUrl',
+        'chatUserId' => 'ChatUserId',
+        'deviceExt' => 'DeviceExt',
+        'deviceId' => 'DeviceId',
+        'deviceState' => 'DeviceState',
+        'displayName' => 'DisplayName',
+        'extension' => 'Extension',
+        'nickname' => 'Nickname',
+        'signature' => 'Signature',
+        'signature2' => 'Signature2',
+        'sipServerUrl' => 'SipServerUrl',
+        'userId' => 'UserId',
+        'userKey' => 'UserKey',
+        'userKey2' => 'UserKey2',
+        'workMode' => 'WorkMode',
     ];
 
     public function validate()

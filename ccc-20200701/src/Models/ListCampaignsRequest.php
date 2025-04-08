@@ -12,53 +12,62 @@ class ListCampaignsRequest extends Model
      * @var string
      */
     public $actualStartTimeFrom;
+
     /**
      * @var string
      */
     public $actualStartTimeTo;
+
     /**
      * @var string
      */
     public $instanceId;
+
     /**
      * @var string
      */
     public $name;
+
     /**
      * @var int
      */
     public $pageNumber;
+
     /**
      * @var int
      */
     public $pageSize;
+
     /**
      * @var string
      */
     public $planedStartTimeFrom;
+
     /**
      * @var string
      */
     public $planedStartTimeTo;
+
     /**
      * @var string
      */
     public $queueId;
+
     /**
      * @var string
      */
     public $state;
     protected $_name = [
         'actualStartTimeFrom' => 'ActualStartTimeFrom',
-        'actualStartTimeTo'   => 'ActualStartTimeTo',
-        'instanceId'          => 'InstanceId',
-        'name'                => 'Name',
-        'pageNumber'          => 'PageNumber',
-        'pageSize'            => 'PageSize',
+        'actualStartTimeTo' => 'ActualStartTimeTo',
+        'instanceId' => 'InstanceId',
+        'name' => 'Name',
+        'pageNumber' => 'PageNumber',
+        'pageSize' => 'PageSize',
         'planedStartTimeFrom' => 'PlanedStartTimeFrom',
-        'planedStartTimeTo'   => 'PlanedStartTimeTo',
-        'queueId'             => 'QueueId',
-        'state'               => 'State',
+        'planedStartTimeTo' => 'PlanedStartTimeTo',
+        'queueId' => 'QueueId',
+        'state' => 'State',
     ];
 
     public function validate()

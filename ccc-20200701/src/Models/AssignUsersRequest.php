@@ -12,28 +12,32 @@ class AssignUsersRequest extends Model
      * @var string
      */
     public $instanceId;
+
     /**
      * @var string
      */
     public $ramIdList;
+
     /**
      * @var string
      */
     public $roleId;
+
     /**
      * @var string
      */
     public $skillLevelList;
+
     /**
      * @var string
      */
     public $workMode;
     protected $_name = [
-        'instanceId'     => 'InstanceId',
-        'ramIdList'      => 'RamIdList',
-        'roleId'         => 'RoleId',
+        'instanceId' => 'InstanceId',
+        'ramIdList' => 'RamIdList',
+        'roleId' => 'RoleId',
         'skillLevelList' => 'SkillLevelList',
-        'workMode'       => 'WorkMode',
+        'workMode' => 'WorkMode',
     ];
 
     public function validate()

@@ -12,10 +12,12 @@ class AddPersonalNumbersToUserRequest extends Model
      * @var string
      */
     public $instanceId;
+
     /**
      * @var string
      */
     public $numberList;
+
     /**
      * @var string
      */
@@ -23,7 +25,7 @@ class AddPersonalNumbersToUserRequest extends Model
     protected $_name = [
         'instanceId' => 'InstanceId',
         'numberList' => 'NumberList',
-        'userId'     => 'UserId',
+        'userId' => 'UserId',
     ];
 
     public function validate()

@@ -12,28 +12,32 @@ class CommitContactFlowRequest extends Model
      * @var string
      */
     public $contactFlowId;
+
     /**
      * @var string
      */
     public $definition;
+
     /**
      * @var string
      */
     public $description;
+
     /**
      * @var string
      */
     public $draftId;
+
     /**
      * @var string
      */
     public $instanceId;
     protected $_name = [
         'contactFlowId' => 'ContactFlowId',
-        'definition'    => 'Definition',
-        'description'   => 'Description',
-        'draftId'       => 'DraftId',
-        'instanceId'    => 'InstanceId',
+        'definition' => 'Definition',
+        'description' => 'Description',
+        'draftId' => 'DraftId',
+        'instanceId' => 'InstanceId',
     ];
 
     public function validate()

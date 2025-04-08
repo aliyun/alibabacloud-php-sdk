@@ -12,23 +12,26 @@ class ListIvrTrackingDetailsRequest extends Model
      * @var string
      */
     public $contactId;
+
     /**
      * @var string
      */
     public $instanceId;
+
     /**
      * @var int
      */
     public $pageNumber;
+
     /**
      * @var int
      */
     public $pageSize;
     protected $_name = [
-        'contactId'  => 'ContactId',
+        'contactId' => 'ContactId',
         'instanceId' => 'InstanceId',
         'pageNumber' => 'PageNumber',
-        'pageSize'   => 'PageSize',
+        'pageSize' => 'PageSize',
     ];
 
     public function validate()

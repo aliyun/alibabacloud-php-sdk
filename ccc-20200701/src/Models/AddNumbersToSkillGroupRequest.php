@@ -12,23 +12,26 @@ class AddNumbersToSkillGroupRequest extends Model
      * @var string
      */
     public $instNumberGroupIdList;
+
     /**
      * @var string
      */
     public $instanceId;
+
     /**
      * @var string
      */
     public $numberList;
+
     /**
      * @var string
      */
     public $skillGroupId;
     protected $_name = [
         'instNumberGroupIdList' => 'InstNumberGroupIdList',
-        'instanceId'            => 'InstanceId',
-        'numberList'            => 'NumberList',
-        'skillGroupId'          => 'SkillGroupId',
+        'instanceId' => 'InstanceId',
+        'numberList' => 'NumberList',
+        'skillGroupId' => 'SkillGroupId',
     ];
 
     public function validate()

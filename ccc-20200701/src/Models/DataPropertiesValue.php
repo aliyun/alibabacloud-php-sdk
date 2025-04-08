@@ -12,108 +12,128 @@ class DataPropertiesValue extends Model
      * @var string
      */
     public $displayName;
+
     /**
      * @var string
      */
     public $description;
+
     /**
      * @var string
      */
     public $name;
+
     /**
      * @var string
      */
     public $dataType;
+
     /**
      * @var string
      */
     public $pattern;
+
     /**
      * @var string
      */
     public $patternErrorMessage;
+
     /**
      * @var int
      */
     public $minLength;
+
     /**
      * @var int
      */
     public $maxLength;
+
     /**
      * @var float
      */
     public $minimum;
+
     /**
      * @var float
      */
     public $maximum;
+
     /**
      * @var bool
      */
     public $required;
+
     /**
      * @var bool
      */
     public $system;
+
     /**
      * @var bool
      */
     public $disabled;
+
     /**
      * @var bool
      */
     public $array;
+
     /**
      * @var bool
      */
     public $readOnly;
+
     /**
      * @var string
      */
     public $editorType;
+
     /**
      * @var string
      */
     public $attributes;
+
     /**
      * @var int
      */
     public $displayOrder;
+
     /**
      * @var int
      */
     public $createdTime;
+
     /**
      * @var int
      */
     public $updatedTime;
+
     /**
      * @var string
      */
     public $creator;
     protected $_name = [
-        'displayName'         => 'DisplayName',
-        'description'         => 'Description',
-        'name'                => 'Name',
-        'dataType'            => 'DataType',
-        'pattern'             => 'Pattern',
+        'displayName' => 'DisplayName',
+        'description' => 'Description',
+        'name' => 'Name',
+        'dataType' => 'DataType',
+        'pattern' => 'Pattern',
         'patternErrorMessage' => 'PatternErrorMessage',
-        'minLength'           => 'MinLength',
-        'maxLength'           => 'MaxLength',
-        'minimum'             => 'Minimum',
-        'maximum'             => 'Maximum',
-        'required'            => 'Required',
-        'system'              => 'System',
-        'disabled'            => 'Disabled',
-        'array'               => 'Array',
-        'readOnly'            => 'ReadOnly',
-        'editorType'          => 'EditorType',
-        'attributes'          => 'Attributes',
-        'displayOrder'        => 'DisplayOrder',
-        'createdTime'         => 'CreatedTime',
-        'updatedTime'         => 'UpdatedTime',
-        'creator'             => 'Creator',
+        'minLength' => 'MinLength',
+        'maxLength' => 'MaxLength',
+        'minimum' => 'Minimum',
+        'maximum' => 'Maximum',
+        'required' => 'Required',
+        'system' => 'System',
+        'disabled' => 'Disabled',
+        'array' => 'Array',
+        'readOnly' => 'ReadOnly',
+        'editorType' => 'EditorType',
+        'attributes' => 'Attributes',
+        'displayOrder' => 'DisplayOrder',
+        'createdTime' => 'CreatedTime',
+        'updatedTime' => 'UpdatedTime',
+        'creator' => 'Creator',
     ];
 
     public function validate()

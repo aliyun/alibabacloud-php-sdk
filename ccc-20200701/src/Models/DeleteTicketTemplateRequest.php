@@ -12,6 +12,7 @@ class DeleteTicketTemplateRequest extends Model
      * @var string
      */
     public $instanceId;
+
     /**
      * @var string
      */

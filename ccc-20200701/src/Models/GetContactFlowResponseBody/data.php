@@ -12,58 +12,68 @@ class data extends Model
      * @var string
      */
     public $contactFlowId;
+
     /**
      * @var string
      */
     public $createdTime;
+
     /**
      * @var string
      */
     public $definition;
+
     /**
      * @var string
      */
     public $description;
+
     /**
      * @var string
      */
     public $draftId;
+
     /**
      * @var string
      */
     public $editor;
+
     /**
      * @var string
      */
     public $instanceId;
+
     /**
      * @var string
      */
     public $name;
+
     /**
      * @var bool
      */
     public $published;
+
     /**
      * @var string
      */
     public $type;
+
     /**
      * @var string
      */
     public $updatedTime;
     protected $_name = [
         'contactFlowId' => 'ContactFlowId',
-        'createdTime'   => 'CreatedTime',
-        'definition'    => 'Definition',
-        'description'   => 'Description',
-        'draftId'       => 'DraftId',
-        'editor'        => 'Editor',
-        'instanceId'    => 'InstanceId',
-        'name'          => 'Name',
-        'published'     => 'Published',
-        'type'          => 'Type',
-        'updatedTime'   => 'UpdatedTime',
+        'createdTime' => 'CreatedTime',
+        'definition' => 'Definition',
+        'description' => 'Description',
+        'draftId' => 'DraftId',
+        'editor' => 'Editor',
+        'instanceId' => 'InstanceId',
+        'name' => 'Name',
+        'published' => 'Published',
+        'type' => 'Type',
+        'updatedTime' => 'UpdatedTime',
     ];
 
     public function validate()

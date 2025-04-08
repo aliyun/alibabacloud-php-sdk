@@ -12,63 +12,74 @@ class CreateUserRequest extends Model
      * @var string
      */
     public $avatarUrl;
+
     /**
      * @var string
      */
     public $displayId;
+
     /**
      * @var string
      */
     public $displayName;
+
     /**
      * @var string
      */
     public $email;
+
     /**
      * @var string
      */
     public $instanceId;
+
     /**
      * @var string
      */
     public $loginName;
+
     /**
      * @var string
      */
     public $mobile;
+
     /**
      * @var string
      */
     public $nickname;
+
     /**
      * @var bool
      */
     public $resetPassword;
+
     /**
      * @var string
      */
     public $roleId;
+
     /**
      * @var string
      */
     public $skillLevelList;
+
     /**
      * @var string
      */
     public $workMode;
     protected $_name = [
-        'avatarUrl'      => 'AvatarUrl',
-        'displayId'      => 'DisplayId',
-        'displayName'    => 'DisplayName',
-        'email'          => 'Email',
-        'instanceId'     => 'InstanceId',
-        'loginName'      => 'LoginName',
-        'mobile'         => 'Mobile',
-        'nickname'       => 'Nickname',
-        'resetPassword'  => 'ResetPassword',
-        'roleId'         => 'RoleId',
+        'avatarUrl' => 'AvatarUrl',
+        'displayId' => 'DisplayId',
+        'displayName' => 'DisplayName',
+        'email' => 'Email',
+        'instanceId' => 'InstanceId',
+        'loginName' => 'LoginName',
+        'mobile' => 'Mobile',
+        'nickname' => 'Nickname',
+        'resetPassword' => 'ResetPassword',
+        'roleId' => 'RoleId',
         'skillLevelList' => 'SkillLevelList',
-        'workMode'       => 'WorkMode',
+        'workMode' => 'WorkMode',
     ];
 
     public function validate()

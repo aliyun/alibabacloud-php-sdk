@@ -13,163 +13,194 @@ class overall extends Model
      * @var float
      */
     public $averageBreakTime;
+
     /**
      * @var float
      */
     public $averageHoldTime;
+
     /**
      * @var float
      */
     public $averageReadyTime;
+
     /**
      * @var float
      */
     public $averageTalkTime;
+
     /**
      * @var float
      */
     public $averageWorkTime;
+
     /**
      * @var breakCodeDetailList[]
      */
     public $breakCodeDetailList;
+
     /**
      * @var int
      */
     public $firstCheckInTime;
+
     /**
      * @var int
      */
     public $lastCheckOutTime;
+
     /**
      * @var int
      */
     public $lastCheckoutTime;
+
     /**
      * @var int
      */
     public $maxBreakTime;
+
     /**
      * @var int
      */
     public $maxHoldTime;
+
     /**
      * @var int
      */
     public $maxReadyTime;
+
     /**
      * @var int
      */
     public $maxTalkTime;
+
     /**
      * @var int
      */
     public $maxWorkTime;
+
     /**
      * @var float
      */
     public $occupancyRate;
+
     /**
      * @var float
      */
     public $satisfactionIndex;
+
     /**
      * @var float
      */
     public $satisfactionRate;
+
     /**
      * @var int
      */
     public $satisfactionSurveysOffered;
+
     /**
      * @var int
      */
     public $satisfactionSurveysResponded;
+
     /**
      * @var int
      */
     public $totalBreakTime;
+
     /**
      * @var int
      */
     public $totalCalls;
+
     /**
      * @var int
      */
     public $totalHoldTime;
+
     /**
      * @var int
      */
     public $totalLoggedInTime;
+
     /**
      * @var string
      */
     public $totalOffSiteLoggedInTime;
+
     /**
      * @var string
      */
     public $totalOfficePhoneLoggedInTime;
+
     /**
      * @var string
      */
     public $totalOnSiteLoggedInTime;
+
     /**
      * @var int
      */
     public $totalOutboundScenarioLoggedInTime;
+
     /**
      * @var int
      */
     public $totalOutboundScenarioReadyTime;
+
     /**
      * @var int
      */
     public $totalOutboundScenarioTime;
+
     /**
      * @var int
      */
     public $totalReadyTime;
+
     /**
      * @var int
      */
     public $totalTalkTime;
+
     /**
      * @var int
      */
     public $totalWorkTime;
     protected $_name = [
-        'averageBreakTime'                  => 'AverageBreakTime',
-        'averageHoldTime'                   => 'AverageHoldTime',
-        'averageReadyTime'                  => 'AverageReadyTime',
-        'averageTalkTime'                   => 'AverageTalkTime',
-        'averageWorkTime'                   => 'AverageWorkTime',
-        'breakCodeDetailList'               => 'BreakCodeDetailList',
-        'firstCheckInTime'                  => 'FirstCheckInTime',
-        'lastCheckOutTime'                  => 'LastCheckOutTime',
-        'lastCheckoutTime'                  => 'LastCheckoutTime',
-        'maxBreakTime'                      => 'MaxBreakTime',
-        'maxHoldTime'                       => 'MaxHoldTime',
-        'maxReadyTime'                      => 'MaxReadyTime',
-        'maxTalkTime'                       => 'MaxTalkTime',
-        'maxWorkTime'                       => 'MaxWorkTime',
-        'occupancyRate'                     => 'OccupancyRate',
-        'satisfactionIndex'                 => 'SatisfactionIndex',
-        'satisfactionRate'                  => 'SatisfactionRate',
-        'satisfactionSurveysOffered'        => 'SatisfactionSurveysOffered',
-        'satisfactionSurveysResponded'      => 'SatisfactionSurveysResponded',
-        'totalBreakTime'                    => 'TotalBreakTime',
-        'totalCalls'                        => 'TotalCalls',
-        'totalHoldTime'                     => 'TotalHoldTime',
-        'totalLoggedInTime'                 => 'TotalLoggedInTime',
-        'totalOffSiteLoggedInTime'          => 'TotalOffSiteLoggedInTime',
-        'totalOfficePhoneLoggedInTime'      => 'TotalOfficePhoneLoggedInTime',
-        'totalOnSiteLoggedInTime'           => 'TotalOnSiteLoggedInTime',
+        'averageBreakTime' => 'AverageBreakTime',
+        'averageHoldTime' => 'AverageHoldTime',
+        'averageReadyTime' => 'AverageReadyTime',
+        'averageTalkTime' => 'AverageTalkTime',
+        'averageWorkTime' => 'AverageWorkTime',
+        'breakCodeDetailList' => 'BreakCodeDetailList',
+        'firstCheckInTime' => 'FirstCheckInTime',
+        'lastCheckOutTime' => 'LastCheckOutTime',
+        'lastCheckoutTime' => 'LastCheckoutTime',
+        'maxBreakTime' => 'MaxBreakTime',
+        'maxHoldTime' => 'MaxHoldTime',
+        'maxReadyTime' => 'MaxReadyTime',
+        'maxTalkTime' => 'MaxTalkTime',
+        'maxWorkTime' => 'MaxWorkTime',
+        'occupancyRate' => 'OccupancyRate',
+        'satisfactionIndex' => 'SatisfactionIndex',
+        'satisfactionRate' => 'SatisfactionRate',
+        'satisfactionSurveysOffered' => 'SatisfactionSurveysOffered',
+        'satisfactionSurveysResponded' => 'SatisfactionSurveysResponded',
+        'totalBreakTime' => 'TotalBreakTime',
+        'totalCalls' => 'TotalCalls',
+        'totalHoldTime' => 'TotalHoldTime',
+        'totalLoggedInTime' => 'TotalLoggedInTime',
+        'totalOffSiteLoggedInTime' => 'TotalOffSiteLoggedInTime',
+        'totalOfficePhoneLoggedInTime' => 'TotalOfficePhoneLoggedInTime',
+        'totalOnSiteLoggedInTime' => 'TotalOnSiteLoggedInTime',
         'totalOutboundScenarioLoggedInTime' => 'TotalOutboundScenarioLoggedInTime',
-        'totalOutboundScenarioReadyTime'    => 'TotalOutboundScenarioReadyTime',
-        'totalOutboundScenarioTime'         => 'TotalOutboundScenarioTime',
-        'totalReadyTime'                    => 'TotalReadyTime',
-        'totalTalkTime'                     => 'TotalTalkTime',
-        'totalWorkTime'                     => 'TotalWorkTime',
+        'totalOutboundScenarioReadyTime' => 'TotalOutboundScenarioReadyTime',
+        'totalOutboundScenarioTime' => 'TotalOutboundScenarioTime',
+        'totalReadyTime' => 'TotalReadyTime',
+        'totalTalkTime' => 'TotalTalkTime',
+        'totalWorkTime' => 'TotalWorkTime',
     ];
 
     public function validate()
@@ -206,7 +237,7 @@ class overall extends Model
         if (null !== $this->breakCodeDetailList) {
             if (\is_array($this->breakCodeDetailList)) {
                 $res['BreakCodeDetailList'] = [];
-                $n1                         = 0;
+                $n1 = 0;
                 foreach ($this->breakCodeDetailList as $item1) {
                     $res['BreakCodeDetailList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -351,7 +382,7 @@ class overall extends Model
         if (isset($map['BreakCodeDetailList'])) {
             if (!empty($map['BreakCodeDetailList'])) {
                 $model->breakCodeDetailList = [];
-                $n1                         = 0;
+                $n1 = 0;
                 foreach ($map['BreakCodeDetailList'] as $item1) {
                     $model->breakCodeDetailList[$n1++] = breakCodeDetailList::fromMap($item1);
                 }

@@ -12,33 +12,38 @@ class data extends Model
      * @var string
      */
     public $chatAppId;
+
     /**
      * @var string
      */
     public $chatAppKey;
+
     /**
      * @var string
      */
     public $chatDeviceId;
+
     /**
      * @var string
      */
     public $chatLoginToken;
+
     /**
      * @var string
      */
     public $chatServerUrl;
+
     /**
      * @var string
      */
     public $chatUserId;
     protected $_name = [
-        'chatAppId'      => 'ChatAppId',
-        'chatAppKey'     => 'ChatAppKey',
-        'chatDeviceId'   => 'ChatDeviceId',
+        'chatAppId' => 'ChatAppId',
+        'chatAppKey' => 'ChatAppKey',
+        'chatDeviceId' => 'ChatDeviceId',
         'chatLoginToken' => 'ChatLoginToken',
-        'chatServerUrl'  => 'ChatServerUrl',
-        'chatUserId'     => 'ChatUserId',
+        'chatServerUrl' => 'ChatServerUrl',
+        'chatUserId' => 'ChatUserId',
     ];
 
     public function validate()

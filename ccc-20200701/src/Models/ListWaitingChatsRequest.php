@@ -12,12 +12,13 @@ class ListWaitingChatsRequest extends Model
      * @var string
      */
     public $instanceId;
+
     /**
      * @var string
      */
     public $skillGroupIdList;
     protected $_name = [
-        'instanceId'       => 'InstanceId',
+        'instanceId' => 'InstanceId',
         'skillGroupIdList' => 'SkillGroupIdList',
     ];
 

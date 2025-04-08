@@ -13,58 +13,68 @@ class data extends Model
      * @var breakCodeDetailList[]
      */
     public $breakCodeDetailList;
+
     /**
      * @var int
      */
     public $breakingAgents;
+
     /**
      * @var string
      */
     public $instanceId;
+
     /**
      * @var int
      */
     public $interactiveCalls;
+
     /**
      * @var int
      */
     public $loggedInAgents;
+
     /**
      * @var int
      */
     public $longestWaitingTime;
+
     /**
      * @var int
      */
     public $readyAgents;
+
     /**
      * @var int
      */
     public $talkingAgents;
+
     /**
      * @var int
      */
     public $totalAgents;
+
     /**
      * @var int
      */
     public $waitingCalls;
+
     /**
      * @var int
      */
     public $workingAgents;
     protected $_name = [
         'breakCodeDetailList' => 'BreakCodeDetailList',
-        'breakingAgents'      => 'BreakingAgents',
-        'instanceId'          => 'InstanceId',
-        'interactiveCalls'    => 'InteractiveCalls',
-        'loggedInAgents'      => 'LoggedInAgents',
-        'longestWaitingTime'  => 'LongestWaitingTime',
-        'readyAgents'         => 'ReadyAgents',
-        'talkingAgents'       => 'TalkingAgents',
-        'totalAgents'         => 'TotalAgents',
-        'waitingCalls'        => 'WaitingCalls',
-        'workingAgents'       => 'WorkingAgents',
+        'breakingAgents' => 'BreakingAgents',
+        'instanceId' => 'InstanceId',
+        'interactiveCalls' => 'InteractiveCalls',
+        'loggedInAgents' => 'LoggedInAgents',
+        'longestWaitingTime' => 'LongestWaitingTime',
+        'readyAgents' => 'ReadyAgents',
+        'talkingAgents' => 'TalkingAgents',
+        'totalAgents' => 'TotalAgents',
+        'waitingCalls' => 'WaitingCalls',
+        'workingAgents' => 'WorkingAgents',
     ];
 
     public function validate()
@@ -81,7 +91,7 @@ class data extends Model
         if (null !== $this->breakCodeDetailList) {
             if (\is_array($this->breakCodeDetailList)) {
                 $res['BreakCodeDetailList'] = [];
-                $n1                         = 0;
+                $n1 = 0;
                 foreach ($this->breakCodeDetailList as $item1) {
                     $res['BreakCodeDetailList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -142,7 +152,7 @@ class data extends Model
         if (isset($map['BreakCodeDetailList'])) {
             if (!empty($map['BreakCodeDetailList'])) {
                 $model->breakCodeDetailList = [];
-                $n1                         = 0;
+                $n1 = 0;
                 foreach ($map['BreakCodeDetailList'] as $item1) {
                     $model->breakCodeDetailList[$n1++] = breakCodeDetailList::fromMap($item1);
                 }

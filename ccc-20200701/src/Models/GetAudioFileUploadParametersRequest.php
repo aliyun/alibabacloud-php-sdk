@@ -12,13 +12,14 @@ class GetAudioFileUploadParametersRequest extends Model
      * @var string
      */
     public $audioFileName;
+
     /**
      * @var string
      */
     public $instanceId;
     protected $_name = [
         'audioFileName' => 'AudioFileName',
-        'instanceId'    => 'InstanceId',
+        'instanceId' => 'InstanceId',
     ];
 
     public function validate()

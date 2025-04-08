@@ -12,23 +12,26 @@ class GetHistoricalCallerReportRequest extends Model
      * @var string
      */
     public $callingNumber;
+
     /**
      * @var string
      */
     public $instanceId;
+
     /**
      * @var int
      */
     public $startTime;
+
     /**
      * @var int
      */
     public $stopTime;
     protected $_name = [
         'callingNumber' => 'CallingNumber',
-        'instanceId'    => 'InstanceId',
-        'startTime'     => 'StartTime',
-        'stopTime'      => 'StopTime',
+        'instanceId' => 'InstanceId',
+        'startTime' => 'StartTime',
+        'stopTime' => 'StopTime',
     ];
 
     public function validate()

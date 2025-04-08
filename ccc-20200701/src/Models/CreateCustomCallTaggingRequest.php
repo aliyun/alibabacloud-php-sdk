@@ -12,13 +12,14 @@ class CreateCustomCallTaggingRequest extends Model
      * @var string
      */
     public $customNumberList;
+
     /**
      * @var string
      */
     public $instanceId;
     protected $_name = [
         'customNumberList' => 'CustomNumberList',
-        'instanceId'       => 'InstanceId',
+        'instanceId' => 'InstanceId',
     ];
 
     public function validate()

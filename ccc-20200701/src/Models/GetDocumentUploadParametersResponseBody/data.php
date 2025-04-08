@@ -12,33 +12,38 @@ class data extends Model
      * @var string
      */
     public $accessKeyId;
+
     /**
      * @var int
      */
     public $expireTime;
+
     /**
      * @var string
      */
     public $filePath;
+
     /**
      * @var string
      */
     public $host;
+
     /**
      * @var string
      */
     public $policy;
+
     /**
      * @var string
      */
     public $signature;
     protected $_name = [
         'accessKeyId' => 'AccessKeyId',
-        'expireTime'  => 'ExpireTime',
-        'filePath'    => 'FilePath',
-        'host'        => 'Host',
-        'policy'      => 'Policy',
-        'signature'   => 'Signature',
+        'expireTime' => 'ExpireTime',
+        'filePath' => 'FilePath',
+        'host' => 'Host',
+        'policy' => 'Policy',
+        'signature' => 'Signature',
     ];
 
     public function validate()

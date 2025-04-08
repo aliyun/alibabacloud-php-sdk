@@ -12,6 +12,7 @@ class RestoreArchivedRecordingsRequest extends Model
      * @var string
      */
     public $contactIds;
+
     /**
      * @var string
      */

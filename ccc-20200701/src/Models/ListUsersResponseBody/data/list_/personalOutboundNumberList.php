@@ -12,28 +12,32 @@ class personalOutboundNumberList extends Model
      * @var bool
      */
     public $active;
+
     /**
      * @var string
      */
     public $city;
+
     /**
      * @var string
      */
     public $number;
+
     /**
      * @var string
      */
     public $province;
+
     /**
      * @var string
      */
     public $usage;
     protected $_name = [
-        'active'   => 'Active',
-        'city'     => 'City',
-        'number'   => 'Number',
+        'active' => 'Active',
+        'city' => 'City',
+        'number' => 'Number',
         'province' => 'Province',
-        'usage'    => 'Usage',
+        'usage' => 'Usage',
     ];
 
     public function validate()

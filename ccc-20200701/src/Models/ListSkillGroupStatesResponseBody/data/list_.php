@@ -12,88 +12,104 @@ class list_ extends Model
      * @var int
      */
     public $averageWaitingTime;
+
     /**
      * @var int
      */
     public $breakingAgents;
+
     /**
      * @var int
      */
     public $inboundTalkingAgents;
+
     /**
      * @var string
      */
     public $instanceId;
+
     /**
      * @var int
      */
     public $loggedInAgents;
+
     /**
      * @var int
      */
     public $longestCall;
+
     /**
      * @var int
      */
     public $outboundScenarioReadyAgents;
+
     /**
      * @var int
      */
     public $outboundTalkingAgents;
+
     /**
      * @var int
      */
     public $readyAgents;
+
     /**
      * @var string
      */
     public $skillGroupId;
+
     /**
      * @var string
      */
     public $skillGroupName;
+
     /**
      * @var int
      */
     public $talkingAgents;
+
     /**
      * @var int
      */
     public $waitingCalls;
+
     /**
      * @var int
      */
     public $waitingCallsLevel10;
+
     /**
      * @var int
      */
     public $waitingCallsLevel20;
+
     /**
      * @var int
      */
     public $waitingCallsLevel30;
+
     /**
      * @var int
      */
     public $workingAgents;
     protected $_name = [
-        'averageWaitingTime'          => 'AverageWaitingTime',
-        'breakingAgents'              => 'BreakingAgents',
-        'inboundTalkingAgents'        => 'InboundTalkingAgents',
-        'instanceId'                  => 'InstanceId',
-        'loggedInAgents'              => 'LoggedInAgents',
-        'longestCall'                 => 'LongestCall',
+        'averageWaitingTime' => 'AverageWaitingTime',
+        'breakingAgents' => 'BreakingAgents',
+        'inboundTalkingAgents' => 'InboundTalkingAgents',
+        'instanceId' => 'InstanceId',
+        'loggedInAgents' => 'LoggedInAgents',
+        'longestCall' => 'LongestCall',
         'outboundScenarioReadyAgents' => 'OutboundScenarioReadyAgents',
-        'outboundTalkingAgents'       => 'OutboundTalkingAgents',
-        'readyAgents'                 => 'ReadyAgents',
-        'skillGroupId'                => 'SkillGroupId',
-        'skillGroupName'              => 'SkillGroupName',
-        'talkingAgents'               => 'TalkingAgents',
-        'waitingCalls'                => 'WaitingCalls',
-        'waitingCallsLevel10'         => 'WaitingCallsLevel10',
-        'waitingCallsLevel20'         => 'WaitingCallsLevel20',
-        'waitingCallsLevel30'         => 'WaitingCallsLevel30',
-        'workingAgents'               => 'WorkingAgents',
+        'outboundTalkingAgents' => 'OutboundTalkingAgents',
+        'readyAgents' => 'ReadyAgents',
+        'skillGroupId' => 'SkillGroupId',
+        'skillGroupName' => 'SkillGroupName',
+        'talkingAgents' => 'TalkingAgents',
+        'waitingCalls' => 'WaitingCalls',
+        'waitingCallsLevel10' => 'WaitingCallsLevel10',
+        'waitingCallsLevel20' => 'WaitingCallsLevel20',
+        'waitingCallsLevel30' => 'WaitingCallsLevel30',
+        'workingAgents' => 'WorkingAgents',
     ];
 
     public function validate()

@@ -12,23 +12,26 @@ class RegisterDeviceRequest extends Model
      * @var string
      */
     public $deviceId;
+
     /**
      * @var string
      */
     public $instanceId;
+
     /**
      * @var string
      */
     public $password;
+
     /**
      * @var string
      */
     public $userId;
     protected $_name = [
-        'deviceId'   => 'DeviceId',
+        'deviceId' => 'DeviceId',
         'instanceId' => 'InstanceId',
-        'password'   => 'Password',
-        'userId'     => 'UserId',
+        'password' => 'Password',
+        'userId' => 'UserId',
     ];
 
     public function validate()

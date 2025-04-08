@@ -12,22 +12,25 @@ class ListSmsMetadataRequest extends Model
      * @var string
      */
     public $instanceId;
+
     /**
      * @var int
      */
     public $pageNumber;
+
     /**
      * @var int
      */
     public $pageSize;
+
     /**
      * @var string
      */
     public $scenarioListJson;
     protected $_name = [
-        'instanceId'       => 'InstanceId',
-        'pageNumber'       => 'PageNumber',
-        'pageSize'         => 'PageSize',
+        'instanceId' => 'InstanceId',
+        'pageNumber' => 'PageNumber',
+        'pageSize' => 'PageSize',
         'scenarioListJson' => 'ScenarioListJson',
     ];
 

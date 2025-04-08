@@ -12,33 +12,38 @@ class ListLegacyAgentStatusLogsRequest extends Model
      * @var string
      */
     public $agentId;
+
     /**
      * @var int
      */
     public $endTime;
+
     /**
      * @var string
      */
     public $instanceId;
+
     /**
      * @var int
      */
     public $pageNumber;
+
     /**
      * @var int
      */
     public $pageSize;
+
     /**
      * @var int
      */
     public $startTime;
     protected $_name = [
-        'agentId'    => 'AgentId',
-        'endTime'    => 'EndTime',
+        'agentId' => 'AgentId',
+        'endTime' => 'EndTime',
         'instanceId' => 'InstanceId',
         'pageNumber' => 'PageNumber',
-        'pageSize'   => 'PageSize',
-        'startTime'  => 'StartTime',
+        'pageSize' => 'PageSize',
+        'startTime' => 'StartTime',
     ];
 
     public function validate()

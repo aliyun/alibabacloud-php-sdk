@@ -13,27 +13,31 @@ class data extends Model
      * @var string
      */
     public $createdTime;
+
     /**
      * @var string
      */
     public $id;
+
     /**
      * @var string
      */
     public $instanceId;
+
     /**
      * @var DataPropertiesValue[]
      */
     public $properties;
+
     /**
      * @var string
      */
     public $updatedTime;
     protected $_name = [
         'createdTime' => 'CreatedTime',
-        'id'          => 'Id',
-        'instanceId'  => 'InstanceId',
-        'properties'  => 'Properties',
+        'id' => 'Id',
+        'instanceId' => 'InstanceId',
+        'properties' => 'Properties',
         'updatedTime' => 'UpdatedTime',
     ];
 

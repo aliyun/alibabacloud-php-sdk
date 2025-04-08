@@ -16,23 +16,26 @@ class analyticsReport extends Model
      * @var emotion
      */
     public $emotion;
+
     /**
      * @var problemSolving
      */
     public $problemSolving;
+
     /**
      * @var satisfaction
      */
     public $satisfaction;
+
     /**
      * @var todoList
      */
     public $todoList;
     protected $_name = [
-        'emotion'        => 'Emotion',
+        'emotion' => 'Emotion',
         'problemSolving' => 'ProblemSolving',
-        'satisfaction'   => 'Satisfaction',
-        'todoList'       => 'TodoList',
+        'satisfaction' => 'Satisfaction',
+        'todoList' => 'TodoList',
     ];
 
     public function validate()

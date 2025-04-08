@@ -12,23 +12,26 @@ class ModifyCustomCallTaggingRequest extends Model
      * @var string
      */
     public $callTagNameList;
+
     /**
      * @var string
      */
     public $description;
+
     /**
      * @var string
      */
     public $instanceId;
+
     /**
      * @var string
      */
     public $number;
     protected $_name = [
         'callTagNameList' => 'CallTagNameList',
-        'description'     => 'Description',
-        'instanceId'      => 'InstanceId',
-        'number'          => 'Number',
+        'description' => 'Description',
+        'instanceId' => 'InstanceId',
+        'number' => 'Number',
     ];
 
     public function validate()

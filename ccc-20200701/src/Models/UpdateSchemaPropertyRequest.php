@@ -13,23 +13,26 @@ class UpdateSchemaPropertyRequest extends Model
      * @var string
      */
     public $instanceId;
+
     /**
      * @var property
      */
     public $property;
+
     /**
      * @var string
      */
     public $requestId;
+
     /**
      * @var string
      */
     public $schemaId;
     protected $_name = [
         'instanceId' => 'InstanceId',
-        'property'   => 'Property',
-        'requestId'  => 'RequestId',
-        'schemaId'   => 'SchemaId',
+        'property' => 'Property',
+        'requestId' => 'RequestId',
+        'schemaId' => 'SchemaId',
     ];
 
     public function validate()

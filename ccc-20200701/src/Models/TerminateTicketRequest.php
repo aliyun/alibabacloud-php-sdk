@@ -12,18 +12,20 @@ class TerminateTicketRequest extends Model
      * @var string
      */
     public $comment;
+
     /**
      * @var string
      */
     public $instanceId;
+
     /**
      * @var string
      */
     public $ticketId;
     protected $_name = [
-        'comment'    => 'Comment',
+        'comment' => 'Comment',
         'instanceId' => 'InstanceId',
-        'ticketId'   => 'TicketId',
+        'ticketId' => 'TicketId',
     ];
 
     public function validate()

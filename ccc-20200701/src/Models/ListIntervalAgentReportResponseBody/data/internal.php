@@ -12,33 +12,38 @@ class internal extends Model
      * @var float
      */
     public $averageTalkTime;
+
     /**
      * @var int
      */
     public $callsAnswered;
+
     /**
      * @var int
      */
     public $callsDialed;
+
     /**
      * @var int
      */
     public $callsHandled;
+
     /**
      * @var int
      */
     public $callsOffered;
+
     /**
      * @var int
      */
     public $callsTalked;
     protected $_name = [
         'averageTalkTime' => 'AverageTalkTime',
-        'callsAnswered'   => 'CallsAnswered',
-        'callsDialed'     => 'CallsDialed',
-        'callsHandled'    => 'CallsHandled',
-        'callsOffered'    => 'CallsOffered',
-        'callsTalked'     => 'CallsTalked',
+        'callsAnswered' => 'CallsAnswered',
+        'callsDialed' => 'CallsDialed',
+        'callsHandled' => 'CallsHandled',
+        'callsOffered' => 'CallsOffered',
+        'callsTalked' => 'CallsTalked',
     ];
 
     public function validate()

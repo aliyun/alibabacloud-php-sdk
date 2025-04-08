@@ -12,22 +12,25 @@ class skillGroups extends Model
      * @var string
      */
     public $displayName;
+
     /**
      * @var string
      */
     public $instanceId;
+
     /**
      * @var string
      */
     public $name;
+
     /**
      * @var string
      */
     public $skillGroupId;
     protected $_name = [
-        'displayName'  => 'DisplayName',
-        'instanceId'   => 'InstanceId',
-        'name'         => 'Name',
+        'displayName' => 'DisplayName',
+        'instanceId' => 'InstanceId',
+        'name' => 'Name',
         'skillGroupId' => 'SkillGroupId',
     ];
 

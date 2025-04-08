@@ -12,33 +12,38 @@ class LaunchAuthenticationRequest extends Model
      * @var string
      */
     public $contactFlowId;
+
     /**
      * @var string
      */
     public $contactFlowVariables;
+
     /**
      * @var string
      */
     public $deviceId;
+
     /**
      * @var string
      */
     public $instanceId;
+
     /**
      * @var string
      */
     public $jobId;
+
     /**
      * @var string
      */
     public $userId;
     protected $_name = [
-        'contactFlowId'        => 'ContactFlowId',
+        'contactFlowId' => 'ContactFlowId',
         'contactFlowVariables' => 'ContactFlowVariables',
-        'deviceId'             => 'DeviceId',
-        'instanceId'           => 'InstanceId',
-        'jobId'                => 'JobId',
-        'userId'               => 'UserId',
+        'deviceId' => 'DeviceId',
+        'instanceId' => 'InstanceId',
+        'jobId' => 'JobId',
+        'userId' => 'UserId',
     ];
 
     public function validate()

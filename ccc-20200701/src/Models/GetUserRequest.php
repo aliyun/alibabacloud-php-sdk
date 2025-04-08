@@ -12,18 +12,20 @@ class GetUserRequest extends Model
      * @var string
      */
     public $extension;
+
     /**
      * @var string
      */
     public $instanceId;
+
     /**
      * @var string
      */
     public $userId;
     protected $_name = [
-        'extension'  => 'Extension',
+        'extension' => 'Extension',
         'instanceId' => 'InstanceId',
-        'userId'     => 'UserId',
+        'userId' => 'UserId',
     ];
 
     public function validate()

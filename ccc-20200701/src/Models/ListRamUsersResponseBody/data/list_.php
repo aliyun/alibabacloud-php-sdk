@@ -12,38 +12,44 @@ class list_ extends Model
      * @var int
      */
     public $aliyunUid;
+
     /**
      * @var string
      */
     public $displayName;
+
     /**
      * @var string
      */
     public $email;
+
     /**
      * @var string
      */
     public $loginName;
+
     /**
      * @var string
      */
     public $mobile;
+
     /**
      * @var bool
      */
     public $primary;
+
     /**
      * @var string
      */
     public $ramId;
     protected $_name = [
-        'aliyunUid'   => 'AliyunUid',
+        'aliyunUid' => 'AliyunUid',
         'displayName' => 'DisplayName',
-        'email'       => 'Email',
-        'loginName'   => 'LoginName',
-        'mobile'      => 'Mobile',
-        'primary'     => 'Primary',
-        'ramId'       => 'RamId',
+        'email' => 'Email',
+        'loginName' => 'LoginName',
+        'mobile' => 'Mobile',
+        'primary' => 'Primary',
+        'ramId' => 'RamId',
     ];
 
     public function validate()

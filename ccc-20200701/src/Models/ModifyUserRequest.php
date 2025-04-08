@@ -12,53 +12,62 @@ class ModifyUserRequest extends Model
      * @var string
      */
     public $avatarUrl;
+
     /**
      * @var string
      */
     public $displayId;
+
     /**
      * @var string
      */
     public $displayName;
+
     /**
      * @var bool
      */
     public $force;
+
     /**
      * @var string
      */
     public $instanceId;
+
     /**
      * @var string
      */
     public $mobile;
+
     /**
      * @var string
      */
     public $nickname;
+
     /**
      * @var string
      */
     public $roleId;
+
     /**
      * @var string
      */
     public $userId;
+
     /**
      * @var string
      */
     public $workMode;
     protected $_name = [
-        'avatarUrl'   => 'AvatarUrl',
-        'displayId'   => 'DisplayId',
+        'avatarUrl' => 'AvatarUrl',
+        'displayId' => 'DisplayId',
         'displayName' => 'DisplayName',
-        'force'       => 'Force',
-        'instanceId'  => 'InstanceId',
-        'mobile'      => 'Mobile',
-        'nickname'    => 'Nickname',
-        'roleId'      => 'RoleId',
-        'userId'      => 'UserId',
-        'workMode'    => 'WorkMode',
+        'force' => 'Force',
+        'instanceId' => 'InstanceId',
+        'mobile' => 'Mobile',
+        'nickname' => 'Nickname',
+        'roleId' => 'RoleId',
+        'userId' => 'UserId',
+        'workMode' => 'WorkMode',
     ];
 
     public function validate()

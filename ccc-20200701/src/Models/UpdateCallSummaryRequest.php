@@ -12,18 +12,20 @@ class UpdateCallSummaryRequest extends Model
      * @var string
      */
     public $context;
+
     /**
      * @var string
      */
     public $instanceId;
+
     /**
      * @var string
      */
     public $ticketId;
     protected $_name = [
-        'context'    => 'Context',
+        'context' => 'Context',
         'instanceId' => 'InstanceId',
-        'ticketId'   => 'TicketId',
+        'ticketId' => 'TicketId',
     ];
 
     public function validate()

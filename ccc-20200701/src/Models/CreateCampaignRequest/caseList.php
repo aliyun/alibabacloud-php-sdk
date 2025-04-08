@@ -12,18 +12,20 @@ class caseList extends Model
      * @var string
      */
     public $customVariables;
+
     /**
      * @var string
      */
     public $phoneNumber;
+
     /**
      * @var string
      */
     public $referenceId;
     protected $_name = [
         'customVariables' => 'CustomVariables',
-        'phoneNumber'     => 'PhoneNumber',
-        'referenceId'     => 'ReferenceId',
+        'phoneNumber' => 'PhoneNumber',
+        'referenceId' => 'ReferenceId',
     ];
 
     public function validate()

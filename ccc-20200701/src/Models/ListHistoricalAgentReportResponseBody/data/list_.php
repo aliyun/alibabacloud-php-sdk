@@ -17,52 +17,61 @@ class list_ extends Model
      * @var string
      */
     public $agentId;
+
     /**
      * @var string
      */
     public $agentName;
+
     /**
      * @var back2Back
      */
     public $back2Back;
+
     /**
      * @var string
      */
     public $displayId;
+
     /**
      * @var inbound
      */
     public $inbound;
+
     /**
      * @var internal
      */
     public $internal;
+
     /**
      * @var outbound
      */
     public $outbound;
+
     /**
      * @var overall
      */
     public $overall;
+
     /**
      * @var string
      */
     public $skillGroupIds;
+
     /**
      * @var string
      */
     public $skillGroupNames;
     protected $_name = [
-        'agentId'         => 'AgentId',
-        'agentName'       => 'AgentName',
-        'back2Back'       => 'Back2Back',
-        'displayId'       => 'DisplayId',
-        'inbound'         => 'Inbound',
-        'internal'        => 'Internal',
-        'outbound'        => 'Outbound',
-        'overall'         => 'Overall',
-        'skillGroupIds'   => 'SkillGroupIds',
+        'agentId' => 'AgentId',
+        'agentName' => 'AgentName',
+        'back2Back' => 'Back2Back',
+        'displayId' => 'DisplayId',
+        'inbound' => 'Inbound',
+        'internal' => 'Internal',
+        'outbound' => 'Outbound',
+        'overall' => 'Overall',
+        'skillGroupIds' => 'SkillGroupIds',
         'skillGroupNames' => 'SkillGroupNames',
     ];
 

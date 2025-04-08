@@ -13,33 +13,38 @@ class list_ extends Model
      * @var callTagList[]
      */
     public $callTagList;
+
     /**
      * @var string
      */
     public $creator;
+
     /**
      * @var string
      */
     public $description;
+
     /**
      * @var string
      */
     public $instanceId;
+
     /**
      * @var string
      */
     public $number;
+
     /**
      * @var string
      */
     public $updateTime;
     protected $_name = [
         'callTagList' => 'CallTagList',
-        'creator'     => 'Creator',
+        'creator' => 'Creator',
         'description' => 'Description',
-        'instanceId'  => 'InstanceId',
-        'number'      => 'Number',
-        'updateTime'  => 'UpdateTime',
+        'instanceId' => 'InstanceId',
+        'number' => 'Number',
+        'updateTime' => 'UpdateTime',
     ];
 
     public function validate()
@@ -56,7 +61,7 @@ class list_ extends Model
         if (null !== $this->callTagList) {
             if (\is_array($this->callTagList)) {
                 $res['CallTagList'] = [];
-                $n1                 = 0;
+                $n1 = 0;
                 foreach ($this->callTagList as $item1) {
                     $res['CallTagList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -97,7 +102,7 @@ class list_ extends Model
         if (isset($map['CallTagList'])) {
             if (!empty($map['CallTagList'])) {
                 $model->callTagList = [];
-                $n1                 = 0;
+                $n1 = 0;
                 foreach ($map['CallTagList'] as $item1) {
                     $model->callTagList[$n1++] = callTagList::fromMap($item1);
                 }

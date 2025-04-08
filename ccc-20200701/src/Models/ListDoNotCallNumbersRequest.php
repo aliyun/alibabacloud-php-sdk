@@ -12,27 +12,31 @@ class ListDoNotCallNumbersRequest extends Model
      * @var string
      */
     public $instanceId;
+
     /**
      * @var int
      */
     public $pageNumber;
+
     /**
      * @var int
      */
     public $pageSize;
+
     /**
      * @var string
      */
     public $scope;
+
     /**
      * @var string
      */
     public $searchPattern;
     protected $_name = [
-        'instanceId'    => 'InstanceId',
-        'pageNumber'    => 'PageNumber',
-        'pageSize'      => 'PageSize',
-        'scope'         => 'Scope',
+        'instanceId' => 'InstanceId',
+        'pageNumber' => 'PageNumber',
+        'pageSize' => 'PageSize',
+        'scope' => 'Scope',
         'searchPattern' => 'SearchPattern',
     ];
 

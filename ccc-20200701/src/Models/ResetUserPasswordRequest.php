@@ -12,18 +12,20 @@ class ResetUserPasswordRequest extends Model
      * @var string
      */
     public $instanceId;
+
     /**
      * @var string
      */
     public $password;
+
     /**
      * @var string
      */
     public $userId;
     protected $_name = [
         'instanceId' => 'InstanceId',
-        'password'   => 'Password',
-        'userId'     => 'UserId',
+        'password' => 'Password',
+        'userId' => 'UserId',
     ];
 
     public function validate()

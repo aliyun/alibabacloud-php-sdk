@@ -13,38 +13,44 @@ class data extends Model
      * @var string
      */
     public $categoryId;
+
     /**
      * @var string
      */
     public $editor;
+
     /**
      * @var string
      */
     public $instanceId;
+
     /**
      * @var string
      */
     public $name;
+
     /**
      * @var propertyList[]
      */
     public $propertyList;
+
     /**
      * @var string
      */
     public $state;
+
     /**
      * @var string
      */
     public $templateId;
     protected $_name = [
-        'categoryId'   => 'CategoryId',
-        'editor'       => 'Editor',
-        'instanceId'   => 'InstanceId',
-        'name'         => 'Name',
+        'categoryId' => 'CategoryId',
+        'editor' => 'Editor',
+        'instanceId' => 'InstanceId',
+        'name' => 'Name',
         'propertyList' => 'PropertyList',
-        'state'        => 'State',
-        'templateId'   => 'TemplateId',
+        'state' => 'State',
+        'templateId' => 'TemplateId',
     ];
 
     public function validate()
@@ -77,7 +83,7 @@ class data extends Model
         if (null !== $this->propertyList) {
             if (\is_array($this->propertyList)) {
                 $res['PropertyList'] = [];
-                $n1                  = 0;
+                $n1 = 0;
                 foreach ($this->propertyList as $item1) {
                     $res['PropertyList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -122,7 +128,7 @@ class data extends Model
         if (isset($map['PropertyList'])) {
             if (!empty($map['PropertyList'])) {
                 $model->propertyList = [];
-                $n1                  = 0;
+                $n1 = 0;
                 foreach ($map['PropertyList'] as $item1) {
                     $model->propertyList[$n1++] = propertyList::fromMap($item1);
                 }

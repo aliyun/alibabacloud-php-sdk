@@ -12,13 +12,14 @@ class GetAudioFileDownloadUrlRequest extends Model
      * @var string
      */
     public $audioResourceId;
+
     /**
      * @var string
      */
     public $instanceId;
     protected $_name = [
         'audioResourceId' => 'AudioResourceId',
-        'instanceId'      => 'InstanceId',
+        'instanceId' => 'InstanceId',
     ];
 
     public function validate()

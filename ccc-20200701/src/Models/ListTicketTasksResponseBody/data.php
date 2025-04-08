@@ -12,73 +12,86 @@ class data extends Model
      * @var string
      */
     public $action;
+
     /**
      * @var string
      */
     public $assignee;
+
     /**
      * @var string
      */
     public $assigneeName;
+
     /**
      * @var string
      */
     public $comment;
+
     /**
      * @var int
      */
     public $endTime;
+
     /**
      * @var string[]
      */
     public $fileKeys;
+
     /**
      * @var string[]
      */
     public $fileUrls;
+
     /**
      * @var string
      */
     public $instanceId;
+
     /**
      * @var int
      */
     public $startTime;
+
     /**
      * @var string
      */
     public $taskDefinitionNodeId;
+
     /**
      * @var string
      */
     public $taskDefinitionNodeType;
+
     /**
      * @var string
      */
     public $taskId;
+
     /**
      * @var string
      */
     public $taskName;
+
     /**
      * @var string
      */
     public $ticketId;
     protected $_name = [
-        'action'                 => 'Action',
-        'assignee'               => 'Assignee',
-        'assigneeName'           => 'AssigneeName',
-        'comment'                => 'Comment',
-        'endTime'                => 'EndTime',
-        'fileKeys'               => 'FileKeys',
-        'fileUrls'               => 'FileUrls',
-        'instanceId'             => 'InstanceId',
-        'startTime'              => 'StartTime',
-        'taskDefinitionNodeId'   => 'TaskDefinitionNodeId',
+        'action' => 'Action',
+        'assignee' => 'Assignee',
+        'assigneeName' => 'AssigneeName',
+        'comment' => 'Comment',
+        'endTime' => 'EndTime',
+        'fileKeys' => 'FileKeys',
+        'fileUrls' => 'FileUrls',
+        'instanceId' => 'InstanceId',
+        'startTime' => 'StartTime',
+        'taskDefinitionNodeId' => 'TaskDefinitionNodeId',
         'taskDefinitionNodeType' => 'TaskDefinitionNodeType',
-        'taskId'                 => 'TaskId',
-        'taskName'               => 'TaskName',
-        'ticketId'               => 'TicketId',
+        'taskId' => 'TaskId',
+        'taskName' => 'TaskName',
+        'ticketId' => 'TicketId',
     ];
 
     public function validate()
@@ -118,7 +131,7 @@ class data extends Model
         if (null !== $this->fileKeys) {
             if (\is_array($this->fileKeys)) {
                 $res['FileKeys'] = [];
-                $n1              = 0;
+                $n1 = 0;
                 foreach ($this->fileKeys as $item1) {
                     $res['FileKeys'][$n1++] = $item1;
                 }
@@ -128,7 +141,7 @@ class data extends Model
         if (null !== $this->fileUrls) {
             if (\is_array($this->fileUrls)) {
                 $res['FileUrls'] = [];
-                $n1              = 0;
+                $n1 = 0;
                 foreach ($this->fileUrls as $item1) {
                     $res['FileUrls'][$n1++] = $item1;
                 }
@@ -197,7 +210,7 @@ class data extends Model
         if (isset($map['FileKeys'])) {
             if (!empty($map['FileKeys'])) {
                 $model->fileKeys = [];
-                $n1              = 0;
+                $n1 = 0;
                 foreach ($map['FileKeys'] as $item1) {
                     $model->fileKeys[$n1++] = $item1;
                 }
@@ -207,7 +220,7 @@ class data extends Model
         if (isset($map['FileUrls'])) {
             if (!empty($map['FileUrls'])) {
                 $model->fileUrls = [];
-                $n1              = 0;
+                $n1 = 0;
                 foreach ($map['FileUrls'] as $item1) {
                     $model->fileUrls[$n1++] = $item1;
                 }

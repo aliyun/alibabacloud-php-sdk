@@ -12,18 +12,22 @@ class CreateSkillGroupRequest extends Model
      * @var string
      */
     public $description;
+
     /**
      * @var string
      */
     public $displayName;
+
     /**
      * @var string
      */
     public $instanceId;
+
     /**
      * @var string
      */
     public $mediaType;
+
     /**
      * @var string
      */
@@ -31,9 +35,9 @@ class CreateSkillGroupRequest extends Model
     protected $_name = [
         'description' => 'Description',
         'displayName' => 'DisplayName',
-        'instanceId'  => 'InstanceId',
-        'mediaType'   => 'MediaType',
-        'name'        => 'Name',
+        'instanceId' => 'InstanceId',
+        'mediaType' => 'MediaType',
+        'name' => 'Name',
     ];
 
     public function validate()

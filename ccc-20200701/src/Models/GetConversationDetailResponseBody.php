@@ -13,28 +13,32 @@ class GetConversationDetailResponseBody extends Model
      * @var string
      */
     public $code;
+
     /**
      * @var int
      */
     public $httpStatusCode;
+
     /**
      * @var string
      */
     public $message;
+
     /**
      * @var phrases[]
      */
     public $phrases;
+
     /**
      * @var string
      */
     public $requestId;
     protected $_name = [
-        'code'           => 'Code',
+        'code' => 'Code',
         'httpStatusCode' => 'HttpStatusCode',
-        'message'        => 'Message',
-        'phrases'        => 'Phrases',
-        'requestId'      => 'RequestId',
+        'message' => 'Message',
+        'phrases' => 'Phrases',
+        'requestId' => 'RequestId',
     ];
 
     public function validate()
@@ -63,7 +67,7 @@ class GetConversationDetailResponseBody extends Model
         if (null !== $this->phrases) {
             if (\is_array($this->phrases)) {
                 $res['Phrases'] = [];
-                $n1             = 0;
+                $n1 = 0;
                 foreach ($this->phrases as $item1) {
                     $res['Phrases'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -100,7 +104,7 @@ class GetConversationDetailResponseBody extends Model
         if (isset($map['Phrases'])) {
             if (!empty($map['Phrases'])) {
                 $model->phrases = [];
-                $n1             = 0;
+                $n1 = 0;
                 foreach ($map['Phrases'] as $item1) {
                     $model->phrases[$n1++] = phrases::fromMap($item1);
                 }

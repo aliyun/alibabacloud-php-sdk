@@ -12,43 +12,50 @@ class list_ extends Model
      * @var string
      */
     public $description;
+
     /**
      * @var string
      */
     public $displayName;
+
     /**
      * @var string
      */
     public $instanceId;
+
     /**
      * @var string
      */
     public $mediaType;
+
     /**
      * @var int
      */
     public $phoneNumberCount;
+
     /**
      * @var string
      */
     public $skillGroupId;
+
     /**
      * @var string
      */
     public $skillGroupName;
+
     /**
      * @var int
      */
     public $userCount;
     protected $_name = [
-        'description'      => 'Description',
-        'displayName'      => 'DisplayName',
-        'instanceId'       => 'InstanceId',
-        'mediaType'        => 'MediaType',
+        'description' => 'Description',
+        'displayName' => 'DisplayName',
+        'instanceId' => 'InstanceId',
+        'mediaType' => 'MediaType',
         'phoneNumberCount' => 'PhoneNumberCount',
-        'skillGroupId'     => 'SkillGroupId',
-        'skillGroupName'   => 'SkillGroupName',
-        'userCount'        => 'UserCount',
+        'skillGroupId' => 'SkillGroupId',
+        'skillGroupName' => 'SkillGroupName',
+        'userCount' => 'UserCount',
     ];
 
     public function validate()

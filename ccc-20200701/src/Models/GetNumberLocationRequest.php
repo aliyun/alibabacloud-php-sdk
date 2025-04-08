@@ -12,13 +12,14 @@ class GetNumberLocationRequest extends Model
      * @var string
      */
     public $instanceId;
+
     /**
      * @var string
      */
     public $number;
     protected $_name = [
         'instanceId' => 'InstanceId',
-        'number'     => 'Number',
+        'number' => 'Number',
     ];
 
     public function validate()

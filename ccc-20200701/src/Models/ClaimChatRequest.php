@@ -12,17 +12,19 @@ class ClaimChatRequest extends Model
      * @var string
      */
     public $instanceId;
+
     /**
      * @var string
      */
     public $jobId;
+
     /**
      * @var string
      */
     public $skillGroupId;
     protected $_name = [
-        'instanceId'   => 'InstanceId',
-        'jobId'        => 'JobId',
+        'instanceId' => 'InstanceId',
+        'jobId' => 'JobId',
         'skillGroupId' => 'SkillGroupId',
     ];
 

@@ -12,28 +12,32 @@ class ListOutboundNumbersOfUserRequest extends Model
      * @var string
      */
     public $instanceId;
+
     /**
      * @var int
      */
     public $pageNumber;
+
     /**
      * @var int
      */
     public $pageSize;
+
     /**
      * @var string
      */
     public $skillGroupIdList;
+
     /**
      * @var string
      */
     public $userId;
     protected $_name = [
-        'instanceId'       => 'InstanceId',
-        'pageNumber'       => 'PageNumber',
-        'pageSize'         => 'PageSize',
+        'instanceId' => 'InstanceId',
+        'pageNumber' => 'PageNumber',
+        'pageSize' => 'PageSize',
         'skillGroupIdList' => 'SkillGroupIdList',
-        'userId'           => 'UserId',
+        'userId' => 'UserId',
     ];
 
     public function validate()

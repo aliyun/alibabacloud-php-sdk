@@ -12,33 +12,38 @@ class ListRecentCallDetailRecordsRequest extends Model
      * @var string
      */
     public $criteria;
+
     /**
      * @var int
      */
     public $endTime;
+
     /**
      * @var string
      */
     public $instanceId;
+
     /**
      * @var int
      */
     public $pageNumber;
+
     /**
      * @var int
      */
     public $pageSize;
+
     /**
      * @var int
      */
     public $startTime;
     protected $_name = [
-        'criteria'   => 'Criteria',
-        'endTime'    => 'EndTime',
+        'criteria' => 'Criteria',
+        'endTime' => 'EndTime',
         'instanceId' => 'InstanceId',
         'pageNumber' => 'PageNumber',
-        'pageSize'   => 'PageSize',
-        'startTime'  => 'StartTime',
+        'pageSize' => 'PageSize',
+        'startTime' => 'StartTime',
     ];
 
     public function validate()

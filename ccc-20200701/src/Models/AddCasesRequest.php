@@ -13,17 +13,19 @@ class AddCasesRequest extends Model
      * @var string
      */
     public $campaignId;
+
     /**
      * @var caseList[]
      */
     public $caseList;
+
     /**
      * @var string
      */
     public $instanceId;
     protected $_name = [
         'campaignId' => 'CampaignId',
-        'caseList'   => 'CaseList',
+        'caseList' => 'CaseList',
         'instanceId' => 'InstanceId',
     ];
 
@@ -45,7 +47,7 @@ class AddCasesRequest extends Model
         if (null !== $this->caseList) {
             if (\is_array($this->caseList)) {
                 $res['CaseList'] = [];
-                $n1              = 0;
+                $n1 = 0;
                 foreach ($this->caseList as $item1) {
                     $res['CaseList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -74,7 +76,7 @@ class AddCasesRequest extends Model
         if (isset($map['CaseList'])) {
             if (!empty($map['CaseList'])) {
                 $model->caseList = [];
-                $n1              = 0;
+                $n1 = 0;
                 foreach ($map['CaseList'] as $item1) {
                     $model->caseList[$n1++] = caseList::fromMap($item1);
                 }

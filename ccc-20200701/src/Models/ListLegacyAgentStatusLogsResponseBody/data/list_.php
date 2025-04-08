@@ -12,133 +12,158 @@ class list_ extends Model
      * @var string
      */
     public $agentDropCall;
+
     /**
      * @var string
      */
     public $agentNo;
+
     /**
      * @var string
      */
     public $aliHangupCause;
+
     /**
      * @var string
      */
     public $callDir;
+
     /**
      * @var string
      */
     public $callId;
+
     /**
      * @var string
      */
     public $callType;
+
     /**
      * @var string
      */
     public $calleeId;
+
     /**
      * @var string
      */
     public $callerId;
+
     /**
      * @var string
      */
     public $connId;
+
     /**
      * @var string
      */
     public $extend1;
+
     /**
      * @var string
      */
     public $extend2;
+
     /**
      * @var string
      */
     public $extend3;
+
     /**
      * @var string
      */
     public $extend4;
+
     /**
      * @var string
      */
     public $groupNo;
+
     /**
      * @var string
      */
     public $monitedAgentNo;
+
     /**
      * @var string
      */
     public $monitedAgentPhoneNo;
+
     /**
      * @var bool
      */
     public $outboundScenario;
+
     /**
      * @var string
      */
     public $phoneNo;
+
     /**
      * @var string
      */
     public $statisticDate;
+
     /**
      * @var int
      */
     public $statisticTime;
+
     /**
      * @var string
      */
     public $status;
+
     /**
      * @var string
      */
     public $targetRequest;
+
     /**
      * @var string
      */
     public $targetSelect;
+
     /**
      * @var string
      */
     public $tenantId;
+
     /**
      * @var string
      */
     public $transferNo;
+
     /**
      * @var string
      */
     public $transferNumber;
     protected $_name = [
-        'agentDropCall'       => 'AgentDropCall',
-        'agentNo'             => 'AgentNo',
-        'aliHangupCause'      => 'AliHangupCause',
-        'callDir'             => 'CallDir',
-        'callId'              => 'CallId',
-        'callType'            => 'CallType',
-        'calleeId'            => 'CalleeId',
-        'callerId'            => 'CallerId',
-        'connId'              => 'ConnId',
-        'extend1'             => 'Extend1',
-        'extend2'             => 'Extend2',
-        'extend3'             => 'Extend3',
-        'extend4'             => 'Extend4',
-        'groupNo'             => 'GroupNo',
-        'monitedAgentNo'      => 'MonitedAgentNo',
+        'agentDropCall' => 'AgentDropCall',
+        'agentNo' => 'AgentNo',
+        'aliHangupCause' => 'AliHangupCause',
+        'callDir' => 'CallDir',
+        'callId' => 'CallId',
+        'callType' => 'CallType',
+        'calleeId' => 'CalleeId',
+        'callerId' => 'CallerId',
+        'connId' => 'ConnId',
+        'extend1' => 'Extend1',
+        'extend2' => 'Extend2',
+        'extend3' => 'Extend3',
+        'extend4' => 'Extend4',
+        'groupNo' => 'GroupNo',
+        'monitedAgentNo' => 'MonitedAgentNo',
         'monitedAgentPhoneNo' => 'MonitedAgentPhoneNo',
-        'outboundScenario'    => 'OutboundScenario',
-        'phoneNo'             => 'PhoneNo',
-        'statisticDate'       => 'StatisticDate',
-        'statisticTime'       => 'StatisticTime',
-        'status'              => 'Status',
-        'targetRequest'       => 'TargetRequest',
-        'targetSelect'        => 'TargetSelect',
-        'tenantId'            => 'TenantId',
-        'transferNo'          => 'TransferNo',
-        'transferNumber'      => 'TransferNumber',
+        'outboundScenario' => 'OutboundScenario',
+        'phoneNo' => 'PhoneNo',
+        'statisticDate' => 'StatisticDate',
+        'statisticTime' => 'StatisticTime',
+        'status' => 'Status',
+        'targetRequest' => 'TargetRequest',
+        'targetSelect' => 'TargetSelect',
+        'tenantId' => 'TenantId',
+        'transferNo' => 'TransferNo',
+        'transferNumber' => 'TransferNumber',
     ];
 
     public function validate()

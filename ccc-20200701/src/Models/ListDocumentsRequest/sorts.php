@@ -12,12 +12,13 @@ class sorts extends Model
      * @var string
      */
     public $order;
+
     /**
      * @var string
      */
     public $propertyName;
     protected $_name = [
-        'order'        => 'Order',
+        'order' => 'Order',
         'propertyName' => 'PropertyName',
     ];
 

@@ -12,78 +12,92 @@ class outbound extends Model
      * @var float
      */
     public $answerRate;
+
     /**
      * @var int
      */
     public $averageDialingTime;
+
     /**
      * @var int
      */
     public $averageTalkTime;
+
     /**
      * @var int
      */
     public $averageWorkTime;
+
     /**
      * @var int
      */
     public $callsAnswered;
+
     /**
      * @var int
      */
     public $callsDialed;
+
     /**
      * @var int
      */
     public $maxDialingTime;
+
     /**
      * @var int
      */
     public $maxTalkTime;
+
     /**
      * @var string
      */
     public $maxWorkTime;
+
     /**
      * @var float
      */
     public $satisfactionIndex;
+
     /**
      * @var int
      */
     public $satisfactionSurveysOffered;
+
     /**
      * @var int
      */
     public $satisfactionSurveysResponded;
+
     /**
      * @var int
      */
     public $totalDialingTime;
+
     /**
      * @var int
      */
     public $totalTalkTime;
+
     /**
      * @var int
      */
     public $totalWorkTime;
     protected $_name = [
-        'answerRate'                   => 'AnswerRate',
-        'averageDialingTime'           => 'AverageDialingTime',
-        'averageTalkTime'              => 'AverageTalkTime',
-        'averageWorkTime'              => 'AverageWorkTime',
-        'callsAnswered'                => 'CallsAnswered',
-        'callsDialed'                  => 'CallsDialed',
-        'maxDialingTime'               => 'MaxDialingTime',
-        'maxTalkTime'                  => 'MaxTalkTime',
-        'maxWorkTime'                  => 'MaxWorkTime',
-        'satisfactionIndex'            => 'SatisfactionIndex',
-        'satisfactionSurveysOffered'   => 'SatisfactionSurveysOffered',
+        'answerRate' => 'AnswerRate',
+        'averageDialingTime' => 'AverageDialingTime',
+        'averageTalkTime' => 'AverageTalkTime',
+        'averageWorkTime' => 'AverageWorkTime',
+        'callsAnswered' => 'CallsAnswered',
+        'callsDialed' => 'CallsDialed',
+        'maxDialingTime' => 'MaxDialingTime',
+        'maxTalkTime' => 'MaxTalkTime',
+        'maxWorkTime' => 'MaxWorkTime',
+        'satisfactionIndex' => 'SatisfactionIndex',
+        'satisfactionSurveysOffered' => 'SatisfactionSurveysOffered',
         'satisfactionSurveysResponded' => 'SatisfactionSurveysResponded',
-        'totalDialingTime'             => 'TotalDialingTime',
-        'totalTalkTime'                => 'TotalTalkTime',
-        'totalWorkTime'                => 'TotalWorkTime',
+        'totalDialingTime' => 'TotalDialingTime',
+        'totalTalkTime' => 'TotalTalkTime',
+        'totalWorkTime' => 'TotalWorkTime',
     ];
 
     public function validate()

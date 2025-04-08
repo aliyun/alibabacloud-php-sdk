@@ -12,33 +12,38 @@ class ChangeWorkModeRequest extends Model
      * @var string
      */
     public $deviceId;
+
     /**
      * @var string
      */
     public $instanceId;
+
     /**
      * @var string
      */
     public $mobile;
+
     /**
      * @var string
      */
     public $signedSkillGroupIdList;
+
     /**
      * @var string
      */
     public $userId;
+
     /**
      * @var string
      */
     public $workMode;
     protected $_name = [
-        'deviceId'               => 'DeviceId',
-        'instanceId'             => 'InstanceId',
-        'mobile'                 => 'Mobile',
+        'deviceId' => 'DeviceId',
+        'instanceId' => 'InstanceId',
+        'mobile' => 'Mobile',
         'signedSkillGroupIdList' => 'SignedSkillGroupIdList',
-        'userId'                 => 'UserId',
-        'workMode'               => 'WorkMode',
+        'userId' => 'UserId',
+        'workMode' => 'WorkMode',
     ];
 
     public function validate()

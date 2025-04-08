@@ -12,27 +12,31 @@ class ListAgentSummaryReportsSinceMidnightRequest extends Model
      * @var string
      */
     public $agentIds;
+
     /**
      * @var string
      */
     public $instanceId;
+
     /**
      * @var int
      */
     public $pageNumber;
+
     /**
      * @var int
      */
     public $pageSize;
+
     /**
      * @var string
      */
     public $skillGroupId;
     protected $_name = [
-        'agentIds'     => 'AgentIds',
-        'instanceId'   => 'InstanceId',
-        'pageNumber'   => 'PageNumber',
-        'pageSize'     => 'PageSize',
+        'agentIds' => 'AgentIds',
+        'instanceId' => 'InstanceId',
+        'pageNumber' => 'PageNumber',
+        'pageSize' => 'PageSize',
         'skillGroupId' => 'SkillGroupId',
     ];
 

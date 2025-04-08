@@ -12,18 +12,20 @@ class CreateChatMediaUrlRequest extends Model
      * @var string
      */
     public $instanceId;
+
     /**
      * @var string
      */
     public $mimeType;
+
     /**
      * @var string
      */
     public $requestId;
     protected $_name = [
         'instanceId' => 'InstanceId',
-        'mimeType'   => 'MimeType',
-        'requestId'  => 'RequestId',
+        'mimeType' => 'MimeType',
+        'requestId' => 'RequestId',
     ];
 
     public function validate()

@@ -12,53 +12,62 @@ class data extends Model
      * @var string
      */
     public $breakCode;
+
     /**
      * @var string
      */
     public $deviceId;
+
     /**
      * @var string
      */
     public $extension;
+
     /**
      * @var string
      */
     public $instanceId;
+
     /**
      * @var string
      */
     public $jobId;
+
     /**
      * @var bool
      */
     public $outboundScenario;
+
     /**
      * @var string[]
      */
     public $signedSkillGroupIdList;
+
     /**
      * @var string
      */
     public $userId;
+
     /**
      * @var string
      */
     public $userState;
+
     /**
      * @var string
      */
     public $workMode;
     protected $_name = [
-        'breakCode'              => 'BreakCode',
-        'deviceId'               => 'DeviceId',
-        'extension'              => 'Extension',
-        'instanceId'             => 'InstanceId',
-        'jobId'                  => 'JobId',
-        'outboundScenario'       => 'OutboundScenario',
+        'breakCode' => 'BreakCode',
+        'deviceId' => 'DeviceId',
+        'extension' => 'Extension',
+        'instanceId' => 'InstanceId',
+        'jobId' => 'JobId',
+        'outboundScenario' => 'OutboundScenario',
         'signedSkillGroupIdList' => 'SignedSkillGroupIdList',
-        'userId'                 => 'UserId',
-        'userState'              => 'UserState',
-        'workMode'               => 'WorkMode',
+        'userId' => 'UserId',
+        'userState' => 'UserState',
+        'workMode' => 'WorkMode',
     ];
 
     public function validate()
@@ -99,7 +108,7 @@ class data extends Model
         if (null !== $this->signedSkillGroupIdList) {
             if (\is_array($this->signedSkillGroupIdList)) {
                 $res['SignedSkillGroupIdList'] = [];
-                $n1                            = 0;
+                $n1 = 0;
                 foreach ($this->signedSkillGroupIdList as $item1) {
                     $res['SignedSkillGroupIdList'][$n1++] = $item1;
                 }
@@ -156,7 +165,7 @@ class data extends Model
         if (isset($map['SignedSkillGroupIdList'])) {
             if (!empty($map['SignedSkillGroupIdList'])) {
                 $model->signedSkillGroupIdList = [];
-                $n1                            = 0;
+                $n1 = 0;
                 foreach ($map['SignedSkillGroupIdList'] as $item1) {
                     $model->signedSkillGroupIdList[$n1++] = $item1;
                 }

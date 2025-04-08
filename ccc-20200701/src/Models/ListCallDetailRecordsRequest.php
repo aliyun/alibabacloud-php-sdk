@@ -12,108 +12,128 @@ class ListCallDetailRecordsRequest extends Model
      * @var string
      */
     public $agentId;
+
     /**
      * @var string
      */
     public $calledNumber;
+
     /**
      * @var string
      */
     public $callingNumber;
+
     /**
      * @var string
      */
     public $contactDisposition;
+
     /**
      * @var string
      */
     public $contactDispositionList;
+
     /**
      * @var string
      */
     public $contactId;
+
     /**
      * @var string
      */
     public $contactType;
+
     /**
      * @var string
      */
     public $contactTypeList;
+
     /**
      * @var string
      */
     public $criteria;
+
     /**
      * @var string
      */
     public $earlyMediaStateList;
+
     /**
      * @var int
      */
     public $endTime;
+
     /**
      * @var string
      */
     public $instanceId;
+
     /**
      * @var string
      */
     public $orderByField;
+
     /**
      * @var int
      */
     public $pageNumber;
+
     /**
      * @var int
      */
     public $pageSize;
+
     /**
      * @var string
      */
     public $satisfactionDescriptionList;
+
     /**
      * @var string
      */
     public $satisfactionList;
+
     /**
      * @var string
      */
     public $satisfactionSurveyChannel;
+
     /**
      * @var string
      */
     public $skillGroupId;
+
     /**
      * @var string
      */
     public $sortOrder;
+
     /**
      * @var int
      */
     public $startTime;
     protected $_name = [
-        'agentId'                     => 'AgentId',
-        'calledNumber'                => 'CalledNumber',
-        'callingNumber'               => 'CallingNumber',
-        'contactDisposition'          => 'ContactDisposition',
-        'contactDispositionList'      => 'ContactDispositionList',
-        'contactId'                   => 'ContactId',
-        'contactType'                 => 'ContactType',
-        'contactTypeList'             => 'ContactTypeList',
-        'criteria'                    => 'Criteria',
-        'earlyMediaStateList'         => 'EarlyMediaStateList',
-        'endTime'                     => 'EndTime',
-        'instanceId'                  => 'InstanceId',
-        'orderByField'                => 'OrderByField',
-        'pageNumber'                  => 'PageNumber',
-        'pageSize'                    => 'PageSize',
+        'agentId' => 'AgentId',
+        'calledNumber' => 'CalledNumber',
+        'callingNumber' => 'CallingNumber',
+        'contactDisposition' => 'ContactDisposition',
+        'contactDispositionList' => 'ContactDispositionList',
+        'contactId' => 'ContactId',
+        'contactType' => 'ContactType',
+        'contactTypeList' => 'ContactTypeList',
+        'criteria' => 'Criteria',
+        'earlyMediaStateList' => 'EarlyMediaStateList',
+        'endTime' => 'EndTime',
+        'instanceId' => 'InstanceId',
+        'orderByField' => 'OrderByField',
+        'pageNumber' => 'PageNumber',
+        'pageSize' => 'PageSize',
         'satisfactionDescriptionList' => 'SatisfactionDescriptionList',
-        'satisfactionList'            => 'SatisfactionList',
-        'satisfactionSurveyChannel'   => 'SatisfactionSurveyChannel',
-        'skillGroupId'                => 'SkillGroupId',
-        'sortOrder'                   => 'SortOrder',
-        'startTime'                   => 'StartTime',
+        'satisfactionList' => 'SatisfactionList',
+        'satisfactionSurveyChannel' => 'SatisfactionSurveyChannel',
+        'skillGroupId' => 'SkillGroupId',
+        'sortOrder' => 'SortOrder',
+        'startTime' => 'StartTime',
     ];
 
     public function validate()

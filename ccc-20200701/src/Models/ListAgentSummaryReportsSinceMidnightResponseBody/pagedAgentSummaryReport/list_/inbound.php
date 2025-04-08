@@ -12,83 +12,98 @@ class inbound extends Model
      * @var int
      */
     public $averageRingTime;
+
     /**
      * @var int
      */
     public $averageTalkTime;
+
     /**
      * @var int
      */
     public $averageWorkTime;
+
     /**
      * @var int
      */
     public $callsHandled;
+
     /**
      * @var int
      */
     public $callsOffered;
+
     /**
      * @var float
      */
     public $handleRate;
+
     /**
      * @var int
      */
     public $maxRingTime;
+
     /**
      * @var int
      */
     public $maxTalkTime;
+
     /**
      * @var int
      */
     public $maxWorkTime;
+
     /**
      * @var float
      */
     public $satisfactionIndex;
+
     /**
      * @var int
      */
     public $satisfactionSurveysOffered;
+
     /**
      * @var int
      */
     public $satisfactionSurveysResponded;
+
     /**
      * @var float
      */
     public $serviceLevel20;
+
     /**
      * @var int
      */
     public $totalRingTime;
+
     /**
      * @var int
      */
     public $totalTalkTime;
+
     /**
      * @var int
      */
     public $totalWorkTime;
     protected $_name = [
-        'averageRingTime'              => 'AverageRingTime',
-        'averageTalkTime'              => 'AverageTalkTime',
-        'averageWorkTime'              => 'AverageWorkTime',
-        'callsHandled'                 => 'CallsHandled',
-        'callsOffered'                 => 'CallsOffered',
-        'handleRate'                   => 'HandleRate',
-        'maxRingTime'                  => 'MaxRingTime',
-        'maxTalkTime'                  => 'MaxTalkTime',
-        'maxWorkTime'                  => 'MaxWorkTime',
-        'satisfactionIndex'            => 'SatisfactionIndex',
-        'satisfactionSurveysOffered'   => 'SatisfactionSurveysOffered',
+        'averageRingTime' => 'AverageRingTime',
+        'averageTalkTime' => 'AverageTalkTime',
+        'averageWorkTime' => 'AverageWorkTime',
+        'callsHandled' => 'CallsHandled',
+        'callsOffered' => 'CallsOffered',
+        'handleRate' => 'HandleRate',
+        'maxRingTime' => 'MaxRingTime',
+        'maxTalkTime' => 'MaxTalkTime',
+        'maxWorkTime' => 'MaxWorkTime',
+        'satisfactionIndex' => 'SatisfactionIndex',
+        'satisfactionSurveysOffered' => 'SatisfactionSurveysOffered',
         'satisfactionSurveysResponded' => 'SatisfactionSurveysResponded',
-        'serviceLevel20'               => 'ServiceLevel20',
-        'totalRingTime'                => 'TotalRingTime',
-        'totalTalkTime'                => 'TotalTalkTime',
-        'totalWorkTime'                => 'TotalWorkTime',
+        'serviceLevel20' => 'ServiceLevel20',
+        'totalRingTime' => 'TotalRingTime',
+        'totalTalkTime' => 'TotalTalkTime',
+        'totalWorkTime' => 'TotalWorkTime',
     ];
 
     public function validate()

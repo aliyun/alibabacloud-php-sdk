@@ -12,138 +12,164 @@ class ListCallDetailRecordsV2Request extends Model
      * @var string
      */
     public $accessChannelTypeList;
+
     /**
      * @var string
      */
     public $agentId;
+
     /**
      * @var bool
      */
     public $analyticsReportReady;
+
     /**
      * @var string
      */
     public $broker;
+
     /**
      * @var string
      */
     public $calledNumber;
+
     /**
      * @var string
      */
     public $callingNumber;
+
     /**
      * @var string
      */
     public $contactDispositionList;
+
     /**
      * @var string
      */
     public $contactIdList;
+
     /**
      * @var string
      */
     public $contactTypeList;
+
     /**
      * @var string
      */
     public $earlyMediaStateList;
+
     /**
      * @var int
      */
     public $endTime;
+
     /**
      * @var string
      */
     public $firstAgentId;
+
     /**
      * @var string
      */
     public $instanceId;
+
     /**
      * @var string
      */
     public $mediaType;
+
     /**
      * @var string
      */
     public $number;
+
     /**
      * @var string
      */
     public $orderByField;
+
     /**
      * @var int
      */
     public $pageNumber;
+
     /**
      * @var int
      */
     public $pageSize;
+
     /**
      * @var string
      */
     public $releaseInitiatorList;
+
     /**
      * @var string
      */
     public $releaseReasonList;
+
     /**
      * @var string
      */
     public $satisfactionDescriptionList;
+
     /**
      * @var string
      */
     public $satisfactionRateList;
+
     /**
      * @var string
      */
     public $satisfactionSurveyChannel;
+
     /**
      * @var string
      */
     public $searchPattern;
+
     /**
      * @var string
      */
     public $skillGroupIdList;
+
     /**
      * @var string
      */
     public $sortOrder;
+
     /**
      * @var int
      */
     public $startTime;
     protected $_name = [
-        'accessChannelTypeList'       => 'AccessChannelTypeList',
-        'agentId'                     => 'AgentId',
-        'analyticsReportReady'        => 'AnalyticsReportReady',
-        'broker'                      => 'Broker',
-        'calledNumber'                => 'CalledNumber',
-        'callingNumber'               => 'CallingNumber',
-        'contactDispositionList'      => 'ContactDispositionList',
-        'contactIdList'               => 'ContactIdList',
-        'contactTypeList'             => 'ContactTypeList',
-        'earlyMediaStateList'         => 'EarlyMediaStateList',
-        'endTime'                     => 'EndTime',
-        'firstAgentId'                => 'FirstAgentId',
-        'instanceId'                  => 'InstanceId',
-        'mediaType'                   => 'MediaType',
-        'number'                      => 'Number',
-        'orderByField'                => 'OrderByField',
-        'pageNumber'                  => 'PageNumber',
-        'pageSize'                    => 'PageSize',
-        'releaseInitiatorList'        => 'ReleaseInitiatorList',
-        'releaseReasonList'           => 'ReleaseReasonList',
+        'accessChannelTypeList' => 'AccessChannelTypeList',
+        'agentId' => 'AgentId',
+        'analyticsReportReady' => 'AnalyticsReportReady',
+        'broker' => 'Broker',
+        'calledNumber' => 'CalledNumber',
+        'callingNumber' => 'CallingNumber',
+        'contactDispositionList' => 'ContactDispositionList',
+        'contactIdList' => 'ContactIdList',
+        'contactTypeList' => 'ContactTypeList',
+        'earlyMediaStateList' => 'EarlyMediaStateList',
+        'endTime' => 'EndTime',
+        'firstAgentId' => 'FirstAgentId',
+        'instanceId' => 'InstanceId',
+        'mediaType' => 'MediaType',
+        'number' => 'Number',
+        'orderByField' => 'OrderByField',
+        'pageNumber' => 'PageNumber',
+        'pageSize' => 'PageSize',
+        'releaseInitiatorList' => 'ReleaseInitiatorList',
+        'releaseReasonList' => 'ReleaseReasonList',
         'satisfactionDescriptionList' => 'SatisfactionDescriptionList',
-        'satisfactionRateList'        => 'SatisfactionRateList',
-        'satisfactionSurveyChannel'   => 'SatisfactionSurveyChannel',
-        'searchPattern'               => 'SearchPattern',
-        'skillGroupIdList'            => 'SkillGroupIdList',
-        'sortOrder'                   => 'SortOrder',
-        'startTime'                   => 'StartTime',
+        'satisfactionRateList' => 'SatisfactionRateList',
+        'satisfactionSurveyChannel' => 'SatisfactionSurveyChannel',
+        'searchPattern' => 'SearchPattern',
+        'skillGroupIdList' => 'SkillGroupIdList',
+        'sortOrder' => 'SortOrder',
+        'startTime' => 'StartTime',
     ];
 
     public function validate()

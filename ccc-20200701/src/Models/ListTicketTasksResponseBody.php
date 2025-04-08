@@ -13,33 +13,38 @@ class ListTicketTasksResponseBody extends Model
      * @var string
      */
     public $code;
+
     /**
      * @var data[]
      */
     public $data;
+
     /**
      * @var int
      */
     public $httpStatusCode;
+
     /**
      * @var string
      */
     public $message;
+
     /**
      * @var string[]
      */
     public $params;
+
     /**
      * @var string
      */
     public $requestId;
     protected $_name = [
-        'code'           => 'Code',
-        'data'           => 'Data',
+        'code' => 'Code',
+        'data' => 'Data',
         'httpStatusCode' => 'HttpStatusCode',
-        'message'        => 'Message',
-        'params'         => 'Params',
-        'requestId'      => 'RequestId',
+        'message' => 'Message',
+        'params' => 'Params',
+        'requestId' => 'RequestId',
     ];
 
     public function validate()
@@ -63,7 +68,7 @@ class ListTicketTasksResponseBody extends Model
         if (null !== $this->data) {
             if (\is_array($this->data)) {
                 $res['Data'] = [];
-                $n1          = 0;
+                $n1 = 0;
                 foreach ($this->data as $item1) {
                     $res['Data'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -81,7 +86,7 @@ class ListTicketTasksResponseBody extends Model
         if (null !== $this->params) {
             if (\is_array($this->params)) {
                 $res['Params'] = [];
-                $n1            = 0;
+                $n1 = 0;
                 foreach ($this->params as $item1) {
                     $res['Params'][$n1++] = $item1;
                 }
@@ -110,7 +115,7 @@ class ListTicketTasksResponseBody extends Model
         if (isset($map['Data'])) {
             if (!empty($map['Data'])) {
                 $model->data = [];
-                $n1          = 0;
+                $n1 = 0;
                 foreach ($map['Data'] as $item1) {
                     $model->data[$n1++] = data::fromMap($item1);
                 }
@@ -128,7 +133,7 @@ class ListTicketTasksResponseBody extends Model
         if (isset($map['Params'])) {
             if (!empty($map['Params'])) {
                 $model->params = [];
-                $n1            = 0;
+                $n1 = 0;
                 foreach ($map['Params'] as $item1) {
                     $model->params[$n1++] = $item1;
                 }

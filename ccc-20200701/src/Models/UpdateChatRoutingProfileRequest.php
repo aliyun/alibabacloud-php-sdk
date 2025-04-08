@@ -12,12 +12,13 @@ class UpdateChatRoutingProfileRequest extends Model
      * @var string
      */
     public $instanceId;
+
     /**
      * @var string
      */
     public $routingProfiles;
     protected $_name = [
-        'instanceId'      => 'InstanceId',
+        'instanceId' => 'InstanceId',
         'routingProfiles' => 'RoutingProfiles',
     ];
 

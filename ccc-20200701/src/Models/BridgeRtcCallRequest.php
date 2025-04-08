@@ -12,48 +12,56 @@ class BridgeRtcCallRequest extends Model
      * @var string
      */
     public $callee;
+
     /**
      * @var string
      */
     public $caller;
+
     /**
      * @var string
      */
     public $deviceId;
+
     /**
      * @var string
      */
     public $instanceId;
+
     /**
      * @var string
      */
     public $serviceProvider;
+
     /**
      * @var string
      */
     public $tags;
+
     /**
      * @var int
      */
     public $timeoutSeconds;
+
     /**
      * @var string
      */
     public $userId;
+
     /**
      * @var bool
      */
     public $videoEnabled;
     protected $_name = [
-        'callee'          => 'Callee',
-        'caller'          => 'Caller',
-        'deviceId'        => 'DeviceId',
-        'instanceId'      => 'InstanceId',
+        'callee' => 'Callee',
+        'caller' => 'Caller',
+        'deviceId' => 'DeviceId',
+        'instanceId' => 'InstanceId',
         'serviceProvider' => 'ServiceProvider',
-        'tags'            => 'Tags',
-        'timeoutSeconds'  => 'TimeoutSeconds',
-        'userId'          => 'UserId',
-        'videoEnabled'    => 'VideoEnabled',
+        'tags' => 'Tags',
+        'timeoutSeconds' => 'TimeoutSeconds',
+        'userId' => 'UserId',
+        'videoEnabled' => 'VideoEnabled',
     ];
 
     public function validate()

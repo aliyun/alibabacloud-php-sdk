@@ -12,17 +12,19 @@ class data extends Model
      * @var string
      */
     public $ticketsAssigned;
+
     /**
      * @var string
      */
     public $ticketsCreated;
+
     /**
      * @var string
      */
     public $ticketsParticipated;
     protected $_name = [
-        'ticketsAssigned'     => 'TicketsAssigned',
-        'ticketsCreated'      => 'TicketsCreated',
+        'ticketsAssigned' => 'TicketsAssigned',
+        'ticketsCreated' => 'TicketsCreated',
         'ticketsParticipated' => 'TicketsParticipated',
     ];
 

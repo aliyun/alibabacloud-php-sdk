@@ -12,78 +12,92 @@ class channelContexts extends Model
      * @var string
      */
     public $callType;
+
     /**
      * @var string
      */
     public $channelFlags;
+
     /**
      * @var string
      */
     public $channelId;
+
     /**
      * @var string
      */
     public $channelState;
+
     /**
      * @var string
      */
     public $channelVariables;
+
     /**
      * @var string
      */
     public $destination;
+
     /**
      * @var int
      */
     public $index;
+
     /**
      * @var string
      */
     public $jobId;
+
     /**
      * @var string
      */
     public $originator;
+
     /**
      * @var string
      */
     public $releaseInitiator;
+
     /**
      * @var string
      */
     public $releaseReason;
+
     /**
      * @var string
      */
     public $skillGroupId;
+
     /**
      * @var int
      */
     public $timestamp;
+
     /**
      * @var string
      */
     public $userExtension;
+
     /**
      * @var string
      */
     public $userId;
     protected $_name = [
-        'callType'         => 'CallType',
-        'channelFlags'     => 'ChannelFlags',
-        'channelId'        => 'ChannelId',
-        'channelState'     => 'ChannelState',
+        'callType' => 'CallType',
+        'channelFlags' => 'ChannelFlags',
+        'channelId' => 'ChannelId',
+        'channelState' => 'ChannelState',
         'channelVariables' => 'ChannelVariables',
-        'destination'      => 'Destination',
-        'index'            => 'Index',
-        'jobId'            => 'JobId',
-        'originator'       => 'Originator',
+        'destination' => 'Destination',
+        'index' => 'Index',
+        'jobId' => 'JobId',
+        'originator' => 'Originator',
         'releaseInitiator' => 'ReleaseInitiator',
-        'releaseReason'    => 'ReleaseReason',
-        'skillGroupId'     => 'SkillGroupId',
-        'timestamp'        => 'Timestamp',
-        'userExtension'    => 'UserExtension',
-        'userId'           => 'UserId',
+        'releaseReason' => 'ReleaseReason',
+        'skillGroupId' => 'SkillGroupId',
+        'timestamp' => 'Timestamp',
+        'userExtension' => 'UserExtension',
+        'userId' => 'UserId',
     ];
 
     public function validate()

@@ -12,21 +12,24 @@ class CreateCallSummaryRequest extends Model
      * @var string
      */
     public $contactId;
+
     /**
      * @var string
      */
     public $context;
+
     /**
      * @var string
      */
     public $customerId;
+
     /**
      * @var string
      */
     public $instanceId;
     protected $_name = [
-        'contactId'  => 'ContactId',
-        'context'    => 'Context',
+        'contactId' => 'ContactId',
+        'context' => 'Context',
         'customerId' => 'CustomerId',
         'instanceId' => 'InstanceId',
     ];

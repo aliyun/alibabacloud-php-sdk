@@ -12,33 +12,38 @@ class SignInGroupRequest extends Model
      * @var bool
      */
     public $additivity;
+
     /**
      * @var string
      */
     public $chatDeviceId;
+
     /**
      * @var string
      */
     public $deviceId;
+
     /**
      * @var string
      */
     public $instanceId;
+
     /**
      * @var string
      */
     public $signedSkillGroupIdList;
+
     /**
      * @var string
      */
     public $userId;
     protected $_name = [
-        'additivity'             => 'Additivity',
-        'chatDeviceId'           => 'ChatDeviceId',
-        'deviceId'               => 'DeviceId',
-        'instanceId'             => 'InstanceId',
+        'additivity' => 'Additivity',
+        'chatDeviceId' => 'ChatDeviceId',
+        'deviceId' => 'DeviceId',
+        'instanceId' => 'InstanceId',
         'signedSkillGroupIdList' => 'SignedSkillGroupIdList',
-        'userId'                 => 'UserId',
+        'userId' => 'UserId',
     ];
 
     public function validate()

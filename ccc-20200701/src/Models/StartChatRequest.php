@@ -13,23 +13,26 @@ class StartChatRequest extends Model
      * @var string
      */
     public $accessChannelId;
+
     /**
      * @var string
      */
     public $instanceId;
+
     /**
      * @var string
      */
     public $token;
+
     /**
      * @var userList[]
      */
     public $userList;
     protected $_name = [
         'accessChannelId' => 'AccessChannelId',
-        'instanceId'      => 'InstanceId',
-        'token'           => 'Token',
-        'userList'        => 'UserList',
+        'instanceId' => 'InstanceId',
+        'token' => 'Token',
+        'userList' => 'UserList',
     ];
 
     public function validate()
@@ -58,7 +61,7 @@ class StartChatRequest extends Model
         if (null !== $this->userList) {
             if (\is_array($this->userList)) {
                 $res['UserList'] = [];
-                $n1              = 0;
+                $n1 = 0;
                 foreach ($this->userList as $item1) {
                     $res['UserList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -91,7 +94,7 @@ class StartChatRequest extends Model
         if (isset($map['UserList'])) {
             if (!empty($map['UserList'])) {
                 $model->userList = [];
-                $n1              = 0;
+                $n1 = 0;
                 foreach ($map['UserList'] as $item1) {
                     $model->userList[$n1++] = userList::fromMap($item1);
                 }

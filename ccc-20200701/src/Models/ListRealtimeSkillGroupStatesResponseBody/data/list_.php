@@ -13,68 +13,80 @@ class list_ extends Model
      * @var breakCodeDetailList[]
      */
     public $breakCodeDetailList;
+
     /**
      * @var int
      */
     public $breakingAgents;
+
     /**
      * @var string
      */
     public $instanceId;
+
     /**
      * @var int
      */
     public $loggedInAgents;
+
     /**
      * @var int
      */
     public $longestWaitingTime;
+
     /**
      * @var int
      */
     public $outboundScenarioReadyAgents;
+
     /**
      * @var int
      */
     public $readyAgents;
+
     /**
      * @var string
      */
     public $skillGroupId;
+
     /**
      * @var string
      */
     public $skillGroupName;
+
     /**
      * @var int
      */
     public $talkingAgents;
+
     /**
      * @var int
      */
     public $totalAgents;
+
     /**
      * @var int
      */
     public $waitingCalls;
+
     /**
      * @var int
      */
     public $workingAgents;
     protected $_name = [
-        'breakCodeDetailList'         => 'BreakCodeDetailList',
-        'breakingAgents'              => 'BreakingAgents',
-        'instanceId'                  => 'InstanceId',
-        'loggedInAgents'              => 'LoggedInAgents',
-        'longestWaitingTime'          => 'LongestWaitingTime',
+        'breakCodeDetailList' => 'BreakCodeDetailList',
+        'breakingAgents' => 'BreakingAgents',
+        'instanceId' => 'InstanceId',
+        'loggedInAgents' => 'LoggedInAgents',
+        'longestWaitingTime' => 'LongestWaitingTime',
         'outboundScenarioReadyAgents' => 'OutboundScenarioReadyAgents',
-        'readyAgents'                 => 'ReadyAgents',
-        'skillGroupId'                => 'SkillGroupId',
-        'skillGroupName'              => 'SkillGroupName',
-        'talkingAgents'               => 'TalkingAgents',
-        'totalAgents'                 => 'TotalAgents',
-        'waitingCalls'                => 'WaitingCalls',
-        'workingAgents'               => 'WorkingAgents',
+        'readyAgents' => 'ReadyAgents',
+        'skillGroupId' => 'SkillGroupId',
+        'skillGroupName' => 'SkillGroupName',
+        'talkingAgents' => 'TalkingAgents',
+        'totalAgents' => 'TotalAgents',
+        'waitingCalls' => 'WaitingCalls',
+        'workingAgents' => 'WorkingAgents',
     ];
 
     public function validate()
@@ -91,7 +103,7 @@ class list_ extends Model
         if (null !== $this->breakCodeDetailList) {
             if (\is_array($this->breakCodeDetailList)) {
                 $res['BreakCodeDetailList'] = [];
-                $n1                         = 0;
+                $n1 = 0;
                 foreach ($this->breakCodeDetailList as $item1) {
                     $res['BreakCodeDetailList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -160,7 +172,7 @@ class list_ extends Model
         if (isset($map['BreakCodeDetailList'])) {
             if (!empty($map['BreakCodeDetailList'])) {
                 $model->breakCodeDetailList = [];
-                $n1                         = 0;
+                $n1 = 0;
                 foreach ($map['BreakCodeDetailList'] as $item1) {
                     $model->breakCodeDetailList[$n1++] = breakCodeDetailList::fromMap($item1);
                 }

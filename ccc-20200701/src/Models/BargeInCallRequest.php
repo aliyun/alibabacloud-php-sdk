@@ -12,33 +12,38 @@ class BargeInCallRequest extends Model
      * @var string
      */
     public $bargedUserId;
+
     /**
      * @var string
      */
     public $deviceId;
+
     /**
      * @var string
      */
     public $instanceId;
+
     /**
      * @var string
      */
     public $jobId;
+
     /**
      * @var int
      */
     public $timeoutSeconds;
+
     /**
      * @var string
      */
     public $userId;
     protected $_name = [
-        'bargedUserId'   => 'BargedUserId',
-        'deviceId'       => 'DeviceId',
-        'instanceId'     => 'InstanceId',
-        'jobId'          => 'JobId',
+        'bargedUserId' => 'BargedUserId',
+        'deviceId' => 'DeviceId',
+        'instanceId' => 'InstanceId',
+        'jobId' => 'JobId',
         'timeoutSeconds' => 'TimeoutSeconds',
-        'userId'         => 'UserId',
+        'userId' => 'UserId',
     ];
 
     public function validate()

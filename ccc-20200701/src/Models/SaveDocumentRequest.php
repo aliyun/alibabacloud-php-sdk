@@ -12,28 +12,32 @@ class SaveDocumentRequest extends Model
      * @var string
      */
     public $documentId;
+
     /**
      * @var string
      */
     public $documentJson;
+
     /**
      * @var string
      */
     public $instanceId;
+
     /**
      * @var string
      */
     public $requestId;
+
     /**
      * @var string
      */
     public $schemaId;
     protected $_name = [
-        'documentId'   => 'DocumentId',
+        'documentId' => 'DocumentId',
         'documentJson' => 'DocumentJson',
-        'instanceId'   => 'InstanceId',
-        'requestId'    => 'RequestId',
-        'schemaId'     => 'SchemaId',
+        'instanceId' => 'InstanceId',
+        'requestId' => 'RequestId',
+        'schemaId' => 'SchemaId',
     ];
 
     public function validate()

@@ -12,43 +12,50 @@ class ListHistoricalAgentReportRequest extends Model
      * @var string
      */
     public $agentIdList;
+
     /**
      * @var string
      */
     public $instanceId;
+
     /**
      * @var string
      */
     public $mediaType;
+
     /**
      * @var int
      */
     public $pageNumber;
+
     /**
      * @var int
      */
     public $pageSize;
+
     /**
      * @var string
      */
     public $skillGroupId;
+
     /**
      * @var int
      */
     public $startTime;
+
     /**
      * @var int
      */
     public $stopTime;
     protected $_name = [
-        'agentIdList'  => 'AgentIdList',
-        'instanceId'   => 'InstanceId',
-        'mediaType'    => 'MediaType',
-        'pageNumber'   => 'PageNumber',
-        'pageSize'     => 'PageSize',
+        'agentIdList' => 'AgentIdList',
+        'instanceId' => 'InstanceId',
+        'mediaType' => 'MediaType',
+        'pageNumber' => 'PageNumber',
+        'pageSize' => 'PageSize',
         'skillGroupId' => 'SkillGroupId',
-        'startTime'    => 'StartTime',
-        'stopTime'     => 'StopTime',
+        'startTime' => 'StartTime',
+        'stopTime' => 'StopTime',
     ];
 
     public function validate()

@@ -12,13 +12,14 @@ class CreateCallTagsRequest extends Model
      * @var string
      */
     public $callTagNameList;
+
     /**
      * @var string
      */
     public $instanceId;
     protected $_name = [
         'callTagNameList' => 'CallTagNameList',
-        'instanceId'      => 'InstanceId',
+        'instanceId' => 'InstanceId',
     ];
 
     public function validate()

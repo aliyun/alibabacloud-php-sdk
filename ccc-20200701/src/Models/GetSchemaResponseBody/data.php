@@ -13,37 +13,43 @@ class data extends Model
      * @var string
      */
     public $createdTime;
+
     /**
      * @var bool
      */
     public $deleted;
+
     /**
      * @var string
      */
     public $description;
+
     /**
      * @var string
      */
     public $id;
+
     /**
      * @var string
      */
     public $instanceId;
+
     /**
      * @var DataPropertiesValue[]
      */
     public $properties;
+
     /**
      * @var string
      */
     public $updatedTime;
     protected $_name = [
         'createdTime' => 'CreatedTime',
-        'deleted'     => 'Deleted',
+        'deleted' => 'Deleted',
         'description' => 'Description',
-        'id'          => 'Id',
-        'instanceId'  => 'InstanceId',
-        'properties'  => 'Properties',
+        'id' => 'Id',
+        'instanceId' => 'InstanceId',
+        'properties' => 'Properties',
         'updatedTime' => 'UpdatedTime',
     ];
 

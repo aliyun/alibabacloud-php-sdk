@@ -12,18 +12,20 @@ class DeleteSchemaRequest extends Model
      * @var string
      */
     public $instanceId;
+
     /**
      * @var string
      */
     public $requestId;
+
     /**
      * @var string
      */
     public $schemaId;
     protected $_name = [
         'instanceId' => 'InstanceId',
-        'requestId'  => 'RequestId',
-        'schemaId'   => 'SchemaId',
+        'requestId' => 'RequestId',
+        'schemaId' => 'SchemaId',
     ];
 
     public function validate()

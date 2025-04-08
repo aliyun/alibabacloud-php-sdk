@@ -12,22 +12,25 @@ class RegisterDevicesRequest extends Model
      * @var string
      */
     public $deviceId;
+
     /**
      * @var string
      */
     public $instanceId;
+
     /**
      * @var string
      */
     public $password;
+
     /**
      * @var string
      */
     public $userIdListJson;
     protected $_name = [
-        'deviceId'       => 'DeviceId',
-        'instanceId'     => 'InstanceId',
-        'password'       => 'Password',
+        'deviceId' => 'DeviceId',
+        'instanceId' => 'InstanceId',
+        'password' => 'Password',
         'userIdListJson' => 'UserIdListJson',
     ];
 

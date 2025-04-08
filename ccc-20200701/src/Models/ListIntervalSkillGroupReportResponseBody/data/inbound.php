@@ -12,263 +12,314 @@ class inbound extends Model
      * @var float
      */
     public $abandonRate;
+
     /**
      * @var float
      */
     public $averageAbandonTime;
+
     /**
      * @var float
      */
     public $averageAbandonedInQueueTime;
+
     /**
      * @var float
      */
     public $averageAbandonedInRingTime;
+
     /**
      * @var float
      */
     public $averageFirstResponseTime;
+
     /**
      * @var float
      */
     public $averageHoldTime;
+
     /**
      * @var float
      */
     public $averageResponseTime;
+
     /**
      * @var float
      */
     public $averageRingTime;
+
     /**
      * @var float
      */
     public $averageTalkTime;
+
     /**
      * @var float
      */
     public $averageWaitTime;
+
     /**
      * @var float
      */
     public $averageWorkTime;
+
     /**
      * @var int
      */
     public $callsAbandoned;
+
     /**
      * @var int
      */
     public $callsAbandonedInQueue;
+
     /**
      * @var int
      */
     public $callsAbandonedInRing;
+
     /**
      * @var int
      */
     public $callsAttendedTransferIn;
+
     /**
      * @var int
      */
     public $callsAttendedTransferOut;
+
     /**
      * @var int
      */
     public $callsBlindTransferIn;
+
     /**
      * @var int
      */
     public $callsBlindTransferOut;
+
     /**
      * @var int
      */
     public $callsHandled;
+
     /**
      * @var int
      */
     public $callsHold;
+
     /**
      * @var int
      */
     public $callsOffered;
+
     /**
      * @var int
      */
     public $callsOverflow;
+
     /**
      * @var int
      */
     public $callsQueued;
+
     /**
      * @var int
      */
     public $callsQueuingOverflow;
+
     /**
      * @var int
      */
     public $callsQueuingTimeout;
+
     /**
      * @var int
      */
     public $callsRinged;
+
     /**
      * @var int
      */
     public $callsTimeout;
+
     /**
      * @var float
      */
     public $handleRate;
+
     /**
      * @var int
      */
     public $maxAbandonTime;
+
     /**
      * @var int
      */
     public $maxAbandonedInQueueTime;
+
     /**
      * @var int
      */
     public $maxAbandonedInRingTime;
+
     /**
      * @var int
      */
     public $maxHoldTime;
+
     /**
      * @var int
      */
     public $maxRingTime;
+
     /**
      * @var int
      */
     public $maxTalkTime;
+
     /**
      * @var int
      */
     public $maxWaitTime;
+
     /**
      * @var int
      */
     public $maxWorkTime;
+
     /**
      * @var float
      */
     public $satisfactionIndex;
+
     /**
      * @var float
      */
     public $satisfactionRate;
+
     /**
      * @var int
      */
     public $satisfactionSurveysOffered;
+
     /**
      * @var int
      */
     public $satisfactionSurveysResponded;
+
     /**
      * @var float
      */
     public $serviceLevel20;
+
     /**
      * @var int
      */
     public $totalAbandonTime;
+
     /**
      * @var int
      */
     public $totalAbandonedInQueueTime;
+
     /**
      * @var int
      */
     public $totalAbandonedInRingTime;
+
     /**
      * @var int
      */
     public $totalHoldTime;
+
     /**
      * @var int
      */
     public $totalMessagesSent;
+
     /**
      * @var int
      */
     public $totalMessagesSentByAgent;
+
     /**
      * @var int
      */
     public $totalMessagesSentByCustomer;
+
     /**
      * @var int
      */
     public $totalRingTime;
+
     /**
      * @var int
      */
     public $totalTalkTime;
+
     /**
      * @var int
      */
     public $totalWaitTime;
+
     /**
      * @var int
      */
     public $totalWorkTime;
     protected $_name = [
-        'abandonRate'                  => 'AbandonRate',
-        'averageAbandonTime'           => 'AverageAbandonTime',
-        'averageAbandonedInQueueTime'  => 'AverageAbandonedInQueueTime',
-        'averageAbandonedInRingTime'   => 'AverageAbandonedInRingTime',
-        'averageFirstResponseTime'     => 'AverageFirstResponseTime',
-        'averageHoldTime'              => 'AverageHoldTime',
-        'averageResponseTime'          => 'AverageResponseTime',
-        'averageRingTime'              => 'AverageRingTime',
-        'averageTalkTime'              => 'AverageTalkTime',
-        'averageWaitTime'              => 'AverageWaitTime',
-        'averageWorkTime'              => 'AverageWorkTime',
-        'callsAbandoned'               => 'CallsAbandoned',
-        'callsAbandonedInQueue'        => 'CallsAbandonedInQueue',
-        'callsAbandonedInRing'         => 'CallsAbandonedInRing',
-        'callsAttendedTransferIn'      => 'CallsAttendedTransferIn',
-        'callsAttendedTransferOut'     => 'CallsAttendedTransferOut',
-        'callsBlindTransferIn'         => 'CallsBlindTransferIn',
-        'callsBlindTransferOut'        => 'CallsBlindTransferOut',
-        'callsHandled'                 => 'CallsHandled',
-        'callsHold'                    => 'CallsHold',
-        'callsOffered'                 => 'CallsOffered',
-        'callsOverflow'                => 'CallsOverflow',
-        'callsQueued'                  => 'CallsQueued',
-        'callsQueuingOverflow'         => 'CallsQueuingOverflow',
-        'callsQueuingTimeout'          => 'CallsQueuingTimeout',
-        'callsRinged'                  => 'CallsRinged',
-        'callsTimeout'                 => 'CallsTimeout',
-        'handleRate'                   => 'HandleRate',
-        'maxAbandonTime'               => 'MaxAbandonTime',
-        'maxAbandonedInQueueTime'      => 'MaxAbandonedInQueueTime',
-        'maxAbandonedInRingTime'       => 'MaxAbandonedInRingTime',
-        'maxHoldTime'                  => 'MaxHoldTime',
-        'maxRingTime'                  => 'MaxRingTime',
-        'maxTalkTime'                  => 'MaxTalkTime',
-        'maxWaitTime'                  => 'MaxWaitTime',
-        'maxWorkTime'                  => 'MaxWorkTime',
-        'satisfactionIndex'            => 'SatisfactionIndex',
-        'satisfactionRate'             => 'SatisfactionRate',
-        'satisfactionSurveysOffered'   => 'SatisfactionSurveysOffered',
+        'abandonRate' => 'AbandonRate',
+        'averageAbandonTime' => 'AverageAbandonTime',
+        'averageAbandonedInQueueTime' => 'AverageAbandonedInQueueTime',
+        'averageAbandonedInRingTime' => 'AverageAbandonedInRingTime',
+        'averageFirstResponseTime' => 'AverageFirstResponseTime',
+        'averageHoldTime' => 'AverageHoldTime',
+        'averageResponseTime' => 'AverageResponseTime',
+        'averageRingTime' => 'AverageRingTime',
+        'averageTalkTime' => 'AverageTalkTime',
+        'averageWaitTime' => 'AverageWaitTime',
+        'averageWorkTime' => 'AverageWorkTime',
+        'callsAbandoned' => 'CallsAbandoned',
+        'callsAbandonedInQueue' => 'CallsAbandonedInQueue',
+        'callsAbandonedInRing' => 'CallsAbandonedInRing',
+        'callsAttendedTransferIn' => 'CallsAttendedTransferIn',
+        'callsAttendedTransferOut' => 'CallsAttendedTransferOut',
+        'callsBlindTransferIn' => 'CallsBlindTransferIn',
+        'callsBlindTransferOut' => 'CallsBlindTransferOut',
+        'callsHandled' => 'CallsHandled',
+        'callsHold' => 'CallsHold',
+        'callsOffered' => 'CallsOffered',
+        'callsOverflow' => 'CallsOverflow',
+        'callsQueued' => 'CallsQueued',
+        'callsQueuingOverflow' => 'CallsQueuingOverflow',
+        'callsQueuingTimeout' => 'CallsQueuingTimeout',
+        'callsRinged' => 'CallsRinged',
+        'callsTimeout' => 'CallsTimeout',
+        'handleRate' => 'HandleRate',
+        'maxAbandonTime' => 'MaxAbandonTime',
+        'maxAbandonedInQueueTime' => 'MaxAbandonedInQueueTime',
+        'maxAbandonedInRingTime' => 'MaxAbandonedInRingTime',
+        'maxHoldTime' => 'MaxHoldTime',
+        'maxRingTime' => 'MaxRingTime',
+        'maxTalkTime' => 'MaxTalkTime',
+        'maxWaitTime' => 'MaxWaitTime',
+        'maxWorkTime' => 'MaxWorkTime',
+        'satisfactionIndex' => 'SatisfactionIndex',
+        'satisfactionRate' => 'SatisfactionRate',
+        'satisfactionSurveysOffered' => 'SatisfactionSurveysOffered',
         'satisfactionSurveysResponded' => 'SatisfactionSurveysResponded',
-        'serviceLevel20'               => 'ServiceLevel20',
-        'totalAbandonTime'             => 'TotalAbandonTime',
-        'totalAbandonedInQueueTime'    => 'TotalAbandonedInQueueTime',
-        'totalAbandonedInRingTime'     => 'TotalAbandonedInRingTime',
-        'totalHoldTime'                => 'TotalHoldTime',
-        'totalMessagesSent'            => 'TotalMessagesSent',
-        'totalMessagesSentByAgent'     => 'TotalMessagesSentByAgent',
-        'totalMessagesSentByCustomer'  => 'TotalMessagesSentByCustomer',
-        'totalRingTime'                => 'TotalRingTime',
-        'totalTalkTime'                => 'TotalTalkTime',
-        'totalWaitTime'                => 'TotalWaitTime',
-        'totalWorkTime'                => 'TotalWorkTime',
+        'serviceLevel20' => 'ServiceLevel20',
+        'totalAbandonTime' => 'TotalAbandonTime',
+        'totalAbandonedInQueueTime' => 'TotalAbandonedInQueueTime',
+        'totalAbandonedInRingTime' => 'TotalAbandonedInRingTime',
+        'totalHoldTime' => 'TotalHoldTime',
+        'totalMessagesSent' => 'TotalMessagesSent',
+        'totalMessagesSentByAgent' => 'TotalMessagesSentByAgent',
+        'totalMessagesSentByCustomer' => 'TotalMessagesSentByCustomer',
+        'totalRingTime' => 'TotalRingTime',
+        'totalTalkTime' => 'TotalTalkTime',
+        'totalWaitTime' => 'TotalWaitTime',
+        'totalWorkTime' => 'TotalWorkTime',
     ];
 
     public function validate()

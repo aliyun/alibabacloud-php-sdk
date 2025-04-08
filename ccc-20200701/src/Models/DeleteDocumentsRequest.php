@@ -12,23 +12,26 @@ class DeleteDocumentsRequest extends Model
      * @var string[]
      */
     public $documentIds;
+
     /**
      * @var string
      */
     public $instanceId;
+
     /**
      * @var string
      */
     public $requestId;
+
     /**
      * @var string
      */
     public $schemaId;
     protected $_name = [
         'documentIds' => 'DocumentIds',
-        'instanceId'  => 'InstanceId',
-        'requestId'   => 'RequestId',
-        'schemaId'    => 'SchemaId',
+        'instanceId' => 'InstanceId',
+        'requestId' => 'RequestId',
+        'schemaId' => 'SchemaId',
     ];
 
     public function validate()
@@ -45,7 +48,7 @@ class DeleteDocumentsRequest extends Model
         if (null !== $this->documentIds) {
             if (\is_array($this->documentIds)) {
                 $res['DocumentIds'] = [];
-                $n1                 = 0;
+                $n1 = 0;
                 foreach ($this->documentIds as $item1) {
                     $res['DocumentIds'][$n1++] = $item1;
                 }
@@ -78,7 +81,7 @@ class DeleteDocumentsRequest extends Model
         if (isset($map['DocumentIds'])) {
             if (!empty($map['DocumentIds'])) {
                 $model->documentIds = [];
-                $n1                 = 0;
+                $n1 = 0;
                 foreach ($map['DocumentIds'] as $item1) {
                     $model->documentIds[$n1++] = $item1;
                 }

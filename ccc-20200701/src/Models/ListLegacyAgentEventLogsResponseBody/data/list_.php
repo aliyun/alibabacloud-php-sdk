@@ -12,93 +12,110 @@ class list_ extends Model
      * @var string
      */
     public $agentDropCall;
+
     /**
      * @var string
      */
     public $agentNo;
+
     /**
      * @var string
      */
     public $callDir;
+
     /**
      * @var string
      */
     public $callId;
+
     /**
      * @var string
      */
     public $callMode;
+
     /**
      * @var string
      */
     public $callType;
+
     /**
      * @var string
      */
     public $calleeId;
+
     /**
      * @var string
      */
     public $callerId;
+
     /**
      * @var string
      */
     public $connId;
+
     /**
      * @var string
      */
     public $event;
+
     /**
      * @var string
      */
     public $groupNo;
+
     /**
      * @var bool
      */
     public $outboundScenario;
+
     /**
      * @var string
      */
     public $phoneNo;
+
     /**
      * @var string
      */
     public $statisticDate;
+
     /**
      * @var string
      */
     public $targetRequest;
+
     /**
      * @var string
      */
     public $targetSelect;
+
     /**
      * @var string
      */
     public $tenantId;
+
     /**
      * @var string
      */
     public $transferNumber;
     protected $_name = [
-        'agentDropCall'    => 'AgentDropCall',
-        'agentNo'          => 'AgentNo',
-        'callDir'          => 'CallDir',
-        'callId'           => 'CallId',
-        'callMode'         => 'CallMode',
-        'callType'         => 'CallType',
-        'calleeId'         => 'CalleeId',
-        'callerId'         => 'CallerId',
-        'connId'           => 'ConnId',
-        'event'            => 'Event',
-        'groupNo'          => 'GroupNo',
+        'agentDropCall' => 'AgentDropCall',
+        'agentNo' => 'AgentNo',
+        'callDir' => 'CallDir',
+        'callId' => 'CallId',
+        'callMode' => 'CallMode',
+        'callType' => 'CallType',
+        'calleeId' => 'CalleeId',
+        'callerId' => 'CallerId',
+        'connId' => 'ConnId',
+        'event' => 'Event',
+        'groupNo' => 'GroupNo',
         'outboundScenario' => 'OutboundScenario',
-        'phoneNo'          => 'PhoneNo',
-        'statisticDate'    => 'StatisticDate',
-        'targetRequest'    => 'TargetRequest',
-        'targetSelect'     => 'TargetSelect',
-        'tenantId'         => 'TenantId',
-        'transferNumber'   => 'TransferNumber',
+        'phoneNo' => 'PhoneNo',
+        'statisticDate' => 'StatisticDate',
+        'targetRequest' => 'TargetRequest',
+        'targetSelect' => 'TargetSelect',
+        'tenantId' => 'TenantId',
+        'transferNumber' => 'TransferNumber',
     ];
 
     public function validate()

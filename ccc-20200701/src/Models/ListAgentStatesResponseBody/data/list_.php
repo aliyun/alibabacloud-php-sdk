@@ -12,48 +12,56 @@ class list_ extends Model
      * @var string
      */
     public $agentId;
+
     /**
      * @var string
      */
     public $agentName;
+
     /**
      * @var string
      */
     public $breakCode;
+
     /**
      * @var string
      */
     public $dn;
+
     /**
      * @var string
      */
     public $instanceId;
+
     /**
      * @var string
      */
     public $loginName;
+
     /**
      * @var bool
      */
     public $outboundScenario;
+
     /**
      * @var string
      */
     public $state;
+
     /**
      * @var string
      */
     public $stateDuration;
     protected $_name = [
-        'agentId'          => 'AgentId',
-        'agentName'        => 'AgentName',
-        'breakCode'        => 'BreakCode',
-        'dn'               => 'Dn',
-        'instanceId'       => 'InstanceId',
-        'loginName'        => 'LoginName',
+        'agentId' => 'AgentId',
+        'agentName' => 'AgentName',
+        'breakCode' => 'BreakCode',
+        'dn' => 'Dn',
+        'instanceId' => 'InstanceId',
+        'loginName' => 'LoginName',
         'outboundScenario' => 'OutboundScenario',
-        'state'            => 'State',
-        'stateDuration'    => 'StateDuration',
+        'state' => 'State',
+        'stateDuration' => 'StateDuration',
     ];
 
     public function validate()

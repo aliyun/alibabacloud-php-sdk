@@ -12,33 +12,38 @@ class WithdrawTicketResponseBody extends Model
      * @var string
      */
     public $code;
+
     /**
      * @var mixed
      */
     public $data;
+
     /**
      * @var int
      */
     public $httpStatusCode;
+
     /**
      * @var string
      */
     public $message;
+
     /**
      * @var string[]
      */
     public $params;
+
     /**
      * @var string
      */
     public $requestId;
     protected $_name = [
-        'code'           => 'Code',
-        'data'           => 'Data',
+        'code' => 'Code',
+        'data' => 'Data',
         'httpStatusCode' => 'HttpStatusCode',
-        'message'        => 'Message',
-        'params'         => 'Params',
-        'requestId'      => 'RequestId',
+        'message' => 'Message',
+        'params' => 'Params',
+        'requestId' => 'RequestId',
     ];
 
     public function validate()
@@ -71,7 +76,7 @@ class WithdrawTicketResponseBody extends Model
         if (null !== $this->params) {
             if (\is_array($this->params)) {
                 $res['Params'] = [];
-                $n1            = 0;
+                $n1 = 0;
                 foreach ($this->params as $item1) {
                     $res['Params'][$n1++] = $item1;
                 }
@@ -112,7 +117,7 @@ class WithdrawTicketResponseBody extends Model
         if (isset($map['Params'])) {
             if (!empty($map['Params'])) {
                 $model->params = [];
-                $n1            = 0;
+                $n1 = 0;
                 foreach ($map['Params'] as $item1) {
                     $model->params[$n1++] = $item1;
                 }

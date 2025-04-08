@@ -12,13 +12,14 @@ class RejectChatRequest extends Model
      * @var string
      */
     public $instanceId;
+
     /**
      * @var string
      */
     public $jobId;
     protected $_name = [
         'instanceId' => 'InstanceId',
-        'jobId'      => 'JobId',
+        'jobId' => 'JobId',
     ];
 
     public function validate()

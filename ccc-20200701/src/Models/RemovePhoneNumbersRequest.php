@@ -12,16 +12,18 @@ class RemovePhoneNumbersRequest extends Model
      * @var bool
      */
     public $force;
+
     /**
      * @var string
      */
     public $instanceId;
+
     /**
      * @var string
      */
     public $numberList;
     protected $_name = [
-        'force'      => 'Force',
+        'force' => 'Force',
         'instanceId' => 'InstanceId',
         'numberList' => 'NumberList',
     ];

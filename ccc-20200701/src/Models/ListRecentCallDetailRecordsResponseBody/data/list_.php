@@ -12,58 +12,68 @@ class list_ extends Model
      * @var string
      */
     public $agentIds;
+
     /**
      * @var string
      */
     public $callDuration;
+
     /**
      * @var string
      */
     public $calledNumber;
+
     /**
      * @var string
      */
     public $callingNumber;
+
     /**
      * @var string
      */
     public $contactDisposition;
+
     /**
      * @var string
      */
     public $contactId;
+
     /**
      * @var string
      */
     public $contactType;
+
     /**
      * @var int
      */
     public $duration;
+
     /**
      * @var string
      */
     public $instanceId;
+
     /**
      * @var string
      */
     public $skillGroupIds;
+
     /**
      * @var int
      */
     public $startTime;
     protected $_name = [
-        'agentIds'           => 'AgentIds',
-        'callDuration'       => 'CallDuration',
-        'calledNumber'       => 'CalledNumber',
-        'callingNumber'      => 'CallingNumber',
+        'agentIds' => 'AgentIds',
+        'callDuration' => 'CallDuration',
+        'calledNumber' => 'CalledNumber',
+        'callingNumber' => 'CallingNumber',
         'contactDisposition' => 'ContactDisposition',
-        'contactId'          => 'ContactId',
-        'contactType'        => 'ContactType',
-        'duration'           => 'Duration',
-        'instanceId'         => 'InstanceId',
-        'skillGroupIds'      => 'SkillGroupIds',
-        'startTime'          => 'StartTime',
+        'contactId' => 'ContactId',
+        'contactType' => 'ContactType',
+        'duration' => 'Duration',
+        'instanceId' => 'InstanceId',
+        'skillGroupIds' => 'SkillGroupIds',
+        'startTime' => 'StartTime',
     ];
 
     public function validate()

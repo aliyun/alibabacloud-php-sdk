@@ -12,28 +12,32 @@ class StartConferenceRequest extends Model
      * @var string
      */
     public $instanceId;
+
     /**
      * @var string
      */
     public $participantListJson;
+
     /**
      * @var string
      */
     public $tags;
+
     /**
      * @var int
      */
     public $timeoutSeconds;
+
     /**
      * @var string
      */
     public $userId;
     protected $_name = [
-        'instanceId'          => 'InstanceId',
+        'instanceId' => 'InstanceId',
         'participantListJson' => 'ParticipantListJson',
-        'tags'                => 'Tags',
-        'timeoutSeconds'      => 'TimeoutSeconds',
-        'userId'              => 'UserId',
+        'tags' => 'Tags',
+        'timeoutSeconds' => 'TimeoutSeconds',
+        'userId' => 'UserId',
     ];
 
     public function validate()

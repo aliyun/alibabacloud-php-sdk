@@ -12,33 +12,38 @@ class ListCasesRequest extends Model
      * @var string
      */
     public $campaignId;
+
     /**
      * @var string
      */
     public $instanceId;
+
     /**
      * @var int
      */
     public $pageNumber;
+
     /**
      * @var int
      */
     public $pageSize;
+
     /**
      * @var string
      */
     public $phoneNumber;
+
     /**
      * @var string
      */
     public $state;
     protected $_name = [
-        'campaignId'  => 'CampaignId',
-        'instanceId'  => 'InstanceId',
-        'pageNumber'  => 'PageNumber',
-        'pageSize'    => 'PageSize',
+        'campaignId' => 'CampaignId',
+        'instanceId' => 'InstanceId',
+        'pageNumber' => 'PageNumber',
+        'pageSize' => 'PageSize',
         'phoneNumber' => 'PhoneNumber',
-        'state'       => 'State',
+        'state' => 'State',
     ];
 
     public function validate()

@@ -12,28 +12,32 @@ class CreateContactFlowRequest extends Model
      * @var string
      */
     public $definition;
+
     /**
      * @var string
      */
     public $description;
+
     /**
      * @var string
      */
     public $instanceId;
+
     /**
      * @var string
      */
     public $name;
+
     /**
      * @var string
      */
     public $type;
     protected $_name = [
-        'definition'  => 'Definition',
+        'definition' => 'Definition',
         'description' => 'Description',
-        'instanceId'  => 'InstanceId',
-        'name'        => 'Name',
-        'type'        => 'Type',
+        'instanceId' => 'InstanceId',
+        'name' => 'Name',
+        'type' => 'Type',
     ];
 
     public function validate()

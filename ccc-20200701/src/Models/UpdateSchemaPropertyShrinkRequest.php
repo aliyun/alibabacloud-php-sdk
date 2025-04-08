@@ -12,23 +12,26 @@ class UpdateSchemaPropertyShrinkRequest extends Model
      * @var string
      */
     public $instanceId;
+
     /**
      * @var string
      */
     public $propertyShrink;
+
     /**
      * @var string
      */
     public $requestId;
+
     /**
      * @var string
      */
     public $schemaId;
     protected $_name = [
-        'instanceId'     => 'InstanceId',
+        'instanceId' => 'InstanceId',
         'propertyShrink' => 'Property',
-        'requestId'      => 'RequestId',
-        'schemaId'       => 'SchemaId',
+        'requestId' => 'RequestId',
+        'schemaId' => 'SchemaId',
     ];
 
     public function validate()

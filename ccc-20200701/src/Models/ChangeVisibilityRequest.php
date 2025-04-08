@@ -12,18 +12,20 @@ class ChangeVisibilityRequest extends Model
      * @var string
      */
     public $instanceId;
+
     /**
      * @var bool
      */
     public $invisible;
+
     /**
      * @var string
      */
     public $userId;
     protected $_name = [
         'instanceId' => 'InstanceId',
-        'invisible'  => 'Invisible',
-        'userId'     => 'UserId',
+        'invisible' => 'Invisible',
+        'userId' => 'UserId',
     ];
 
     public function validate()

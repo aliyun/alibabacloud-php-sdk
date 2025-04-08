@@ -12,178 +12,212 @@ class list_ extends Model
      * @var string
      */
     public $additionalBroker;
+
     /**
      * @var string
      */
     public $agentIds;
+
     /**
      * @var string
      */
     public $agentNames;
+
     /**
      * @var string
      */
     public $broker;
+
     /**
      * @var string
      */
     public $callDuration;
+
     /**
      * @var string
      */
     public $callIds;
+
     /**
      * @var string
      */
     public $calledNumber;
+
     /**
      * @var string
      */
     public $calleeLocation;
+
     /**
      * @var string
      */
     public $callerLocation;
+
     /**
      * @var string
      */
     public $callingNumber;
+
     /**
      * @var string
      */
     public $contactDisposition;
+
     /**
      * @var string
      */
     public $contactId;
+
     /**
      * @var string
      */
     public $contactType;
+
     /**
      * @var int
      */
     public $dialingTime;
+
     /**
      * @var string
      */
     public $earlyMediaState;
+
     /**
      * @var int
      */
     public $establishedTime;
+
     /**
      * @var int
      */
     public $heldTime;
+
     /**
      * @var string
      */
     public $instanceId;
+
     /**
      * @var int
      */
     public $ivrTime;
+
     /**
      * @var int
      */
     public $queueTime;
+
     /**
      * @var int
      */
     public $recordingDuration;
+
     /**
      * @var bool
      */
     public $recordingReady;
+
     /**
      * @var string
      */
     public $releaseInitiator;
+
     /**
      * @var string
      */
     public $releaseReason;
+
     /**
      * @var int
      */
     public $releaseTime;
+
     /**
      * @var int
      */
     public $ringTime;
+
     /**
      * @var string
      */
     public $satisfactionDescription;
+
     /**
      * @var int
      */
     public $satisfactionIndex;
+
     /**
      * @var string
      */
     public $satisfactionSurveyChannel;
+
     /**
      * @var bool
      */
     public $satisfactionSurveyOffered;
+
     /**
      * @var string
      */
     public $skillGroupIds;
+
     /**
      * @var string
      */
     public $skillGroupNames;
+
     /**
      * @var int
      */
     public $startTime;
+
     /**
      * @var int
      */
     public $talkTime;
+
     /**
      * @var int
      */
     public $waitTime;
     protected $_name = [
-        'additionalBroker'          => 'AdditionalBroker',
-        'agentIds'                  => 'AgentIds',
-        'agentNames'                => 'AgentNames',
-        'broker'                    => 'Broker',
-        'callDuration'              => 'CallDuration',
-        'callIds'                   => 'CallIds',
-        'calledNumber'              => 'CalledNumber',
-        'calleeLocation'            => 'CalleeLocation',
-        'callerLocation'            => 'CallerLocation',
-        'callingNumber'             => 'CallingNumber',
-        'contactDisposition'        => 'ContactDisposition',
-        'contactId'                 => 'ContactId',
-        'contactType'               => 'ContactType',
-        'dialingTime'               => 'DialingTime',
-        'earlyMediaState'           => 'EarlyMediaState',
-        'establishedTime'           => 'EstablishedTime',
-        'heldTime'                  => 'HeldTime',
-        'instanceId'                => 'InstanceId',
-        'ivrTime'                   => 'IvrTime',
-        'queueTime'                 => 'QueueTime',
-        'recordingDuration'         => 'RecordingDuration',
-        'recordingReady'            => 'RecordingReady',
-        'releaseInitiator'          => 'ReleaseInitiator',
-        'releaseReason'             => 'ReleaseReason',
-        'releaseTime'               => 'ReleaseTime',
-        'ringTime'                  => 'RingTime',
-        'satisfactionDescription'   => 'SatisfactionDescription',
-        'satisfactionIndex'         => 'SatisfactionIndex',
+        'additionalBroker' => 'AdditionalBroker',
+        'agentIds' => 'AgentIds',
+        'agentNames' => 'AgentNames',
+        'broker' => 'Broker',
+        'callDuration' => 'CallDuration',
+        'callIds' => 'CallIds',
+        'calledNumber' => 'CalledNumber',
+        'calleeLocation' => 'CalleeLocation',
+        'callerLocation' => 'CallerLocation',
+        'callingNumber' => 'CallingNumber',
+        'contactDisposition' => 'ContactDisposition',
+        'contactId' => 'ContactId',
+        'contactType' => 'ContactType',
+        'dialingTime' => 'DialingTime',
+        'earlyMediaState' => 'EarlyMediaState',
+        'establishedTime' => 'EstablishedTime',
+        'heldTime' => 'HeldTime',
+        'instanceId' => 'InstanceId',
+        'ivrTime' => 'IvrTime',
+        'queueTime' => 'QueueTime',
+        'recordingDuration' => 'RecordingDuration',
+        'recordingReady' => 'RecordingReady',
+        'releaseInitiator' => 'ReleaseInitiator',
+        'releaseReason' => 'ReleaseReason',
+        'releaseTime' => 'ReleaseTime',
+        'ringTime' => 'RingTime',
+        'satisfactionDescription' => 'SatisfactionDescription',
+        'satisfactionIndex' => 'SatisfactionIndex',
         'satisfactionSurveyChannel' => 'SatisfactionSurveyChannel',
         'satisfactionSurveyOffered' => 'SatisfactionSurveyOffered',
-        'skillGroupIds'             => 'SkillGroupIds',
-        'skillGroupNames'           => 'SkillGroupNames',
-        'startTime'                 => 'StartTime',
-        'talkTime'                  => 'TalkTime',
-        'waitTime'                  => 'WaitTime',
+        'skillGroupIds' => 'SkillGroupIds',
+        'skillGroupNames' => 'SkillGroupNames',
+        'startTime' => 'StartTime',
+        'talkTime' => 'TalkTime',
+        'waitTime' => 'WaitTime',
     ];
 
     public function validate()

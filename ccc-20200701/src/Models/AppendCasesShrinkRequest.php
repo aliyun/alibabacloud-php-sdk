@@ -12,10 +12,12 @@ class AppendCasesShrinkRequest extends Model
      * @var string
      */
     public $campaignId;
+
     /**
      * @var string
      */
     public $instanceId;
+
     /**
      * @var string
      */

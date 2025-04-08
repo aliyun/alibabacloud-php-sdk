@@ -12,38 +12,44 @@ class data extends Model
      * @var string
      */
     public $breakCode;
+
     /**
      * @var int
      */
     public $duration;
+
     /**
      * @var bool
      */
     public $outboundScenario;
+
     /**
      * @var int
      */
     public $startTime;
+
     /**
      * @var string
      */
     public $state;
+
     /**
      * @var string
      */
     public $stateCode;
+
     /**
      * @var string
      */
     public $workMode;
     protected $_name = [
-        'breakCode'        => 'BreakCode',
-        'duration'         => 'Duration',
+        'breakCode' => 'BreakCode',
+        'duration' => 'Duration',
         'outboundScenario' => 'OutboundScenario',
-        'startTime'        => 'StartTime',
-        'state'            => 'State',
-        'stateCode'        => 'StateCode',
-        'workMode'         => 'WorkMode',
+        'startTime' => 'StartTime',
+        'state' => 'State',
+        'stateCode' => 'StateCode',
+        'workMode' => 'WorkMode',
     ];
 
     public function validate()

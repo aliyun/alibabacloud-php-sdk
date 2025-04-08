@@ -12,33 +12,38 @@ class ListIntervalSkillGroupReportRequest extends Model
      * @var int
      */
     public $endTime;
+
     /**
      * @var string
      */
     public $instanceId;
+
     /**
      * @var string
      */
     public $interval;
+
     /**
      * @var string
      */
     public $mediaType;
+
     /**
      * @var string
      */
     public $skillGroupId;
+
     /**
      * @var int
      */
     public $startTime;
     protected $_name = [
-        'endTime'      => 'EndTime',
-        'instanceId'   => 'InstanceId',
-        'interval'     => 'Interval',
-        'mediaType'    => 'MediaType',
+        'endTime' => 'EndTime',
+        'instanceId' => 'InstanceId',
+        'interval' => 'Interval',
+        'mediaType' => 'MediaType',
         'skillGroupId' => 'SkillGroupId',
-        'startTime'    => 'StartTime',
+        'startTime' => 'StartTime',
     ];
 
     public function validate()

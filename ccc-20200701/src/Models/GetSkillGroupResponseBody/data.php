@@ -12,32 +12,37 @@ class data extends Model
      * @var string
      */
     public $description;
+
     /**
      * @var string
      */
     public $displayName;
+
     /**
      * @var string
      */
     public $instanceId;
+
     /**
      * @var string
      */
     public $mediaType;
+
     /**
      * @var string
      */
     public $name;
+
     /**
      * @var string
      */
     public $skillGroupId;
     protected $_name = [
-        'description'  => 'Description',
-        'displayName'  => 'DisplayName',
-        'instanceId'   => 'InstanceId',
-        'mediaType'    => 'MediaType',
-        'name'         => 'Name',
+        'description' => 'Description',
+        'displayName' => 'DisplayName',
+        'instanceId' => 'InstanceId',
+        'mediaType' => 'MediaType',
+        'name' => 'Name',
         'skillGroupId' => 'SkillGroupId',
     ];
 

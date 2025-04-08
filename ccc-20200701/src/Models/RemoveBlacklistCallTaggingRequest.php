@@ -12,18 +12,20 @@ class RemoveBlacklistCallTaggingRequest extends Model
      * @var string
      */
     public $instanceId;
+
     /**
      * @var string
      */
     public $jobId;
+
     /**
      * @var string
      */
     public $number;
     protected $_name = [
         'instanceId' => 'InstanceId',
-        'jobId'      => 'JobId',
-        'number'     => 'Number',
+        'jobId' => 'JobId',
+        'number' => 'Number',
     ];
 
     public function validate()

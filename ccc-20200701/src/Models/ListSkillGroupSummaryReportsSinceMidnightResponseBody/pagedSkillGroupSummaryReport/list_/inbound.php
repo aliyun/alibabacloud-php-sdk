@@ -12,188 +12,224 @@ class inbound extends Model
      * @var int
      */
     public $abandonedInQueueOfQueueCount;
+
     /**
      * @var int
      */
     public $answeredByAgentOfQueueCount;
+
     /**
      * @var int
      */
     public $answeredByAgentOfQueueMaxWaitTimeDuration;
+
     /**
      * @var int
      */
     public $answeredByAgentOfQueueWaitTimeDuration;
+
     /**
      * @var int
      */
     public $averageRingTime;
+
     /**
      * @var int
      */
     public $averageTalkTime;
+
     /**
      * @var int
      */
     public $averageWorkTime;
+
     /**
      * @var int
      */
     public $callsAbandoned;
+
     /**
      * @var int
      */
     public $callsAttendedTransferOut;
+
     /**
      * @var int
      */
     public $callsBlindTransferOut;
+
     /**
      * @var int
      */
     public $callsHandled;
+
     /**
      * @var int
      */
     public $callsOffered;
+
     /**
      * @var string
      */
     public $callsOverflow;
+
     /**
      * @var string
      */
     public $callsQueuingCanceled;
+
     /**
      * @var string
      */
     public $callsQueuingFailure;
+
     /**
      * @var string
      */
     public $callsQueuingRerouted;
+
     /**
      * @var int
      */
     public $callsQueuingTimeout;
+
     /**
      * @var int
      */
     public $callsServiceLevel10;
+
     /**
      * @var int
      */
     public $callsServiceLevel20;
+
     /**
      * @var int
      */
     public $callsServiceLevel30;
+
     /**
      * @var int
      */
     public $callsTimeout;
+
     /**
      * @var int
      */
     public $giveUpByAgentOfQueueCount;
+
     /**
      * @var float
      */
     public $handleRate;
+
     /**
      * @var int
      */
     public $inComingQueueOfQueueCount;
+
     /**
      * @var int
      */
     public $maxRingTime;
+
     /**
      * @var string
      */
     public $maxTalkTime;
+
     /**
      * @var int
      */
     public $maxWorkTime;
+
     /**
      * @var int
      */
     public $overFlowInQueueOfQueueCount;
+
     /**
      * @var int
      */
     public $queueMaxWaitTimeDuration;
+
     /**
      * @var int
      */
     public $queueWaitTimeDuration;
+
     /**
      * @var float
      */
     public $satisfactionIndex;
+
     /**
      * @var int
      */
     public $satisfactionSurveysOffered;
+
     /**
      * @var int
      */
     public $satisfactionSurveysResponded;
+
     /**
      * @var float
      */
     public $serviceLevel20;
+
     /**
      * @var int
      */
     public $totalRingTime;
+
     /**
      * @var int
      */
     public $totalTalkTime;
+
     /**
      * @var int
      */
     public $totalWorkTime;
     protected $_name = [
-        'abandonedInQueueOfQueueCount'              => 'AbandonedInQueueOfQueueCount',
-        'answeredByAgentOfQueueCount'               => 'AnsweredByAgentOfQueueCount',
+        'abandonedInQueueOfQueueCount' => 'AbandonedInQueueOfQueueCount',
+        'answeredByAgentOfQueueCount' => 'AnsweredByAgentOfQueueCount',
         'answeredByAgentOfQueueMaxWaitTimeDuration' => 'AnsweredByAgentOfQueueMaxWaitTimeDuration',
-        'answeredByAgentOfQueueWaitTimeDuration'    => 'AnsweredByAgentOfQueueWaitTimeDuration',
-        'averageRingTime'                           => 'AverageRingTime',
-        'averageTalkTime'                           => 'AverageTalkTime',
-        'averageWorkTime'                           => 'AverageWorkTime',
-        'callsAbandoned'                            => 'CallsAbandoned',
-        'callsAttendedTransferOut'                  => 'CallsAttendedTransferOut',
-        'callsBlindTransferOut'                     => 'CallsBlindTransferOut',
-        'callsHandled'                              => 'CallsHandled',
-        'callsOffered'                              => 'CallsOffered',
-        'callsOverflow'                             => 'CallsOverflow',
-        'callsQueuingCanceled'                      => 'CallsQueuingCanceled',
-        'callsQueuingFailure'                       => 'CallsQueuingFailure',
-        'callsQueuingRerouted'                      => 'CallsQueuingRerouted',
-        'callsQueuingTimeout'                       => 'CallsQueuingTimeout',
-        'callsServiceLevel10'                       => 'CallsServiceLevel10',
-        'callsServiceLevel20'                       => 'CallsServiceLevel20',
-        'callsServiceLevel30'                       => 'CallsServiceLevel30',
-        'callsTimeout'                              => 'CallsTimeout',
-        'giveUpByAgentOfQueueCount'                 => 'GiveUpByAgentOfQueueCount',
-        'handleRate'                                => 'HandleRate',
-        'inComingQueueOfQueueCount'                 => 'InComingQueueOfQueueCount',
-        'maxRingTime'                               => 'MaxRingTime',
-        'maxTalkTime'                               => 'MaxTalkTime',
-        'maxWorkTime'                               => 'MaxWorkTime',
-        'overFlowInQueueOfQueueCount'               => 'OverFlowInQueueOfQueueCount',
-        'queueMaxWaitTimeDuration'                  => 'QueueMaxWaitTimeDuration',
-        'queueWaitTimeDuration'                     => 'QueueWaitTimeDuration',
-        'satisfactionIndex'                         => 'SatisfactionIndex',
-        'satisfactionSurveysOffered'                => 'SatisfactionSurveysOffered',
-        'satisfactionSurveysResponded'              => 'SatisfactionSurveysResponded',
-        'serviceLevel20'                            => 'ServiceLevel20',
-        'totalRingTime'                             => 'TotalRingTime',
-        'totalTalkTime'                             => 'TotalTalkTime',
-        'totalWorkTime'                             => 'TotalWorkTime',
+        'answeredByAgentOfQueueWaitTimeDuration' => 'AnsweredByAgentOfQueueWaitTimeDuration',
+        'averageRingTime' => 'AverageRingTime',
+        'averageTalkTime' => 'AverageTalkTime',
+        'averageWorkTime' => 'AverageWorkTime',
+        'callsAbandoned' => 'CallsAbandoned',
+        'callsAttendedTransferOut' => 'CallsAttendedTransferOut',
+        'callsBlindTransferOut' => 'CallsBlindTransferOut',
+        'callsHandled' => 'CallsHandled',
+        'callsOffered' => 'CallsOffered',
+        'callsOverflow' => 'CallsOverflow',
+        'callsQueuingCanceled' => 'CallsQueuingCanceled',
+        'callsQueuingFailure' => 'CallsQueuingFailure',
+        'callsQueuingRerouted' => 'CallsQueuingRerouted',
+        'callsQueuingTimeout' => 'CallsQueuingTimeout',
+        'callsServiceLevel10' => 'CallsServiceLevel10',
+        'callsServiceLevel20' => 'CallsServiceLevel20',
+        'callsServiceLevel30' => 'CallsServiceLevel30',
+        'callsTimeout' => 'CallsTimeout',
+        'giveUpByAgentOfQueueCount' => 'GiveUpByAgentOfQueueCount',
+        'handleRate' => 'HandleRate',
+        'inComingQueueOfQueueCount' => 'InComingQueueOfQueueCount',
+        'maxRingTime' => 'MaxRingTime',
+        'maxTalkTime' => 'MaxTalkTime',
+        'maxWorkTime' => 'MaxWorkTime',
+        'overFlowInQueueOfQueueCount' => 'OverFlowInQueueOfQueueCount',
+        'queueMaxWaitTimeDuration' => 'QueueMaxWaitTimeDuration',
+        'queueWaitTimeDuration' => 'QueueWaitTimeDuration',
+        'satisfactionIndex' => 'SatisfactionIndex',
+        'satisfactionSurveysOffered' => 'SatisfactionSurveysOffered',
+        'satisfactionSurveysResponded' => 'SatisfactionSurveysResponded',
+        'serviceLevel20' => 'ServiceLevel20',
+        'totalRingTime' => 'TotalRingTime',
+        'totalTalkTime' => 'TotalTalkTime',
+        'totalWorkTime' => 'TotalWorkTime',
     ];
 
     public function validate()

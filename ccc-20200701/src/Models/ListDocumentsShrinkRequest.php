@@ -12,38 +12,44 @@ class ListDocumentsShrinkRequest extends Model
      * @var string
      */
     public $instanceId;
+
     /**
      * @var string
      */
     public $nextPageToken;
+
     /**
      * @var int
      */
     public $pageSize;
+
     /**
      * @var string
      */
     public $requestId;
+
     /**
      * @var string
      */
     public $schemaId;
+
     /**
      * @var string
      */
     public $searchPattern;
+
     /**
      * @var string
      */
     public $sortsShrink;
     protected $_name = [
-        'instanceId'    => 'InstanceId',
+        'instanceId' => 'InstanceId',
         'nextPageToken' => 'NextPageToken',
-        'pageSize'      => 'PageSize',
-        'requestId'     => 'RequestId',
-        'schemaId'      => 'SchemaId',
+        'pageSize' => 'PageSize',
+        'requestId' => 'RequestId',
+        'schemaId' => 'SchemaId',
         'searchPattern' => 'SearchPattern',
-        'sortsShrink'   => 'Sorts',
+        'sortsShrink' => 'Sorts',
     ];
 
     public function validate()

@@ -12,28 +12,32 @@ class MuteCallRequest extends Model
      * @var string
      */
     public $channelId;
+
     /**
      * @var string
      */
     public $deviceId;
+
     /**
      * @var string
      */
     public $instanceId;
+
     /**
      * @var string
      */
     public $jobId;
+
     /**
      * @var string
      */
     public $userId;
     protected $_name = [
-        'channelId'  => 'ChannelId',
-        'deviceId'   => 'DeviceId',
+        'channelId' => 'ChannelId',
+        'deviceId' => 'DeviceId',
         'instanceId' => 'InstanceId',
-        'jobId'      => 'JobId',
-        'userId'     => 'UserId',
+        'jobId' => 'JobId',
+        'userId' => 'UserId',
     ];
 
     public function validate()

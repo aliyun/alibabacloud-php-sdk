@@ -12,43 +12,50 @@ class chatContexts extends Model
      * @var string
      */
     public $accessChannelId;
+
     /**
      * @var string
      */
     public $accessChannelName;
+
     /**
      * @var string
      */
     public $accessChannelType;
+
     /**
      * @var bool
      */
     public $beingAssigned;
+
     /**
      * @var string
      */
     public $callVariables;
+
     /**
      * @var string
      */
     public $chatType;
+
     /**
      * @var string
      */
     public $instanceId;
+
     /**
      * @var string
      */
     public $jobId;
     protected $_name = [
-        'accessChannelId'   => 'AccessChannelId',
+        'accessChannelId' => 'AccessChannelId',
         'accessChannelName' => 'AccessChannelName',
         'accessChannelType' => 'AccessChannelType',
-        'beingAssigned'     => 'BeingAssigned',
-        'callVariables'     => 'CallVariables',
-        'chatType'          => 'ChatType',
-        'instanceId'        => 'InstanceId',
-        'jobId'             => 'JobId',
+        'beingAssigned' => 'BeingAssigned',
+        'callVariables' => 'CallVariables',
+        'chatType' => 'ChatType',
+        'instanceId' => 'InstanceId',
+        'jobId' => 'JobId',
     ];
 
     public function validate()

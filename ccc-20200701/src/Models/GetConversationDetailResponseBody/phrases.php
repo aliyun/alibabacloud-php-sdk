@@ -12,33 +12,38 @@ class phrases extends Model
      * @var int
      */
     public $begin;
+
     /**
      * @var int
      */
     public $end;
+
     /**
      * @var bool
      */
     public $finished;
+
     /**
      * @var string
      */
     public $identity;
+
     /**
      * @var string
      */
     public $role;
+
     /**
      * @var string
      */
     public $words;
     protected $_name = [
-        'begin'    => 'Begin',
-        'end'      => 'End',
+        'begin' => 'Begin',
+        'end' => 'End',
         'finished' => 'Finished',
         'identity' => 'Identity',
-        'role'     => 'Role',
-        'words'    => 'Words',
+        'role' => 'Role',
+        'words' => 'Words',
     ];
 
     public function validate()

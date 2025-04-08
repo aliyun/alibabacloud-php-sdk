@@ -12,43 +12,50 @@ class ListVoicemailsRequest extends Model
      * @var string
      */
     public $caller;
+
     /**
      * @var string
      */
     public $contactId;
+
     /**
      * @var int
      */
     public $endTime;
+
     /**
      * @var string
      */
     public $instanceId;
+
     /**
      * @var string
      */
     public $name;
+
     /**
      * @var int
      */
     public $pageNumber;
+
     /**
      * @var int
      */
     public $pageSize;
+
     /**
      * @var int
      */
     public $startTime;
     protected $_name = [
-        'caller'     => 'Caller',
-        'contactId'  => 'ContactId',
-        'endTime'    => 'EndTime',
+        'caller' => 'Caller',
+        'contactId' => 'ContactId',
+        'endTime' => 'EndTime',
         'instanceId' => 'InstanceId',
-        'name'       => 'Name',
+        'name' => 'Name',
         'pageNumber' => 'PageNumber',
-        'pageSize'   => 'PageSize',
-        'startTime'  => 'StartTime',
+        'pageSize' => 'PageSize',
+        'startTime' => 'StartTime',
     ];
 
     public function validate()

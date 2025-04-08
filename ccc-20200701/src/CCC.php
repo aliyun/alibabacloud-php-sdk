@@ -361,6 +361,8 @@ use AlibabaCloud\SDK\CCC\V20200701\Models\ListUserLevelsOfSkillGroupRequest;
 use AlibabaCloud\SDK\CCC\V20200701\Models\ListUserLevelsOfSkillGroupResponse;
 use AlibabaCloud\SDK\CCC\V20200701\Models\ListUsersRequest;
 use AlibabaCloud\SDK\CCC\V20200701\Models\ListUsersResponse;
+use AlibabaCloud\SDK\CCC\V20200701\Models\ListVisitorChatMessagesRequest;
+use AlibabaCloud\SDK\CCC\V20200701\Models\ListVisitorChatMessagesResponse;
 use AlibabaCloud\SDK\CCC\V20200701\Models\ListVoicemailsRequest;
 use AlibabaCloud\SDK\CCC\V20200701\Models\ListVoicemailsResponse;
 use AlibabaCloud\SDK\CCC\V20200701\Models\ListWaitingChatsRequest;
@@ -514,29 +516,29 @@ class CCC extends OpenApiClient
     {
         parent::__construct($config);
         $this->_endpointRule = 'regional';
-        $this->_endpointMap  = [
-            'ap-northeast-1'        => 'ccc.aliyuncs.com',
-            'ap-south-1'            => 'ccc.aliyuncs.com',
-            'ap-southeast-1'        => 'ccc.aliyuncs.com',
-            'ap-southeast-2'        => 'ccc.aliyuncs.com',
-            'ap-southeast-3'        => 'ccc.aliyuncs.com',
-            'ap-southeast-5'        => 'ccc.aliyuncs.com',
-            'cn-beijing'            => 'ccc.aliyuncs.com',
-            'cn-chengdu'            => 'ccc.aliyuncs.com',
-            'cn-hongkong'           => 'ccc.aliyuncs.com',
-            'cn-huhehaote'          => 'ccc.aliyuncs.com',
-            'cn-qingdao'            => 'ccc.aliyuncs.com',
-            'cn-shenzhen'           => 'ccc.aliyuncs.com',
-            'cn-zhangjiakou'        => 'ccc.aliyuncs.com',
-            'eu-central-1'          => 'ccc.aliyuncs.com',
-            'eu-west-1'             => 'ccc.aliyuncs.com',
-            'me-east-1'             => 'ccc.aliyuncs.com',
-            'us-east-1'             => 'ccc.aliyuncs.com',
-            'us-west-1'             => 'ccc.aliyuncs.com',
-            'cn-hangzhou-finance'   => 'ccc.aliyuncs.com',
+        $this->_endpointMap = [
+            'ap-northeast-1' => 'ccc.aliyuncs.com',
+            'ap-south-1' => 'ccc.aliyuncs.com',
+            'ap-southeast-1' => 'ccc.aliyuncs.com',
+            'ap-southeast-2' => 'ccc.aliyuncs.com',
+            'ap-southeast-3' => 'ccc.aliyuncs.com',
+            'ap-southeast-5' => 'ccc.aliyuncs.com',
+            'cn-beijing' => 'ccc.aliyuncs.com',
+            'cn-chengdu' => 'ccc.aliyuncs.com',
+            'cn-hongkong' => 'ccc.aliyuncs.com',
+            'cn-huhehaote' => 'ccc.aliyuncs.com',
+            'cn-qingdao' => 'ccc.aliyuncs.com',
+            'cn-shenzhen' => 'ccc.aliyuncs.com',
+            'cn-zhangjiakou' => 'ccc.aliyuncs.com',
+            'eu-central-1' => 'ccc.aliyuncs.com',
+            'eu-west-1' => 'ccc.aliyuncs.com',
+            'me-east-1' => 'ccc.aliyuncs.com',
+            'us-east-1' => 'ccc.aliyuncs.com',
+            'us-west-1' => 'ccc.aliyuncs.com',
+            'cn-hangzhou-finance' => 'ccc.aliyuncs.com',
             'cn-shenzhen-finance-1' => 'ccc.aliyuncs.com',
             'cn-shanghai-finance-1' => 'ccc.aliyuncs.com',
-            'cn-north-2-gov-1'      => 'ccc.aliyuncs.com',
+            'cn-north-2-gov-1' => 'ccc.aliyuncs.com',
         ];
         $this->checkConfig($config);
         $this->_endpoint = $this->getEndpoint('ccc', $this->_regionId, $this->_endpointRule, $this->_network, $this->_suffix, $this->_endpointMap, $this->_endpoint);
@@ -571,6 +573,7 @@ class CCC extends OpenApiClient
      *
      * @param request - AbortCampaignRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns AbortCampaignResponse
      *
      * @param AbortCampaignRequest $request
@@ -594,15 +597,15 @@ class CCC extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'AbortCampaign',
-            'version'     => '2020-07-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'AbortCampaign',
+            'version' => '2020-07-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return AbortCampaignResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -615,6 +618,7 @@ class CCC extends OpenApiClient
      * 废弃预测式外呼活动.
      *
      * @param request - AbortCampaignRequest
+     *
      * @returns AbortCampaignResponse
      *
      * @param AbortCampaignRequest $request
@@ -631,6 +635,7 @@ class CCC extends OpenApiClient
     /**
      * @param request - AcceptChatRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns AcceptChatResponse
      *
      * @param AcceptChatRequest $request
@@ -654,15 +659,15 @@ class CCC extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'AcceptChat',
-            'version'     => '2020-07-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'AcceptChat',
+            'version' => '2020-07-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return AcceptChatResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -673,6 +678,7 @@ class CCC extends OpenApiClient
 
     /**
      * @param request - AcceptChatRequest
+     *
      * @returns AcceptChatResponse
      *
      * @param AcceptChatRequest $request
@@ -691,6 +697,7 @@ class CCC extends OpenApiClient
      *
      * @param request - AddBlacklistCallTaggingRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns AddBlacklistCallTaggingResponse
      *
      * @param AddBlacklistCallTaggingRequest $request
@@ -718,15 +725,15 @@ class CCC extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'AddBlacklistCallTagging',
-            'version'     => '2020-07-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'AddBlacklistCallTagging',
+            'version' => '2020-07-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return AddBlacklistCallTaggingResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -739,6 +746,7 @@ class CCC extends OpenApiClient
      * 编辑呼入控制号码
      *
      * @param request - AddBlacklistCallTaggingRequest
+     *
      * @returns AddBlacklistCallTaggingResponse
      *
      * @param AddBlacklistCallTaggingRequest $request
@@ -757,6 +765,7 @@ class CCC extends OpenApiClient
      *
      * @param tmpReq - AddCasesRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns AddCasesResponse
      *
      * @param AddCasesRequest $tmpReq
@@ -790,15 +799,15 @@ class CCC extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'AddCases',
-            'version'     => '2020-07-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'AddCases',
+            'version' => '2020-07-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return AddCasesResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -811,6 +820,7 @@ class CCC extends OpenApiClient
      * 追加联系人.
      *
      * @param request - AddCasesRequest
+     *
      * @returns AddCasesResponse
      *
      * @param AddCasesRequest $request
@@ -827,6 +837,7 @@ class CCC extends OpenApiClient
     /**
      * @param request - AddFeedbackRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns AddFeedbackResponse
      *
      * @param AddFeedbackRequest $request
@@ -862,15 +873,15 @@ class CCC extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'AddFeedback',
-            'version'     => '2020-07-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'AddFeedback',
+            'version' => '2020-07-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return AddFeedbackResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -881,6 +892,7 @@ class CCC extends OpenApiClient
 
     /**
      * @param request - AddFeedbackRequest
+     *
      * @returns AddFeedbackResponse
      *
      * @param AddFeedbackRequest $request
@@ -897,6 +909,7 @@ class CCC extends OpenApiClient
     /**
      * @param request - AddNumbersToSkillGroupRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns AddNumbersToSkillGroupResponse
      *
      * @param AddNumbersToSkillGroupRequest $request
@@ -928,15 +941,15 @@ class CCC extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'AddNumbersToSkillGroup',
-            'version'     => '2020-07-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'AddNumbersToSkillGroup',
+            'version' => '2020-07-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return AddNumbersToSkillGroupResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -947,6 +960,7 @@ class CCC extends OpenApiClient
 
     /**
      * @param request - AddNumbersToSkillGroupRequest
+     *
      * @returns AddNumbersToSkillGroupResponse
      *
      * @param AddNumbersToSkillGroupRequest $request
@@ -963,6 +977,7 @@ class CCC extends OpenApiClient
     /**
      * @param request - AddPersonalNumbersToUserRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns AddPersonalNumbersToUserResponse
      *
      * @param AddPersonalNumbersToUserRequest $request
@@ -990,15 +1005,15 @@ class CCC extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'AddPersonalNumbersToUser',
-            'version'     => '2020-07-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'AddPersonalNumbersToUser',
+            'version' => '2020-07-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return AddPersonalNumbersToUserResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -1009,6 +1024,7 @@ class CCC extends OpenApiClient
 
     /**
      * @param request - AddPersonalNumbersToUserRequest
+     *
      * @returns AddPersonalNumbersToUserResponse
      *
      * @param AddPersonalNumbersToUserRequest $request
@@ -1025,6 +1041,7 @@ class CCC extends OpenApiClient
     /**
      * @param request - AddPhoneNumberToSkillGroupsRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns AddPhoneNumberToSkillGroupsResponse
      *
      * @param AddPhoneNumberToSkillGroupsRequest $request
@@ -1052,15 +1069,15 @@ class CCC extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'AddPhoneNumberToSkillGroups',
-            'version'     => '2020-07-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'AddPhoneNumberToSkillGroups',
+            'version' => '2020-07-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return AddPhoneNumberToSkillGroupsResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -1071,6 +1088,7 @@ class CCC extends OpenApiClient
 
     /**
      * @param request - AddPhoneNumberToSkillGroupsRequest
+     *
      * @returns AddPhoneNumberToSkillGroupsResponse
      *
      * @param AddPhoneNumberToSkillGroupsRequest $request
@@ -1087,6 +1105,7 @@ class CCC extends OpenApiClient
     /**
      * @param request - AddPhoneNumbersRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns AddPhoneNumbersResponse
      *
      * @param AddPhoneNumbersRequest $request
@@ -1122,15 +1141,15 @@ class CCC extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'AddPhoneNumbers',
-            'version'     => '2020-07-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'AddPhoneNumbers',
+            'version' => '2020-07-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return AddPhoneNumbersResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -1141,6 +1160,7 @@ class CCC extends OpenApiClient
 
     /**
      * @param request - AddPhoneNumbersRequest
+     *
      * @returns AddPhoneNumbersResponse
      *
      * @param AddPhoneNumbersRequest $request
@@ -1157,6 +1177,7 @@ class CCC extends OpenApiClient
     /**
      * @param tmpReq - AddSchemaPropertyRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns AddSchemaPropertyResponse
      *
      * @param AddSchemaPropertyRequest $tmpReq
@@ -1194,15 +1215,15 @@ class CCC extends OpenApiClient
             'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'AddSchemaProperty',
-            'version'     => '2020-07-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'AddSchemaProperty',
+            'version' => '2020-07-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return AddSchemaPropertyResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -1213,6 +1234,7 @@ class CCC extends OpenApiClient
 
     /**
      * @param request - AddSchemaPropertyRequest
+     *
      * @returns AddSchemaPropertyResponse
      *
      * @param AddSchemaPropertyRequest $request
@@ -1229,6 +1251,7 @@ class CCC extends OpenApiClient
     /**
      * @param request - AddSkillGroupsToUserRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns AddSkillGroupsToUserResponse
      *
      * @param AddSkillGroupsToUserRequest $request
@@ -1256,15 +1279,15 @@ class CCC extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'AddSkillGroupsToUser',
-            'version'     => '2020-07-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'AddSkillGroupsToUser',
+            'version' => '2020-07-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return AddSkillGroupsToUserResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -1275,6 +1298,7 @@ class CCC extends OpenApiClient
 
     /**
      * @param request - AddSkillGroupsToUserRequest
+     *
      * @returns AddSkillGroupsToUserResponse
      *
      * @param AddSkillGroupsToUserRequest $request
@@ -1291,6 +1315,7 @@ class CCC extends OpenApiClient
     /**
      * @param request - AddTicketTaskRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns AddTicketTaskResponse
      *
      * @param AddTicketTaskRequest $request
@@ -1330,15 +1355,15 @@ class CCC extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'AddTicketTask',
-            'version'     => '2020-07-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'AddTicketTask',
+            'version' => '2020-07-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return AddTicketTaskResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -1349,6 +1374,7 @@ class CCC extends OpenApiClient
 
     /**
      * @param request - AddTicketTaskRequest
+     *
      * @returns AddTicketTaskResponse
      *
      * @param AddTicketTaskRequest $request
@@ -1365,6 +1391,7 @@ class CCC extends OpenApiClient
     /**
      * @param request - AddUsersToSkillGroupRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns AddUsersToSkillGroupResponse
      *
      * @param AddUsersToSkillGroupRequest $request
@@ -1392,15 +1419,15 @@ class CCC extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'AddUsersToSkillGroup',
-            'version'     => '2020-07-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'AddUsersToSkillGroup',
+            'version' => '2020-07-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return AddUsersToSkillGroupResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -1411,6 +1438,7 @@ class CCC extends OpenApiClient
 
     /**
      * @param request - AddUsersToSkillGroupRequest
+     *
      * @returns AddUsersToSkillGroupResponse
      *
      * @param AddUsersToSkillGroupRequest $request
@@ -1427,6 +1455,7 @@ class CCC extends OpenApiClient
     /**
      * @param request - AnalyzeConversationRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns AnalyzeConversationResponse
      *
      * @param AnalyzeConversationRequest $request
@@ -1458,15 +1487,15 @@ class CCC extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'AnalyzeConversation',
-            'version'     => '2020-07-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'AnalyzeConversation',
+            'version' => '2020-07-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return AnalyzeConversationResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -1477,6 +1506,7 @@ class CCC extends OpenApiClient
 
     /**
      * @param request - AnalyzeConversationRequest
+     *
      * @returns AnalyzeConversationResponse
      *
      * @param AnalyzeConversationRequest $request
@@ -1493,6 +1523,7 @@ class CCC extends OpenApiClient
     /**
      * @param request - AnswerCallRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns AnswerCallResponse
      *
      * @param AnswerCallRequest $request
@@ -1524,15 +1555,15 @@ class CCC extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'AnswerCall',
-            'version'     => '2020-07-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'AnswerCall',
+            'version' => '2020-07-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return AnswerCallResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -1543,6 +1574,7 @@ class CCC extends OpenApiClient
 
     /**
      * @param request - AnswerCallRequest
+     *
      * @returns AnswerCallResponse
      *
      * @param AnswerCallRequest $request
@@ -1561,6 +1593,7 @@ class CCC extends OpenApiClient
      *
      * @param tmpReq - AppendCasesRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns AppendCasesResponse
      *
      * @param AppendCasesRequest $tmpReq
@@ -1593,18 +1626,18 @@ class CCC extends OpenApiClient
 
         $req = new OpenApiRequest([
             'query' => Utils::query($query),
-            'body'  => Utils::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'AppendCases',
-            'version'     => '2020-07-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'AppendCases',
+            'version' => '2020-07-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return AppendCasesResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -1617,6 +1650,7 @@ class CCC extends OpenApiClient
      * 追加联系人.
      *
      * @param request - AppendCasesRequest
+     *
      * @returns AppendCasesResponse
      *
      * @param AppendCasesRequest $request
@@ -1631,12 +1665,12 @@ class CCC extends OpenApiClient
     }
 
     // Deprecated
-
     /**
      * @deprecated openAPI AssignUsers is deprecated, please use CCC::2020-07-01::ImportRamUsers instead
      *
      * @param request - AssignUsersRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns AssignUsersResponse
      *
      * @param AssignUsersRequest $request
@@ -1672,15 +1706,15 @@ class CCC extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'AssignUsers',
-            'version'     => '2020-07-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'AssignUsers',
+            'version' => '2020-07-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return AssignUsersResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -1690,11 +1724,11 @@ class CCC extends OpenApiClient
     }
 
     // Deprecated
-
     /**
      * @deprecated openAPI AssignUsers is deprecated, please use CCC::2020-07-01::ImportRamUsers instead
      *
      * @param request - AssignUsersRequest
+     *
      * @returns AssignUsersResponse
      *
      * @param AssignUsersRequest $request
@@ -1711,6 +1745,7 @@ class CCC extends OpenApiClient
     /**
      * @param request - BargeInCallRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns BargeInCallResponse
      *
      * @param BargeInCallRequest $request
@@ -1750,15 +1785,15 @@ class CCC extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'BargeInCall',
-            'version'     => '2020-07-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'BargeInCall',
+            'version' => '2020-07-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return BargeInCallResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -1769,6 +1804,7 @@ class CCC extends OpenApiClient
 
     /**
      * @param request - BargeInCallRequest
+     *
      * @returns BargeInCallResponse
      *
      * @param BargeInCallRequest $request
@@ -1785,6 +1821,7 @@ class CCC extends OpenApiClient
     /**
      * @param request - BlindTransferRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns BlindTransferResponse
      *
      * @param BlindTransferRequest $request
@@ -1868,15 +1905,15 @@ class CCC extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'BlindTransfer',
-            'version'     => '2020-07-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'BlindTransfer',
+            'version' => '2020-07-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return BlindTransferResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -1887,6 +1924,7 @@ class CCC extends OpenApiClient
 
     /**
      * @param request - BlindTransferRequest
+     *
      * @returns BlindTransferResponse
      *
      * @param BlindTransferRequest $request
@@ -1903,6 +1941,7 @@ class CCC extends OpenApiClient
     /**
      * @param request - BridgeRtcCallRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns BridgeRtcCallResponse
      *
      * @param BridgeRtcCallRequest $request
@@ -1954,15 +1993,15 @@ class CCC extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'BridgeRtcCall',
-            'version'     => '2020-07-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'BridgeRtcCall',
+            'version' => '2020-07-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return BridgeRtcCallResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -1973,6 +2012,7 @@ class CCC extends OpenApiClient
 
     /**
      * @param request - BridgeRtcCallRequest
+     *
      * @returns BridgeRtcCallResponse
      *
      * @param BridgeRtcCallRequest $request
@@ -1989,6 +2029,7 @@ class CCC extends OpenApiClient
     /**
      * @param request - CancelAttendedTransferRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns CancelAttendedTransferResponse
      *
      * @param CancelAttendedTransferRequest $request
@@ -2020,15 +2061,15 @@ class CCC extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'CancelAttendedTransfer',
-            'version'     => '2020-07-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CancelAttendedTransfer',
+            'version' => '2020-07-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return CancelAttendedTransferResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -2039,6 +2080,7 @@ class CCC extends OpenApiClient
 
     /**
      * @param request - CancelAttendedTransferRequest
+     *
      * @returns CancelAttendedTransferResponse
      *
      * @param CancelAttendedTransferRequest $request
@@ -2055,6 +2097,7 @@ class CCC extends OpenApiClient
     /**
      * @param request - ChangeVisibilityRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ChangeVisibilityResponse
      *
      * @param ChangeVisibilityRequest $request
@@ -2082,15 +2125,15 @@ class CCC extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ChangeVisibility',
-            'version'     => '2020-07-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ChangeVisibility',
+            'version' => '2020-07-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return ChangeVisibilityResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -2101,6 +2144,7 @@ class CCC extends OpenApiClient
 
     /**
      * @param request - ChangeVisibilityRequest
+     *
      * @returns ChangeVisibilityResponse
      *
      * @param ChangeVisibilityRequest $request
@@ -2117,6 +2161,7 @@ class CCC extends OpenApiClient
     /**
      * @param request - ChangeWorkModeRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ChangeWorkModeResponse
      *
      * @param ChangeWorkModeRequest $request
@@ -2156,15 +2201,15 @@ class CCC extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ChangeWorkMode',
-            'version'     => '2020-07-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ChangeWorkMode',
+            'version' => '2020-07-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return ChangeWorkModeResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -2175,6 +2220,7 @@ class CCC extends OpenApiClient
 
     /**
      * @param request - ChangeWorkModeRequest
+     *
      * @returns ChangeWorkModeResponse
      *
      * @param ChangeWorkModeRequest $request
@@ -2191,6 +2237,7 @@ class CCC extends OpenApiClient
     /**
      * @param request - ClaimChatRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ClaimChatResponse
      *
      * @param ClaimChatRequest $request
@@ -2218,15 +2265,15 @@ class CCC extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ClaimChat',
-            'version'     => '2020-07-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ClaimChat',
+            'version' => '2020-07-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return ClaimChatResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -2237,6 +2284,7 @@ class CCC extends OpenApiClient
 
     /**
      * @param request - ClaimChatRequest
+     *
      * @returns ClaimChatResponse
      *
      * @param ClaimChatRequest $request
@@ -2253,6 +2301,7 @@ class CCC extends OpenApiClient
     /**
      * @param request - CoachCallRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns CoachCallResponse
      *
      * @param CoachCallRequest $request
@@ -2292,15 +2341,15 @@ class CCC extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'CoachCall',
-            'version'     => '2020-07-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CoachCall',
+            'version' => '2020-07-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return CoachCallResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -2311,6 +2360,7 @@ class CCC extends OpenApiClient
 
     /**
      * @param request - CoachCallRequest
+     *
      * @returns CoachCallResponse
      *
      * @param CoachCallRequest $request
@@ -2327,6 +2377,7 @@ class CCC extends OpenApiClient
     /**
      * @param request - CommitContactFlowRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns CommitContactFlowResponse
      *
      * @param CommitContactFlowRequest $request
@@ -2362,15 +2413,15 @@ class CCC extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'CommitContactFlow',
-            'version'     => '2020-07-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CommitContactFlow',
+            'version' => '2020-07-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return CommitContactFlowResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -2381,6 +2432,7 @@ class CCC extends OpenApiClient
 
     /**
      * @param request - CommitContactFlowRequest
+     *
      * @returns CommitContactFlowResponse
      *
      * @param CommitContactFlowRequest $request
@@ -2397,6 +2449,7 @@ class CCC extends OpenApiClient
     /**
      * @param request - CompleteAttendedTransferRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns CompleteAttendedTransferResponse
      *
      * @param CompleteAttendedTransferRequest $request
@@ -2428,15 +2481,15 @@ class CCC extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'CompleteAttendedTransfer',
-            'version'     => '2020-07-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CompleteAttendedTransfer',
+            'version' => '2020-07-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return CompleteAttendedTransferResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -2447,6 +2500,7 @@ class CCC extends OpenApiClient
 
     /**
      * @param request - CompleteAttendedTransferRequest
+     *
      * @returns CompleteAttendedTransferResponse
      *
      * @param CompleteAttendedTransferRequest $request
@@ -2463,6 +2517,7 @@ class CCC extends OpenApiClient
     /**
      * @param request - CreateAudioFileRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns CreateAudioFileResponse
      *
      * @param CreateAudioFileRequest $request
@@ -2498,15 +2553,15 @@ class CCC extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'CreateAudioFile',
-            'version'     => '2020-07-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CreateAudioFile',
+            'version' => '2020-07-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return CreateAudioFileResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -2517,6 +2572,7 @@ class CCC extends OpenApiClient
 
     /**
      * @param request - CreateAudioFileRequest
+     *
      * @returns CreateAudioFileResponse
      *
      * @param CreateAudioFileRequest $request
@@ -2533,6 +2589,7 @@ class CCC extends OpenApiClient
     /**
      * @param request - CreateCallSummaryRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns CreateCallSummaryResponse
      *
      * @param CreateCallSummaryRequest $request
@@ -2564,15 +2621,15 @@ class CCC extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'CreateCallSummary',
-            'version'     => '2020-07-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CreateCallSummary',
+            'version' => '2020-07-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return CreateCallSummaryResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -2583,6 +2640,7 @@ class CCC extends OpenApiClient
 
     /**
      * @param request - CreateCallSummaryRequest
+     *
      * @returns CreateCallSummaryResponse
      *
      * @param CreateCallSummaryRequest $request
@@ -2601,6 +2659,7 @@ class CCC extends OpenApiClient
      *
      * @param request - CreateCallTagsRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns CreateCallTagsResponse
      *
      * @param CreateCallTagsRequest $request
@@ -2624,15 +2683,15 @@ class CCC extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'CreateCallTags',
-            'version'     => '2020-07-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CreateCallTags',
+            'version' => '2020-07-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return CreateCallTagsResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -2645,6 +2704,7 @@ class CCC extends OpenApiClient
      * 批量创建号码标签.
      *
      * @param request - CreateCallTagsRequest
+     *
      * @returns CreateCallTagsResponse
      *
      * @param CreateCallTagsRequest $request
@@ -2663,6 +2723,7 @@ class CCC extends OpenApiClient
      *
      * @param tmpReq - CreateCampaignRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns CreateCampaignResponse
      *
      * @param CreateCampaignRequest $tmpReq
@@ -2748,15 +2809,15 @@ class CCC extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'CreateCampaign',
-            'version'     => '2020-07-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CreateCampaign',
+            'version' => '2020-07-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return CreateCampaignResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -2769,6 +2830,7 @@ class CCC extends OpenApiClient
      * 创建预测式外呼活动.
      *
      * @param request - CreateCampaignRequest
+     *
      * @returns CreateCampaignResponse
      *
      * @param CreateCampaignRequest $request
@@ -2785,6 +2847,7 @@ class CCC extends OpenApiClient
     /**
      * @param request - CreateChatMediaUrlRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns CreateChatMediaUrlResponse
      *
      * @param CreateChatMediaUrlRequest $request
@@ -2812,15 +2875,15 @@ class CCC extends OpenApiClient
             'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'CreateChatMediaUrl',
-            'version'     => '2020-07-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CreateChatMediaUrl',
+            'version' => '2020-07-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return CreateChatMediaUrlResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -2831,6 +2894,7 @@ class CCC extends OpenApiClient
 
     /**
      * @param request - CreateChatMediaUrlRequest
+     *
      * @returns CreateChatMediaUrlResponse
      *
      * @param CreateChatMediaUrlRequest $request
@@ -2847,6 +2911,7 @@ class CCC extends OpenApiClient
     /**
      * @param request - CreateContactFlowRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns CreateContactFlowResponse
      *
      * @param CreateContactFlowRequest $request
@@ -2882,15 +2947,15 @@ class CCC extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'CreateContactFlow',
-            'version'     => '2020-07-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CreateContactFlow',
+            'version' => '2020-07-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return CreateContactFlowResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -2901,6 +2966,7 @@ class CCC extends OpenApiClient
 
     /**
      * @param request - CreateContactFlowRequest
+     *
      * @returns CreateContactFlowResponse
      *
      * @param CreateContactFlowRequest $request
@@ -2915,7 +2981,6 @@ class CCC extends OpenApiClient
     }
 
     // Deprecated
-
     /**
      * 创建呼入控制号码
      *
@@ -2923,6 +2988,7 @@ class CCC extends OpenApiClient
      *
      * @param request - CreateCustomCallTaggingRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns CreateCustomCallTaggingResponse
      *
      * @param CreateCustomCallTaggingRequest $request
@@ -2946,15 +3012,15 @@ class CCC extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'CreateCustomCallTagging',
-            'version'     => '2020-07-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CreateCustomCallTagging',
+            'version' => '2020-07-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return CreateCustomCallTaggingResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -2964,13 +3030,13 @@ class CCC extends OpenApiClient
     }
 
     // Deprecated
-
     /**
      * 创建呼入控制号码
      *
      * @deprecated openAPI CreateCustomCallTagging is deprecated, please use CCC::2020-07-01::CreateCustomCallTaggings instead
      *
      * @param request - CreateCustomCallTaggingRequest
+     *
      * @returns CreateCustomCallTaggingResponse
      *
      * @param CreateCustomCallTaggingRequest $request
@@ -2987,6 +3053,7 @@ class CCC extends OpenApiClient
     /**
      * @param request - CreateInstanceRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns CreateInstanceResponse
      *
      * @param CreateInstanceRequest $request
@@ -3022,15 +3089,15 @@ class CCC extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'CreateInstance',
-            'version'     => '2020-07-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CreateInstance',
+            'version' => '2020-07-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return CreateInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -3041,6 +3108,7 @@ class CCC extends OpenApiClient
 
     /**
      * @param request - CreateInstanceRequest
+     *
      * @returns CreateInstanceResponse
      *
      * @param CreateInstanceRequest $request
@@ -3057,6 +3125,7 @@ class CCC extends OpenApiClient
     /**
      * @param tmpReq - CreateSchemaRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns CreateSchemaResponse
      *
      * @param CreateSchemaRequest $tmpReq
@@ -3098,15 +3167,15 @@ class CCC extends OpenApiClient
             'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'CreateSchema',
-            'version'     => '2020-07-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CreateSchema',
+            'version' => '2020-07-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return CreateSchemaResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -3117,6 +3186,7 @@ class CCC extends OpenApiClient
 
     /**
      * @param request - CreateSchemaRequest
+     *
      * @returns CreateSchemaResponse
      *
      * @param CreateSchemaRequest $request
@@ -3133,6 +3203,7 @@ class CCC extends OpenApiClient
     /**
      * @param request - CreateSkillGroupRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns CreateSkillGroupResponse
      *
      * @param CreateSkillGroupRequest $request
@@ -3168,15 +3239,15 @@ class CCC extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'CreateSkillGroup',
-            'version'     => '2020-07-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CreateSkillGroup',
+            'version' => '2020-07-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return CreateSkillGroupResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -3187,6 +3258,7 @@ class CCC extends OpenApiClient
 
     /**
      * @param request - CreateSkillGroupRequest
+     *
      * @returns CreateSkillGroupResponse
      *
      * @param CreateSkillGroupRequest $request
@@ -3203,6 +3275,7 @@ class CCC extends OpenApiClient
     /**
      * @param request - CreateTicketRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns CreateTicketResponse
      *
      * @param CreateTicketRequest $request
@@ -3246,15 +3319,15 @@ class CCC extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'CreateTicket',
-            'version'     => '2020-07-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CreateTicket',
+            'version' => '2020-07-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return CreateTicketResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -3265,6 +3338,7 @@ class CCC extends OpenApiClient
 
     /**
      * @param request - CreateTicketRequest
+     *
      * @returns CreateTicketResponse
      *
      * @param CreateTicketRequest $request
@@ -3281,6 +3355,7 @@ class CCC extends OpenApiClient
     /**
      * @param request - CreateUserRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns CreateUserResponse
      *
      * @param CreateUserRequest $request
@@ -3344,15 +3419,15 @@ class CCC extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'CreateUser',
-            'version'     => '2020-07-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CreateUser',
+            'version' => '2020-07-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return CreateUserResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -3363,6 +3438,7 @@ class CCC extends OpenApiClient
 
     /**
      * @param request - CreateUserRequest
+     *
      * @returns CreateUserResponse
      *
      * @param CreateUserRequest $request
@@ -3379,6 +3455,7 @@ class CCC extends OpenApiClient
     /**
      * @param request - DeleteAudioFileRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DeleteAudioFileResponse
      *
      * @param DeleteAudioFileRequest $request
@@ -3402,15 +3479,15 @@ class CCC extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DeleteAudioFile',
-            'version'     => '2020-07-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DeleteAudioFile',
+            'version' => '2020-07-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DeleteAudioFileResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -3421,6 +3498,7 @@ class CCC extends OpenApiClient
 
     /**
      * @param request - DeleteAudioFileRequest
+     *
      * @returns DeleteAudioFileResponse
      *
      * @param DeleteAudioFileRequest $request
@@ -3439,6 +3517,7 @@ class CCC extends OpenApiClient
      *
      * @param request - DeleteCallTagRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DeleteCallTagResponse
      *
      * @param DeleteCallTagRequest $request
@@ -3462,15 +3541,15 @@ class CCC extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DeleteCallTag',
-            'version'     => '2020-07-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DeleteCallTag',
+            'version' => '2020-07-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DeleteCallTagResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -3483,6 +3562,7 @@ class CCC extends OpenApiClient
      * 删除号码标签.
      *
      * @param request - DeleteCallTagRequest
+     *
      * @returns DeleteCallTagResponse
      *
      * @param DeleteCallTagRequest $request
@@ -3499,6 +3579,7 @@ class CCC extends OpenApiClient
     /**
      * @param request - DeleteContactFlowRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DeleteContactFlowResponse
      *
      * @param DeleteContactFlowRequest $request
@@ -3522,15 +3603,15 @@ class CCC extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DeleteContactFlow',
-            'version'     => '2020-07-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DeleteContactFlow',
+            'version' => '2020-07-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DeleteContactFlowResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -3541,6 +3622,7 @@ class CCC extends OpenApiClient
 
     /**
      * @param request - DeleteContactFlowRequest
+     *
      * @returns DeleteContactFlowResponse
      *
      * @param DeleteContactFlowRequest $request
@@ -3559,6 +3641,7 @@ class CCC extends OpenApiClient
      *
      * @param request - DeleteCustomCallTaggingRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DeleteCustomCallTaggingResponse
      *
      * @param DeleteCustomCallTaggingRequest $request
@@ -3582,15 +3665,15 @@ class CCC extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DeleteCustomCallTagging',
-            'version'     => '2020-07-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DeleteCustomCallTagging',
+            'version' => '2020-07-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DeleteCustomCallTaggingResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -3603,6 +3686,7 @@ class CCC extends OpenApiClient
      * 删除呼入控制号码
      *
      * @param request - DeleteCustomCallTaggingRequest
+     *
      * @returns DeleteCustomCallTaggingResponse
      *
      * @param DeleteCustomCallTaggingRequest $request
@@ -3619,6 +3703,7 @@ class CCC extends OpenApiClient
     /**
      * @param request - DeleteDocumentRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DeleteDocumentResponse
      *
      * @param DeleteDocumentRequest $request
@@ -3650,15 +3735,15 @@ class CCC extends OpenApiClient
             'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'DeleteDocument',
-            'version'     => '2020-07-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DeleteDocument',
+            'version' => '2020-07-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DeleteDocumentResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -3669,6 +3754,7 @@ class CCC extends OpenApiClient
 
     /**
      * @param request - DeleteDocumentRequest
+     *
      * @returns DeleteDocumentResponse
      *
      * @param DeleteDocumentRequest $request
@@ -3685,6 +3771,7 @@ class CCC extends OpenApiClient
     /**
      * @param tmpReq - DeleteDocumentsRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DeleteDocumentsResponse
      *
      * @param DeleteDocumentsRequest $tmpReq
@@ -3722,15 +3809,15 @@ class CCC extends OpenApiClient
             'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'DeleteDocuments',
-            'version'     => '2020-07-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DeleteDocuments',
+            'version' => '2020-07-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DeleteDocumentsResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -3741,6 +3828,7 @@ class CCC extends OpenApiClient
 
     /**
      * @param request - DeleteDocumentsRequest
+     *
      * @returns DeleteDocumentsResponse
      *
      * @param DeleteDocumentsRequest $request
@@ -3757,6 +3845,7 @@ class CCC extends OpenApiClient
     /**
      * @param request - DeleteInstanceRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DeleteInstanceResponse
      *
      * @param DeleteInstanceRequest $request
@@ -3776,15 +3865,15 @@ class CCC extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DeleteInstance',
-            'version'     => '2020-07-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DeleteInstance',
+            'version' => '2020-07-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DeleteInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -3795,6 +3884,7 @@ class CCC extends OpenApiClient
 
     /**
      * @param request - DeleteInstanceRequest
+     *
      * @returns DeleteInstanceResponse
      *
      * @param DeleteInstanceRequest $request
@@ -3811,6 +3901,7 @@ class CCC extends OpenApiClient
     /**
      * @param request - DeleteSchemaRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DeleteSchemaResponse
      *
      * @param DeleteSchemaRequest $request
@@ -3838,15 +3929,15 @@ class CCC extends OpenApiClient
             'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'DeleteSchema',
-            'version'     => '2020-07-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DeleteSchema',
+            'version' => '2020-07-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DeleteSchemaResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -3857,6 +3948,7 @@ class CCC extends OpenApiClient
 
     /**
      * @param request - DeleteSchemaRequest
+     *
      * @returns DeleteSchemaResponse
      *
      * @param DeleteSchemaRequest $request
@@ -3873,6 +3965,7 @@ class CCC extends OpenApiClient
     /**
      * @param request - DeleteSchemaPropertyRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DeleteSchemaPropertyResponse
      *
      * @param DeleteSchemaPropertyRequest $request
@@ -3904,15 +3997,15 @@ class CCC extends OpenApiClient
             'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'DeleteSchemaProperty',
-            'version'     => '2020-07-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DeleteSchemaProperty',
+            'version' => '2020-07-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DeleteSchemaPropertyResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -3923,6 +4016,7 @@ class CCC extends OpenApiClient
 
     /**
      * @param request - DeleteSchemaPropertyRequest
+     *
      * @returns DeleteSchemaPropertyResponse
      *
      * @param DeleteSchemaPropertyRequest $request
@@ -3939,6 +4033,7 @@ class CCC extends OpenApiClient
     /**
      * @param request - DeleteSkillGroupRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DeleteSkillGroupResponse
      *
      * @param DeleteSkillGroupRequest $request
@@ -3966,15 +4061,15 @@ class CCC extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DeleteSkillGroup',
-            'version'     => '2020-07-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DeleteSkillGroup',
+            'version' => '2020-07-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DeleteSkillGroupResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -3985,6 +4080,7 @@ class CCC extends OpenApiClient
 
     /**
      * @param request - DeleteSkillGroupRequest
+     *
      * @returns DeleteSkillGroupResponse
      *
      * @param DeleteSkillGroupRequest $request
@@ -4001,6 +4097,7 @@ class CCC extends OpenApiClient
     /**
      * @param request - DeleteTicketRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DeleteTicketResponse
      *
      * @param DeleteTicketRequest $request
@@ -4024,15 +4121,15 @@ class CCC extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DeleteTicket',
-            'version'     => '2020-07-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DeleteTicket',
+            'version' => '2020-07-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DeleteTicketResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -4043,6 +4140,7 @@ class CCC extends OpenApiClient
 
     /**
      * @param request - DeleteTicketRequest
+     *
      * @returns DeleteTicketResponse
      *
      * @param DeleteTicketRequest $request
@@ -4059,6 +4157,7 @@ class CCC extends OpenApiClient
     /**
      * @param request - DeleteTicketTemplateRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DeleteTicketTemplateResponse
      *
      * @param DeleteTicketTemplateRequest $request
@@ -4082,15 +4181,15 @@ class CCC extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DeleteTicketTemplate',
-            'version'     => '2020-07-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DeleteTicketTemplate',
+            'version' => '2020-07-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DeleteTicketTemplateResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -4101,6 +4200,7 @@ class CCC extends OpenApiClient
 
     /**
      * @param request - DeleteTicketTemplateRequest
+     *
      * @returns DeleteTicketTemplateResponse
      *
      * @param DeleteTicketTemplateRequest $request
@@ -4117,6 +4217,7 @@ class CCC extends OpenApiClient
     /**
      * @param request - DisableSchemaPropertyRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DisableSchemaPropertyResponse
      *
      * @param DisableSchemaPropertyRequest $request
@@ -4148,15 +4249,15 @@ class CCC extends OpenApiClient
             'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'DisableSchemaProperty',
-            'version'     => '2020-07-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DisableSchemaProperty',
+            'version' => '2020-07-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DisableSchemaPropertyResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -4167,6 +4268,7 @@ class CCC extends OpenApiClient
 
     /**
      * @param request - DisableSchemaPropertyRequest
+     *
      * @returns DisableSchemaPropertyResponse
      *
      * @param DisableSchemaPropertyRequest $request
@@ -4183,6 +4285,7 @@ class CCC extends OpenApiClient
     /**
      * @param request - DisableTicketTemplateRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DisableTicketTemplateResponse
      *
      * @param DisableTicketTemplateRequest $request
@@ -4206,15 +4309,15 @@ class CCC extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DisableTicketTemplate',
-            'version'     => '2020-07-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DisableTicketTemplate',
+            'version' => '2020-07-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DisableTicketTemplateResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -4225,6 +4328,7 @@ class CCC extends OpenApiClient
 
     /**
      * @param request - DisableTicketTemplateRequest
+     *
      * @returns DisableTicketTemplateResponse
      *
      * @param DisableTicketTemplateRequest $request
@@ -4241,6 +4345,7 @@ class CCC extends OpenApiClient
     /**
      * @param request - DiscardEditingContactFlowRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DiscardEditingContactFlowResponse
      *
      * @param DiscardEditingContactFlowRequest $request
@@ -4268,15 +4373,15 @@ class CCC extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DiscardEditingContactFlow',
-            'version'     => '2020-07-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DiscardEditingContactFlow',
+            'version' => '2020-07-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DiscardEditingContactFlowResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -4287,6 +4392,7 @@ class CCC extends OpenApiClient
 
     /**
      * @param request - DiscardEditingContactFlowRequest
+     *
      * @returns DiscardEditingContactFlowResponse
      *
      * @param DiscardEditingContactFlowRequest $request
@@ -4303,6 +4409,7 @@ class CCC extends OpenApiClient
     /**
      * @param request - EnableSchemaPropertyRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns EnableSchemaPropertyResponse
      *
      * @param EnableSchemaPropertyRequest $request
@@ -4334,15 +4441,15 @@ class CCC extends OpenApiClient
             'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'EnableSchemaProperty',
-            'version'     => '2020-07-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'EnableSchemaProperty',
+            'version' => '2020-07-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return EnableSchemaPropertyResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -4353,6 +4460,7 @@ class CCC extends OpenApiClient
 
     /**
      * @param request - EnableSchemaPropertyRequest
+     *
      * @returns EnableSchemaPropertyResponse
      *
      * @param EnableSchemaPropertyRequest $request
@@ -4369,6 +4477,7 @@ class CCC extends OpenApiClient
     /**
      * @param request - EnableTicketTemplateRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns EnableTicketTemplateResponse
      *
      * @param EnableTicketTemplateRequest $request
@@ -4392,15 +4501,15 @@ class CCC extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'EnableTicketTemplate',
-            'version'     => '2020-07-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'EnableTicketTemplate',
+            'version' => '2020-07-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return EnableTicketTemplateResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -4411,6 +4520,7 @@ class CCC extends OpenApiClient
 
     /**
      * @param request - EnableTicketTemplateRequest
+     *
      * @returns EnableTicketTemplateResponse
      *
      * @param EnableTicketTemplateRequest $request
@@ -4427,6 +4537,7 @@ class CCC extends OpenApiClient
     /**
      * @param request - EndConferenceRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns EndConferenceResponse
      *
      * @param EndConferenceRequest $request
@@ -4454,15 +4565,15 @@ class CCC extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'EndConference',
-            'version'     => '2020-07-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'EndConference',
+            'version' => '2020-07-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return EndConferenceResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -4473,6 +4584,7 @@ class CCC extends OpenApiClient
 
     /**
      * @param request - EndConferenceRequest
+     *
      * @returns EndConferenceResponse
      *
      * @param EndConferenceRequest $request
@@ -4489,6 +4601,7 @@ class CCC extends OpenApiClient
     /**
      * @param request - ExportContactFlowRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ExportContactFlowResponse
      *
      * @param ExportContactFlowRequest $request
@@ -4516,15 +4629,15 @@ class CCC extends OpenApiClient
             'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'ExportContactFlow',
-            'version'     => '2020-07-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ExportContactFlow',
+            'version' => '2020-07-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return ExportContactFlowResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -4535,6 +4648,7 @@ class CCC extends OpenApiClient
 
     /**
      * @param request - ExportContactFlowRequest
+     *
      * @returns ExportContactFlowResponse
      *
      * @param ExportContactFlowRequest $request
@@ -4549,7 +4663,6 @@ class CCC extends OpenApiClient
     }
 
     // Deprecated
-
     /**
      * 导出全部呼入号码标签.
      *
@@ -4557,6 +4670,7 @@ class CCC extends OpenApiClient
      *
      * @param request - ExportCustomCallTaggingRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ExportCustomCallTaggingResponse
      *
      * @param ExportCustomCallTaggingRequest $request
@@ -4576,15 +4690,15 @@ class CCC extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ExportCustomCallTagging',
-            'version'     => '2020-07-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ExportCustomCallTagging',
+            'version' => '2020-07-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return ExportCustomCallTaggingResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -4594,13 +4708,13 @@ class CCC extends OpenApiClient
     }
 
     // Deprecated
-
     /**
      * 导出全部呼入号码标签.
      *
      * @deprecated openAPI ExportCustomCallTagging is deprecated, please use CCC::2020-07-01::ExportCustomCallTaggings instead
      *
      * @param request - ExportCustomCallTaggingRequest
+     *
      * @returns ExportCustomCallTaggingResponse
      *
      * @param ExportCustomCallTaggingRequest $request
@@ -4619,6 +4733,7 @@ class CCC extends OpenApiClient
      *
      * @param request - ExportDoNotCallNumbersRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ExportDoNotCallNumbersResponse
      *
      * @param ExportDoNotCallNumbersRequest $request
@@ -4646,15 +4761,15 @@ class CCC extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ExportDoNotCallNumbers',
-            'version'     => '2020-07-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ExportDoNotCallNumbers',
+            'version' => '2020-07-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return ExportDoNotCallNumbersResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -4667,6 +4782,7 @@ class CCC extends OpenApiClient
      * 导出黑名单号码
      *
      * @param request - ExportDoNotCallNumbersRequest
+     *
      * @returns ExportDoNotCallNumbersResponse
      *
      * @param ExportDoNotCallNumbersRequest $request
@@ -4683,6 +4799,7 @@ class CCC extends OpenApiClient
     /**
      * @param request - FinishTicketTaskRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns FinishTicketTaskResponse
      *
      * @param FinishTicketTaskRequest $request
@@ -4714,15 +4831,15 @@ class CCC extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'FinishTicketTask',
-            'version'     => '2020-07-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'FinishTicketTask',
+            'version' => '2020-07-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return FinishTicketTaskResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -4733,6 +4850,7 @@ class CCC extends OpenApiClient
 
     /**
      * @param request - FinishTicketTaskRequest
+     *
      * @returns FinishTicketTaskResponse
      *
      * @param FinishTicketTaskRequest $request
@@ -4751,6 +4869,7 @@ class CCC extends OpenApiClient
      *
      * @param request - GetAccessChannelOfStagingRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns GetAccessChannelOfStagingResponse
      *
      * @param GetAccessChannelOfStagingRequest $request
@@ -4762,19 +4881,19 @@ class CCC extends OpenApiClient
     {
         $request->validate();
         $query = Utils::query($request->toMap());
-        $req   = new OpenApiRequest([
+        $req = new OpenApiRequest([
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'GetAccessChannelOfStaging',
-            'version'     => '2020-07-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetAccessChannelOfStaging',
+            'version' => '2020-07-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return GetAccessChannelOfStagingResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -4787,6 +4906,7 @@ class CCC extends OpenApiClient
      * GetAccessChannelOfStaging.
      *
      * @param request - GetAccessChannelOfStagingRequest
+     *
      * @returns GetAccessChannelOfStagingResponse
      *
      * @param GetAccessChannelOfStagingRequest $request
@@ -4805,6 +4925,7 @@ class CCC extends OpenApiClient
      *
      * @param request - GetAudioFileRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns GetAudioFileResponse
      *
      * @param GetAudioFileRequest $request
@@ -4828,15 +4949,15 @@ class CCC extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'GetAudioFile',
-            'version'     => '2020-07-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetAudioFile',
+            'version' => '2020-07-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return GetAudioFileResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -4849,6 +4970,7 @@ class CCC extends OpenApiClient
      * 获取音频文件.
      *
      * @param request - GetAudioFileRequest
+     *
      * @returns GetAudioFileResponse
      *
      * @param GetAudioFileRequest $request
@@ -4865,6 +4987,7 @@ class CCC extends OpenApiClient
     /**
      * @param request - GetAudioFileDownloadUrlRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns GetAudioFileDownloadUrlResponse
      *
      * @param GetAudioFileDownloadUrlRequest $request
@@ -4888,15 +5011,15 @@ class CCC extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'GetAudioFileDownloadUrl',
-            'version'     => '2020-07-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetAudioFileDownloadUrl',
+            'version' => '2020-07-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return GetAudioFileDownloadUrlResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -4907,6 +5030,7 @@ class CCC extends OpenApiClient
 
     /**
      * @param request - GetAudioFileDownloadUrlRequest
+     *
      * @returns GetAudioFileDownloadUrlResponse
      *
      * @param GetAudioFileDownloadUrlRequest $request
@@ -4923,6 +5047,7 @@ class CCC extends OpenApiClient
     /**
      * @param request - GetAudioFileUploadParametersRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns GetAudioFileUploadParametersResponse
      *
      * @param GetAudioFileUploadParametersRequest $request
@@ -4946,15 +5071,15 @@ class CCC extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'GetAudioFileUploadParameters',
-            'version'     => '2020-07-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetAudioFileUploadParameters',
+            'version' => '2020-07-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return GetAudioFileUploadParametersResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -4965,6 +5090,7 @@ class CCC extends OpenApiClient
 
     /**
      * @param request - GetAudioFileUploadParametersRequest
+     *
      * @returns GetAudioFileUploadParametersResponse
      *
      * @param GetAudioFileUploadParametersRequest $request
@@ -4981,6 +5107,7 @@ class CCC extends OpenApiClient
     /**
      * @param request - GetCallDetailRecordRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns GetCallDetailRecordResponse
      *
      * @param GetCallDetailRecordRequest $request
@@ -5004,15 +5131,15 @@ class CCC extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'GetCallDetailRecord',
-            'version'     => '2020-07-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetCallDetailRecord',
+            'version' => '2020-07-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return GetCallDetailRecordResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -5023,6 +5150,7 @@ class CCC extends OpenApiClient
 
     /**
      * @param request - GetCallDetailRecordRequest
+     *
      * @returns GetCallDetailRecordResponse
      *
      * @param GetCallDetailRecordRequest $request
@@ -5041,6 +5169,7 @@ class CCC extends OpenApiClient
      *
      * @param request - GetCampaignRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns GetCampaignResponse
      *
      * @param GetCampaignRequest $request
@@ -5064,15 +5193,15 @@ class CCC extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'GetCampaign',
-            'version'     => '2020-07-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetCampaign',
+            'version' => '2020-07-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return GetCampaignResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -5085,6 +5214,7 @@ class CCC extends OpenApiClient
      * 获取预测式外呼活动信息.
      *
      * @param request - GetCampaignRequest
+     *
      * @returns GetCampaignResponse
      *
      * @param GetCampaignRequest $request
@@ -5101,6 +5231,7 @@ class CCC extends OpenApiClient
     /**
      * @param request - GetCaseFileUploadUrlRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns GetCaseFileUploadUrlResponse
      *
      * @param GetCaseFileUploadUrlRequest $request
@@ -5124,15 +5255,15 @@ class CCC extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'GetCaseFileUploadUrl',
-            'version'     => '2020-07-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetCaseFileUploadUrl',
+            'version' => '2020-07-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return GetCaseFileUploadUrlResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -5143,6 +5274,7 @@ class CCC extends OpenApiClient
 
     /**
      * @param request - GetCaseFileUploadUrlRequest
+     *
      * @returns GetCaseFileUploadUrlResponse
      *
      * @param GetCaseFileUploadUrlRequest $request
@@ -5159,6 +5291,7 @@ class CCC extends OpenApiClient
     /**
      * @param request - GetChatMediaUrlRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns GetChatMediaUrlResponse
      *
      * @param GetChatMediaUrlRequest $request
@@ -5186,15 +5319,15 @@ class CCC extends OpenApiClient
             'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'GetChatMediaUrl',
-            'version'     => '2020-07-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetChatMediaUrl',
+            'version' => '2020-07-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return GetChatMediaUrlResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -5205,6 +5338,7 @@ class CCC extends OpenApiClient
 
     /**
      * @param request - GetChatMediaUrlRequest
+     *
      * @returns GetChatMediaUrlResponse
      *
      * @param GetChatMediaUrlRequest $request
@@ -5221,6 +5355,7 @@ class CCC extends OpenApiClient
     /**
      * @param request - GetChatRoutingProfileRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns GetChatRoutingProfileResponse
      *
      * @param GetChatRoutingProfileRequest $request
@@ -5240,15 +5375,15 @@ class CCC extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'GetChatRoutingProfile',
-            'version'     => '2020-07-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetChatRoutingProfile',
+            'version' => '2020-07-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return GetChatRoutingProfileResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -5259,6 +5394,7 @@ class CCC extends OpenApiClient
 
     /**
      * @param request - GetChatRoutingProfileRequest
+     *
      * @returns GetChatRoutingProfileResponse
      *
      * @param GetChatRoutingProfileRequest $request
@@ -5275,6 +5411,7 @@ class CCC extends OpenApiClient
     /**
      * @param request - GetContactFlowRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns GetContactFlowResponse
      *
      * @param GetContactFlowRequest $request
@@ -5302,15 +5439,15 @@ class CCC extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'GetContactFlow',
-            'version'     => '2020-07-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetContactFlow',
+            'version' => '2020-07-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return GetContactFlowResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -5321,6 +5458,7 @@ class CCC extends OpenApiClient
 
     /**
      * @param request - GetContactFlowRequest
+     *
      * @returns GetContactFlowResponse
      *
      * @param GetContactFlowRequest $request
@@ -5339,6 +5477,7 @@ class CCC extends OpenApiClient
      *
      * @param request - GetConversationDetailRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns GetConversationDetailResponse
      *
      * @param GetConversationDetailRequest $request
@@ -5362,15 +5501,15 @@ class CCC extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'GetConversationDetail',
-            'version'     => '2020-07-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetConversationDetail',
+            'version' => '2020-07-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return GetConversationDetailResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -5383,6 +5522,7 @@ class CCC extends OpenApiClient
      * 获取通话文本信息.
      *
      * @param request - GetConversationDetailRequest
+     *
      * @returns GetConversationDetailResponse
      *
      * @param GetConversationDetailRequest $request
@@ -5399,6 +5539,7 @@ class CCC extends OpenApiClient
     /**
      * @param request - GetDataChannelCredentialsRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns GetDataChannelCredentialsResponse
      *
      * @param GetDataChannelCredentialsRequest $request
@@ -5422,15 +5563,15 @@ class CCC extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'GetDataChannelCredentials',
-            'version'     => '2020-07-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetDataChannelCredentials',
+            'version' => '2020-07-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return GetDataChannelCredentialsResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -5441,6 +5582,7 @@ class CCC extends OpenApiClient
 
     /**
      * @param request - GetDataChannelCredentialsRequest
+     *
      * @returns GetDataChannelCredentialsResponse
      *
      * @param GetDataChannelCredentialsRequest $request
@@ -5459,6 +5601,7 @@ class CCC extends OpenApiClient
      *
      * @param request - GetDoNotCallFileUploadParametersRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns GetDoNotCallFileUploadParametersResponse
      *
      * @param GetDoNotCallFileUploadParametersRequest $request
@@ -5482,15 +5625,15 @@ class CCC extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'GetDoNotCallFileUploadParameters',
-            'version'     => '2020-07-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetDoNotCallFileUploadParameters',
+            'version' => '2020-07-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return GetDoNotCallFileUploadParametersResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -5503,6 +5646,7 @@ class CCC extends OpenApiClient
      * 获取黑名单文件上传地址
      *
      * @param request - GetDoNotCallFileUploadParametersRequest
+     *
      * @returns GetDoNotCallFileUploadParametersResponse
      *
      * @param GetDoNotCallFileUploadParametersRequest $request
@@ -5519,6 +5663,7 @@ class CCC extends OpenApiClient
     /**
      * @param request - GetDocumentUploadParametersRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns GetDocumentUploadParametersResponse
      *
      * @param GetDocumentUploadParametersRequest $request
@@ -5546,15 +5691,15 @@ class CCC extends OpenApiClient
             'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'GetDocumentUploadParameters',
-            'version'     => '2020-07-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetDocumentUploadParameters',
+            'version' => '2020-07-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return GetDocumentUploadParametersResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -5565,6 +5710,7 @@ class CCC extends OpenApiClient
 
     /**
      * @param request - GetDocumentUploadParametersRequest
+     *
      * @returns GetDocumentUploadParametersResponse
      *
      * @param GetDocumentUploadParametersRequest $request
@@ -5583,6 +5729,7 @@ class CCC extends OpenApiClient
      *
      * @param request - GetEarlyMediaRecordingRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns GetEarlyMediaRecordingResponse
      *
      * @param GetEarlyMediaRecordingRequest $request
@@ -5606,15 +5753,15 @@ class CCC extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'GetEarlyMediaRecording',
-            'version'     => '2020-07-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetEarlyMediaRecording',
+            'version' => '2020-07-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return GetEarlyMediaRecordingResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -5627,6 +5774,7 @@ class CCC extends OpenApiClient
      * 获取早媒体音频.
      *
      * @param request - GetEarlyMediaRecordingRequest
+     *
      * @returns GetEarlyMediaRecordingResponse
      *
      * @param GetEarlyMediaRecordingRequest $request
@@ -5643,6 +5791,7 @@ class CCC extends OpenApiClient
     /**
      * @param request - GetHistoricalCallerReportRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns GetHistoricalCallerReportResponse
      *
      * @param GetHistoricalCallerReportRequest $request
@@ -5674,15 +5823,15 @@ class CCC extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'GetHistoricalCallerReport',
-            'version'     => '2020-07-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetHistoricalCallerReport',
+            'version' => '2020-07-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return GetHistoricalCallerReportResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -5693,6 +5842,7 @@ class CCC extends OpenApiClient
 
     /**
      * @param request - GetHistoricalCallerReportRequest
+     *
      * @returns GetHistoricalCallerReportResponse
      *
      * @param GetHistoricalCallerReportRequest $request
@@ -5711,6 +5861,7 @@ class CCC extends OpenApiClient
      *
      * @param request - GetHistoricalCampaignReportRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns GetHistoricalCampaignReportResponse
      *
      * @param GetHistoricalCampaignReportRequest $request
@@ -5722,19 +5873,19 @@ class CCC extends OpenApiClient
     {
         $request->validate();
         $query = Utils::query($request->toMap());
-        $req   = new OpenApiRequest([
+        $req = new OpenApiRequest([
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'GetHistoricalCampaignReport',
-            'version'     => '2020-07-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetHistoricalCampaignReport',
+            'version' => '2020-07-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return GetHistoricalCampaignReportResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -5747,6 +5898,7 @@ class CCC extends OpenApiClient
      * 获取预测式外呼活动历史报表.
      *
      * @param request - GetHistoricalCampaignReportRequest
+     *
      * @returns GetHistoricalCampaignReportResponse
      *
      * @param GetHistoricalCampaignReportRequest $request
@@ -5763,6 +5915,7 @@ class CCC extends OpenApiClient
     /**
      * @param request - GetHistoricalInstanceReportRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns GetHistoricalInstanceReportResponse
      *
      * @param GetHistoricalInstanceReportRequest $request
@@ -5794,15 +5947,15 @@ class CCC extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'GetHistoricalInstanceReport',
-            'version'     => '2020-07-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetHistoricalInstanceReport',
+            'version' => '2020-07-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return GetHistoricalInstanceReportResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -5813,6 +5966,7 @@ class CCC extends OpenApiClient
 
     /**
      * @param request - GetHistoricalInstanceReportRequest
+     *
      * @returns GetHistoricalInstanceReportResponse
      *
      * @param GetHistoricalInstanceReportRequest $request
@@ -5829,6 +5983,7 @@ class CCC extends OpenApiClient
     /**
      * @param request - GetInstanceRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns GetInstanceResponse
      *
      * @param GetInstanceRequest $request
@@ -5848,15 +6003,15 @@ class CCC extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'GetInstance',
-            'version'     => '2020-07-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetInstance',
+            'version' => '2020-07-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return GetInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -5867,6 +6022,7 @@ class CCC extends OpenApiClient
 
     /**
      * @param request - GetInstanceRequest
+     *
      * @returns GetInstanceResponse
      *
      * @param GetInstanceRequest $request
@@ -5883,6 +6039,7 @@ class CCC extends OpenApiClient
     /**
      * @param request - GetInstanceTrendingReportRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns GetInstanceTrendingReportResponse
      *
      * @param GetInstanceTrendingReportRequest $request
@@ -5914,15 +6071,15 @@ class CCC extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'GetInstanceTrendingReport',
-            'version'     => '2020-07-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetInstanceTrendingReport',
+            'version' => '2020-07-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return GetInstanceTrendingReportResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -5933,6 +6090,7 @@ class CCC extends OpenApiClient
 
     /**
      * @param request - GetInstanceTrendingReportRequest
+     *
      * @returns GetInstanceTrendingReportResponse
      *
      * @param GetInstanceTrendingReportRequest $request
@@ -5949,6 +6107,7 @@ class CCC extends OpenApiClient
     /**
      * @param request - GetIvrTrackingSummaryRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns GetIvrTrackingSummaryResponse
      *
      * @param GetIvrTrackingSummaryRequest $request
@@ -5972,15 +6131,15 @@ class CCC extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'GetIvrTrackingSummary',
-            'version'     => '2020-07-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetIvrTrackingSummary',
+            'version' => '2020-07-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return GetIvrTrackingSummaryResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -5991,6 +6150,7 @@ class CCC extends OpenApiClient
 
     /**
      * @param request - GetIvrTrackingSummaryRequest
+     *
      * @returns GetIvrTrackingSummaryResponse
      *
      * @param GetIvrTrackingSummaryRequest $request
@@ -6007,6 +6167,7 @@ class CCC extends OpenApiClient
     /**
      * @param request - GetLoginDetailsRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns GetLoginDetailsResponse
      *
      * @param GetLoginDetailsRequest $request
@@ -6034,15 +6195,15 @@ class CCC extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'GetLoginDetails',
-            'version'     => '2020-07-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetLoginDetails',
+            'version' => '2020-07-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return GetLoginDetailsResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -6053,6 +6214,7 @@ class CCC extends OpenApiClient
 
     /**
      * @param request - GetLoginDetailsRequest
+     *
      * @returns GetLoginDetailsResponse
      *
      * @param GetLoginDetailsRequest $request
@@ -6069,6 +6231,7 @@ class CCC extends OpenApiClient
     /**
      * @param request - GetMonoRecordingRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns GetMonoRecordingResponse
      *
      * @param GetMonoRecordingRequest $request
@@ -6096,15 +6259,15 @@ class CCC extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'GetMonoRecording',
-            'version'     => '2020-07-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetMonoRecording',
+            'version' => '2020-07-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return GetMonoRecordingResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -6115,6 +6278,7 @@ class CCC extends OpenApiClient
 
     /**
      * @param request - GetMonoRecordingRequest
+     *
      * @returns GetMonoRecordingResponse
      *
      * @param GetMonoRecordingRequest $request
@@ -6131,6 +6295,7 @@ class CCC extends OpenApiClient
     /**
      * @param request - GetMultiChannelRecordingRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns GetMultiChannelRecordingResponse
      *
      * @param GetMultiChannelRecordingRequest $request
@@ -6154,15 +6319,15 @@ class CCC extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'GetMultiChannelRecording',
-            'version'     => '2020-07-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetMultiChannelRecording',
+            'version' => '2020-07-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return GetMultiChannelRecordingResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -6173,6 +6338,7 @@ class CCC extends OpenApiClient
 
     /**
      * @param request - GetMultiChannelRecordingRequest
+     *
      * @returns GetMultiChannelRecordingResponse
      *
      * @param GetMultiChannelRecordingRequest $request
@@ -6189,6 +6355,7 @@ class CCC extends OpenApiClient
     /**
      * @param request - GetNumberLocationRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns GetNumberLocationResponse
      *
      * @param GetNumberLocationRequest $request
@@ -6212,15 +6379,15 @@ class CCC extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'GetNumberLocation',
-            'version'     => '2020-07-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetNumberLocation',
+            'version' => '2020-07-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return GetNumberLocationResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -6231,6 +6398,7 @@ class CCC extends OpenApiClient
 
     /**
      * @param request - GetNumberLocationRequest
+     *
      * @returns GetNumberLocationResponse
      *
      * @param GetNumberLocationRequest $request
@@ -6249,6 +6417,7 @@ class CCC extends OpenApiClient
      *
      * @param request - GetRealtimeCampaignStatsRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns GetRealtimeCampaignStatsResponse
      *
      * @param GetRealtimeCampaignStatsRequest $request
@@ -6260,19 +6429,19 @@ class CCC extends OpenApiClient
     {
         $request->validate();
         $query = Utils::query($request->toMap());
-        $req   = new OpenApiRequest([
+        $req = new OpenApiRequest([
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'GetRealtimeCampaignStats',
-            'version'     => '2020-07-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetRealtimeCampaignStats',
+            'version' => '2020-07-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return GetRealtimeCampaignStatsResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -6285,6 +6454,7 @@ class CCC extends OpenApiClient
      * 获取预测式外呼实时状态
      *
      * @param request - GetRealtimeCampaignStatsRequest
+     *
      * @returns GetRealtimeCampaignStatsResponse
      *
      * @param GetRealtimeCampaignStatsRequest $request
@@ -6301,6 +6471,7 @@ class CCC extends OpenApiClient
     /**
      * @param request - GetRealtimeInstanceStatesRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns GetRealtimeInstanceStatesResponse
      *
      * @param GetRealtimeInstanceStatesRequest $request
@@ -6324,15 +6495,15 @@ class CCC extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'GetRealtimeInstanceStates',
-            'version'     => '2020-07-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetRealtimeInstanceStates',
+            'version' => '2020-07-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return GetRealtimeInstanceStatesResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -6343,6 +6514,7 @@ class CCC extends OpenApiClient
 
     /**
      * @param request - GetRealtimeInstanceStatesRequest
+     *
      * @returns GetRealtimeInstanceStatesResponse
      *
      * @param GetRealtimeInstanceStatesRequest $request
@@ -6359,6 +6531,7 @@ class CCC extends OpenApiClient
     /**
      * @param request - GetSchemaRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns GetSchemaResponse
      *
      * @param GetSchemaRequest $request
@@ -6386,15 +6559,15 @@ class CCC extends OpenApiClient
             'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'GetSchema',
-            'version'     => '2020-07-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetSchema',
+            'version' => '2020-07-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return GetSchemaResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -6405,6 +6578,7 @@ class CCC extends OpenApiClient
 
     /**
      * @param request - GetSchemaRequest
+     *
      * @returns GetSchemaResponse
      *
      * @param GetSchemaRequest $request
@@ -6423,6 +6597,7 @@ class CCC extends OpenApiClient
      *
      * @param request - GetSkillGroupRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns GetSkillGroupResponse
      *
      * @param GetSkillGroupRequest $request
@@ -6446,15 +6621,15 @@ class CCC extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'GetSkillGroup',
-            'version'     => '2020-07-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetSkillGroup',
+            'version' => '2020-07-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return GetSkillGroupResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -6467,6 +6642,7 @@ class CCC extends OpenApiClient
      * 查询技能组.
      *
      * @param request - GetSkillGroupRequest
+     *
      * @returns GetSkillGroupResponse
      *
      * @param GetSkillGroupRequest $request
@@ -6483,6 +6659,7 @@ class CCC extends OpenApiClient
     /**
      * @param request - GetSummaryTemplateRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns GetSummaryTemplateResponse
      *
      * @param GetSummaryTemplateRequest $request
@@ -6506,15 +6683,15 @@ class CCC extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'GetSummaryTemplate',
-            'version'     => '2020-07-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetSummaryTemplate',
+            'version' => '2020-07-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return GetSummaryTemplateResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -6525,6 +6702,7 @@ class CCC extends OpenApiClient
 
     /**
      * @param request - GetSummaryTemplateRequest
+     *
      * @returns GetSummaryTemplateResponse
      *
      * @param GetSummaryTemplateRequest $request
@@ -6541,6 +6719,7 @@ class CCC extends OpenApiClient
     /**
      * @param request - GetTicketRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns GetTicketResponse
      *
      * @param GetTicketRequest $request
@@ -6564,15 +6743,15 @@ class CCC extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'GetTicket',
-            'version'     => '2020-07-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetTicket',
+            'version' => '2020-07-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return GetTicketResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -6583,6 +6762,7 @@ class CCC extends OpenApiClient
 
     /**
      * @param request - GetTicketRequest
+     *
      * @returns GetTicketResponse
      *
      * @param GetTicketRequest $request
@@ -6599,6 +6779,7 @@ class CCC extends OpenApiClient
     /**
      * @param request - GetTicketSummaryReportRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns GetTicketSummaryReportResponse
      *
      * @param GetTicketSummaryReportRequest $request
@@ -6658,15 +6839,15 @@ class CCC extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'GetTicketSummaryReport',
-            'version'     => '2020-07-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetTicketSummaryReport',
+            'version' => '2020-07-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return GetTicketSummaryReportResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -6677,6 +6858,7 @@ class CCC extends OpenApiClient
 
     /**
      * @param request - GetTicketSummaryReportRequest
+     *
      * @returns GetTicketSummaryReportResponse
      *
      * @param GetTicketSummaryReportRequest $request
@@ -6693,6 +6875,7 @@ class CCC extends OpenApiClient
     /**
      * @param request - GetTicketTemplateRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns GetTicketTemplateResponse
      *
      * @param GetTicketTemplateRequest $request
@@ -6720,15 +6903,15 @@ class CCC extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'GetTicketTemplate',
-            'version'     => '2020-07-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetTicketTemplate',
+            'version' => '2020-07-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return GetTicketTemplateResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -6739,6 +6922,7 @@ class CCC extends OpenApiClient
 
     /**
      * @param request - GetTicketTemplateRequest
+     *
      * @returns GetTicketTemplateResponse
      *
      * @param GetTicketTemplateRequest $request
@@ -6755,6 +6939,7 @@ class CCC extends OpenApiClient
     /**
      * @param request - GetTurnCredentialsRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns GetTurnCredentialsResponse
      *
      * @param GetTurnCredentialsRequest $request
@@ -6778,15 +6963,15 @@ class CCC extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'GetTurnCredentials',
-            'version'     => '2020-07-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetTurnCredentials',
+            'version' => '2020-07-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return GetTurnCredentialsResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -6797,6 +6982,7 @@ class CCC extends OpenApiClient
 
     /**
      * @param request - GetTurnCredentialsRequest
+     *
      * @returns GetTurnCredentialsResponse
      *
      * @param GetTurnCredentialsRequest $request
@@ -6813,6 +6999,7 @@ class CCC extends OpenApiClient
     /**
      * @param request - GetTurnServerListRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns GetTurnServerListResponse
      *
      * @param GetTurnServerListRequest $request
@@ -6832,15 +7019,15 @@ class CCC extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'GetTurnServerList',
-            'version'     => '2020-07-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetTurnServerList',
+            'version' => '2020-07-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return GetTurnServerListResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -6851,6 +7038,7 @@ class CCC extends OpenApiClient
 
     /**
      * @param request - GetTurnServerListRequest
+     *
      * @returns GetTurnServerListResponse
      *
      * @param GetTurnServerListRequest $request
@@ -6869,6 +7057,7 @@ class CCC extends OpenApiClient
      *
      * @param request - GetUploadAudioDataParamsRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns GetUploadAudioDataParamsResponse
      *
      * @param GetUploadAudioDataParamsRequest $request
@@ -6880,19 +7069,19 @@ class CCC extends OpenApiClient
     {
         $request->validate();
         $query = Utils::query($request->toMap());
-        $req   = new OpenApiRequest([
+        $req = new OpenApiRequest([
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'GetUploadAudioDataParams',
-            'version'     => '2020-07-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetUploadAudioDataParams',
+            'version' => '2020-07-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return GetUploadAudioDataParamsResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -6905,6 +7094,7 @@ class CCC extends OpenApiClient
      * 获取质检参数.
      *
      * @param request - GetUploadAudioDataParamsRequest
+     *
      * @returns GetUploadAudioDataParamsResponse
      *
      * @param GetUploadAudioDataParamsRequest $request
@@ -6921,6 +7111,7 @@ class CCC extends OpenApiClient
     /**
      * @param request - GetUserRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns GetUserResponse
      *
      * @param GetUserRequest $request
@@ -6948,15 +7139,15 @@ class CCC extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'GetUser',
-            'version'     => '2020-07-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetUser',
+            'version' => '2020-07-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return GetUserResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -6967,6 +7158,7 @@ class CCC extends OpenApiClient
 
     /**
      * @param request - GetUserRequest
+     *
      * @returns GetUserResponse
      *
      * @param GetUserRequest $request
@@ -6985,6 +7177,7 @@ class CCC extends OpenApiClient
      *
      * @param request - GetVideoRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns GetVideoResponse
      *
      * @param GetVideoRequest $request
@@ -6996,19 +7189,19 @@ class CCC extends OpenApiClient
     {
         $request->validate();
         $query = Utils::query($request->toMap());
-        $req   = new OpenApiRequest([
+        $req = new OpenApiRequest([
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'GetVideo',
-            'version'     => '2020-07-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetVideo',
+            'version' => '2020-07-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return GetVideoResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -7021,6 +7214,7 @@ class CCC extends OpenApiClient
      * 获取视频.
      *
      * @param request - GetVideoRequest
+     *
      * @returns GetVideoResponse
      *
      * @param GetVideoRequest $request
@@ -7037,6 +7231,7 @@ class CCC extends OpenApiClient
     /**
      * @param request - GetVisitorLoginDetailsRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns GetVisitorLoginDetailsResponse
      *
      * @param GetVisitorLoginDetailsRequest $request
@@ -7068,15 +7263,15 @@ class CCC extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'GetVisitorLoginDetails',
-            'version'     => '2020-07-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetVisitorLoginDetails',
+            'version' => '2020-07-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return GetVisitorLoginDetailsResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -7087,6 +7282,7 @@ class CCC extends OpenApiClient
 
     /**
      * @param request - GetVisitorLoginDetailsRequest
+     *
      * @returns GetVisitorLoginDetailsResponse
      *
      * @param GetVisitorLoginDetailsRequest $request
@@ -7103,6 +7299,7 @@ class CCC extends OpenApiClient
     /**
      * @param request - GetVoicemailRecordingRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns GetVoicemailRecordingResponse
      *
      * @param GetVoicemailRecordingRequest $request
@@ -7126,15 +7323,15 @@ class CCC extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'GetVoicemailRecording',
-            'version'     => '2020-07-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetVoicemailRecording',
+            'version' => '2020-07-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return GetVoicemailRecordingResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -7145,6 +7342,7 @@ class CCC extends OpenApiClient
 
     /**
      * @param request - GetVoicemailRecordingRequest
+     *
      * @returns GetVoicemailRecordingResponse
      *
      * @param GetVoicemailRecordingRequest $request
@@ -7161,6 +7359,7 @@ class CCC extends OpenApiClient
     /**
      * @param request - HoldCallRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns HoldCallResponse
      *
      * @param HoldCallRequest $request
@@ -7200,15 +7399,15 @@ class CCC extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'HoldCall',
-            'version'     => '2020-07-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'HoldCall',
+            'version' => '2020-07-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return HoldCallResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -7219,6 +7418,7 @@ class CCC extends OpenApiClient
 
     /**
      * @param request - HoldCallRequest
+     *
      * @returns HoldCallResponse
      *
      * @param HoldCallRequest $request
@@ -7235,6 +7435,7 @@ class CCC extends OpenApiClient
     /**
      * @param request - ImportAdminsRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ImportAdminsResponse
      *
      * @param ImportAdminsRequest $request
@@ -7258,15 +7459,15 @@ class CCC extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ImportAdmins',
-            'version'     => '2020-07-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ImportAdmins',
+            'version' => '2020-07-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return ImportAdminsResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -7277,6 +7478,7 @@ class CCC extends OpenApiClient
 
     /**
      * @param request - ImportAdminsRequest
+     *
      * @returns ImportAdminsResponse
      *
      * @param ImportAdminsRequest $request
@@ -7293,6 +7495,7 @@ class CCC extends OpenApiClient
     /**
      * @param request - ImportContactFlowRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ImportContactFlowResponse
      *
      * @param ImportContactFlowRequest $request
@@ -7320,15 +7523,15 @@ class CCC extends OpenApiClient
             'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'ImportContactFlow',
-            'version'     => '2020-07-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ImportContactFlow',
+            'version' => '2020-07-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return ImportContactFlowResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -7339,6 +7542,7 @@ class CCC extends OpenApiClient
 
     /**
      * @param request - ImportContactFlowRequest
+     *
      * @returns ImportContactFlowResponse
      *
      * @param ImportContactFlowRequest $request
@@ -7355,6 +7559,7 @@ class CCC extends OpenApiClient
     /**
      * @param request - ImportCorpNumbersRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ImportCorpNumbersResponse
      *
      * @param ImportCorpNumbersRequest $request
@@ -7394,15 +7599,15 @@ class CCC extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ImportCorpNumbers',
-            'version'     => '2020-07-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ImportCorpNumbers',
+            'version' => '2020-07-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return ImportCorpNumbersResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -7413,6 +7618,7 @@ class CCC extends OpenApiClient
 
     /**
      * @param request - ImportCorpNumbersRequest
+     *
      * @returns ImportCorpNumbersResponse
      *
      * @param ImportCorpNumbersRequest $request
@@ -7427,7 +7633,6 @@ class CCC extends OpenApiClient
     }
 
     // Deprecated
-
     /**
      * 文件导入呼入控制号码
      *
@@ -7435,6 +7640,7 @@ class CCC extends OpenApiClient
      *
      * @param request - ImportCustomCallTaggingRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ImportCustomCallTaggingResponse
      *
      * @param ImportCustomCallTaggingRequest $request
@@ -7458,15 +7664,15 @@ class CCC extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ImportCustomCallTagging',
-            'version'     => '2020-07-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ImportCustomCallTagging',
+            'version' => '2020-07-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return ImportCustomCallTaggingResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -7476,13 +7682,13 @@ class CCC extends OpenApiClient
     }
 
     // Deprecated
-
     /**
      * 文件导入呼入控制号码
      *
      * @deprecated openAPI ImportCustomCallTagging is deprecated, please use CCC::2020-07-01::ImportCustomCallTaggings instead
      *
      * @param request - ImportCustomCallTaggingRequest
+     *
      * @returns ImportCustomCallTaggingResponse
      *
      * @param ImportCustomCallTaggingRequest $request
@@ -7501,6 +7707,7 @@ class CCC extends OpenApiClient
      *
      * @param request - ImportDoNotCallNumbersRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ImportDoNotCallNumbersResponse
      *
      * @param ImportDoNotCallNumbersRequest $request
@@ -7532,15 +7739,15 @@ class CCC extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ImportDoNotCallNumbers',
-            'version'     => '2020-07-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ImportDoNotCallNumbers',
+            'version' => '2020-07-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return ImportDoNotCallNumbersResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -7553,6 +7760,7 @@ class CCC extends OpenApiClient
      * 添加黑名单号码
      *
      * @param request - ImportDoNotCallNumbersRequest
+     *
      * @returns ImportDoNotCallNumbersResponse
      *
      * @param ImportDoNotCallNumbersRequest $request
@@ -7569,6 +7777,7 @@ class CCC extends OpenApiClient
     /**
      * @param request - ImportDocumentsRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ImportDocumentsResponse
      *
      * @param ImportDocumentsRequest $request
@@ -7600,15 +7809,15 @@ class CCC extends OpenApiClient
             'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'ImportDocuments',
-            'version'     => '2020-07-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ImportDocuments',
+            'version' => '2020-07-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return ImportDocumentsResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -7619,6 +7828,7 @@ class CCC extends OpenApiClient
 
     /**
      * @param request - ImportDocumentsRequest
+     *
      * @returns ImportDocumentsResponse
      *
      * @param ImportDocumentsRequest $request
@@ -7635,6 +7845,7 @@ class CCC extends OpenApiClient
     /**
      * @param request - InitiateAttendedTransferRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns InitiateAttendedTransferResponse
      *
      * @param InitiateAttendedTransferRequest $request
@@ -7710,15 +7921,15 @@ class CCC extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'InitiateAttendedTransfer',
-            'version'     => '2020-07-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'InitiateAttendedTransfer',
+            'version' => '2020-07-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return InitiateAttendedTransferResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -7729,6 +7940,7 @@ class CCC extends OpenApiClient
 
     /**
      * @param request - InitiateAttendedTransferRequest
+     *
      * @returns InitiateAttendedTransferResponse
      *
      * @param InitiateAttendedTransferRequest $request
@@ -7745,6 +7957,7 @@ class CCC extends OpenApiClient
     /**
      * @param request - InterceptCallRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns InterceptCallResponse
      *
      * @param InterceptCallRequest $request
@@ -7784,15 +7997,15 @@ class CCC extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'InterceptCall',
-            'version'     => '2020-07-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'InterceptCall',
+            'version' => '2020-07-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return InterceptCallResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -7803,6 +8016,7 @@ class CCC extends OpenApiClient
 
     /**
      * @param request - InterceptCallRequest
+     *
      * @returns InterceptCallResponse
      *
      * @param InterceptCallRequest $request
@@ -7819,6 +8033,7 @@ class CCC extends OpenApiClient
     /**
      * @param request - LaunchAuthenticationRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns LaunchAuthenticationResponse
      *
      * @param LaunchAuthenticationRequest $request
@@ -7858,15 +8073,15 @@ class CCC extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'LaunchAuthentication',
-            'version'     => '2020-07-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'LaunchAuthentication',
+            'version' => '2020-07-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return LaunchAuthenticationResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -7877,6 +8092,7 @@ class CCC extends OpenApiClient
 
     /**
      * @param request - LaunchAuthenticationRequest
+     *
      * @returns LaunchAuthenticationResponse
      *
      * @param LaunchAuthenticationRequest $request
@@ -7893,6 +8109,7 @@ class CCC extends OpenApiClient
     /**
      * @param request - LaunchSurveyRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns LaunchSurveyResponse
      *
      * @param LaunchSurveyRequest $request
@@ -7948,15 +8165,15 @@ class CCC extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'LaunchSurvey',
-            'version'     => '2020-07-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'LaunchSurvey',
+            'version' => '2020-07-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return LaunchSurveyResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -7967,6 +8184,7 @@ class CCC extends OpenApiClient
 
     /**
      * @param request - LaunchSurveyRequest
+     *
      * @returns LaunchSurveyResponse
      *
      * @param LaunchSurveyRequest $request
@@ -7983,6 +8201,7 @@ class CCC extends OpenApiClient
     /**
      * @param request - ListAgentStateLogsRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ListAgentStateLogsResponse
      *
      * @param ListAgentStateLogsRequest $request
@@ -8014,15 +8233,15 @@ class CCC extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListAgentStateLogs',
-            'version'     => '2020-07-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListAgentStateLogs',
+            'version' => '2020-07-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return ListAgentStateLogsResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -8033,6 +8252,7 @@ class CCC extends OpenApiClient
 
     /**
      * @param request - ListAgentStateLogsRequest
+     *
      * @returns ListAgentStateLogsResponse
      *
      * @param ListAgentStateLogsRequest $request
@@ -8047,7 +8267,6 @@ class CCC extends OpenApiClient
     }
 
     // Deprecated
-
     /**
      * ListAgentStates for ACC.
      *
@@ -8055,6 +8274,7 @@ class CCC extends OpenApiClient
      *
      * @param request - ListAgentStatesRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ListAgentStatesResponse
      *
      * @param ListAgentStatesRequest $request
@@ -8098,15 +8318,15 @@ class CCC extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListAgentStates',
-            'version'     => '2020-07-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListAgentStates',
+            'version' => '2020-07-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return ListAgentStatesResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -8116,13 +8336,13 @@ class CCC extends OpenApiClient
     }
 
     // Deprecated
-
     /**
      * ListAgentStates for ACC.
      *
      * @deprecated openAPI ListAgentStates is deprecated, please use CCC::2020-07-01::ListRealtimeAgentStates instead
      *
      * @param request - ListAgentStatesRequest
+     *
      * @returns ListAgentStatesResponse
      *
      * @param ListAgentStatesRequest $request
@@ -8137,7 +8357,6 @@ class CCC extends OpenApiClient
     }
 
     // Deprecated
-
     /**
      * ListAgentSummaryReportsSinceMidnight for acc.
      *
@@ -8145,6 +8364,7 @@ class CCC extends OpenApiClient
      *
      * @param request - ListAgentSummaryReportsSinceMidnightRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ListAgentSummaryReportsSinceMidnightResponse
      *
      * @param ListAgentSummaryReportsSinceMidnightRequest $request
@@ -8156,19 +8376,19 @@ class CCC extends OpenApiClient
     {
         $request->validate();
         $query = Utils::query($request->toMap());
-        $req   = new OpenApiRequest([
+        $req = new OpenApiRequest([
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListAgentSummaryReportsSinceMidnight',
-            'version'     => '2020-07-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListAgentSummaryReportsSinceMidnight',
+            'version' => '2020-07-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return ListAgentSummaryReportsSinceMidnightResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -8178,13 +8398,13 @@ class CCC extends OpenApiClient
     }
 
     // Deprecated
-
     /**
      * ListAgentSummaryReportsSinceMidnight for acc.
      *
      * @deprecated openAPI ListAgentSummaryReportsSinceMidnight is deprecated, please use CCC::2020-07-01::ListHistoricalAgentReport instead
      *
      * @param request - ListAgentSummaryReportsSinceMidnightRequest
+     *
      * @returns ListAgentSummaryReportsSinceMidnightResponse
      *
      * @param ListAgentSummaryReportsSinceMidnightRequest $request
@@ -8203,6 +8423,7 @@ class CCC extends OpenApiClient
      *
      * @param request - ListAttemptsRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ListAttemptsResponse
      *
      * @param ListAttemptsRequest $request
@@ -8214,19 +8435,19 @@ class CCC extends OpenApiClient
     {
         $request->validate();
         $query = Utils::query($request->toMap());
-        $req   = new OpenApiRequest([
+        $req = new OpenApiRequest([
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListAttempts',
-            'version'     => '2020-07-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListAttempts',
+            'version' => '2020-07-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return ListAttemptsResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -8239,6 +8460,7 @@ class CCC extends OpenApiClient
      * 获取预测式外呼呼叫记录.
      *
      * @param request - ListAttemptsRequest
+     *
      * @returns ListAttemptsResponse
      *
      * @param ListAttemptsRequest $request
@@ -8257,6 +8479,7 @@ class CCC extends OpenApiClient
      *
      * @param request - ListAudioFilesRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ListAudioFilesResponse
      *
      * @param ListAudioFilesRequest $request
@@ -8292,15 +8515,15 @@ class CCC extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListAudioFiles',
-            'version'     => '2020-07-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListAudioFiles',
+            'version' => '2020-07-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return ListAudioFilesResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -8313,6 +8536,7 @@ class CCC extends OpenApiClient
      * 获取音频文件列表.
      *
      * @param request - ListAudioFilesRequest
+     *
      * @returns ListAudioFilesResponse
      *
      * @param ListAudioFilesRequest $request
@@ -8331,6 +8555,7 @@ class CCC extends OpenApiClient
      *
      * @param request - ListBlacklistCallTaggingsRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ListBlacklistCallTaggingsResponse
      *
      * @param ListBlacklistCallTaggingsRequest $request
@@ -8354,15 +8579,15 @@ class CCC extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListBlacklistCallTaggings',
-            'version'     => '2020-07-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListBlacklistCallTaggings',
+            'version' => '2020-07-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return ListBlacklistCallTaggingsResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -8375,6 +8600,7 @@ class CCC extends OpenApiClient
      * 编辑呼入控制号码
      *
      * @param request - ListBlacklistCallTaggingsRequest
+     *
      * @returns ListBlacklistCallTaggingsResponse
      *
      * @param ListBlacklistCallTaggingsRequest $request
@@ -8391,6 +8617,7 @@ class CCC extends OpenApiClient
     /**
      * @param request - ListBriefSkillGroupsRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ListBriefSkillGroupsResponse
      *
      * @param ListBriefSkillGroupsRequest $request
@@ -8426,15 +8653,15 @@ class CCC extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListBriefSkillGroups',
-            'version'     => '2020-07-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListBriefSkillGroups',
+            'version' => '2020-07-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return ListBriefSkillGroupsResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -8445,6 +8672,7 @@ class CCC extends OpenApiClient
 
     /**
      * @param request - ListBriefSkillGroupsRequest
+     *
      * @returns ListBriefSkillGroupsResponse
      *
      * @param ListBriefSkillGroupsRequest $request
@@ -8461,6 +8689,7 @@ class CCC extends OpenApiClient
     /**
      * @param request - ListCallDetailRecordsRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ListCallDetailRecordsResponse
      *
      * @param ListCallDetailRecordsRequest $request
@@ -8560,15 +8789,15 @@ class CCC extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListCallDetailRecords',
-            'version'     => '2020-07-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListCallDetailRecords',
+            'version' => '2020-07-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return ListCallDetailRecordsResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -8579,6 +8808,7 @@ class CCC extends OpenApiClient
 
     /**
      * @param request - ListCallDetailRecordsRequest
+     *
      * @returns ListCallDetailRecordsResponse
      *
      * @param ListCallDetailRecordsRequest $request
@@ -8595,6 +8825,7 @@ class CCC extends OpenApiClient
     /**
      * @param request - ListCallDetailRecordsV2Request
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ListCallDetailRecordsV2Response
      *
      * @param ListCallDetailRecordsV2Request $request
@@ -8718,15 +8949,15 @@ class CCC extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListCallDetailRecordsV2',
-            'version'     => '2020-07-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListCallDetailRecordsV2',
+            'version' => '2020-07-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return ListCallDetailRecordsV2Response::fromMap($this->callApi($params, $req, $runtime));
@@ -8737,6 +8968,7 @@ class CCC extends OpenApiClient
 
     /**
      * @param request - ListCallDetailRecordsV2Request
+     *
      * @returns ListCallDetailRecordsV2Response
      *
      * @param ListCallDetailRecordsV2Request $request
@@ -8753,6 +8985,7 @@ class CCC extends OpenApiClient
     /**
      * @param tmpReq - ListCallSummariesRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ListCallSummariesResponse
      *
      * @param ListCallSummariesRequest $tmpReq
@@ -8782,15 +9015,15 @@ class CCC extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListCallSummaries',
-            'version'     => '2020-07-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListCallSummaries',
+            'version' => '2020-07-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return ListCallSummariesResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -8801,6 +9034,7 @@ class CCC extends OpenApiClient
 
     /**
      * @param request - ListCallSummariesRequest
+     *
      * @returns ListCallSummariesResponse
      *
      * @param ListCallSummariesRequest $request
@@ -8819,6 +9053,7 @@ class CCC extends OpenApiClient
      *
      * @param request - ListCallTagsRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ListCallTagsResponse
      *
      * @param ListCallTagsRequest $request
@@ -8846,15 +9081,15 @@ class CCC extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListCallTags',
-            'version'     => '2020-07-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListCallTags',
+            'version' => '2020-07-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return ListCallTagsResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -8867,6 +9102,7 @@ class CCC extends OpenApiClient
      * 列出号码标签.
      *
      * @param request - ListCallTagsRequest
+     *
      * @returns ListCallTagsResponse
      *
      * @param ListCallTagsRequest $request
@@ -8885,6 +9121,7 @@ class CCC extends OpenApiClient
      *
      * @param request - ListCampaignTrendingReportRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ListCampaignTrendingReportResponse
      *
      * @param ListCampaignTrendingReportRequest $request
@@ -8896,19 +9133,19 @@ class CCC extends OpenApiClient
     {
         $request->validate();
         $query = Utils::query($request->toMap());
-        $req   = new OpenApiRequest([
+        $req = new OpenApiRequest([
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListCampaignTrendingReport',
-            'version'     => '2020-07-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListCampaignTrendingReport',
+            'version' => '2020-07-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return ListCampaignTrendingReportResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -8921,6 +9158,7 @@ class CCC extends OpenApiClient
      * 获取预测式外呼活动趋势报表.
      *
      * @param request - ListCampaignTrendingReportRequest
+     *
      * @returns ListCampaignTrendingReportResponse
      *
      * @param ListCampaignTrendingReportRequest $request
@@ -8939,6 +9177,7 @@ class CCC extends OpenApiClient
      *
      * @param request - ListCampaignsRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ListCampaignsResponse
      *
      * @param ListCampaignsRequest $request
@@ -8994,15 +9233,15 @@ class CCC extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListCampaigns',
-            'version'     => '2020-07-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListCampaigns',
+            'version' => '2020-07-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return ListCampaignsResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -9015,6 +9254,7 @@ class CCC extends OpenApiClient
      * 获取预测式外呼活动列表.
      *
      * @param request - ListCampaignsRequest
+     *
      * @returns ListCampaignsResponse
      *
      * @param ListCampaignsRequest $request
@@ -9033,6 +9273,7 @@ class CCC extends OpenApiClient
      *
      * @param request - ListCasesRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ListCasesResponse
      *
      * @param ListCasesRequest $request
@@ -9072,15 +9313,15 @@ class CCC extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListCases',
-            'version'     => '2020-07-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListCases',
+            'version' => '2020-07-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return ListCasesResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -9093,6 +9334,7 @@ class CCC extends OpenApiClient
      * 获取预测式外呼活动的联系人呼叫详情.
      *
      * @param request - ListCasesRequest
+     *
      * @returns ListCasesResponse
      *
      * @param ListCasesRequest $request
@@ -9109,6 +9351,7 @@ class CCC extends OpenApiClient
     /**
      * @param request - ListCategoriesRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ListCategoriesResponse
      *
      * @param ListCategoriesRequest $request
@@ -9136,15 +9379,15 @@ class CCC extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListCategories',
-            'version'     => '2020-07-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListCategories',
+            'version' => '2020-07-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return ListCategoriesResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -9155,6 +9398,7 @@ class CCC extends OpenApiClient
 
     /**
      * @param request - ListCategoriesRequest
+     *
      * @returns ListCategoriesResponse
      *
      * @param ListCategoriesRequest $request
@@ -9171,6 +9415,7 @@ class CCC extends OpenApiClient
     /**
      * @param request - ListCommonTicketFieldsRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ListCommonTicketFieldsResponse
      *
      * @param ListCommonTicketFieldsRequest $request
@@ -9190,15 +9435,15 @@ class CCC extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListCommonTicketFields',
-            'version'     => '2020-07-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListCommonTicketFields',
+            'version' => '2020-07-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return ListCommonTicketFieldsResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -9209,6 +9454,7 @@ class CCC extends OpenApiClient
 
     /**
      * @param request - ListCommonTicketFieldsRequest
+     *
      * @returns ListCommonTicketFieldsResponse
      *
      * @param ListCommonTicketFieldsRequest $request
@@ -9225,6 +9471,7 @@ class CCC extends OpenApiClient
     /**
      * @param request - ListConfigItemsRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ListConfigItemsResponse
      *
      * @param ListConfigItemsRequest $request
@@ -9252,15 +9499,15 @@ class CCC extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListConfigItems',
-            'version'     => '2020-07-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListConfigItems',
+            'version' => '2020-07-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return ListConfigItemsResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -9271,6 +9518,7 @@ class CCC extends OpenApiClient
 
     /**
      * @param request - ListConfigItemsRequest
+     *
      * @returns ListConfigItemsResponse
      *
      * @param ListConfigItemsRequest $request
@@ -9287,6 +9535,7 @@ class CCC extends OpenApiClient
     /**
      * @param request - ListContactFlowsRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ListContactFlowsResponse
      *
      * @param ListContactFlowsRequest $request
@@ -9326,15 +9575,15 @@ class CCC extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListContactFlows',
-            'version'     => '2020-07-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListContactFlows',
+            'version' => '2020-07-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return ListContactFlowsResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -9345,6 +9594,7 @@ class CCC extends OpenApiClient
 
     /**
      * @param request - ListContactFlowsRequest
+     *
      * @returns ListContactFlowsResponse
      *
      * @param ListContactFlowsRequest $request
@@ -9359,7 +9609,6 @@ class CCC extends OpenApiClient
     }
 
     // Deprecated
-
     /**
      * 列出呼入控制号码
      *
@@ -9367,6 +9616,7 @@ class CCC extends OpenApiClient
      *
      * @param request - ListCustomCallTaggingRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ListCustomCallTaggingResponse
      *
      * @param ListCustomCallTaggingRequest $request
@@ -9402,15 +9652,15 @@ class CCC extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListCustomCallTagging',
-            'version'     => '2020-07-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListCustomCallTagging',
+            'version' => '2020-07-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return ListCustomCallTaggingResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -9420,13 +9670,13 @@ class CCC extends OpenApiClient
     }
 
     // Deprecated
-
     /**
      * 列出呼入控制号码
      *
      * @deprecated openAPI ListCustomCallTagging is deprecated, please use CCC::2020-07-01::ListCustomCallTaggings instead
      *
      * @param request - ListCustomCallTaggingRequest
+     *
      * @returns ListCustomCallTaggingResponse
      *
      * @param ListCustomCallTaggingRequest $request
@@ -9443,6 +9693,7 @@ class CCC extends OpenApiClient
     /**
      * @param request - ListDevicesRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ListDevicesResponse
      *
      * @param ListDevicesRequest $request
@@ -9466,15 +9717,15 @@ class CCC extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListDevices',
-            'version'     => '2020-07-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListDevices',
+            'version' => '2020-07-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return ListDevicesResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -9485,6 +9736,7 @@ class CCC extends OpenApiClient
 
     /**
      * @param request - ListDevicesRequest
+     *
      * @returns ListDevicesResponse
      *
      * @param ListDevicesRequest $request
@@ -9503,6 +9755,7 @@ class CCC extends OpenApiClient
      *
      * @param request - ListDoNotCallNumbersRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ListDoNotCallNumbersResponse
      *
      * @param ListDoNotCallNumbersRequest $request
@@ -9538,15 +9791,15 @@ class CCC extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListDoNotCallNumbers',
-            'version'     => '2020-07-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListDoNotCallNumbers',
+            'version' => '2020-07-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return ListDoNotCallNumbersResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -9559,6 +9812,7 @@ class CCC extends OpenApiClient
      * 查询黑名单号码
      *
      * @param request - ListDoNotCallNumbersRequest
+     *
      * @returns ListDoNotCallNumbersResponse
      *
      * @param ListDoNotCallNumbersRequest $request
@@ -9575,6 +9829,7 @@ class CCC extends OpenApiClient
     /**
      * @param tmpReq - ListDocumentsRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ListDocumentsResponse
      *
      * @param ListDocumentsRequest $tmpReq
@@ -9624,15 +9879,15 @@ class CCC extends OpenApiClient
             'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'ListDocuments',
-            'version'     => '2020-07-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListDocuments',
+            'version' => '2020-07-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return ListDocumentsResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -9643,6 +9898,7 @@ class CCC extends OpenApiClient
 
     /**
      * @param request - ListDocumentsRequest
+     *
      * @returns ListDocumentsResponse
      *
      * @param ListDocumentsRequest $request
@@ -9659,6 +9915,7 @@ class CCC extends OpenApiClient
     /**
      * @param request - ListFlashSmsApplicationsRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ListFlashSmsApplicationsResponse
      *
      * @param ListFlashSmsApplicationsRequest $request
@@ -9694,15 +9951,15 @@ class CCC extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListFlashSmsApplications',
-            'version'     => '2020-07-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListFlashSmsApplications',
+            'version' => '2020-07-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return ListFlashSmsApplicationsResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -9713,6 +9970,7 @@ class CCC extends OpenApiClient
 
     /**
      * @param request - ListFlashSmsApplicationsRequest
+     *
      * @returns ListFlashSmsApplicationsResponse
      *
      * @param ListFlashSmsApplicationsRequest $request
@@ -9729,6 +9987,7 @@ class CCC extends OpenApiClient
     /**
      * @param request - ListFlashSmsTemplatesRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ListFlashSmsTemplatesResponse
      *
      * @param ListFlashSmsTemplatesRequest $request
@@ -9756,15 +10015,15 @@ class CCC extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListFlashSmsTemplates',
-            'version'     => '2020-07-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListFlashSmsTemplates',
+            'version' => '2020-07-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return ListFlashSmsTemplatesResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -9775,6 +10034,7 @@ class CCC extends OpenApiClient
 
     /**
      * @param request - ListFlashSmsTemplatesRequest
+     *
      * @returns ListFlashSmsTemplatesResponse
      *
      * @param ListFlashSmsTemplatesRequest $request
@@ -9793,6 +10053,7 @@ class CCC extends OpenApiClient
      *
      * @param request - ListGroupChatMessagesRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ListGroupChatMessagesResponse
      *
      * @param ListGroupChatMessagesRequest $request
@@ -9828,15 +10089,15 @@ class CCC extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListGroupChatMessages',
-            'version'     => '2020-07-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListGroupChatMessages',
+            'version' => '2020-07-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return ListGroupChatMessagesResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -9849,6 +10110,7 @@ class CCC extends OpenApiClient
      * ListGroupChatMessages.
      *
      * @param request - ListGroupChatMessagesRequest
+     *
      * @returns ListGroupChatMessagesResponse
      *
      * @param ListGroupChatMessagesRequest $request
@@ -9865,6 +10127,7 @@ class CCC extends OpenApiClient
     /**
      * @param request - ListHistoricalAgentReportRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ListHistoricalAgentReportResponse
      *
      * @param ListHistoricalAgentReportRequest $request
@@ -9911,18 +10174,18 @@ class CCC extends OpenApiClient
 
         $req = new OpenApiRequest([
             'query' => Utils::query($query),
-            'body'  => Utils::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'ListHistoricalAgentReport',
-            'version'     => '2020-07-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListHistoricalAgentReport',
+            'version' => '2020-07-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return ListHistoricalAgentReportResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -9933,6 +10196,7 @@ class CCC extends OpenApiClient
 
     /**
      * @param request - ListHistoricalAgentReportRequest
+     *
      * @returns ListHistoricalAgentReportResponse
      *
      * @param ListHistoricalAgentReportRequest $request
@@ -9951,6 +10215,7 @@ class CCC extends OpenApiClient
      *
      * @param request - ListHistoricalAgentSkillGroupReportRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ListHistoricalAgentSkillGroupReportResponse
      *
      * @param ListHistoricalAgentSkillGroupReportRequest $request
@@ -9997,18 +10262,18 @@ class CCC extends OpenApiClient
 
         $req = new OpenApiRequest([
             'query' => Utils::query($query),
-            'body'  => Utils::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'ListHistoricalAgentSkillGroupReport',
-            'version'     => '2020-07-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListHistoricalAgentSkillGroupReport',
+            'version' => '2020-07-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return ListHistoricalAgentSkillGroupReportResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -10021,6 +10286,7 @@ class CCC extends OpenApiClient
      * ListHistoricalAgentSkillGroupReport.
      *
      * @param request - ListHistoricalAgentSkillGroupReportRequest
+     *
      * @returns ListHistoricalAgentSkillGroupReportResponse
      *
      * @param ListHistoricalAgentSkillGroupReportRequest $request
@@ -10037,6 +10303,7 @@ class CCC extends OpenApiClient
     /**
      * @param request - ListHistoricalSkillGroupReportRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ListHistoricalSkillGroupReportResponse
      *
      * @param ListHistoricalSkillGroupReportRequest $request
@@ -10079,18 +10346,18 @@ class CCC extends OpenApiClient
 
         $req = new OpenApiRequest([
             'query' => Utils::query($query),
-            'body'  => Utils::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'ListHistoricalSkillGroupReport',
-            'version'     => '2020-07-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListHistoricalSkillGroupReport',
+            'version' => '2020-07-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return ListHistoricalSkillGroupReportResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -10101,6 +10368,7 @@ class CCC extends OpenApiClient
 
     /**
      * @param request - ListHistoricalSkillGroupReportRequest
+     *
      * @returns ListHistoricalSkillGroupReportResponse
      *
      * @param ListHistoricalSkillGroupReportRequest $request
@@ -10117,6 +10385,7 @@ class CCC extends OpenApiClient
     /**
      * @param request - ListInstancesRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ListInstancesResponse
      *
      * @param ListInstancesRequest $request
@@ -10140,15 +10409,15 @@ class CCC extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListInstances',
-            'version'     => '2020-07-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListInstances',
+            'version' => '2020-07-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return ListInstancesResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -10159,6 +10428,7 @@ class CCC extends OpenApiClient
 
     /**
      * @param request - ListInstancesRequest
+     *
      * @returns ListInstancesResponse
      *
      * @param ListInstancesRequest $request
@@ -10175,6 +10445,7 @@ class CCC extends OpenApiClient
     /**
      * @param request - ListInstancesOfUserRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ListInstancesOfUserResponse
      *
      * @param ListInstancesOfUserRequest $request
@@ -10198,15 +10469,15 @@ class CCC extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListInstancesOfUser',
-            'version'     => '2020-07-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListInstancesOfUser',
+            'version' => '2020-07-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return ListInstancesOfUserResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -10217,6 +10488,7 @@ class CCC extends OpenApiClient
 
     /**
      * @param request - ListInstancesOfUserRequest
+     *
      * @returns ListInstancesOfUserResponse
      *
      * @param ListInstancesOfUserRequest $request
@@ -10233,6 +10505,7 @@ class CCC extends OpenApiClient
     /**
      * @param request - ListIntervalAgentReportRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ListIntervalAgentReportResponse
      *
      * @param ListIntervalAgentReportRequest $request
@@ -10272,15 +10545,15 @@ class CCC extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListIntervalAgentReport',
-            'version'     => '2020-07-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListIntervalAgentReport',
+            'version' => '2020-07-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return ListIntervalAgentReportResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -10291,6 +10564,7 @@ class CCC extends OpenApiClient
 
     /**
      * @param request - ListIntervalAgentReportRequest
+     *
      * @returns ListIntervalAgentReportResponse
      *
      * @param ListIntervalAgentReportRequest $request
@@ -10309,6 +10583,7 @@ class CCC extends OpenApiClient
      *
      * @param request - ListIntervalAgentSkillGroupReportRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ListIntervalAgentSkillGroupReportResponse
      *
      * @param ListIntervalAgentSkillGroupReportRequest $request
@@ -10320,19 +10595,19 @@ class CCC extends OpenApiClient
     {
         $request->validate();
         $query = Utils::query($request->toMap());
-        $req   = new OpenApiRequest([
+        $req = new OpenApiRequest([
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListIntervalAgentSkillGroupReport',
-            'version'     => '2020-07-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListIntervalAgentSkillGroupReport',
+            'version' => '2020-07-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return ListIntervalAgentSkillGroupReportResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -10345,6 +10620,7 @@ class CCC extends OpenApiClient
      * ListIntervalAgentSkillGroupReport.
      *
      * @param request - ListIntervalAgentSkillGroupReportRequest
+     *
      * @returns ListIntervalAgentSkillGroupReportResponse
      *
      * @param ListIntervalAgentSkillGroupReportRequest $request
@@ -10361,6 +10637,7 @@ class CCC extends OpenApiClient
     /**
      * @param request - ListIntervalInstanceReportRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ListIntervalInstanceReportResponse
      *
      * @param ListIntervalInstanceReportRequest $request
@@ -10392,15 +10669,15 @@ class CCC extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListIntervalInstanceReport',
-            'version'     => '2020-07-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListIntervalInstanceReport',
+            'version' => '2020-07-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return ListIntervalInstanceReportResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -10411,6 +10688,7 @@ class CCC extends OpenApiClient
 
     /**
      * @param request - ListIntervalInstanceReportRequest
+     *
      * @returns ListIntervalInstanceReportResponse
      *
      * @param ListIntervalInstanceReportRequest $request
@@ -10427,6 +10705,7 @@ class CCC extends OpenApiClient
     /**
      * @param request - ListIntervalSkillGroupReportRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ListIntervalSkillGroupReportResponse
      *
      * @param ListIntervalSkillGroupReportRequest $request
@@ -10466,15 +10745,15 @@ class CCC extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListIntervalSkillGroupReport',
-            'version'     => '2020-07-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListIntervalSkillGroupReport',
+            'version' => '2020-07-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return ListIntervalSkillGroupReportResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -10485,6 +10764,7 @@ class CCC extends OpenApiClient
 
     /**
      * @param request - ListIntervalSkillGroupReportRequest
+     *
      * @returns ListIntervalSkillGroupReportResponse
      *
      * @param ListIntervalSkillGroupReportRequest $request
@@ -10501,6 +10781,7 @@ class CCC extends OpenApiClient
     /**
      * @param request - ListIvrTrackingDetailsRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ListIvrTrackingDetailsResponse
      *
      * @param ListIvrTrackingDetailsRequest $request
@@ -10532,15 +10813,15 @@ class CCC extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListIvrTrackingDetails',
-            'version'     => '2020-07-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListIvrTrackingDetails',
+            'version' => '2020-07-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return ListIvrTrackingDetailsResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -10551,6 +10832,7 @@ class CCC extends OpenApiClient
 
     /**
      * @param request - ListIvrTrackingDetailsRequest
+     *
      * @returns ListIvrTrackingDetailsResponse
      *
      * @param ListIvrTrackingDetailsRequest $request
@@ -10565,7 +10847,6 @@ class CCC extends OpenApiClient
     }
 
     // Deprecated
-
     /**
      * ListLegacyAgentEventLogs.
      *
@@ -10573,6 +10854,7 @@ class CCC extends OpenApiClient
      *
      * @param request - ListLegacyAgentEventLogsRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ListLegacyAgentEventLogsResponse
      *
      * @param ListLegacyAgentEventLogsRequest $request
@@ -10612,15 +10894,15 @@ class CCC extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListLegacyAgentEventLogs',
-            'version'     => '2020-07-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListLegacyAgentEventLogs',
+            'version' => '2020-07-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return ListLegacyAgentEventLogsResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -10630,13 +10912,13 @@ class CCC extends OpenApiClient
     }
 
     // Deprecated
-
     /**
      * ListLegacyAgentEventLogs.
      *
      * @deprecated openAPI ListLegacyAgentEventLogs is deprecated, please use CCC::2020-07-01::ListAgentStateLogs instead
      *
      * @param request - ListLegacyAgentEventLogsRequest
+     *
      * @returns ListLegacyAgentEventLogsResponse
      *
      * @param ListLegacyAgentEventLogsRequest $request
@@ -10651,7 +10933,6 @@ class CCC extends OpenApiClient
     }
 
     // Deprecated
-
     /**
      * ListLegacyAgentStatusLogs.
      *
@@ -10659,6 +10940,7 @@ class CCC extends OpenApiClient
      *
      * @param request - ListLegacyAgentStatusLogsRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ListLegacyAgentStatusLogsResponse
      *
      * @param ListLegacyAgentStatusLogsRequest $request
@@ -10698,15 +10980,15 @@ class CCC extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListLegacyAgentStatusLogs',
-            'version'     => '2020-07-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListLegacyAgentStatusLogs',
+            'version' => '2020-07-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return ListLegacyAgentStatusLogsResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -10716,13 +10998,13 @@ class CCC extends OpenApiClient
     }
 
     // Deprecated
-
     /**
      * ListLegacyAgentStatusLogs.
      *
      * @deprecated openAPI ListLegacyAgentStatusLogs is deprecated, please use CCC::2020-07-01::ListAgentStateLogs instead
      *
      * @param request - ListLegacyAgentStatusLogsRequest
+     *
      * @returns ListLegacyAgentStatusLogsResponse
      *
      * @param ListLegacyAgentStatusLogsRequest $request
@@ -10741,6 +11023,7 @@ class CCC extends OpenApiClient
      *
      * @param request - ListLegacyAppraiseLogsRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ListLegacyAppraiseLogsResponse
      *
      * @param ListLegacyAppraiseLogsRequest $request
@@ -10776,15 +11059,15 @@ class CCC extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListLegacyAppraiseLogs',
-            'version'     => '2020-07-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListLegacyAppraiseLogs',
+            'version' => '2020-07-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return ListLegacyAppraiseLogsResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -10797,6 +11080,7 @@ class CCC extends OpenApiClient
      * ListLegacyAppraiseLogs.
      *
      * @param request - ListLegacyAppraiseLogsRequest
+     *
      * @returns ListLegacyAppraiseLogsResponse
      *
      * @param ListLegacyAppraiseLogsRequest $request
@@ -10815,6 +11099,7 @@ class CCC extends OpenApiClient
      *
      * @param request - ListLegacyQueueEventLogsRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ListLegacyQueueEventLogsResponse
      *
      * @param ListLegacyQueueEventLogsRequest $request
@@ -10854,15 +11139,15 @@ class CCC extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListLegacyQueueEventLogs',
-            'version'     => '2020-07-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListLegacyQueueEventLogs',
+            'version' => '2020-07-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return ListLegacyQueueEventLogsResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -10875,6 +11160,7 @@ class CCC extends OpenApiClient
      * ListLegacyQueueEventLogs.
      *
      * @param request - ListLegacyQueueEventLogsRequest
+     *
      * @returns ListLegacyQueueEventLogsResponse
      *
      * @param ListLegacyQueueEventLogsRequest $request
@@ -10891,6 +11177,7 @@ class CCC extends OpenApiClient
     /**
      * @param request - ListMonoRecordingsRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ListMonoRecordingsResponse
      *
      * @param ListMonoRecordingsRequest $request
@@ -10914,15 +11201,15 @@ class CCC extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListMonoRecordings',
-            'version'     => '2020-07-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListMonoRecordings',
+            'version' => '2020-07-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return ListMonoRecordingsResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -10933,6 +11220,7 @@ class CCC extends OpenApiClient
 
     /**
      * @param request - ListMonoRecordingsRequest
+     *
      * @returns ListMonoRecordingsResponse
      *
      * @param ListMonoRecordingsRequest $request
@@ -10949,6 +11237,7 @@ class CCC extends OpenApiClient
     /**
      * @param request - ListMultiChannelRecordingsRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ListMultiChannelRecordingsResponse
      *
      * @param ListMultiChannelRecordingsRequest $request
@@ -10972,15 +11261,15 @@ class CCC extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListMultiChannelRecordings',
-            'version'     => '2020-07-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListMultiChannelRecordings',
+            'version' => '2020-07-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return ListMultiChannelRecordingsResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -10991,6 +11280,7 @@ class CCC extends OpenApiClient
 
     /**
      * @param request - ListMultiChannelRecordingsRequest
+     *
      * @returns ListMultiChannelRecordingsResponse
      *
      * @param ListMultiChannelRecordingsRequest $request
@@ -11007,6 +11297,7 @@ class CCC extends OpenApiClient
     /**
      * @param request - ListOutboundNumbersOfUserRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ListOutboundNumbersOfUserResponse
      *
      * @param ListOutboundNumbersOfUserRequest $request
@@ -11042,15 +11333,15 @@ class CCC extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListOutboundNumbersOfUser',
-            'version'     => '2020-07-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListOutboundNumbersOfUser',
+            'version' => '2020-07-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return ListOutboundNumbersOfUserResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -11061,6 +11352,7 @@ class CCC extends OpenApiClient
 
     /**
      * @param request - ListOutboundNumbersOfUserRequest
+     *
      * @returns ListOutboundNumbersOfUserResponse
      *
      * @param ListOutboundNumbersOfUserRequest $request
@@ -11077,6 +11369,7 @@ class CCC extends OpenApiClient
     /**
      * @param request - ListPersonalNumbersOfUserRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ListPersonalNumbersOfUserResponse
      *
      * @param ListPersonalNumbersOfUserRequest $request
@@ -11116,15 +11409,15 @@ class CCC extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListPersonalNumbersOfUser',
-            'version'     => '2020-07-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListPersonalNumbersOfUser',
+            'version' => '2020-07-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return ListPersonalNumbersOfUserResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -11135,6 +11428,7 @@ class CCC extends OpenApiClient
 
     /**
      * @param request - ListPersonalNumbersOfUserRequest
+     *
      * @returns ListPersonalNumbersOfUserResponse
      *
      * @param ListPersonalNumbersOfUserRequest $request
@@ -11153,6 +11447,7 @@ class CCC extends OpenApiClient
      *
      * @param request - ListPhoneNumbersRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ListPhoneNumbersResponse
      *
      * @param ListPhoneNumbersRequest $request
@@ -11192,15 +11487,15 @@ class CCC extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListPhoneNumbers',
-            'version'     => '2020-07-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListPhoneNumbers',
+            'version' => '2020-07-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return ListPhoneNumbersResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -11213,6 +11508,7 @@ class CCC extends OpenApiClient
      * 获取号码列表.
      *
      * @param request - ListPhoneNumbersRequest
+     *
      * @returns ListPhoneNumbersResponse
      *
      * @param ListPhoneNumbersRequest $request
@@ -11229,6 +11525,7 @@ class CCC extends OpenApiClient
     /**
      * @param request - ListPhoneNumbersOfSkillGroupRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ListPhoneNumbersOfSkillGroupResponse
      *
      * @param ListPhoneNumbersOfSkillGroupRequest $request
@@ -11272,15 +11569,15 @@ class CCC extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListPhoneNumbersOfSkillGroup',
-            'version'     => '2020-07-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListPhoneNumbersOfSkillGroup',
+            'version' => '2020-07-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return ListPhoneNumbersOfSkillGroupResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -11291,6 +11588,7 @@ class CCC extends OpenApiClient
 
     /**
      * @param request - ListPhoneNumbersOfSkillGroupRequest
+     *
      * @returns ListPhoneNumbersOfSkillGroupResponse
      *
      * @param ListPhoneNumbersOfSkillGroupRequest $request
@@ -11307,6 +11605,7 @@ class CCC extends OpenApiClient
     /**
      * @param request - ListPrivilegesOfUserRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ListPrivilegesOfUserResponse
      *
      * @param ListPrivilegesOfUserRequest $request
@@ -11326,15 +11625,15 @@ class CCC extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListPrivilegesOfUser',
-            'version'     => '2020-07-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListPrivilegesOfUser',
+            'version' => '2020-07-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return ListPrivilegesOfUserResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -11345,6 +11644,7 @@ class CCC extends OpenApiClient
 
     /**
      * @param request - ListPrivilegesOfUserRequest
+     *
      * @returns ListPrivilegesOfUserResponse
      *
      * @param ListPrivilegesOfUserRequest $request
@@ -11361,6 +11661,7 @@ class CCC extends OpenApiClient
     /**
      * @param request - ListRamUsersRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ListRamUsersResponse
      *
      * @param ListRamUsersRequest $request
@@ -11392,15 +11693,15 @@ class CCC extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListRamUsers',
-            'version'     => '2020-07-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListRamUsers',
+            'version' => '2020-07-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return ListRamUsersResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -11411,6 +11712,7 @@ class CCC extends OpenApiClient
 
     /**
      * @param request - ListRamUsersRequest
+     *
      * @returns ListRamUsersResponse
      *
      * @param ListRamUsersRequest $request
@@ -11427,6 +11729,7 @@ class CCC extends OpenApiClient
     /**
      * @param request - ListRealtimeAgentStatesRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ListRealtimeAgentStatesResponse
      *
      * @param ListRealtimeAgentStatesRequest $request
@@ -11489,18 +11792,18 @@ class CCC extends OpenApiClient
 
         $req = new OpenApiRequest([
             'query' => Utils::query($query),
-            'body'  => Utils::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'ListRealtimeAgentStates',
-            'version'     => '2020-07-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListRealtimeAgentStates',
+            'version' => '2020-07-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return ListRealtimeAgentStatesResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -11511,6 +11814,7 @@ class CCC extends OpenApiClient
 
     /**
      * @param request - ListRealtimeAgentStatesRequest
+     *
      * @returns ListRealtimeAgentStatesResponse
      *
      * @param ListRealtimeAgentStatesRequest $request
@@ -11527,6 +11831,7 @@ class CCC extends OpenApiClient
     /**
      * @param request - ListRealtimeSkillGroupStatesRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ListRealtimeSkillGroupStatesResponse
      *
      * @param ListRealtimeSkillGroupStatesRequest $request
@@ -11561,18 +11866,18 @@ class CCC extends OpenApiClient
 
         $req = new OpenApiRequest([
             'query' => Utils::query($query),
-            'body'  => Utils::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'ListRealtimeSkillGroupStates',
-            'version'     => '2020-07-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListRealtimeSkillGroupStates',
+            'version' => '2020-07-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return ListRealtimeSkillGroupStatesResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -11583,6 +11888,7 @@ class CCC extends OpenApiClient
 
     /**
      * @param request - ListRealtimeSkillGroupStatesRequest
+     *
      * @returns ListRealtimeSkillGroupStatesResponse
      *
      * @param ListRealtimeSkillGroupStatesRequest $request
@@ -11599,6 +11905,7 @@ class CCC extends OpenApiClient
     /**
      * @param request - ListRecentCallDetailRecordsRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ListRecentCallDetailRecordsResponse
      *
      * @param ListRecentCallDetailRecordsRequest $request
@@ -11637,18 +11944,18 @@ class CCC extends OpenApiClient
 
         $req = new OpenApiRequest([
             'query' => Utils::query($query),
-            'body'  => Utils::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'ListRecentCallDetailRecords',
-            'version'     => '2020-07-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListRecentCallDetailRecords',
+            'version' => '2020-07-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return ListRecentCallDetailRecordsResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -11659,6 +11966,7 @@ class CCC extends OpenApiClient
 
     /**
      * @param request - ListRecentCallDetailRecordsRequest
+     *
      * @returns ListRecentCallDetailRecordsResponse
      *
      * @param ListRecentCallDetailRecordsRequest $request
@@ -11675,6 +11983,7 @@ class CCC extends OpenApiClient
     /**
      * @param request - ListRolesRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ListRolesResponse
      *
      * @param ListRolesRequest $request
@@ -11694,15 +12003,15 @@ class CCC extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListRoles',
-            'version'     => '2020-07-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListRoles',
+            'version' => '2020-07-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return ListRolesResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -11713,6 +12022,7 @@ class CCC extends OpenApiClient
 
     /**
      * @param request - ListRolesRequest
+     *
      * @returns ListRolesResponse
      *
      * @param ListRolesRequest $request
@@ -11727,7 +12037,6 @@ class CCC extends OpenApiClient
     }
 
     // Deprecated
-
     /**
      * ListSkillGroupStates for acc.
      *
@@ -11735,6 +12044,7 @@ class CCC extends OpenApiClient
      *
      * @param request - ListSkillGroupStatesRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ListSkillGroupStatesResponse
      *
      * @param ListSkillGroupStatesRequest $request
@@ -11746,19 +12056,19 @@ class CCC extends OpenApiClient
     {
         $request->validate();
         $query = Utils::query($request->toMap());
-        $req   = new OpenApiRequest([
+        $req = new OpenApiRequest([
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListSkillGroupStates',
-            'version'     => '2020-07-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListSkillGroupStates',
+            'version' => '2020-07-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return ListSkillGroupStatesResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -11768,13 +12078,13 @@ class CCC extends OpenApiClient
     }
 
     // Deprecated
-
     /**
      * ListSkillGroupStates for acc.
      *
      * @deprecated openAPI ListSkillGroupStates is deprecated, please use CCC::2020-07-01::ListRealtimeSkillGroupStates instead
      *
      * @param request - ListSkillGroupStatesRequest
+     *
      * @returns ListSkillGroupStatesResponse
      *
      * @param ListSkillGroupStatesRequest $request
@@ -11789,7 +12099,6 @@ class CCC extends OpenApiClient
     }
 
     // Deprecated
-
     /**
      * ListSkillGroupSummaryReportsSinceMidnight for acc.
      *
@@ -11797,6 +12106,7 @@ class CCC extends OpenApiClient
      *
      * @param request - ListSkillGroupSummaryReportsSinceMidnightRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ListSkillGroupSummaryReportsSinceMidnightResponse
      *
      * @param ListSkillGroupSummaryReportsSinceMidnightRequest $request
@@ -11808,19 +12118,19 @@ class CCC extends OpenApiClient
     {
         $request->validate();
         $query = Utils::query($request->toMap());
-        $req   = new OpenApiRequest([
+        $req = new OpenApiRequest([
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListSkillGroupSummaryReportsSinceMidnight',
-            'version'     => '2020-07-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListSkillGroupSummaryReportsSinceMidnight',
+            'version' => '2020-07-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return ListSkillGroupSummaryReportsSinceMidnightResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -11830,13 +12140,13 @@ class CCC extends OpenApiClient
     }
 
     // Deprecated
-
     /**
      * ListSkillGroupSummaryReportsSinceMidnight for acc.
      *
      * @deprecated openAPI ListSkillGroupSummaryReportsSinceMidnight is deprecated, please use CCC::2020-07-01::ListHistoricalSkillGroupReport instead
      *
      * @param request - ListSkillGroupSummaryReportsSinceMidnightRequest
+     *
      * @returns ListSkillGroupSummaryReportsSinceMidnightResponse
      *
      * @param ListSkillGroupSummaryReportsSinceMidnightRequest $request
@@ -11853,6 +12163,7 @@ class CCC extends OpenApiClient
     /**
      * @param request - ListSkillGroupsRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ListSkillGroupsResponse
      *
      * @param ListSkillGroupsRequest $request
@@ -11888,15 +12199,15 @@ class CCC extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListSkillGroups',
-            'version'     => '2020-07-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListSkillGroups',
+            'version' => '2020-07-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return ListSkillGroupsResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -11907,6 +12218,7 @@ class CCC extends OpenApiClient
 
     /**
      * @param request - ListSkillGroupsRequest
+     *
      * @returns ListSkillGroupsResponse
      *
      * @param ListSkillGroupsRequest $request
@@ -11923,6 +12235,7 @@ class CCC extends OpenApiClient
     /**
      * @param request - ListSkillLevelsOfUserRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ListSkillLevelsOfUserResponse
      *
      * @param ListSkillLevelsOfUserRequest $request
@@ -11962,15 +12275,15 @@ class CCC extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListSkillLevelsOfUser',
-            'version'     => '2020-07-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListSkillLevelsOfUser',
+            'version' => '2020-07-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return ListSkillLevelsOfUserResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -11981,6 +12294,7 @@ class CCC extends OpenApiClient
 
     /**
      * @param request - ListSkillLevelsOfUserRequest
+     *
      * @returns ListSkillLevelsOfUserResponse
      *
      * @param ListSkillLevelsOfUserRequest $request
@@ -11997,6 +12311,7 @@ class CCC extends OpenApiClient
     /**
      * @param request - ListSmsMetadataRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ListSmsMetadataResponse
      *
      * @param ListSmsMetadataRequest $request
@@ -12028,15 +12343,15 @@ class CCC extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListSmsMetadata',
-            'version'     => '2020-07-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListSmsMetadata',
+            'version' => '2020-07-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return ListSmsMetadataResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -12047,6 +12362,7 @@ class CCC extends OpenApiClient
 
     /**
      * @param request - ListSmsMetadataRequest
+     *
      * @returns ListSmsMetadataResponse
      *
      * @param ListSmsMetadataRequest $request
@@ -12063,6 +12379,7 @@ class CCC extends OpenApiClient
     /**
      * @param request - ListTicketTasksRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ListTicketTasksResponse
      *
      * @param ListTicketTasksRequest $request
@@ -12086,15 +12403,15 @@ class CCC extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListTicketTasks',
-            'version'     => '2020-07-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListTicketTasks',
+            'version' => '2020-07-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return ListTicketTasksResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -12105,6 +12422,7 @@ class CCC extends OpenApiClient
 
     /**
      * @param request - ListTicketTasksRequest
+     *
      * @returns ListTicketTasksResponse
      *
      * @param ListTicketTasksRequest $request
@@ -12121,6 +12439,7 @@ class CCC extends OpenApiClient
     /**
      * @param request - ListTicketTemplatesRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ListTicketTemplatesResponse
      *
      * @param ListTicketTemplatesRequest $request
@@ -12160,15 +12479,15 @@ class CCC extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListTicketTemplates',
-            'version'     => '2020-07-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListTicketTemplates',
+            'version' => '2020-07-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return ListTicketTemplatesResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -12179,6 +12498,7 @@ class CCC extends OpenApiClient
 
     /**
      * @param request - ListTicketTemplatesRequest
+     *
      * @returns ListTicketTemplatesResponse
      *
      * @param ListTicketTemplatesRequest $request
@@ -12195,6 +12515,7 @@ class CCC extends OpenApiClient
     /**
      * @param request - ListTicketsRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ListTicketsResponse
      *
      * @param ListTicketsRequest $request
@@ -12270,15 +12591,15 @@ class CCC extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListTickets',
-            'version'     => '2020-07-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListTickets',
+            'version' => '2020-07-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return ListTicketsResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -12289,6 +12610,7 @@ class CCC extends OpenApiClient
 
     /**
      * @param request - ListTicketsRequest
+     *
      * @returns ListTicketsResponse
      *
      * @param ListTicketsRequest $request
@@ -12307,6 +12629,7 @@ class CCC extends OpenApiClient
      *
      * @param request - ListUnassignedNumbersRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ListUnassignedNumbersResponse
      *
      * @param ListUnassignedNumbersRequest $request
@@ -12334,15 +12657,15 @@ class CCC extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListUnassignedNumbers',
-            'version'     => '2020-07-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListUnassignedNumbers',
+            'version' => '2020-07-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return ListUnassignedNumbersResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -12355,6 +12678,7 @@ class CCC extends OpenApiClient
      * 获取未分配号码列表.
      *
      * @param request - ListUnassignedNumbersRequest
+     *
      * @returns ListUnassignedNumbersResponse
      *
      * @param ListUnassignedNumbersRequest $request
@@ -12371,6 +12695,7 @@ class CCC extends OpenApiClient
     /**
      * @param request - ListUserLevelsOfSkillGroupRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ListUserLevelsOfSkillGroupResponse
      *
      * @param ListUserLevelsOfSkillGroupRequest $request
@@ -12410,15 +12735,15 @@ class CCC extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListUserLevelsOfSkillGroup',
-            'version'     => '2020-07-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListUserLevelsOfSkillGroup',
+            'version' => '2020-07-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return ListUserLevelsOfSkillGroupResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -12429,6 +12754,7 @@ class CCC extends OpenApiClient
 
     /**
      * @param request - ListUserLevelsOfSkillGroupRequest
+     *
      * @returns ListUserLevelsOfSkillGroupResponse
      *
      * @param ListUserLevelsOfSkillGroupRequest $request
@@ -12445,6 +12771,7 @@ class CCC extends OpenApiClient
     /**
      * @param request - ListUsersRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ListUsersResponse
      *
      * @param ListUsersRequest $request
@@ -12480,15 +12807,15 @@ class CCC extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListUsers',
-            'version'     => '2020-07-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListUsers',
+            'version' => '2020-07-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return ListUsersResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -12499,6 +12826,7 @@ class CCC extends OpenApiClient
 
     /**
      * @param request - ListUsersRequest
+     *
      * @returns ListUsersResponse
      *
      * @param ListUsersRequest $request
@@ -12513,8 +12841,101 @@ class CCC extends OpenApiClient
     }
 
     /**
+     * ListVisitorChatMessages.
+     *
+     * @param request - ListVisitorChatMessagesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListVisitorChatMessagesResponse
+     *
+     * @param ListVisitorChatMessagesRequest $request
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return ListVisitorChatMessagesResponse
+     */
+    public function listVisitorChatMessagesWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->accessChannelId) {
+            @$query['AccessChannelId'] = $request->accessChannelId;
+        }
+
+        if (null !== $request->accessToken) {
+            @$query['AccessToken'] = $request->accessToken;
+        }
+
+        if (null !== $request->endTime) {
+            @$query['EndTime'] = $request->endTime;
+        }
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
+        }
+
+        if (null !== $request->nextPageToken) {
+            @$query['NextPageToken'] = $request->nextPageToken;
+        }
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
+        }
+
+        if (null !== $request->sortOrder) {
+            @$query['SortOrder'] = $request->sortOrder;
+        }
+
+        if (null !== $request->startTime) {
+            @$query['StartTime'] = $request->startTime;
+        }
+
+        if (null !== $request->visitorId) {
+            @$query['VisitorId'] = $request->visitorId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListVisitorChatMessages',
+            'version' => '2020-07-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ListVisitorChatMessagesResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
+
+        return ListVisitorChatMessagesResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * ListVisitorChatMessages.
+     *
+     * @param request - ListVisitorChatMessagesRequest
+     *
+     * @returns ListVisitorChatMessagesResponse
+     *
+     * @param ListVisitorChatMessagesRequest $request
+     *
+     * @return ListVisitorChatMessagesResponse
+     */
+    public function listVisitorChatMessages($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listVisitorChatMessagesWithOptions($request, $runtime);
+    }
+
+    /**
      * @param request - ListVoicemailsRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ListVoicemailsResponse
      *
      * @param ListVoicemailsRequest $request
@@ -12562,15 +12983,15 @@ class CCC extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListVoicemails',
-            'version'     => '2020-07-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListVoicemails',
+            'version' => '2020-07-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return ListVoicemailsResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -12581,6 +13002,7 @@ class CCC extends OpenApiClient
 
     /**
      * @param request - ListVoicemailsRequest
+     *
      * @returns ListVoicemailsResponse
      *
      * @param ListVoicemailsRequest $request
@@ -12597,6 +13019,7 @@ class CCC extends OpenApiClient
     /**
      * @param request - ListWaitingChatsRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ListWaitingChatsResponse
      *
      * @param ListWaitingChatsRequest $request
@@ -12620,15 +13043,15 @@ class CCC extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListWaitingChats',
-            'version'     => '2020-07-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListWaitingChats',
+            'version' => '2020-07-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return ListWaitingChatsResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -12639,6 +13062,7 @@ class CCC extends OpenApiClient
 
     /**
      * @param request - ListWaitingChatsRequest
+     *
      * @returns ListWaitingChatsResponse
      *
      * @param ListWaitingChatsRequest $request
@@ -12655,6 +13079,7 @@ class CCC extends OpenApiClient
     /**
      * @param request - MakeCallRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns MakeCallResponse
      *
      * @param MakeCallRequest $request
@@ -12710,15 +13135,15 @@ class CCC extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'MakeCall',
-            'version'     => '2020-07-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'MakeCall',
+            'version' => '2020-07-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return MakeCallResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -12729,6 +13154,7 @@ class CCC extends OpenApiClient
 
     /**
      * @param request - MakeCallRequest
+     *
      * @returns MakeCallResponse
      *
      * @param MakeCallRequest $request
@@ -12745,6 +13171,7 @@ class CCC extends OpenApiClient
     /**
      * @param request - ModifyAudioFileRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ModifyAudioFileResponse
      *
      * @param ModifyAudioFileRequest $request
@@ -12784,15 +13211,15 @@ class CCC extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ModifyAudioFile',
-            'version'     => '2020-07-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ModifyAudioFile',
+            'version' => '2020-07-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return ModifyAudioFileResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -12803,6 +13230,7 @@ class CCC extends OpenApiClient
 
     /**
      * @param request - ModifyAudioFileRequest
+     *
      * @returns ModifyAudioFileResponse
      *
      * @param ModifyAudioFileRequest $request
@@ -12821,6 +13249,7 @@ class CCC extends OpenApiClient
      *
      * @param request - ModifyCustomCallTaggingRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ModifyCustomCallTaggingResponse
      *
      * @param ModifyCustomCallTaggingRequest $request
@@ -12852,15 +13281,15 @@ class CCC extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ModifyCustomCallTagging',
-            'version'     => '2020-07-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ModifyCustomCallTagging',
+            'version' => '2020-07-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return ModifyCustomCallTaggingResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -12873,6 +13302,7 @@ class CCC extends OpenApiClient
      * 编辑呼入控制号码
      *
      * @param request - ModifyCustomCallTaggingRequest
+     *
      * @returns ModifyCustomCallTaggingResponse
      *
      * @param ModifyCustomCallTaggingRequest $request
@@ -12889,6 +13319,7 @@ class CCC extends OpenApiClient
     /**
      * @param request - ModifyInstanceRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ModifyInstanceResponse
      *
      * @param ModifyInstanceRequest $request
@@ -12912,15 +13343,15 @@ class CCC extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ModifyInstance',
-            'version'     => '2020-07-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ModifyInstance',
+            'version' => '2020-07-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return ModifyInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -12931,6 +13362,7 @@ class CCC extends OpenApiClient
 
     /**
      * @param request - ModifyInstanceRequest
+     *
      * @returns ModifyInstanceResponse
      *
      * @param ModifyInstanceRequest $request
@@ -12947,6 +13379,7 @@ class CCC extends OpenApiClient
     /**
      * @param request - ModifyPhoneNumberRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ModifyPhoneNumberResponse
      *
      * @param ModifyPhoneNumberRequest $request
@@ -12978,15 +13411,15 @@ class CCC extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ModifyPhoneNumber',
-            'version'     => '2020-07-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ModifyPhoneNumber',
+            'version' => '2020-07-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return ModifyPhoneNumberResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -12997,6 +13430,7 @@ class CCC extends OpenApiClient
 
     /**
      * @param request - ModifyPhoneNumberRequest
+     *
      * @returns ModifyPhoneNumberResponse
      *
      * @param ModifyPhoneNumberRequest $request
@@ -13013,6 +13447,7 @@ class CCC extends OpenApiClient
     /**
      * @param request - ModifySkillGroupRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ModifySkillGroupResponse
      *
      * @param ModifySkillGroupRequest $request
@@ -13044,15 +13479,15 @@ class CCC extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ModifySkillGroup',
-            'version'     => '2020-07-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ModifySkillGroup',
+            'version' => '2020-07-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return ModifySkillGroupResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -13063,6 +13498,7 @@ class CCC extends OpenApiClient
 
     /**
      * @param request - ModifySkillGroupRequest
+     *
      * @returns ModifySkillGroupResponse
      *
      * @param ModifySkillGroupRequest $request
@@ -13079,6 +13515,7 @@ class CCC extends OpenApiClient
     /**
      * @param request - ModifySkillLevelsOfUserRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ModifySkillLevelsOfUserResponse
      *
      * @param ModifySkillLevelsOfUserRequest $request
@@ -13106,15 +13543,15 @@ class CCC extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ModifySkillLevelsOfUser',
-            'version'     => '2020-07-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ModifySkillLevelsOfUser',
+            'version' => '2020-07-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return ModifySkillLevelsOfUserResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -13125,6 +13562,7 @@ class CCC extends OpenApiClient
 
     /**
      * @param request - ModifySkillLevelsOfUserRequest
+     *
      * @returns ModifySkillLevelsOfUserResponse
      *
      * @param ModifySkillLevelsOfUserRequest $request
@@ -13141,6 +13579,7 @@ class CCC extends OpenApiClient
     /**
      * @param request - ModifyUserRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ModifyUserResponse
      *
      * @param ModifyUserRequest $request
@@ -13196,15 +13635,15 @@ class CCC extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ModifyUser',
-            'version'     => '2020-07-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ModifyUser',
+            'version' => '2020-07-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return ModifyUserResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -13215,6 +13654,7 @@ class CCC extends OpenApiClient
 
     /**
      * @param request - ModifyUserRequest
+     *
      * @returns ModifyUserResponse
      *
      * @param ModifyUserRequest $request
@@ -13231,6 +13671,7 @@ class CCC extends OpenApiClient
     /**
      * @param request - ModifyUserLevelsOfSkillGroupRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ModifyUserLevelsOfSkillGroupResponse
      *
      * @param ModifyUserLevelsOfSkillGroupRequest $request
@@ -13258,15 +13699,15 @@ class CCC extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ModifyUserLevelsOfSkillGroup',
-            'version'     => '2020-07-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ModifyUserLevelsOfSkillGroup',
+            'version' => '2020-07-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return ModifyUserLevelsOfSkillGroupResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -13277,6 +13718,7 @@ class CCC extends OpenApiClient
 
     /**
      * @param request - ModifyUserLevelsOfSkillGroupRequest
+     *
      * @returns ModifyUserLevelsOfSkillGroupResponse
      *
      * @param ModifyUserLevelsOfSkillGroupRequest $request
@@ -13293,6 +13735,7 @@ class CCC extends OpenApiClient
     /**
      * @param request - MonitorCallRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns MonitorCallResponse
      *
      * @param MonitorCallRequest $request
@@ -13328,15 +13771,15 @@ class CCC extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'MonitorCall',
-            'version'     => '2020-07-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'MonitorCall',
+            'version' => '2020-07-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return MonitorCallResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -13347,6 +13790,7 @@ class CCC extends OpenApiClient
 
     /**
      * @param request - MonitorCallRequest
+     *
      * @returns MonitorCallResponse
      *
      * @param MonitorCallRequest $request
@@ -13363,6 +13807,7 @@ class CCC extends OpenApiClient
     /**
      * @param request - MuteCallRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns MuteCallResponse
      *
      * @param MuteCallRequest $request
@@ -13398,15 +13843,15 @@ class CCC extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'MuteCall',
-            'version'     => '2020-07-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'MuteCall',
+            'version' => '2020-07-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return MuteCallResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -13417,6 +13862,7 @@ class CCC extends OpenApiClient
 
     /**
      * @param request - MuteCallRequest
+     *
      * @returns MuteCallResponse
      *
      * @param MuteCallRequest $request
@@ -13435,6 +13881,7 @@ class CCC extends OpenApiClient
      *
      * @param request - PauseCampaignRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns PauseCampaignResponse
      *
      * @param PauseCampaignRequest $request
@@ -13458,15 +13905,15 @@ class CCC extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'PauseCampaign',
-            'version'     => '2020-07-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'PauseCampaign',
+            'version' => '2020-07-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return PauseCampaignResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -13479,6 +13926,7 @@ class CCC extends OpenApiClient
      * 暂停预测式外呼活动.
      *
      * @param request - PauseCampaignRequest
+     *
      * @returns PauseCampaignResponse
      *
      * @param PauseCampaignRequest $request
@@ -13495,6 +13943,7 @@ class CCC extends OpenApiClient
     /**
      * @param request - PickOutboundNumbersRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns PickOutboundNumbersResponse
      *
      * @param PickOutboundNumbersRequest $request
@@ -13526,15 +13975,15 @@ class CCC extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'PickOutboundNumbers',
-            'version'     => '2020-07-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'PickOutboundNumbers',
+            'version' => '2020-07-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return PickOutboundNumbersResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -13545,6 +13994,7 @@ class CCC extends OpenApiClient
 
     /**
      * @param request - PickOutboundNumbersRequest
+     *
      * @returns PickOutboundNumbersResponse
      *
      * @param PickOutboundNumbersRequest $request
@@ -13561,6 +14011,7 @@ class CCC extends OpenApiClient
     /**
      * @param request - PollUserStatusRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns PollUserStatusResponse
      *
      * @param PollUserStatusRequest $request
@@ -13588,15 +14039,15 @@ class CCC extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'PollUserStatus',
-            'version'     => '2020-07-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'PollUserStatus',
+            'version' => '2020-07-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return PollUserStatusResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -13607,6 +14058,7 @@ class CCC extends OpenApiClient
 
     /**
      * @param request - PollUserStatusRequest
+     *
      * @returns PollUserStatusResponse
      *
      * @param PollUserStatusRequest $request
@@ -13625,6 +14077,7 @@ class CCC extends OpenApiClient
      *
      * @param request - ProcessAliMeCallbackOfStagingRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ProcessAliMeCallbackOfStagingResponse
      *
      * @param ProcessAliMeCallbackOfStagingRequest $request
@@ -13648,15 +14101,15 @@ class CCC extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ProcessAliMeCallbackOfStaging',
-            'version'     => '2020-07-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ProcessAliMeCallbackOfStaging',
+            'version' => '2020-07-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return ProcessAliMeCallbackOfStagingResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -13669,6 +14122,7 @@ class CCC extends OpenApiClient
      * ProcessAliMeCallbackOfStaging.
      *
      * @param request - ProcessAliMeCallbackOfStagingRequest
+     *
      * @returns ProcessAliMeCallbackOfStagingResponse
      *
      * @param ProcessAliMeCallbackOfStagingRequest $request
@@ -13685,6 +14139,7 @@ class CCC extends OpenApiClient
     /**
      * @param request - ProcessCustomIMCallbackRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ProcessCustomIMCallbackResponse
      *
      * @param ProcessCustomIMCallbackRequest $request
@@ -13732,15 +14187,15 @@ class CCC extends OpenApiClient
             'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'ProcessCustomIMCallback',
-            'version'     => '2020-07-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ProcessCustomIMCallback',
+            'version' => '2020-07-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return ProcessCustomIMCallbackResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -13751,6 +14206,7 @@ class CCC extends OpenApiClient
 
     /**
      * @param request - ProcessCustomIMCallbackRequest
+     *
      * @returns ProcessCustomIMCallbackResponse
      *
      * @param ProcessCustomIMCallbackRequest $request
@@ -13767,6 +14223,7 @@ class CCC extends OpenApiClient
     /**
      * @param request - PublishContactFlowRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns PublishContactFlowResponse
      *
      * @param PublishContactFlowRequest $request
@@ -13794,15 +14251,15 @@ class CCC extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'PublishContactFlow',
-            'version'     => '2020-07-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'PublishContactFlow',
+            'version' => '2020-07-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return PublishContactFlowResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -13813,6 +14270,7 @@ class CCC extends OpenApiClient
 
     /**
      * @param request - PublishContactFlowRequest
+     *
      * @returns PublishContactFlowResponse
      *
      * @param PublishContactFlowRequest $request
@@ -13829,6 +14287,7 @@ class CCC extends OpenApiClient
     /**
      * @param request - ReadyForServiceRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ReadyForServiceResponse
      *
      * @param ReadyForServiceRequest $request
@@ -13860,15 +14319,15 @@ class CCC extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ReadyForService',
-            'version'     => '2020-07-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ReadyForService',
+            'version' => '2020-07-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return ReadyForServiceResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -13879,6 +14338,7 @@ class CCC extends OpenApiClient
 
     /**
      * @param request - ReadyForServiceRequest
+     *
      * @returns ReadyForServiceResponse
      *
      * @param ReadyForServiceRequest $request
@@ -13895,6 +14355,7 @@ class CCC extends OpenApiClient
     /**
      * @param request - RedialCallRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns RedialCallResponse
      *
      * @param RedialCallRequest $request
@@ -13942,15 +14403,15 @@ class CCC extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'RedialCall',
-            'version'     => '2020-07-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'RedialCall',
+            'version' => '2020-07-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return RedialCallResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -13961,6 +14422,7 @@ class CCC extends OpenApiClient
 
     /**
      * @param request - RedialCallRequest
+     *
      * @returns RedialCallResponse
      *
      * @param RedialCallRequest $request
@@ -13977,6 +14439,7 @@ class CCC extends OpenApiClient
     /**
      * @param request - RegisterDeviceRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns RegisterDeviceResponse
      *
      * @param RegisterDeviceRequest $request
@@ -14008,15 +14471,15 @@ class CCC extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'RegisterDevice',
-            'version'     => '2020-07-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'RegisterDevice',
+            'version' => '2020-07-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return RegisterDeviceResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -14027,6 +14490,7 @@ class CCC extends OpenApiClient
 
     /**
      * @param request - RegisterDeviceRequest
+     *
      * @returns RegisterDeviceResponse
      *
      * @param RegisterDeviceRequest $request
@@ -14043,6 +14507,7 @@ class CCC extends OpenApiClient
     /**
      * @param request - RegisterDevicesRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns RegisterDevicesResponse
      *
      * @param RegisterDevicesRequest $request
@@ -14074,15 +14539,15 @@ class CCC extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'RegisterDevices',
-            'version'     => '2020-07-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'RegisterDevices',
+            'version' => '2020-07-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return RegisterDevicesResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -14093,6 +14558,7 @@ class CCC extends OpenApiClient
 
     /**
      * @param request - RegisterDevicesRequest
+     *
      * @returns RegisterDevicesResponse
      *
      * @param RegisterDevicesRequest $request
@@ -14109,6 +14575,7 @@ class CCC extends OpenApiClient
     /**
      * @param request - RejectChatRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns RejectChatResponse
      *
      * @param RejectChatRequest $request
@@ -14132,15 +14599,15 @@ class CCC extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'RejectChat',
-            'version'     => '2020-07-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'RejectChat',
+            'version' => '2020-07-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return RejectChatResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -14151,6 +14618,7 @@ class CCC extends OpenApiClient
 
     /**
      * @param request - RejectChatRequest
+     *
      * @returns RejectChatResponse
      *
      * @param RejectChatRequest $request
@@ -14167,6 +14635,7 @@ class CCC extends OpenApiClient
     /**
      * @param request - RejectTicketRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns RejectTicketResponse
      *
      * @param RejectTicketRequest $request
@@ -14194,15 +14663,15 @@ class CCC extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'RejectTicket',
-            'version'     => '2020-07-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'RejectTicket',
+            'version' => '2020-07-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return RejectTicketResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -14213,6 +14682,7 @@ class CCC extends OpenApiClient
 
     /**
      * @param request - RejectTicketRequest
+     *
      * @returns RejectTicketResponse
      *
      * @param RejectTicketRequest $request
@@ -14229,6 +14699,7 @@ class CCC extends OpenApiClient
     /**
      * @param request - ReleaseCallRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ReleaseCallResponse
      *
      * @param ReleaseCallRequest $request
@@ -14264,15 +14735,15 @@ class CCC extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ReleaseCall',
-            'version'     => '2020-07-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ReleaseCall',
+            'version' => '2020-07-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return ReleaseCallResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -14283,6 +14754,7 @@ class CCC extends OpenApiClient
 
     /**
      * @param request - ReleaseCallRequest
+     *
      * @returns ReleaseCallResponse
      *
      * @param ReleaseCallRequest $request
@@ -14299,6 +14771,7 @@ class CCC extends OpenApiClient
     /**
      * @param request - ReleaseChatRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ReleaseChatResponse
      *
      * @param ReleaseChatRequest $request
@@ -14334,15 +14807,15 @@ class CCC extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ReleaseChat',
-            'version'     => '2020-07-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ReleaseChat',
+            'version' => '2020-07-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return ReleaseChatResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -14353,6 +14826,7 @@ class CCC extends OpenApiClient
 
     /**
      * @param request - ReleaseChatRequest
+     *
      * @returns ReleaseChatResponse
      *
      * @param ReleaseChatRequest $request
@@ -14371,6 +14845,7 @@ class CCC extends OpenApiClient
      *
      * @param request - RemoveBlacklistCallTaggingRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns RemoveBlacklistCallTaggingResponse
      *
      * @param RemoveBlacklistCallTaggingRequest $request
@@ -14398,15 +14873,15 @@ class CCC extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'RemoveBlacklistCallTagging',
-            'version'     => '2020-07-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'RemoveBlacklistCallTagging',
+            'version' => '2020-07-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return RemoveBlacklistCallTaggingResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -14419,6 +14894,7 @@ class CCC extends OpenApiClient
      * 编辑呼入控制号码
      *
      * @param request - RemoveBlacklistCallTaggingRequest
+     *
      * @returns RemoveBlacklistCallTaggingResponse
      *
      * @param RemoveBlacklistCallTaggingRequest $request
@@ -14437,6 +14913,7 @@ class CCC extends OpenApiClient
      *
      * @param request - RemoveDoNotCallNumbersRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns RemoveDoNotCallNumbersResponse
      *
      * @param RemoveDoNotCallNumbersRequest $request
@@ -14460,15 +14937,15 @@ class CCC extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'RemoveDoNotCallNumbers',
-            'version'     => '2020-07-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'RemoveDoNotCallNumbers',
+            'version' => '2020-07-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return RemoveDoNotCallNumbersResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -14481,6 +14958,7 @@ class CCC extends OpenApiClient
      * 删除黑名单号码
      *
      * @param request - RemoveDoNotCallNumbersRequest
+     *
      * @returns RemoveDoNotCallNumbersResponse
      *
      * @param RemoveDoNotCallNumbersRequest $request
@@ -14497,6 +14975,7 @@ class CCC extends OpenApiClient
     /**
      * @param request - RemovePersonalNumbersFromUserRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns RemovePersonalNumbersFromUserResponse
      *
      * @param RemovePersonalNumbersFromUserRequest $request
@@ -14524,15 +15003,15 @@ class CCC extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'RemovePersonalNumbersFromUser',
-            'version'     => '2020-07-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'RemovePersonalNumbersFromUser',
+            'version' => '2020-07-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return RemovePersonalNumbersFromUserResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -14543,6 +15022,7 @@ class CCC extends OpenApiClient
 
     /**
      * @param request - RemovePersonalNumbersFromUserRequest
+     *
      * @returns RemovePersonalNumbersFromUserResponse
      *
      * @param RemovePersonalNumbersFromUserRequest $request
@@ -14559,6 +15039,7 @@ class CCC extends OpenApiClient
     /**
      * @param request - RemovePhoneNumberFromSkillGroupsRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns RemovePhoneNumberFromSkillGroupsResponse
      *
      * @param RemovePhoneNumberFromSkillGroupsRequest $request
@@ -14586,15 +15067,15 @@ class CCC extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'RemovePhoneNumberFromSkillGroups',
-            'version'     => '2020-07-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'RemovePhoneNumberFromSkillGroups',
+            'version' => '2020-07-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return RemovePhoneNumberFromSkillGroupsResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -14605,6 +15086,7 @@ class CCC extends OpenApiClient
 
     /**
      * @param request - RemovePhoneNumberFromSkillGroupsRequest
+     *
      * @returns RemovePhoneNumberFromSkillGroupsResponse
      *
      * @param RemovePhoneNumberFromSkillGroupsRequest $request
@@ -14621,6 +15103,7 @@ class CCC extends OpenApiClient
     /**
      * @param request - RemovePhoneNumbersRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns RemovePhoneNumbersResponse
      *
      * @param RemovePhoneNumbersRequest $request
@@ -14648,15 +15131,15 @@ class CCC extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'RemovePhoneNumbers',
-            'version'     => '2020-07-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'RemovePhoneNumbers',
+            'version' => '2020-07-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return RemovePhoneNumbersResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -14667,6 +15150,7 @@ class CCC extends OpenApiClient
 
     /**
      * @param request - RemovePhoneNumbersRequest
+     *
      * @returns RemovePhoneNumbersResponse
      *
      * @param RemovePhoneNumbersRequest $request
@@ -14683,6 +15167,7 @@ class CCC extends OpenApiClient
     /**
      * @param request - RemovePhoneNumbersFromSkillGroupRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns RemovePhoneNumbersFromSkillGroupResponse
      *
      * @param RemovePhoneNumbersFromSkillGroupRequest $request
@@ -14710,15 +15195,15 @@ class CCC extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'RemovePhoneNumbersFromSkillGroup',
-            'version'     => '2020-07-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'RemovePhoneNumbersFromSkillGroup',
+            'version' => '2020-07-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return RemovePhoneNumbersFromSkillGroupResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -14729,6 +15214,7 @@ class CCC extends OpenApiClient
 
     /**
      * @param request - RemovePhoneNumbersFromSkillGroupRequest
+     *
      * @returns RemovePhoneNumbersFromSkillGroupResponse
      *
      * @param RemovePhoneNumbersFromSkillGroupRequest $request
@@ -14745,6 +15231,7 @@ class CCC extends OpenApiClient
     /**
      * @param request - RemoveSkillGroupsFromUserRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns RemoveSkillGroupsFromUserResponse
      *
      * @param RemoveSkillGroupsFromUserRequest $request
@@ -14772,15 +15259,15 @@ class CCC extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'RemoveSkillGroupsFromUser',
-            'version'     => '2020-07-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'RemoveSkillGroupsFromUser',
+            'version' => '2020-07-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return RemoveSkillGroupsFromUserResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -14791,6 +15278,7 @@ class CCC extends OpenApiClient
 
     /**
      * @param request - RemoveSkillGroupsFromUserRequest
+     *
      * @returns RemoveSkillGroupsFromUserResponse
      *
      * @param RemoveSkillGroupsFromUserRequest $request
@@ -14807,6 +15295,7 @@ class CCC extends OpenApiClient
     /**
      * @param request - RemoveUsersRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns RemoveUsersResponse
      *
      * @param RemoveUsersRequest $request
@@ -14842,15 +15331,15 @@ class CCC extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'RemoveUsers',
-            'version'     => '2020-07-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'RemoveUsers',
+            'version' => '2020-07-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return RemoveUsersResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -14861,6 +15350,7 @@ class CCC extends OpenApiClient
 
     /**
      * @param request - RemoveUsersRequest
+     *
      * @returns RemoveUsersResponse
      *
      * @param RemoveUsersRequest $request
@@ -14877,6 +15367,7 @@ class CCC extends OpenApiClient
     /**
      * @param request - RemoveUsersFromSkillGroupRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns RemoveUsersFromSkillGroupResponse
      *
      * @param RemoveUsersFromSkillGroupRequest $request
@@ -14904,15 +15395,15 @@ class CCC extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'RemoveUsersFromSkillGroup',
-            'version'     => '2020-07-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'RemoveUsersFromSkillGroup',
+            'version' => '2020-07-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return RemoveUsersFromSkillGroupResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -14923,6 +15414,7 @@ class CCC extends OpenApiClient
 
     /**
      * @param request - RemoveUsersFromSkillGroupRequest
+     *
      * @returns RemoveUsersFromSkillGroupResponse
      *
      * @param RemoveUsersFromSkillGroupRequest $request
@@ -14939,6 +15431,7 @@ class CCC extends OpenApiClient
     /**
      * @param request - ResetAgentStateRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ResetAgentStateResponse
      *
      * @param ResetAgentStateRequest $request
@@ -14966,15 +15459,15 @@ class CCC extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ResetAgentState',
-            'version'     => '2020-07-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ResetAgentState',
+            'version' => '2020-07-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return ResetAgentStateResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -14985,6 +15478,7 @@ class CCC extends OpenApiClient
 
     /**
      * @param request - ResetAgentStateRequest
+     *
      * @returns ResetAgentStateResponse
      *
      * @param ResetAgentStateRequest $request
@@ -15001,6 +15495,7 @@ class CCC extends OpenApiClient
     /**
      * @param request - ResetUserPasswordRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ResetUserPasswordResponse
      *
      * @param ResetUserPasswordRequest $request
@@ -15028,15 +15523,15 @@ class CCC extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ResetUserPassword',
-            'version'     => '2020-07-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ResetUserPassword',
+            'version' => '2020-07-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return ResetUserPasswordResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -15047,6 +15542,7 @@ class CCC extends OpenApiClient
 
     /**
      * @param request - ResetUserPasswordRequest
+     *
      * @returns ResetUserPasswordResponse
      *
      * @param ResetUserPasswordRequest $request
@@ -15065,6 +15561,7 @@ class CCC extends OpenApiClient
      *
      * @param request - RestoreArchivedRecordingsRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns RestoreArchivedRecordingsResponse
      *
      * @param RestoreArchivedRecordingsRequest $request
@@ -15088,15 +15585,15 @@ class CCC extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'RestoreArchivedRecordings',
-            'version'     => '2020-07-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'RestoreArchivedRecordings',
+            'version' => '2020-07-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return RestoreArchivedRecordingsResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -15109,6 +15606,7 @@ class CCC extends OpenApiClient
      * 录音解冻.
      *
      * @param request - RestoreArchivedRecordingsRequest
+     *
      * @returns RestoreArchivedRecordingsResponse
      *
      * @param RestoreArchivedRecordingsRequest $request
@@ -15125,6 +15623,7 @@ class CCC extends OpenApiClient
     /**
      * @param request - ResubmitTicketRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ResubmitTicketResponse
      *
      * @param ResubmitTicketRequest $request
@@ -15152,15 +15651,15 @@ class CCC extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ResubmitTicket',
-            'version'     => '2020-07-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ResubmitTicket',
+            'version' => '2020-07-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return ResubmitTicketResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -15171,6 +15670,7 @@ class CCC extends OpenApiClient
 
     /**
      * @param request - ResubmitTicketRequest
+     *
      * @returns ResubmitTicketResponse
      *
      * @param ResubmitTicketRequest $request
@@ -15189,6 +15689,7 @@ class CCC extends OpenApiClient
      *
      * @param request - ResumeCampaignRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ResumeCampaignResponse
      *
      * @param ResumeCampaignRequest $request
@@ -15212,15 +15713,15 @@ class CCC extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ResumeCampaign',
-            'version'     => '2020-07-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ResumeCampaign',
+            'version' => '2020-07-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return ResumeCampaignResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -15233,6 +15734,7 @@ class CCC extends OpenApiClient
      * 恢复预测式外呼活动.
      *
      * @param request - ResumeCampaignRequest
+     *
      * @returns ResumeCampaignResponse
      *
      * @param ResumeCampaignRequest $request
@@ -15249,6 +15751,7 @@ class CCC extends OpenApiClient
     /**
      * @param request - RetrieveCallRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns RetrieveCallResponse
      *
      * @param RetrieveCallRequest $request
@@ -15284,15 +15787,15 @@ class CCC extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'RetrieveCall',
-            'version'     => '2020-07-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'RetrieveCall',
+            'version' => '2020-07-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return RetrieveCallResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -15303,6 +15806,7 @@ class CCC extends OpenApiClient
 
     /**
      * @param request - RetrieveCallRequest
+     *
      * @returns RetrieveCallResponse
      *
      * @param RetrieveCallRequest $request
@@ -15319,6 +15823,7 @@ class CCC extends OpenApiClient
     /**
      * @param request - SaveDocumentRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns SaveDocumentResponse
      *
      * @param SaveDocumentRequest $request
@@ -15354,15 +15859,15 @@ class CCC extends OpenApiClient
             'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'SaveDocument',
-            'version'     => '2020-07-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'SaveDocument',
+            'version' => '2020-07-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return SaveDocumentResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -15373,6 +15878,7 @@ class CCC extends OpenApiClient
 
     /**
      * @param request - SaveDocumentRequest
+     *
      * @returns SaveDocumentResponse
      *
      * @param SaveDocumentRequest $request
@@ -15389,6 +15895,7 @@ class CCC extends OpenApiClient
     /**
      * @param request - SaveRTCStatsV2Request
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns SaveRTCStatsV2Response
      *
      * @param SaveRTCStatsV2Request $request
@@ -15428,15 +15935,15 @@ class CCC extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'SaveRTCStatsV2',
-            'version'     => '2020-07-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'SaveRTCStatsV2',
+            'version' => '2020-07-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return SaveRTCStatsV2Response::fromMap($this->callApi($params, $req, $runtime));
@@ -15447,6 +15954,7 @@ class CCC extends OpenApiClient
 
     /**
      * @param request - SaveRTCStatsV2Request
+     *
      * @returns SaveRTCStatsV2Response
      *
      * @param SaveRTCStatsV2Request $request
@@ -15463,6 +15971,7 @@ class CCC extends OpenApiClient
     /**
      * @param request - SaveTerminalLogRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns SaveTerminalLogResponse
      *
      * @param SaveTerminalLogRequest $request
@@ -15514,15 +16023,15 @@ class CCC extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'SaveTerminalLog',
-            'version'     => '2020-07-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'SaveTerminalLog',
+            'version' => '2020-07-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return SaveTerminalLogResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -15533,6 +16042,7 @@ class CCC extends OpenApiClient
 
     /**
      * @param request - SaveTerminalLogRequest
+     *
      * @returns SaveTerminalLogResponse
      *
      * @param SaveTerminalLogRequest $request
@@ -15549,6 +16059,7 @@ class CCC extends OpenApiClient
     /**
      * @param request - SaveWebRTCStatsRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns SaveWebRTCStatsResponse
      *
      * @param SaveWebRTCStatsRequest $request
@@ -15588,15 +16099,15 @@ class CCC extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'SaveWebRTCStats',
-            'version'     => '2020-07-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'SaveWebRTCStats',
+            'version' => '2020-07-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return SaveWebRTCStatsResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -15607,6 +16118,7 @@ class CCC extends OpenApiClient
 
     /**
      * @param request - SaveWebRTCStatsRequest
+     *
      * @returns SaveWebRTCStatsResponse
      *
      * @param SaveWebRTCStatsRequest $request
@@ -15623,6 +16135,7 @@ class CCC extends OpenApiClient
     /**
      * @param request - SaveWebRtcInfoRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns SaveWebRtcInfoResponse
      *
      * @param SaveWebRtcInfoRequest $request
@@ -15658,15 +16171,15 @@ class CCC extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'SaveWebRtcInfo',
-            'version'     => '2020-07-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'SaveWebRtcInfo',
+            'version' => '2020-07-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return SaveWebRtcInfoResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -15677,6 +16190,7 @@ class CCC extends OpenApiClient
 
     /**
      * @param request - SaveWebRtcInfoRequest
+     *
      * @returns SaveWebRtcInfoResponse
      *
      * @param SaveWebRtcInfoRequest $request
@@ -15693,6 +16207,7 @@ class CCC extends OpenApiClient
     /**
      * @param request - SendDtmfSignalingRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns SendDtmfSignalingResponse
      *
      * @param SendDtmfSignalingRequest $request
@@ -15732,15 +16247,15 @@ class CCC extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'SendDtmfSignaling',
-            'version'     => '2020-07-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'SendDtmfSignaling',
+            'version' => '2020-07-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return SendDtmfSignalingResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -15751,6 +16266,7 @@ class CCC extends OpenApiClient
 
     /**
      * @param request - SendDtmfSignalingRequest
+     *
      * @returns SendDtmfSignalingResponse
      *
      * @param SendDtmfSignalingRequest $request
@@ -15767,6 +16283,7 @@ class CCC extends OpenApiClient
     /**
      * @param request - SignInGroupRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns SignInGroupResponse
      *
      * @param SignInGroupRequest $request
@@ -15806,15 +16323,15 @@ class CCC extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'SignInGroup',
-            'version'     => '2020-07-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'SignInGroup',
+            'version' => '2020-07-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return SignInGroupResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -15825,6 +16342,7 @@ class CCC extends OpenApiClient
 
     /**
      * @param request - SignInGroupRequest
+     *
      * @returns SignInGroupResponse
      *
      * @param SignInGroupRequest $request
@@ -15841,6 +16359,7 @@ class CCC extends OpenApiClient
     /**
      * @param request - SignOutGroupRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns SignOutGroupResponse
      *
      * @param SignOutGroupRequest $request
@@ -15868,15 +16387,15 @@ class CCC extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'SignOutGroup',
-            'version'     => '2020-07-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'SignOutGroup',
+            'version' => '2020-07-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return SignOutGroupResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -15887,6 +16406,7 @@ class CCC extends OpenApiClient
 
     /**
      * @param request - SignOutGroupRequest
+     *
      * @returns SignOutGroupResponse
      *
      * @param SignOutGroupRequest $request
@@ -15903,6 +16423,7 @@ class CCC extends OpenApiClient
     /**
      * @param request - StartBack2BackCallRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns StartBack2BackCallResponse
      *
      * @param StartBack2BackCallRequest $request
@@ -15946,15 +16467,15 @@ class CCC extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'StartBack2BackCall',
-            'version'     => '2020-07-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'StartBack2BackCall',
+            'version' => '2020-07-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return StartBack2BackCallResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -15965,6 +16486,7 @@ class CCC extends OpenApiClient
 
     /**
      * @param request - StartBack2BackCallRequest
+     *
      * @returns StartBack2BackCallResponse
      *
      * @param StartBack2BackCallRequest $request
@@ -15981,6 +16503,7 @@ class CCC extends OpenApiClient
     /**
      * @param tmpReq - StartChatRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns StartChatResponse
      *
      * @param StartChatRequest $tmpReq
@@ -16018,15 +16541,15 @@ class CCC extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'StartChat',
-            'version'     => '2020-07-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'StartChat',
+            'version' => '2020-07-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return StartChatResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -16037,6 +16560,7 @@ class CCC extends OpenApiClient
 
     /**
      * @param request - StartChatRequest
+     *
      * @returns StartChatResponse
      *
      * @param StartChatRequest $request
@@ -16053,6 +16577,7 @@ class CCC extends OpenApiClient
     /**
      * @param request - StartConferenceRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns StartConferenceResponse
      *
      * @param StartConferenceRequest $request
@@ -16088,15 +16613,15 @@ class CCC extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'StartConference',
-            'version'     => '2020-07-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'StartConference',
+            'version' => '2020-07-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return StartConferenceResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -16107,6 +16632,7 @@ class CCC extends OpenApiClient
 
     /**
      * @param request - StartConferenceRequest
+     *
      * @returns StartConferenceResponse
      *
      * @param StartConferenceRequest $request
@@ -16123,6 +16649,7 @@ class CCC extends OpenApiClient
     /**
      * @param request - StartEditContactFlowRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns StartEditContactFlowResponse
      *
      * @param StartEditContactFlowRequest $request
@@ -16146,15 +16673,15 @@ class CCC extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'StartEditContactFlow',
-            'version'     => '2020-07-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'StartEditContactFlow',
+            'version' => '2020-07-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return StartEditContactFlowResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -16165,6 +16692,7 @@ class CCC extends OpenApiClient
 
     /**
      * @param request - StartEditContactFlowRequest
+     *
      * @returns StartEditContactFlowResponse
      *
      * @param StartEditContactFlowRequest $request
@@ -16181,6 +16709,7 @@ class CCC extends OpenApiClient
     /**
      * @param request - StartPredictiveCallRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns StartPredictiveCallResponse
      *
      * @param StartPredictiveCallRequest $request
@@ -16232,15 +16761,15 @@ class CCC extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'StartPredictiveCall',
-            'version'     => '2020-07-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'StartPredictiveCall',
+            'version' => '2020-07-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return StartPredictiveCallResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -16251,6 +16780,7 @@ class CCC extends OpenApiClient
 
     /**
      * @param request - StartPredictiveCallRequest
+     *
      * @returns StartPredictiveCallResponse
      *
      * @param StartPredictiveCallRequest $request
@@ -16269,6 +16799,7 @@ class CCC extends OpenApiClient
      *
      * @param request - StartPrivacyCallRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns StartPrivacyCallResponse
      *
      * @param StartPrivacyCallRequest $request
@@ -16300,15 +16831,15 @@ class CCC extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'StartPrivacyCall',
-            'version'     => '2020-07-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'StartPrivacyCall',
+            'version' => '2020-07-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return StartPrivacyCallResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -16321,6 +16852,7 @@ class CCC extends OpenApiClient
      * 发起隐私呼叫.
      *
      * @param request - StartPrivacyCallRequest
+     *
      * @returns StartPrivacyCallResponse
      *
      * @param StartPrivacyCallRequest $request
@@ -16339,6 +16871,7 @@ class CCC extends OpenApiClient
      *
      * @param request - SubmitCampaignRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns SubmitCampaignResponse
      *
      * @param SubmitCampaignRequest $request
@@ -16362,15 +16895,15 @@ class CCC extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'SubmitCampaign',
-            'version'     => '2020-07-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'SubmitCampaign',
+            'version' => '2020-07-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return SubmitCampaignResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -16383,6 +16916,7 @@ class CCC extends OpenApiClient
      * 提交预测式外呼活动.
      *
      * @param request - SubmitCampaignRequest
+     *
      * @returns SubmitCampaignResponse
      *
      * @param SubmitCampaignRequest $request
@@ -16399,6 +16933,7 @@ class CCC extends OpenApiClient
     /**
      * @param request - SwitchToConferenceRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns SwitchToConferenceResponse
      *
      * @param SwitchToConferenceRequest $request
@@ -16430,15 +16965,15 @@ class CCC extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'SwitchToConference',
-            'version'     => '2020-07-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'SwitchToConference',
+            'version' => '2020-07-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return SwitchToConferenceResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -16449,6 +16984,7 @@ class CCC extends OpenApiClient
 
     /**
      * @param request - SwitchToConferenceRequest
+     *
      * @returns SwitchToConferenceResponse
      *
      * @param SwitchToConferenceRequest $request
@@ -16465,6 +17001,7 @@ class CCC extends OpenApiClient
     /**
      * @param request - TakeBreakRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns TakeBreakResponse
      *
      * @param TakeBreakRequest $request
@@ -16496,15 +17033,15 @@ class CCC extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'TakeBreak',
-            'version'     => '2020-07-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'TakeBreak',
+            'version' => '2020-07-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return TakeBreakResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -16515,6 +17052,7 @@ class CCC extends OpenApiClient
 
     /**
      * @param request - TakeBreakRequest
+     *
      * @returns TakeBreakResponse
      *
      * @param TakeBreakRequest $request
@@ -16531,6 +17069,7 @@ class CCC extends OpenApiClient
     /**
      * @param request - TerminateTicketRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns TerminateTicketResponse
      *
      * @param TerminateTicketRequest $request
@@ -16558,15 +17097,15 @@ class CCC extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'TerminateTicket',
-            'version'     => '2020-07-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'TerminateTicket',
+            'version' => '2020-07-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return TerminateTicketResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -16577,6 +17116,7 @@ class CCC extends OpenApiClient
 
     /**
      * @param request - TerminateTicketRequest
+     *
      * @returns TerminateTicketResponse
      *
      * @param TerminateTicketRequest $request
@@ -16593,6 +17133,7 @@ class CCC extends OpenApiClient
     /**
      * @param request - TransferTicketTaskRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns TransferTicketTaskResponse
      *
      * @param TransferTicketTaskRequest $request
@@ -16628,15 +17169,15 @@ class CCC extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'TransferTicketTask',
-            'version'     => '2020-07-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'TransferTicketTask',
+            'version' => '2020-07-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return TransferTicketTaskResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -16647,6 +17188,7 @@ class CCC extends OpenApiClient
 
     /**
      * @param request - TransferTicketTaskRequest
+     *
      * @returns TransferTicketTaskResponse
      *
      * @param TransferTicketTaskRequest $request
@@ -16663,6 +17205,7 @@ class CCC extends OpenApiClient
     /**
      * @param request - UnmuteCallRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns UnmuteCallResponse
      *
      * @param UnmuteCallRequest $request
@@ -16698,15 +17241,15 @@ class CCC extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'UnmuteCall',
-            'version'     => '2020-07-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'UnmuteCall',
+            'version' => '2020-07-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return UnmuteCallResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -16717,6 +17260,7 @@ class CCC extends OpenApiClient
 
     /**
      * @param request - UnmuteCallRequest
+     *
      * @returns UnmuteCallResponse
      *
      * @param UnmuteCallRequest $request
@@ -16735,6 +17279,7 @@ class CCC extends OpenApiClient
      *
      * @param request - UnregisterDeviceRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns UnregisterDeviceResponse
      *
      * @param UnregisterDeviceRequest $request
@@ -16758,15 +17303,15 @@ class CCC extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'UnregisterDevice',
-            'version'     => '2020-07-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'UnregisterDevice',
+            'version' => '2020-07-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return UnregisterDeviceResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -16779,6 +17324,7 @@ class CCC extends OpenApiClient
      * 删除注册设备.
      *
      * @param request - UnregisterDeviceRequest
+     *
      * @returns UnregisterDeviceResponse
      *
      * @param UnregisterDeviceRequest $request
@@ -16795,6 +17341,7 @@ class CCC extends OpenApiClient
     /**
      * @param request - UpdateCallSummaryRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns UpdateCallSummaryResponse
      *
      * @param UpdateCallSummaryRequest $request
@@ -16822,15 +17369,15 @@ class CCC extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'UpdateCallSummary',
-            'version'     => '2020-07-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'UpdateCallSummary',
+            'version' => '2020-07-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return UpdateCallSummaryResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -16841,6 +17388,7 @@ class CCC extends OpenApiClient
 
     /**
      * @param request - UpdateCallSummaryRequest
+     *
      * @returns UpdateCallSummaryResponse
      *
      * @param UpdateCallSummaryRequest $request
@@ -16859,6 +17407,7 @@ class CCC extends OpenApiClient
      *
      * @param request - UpdateCampaignRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns UpdateCampaignResponse
      *
      * @param UpdateCampaignRequest $request
@@ -16906,15 +17455,15 @@ class CCC extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'UpdateCampaign',
-            'version'     => '2020-07-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'UpdateCampaign',
+            'version' => '2020-07-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return UpdateCampaignResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -16927,6 +17476,7 @@ class CCC extends OpenApiClient
      * Update campaign.
      *
      * @param request - UpdateCampaignRequest
+     *
      * @returns UpdateCampaignResponse
      *
      * @param UpdateCampaignRequest $request
@@ -16943,6 +17493,7 @@ class CCC extends OpenApiClient
     /**
      * @param request - UpdateChatRoutingProfileRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns UpdateChatRoutingProfileResponse
      *
      * @param UpdateChatRoutingProfileRequest $request
@@ -16966,15 +17517,15 @@ class CCC extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'UpdateChatRoutingProfile',
-            'version'     => '2020-07-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'UpdateChatRoutingProfile',
+            'version' => '2020-07-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return UpdateChatRoutingProfileResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -16985,6 +17536,7 @@ class CCC extends OpenApiClient
 
     /**
      * @param request - UpdateChatRoutingProfileRequest
+     *
      * @returns UpdateChatRoutingProfileResponse
      *
      * @param UpdateChatRoutingProfileRequest $request
@@ -17001,6 +17553,7 @@ class CCC extends OpenApiClient
     /**
      * @param request - UpdateConfigItemsRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns UpdateConfigItemsResponse
      *
      * @param UpdateConfigItemsRequest $request
@@ -17032,15 +17585,15 @@ class CCC extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'UpdateConfigItems',
-            'version'     => '2020-07-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'UpdateConfigItems',
+            'version' => '2020-07-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return UpdateConfigItemsResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -17051,6 +17604,7 @@ class CCC extends OpenApiClient
 
     /**
      * @param request - UpdateConfigItemsRequest
+     *
      * @returns UpdateConfigItemsResponse
      *
      * @param UpdateConfigItemsRequest $request
@@ -17067,6 +17621,7 @@ class CCC extends OpenApiClient
     /**
      * @param tmpReq - UpdateSchemaPropertyRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns UpdateSchemaPropertyResponse
      *
      * @param UpdateSchemaPropertyRequest $tmpReq
@@ -17104,15 +17659,15 @@ class CCC extends OpenApiClient
             'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'UpdateSchemaProperty',
-            'version'     => '2020-07-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'UpdateSchemaProperty',
+            'version' => '2020-07-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return UpdateSchemaPropertyResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -17123,6 +17678,7 @@ class CCC extends OpenApiClient
 
     /**
      * @param request - UpdateSchemaPropertyRequest
+     *
      * @returns UpdateSchemaPropertyResponse
      *
      * @param UpdateSchemaPropertyRequest $request
@@ -17139,6 +17695,7 @@ class CCC extends OpenApiClient
     /**
      * @param request - UpdateTicketRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns UpdateTicketResponse
      *
      * @param UpdateTicketRequest $request
@@ -17174,15 +17731,15 @@ class CCC extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'UpdateTicket',
-            'version'     => '2020-07-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'UpdateTicket',
+            'version' => '2020-07-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return UpdateTicketResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -17193,6 +17750,7 @@ class CCC extends OpenApiClient
 
     /**
      * @param request - UpdateTicketRequest
+     *
      * @returns UpdateTicketResponse
      *
      * @param UpdateTicketRequest $request
@@ -17209,6 +17767,7 @@ class CCC extends OpenApiClient
     /**
      * @param request - WithdrawTicketRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns WithdrawTicketResponse
      *
      * @param WithdrawTicketRequest $request
@@ -17236,15 +17795,15 @@ class CCC extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'WithdrawTicket',
-            'version'     => '2020-07-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'WithdrawTicket',
+            'version' => '2020-07-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return WithdrawTicketResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -17255,6 +17814,7 @@ class CCC extends OpenApiClient
 
     /**
      * @param request - WithdrawTicketRequest
+     *
      * @returns WithdrawTicketResponse
      *
      * @param WithdrawTicketRequest $request

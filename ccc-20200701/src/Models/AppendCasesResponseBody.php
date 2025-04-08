@@ -12,23 +12,26 @@ class AppendCasesResponseBody extends Model
      * @var string
      */
     public $code;
+
     /**
      * @var string
      */
     public $httpStatusCode;
+
     /**
      * @var string
      */
     public $message;
+
     /**
      * @var string
      */
     public $requestId;
     protected $_name = [
-        'code'           => 'Code',
+        'code' => 'Code',
         'httpStatusCode' => 'HttpStatusCode',
-        'message'        => 'Message',
-        'requestId'      => 'RequestId',
+        'message' => 'Message',
+        'requestId' => 'RequestId',
     ];
 
     public function validate()

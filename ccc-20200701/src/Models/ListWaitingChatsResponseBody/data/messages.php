@@ -12,17 +12,19 @@ class messages extends Model
      * @var string
      */
     public $content;
+
     /**
      * @var string
      */
     public $senderId;
+
     /**
      * @var string
      */
     public $senderType;
     protected $_name = [
-        'content'    => 'Content',
-        'senderId'   => 'SenderId',
+        'content' => 'Content',
+        'senderId' => 'SenderId',
         'senderType' => 'SenderType',
     ];
 

@@ -12,78 +12,92 @@ class ListTicketsRequest extends Model
      * @var string
      */
     public $assignee;
+
     /**
      * @var string
      */
     public $assigneeType;
+
     /**
      * @var string
      */
     public $categoryId;
+
     /**
      * @var string
      */
     public $creator;
+
     /**
      * @var string
      */
     public $customerId;
+
     /**
      * @var int
      */
     public $endTime;
+
     /**
      * @var string
      */
     public $instanceId;
+
     /**
      * @var string
      */
     public $jobIdList;
+
     /**
      * @var int
      */
     public $pageNumber;
+
     /**
      * @var int
      */
     public $pageSize;
+
     /**
      * @var string
      */
     public $participant;
+
     /**
      * @var int
      */
     public $startTime;
+
     /**
      * @var string
      */
     public $state;
+
     /**
      * @var string
      */
     public $ticketId;
+
     /**
      * @var string
      */
     public $title;
     protected $_name = [
-        'assignee'     => 'Assignee',
+        'assignee' => 'Assignee',
         'assigneeType' => 'AssigneeType',
-        'categoryId'   => 'CategoryId',
-        'creator'      => 'Creator',
-        'customerId'   => 'CustomerId',
-        'endTime'      => 'EndTime',
-        'instanceId'   => 'InstanceId',
-        'jobIdList'    => 'JobIdList',
-        'pageNumber'   => 'PageNumber',
-        'pageSize'     => 'PageSize',
-        'participant'  => 'Participant',
-        'startTime'    => 'StartTime',
-        'state'        => 'State',
-        'ticketId'     => 'TicketId',
-        'title'        => 'Title',
+        'categoryId' => 'CategoryId',
+        'creator' => 'Creator',
+        'customerId' => 'CustomerId',
+        'endTime' => 'EndTime',
+        'instanceId' => 'InstanceId',
+        'jobIdList' => 'JobIdList',
+        'pageNumber' => 'PageNumber',
+        'pageSize' => 'PageSize',
+        'participant' => 'Participant',
+        'startTime' => 'StartTime',
+        'state' => 'State',
+        'ticketId' => 'TicketId',
+        'title' => 'Title',
     ];
 
     public function validate()

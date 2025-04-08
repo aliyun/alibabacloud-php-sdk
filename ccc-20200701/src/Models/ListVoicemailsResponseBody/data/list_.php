@@ -12,48 +12,56 @@ class list_ extends Model
      * @var string
      */
     public $callee;
+
     /**
      * @var string
      */
     public $caller;
+
     /**
      * @var int
      */
     public $cdrStartTime;
+
     /**
      * @var string
      */
     public $contactId;
+
     /**
      * @var int
      */
     public $duration;
+
     /**
      * @var string
      */
     public $instanceId;
+
     /**
      * @var string
      */
     public $name;
+
     /**
      * @var int
      */
     public $recordingDuration;
+
     /**
      * @var string
      */
     public $startTime;
     protected $_name = [
-        'callee'            => 'Callee',
-        'caller'            => 'Caller',
-        'cdrStartTime'      => 'CdrStartTime',
-        'contactId'         => 'ContactId',
-        'duration'          => 'Duration',
-        'instanceId'        => 'InstanceId',
-        'name'              => 'Name',
+        'callee' => 'Callee',
+        'caller' => 'Caller',
+        'cdrStartTime' => 'CdrStartTime',
+        'contactId' => 'ContactId',
+        'duration' => 'Duration',
+        'instanceId' => 'InstanceId',
+        'name' => 'Name',
         'recordingDuration' => 'RecordingDuration',
-        'startTime'         => 'StartTime',
+        'startTime' => 'StartTime',
     ];
 
     public function validate()

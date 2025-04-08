@@ -13,163 +13,194 @@ class inbound extends Model
      * @var accessChannelTypeDetails[]
      */
     public $accessChannelTypeDetails;
+
     /**
      * @var float
      */
     public $averageFirstResponseTime;
+
     /**
      * @var float
      */
     public $averageHoldTime;
+
     /**
      * @var float
      */
     public $averageResponseTime;
+
     /**
      * @var float
      */
     public $averageRingTime;
+
     /**
      * @var float
      */
     public $averageTalkTime;
+
     /**
      * @var float
      */
     public $averageWorkTime;
+
     /**
      * @var int
      */
     public $callsAttendedTransferIn;
+
     /**
      * @var int
      */
     public $callsAttendedTransferOut;
+
     /**
      * @var int
      */
     public $callsBlindTransferIn;
+
     /**
      * @var int
      */
     public $callsBlindTransferOut;
+
     /**
      * @var int
      */
     public $callsHandled;
+
     /**
      * @var int
      */
     public $callsHold;
+
     /**
      * @var int
      */
     public $callsOffered;
+
     /**
      * @var int
      */
     public $callsRinged;
+
     /**
      * @var float
      */
     public $handleRate;
+
     /**
      * @var int
      */
     public $maxHoldTime;
+
     /**
      * @var int
      */
     public $maxRingTime;
+
     /**
      * @var int
      */
     public $maxTalkTime;
+
     /**
      * @var int
      */
     public $maxWorkTime;
+
     /**
      * @var float
      */
     public $satisfactionIndex;
+
     /**
      * @var float
      */
     public $satisfactionRate;
+
     /**
      * @var int
      */
     public $satisfactionSurveysOffered;
+
     /**
      * @var int
      */
     public $satisfactionSurveysResponded;
+
     /**
      * @var float
      */
     public $serviceLevel15;
+
     /**
      * @var int
      */
     public $totalHoldTime;
+
     /**
      * @var int
      */
     public $totalMessagesSent;
+
     /**
      * @var int
      */
     public $totalMessagesSentByAgent;
+
     /**
      * @var string
      */
     public $totalMessagesSentByCustomer;
+
     /**
      * @var int
      */
     public $totalRingTime;
+
     /**
      * @var int
      */
     public $totalTalkTime;
+
     /**
      * @var int
      */
     public $totalWorkTime;
     protected $_name = [
-        'accessChannelTypeDetails'     => 'AccessChannelTypeDetails',
-        'averageFirstResponseTime'     => 'AverageFirstResponseTime',
-        'averageHoldTime'              => 'AverageHoldTime',
-        'averageResponseTime'          => 'AverageResponseTime',
-        'averageRingTime'              => 'AverageRingTime',
-        'averageTalkTime'              => 'AverageTalkTime',
-        'averageWorkTime'              => 'AverageWorkTime',
-        'callsAttendedTransferIn'      => 'CallsAttendedTransferIn',
-        'callsAttendedTransferOut'     => 'CallsAttendedTransferOut',
-        'callsBlindTransferIn'         => 'CallsBlindTransferIn',
-        'callsBlindTransferOut'        => 'CallsBlindTransferOut',
-        'callsHandled'                 => 'CallsHandled',
-        'callsHold'                    => 'CallsHold',
-        'callsOffered'                 => 'CallsOffered',
-        'callsRinged'                  => 'CallsRinged',
-        'handleRate'                   => 'HandleRate',
-        'maxHoldTime'                  => 'MaxHoldTime',
-        'maxRingTime'                  => 'MaxRingTime',
-        'maxTalkTime'                  => 'MaxTalkTime',
-        'maxWorkTime'                  => 'MaxWorkTime',
-        'satisfactionIndex'            => 'SatisfactionIndex',
-        'satisfactionRate'             => 'SatisfactionRate',
-        'satisfactionSurveysOffered'   => 'SatisfactionSurveysOffered',
+        'accessChannelTypeDetails' => 'AccessChannelTypeDetails',
+        'averageFirstResponseTime' => 'AverageFirstResponseTime',
+        'averageHoldTime' => 'AverageHoldTime',
+        'averageResponseTime' => 'AverageResponseTime',
+        'averageRingTime' => 'AverageRingTime',
+        'averageTalkTime' => 'AverageTalkTime',
+        'averageWorkTime' => 'AverageWorkTime',
+        'callsAttendedTransferIn' => 'CallsAttendedTransferIn',
+        'callsAttendedTransferOut' => 'CallsAttendedTransferOut',
+        'callsBlindTransferIn' => 'CallsBlindTransferIn',
+        'callsBlindTransferOut' => 'CallsBlindTransferOut',
+        'callsHandled' => 'CallsHandled',
+        'callsHold' => 'CallsHold',
+        'callsOffered' => 'CallsOffered',
+        'callsRinged' => 'CallsRinged',
+        'handleRate' => 'HandleRate',
+        'maxHoldTime' => 'MaxHoldTime',
+        'maxRingTime' => 'MaxRingTime',
+        'maxTalkTime' => 'MaxTalkTime',
+        'maxWorkTime' => 'MaxWorkTime',
+        'satisfactionIndex' => 'SatisfactionIndex',
+        'satisfactionRate' => 'SatisfactionRate',
+        'satisfactionSurveysOffered' => 'SatisfactionSurveysOffered',
         'satisfactionSurveysResponded' => 'SatisfactionSurveysResponded',
-        'serviceLevel15'               => 'ServiceLevel15',
-        'totalHoldTime'                => 'TotalHoldTime',
-        'totalMessagesSent'            => 'TotalMessagesSent',
-        'totalMessagesSentByAgent'     => 'TotalMessagesSentByAgent',
-        'totalMessagesSentByCustomer'  => 'TotalMessagesSentByCustomer',
-        'totalRingTime'                => 'TotalRingTime',
-        'totalTalkTime'                => 'TotalTalkTime',
-        'totalWorkTime'                => 'TotalWorkTime',
+        'serviceLevel15' => 'ServiceLevel15',
+        'totalHoldTime' => 'TotalHoldTime',
+        'totalMessagesSent' => 'TotalMessagesSent',
+        'totalMessagesSentByAgent' => 'TotalMessagesSentByAgent',
+        'totalMessagesSentByCustomer' => 'TotalMessagesSentByCustomer',
+        'totalRingTime' => 'TotalRingTime',
+        'totalTalkTime' => 'TotalTalkTime',
+        'totalWorkTime' => 'TotalWorkTime',
     ];
 
     public function validate()
@@ -186,7 +217,7 @@ class inbound extends Model
         if (null !== $this->accessChannelTypeDetails) {
             if (\is_array($this->accessChannelTypeDetails)) {
                 $res['AccessChannelTypeDetails'] = [];
-                $n1                              = 0;
+                $n1 = 0;
                 foreach ($this->accessChannelTypeDetails as $item1) {
                     $res['AccessChannelTypeDetails'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -331,7 +362,7 @@ class inbound extends Model
         if (isset($map['AccessChannelTypeDetails'])) {
             if (!empty($map['AccessChannelTypeDetails'])) {
                 $model->accessChannelTypeDetails = [];
-                $n1                              = 0;
+                $n1 = 0;
                 foreach ($map['AccessChannelTypeDetails'] as $item1) {
                     $model->accessChannelTypeDetails[$n1++] = accessChannelTypeDetails::fromMap($item1);
                 }

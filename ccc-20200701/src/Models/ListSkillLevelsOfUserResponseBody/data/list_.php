@@ -12,23 +12,26 @@ class list_ extends Model
      * @var string
      */
     public $mediaType;
+
     /**
      * @var string
      */
     public $skillGroupId;
+
     /**
      * @var string
      */
     public $skillGroupName;
+
     /**
      * @var string
      */
     public $skillLevel;
     protected $_name = [
-        'mediaType'      => 'MediaType',
-        'skillGroupId'   => 'SkillGroupId',
+        'mediaType' => 'MediaType',
+        'skillGroupId' => 'SkillGroupId',
         'skillGroupName' => 'SkillGroupName',
-        'skillLevel'     => 'SkillLevel',
+        'skillLevel' => 'SkillLevel',
     ];
 
     public function validate()

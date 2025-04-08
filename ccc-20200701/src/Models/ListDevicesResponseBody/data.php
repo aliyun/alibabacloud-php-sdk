@@ -12,43 +12,50 @@ class data extends Model
      * @var string
      */
     public $callId;
+
     /**
      * @var string
      */
     public $contact;
+
     /**
      * @var string
      */
     public $deviceId;
+
     /**
      * @var string
      */
     public $deviceType;
+
     /**
      * @var int
      */
     public $expires;
+
     /**
      * @var string
      */
     public $extension;
+
     /**
      * @var string
      */
     public $instanceId;
+
     /**
      * @var string
      */
     public $userId;
     protected $_name = [
-        'callId'     => 'CallId',
-        'contact'    => 'Contact',
-        'deviceId'   => 'DeviceId',
+        'callId' => 'CallId',
+        'contact' => 'Contact',
+        'deviceId' => 'DeviceId',
         'deviceType' => 'DeviceType',
-        'expires'    => 'Expires',
-        'extension'  => 'Extension',
+        'expires' => 'Expires',
+        'extension' => 'Extension',
         'instanceId' => 'InstanceId',
-        'userId'     => 'UserId',
+        'userId' => 'UserId',
     ];
 
     public function validate()

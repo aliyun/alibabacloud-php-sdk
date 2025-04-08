@@ -12,48 +12,56 @@ class data extends Model
      * @var string
      */
     public $agentId;
+
     /**
      * @var string
      */
     public $agentName;
+
     /**
      * @var string
      */
     public $contactId;
+
     /**
      * @var string
      */
     public $duration;
+
     /**
      * @var string
      */
     public $fileName;
+
     /**
      * @var string
      */
     public $fileUrl;
+
     /**
      * @var string
      */
     public $ramId;
+
     /**
      * @var string
      */
     public $skillGroupId;
+
     /**
      * @var string
      */
     public $startTime;
     protected $_name = [
-        'agentId'      => 'AgentId',
-        'agentName'    => 'AgentName',
-        'contactId'    => 'ContactId',
-        'duration'     => 'Duration',
-        'fileName'     => 'FileName',
-        'fileUrl'      => 'FileUrl',
-        'ramId'        => 'RamId',
+        'agentId' => 'AgentId',
+        'agentName' => 'AgentName',
+        'contactId' => 'ContactId',
+        'duration' => 'Duration',
+        'fileName' => 'FileName',
+        'fileUrl' => 'FileUrl',
+        'ramId' => 'RamId',
         'skillGroupId' => 'SkillGroupId',
-        'startTime'    => 'StartTime',
+        'startTime' => 'StartTime',
     ];
 
     public function validate()

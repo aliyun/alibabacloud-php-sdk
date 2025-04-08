@@ -12,28 +12,32 @@ class AddPhoneNumbersRequest extends Model
      * @var string
      */
     public $contactFlowId;
+
     /**
      * @var string
      */
     public $instanceId;
+
     /**
      * @var string
      */
     public $numberGroupId;
+
     /**
      * @var string
      */
     public $numberList;
+
     /**
      * @var string
      */
     public $usage;
     protected $_name = [
         'contactFlowId' => 'ContactFlowId',
-        'instanceId'    => 'InstanceId',
+        'instanceId' => 'InstanceId',
         'numberGroupId' => 'NumberGroupId',
-        'numberList'    => 'NumberList',
-        'usage'         => 'Usage',
+        'numberList' => 'NumberList',
+        'usage' => 'Usage',
     ];
 
     public function validate()

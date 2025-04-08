@@ -12,23 +12,26 @@ class satisfaction extends Model
      * @var string
      */
     public $remark;
+
     /**
      * @var string
      */
     public $satisfactionDescription;
+
     /**
      * @var bool
      */
     public $success;
+
     /**
      * @var string
      */
     public $taskId;
     protected $_name = [
-        'remark'                  => 'Remark',
+        'remark' => 'Remark',
         'satisfactionDescription' => 'SatisfactionDescription',
-        'success'                 => 'Success',
-        'taskId'                  => 'TaskId',
+        'success' => 'Success',
+        'taskId' => 'TaskId',
     ];
 
     public function validate()

@@ -12,10 +12,12 @@ class ListCategoriesRequest extends Model
      * @var string
      */
     public $categoryId;
+
     /**
      * @var string
      */
     public $instanceId;
+
     /**
      * @var string
      */
@@ -23,7 +25,7 @@ class ListCategoriesRequest extends Model
     protected $_name = [
         'categoryId' => 'CategoryId',
         'instanceId' => 'InstanceId',
-        'type'       => 'Type',
+        'type' => 'Type',
     ];
 
     public function validate()

@@ -12,18 +12,20 @@ class breakCodeDetailList extends Model
      * @var string
      */
     public $breakCode;
+
     /**
      * @var int
      */
     public $count;
+
     /**
      * @var int
      */
     public $duration;
     protected $_name = [
         'breakCode' => 'BreakCode',
-        'count'     => 'Count',
-        'duration'  => 'Duration',
+        'count' => 'Count',
+        'duration' => 'Duration',
     ];
 
     public function validate()

@@ -12,23 +12,26 @@ class FinishTicketTaskRequest extends Model
      * @var string
      */
     public $comment;
+
     /**
      * @var string
      */
     public $instanceId;
+
     /**
      * @var string
      */
     public $taskId;
+
     /**
      * @var string
      */
     public $ticketId;
     protected $_name = [
-        'comment'    => 'Comment',
+        'comment' => 'Comment',
         'instanceId' => 'InstanceId',
-        'taskId'     => 'TaskId',
-        'ticketId'   => 'TicketId',
+        'taskId' => 'TaskId',
+        'ticketId' => 'TicketId',
     ];
 
     public function validate()

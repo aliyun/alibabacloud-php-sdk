@@ -12,27 +12,31 @@ class ListFlashSmsApplicationsRequest extends Model
      * @var string
      */
     public $instanceId;
+
     /**
      * @var string
      */
     public $name;
+
     /**
      * @var int
      */
     public $pageNumber;
+
     /**
      * @var int
      */
     public $pageSize;
+
     /**
      * @var string
      */
     public $providerId;
     protected $_name = [
         'instanceId' => 'InstanceId',
-        'name'       => 'Name',
+        'name' => 'Name',
         'pageNumber' => 'PageNumber',
-        'pageSize'   => 'PageSize',
+        'pageSize' => 'PageSize',
         'providerId' => 'ProviderId',
     ];
 

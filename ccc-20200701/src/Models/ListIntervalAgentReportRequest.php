@@ -12,33 +12,38 @@ class ListIntervalAgentReportRequest extends Model
      * @var string
      */
     public $agentId;
+
     /**
      * @var int
      */
     public $endTime;
+
     /**
      * @var string
      */
     public $instanceId;
+
     /**
      * @var string
      */
     public $interval;
+
     /**
      * @var string
      */
     public $mediaType;
+
     /**
      * @var int
      */
     public $startTime;
     protected $_name = [
-        'agentId'    => 'AgentId',
-        'endTime'    => 'EndTime',
+        'agentId' => 'AgentId',
+        'endTime' => 'EndTime',
         'instanceId' => 'InstanceId',
-        'interval'   => 'Interval',
-        'mediaType'  => 'MediaType',
-        'startTime'  => 'StartTime',
+        'interval' => 'Interval',
+        'mediaType' => 'MediaType',
+        'startTime' => 'StartTime',
     ];
 
     public function validate()

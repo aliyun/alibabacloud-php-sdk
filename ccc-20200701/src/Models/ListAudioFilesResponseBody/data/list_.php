@@ -12,53 +12,62 @@ class list_ extends Model
      * @var string
      */
     public $audioFileName;
+
     /**
      * @var string
      */
     public $audioResourceId;
+
     /**
      * @var string
      */
     public $auditResult;
+
     /**
      * @var string
      */
     public $createdTime;
+
     /**
      * @var string
      */
     public $instanceId;
+
     /**
      * @var string
      */
     public $name;
+
     /**
      * @var string
      */
     public $ossFileKey;
+
     /**
      * @var string
      */
     public $status;
+
     /**
      * @var string
      */
     public $updatedTime;
+
     /**
      * @var string
      */
     public $usage;
     protected $_name = [
-        'audioFileName'   => 'AudioFileName',
+        'audioFileName' => 'AudioFileName',
         'audioResourceId' => 'AudioResourceId',
-        'auditResult'     => 'AuditResult',
-        'createdTime'     => 'CreatedTime',
-        'instanceId'      => 'InstanceId',
-        'name'            => 'Name',
-        'ossFileKey'      => 'OssFileKey',
-        'status'          => 'Status',
-        'updatedTime'     => 'UpdatedTime',
-        'usage'           => 'Usage',
+        'auditResult' => 'AuditResult',
+        'createdTime' => 'CreatedTime',
+        'instanceId' => 'InstanceId',
+        'name' => 'Name',
+        'ossFileKey' => 'OssFileKey',
+        'status' => 'Status',
+        'updatedTime' => 'UpdatedTime',
+        'usage' => 'Usage',
     ];
 
     public function validate()

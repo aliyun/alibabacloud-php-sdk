@@ -12,12 +12,13 @@ class data extends Model
      * @var string
      */
     public $templateId;
+
     /**
      * @var string
      */
     public $templateName;
     protected $_name = [
-        'templateId'   => 'TemplateId',
+        'templateId' => 'TemplateId',
         'templateName' => 'TemplateName',
     ];
 

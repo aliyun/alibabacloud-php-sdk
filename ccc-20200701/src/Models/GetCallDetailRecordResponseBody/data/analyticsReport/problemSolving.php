@@ -12,28 +12,32 @@ class problemSolving extends Model
      * @var string
      */
     public $problem;
+
     /**
      * @var string
      */
     public $solution;
+
     /**
      * @var bool
      */
     public $solved;
+
     /**
      * @var bool
      */
     public $success;
+
     /**
      * @var string
      */
     public $taskId;
     protected $_name = [
-        'problem'  => 'Problem',
+        'problem' => 'Problem',
         'solution' => 'Solution',
-        'solved'   => 'Solved',
-        'success'  => 'Success',
-        'taskId'   => 'TaskId',
+        'solved' => 'Solved',
+        'success' => 'Success',
+        'taskId' => 'TaskId',
     ];
 
     public function validate()

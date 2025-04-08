@@ -12,33 +12,38 @@ class ImportCorpNumbersRequest extends Model
      * @var string
      */
     public $city;
+
     /**
      * @var string
      */
     public $corpName;
+
     /**
      * @var string
      */
     public $numberList;
+
     /**
      * @var string
      */
     public $provider;
+
     /**
      * @var string
      */
     public $province;
+
     /**
      * @var string
      */
     public $tagList;
     protected $_name = [
-        'city'       => 'City',
-        'corpName'   => 'CorpName',
+        'city' => 'City',
+        'corpName' => 'CorpName',
         'numberList' => 'NumberList',
-        'provider'   => 'Provider',
-        'province'   => 'Province',
-        'tagList'    => 'TagList',
+        'provider' => 'Provider',
+        'province' => 'Province',
+        'tagList' => 'TagList',
     ];
 
     public function validate()

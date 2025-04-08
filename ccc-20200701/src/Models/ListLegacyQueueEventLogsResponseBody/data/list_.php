@@ -12,58 +12,68 @@ class list_ extends Model
      * @var string
      */
     public $acid;
+
     /**
      * @var string
      */
     public $ani;
+
     /**
      * @var string
      */
     public $answerPhone;
+
     /**
      * @var int
      */
     public $answerTime;
+
     /**
      * @var string
      */
     public $cause;
+
     /**
      * @var string
      */
     public $dnis;
+
     /**
      * @var int
      */
     public $id;
+
     /**
      * @var int
      */
     public $queueTime;
+
     /**
      * @var string
      */
     public $statisticDate;
+
     /**
      * @var string
      */
     public $tenantId;
+
     /**
      * @var string
      */
     public $vq;
     protected $_name = [
-        'acid'          => 'Acid',
-        'ani'           => 'Ani',
-        'answerPhone'   => 'AnswerPhone',
-        'answerTime'    => 'AnswerTime',
-        'cause'         => 'Cause',
-        'dnis'          => 'Dnis',
-        'id'            => 'Id',
-        'queueTime'     => 'QueueTime',
+        'acid' => 'Acid',
+        'ani' => 'Ani',
+        'answerPhone' => 'AnswerPhone',
+        'answerTime' => 'AnswerTime',
+        'cause' => 'Cause',
+        'dnis' => 'Dnis',
+        'id' => 'Id',
+        'queueTime' => 'QueueTime',
         'statisticDate' => 'StatisticDate',
-        'tenantId'      => 'TenantId',
-        'vq'            => 'Vq',
+        'tenantId' => 'TenantId',
+        'vq' => 'Vq',
     ];
 
     public function validate()

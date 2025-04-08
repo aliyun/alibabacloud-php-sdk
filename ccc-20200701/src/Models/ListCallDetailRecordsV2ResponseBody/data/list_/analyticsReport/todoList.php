@@ -12,18 +12,20 @@ class todoList extends Model
      * @var bool
      */
     public $success;
+
     /**
      * @var string
      */
     public $taskId;
+
     /**
      * @var string[]
      */
     public $tasks;
     protected $_name = [
         'success' => 'Success',
-        'taskId'  => 'TaskId',
-        'tasks'   => 'Tasks',
+        'taskId' => 'TaskId',
+        'tasks' => 'Tasks',
     ];
 
     public function validate()
@@ -48,7 +50,7 @@ class todoList extends Model
         if (null !== $this->tasks) {
             if (\is_array($this->tasks)) {
                 $res['Tasks'] = [];
-                $n1           = 0;
+                $n1 = 0;
                 foreach ($this->tasks as $item1) {
                     $res['Tasks'][$n1++] = $item1;
                 }
@@ -77,7 +79,7 @@ class todoList extends Model
         if (isset($map['Tasks'])) {
             if (!empty($map['Tasks'])) {
                 $model->tasks = [];
-                $n1           = 0;
+                $n1 = 0;
                 foreach ($map['Tasks'] as $item1) {
                     $model->tasks[$n1++] = $item1;
                 }

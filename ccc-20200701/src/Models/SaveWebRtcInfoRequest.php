@@ -12,28 +12,32 @@ class SaveWebRtcInfoRequest extends Model
      * @var string
      */
     public $callId;
+
     /**
      * @var string
      */
     public $content;
+
     /**
      * @var string
      */
     public $contentType;
+
     /**
      * @var string
      */
     public $instanceId;
+
     /**
      * @var string
      */
     public $jobId;
     protected $_name = [
-        'callId'      => 'CallId',
-        'content'     => 'Content',
+        'callId' => 'CallId',
+        'content' => 'Content',
         'contentType' => 'ContentType',
-        'instanceId'  => 'InstanceId',
-        'jobId'       => 'JobId',
+        'instanceId' => 'InstanceId',
+        'jobId' => 'JobId',
     ];
 
     public function validate()

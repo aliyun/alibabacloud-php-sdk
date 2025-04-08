@@ -12,83 +12,98 @@ class CreateCampaignShrinkRequest extends Model
      * @var string
      */
     public $callableTime;
+
     /**
      * @var string
      */
     public $caseFileKey;
+
     /**
      * @var string
      */
     public $caseListShrink;
+
     /**
      * @var string
      */
     public $contactFlowId;
+
     /**
      * @var string
      */
     public $endTime;
+
     /**
      * @var bool
      */
     public $executingUntilTimeout;
+
     /**
      * @var string
      */
     public $instanceId;
+
     /**
      * @var int
      */
     public $maxAttemptCount;
+
     /**
      * @var int
      */
     public $minAttemptInterval;
+
     /**
      * @var string
      */
     public $name;
+
     /**
      * @var string
      */
     public $queueId;
+
     /**
      * @var bool
      */
     public $simulation;
+
     /**
      * @var string
      */
     public $simulationParameters;
+
     /**
      * @var string
      */
     public $startTime;
+
     /**
      * @var string
      */
     public $strategyParameters;
+
     /**
      * @var string
      */
     public $strategyType;
     protected $_name = [
-        'callableTime'          => 'CallableTime',
-        'caseFileKey'           => 'CaseFileKey',
-        'caseListShrink'        => 'CaseList',
-        'contactFlowId'         => 'ContactFlowId',
-        'endTime'               => 'EndTime',
+        'callableTime' => 'CallableTime',
+        'caseFileKey' => 'CaseFileKey',
+        'caseListShrink' => 'CaseList',
+        'contactFlowId' => 'ContactFlowId',
+        'endTime' => 'EndTime',
         'executingUntilTimeout' => 'ExecutingUntilTimeout',
-        'instanceId'            => 'InstanceId',
-        'maxAttemptCount'       => 'MaxAttemptCount',
-        'minAttemptInterval'    => 'MinAttemptInterval',
-        'name'                  => 'Name',
-        'queueId'               => 'QueueId',
-        'simulation'            => 'Simulation',
-        'simulationParameters'  => 'SimulationParameters',
-        'startTime'             => 'StartTime',
-        'strategyParameters'    => 'StrategyParameters',
-        'strategyType'          => 'StrategyType',
+        'instanceId' => 'InstanceId',
+        'maxAttemptCount' => 'MaxAttemptCount',
+        'minAttemptInterval' => 'MinAttemptInterval',
+        'name' => 'Name',
+        'queueId' => 'QueueId',
+        'simulation' => 'Simulation',
+        'simulationParameters' => 'SimulationParameters',
+        'startTime' => 'StartTime',
+        'strategyParameters' => 'StrategyParameters',
+        'strategyType' => 'StrategyType',
     ];
 
     public function validate()

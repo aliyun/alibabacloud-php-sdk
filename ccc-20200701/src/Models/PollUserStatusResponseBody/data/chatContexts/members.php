@@ -12,38 +12,44 @@ class members extends Model
      * @var int
      */
     public $index;
+
     /**
      * @var string
      */
     public $releaseInitiator;
+
     /**
      * @var string
      */
     public $releaseReason;
+
     /**
      * @var string
      */
     public $skillGroupId;
+
     /**
      * @var string
      */
     public $status;
+
     /**
      * @var string
      */
     public $userId;
+
     /**
      * @var string
      */
     public $userType;
     protected $_name = [
-        'index'            => 'Index',
+        'index' => 'Index',
         'releaseInitiator' => 'ReleaseInitiator',
-        'releaseReason'    => 'ReleaseReason',
-        'skillGroupId'     => 'SkillGroupId',
-        'status'           => 'Status',
-        'userId'           => 'UserId',
-        'userType'         => 'UserType',
+        'releaseReason' => 'ReleaseReason',
+        'skillGroupId' => 'SkillGroupId',
+        'status' => 'Status',
+        'userId' => 'UserId',
+        'userType' => 'UserType',
     ];
 
     public function validate()

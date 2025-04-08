@@ -14,18 +14,20 @@ class data extends Model
      * @var chatContexts[]
      */
     public $chatContexts;
+
     /**
      * @var int
      */
     public $contextId;
+
     /**
      * @var userContext
      */
     public $userContext;
     protected $_name = [
         'chatContexts' => 'ChatContexts',
-        'contextId'    => 'ContextId',
-        'userContext'  => 'UserContext',
+        'contextId' => 'ContextId',
+        'userContext' => 'UserContext',
     ];
 
     public function validate()
@@ -45,7 +47,7 @@ class data extends Model
         if (null !== $this->chatContexts) {
             if (\is_array($this->chatContexts)) {
                 $res['ChatContexts'] = [];
-                $n1                  = 0;
+                $n1 = 0;
                 foreach ($this->chatContexts as $item1) {
                     $res['ChatContexts'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -74,7 +76,7 @@ class data extends Model
         if (isset($map['ChatContexts'])) {
             if (!empty($map['ChatContexts'])) {
                 $model->chatContexts = [];
-                $n1                  = 0;
+                $n1 = 0;
                 foreach ($map['ChatContexts'] as $item1) {
                     $model->chatContexts[$n1++] = chatContexts::fromMap($item1);
                 }

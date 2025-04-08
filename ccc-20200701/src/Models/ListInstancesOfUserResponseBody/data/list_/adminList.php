@@ -12,53 +12,62 @@ class adminList extends Model
      * @var string
      */
     public $displayName;
+
     /**
      * @var string
      */
     public $email;
+
     /**
      * @var string
      */
     public $extension;
+
     /**
      * @var string
      */
     public $instanceId;
+
     /**
      * @var string
      */
     public $loginName;
+
     /**
      * @var string
      */
     public $mobile;
+
     /**
      * @var string
      */
     public $roleId;
+
     /**
      * @var string
      */
     public $roleName;
+
     /**
      * @var string
      */
     public $userId;
+
     /**
      * @var string
      */
     public $workMode;
     protected $_name = [
         'displayName' => 'DisplayName',
-        'email'       => 'Email',
-        'extension'   => 'Extension',
-        'instanceId'  => 'InstanceId',
-        'loginName'   => 'LoginName',
-        'mobile'      => 'Mobile',
-        'roleId'      => 'RoleId',
-        'roleName'    => 'RoleName',
-        'userId'      => 'UserId',
-        'workMode'    => 'WorkMode',
+        'email' => 'Email',
+        'extension' => 'Extension',
+        'instanceId' => 'InstanceId',
+        'loginName' => 'LoginName',
+        'mobile' => 'Mobile',
+        'roleId' => 'RoleId',
+        'roleName' => 'RoleName',
+        'userId' => 'UserId',
+        'workMode' => 'WorkMode',
     ];
 
     public function validate()

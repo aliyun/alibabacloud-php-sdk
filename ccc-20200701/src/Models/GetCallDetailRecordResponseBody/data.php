@@ -17,148 +17,176 @@ class data extends Model
      * @var agentEvents[]
      */
     public $agentEvents;
+
     /**
      * @var string
      */
     public $agentIds;
+
     /**
      * @var string
      */
     public $agentNames;
+
     /**
      * @var analyticsReport
      */
     public $analyticsReport;
+
     /**
      * @var bool
      */
     public $analyticsReportReady;
+
     /**
      * @var int
      */
     public $callDuration;
+
     /**
      * @var string
      */
     public $calledNumber;
+
     /**
      * @var string
      */
     public $calleeLocation;
+
     /**
      * @var string
      */
     public $callerLocation;
+
     /**
      * @var string
      */
     public $callingNumber;
+
     /**
      * @var string
      */
     public $contactDisposition;
+
     /**
      * @var string
      */
     public $contactId;
+
     /**
      * @var string
      */
     public $contactType;
+
     /**
      * @var customerEvents[]
      */
     public $customerEvents;
+
     /**
      * @var string
      */
     public $earlyMediaState;
+
     /**
      * @var int
      */
     public $establishedTime;
+
     /**
      * @var string
      */
     public $instanceId;
+
     /**
      * @var ivrEvents[]
      */
     public $ivrEvents;
+
     /**
      * @var queueEvents[]
      */
     public $queueEvents;
+
     /**
      * @var bool
      */
     public $recordingReady;
+
     /**
      * @var string
      */
     public $releaseInitiator;
+
     /**
      * @var string
      */
     public $releaseReason;
+
     /**
      * @var int
      */
     public $releaseTime;
+
     /**
      * @var int
      */
     public $satisfaction;
+
     /**
      * @var string
      */
     public $satisfactionSurveyChannel;
+
     /**
      * @var bool
      */
     public $satisfactionSurveyOffered;
+
     /**
      * @var string
      */
     public $skillGroupIds;
+
     /**
      * @var string
      */
     public $skillGroupNames;
+
     /**
      * @var int
      */
     public $startTime;
     protected $_name = [
-        'agentEvents'               => 'AgentEvents',
-        'agentIds'                  => 'AgentIds',
-        'agentNames'                => 'AgentNames',
-        'analyticsReport'           => 'AnalyticsReport',
-        'analyticsReportReady'      => 'AnalyticsReportReady',
-        'callDuration'              => 'CallDuration',
-        'calledNumber'              => 'CalledNumber',
-        'calleeLocation'            => 'CalleeLocation',
-        'callerLocation'            => 'CallerLocation',
-        'callingNumber'             => 'CallingNumber',
-        'contactDisposition'        => 'ContactDisposition',
-        'contactId'                 => 'ContactId',
-        'contactType'               => 'ContactType',
-        'customerEvents'            => 'CustomerEvents',
-        'earlyMediaState'           => 'EarlyMediaState',
-        'establishedTime'           => 'EstablishedTime',
-        'instanceId'                => 'InstanceId',
-        'ivrEvents'                 => 'IvrEvents',
-        'queueEvents'               => 'QueueEvents',
-        'recordingReady'            => 'RecordingReady',
-        'releaseInitiator'          => 'ReleaseInitiator',
-        'releaseReason'             => 'ReleaseReason',
-        'releaseTime'               => 'ReleaseTime',
-        'satisfaction'              => 'Satisfaction',
+        'agentEvents' => 'AgentEvents',
+        'agentIds' => 'AgentIds',
+        'agentNames' => 'AgentNames',
+        'analyticsReport' => 'AnalyticsReport',
+        'analyticsReportReady' => 'AnalyticsReportReady',
+        'callDuration' => 'CallDuration',
+        'calledNumber' => 'CalledNumber',
+        'calleeLocation' => 'CalleeLocation',
+        'callerLocation' => 'CallerLocation',
+        'callingNumber' => 'CallingNumber',
+        'contactDisposition' => 'ContactDisposition',
+        'contactId' => 'ContactId',
+        'contactType' => 'ContactType',
+        'customerEvents' => 'CustomerEvents',
+        'earlyMediaState' => 'EarlyMediaState',
+        'establishedTime' => 'EstablishedTime',
+        'instanceId' => 'InstanceId',
+        'ivrEvents' => 'IvrEvents',
+        'queueEvents' => 'QueueEvents',
+        'recordingReady' => 'RecordingReady',
+        'releaseInitiator' => 'ReleaseInitiator',
+        'releaseReason' => 'ReleaseReason',
+        'releaseTime' => 'ReleaseTime',
+        'satisfaction' => 'Satisfaction',
         'satisfactionSurveyChannel' => 'SatisfactionSurveyChannel',
         'satisfactionSurveyOffered' => 'SatisfactionSurveyOffered',
-        'skillGroupIds'             => 'SkillGroupIds',
-        'skillGroupNames'           => 'SkillGroupNames',
-        'startTime'                 => 'StartTime',
+        'skillGroupIds' => 'SkillGroupIds',
+        'skillGroupNames' => 'SkillGroupNames',
+        'startTime' => 'StartTime',
     ];
 
     public function validate()
@@ -187,7 +215,7 @@ class data extends Model
         if (null !== $this->agentEvents) {
             if (\is_array($this->agentEvents)) {
                 $res['AgentEvents'] = [];
-                $n1                 = 0;
+                $n1 = 0;
                 foreach ($this->agentEvents as $item1) {
                     $res['AgentEvents'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -245,7 +273,7 @@ class data extends Model
         if (null !== $this->customerEvents) {
             if (\is_array($this->customerEvents)) {
                 $res['CustomerEvents'] = [];
-                $n1                    = 0;
+                $n1 = 0;
                 foreach ($this->customerEvents as $item1) {
                     $res['CustomerEvents'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -267,7 +295,7 @@ class data extends Model
         if (null !== $this->ivrEvents) {
             if (\is_array($this->ivrEvents)) {
                 $res['IvrEvents'] = [];
-                $n1               = 0;
+                $n1 = 0;
                 foreach ($this->ivrEvents as $item1) {
                     $res['IvrEvents'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -277,7 +305,7 @@ class data extends Model
         if (null !== $this->queueEvents) {
             if (\is_array($this->queueEvents)) {
                 $res['QueueEvents'] = [];
-                $n1                 = 0;
+                $n1 = 0;
                 foreach ($this->queueEvents as $item1) {
                     $res['QueueEvents'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -338,7 +366,7 @@ class data extends Model
         if (isset($map['AgentEvents'])) {
             if (!empty($map['AgentEvents'])) {
                 $model->agentEvents = [];
-                $n1                 = 0;
+                $n1 = 0;
                 foreach ($map['AgentEvents'] as $item1) {
                     $model->agentEvents[$n1++] = agentEvents::fromMap($item1);
                 }
@@ -396,7 +424,7 @@ class data extends Model
         if (isset($map['CustomerEvents'])) {
             if (!empty($map['CustomerEvents'])) {
                 $model->customerEvents = [];
-                $n1                    = 0;
+                $n1 = 0;
                 foreach ($map['CustomerEvents'] as $item1) {
                     $model->customerEvents[$n1++] = customerEvents::fromMap($item1);
                 }
@@ -418,7 +446,7 @@ class data extends Model
         if (isset($map['IvrEvents'])) {
             if (!empty($map['IvrEvents'])) {
                 $model->ivrEvents = [];
-                $n1               = 0;
+                $n1 = 0;
                 foreach ($map['IvrEvents'] as $item1) {
                     $model->ivrEvents[$n1++] = ivrEvents::fromMap($item1);
                 }
@@ -428,7 +456,7 @@ class data extends Model
         if (isset($map['QueueEvents'])) {
             if (!empty($map['QueueEvents'])) {
                 $model->queueEvents = [];
-                $n1                 = 0;
+                $n1 = 0;
                 foreach ($map['QueueEvents'] as $item1) {
                     $model->queueEvents[$n1++] = queueEvents::fromMap($item1);
                 }

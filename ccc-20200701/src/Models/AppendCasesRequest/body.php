@@ -12,33 +12,38 @@ class body extends Model
      * @var string
      */
     public $agentId;
+
     /**
      * @var string
      */
     public $caller;
+
     /**
      * @var string
      */
     public $customVariables;
+
     /**
      * @var string
      */
     public $maskedCallee;
+
     /**
      * @var string
      */
     public $phoneNumber;
+
     /**
      * @var string
      */
     public $referenceId;
     protected $_name = [
-        'agentId'         => 'AgentId',
-        'caller'          => 'Caller',
+        'agentId' => 'AgentId',
+        'caller' => 'Caller',
         'customVariables' => 'CustomVariables',
-        'maskedCallee'    => 'MaskedCallee',
-        'phoneNumber'     => 'PhoneNumber',
-        'referenceId'     => 'ReferenceId',
+        'maskedCallee' => 'MaskedCallee',
+        'phoneNumber' => 'PhoneNumber',
+        'referenceId' => 'ReferenceId',
     ];
 
     public function validate()

@@ -12,28 +12,32 @@ class emotion extends Model
      * @var int
      */
     public $confidence;
+
     /**
      * @var string
      */
     public $remark;
+
     /**
      * @var bool
      */
     public $success;
+
     /**
      * @var string
      */
     public $taskId;
+
     /**
      * @var string
      */
     public $type;
     protected $_name = [
         'confidence' => 'Confidence',
-        'remark'     => 'Remark',
-        'success'    => 'Success',
-        'taskId'     => 'TaskId',
-        'type'       => 'Type',
+        'remark' => 'Remark',
+        'success' => 'Success',
+        'taskId' => 'TaskId',
+        'type' => 'Type',
     ];
 
     public function validate()

@@ -12,18 +12,20 @@ class AddCasesShrinkRequest extends Model
      * @var string
      */
     public $campaignId;
+
     /**
      * @var string
      */
     public $caseListShrink;
+
     /**
      * @var string
      */
     public $instanceId;
     protected $_name = [
-        'campaignId'     => 'CampaignId',
+        'campaignId' => 'CampaignId',
         'caseListShrink' => 'CaseList',
-        'instanceId'     => 'InstanceId',
+        'instanceId' => 'InstanceId',
     ];
 
     public function validate()

@@ -12,48 +12,56 @@ class data extends Model
      * @var string
      */
     public $avatarUrl;
+
     /**
      * @var string
      */
     public $displayName;
+
     /**
      * @var string
      */
     public $email;
+
     /**
      * @var string
      */
     public $extension;
+
     /**
      * @var string
      */
     public $loginName;
+
     /**
      * @var string
      */
     public $mobile;
+
     /**
      * @var string
      */
     public $nickname;
+
     /**
      * @var string
      */
     public $userId;
+
     /**
      * @var string
      */
     public $workMode;
     protected $_name = [
-        'avatarUrl'   => 'AvatarUrl',
+        'avatarUrl' => 'AvatarUrl',
         'displayName' => 'DisplayName',
-        'email'       => 'Email',
-        'extension'   => 'Extension',
-        'loginName'   => 'LoginName',
-        'mobile'      => 'Mobile',
-        'nickname'    => 'Nickname',
-        'userId'      => 'UserId',
-        'workMode'    => 'WorkMode',
+        'email' => 'Email',
+        'extension' => 'Extension',
+        'loginName' => 'LoginName',
+        'mobile' => 'Mobile',
+        'nickname' => 'Nickname',
+        'userId' => 'UserId',
+        'workMode' => 'WorkMode',
     ];
 
     public function validate()

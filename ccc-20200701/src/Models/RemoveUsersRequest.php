@@ -12,28 +12,32 @@ class RemoveUsersRequest extends Model
      * @var string
      */
     public $filePath;
+
     /**
      * @var bool
      */
     public $force;
+
     /**
      * @var string
      */
     public $instanceId;
+
     /**
      * @var string
      */
     public $notificationEmail;
+
     /**
      * @var string
      */
     public $userIdList;
     protected $_name = [
-        'filePath'          => 'FilePath',
-        'force'             => 'Force',
-        'instanceId'        => 'InstanceId',
+        'filePath' => 'FilePath',
+        'force' => 'Force',
+        'instanceId' => 'InstanceId',
         'notificationEmail' => 'NotificationEmail',
-        'userIdList'        => 'UserIdList',
+        'userIdList' => 'UserIdList',
     ];
 
     public function validate()

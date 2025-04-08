@@ -12,18 +12,20 @@ class DiscardEditingContactFlowRequest extends Model
      * @var string
      */
     public $contactFlowId;
+
     /**
      * @var string
      */
     public $draftId;
+
     /**
      * @var string
      */
     public $instanceId;
     protected $_name = [
         'contactFlowId' => 'ContactFlowId',
-        'draftId'       => 'DraftId',
-        'instanceId'    => 'InstanceId',
+        'draftId' => 'DraftId',
+        'instanceId' => 'InstanceId',
     ];
 
     public function validate()

@@ -16,32 +16,37 @@ class list_ extends Model
      * @var back2Back
      */
     public $back2Back;
+
     /**
      * @var inbound
      */
     public $inbound;
+
     /**
      * @var outbound
      */
     public $outbound;
+
     /**
      * @var overall
      */
     public $overall;
+
     /**
      * @var string
      */
     public $skillGroupId;
+
     /**
      * @var string
      */
     public $skillGroupName;
     protected $_name = [
-        'back2Back'      => 'Back2Back',
-        'inbound'        => 'Inbound',
-        'outbound'       => 'Outbound',
-        'overall'        => 'Overall',
-        'skillGroupId'   => 'SkillGroupId',
+        'back2Back' => 'Back2Back',
+        'inbound' => 'Inbound',
+        'outbound' => 'Outbound',
+        'overall' => 'Overall',
+        'skillGroupId' => 'SkillGroupId',
         'skillGroupName' => 'SkillGroupName',
     ];
 

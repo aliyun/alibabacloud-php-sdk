@@ -13,38 +13,44 @@ class ListDocumentsRequest extends Model
      * @var string
      */
     public $instanceId;
+
     /**
      * @var string
      */
     public $nextPageToken;
+
     /**
      * @var int
      */
     public $pageSize;
+
     /**
      * @var string
      */
     public $requestId;
+
     /**
      * @var string
      */
     public $schemaId;
+
     /**
      * @var string
      */
     public $searchPattern;
+
     /**
      * @var sorts[]
      */
     public $sorts;
     protected $_name = [
-        'instanceId'    => 'InstanceId',
+        'instanceId' => 'InstanceId',
         'nextPageToken' => 'NextPageToken',
-        'pageSize'      => 'PageSize',
-        'requestId'     => 'RequestId',
-        'schemaId'      => 'SchemaId',
+        'pageSize' => 'PageSize',
+        'requestId' => 'RequestId',
+        'schemaId' => 'SchemaId',
         'searchPattern' => 'SearchPattern',
-        'sorts'         => 'Sorts',
+        'sorts' => 'Sorts',
     ];
 
     public function validate()
@@ -85,7 +91,7 @@ class ListDocumentsRequest extends Model
         if (null !== $this->sorts) {
             if (\is_array($this->sorts)) {
                 $res['Sorts'] = [];
-                $n1           = 0;
+                $n1 = 0;
                 foreach ($this->sorts as $item1) {
                     $res['Sorts'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -130,7 +136,7 @@ class ListDocumentsRequest extends Model
         if (isset($map['Sorts'])) {
             if (!empty($map['Sorts'])) {
                 $model->sorts = [];
-                $n1           = 0;
+                $n1 = 0;
                 foreach ($map['Sorts'] as $item1) {
                     $model->sorts[$n1++] = sorts::fromMap($item1);
                 }

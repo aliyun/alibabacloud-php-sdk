@@ -12,63 +12,74 @@ class ListRealtimeAgentStatesRequest extends Model
      * @var string
      */
     public $agentIdList;
+
     /**
      * @var string
      */
     public $agentName;
+
     /**
      * @var string
      */
     public $callTypeList;
+
     /**
      * @var string
      */
     public $instanceId;
+
     /**
      * @var string
      */
     public $mediaType;
+
     /**
      * @var bool
      */
     public $outboundScenario;
+
     /**
      * @var int
      */
     public $pageNumber;
+
     /**
      * @var int
      */
     public $pageSize;
+
     /**
      * @var string
      */
     public $query;
+
     /**
      * @var string
      */
     public $skillGroupId;
+
     /**
      * @var string
      */
     public $stateList;
+
     /**
      * @var string
      */
     public $workModeList;
     protected $_name = [
-        'agentIdList'      => 'AgentIdList',
-        'agentName'        => 'AgentName',
-        'callTypeList'     => 'CallTypeList',
-        'instanceId'       => 'InstanceId',
-        'mediaType'        => 'MediaType',
+        'agentIdList' => 'AgentIdList',
+        'agentName' => 'AgentName',
+        'callTypeList' => 'CallTypeList',
+        'instanceId' => 'InstanceId',
+        'mediaType' => 'MediaType',
         'outboundScenario' => 'OutboundScenario',
-        'pageNumber'       => 'PageNumber',
-        'pageSize'         => 'PageSize',
-        'query'            => 'Query',
-        'skillGroupId'     => 'SkillGroupId',
-        'stateList'        => 'StateList',
-        'workModeList'     => 'WorkModeList',
+        'pageNumber' => 'PageNumber',
+        'pageSize' => 'PageSize',
+        'query' => 'Query',
+        'skillGroupId' => 'SkillGroupId',
+        'stateList' => 'StateList',
+        'workModeList' => 'WorkModeList',
     ];
 
     public function validate()

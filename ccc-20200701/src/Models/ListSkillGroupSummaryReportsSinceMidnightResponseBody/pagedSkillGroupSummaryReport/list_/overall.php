@@ -12,83 +12,98 @@ class overall extends Model
      * @var int
      */
     public $averageReadyTime;
+
     /**
      * @var int
      */
     public $averageTalkTime;
+
     /**
      * @var int
      */
     public $averageWorkTime;
+
     /**
      * @var int
      */
     public $maxReadyTime;
+
     /**
      * @var int
      */
     public $maxTalkTime;
+
     /**
      * @var int
      */
     public $maxWorkTime;
+
     /**
      * @var float
      */
     public $occupancyRate;
+
     /**
      * @var float
      */
     public $satisfactionIndex;
+
     /**
      * @var int
      */
     public $satisfactionSurveysOffered;
+
     /**
      * @var int
      */
     public $satisfactionSurveysResponded;
+
     /**
      * @var int
      */
     public $totalBreakTime;
+
     /**
      * @var int
      */
     public $totalCalls;
+
     /**
      * @var int
      */
     public $totalLoggedInTime;
+
     /**
      * @var int
      */
     public $totalReadyTime;
+
     /**
      * @var int
      */
     public $totalTalkTime;
+
     /**
      * @var int
      */
     public $totalWorkTime;
     protected $_name = [
-        'averageReadyTime'             => 'AverageReadyTime',
-        'averageTalkTime'              => 'AverageTalkTime',
-        'averageWorkTime'              => 'AverageWorkTime',
-        'maxReadyTime'                 => 'MaxReadyTime',
-        'maxTalkTime'                  => 'MaxTalkTime',
-        'maxWorkTime'                  => 'MaxWorkTime',
-        'occupancyRate'                => 'OccupancyRate',
-        'satisfactionIndex'            => 'SatisfactionIndex',
-        'satisfactionSurveysOffered'   => 'SatisfactionSurveysOffered',
+        'averageReadyTime' => 'AverageReadyTime',
+        'averageTalkTime' => 'AverageTalkTime',
+        'averageWorkTime' => 'AverageWorkTime',
+        'maxReadyTime' => 'MaxReadyTime',
+        'maxTalkTime' => 'MaxTalkTime',
+        'maxWorkTime' => 'MaxWorkTime',
+        'occupancyRate' => 'OccupancyRate',
+        'satisfactionIndex' => 'SatisfactionIndex',
+        'satisfactionSurveysOffered' => 'SatisfactionSurveysOffered',
         'satisfactionSurveysResponded' => 'SatisfactionSurveysResponded',
-        'totalBreakTime'               => 'TotalBreakTime',
-        'totalCalls'                   => 'TotalCalls',
-        'totalLoggedInTime'            => 'TotalLoggedInTime',
-        'totalReadyTime'               => 'TotalReadyTime',
-        'totalTalkTime'                => 'TotalTalkTime',
-        'totalWorkTime'                => 'TotalWorkTime',
+        'totalBreakTime' => 'TotalBreakTime',
+        'totalCalls' => 'TotalCalls',
+        'totalLoggedInTime' => 'TotalLoggedInTime',
+        'totalReadyTime' => 'TotalReadyTime',
+        'totalTalkTime' => 'TotalTalkTime',
+        'totalWorkTime' => 'TotalWorkTime',
     ];
 
     public function validate()

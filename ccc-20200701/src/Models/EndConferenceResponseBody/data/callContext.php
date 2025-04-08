@@ -13,18 +13,20 @@ class callContext extends Model
      * @var channelContexts[]
      */
     public $channelContexts;
+
     /**
      * @var string
      */
     public $instanceId;
+
     /**
      * @var string
      */
     public $jobId;
     protected $_name = [
         'channelContexts' => 'ChannelContexts',
-        'instanceId'      => 'InstanceId',
-        'jobId'           => 'JobId',
+        'instanceId' => 'InstanceId',
+        'jobId' => 'JobId',
     ];
 
     public function validate()
@@ -41,7 +43,7 @@ class callContext extends Model
         if (null !== $this->channelContexts) {
             if (\is_array($this->channelContexts)) {
                 $res['ChannelContexts'] = [];
-                $n1                     = 0;
+                $n1 = 0;
                 foreach ($this->channelContexts as $item1) {
                     $res['ChannelContexts'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -70,7 +72,7 @@ class callContext extends Model
         if (isset($map['ChannelContexts'])) {
             if (!empty($map['ChannelContexts'])) {
                 $model->channelContexts = [];
-                $n1                     = 0;
+                $n1 = 0;
                 foreach ($map['ChannelContexts'] as $item1) {
                     $model->channelContexts[$n1++] = channelContexts::fromMap($item1);
                 }

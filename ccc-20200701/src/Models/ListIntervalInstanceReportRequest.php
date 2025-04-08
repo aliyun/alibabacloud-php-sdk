@@ -12,23 +12,26 @@ class ListIntervalInstanceReportRequest extends Model
      * @var int
      */
     public $endTime;
+
     /**
      * @var string
      */
     public $instanceId;
+
     /**
      * @var string
      */
     public $interval;
+
     /**
      * @var int
      */
     public $startTime;
     protected $_name = [
-        'endTime'    => 'EndTime',
+        'endTime' => 'EndTime',
         'instanceId' => 'InstanceId',
-        'interval'   => 'Interval',
-        'startTime'  => 'StartTime',
+        'interval' => 'Interval',
+        'startTime' => 'StartTime',
     ];
 
     public function validate()

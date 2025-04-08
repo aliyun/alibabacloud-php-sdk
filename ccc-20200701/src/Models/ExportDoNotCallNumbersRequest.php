@@ -12,17 +12,19 @@ class ExportDoNotCallNumbersRequest extends Model
      * @var string
      */
     public $instanceId;
+
     /**
      * @var string
      */
     public $scope;
+
     /**
      * @var string
      */
     public $searchPattern;
     protected $_name = [
-        'instanceId'    => 'InstanceId',
-        'scope'         => 'Scope',
+        'instanceId' => 'InstanceId',
+        'scope' => 'Scope',
         'searchPattern' => 'SearchPattern',
     ];
 

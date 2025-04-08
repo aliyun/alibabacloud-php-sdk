@@ -12,13 +12,14 @@ class data extends Model
      * @var string
      */
     public $mediaId;
+
     /**
      * @var string
      */
     public $url;
     protected $_name = [
         'mediaId' => 'MediaId',
-        'url'     => 'Url',
+        'url' => 'Url',
     ];
 
     public function validate()

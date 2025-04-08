@@ -12,38 +12,44 @@ class skillGroups extends Model
      * @var string
      */
     public $description;
+
     /**
      * @var string
      */
     public $displayName;
+
     /**
      * @var string
      */
     public $instanceId;
+
     /**
      * @var string
      */
     public $name;
+
     /**
      * @var int
      */
     public $phoneNumberCount;
+
     /**
      * @var string
      */
     public $skillGroupId;
+
     /**
      * @var int
      */
     public $userCount;
     protected $_name = [
-        'description'      => 'Description',
-        'displayName'      => 'DisplayName',
-        'instanceId'       => 'InstanceId',
-        'name'             => 'Name',
+        'description' => 'Description',
+        'displayName' => 'DisplayName',
+        'instanceId' => 'InstanceId',
+        'name' => 'Name',
         'phoneNumberCount' => 'PhoneNumberCount',
-        'skillGroupId'     => 'SkillGroupId',
-        'userCount'        => 'UserCount',
+        'skillGroupId' => 'SkillGroupId',
+        'userCount' => 'UserCount',
     ];
 
     public function validate()

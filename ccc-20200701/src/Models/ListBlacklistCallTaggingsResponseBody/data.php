@@ -12,18 +12,20 @@ class data extends Model
      * @var bool
      */
     public $blacklisted;
+
     /**
      * @var string
      */
     public $jobId;
+
     /**
      * @var string
      */
     public $number;
     protected $_name = [
         'blacklisted' => 'Blacklisted',
-        'jobId'       => 'JobId',
-        'number'      => 'Number',
+        'jobId' => 'JobId',
+        'number' => 'Number',
     ];
 
     public function validate()

@@ -12,17 +12,19 @@ class ModifyUserLevelsOfSkillGroupRequest extends Model
      * @var string
      */
     public $instanceId;
+
     /**
      * @var string
      */
     public $skillGroupId;
+
     /**
      * @var string
      */
     public $userLevelList;
     protected $_name = [
-        'instanceId'    => 'InstanceId',
-        'skillGroupId'  => 'SkillGroupId',
+        'instanceId' => 'InstanceId',
+        'skillGroupId' => 'SkillGroupId',
         'userLevelList' => 'UserLevelList',
     ];
 

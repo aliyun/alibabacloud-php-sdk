@@ -12,18 +12,20 @@ class AddSkillGroupsToUserRequest extends Model
      * @var string
      */
     public $instanceId;
+
     /**
      * @var string
      */
     public $skillLevelList;
+
     /**
      * @var string
      */
     public $userId;
     protected $_name = [
-        'instanceId'     => 'InstanceId',
+        'instanceId' => 'InstanceId',
         'skillLevelList' => 'SkillLevelList',
-        'userId'         => 'UserId',
+        'userId' => 'UserId',
     ];
 
     public function validate()

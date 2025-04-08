@@ -12,18 +12,20 @@ class outbound extends Model
      * @var int
      */
     public $callsAnswered;
+
     /**
      * @var int
      */
     public $statsTime;
+
     /**
      * @var int
      */
     public $totalCalls;
     protected $_name = [
         'callsAnswered' => 'CallsAnswered',
-        'statsTime'     => 'StatsTime',
-        'totalCalls'    => 'TotalCalls',
+        'statsTime' => 'StatsTime',
+        'totalCalls' => 'TotalCalls',
     ];
 
     public function validate()

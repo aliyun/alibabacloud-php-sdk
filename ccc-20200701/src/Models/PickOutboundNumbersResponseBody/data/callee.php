@@ -12,17 +12,19 @@ class callee extends Model
      * @var string
      */
     public $city;
+
     /**
      * @var string
      */
     public $number;
+
     /**
      * @var string
      */
     public $province;
     protected $_name = [
-        'city'     => 'City',
-        'number'   => 'Number',
+        'city' => 'City',
+        'number' => 'Number',
         'province' => 'Province',
     ];
 

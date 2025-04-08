@@ -12,48 +12,56 @@ class StartPredictiveCallRequest extends Model
      * @var string
      */
     public $callee;
+
     /**
      * @var string
      */
     public $caller;
+
     /**
      * @var string
      */
     public $contactFlowId;
+
     /**
      * @var string
      */
     public $contactFlowVariables;
+
     /**
      * @var string
      */
     public $instanceId;
+
     /**
      * @var string
      */
     public $maskedCallee;
+
     /**
      * @var string
      */
     public $skillGroupId;
+
     /**
      * @var string
      */
     public $tags;
+
     /**
      * @var int
      */
     public $timeoutSeconds;
     protected $_name = [
-        'callee'               => 'Callee',
-        'caller'               => 'Caller',
-        'contactFlowId'        => 'ContactFlowId',
+        'callee' => 'Callee',
+        'caller' => 'Caller',
+        'contactFlowId' => 'ContactFlowId',
         'contactFlowVariables' => 'ContactFlowVariables',
-        'instanceId'           => 'InstanceId',
-        'maskedCallee'         => 'MaskedCallee',
-        'skillGroupId'         => 'SkillGroupId',
-        'tags'                 => 'Tags',
-        'timeoutSeconds'       => 'TimeoutSeconds',
+        'instanceId' => 'InstanceId',
+        'maskedCallee' => 'MaskedCallee',
+        'skillGroupId' => 'SkillGroupId',
+        'tags' => 'Tags',
+        'timeoutSeconds' => 'TimeoutSeconds',
     ];
 
     public function validate()

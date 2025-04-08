@@ -12,138 +12,164 @@ class outbound extends Model
      * @var float
      */
     public $answerRate;
+
     /**
      * @var int
      */
     public $averageDialingTime;
+
     /**
      * @var int
      */
     public $averageTalkTime;
+
     /**
      * @var int
      */
     public $averageWorkTime;
+
     /**
      * @var int
      */
     public $callsAbandoned;
+
     /**
      * @var int
      */
     public $callsAgentHandled;
+
     /**
      * @var int
      */
     public $callsAnswered;
+
     /**
      * @var int
      */
     public $callsDialed;
+
     /**
      * @var int
      */
     public $callsOffered;
+
     /**
      * @var int
      */
     public $callsQueuingCancelled;
+
     /**
      * @var int
      */
     public $callsQueuingFailed;
+
     /**
      * @var int
      */
     public $callsQueuingFailure;
+
     /**
      * @var int
      */
     public $callsQueuingOverflow;
+
     /**
      * @var int
      */
     public $callsQueuingRerouted;
+
     /**
      * @var int
      */
     public $callsQueuingTimeout;
+
     /**
      * @var string
      */
     public $callsServiceLevel30;
+
     /**
      * @var int
      */
     public $callsServiceLevel30V2;
+
     /**
      * @var int
      */
     public $maxDialingTime;
+
     /**
      * @var int
      */
     public $maxTalkTime;
+
     /**
      * @var int
      */
     public $maxWorkTime;
+
     /**
      * @var float
      */
     public $satisfactionIndex;
+
     /**
      * @var int
      */
     public $satisfactionSurveysOffered;
+
     /**
      * @var int
      */
     public $satisfactionSurveysResponded;
+
     /**
      * @var int
      */
     public $totalDialingTime;
+
     /**
      * @var int
      */
     public $totalTalkTime;
+
     /**
      * @var int
      */
     public $totalWaitTime;
+
     /**
      * @var int
      */
     public $totalWorkTime;
     protected $_name = [
-        'answerRate'                   => 'AnswerRate',
-        'averageDialingTime'           => 'AverageDialingTime',
-        'averageTalkTime'              => 'AverageTalkTime',
-        'averageWorkTime'              => 'AverageWorkTime',
-        'callsAbandoned'               => 'CallsAbandoned',
-        'callsAgentHandled'            => 'CallsAgentHandled',
-        'callsAnswered'                => 'CallsAnswered',
-        'callsDialed'                  => 'CallsDialed',
-        'callsOffered'                 => 'CallsOffered',
-        'callsQueuingCancelled'        => 'CallsQueuingCancelled',
-        'callsQueuingFailed'           => 'CallsQueuingFailed',
-        'callsQueuingFailure'          => 'CallsQueuingFailure',
-        'callsQueuingOverflow'         => 'CallsQueuingOverflow',
-        'callsQueuingRerouted'         => 'CallsQueuingRerouted',
-        'callsQueuingTimeout'          => 'CallsQueuingTimeout',
-        'callsServiceLevel30'          => 'CallsServiceLevel30',
-        'callsServiceLevel30V2'        => 'CallsServiceLevel30V2',
-        'maxDialingTime'               => 'MaxDialingTime',
-        'maxTalkTime'                  => 'MaxTalkTime',
-        'maxWorkTime'                  => 'MaxWorkTime',
-        'satisfactionIndex'            => 'SatisfactionIndex',
-        'satisfactionSurveysOffered'   => 'SatisfactionSurveysOffered',
+        'answerRate' => 'AnswerRate',
+        'averageDialingTime' => 'AverageDialingTime',
+        'averageTalkTime' => 'AverageTalkTime',
+        'averageWorkTime' => 'AverageWorkTime',
+        'callsAbandoned' => 'CallsAbandoned',
+        'callsAgentHandled' => 'CallsAgentHandled',
+        'callsAnswered' => 'CallsAnswered',
+        'callsDialed' => 'CallsDialed',
+        'callsOffered' => 'CallsOffered',
+        'callsQueuingCancelled' => 'CallsQueuingCancelled',
+        'callsQueuingFailed' => 'CallsQueuingFailed',
+        'callsQueuingFailure' => 'CallsQueuingFailure',
+        'callsQueuingOverflow' => 'CallsQueuingOverflow',
+        'callsQueuingRerouted' => 'CallsQueuingRerouted',
+        'callsQueuingTimeout' => 'CallsQueuingTimeout',
+        'callsServiceLevel30' => 'CallsServiceLevel30',
+        'callsServiceLevel30V2' => 'CallsServiceLevel30V2',
+        'maxDialingTime' => 'MaxDialingTime',
+        'maxTalkTime' => 'MaxTalkTime',
+        'maxWorkTime' => 'MaxWorkTime',
+        'satisfactionIndex' => 'SatisfactionIndex',
+        'satisfactionSurveysOffered' => 'SatisfactionSurveysOffered',
         'satisfactionSurveysResponded' => 'SatisfactionSurveysResponded',
-        'totalDialingTime'             => 'TotalDialingTime',
-        'totalTalkTime'                => 'TotalTalkTime',
-        'totalWaitTime'                => 'TotalWaitTime',
-        'totalWorkTime'                => 'TotalWorkTime',
+        'totalDialingTime' => 'TotalDialingTime',
+        'totalTalkTime' => 'TotalTalkTime',
+        'totalWaitTime' => 'TotalWaitTime',
+        'totalWorkTime' => 'TotalWorkTime',
     ];
 
     public function validate()

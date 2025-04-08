@@ -12,18 +12,20 @@ class ImportContactFlowRequest extends Model
      * @var string
      */
     public $flowPackageData;
+
     /**
      * @var string
      */
     public $instanceId;
+
     /**
      * @var string
      */
     public $requestId;
     protected $_name = [
         'flowPackageData' => 'FlowPackageData',
-        'instanceId'      => 'InstanceId',
-        'requestId'       => 'RequestId',
+        'instanceId' => 'InstanceId',
+        'requestId' => 'RequestId',
     ];
 
     public function validate()

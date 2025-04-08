@@ -12,22 +12,25 @@ class StartPrivacyCallRequest extends Model
      * @var string
      */
     public $appId;
+
     /**
      * @var string
      */
     public $callee;
+
     /**
      * @var string
      */
     public $caller;
+
     /**
      * @var string
      */
     public $instanceId;
     protected $_name = [
-        'appId'      => 'AppId',
-        'callee'     => 'Callee',
-        'caller'     => 'Caller',
+        'appId' => 'AppId',
+        'callee' => 'Callee',
+        'caller' => 'Caller',
         'instanceId' => 'InstanceId',
     ];
 

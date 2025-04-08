@@ -12,43 +12,50 @@ class list_ extends Model
      * @var int
      */
     public $aliyunUid;
+
     /**
      * @var string
      */
     public $description;
+
     /**
      * @var string
      */
     public $instanceId;
+
     /**
      * @var string
      */
     public $name;
+
     /**
      * @var string
      */
     public $scenario;
+
     /**
      * @var string
      */
     public $signName;
+
     /**
      * @var string
      */
     public $smsMetadataId;
+
     /**
      * @var string
      */
     public $templateCode;
     protected $_name = [
-        'aliyunUid'     => 'AliyunUid',
-        'description'   => 'Description',
-        'instanceId'    => 'InstanceId',
-        'name'          => 'Name',
-        'scenario'      => 'Scenario',
-        'signName'      => 'SignName',
+        'aliyunUid' => 'AliyunUid',
+        'description' => 'Description',
+        'instanceId' => 'InstanceId',
+        'name' => 'Name',
+        'scenario' => 'Scenario',
+        'signName' => 'SignName',
         'smsMetadataId' => 'SmsMetadataId',
-        'templateCode'  => 'TemplateCode',
+        'templateCode' => 'TemplateCode',
     ];
 
     public function validate()

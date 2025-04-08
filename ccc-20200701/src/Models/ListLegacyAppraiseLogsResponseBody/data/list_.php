@@ -12,63 +12,74 @@ class list_ extends Model
      * @var string
      */
     public $acid;
+
     /**
      * @var string
      */
     public $contactType;
+
     /**
      * @var int
      */
     public $id;
+
     /**
      * @var string
      */
     public $instanceId;
+
     /**
      * @var string
      */
     public $keyMarkRelation;
+
     /**
      * @var string
      */
     public $note;
+
     /**
      * @var string
      */
     public $parentNote;
+
     /**
      * @var string
      */
     public $pressKey;
+
     /**
      * @var string
      */
     public $ramId;
+
     /**
      * @var string
      */
     public $skillGroupId;
+
     /**
      * @var string
      */
     public $statisticDate;
+
     /**
      * @var string
      */
     public $type;
     protected $_name = [
-        'acid'            => 'Acid',
-        'contactType'     => 'ContactType',
-        'id'              => 'Id',
-        'instanceId'      => 'InstanceId',
+        'acid' => 'Acid',
+        'contactType' => 'ContactType',
+        'id' => 'Id',
+        'instanceId' => 'InstanceId',
         'keyMarkRelation' => 'KeyMarkRelation',
-        'note'            => 'Note',
-        'parentNote'      => 'ParentNote',
-        'pressKey'        => 'PressKey',
-        'ramId'           => 'RamId',
-        'skillGroupId'    => 'SkillGroupId',
-        'statisticDate'   => 'StatisticDate',
-        'type'            => 'Type',
+        'note' => 'Note',
+        'parentNote' => 'ParentNote',
+        'pressKey' => 'PressKey',
+        'ramId' => 'RamId',
+        'skillGroupId' => 'SkillGroupId',
+        'statisticDate' => 'StatisticDate',
+        'type' => 'Type',
     ];
 
     public function validate()

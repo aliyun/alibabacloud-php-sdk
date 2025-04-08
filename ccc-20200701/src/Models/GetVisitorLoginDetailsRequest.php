@@ -12,23 +12,26 @@ class GetVisitorLoginDetailsRequest extends Model
      * @var string
      */
     public $chatDeviceId;
+
     /**
      * @var string
      */
     public $instanceId;
+
     /**
      * @var string
      */
     public $token;
+
     /**
      * @var string
      */
     public $visitorId;
     protected $_name = [
         'chatDeviceId' => 'ChatDeviceId',
-        'instanceId'   => 'InstanceId',
-        'token'        => 'Token',
-        'visitorId'    => 'VisitorId',
+        'instanceId' => 'InstanceId',
+        'token' => 'Token',
+        'visitorId' => 'VisitorId',
     ];
 
     public function validate()

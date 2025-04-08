@@ -12,13 +12,14 @@ class callTagList extends Model
      * @var string
      */
     public $instanceId;
+
     /**
      * @var string
      */
     public $tagName;
     protected $_name = [
         'instanceId' => 'InstanceId',
-        'tagName'    => 'TagName',
+        'tagName' => 'TagName',
     ];
 
     public function validate()

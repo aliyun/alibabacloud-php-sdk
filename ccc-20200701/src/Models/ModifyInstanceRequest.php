@@ -12,13 +12,14 @@ class ModifyInstanceRequest extends Model
      * @var string
      */
     public $description;
+
     /**
      * @var string
      */
     public $instanceId;
     protected $_name = [
         'description' => 'Description',
-        'instanceId'  => 'InstanceId',
+        'instanceId' => 'InstanceId',
     ];
 
     public function validate()

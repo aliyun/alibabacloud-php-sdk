@@ -12,13 +12,14 @@ class data extends Model
      * @var string
      */
     public $caseFileKey;
+
     /**
      * @var string
      */
     public $url;
     protected $_name = [
         'caseFileKey' => 'CaseFileKey',
-        'url'         => 'Url',
+        'url' => 'Url',
     ];
 
     public function validate()

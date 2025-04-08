@@ -12,118 +12,140 @@ class overall extends Model
      * @var float
      */
     public $averageBreakTime;
+
     /**
      * @var float
      */
     public $averageHoldTime;
+
     /**
      * @var float
      */
     public $averageReadyTime;
+
     /**
      * @var float
      */
     public $averageTalkTime;
+
     /**
      * @var float
      */
     public $averageWorkTime;
+
     /**
      * @var int
      */
     public $maxBreakTime;
+
     /**
      * @var int
      */
     public $maxHoldTime;
+
     /**
      * @var int
      */
     public $maxLoggedInAgents;
+
     /**
      * @var int
      */
     public $maxReadyTime;
+
     /**
      * @var int
      */
     public $maxTalkTime;
+
     /**
      * @var int
      */
     public $maxWorkTime;
+
     /**
      * @var float
      */
     public $occupancyRate;
+
     /**
      * @var float
      */
     public $satisfactionIndex;
+
     /**
      * @var float
      */
     public $satisfactionRate;
+
     /**
      * @var int
      */
     public $satisfactionSurveysOffered;
+
     /**
      * @var int
      */
     public $satisfactionSurveysResponded;
+
     /**
      * @var int
      */
     public $totalBreakTime;
+
     /**
      * @var int
      */
     public $totalCalls;
+
     /**
      * @var int
      */
     public $totalHoldTime;
+
     /**
      * @var int
      */
     public $totalLoggedInTime;
+
     /**
      * @var int
      */
     public $totalReadyTime;
+
     /**
      * @var int
      */
     public $totalTalkTime;
+
     /**
      * @var int
      */
     public $totalWorkTime;
     protected $_name = [
-        'averageBreakTime'             => 'AverageBreakTime',
-        'averageHoldTime'              => 'AverageHoldTime',
-        'averageReadyTime'             => 'AverageReadyTime',
-        'averageTalkTime'              => 'AverageTalkTime',
-        'averageWorkTime'              => 'AverageWorkTime',
-        'maxBreakTime'                 => 'MaxBreakTime',
-        'maxHoldTime'                  => 'MaxHoldTime',
-        'maxLoggedInAgents'            => 'MaxLoggedInAgents',
-        'maxReadyTime'                 => 'MaxReadyTime',
-        'maxTalkTime'                  => 'MaxTalkTime',
-        'maxWorkTime'                  => 'MaxWorkTime',
-        'occupancyRate'                => 'OccupancyRate',
-        'satisfactionIndex'            => 'SatisfactionIndex',
-        'satisfactionRate'             => 'SatisfactionRate',
-        'satisfactionSurveysOffered'   => 'SatisfactionSurveysOffered',
+        'averageBreakTime' => 'AverageBreakTime',
+        'averageHoldTime' => 'AverageHoldTime',
+        'averageReadyTime' => 'AverageReadyTime',
+        'averageTalkTime' => 'AverageTalkTime',
+        'averageWorkTime' => 'AverageWorkTime',
+        'maxBreakTime' => 'MaxBreakTime',
+        'maxHoldTime' => 'MaxHoldTime',
+        'maxLoggedInAgents' => 'MaxLoggedInAgents',
+        'maxReadyTime' => 'MaxReadyTime',
+        'maxTalkTime' => 'MaxTalkTime',
+        'maxWorkTime' => 'MaxWorkTime',
+        'occupancyRate' => 'OccupancyRate',
+        'satisfactionIndex' => 'SatisfactionIndex',
+        'satisfactionRate' => 'SatisfactionRate',
+        'satisfactionSurveysOffered' => 'SatisfactionSurveysOffered',
         'satisfactionSurveysResponded' => 'SatisfactionSurveysResponded',
-        'totalBreakTime'               => 'TotalBreakTime',
-        'totalCalls'                   => 'TotalCalls',
-        'totalHoldTime'                => 'TotalHoldTime',
-        'totalLoggedInTime'            => 'TotalLoggedInTime',
-        'totalReadyTime'               => 'TotalReadyTime',
-        'totalTalkTime'                => 'TotalTalkTime',
-        'totalWorkTime'                => 'TotalWorkTime',
+        'totalBreakTime' => 'TotalBreakTime',
+        'totalCalls' => 'TotalCalls',
+        'totalHoldTime' => 'TotalHoldTime',
+        'totalLoggedInTime' => 'TotalLoggedInTime',
+        'totalReadyTime' => 'TotalReadyTime',
+        'totalTalkTime' => 'TotalTalkTime',
+        'totalWorkTime' => 'TotalWorkTime',
     ];
 
     public function validate()

@@ -12,13 +12,14 @@ class GetRealtimeInstanceStatesRequest extends Model
      * @var string
      */
     public $instanceId;
+
     /**
      * @var string
      */
     public $mediaType;
     protected $_name = [
         'instanceId' => 'InstanceId',
-        'mediaType'  => 'MediaType',
+        'mediaType' => 'MediaType',
     ];
 
     public function validate()

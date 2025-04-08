@@ -12,18 +12,20 @@ class RemoveUsersFromSkillGroupRequest extends Model
      * @var string
      */
     public $instanceId;
+
     /**
      * @var string
      */
     public $skillGroupId;
+
     /**
      * @var string
      */
     public $userIdList;
     protected $_name = [
-        'instanceId'   => 'InstanceId',
+        'instanceId' => 'InstanceId',
         'skillGroupId' => 'SkillGroupId',
-        'userIdList'   => 'UserIdList',
+        'userIdList' => 'UserIdList',
     ];
 
     public function validate()

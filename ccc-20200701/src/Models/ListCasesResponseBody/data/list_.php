@@ -12,43 +12,50 @@ class list_ extends Model
      * @var string
      */
     public $abandonPhase;
+
     /**
      * @var string
      */
     public $abandonType;
+
     /**
      * @var int
      */
     public $attemptCount;
+
     /**
      * @var string
      */
     public $caseId;
+
     /**
      * @var string
      */
     public $customVariables;
+
     /**
      * @var string
      */
     public $failureReason;
+
     /**
      * @var string
      */
     public $phoneNumber;
+
     /**
      * @var string
      */
     public $state;
     protected $_name = [
-        'abandonPhase'    => 'AbandonPhase',
-        'abandonType'     => 'AbandonType',
-        'attemptCount'    => 'AttemptCount',
-        'caseId'          => 'CaseId',
+        'abandonPhase' => 'AbandonPhase',
+        'abandonType' => 'AbandonType',
+        'attemptCount' => 'AttemptCount',
+        'caseId' => 'CaseId',
         'customVariables' => 'CustomVariables',
-        'failureReason'   => 'FailureReason',
-        'phoneNumber'     => 'PhoneNumber',
-        'state'           => 'State',
+        'failureReason' => 'FailureReason',
+        'phoneNumber' => 'PhoneNumber',
+        'state' => 'State',
     ];
 
     public function validate()

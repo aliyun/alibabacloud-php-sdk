@@ -12,12 +12,13 @@ class GetSkillGroupRequest extends Model
      * @var string
      */
     public $instanceId;
+
     /**
      * @var string
      */
     public $skillGroupId;
     protected $_name = [
-        'instanceId'   => 'InstanceId',
+        'instanceId' => 'InstanceId',
         'skillGroupId' => 'SkillGroupId',
     ];
 

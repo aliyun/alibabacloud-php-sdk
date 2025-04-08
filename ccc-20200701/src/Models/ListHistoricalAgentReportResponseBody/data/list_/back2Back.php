@@ -12,83 +12,98 @@ class back2Back extends Model
      * @var string
      */
     public $agentHandleRate;
+
     /**
      * @var string
      */
     public $answerRate;
+
     /**
      * @var string
      */
     public $averageCustomerRingTime;
+
     /**
      * @var string
      */
     public $averageRingTime;
+
     /**
      * @var string
      */
     public $averageTalkTime;
+
     /**
      * @var string
      */
     public $callsAgentHandled;
+
     /**
      * @var string
      */
     public $callsAnswered;
+
     /**
      * @var string
      */
     public $callsCustomerAnswered;
+
     /**
      * @var string
      */
     public $callsDialed;
+
     /**
      * @var string
      */
     public $customerAnswerRate;
+
     /**
      * @var string
      */
     public $maxCustomerRingTime;
+
     /**
      * @var string
      */
     public $maxRingTime;
+
     /**
      * @var string
      */
     public $maxTalkTime;
+
     /**
      * @var string
      */
     public $totalCustomerRingTime;
+
     /**
      * @var string
      */
     public $totalRingTime;
+
     /**
      * @var string
      */
     public $totalTalkTime;
     protected $_name = [
-        'agentHandleRate'         => 'AgentHandleRate',
-        'answerRate'              => 'AnswerRate',
+        'agentHandleRate' => 'AgentHandleRate',
+        'answerRate' => 'AnswerRate',
         'averageCustomerRingTime' => 'AverageCustomerRingTime',
-        'averageRingTime'         => 'AverageRingTime',
-        'averageTalkTime'         => 'AverageTalkTime',
-        'callsAgentHandled'       => 'CallsAgentHandled',
-        'callsAnswered'           => 'CallsAnswered',
-        'callsCustomerAnswered'   => 'CallsCustomerAnswered',
-        'callsDialed'             => 'CallsDialed',
-        'customerAnswerRate'      => 'CustomerAnswerRate',
-        'maxCustomerRingTime'     => 'MaxCustomerRingTime',
-        'maxRingTime'             => 'MaxRingTime',
-        'maxTalkTime'             => 'MaxTalkTime',
-        'totalCustomerRingTime'   => 'TotalCustomerRingTime',
-        'totalRingTime'           => 'TotalRingTime',
-        'totalTalkTime'           => 'TotalTalkTime',
+        'averageRingTime' => 'AverageRingTime',
+        'averageTalkTime' => 'AverageTalkTime',
+        'callsAgentHandled' => 'CallsAgentHandled',
+        'callsAnswered' => 'CallsAnswered',
+        'callsCustomerAnswered' => 'CallsCustomerAnswered',
+        'callsDialed' => 'CallsDialed',
+        'customerAnswerRate' => 'CustomerAnswerRate',
+        'maxCustomerRingTime' => 'MaxCustomerRingTime',
+        'maxRingTime' => 'MaxRingTime',
+        'maxTalkTime' => 'MaxTalkTime',
+        'totalCustomerRingTime' => 'TotalCustomerRingTime',
+        'totalRingTime' => 'TotalRingTime',
+        'totalTalkTime' => 'TotalTalkTime',
     ];
 
     public function validate()

@@ -12,14 +12,17 @@ class DeleteDocumentRequest extends Model
      * @var string
      */
     public $documentId;
+
     /**
      * @var string
      */
     public $instanceId;
+
     /**
      * @var string
      */
     public $requestId;
+
     /**
      * @var string
      */
@@ -27,8 +30,8 @@ class DeleteDocumentRequest extends Model
     protected $_name = [
         'documentId' => 'DocumentId',
         'instanceId' => 'InstanceId',
-        'requestId'  => 'RequestId',
-        'schemaId'   => 'SchemaId',
+        'requestId' => 'RequestId',
+        'schemaId' => 'SchemaId',
     ];
 
     public function validate()

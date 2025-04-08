@@ -12,42 +12,49 @@ class UpdateCampaignRequest extends Model
      * @var string
      */
     public $callableTime;
+
     /**
      * @var string
      */
     public $campaignId;
+
     /**
      * @var string
      */
     public $contactFlowId;
+
     /**
      * @var string
      */
     public $endTime;
+
     /**
      * @var string
      */
     public $instanceId;
+
     /**
      * @var string
      */
     public $name;
+
     /**
      * @var string
      */
     public $startTime;
+
     /**
      * @var string
      */
     public $strategyParameters;
     protected $_name = [
-        'callableTime'       => 'CallableTime',
-        'campaignId'         => 'CampaignId',
-        'contactFlowId'      => 'ContactFlowId',
-        'endTime'            => 'EndTime',
-        'instanceId'         => 'InstanceId',
-        'name'               => 'Name',
-        'startTime'          => 'StartTime',
+        'callableTime' => 'CallableTime',
+        'campaignId' => 'CampaignId',
+        'contactFlowId' => 'ContactFlowId',
+        'endTime' => 'EndTime',
+        'instanceId' => 'InstanceId',
+        'name' => 'Name',
+        'startTime' => 'StartTime',
         'strategyParameters' => 'StrategyParameters',
     ];
 

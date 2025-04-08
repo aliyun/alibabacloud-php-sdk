@@ -12,78 +12,92 @@ class data extends Model
      * @var int
      */
     public $breakAgents;
+
     /**
      * @var int
      */
     public $breakingAgents;
+
     /**
      * @var int
      */
     public $concurrency;
+
     /**
      * @var int
      */
     public $datetime;
+
     /**
      * @var int
      */
     public $loggedInAgents;
+
     /**
      * @var int
      */
     public $outboundScenarioBreakingAgents;
+
     /**
      * @var int
      */
     public $outboundScenarioReadyAgents;
+
     /**
      * @var int
      */
     public $outboundScenarioTalkingAgents;
+
     /**
      * @var int
      */
     public $outboundScenarioWorkingAgents;
+
     /**
      * @var int
      */
     public $readyAgents;
+
     /**
      * @var int
      */
     public $statsTime;
+
     /**
      * @var int
      */
     public $talkAgents;
+
     /**
      * @var int
      */
     public $talkingAgents;
+
     /**
      * @var int
      */
     public $workAgents;
+
     /**
      * @var int
      */
     public $workingAgents;
     protected $_name = [
-        'breakAgents'                    => 'BreakAgents',
-        'breakingAgents'                 => 'BreakingAgents',
-        'concurrency'                    => 'Concurrency',
-        'datetime'                       => 'Datetime',
-        'loggedInAgents'                 => 'LoggedInAgents',
+        'breakAgents' => 'BreakAgents',
+        'breakingAgents' => 'BreakingAgents',
+        'concurrency' => 'Concurrency',
+        'datetime' => 'Datetime',
+        'loggedInAgents' => 'LoggedInAgents',
         'outboundScenarioBreakingAgents' => 'OutboundScenarioBreakingAgents',
-        'outboundScenarioReadyAgents'    => 'OutboundScenarioReadyAgents',
-        'outboundScenarioTalkingAgents'  => 'OutboundScenarioTalkingAgents',
-        'outboundScenarioWorkingAgents'  => 'OutboundScenarioWorkingAgents',
-        'readyAgents'                    => 'ReadyAgents',
-        'statsTime'                      => 'StatsTime',
-        'talkAgents'                     => 'TalkAgents',
-        'talkingAgents'                  => 'TalkingAgents',
-        'workAgents'                     => 'WorkAgents',
-        'workingAgents'                  => 'WorkingAgents',
+        'outboundScenarioReadyAgents' => 'OutboundScenarioReadyAgents',
+        'outboundScenarioTalkingAgents' => 'OutboundScenarioTalkingAgents',
+        'outboundScenarioWorkingAgents' => 'OutboundScenarioWorkingAgents',
+        'readyAgents' => 'ReadyAgents',
+        'statsTime' => 'StatsTime',
+        'talkAgents' => 'TalkAgents',
+        'talkingAgents' => 'TalkingAgents',
+        'workAgents' => 'WorkAgents',
+        'workingAgents' => 'WorkingAgents',
     ];
 
     public function validate()

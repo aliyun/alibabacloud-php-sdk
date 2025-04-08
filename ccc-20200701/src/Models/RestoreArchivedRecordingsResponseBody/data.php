@@ -12,22 +12,25 @@ class data extends Model
      * @var string
      */
     public $contactId;
+
     /**
      * @var string
      */
     public $exists;
+
     /**
      * @var string
      */
     public $status;
+
     /**
      * @var string
      */
     public $storageType;
     protected $_name = [
-        'contactId'   => 'ContactId',
-        'exists'      => 'Exists',
-        'status'      => 'Status',
+        'contactId' => 'ContactId',
+        'exists' => 'Exists',
+        'status' => 'Status',
         'storageType' => 'StorageType',
     ];
 

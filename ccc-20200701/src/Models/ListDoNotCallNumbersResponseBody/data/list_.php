@@ -12,33 +12,38 @@ class list_ extends Model
      * @var int
      */
     public $createTime;
+
     /**
      * @var int
      */
     public $createdTime;
+
     /**
      * @var string
      */
     public $creator;
+
     /**
      * @var string
      */
     public $number;
+
     /**
      * @var string
      */
     public $remark;
+
     /**
      * @var string
      */
     public $scope;
     protected $_name = [
-        'createTime'  => 'CreateTime',
+        'createTime' => 'CreateTime',
         'createdTime' => 'CreatedTime',
-        'creator'     => 'Creator',
-        'number'      => 'Number',
-        'remark'      => 'Remark',
-        'scope'       => 'Scope',
+        'creator' => 'Creator',
+        'number' => 'Number',
+        'remark' => 'Remark',
+        'scope' => 'Scope',
     ];
 
     public function validate()

@@ -12,12 +12,13 @@ class ListMonoRecordingsRequest extends Model
      * @var string
      */
     public $contactId;
+
     /**
      * @var string
      */
     public $instanceId;
     protected $_name = [
-        'contactId'  => 'ContactId',
+        'contactId' => 'ContactId',
         'instanceId' => 'InstanceId',
     ];
 

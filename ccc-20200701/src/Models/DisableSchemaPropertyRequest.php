@@ -12,23 +12,26 @@ class DisableSchemaPropertyRequest extends Model
      * @var string
      */
     public $instanceId;
+
     /**
      * @var string
      */
     public $propertyName;
+
     /**
      * @var string
      */
     public $requestId;
+
     /**
      * @var string
      */
     public $schemaId;
     protected $_name = [
-        'instanceId'   => 'InstanceId',
+        'instanceId' => 'InstanceId',
         'propertyName' => 'PropertyName',
-        'requestId'    => 'RequestId',
-        'schemaId'     => 'SchemaId',
+        'requestId' => 'RequestId',
+        'schemaId' => 'SchemaId',
     ];
 
     public function validate()

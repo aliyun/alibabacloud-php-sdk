@@ -12,28 +12,32 @@ class TransferTicketTaskRequest extends Model
      * @var string
      */
     public $assignee;
+
     /**
      * @var string
      */
     public $comment;
+
     /**
      * @var string
      */
     public $instanceId;
+
     /**
      * @var string
      */
     public $taskId;
+
     /**
      * @var string
      */
     public $ticketId;
     protected $_name = [
-        'assignee'   => 'Assignee',
-        'comment'    => 'Comment',
+        'assignee' => 'Assignee',
+        'comment' => 'Comment',
         'instanceId' => 'InstanceId',
-        'taskId'     => 'TaskId',
-        'ticketId'   => 'TicketId',
+        'taskId' => 'TaskId',
+        'ticketId' => 'TicketId',
     ];
 
     public function validate()

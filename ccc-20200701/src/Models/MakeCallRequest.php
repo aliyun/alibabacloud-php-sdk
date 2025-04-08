@@ -12,53 +12,62 @@ class MakeCallRequest extends Model
      * @var string
      */
     public $callee;
+
     /**
      * @var string
      */
     public $caller;
+
     /**
      * @var string
      */
     public $deviceId;
+
     /**
      * @var string
      */
     public $flashSmsVariables;
+
     /**
      * @var string
      */
     public $instanceId;
+
     /**
      * @var string
      */
     public $maskedCallee;
+
     /**
      * @var string
      */
     public $mediaType;
+
     /**
      * @var string
      */
     public $tags;
+
     /**
      * @var int
      */
     public $timeoutSeconds;
+
     /**
      * @var string
      */
     public $userId;
     protected $_name = [
-        'callee'            => 'Callee',
-        'caller'            => 'Caller',
-        'deviceId'          => 'DeviceId',
+        'callee' => 'Callee',
+        'caller' => 'Caller',
+        'deviceId' => 'DeviceId',
         'flashSmsVariables' => 'FlashSmsVariables',
-        'instanceId'        => 'InstanceId',
-        'maskedCallee'      => 'MaskedCallee',
-        'mediaType'         => 'MediaType',
-        'tags'              => 'Tags',
-        'timeoutSeconds'    => 'TimeoutSeconds',
-        'userId'            => 'UserId',
+        'instanceId' => 'InstanceId',
+        'maskedCallee' => 'MaskedCallee',
+        'mediaType' => 'MediaType',
+        'tags' => 'Tags',
+        'timeoutSeconds' => 'TimeoutSeconds',
+        'userId' => 'UserId',
     ];
 
     public function validate()

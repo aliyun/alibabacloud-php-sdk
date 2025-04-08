@@ -12,103 +12,122 @@ class list_ extends Model
      * @var int
      */
     public $agentEstablishedTime;
+
     /**
      * @var string
      */
     public $agentId;
+
     /**
      * @var int
      */
     public $agentRingDuration;
+
     /**
      * @var int
      */
     public $assignAgentTime;
+
     /**
      * @var string
      */
     public $attemptId;
+
     /**
      * @var string
      */
     public $callee;
+
     /**
      * @var string
      */
     public $caller;
+
     /**
      * @var string
      */
     public $campaignId;
+
     /**
      * @var string
      */
     public $caseId;
+
     /**
      * @var string
      */
     public $contactId;
+
     /**
      * @var int
      */
     public $customerEstablishedTime;
+
     /**
      * @var int
      */
     public $customerReleasedTime;
+
     /**
      * @var int
      */
     public $dialDuration;
+
     /**
      * @var int
      */
     public $dialTime;
+
     /**
      * @var int
      */
     public $enqueueTime;
+
     /**
      * @var int
      */
     public $enterIvrTime;
+
     /**
      * @var string
      */
     public $instanceId;
+
     /**
      * @var int
      */
     public $ivrDuration;
+
     /**
      * @var int
      */
     public $queueDuration;
+
     /**
      * @var string
      */
     public $queueId;
     protected $_name = [
-        'agentEstablishedTime'    => 'AgentEstablishedTime',
-        'agentId'                 => 'AgentId',
-        'agentRingDuration'       => 'AgentRingDuration',
-        'assignAgentTime'         => 'AssignAgentTime',
-        'attemptId'               => 'AttemptId',
-        'callee'                  => 'Callee',
-        'caller'                  => 'Caller',
-        'campaignId'              => 'CampaignId',
-        'caseId'                  => 'CaseId',
-        'contactId'               => 'ContactId',
+        'agentEstablishedTime' => 'AgentEstablishedTime',
+        'agentId' => 'AgentId',
+        'agentRingDuration' => 'AgentRingDuration',
+        'assignAgentTime' => 'AssignAgentTime',
+        'attemptId' => 'AttemptId',
+        'callee' => 'Callee',
+        'caller' => 'Caller',
+        'campaignId' => 'CampaignId',
+        'caseId' => 'CaseId',
+        'contactId' => 'ContactId',
         'customerEstablishedTime' => 'CustomerEstablishedTime',
-        'customerReleasedTime'    => 'CustomerReleasedTime',
-        'dialDuration'            => 'DialDuration',
-        'dialTime'                => 'DialTime',
-        'enqueueTime'             => 'EnqueueTime',
-        'enterIvrTime'            => 'EnterIvrTime',
-        'instanceId'              => 'InstanceId',
-        'ivrDuration'             => 'IvrDuration',
-        'queueDuration'           => 'QueueDuration',
-        'queueId'                 => 'QueueId',
+        'customerReleasedTime' => 'CustomerReleasedTime',
+        'dialDuration' => 'DialDuration',
+        'dialTime' => 'DialTime',
+        'enqueueTime' => 'EnqueueTime',
+        'enterIvrTime' => 'EnterIvrTime',
+        'instanceId' => 'InstanceId',
+        'ivrDuration' => 'IvrDuration',
+        'queueDuration' => 'QueueDuration',
+        'queueId' => 'QueueId',
     ];
 
     public function validate()

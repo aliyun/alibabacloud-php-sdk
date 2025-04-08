@@ -12,17 +12,19 @@ class AddUsersToSkillGroupRequest extends Model
      * @var string
      */
     public $instanceId;
+
     /**
      * @var string
      */
     public $skillGroupId;
+
     /**
      * @var string
      */
     public $userSkillLevelList;
     protected $_name = [
-        'instanceId'         => 'InstanceId',
-        'skillGroupId'       => 'SkillGroupId',
+        'instanceId' => 'InstanceId',
+        'skillGroupId' => 'SkillGroupId',
         'userSkillLevelList' => 'UserSkillLevelList',
     ];
 

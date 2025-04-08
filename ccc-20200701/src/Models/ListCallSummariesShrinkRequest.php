@@ -12,13 +12,14 @@ class ListCallSummariesShrinkRequest extends Model
      * @var string
      */
     public $contactIdListShrink;
+
     /**
      * @var string
      */
     public $instanceId;
     protected $_name = [
         'contactIdListShrink' => 'ContactIdList',
-        'instanceId'          => 'InstanceId',
+        'instanceId' => 'InstanceId',
     ];
 
     public function validate()

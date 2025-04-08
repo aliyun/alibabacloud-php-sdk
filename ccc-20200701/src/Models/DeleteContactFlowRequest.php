@@ -12,13 +12,14 @@ class DeleteContactFlowRequest extends Model
      * @var string
      */
     public $contactFlowId;
+
     /**
      * @var string
      */
     public $instanceId;
     protected $_name = [
         'contactFlowId' => 'ContactFlowId',
-        'instanceId'    => 'InstanceId',
+        'instanceId' => 'InstanceId',
     ];
 
     public function validate()

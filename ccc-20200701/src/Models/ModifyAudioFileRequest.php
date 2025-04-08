@@ -12,33 +12,38 @@ class ModifyAudioFileRequest extends Model
      * @var string
      */
     public $audioFileName;
+
     /**
      * @var string
      */
     public $audioResourceId;
+
     /**
      * @var string
      */
     public $instanceId;
+
     /**
      * @var string
      */
     public $name;
+
     /**
      * @var string
      */
     public $ossFileKey;
+
     /**
      * @var string
      */
     public $usage;
     protected $_name = [
-        'audioFileName'   => 'AudioFileName',
+        'audioFileName' => 'AudioFileName',
         'audioResourceId' => 'AudioResourceId',
-        'instanceId'      => 'InstanceId',
-        'name'            => 'Name',
-        'ossFileKey'      => 'OssFileKey',
-        'usage'           => 'Usage',
+        'instanceId' => 'InstanceId',
+        'name' => 'Name',
+        'ossFileKey' => 'OssFileKey',
+        'usage' => 'Usage',
     ];
 
     public function validate()

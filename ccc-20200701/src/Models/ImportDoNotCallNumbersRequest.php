@@ -12,23 +12,26 @@ class ImportDoNotCallNumbersRequest extends Model
      * @var string
      */
     public $filePath;
+
     /**
      * @var string
      */
     public $instanceId;
+
     /**
      * @var string
      */
     public $numberList;
+
     /**
      * @var string
      */
     public $remark;
     protected $_name = [
-        'filePath'   => 'FilePath',
+        'filePath' => 'FilePath',
         'instanceId' => 'InstanceId',
         'numberList' => 'NumberList',
-        'remark'     => 'Remark',
+        'remark' => 'Remark',
     ];
 
     public function validate()

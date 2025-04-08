@@ -12,6 +12,7 @@ class DisableTicketTemplateRequest extends Model
      * @var string
      */
     public $instanceId;
+
     /**
      * @var string
      */

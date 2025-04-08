@@ -12,38 +12,44 @@ class data extends Model
      * @var string
      */
     public $clientId;
+
     /**
      * @var string
      */
     public $deviceId;
+
     /**
      * @var string
      */
     public $endpoint;
+
     /**
      * @var int
      */
     public $expiredTime;
+
     /**
      * @var string
      */
     public $password;
+
     /**
      * @var string
      */
     public $topic;
+
     /**
      * @var string
      */
     public $userName;
     protected $_name = [
-        'clientId'    => 'ClientId',
-        'deviceId'    => 'DeviceId',
-        'endpoint'    => 'Endpoint',
+        'clientId' => 'ClientId',
+        'deviceId' => 'DeviceId',
+        'endpoint' => 'Endpoint',
         'expiredTime' => 'ExpiredTime',
-        'password'    => 'Password',
-        'topic'       => 'Topic',
-        'userName'    => 'UserName',
+        'password' => 'Password',
+        'topic' => 'Topic',
+        'userName' => 'UserName',
     ];
 
     public function validate()

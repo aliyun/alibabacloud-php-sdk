@@ -13,83 +13,98 @@ class CreateCampaignRequest extends Model
      * @var string
      */
     public $callableTime;
+
     /**
      * @var string
      */
     public $caseFileKey;
+
     /**
      * @var caseList[]
      */
     public $caseList;
+
     /**
      * @var string
      */
     public $contactFlowId;
+
     /**
      * @var string
      */
     public $endTime;
+
     /**
      * @var bool
      */
     public $executingUntilTimeout;
+
     /**
      * @var string
      */
     public $instanceId;
+
     /**
      * @var int
      */
     public $maxAttemptCount;
+
     /**
      * @var int
      */
     public $minAttemptInterval;
+
     /**
      * @var string
      */
     public $name;
+
     /**
      * @var string
      */
     public $queueId;
+
     /**
      * @var bool
      */
     public $simulation;
+
     /**
      * @var string
      */
     public $simulationParameters;
+
     /**
      * @var string
      */
     public $startTime;
+
     /**
      * @var string
      */
     public $strategyParameters;
+
     /**
      * @var string
      */
     public $strategyType;
     protected $_name = [
-        'callableTime'          => 'CallableTime',
-        'caseFileKey'           => 'CaseFileKey',
-        'caseList'              => 'CaseList',
-        'contactFlowId'         => 'ContactFlowId',
-        'endTime'               => 'EndTime',
+        'callableTime' => 'CallableTime',
+        'caseFileKey' => 'CaseFileKey',
+        'caseList' => 'CaseList',
+        'contactFlowId' => 'ContactFlowId',
+        'endTime' => 'EndTime',
         'executingUntilTimeout' => 'ExecutingUntilTimeout',
-        'instanceId'            => 'InstanceId',
-        'maxAttemptCount'       => 'MaxAttemptCount',
-        'minAttemptInterval'    => 'MinAttemptInterval',
-        'name'                  => 'Name',
-        'queueId'               => 'QueueId',
-        'simulation'            => 'Simulation',
-        'simulationParameters'  => 'SimulationParameters',
-        'startTime'             => 'StartTime',
-        'strategyParameters'    => 'StrategyParameters',
-        'strategyType'          => 'StrategyType',
+        'instanceId' => 'InstanceId',
+        'maxAttemptCount' => 'MaxAttemptCount',
+        'minAttemptInterval' => 'MinAttemptInterval',
+        'name' => 'Name',
+        'queueId' => 'QueueId',
+        'simulation' => 'Simulation',
+        'simulationParameters' => 'SimulationParameters',
+        'startTime' => 'StartTime',
+        'strategyParameters' => 'StrategyParameters',
+        'strategyType' => 'StrategyType',
     ];
 
     public function validate()
@@ -114,7 +129,7 @@ class CreateCampaignRequest extends Model
         if (null !== $this->caseList) {
             if (\is_array($this->caseList)) {
                 $res['CaseList'] = [];
-                $n1              = 0;
+                $n1 = 0;
                 foreach ($this->caseList as $item1) {
                     $res['CaseList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -195,7 +210,7 @@ class CreateCampaignRequest extends Model
         if (isset($map['CaseList'])) {
             if (!empty($map['CaseList'])) {
                 $model->caseList = [];
-                $n1              = 0;
+                $n1 = 0;
                 foreach ($map['CaseList'] as $item1) {
                     $model->caseList[$n1++] = caseList::fromMap($item1);
                 }

@@ -12,28 +12,32 @@ class CreateSchemaShrinkRequest extends Model
      * @var string
      */
     public $description;
+
     /**
      * @var string
      */
     public $id;
+
     /**
      * @var string
      */
     public $instanceId;
+
     /**
      * @var string
      */
     public $propertiesShrink;
+
     /**
      * @var string
      */
     public $requestId;
     protected $_name = [
-        'description'      => 'Description',
-        'id'               => 'Id',
-        'instanceId'       => 'InstanceId',
+        'description' => 'Description',
+        'id' => 'Id',
+        'instanceId' => 'InstanceId',
         'propertiesShrink' => 'Properties',
-        'requestId'        => 'RequestId',
+        'requestId' => 'RequestId',
     ];
 
     public function validate()

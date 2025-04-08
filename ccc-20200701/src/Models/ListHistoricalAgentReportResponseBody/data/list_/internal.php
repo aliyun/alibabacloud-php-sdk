@@ -12,43 +12,50 @@ class internal extends Model
      * @var float
      */
     public $averageTalkTime;
+
     /**
      * @var int
      */
     public $callsAnswered;
+
     /**
      * @var int
      */
     public $callsDialed;
+
     /**
      * @var int
      */
     public $callsHandled;
+
     /**
      * @var int
      */
     public $callsOffered;
+
     /**
      * @var int
      */
     public $callsTalked;
+
     /**
      * @var int
      */
     public $maxTalkTime;
+
     /**
      * @var int
      */
     public $totalTalkTime;
     protected $_name = [
         'averageTalkTime' => 'AverageTalkTime',
-        'callsAnswered'   => 'CallsAnswered',
-        'callsDialed'     => 'CallsDialed',
-        'callsHandled'    => 'CallsHandled',
-        'callsOffered'    => 'CallsOffered',
-        'callsTalked'     => 'CallsTalked',
-        'maxTalkTime'     => 'MaxTalkTime',
-        'totalTalkTime'   => 'TotalTalkTime',
+        'callsAnswered' => 'CallsAnswered',
+        'callsDialed' => 'CallsDialed',
+        'callsHandled' => 'CallsHandled',
+        'callsOffered' => 'CallsOffered',
+        'callsTalked' => 'CallsTalked',
+        'maxTalkTime' => 'MaxTalkTime',
+        'totalTalkTime' => 'TotalTalkTime',
     ];
 
     public function validate()

@@ -13,23 +13,26 @@ class data extends Model
      * @var mixed[][]
      */
     public $documents;
+
     /**
      * @var string
      */
     public $nextPageToken;
+
     /**
      * @var schema
      */
     public $schema;
+
     /**
      * @var int
      */
     public $totalCount;
     protected $_name = [
-        'documents'     => 'Documents',
+        'documents' => 'Documents',
         'nextPageToken' => 'NextPageToken',
-        'schema'        => 'Schema',
-        'totalCount'    => 'TotalCount',
+        'schema' => 'Schema',
+        'totalCount' => 'TotalCount',
     ];
 
     public function validate()
@@ -49,7 +52,7 @@ class data extends Model
         if (null !== $this->documents) {
             if (\is_array($this->documents)) {
                 $res['Documents'] = [];
-                $n1               = 0;
+                $n1 = 0;
                 foreach ($this->documents as $item1) {
                     if (\is_array($item1)) {
                         $res['Documents'][$n1++] = [];
@@ -87,7 +90,7 @@ class data extends Model
         if (isset($map['Documents'])) {
             if (!empty($map['Documents'])) {
                 $model->documents = [];
-                $n1               = 0;
+                $n1 = 0;
                 foreach ($map['Documents'] as $item1) {
                     if (!empty($item1)) {
                         $model->documents[$n1++] = [];

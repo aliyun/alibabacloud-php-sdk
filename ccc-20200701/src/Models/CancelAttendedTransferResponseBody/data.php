@@ -14,17 +14,19 @@ class data extends Model
      * @var callContext
      */
     public $callContext;
+
     /**
      * @var int
      */
     public $contextId;
+
     /**
      * @var userContext
      */
     public $userContext;
     protected $_name = [
         'callContext' => 'CallContext',
-        'contextId'   => 'ContextId',
+        'contextId' => 'ContextId',
         'userContext' => 'UserContext',
     ];
 

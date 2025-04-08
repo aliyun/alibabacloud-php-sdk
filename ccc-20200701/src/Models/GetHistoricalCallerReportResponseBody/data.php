@@ -12,13 +12,14 @@ class data extends Model
      * @var int
      */
     public $lastCallingTime;
+
     /**
      * @var int
      */
     public $totalCalls;
     protected $_name = [
         'lastCallingTime' => 'LastCallingTime',
-        'totalCalls'      => 'TotalCalls',
+        'totalCalls' => 'TotalCalls',
     ];
 
     public function validate()

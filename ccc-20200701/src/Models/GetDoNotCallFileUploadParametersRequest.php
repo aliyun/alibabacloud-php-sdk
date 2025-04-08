@@ -12,12 +12,13 @@ class GetDoNotCallFileUploadParametersRequest extends Model
      * @var string
      */
     public $fileName;
+
     /**
      * @var string
      */
     public $instanceId;
     protected $_name = [
-        'fileName'   => 'FileName',
+        'fileName' => 'FileName',
         'instanceId' => 'InstanceId',
     ];
 

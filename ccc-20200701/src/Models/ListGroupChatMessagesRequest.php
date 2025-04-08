@@ -12,28 +12,32 @@ class ListGroupChatMessagesRequest extends Model
      * @var string
      */
     public $instanceId;
+
     /**
      * @var string
      */
     public $jobId;
+
     /**
      * @var string
      */
     public $nextPageToken;
+
     /**
      * @var int
      */
     public $pageSize;
+
     /**
      * @var string
      */
     public $sortOrder;
     protected $_name = [
-        'instanceId'    => 'InstanceId',
-        'jobId'         => 'JobId',
+        'instanceId' => 'InstanceId',
+        'jobId' => 'JobId',
         'nextPageToken' => 'NextPageToken',
-        'pageSize'      => 'PageSize',
-        'sortOrder'     => 'SortOrder',
+        'pageSize' => 'PageSize',
+        'sortOrder' => 'SortOrder',
     ];
 
     public function validate()

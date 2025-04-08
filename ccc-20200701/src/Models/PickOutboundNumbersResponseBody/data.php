@@ -14,6 +14,7 @@ class data extends Model
      * @var callee
      */
     public $callee;
+
     /**
      * @var caller
      */

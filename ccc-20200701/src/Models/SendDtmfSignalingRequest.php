@@ -12,33 +12,38 @@ class SendDtmfSignalingRequest extends Model
      * @var string
      */
     public $channelId;
+
     /**
      * @var string
      */
     public $deviceId;
+
     /**
      * @var string
      */
     public $dtmf;
+
     /**
      * @var string
      */
     public $instanceId;
+
     /**
      * @var string
      */
     public $jobId;
+
     /**
      * @var string
      */
     public $userId;
     protected $_name = [
-        'channelId'  => 'ChannelId',
-        'deviceId'   => 'DeviceId',
-        'dtmf'       => 'Dtmf',
+        'channelId' => 'ChannelId',
+        'deviceId' => 'DeviceId',
+        'dtmf' => 'Dtmf',
         'instanceId' => 'InstanceId',
-        'jobId'      => 'JobId',
-        'userId'     => 'UserId',
+        'jobId' => 'JobId',
+        'userId' => 'UserId',
     ];
 
     public function validate()

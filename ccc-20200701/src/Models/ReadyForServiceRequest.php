@@ -12,23 +12,26 @@ class ReadyForServiceRequest extends Model
      * @var string
      */
     public $deviceId;
+
     /**
      * @var string
      */
     public $instanceId;
+
     /**
      * @var bool
      */
     public $outboundScenario;
+
     /**
      * @var string
      */
     public $userId;
     protected $_name = [
-        'deviceId'         => 'DeviceId',
-        'instanceId'       => 'InstanceId',
+        'deviceId' => 'DeviceId',
+        'instanceId' => 'InstanceId',
         'outboundScenario' => 'OutboundScenario',
-        'userId'           => 'UserId',
+        'userId' => 'UserId',
     ];
 
     public function validate()

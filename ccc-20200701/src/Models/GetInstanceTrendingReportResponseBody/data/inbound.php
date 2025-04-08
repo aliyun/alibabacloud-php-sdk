@@ -12,38 +12,44 @@ class inbound extends Model
      * @var int
      */
     public $callsAbandonedInIVR;
+
     /**
      * @var int
      */
     public $callsAbandonedInQueue;
+
     /**
      * @var int
      */
     public $callsAbandonedInRing;
+
     /**
      * @var int
      */
     public $callsHandled;
+
     /**
      * @var int
      */
     public $callsQueued;
+
     /**
      * @var int
      */
     public $statsTime;
+
     /**
      * @var int
      */
     public $totalCalls;
     protected $_name = [
-        'callsAbandonedInIVR'   => 'CallsAbandonedInIVR',
+        'callsAbandonedInIVR' => 'CallsAbandonedInIVR',
         'callsAbandonedInQueue' => 'CallsAbandonedInQueue',
-        'callsAbandonedInRing'  => 'CallsAbandonedInRing',
-        'callsHandled'          => 'CallsHandled',
-        'callsQueued'           => 'CallsQueued',
-        'statsTime'             => 'StatsTime',
-        'totalCalls'            => 'TotalCalls',
+        'callsAbandonedInRing' => 'CallsAbandonedInRing',
+        'callsHandled' => 'CallsHandled',
+        'callsQueued' => 'CallsQueued',
+        'statsTime' => 'StatsTime',
+        'totalCalls' => 'TotalCalls',
     ];
 
     public function validate()

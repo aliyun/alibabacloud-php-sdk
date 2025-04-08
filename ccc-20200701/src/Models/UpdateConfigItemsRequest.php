@@ -12,23 +12,26 @@ class UpdateConfigItemsRequest extends Model
      * @var string
      */
     public $configItems;
+
     /**
      * @var string
      */
     public $instanceId;
+
     /**
      * @var string
      */
     public $objectId;
+
     /**
      * @var string
      */
     public $objectType;
     protected $_name = [
         'configItems' => 'ConfigItems',
-        'instanceId'  => 'InstanceId',
-        'objectId'    => 'ObjectId',
-        'objectType'  => 'ObjectType',
+        'instanceId' => 'InstanceId',
+        'objectId' => 'ObjectId',
+        'objectType' => 'ObjectType',
     ];
 
     public function validate()

@@ -12,18 +12,20 @@ class ExportContactFlowRequest extends Model
      * @var string
      */
     public $flowId;
+
     /**
      * @var string
      */
     public $instanceId;
+
     /**
      * @var string
      */
     public $requestId;
     protected $_name = [
-        'flowId'     => 'FlowId',
+        'flowId' => 'FlowId',
         'instanceId' => 'InstanceId',
-        'requestId'  => 'RequestId',
+        'requestId' => 'RequestId',
     ];
 
     public function validate()

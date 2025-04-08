@@ -12,88 +12,104 @@ class BlindTransferRequest extends Model
      * @var int
      */
     public $callPriority;
+
     /**
      * @var string
      */
     public $contactFlowVariables;
+
     /**
      * @var string
      */
     public $deviceId;
+
     /**
      * @var string
      */
     public $instanceId;
+
     /**
      * @var string
      */
     public $jobId;
+
     /**
      * @var int
      */
     public $queuingOverflowThreshold;
+
     /**
      * @var int
      */
     public $queuingTimeoutSeconds;
+
     /**
      * @var string
      */
     public $routingType;
+
     /**
      * @var string
      */
     public $skillGroupId;
+
     /**
      * @var string
      */
     public $strategyName;
+
     /**
      * @var string
      */
     public $strategyParams;
+
     /**
      * @var string
      */
     public $tags;
+
     /**
      * @var int
      */
     public $timeoutSeconds;
+
     /**
      * @var string
      */
     public $transferee;
+
     /**
      * @var string
      */
     public $transfereeType;
+
     /**
      * @var string
      */
     public $transferor;
+
     /**
      * @var string
      */
     public $userId;
     protected $_name = [
-        'callPriority'             => 'CallPriority',
-        'contactFlowVariables'     => 'ContactFlowVariables',
-        'deviceId'                 => 'DeviceId',
-        'instanceId'               => 'InstanceId',
-        'jobId'                    => 'JobId',
+        'callPriority' => 'CallPriority',
+        'contactFlowVariables' => 'ContactFlowVariables',
+        'deviceId' => 'DeviceId',
+        'instanceId' => 'InstanceId',
+        'jobId' => 'JobId',
         'queuingOverflowThreshold' => 'QueuingOverflowThreshold',
-        'queuingTimeoutSeconds'    => 'QueuingTimeoutSeconds',
-        'routingType'              => 'RoutingType',
-        'skillGroupId'             => 'SkillGroupId',
-        'strategyName'             => 'StrategyName',
-        'strategyParams'           => 'StrategyParams',
-        'tags'                     => 'Tags',
-        'timeoutSeconds'           => 'TimeoutSeconds',
-        'transferee'               => 'Transferee',
-        'transfereeType'           => 'TransfereeType',
-        'transferor'               => 'Transferor',
-        'userId'                   => 'UserId',
+        'queuingTimeoutSeconds' => 'QueuingTimeoutSeconds',
+        'routingType' => 'RoutingType',
+        'skillGroupId' => 'SkillGroupId',
+        'strategyName' => 'StrategyName',
+        'strategyParams' => 'StrategyParams',
+        'tags' => 'Tags',
+        'timeoutSeconds' => 'TimeoutSeconds',
+        'transferee' => 'Transferee',
+        'transfereeType' => 'TransfereeType',
+        'transferor' => 'Transferor',
+        'userId' => 'UserId',
     ];
 
     public function validate()

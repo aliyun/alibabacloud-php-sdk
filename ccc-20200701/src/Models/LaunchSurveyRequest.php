@@ -12,53 +12,62 @@ class LaunchSurveyRequest extends Model
      * @var string
      */
     public $contactFlowId;
+
     /**
      * @var string
      */
     public $contactFlowVariables;
+
     /**
      * @var string
      */
     public $deviceId;
+
     /**
      * @var string
      */
     public $instanceId;
+
     /**
      * @var string
      */
     public $jobId;
+
     /**
      * @var string
      */
     public $smsMetadataId;
+
     /**
      * @var string
      */
     public $surveyChannel;
+
     /**
      * @var string
      */
     public $surveyTemplateId;
+
     /**
      * @var string
      */
     public $surveyTemplateVariables;
+
     /**
      * @var string
      */
     public $userId;
     protected $_name = [
-        'contactFlowId'           => 'ContactFlowId',
-        'contactFlowVariables'    => 'ContactFlowVariables',
-        'deviceId'                => 'DeviceId',
-        'instanceId'              => 'InstanceId',
-        'jobId'                   => 'JobId',
-        'smsMetadataId'           => 'SmsMetadataId',
-        'surveyChannel'           => 'SurveyChannel',
-        'surveyTemplateId'        => 'SurveyTemplateId',
+        'contactFlowId' => 'ContactFlowId',
+        'contactFlowVariables' => 'ContactFlowVariables',
+        'deviceId' => 'DeviceId',
+        'instanceId' => 'InstanceId',
+        'jobId' => 'JobId',
+        'smsMetadataId' => 'SmsMetadataId',
+        'surveyChannel' => 'SurveyChannel',
+        'surveyTemplateId' => 'SurveyTemplateId',
         'surveyTemplateVariables' => 'SurveyTemplateVariables',
-        'userId'                  => 'UserId',
+        'userId' => 'UserId',
     ];
 
     public function validate()

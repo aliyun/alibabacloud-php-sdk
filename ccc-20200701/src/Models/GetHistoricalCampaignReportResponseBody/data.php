@@ -12,43 +12,50 @@ class data extends Model
      * @var float
      */
     public $abandonRate;
+
     /**
      * @var float
      */
     public $abandonedRate;
+
     /**
      * @var float
      */
     public $answerRate;
+
     /**
      * @var int
      */
     public $callsAbandoned;
+
     /**
      * @var int
      */
     public $callsConnected;
+
     /**
      * @var int
      */
     public $callsDialed;
+
     /**
      * @var float
      */
     public $connectedRate;
+
     /**
      * @var float
      */
     public $occupancyRate;
     protected $_name = [
-        'abandonRate'    => 'AbandonRate',
-        'abandonedRate'  => 'AbandonedRate',
-        'answerRate'     => 'AnswerRate',
+        'abandonRate' => 'AbandonRate',
+        'abandonedRate' => 'AbandonedRate',
+        'answerRate' => 'AnswerRate',
         'callsAbandoned' => 'CallsAbandoned',
         'callsConnected' => 'CallsConnected',
-        'callsDialed'    => 'CallsDialed',
-        'connectedRate'  => 'ConnectedRate',
-        'occupancyRate'  => 'OccupancyRate',
+        'callsDialed' => 'CallsDialed',
+        'connectedRate' => 'ConnectedRate',
+        'occupancyRate' => 'OccupancyRate',
     ];
 
     public function validate()

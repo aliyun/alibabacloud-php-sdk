@@ -12,33 +12,38 @@ class AddTicketTaskRequest extends Model
      * @var string
      */
     public $assignee;
+
     /**
      * @var string
      */
     public $comment;
+
     /**
      * @var string
      */
     public $instanceId;
+
     /**
      * @var string
      */
     public $position;
+
     /**
      * @var string
      */
     public $taskId;
+
     /**
      * @var string
      */
     public $ticketId;
     protected $_name = [
-        'assignee'   => 'Assignee',
-        'comment'    => 'Comment',
+        'assignee' => 'Assignee',
+        'comment' => 'Comment',
         'instanceId' => 'InstanceId',
-        'position'   => 'Position',
-        'taskId'     => 'TaskId',
-        'ticketId'   => 'TicketId',
+        'position' => 'Position',
+        'taskId' => 'TaskId',
+        'ticketId' => 'TicketId',
     ];
 
     public function validate()

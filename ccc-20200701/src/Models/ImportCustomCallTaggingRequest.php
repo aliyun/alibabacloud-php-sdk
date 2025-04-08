@@ -12,12 +12,13 @@ class ImportCustomCallTaggingRequest extends Model
      * @var string
      */
     public $filePath;
+
     /**
      * @var string
      */
     public $instanceId;
     protected $_name = [
-        'filePath'   => 'FilePath',
+        'filePath' => 'FilePath',
         'instanceId' => 'InstanceId',
     ];
 

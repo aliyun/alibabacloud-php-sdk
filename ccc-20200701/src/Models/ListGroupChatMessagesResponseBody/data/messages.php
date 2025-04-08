@@ -12,43 +12,50 @@ class messages extends Model
      * @var string
      */
     public $content;
+
     /**
      * @var string
      */
     public $jobId;
+
     /**
      * @var bool
      */
     public $recalled;
+
     /**
      * @var string
      */
     public $senderAvatarUrl;
+
     /**
      * @var string
      */
     public $senderId;
+
     /**
      * @var string
      */
     public $senderName;
+
     /**
      * @var string
      */
     public $senderType;
+
     /**
      * @var int
      */
     public $timestamp;
     protected $_name = [
-        'content'         => 'Content',
-        'jobId'           => 'JobId',
-        'recalled'        => 'Recalled',
+        'content' => 'Content',
+        'jobId' => 'JobId',
+        'recalled' => 'Recalled',
         'senderAvatarUrl' => 'SenderAvatarUrl',
-        'senderId'        => 'SenderId',
-        'senderName'      => 'SenderName',
-        'senderType'      => 'SenderType',
-        'timestamp'       => 'Timestamp',
+        'senderId' => 'SenderId',
+        'senderName' => 'SenderName',
+        'senderType' => 'SenderType',
+        'timestamp' => 'Timestamp',
     ];
 
     public function validate()

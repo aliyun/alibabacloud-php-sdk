@@ -12,18 +12,20 @@ class GetChatMediaUrlRequest extends Model
      * @var string
      */
     public $instanceId;
+
     /**
      * @var string
      */
     public $mediaId;
+
     /**
      * @var string
      */
     public $requestId;
     protected $_name = [
         'instanceId' => 'InstanceId',
-        'mediaId'    => 'MediaId',
-        'requestId'  => 'RequestId',
+        'mediaId' => 'MediaId',
+        'requestId' => 'RequestId',
     ];
 
     public function validate()

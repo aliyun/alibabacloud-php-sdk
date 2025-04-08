@@ -12,33 +12,38 @@ class SaveRTCStatsV2Request extends Model
      * @var string
      */
     public $callId;
+
     /**
      * @var string
      */
     public $generalInfo;
+
     /**
      * @var string
      */
     public $googAddress;
+
     /**
      * @var string
      */
     public $instanceId;
+
     /**
      * @var string
      */
     public $receiverReport;
+
     /**
      * @var string
      */
     public $senderReport;
     protected $_name = [
-        'callId'         => 'CallId',
-        'generalInfo'    => 'GeneralInfo',
-        'googAddress'    => 'GoogAddress',
-        'instanceId'     => 'InstanceId',
+        'callId' => 'CallId',
+        'generalInfo' => 'GeneralInfo',
+        'googAddress' => 'GoogAddress',
+        'instanceId' => 'InstanceId',
         'receiverReport' => 'ReceiverReport',
-        'senderReport'   => 'SenderReport',
+        'senderReport' => 'SenderReport',
     ];
 
     public function validate()

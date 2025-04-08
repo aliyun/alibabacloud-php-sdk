@@ -16,23 +16,26 @@ class data extends Model
      * @var inbound
      */
     public $inbound;
+
     /**
      * @var internal
      */
     public $internal;
+
     /**
      * @var outbound
      */
     public $outbound;
+
     /**
      * @var overall
      */
     public $overall;
     protected $_name = [
-        'inbound'  => 'Inbound',
+        'inbound' => 'Inbound',
         'internal' => 'Internal',
         'outbound' => 'Outbound',
-        'overall'  => 'Overall',
+        'overall' => 'Overall',
     ];
 
     public function validate()

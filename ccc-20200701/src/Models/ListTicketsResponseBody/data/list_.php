@@ -12,128 +12,152 @@ class list_ extends Model
      * @var string
      */
     public $assignee;
+
     /**
      * @var string
      */
     public $assigneeName;
+
     /**
      * @var string
      */
     public $categoryId;
+
     /**
      * @var string
      */
     public $categoryName;
+
     /**
      * @var string
      */
     public $closeCode;
+
     /**
      * @var string
      */
     public $comment;
+
     /**
      * @var string
      */
     public $context;
+
     /**
      * @var string
      */
     public $createdTime;
+
     /**
      * @var string
      */
     public $creator;
+
     /**
      * @var string
      */
     public $creatorName;
+
     /**
      * @var string
      */
     public $currentTaskId;
+
     /**
      * @var string
      */
     public $currentTaskName;
+
     /**
      * @var int
      */
     public $currentTaskStartTime;
+
     /**
      * @var string
      */
     public $customerId;
+
     /**
      * @var int
      */
     public $endTime;
+
     /**
      * @var string
      */
     public $instanceId;
+
     /**
      * @var string
      */
     public $jobId;
+
     /**
      * @var string
      */
     public $source;
+
     /**
      * @var int
      */
     public $startTime;
+
     /**
      * @var string
      */
     public $state;
+
     /**
      * @var string
      */
     public $templateId;
+
     /**
      * @var string
      */
     public $templateVersion;
+
     /**
      * @var string
      */
     public $ticketId;
+
     /**
      * @var string
      */
     public $title;
+
     /**
      * @var string
      */
     public $updatedTime;
     protected $_name = [
-        'assignee'             => 'Assignee',
-        'assigneeName'         => 'AssigneeName',
-        'categoryId'           => 'CategoryId',
-        'categoryName'         => 'CategoryName',
-        'closeCode'            => 'CloseCode',
-        'comment'              => 'Comment',
-        'context'              => 'Context',
-        'createdTime'          => 'CreatedTime',
-        'creator'              => 'Creator',
-        'creatorName'          => 'CreatorName',
-        'currentTaskId'        => 'CurrentTaskId',
-        'currentTaskName'      => 'CurrentTaskName',
+        'assignee' => 'Assignee',
+        'assigneeName' => 'AssigneeName',
+        'categoryId' => 'CategoryId',
+        'categoryName' => 'CategoryName',
+        'closeCode' => 'CloseCode',
+        'comment' => 'Comment',
+        'context' => 'Context',
+        'createdTime' => 'CreatedTime',
+        'creator' => 'Creator',
+        'creatorName' => 'CreatorName',
+        'currentTaskId' => 'CurrentTaskId',
+        'currentTaskName' => 'CurrentTaskName',
         'currentTaskStartTime' => 'CurrentTaskStartTime',
-        'customerId'           => 'CustomerId',
-        'endTime'              => 'EndTime',
-        'instanceId'           => 'InstanceId',
-        'jobId'                => 'JobId',
-        'source'               => 'Source',
-        'startTime'            => 'StartTime',
-        'state'                => 'State',
-        'templateId'           => 'TemplateId',
-        'templateVersion'      => 'TemplateVersion',
-        'ticketId'             => 'TicketId',
-        'title'                => 'Title',
-        'updatedTime'          => 'UpdatedTime',
+        'customerId' => 'CustomerId',
+        'endTime' => 'EndTime',
+        'instanceId' => 'InstanceId',
+        'jobId' => 'JobId',
+        'source' => 'Source',
+        'startTime' => 'StartTime',
+        'state' => 'State',
+        'templateId' => 'TemplateId',
+        'templateVersion' => 'TemplateVersion',
+        'ticketId' => 'TicketId',
+        'title' => 'Title',
+        'updatedTime' => 'UpdatedTime',
     ];
 
     public function validate()

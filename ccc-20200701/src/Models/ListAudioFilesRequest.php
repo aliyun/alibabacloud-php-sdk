@@ -12,18 +12,22 @@ class ListAudioFilesRequest extends Model
      * @var string
      */
     public $instanceId;
+
     /**
      * @var int
      */
     public $pageNumber;
+
     /**
      * @var int
      */
     public $pageSize;
+
     /**
      * @var string
      */
     public $status;
+
     /**
      * @var string
      */
@@ -31,9 +35,9 @@ class ListAudioFilesRequest extends Model
     protected $_name = [
         'instanceId' => 'InstanceId',
         'pageNumber' => 'PageNumber',
-        'pageSize'   => 'PageSize',
-        'status'     => 'Status',
-        'usage'      => 'Usage',
+        'pageSize' => 'PageSize',
+        'status' => 'Status',
+        'usage' => 'Usage',
     ];
 
     public function validate()

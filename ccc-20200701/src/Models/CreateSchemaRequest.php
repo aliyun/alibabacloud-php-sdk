@@ -13,28 +13,32 @@ class CreateSchemaRequest extends Model
      * @var string
      */
     public $description;
+
     /**
      * @var string
      */
     public $id;
+
     /**
      * @var string
      */
     public $instanceId;
+
     /**
      * @var properties[]
      */
     public $properties;
+
     /**
      * @var string
      */
     public $requestId;
     protected $_name = [
         'description' => 'Description',
-        'id'          => 'Id',
-        'instanceId'  => 'InstanceId',
-        'properties'  => 'Properties',
-        'requestId'   => 'RequestId',
+        'id' => 'Id',
+        'instanceId' => 'InstanceId',
+        'properties' => 'Properties',
+        'requestId' => 'RequestId',
     ];
 
     public function validate()
@@ -63,7 +67,7 @@ class CreateSchemaRequest extends Model
         if (null !== $this->properties) {
             if (\is_array($this->properties)) {
                 $res['Properties'] = [];
-                $n1                = 0;
+                $n1 = 0;
                 foreach ($this->properties as $item1) {
                     $res['Properties'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -100,7 +104,7 @@ class CreateSchemaRequest extends Model
         if (isset($map['Properties'])) {
             if (!empty($map['Properties'])) {
                 $model->properties = [];
-                $n1                = 0;
+                $n1 = 0;
                 foreach ($map['Properties'] as $item1) {
                     $model->properties[$n1++] = properties::fromMap($item1);
                 }

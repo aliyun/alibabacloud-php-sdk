@@ -12,38 +12,44 @@ class ListAgentStatesRequest extends Model
      * @var string
      */
     public $agentIds;
+
     /**
      * @var bool
      */
     public $excludeOfflineUsers;
+
     /**
      * @var string
      */
     public $instanceId;
+
     /**
      * @var int
      */
     public $pageNumber;
+
     /**
      * @var int
      */
     public $pageSize;
+
     /**
      * @var string
      */
     public $skillGroupId;
+
     /**
      * @var string
      */
     public $state;
     protected $_name = [
-        'agentIds'            => 'AgentIds',
+        'agentIds' => 'AgentIds',
         'excludeOfflineUsers' => 'ExcludeOfflineUsers',
-        'instanceId'          => 'InstanceId',
-        'pageNumber'          => 'PageNumber',
-        'pageSize'            => 'PageSize',
-        'skillGroupId'        => 'SkillGroupId',
-        'state'               => 'State',
+        'instanceId' => 'InstanceId',
+        'pageNumber' => 'PageNumber',
+        'pageSize' => 'PageSize',
+        'skillGroupId' => 'SkillGroupId',
+        'state' => 'State',
     ];
 
     public function validate()

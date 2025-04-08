@@ -12,23 +12,26 @@ class ListAgentStateLogsRequest extends Model
      * @var string
      */
     public $agentId;
+
     /**
      * @var int
      */
     public $endTime;
+
     /**
      * @var string
      */
     public $instanceId;
+
     /**
      * @var int
      */
     public $startTime;
     protected $_name = [
-        'agentId'    => 'AgentId',
-        'endTime'    => 'EndTime',
+        'agentId' => 'AgentId',
+        'endTime' => 'EndTime',
         'instanceId' => 'InstanceId',
-        'startTime'  => 'StartTime',
+        'startTime' => 'StartTime',
     ];
 
     public function validate()

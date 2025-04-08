@@ -12,12 +12,13 @@ class ProcessAliMeCallbackOfStagingRequest extends Model
      * @var string
      */
     public $data;
+
     /**
      * @var string
      */
     public $token;
     protected $_name = [
-        'data'  => 'Data',
+        'data' => 'Data',
         'token' => 'Token',
     ];
 

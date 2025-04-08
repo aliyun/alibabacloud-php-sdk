@@ -12,17 +12,19 @@ class ListConfigItemsRequest extends Model
      * @var string
      */
     public $instanceId;
+
     /**
      * @var string
      */
     public $objectId;
+
     /**
      * @var string
      */
     public $objectType;
     protected $_name = [
         'instanceId' => 'InstanceId',
-        'objectId'   => 'ObjectId',
+        'objectId' => 'ObjectId',
         'objectType' => 'ObjectType',
     ];
 

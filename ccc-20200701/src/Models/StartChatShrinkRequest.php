@@ -12,23 +12,26 @@ class StartChatShrinkRequest extends Model
      * @var string
      */
     public $accessChannelId;
+
     /**
      * @var string
      */
     public $instanceId;
+
     /**
      * @var string
      */
     public $token;
+
     /**
      * @var string
      */
     public $userListShrink;
     protected $_name = [
         'accessChannelId' => 'AccessChannelId',
-        'instanceId'      => 'InstanceId',
-        'token'           => 'Token',
-        'userListShrink'  => 'UserList',
+        'instanceId' => 'InstanceId',
+        'token' => 'Token',
+        'userListShrink' => 'UserList',
     ];
 
     public function validate()

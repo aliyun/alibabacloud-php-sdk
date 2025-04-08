@@ -12,13 +12,14 @@ class ListCallSummariesRequest extends Model
      * @var string[]
      */
     public $contactIdList;
+
     /**
      * @var string
      */
     public $instanceId;
     protected $_name = [
         'contactIdList' => 'ContactIdList',
-        'instanceId'    => 'InstanceId',
+        'instanceId' => 'InstanceId',
     ];
 
     public function validate()
@@ -35,7 +36,7 @@ class ListCallSummariesRequest extends Model
         if (null !== $this->contactIdList) {
             if (\is_array($this->contactIdList)) {
                 $res['ContactIdList'] = [];
-                $n1                   = 0;
+                $n1 = 0;
                 foreach ($this->contactIdList as $item1) {
                     $res['ContactIdList'][$n1++] = $item1;
                 }
@@ -60,7 +61,7 @@ class ListCallSummariesRequest extends Model
         if (isset($map['ContactIdList'])) {
             if (!empty($map['ContactIdList'])) {
                 $model->contactIdList = [];
-                $n1                   = 0;
+                $n1 = 0;
                 foreach ($map['ContactIdList'] as $item1) {
                     $model->contactIdList[$n1++] = $item1;
                 }

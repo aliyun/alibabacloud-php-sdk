@@ -12,28 +12,32 @@ class UpdateTicketRequest extends Model
      * @var string
      */
     public $context;
+
     /**
      * @var string
      */
     public $customerId;
+
     /**
      * @var string
      */
     public $instanceId;
+
     /**
      * @var string
      */
     public $ticketId;
+
     /**
      * @var string
      */
     public $title;
     protected $_name = [
-        'context'    => 'Context',
+        'context' => 'Context',
         'customerId' => 'CustomerId',
         'instanceId' => 'InstanceId',
-        'ticketId'   => 'TicketId',
-        'title'      => 'Title',
+        'ticketId' => 'TicketId',
+        'title' => 'Title',
     ];
 
     public function validate()

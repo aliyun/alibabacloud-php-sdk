@@ -13,48 +13,56 @@ class numberList extends Model
      * @var bool
      */
     public $active;
+
     /**
      * @var string
      */
     public $city;
+
     /**
      * @var string
      */
     public $contactFlowId;
+
     /**
      * @var string
      */
     public $instanceId;
+
     /**
      * @var string
      */
     public $number;
+
     /**
      * @var string
      */
     public $province;
+
     /**
      * @var skillGroups[]
      */
     public $skillGroups;
+
     /**
      * @var string
      */
     public $usage;
+
     /**
      * @var string
      */
     public $userId;
     protected $_name = [
-        'active'        => 'Active',
-        'city'          => 'City',
+        'active' => 'Active',
+        'city' => 'City',
         'contactFlowId' => 'ContactFlowId',
-        'instanceId'    => 'InstanceId',
-        'number'        => 'Number',
-        'province'      => 'Province',
-        'skillGroups'   => 'SkillGroups',
-        'usage'         => 'Usage',
-        'userId'        => 'UserId',
+        'instanceId' => 'InstanceId',
+        'number' => 'Number',
+        'province' => 'Province',
+        'skillGroups' => 'SkillGroups',
+        'usage' => 'Usage',
+        'userId' => 'UserId',
     ];
 
     public function validate()
@@ -95,7 +103,7 @@ class numberList extends Model
         if (null !== $this->skillGroups) {
             if (\is_array($this->skillGroups)) {
                 $res['SkillGroups'] = [];
-                $n1                 = 0;
+                $n1 = 0;
                 foreach ($this->skillGroups as $item1) {
                     $res['SkillGroups'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -148,7 +156,7 @@ class numberList extends Model
         if (isset($map['SkillGroups'])) {
             if (!empty($map['SkillGroups'])) {
                 $model->skillGroups = [];
-                $n1                 = 0;
+                $n1 = 0;
                 foreach ($map['SkillGroups'] as $item1) {
                     $model->skillGroups[$n1++] = skillGroups::fromMap($item1);
                 }

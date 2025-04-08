@@ -12,83 +12,98 @@ class list_ extends Model
      * @var string
      */
     public $agentId;
+
     /**
      * @var string
      */
     public $agentName;
+
     /**
      * @var string
      */
     public $breakCode;
+
     /**
      * @var string
      */
     public $callType;
+
     /**
      * @var string
      */
     public $counterParty;
+
     /**
      * @var int
      */
     public $duration;
+
     /**
      * @var string
      */
     public $extension;
+
     /**
      * @var string
      */
     public $instanceId;
+
     /**
      * @var string
      */
     public $mobile;
+
     /**
      * @var bool
      */
     public $outboundScenario;
+
     /**
      * @var string[]
      */
     public $skillGroupIdList;
+
     /**
      * @var string[]
      */
     public $skillGroupNameList;
+
     /**
      * @var string
      */
     public $state;
+
     /**
      * @var string
      */
     public $stateCode;
+
     /**
      * @var int
      */
     public $stateTime;
+
     /**
      * @var string
      */
     public $workMode;
     protected $_name = [
-        'agentId'            => 'AgentId',
-        'agentName'          => 'AgentName',
-        'breakCode'          => 'BreakCode',
-        'callType'           => 'CallType',
-        'counterParty'       => 'CounterParty',
-        'duration'           => 'Duration',
-        'extension'          => 'Extension',
-        'instanceId'         => 'InstanceId',
-        'mobile'             => 'Mobile',
-        'outboundScenario'   => 'OutboundScenario',
-        'skillGroupIdList'   => 'SkillGroupIdList',
+        'agentId' => 'AgentId',
+        'agentName' => 'AgentName',
+        'breakCode' => 'BreakCode',
+        'callType' => 'CallType',
+        'counterParty' => 'CounterParty',
+        'duration' => 'Duration',
+        'extension' => 'Extension',
+        'instanceId' => 'InstanceId',
+        'mobile' => 'Mobile',
+        'outboundScenario' => 'OutboundScenario',
+        'skillGroupIdList' => 'SkillGroupIdList',
         'skillGroupNameList' => 'SkillGroupNameList',
-        'state'              => 'State',
-        'stateCode'          => 'StateCode',
-        'stateTime'          => 'StateTime',
-        'workMode'           => 'WorkMode',
+        'state' => 'State',
+        'stateCode' => 'StateCode',
+        'stateTime' => 'StateTime',
+        'workMode' => 'WorkMode',
     ];
 
     public function validate()
@@ -148,7 +163,7 @@ class list_ extends Model
         if (null !== $this->skillGroupIdList) {
             if (\is_array($this->skillGroupIdList)) {
                 $res['SkillGroupIdList'] = [];
-                $n1                      = 0;
+                $n1 = 0;
                 foreach ($this->skillGroupIdList as $item1) {
                     $res['SkillGroupIdList'][$n1++] = $item1;
                 }
@@ -158,7 +173,7 @@ class list_ extends Model
         if (null !== $this->skillGroupNameList) {
             if (\is_array($this->skillGroupNameList)) {
                 $res['SkillGroupNameList'] = [];
-                $n1                        = 0;
+                $n1 = 0;
                 foreach ($this->skillGroupNameList as $item1) {
                     $res['SkillGroupNameList'][$n1++] = $item1;
                 }
@@ -235,7 +250,7 @@ class list_ extends Model
         if (isset($map['SkillGroupIdList'])) {
             if (!empty($map['SkillGroupIdList'])) {
                 $model->skillGroupIdList = [];
-                $n1                      = 0;
+                $n1 = 0;
                 foreach ($map['SkillGroupIdList'] as $item1) {
                     $model->skillGroupIdList[$n1++] = $item1;
                 }
@@ -245,7 +260,7 @@ class list_ extends Model
         if (isset($map['SkillGroupNameList'])) {
             if (!empty($map['SkillGroupNameList'])) {
                 $model->skillGroupNameList = [];
-                $n1                        = 0;
+                $n1 = 0;
                 foreach ($map['SkillGroupNameList'] as $item1) {
                     $model->skillGroupNameList[$n1++] = $item1;
                 }

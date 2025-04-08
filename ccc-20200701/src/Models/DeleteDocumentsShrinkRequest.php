@@ -12,23 +12,26 @@ class DeleteDocumentsShrinkRequest extends Model
      * @var string
      */
     public $documentIdsShrink;
+
     /**
      * @var string
      */
     public $instanceId;
+
     /**
      * @var string
      */
     public $requestId;
+
     /**
      * @var string
      */
     public $schemaId;
     protected $_name = [
         'documentIdsShrink' => 'DocumentIds',
-        'instanceId'        => 'InstanceId',
-        'requestId'         => 'RequestId',
-        'schemaId'          => 'SchemaId',
+        'instanceId' => 'InstanceId',
+        'requestId' => 'RequestId',
+        'schemaId' => 'SchemaId',
     ];
 
     public function validate()

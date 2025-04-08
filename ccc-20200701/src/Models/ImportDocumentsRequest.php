@@ -12,14 +12,17 @@ class ImportDocumentsRequest extends Model
      * @var string
      */
     public $instanceId;
+
     /**
      * @var string
      */
     public $ossFileKey;
+
     /**
      * @var string
      */
     public $requestId;
+
     /**
      * @var string
      */
@@ -27,8 +30,8 @@ class ImportDocumentsRequest extends Model
     protected $_name = [
         'instanceId' => 'InstanceId',
         'ossFileKey' => 'OssFileKey',
-        'requestId'  => 'RequestId',
-        'schemaId'   => 'SchemaId',
+        'requestId' => 'RequestId',
+        'schemaId' => 'SchemaId',
     ];
 
     public function validate()

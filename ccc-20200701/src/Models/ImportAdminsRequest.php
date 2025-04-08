@@ -12,13 +12,14 @@ class ImportAdminsRequest extends Model
      * @var string
      */
     public $instanceId;
+
     /**
      * @var string
      */
     public $ramIdList;
     protected $_name = [
         'instanceId' => 'InstanceId',
-        'ramIdList'  => 'RamIdList',
+        'ramIdList' => 'RamIdList',
     ];
 
     public function validate()

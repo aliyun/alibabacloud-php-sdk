@@ -12,27 +12,31 @@ class ListRealtimeSkillGroupStatesRequest extends Model
      * @var string
      */
     public $instanceId;
+
     /**
      * @var string
      */
     public $mediaType;
+
     /**
      * @var int
      */
     public $pageNumber;
+
     /**
      * @var int
      */
     public $pageSize;
+
     /**
      * @var string
      */
     public $skillGroupIdList;
     protected $_name = [
-        'instanceId'       => 'InstanceId',
-        'mediaType'        => 'MediaType',
-        'pageNumber'       => 'PageNumber',
-        'pageSize'         => 'PageSize',
+        'instanceId' => 'InstanceId',
+        'mediaType' => 'MediaType',
+        'pageNumber' => 'PageNumber',
+        'pageSize' => 'PageSize',
         'skillGroupIdList' => 'SkillGroupIdList',
     ];
 

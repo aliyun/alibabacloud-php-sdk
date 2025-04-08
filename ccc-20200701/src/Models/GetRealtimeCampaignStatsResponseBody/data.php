@@ -12,58 +12,68 @@ class data extends Model
      * @var int
      */
     public $breakingAgents;
+
     /**
      * @var int
      */
     public $caps;
+
     /**
      * @var int
      */
     public $loggedInAgents;
+
     /**
      * @var int
      */
     public $outboundScenarioBreakingAgents;
+
     /**
      * @var int
      */
     public $outboundScenarioReadyAgents;
+
     /**
      * @var int
      */
     public $outboundScenarioTalkingAgents;
+
     /**
      * @var int
      */
     public $outboundScenarioWorkingAgents;
+
     /**
      * @var int
      */
     public $readyAgents;
+
     /**
      * @var int
      */
     public $talkingAgents;
+
     /**
      * @var int
      */
     public $totalAgents;
+
     /**
      * @var int
      */
     public $workingAgents;
     protected $_name = [
-        'breakingAgents'                 => 'BreakingAgents',
-        'caps'                           => 'Caps',
-        'loggedInAgents'                 => 'LoggedInAgents',
+        'breakingAgents' => 'BreakingAgents',
+        'caps' => 'Caps',
+        'loggedInAgents' => 'LoggedInAgents',
         'outboundScenarioBreakingAgents' => 'OutboundScenarioBreakingAgents',
-        'outboundScenarioReadyAgents'    => 'OutboundScenarioReadyAgents',
-        'outboundScenarioTalkingAgents'  => 'OutboundScenarioTalkingAgents',
-        'outboundScenarioWorkingAgents'  => 'OutboundScenarioWorkingAgents',
-        'readyAgents'                    => 'ReadyAgents',
-        'talkingAgents'                  => 'TalkingAgents',
-        'totalAgents'                    => 'TotalAgents',
-        'workingAgents'                  => 'WorkingAgents',
+        'outboundScenarioReadyAgents' => 'OutboundScenarioReadyAgents',
+        'outboundScenarioTalkingAgents' => 'OutboundScenarioTalkingAgents',
+        'outboundScenarioWorkingAgents' => 'OutboundScenarioWorkingAgents',
+        'readyAgents' => 'ReadyAgents',
+        'talkingAgents' => 'TalkingAgents',
+        'totalAgents' => 'TotalAgents',
+        'workingAgents' => 'WorkingAgents',
     ];
 
     public function validate()

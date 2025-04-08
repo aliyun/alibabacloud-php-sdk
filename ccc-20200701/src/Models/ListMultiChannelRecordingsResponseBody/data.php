@@ -13,58 +13,68 @@ class data extends Model
      * @var string
      */
     public $agentChannelId;
+
     /**
      * @var string
      */
     public $agentId;
+
     /**
      * @var string
      */
     public $agentName;
+
     /**
      * @var string
      */
     public $contactId;
+
     /**
      * @var string
      */
     public $duration;
+
     /**
      * @var string
      */
     public $fileName;
+
     /**
      * @var string
      */
     public $fileUrl;
+
     /**
      * @var holdTimeSegments[]
      */
     public $holdTimeSegments;
+
     /**
      * @var string
      */
     public $ramId;
+
     /**
      * @var string
      */
     public $skillGroupId;
+
     /**
      * @var int
      */
     public $startTime;
     protected $_name = [
-        'agentChannelId'   => 'AgentChannelId',
-        'agentId'          => 'AgentId',
-        'agentName'        => 'AgentName',
-        'contactId'        => 'ContactId',
-        'duration'         => 'Duration',
-        'fileName'         => 'FileName',
-        'fileUrl'          => 'FileUrl',
+        'agentChannelId' => 'AgentChannelId',
+        'agentId' => 'AgentId',
+        'agentName' => 'AgentName',
+        'contactId' => 'ContactId',
+        'duration' => 'Duration',
+        'fileName' => 'FileName',
+        'fileUrl' => 'FileUrl',
         'holdTimeSegments' => 'HoldTimeSegments',
-        'ramId'            => 'RamId',
-        'skillGroupId'     => 'SkillGroupId',
-        'startTime'        => 'StartTime',
+        'ramId' => 'RamId',
+        'skillGroupId' => 'SkillGroupId',
+        'startTime' => 'StartTime',
     ];
 
     public function validate()
@@ -109,7 +119,7 @@ class data extends Model
         if (null !== $this->holdTimeSegments) {
             if (\is_array($this->holdTimeSegments)) {
                 $res['HoldTimeSegments'] = [];
-                $n1                      = 0;
+                $n1 = 0;
                 foreach ($this->holdTimeSegments as $item1) {
                     $res['HoldTimeSegments'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -170,7 +180,7 @@ class data extends Model
         if (isset($map['HoldTimeSegments'])) {
             if (!empty($map['HoldTimeSegments'])) {
                 $model->holdTimeSegments = [];
-                $n1                      = 0;
+                $n1 = 0;
                 foreach ($map['HoldTimeSegments'] as $item1) {
                     $model->holdTimeSegments[$n1++] = holdTimeSegments::fromMap($item1);
                 }

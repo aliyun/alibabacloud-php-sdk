@@ -12,33 +12,38 @@ class ListTicketTemplatesRequest extends Model
      * @var string
      */
     public $categoryId;
+
     /**
      * @var string
      */
     public $instanceId;
+
     /**
      * @var int
      */
     public $pageNumber;
+
     /**
      * @var int
      */
     public $pageSize;
+
     /**
      * @var string
      */
     public $searchPattern;
+
     /**
      * @var string
      */
     public $state;
     protected $_name = [
-        'categoryId'    => 'CategoryId',
-        'instanceId'    => 'InstanceId',
-        'pageNumber'    => 'PageNumber',
-        'pageSize'      => 'PageSize',
+        'categoryId' => 'CategoryId',
+        'instanceId' => 'InstanceId',
+        'pageNumber' => 'PageNumber',
+        'pageSize' => 'PageSize',
         'searchPattern' => 'SearchPattern',
-        'state'         => 'State',
+        'state' => 'State',
     ];
 
     public function validate()

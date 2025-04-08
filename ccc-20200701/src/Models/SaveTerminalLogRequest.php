@@ -12,47 +12,55 @@ class SaveTerminalLogRequest extends Model
      * @var string
      */
     public $appName;
+
     /**
      * @var string
      */
     public $callId;
+
     /**
      * @var string
      */
     public $content;
+
     /**
      * @var int
      */
     public $dataType;
+
     /**
      * @var string
      */
     public $instanceId;
+
     /**
      * @var string
      */
     public $jobId;
+
     /**
      * @var string
      */
     public $methodName;
+
     /**
      * @var string
      */
     public $status;
+
     /**
      * @var string
      */
     public $uniqueRequestId;
     protected $_name = [
-        'appName'         => 'AppName',
-        'callId'          => 'CallId',
-        'content'         => 'Content',
-        'dataType'        => 'DataType',
-        'instanceId'      => 'InstanceId',
-        'jobId'           => 'JobId',
-        'methodName'      => 'MethodName',
-        'status'          => 'Status',
+        'appName' => 'AppName',
+        'callId' => 'CallId',
+        'content' => 'Content',
+        'dataType' => 'DataType',
+        'instanceId' => 'InstanceId',
+        'jobId' => 'JobId',
+        'methodName' => 'MethodName',
+        'status' => 'Status',
         'uniqueRequestId' => 'UniqueRequestId',
     ];
 

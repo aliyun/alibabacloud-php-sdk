@@ -12,22 +12,25 @@ class ModifySkillGroupRequest extends Model
      * @var string
      */
     public $description;
+
     /**
      * @var string
      */
     public $displayName;
+
     /**
      * @var string
      */
     public $instanceId;
+
     /**
      * @var string
      */
     public $skillGroupId;
     protected $_name = [
-        'description'  => 'Description',
-        'displayName'  => 'DisplayName',
-        'instanceId'   => 'InstanceId',
+        'description' => 'Description',
+        'displayName' => 'DisplayName',
+        'instanceId' => 'InstanceId',
         'skillGroupId' => 'SkillGroupId',
     ];
 

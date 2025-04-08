@@ -12,73 +12,86 @@ class ListAttemptsRequest extends Model
      * @var string
      */
     public $agentId;
+
     /**
      * @var string
      */
     public $attemptId;
+
     /**
      * @var string
      */
     public $callee;
+
     /**
      * @var string
      */
     public $caller;
+
     /**
      * @var string
      */
     public $campaignId;
+
     /**
      * @var string
      */
     public $caseId;
+
     /**
      * @var string
      */
     public $contactId;
+
     /**
      * @var string
      */
     public $criteria;
+
     /**
      * @var int
      */
     public $endTime;
+
     /**
      * @var string
      */
     public $instanceId;
+
     /**
      * @var int
      */
     public $pageNumber;
+
     /**
      * @var int
      */
     public $pageSize;
+
     /**
      * @var string
      */
     public $queueId;
+
     /**
      * @var int
      */
     public $startTime;
     protected $_name = [
-        'agentId'    => 'AgentId',
-        'attemptId'  => 'AttemptId',
-        'callee'     => 'Callee',
-        'caller'     => 'Caller',
+        'agentId' => 'AgentId',
+        'attemptId' => 'AttemptId',
+        'callee' => 'Callee',
+        'caller' => 'Caller',
         'campaignId' => 'CampaignId',
-        'caseId'     => 'CaseId',
-        'contactId'  => 'ContactId',
-        'criteria'   => 'Criteria',
-        'endTime'    => 'EndTime',
+        'caseId' => 'CaseId',
+        'contactId' => 'ContactId',
+        'criteria' => 'Criteria',
+        'endTime' => 'EndTime',
         'instanceId' => 'InstanceId',
         'pageNumber' => 'PageNumber',
-        'pageSize'   => 'PageSize',
-        'queueId'    => 'QueueId',
-        'startTime'  => 'StartTime',
+        'pageSize' => 'PageSize',
+        'queueId' => 'QueueId',
+        'startTime' => 'StartTime',
     ];
 
     public function validate()

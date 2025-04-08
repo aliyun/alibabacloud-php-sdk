@@ -12,43 +12,50 @@ class ProcessCustomIMCallbackRequest extends Model
      * @var string
      */
     public $accessChannelId;
+
     /**
      * @var string
      */
     public $conversationId;
+
     /**
      * @var string
      */
     public $instanceId;
+
     /**
      * @var string
      */
     public $messageContent;
+
     /**
      * @var string
      */
     public $requestId;
+
     /**
      * @var string
      */
     public $senderAvatarMediaId;
+
     /**
      * @var string
      */
     public $senderId;
+
     /**
      * @var string
      */
     public $senderName;
     protected $_name = [
-        'accessChannelId'     => 'AccessChannelId',
-        'conversationId'      => 'ConversationId',
-        'instanceId'          => 'InstanceId',
-        'messageContent'      => 'MessageContent',
-        'requestId'           => 'RequestId',
+        'accessChannelId' => 'AccessChannelId',
+        'conversationId' => 'ConversationId',
+        'instanceId' => 'InstanceId',
+        'messageContent' => 'MessageContent',
+        'requestId' => 'RequestId',
         'senderAvatarMediaId' => 'SenderAvatarMediaId',
-        'senderId'            => 'SenderId',
-        'senderName'          => 'SenderName',
+        'senderId' => 'SenderId',
+        'senderName' => 'SenderName',
     ];
 
     public function validate()

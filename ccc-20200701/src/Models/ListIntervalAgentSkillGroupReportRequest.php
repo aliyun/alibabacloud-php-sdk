@@ -12,33 +12,38 @@ class ListIntervalAgentSkillGroupReportRequest extends Model
      * @var string
      */
     public $agentId;
+
     /**
      * @var int
      */
     public $endTime;
+
     /**
      * @var string
      */
     public $instanceId;
+
     /**
      * @var string
      */
     public $interval;
+
     /**
      * @var string
      */
     public $skillGroupId;
+
     /**
      * @var int
      */
     public $startTime;
     protected $_name = [
-        'agentId'      => 'AgentId',
-        'endTime'      => 'EndTime',
-        'instanceId'   => 'InstanceId',
-        'interval'     => 'Interval',
+        'agentId' => 'AgentId',
+        'endTime' => 'EndTime',
+        'instanceId' => 'InstanceId',
+        'interval' => 'Interval',
         'skillGroupId' => 'SkillGroupId',
-        'startTime'    => 'StartTime',
+        'startTime' => 'StartTime',
     ];
 
     public function validate()

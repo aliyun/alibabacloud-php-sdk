@@ -13,278 +13,332 @@ class list_ extends Model
      * @var string
      */
     public $accessChannelName;
+
     /**
      * @var string
      */
     public $accessChannelType;
+
     /**
      * @var string
      */
     public $accessChannelUserId;
+
     /**
      * @var string
      */
     public $accessChannelUserName;
+
     /**
      * @var string
      */
     public $additionalBroker;
+
     /**
      * @var string
      */
     public $agentIds;
+
     /**
      * @var string
      */
     public $agentNames;
+
     /**
      * @var analyticsReport
      */
     public $analyticsReport;
+
     /**
      * @var bool
      */
     public $analyticsReportReady;
+
     /**
      * @var string
      */
     public $broker;
+
     /**
      * @var string
      */
     public $callDuration;
+
     /**
      * @var string
      */
     public $callIds;
+
     /**
      * @var string
      */
     public $calledNumber;
+
     /**
      * @var string
      */
     public $calleeLocation;
+
     /**
      * @var string
      */
     public $callerLocation;
+
     /**
      * @var string
      */
     public $callingNumber;
+
     /**
      * @var string
      */
     public $clientAppName;
+
     /**
      * @var string
      */
     public $clientIpAddress;
+
     /**
      * @var string
      */
     public $clientLocation;
+
     /**
      * @var string
      */
     public $clientUserAgent;
+
     /**
      * @var string
      */
     public $contactDisposition;
+
     /**
      * @var string
      */
     public $contactId;
+
     /**
      * @var string
      */
     public $contactType;
+
     /**
      * @var int
      */
     public $dialingTime;
+
     /**
      * @var string
      */
     public $earlyMediaState;
+
     /**
      * @var string
      */
     public $earlyMediaText;
+
     /**
      * @var int
      */
     public $establishedTime;
+
     /**
      * @var int
      */
     public $firstResponseTime;
+
     /**
      * @var int
      */
     public $heldTime;
+
     /**
      * @var string
      */
     public $instanceId;
+
     /**
      * @var int
      */
     public $ivrTime;
+
     /**
      * @var string
      */
     public $mediaType;
+
     /**
      * @var int
      */
     public $messagesSent;
+
     /**
      * @var int
      */
     public $messagesSentByAgent;
+
     /**
      * @var int
      */
     public $messagesSentByCustomer;
+
     /**
      * @var string
      */
     public $offSiteAgentIds;
+
     /**
      * @var string
      */
     public $offsiteAgentDestinationNumbers;
+
     /**
      * @var string
      */
     public $offsiteAgentOriginatorNumbers;
+
     /**
      * @var int
      */
     public $queueTime;
+
     /**
      * @var int
      */
     public $recordingDuration;
+
     /**
      * @var bool
      */
     public $recordingReady;
+
     /**
      * @var string
      */
     public $releaseInitiator;
+
     /**
      * @var string
      */
     public $releaseReason;
+
     /**
      * @var int
      */
     public $releaseTime;
+
     /**
      * @var int
      */
     public $ringTime;
+
     /**
      * @var string
      */
     public $satisfactionDescription;
+
     /**
      * @var int
      */
     public $satisfactionIndex;
+
     /**
      * @var string
      */
     public $satisfactionSurveyChannel;
+
     /**
      * @var bool
      */
     public $satisfactionSurveyOffered;
+
     /**
      * @var string
      */
     public $skillGroupIds;
+
     /**
      * @var string
      */
     public $skillGroupNames;
+
     /**
      * @var int
      */
     public $startTime;
+
     /**
      * @var int
      */
     public $talkTime;
+
     /**
      * @var int
      */
     public $transferCount;
+
     /**
      * @var int
      */
     public $waitTime;
     protected $_name = [
-        'accessChannelName'              => 'AccessChannelName',
-        'accessChannelType'              => 'AccessChannelType',
-        'accessChannelUserId'            => 'AccessChannelUserId',
-        'accessChannelUserName'          => 'AccessChannelUserName',
-        'additionalBroker'               => 'AdditionalBroker',
-        'agentIds'                       => 'AgentIds',
-        'agentNames'                     => 'AgentNames',
-        'analyticsReport'                => 'AnalyticsReport',
-        'analyticsReportReady'           => 'AnalyticsReportReady',
-        'broker'                         => 'Broker',
-        'callDuration'                   => 'CallDuration',
-        'callIds'                        => 'CallIds',
-        'calledNumber'                   => 'CalledNumber',
-        'calleeLocation'                 => 'CalleeLocation',
-        'callerLocation'                 => 'CallerLocation',
-        'callingNumber'                  => 'CallingNumber',
-        'clientAppName'                  => 'ClientAppName',
-        'clientIpAddress'                => 'ClientIpAddress',
-        'clientLocation'                 => 'ClientLocation',
-        'clientUserAgent'                => 'ClientUserAgent',
-        'contactDisposition'             => 'ContactDisposition',
-        'contactId'                      => 'ContactId',
-        'contactType'                    => 'ContactType',
-        'dialingTime'                    => 'DialingTime',
-        'earlyMediaState'                => 'EarlyMediaState',
-        'earlyMediaText'                 => 'EarlyMediaText',
-        'establishedTime'                => 'EstablishedTime',
-        'firstResponseTime'              => 'FirstResponseTime',
-        'heldTime'                       => 'HeldTime',
-        'instanceId'                     => 'InstanceId',
-        'ivrTime'                        => 'IvrTime',
-        'mediaType'                      => 'MediaType',
-        'messagesSent'                   => 'MessagesSent',
-        'messagesSentByAgent'            => 'MessagesSentByAgent',
-        'messagesSentByCustomer'         => 'MessagesSentByCustomer',
-        'offSiteAgentIds'                => 'OffSiteAgentIds',
+        'accessChannelName' => 'AccessChannelName',
+        'accessChannelType' => 'AccessChannelType',
+        'accessChannelUserId' => 'AccessChannelUserId',
+        'accessChannelUserName' => 'AccessChannelUserName',
+        'additionalBroker' => 'AdditionalBroker',
+        'agentIds' => 'AgentIds',
+        'agentNames' => 'AgentNames',
+        'analyticsReport' => 'AnalyticsReport',
+        'analyticsReportReady' => 'AnalyticsReportReady',
+        'broker' => 'Broker',
+        'callDuration' => 'CallDuration',
+        'callIds' => 'CallIds',
+        'calledNumber' => 'CalledNumber',
+        'calleeLocation' => 'CalleeLocation',
+        'callerLocation' => 'CallerLocation',
+        'callingNumber' => 'CallingNumber',
+        'clientAppName' => 'ClientAppName',
+        'clientIpAddress' => 'ClientIpAddress',
+        'clientLocation' => 'ClientLocation',
+        'clientUserAgent' => 'ClientUserAgent',
+        'contactDisposition' => 'ContactDisposition',
+        'contactId' => 'ContactId',
+        'contactType' => 'ContactType',
+        'dialingTime' => 'DialingTime',
+        'earlyMediaState' => 'EarlyMediaState',
+        'earlyMediaText' => 'EarlyMediaText',
+        'establishedTime' => 'EstablishedTime',
+        'firstResponseTime' => 'FirstResponseTime',
+        'heldTime' => 'HeldTime',
+        'instanceId' => 'InstanceId',
+        'ivrTime' => 'IvrTime',
+        'mediaType' => 'MediaType',
+        'messagesSent' => 'MessagesSent',
+        'messagesSentByAgent' => 'MessagesSentByAgent',
+        'messagesSentByCustomer' => 'MessagesSentByCustomer',
+        'offSiteAgentIds' => 'OffSiteAgentIds',
         'offsiteAgentDestinationNumbers' => 'OffsiteAgentDestinationNumbers',
-        'offsiteAgentOriginatorNumbers'  => 'OffsiteAgentOriginatorNumbers',
-        'queueTime'                      => 'QueueTime',
-        'recordingDuration'              => 'RecordingDuration',
-        'recordingReady'                 => 'RecordingReady',
-        'releaseInitiator'               => 'ReleaseInitiator',
-        'releaseReason'                  => 'ReleaseReason',
-        'releaseTime'                    => 'ReleaseTime',
-        'ringTime'                       => 'RingTime',
-        'satisfactionDescription'        => 'SatisfactionDescription',
-        'satisfactionIndex'              => 'SatisfactionIndex',
-        'satisfactionSurveyChannel'      => 'SatisfactionSurveyChannel',
-        'satisfactionSurveyOffered'      => 'SatisfactionSurveyOffered',
-        'skillGroupIds'                  => 'SkillGroupIds',
-        'skillGroupNames'                => 'SkillGroupNames',
-        'startTime'                      => 'StartTime',
-        'talkTime'                       => 'TalkTime',
-        'transferCount'                  => 'TransferCount',
-        'waitTime'                       => 'WaitTime',
+        'offsiteAgentOriginatorNumbers' => 'OffsiteAgentOriginatorNumbers',
+        'queueTime' => 'QueueTime',
+        'recordingDuration' => 'RecordingDuration',
+        'recordingReady' => 'RecordingReady',
+        'releaseInitiator' => 'ReleaseInitiator',
+        'releaseReason' => 'ReleaseReason',
+        'releaseTime' => 'ReleaseTime',
+        'ringTime' => 'RingTime',
+        'satisfactionDescription' => 'SatisfactionDescription',
+        'satisfactionIndex' => 'SatisfactionIndex',
+        'satisfactionSurveyChannel' => 'SatisfactionSurveyChannel',
+        'satisfactionSurveyOffered' => 'SatisfactionSurveyOffered',
+        'skillGroupIds' => 'SkillGroupIds',
+        'skillGroupNames' => 'SkillGroupNames',
+        'startTime' => 'StartTime',
+        'talkTime' => 'TalkTime',
+        'transferCount' => 'TransferCount',
+        'waitTime' => 'WaitTime',
     ];
 
     public function validate()

@@ -12,13 +12,14 @@ class accessChannelTypeDetails extends Model
      * @var string
      */
     public $accessChannelType;
+
     /**
      * @var int
      */
     public $callsOffered;
     protected $_name = [
         'accessChannelType' => 'AccessChannelType',
-        'callsOffered'      => 'CallsOffered',
+        'callsOffered' => 'CallsOffered',
     ];
 
     public function validate()

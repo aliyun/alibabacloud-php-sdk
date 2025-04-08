@@ -12,28 +12,32 @@ class CreateInstanceRequest extends Model
      * @var string
      */
     public $adminRamIdList;
+
     /**
      * @var string
      */
     public $description;
+
     /**
      * @var string
      */
     public $domainName;
+
     /**
      * @var string
      */
     public $name;
+
     /**
      * @var string
      */
     public $numberList;
     protected $_name = [
         'adminRamIdList' => 'AdminRamIdList',
-        'description'    => 'Description',
-        'domainName'     => 'DomainName',
-        'name'           => 'Name',
-        'numberList'     => 'NumberList',
+        'description' => 'Description',
+        'domainName' => 'DomainName',
+        'name' => 'Name',
+        'numberList' => 'NumberList',
     ];
 
     public function validate()

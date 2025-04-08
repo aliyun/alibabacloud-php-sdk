@@ -12,33 +12,38 @@ class InterceptCallRequest extends Model
      * @var string
      */
     public $deviceId;
+
     /**
      * @var string
      */
     public $instanceId;
+
     /**
      * @var string
      */
     public $interceptedUserId;
+
     /**
      * @var string
      */
     public $jobId;
+
     /**
      * @var int
      */
     public $timeoutSeconds;
+
     /**
      * @var string
      */
     public $userId;
     protected $_name = [
-        'deviceId'          => 'DeviceId',
-        'instanceId'        => 'InstanceId',
+        'deviceId' => 'DeviceId',
+        'instanceId' => 'InstanceId',
         'interceptedUserId' => 'InterceptedUserId',
-        'jobId'             => 'JobId',
-        'timeoutSeconds'    => 'TimeoutSeconds',
-        'userId'            => 'UserId',
+        'jobId' => 'JobId',
+        'timeoutSeconds' => 'TimeoutSeconds',
+        'userId' => 'UserId',
     ];
 
     public function validate()

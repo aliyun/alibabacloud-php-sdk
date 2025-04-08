@@ -13,28 +13,32 @@ class queueEvents extends Model
      * @var eventSequence[]
      */
     public $eventSequence;
+
     /**
      * @var string
      */
     public $flowId;
+
     /**
      * @var string
      */
     public $queueId;
+
     /**
      * @var string
      */
     public $queueName;
+
     /**
      * @var int
      */
     public $queueType;
     protected $_name = [
         'eventSequence' => 'EventSequence',
-        'flowId'        => 'FlowId',
-        'queueId'       => 'QueueId',
-        'queueName'     => 'QueueName',
-        'queueType'     => 'QueueType',
+        'flowId' => 'FlowId',
+        'queueId' => 'QueueId',
+        'queueName' => 'QueueName',
+        'queueType' => 'QueueType',
     ];
 
     public function validate()
@@ -51,7 +55,7 @@ class queueEvents extends Model
         if (null !== $this->eventSequence) {
             if (\is_array($this->eventSequence)) {
                 $res['EventSequence'] = [];
-                $n1                   = 0;
+                $n1 = 0;
                 foreach ($this->eventSequence as $item1) {
                     $res['EventSequence'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -88,7 +92,7 @@ class queueEvents extends Model
         if (isset($map['EventSequence'])) {
             if (!empty($map['EventSequence'])) {
                 $model->eventSequence = [];
-                $n1                   = 0;
+                $n1 = 0;
                 foreach ($map['EventSequence'] as $item1) {
                     $model->eventSequence[$n1++] = eventSequence::fromMap($item1);
                 }

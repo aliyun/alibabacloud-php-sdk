@@ -12,23 +12,26 @@ class CancelAttendedTransferRequest extends Model
      * @var string
      */
     public $deviceId;
+
     /**
      * @var string
      */
     public $instanceId;
+
     /**
      * @var string
      */
     public $jobId;
+
     /**
      * @var string
      */
     public $userId;
     protected $_name = [
-        'deviceId'   => 'DeviceId',
+        'deviceId' => 'DeviceId',
         'instanceId' => 'InstanceId',
-        'jobId'      => 'JobId',
-        'userId'     => 'UserId',
+        'jobId' => 'JobId',
+        'userId' => 'UserId',
     ];
 
     public function validate()

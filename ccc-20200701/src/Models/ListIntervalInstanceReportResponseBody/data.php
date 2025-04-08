@@ -15,22 +15,25 @@ class data extends Model
      * @var inbound
      */
     public $inbound;
+
     /**
      * @var outbound
      */
     public $outbound;
+
     /**
      * @var overall
      */
     public $overall;
+
     /**
      * @var int
      */
     public $statsTime;
     protected $_name = [
-        'inbound'   => 'Inbound',
-        'outbound'  => 'Outbound',
-        'overall'   => 'Overall',
+        'inbound' => 'Inbound',
+        'outbound' => 'Outbound',
+        'overall' => 'Overall',
         'statsTime' => 'StatsTime',
     ];
 

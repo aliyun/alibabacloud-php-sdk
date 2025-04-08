@@ -12,17 +12,19 @@ class AddPhoneNumberToSkillGroupsRequest extends Model
      * @var string
      */
     public $instanceId;
+
     /**
      * @var string
      */
     public $number;
+
     /**
      * @var string
      */
     public $skillGroupIdList;
     protected $_name = [
-        'instanceId'       => 'InstanceId',
-        'number'           => 'Number',
+        'instanceId' => 'InstanceId',
+        'number' => 'Number',
         'skillGroupIdList' => 'SkillGroupIdList',
     ];
 

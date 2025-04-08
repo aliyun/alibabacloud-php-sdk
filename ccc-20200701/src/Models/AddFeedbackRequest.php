@@ -12,28 +12,32 @@ class AddFeedbackRequest extends Model
      * @var string
      */
     public $feedback;
+
     /**
      * @var string
      */
     public $instanceId;
+
     /**
      * @var int
      */
     public $rating;
+
     /**
      * @var string
      */
     public $taskId;
+
     /**
      * @var string
      */
     public $taskName;
     protected $_name = [
-        'feedback'   => 'Feedback',
+        'feedback' => 'Feedback',
         'instanceId' => 'InstanceId',
-        'rating'     => 'Rating',
-        'taskId'     => 'TaskId',
-        'taskName'   => 'TaskName',
+        'rating' => 'Rating',
+        'taskId' => 'TaskId',
+        'taskName' => 'TaskName',
     ];
 
     public function validate()

@@ -12,38 +12,44 @@ class ListPhoneNumbersOfSkillGroupRequest extends Model
      * @var bool
      */
     public $active;
+
     /**
      * @var string
      */
     public $instanceId;
+
     /**
      * @var bool
      */
     public $isMember;
+
     /**
      * @var int
      */
     public $pageNumber;
+
     /**
      * @var int
      */
     public $pageSize;
+
     /**
      * @var string
      */
     public $searchPattern;
+
     /**
      * @var string
      */
     public $skillGroupId;
     protected $_name = [
-        'active'        => 'Active',
-        'instanceId'    => 'InstanceId',
-        'isMember'      => 'IsMember',
-        'pageNumber'    => 'PageNumber',
-        'pageSize'      => 'PageSize',
+        'active' => 'Active',
+        'instanceId' => 'InstanceId',
+        'isMember' => 'IsMember',
+        'pageNumber' => 'PageNumber',
+        'pageSize' => 'PageSize',
         'searchPattern' => 'SearchPattern',
-        'skillGroupId'  => 'SkillGroupId',
+        'skillGroupId' => 'SkillGroupId',
     ];
 
     public function validate()

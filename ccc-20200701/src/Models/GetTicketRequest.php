@@ -12,13 +12,14 @@ class GetTicketRequest extends Model
      * @var string
      */
     public $instanceId;
+
     /**
      * @var string
      */
     public $ticketId;
     protected $_name = [
         'instanceId' => 'InstanceId',
-        'ticketId'   => 'TicketId',
+        'ticketId' => 'TicketId',
     ];
 
     public function validate()

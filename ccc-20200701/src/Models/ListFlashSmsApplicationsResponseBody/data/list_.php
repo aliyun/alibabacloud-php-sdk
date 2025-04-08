@@ -12,28 +12,32 @@ class list_ extends Model
      * @var string
      */
     public $applicationId;
+
     /**
      * @var string
      */
     public $instanceId;
+
     /**
      * @var string
      */
     public $name;
+
     /**
      * @var string
      */
     public $providerId;
+
     /**
      * @var string
      */
     public $value;
     protected $_name = [
         'applicationId' => 'ApplicationId',
-        'instanceId'    => 'InstanceId',
-        'name'          => 'Name',
-        'providerId'    => 'ProviderId',
-        'value'         => 'Value',
+        'instanceId' => 'InstanceId',
+        'name' => 'Name',
+        'providerId' => 'ProviderId',
+        'value' => 'Value',
     ];
 
     public function validate()

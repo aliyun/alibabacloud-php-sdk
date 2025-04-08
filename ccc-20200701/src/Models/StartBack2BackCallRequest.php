@@ -12,38 +12,44 @@ class StartBack2BackCallRequest extends Model
      * @var string
      */
     public $additionalBroker;
+
     /**
      * @var string
      */
     public $broker;
+
     /**
      * @var string
      */
     public $callee;
+
     /**
      * @var string
      */
     public $caller;
+
     /**
      * @var string
      */
     public $instanceId;
+
     /**
      * @var string
      */
     public $tags;
+
     /**
      * @var int
      */
     public $timeoutSeconds;
     protected $_name = [
         'additionalBroker' => 'AdditionalBroker',
-        'broker'           => 'Broker',
-        'callee'           => 'Callee',
-        'caller'           => 'Caller',
-        'instanceId'       => 'InstanceId',
-        'tags'             => 'Tags',
-        'timeoutSeconds'   => 'TimeoutSeconds',
+        'broker' => 'Broker',
+        'callee' => 'Callee',
+        'caller' => 'Caller',
+        'instanceId' => 'InstanceId',
+        'tags' => 'Tags',
+        'timeoutSeconds' => 'TimeoutSeconds',
     ];
 
     public function validate()

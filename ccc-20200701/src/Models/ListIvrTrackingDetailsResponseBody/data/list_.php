@@ -12,83 +12,98 @@ class list_ extends Model
      * @var string
      */
     public $callee;
+
     /**
      * @var string
      */
     public $caller;
+
     /**
      * @var string
      */
     public $channelId;
+
     /**
      * @var string
      */
     public $channelVariables;
+
     /**
      * @var string
      */
     public $contactId;
+
     /**
      * @var int
      */
     public $enterTime;
+
     /**
      * @var string
      */
     public $flowId;
+
     /**
      * @var string
      */
     public $flowName;
+
     /**
      * @var string
      */
     public $instance;
+
     /**
      * @var int
      */
     public $leaveTime;
+
     /**
      * @var string
      */
     public $nodeExitCode;
+
     /**
      * @var string
      */
     public $nodeId;
+
     /**
      * @var string
      */
     public $nodeName;
+
     /**
      * @var mixed[]
      */
     public $nodeProperties;
+
     /**
      * @var string
      */
     public $nodeType;
+
     /**
      * @var mixed[]
      */
     public $nodeVariables;
     protected $_name = [
-        'callee'           => 'Callee',
-        'caller'           => 'Caller',
-        'channelId'        => 'ChannelId',
+        'callee' => 'Callee',
+        'caller' => 'Caller',
+        'channelId' => 'ChannelId',
         'channelVariables' => 'ChannelVariables',
-        'contactId'        => 'ContactId',
-        'enterTime'        => 'EnterTime',
-        'flowId'           => 'FlowId',
-        'flowName'         => 'FlowName',
-        'instance'         => 'Instance',
-        'leaveTime'        => 'LeaveTime',
-        'nodeExitCode'     => 'NodeExitCode',
-        'nodeId'           => 'NodeId',
-        'nodeName'         => 'NodeName',
-        'nodeProperties'   => 'NodeProperties',
-        'nodeType'         => 'NodeType',
-        'nodeVariables'    => 'NodeVariables',
+        'contactId' => 'ContactId',
+        'enterTime' => 'EnterTime',
+        'flowId' => 'FlowId',
+        'flowName' => 'FlowName',
+        'instance' => 'Instance',
+        'leaveTime' => 'LeaveTime',
+        'nodeExitCode' => 'NodeExitCode',
+        'nodeId' => 'NodeId',
+        'nodeName' => 'NodeName',
+        'nodeProperties' => 'NodeProperties',
+        'nodeType' => 'NodeType',
+        'nodeVariables' => 'NodeVariables',
     ];
 
     public function validate()

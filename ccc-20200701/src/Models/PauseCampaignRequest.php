@@ -12,6 +12,7 @@ class PauseCampaignRequest extends Model
      * @var string
      */
     public $campaignId;
+
     /**
      * @var string
      */

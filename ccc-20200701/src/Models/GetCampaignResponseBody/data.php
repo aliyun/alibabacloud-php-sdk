@@ -12,118 +12,140 @@ class data extends Model
      * @var int
      */
     public $actualEndTime;
+
     /**
      * @var int
      */
     public $actualStartTime;
+
     /**
      * @var string
      */
     public $campaignId;
+
     /**
      * @var int
      */
     public $casesAborted;
+
     /**
      * @var int
      */
     public $casesConnected;
+
     /**
      * @var int
      */
     public $casesUncompleted;
+
     /**
      * @var string
      */
     public $casesUncompletedAfterAttempt;
+
     /**
      * @var int
      */
     public $casesUncompletedAfterAttempted;
+
     /**
      * @var float
      */
     public $completionRate;
+
     /**
      * @var string
      */
     public $contactFlowId;
+
     /**
      * @var int
      */
     public $maxAttemptCount;
+
     /**
      * @var int
      */
     public $minAttemptInterval;
+
     /**
      * @var string
      */
     public $name;
+
     /**
      * @var int
      */
     public $planedEndTime;
+
     /**
      * @var int
      */
     public $planedStartTime;
+
     /**
      * @var string
      */
     public $queueId;
+
     /**
      * @var string
      */
     public $queueName;
+
     /**
      * @var bool
      */
     public $simulation;
+
     /**
      * @var string
      */
     public $simulationParameters;
+
     /**
      * @var string
      */
     public $state;
+
     /**
      * @var string
      */
     public $strategyParameters;
+
     /**
      * @var string
      */
     public $strategyType;
+
     /**
      * @var int
      */
     public $totalCases;
     protected $_name = [
-        'actualEndTime'                  => 'ActualEndTime',
-        'actualStartTime'                => 'ActualStartTime',
-        'campaignId'                     => 'CampaignId',
-        'casesAborted'                   => 'CasesAborted',
-        'casesConnected'                 => 'CasesConnected',
-        'casesUncompleted'               => 'CasesUncompleted',
-        'casesUncompletedAfterAttempt'   => 'CasesUncompletedAfterAttempt',
+        'actualEndTime' => 'ActualEndTime',
+        'actualStartTime' => 'ActualStartTime',
+        'campaignId' => 'CampaignId',
+        'casesAborted' => 'CasesAborted',
+        'casesConnected' => 'CasesConnected',
+        'casesUncompleted' => 'CasesUncompleted',
+        'casesUncompletedAfterAttempt' => 'CasesUncompletedAfterAttempt',
         'casesUncompletedAfterAttempted' => 'CasesUncompletedAfterAttempted',
-        'completionRate'                 => 'CompletionRate',
-        'contactFlowId'                  => 'ContactFlowId',
-        'maxAttemptCount'                => 'MaxAttemptCount',
-        'minAttemptInterval'             => 'MinAttemptInterval',
-        'name'                           => 'Name',
-        'planedEndTime'                  => 'PlanedEndTime',
-        'planedStartTime'                => 'PlanedStartTime',
-        'queueId'                        => 'QueueId',
-        'queueName'                      => 'QueueName',
-        'simulation'                     => 'Simulation',
-        'simulationParameters'           => 'SimulationParameters',
-        'state'                          => 'State',
-        'strategyParameters'             => 'StrategyParameters',
-        'strategyType'                   => 'StrategyType',
-        'totalCases'                     => 'TotalCases',
+        'completionRate' => 'CompletionRate',
+        'contactFlowId' => 'ContactFlowId',
+        'maxAttemptCount' => 'MaxAttemptCount',
+        'minAttemptInterval' => 'MinAttemptInterval',
+        'name' => 'Name',
+        'planedEndTime' => 'PlanedEndTime',
+        'planedStartTime' => 'PlanedStartTime',
+        'queueId' => 'QueueId',
+        'queueName' => 'QueueName',
+        'simulation' => 'Simulation',
+        'simulationParameters' => 'SimulationParameters',
+        'state' => 'State',
+        'strategyParameters' => 'StrategyParameters',
+        'strategyType' => 'StrategyType',
+        'totalCases' => 'TotalCases',
     ];
 
     public function validate()

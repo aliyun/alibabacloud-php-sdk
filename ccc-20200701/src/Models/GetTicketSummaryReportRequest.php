@@ -12,58 +12,68 @@ class GetTicketSummaryReportRequest extends Model
      * @var string
      */
     public $assignee;
+
     /**
      * @var string
      */
     public $assigneeType;
+
     /**
      * @var string
      */
     public $categoryId;
+
     /**
      * @var string
      */
     public $creator;
+
     /**
      * @var int
      */
     public $endTime;
+
     /**
      * @var string
      */
     public $instanceId;
+
     /**
      * @var int
      */
     public $pageNumber;
+
     /**
      * @var int
      */
     public $pageSize;
+
     /**
      * @var string
      */
     public $participant;
+
     /**
      * @var int
      */
     public $startTime;
+
     /**
      * @var string
      */
     public $state;
     protected $_name = [
-        'assignee'     => 'Assignee',
+        'assignee' => 'Assignee',
         'assigneeType' => 'AssigneeType',
-        'categoryId'   => 'CategoryId',
-        'creator'      => 'Creator',
-        'endTime'      => 'EndTime',
-        'instanceId'   => 'InstanceId',
-        'pageNumber'   => 'PageNumber',
-        'pageSize'     => 'PageSize',
-        'participant'  => 'Participant',
-        'startTime'    => 'StartTime',
-        'state'        => 'State',
+        'categoryId' => 'CategoryId',
+        'creator' => 'Creator',
+        'endTime' => 'EndTime',
+        'instanceId' => 'InstanceId',
+        'pageNumber' => 'PageNumber',
+        'pageSize' => 'PageSize',
+        'participant' => 'Participant',
+        'startTime' => 'StartTime',
+        'state' => 'State',
     ];
 
     public function validate()

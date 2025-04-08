@@ -12,23 +12,26 @@ class AnalyzeConversationRequest extends Model
      * @var string
      */
     public $contactId;
+
     /**
      * @var string
      */
     public $fieldListJson;
+
     /**
      * @var string
      */
     public $instanceId;
+
     /**
      * @var string
      */
     public $taskListJson;
     protected $_name = [
-        'contactId'     => 'ContactId',
+        'contactId' => 'ContactId',
         'fieldListJson' => 'FieldListJson',
-        'instanceId'    => 'InstanceId',
-        'taskListJson'  => 'TaskListJson',
+        'instanceId' => 'InstanceId',
+        'taskListJson' => 'TaskListJson',
     ];
 
     public function validate()

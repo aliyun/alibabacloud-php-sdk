@@ -12,28 +12,32 @@ class ListCustomCallTaggingRequest extends Model
      * @var string
      */
     public $callTagNameList;
+
     /**
      * @var string
      */
     public $instanceId;
+
     /**
      * @var int
      */
     public $pageNumber;
+
     /**
      * @var int
      */
     public $pageSize;
+
     /**
      * @var string
      */
     public $searchPattern;
     protected $_name = [
         'callTagNameList' => 'CallTagNameList',
-        'instanceId'      => 'InstanceId',
-        'pageNumber'      => 'PageNumber',
-        'pageSize'        => 'PageSize',
-        'searchPattern'   => 'SearchPattern',
+        'instanceId' => 'InstanceId',
+        'pageNumber' => 'PageNumber',
+        'pageSize' => 'PageSize',
+        'searchPattern' => 'SearchPattern',
     ];
 
     public function validate()

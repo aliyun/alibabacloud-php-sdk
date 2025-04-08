@@ -12,17 +12,19 @@ class parallelJobList extends Model
      * @var string
      */
     public $jobId;
+
     /**
      * @var string
      */
     public $status;
+
     /**
      * @var int
      */
     public $timestamp;
     protected $_name = [
-        'jobId'     => 'JobId',
-        'status'    => 'Status',
+        'jobId' => 'JobId',
+        'status' => 'Status',
         'timestamp' => 'Timestamp',
     ];
 

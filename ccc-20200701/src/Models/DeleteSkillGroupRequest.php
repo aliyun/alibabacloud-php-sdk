@@ -12,17 +12,19 @@ class DeleteSkillGroupRequest extends Model
      * @var bool
      */
     public $force;
+
     /**
      * @var string
      */
     public $instanceId;
+
     /**
      * @var string
      */
     public $skillGroupId;
     protected $_name = [
-        'force'        => 'Force',
-        'instanceId'   => 'InstanceId',
+        'force' => 'Force',
+        'instanceId' => 'InstanceId',
         'skillGroupId' => 'SkillGroupId',
     ];
 

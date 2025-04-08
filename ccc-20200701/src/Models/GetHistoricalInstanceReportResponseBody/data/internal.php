@@ -12,13 +12,14 @@ class internal extends Model
      * @var int
      */
     public $callsAnswered;
+
     /**
      * @var int
      */
     public $callsDialed;
     protected $_name = [
         'callsAnswered' => 'CallsAnswered',
-        'callsDialed'   => 'CallsDialed',
+        'callsDialed' => 'CallsDialed',
     ];
 
     public function validate()

@@ -12,68 +12,80 @@ class channelContexts extends Model
      * @var string
      */
     public $callType;
+
     /**
      * @var string
      */
     public $channelFlags;
+
     /**
      * @var string
      */
     public $channelId;
+
     /**
      * @var string
      */
     public $channelState;
+
     /**
      * @var string
      */
     public $destination;
+
     /**
      * @var string
      */
     public $jobId;
+
     /**
      * @var string
      */
     public $mediaType;
+
     /**
      * @var string
      */
     public $originator;
+
     /**
      * @var string
      */
     public $releaseInitiator;
+
     /**
      * @var string
      */
     public $releaseReason;
+
     /**
      * @var int
      */
     public $timestamp;
+
     /**
      * @var string
      */
     public $userExtension;
+
     /**
      * @var string
      */
     public $userId;
     protected $_name = [
-        'callType'         => 'CallType',
-        'channelFlags'     => 'ChannelFlags',
-        'channelId'        => 'ChannelId',
-        'channelState'     => 'ChannelState',
-        'destination'      => 'Destination',
-        'jobId'            => 'JobId',
-        'mediaType'        => 'MediaType',
-        'originator'       => 'Originator',
+        'callType' => 'CallType',
+        'channelFlags' => 'ChannelFlags',
+        'channelId' => 'ChannelId',
+        'channelState' => 'ChannelState',
+        'destination' => 'Destination',
+        'jobId' => 'JobId',
+        'mediaType' => 'MediaType',
+        'originator' => 'Originator',
         'releaseInitiator' => 'ReleaseInitiator',
-        'releaseReason'    => 'ReleaseReason',
-        'timestamp'        => 'Timestamp',
-        'userExtension'    => 'UserExtension',
-        'userId'           => 'UserId',
+        'releaseReason' => 'ReleaseReason',
+        'timestamp' => 'Timestamp',
+        'userExtension' => 'UserExtension',
+        'userId' => 'UserId',
     ];
 
     public function validate()

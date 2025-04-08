@@ -12,38 +12,44 @@ class ListHistoricalSkillGroupReportRequest extends Model
      * @var int
      */
     public $endTime;
+
     /**
      * @var string
      */
     public $instanceId;
+
     /**
      * @var string
      */
     public $mediaType;
+
     /**
      * @var int
      */
     public $pageNumber;
+
     /**
      * @var int
      */
     public $pageSize;
+
     /**
      * @var string
      */
     public $skillGroupIdList;
+
     /**
      * @var int
      */
     public $startTime;
     protected $_name = [
-        'endTime'          => 'EndTime',
-        'instanceId'       => 'InstanceId',
-        'mediaType'        => 'MediaType',
-        'pageNumber'       => 'PageNumber',
-        'pageSize'         => 'PageSize',
+        'endTime' => 'EndTime',
+        'instanceId' => 'InstanceId',
+        'mediaType' => 'MediaType',
+        'pageNumber' => 'PageNumber',
+        'pageSize' => 'PageSize',
         'skillGroupIdList' => 'SkillGroupIdList',
-        'startTime'        => 'StartTime',
+        'startTime' => 'StartTime',
     ];
 
     public function validate()

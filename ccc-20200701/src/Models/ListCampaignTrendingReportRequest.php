@@ -12,23 +12,26 @@ class ListCampaignTrendingReportRequest extends Model
      * @var string
      */
     public $campaignId;
+
     /**
      * @var int
      */
     public $endTime;
+
     /**
      * @var string
      */
     public $instanceId;
+
     /**
      * @var int
      */
     public $startTime;
     protected $_name = [
         'campaignId' => 'CampaignId',
-        'endTime'    => 'EndTime',
+        'endTime' => 'EndTime',
         'instanceId' => 'InstanceId',
-        'startTime'  => 'StartTime',
+        'startTime' => 'StartTime',
     ];
 
     public function validate()

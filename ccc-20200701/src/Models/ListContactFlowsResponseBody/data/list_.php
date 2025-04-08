@@ -12,63 +12,74 @@ class list_ extends Model
      * @var string
      */
     public $contactFlowId;
+
     /**
      * @var string
      */
     public $createdTime;
+
     /**
      * @var string
      */
     public $definition;
+
     /**
      * @var string
      */
     public $description;
+
     /**
      * @var string
      */
     public $draftId;
+
     /**
      * @var string
      */
     public $editor;
+
     /**
      * @var string
      */
     public $instanceId;
+
     /**
      * @var string
      */
     public $name;
+
     /**
      * @var string[]
      */
     public $numberList;
+
     /**
      * @var bool
      */
     public $published;
+
     /**
      * @var string
      */
     public $type;
+
     /**
      * @var string
      */
     public $updatedTime;
     protected $_name = [
         'contactFlowId' => 'ContactFlowId',
-        'createdTime'   => 'CreatedTime',
-        'definition'    => 'Definition',
-        'description'   => 'Description',
-        'draftId'       => 'DraftId',
-        'editor'        => 'Editor',
-        'instanceId'    => 'InstanceId',
-        'name'          => 'Name',
-        'numberList'    => 'NumberList',
-        'published'     => 'Published',
-        'type'          => 'Type',
-        'updatedTime'   => 'UpdatedTime',
+        'createdTime' => 'CreatedTime',
+        'definition' => 'Definition',
+        'description' => 'Description',
+        'draftId' => 'DraftId',
+        'editor' => 'Editor',
+        'instanceId' => 'InstanceId',
+        'name' => 'Name',
+        'numberList' => 'NumberList',
+        'published' => 'Published',
+        'type' => 'Type',
+        'updatedTime' => 'UpdatedTime',
     ];
 
     public function validate()
@@ -117,7 +128,7 @@ class list_ extends Model
         if (null !== $this->numberList) {
             if (\is_array($this->numberList)) {
                 $res['NumberList'] = [];
-                $n1                = 0;
+                $n1 = 0;
                 foreach ($this->numberList as $item1) {
                     $res['NumberList'][$n1++] = $item1;
                 }
@@ -182,7 +193,7 @@ class list_ extends Model
         if (isset($map['NumberList'])) {
             if (!empty($map['NumberList'])) {
                 $model->numberList = [];
-                $n1                = 0;
+                $n1 = 0;
                 foreach ($map['NumberList'] as $item1) {
                     $model->numberList[$n1++] = $item1;
                 }
