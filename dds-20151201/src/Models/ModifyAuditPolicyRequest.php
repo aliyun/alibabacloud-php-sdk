@@ -12,48 +12,56 @@ class ModifyAuditPolicyRequest extends Model
      * @var string
      */
     public $auditLogSwitchSource;
+
     /**
      * @var string
      */
     public $auditStatus;
+
     /**
      * @var string
      */
     public $DBInstanceId;
+
     /**
      * @var string
      */
     public $ownerAccount;
+
     /**
      * @var int
      */
     public $ownerId;
+
     /**
      * @var string
      */
     public $resourceOwnerAccount;
+
     /**
      * @var int
      */
     public $resourceOwnerId;
+
     /**
      * @var string
      */
     public $serviceType;
+
     /**
      * @var int
      */
     public $storagePeriod;
     protected $_name = [
         'auditLogSwitchSource' => 'AuditLogSwitchSource',
-        'auditStatus'          => 'AuditStatus',
-        'DBInstanceId'         => 'DBInstanceId',
-        'ownerAccount'         => 'OwnerAccount',
-        'ownerId'              => 'OwnerId',
+        'auditStatus' => 'AuditStatus',
+        'DBInstanceId' => 'DBInstanceId',
+        'ownerAccount' => 'OwnerAccount',
+        'ownerId' => 'OwnerId',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
-        'resourceOwnerId'      => 'ResourceOwnerId',
-        'serviceType'          => 'ServiceType',
-        'storagePeriod'        => 'StoragePeriod',
+        'resourceOwnerId' => 'ResourceOwnerId',
+        'serviceType' => 'ServiceType',
+        'storagePeriod' => 'StoragePeriod',
     ];
 
     public function validate()

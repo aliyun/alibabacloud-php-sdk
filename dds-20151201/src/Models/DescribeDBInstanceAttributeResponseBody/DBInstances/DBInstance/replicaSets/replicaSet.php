@@ -12,38 +12,44 @@ class replicaSet extends Model
      * @var string
      */
     public $connectionDomain;
+
     /**
      * @var string
      */
     public $connectionPort;
+
     /**
      * @var string
      */
     public $networkType;
+
     /**
      * @var string
      */
     public $replicaSetRole;
+
     /**
      * @var string
      */
     public $VPCCloudInstanceId;
+
     /**
      * @var string
      */
     public $VPCId;
+
     /**
      * @var string
      */
     public $vSwitchId;
     protected $_name = [
-        'connectionDomain'   => 'ConnectionDomain',
-        'connectionPort'     => 'ConnectionPort',
-        'networkType'        => 'NetworkType',
-        'replicaSetRole'     => 'ReplicaSetRole',
+        'connectionDomain' => 'ConnectionDomain',
+        'connectionPort' => 'ConnectionPort',
+        'networkType' => 'NetworkType',
+        'replicaSetRole' => 'ReplicaSetRole',
         'VPCCloudInstanceId' => 'VPCCloudInstanceId',
-        'VPCId'              => 'VPCId',
-        'vSwitchId'          => 'VSwitchId',
+        'VPCId' => 'VPCId',
+        'vSwitchId' => 'VSwitchId',
     ];
 
     public function validate()

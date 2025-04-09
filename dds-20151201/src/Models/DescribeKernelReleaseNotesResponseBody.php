@@ -13,13 +13,14 @@ class DescribeKernelReleaseNotesResponseBody extends Model
      * @var releaseNotes
      */
     public $releaseNotes;
+
     /**
      * @var string
      */
     public $requestId;
     protected $_name = [
         'releaseNotes' => 'ReleaseNotes',
-        'requestId'    => 'RequestId',
+        'requestId' => 'RequestId',
     ];
 
     public function validate()

@@ -13,23 +13,26 @@ class ddsRegion extends Model
      * @var string
      */
     public $endPoint;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $regionName;
+
     /**
      * @var zones
      */
     public $zones;
     protected $_name = [
-        'endPoint'   => 'EndPoint',
-        'regionId'   => 'RegionId',
+        'endPoint' => 'EndPoint',
+        'regionId' => 'RegionId',
         'regionName' => 'RegionName',
-        'zones'      => 'Zones',
+        'zones' => 'Zones',
     ];
 
     public function validate()

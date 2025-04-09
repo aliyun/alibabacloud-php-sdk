@@ -12,43 +12,50 @@ class ReleaseNodePrivateNetworkAddressRequest extends Model
      * @var string
      */
     public $connectionType;
+
     /**
      * @var string
      */
     public $DBInstanceId;
+
     /**
      * @var string
      */
     public $networkType;
+
     /**
      * @var string
      */
     public $nodeId;
+
     /**
      * @var string
      */
     public $ownerAccount;
+
     /**
      * @var int
      */
     public $ownerId;
+
     /**
      * @var string
      */
     public $resourceOwnerAccount;
+
     /**
      * @var int
      */
     public $resourceOwnerId;
     protected $_name = [
-        'connectionType'       => 'ConnectionType',
-        'DBInstanceId'         => 'DBInstanceId',
-        'networkType'          => 'NetworkType',
-        'nodeId'               => 'NodeId',
-        'ownerAccount'         => 'OwnerAccount',
-        'ownerId'              => 'OwnerId',
+        'connectionType' => 'ConnectionType',
+        'DBInstanceId' => 'DBInstanceId',
+        'networkType' => 'NetworkType',
+        'nodeId' => 'NodeId',
+        'ownerAccount' => 'OwnerAccount',
+        'ownerId' => 'OwnerId',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
-        'resourceOwnerId'      => 'ResourceOwnerId',
+        'resourceOwnerId' => 'ResourceOwnerId',
     ];
 
     public function validate()

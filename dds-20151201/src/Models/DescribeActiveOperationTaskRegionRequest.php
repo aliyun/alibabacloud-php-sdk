@@ -12,33 +12,38 @@ class DescribeActiveOperationTaskRegionRequest extends Model
      * @var int
      */
     public $isHistory;
+
     /**
      * @var string
      */
     public $ownerAccount;
+
     /**
      * @var int
      */
     public $ownerId;
+
     /**
      * @var string
      */
     public $resourceOwnerAccount;
+
     /**
      * @var int
      */
     public $resourceOwnerId;
+
     /**
      * @var string
      */
     public $taskType;
     protected $_name = [
-        'isHistory'            => 'IsHistory',
-        'ownerAccount'         => 'OwnerAccount',
-        'ownerId'              => 'OwnerId',
+        'isHistory' => 'IsHistory',
+        'ownerAccount' => 'OwnerAccount',
+        'ownerId' => 'OwnerId',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
-        'resourceOwnerId'      => 'ResourceOwnerId',
-        'taskType'             => 'TaskType',
+        'resourceOwnerId' => 'ResourceOwnerId',
+        'taskType' => 'TaskType',
     ];
 
     public function validate()

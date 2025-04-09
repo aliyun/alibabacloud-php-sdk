@@ -12,23 +12,26 @@ class logItems extends Model
      * @var string
      */
     public $nodeId;
+
     /**
      * @var string
      */
     public $switchCode;
+
     /**
      * @var string
      */
     public $switchStatus;
+
     /**
      * @var string
      */
     public $switchTime;
     protected $_name = [
-        'nodeId'       => 'NodeId',
-        'switchCode'   => 'SwitchCode',
+        'nodeId' => 'NodeId',
+        'switchCode' => 'SwitchCode',
         'switchStatus' => 'SwitchStatus',
-        'switchTime'   => 'SwitchTime',
+        'switchTime' => 'SwitchTime',
     ];
 
     public function validate()

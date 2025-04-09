@@ -12,27 +12,31 @@ class shardList extends Model
      * @var string
      */
     public $nodeClass;
+
     /**
      * @var string
      */
     public $nodeDescription;
+
     /**
      * @var string
      */
     public $nodeId;
+
     /**
      * @var int
      */
     public $nodeStorage;
+
     /**
      * @var int
      */
     public $readonlyReplicas;
     protected $_name = [
-        'nodeClass'        => 'NodeClass',
-        'nodeDescription'  => 'NodeDescription',
-        'nodeId'           => 'NodeId',
-        'nodeStorage'      => 'NodeStorage',
+        'nodeClass' => 'NodeClass',
+        'nodeDescription' => 'NodeDescription',
+        'nodeId' => 'NodeId',
+        'nodeStorage' => 'NodeStorage',
         'readonlyReplicas' => 'ReadonlyReplicas',
     ];
 

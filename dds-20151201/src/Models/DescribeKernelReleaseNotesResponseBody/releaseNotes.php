@@ -31,7 +31,7 @@ class releaseNotes extends Model
         if (null !== $this->releaseNote) {
             if (\is_array($this->releaseNote)) {
                 $res['ReleaseNote'] = [];
-                $n1                 = 0;
+                $n1 = 0;
                 foreach ($this->releaseNote as $item1) {
                     $res['ReleaseNote'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -52,7 +52,7 @@ class releaseNotes extends Model
         if (isset($map['ReleaseNote'])) {
             if (!empty($map['ReleaseNote'])) {
                 $model->releaseNote = [];
-                $n1                 = 0;
+                $n1 = 0;
                 foreach ($map['ReleaseNote'] as $item1) {
                     $model->releaseNote[$n1++] = releaseNote::fromMap($item1);
                 }

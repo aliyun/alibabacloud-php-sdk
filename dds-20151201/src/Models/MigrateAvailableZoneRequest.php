@@ -12,53 +12,62 @@ class MigrateAvailableZoneRequest extends Model
      * @var string
      */
     public $DBInstanceId;
+
     /**
      * @var string
      */
     public $effectiveTime;
+
     /**
      * @var string
      */
     public $hiddenZoneId;
+
     /**
      * @var string
      */
     public $ownerAccount;
+
     /**
      * @var int
      */
     public $ownerId;
+
     /**
      * @var string
      */
     public $resourceOwnerAccount;
+
     /**
      * @var int
      */
     public $resourceOwnerId;
+
     /**
      * @var string
      */
     public $secondaryZoneId;
+
     /**
      * @var string
      */
     public $vswitch;
+
     /**
      * @var string
      */
     public $zoneId;
     protected $_name = [
-        'DBInstanceId'         => 'DBInstanceId',
-        'effectiveTime'        => 'EffectiveTime',
-        'hiddenZoneId'         => 'HiddenZoneId',
-        'ownerAccount'         => 'OwnerAccount',
-        'ownerId'              => 'OwnerId',
+        'DBInstanceId' => 'DBInstanceId',
+        'effectiveTime' => 'EffectiveTime',
+        'hiddenZoneId' => 'HiddenZoneId',
+        'ownerAccount' => 'OwnerAccount',
+        'ownerId' => 'OwnerId',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
-        'resourceOwnerId'      => 'ResourceOwnerId',
-        'secondaryZoneId'      => 'SecondaryZoneId',
-        'vswitch'              => 'Vswitch',
-        'zoneId'               => 'ZoneId',
+        'resourceOwnerId' => 'ResourceOwnerId',
+        'secondaryZoneId' => 'SecondaryZoneId',
+        'vswitch' => 'Vswitch',
+        'zoneId' => 'ZoneId',
     ];
 
     public function validate()

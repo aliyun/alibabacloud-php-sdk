@@ -12,88 +12,104 @@ class DescribeRunningLogRecordsRequest extends Model
      * @var string
      */
     public $DBInstanceId;
+
     /**
      * @var string
      */
     public $DBName;
+
     /**
      * @var string
      */
     public $endTime;
+
     /**
      * @var string
      */
     public $logicalOperator;
+
     /**
      * @var string
      */
     public $nodeId;
+
     /**
      * @var string
      */
     public $orderType;
+
     /**
      * @var string
      */
     public $ownerAccount;
+
     /**
      * @var int
      */
     public $ownerId;
+
     /**
      * @var int
      */
     public $pageNumber;
+
     /**
      * @var int
      */
     public $pageSize;
+
     /**
      * @var string
      */
     public $queryKeywords;
+
     /**
      * @var string
      */
     public $resourceGroupId;
+
     /**
      * @var string
      */
     public $resourceOwnerAccount;
+
     /**
      * @var int
      */
     public $resourceOwnerId;
+
     /**
      * @var string
      */
     public $roleId;
+
     /**
      * @var string
      */
     public $roleType;
+
     /**
      * @var string
      */
     public $startTime;
     protected $_name = [
-        'DBInstanceId'         => 'DBInstanceId',
-        'DBName'               => 'DBName',
-        'endTime'              => 'EndTime',
-        'logicalOperator'      => 'LogicalOperator',
-        'nodeId'               => 'NodeId',
-        'orderType'            => 'OrderType',
-        'ownerAccount'         => 'OwnerAccount',
-        'ownerId'              => 'OwnerId',
-        'pageNumber'           => 'PageNumber',
-        'pageSize'             => 'PageSize',
-        'queryKeywords'        => 'QueryKeywords',
-        'resourceGroupId'      => 'ResourceGroupId',
+        'DBInstanceId' => 'DBInstanceId',
+        'DBName' => 'DBName',
+        'endTime' => 'EndTime',
+        'logicalOperator' => 'LogicalOperator',
+        'nodeId' => 'NodeId',
+        'orderType' => 'OrderType',
+        'ownerAccount' => 'OwnerAccount',
+        'ownerId' => 'OwnerId',
+        'pageNumber' => 'PageNumber',
+        'pageSize' => 'PageSize',
+        'queryKeywords' => 'QueryKeywords',
+        'resourceGroupId' => 'ResourceGroupId',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
-        'resourceOwnerId'      => 'ResourceOwnerId',
-        'roleId'               => 'RoleId',
-        'roleType'             => 'RoleType',
-        'startTime'            => 'StartTime',
+        'resourceOwnerId' => 'ResourceOwnerId',
+        'roleId' => 'RoleId',
+        'roleType' => 'RoleType',
+        'startTime' => 'StartTime',
     ];
 
     public function validate()

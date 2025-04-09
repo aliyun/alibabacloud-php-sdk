@@ -12,53 +12,62 @@ class logRecords extends Model
      * @var string
      */
     public $accountName;
+
     /**
      * @var string
      */
     public $DBName;
+
     /**
      * @var int
      */
     public $docsExamined;
+
     /**
      * @var string
      */
     public $executionStartTime;
+
     /**
      * @var string
      */
     public $hostAddress;
+
     /**
      * @var int
      */
     public $keysExamined;
+
     /**
      * @var string
      */
     public $queryTimes;
+
     /**
      * @var int
      */
     public $returnRowCounts;
+
     /**
      * @var string
      */
     public $SQLText;
+
     /**
      * @var string
      */
     public $tableName;
     protected $_name = [
-        'accountName'        => 'AccountName',
-        'DBName'             => 'DBName',
-        'docsExamined'       => 'DocsExamined',
+        'accountName' => 'AccountName',
+        'DBName' => 'DBName',
+        'docsExamined' => 'DocsExamined',
         'executionStartTime' => 'ExecutionStartTime',
-        'hostAddress'        => 'HostAddress',
-        'keysExamined'       => 'KeysExamined',
-        'queryTimes'         => 'QueryTimes',
-        'returnRowCounts'    => 'ReturnRowCounts',
-        'SQLText'            => 'SQLText',
-        'tableName'          => 'TableName',
+        'hostAddress' => 'HostAddress',
+        'keysExamined' => 'KeysExamined',
+        'queryTimes' => 'QueryTimes',
+        'returnRowCounts' => 'ReturnRowCounts',
+        'SQLText' => 'SQLText',
+        'tableName' => 'TableName',
     ];
 
     public function validate()

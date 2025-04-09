@@ -13,12 +13,13 @@ class DescribeKmsKeysResponseBody extends Model
      * @var kmsKeys[]
      */
     public $kmsKeys;
+
     /**
      * @var string
      */
     public $requestId;
     protected $_name = [
-        'kmsKeys'   => 'KmsKeys',
+        'kmsKeys' => 'KmsKeys',
         'requestId' => 'RequestId',
     ];
 
@@ -36,7 +37,7 @@ class DescribeKmsKeysResponseBody extends Model
         if (null !== $this->kmsKeys) {
             if (\is_array($this->kmsKeys)) {
                 $res['KmsKeys'] = [];
-                $n1             = 0;
+                $n1 = 0;
                 foreach ($this->kmsKeys as $item1) {
                     $res['KmsKeys'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -61,7 +62,7 @@ class DescribeKmsKeysResponseBody extends Model
         if (isset($map['KmsKeys'])) {
             if (!empty($map['KmsKeys'])) {
                 $model->kmsKeys = [];
-                $n1             = 0;
+                $n1 = 0;
                 foreach ($map['KmsKeys'] as $item1) {
                     $model->kmsKeys[$n1++] = kmsKeys::fromMap($item1);
                 }

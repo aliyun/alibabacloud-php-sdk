@@ -12,18 +12,20 @@ class mongosList extends Model
      * @var string
      */
     public $nodeClass;
+
     /**
      * @var string
      */
     public $nodeDescription;
+
     /**
      * @var string
      */
     public $nodeId;
     protected $_name = [
-        'nodeClass'       => 'NodeClass',
+        'nodeClass' => 'NodeClass',
         'nodeDescription' => 'NodeDescription',
-        'nodeId'          => 'NodeId',
+        'nodeId' => 'NodeId',
     ];
 
     public function validate()

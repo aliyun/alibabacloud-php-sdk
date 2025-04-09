@@ -12,53 +12,62 @@ class TransformToPrePaidRequest extends Model
      * @var bool
      */
     public $autoPay;
+
     /**
      * @var string
      */
     public $autoRenew;
+
     /**
      * @var string
      */
     public $businessInfo;
+
     /**
      * @var string
      */
     public $couponNo;
+
     /**
      * @var string
      */
     public $instanceId;
+
     /**
      * @var string
      */
     public $ownerAccount;
+
     /**
      * @var int
      */
     public $ownerId;
+
     /**
      * @var int
      */
     public $period;
+
     /**
      * @var string
      */
     public $resourceOwnerAccount;
+
     /**
      * @var int
      */
     public $resourceOwnerId;
     protected $_name = [
-        'autoPay'              => 'AutoPay',
-        'autoRenew'            => 'AutoRenew',
-        'businessInfo'         => 'BusinessInfo',
-        'couponNo'             => 'CouponNo',
-        'instanceId'           => 'InstanceId',
-        'ownerAccount'         => 'OwnerAccount',
-        'ownerId'              => 'OwnerId',
-        'period'               => 'Period',
+        'autoPay' => 'AutoPay',
+        'autoRenew' => 'AutoRenew',
+        'businessInfo' => 'BusinessInfo',
+        'couponNo' => 'CouponNo',
+        'instanceId' => 'InstanceId',
+        'ownerAccount' => 'OwnerAccount',
+        'ownerId' => 'OwnerId',
+        'period' => 'Period',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
-        'resourceOwnerId'      => 'ResourceOwnerId',
+        'resourceOwnerId' => 'ResourceOwnerId',
     ];
 
     public function validate()

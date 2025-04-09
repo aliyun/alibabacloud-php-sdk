@@ -12,28 +12,32 @@ class item extends Model
      * @var string
      */
     public $autoRenew;
+
     /**
      * @var string
      */
     public $DBInstanceType;
+
     /**
      * @var string
      */
     public $dbInstanceId;
+
     /**
      * @var string
      */
     public $duration;
+
     /**
      * @var string
      */
     public $regionId;
     protected $_name = [
-        'autoRenew'      => 'AutoRenew',
+        'autoRenew' => 'AutoRenew',
         'DBInstanceType' => 'DBInstanceType',
-        'dbInstanceId'   => 'DbInstanceId',
-        'duration'       => 'Duration',
-        'regionId'       => 'RegionId',
+        'dbInstanceId' => 'DbInstanceId',
+        'duration' => 'Duration',
+        'regionId' => 'RegionId',
     ];
 
     public function validate()

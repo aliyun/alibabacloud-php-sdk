@@ -12,43 +12,50 @@ class DeleteGlobalSecurityIPGroupRequest extends Model
      * @var string
      */
     public $globalIgName;
+
     /**
      * @var string
      */
     public $globalSecurityGroupId;
+
     /**
      * @var string
      */
     public $ownerAccount;
+
     /**
      * @var int
      */
     public $ownerId;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $resourceOwnerAccount;
+
     /**
      * @var int
      */
     public $resourceOwnerId;
+
     /**
      * @var string
      */
     public $securityToken;
     protected $_name = [
-        'globalIgName'          => 'GlobalIgName',
+        'globalIgName' => 'GlobalIgName',
         'globalSecurityGroupId' => 'GlobalSecurityGroupId',
-        'ownerAccount'          => 'OwnerAccount',
-        'ownerId'               => 'OwnerId',
-        'regionId'              => 'RegionId',
-        'resourceOwnerAccount'  => 'ResourceOwnerAccount',
-        'resourceOwnerId'       => 'ResourceOwnerId',
-        'securityToken'         => 'SecurityToken',
+        'ownerAccount' => 'OwnerAccount',
+        'ownerId' => 'OwnerId',
+        'regionId' => 'RegionId',
+        'resourceOwnerAccount' => 'ResourceOwnerAccount',
+        'resourceOwnerId' => 'ResourceOwnerId',
+        'securityToken' => 'SecurityToken',
     ];
 
     public function validate()

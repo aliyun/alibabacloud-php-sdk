@@ -12,12 +12,13 @@ class CheckServiceLinkedRoleResponseBody extends Model
      * @var string
      */
     public $requestId;
+
     /**
      * @var bool
      */
     public $serviceLinkedRoleExists;
     protected $_name = [
-        'requestId'               => 'RequestId',
+        'requestId' => 'RequestId',
         'serviceLinkedRoleExists' => 'ServiceLinkedRoleExists',
     ];
 

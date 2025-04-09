@@ -12,12 +12,13 @@ class configServer extends Model
      * @var string
      */
     public $class;
+
     /**
      * @var int
      */
     public $storage;
     protected $_name = [
-        'class'   => 'Class',
+        'class' => 'Class',
         'storage' => 'Storage',
     ];
 

@@ -12,12 +12,13 @@ class tags extends Model
      * @var string
      */
     public $tagKey;
+
     /**
      * @var string[]
      */
     public $tagValues;
     protected $_name = [
-        'tagKey'    => 'TagKey',
+        'tagKey' => 'TagKey',
         'tagValues' => 'TagValues',
     ];
 
@@ -39,7 +40,7 @@ class tags extends Model
         if (null !== $this->tagValues) {
             if (\is_array($this->tagValues)) {
                 $res['TagValues'] = [];
-                $n1               = 0;
+                $n1 = 0;
                 foreach ($this->tagValues as $item1) {
                     $res['TagValues'][$n1++] = $item1;
                 }
@@ -64,7 +65,7 @@ class tags extends Model
         if (isset($map['TagValues'])) {
             if (!empty($map['TagValues'])) {
                 $model->tagValues = [];
-                $n1               = 0;
+                $n1 = 0;
                 foreach ($map['TagValues'] as $item1) {
                     $model->tagValues[$n1++] = $item1;
                 }

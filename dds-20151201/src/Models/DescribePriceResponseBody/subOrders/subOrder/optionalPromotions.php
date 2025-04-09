@@ -31,7 +31,7 @@ class optionalPromotions extends Model
         if (null !== $this->optionalPromotion) {
             if (\is_array($this->optionalPromotion)) {
                 $res['OptionalPromotion'] = [];
-                $n1                       = 0;
+                $n1 = 0;
                 foreach ($this->optionalPromotion as $item1) {
                     $res['OptionalPromotion'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -52,7 +52,7 @@ class optionalPromotions extends Model
         if (isset($map['OptionalPromotion'])) {
             if (!empty($map['OptionalPromotion'])) {
                 $model->optionalPromotion = [];
-                $n1                       = 0;
+                $n1 = 0;
                 foreach ($map['OptionalPromotion'] as $item1) {
                     $model->optionalPromotion[$n1++] = optionalPromotion::fromMap($item1);
                 }

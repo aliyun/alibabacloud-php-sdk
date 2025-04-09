@@ -12,73 +12,86 @@ class CreateNodeBatchRequest extends Model
      * @var string
      */
     public $accountName;
+
     /**
      * @var string
      */
     public $accountPassword;
+
     /**
      * @var bool
      */
     public $autoPay;
+
     /**
      * @var string
      */
     public $businessInfo;
+
     /**
      * @var string
      */
     public $clientToken;
+
     /**
      * @var string
      */
     public $couponNo;
+
     /**
      * @var string
      */
     public $DBInstanceId;
+
     /**
      * @var string
      */
     public $fromApp;
+
     /**
      * @var string
      */
     public $nodesInfo;
+
     /**
      * @var string
      */
     public $ownerAccount;
+
     /**
      * @var int
      */
     public $ownerId;
+
     /**
      * @var string
      */
     public $resourceOwnerAccount;
+
     /**
      * @var int
      */
     public $resourceOwnerId;
+
     /**
      * @var bool
      */
     public $shardDirect;
     protected $_name = [
-        'accountName'          => 'AccountName',
-        'accountPassword'      => 'AccountPassword',
-        'autoPay'              => 'AutoPay',
-        'businessInfo'         => 'BusinessInfo',
-        'clientToken'          => 'ClientToken',
-        'couponNo'             => 'CouponNo',
-        'DBInstanceId'         => 'DBInstanceId',
-        'fromApp'              => 'FromApp',
-        'nodesInfo'            => 'NodesInfo',
-        'ownerAccount'         => 'OwnerAccount',
-        'ownerId'              => 'OwnerId',
+        'accountName' => 'AccountName',
+        'accountPassword' => 'AccountPassword',
+        'autoPay' => 'AutoPay',
+        'businessInfo' => 'BusinessInfo',
+        'clientToken' => 'ClientToken',
+        'couponNo' => 'CouponNo',
+        'DBInstanceId' => 'DBInstanceId',
+        'fromApp' => 'FromApp',
+        'nodesInfo' => 'NodesInfo',
+        'ownerAccount' => 'OwnerAccount',
+        'ownerId' => 'OwnerId',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
-        'resourceOwnerId'      => 'ResourceOwnerId',
-        'shardDirect'          => 'ShardDirect',
+        'resourceOwnerId' => 'ResourceOwnerId',
+        'shardDirect' => 'ShardDirect',
     ];
 
     public function validate()

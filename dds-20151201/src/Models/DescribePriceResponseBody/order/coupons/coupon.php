@@ -13,41 +13,48 @@ class coupon extends Model
      * @var string
      */
     public $activityCategory;
+
     /**
      * @var string
      */
     public $couponNo;
+
     /**
      * @var string
      */
     public $description;
+
     /**
      * @var string
      */
     public $isSelected;
+
     /**
      * @var string
      */
     public $name;
+
     /**
      * @var string
      */
     public $optionCode;
+
     /**
      * @var string
      */
     public $promotionOptionCode;
+
     /**
      * @var promotionRuleIdList
      */
     public $promotionRuleIdList;
     protected $_name = [
-        'activityCategory'    => 'ActivityCategory',
-        'couponNo'            => 'CouponNo',
-        'description'         => 'Description',
-        'isSelected'          => 'IsSelected',
-        'name'                => 'Name',
-        'optionCode'          => 'OptionCode',
+        'activityCategory' => 'ActivityCategory',
+        'couponNo' => 'CouponNo',
+        'description' => 'Description',
+        'isSelected' => 'IsSelected',
+        'name' => 'Name',
+        'optionCode' => 'OptionCode',
         'promotionOptionCode' => 'PromotionOptionCode',
         'promotionRuleIdList' => 'PromotionRuleIdList',
     ];

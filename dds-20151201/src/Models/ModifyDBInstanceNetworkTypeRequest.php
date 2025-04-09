@@ -12,58 +12,68 @@ class ModifyDBInstanceNetworkTypeRequest extends Model
      * @var int
      */
     public $classicExpiredDays;
+
     /**
      * @var string
      */
     public $DBInstanceId;
+
     /**
      * @var string
      */
     public $networkType;
+
     /**
      * @var string
      */
     public $ownerAccount;
+
     /**
      * @var int
      */
     public $ownerId;
+
     /**
      * @var string
      */
     public $resourceOwnerAccount;
+
     /**
      * @var int
      */
     public $resourceOwnerId;
+
     /**
      * @var string
      */
     public $retainClassic;
+
     /**
      * @var string
      */
     public $vSwitchId;
+
     /**
      * @var string
      */
     public $vpcId;
+
     /**
      * @var string
      */
     public $zoneId;
     protected $_name = [
-        'classicExpiredDays'   => 'ClassicExpiredDays',
-        'DBInstanceId'         => 'DBInstanceId',
-        'networkType'          => 'NetworkType',
-        'ownerAccount'         => 'OwnerAccount',
-        'ownerId'              => 'OwnerId',
+        'classicExpiredDays' => 'ClassicExpiredDays',
+        'DBInstanceId' => 'DBInstanceId',
+        'networkType' => 'NetworkType',
+        'ownerAccount' => 'OwnerAccount',
+        'ownerId' => 'OwnerId',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
-        'resourceOwnerId'      => 'ResourceOwnerId',
-        'retainClassic'        => 'RetainClassic',
-        'vSwitchId'            => 'VSwitchId',
-        'vpcId'                => 'VpcId',
-        'zoneId'               => 'ZoneId',
+        'resourceOwnerId' => 'ResourceOwnerId',
+        'retainClassic' => 'RetainClassic',
+        'vSwitchId' => 'VSwitchId',
+        'vpcId' => 'VpcId',
+        'zoneId' => 'ZoneId',
     ];
 
     public function validate()

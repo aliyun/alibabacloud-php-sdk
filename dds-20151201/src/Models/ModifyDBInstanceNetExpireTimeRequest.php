@@ -12,38 +12,44 @@ class ModifyDBInstanceNetExpireTimeRequest extends Model
      * @var int
      */
     public $classicExpendExpiredDays;
+
     /**
      * @var string
      */
     public $connectionString;
+
     /**
      * @var string
      */
     public $DBInstanceId;
+
     /**
      * @var string
      */
     public $ownerAccount;
+
     /**
      * @var int
      */
     public $ownerId;
+
     /**
      * @var string
      */
     public $resourceOwnerAccount;
+
     /**
      * @var int
      */
     public $resourceOwnerId;
     protected $_name = [
         'classicExpendExpiredDays' => 'ClassicExpendExpiredDays',
-        'connectionString'         => 'ConnectionString',
-        'DBInstanceId'             => 'DBInstanceId',
-        'ownerAccount'             => 'OwnerAccount',
-        'ownerId'                  => 'OwnerId',
-        'resourceOwnerAccount'     => 'ResourceOwnerAccount',
-        'resourceOwnerId'          => 'ResourceOwnerId',
+        'connectionString' => 'ConnectionString',
+        'DBInstanceId' => 'DBInstanceId',
+        'ownerAccount' => 'OwnerAccount',
+        'ownerId' => 'OwnerId',
+        'resourceOwnerAccount' => 'ResourceOwnerAccount',
+        'resourceOwnerId' => 'ResourceOwnerId',
     ];
 
     public function validate()

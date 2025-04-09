@@ -31,7 +31,7 @@ class moduleAttrs extends Model
         if (null !== $this->moduleAttr) {
             if (\is_array($this->moduleAttr)) {
                 $res['moduleAttr'] = [];
-                $n1                = 0;
+                $n1 = 0;
                 foreach ($this->moduleAttr as $item1) {
                     $res['moduleAttr'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -52,7 +52,7 @@ class moduleAttrs extends Model
         if (isset($map['moduleAttr'])) {
             if (!empty($map['moduleAttr'])) {
                 $model->moduleAttr = [];
-                $n1                = 0;
+                $n1 = 0;
                 foreach ($map['moduleAttr'] as $item1) {
                     $model->moduleAttr[$n1++] = moduleAttr::fromMap($item1);
                 }

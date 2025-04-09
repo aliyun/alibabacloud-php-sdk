@@ -14,52 +14,61 @@ class optionalPromotion extends Model
      * @var string
      */
     public $activityCategory;
+
     /**
      * @var mixed[]
      */
     public $activityExtInfo;
+
     /**
      * @var float
      */
     public $canPromFee;
+
     /**
      * @var string
      */
     public $optionCode;
+
     /**
      * @var string
      */
     public $promotionName;
+
     /**
      * @var string
      */
     public $promotionOptionNo;
+
     /**
      * @var promotionRuleIdList
      */
     public $promotionRuleIdList;
+
     /**
      * @var bool
      */
     public $selected;
+
     /**
      * @var bool
      */
     public $show;
+
     /**
      * @var targetArticleItemCodes
      */
     public $targetArticleItemCodes;
     protected $_name = [
-        'activityCategory'       => 'ActivityCategory',
-        'activityExtInfo'        => 'ActivityExtInfo',
-        'canPromFee'             => 'CanPromFee',
-        'optionCode'             => 'OptionCode',
-        'promotionName'          => 'PromotionName',
-        'promotionOptionNo'      => 'PromotionOptionNo',
-        'promotionRuleIdList'    => 'PromotionRuleIdList',
-        'selected'               => 'Selected',
-        'show'                   => 'Show',
+        'activityCategory' => 'ActivityCategory',
+        'activityExtInfo' => 'ActivityExtInfo',
+        'canPromFee' => 'CanPromFee',
+        'optionCode' => 'OptionCode',
+        'promotionName' => 'PromotionName',
+        'promotionOptionNo' => 'PromotionOptionNo',
+        'promotionRuleIdList' => 'PromotionRuleIdList',
+        'selected' => 'Selected',
+        'show' => 'Show',
         'targetArticleItemCodes' => 'TargetArticleItemCodes',
     ];
 

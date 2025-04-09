@@ -12,18 +12,20 @@ class securityIpGroup extends Model
      * @var string
      */
     public $securityIpGroupAttribute;
+
     /**
      * @var string
      */
     public $securityIpGroupName;
+
     /**
      * @var string
      */
     public $securityIpList;
     protected $_name = [
         'securityIpGroupAttribute' => 'SecurityIpGroupAttribute',
-        'securityIpGroupName'      => 'SecurityIpGroupName',
-        'securityIpList'           => 'SecurityIpList',
+        'securityIpGroupName' => 'SecurityIpGroupName',
+        'securityIpList' => 'SecurityIpList',
     ];
 
     public function validate()

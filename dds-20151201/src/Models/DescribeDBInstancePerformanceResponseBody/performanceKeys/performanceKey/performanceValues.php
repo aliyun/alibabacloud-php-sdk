@@ -31,7 +31,7 @@ class performanceValues extends Model
         if (null !== $this->performanceValue) {
             if (\is_array($this->performanceValue)) {
                 $res['PerformanceValue'] = [];
-                $n1                      = 0;
+                $n1 = 0;
                 foreach ($this->performanceValue as $item1) {
                     $res['PerformanceValue'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -52,7 +52,7 @@ class performanceValues extends Model
         if (isset($map['PerformanceValue'])) {
             if (!empty($map['PerformanceValue'])) {
                 $model->performanceValue = [];
-                $n1                      = 0;
+                $n1 = 0;
                 foreach ($map['PerformanceValue'] as $item1) {
                     $model->performanceValue[$n1++] = performanceValue::fromMap($item1);
                 }

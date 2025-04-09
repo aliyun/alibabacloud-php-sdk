@@ -12,63 +12,74 @@ class networkAddress extends Model
      * @var string
      */
     public $connectionType;
+
     /**
      * @var string
      */
     public $expiredTime;
+
     /**
      * @var string
      */
     public $IPAddress;
+
     /**
      * @var string
      */
     public $networkAddress;
+
     /**
      * @var string
      */
     public $networkType;
+
     /**
      * @var string
      */
     public $nodeId;
+
     /**
      * @var string
      */
     public $nodeType;
+
     /**
      * @var string
      */
     public $port;
+
     /**
      * @var string
      */
     public $role;
+
     /**
      * @var string
      */
     public $txtRecord;
+
     /**
      * @var string
      */
     public $VPCId;
+
     /**
      * @var string
      */
     public $vswitchId;
     protected $_name = [
         'connectionType' => 'ConnectionType',
-        'expiredTime'    => 'ExpiredTime',
-        'IPAddress'      => 'IPAddress',
+        'expiredTime' => 'ExpiredTime',
+        'IPAddress' => 'IPAddress',
         'networkAddress' => 'NetworkAddress',
-        'networkType'    => 'NetworkType',
-        'nodeId'         => 'NodeId',
-        'nodeType'       => 'NodeType',
-        'port'           => 'Port',
-        'role'           => 'Role',
-        'txtRecord'      => 'TxtRecord',
-        'VPCId'          => 'VPCId',
-        'vswitchId'      => 'VswitchId',
+        'networkType' => 'NetworkType',
+        'nodeId' => 'NodeId',
+        'nodeType' => 'NodeType',
+        'port' => 'Port',
+        'role' => 'Role',
+        'txtRecord' => 'TxtRecord',
+        'VPCId' => 'VPCId',
+        'vswitchId' => 'VswitchId',
     ];
 
     public function validate()

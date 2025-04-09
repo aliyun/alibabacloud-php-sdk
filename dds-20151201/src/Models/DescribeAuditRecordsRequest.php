@@ -12,83 +12,98 @@ class DescribeAuditRecordsRequest extends Model
      * @var string
      */
     public $DBInstanceId;
+
     /**
      * @var string
      */
     public $database;
+
     /**
      * @var string
      */
     public $endTime;
+
     /**
      * @var string
      */
     public $form;
+
     /**
      * @var string
      */
     public $logicalOperator;
+
     /**
      * @var string
      */
     public $nodeId;
+
     /**
      * @var string
      */
     public $orderType;
+
     /**
      * @var string
      */
     public $ownerAccount;
+
     /**
      * @var int
      */
     public $ownerId;
+
     /**
      * @var int
      */
     public $pageNumber;
+
     /**
      * @var int
      */
     public $pageSize;
+
     /**
      * @var string
      */
     public $queryKeywords;
+
     /**
      * @var string
      */
     public $resourceOwnerAccount;
+
     /**
      * @var int
      */
     public $resourceOwnerId;
+
     /**
      * @var string
      */
     public $startTime;
+
     /**
      * @var string
      */
     public $user;
     protected $_name = [
-        'DBInstanceId'         => 'DBInstanceId',
-        'database'             => 'Database',
-        'endTime'              => 'EndTime',
-        'form'                 => 'Form',
-        'logicalOperator'      => 'LogicalOperator',
-        'nodeId'               => 'NodeId',
-        'orderType'            => 'OrderType',
-        'ownerAccount'         => 'OwnerAccount',
-        'ownerId'              => 'OwnerId',
-        'pageNumber'           => 'PageNumber',
-        'pageSize'             => 'PageSize',
-        'queryKeywords'        => 'QueryKeywords',
+        'DBInstanceId' => 'DBInstanceId',
+        'database' => 'Database',
+        'endTime' => 'EndTime',
+        'form' => 'Form',
+        'logicalOperator' => 'LogicalOperator',
+        'nodeId' => 'NodeId',
+        'orderType' => 'OrderType',
+        'ownerAccount' => 'OwnerAccount',
+        'ownerId' => 'OwnerId',
+        'pageNumber' => 'PageNumber',
+        'pageSize' => 'PageSize',
+        'queryKeywords' => 'QueryKeywords',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
-        'resourceOwnerId'      => 'ResourceOwnerId',
-        'startTime'            => 'StartTime',
-        'user'                 => 'User',
+        'resourceOwnerId' => 'ResourceOwnerId',
+        'startTime' => 'StartTime',
+        'user' => 'User',
     ];
 
     public function validate()

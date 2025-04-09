@@ -13,18 +13,20 @@ class DescribeSecurityIpsResponseBody extends Model
      * @var string
      */
     public $requestId;
+
     /**
      * @var securityIpGroups
      */
     public $securityIpGroups;
+
     /**
      * @var string
      */
     public $securityIps;
     protected $_name = [
-        'requestId'        => 'RequestId',
+        'requestId' => 'RequestId',
         'securityIpGroups' => 'SecurityIpGroups',
-        'securityIps'      => 'SecurityIps',
+        'securityIps' => 'SecurityIps',
     ];
 
     public function validate()

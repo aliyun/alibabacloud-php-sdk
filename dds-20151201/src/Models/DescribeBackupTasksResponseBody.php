@@ -13,13 +13,14 @@ class DescribeBackupTasksResponseBody extends Model
      * @var backupJobs[]
      */
     public $backupJobs;
+
     /**
      * @var string
      */
     public $requestId;
     protected $_name = [
         'backupJobs' => 'BackupJobs',
-        'requestId'  => 'RequestId',
+        'requestId' => 'RequestId',
     ];
 
     public function validate()
@@ -36,7 +37,7 @@ class DescribeBackupTasksResponseBody extends Model
         if (null !== $this->backupJobs) {
             if (\is_array($this->backupJobs)) {
                 $res['BackupJobs'] = [];
-                $n1                = 0;
+                $n1 = 0;
                 foreach ($this->backupJobs as $item1) {
                     $res['BackupJobs'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -61,7 +62,7 @@ class DescribeBackupTasksResponseBody extends Model
         if (isset($map['BackupJobs'])) {
             if (!empty($map['BackupJobs'])) {
                 $model->backupJobs = [];
-                $n1                = 0;
+                $n1 = 0;
                 foreach ($map['BackupJobs'] as $item1) {
                     $model->backupJobs[$n1++] = backupJobs::fromMap($item1);
                 }

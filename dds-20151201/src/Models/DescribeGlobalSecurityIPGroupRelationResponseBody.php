@@ -13,18 +13,20 @@ class DescribeGlobalSecurityIPGroupRelationResponseBody extends Model
      * @var string
      */
     public $DBClusterId;
+
     /**
      * @var globalSecurityIPGroupRel[]
      */
     public $globalSecurityIPGroupRel;
+
     /**
      * @var string
      */
     public $requestId;
     protected $_name = [
-        'DBClusterId'              => 'DBClusterId',
+        'DBClusterId' => 'DBClusterId',
         'globalSecurityIPGroupRel' => 'GlobalSecurityIPGroupRel',
-        'requestId'                => 'RequestId',
+        'requestId' => 'RequestId',
     ];
 
     public function validate()
@@ -45,7 +47,7 @@ class DescribeGlobalSecurityIPGroupRelationResponseBody extends Model
         if (null !== $this->globalSecurityIPGroupRel) {
             if (\is_array($this->globalSecurityIPGroupRel)) {
                 $res['GlobalSecurityIPGroupRel'] = [];
-                $n1                              = 0;
+                $n1 = 0;
                 foreach ($this->globalSecurityIPGroupRel as $item1) {
                     $res['GlobalSecurityIPGroupRel'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -74,7 +76,7 @@ class DescribeGlobalSecurityIPGroupRelationResponseBody extends Model
         if (isset($map['GlobalSecurityIPGroupRel'])) {
             if (!empty($map['GlobalSecurityIPGroupRel'])) {
                 $model->globalSecurityIPGroupRel = [];
-                $n1                              = 0;
+                $n1 = 0;
                 foreach ($map['GlobalSecurityIPGroupRel'] as $item1) {
                     $model->globalSecurityIPGroupRel[$n1++] = globalSecurityIPGroupRel::fromMap($item1);
                 }

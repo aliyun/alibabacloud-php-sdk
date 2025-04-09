@@ -12,38 +12,44 @@ class parameter extends Model
      * @var string
      */
     public $characterType;
+
     /**
      * @var string
      */
     public $checkingCode;
+
     /**
      * @var string
      */
     public $forceRestart;
+
     /**
      * @var string
      */
     public $modifiableStatus;
+
     /**
      * @var string
      */
     public $parameterDescription;
+
     /**
      * @var string
      */
     public $parameterName;
+
     /**
      * @var string
      */
     public $parameterValue;
     protected $_name = [
-        'characterType'        => 'CharacterType',
-        'checkingCode'         => 'CheckingCode',
-        'forceRestart'         => 'ForceRestart',
-        'modifiableStatus'     => 'ModifiableStatus',
+        'characterType' => 'CharacterType',
+        'checkingCode' => 'CheckingCode',
+        'forceRestart' => 'ForceRestart',
+        'modifiableStatus' => 'ModifiableStatus',
         'parameterDescription' => 'ParameterDescription',
-        'parameterName'        => 'ParameterName',
-        'parameterValue'       => 'ParameterValue',
+        'parameterName' => 'ParameterName',
+        'parameterValue' => 'ParameterValue',
     ];
 
     public function validate()

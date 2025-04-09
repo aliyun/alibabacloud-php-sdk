@@ -12,17 +12,19 @@ class availableZones extends Model
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $zoneId;
+
     /**
      * @var string
      */
     public $zoneName;
     protected $_name = [
         'regionId' => 'RegionId',
-        'zoneId'   => 'ZoneId',
+        'zoneId' => 'ZoneId',
         'zoneName' => 'ZoneName',
     ];
 

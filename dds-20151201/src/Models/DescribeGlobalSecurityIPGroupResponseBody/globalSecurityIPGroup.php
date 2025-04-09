@@ -12,28 +12,32 @@ class globalSecurityIPGroup extends Model
      * @var string[]
      */
     public $DBInstances;
+
     /**
      * @var string
      */
     public $GIpList;
+
     /**
      * @var string
      */
     public $globalIgName;
+
     /**
      * @var string
      */
     public $globalSecurityGroupId;
+
     /**
      * @var string
      */
     public $regionId;
     protected $_name = [
-        'DBInstances'           => 'DBInstances',
-        'GIpList'               => 'GIpList',
-        'globalIgName'          => 'GlobalIgName',
+        'DBInstances' => 'DBInstances',
+        'GIpList' => 'GIpList',
+        'globalIgName' => 'GlobalIgName',
         'globalSecurityGroupId' => 'GlobalSecurityGroupId',
-        'regionId'              => 'RegionId',
+        'regionId' => 'RegionId',
     ];
 
     public function validate()
@@ -50,7 +54,7 @@ class globalSecurityIPGroup extends Model
         if (null !== $this->DBInstances) {
             if (\is_array($this->DBInstances)) {
                 $res['DBInstances'] = [];
-                $n1                 = 0;
+                $n1 = 0;
                 foreach ($this->DBInstances as $item1) {
                     $res['DBInstances'][$n1++] = $item1;
                 }
@@ -87,7 +91,7 @@ class globalSecurityIPGroup extends Model
         if (isset($map['DBInstances'])) {
             if (!empty($map['DBInstances'])) {
                 $model->DBInstances = [];
-                $n1                 = 0;
+                $n1 = 0;
                 foreach ($map['DBInstances'] as $item1) {
                     $model->DBInstances[$n1++] = $item1;
                 }

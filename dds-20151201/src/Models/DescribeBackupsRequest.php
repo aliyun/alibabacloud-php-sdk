@@ -12,68 +12,80 @@ class DescribeBackupsRequest extends Model
      * @var string
      */
     public $backupId;
+
     /**
      * @var string
      */
     public $DBInstanceId;
+
     /**
      * @var string
      */
     public $destRegion;
+
     /**
      * @var string
      */
     public $endTime;
+
     /**
      * @var string
      */
     public $nodeId;
+
     /**
      * @var string
      */
     public $ownerAccount;
+
     /**
      * @var int
      */
     public $ownerId;
+
     /**
      * @var int
      */
     public $pageNumber;
+
     /**
      * @var int
      */
     public $pageSize;
+
     /**
      * @var string
      */
     public $resourceOwnerAccount;
+
     /**
      * @var int
      */
     public $resourceOwnerId;
+
     /**
      * @var string
      */
     public $srcRegion;
+
     /**
      * @var string
      */
     public $startTime;
     protected $_name = [
-        'backupId'             => 'BackupId',
-        'DBInstanceId'         => 'DBInstanceId',
-        'destRegion'           => 'DestRegion',
-        'endTime'              => 'EndTime',
-        'nodeId'               => 'NodeId',
-        'ownerAccount'         => 'OwnerAccount',
-        'ownerId'              => 'OwnerId',
-        'pageNumber'           => 'PageNumber',
-        'pageSize'             => 'PageSize',
+        'backupId' => 'BackupId',
+        'DBInstanceId' => 'DBInstanceId',
+        'destRegion' => 'DestRegion',
+        'endTime' => 'EndTime',
+        'nodeId' => 'NodeId',
+        'ownerAccount' => 'OwnerAccount',
+        'ownerId' => 'OwnerId',
+        'pageNumber' => 'PageNumber',
+        'pageSize' => 'PageSize',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
-        'resourceOwnerId'      => 'ResourceOwnerId',
-        'srcRegion'            => 'SrcRegion',
-        'startTime'            => 'StartTime',
+        'resourceOwnerId' => 'ResourceOwnerId',
+        'srcRegion' => 'SrcRegion',
+        'startTime' => 'StartTime',
     ];
 
     public function validate()

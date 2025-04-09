@@ -12,23 +12,26 @@ class DescribeKmsKeysRequest extends Model
      * @var string
      */
     public $ownerAccount;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $resourceOwnerAccount;
+
     /**
      * @var int
      */
     public $resourceOwnerId;
     protected $_name = [
-        'ownerAccount'         => 'OwnerAccount',
-        'regionId'             => 'RegionId',
+        'ownerAccount' => 'OwnerAccount',
+        'regionId' => 'RegionId',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
-        'resourceOwnerId'      => 'ResourceOwnerId',
+        'resourceOwnerId' => 'ResourceOwnerId',
     ];
 
     public function validate()

@@ -12,38 +12,44 @@ class ModifyTaskInfoRequest extends Model
      * @var string
      */
     public $actionParams;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $resourceOwnerAccount;
+
     /**
      * @var int
      */
     public $resourceOwnerId;
+
     /**
      * @var string
      */
     public $stepName;
+
     /**
      * @var string
      */
     public $taskAction;
+
     /**
      * @var string
      */
     public $taskId;
     protected $_name = [
-        'actionParams'         => 'ActionParams',
-        'regionId'             => 'RegionId',
+        'actionParams' => 'ActionParams',
+        'regionId' => 'RegionId',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
-        'resourceOwnerId'      => 'ResourceOwnerId',
-        'stepName'             => 'StepName',
-        'taskAction'           => 'TaskAction',
-        'taskId'               => 'TaskId',
+        'resourceOwnerId' => 'ResourceOwnerId',
+        'stepName' => 'StepName',
+        'taskAction' => 'TaskAction',
+        'taskId' => 'TaskId',
     ];
 
     public function validate()

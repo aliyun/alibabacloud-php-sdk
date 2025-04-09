@@ -12,68 +12,80 @@ class DescribePriceRequest extends Model
      * @var string
      */
     public $businessInfo;
+
     /**
      * @var string
      */
     public $commodityCode;
+
     /**
      * @var string
      */
     public $couponNo;
+
     /**
      * @var string
      */
     public $DBInstances;
+
     /**
      * @var string
      */
     public $orderParamOut;
+
     /**
      * @var string
      */
     public $orderType;
+
     /**
      * @var string
      */
     public $ownerAccount;
+
     /**
      * @var int
      */
     public $ownerId;
+
     /**
      * @var string
      */
     public $productCode;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $resourceGroupId;
+
     /**
      * @var string
      */
     public $resourceOwnerAccount;
+
     /**
      * @var int
      */
     public $resourceOwnerId;
     protected $_name = [
-        'businessInfo'         => 'BusinessInfo',
-        'commodityCode'        => 'CommodityCode',
-        'couponNo'             => 'CouponNo',
-        'DBInstances'          => 'DBInstances',
-        'orderParamOut'        => 'OrderParamOut',
-        'orderType'            => 'OrderType',
-        'ownerAccount'         => 'OwnerAccount',
-        'ownerId'              => 'OwnerId',
-        'productCode'          => 'ProductCode',
-        'regionId'             => 'RegionId',
-        'resourceGroupId'      => 'ResourceGroupId',
+        'businessInfo' => 'BusinessInfo',
+        'commodityCode' => 'CommodityCode',
+        'couponNo' => 'CouponNo',
+        'DBInstances' => 'DBInstances',
+        'orderParamOut' => 'OrderParamOut',
+        'orderType' => 'OrderType',
+        'ownerAccount' => 'OwnerAccount',
+        'ownerId' => 'OwnerId',
+        'productCode' => 'ProductCode',
+        'regionId' => 'RegionId',
+        'resourceGroupId' => 'ResourceGroupId',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
-        'resourceOwnerId'      => 'ResourceOwnerId',
+        'resourceOwnerId' => 'ResourceOwnerId',
     ];
 
     public function validate()

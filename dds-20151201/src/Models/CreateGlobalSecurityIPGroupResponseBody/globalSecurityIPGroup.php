@@ -12,23 +12,26 @@ class globalSecurityIPGroup extends Model
      * @var string
      */
     public $GIpList;
+
     /**
      * @var string
      */
     public $globalIgName;
+
     /**
      * @var string
      */
     public $globalSecurityGroupId;
+
     /**
      * @var string
      */
     public $regionId;
     protected $_name = [
-        'GIpList'               => 'GIpList',
-        'globalIgName'          => 'GlobalIgName',
+        'GIpList' => 'GIpList',
+        'globalIgName' => 'GlobalIgName',
         'globalSecurityGroupId' => 'GlobalSecurityGroupId',
-        'regionId'              => 'RegionId',
+        'regionId' => 'RegionId',
     ];
 
     public function validate()

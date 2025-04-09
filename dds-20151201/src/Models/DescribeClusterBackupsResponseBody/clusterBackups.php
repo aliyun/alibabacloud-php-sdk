@@ -14,63 +14,74 @@ class clusterBackups extends Model
      * @var string
      */
     public $attachLogStatus;
+
     /**
      * @var backups[]
      */
     public $backups;
+
     /**
      * @var string
      */
     public $clusterBackupEndTime;
+
     /**
      * @var string
      */
     public $clusterBackupId;
+
     /**
      * @var string
      */
     public $clusterBackupMode;
+
     /**
      * @var string
      */
     public $clusterBackupSize;
+
     /**
      * @var string
      */
     public $clusterBackupStartTime;
+
     /**
      * @var string
      */
     public $clusterBackupStatus;
+
     /**
      * @var string
      */
     public $engineVersion;
+
     /**
      * @var extraInfo
      */
     public $extraInfo;
+
     /**
      * @var int
      */
     public $isAvail;
+
     /**
      * @var string
      */
     public $progress;
     protected $_name = [
-        'attachLogStatus'        => 'AttachLogStatus',
-        'backups'                => 'Backups',
-        'clusterBackupEndTime'   => 'ClusterBackupEndTime',
-        'clusterBackupId'        => 'ClusterBackupId',
-        'clusterBackupMode'      => 'ClusterBackupMode',
-        'clusterBackupSize'      => 'ClusterBackupSize',
+        'attachLogStatus' => 'AttachLogStatus',
+        'backups' => 'Backups',
+        'clusterBackupEndTime' => 'ClusterBackupEndTime',
+        'clusterBackupId' => 'ClusterBackupId',
+        'clusterBackupMode' => 'ClusterBackupMode',
+        'clusterBackupSize' => 'ClusterBackupSize',
         'clusterBackupStartTime' => 'ClusterBackupStartTime',
-        'clusterBackupStatus'    => 'ClusterBackupStatus',
-        'engineVersion'          => 'EngineVersion',
-        'extraInfo'              => 'ExtraInfo',
-        'isAvail'                => 'IsAvail',
-        'progress'               => 'Progress',
+        'clusterBackupStatus' => 'ClusterBackupStatus',
+        'engineVersion' => 'EngineVersion',
+        'extraInfo' => 'ExtraInfo',
+        'isAvail' => 'IsAvail',
+        'progress' => 'Progress',
     ];
 
     public function validate()
@@ -94,7 +105,7 @@ class clusterBackups extends Model
         if (null !== $this->backups) {
             if (\is_array($this->backups)) {
                 $res['Backups'] = [];
-                $n1             = 0;
+                $n1 = 0;
                 foreach ($this->backups as $item1) {
                     $res['Backups'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -159,7 +170,7 @@ class clusterBackups extends Model
         if (isset($map['Backups'])) {
             if (!empty($map['Backups'])) {
                 $model->backups = [];
-                $n1             = 0;
+                $n1 = 0;
                 foreach ($map['Backups'] as $item1) {
                     $model->backups[$n1++] = backups::fromMap($item1);
                 }

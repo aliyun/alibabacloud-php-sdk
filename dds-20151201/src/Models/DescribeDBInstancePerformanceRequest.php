@@ -12,63 +12,74 @@ class DescribeDBInstancePerformanceRequest extends Model
      * @var string
      */
     public $DBInstanceId;
+
     /**
      * @var string
      */
     public $endTime;
+
     /**
      * @var string
      */
     public $interval;
+
     /**
      * @var string
      */
     public $key;
+
     /**
      * @var string
      */
     public $nodeId;
+
     /**
      * @var string
      */
     public $ownerAccount;
+
     /**
      * @var int
      */
     public $ownerId;
+
     /**
      * @var string
      */
     public $replicaSetRole;
+
     /**
      * @var string
      */
     public $resourceOwnerAccount;
+
     /**
      * @var int
      */
     public $resourceOwnerId;
+
     /**
      * @var string
      */
     public $roleId;
+
     /**
      * @var string
      */
     public $startTime;
     protected $_name = [
-        'DBInstanceId'         => 'DBInstanceId',
-        'endTime'              => 'EndTime',
-        'interval'             => 'Interval',
-        'key'                  => 'Key',
-        'nodeId'               => 'NodeId',
-        'ownerAccount'         => 'OwnerAccount',
-        'ownerId'              => 'OwnerId',
-        'replicaSetRole'       => 'ReplicaSetRole',
+        'DBInstanceId' => 'DBInstanceId',
+        'endTime' => 'EndTime',
+        'interval' => 'Interval',
+        'key' => 'Key',
+        'nodeId' => 'NodeId',
+        'ownerAccount' => 'OwnerAccount',
+        'ownerId' => 'OwnerId',
+        'replicaSetRole' => 'ReplicaSetRole',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
-        'resourceOwnerId'      => 'ResourceOwnerId',
-        'roleId'               => 'RoleId',
-        'startTime'            => 'StartTime',
+        'resourceOwnerId' => 'ResourceOwnerId',
+        'roleId' => 'RoleId',
+        'startTime' => 'StartTime',
     ];
 
     public function validate()

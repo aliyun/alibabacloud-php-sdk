@@ -12,78 +12,98 @@ class DescribeActiveOperationTasksRequest extends Model
      * @var int
      */
     public $allowCancel;
+
     /**
      * @var int
      */
     public $allowChange;
+
     /**
      * @var string
      */
     public $changeLevel;
+
     /**
      * @var string
      */
     public $dbType;
+
     /**
      * @var string
      */
     public $insName;
+
     /**
      * @var string
      */
     public $ownerAccount;
+
     /**
      * @var int
      */
     public $ownerId;
+
     /**
      * @var int
      */
     public $pageNumber;
+
     /**
      * @var int
      */
     public $pageSize;
+
     /**
      * @var string
      */
     public $productId;
+
     /**
      * @var string
      */
     public $region;
+
+    /**
+     * @var string
+     */
+    public $resourceGroupId;
+
     /**
      * @var string
      */
     public $resourceOwnerAccount;
+
     /**
      * @var int
      */
     public $resourceOwnerId;
+
     /**
      * @var int
      */
     public $status;
+
     /**
      * @var string
      */
     public $taskType;
     protected $_name = [
-        'allowCancel'          => 'AllowCancel',
-        'allowChange'          => 'AllowChange',
-        'changeLevel'          => 'ChangeLevel',
-        'dbType'               => 'DbType',
-        'insName'              => 'InsName',
-        'ownerAccount'         => 'OwnerAccount',
-        'ownerId'              => 'OwnerId',
-        'pageNumber'           => 'PageNumber',
-        'pageSize'             => 'PageSize',
-        'productId'            => 'ProductId',
-        'region'               => 'Region',
+        'allowCancel' => 'AllowCancel',
+        'allowChange' => 'AllowChange',
+        'changeLevel' => 'ChangeLevel',
+        'dbType' => 'DbType',
+        'insName' => 'InsName',
+        'ownerAccount' => 'OwnerAccount',
+        'ownerId' => 'OwnerId',
+        'pageNumber' => 'PageNumber',
+        'pageSize' => 'PageSize',
+        'productId' => 'ProductId',
+        'region' => 'Region',
+        'resourceGroupId' => 'ResourceGroupId',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
-        'resourceOwnerId'      => 'ResourceOwnerId',
-        'status'               => 'Status',
-        'taskType'             => 'TaskType',
+        'resourceOwnerId' => 'ResourceOwnerId',
+        'status' => 'Status',
+        'taskType' => 'TaskType',
     ];
 
     public function validate()
@@ -136,6 +156,10 @@ class DescribeActiveOperationTasksRequest extends Model
 
         if (null !== $this->region) {
             $res['Region'] = $this->region;
+        }
+
+        if (null !== $this->resourceGroupId) {
+            $res['ResourceGroupId'] = $this->resourceGroupId;
         }
 
         if (null !== $this->resourceOwnerAccount) {
@@ -207,6 +231,10 @@ class DescribeActiveOperationTasksRequest extends Model
 
         if (isset($map['Region'])) {
             $model->region = $map['Region'];
+        }
+
+        if (isset($map['ResourceGroupId'])) {
+            $model->resourceGroupId = $map['ResourceGroupId'];
         }
 
         if (isset($map['ResourceOwnerAccount'])) {

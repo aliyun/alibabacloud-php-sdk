@@ -12,38 +12,44 @@ class config extends Model
      * @var string
      */
     public $createdTime;
+
     /**
      * @var string
      */
     public $cycleTime;
+
     /**
      * @var string
      */
     public $cycleType;
+
     /**
      * @var string
      */
     public $maintainEndTime;
+
     /**
      * @var string
      */
     public $maintainStartTime;
+
     /**
      * @var string
      */
     public $modifiedTime;
+
     /**
      * @var int
      */
     public $status;
     protected $_name = [
-        'createdTime'       => 'CreatedTime',
-        'cycleTime'         => 'CycleTime',
-        'cycleType'         => 'CycleType',
-        'maintainEndTime'   => 'MaintainEndTime',
+        'createdTime' => 'CreatedTime',
+        'cycleTime' => 'CycleTime',
+        'cycleType' => 'CycleType',
+        'maintainEndTime' => 'MaintainEndTime',
         'maintainStartTime' => 'MaintainStartTime',
-        'modifiedTime'      => 'ModifiedTime',
-        'status'            => 'Status',
+        'modifiedTime' => 'ModifiedTime',
+        'status' => 'Status',
     ];
 
     public function validate()

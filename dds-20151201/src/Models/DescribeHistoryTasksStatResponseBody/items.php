@@ -12,12 +12,13 @@ class items extends Model
      * @var string
      */
     public $status;
+
     /**
      * @var int
      */
     public $totalCount;
     protected $_name = [
-        'status'     => 'Status',
+        'status' => 'Status',
         'totalCount' => 'TotalCount',
     ];
 

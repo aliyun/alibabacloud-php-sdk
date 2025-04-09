@@ -14,33 +14,38 @@ class order extends Model
      * @var coupons
      */
     public $coupons;
+
     /**
      * @var string
      */
     public $currency;
+
     /**
      * @var float
      */
     public $discountAmount;
+
     /**
      * @var float
      */
     public $originalAmount;
+
     /**
      * @var ruleIds
      */
     public $ruleIds;
+
     /**
      * @var float
      */
     public $tradeAmount;
     protected $_name = [
-        'coupons'        => 'Coupons',
-        'currency'       => 'Currency',
+        'coupons' => 'Coupons',
+        'currency' => 'Currency',
         'discountAmount' => 'DiscountAmount',
         'originalAmount' => 'OriginalAmount',
-        'ruleIds'        => 'RuleIds',
-        'tradeAmount'    => 'TradeAmount',
+        'ruleIds' => 'RuleIds',
+        'tradeAmount' => 'TradeAmount',
     ];
 
     public function validate()

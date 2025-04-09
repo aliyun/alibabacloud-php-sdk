@@ -13,133 +13,158 @@ class DescribeDBInstancesRequest extends Model
      * @var string
      */
     public $chargeType;
+
     /**
      * @var string
      */
     public $connectionDomain;
+
     /**
      * @var string
      */
     public $DBInstanceClass;
+
     /**
      * @var string
      */
     public $DBInstanceDescription;
+
     /**
      * @var string
      */
     public $DBInstanceId;
+
     /**
      * @var string
      */
     public $DBInstanceStatus;
+
     /**
      * @var string
      */
     public $DBInstanceType;
+
     /**
      * @var string
      */
     public $DBNodeType;
+
     /**
      * @var string
      */
     public $engine;
+
     /**
      * @var string
      */
     public $engineVersion;
+
     /**
      * @var string
      */
     public $expireTime;
+
     /**
      * @var string
      */
     public $expired;
+
     /**
      * @var string
      */
     public $networkType;
+
     /**
      * @var string
      */
     public $ownerAccount;
+
     /**
      * @var int
      */
     public $ownerId;
+
     /**
      * @var int
      */
     public $pageNumber;
+
     /**
      * @var int
      */
     public $pageSize;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $replicationFactor;
+
     /**
      * @var string
      */
     public $resourceGroupId;
+
     /**
      * @var string
      */
     public $resourceOwnerAccount;
+
     /**
      * @var int
      */
     public $resourceOwnerId;
+
     /**
      * @var tag[]
      */
     public $tag;
+
     /**
      * @var string
      */
     public $vSwitchId;
+
     /**
      * @var string
      */
     public $vpcId;
+
     /**
      * @var string
      */
     public $zoneId;
     protected $_name = [
-        'chargeType'            => 'ChargeType',
-        'connectionDomain'      => 'ConnectionDomain',
-        'DBInstanceClass'       => 'DBInstanceClass',
+        'chargeType' => 'ChargeType',
+        'connectionDomain' => 'ConnectionDomain',
+        'DBInstanceClass' => 'DBInstanceClass',
         'DBInstanceDescription' => 'DBInstanceDescription',
-        'DBInstanceId'          => 'DBInstanceId',
-        'DBInstanceStatus'      => 'DBInstanceStatus',
-        'DBInstanceType'        => 'DBInstanceType',
-        'DBNodeType'            => 'DBNodeType',
-        'engine'                => 'Engine',
-        'engineVersion'         => 'EngineVersion',
-        'expireTime'            => 'ExpireTime',
-        'expired'               => 'Expired',
-        'networkType'           => 'NetworkType',
-        'ownerAccount'          => 'OwnerAccount',
-        'ownerId'               => 'OwnerId',
-        'pageNumber'            => 'PageNumber',
-        'pageSize'              => 'PageSize',
-        'regionId'              => 'RegionId',
-        'replicationFactor'     => 'ReplicationFactor',
-        'resourceGroupId'       => 'ResourceGroupId',
-        'resourceOwnerAccount'  => 'ResourceOwnerAccount',
-        'resourceOwnerId'       => 'ResourceOwnerId',
-        'tag'                   => 'Tag',
-        'vSwitchId'             => 'VSwitchId',
-        'vpcId'                 => 'VpcId',
-        'zoneId'                => 'ZoneId',
+        'DBInstanceId' => 'DBInstanceId',
+        'DBInstanceStatus' => 'DBInstanceStatus',
+        'DBInstanceType' => 'DBInstanceType',
+        'DBNodeType' => 'DBNodeType',
+        'engine' => 'Engine',
+        'engineVersion' => 'EngineVersion',
+        'expireTime' => 'ExpireTime',
+        'expired' => 'Expired',
+        'networkType' => 'NetworkType',
+        'ownerAccount' => 'OwnerAccount',
+        'ownerId' => 'OwnerId',
+        'pageNumber' => 'PageNumber',
+        'pageSize' => 'PageSize',
+        'regionId' => 'RegionId',
+        'replicationFactor' => 'ReplicationFactor',
+        'resourceGroupId' => 'ResourceGroupId',
+        'resourceOwnerAccount' => 'ResourceOwnerAccount',
+        'resourceOwnerId' => 'ResourceOwnerId',
+        'tag' => 'Tag',
+        'vSwitchId' => 'VSwitchId',
+        'vpcId' => 'VpcId',
+        'zoneId' => 'ZoneId',
     ];
 
     public function validate()
@@ -244,7 +269,7 @@ class DescribeDBInstancesRequest extends Model
         if (null !== $this->tag) {
             if (\is_array($this->tag)) {
                 $res['Tag'] = [];
-                $n1         = 0;
+                $n1 = 0;
                 foreach ($this->tag as $item1) {
                     $res['Tag'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -365,7 +390,7 @@ class DescribeDBInstancesRequest extends Model
         if (isset($map['Tag'])) {
             if (!empty($map['Tag'])) {
                 $model->tag = [];
-                $n1         = 0;
+                $n1 = 0;
                 foreach ($map['Tag'] as $item1) {
                     $model->tag[$n1++] = tag::fromMap($item1);
                 }

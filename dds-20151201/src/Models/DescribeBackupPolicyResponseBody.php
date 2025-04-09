@@ -12,98 +12,116 @@ class DescribeBackupPolicyResponseBody extends Model
      * @var int
      */
     public $backupInterval;
+
     /**
      * @var string
      */
     public $backupRetentionPeriod;
+
     /**
      * @var int
      */
     public $backupRetentionPolicyOnClusterDeletion;
+
     /**
      * @var string
      */
     public $crossBackupPeriod;
+
     /**
      * @var string
      */
     public $crossLogRetentionType;
+
     /**
      * @var int
      */
     public $crossLogRetentionValue;
+
     /**
      * @var string
      */
     public $crossRetentionType;
+
     /**
      * @var int
      */
     public $crossRetentionValue;
+
     /**
      * @var string
      */
     public $destRegion;
+
     /**
      * @var int
      */
     public $enableBackupLog;
+
     /**
      * @var int
      */
     public $enableCrossLogBackup;
+
     /**
      * @var string
      */
     public $highFrequencyBackupRetention;
+
     /**
      * @var int
      */
     public $logBackupRetentionPeriod;
+
     /**
      * @var string
      */
     public $preferredBackupPeriod;
+
     /**
      * @var string
      */
     public $preferredBackupTime;
+
     /**
      * @var string
      */
     public $preferredNextBackupTime;
+
     /**
      * @var string
      */
     public $requestId;
+
     /**
      * @var string
      */
     public $snapshotBackupType;
+
     /**
      * @var string
      */
     public $srcRegion;
     protected $_name = [
-        'backupInterval'                         => 'BackupInterval',
-        'backupRetentionPeriod'                  => 'BackupRetentionPeriod',
+        'backupInterval' => 'BackupInterval',
+        'backupRetentionPeriod' => 'BackupRetentionPeriod',
         'backupRetentionPolicyOnClusterDeletion' => 'BackupRetentionPolicyOnClusterDeletion',
-        'crossBackupPeriod'                      => 'CrossBackupPeriod',
-        'crossLogRetentionType'                  => 'CrossLogRetentionType',
-        'crossLogRetentionValue'                 => 'CrossLogRetentionValue',
-        'crossRetentionType'                     => 'CrossRetentionType',
-        'crossRetentionValue'                    => 'CrossRetentionValue',
-        'destRegion'                             => 'DestRegion',
-        'enableBackupLog'                        => 'EnableBackupLog',
-        'enableCrossLogBackup'                   => 'EnableCrossLogBackup',
-        'highFrequencyBackupRetention'           => 'HighFrequencyBackupRetention',
-        'logBackupRetentionPeriod'               => 'LogBackupRetentionPeriod',
-        'preferredBackupPeriod'                  => 'PreferredBackupPeriod',
-        'preferredBackupTime'                    => 'PreferredBackupTime',
-        'preferredNextBackupTime'                => 'PreferredNextBackupTime',
-        'requestId'                              => 'RequestId',
-        'snapshotBackupType'                     => 'SnapshotBackupType',
-        'srcRegion'                              => 'SrcRegion',
+        'crossBackupPeriod' => 'CrossBackupPeriod',
+        'crossLogRetentionType' => 'CrossLogRetentionType',
+        'crossLogRetentionValue' => 'CrossLogRetentionValue',
+        'crossRetentionType' => 'CrossRetentionType',
+        'crossRetentionValue' => 'CrossRetentionValue',
+        'destRegion' => 'DestRegion',
+        'enableBackupLog' => 'EnableBackupLog',
+        'enableCrossLogBackup' => 'EnableCrossLogBackup',
+        'highFrequencyBackupRetention' => 'HighFrequencyBackupRetention',
+        'logBackupRetentionPeriod' => 'LogBackupRetentionPeriod',
+        'preferredBackupPeriod' => 'PreferredBackupPeriod',
+        'preferredBackupTime' => 'PreferredBackupTime',
+        'preferredNextBackupTime' => 'PreferredNextBackupTime',
+        'requestId' => 'RequestId',
+        'snapshotBackupType' => 'SnapshotBackupType',
+        'srcRegion' => 'SrcRegion',
     ];
 
     public function validate()

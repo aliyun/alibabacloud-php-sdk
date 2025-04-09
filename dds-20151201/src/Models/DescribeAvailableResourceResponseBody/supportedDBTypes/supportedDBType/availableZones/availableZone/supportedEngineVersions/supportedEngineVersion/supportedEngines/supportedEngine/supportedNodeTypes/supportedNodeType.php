@@ -13,18 +13,20 @@ class supportedNodeType extends Model
      * @var availableResources
      */
     public $availableResources;
+
     /**
      * @var string
      */
     public $networkTypes;
+
     /**
      * @var string
      */
     public $nodeType;
     protected $_name = [
         'availableResources' => 'AvailableResources',
-        'networkTypes'       => 'NetworkTypes',
-        'nodeType'           => 'NodeType',
+        'networkTypes' => 'NetworkTypes',
+        'nodeType' => 'NodeType',
     ];
 
     public function validate()

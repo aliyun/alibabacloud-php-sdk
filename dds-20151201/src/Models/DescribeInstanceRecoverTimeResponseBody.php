@@ -13,12 +13,13 @@ class DescribeInstanceRecoverTimeResponseBody extends Model
      * @var string
      */
     public $requestId;
+
     /**
      * @var restoreRanges[]
      */
     public $restoreRanges;
     protected $_name = [
-        'requestId'     => 'RequestId',
+        'requestId' => 'RequestId',
         'restoreRanges' => 'RestoreRanges',
     ];
 
@@ -40,7 +41,7 @@ class DescribeInstanceRecoverTimeResponseBody extends Model
         if (null !== $this->restoreRanges) {
             if (\is_array($this->restoreRanges)) {
                 $res['RestoreRanges'] = [];
-                $n1                   = 0;
+                $n1 = 0;
                 foreach ($this->restoreRanges as $item1) {
                     $res['RestoreRanges'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -65,7 +66,7 @@ class DescribeInstanceRecoverTimeResponseBody extends Model
         if (isset($map['RestoreRanges'])) {
             if (!empty($map['RestoreRanges'])) {
                 $model->restoreRanges = [];
-                $n1                   = 0;
+                $n1 = 0;
                 foreach ($map['RestoreRanges'] as $item1) {
                     $model->restoreRanges[$n1++] = restoreRanges::fromMap($item1);
                 }

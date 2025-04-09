@@ -12,17 +12,19 @@ class rdsEcsSecurityGroupRel extends Model
      * @var string
      */
     public $netType;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $securityGroupId;
     protected $_name = [
-        'netType'         => 'NetType',
-        'regionId'        => 'RegionId',
+        'netType' => 'NetType',
+        'regionId' => 'RegionId',
         'securityGroupId' => 'SecurityGroupId',
     ];
 

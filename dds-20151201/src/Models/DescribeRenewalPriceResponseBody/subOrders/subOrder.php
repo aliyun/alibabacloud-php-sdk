@@ -13,28 +13,32 @@ class subOrder extends Model
      * @var float
      */
     public $discountAmount;
+
     /**
      * @var string
      */
     public $instanceId;
+
     /**
      * @var float
      */
     public $originalAmount;
+
     /**
      * @var ruleIds
      */
     public $ruleIds;
+
     /**
      * @var float
      */
     public $tradeAmount;
     protected $_name = [
         'discountAmount' => 'DiscountAmount',
-        'instanceId'     => 'InstanceId',
+        'instanceId' => 'InstanceId',
         'originalAmount' => 'OriginalAmount',
-        'ruleIds'        => 'RuleIds',
-        'tradeAmount'    => 'TradeAmount',
+        'ruleIds' => 'RuleIds',
+        'tradeAmount' => 'TradeAmount',
     ];
 
     public function validate()

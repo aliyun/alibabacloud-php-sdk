@@ -12,23 +12,26 @@ class EvaluateResourceResponseBody extends Model
      * @var string
      */
     public $DBInstanceAvailable;
+
     /**
      * @var string
      */
     public $engine;
+
     /**
      * @var string
      */
     public $engineVersion;
+
     /**
      * @var string
      */
     public $requestId;
     protected $_name = [
         'DBInstanceAvailable' => 'DBInstanceAvailable',
-        'engine'              => 'Engine',
-        'engineVersion'       => 'EngineVersion',
-        'requestId'           => 'RequestId',
+        'engine' => 'Engine',
+        'engineVersion' => 'EngineVersion',
+        'requestId' => 'RequestId',
     ];
 
     public function validate()

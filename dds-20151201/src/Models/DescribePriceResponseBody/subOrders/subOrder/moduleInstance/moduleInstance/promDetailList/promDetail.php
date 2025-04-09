@@ -12,30 +12,37 @@ class promDetail extends Model
      * @var mixed[]
      */
     public $activityExtInfo;
+
     /**
      * @var string
      */
     public $derivedPromType;
+
     /**
      * @var float
      */
     public $finalPromFee;
+
     /**
      * @var string
      */
     public $optionCode;
+
     /**
      * @var string
      */
     public $promType;
+
     /**
      * @var string
      */
     public $promotionCode;
+
     /**
      * @var int
      */
     public $promotionId;
+
     /**
      * @var string
      */
@@ -43,12 +50,12 @@ class promDetail extends Model
     protected $_name = [
         'activityExtInfo' => 'ActivityExtInfo',
         'derivedPromType' => 'DerivedPromType',
-        'finalPromFee'    => 'FinalPromFee',
-        'optionCode'      => 'OptionCode',
-        'promType'        => 'PromType',
-        'promotionCode'   => 'PromotionCode',
-        'promotionId'     => 'PromotionId',
-        'promotionName'   => 'PromotionName',
+        'finalPromFee' => 'FinalPromFee',
+        'optionCode' => 'OptionCode',
+        'promType' => 'PromType',
+        'promotionCode' => 'PromotionCode',
+        'promotionId' => 'PromotionId',
+        'promotionName' => 'PromotionName',
     ];
 
     public function validate()

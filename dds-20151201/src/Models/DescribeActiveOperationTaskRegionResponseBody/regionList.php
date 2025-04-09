@@ -12,12 +12,13 @@ class regionList extends Model
      * @var int
      */
     public $count;
+
     /**
      * @var string
      */
     public $region;
     protected $_name = [
-        'count'  => 'Count',
+        'count' => 'Count',
         'region' => 'Region',
     ];
 

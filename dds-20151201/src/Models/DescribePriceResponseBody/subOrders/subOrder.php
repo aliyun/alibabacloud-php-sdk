@@ -17,73 +17,86 @@ class subOrder extends Model
      * @var bool
      */
     public $contractActivity;
+
     /**
      * @var depreciateInfo
      */
     public $depreciateInfo;
+
     /**
      * @var string
      */
     public $discountAmount;
+
     /**
      * @var string
      */
     public $instanceId;
+
     /**
      * @var bool
      */
     public $isContractActivity;
+
     /**
      * @var string
      */
     public $isNewOfficialActivity;
+
     /**
      * @var moduleInstance
      */
     public $moduleInstance;
+
     /**
      * @var optionalPromotions
      */
     public $optionalPromotions;
+
     /**
      * @var string
      */
     public $originalAmount;
+
     /**
      * @var promDetailList
      */
     public $promDetailList;
+
     /**
      * @var ruleIds
      */
     public $ruleIds;
+
     /**
      * @var float
      */
     public $standDiscountPrice;
+
     /**
      * @var float
      */
     public $standPrice;
+
     /**
      * @var string
      */
     public $tradeAmount;
     protected $_name = [
-        'contractActivity'      => 'ContractActivity',
-        'depreciateInfo'        => 'DepreciateInfo',
-        'discountAmount'        => 'DiscountAmount',
-        'instanceId'            => 'InstanceId',
-        'isContractActivity'    => 'IsContractActivity',
+        'contractActivity' => 'ContractActivity',
+        'depreciateInfo' => 'DepreciateInfo',
+        'discountAmount' => 'DiscountAmount',
+        'instanceId' => 'InstanceId',
+        'isContractActivity' => 'IsContractActivity',
         'isNewOfficialActivity' => 'IsNewOfficialActivity',
-        'moduleInstance'        => 'ModuleInstance',
-        'optionalPromotions'    => 'OptionalPromotions',
-        'originalAmount'        => 'OriginalAmount',
-        'promDetailList'        => 'PromDetailList',
-        'ruleIds'               => 'RuleIds',
-        'standDiscountPrice'    => 'StandDiscountPrice',
-        'standPrice'            => 'StandPrice',
-        'tradeAmount'           => 'TradeAmount',
+        'moduleInstance' => 'ModuleInstance',
+        'optionalPromotions' => 'OptionalPromotions',
+        'originalAmount' => 'OriginalAmount',
+        'promDetailList' => 'PromDetailList',
+        'ruleIds' => 'RuleIds',
+        'standDiscountPrice' => 'StandDiscountPrice',
+        'standPrice' => 'StandPrice',
+        'tradeAmount' => 'TradeAmount',
     ];
 
     public function validate()

@@ -12,17 +12,19 @@ class DBInstanceStorageRange extends Model
      * @var int
      */
     public $max;
+
     /**
      * @var int
      */
     public $min;
+
     /**
      * @var int
      */
     public $step;
     protected $_name = [
-        'max'  => 'Max',
-        'min'  => 'Min',
+        'max' => 'Max',
+        'min' => 'Min',
         'step' => 'Step',
     ];
 

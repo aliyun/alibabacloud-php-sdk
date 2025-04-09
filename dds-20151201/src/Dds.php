@@ -85,6 +85,8 @@ use AlibabaCloud\SDK\Dds\V20151201\Models\DescribeDBInstancePerformanceRequest;
 use AlibabaCloud\SDK\Dds\V20151201\Models\DescribeDBInstancePerformanceResponse;
 use AlibabaCloud\SDK\Dds\V20151201\Models\DescribeDBInstancesOverviewRequest;
 use AlibabaCloud\SDK\Dds\V20151201\Models\DescribeDBInstancesOverviewResponse;
+use AlibabaCloud\SDK\Dds\V20151201\Models\DescribeDBInstanceSpecInfoRequest;
+use AlibabaCloud\SDK\Dds\V20151201\Models\DescribeDBInstanceSpecInfoResponse;
 use AlibabaCloud\SDK\Dds\V20151201\Models\DescribeDBInstancesRequest;
 use AlibabaCloud\SDK\Dds\V20151201\Models\DescribeDBInstancesResponse;
 use AlibabaCloud\SDK\Dds\V20151201\Models\DescribeDBInstanceSSLRequest;
@@ -250,73 +252,66 @@ class Dds extends OpenApiClient
     {
         parent::__construct($config);
         $this->_endpointRule = 'regional';
-        $this->_endpointMap  = [
-            'cn-qingdao'                  => 'mongodb.aliyuncs.com',
-            'cn-beijing'                  => 'mongodb.aliyuncs.com',
-            'cn-zhangjiakou'              => 'mongodb.cn-zhangjiakou.aliyuncs.com',
-            'cn-huhehaote'                => 'mongodb.cn-huhehaote.aliyuncs.com',
-            'cn-wulanchabu'               => 'mongodb.aliyuncs.com',
-            'cn-hangzhou'                 => 'mongodb.aliyuncs.com',
-            'cn-shanghai'                 => 'mongodb.aliyuncs.com',
-            'cn-nanjing'                  => 'mongodb.cn-nanjing.aliyuncs.com',
-            'cn-fuzhou'                   => 'mongodb.cn-fuzhou.aliyuncs.com',
-            'cn-shenzhen'                 => 'mongodb.aliyuncs.com',
-            'cn-heyuan'                   => 'mongodb.aliyuncs.com',
-            'cn-guangzhou'                => 'mongodb.aliyuncs.com',
-            'cn-chengdu'                  => 'mongodb.cn-chengdu.aliyuncs.com',
-            'cn-hongkong'                 => 'mongodb.cn-hongkong.aliyuncs.com',
-            'ap-northeast-1'              => 'mongodb.ap-northeast-1.aliyuncs.com',
-            'ap-northeast-2'              => 'mongodb.ap-northeast-2.aliyuncs.com',
-            'ap-southeast-1'              => 'mongodb.ap-southeast-1.aliyuncs.com',
-            'ap-southeast-2'              => 'mongodb.ap-southeast-2.aliyuncs.com',
-            'ap-southeast-3'              => 'mongodb.ap-southeast-3.aliyuncs.com',
-            'ap-southeast-5'              => 'mongodb.ap-southeast-5.aliyuncs.com',
-            'ap-southeast-6'              => 'mongodb.ap-southeast-6.aliyuncs.com',
-            'ap-southeast-7'              => 'mongodb.ap-southeast-7.aliyuncs.com',
-            'cn-zhengzhou-jva'            => 'mongodb.cn-zhengzhou-jva.aliyuncs.com',
-            'us-east-1'                   => 'mongodb.us-east-1.aliyuncs.com',
-            'us-west-1'                   => 'mongodb.us-west-1.aliyuncs.com',
-            'eu-west-1'                   => 'mongodb.eu-west-1.aliyuncs.com',
-            'eu-central-1'                => 'mongodb.eu-central-1.aliyuncs.com',
-            'ap-south-1'                  => 'mongodb.ap-south-1.aliyuncs.com',
-            'me-east-1'                   => 'mongodb.me-east-1.aliyuncs.com',
-            'me-central-1'                => 'mongodb.me-central-1.aliyuncs.com',
-            'cn-hangzhou-finance'         => 'mongodb.aliyuncs.com',
-            'cn-shanghai-finance-1'       => 'mongodb.aliyuncs.com',
-            'cn-shenzhen-finance-1'       => 'mongodb.aliyuncs.com',
-            'cn-north-2-gov-1'            => 'mongodb.aliyuncs.com',
-            'ap-northeast-2-pop'          => 'mongodb.aliyuncs.com',
-            'cn-beijing-finance-1'        => 'mongodb.aliyuncs.com',
-            'cn-beijing-finance-pop'      => 'mongodb.aliyuncs.com',
-            'cn-beijing-gov-1'            => 'mongodb.aliyuncs.com',
-            'cn-beijing-nu16-b01'         => 'mongodb.aliyuncs.com',
-            'cn-edge-1'                   => 'mongodb.aliyuncs.com',
-            'cn-fujian'                   => 'mongodb.aliyuncs.com',
-            'cn-haidian-cm12-c01'         => 'mongodb.aliyuncs.com',
-            'cn-hangzhou-bj-b01'          => 'mongodb.aliyuncs.com',
+        $this->_endpointMap = [
+            'cn-qingdao' => 'mongodb.aliyuncs.com',
+            'cn-beijing' => 'mongodb.aliyuncs.com',
+            'cn-zhangjiakou' => 'mongodb.cn-zhangjiakou.aliyuncs.com',
+            'cn-huhehaote' => 'mongodb.cn-huhehaote.aliyuncs.com',
+            'cn-wulanchabu' => 'mongodb.aliyuncs.com',
+            'cn-hangzhou' => 'mongodb.aliyuncs.com',
+            'cn-shanghai' => 'mongodb.aliyuncs.com',
+            'cn-shenzhen' => 'mongodb.aliyuncs.com',
+            'cn-heyuan' => 'mongodb.aliyuncs.com',
+            'cn-guangzhou' => 'mongodb.aliyuncs.com',
+            'cn-chengdu' => 'mongodb.cn-chengdu.aliyuncs.com',
+            'cn-hongkong' => 'mongodb.cn-hongkong.aliyuncs.com',
+            'ap-northeast-1' => 'mongodb.ap-northeast-1.aliyuncs.com',
+            'ap-southeast-1' => 'mongodb.ap-southeast-1.aliyuncs.com',
+            'ap-southeast-2' => 'mongodb.ap-southeast-2.aliyuncs.com',
+            'ap-southeast-3' => 'mongodb.ap-southeast-3.aliyuncs.com',
+            'ap-southeast-5' => 'mongodb.ap-southeast-5.aliyuncs.com',
+            'us-east-1' => 'mongodb.us-east-1.aliyuncs.com',
+            'us-west-1' => 'mongodb.us-west-1.aliyuncs.com',
+            'eu-west-1' => 'mongodb.eu-west-1.aliyuncs.com',
+            'eu-central-1' => 'mongodb.eu-central-1.aliyuncs.com',
+            'ap-south-1' => 'mongodb.ap-south-1.aliyuncs.com',
+            'me-east-1' => 'mongodb.me-east-1.aliyuncs.com',
+            'cn-hangzhou-finance' => 'mongodb.aliyuncs.com',
+            'cn-shanghai-finance-1' => 'mongodb.aliyuncs.com',
+            'cn-shenzhen-finance-1' => 'mongodb.aliyuncs.com',
+            'cn-north-2-gov-1' => 'mongodb.cn-north-2-gov-1.aliyuncs.com',
+            'ap-northeast-2-pop' => 'mongodb.aliyuncs.com',
+            'cn-beijing-finance-1' => 'mongodb.aliyuncs.com',
+            'cn-beijing-finance-pop' => 'mongodb.aliyuncs.com',
+            'cn-beijing-gov-1' => 'mongodb.aliyuncs.com',
+            'cn-beijing-nu16-b01' => 'mongodb.aliyuncs.com',
+            'cn-edge-1' => 'mongodb.aliyuncs.com',
+            'cn-fujian' => 'mongodb.aliyuncs.com',
+            'cn-haidian-cm12-c01' => 'mongodb.aliyuncs.com',
+            'cn-hangzhou-bj-b01' => 'mongodb.aliyuncs.com',
             'cn-hangzhou-internal-prod-1' => 'mongodb.aliyuncs.com',
             'cn-hangzhou-internal-test-1' => 'mongodb.aliyuncs.com',
             'cn-hangzhou-internal-test-2' => 'mongodb.aliyuncs.com',
             'cn-hangzhou-internal-test-3' => 'mongodb.aliyuncs.com',
-            'cn-hangzhou-test-306'        => 'mongodb.aliyuncs.com',
-            'cn-hongkong-finance-pop'     => 'mongodb.aliyuncs.com',
-            'cn-huhehaote-nebula-1'       => 'mongodb.aliyuncs.com',
-            'cn-qingdao-nebula'           => 'mongodb.aliyuncs.com',
-            'cn-shanghai-et15-b01'        => 'mongodb.aliyuncs.com',
-            'cn-shanghai-et2-b01'         => 'mongodb.aliyuncs.com',
-            'cn-shanghai-inner'           => 'mongodb.aliyuncs.com',
+            'cn-hangzhou-test-306' => 'mongodb.aliyuncs.com',
+            'cn-hongkong-finance-pop' => 'mongodb.aliyuncs.com',
+            'cn-huhehaote-nebula-1' => 'mongodb.aliyuncs.com',
+            'cn-qingdao-nebula' => 'mongodb.aliyuncs.com',
+            'cn-shanghai-et15-b01' => 'mongodb.aliyuncs.com',
+            'cn-shanghai-et2-b01' => 'mongodb.aliyuncs.com',
+            'cn-shanghai-inner' => 'mongodb.aliyuncs.com',
             'cn-shanghai-internal-test-1' => 'mongodb.aliyuncs.com',
-            'cn-shenzhen-inner'           => 'mongodb.aliyuncs.com',
-            'cn-shenzhen-st4-d01'         => 'mongodb.aliyuncs.com',
-            'cn-shenzhen-su18-b01'        => 'mongodb.aliyuncs.com',
-            'cn-wuhan'                    => 'mongodb.aliyuncs.com',
-            'cn-yushanfang'               => 'mongodb.aliyuncs.com',
-            'cn-zhangbei'                 => 'mongodb.aliyuncs.com',
-            'cn-zhangbei-na61-b01'        => 'mongodb.aliyuncs.com',
-            'cn-zhangjiakou-na62-a01'     => 'mongodb.aliyuncs.com',
-            'cn-zhengzhou-nebula-1'       => 'mongodb.aliyuncs.com',
-            'eu-west-1-oxs'               => 'mongodb.aliyuncs.com',
-            'rus-west-1-pop'              => 'mongodb.aliyuncs.com',
+            'cn-shenzhen-inner' => 'mongodb.aliyuncs.com',
+            'cn-shenzhen-st4-d01' => 'mongodb.aliyuncs.com',
+            'cn-shenzhen-su18-b01' => 'mongodb.aliyuncs.com',
+            'cn-wuhan' => 'mongodb.aliyuncs.com',
+            'cn-yushanfang' => 'mongodb.aliyuncs.com',
+            'cn-zhangbei' => 'mongodb.aliyuncs.com',
+            'cn-zhangbei-na61-b01' => 'mongodb.aliyuncs.com',
+            'cn-zhangjiakou-na62-a01' => 'mongodb.aliyuncs.com',
+            'cn-zhengzhou-nebula-1' => 'mongodb.aliyuncs.com',
+            'eu-west-1-oxs' => 'mongodb.aliyuncs.com',
+            'rus-west-1-pop' => 'mongodb.aliyuncs.com',
         ];
         $this->checkConfig($config);
         $this->_endpoint = $this->getEndpoint('dds', $this->_regionId, $this->_endpointRule, $this->_network, $this->_suffix, $this->_endpointMap, $this->_endpoint);
@@ -355,6 +350,7 @@ class Dds extends OpenApiClient
      *
      * @param request - AllocateNodePrivateNetworkAddressRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns AllocateNodePrivateNetworkAddressResponse
      *
      * @param AllocateNodePrivateNetworkAddressRequest $request
@@ -406,15 +402,15 @@ class Dds extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'AllocateNodePrivateNetworkAddress',
-            'version'     => '2015-12-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'AllocateNodePrivateNetworkAddress',
+            'version' => '2015-12-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return AllocateNodePrivateNetworkAddressResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -431,6 +427,7 @@ class Dds extends OpenApiClient
      * >  The allocated endpoints can be used only for internal access. To gain Internet access, you must call the [AllocatePublicNetworkAddress](https://help.aliyun.com/document_detail/67602.html) operation to apply for public endpoints.
      *
      * @param request - AllocateNodePrivateNetworkAddressRequest
+     *
      * @returns AllocateNodePrivateNetworkAddressResponse
      *
      * @param AllocateNodePrivateNetworkAddressRequest $request
@@ -449,6 +446,7 @@ class Dds extends OpenApiClient
      *
      * @param request - AllocatePublicNetworkAddressRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns AllocatePublicNetworkAddressResponse
      *
      * @param AllocatePublicNetworkAddressRequest $request
@@ -488,15 +486,15 @@ class Dds extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'AllocatePublicNetworkAddress',
-            'version'     => '2015-12-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'AllocatePublicNetworkAddress',
+            'version' => '2015-12-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return AllocatePublicNetworkAddressResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -509,6 +507,7 @@ class Dds extends OpenApiClient
      * Allocates a public endpoint to an instance.
      *
      * @param request - AllocatePublicNetworkAddressRequest
+     *
      * @returns AllocatePublicNetworkAddressResponse
      *
      * @param AllocatePublicNetworkAddressRequest $request
@@ -530,6 +529,7 @@ class Dds extends OpenApiClient
      *
      * @param request - CheckCloudResourceAuthorizedRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns CheckCloudResourceAuthorizedResponse
      *
      * @param CheckCloudResourceAuthorizedRequest $request
@@ -569,15 +569,15 @@ class Dds extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'CheckCloudResourceAuthorized',
-            'version'     => '2015-12-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CheckCloudResourceAuthorized',
+            'version' => '2015-12-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return CheckCloudResourceAuthorizedResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -593,6 +593,7 @@ class Dds extends OpenApiClient
      * Before you enable Transparent Data Encryption (TDE) by calling the [ModifyDBInstanceTDE](https://help.aliyun.com/document_detail/131267.html) operation, you can call this operation to check whether KMS keys are authorized to ApsaraDB for MongoDB instances.
      *
      * @param request - CheckCloudResourceAuthorizedRequest
+     *
      * @returns CheckCloudResourceAuthorizedResponse
      *
      * @param CheckCloudResourceAuthorizedRequest $request
@@ -615,6 +616,7 @@ class Dds extends OpenApiClient
      *
      * @param request - CheckRecoveryConditionRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns CheckRecoveryConditionResponse
      *
      * @param CheckRecoveryConditionRequest $request
@@ -690,15 +692,15 @@ class Dds extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'CheckRecoveryCondition',
-            'version'     => '2015-12-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CheckRecoveryCondition',
+            'version' => '2015-12-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return CheckRecoveryConditionResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -715,6 +717,7 @@ class Dds extends OpenApiClient
      * >  After you call this operation to confirm that the data of the instance can be restored, you can call the [CreateDBInstance](https://help.aliyun.com/document_detail/61763.html) operation to restore data to a new instance.
      *
      * @param request - CheckRecoveryConditionRequest
+     *
      * @returns CheckRecoveryConditionResponse
      *
      * @param CheckRecoveryConditionRequest $request
@@ -733,6 +736,7 @@ class Dds extends OpenApiClient
      *
      * @param request - CheckServiceLinkedRoleRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns CheckServiceLinkedRoleResponse
      *
      * @param CheckServiceLinkedRoleRequest $request
@@ -760,15 +764,15 @@ class Dds extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'CheckServiceLinkedRole',
-            'version'     => '2015-12-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CheckServiceLinkedRole',
+            'version' => '2015-12-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return CheckServiceLinkedRoleResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -781,6 +785,7 @@ class Dds extends OpenApiClient
      * Queries whether a service-linked role is created.
      *
      * @param request - CheckServiceLinkedRoleRequest
+     *
      * @returns CheckServiceLinkedRoleResponse
      *
      * @param CheckServiceLinkedRoleRequest $request
@@ -803,6 +808,7 @@ class Dds extends OpenApiClient
      *
      * @param request - CreateAccountRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns CreateAccountResponse
      *
      * @param CreateAccountRequest $request
@@ -850,15 +856,15 @@ class Dds extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'CreateAccount',
-            'version'     => '2015-12-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CreateAccount',
+            'version' => '2015-12-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return CreateAccountResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -875,6 +881,7 @@ class Dds extends OpenApiClient
      * *   The account is granted read-only permissions.
      *
      * @param request - CreateAccountRequest
+     *
      * @returns CreateAccountResponse
      *
      * @param CreateAccountRequest $request
@@ -896,6 +903,7 @@ class Dds extends OpenApiClient
      *
      * @param request - CreateBackupRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns CreateBackupResponse
      *
      * @param CreateBackupRequest $request
@@ -935,15 +943,15 @@ class Dds extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'CreateBackup',
-            'version'     => '2015-12-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CreateBackup',
+            'version' => '2015-12-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return CreateBackupResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -959,6 +967,7 @@ class Dds extends OpenApiClient
      * When you call this operation, the instance must be in the Running state.
      *
      * @param request - CreateBackupRequest
+     *
      * @returns CreateBackupResponse
      *
      * @param CreateBackupRequest $request
@@ -982,6 +991,7 @@ class Dds extends OpenApiClient
      *
      * @param request - CreateDBInstanceRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns CreateDBInstanceResponse
      *
      * @param CreateDBInstanceRequest $request
@@ -1161,15 +1171,15 @@ class Dds extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'CreateDBInstance',
-            'version'     => '2015-12-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CreateDBInstance',
+            'version' => '2015-12-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return CreateDBInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -1187,6 +1197,7 @@ class Dds extends OpenApiClient
      * To create sharded cluster instances, you can call the [CreateShardingDBInstance](~~CreateShardingDBInstance~~) operation.
      *
      * @param request - CreateDBInstanceRequest
+     *
      * @returns CreateDBInstanceResponse
      *
      * @param CreateDBInstanceRequest $request
@@ -1205,6 +1216,7 @@ class Dds extends OpenApiClient
      *
      * @param request - CreateGlobalSecurityIPGroupRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns CreateGlobalSecurityIPGroupResponse
      *
      * @param CreateGlobalSecurityIPGroupRequest $request
@@ -1252,15 +1264,15 @@ class Dds extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'CreateGlobalSecurityIPGroup',
-            'version'     => '2015-12-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CreateGlobalSecurityIPGroup',
+            'version' => '2015-12-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return CreateGlobalSecurityIPGroupResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -1273,6 +1285,7 @@ class Dds extends OpenApiClient
      * Creates a global IP whitelist template.
      *
      * @param request - CreateGlobalSecurityIPGroupRequest
+     *
      * @returns CreateGlobalSecurityIPGroupResponse
      *
      * @param CreateGlobalSecurityIPGroupRequest $request
@@ -1295,6 +1308,7 @@ class Dds extends OpenApiClient
      *
      * @param request - CreateNodeRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns CreateNodeResponse
      *
      * @param CreateNodeRequest $request
@@ -1374,15 +1388,15 @@ class Dds extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'CreateNode',
-            'version'     => '2015-12-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CreateNode',
+            'version' => '2015-12-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return CreateNodeResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -1399,6 +1413,7 @@ class Dds extends OpenApiClient
      * This operation applies only to sharded cluster instances.
      *
      * @param request - CreateNodeRequest
+     *
      * @returns CreateNodeResponse
      *
      * @param CreateNodeRequest $request
@@ -1421,6 +1436,7 @@ class Dds extends OpenApiClient
      *
      * @param request - CreateNodeBatchRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns CreateNodeBatchResponse
      *
      * @param CreateNodeBatchRequest $request
@@ -1492,15 +1508,15 @@ class Dds extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'CreateNodeBatch',
-            'version'     => '2015-12-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CreateNodeBatch',
+            'version' => '2015-12-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return CreateNodeBatchResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -1517,6 +1533,7 @@ class Dds extends OpenApiClient
      * This operation is applicable only to sharded cluster instances.
      *
      * @param request - CreateNodeBatchRequest
+     *
      * @returns CreateNodeBatchResponse
      *
      * @param CreateNodeBatchRequest $request
@@ -1540,6 +1557,7 @@ class Dds extends OpenApiClient
      *
      * @param request - CreateShardingDBInstanceRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns CreateShardingDBInstanceResponse
      *
      * @param CreateShardingDBInstanceRequest $request
@@ -1707,15 +1725,15 @@ class Dds extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'CreateShardingDBInstance',
-            'version'     => '2015-12-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CreateShardingDBInstance',
+            'version' => '2015-12-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return CreateShardingDBInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -1733,6 +1751,7 @@ class Dds extends OpenApiClient
      * *   To create standalone instances and replica set instances, you can call the [CreateDBInstance](https://help.aliyun.com/document_detail/61763.html) operation.
      *
      * @param request - CreateShardingDBInstanceRequest
+     *
      * @returns CreateShardingDBInstanceResponse
      *
      * @param CreateShardingDBInstanceRequest $request
@@ -1757,6 +1776,7 @@ class Dds extends OpenApiClient
      *
      * @param request - DeleteDBInstanceRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DeleteDBInstanceResponse
      *
      * @param DeleteDBInstanceRequest $request
@@ -1796,15 +1816,15 @@ class Dds extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DeleteDBInstance',
-            'version'     => '2015-12-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DeleteDBInstance',
+            'version' => '2015-12-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DeleteDBInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -1823,6 +1843,7 @@ class Dds extends OpenApiClient
      * > After an instance is released, all data in the instance is cleared and cannot be recovered. Proceed with caution.
      *
      * @param request - DeleteDBInstanceRequest
+     *
      * @returns DeleteDBInstanceResponse
      *
      * @param DeleteDBInstanceRequest $request
@@ -1841,6 +1862,7 @@ class Dds extends OpenApiClient
      *
      * @param request - DeleteGlobalSecurityIPGroupRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DeleteGlobalSecurityIPGroupResponse
      *
      * @param DeleteGlobalSecurityIPGroupRequest $request
@@ -1888,15 +1910,15 @@ class Dds extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DeleteGlobalSecurityIPGroup',
-            'version'     => '2015-12-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DeleteGlobalSecurityIPGroup',
+            'version' => '2015-12-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DeleteGlobalSecurityIPGroupResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -1909,6 +1931,7 @@ class Dds extends OpenApiClient
      * Deletes a global IP whitelist template.
      *
      * @param request - DeleteGlobalSecurityIPGroupRequest
+     *
      * @returns DeleteGlobalSecurityIPGroupResponse
      *
      * @param DeleteGlobalSecurityIPGroupRequest $request
@@ -1934,6 +1957,7 @@ class Dds extends OpenApiClient
      *
      * @param request - DeleteNodeRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DeleteNodeResponse
      *
      * @param DeleteNodeRequest $request
@@ -1977,15 +2001,15 @@ class Dds extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DeleteNode',
-            'version'     => '2015-12-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DeleteNode',
+            'version' => '2015-12-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DeleteNodeResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -2005,6 +2029,7 @@ class Dds extends OpenApiClient
      * *   The number of the shard or mongos nodes in the instance is greater than two.
      *
      * @param request - DeleteNodeRequest
+     *
      * @returns DeleteNodeResponse
      *
      * @param DeleteNodeRequest $request
@@ -2026,6 +2051,7 @@ class Dds extends OpenApiClient
      *
      * @param request - DescribeAccountsRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribeAccountsResponse
      *
      * @param DescribeAccountsRequest $request
@@ -2065,15 +2091,15 @@ class Dds extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeAccounts',
-            'version'     => '2015-12-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeAccounts',
+            'version' => '2015-12-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DescribeAccountsResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -2089,6 +2115,7 @@ class Dds extends OpenApiClient
      * >  This operation can be used to query only the information of the root account.
      *
      * @param request - DescribeAccountsRequest
+     *
      * @returns DescribeAccountsResponse
      *
      * @param DescribeAccountsRequest $request
@@ -2105,6 +2132,7 @@ class Dds extends OpenApiClient
     /**
      * @param request - DescribeActiveOperationMaintenanceConfigRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribeActiveOperationMaintenanceConfigResponse
      *
      * @param DescribeActiveOperationMaintenanceConfigRequest $request
@@ -2136,15 +2164,15 @@ class Dds extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeActiveOperationMaintenanceConfig',
-            'version'     => '2015-12-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeActiveOperationMaintenanceConfig',
+            'version' => '2015-12-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DescribeActiveOperationMaintenanceConfigResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -2155,6 +2183,7 @@ class Dds extends OpenApiClient
 
     /**
      * @param request - DescribeActiveOperationMaintenanceConfigRequest
+     *
      * @returns DescribeActiveOperationMaintenanceConfigResponse
      *
      * @param DescribeActiveOperationMaintenanceConfigRequest $request
@@ -2173,6 +2202,7 @@ class Dds extends OpenApiClient
      *
      * @param request - DescribeActiveOperationTaskRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribeActiveOperationTaskResponse
      *
      * @param DescribeActiveOperationTaskRequest $request
@@ -2228,15 +2258,15 @@ class Dds extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeActiveOperationTask',
-            'version'     => '2015-12-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeActiveOperationTask',
+            'version' => '2015-12-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DescribeActiveOperationTaskResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -2249,6 +2279,7 @@ class Dds extends OpenApiClient
      * Queries the detailed information about  tasks of an ApsaraDB for MongoDB instance.
      *
      * @param request - DescribeActiveOperationTaskRequest
+     *
      * @returns DescribeActiveOperationTaskResponse
      *
      * @param DescribeActiveOperationTaskRequest $request
@@ -2267,6 +2298,7 @@ class Dds extends OpenApiClient
      *
      * @param request - DescribeActiveOperationTaskCountRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribeActiveOperationTaskCountResponse
      *
      * @param DescribeActiveOperationTaskCountRequest $request
@@ -2302,15 +2334,15 @@ class Dds extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeActiveOperationTaskCount',
-            'version'     => '2015-12-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeActiveOperationTaskCount',
+            'version' => '2015-12-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DescribeActiveOperationTaskCountResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -2323,6 +2355,7 @@ class Dds extends OpenApiClient
      * Queries the number of operation and maintenance tasks on an ApsaraDB for MongoDB instance.
      *
      * @param request - DescribeActiveOperationTaskCountRequest
+     *
      * @returns DescribeActiveOperationTaskCountResponse
      *
      * @param DescribeActiveOperationTaskCountRequest $request
@@ -2339,6 +2372,7 @@ class Dds extends OpenApiClient
     /**
      * @param request - DescribeActiveOperationTaskRegionRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribeActiveOperationTaskRegionResponse
      *
      * @param DescribeActiveOperationTaskRegionRequest $request
@@ -2378,15 +2412,15 @@ class Dds extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeActiveOperationTaskRegion',
-            'version'     => '2015-12-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeActiveOperationTaskRegion',
+            'version' => '2015-12-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DescribeActiveOperationTaskRegionResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -2397,6 +2431,7 @@ class Dds extends OpenApiClient
 
     /**
      * @param request - DescribeActiveOperationTaskRegionRequest
+     *
      * @returns DescribeActiveOperationTaskRegionResponse
      *
      * @param DescribeActiveOperationTaskRegionRequest $request
@@ -2418,6 +2453,7 @@ class Dds extends OpenApiClient
      *
      * @param request - DescribeActiveOperationTaskTypeRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribeActiveOperationTaskTypeResponse
      *
      * @param DescribeActiveOperationTaskTypeRequest $request
@@ -2457,15 +2493,15 @@ class Dds extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeActiveOperationTaskType',
-            'version'     => '2015-12-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeActiveOperationTaskType',
+            'version' => '2015-12-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DescribeActiveOperationTaskTypeResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -2481,6 +2517,7 @@ class Dds extends OpenApiClient
      * This operation is no longer updated and will be unavailable.
      *
      * @param request - DescribeActiveOperationTaskTypeRequest
+     *
      * @returns DescribeActiveOperationTaskTypeResponse
      *
      * @param DescribeActiveOperationTaskTypeRequest $request
@@ -2499,6 +2536,7 @@ class Dds extends OpenApiClient
      *
      * @param request - DescribeActiveOperationTasksRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribeActiveOperationTasksResponse
      *
      * @param DescribeActiveOperationTasksRequest $request
@@ -2554,6 +2592,10 @@ class Dds extends OpenApiClient
             @$query['Region'] = $request->region;
         }
 
+        if (null !== $request->resourceGroupId) {
+            @$query['ResourceGroupId'] = $request->resourceGroupId;
+        }
+
         if (null !== $request->resourceOwnerAccount) {
             @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
@@ -2574,15 +2616,15 @@ class Dds extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeActiveOperationTasks',
-            'version'     => '2015-12-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeActiveOperationTasks',
+            'version' => '2015-12-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DescribeActiveOperationTasksResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -2595,6 +2637,7 @@ class Dds extends OpenApiClient
      * Queries a list of operation and maintenance tasks initiated for an ApsaraDB for MongoDB instance.
      *
      * @param request - DescribeActiveOperationTasksRequest
+     *
      * @returns DescribeActiveOperationTasksResponse
      *
      * @param DescribeActiveOperationTasksRequest $request
@@ -2618,6 +2661,7 @@ class Dds extends OpenApiClient
      *
      * @param request - DescribeAuditLogFilterRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribeAuditLogFilterResponse
      *
      * @param DescribeAuditLogFilterRequest $request
@@ -2657,15 +2701,15 @@ class Dds extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeAuditLogFilter',
-            'version'     => '2015-12-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeAuditLogFilter',
+            'version' => '2015-12-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DescribeAuditLogFilterResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -2683,6 +2727,7 @@ class Dds extends OpenApiClient
      * *   You can call this operation up to 30 times per minute. To call this operation at a higher frequency, use a Logstore. For more information, see [Manage a Logstore](https://help.aliyun.com/document_detail/48990.html).
      *
      * @param request - DescribeAuditLogFilterRequest
+     *
      * @returns DescribeAuditLogFilterResponse
      *
      * @param DescribeAuditLogFilterRequest $request
@@ -2706,6 +2751,7 @@ class Dds extends OpenApiClient
      *
      * @param request - DescribeAuditPolicyRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribeAuditPolicyResponse
      *
      * @param DescribeAuditPolicyRequest $request
@@ -2741,15 +2787,15 @@ class Dds extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeAuditPolicy',
-            'version'     => '2015-12-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeAuditPolicy',
+            'version' => '2015-12-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DescribeAuditPolicyResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -2767,6 +2813,7 @@ class Dds extends OpenApiClient
      * *   You can call this operation up to 30 times per minute. To call this operation at a higher frequency, use a Logstore. For more information, see [Manage a Logstore](https://help.aliyun.com/document_detail/48990.html).
      *
      * @param request - DescribeAuditPolicyRequest
+     *
      * @returns DescribeAuditPolicyResponse
      *
      * @param DescribeAuditPolicyRequest $request
@@ -2790,6 +2837,7 @@ class Dds extends OpenApiClient
      *
      * @param request - DescribeAuditRecordsRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribeAuditRecordsResponse
      *
      * @param DescribeAuditRecordsRequest $request
@@ -2869,15 +2917,15 @@ class Dds extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeAuditRecords',
-            'version'     => '2015-12-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeAuditRecords',
+            'version' => '2015-12-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DescribeAuditRecordsResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -2895,6 +2943,7 @@ class Dds extends OpenApiClient
      * *   You can call this operation up to 30 times per minute. To call this operation at a higher frequency, use a Logstore. For more information, see [Manage a Logstore](https://help.aliyun.com/document_detail/48990.html).
      *
      * @param request - DescribeAuditRecordsRequest
+     *
      * @returns DescribeAuditRecordsResponse
      *
      * @param DescribeAuditRecordsRequest $request
@@ -2916,6 +2965,7 @@ class Dds extends OpenApiClient
      *
      * @param request - DescribeAvailabilityZonesRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribeAvailabilityZonesResponse
      *
      * @param DescribeAvailabilityZonesRequest $request
@@ -2953,6 +3003,10 @@ class Dds extends OpenApiClient
 
         if (null !== $request->instanceChargeType) {
             @$query['InstanceChargeType'] = $request->instanceChargeType;
+        }
+
+        if (null !== $request->instanceType) {
+            @$query['InstanceType'] = $request->instanceType;
         }
 
         if (null !== $request->mongoType) {
@@ -3003,15 +3057,15 @@ class Dds extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeAvailabilityZones',
-            'version'     => '2015-12-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeAvailabilityZones',
+            'version' => '2015-12-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DescribeAvailabilityZonesResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -3027,6 +3081,7 @@ class Dds extends OpenApiClient
      * Queries the zones in which an ApsaraDB for MongoDB instance can be deployed under specified purchase conditions. The region ID is required in the purchase condition.
      *
      * @param request - DescribeAvailabilityZonesRequest
+     *
      * @returns DescribeAvailabilityZonesResponse
      *
      * @param DescribeAvailabilityZonesRequest $request
@@ -3045,6 +3100,7 @@ class Dds extends OpenApiClient
      *
      * @param request - DescribeAvailableEngineVersionRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribeAvailableEngineVersionResponse
      *
      * @param DescribeAvailableEngineVersionRequest $request
@@ -3080,15 +3136,15 @@ class Dds extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeAvailableEngineVersion',
-            'version'     => '2015-12-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeAvailableEngineVersion',
+            'version' => '2015-12-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DescribeAvailableEngineVersionResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -3101,6 +3157,7 @@ class Dds extends OpenApiClient
      * You can call this operation to query the engine versions to which an ApsaraDB for MongoDB instance can be upgraded.
      *
      * @param request - DescribeAvailableEngineVersionRequest
+     *
      * @returns DescribeAvailableEngineVersionResponse
      *
      * @param DescribeAvailableEngineVersionRequest $request
@@ -3119,6 +3176,7 @@ class Dds extends OpenApiClient
      *
      * @param request - DescribeAvailableResourceRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribeAvailableResourceResponse
      *
      * @param DescribeAvailableResourceRequest $request
@@ -3186,15 +3244,15 @@ class Dds extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeAvailableResource',
-            'version'     => '2015-12-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeAvailableResource',
+            'version' => '2015-12-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DescribeAvailableResourceResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -3207,6 +3265,7 @@ class Dds extends OpenApiClient
      * Queries the available resources in the specified zone.
      *
      * @param request - DescribeAvailableResourceRequest
+     *
      * @returns DescribeAvailableResourceResponse
      *
      * @param DescribeAvailableResourceRequest $request
@@ -3234,6 +3293,7 @@ class Dds extends OpenApiClient
      *
      * @param request - DescribeBackupDBsRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribeBackupDBsResponse
      *
      * @param DescribeBackupDBsRequest $request
@@ -3293,15 +3353,15 @@ class Dds extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeBackupDBs',
-            'version'     => '2015-12-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeBackupDBs',
+            'version' => '2015-12-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DescribeBackupDBsResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -3323,6 +3383,7 @@ class Dds extends OpenApiClient
      * *   The storage engine of the instance is WiredTiger.
      *
      * @param request - DescribeBackupDBsRequest
+     *
      * @returns DescribeBackupDBsResponse
      *
      * @param DescribeBackupDBsRequest $request
@@ -3341,6 +3402,7 @@ class Dds extends OpenApiClient
      *
      * @param request - DescribeBackupPolicyRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribeBackupPolicyResponse
      *
      * @param DescribeBackupPolicyRequest $request
@@ -3388,15 +3450,15 @@ class Dds extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeBackupPolicy',
-            'version'     => '2015-12-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeBackupPolicy',
+            'version' => '2015-12-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DescribeBackupPolicyResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -3409,6 +3471,7 @@ class Dds extends OpenApiClient
      * Queries the backup policy of an ApsaraDB for MongoDB instance.
      *
      * @param request - DescribeBackupPolicyRequest
+     *
      * @returns DescribeBackupPolicyResponse
      *
      * @param DescribeBackupPolicyRequest $request
@@ -3427,6 +3490,7 @@ class Dds extends OpenApiClient
      *
      * @param request - DescribeBackupStorageRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribeBackupStorageResponse
      *
      * @param DescribeBackupStorageRequest $request
@@ -3438,19 +3502,19 @@ class Dds extends OpenApiClient
     {
         $request->validate();
         $query = Utils::query($request->toMap());
-        $req   = new OpenApiRequest([
+        $req = new OpenApiRequest([
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeBackupStorage',
-            'version'     => '2015-12-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeBackupStorage',
+            'version' => '2015-12-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DescribeBackupStorageResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -3463,6 +3527,7 @@ class Dds extends OpenApiClient
      * Queries the storage used for backup in an ApsaraDB for MongoDB replica set or sharded cluster instance that uses cloud disks. Note that you are charged only for the backup-used storage of each shard in a sharded cluster instance. You can call this operation only to query the storage used by a single shard in the instance for backup.
      *
      * @param request - DescribeBackupStorageRequest
+     *
      * @returns DescribeBackupStorageResponse
      *
      * @param DescribeBackupStorageRequest $request
@@ -3481,6 +3546,7 @@ class Dds extends OpenApiClient
      *
      * @param request - DescribeBackupTasksRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribeBackupTasksResponse
      *
      * @param DescribeBackupTasksRequest $request
@@ -3492,19 +3558,19 @@ class Dds extends OpenApiClient
     {
         $request->validate();
         $query = Utils::query($request->toMap());
-        $req   = new OpenApiRequest([
+        $req = new OpenApiRequest([
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeBackupTasks',
-            'version'     => '2015-12-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeBackupTasks',
+            'version' => '2015-12-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DescribeBackupTasksResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -3517,6 +3583,7 @@ class Dds extends OpenApiClient
      * Queries backup tasks running in an ApsaraDB for MongoDB replica set or sharded cluster instance that uses cloud disks.
      *
      * @param request - DescribeBackupTasksRequest
+     *
      * @returns DescribeBackupTasksResponse
      *
      * @param DescribeBackupTasksRequest $request
@@ -3535,6 +3602,7 @@ class Dds extends OpenApiClient
      *
      * @param request - DescribeBackupsRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribeBackupsResponse
      *
      * @param DescribeBackupsRequest $request
@@ -3602,15 +3670,15 @@ class Dds extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeBackups',
-            'version'     => '2015-12-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeBackups',
+            'version' => '2015-12-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DescribeBackupsResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -3623,6 +3691,7 @@ class Dds extends OpenApiClient
      * Queries the backup sets of an ApsaraDB for MongoDB instance.
      *
      * @param request - DescribeBackupsRequest
+     *
      * @returns DescribeBackupsResponse
      *
      * @param DescribeBackupsRequest $request
@@ -3645,6 +3714,7 @@ class Dds extends OpenApiClient
      *
      * @param request - DescribeClusterBackupsRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribeClusterBackupsResponse
      *
      * @param DescribeClusterBackupsRequest $request
@@ -3712,15 +3782,15 @@ class Dds extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeClusterBackups',
-            'version'     => '2015-12-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeClusterBackups',
+            'version' => '2015-12-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DescribeClusterBackupsResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -3737,6 +3807,7 @@ class Dds extends OpenApiClient
      * By default, cloud disk-based sharded cluster instances that are created after October 19, 2023 are in the cluster backup mode.
      *
      * @param request - DescribeClusterBackupsRequest
+     *
      * @returns DescribeClusterBackupsResponse
      *
      * @param DescribeClusterBackupsRequest $request
@@ -3759,6 +3830,7 @@ class Dds extends OpenApiClient
      *
      * @param request - DescribeClusterRecoverTimeRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribeClusterRecoverTimeResponse
      *
      * @param DescribeClusterRecoverTimeRequest $request
@@ -3770,19 +3842,19 @@ class Dds extends OpenApiClient
     {
         $request->validate();
         $query = Utils::query($request->toMap());
-        $req   = new OpenApiRequest([
+        $req = new OpenApiRequest([
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeClusterRecoverTime',
-            'version'     => '2015-12-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeClusterRecoverTime',
+            'version' => '2015-12-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DescribeClusterRecoverTimeResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -3799,6 +3871,7 @@ class Dds extends OpenApiClient
      * *   You can call the TransferClusterBackup operation only for instances that are created before October 19, 2023 to switch the instances to the cluster backup mode. The DescribeClusterRecoverTime operation is applicable only to instances that are switched to the cluster backup mode or instances that are created on or after October 19, 2023.
      *
      * @param request - DescribeClusterRecoverTimeRequest
+     *
      * @returns DescribeClusterRecoverTimeResponse
      *
      * @param DescribeClusterRecoverTimeRequest $request
@@ -3817,6 +3890,7 @@ class Dds extends OpenApiClient
      *
      * @param request - DescribeDBInstanceAttributeRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribeDBInstanceAttributeResponse
      *
      * @param DescribeDBInstanceAttributeRequest $request
@@ -3868,15 +3942,15 @@ class Dds extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeDBInstanceAttribute',
-            'version'     => '2015-12-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeDBInstanceAttribute',
+            'version' => '2015-12-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DescribeDBInstanceAttributeResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -3889,6 +3963,7 @@ class Dds extends OpenApiClient
      * Queries the details of an ApsaraDB for MongoDB instance.
      *
      * @param request - DescribeDBInstanceAttributeRequest
+     *
      * @returns DescribeDBInstanceAttributeResponse
      *
      * @param DescribeDBInstanceAttributeRequest $request
@@ -3910,6 +3985,7 @@ class Dds extends OpenApiClient
      *
      * @param request - DescribeDBInstanceEncryptionKeyRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribeDBInstanceEncryptionKeyResponse
      *
      * @param DescribeDBInstanceEncryptionKeyRequest $request
@@ -3949,15 +4025,15 @@ class Dds extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeDBInstanceEncryptionKey',
-            'version'     => '2015-12-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeDBInstanceEncryptionKey',
+            'version' => '2015-12-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DescribeDBInstanceEncryptionKeyResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -3973,6 +4049,7 @@ class Dds extends OpenApiClient
      * When you call the DescribeDBInstanceEncryptionKey operation, the instance must have transparent data encryption (TDE) enabled in BYOK mode. You can call the [ModifyDBInstanceTDE](https://help.aliyun.com/document_detail/131267.html) operation to enable TDE.
      *
      * @param request - DescribeDBInstanceEncryptionKeyRequest
+     *
      * @returns DescribeDBInstanceEncryptionKeyResponse
      *
      * @param DescribeDBInstanceEncryptionKeyRequest $request
@@ -3991,6 +4068,7 @@ class Dds extends OpenApiClient
      *
      * @param request - DescribeDBInstanceMonitorRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribeDBInstanceMonitorResponse
      *
      * @param DescribeDBInstanceMonitorRequest $request
@@ -4026,15 +4104,15 @@ class Dds extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeDBInstanceMonitor',
-            'version'     => '2015-12-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeDBInstanceMonitor',
+            'version' => '2015-12-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DescribeDBInstanceMonitorResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -4047,6 +4125,7 @@ class Dds extends OpenApiClient
      * Queries the collection frequency of monitoring data for an ApsaraDB for MongoDB instance.
      *
      * @param request - DescribeDBInstanceMonitorRequest
+     *
      * @returns DescribeDBInstanceMonitorResponse
      *
      * @param DescribeDBInstanceMonitorRequest $request
@@ -4065,6 +4144,7 @@ class Dds extends OpenApiClient
      *
      * @param request - DescribeDBInstancePerformanceRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribeDBInstancePerformanceResponse
      *
      * @param DescribeDBInstancePerformanceRequest $request
@@ -4128,15 +4208,15 @@ class Dds extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeDBInstancePerformance',
-            'version'     => '2015-12-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeDBInstancePerformance',
+            'version' => '2015-12-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DescribeDBInstancePerformanceResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -4149,6 +4229,7 @@ class Dds extends OpenApiClient
      * Queries the performance data of an ApsaraDB for MongoDB instance.
      *
      * @param request - DescribeDBInstancePerformanceRequest
+     *
      * @returns DescribeDBInstancePerformanceResponse
      *
      * @param DescribeDBInstancePerformanceRequest $request
@@ -4173,6 +4254,7 @@ class Dds extends OpenApiClient
      *
      * @param request - DescribeDBInstanceSSLRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribeDBInstanceSSLResponse
      *
      * @param DescribeDBInstanceSSLRequest $request
@@ -4208,15 +4290,15 @@ class Dds extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeDBInstanceSSL',
-            'version'     => '2015-12-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeDBInstanceSSL',
+            'version' => '2015-12-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DescribeDBInstanceSSLResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -4235,6 +4317,7 @@ class Dds extends OpenApiClient
      * *   The instance runs MongoDB 3.4 or later.
      *
      * @param request - DescribeDBInstanceSSLRequest
+     *
      * @returns DescribeDBInstanceSSLResponse
      *
      * @param DescribeDBInstanceSSLRequest $request
@@ -4249,6 +4332,86 @@ class Dds extends OpenApiClient
     }
 
     /**
+     * 查看规格信息详情.
+     *
+     * @param request - DescribeDBInstanceSpecInfoRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeDBInstanceSpecInfoResponse
+     *
+     * @param DescribeDBInstanceSpecInfoRequest $request
+     * @param RuntimeOptions                    $runtime
+     *
+     * @return DescribeDBInstanceSpecInfoResponse
+     */
+    public function describeDBInstanceSpecInfoWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->instanceClass) {
+            @$query['InstanceClass'] = $request->instanceClass;
+        }
+
+        if (null !== $request->ownerAccount) {
+            @$query['OwnerAccount'] = $request->ownerAccount;
+        }
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
+        }
+
+        if (null !== $request->resourceOwnerAccount) {
+            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+
+        if (null !== $request->resourceOwnerId) {
+            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+
+        if (null !== $request->securityToken) {
+            @$query['SecurityToken'] = $request->securityToken;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DescribeDBInstanceSpecInfo',
+            'version' => '2015-12-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DescribeDBInstanceSpecInfoResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
+
+        return DescribeDBInstanceSpecInfoResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * 查看规格信息详情.
+     *
+     * @param request - DescribeDBInstanceSpecInfoRequest
+     *
+     * @returns DescribeDBInstanceSpecInfoResponse
+     *
+     * @param DescribeDBInstanceSpecInfoRequest $request
+     *
+     * @return DescribeDBInstanceSpecInfoResponse
+     */
+    public function describeDBInstanceSpecInfo($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeDBInstanceSpecInfoWithOptions($request, $runtime);
+    }
+
+    /**
      * Queries the primary/secondary switching logs of an ApsaraDB for MongoDB instance.
      *
      * @remarks
@@ -4258,6 +4421,7 @@ class Dds extends OpenApiClient
      *
      * @param request - DescribeDBInstanceSwitchLogRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribeDBInstanceSwitchLogResponse
      *
      * @param DescribeDBInstanceSwitchLogRequest $request
@@ -4297,15 +4461,15 @@ class Dds extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeDBInstanceSwitchLog',
-            'version'     => '2015-12-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeDBInstanceSwitchLog',
+            'version' => '2015-12-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DescribeDBInstanceSwitchLogResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -4323,6 +4487,7 @@ class Dds extends OpenApiClient
      * *   The instance uses local physical disks to store data.
      *
      * @param request - DescribeDBInstanceSwitchLogRequest
+     *
      * @returns DescribeDBInstanceSwitchLogResponse
      *
      * @param DescribeDBInstanceSwitchLogRequest $request
@@ -4348,6 +4513,7 @@ class Dds extends OpenApiClient
      *
      * @param request - DescribeDBInstanceTDEInfoRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribeDBInstanceTDEInfoResponse
      *
      * @param DescribeDBInstanceTDEInfoRequest $request
@@ -4383,15 +4549,15 @@ class Dds extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeDBInstanceTDEInfo',
-            'version'     => '2015-12-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeDBInstanceTDEInfo',
+            'version' => '2015-12-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DescribeDBInstanceTDEInfoResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -4411,6 +4577,7 @@ class Dds extends OpenApiClient
      * *   The database engine version of the instance is 4.0 or 4.2. If the database engine version is earlier than 4.0, you can call the [UpgradeDBInstanceEngineVersion](https://help.aliyun.com/document_detail/67608.html) operation to upgrade the database engine.
      *
      * @param request - DescribeDBInstanceTDEInfoRequest
+     *
      * @returns DescribeDBInstanceTDEInfoResponse
      *
      * @param DescribeDBInstanceTDEInfoRequest $request
@@ -4432,6 +4599,7 @@ class Dds extends OpenApiClient
      *
      * @param request - DescribeDBInstancesRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribeDBInstancesResponse
      *
      * @param DescribeDBInstancesRequest $request
@@ -4551,15 +4719,15 @@ class Dds extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeDBInstances',
-            'version'     => '2015-12-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeDBInstances',
+            'version' => '2015-12-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DescribeDBInstancesResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -4575,6 +4743,7 @@ class Dds extends OpenApiClient
      * The list of replica set and standalone instances is displayed when the **DBInstanceType** parameter uses the default value **replicate**. To query a list of sharded cluster instances, you must set the **DBInstanceType** parameter to **sharding**.
      *
      * @param request - DescribeDBInstancesRequest
+     *
      * @returns DescribeDBInstancesResponse
      *
      * @param DescribeDBInstancesRequest $request
@@ -4597,6 +4766,7 @@ class Dds extends OpenApiClient
      *
      * @param request - DescribeDBInstancesOverviewRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribeDBInstancesOverviewResponse
      *
      * @param DescribeDBInstancesOverviewRequest $request
@@ -4680,15 +4850,15 @@ class Dds extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeDBInstancesOverview',
-            'version'     => '2015-12-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeDBInstancesOverview',
+            'version' => '2015-12-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DescribeDBInstancesOverviewResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -4705,6 +4875,7 @@ class Dds extends OpenApiClient
      * *   Paged query is disabled for this operation.
      *
      * @param request - DescribeDBInstancesOverviewRequest
+     *
      * @returns DescribeDBInstancesOverviewResponse
      *
      * @param DescribeDBInstancesOverviewRequest $request
@@ -4727,6 +4898,7 @@ class Dds extends OpenApiClient
      *
      * @param request - DescribeErrorLogRecordsRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribeErrorLogRecordsResponse
      *
      * @param DescribeErrorLogRecordsRequest $request
@@ -4802,15 +4974,15 @@ class Dds extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeErrorLogRecords',
-            'version'     => '2015-12-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeErrorLogRecords',
+            'version' => '2015-12-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DescribeErrorLogRecordsResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -4827,6 +4999,7 @@ class Dds extends OpenApiClient
      * *   You can call this operation up to 30 times per minute. To call this operation at a higher frequency, use a Logstore. For more information, see [Manage a Logstore](https://help.aliyun.com/document_detail/48990.html).
      *
      * @param request - DescribeErrorLogRecordsRequest
+     *
      * @returns DescribeErrorLogRecordsResponse
      *
      * @param DescribeErrorLogRecordsRequest $request
@@ -4845,6 +5018,7 @@ class Dds extends OpenApiClient
      *
      * @param request - DescribeGlobalSecurityIPGroupRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribeGlobalSecurityIPGroupResponse
      *
      * @param DescribeGlobalSecurityIPGroupRequest $request
@@ -4856,19 +5030,19 @@ class Dds extends OpenApiClient
     {
         $request->validate();
         $query = Utils::query($request->toMap());
-        $req   = new OpenApiRequest([
+        $req = new OpenApiRequest([
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeGlobalSecurityIPGroup',
-            'version'     => '2015-12-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeGlobalSecurityIPGroup',
+            'version' => '2015-12-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DescribeGlobalSecurityIPGroupResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -4881,6 +5055,7 @@ class Dds extends OpenApiClient
      * Queries the global IP whitelist template of an ApsaraDB for MongoDB instance.
      *
      * @param request - DescribeGlobalSecurityIPGroupRequest
+     *
      * @returns DescribeGlobalSecurityIPGroupResponse
      *
      * @param DescribeGlobalSecurityIPGroupRequest $request
@@ -4899,6 +5074,7 @@ class Dds extends OpenApiClient
      *
      * @param request - DescribeGlobalSecurityIPGroupRelationRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribeGlobalSecurityIPGroupRelationResponse
      *
      * @param DescribeGlobalSecurityIPGroupRelationRequest $request
@@ -4910,19 +5086,19 @@ class Dds extends OpenApiClient
     {
         $request->validate();
         $query = Utils::query($request->toMap());
-        $req   = new OpenApiRequest([
+        $req = new OpenApiRequest([
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeGlobalSecurityIPGroupRelation',
-            'version'     => '2015-12-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeGlobalSecurityIPGroupRelation',
+            'version' => '2015-12-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DescribeGlobalSecurityIPGroupRelationResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -4935,6 +5111,7 @@ class Dds extends OpenApiClient
      * Queries the global IP whitelist templates associated with an ApsaraDB for MongoDB instance.
      *
      * @param request - DescribeGlobalSecurityIPGroupRelationRequest
+     *
      * @returns DescribeGlobalSecurityIPGroupRelationResponse
      *
      * @param DescribeGlobalSecurityIPGroupRelationRequest $request
@@ -4953,6 +5130,7 @@ class Dds extends OpenApiClient
      *
      * @param request - DescribeHistoryTasksRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribeHistoryTasksResponse
      *
      * @param DescribeHistoryTasksRequest $request
@@ -4992,6 +5170,10 @@ class Dds extends OpenApiClient
             @$query['RegionId'] = $request->regionId;
         }
 
+        if (null !== $request->resourceGroupId) {
+            @$query['ResourceGroupId'] = $request->resourceGroupId;
+        }
+
         if (null !== $request->resourceOwnerAccount) {
             @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
@@ -5024,15 +5206,15 @@ class Dds extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeHistoryTasks',
-            'version'     => '2015-12-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeHistoryTasks',
+            'version' => '2015-12-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DescribeHistoryTasksResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -5045,6 +5227,7 @@ class Dds extends OpenApiClient
      * Queries a list of tasks in the task center.
      *
      * @param request - DescribeHistoryTasksRequest
+     *
      * @returns DescribeHistoryTasksResponse
      *
      * @param DescribeHistoryTasksRequest $request
@@ -5063,6 +5246,7 @@ class Dds extends OpenApiClient
      *
      * @param request - DescribeHistoryTasksStatRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribeHistoryTasksStatResponse
      *
      * @param DescribeHistoryTasksStatRequest $request
@@ -5090,6 +5274,10 @@ class Dds extends OpenApiClient
             @$query['RegionId'] = $request->regionId;
         }
 
+        if (null !== $request->resourceGroupId) {
+            @$query['ResourceGroupId'] = $request->resourceGroupId;
+        }
+
         if (null !== $request->resourceOwnerAccount) {
             @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
@@ -5122,15 +5310,15 @@ class Dds extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeHistoryTasksStat',
-            'version'     => '2015-12-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeHistoryTasksStat',
+            'version' => '2015-12-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DescribeHistoryTasksStatResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -5143,6 +5331,7 @@ class Dds extends OpenApiClient
      * Queries the overview of a task in the task center.
      *
      * @param request - DescribeHistoryTasksStatRequest
+     *
      * @returns DescribeHistoryTasksStatResponse
      *
      * @param DescribeHistoryTasksStatRequest $request
@@ -5164,6 +5353,7 @@ class Dds extends OpenApiClient
      *
      * @param request - DescribeInstanceAutoRenewalAttributeRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribeInstanceAutoRenewalAttributeResponse
      *
      * @param DescribeInstanceAutoRenewalAttributeRequest $request
@@ -5215,15 +5405,15 @@ class Dds extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeInstanceAutoRenewalAttribute',
-            'version'     => '2015-12-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeInstanceAutoRenewalAttribute',
+            'version' => '2015-12-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DescribeInstanceAutoRenewalAttributeResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -5239,6 +5429,7 @@ class Dds extends OpenApiClient
      * This operation is applicable to subscription instances.
      *
      * @param request - DescribeInstanceAutoRenewalAttributeRequest
+     *
      * @returns DescribeInstanceAutoRenewalAttributeResponse
      *
      * @param DescribeInstanceAutoRenewalAttributeRequest $request
@@ -5257,6 +5448,7 @@ class Dds extends OpenApiClient
      *
      * @param request - DescribeInstanceRecoverTimeRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribeInstanceRecoverTimeResponse
      *
      * @param DescribeInstanceRecoverTimeRequest $request
@@ -5268,19 +5460,19 @@ class Dds extends OpenApiClient
     {
         $request->validate();
         $query = Utils::query($request->toMap());
-        $req   = new OpenApiRequest([
+        $req = new OpenApiRequest([
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeInstanceRecoverTime',
-            'version'     => '2015-12-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeInstanceRecoverTime',
+            'version' => '2015-12-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DescribeInstanceRecoverTimeResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -5293,6 +5485,7 @@ class Dds extends OpenApiClient
      * Queries the time required to restore the data of an ApsaraDB for MongoDB replica set instance that uses cloud disks.
      *
      * @param request - DescribeInstanceRecoverTimeRequest
+     *
      * @returns DescribeInstanceRecoverTimeResponse
      *
      * @param DescribeInstanceRecoverTimeRequest $request
@@ -5311,6 +5504,7 @@ class Dds extends OpenApiClient
      *
      * @param request - DescribeKernelReleaseNotesRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribeKernelReleaseNotesResponse
      *
      * @param DescribeKernelReleaseNotesRequest $request
@@ -5346,15 +5540,15 @@ class Dds extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeKernelReleaseNotes',
-            'version'     => '2015-12-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeKernelReleaseNotes',
+            'version' => '2015-12-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DescribeKernelReleaseNotesResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -5367,6 +5561,7 @@ class Dds extends OpenApiClient
      * Queries the release notes of the minor versions of an ApsaraDB for MongoDB instance.
      *
      * @param request - DescribeKernelReleaseNotesRequest
+     *
      * @returns DescribeKernelReleaseNotesResponse
      *
      * @param DescribeKernelReleaseNotesRequest $request
@@ -5388,6 +5583,7 @@ class Dds extends OpenApiClient
      *
      * @param request - DescribeKmsKeysRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribeKmsKeysResponse
      *
      * @param DescribeKmsKeysRequest $request
@@ -5419,15 +5615,15 @@ class Dds extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeKmsKeys',
-            'version'     => '2015-12-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeKmsKeys',
+            'version' => '2015-12-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DescribeKmsKeysResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -5443,6 +5639,7 @@ class Dds extends OpenApiClient
      * Queried keys are available only for disk encryption.
      *
      * @param request - DescribeKmsKeysRequest
+     *
      * @returns DescribeKmsKeysResponse
      *
      * @param DescribeKmsKeysRequest $request
@@ -5467,6 +5664,7 @@ class Dds extends OpenApiClient
      *
      * @param request - DescribeMongoDBLogConfigRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribeMongoDBLogConfigResponse
      *
      * @param DescribeMongoDBLogConfigRequest $request
@@ -5502,15 +5700,15 @@ class Dds extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeMongoDBLogConfig',
-            'version'     => '2015-12-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeMongoDBLogConfig',
+            'version' => '2015-12-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DescribeMongoDBLogConfigResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -5529,6 +5727,7 @@ class Dds extends OpenApiClient
      * *   You are charged for the official edition of the audit log feature based on the storage capacity that is consumed by audit logs and the retention period of the audit logs. For more information, see [Pricing of ApsaraDB for MongoDB instances](https://www.alibabacloud.com/zh/product/apsaradb-for-mongodb/pricing).
      *
      * @param request - DescribeMongoDBLogConfigRequest
+     *
      * @returns DescribeMongoDBLogConfigResponse
      *
      * @param DescribeMongoDBLogConfigRequest $request
@@ -5547,6 +5746,7 @@ class Dds extends OpenApiClient
      *
      * @param request - DescribeParameterModificationHistoryRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribeParameterModificationHistoryResponse
      *
      * @param DescribeParameterModificationHistoryRequest $request
@@ -5598,15 +5798,15 @@ class Dds extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeParameterModificationHistory',
-            'version'     => '2015-12-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeParameterModificationHistory',
+            'version' => '2015-12-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DescribeParameterModificationHistoryResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -5619,6 +5819,7 @@ class Dds extends OpenApiClient
      * Queries the parameter modification records of an ApsaraDB for MongoDB instance.
      *
      * @param request - DescribeParameterModificationHistoryRequest
+     *
      * @returns DescribeParameterModificationHistoryResponse
      *
      * @param DescribeParameterModificationHistoryRequest $request
@@ -5637,6 +5838,7 @@ class Dds extends OpenApiClient
      *
      * @param request - DescribeParameterTemplatesRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribeParameterTemplatesResponse
      *
      * @param DescribeParameterTemplatesRequest $request
@@ -5684,15 +5886,15 @@ class Dds extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeParameterTemplates',
-            'version'     => '2015-12-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeParameterTemplates',
+            'version' => '2015-12-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DescribeParameterTemplatesResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -5705,6 +5907,7 @@ class Dds extends OpenApiClient
      * Queries the list of default parameter templates for ApsaraDB for MongoDB instances.
      *
      * @param request - DescribeParameterTemplatesRequest
+     *
      * @returns DescribeParameterTemplatesResponse
      *
      * @param DescribeParameterTemplatesRequest $request
@@ -5723,6 +5926,7 @@ class Dds extends OpenApiClient
      *
      * @param request - DescribeParametersRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribeParametersResponse
      *
      * @param DescribeParametersRequest $request
@@ -5770,15 +5974,15 @@ class Dds extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeParameters',
-            'version'     => '2015-12-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeParameters',
+            'version' => '2015-12-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DescribeParametersResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -5791,6 +5995,7 @@ class Dds extends OpenApiClient
      * Queries the parameter settings of an ApsaraDB for MongoDB instance.
      *
      * @param request - DescribeParametersRequest
+     *
      * @returns DescribeParametersResponse
      *
      * @param DescribeParametersRequest $request
@@ -5805,10 +6010,11 @@ class Dds extends OpenApiClient
     }
 
     /**
-     * Queries the fees incurred when you create, upgrade, or renew an ApsaraDB for MongoDB instance.
+     * Queries the pricing information of an ApsaraDB for MongoDB instance.
      *
      * @param request - DescribePriceRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribePriceResponse
      *
      * @param DescribePriceRequest $request
@@ -5876,15 +6082,15 @@ class Dds extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribePrice',
-            'version'     => '2015-12-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribePrice',
+            'version' => '2015-12-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DescribePriceResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -5894,9 +6100,10 @@ class Dds extends OpenApiClient
     }
 
     /**
-     * Queries the fees incurred when you create, upgrade, or renew an ApsaraDB for MongoDB instance.
+     * Queries the pricing information of an ApsaraDB for MongoDB instance.
      *
      * @param request - DescribePriceRequest
+     *
      * @returns DescribePriceResponse
      *
      * @param DescribePriceRequest $request
@@ -5918,6 +6125,7 @@ class Dds extends OpenApiClient
      *
      * @param request - DescribeRegionsRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribeRegionsResponse
      *
      * @param DescribeRegionsRequest $request
@@ -5957,15 +6165,15 @@ class Dds extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeRegions',
-            'version'     => '2015-12-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeRegions',
+            'version' => '2015-12-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DescribeRegionsResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -5981,6 +6189,7 @@ class Dds extends OpenApiClient
      * >  To query available regions and zones in which an ApsaraDB for MongoDB instance can be created, call the [DescribeAvailableResource](https://help.aliyun.com/document_detail/149719.html) operation.
      *
      * @param request - DescribeRegionsRequest
+     *
      * @returns DescribeRegionsResponse
      *
      * @param DescribeRegionsRequest $request
@@ -6002,6 +6211,7 @@ class Dds extends OpenApiClient
      *
      * @param request - DescribeRenewalPriceRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribeRenewalPriceResponse
      *
      * @param DescribeRenewalPriceRequest $request
@@ -6045,15 +6255,15 @@ class Dds extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeRenewalPrice',
-            'version'     => '2015-12-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeRenewalPrice',
+            'version' => '2015-12-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DescribeRenewalPriceResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -6069,6 +6279,7 @@ class Dds extends OpenApiClient
      * This operation is applicable to subscription instances.
      *
      * @param request - DescribeRenewalPriceRequest
+     *
      * @returns DescribeRenewalPriceResponse
      *
      * @param DescribeRenewalPriceRequest $request
@@ -6090,6 +6301,7 @@ class Dds extends OpenApiClient
      *
      * @param request - DescribeReplicaSetRoleRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribeReplicaSetRoleResponse
      *
      * @param DescribeReplicaSetRoleRequest $request
@@ -6125,15 +6337,15 @@ class Dds extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeReplicaSetRole',
-            'version'     => '2015-12-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeReplicaSetRole',
+            'version' => '2015-12-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DescribeReplicaSetRoleResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -6149,6 +6361,7 @@ class Dds extends OpenApiClient
      * This operation is applicable to replica set instances and standalone instances, but not to sharded cluster instances.
      *
      * @param request - DescribeReplicaSetRoleRequest
+     *
      * @returns DescribeReplicaSetRoleResponse
      *
      * @param DescribeReplicaSetRoleRequest $request
@@ -6167,6 +6380,7 @@ class Dds extends OpenApiClient
      *
      * @param request - DescribeRestoreDBInstanceListRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribeRestoreDBInstanceListResponse
      *
      * @param DescribeRestoreDBInstanceListRequest $request
@@ -6214,15 +6428,15 @@ class Dds extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeRestoreDBInstanceList',
-            'version'     => '2015-12-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeRestoreDBInstanceList',
+            'version' => '2015-12-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DescribeRestoreDBInstanceListResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -6235,6 +6449,7 @@ class Dds extends OpenApiClient
      * Queries ApsaraDB for MongoDB instances whose backups are restored within seven days.
      *
      * @param request - DescribeRestoreDBInstanceListRequest
+     *
      * @returns DescribeRestoreDBInstanceListResponse
      *
      * @param DescribeRestoreDBInstanceListRequest $request
@@ -6257,6 +6472,7 @@ class Dds extends OpenApiClient
      *
      * @param request - DescribeRoleZoneInfoRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribeRoleZoneInfoResponse
      *
      * @param DescribeRoleZoneInfoRequest $request
@@ -6292,15 +6508,15 @@ class Dds extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeRoleZoneInfo',
-            'version'     => '2015-12-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeRoleZoneInfo',
+            'version' => '2015-12-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DescribeRoleZoneInfoResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -6317,6 +6533,7 @@ class Dds extends OpenApiClient
      * This operation is applicable to replica set instances and sharded cluster instances, but cannot be performed on standalone instances.
      *
      * @param request - DescribeRoleZoneInfoRequest
+     *
      * @returns DescribeRoleZoneInfoResponse
      *
      * @param DescribeRoleZoneInfoRequest $request
@@ -6339,6 +6556,7 @@ class Dds extends OpenApiClient
      *
      * @param request - DescribeRunningLogRecordsRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribeRunningLogRecordsResponse
      *
      * @param DescribeRunningLogRecordsRequest $request
@@ -6422,15 +6640,15 @@ class Dds extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeRunningLogRecords',
-            'version'     => '2015-12-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeRunningLogRecords',
+            'version' => '2015-12-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DescribeRunningLogRecordsResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -6447,6 +6665,7 @@ class Dds extends OpenApiClient
      * *   You can call this operation up to 30 times per minute. To call this operation at a higher frequency, use a Logstore. For more information, see [Manage a Logstore](https://help.aliyun.com/document_detail/48990.html).
      *
      * @param request - DescribeRunningLogRecordsRequest
+     *
      * @returns DescribeRunningLogRecordsResponse
      *
      * @param DescribeRunningLogRecordsRequest $request
@@ -6465,6 +6684,7 @@ class Dds extends OpenApiClient
      *
      * @param request - DescribeSecurityGroupConfigurationRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribeSecurityGroupConfigurationResponse
      *
      * @param DescribeSecurityGroupConfigurationRequest $request
@@ -6500,15 +6720,15 @@ class Dds extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeSecurityGroupConfiguration',
-            'version'     => '2015-12-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeSecurityGroupConfiguration',
+            'version' => '2015-12-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DescribeSecurityGroupConfigurationResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -6521,6 +6741,7 @@ class Dds extends OpenApiClient
      * You can call this operation to query ECS security groups that are bound to an ApsaraDB for MongoDB instance.
      *
      * @param request - DescribeSecurityGroupConfigurationRequest
+     *
      * @returns DescribeSecurityGroupConfigurationResponse
      *
      * @param DescribeSecurityGroupConfigurationRequest $request
@@ -6539,6 +6760,7 @@ class Dds extends OpenApiClient
      *
      * @param request - DescribeSecurityIpsRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribeSecurityIpsResponse
      *
      * @param DescribeSecurityIpsRequest $request
@@ -6578,15 +6800,15 @@ class Dds extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeSecurityIps',
-            'version'     => '2015-12-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeSecurityIps',
+            'version' => '2015-12-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DescribeSecurityIpsResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -6599,6 +6821,7 @@ class Dds extends OpenApiClient
      * You can call this operation to query the IP whitelists of an ApsaraDB for MongoDB instance.
      *
      * @param request - DescribeSecurityIpsRequest
+     *
      * @returns DescribeSecurityIpsResponse
      *
      * @param DescribeSecurityIpsRequest $request
@@ -6620,6 +6843,7 @@ class Dds extends OpenApiClient
      *
      * @param request - DescribeShardingNetworkAddressRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribeShardingNetworkAddressResponse
      *
      * @param DescribeShardingNetworkAddressRequest $request
@@ -6659,15 +6883,15 @@ class Dds extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeShardingNetworkAddress',
-            'version'     => '2015-12-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeShardingNetworkAddress',
+            'version' => '2015-12-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DescribeShardingNetworkAddressResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -6683,6 +6907,7 @@ class Dds extends OpenApiClient
      * This operation is applicable only to sharded cluster instances.
      *
      * @param request - DescribeShardingNetworkAddressRequest
+     *
      * @returns DescribeShardingNetworkAddressResponse
      *
      * @param DescribeShardingNetworkAddressRequest $request
@@ -6705,6 +6930,7 @@ class Dds extends OpenApiClient
      *
      * @param request - DescribeSlowLogRecordsRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribeSlowLogRecordsResponse
      *
      * @param DescribeSlowLogRecordsRequest $request
@@ -6780,15 +7006,15 @@ class Dds extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeSlowLogRecords',
-            'version'     => '2015-12-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeSlowLogRecords',
+            'version' => '2015-12-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DescribeSlowLogRecordsResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -6805,6 +7031,7 @@ class Dds extends OpenApiClient
      * *   You can call this operation up to 30 times per minute. To call this operation at a higher frequency, use a Logstore. For more information, see [Manage a Logstore](https://help.aliyun.com/document_detail/48990.html).
      *
      * @param request - DescribeSlowLogRecordsRequest
+     *
      * @returns DescribeSlowLogRecordsResponse
      *
      * @param DescribeSlowLogRecordsRequest $request
@@ -6823,6 +7050,7 @@ class Dds extends OpenApiClient
      *
      * @param request - DescribeTagsRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribeTagsResponse
      *
      * @param DescribeTagsRequest $request
@@ -6870,15 +7098,15 @@ class Dds extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeTags',
-            'version'     => '2015-12-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeTags',
+            'version' => '2015-12-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DescribeTagsResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -6891,6 +7119,7 @@ class Dds extends OpenApiClient
      * Queries all tags in a specified region.
      *
      * @param request - DescribeTagsRequest
+     *
      * @returns DescribeTagsResponse
      *
      * @param DescribeTagsRequest $request
@@ -6912,6 +7141,7 @@ class Dds extends OpenApiClient
      *
      * @param request - DescribeUserEncryptionKeyListRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribeUserEncryptionKeyListResponse
      *
      * @param DescribeUserEncryptionKeyListRequest $request
@@ -6951,15 +7181,15 @@ class Dds extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeUserEncryptionKeyList',
-            'version'     => '2015-12-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeUserEncryptionKeyList',
+            'version' => '2015-12-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DescribeUserEncryptionKeyListResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -6975,6 +7205,7 @@ class Dds extends OpenApiClient
      * You can use the custom key obtained by calling the DescribeUserEncryptionKeyList operation to enable TDE. For more information, see [ModifyDBInstanceTDE](https://help.aliyun.com/document_detail/131267.html).
      *
      * @param request - DescribeUserEncryptionKeyListRequest
+     *
      * @returns DescribeUserEncryptionKeyListResponse
      *
      * @param DescribeUserEncryptionKeyListRequest $request
@@ -7001,6 +7232,7 @@ class Dds extends OpenApiClient
      *
      * @param request - DestroyInstanceRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DestroyInstanceResponse
      *
      * @param DestroyInstanceRequest $request
@@ -7048,15 +7280,15 @@ class Dds extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DestroyInstance',
-            'version'     => '2015-12-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DestroyInstance',
+            'version' => '2015-12-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DestroyInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -7077,6 +7309,7 @@ class Dds extends OpenApiClient
      * **Warning** Data cannot be restored after the instance is destroyed. Proceed with caution.
      *
      * @param request - DestroyInstanceRequest
+     *
      * @returns DestroyInstanceResponse
      *
      * @param DestroyInstanceRequest $request
@@ -7099,6 +7332,7 @@ class Dds extends OpenApiClient
      *
      * @param request - EvaluateResourceRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns EvaluateResourceResponse
      *
      * @param EvaluateResourceRequest $request
@@ -7170,15 +7404,15 @@ class Dds extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'EvaluateResource',
-            'version'     => '2015-12-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'EvaluateResource',
+            'version' => '2015-12-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return EvaluateResourceResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -7195,6 +7429,7 @@ class Dds extends OpenApiClient
      * > You can call this operation a maximum of 200 times per minute.
      *
      * @param request - EvaluateResourceRequest
+     *
      * @returns EvaluateResourceResponse
      *
      * @param EvaluateResourceRequest $request
@@ -7213,6 +7448,7 @@ class Dds extends OpenApiClient
      *
      * @param request - ListTagResourcesRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ListTagResourcesResponse
      *
      * @param ListTagResourcesRequest $request
@@ -7264,15 +7500,15 @@ class Dds extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListTagResources',
-            'version'     => '2015-12-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListTagResources',
+            'version' => '2015-12-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return ListTagResourcesResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -7285,6 +7521,7 @@ class Dds extends OpenApiClient
      * Queries the relationship between ApsaraDB for MongoDB instances and tags.
      *
      * @param request - ListTagResourcesRequest
+     *
      * @returns ListTagResourcesResponse
      *
      * @param ListTagResourcesRequest $request
@@ -7310,6 +7547,7 @@ class Dds extends OpenApiClient
      *
      * @param request - MigrateAvailableZoneRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns MigrateAvailableZoneResponse
      *
      * @param MigrateAvailableZoneRequest $request
@@ -7365,15 +7603,15 @@ class Dds extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'MigrateAvailableZone',
-            'version'     => '2015-12-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'MigrateAvailableZone',
+            'version' => '2015-12-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return MigrateAvailableZoneResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -7393,6 +7631,7 @@ class Dds extends OpenApiClient
      * *   A vSwitch is created in the destination zone. This prerequisite must be met if the instance resides in a virtual private cloud (VPC). For more information about how to create a vSwitch, see [Work with vSwitches](https://help.aliyun.com/document_detail/65387.html).
      *
      * @param request - MigrateAvailableZoneRequest
+     *
      * @returns MigrateAvailableZoneResponse
      *
      * @param MigrateAvailableZoneRequest $request
@@ -7415,6 +7654,7 @@ class Dds extends OpenApiClient
      *
      * @param request - MigrateToOtherZoneRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns MigrateToOtherZoneResponse
      *
      * @param MigrateToOtherZoneRequest $request
@@ -7462,15 +7702,15 @@ class Dds extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'MigrateToOtherZone',
-            'version'     => '2015-12-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'MigrateToOtherZone',
+            'version' => '2015-12-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return MigrateToOtherZoneResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -7487,6 +7727,7 @@ class Dds extends OpenApiClient
      * >  If you have applied for a public endpoint of the instance, you must first call the [ReleasePublicNetworkAddress](https://help.aliyun.com/document_detail/67604.html) operation to release the public endpoint.
      *
      * @param request - MigrateToOtherZoneRequest
+     *
      * @returns MigrateToOtherZoneResponse
      *
      * @param MigrateToOtherZoneRequest $request
@@ -7505,6 +7746,7 @@ class Dds extends OpenApiClient
      *
      * @param request - ModifyAccountDescriptionRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ModifyAccountDescriptionResponse
      *
      * @param ModifyAccountDescriptionRequest $request
@@ -7552,15 +7794,15 @@ class Dds extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ModifyAccountDescription',
-            'version'     => '2015-12-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ModifyAccountDescription',
+            'version' => '2015-12-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return ModifyAccountDescriptionResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -7573,6 +7815,7 @@ class Dds extends OpenApiClient
      * Modifies the description of the root account in an ApsaraDB for MongoDB instance.
      *
      * @param request - ModifyAccountDescriptionRequest
+     *
      * @returns ModifyAccountDescriptionResponse
      *
      * @param ModifyAccountDescriptionRequest $request
@@ -7591,6 +7834,7 @@ class Dds extends OpenApiClient
      *
      * @param request - ModifyActiveOperationTasksRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ModifyActiveOperationTasksResponse
      *
      * @param ModifyActiveOperationTasksRequest $request
@@ -7618,6 +7862,10 @@ class Dds extends OpenApiClient
             @$query['OwnerId'] = $request->ownerId;
         }
 
+        if (null !== $request->resourceGroupId) {
+            @$query['ResourceGroupId'] = $request->resourceGroupId;
+        }
+
         if (null !== $request->resourceOwnerAccount) {
             @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
@@ -7634,15 +7882,15 @@ class Dds extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ModifyActiveOperationTasks',
-            'version'     => '2015-12-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ModifyActiveOperationTasks',
+            'version' => '2015-12-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return ModifyActiveOperationTasksResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -7655,6 +7903,7 @@ class Dds extends OpenApiClient
      * Modifies the switching time of scheduled O\\\\\\&M tasks for an ApsaraDB for MongoDB instance.
      *
      * @param request - ModifyActiveOperationTasksRequest
+     *
      * @returns ModifyActiveOperationTasksResponse
      *
      * @param ModifyActiveOperationTasksRequest $request
@@ -7678,6 +7927,7 @@ class Dds extends OpenApiClient
      *
      * @param request - ModifyAuditLogFilterRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ModifyAuditLogFilterResponse
      *
      * @param ModifyAuditLogFilterRequest $request
@@ -7721,15 +7971,15 @@ class Dds extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ModifyAuditLogFilter',
-            'version'     => '2015-12-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ModifyAuditLogFilter',
+            'version' => '2015-12-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return ModifyAuditLogFilterResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -7747,6 +7997,7 @@ class Dds extends OpenApiClient
      * *   You can call this operation up to 30 times per minute. To call this operation at a higher frequency, use a Logstore. For more information, see [Manage a Logstore](https://help.aliyun.com/document_detail/48990.html).
      *
      * @param request - ModifyAuditLogFilterRequest
+     *
      * @returns ModifyAuditLogFilterResponse
      *
      * @param ModifyAuditLogFilterRequest $request
@@ -7769,6 +8020,7 @@ class Dds extends OpenApiClient
      *
      * @param request - ModifyAuditPolicyRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ModifyAuditPolicyResponse
      *
      * @param ModifyAuditPolicyRequest $request
@@ -7820,15 +8072,15 @@ class Dds extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ModifyAuditPolicy',
-            'version'     => '2015-12-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ModifyAuditPolicy',
+            'version' => '2015-12-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return ModifyAuditPolicyResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -7845,6 +8097,7 @@ class Dds extends OpenApiClient
      * *   You can call this operation up to 30 times per minute. To call this operation at a higher frequency, use a Logstore. For more information, see [Manage a Logstore](https://help.aliyun.com/document_detail/48990.html).
      *
      * @param request - ModifyAuditPolicyRequest
+     *
      * @returns ModifyAuditPolicyResponse
      *
      * @param ModifyAuditPolicyRequest $request
@@ -7866,6 +8119,7 @@ class Dds extends OpenApiClient
      *
      * @param request - ModifyBackupPolicyRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ModifyBackupPolicyResponse
      *
      * @param ModifyBackupPolicyRequest $request
@@ -7977,15 +8231,15 @@ class Dds extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ModifyBackupPolicy',
-            'version'     => '2015-12-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ModifyBackupPolicy',
+            'version' => '2015-12-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return ModifyBackupPolicyResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -8001,6 +8255,7 @@ class Dds extends OpenApiClient
      * The cross-region backup feature is suitable only for replica set or sharded cluster instances that use cloud disks.
      *
      * @param request - ModifyBackupPolicyRequest
+     *
      * @returns ModifyBackupPolicyResponse
      *
      * @param ModifyBackupPolicyRequest $request
@@ -8019,6 +8274,7 @@ class Dds extends OpenApiClient
      *
      * @param request - ModifyDBInstanceConfigRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ModifyDBInstanceConfigResponse
      *
      * @param ModifyDBInstanceConfigRequest $request
@@ -8062,15 +8318,15 @@ class Dds extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ModifyDBInstanceConfig',
-            'version'     => '2015-12-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ModifyDBInstanceConfig',
+            'version' => '2015-12-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return ModifyDBInstanceConfigResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -8083,6 +8339,7 @@ class Dds extends OpenApiClient
      * 修改实例配置.
      *
      * @param request - ModifyDBInstanceConfigRequest
+     *
      * @returns ModifyDBInstanceConfigResponse
      *
      * @param ModifyDBInstanceConfigRequest $request
@@ -8106,6 +8363,7 @@ class Dds extends OpenApiClient
      *
      * @param request - ModifyDBInstanceConnectionStringRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ModifyDBInstanceConnectionStringResponse
      *
      * @param ModifyDBInstanceConnectionStringRequest $request
@@ -8157,15 +8415,15 @@ class Dds extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ModifyDBInstanceConnectionString',
-            'version'     => '2015-12-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ModifyDBInstanceConnectionString',
+            'version' => '2015-12-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return ModifyDBInstanceConnectionStringResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -8183,6 +8441,7 @@ class Dds extends OpenApiClient
      * *   You can only modify the ports of instances that use cloud disks.
      *
      * @param request - ModifyDBInstanceConnectionStringRequest
+     *
      * @returns ModifyDBInstanceConnectionStringResponse
      *
      * @param ModifyDBInstanceConnectionStringRequest $request
@@ -8201,6 +8460,7 @@ class Dds extends OpenApiClient
      *
      * @param request - ModifyDBInstanceDescriptionRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ModifyDBInstanceDescriptionResponse
      *
      * @param ModifyDBInstanceDescriptionRequest $request
@@ -8244,15 +8504,15 @@ class Dds extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ModifyDBInstanceDescription',
-            'version'     => '2015-12-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ModifyDBInstanceDescription',
+            'version' => '2015-12-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return ModifyDBInstanceDescriptionResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -8265,6 +8525,7 @@ class Dds extends OpenApiClient
      * Modifies the name of an ApsaraDB for MongoDB instance.
      *
      * @param request - ModifyDBInstanceDescriptionRequest
+     *
      * @returns ModifyDBInstanceDescriptionResponse
      *
      * @param ModifyDBInstanceDescriptionRequest $request
@@ -8283,6 +8544,7 @@ class Dds extends OpenApiClient
      *
      * @param request - ModifyDBInstanceDiskTypeRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ModifyDBInstanceDiskTypeResponse
      *
      * @param ModifyDBInstanceDiskTypeRequest $request
@@ -8338,15 +8600,15 @@ class Dds extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ModifyDBInstanceDiskType',
-            'version'     => '2015-12-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ModifyDBInstanceDiskType',
+            'version' => '2015-12-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return ModifyDBInstanceDiskTypeResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -8359,6 +8621,7 @@ class Dds extends OpenApiClient
      * Modifies the disk type of an ApsaraDB for MongoDB instance.
      *
      * @param request - ModifyDBInstanceDiskTypeRequest
+     *
      * @returns ModifyDBInstanceDiskTypeResponse
      *
      * @param ModifyDBInstanceDiskTypeRequest $request
@@ -8377,6 +8640,7 @@ class Dds extends OpenApiClient
      *
      * @param request - ModifyDBInstanceMaintainTimeRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ModifyDBInstanceMaintainTimeResponse
      *
      * @param ModifyDBInstanceMaintainTimeRequest $request
@@ -8420,15 +8684,15 @@ class Dds extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ModifyDBInstanceMaintainTime',
-            'version'     => '2015-12-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ModifyDBInstanceMaintainTime',
+            'version' => '2015-12-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return ModifyDBInstanceMaintainTimeResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -8441,6 +8705,7 @@ class Dds extends OpenApiClient
      * Modifies the maintenance window of an ApsaraDB for MongoDB instance.
      *
      * @param request - ModifyDBInstanceMaintainTimeRequest
+     *
      * @returns ModifyDBInstanceMaintainTimeResponse
      *
      * @param ModifyDBInstanceMaintainTimeRequest $request
@@ -8465,6 +8730,7 @@ class Dds extends OpenApiClient
      *
      * @param request - ModifyDBInstanceMonitorRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ModifyDBInstanceMonitorResponse
      *
      * @param ModifyDBInstanceMonitorRequest $request
@@ -8504,15 +8770,15 @@ class Dds extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ModifyDBInstanceMonitor',
-            'version'     => '2015-12-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ModifyDBInstanceMonitor',
+            'version' => '2015-12-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return ModifyDBInstanceMonitorResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -8531,6 +8797,7 @@ class Dds extends OpenApiClient
      * *   MongoDB 3.4 (the latest minor version) or MongoDB 4.0 is selected.
      *
      * @param request - ModifyDBInstanceMonitorRequest
+     *
      * @returns ModifyDBInstanceMonitorResponse
      *
      * @param ModifyDBInstanceMonitorRequest $request
@@ -8555,6 +8822,7 @@ class Dds extends OpenApiClient
      *
      * @param request - ModifyDBInstanceNetExpireTimeRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ModifyDBInstanceNetExpireTimeResponse
      *
      * @param ModifyDBInstanceNetExpireTimeRequest $request
@@ -8598,15 +8866,15 @@ class Dds extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ModifyDBInstanceNetExpireTime',
-            'version'     => '2015-12-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ModifyDBInstanceNetExpireTime',
+            'version' => '2015-12-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return ModifyDBInstanceNetExpireTimeResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -8625,6 +8893,7 @@ class Dds extends OpenApiClient
      * >  This operation is supported by replica set instances and sharded cluster instances. This operation is not supported by standalone instances.
      *
      * @param request - ModifyDBInstanceNetExpireTimeRequest
+     *
      * @returns ModifyDBInstanceNetExpireTimeResponse
      *
      * @param ModifyDBInstanceNetExpireTimeRequest $request
@@ -8646,6 +8915,7 @@ class Dds extends OpenApiClient
      *
      * @param request - ModifyDBInstanceNetworkTypeRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ModifyDBInstanceNetworkTypeResponse
      *
      * @param ModifyDBInstanceNetworkTypeRequest $request
@@ -8705,15 +8975,15 @@ class Dds extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ModifyDBInstanceNetworkType',
-            'version'     => '2015-12-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ModifyDBInstanceNetworkType',
+            'version' => '2015-12-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return ModifyDBInstanceNetworkTypeResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -8729,6 +8999,7 @@ class Dds extends OpenApiClient
      * This operation is applicable to replica set instances and sharded cluster instances, but not standalone instances. You can call this operation to change the network of an instance from a classic network to a VPC.
      *
      * @param request - ModifyDBInstanceNetworkTypeRequest
+     *
      * @returns ModifyDBInstanceNetworkTypeResponse
      *
      * @param ModifyDBInstanceNetworkTypeRequest $request
@@ -8755,6 +9026,7 @@ class Dds extends OpenApiClient
      *
      * @param request - ModifyDBInstanceSSLRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ModifyDBInstanceSSLResponse
      *
      * @param ModifyDBInstanceSSLRequest $request
@@ -8794,15 +9066,15 @@ class Dds extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ModifyDBInstanceSSL',
-            'version'     => '2015-12-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ModifyDBInstanceSSL',
+            'version' => '2015-12-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return ModifyDBInstanceSSLResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -8823,6 +9095,7 @@ class Dds extends OpenApiClient
      * >  When you enable or disable SSL encryption or update the SSL certificate, the instance restarts. We recommend that you call this operation during off-peak hours.
      *
      * @param request - ModifyDBInstanceSSLRequest
+     *
      * @returns ModifyDBInstanceSSLResponse
      *
      * @param ModifyDBInstanceSSLRequest $request
@@ -8845,6 +9118,7 @@ class Dds extends OpenApiClient
      *
      * @param request - ModifyDBInstanceSpecRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ModifyDBInstanceSpecResponse
      *
      * @param ModifyDBInstanceSpecRequest $request
@@ -8920,15 +9194,15 @@ class Dds extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ModifyDBInstanceSpec',
-            'version'     => '2015-12-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ModifyDBInstanceSpec',
+            'version' => '2015-12-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return ModifyDBInstanceSpecResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -8945,6 +9219,7 @@ class Dds extends OpenApiClient
      * This operation applies only to standalone and replica set instances. To modify the specifications of sharded cluster instances, you can call the [ModifyNodeSpec](https://help.aliyun.com/document_detail/61911.html), [CreateNode](https://help.aliyun.com/document_detail/61922.html), [DeleteNode](https://help.aliyun.com/document_detail/61816.html), or [ModifyNodeSpecBatch](https://help.aliyun.com/document_detail/61923.html) operation.
      *
      * @param request - ModifyDBInstanceSpecRequest
+     *
      * @returns ModifyDBInstanceSpecResponse
      *
      * @param ModifyDBInstanceSpecRequest $request
@@ -8972,6 +9247,7 @@ class Dds extends OpenApiClient
      *
      * @param request - ModifyDBInstanceTDERequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ModifyDBInstanceTDEResponse
      *
      * @param ModifyDBInstanceTDERequest $request
@@ -9023,15 +9299,15 @@ class Dds extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ModifyDBInstanceTDE',
-            'version'     => '2015-12-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ModifyDBInstanceTDE',
+            'version' => '2015-12-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return ModifyDBInstanceTDEResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -9053,6 +9329,7 @@ class Dds extends OpenApiClient
      * *   The database engine version of the instance is 4.0 or 4.2. If the database engine version is earlier than 4.0, you can call the [UpgradeDBInstanceEngineVersion](https://help.aliyun.com/document_detail/67608.html) operation to upgrade the database engine.
      *
      * @param request - ModifyDBInstanceTDERequest
+     *
      * @returns ModifyDBInstanceTDEResponse
      *
      * @param ModifyDBInstanceTDERequest $request
@@ -9071,6 +9348,7 @@ class Dds extends OpenApiClient
      *
      * @param request - ModifyGlobalSecurityIPGroupRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ModifyGlobalSecurityIPGroupResponse
      *
      * @param ModifyGlobalSecurityIPGroupRequest $request
@@ -9118,15 +9396,15 @@ class Dds extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ModifyGlobalSecurityIPGroup',
-            'version'     => '2015-12-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ModifyGlobalSecurityIPGroup',
+            'version' => '2015-12-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return ModifyGlobalSecurityIPGroupResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -9139,6 +9417,7 @@ class Dds extends OpenApiClient
      * Modifies the global IP whitelist template associated with an ApsaraDB for MongoDB instance.
      *
      * @param request - ModifyGlobalSecurityIPGroupRequest
+     *
      * @returns ModifyGlobalSecurityIPGroupResponse
      *
      * @param ModifyGlobalSecurityIPGroupRequest $request
@@ -9157,6 +9436,7 @@ class Dds extends OpenApiClient
      *
      * @param request - ModifyGlobalSecurityIPGroupNameRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ModifyGlobalSecurityIPGroupNameResponse
      *
      * @param ModifyGlobalSecurityIPGroupNameRequest $request
@@ -9200,15 +9480,15 @@ class Dds extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ModifyGlobalSecurityIPGroupName',
-            'version'     => '2015-12-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ModifyGlobalSecurityIPGroupName',
+            'version' => '2015-12-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return ModifyGlobalSecurityIPGroupNameResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -9221,6 +9501,7 @@ class Dds extends OpenApiClient
      * Modifies the name of a global IP whitelist template associated with an ApsaraDB for MongoDB instance.
      *
      * @param request - ModifyGlobalSecurityIPGroupNameRequest
+     *
      * @returns ModifyGlobalSecurityIPGroupNameResponse
      *
      * @param ModifyGlobalSecurityIPGroupNameRequest $request
@@ -9239,6 +9520,7 @@ class Dds extends OpenApiClient
      *
      * @param request - ModifyGlobalSecurityIPGroupRelationRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ModifyGlobalSecurityIPGroupRelationResponse
      *
      * @param ModifyGlobalSecurityIPGroupRelationRequest $request
@@ -9282,15 +9564,15 @@ class Dds extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ModifyGlobalSecurityIPGroupRelation',
-            'version'     => '2015-12-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ModifyGlobalSecurityIPGroupRelation',
+            'version' => '2015-12-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return ModifyGlobalSecurityIPGroupRelationResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -9303,6 +9585,7 @@ class Dds extends OpenApiClient
      * Modifies the mapping between a global whitelist template and an ApsaraDB for MongoDB instance.
      *
      * @param request - ModifyGlobalSecurityIPGroupRelationRequest
+     *
      * @returns ModifyGlobalSecurityIPGroupRelationResponse
      *
      * @param ModifyGlobalSecurityIPGroupRelationRequest $request
@@ -9326,6 +9609,7 @@ class Dds extends OpenApiClient
      *
      * @param request - ModifyInstanceAutoRenewalAttributeRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ModifyInstanceAutoRenewalAttributeResponse
      *
      * @param ModifyInstanceAutoRenewalAttributeRequest $request
@@ -9373,15 +9657,15 @@ class Dds extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ModifyInstanceAutoRenewalAttribute',
-            'version'     => '2015-12-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ModifyInstanceAutoRenewalAttribute',
+            'version' => '2015-12-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return ModifyInstanceAutoRenewalAttributeResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -9399,6 +9683,7 @@ class Dds extends OpenApiClient
      * >  When auto-renewal is enabled, your payment will be collected nine days before the expiration date of ApsaraDB for MongoDB. Ensure that your account has sufficient balance.
      *
      * @param request - ModifyInstanceAutoRenewalAttributeRequest
+     *
      * @returns ModifyInstanceAutoRenewalAttributeResponse
      *
      * @param ModifyInstanceAutoRenewalAttributeRequest $request
@@ -9424,6 +9709,7 @@ class Dds extends OpenApiClient
      *
      * @param request - ModifyInstanceVpcAuthModeRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ModifyInstanceVpcAuthModeResponse
      *
      * @param ModifyInstanceVpcAuthModeRequest $request
@@ -9467,15 +9753,15 @@ class Dds extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ModifyInstanceVpcAuthMode',
-            'version'     => '2015-12-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ModifyInstanceVpcAuthMode',
+            'version' => '2015-12-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return ModifyInstanceVpcAuthModeResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -9495,6 +9781,7 @@ class Dds extends OpenApiClient
      * *   You can only disable but not enable password-free access over VPC.
      *
      * @param request - ModifyInstanceVpcAuthModeRequest
+     *
      * @returns ModifyInstanceVpcAuthModeResponse
      *
      * @param ModifyInstanceVpcAuthModeRequest $request
@@ -9517,6 +9804,7 @@ class Dds extends OpenApiClient
      *
      * @param request - ModifyNodeSpecRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ModifyNodeSpecResponse
      *
      * @param ModifyNodeSpecRequest $request
@@ -9600,15 +9888,15 @@ class Dds extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ModifyNodeSpec',
-            'version'     => '2015-12-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ModifyNodeSpec',
+            'version' => '2015-12-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return ModifyNodeSpecResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -9625,6 +9913,7 @@ class Dds extends OpenApiClient
      * > This operation is applicable only to sharded cluster instances.
      *
      * @param request - ModifyNodeSpecRequest
+     *
      * @returns ModifyNodeSpecResponse
      *
      * @param ModifyNodeSpecRequest $request
@@ -9648,6 +9937,7 @@ class Dds extends OpenApiClient
      *
      * @param request - ModifyNodeSpecBatchRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ModifyNodeSpecBatchResponse
      *
      * @param ModifyNodeSpecBatchRequest $request
@@ -9715,15 +10005,15 @@ class Dds extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ModifyNodeSpecBatch',
-            'version'     => '2015-12-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ModifyNodeSpecBatch',
+            'version' => '2015-12-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return ModifyNodeSpecBatchResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -9741,6 +10031,7 @@ class Dds extends OpenApiClient
      * When you upgrade or downgrade the configurations of multiple sharded cluster instances in batches, the specifications of the instances are limited. For example, if you want to expand the storage capacity of the instances, the storage capacity of the instances after expansion must be greater than the current capacity. When the specifications of multiple sharded cluster instances are different, limits are defined based on the specifications of a random sharded cluster instance. In this case, you may be unable to upgrade or downgrade the configurations of the instances. In this case, we recommend that you call the ModifyNodeSpec operation to individually change the configurations of each sharded cluster instance.
      *
      * @param request - ModifyNodeSpecBatchRequest
+     *
      * @returns ModifyNodeSpecBatchResponse
      *
      * @param ModifyNodeSpecBatchRequest $request
@@ -9763,6 +10054,7 @@ class Dds extends OpenApiClient
      *
      * @param request - ModifyParametersRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ModifyParametersResponse
      *
      * @param ModifyParametersRequest $request
@@ -9814,15 +10106,15 @@ class Dds extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ModifyParameters',
-            'version'     => '2015-12-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ModifyParameters',
+            'version' => '2015-12-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return ModifyParametersResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -9839,6 +10131,7 @@ class Dds extends OpenApiClient
      * *   If you call this operation to modify specific instance parameters and the modification for part of the parameters can take effect only after an instance restart, the instance is automatically restarted after this operation is called. You can call the [DescribeParameterTemplates](https://help.aliyun.com/document_detail/67618.html) operation to query the parameters that take effect only after the instance is restarted.
      *
      * @param request - ModifyParametersRequest
+     *
      * @returns ModifyParametersResponse
      *
      * @param ModifyParametersRequest $request
@@ -9860,6 +10153,7 @@ class Dds extends OpenApiClient
      *
      * @param request - ModifyResourceGroupRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ModifyResourceGroupResponse
      *
      * @param ModifyResourceGroupRequest $request
@@ -9903,15 +10197,15 @@ class Dds extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ModifyResourceGroup',
-            'version'     => '2015-12-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ModifyResourceGroup',
+            'version' => '2015-12-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return ModifyResourceGroupResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -9927,6 +10221,7 @@ class Dds extends OpenApiClient
      * Resource Management allows you to build an organizational structure for resources based on your business requirements. You can use resource directories, folders, accounts, and resource groups to hierarchically organize and manage resources. For more information, see [What is Resource Management?](https://help.aliyun.com/document_detail/94475.html)
      *
      * @param request - ModifyResourceGroupRequest
+     *
      * @returns ModifyResourceGroupResponse
      *
      * @param ModifyResourceGroupRequest $request
@@ -9948,6 +10243,7 @@ class Dds extends OpenApiClient
      *
      * @param request - ModifySecurityGroupConfigurationRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ModifySecurityGroupConfigurationResponse
      *
      * @param ModifySecurityGroupConfigurationRequest $request
@@ -9987,15 +10283,15 @@ class Dds extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ModifySecurityGroupConfiguration',
-            'version'     => '2015-12-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ModifySecurityGroupConfiguration',
+            'version' => '2015-12-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return ModifySecurityGroupConfigurationResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -10011,6 +10307,7 @@ class Dds extends OpenApiClient
      * >  For a sharded cluster instance, the bound ECS security group takes effect only for mongos nodes.
      *
      * @param request - ModifySecurityGroupConfigurationRequest
+     *
      * @returns ModifySecurityGroupConfigurationResponse
      *
      * @param ModifySecurityGroupConfigurationRequest $request
@@ -10029,6 +10326,7 @@ class Dds extends OpenApiClient
      *
      * @param request - ModifySecurityIpsRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ModifySecurityIpsResponse
      *
      * @param ModifySecurityIpsRequest $request
@@ -10080,15 +10378,15 @@ class Dds extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ModifySecurityIps',
-            'version'     => '2015-12-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ModifySecurityIps',
+            'version' => '2015-12-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return ModifySecurityIpsResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -10101,6 +10399,7 @@ class Dds extends OpenApiClient
      * Modifies the IP address whitelist of an ApsaraDB for MongoDB instance.
      *
      * @param request - ModifySecurityIpsRequest
+     *
      * @returns ModifySecurityIpsResponse
      *
      * @param ModifySecurityIpsRequest $request
@@ -10122,6 +10421,7 @@ class Dds extends OpenApiClient
      *
      * @param request - ModifyTaskInfoRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ModifyTaskInfoResponse
      *
      * @param ModifyTaskInfoRequest $request
@@ -10165,15 +10465,15 @@ class Dds extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ModifyTaskInfo',
-            'version'     => '2015-12-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ModifyTaskInfo',
+            'version' => '2015-12-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return ModifyTaskInfoResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -10189,6 +10489,7 @@ class Dds extends OpenApiClient
      * The actions performed by this operation for a task vary based on the current state of the task. The supported actions for a task can be obtained from the value of the actionInfo parameter in the DescribeHistoryTasks operation.
      *
      * @param request - ModifyTaskInfoRequest
+     *
      * @returns ModifyTaskInfoResponse
      *
      * @param ModifyTaskInfoRequest $request
@@ -10211,6 +10512,7 @@ class Dds extends OpenApiClient
      *
      * @param request - ReleaseNodePrivateNetworkAddressRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ReleaseNodePrivateNetworkAddressResponse
      *
      * @param ReleaseNodePrivateNetworkAddressRequest $request
@@ -10258,15 +10560,15 @@ class Dds extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ReleaseNodePrivateNetworkAddress',
-            'version'     => '2015-12-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ReleaseNodePrivateNetworkAddress',
+            'version' => '2015-12-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return ReleaseNodePrivateNetworkAddressResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -10283,6 +10585,7 @@ class Dds extends OpenApiClient
      * *   To release the public endpoint of a shard or Configserver node in a sharded cluster instance, you can call the [ReleasePublicNetworkAddress](https://help.aliyun.com/document_detail/67604.html) operation.
      *
      * @param request - ReleaseNodePrivateNetworkAddressRequest
+     *
      * @returns ReleaseNodePrivateNetworkAddressResponse
      *
      * @param ReleaseNodePrivateNetworkAddressRequest $request
@@ -10301,6 +10604,7 @@ class Dds extends OpenApiClient
      *
      * @param request - ReleasePublicNetworkAddressRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ReleasePublicNetworkAddressResponse
      *
      * @param ReleasePublicNetworkAddressRequest $request
@@ -10344,15 +10648,15 @@ class Dds extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ReleasePublicNetworkAddress',
-            'version'     => '2015-12-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ReleasePublicNetworkAddress',
+            'version' => '2015-12-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return ReleasePublicNetworkAddressResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -10365,6 +10669,7 @@ class Dds extends OpenApiClient
      * Releases the public endpoint of an ApsaraDB for MongoDB instance.
      *
      * @param request - ReleasePublicNetworkAddressRequest
+     *
      * @returns ReleasePublicNetworkAddressResponse
      *
      * @param ReleasePublicNetworkAddressRequest $request
@@ -10387,6 +10692,7 @@ class Dds extends OpenApiClient
      *
      * @param request - RenewDBInstanceRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns RenewDBInstanceResponse
      *
      * @param RenewDBInstanceRequest $request
@@ -10446,15 +10752,15 @@ class Dds extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'RenewDBInstance',
-            'version'     => '2015-12-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'RenewDBInstance',
+            'version' => '2015-12-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return RenewDBInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -10471,6 +10777,7 @@ class Dds extends OpenApiClient
      * This operation is only applicable to instances that use the subscription billing method.
      *
      * @param request - RenewDBInstanceRequest
+     *
      * @returns RenewDBInstanceResponse
      *
      * @param RenewDBInstanceRequest $request
@@ -10492,6 +10799,7 @@ class Dds extends OpenApiClient
      *
      * @param request - ResetAccountPasswordRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ResetAccountPasswordResponse
      *
      * @param ResetAccountPasswordRequest $request
@@ -10539,15 +10847,15 @@ class Dds extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ResetAccountPassword',
-            'version'     => '2015-12-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ResetAccountPassword',
+            'version' => '2015-12-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return ResetAccountPasswordResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -10563,6 +10871,7 @@ class Dds extends OpenApiClient
      * >  This operation can be used to reset only the password of the root account of an instance.
      *
      * @param request - ResetAccountPasswordRequest
+     *
      * @returns ResetAccountPasswordResponse
      *
      * @param ResetAccountPasswordRequest $request
@@ -10584,6 +10893,7 @@ class Dds extends OpenApiClient
      *
      * @param request - RestartDBInstanceRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns RestartDBInstanceResponse
      *
      * @param RestartDBInstanceRequest $request
@@ -10623,15 +10933,15 @@ class Dds extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'RestartDBInstance',
-            'version'     => '2015-12-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'RestartDBInstance',
+            'version' => '2015-12-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return RestartDBInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -10647,6 +10957,7 @@ class Dds extends OpenApiClient
      * This operation can also be used to restart an instance, or restart a shard or mongos node in a sharded cluster instance.
      *
      * @param request - RestartDBInstanceRequest
+     *
      * @returns RestartDBInstanceResponse
      *
      * @param RestartDBInstanceRequest $request
@@ -10671,6 +10982,7 @@ class Dds extends OpenApiClient
      *
      * @param request - RestartNodeRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns RestartNodeResponse
      *
      * @param RestartNodeRequest $request
@@ -10714,15 +11026,15 @@ class Dds extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'RestartNode',
-            'version'     => '2015-12-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'RestartNode',
+            'version' => '2015-12-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return RestartNodeResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -10741,6 +11053,7 @@ class Dds extends OpenApiClient
      * *   The instance is a replica set or sharded cluster instance of the standard edition.
      *
      * @param request - RestartNodeRequest
+     *
      * @returns RestartNodeResponse
      *
      * @param RestartNodeRequest $request
@@ -10765,6 +11078,7 @@ class Dds extends OpenApiClient
      *
      * @param request - SwitchDBInstanceHARequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns SwitchDBInstanceHAResponse
      *
      * @param SwitchDBInstanceHARequest $request
@@ -10812,15 +11126,15 @@ class Dds extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'SwitchDBInstanceHA',
-            'version'     => '2015-12-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'SwitchDBInstanceHA',
+            'version' => '2015-12-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return SwitchDBInstanceHAResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -10839,6 +11153,7 @@ class Dds extends OpenApiClient
      * *   On replica set instances, the switch is performed between instances. On sharded cluster instances, the switch is performed between shards.
      *
      * @param request - SwitchDBInstanceHARequest
+     *
      * @returns SwitchDBInstanceHAResponse
      *
      * @param SwitchDBInstanceHARequest $request
@@ -10865,6 +11180,7 @@ class Dds extends OpenApiClient
      *
      * @param request - TagResourcesRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns TagResourcesResponse
      *
      * @param TagResourcesRequest $request
@@ -10916,15 +11232,15 @@ class Dds extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'TagResources',
-            'version'     => '2015-12-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'TagResources',
+            'version' => '2015-12-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return TagResourcesResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -10945,6 +11261,7 @@ class Dds extends OpenApiClient
      * *   You can bind tags to up to 50 instances each time you call the operation.
      *
      * @param request - TagResourcesRequest
+     *
      * @returns TagResourcesResponse
      *
      * @param TagResourcesRequest $request
@@ -10967,6 +11284,7 @@ class Dds extends OpenApiClient
      *
      * @param request - TransferClusterBackupRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns TransferClusterBackupResponse
      *
      * @param TransferClusterBackupRequest $request
@@ -11002,15 +11320,15 @@ class Dds extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'TransferClusterBackup',
-            'version'     => '2015-12-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'TransferClusterBackup',
+            'version' => '2015-12-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return TransferClusterBackupResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -11027,6 +11345,7 @@ class Dds extends OpenApiClient
      * *   You can call the TransferClusterBackup operation only for instances that are created before October 19, 2023 to switch the instances to the cluster backup mode. Cloud disk-based sharded cluster instances that are created on or after October 19, 2023 are set to the cluster backup mode by default.
      *
      * @param request - TransferClusterBackupRequest
+     *
      * @returns TransferClusterBackupResponse
      *
      * @param TransferClusterBackupRequest $request
@@ -11053,6 +11372,7 @@ class Dds extends OpenApiClient
      *
      * @param request - TransformInstanceChargeTypeRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns TransformInstanceChargeTypeResponse
      *
      * @param TransformInstanceChargeTypeRequest $request
@@ -11116,15 +11436,15 @@ class Dds extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'TransformInstanceChargeType',
-            'version'     => '2015-12-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'TransformInstanceChargeType',
+            'version' => '2015-12-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return TransformInstanceChargeTypeResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -11145,6 +11465,7 @@ class Dds extends OpenApiClient
      * > To change the billing method of an instance whose instance type is no longer available to purchase, call the [ModifyDBInstanceSpec](https://help.aliyun.com/document_detail/61816.html) or [ModifyNodeSpec](https://help.aliyun.com/document_detail/61923.html) operation to change the instance type first.
      *
      * @param request - TransformInstanceChargeTypeRequest
+     *
      * @returns TransformInstanceChargeTypeResponse
      *
      * @param TransformInstanceChargeTypeRequest $request
@@ -11173,6 +11494,7 @@ class Dds extends OpenApiClient
      *
      * @param request - TransformToPrePaidRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns TransformToPrePaidResponse
      *
      * @param TransformToPrePaidRequest $request
@@ -11228,15 +11550,15 @@ class Dds extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'TransformToPrePaid',
-            'version'     => '2015-12-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'TransformToPrePaid',
+            'version' => '2015-12-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return TransformToPrePaidResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -11259,6 +11581,7 @@ class Dds extends OpenApiClient
      * >  To change the billing method of an instance whose instance type is no longer available to subscription, call the [ModifyDBInstanceSpec](https://help.aliyun.com/document_detail/61816.html) or [ModifyNodeSpec](https://help.aliyun.com/document_detail/61923.html) operation to first change the instance type.
      *
      * @param request - TransformToPrePaidRequest
+     *
      * @returns TransformToPrePaidResponse
      *
      * @param TransformToPrePaidRequest $request
@@ -11282,6 +11605,7 @@ class Dds extends OpenApiClient
      *
      * @param request - UntagResourcesRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns UntagResourcesResponse
      *
      * @param UntagResourcesRequest $request
@@ -11337,15 +11661,15 @@ class Dds extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'UntagResources',
-            'version'     => '2015-12-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'UntagResources',
+            'version' => '2015-12-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return UntagResourcesResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -11363,6 +11687,7 @@ class Dds extends OpenApiClient
      * *   If you remove a tag from all instances, the tag is automatically deleted.
      *
      * @param request - UntagResourcesRequest
+     *
      * @returns UntagResourcesResponse
      *
      * @param UntagResourcesRequest $request
@@ -11387,6 +11712,7 @@ class Dds extends OpenApiClient
      *
      * @param request - UpgradeDBInstanceEngineVersionRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns UpgradeDBInstanceEngineVersionResponse
      *
      * @param UpgradeDBInstanceEngineVersionRequest $request
@@ -11430,15 +11756,15 @@ class Dds extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'UpgradeDBInstanceEngineVersion',
-            'version'     => '2015-12-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'UpgradeDBInstanceEngineVersion',
+            'version' => '2015-12-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return UpgradeDBInstanceEngineVersionResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -11457,6 +11783,7 @@ class Dds extends OpenApiClient
      * > * The instance is automatically restarted for two to three times during the upgrade process. Make sure that you upgrade the instance during off-peak hours.
      *
      * @param request - UpgradeDBInstanceEngineVersionRequest
+     *
      * @returns UpgradeDBInstanceEngineVersionResponse
      *
      * @param UpgradeDBInstanceEngineVersionRequest $request
@@ -11480,6 +11807,7 @@ class Dds extends OpenApiClient
      *
      * @param request - UpgradeDBInstanceKernelVersionRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns UpgradeDBInstanceKernelVersionResponse
      *
      * @param UpgradeDBInstanceKernelVersionRequest $request
@@ -11519,15 +11847,15 @@ class Dds extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'UpgradeDBInstanceKernelVersion',
-            'version'     => '2015-12-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'UpgradeDBInstanceKernelVersion',
+            'version' => '2015-12-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return UpgradeDBInstanceKernelVersionResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -11545,6 +11873,7 @@ class Dds extends OpenApiClient
      * > * The instance will be restarted once during the upgrade. Call this operation during off-peak hours.
      *
      * @param request - UpgradeDBInstanceKernelVersionRequest
+     *
      * @returns UpgradeDBInstanceKernelVersionResponse
      *
      * @param UpgradeDBInstanceKernelVersionRequest $request

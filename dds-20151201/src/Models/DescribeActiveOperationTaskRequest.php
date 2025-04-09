@@ -12,53 +12,62 @@ class DescribeActiveOperationTaskRequest extends Model
      * @var int
      */
     public $isHistory;
+
     /**
      * @var string
      */
     public $ownerAccount;
+
     /**
      * @var int
      */
     public $ownerId;
+
     /**
      * @var int
      */
     public $pageNumber;
+
     /**
      * @var int
      */
     public $pageSize;
+
     /**
      * @var string
      */
     public $productId;
+
     /**
      * @var string
      */
     public $region;
+
     /**
      * @var string
      */
     public $resourceOwnerAccount;
+
     /**
      * @var int
      */
     public $resourceOwnerId;
+
     /**
      * @var string
      */
     public $taskType;
     protected $_name = [
-        'isHistory'            => 'IsHistory',
-        'ownerAccount'         => 'OwnerAccount',
-        'ownerId'              => 'OwnerId',
-        'pageNumber'           => 'PageNumber',
-        'pageSize'             => 'PageSize',
-        'productId'            => 'ProductId',
-        'region'               => 'Region',
+        'isHistory' => 'IsHistory',
+        'ownerAccount' => 'OwnerAccount',
+        'ownerId' => 'OwnerId',
+        'pageNumber' => 'PageNumber',
+        'pageSize' => 'PageSize',
+        'productId' => 'ProductId',
+        'region' => 'Region',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
-        'resourceOwnerId'      => 'ResourceOwnerId',
-        'taskType'             => 'TaskType',
+        'resourceOwnerId' => 'ResourceOwnerId',
+        'taskType' => 'TaskType',
     ];
 
     public function validate()

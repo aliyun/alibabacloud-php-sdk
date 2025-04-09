@@ -13,6 +13,7 @@ class DescribeRoleZoneInfoResponseBody extends Model
      * @var string
      */
     public $requestId;
+
     /**
      * @var zoneInfos
      */

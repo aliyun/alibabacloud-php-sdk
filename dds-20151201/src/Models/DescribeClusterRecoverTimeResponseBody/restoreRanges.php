@@ -12,18 +12,20 @@ class restoreRanges extends Model
      * @var string
      */
     public $restoreBeginTime;
+
     /**
      * @var string
      */
     public $restoreEndTime;
+
     /**
      * @var string
      */
     public $restoreType;
     protected $_name = [
         'restoreBeginTime' => 'RestoreBeginTime',
-        'restoreEndTime'   => 'RestoreEndTime',
-        'restoreType'      => 'RestoreType',
+        'restoreEndTime' => 'RestoreEndTime',
+        'restoreType' => 'RestoreType',
     ];
 
     public function validate()

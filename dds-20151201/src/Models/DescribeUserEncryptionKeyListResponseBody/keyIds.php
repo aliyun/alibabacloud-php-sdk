@@ -30,7 +30,7 @@ class keyIds extends Model
         if (null !== $this->keyId) {
             if (\is_array($this->keyId)) {
                 $res['KeyId'] = [];
-                $n1           = 0;
+                $n1 = 0;
                 foreach ($this->keyId as $item1) {
                     $res['KeyId'][$n1++] = $item1;
                 }
@@ -51,7 +51,7 @@ class keyIds extends Model
         if (isset($map['KeyId'])) {
             if (!empty($map['KeyId'])) {
                 $model->keyId = [];
-                $n1           = 0;
+                $n1 = 0;
                 foreach ($map['KeyId'] as $item1) {
                     $model->keyId[$n1++] = $item1;
                 }

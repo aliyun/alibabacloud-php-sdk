@@ -12,63 +12,74 @@ class DescribeMongoDBLogConfigResponseBody extends Model
      * @var bool
      */
     public $enableAudit;
+
     /**
      * @var int
      */
     public $isEtlMetaExist;
+
     /**
      * @var int
      */
     public $isUserProjectLogstoreExist;
+
     /**
      * @var int
      */
     public $preserveStorageForStandard;
+
     /**
      * @var int
      */
     public $preserveStorageForTrail;
+
     /**
      * @var string
      */
     public $requestId;
+
     /**
      * @var string
      */
     public $serviceType;
+
     /**
      * @var int
      */
     public $ttlForStandard;
+
     /**
      * @var int
      */
     public $ttlForTrail;
+
     /**
      * @var int
      */
     public $usedStorageForStandard;
+
     /**
      * @var int
      */
     public $usedStorageForTrail;
+
     /**
      * @var string
      */
     public $userProjectName;
     protected $_name = [
-        'enableAudit'                => 'EnableAudit',
-        'isEtlMetaExist'             => 'IsEtlMetaExist',
+        'enableAudit' => 'EnableAudit',
+        'isEtlMetaExist' => 'IsEtlMetaExist',
         'isUserProjectLogstoreExist' => 'IsUserProjectLogstoreExist',
         'preserveStorageForStandard' => 'PreserveStorageForStandard',
-        'preserveStorageForTrail'    => 'PreserveStorageForTrail',
-        'requestId'                  => 'RequestId',
-        'serviceType'                => 'ServiceType',
-        'ttlForStandard'             => 'TtlForStandard',
-        'ttlForTrail'                => 'TtlForTrail',
-        'usedStorageForStandard'     => 'UsedStorageForStandard',
-        'usedStorageForTrail'        => 'UsedStorageForTrail',
-        'userProjectName'            => 'UserProjectName',
+        'preserveStorageForTrail' => 'PreserveStorageForTrail',
+        'requestId' => 'RequestId',
+        'serviceType' => 'ServiceType',
+        'ttlForStandard' => 'TtlForStandard',
+        'ttlForTrail' => 'TtlForTrail',
+        'usedStorageForStandard' => 'UsedStorageForStandard',
+        'usedStorageForTrail' => 'UsedStorageForTrail',
+        'userProjectName' => 'UserProjectName',
     ];
 
     public function validate()

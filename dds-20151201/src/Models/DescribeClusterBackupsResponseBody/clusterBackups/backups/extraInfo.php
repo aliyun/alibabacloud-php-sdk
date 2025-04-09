@@ -12,23 +12,26 @@ class extraInfo extends Model
      * @var string
      */
     public $instanceClass;
+
     /**
      * @var string
      */
     public $nodeId;
+
     /**
      * @var string
      */
     public $nodeType;
+
     /**
      * @var string
      */
     public $storageSize;
     protected $_name = [
         'instanceClass' => 'InstanceClass',
-        'nodeId'        => 'NodeId',
-        'nodeType'      => 'NodeType',
-        'storageSize'   => 'StorageSize',
+        'nodeId' => 'NodeId',
+        'nodeType' => 'NodeType',
+        'storageSize' => 'StorageSize',
     ];
 
     public function validate()

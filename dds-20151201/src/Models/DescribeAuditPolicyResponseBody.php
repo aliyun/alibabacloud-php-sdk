@@ -12,13 +12,14 @@ class DescribeAuditPolicyResponseBody extends Model
      * @var string
      */
     public $logAuditStatus;
+
     /**
      * @var string
      */
     public $requestId;
     protected $_name = [
         'logAuditStatus' => 'LogAuditStatus',
-        'requestId'      => 'RequestId',
+        'requestId' => 'RequestId',
     ];
 
     public function validate()

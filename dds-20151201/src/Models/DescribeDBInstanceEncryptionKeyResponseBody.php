@@ -12,48 +12,56 @@ class DescribeDBInstanceEncryptionKeyResponseBody extends Model
      * @var string
      */
     public $creator;
+
     /**
      * @var string
      */
     public $deleteDate;
+
     /**
      * @var string
      */
     public $description;
+
     /**
      * @var string
      */
     public $encryptionKey;
+
     /**
      * @var string
      */
     public $encryptionKeyStatus;
+
     /**
      * @var string
      */
     public $keyUsage;
+
     /**
      * @var string
      */
     public $materialExpireTime;
+
     /**
      * @var string
      */
     public $origin;
+
     /**
      * @var string
      */
     public $requestId;
     protected $_name = [
-        'creator'             => 'Creator',
-        'deleteDate'          => 'DeleteDate',
-        'description'         => 'Description',
-        'encryptionKey'       => 'EncryptionKey',
+        'creator' => 'Creator',
+        'deleteDate' => 'DeleteDate',
+        'description' => 'Description',
+        'encryptionKey' => 'EncryptionKey',
         'encryptionKeyStatus' => 'EncryptionKeyStatus',
-        'keyUsage'            => 'KeyUsage',
-        'materialExpireTime'  => 'MaterialExpireTime',
-        'origin'              => 'Origin',
-        'requestId'           => 'RequestId',
+        'keyUsage' => 'KeyUsage',
+        'materialExpireTime' => 'MaterialExpireTime',
+        'origin' => 'Origin',
+        'requestId' => 'RequestId',
     ];
 
     public function validate()

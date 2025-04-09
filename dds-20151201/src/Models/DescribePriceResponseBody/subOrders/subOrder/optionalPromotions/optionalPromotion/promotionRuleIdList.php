@@ -30,7 +30,7 @@ class promotionRuleIdList extends Model
         if (null !== $this->promotionRuleId) {
             if (\is_array($this->promotionRuleId)) {
                 $res['promotionRuleId'] = [];
-                $n1                     = 0;
+                $n1 = 0;
                 foreach ($this->promotionRuleId as $item1) {
                     $res['promotionRuleId'][$n1++] = $item1;
                 }
@@ -51,7 +51,7 @@ class promotionRuleIdList extends Model
         if (isset($map['promotionRuleId'])) {
             if (!empty($map['promotionRuleId'])) {
                 $model->promotionRuleId = [];
-                $n1                     = 0;
+                $n1 = 0;
                 foreach ($map['promotionRuleId'] as $item1) {
                     $model->promotionRuleId[$n1++] = $item1;
                 }

@@ -12,17 +12,19 @@ class CreateNodeBatchResponseBody extends Model
      * @var string
      */
     public $nodeId;
+
     /**
      * @var string
      */
     public $orderId;
+
     /**
      * @var string
      */
     public $requestId;
     protected $_name = [
-        'nodeId'    => 'NodeId',
-        'orderId'   => 'OrderId',
+        'nodeId' => 'NodeId',
+        'orderId' => 'OrderId',
         'requestId' => 'RequestId',
     ];
 

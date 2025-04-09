@@ -13,18 +13,20 @@ class availableZone extends Model
      * @var string
      */
     public $regionId;
+
     /**
      * @var supportedEngineVersions
      */
     public $supportedEngineVersions;
+
     /**
      * @var string
      */
     public $zoneId;
     protected $_name = [
-        'regionId'                => 'RegionId',
+        'regionId' => 'RegionId',
         'supportedEngineVersions' => 'SupportedEngineVersions',
-        'zoneId'                  => 'ZoneId',
+        'zoneId' => 'ZoneId',
     ];
 
     public function validate()

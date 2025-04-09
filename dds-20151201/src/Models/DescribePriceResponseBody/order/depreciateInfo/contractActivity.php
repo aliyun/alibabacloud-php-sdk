@@ -13,38 +13,44 @@ class contractActivity extends Model
      * @var int
      */
     public $activityId;
+
     /**
      * @var string
      */
     public $activityName;
+
     /**
      * @var float
      */
     public $finalFee;
+
     /**
      * @var float
      */
     public $finalPromFee;
+
     /**
      * @var string
      */
     public $optionCode;
+
     /**
      * @var optionIds
      */
     public $optionIds;
+
     /**
      * @var float
      */
     public $prodFee;
     protected $_name = [
-        'activityId'   => 'ActivityId',
+        'activityId' => 'ActivityId',
         'activityName' => 'ActivityName',
-        'finalFee'     => 'FinalFee',
+        'finalFee' => 'FinalFee',
         'finalPromFee' => 'FinalPromFee',
-        'optionCode'   => 'OptionCode',
-        'optionIds'    => 'OptionIds',
-        'prodFee'      => 'ProdFee',
+        'optionCode' => 'OptionCode',
+        'optionIds' => 'OptionIds',
+        'prodFee' => 'ProdFee',
     ];
 
     public function validate()

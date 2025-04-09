@@ -12,88 +12,104 @@ class DescribeDBInstancesOverviewRequest extends Model
      * @var string
      */
     public $chargeType;
+
     /**
      * @var string
      */
     public $engineVersion;
+
     /**
      * @var string
      */
     public $instanceClass;
+
     /**
      * @var string
      */
     public $instanceIds;
+
     /**
      * @var string
      */
     public $instanceStatus;
+
     /**
      * @var string
      */
     public $instanceType;
+
     /**
      * @var string
      */
     public $networkType;
+
     /**
      * @var string
      */
     public $ownerAccount;
+
     /**
      * @var int
      */
     public $ownerId;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $resourceGroupId;
+
     /**
      * @var string
      */
     public $resourceOwnerAccount;
+
     /**
      * @var int
      */
     public $resourceOwnerId;
+
     /**
      * @var bool
      */
     public $showTags;
+
     /**
      * @var string
      */
     public $vSwitchId;
+
     /**
      * @var string
      */
     public $vpcId;
+
     /**
      * @var string
      */
     public $zoneId;
     protected $_name = [
-        'chargeType'           => 'ChargeType',
-        'engineVersion'        => 'EngineVersion',
-        'instanceClass'        => 'InstanceClass',
-        'instanceIds'          => 'InstanceIds',
-        'instanceStatus'       => 'InstanceStatus',
-        'instanceType'         => 'InstanceType',
-        'networkType'          => 'NetworkType',
-        'ownerAccount'         => 'OwnerAccount',
-        'ownerId'              => 'OwnerId',
-        'regionId'             => 'RegionId',
-        'resourceGroupId'      => 'ResourceGroupId',
+        'chargeType' => 'ChargeType',
+        'engineVersion' => 'EngineVersion',
+        'instanceClass' => 'InstanceClass',
+        'instanceIds' => 'InstanceIds',
+        'instanceStatus' => 'InstanceStatus',
+        'instanceType' => 'InstanceType',
+        'networkType' => 'NetworkType',
+        'ownerAccount' => 'OwnerAccount',
+        'ownerId' => 'OwnerId',
+        'regionId' => 'RegionId',
+        'resourceGroupId' => 'ResourceGroupId',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
-        'resourceOwnerId'      => 'ResourceOwnerId',
-        'showTags'             => 'ShowTags',
-        'vSwitchId'            => 'VSwitchId',
-        'vpcId'                => 'VpcId',
-        'zoneId'               => 'ZoneId',
+        'resourceOwnerId' => 'ResourceOwnerId',
+        'showTags' => 'ShowTags',
+        'vSwitchId' => 'VSwitchId',
+        'vpcId' => 'VpcId',
+        'zoneId' => 'ZoneId',
     ];
 
     public function validate()

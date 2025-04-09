@@ -31,7 +31,7 @@ class supportedNodeTypes extends Model
         if (null !== $this->supportedNodeType) {
             if (\is_array($this->supportedNodeType)) {
                 $res['SupportedNodeType'] = [];
-                $n1                       = 0;
+                $n1 = 0;
                 foreach ($this->supportedNodeType as $item1) {
                     $res['SupportedNodeType'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -52,7 +52,7 @@ class supportedNodeTypes extends Model
         if (isset($map['SupportedNodeType'])) {
             if (!empty($map['SupportedNodeType'])) {
                 $model->supportedNodeType = [];
-                $n1                       = 0;
+                $n1 = 0;
                 foreach ($map['SupportedNodeType'] as $item1) {
                     $model->supportedNodeType[$n1++] = supportedNodeType::fromMap($item1);
                 }

@@ -12,18 +12,20 @@ class CheckCloudResourceAuthorizedResponseBody extends Model
      * @var int
      */
     public $authorizationState;
+
     /**
      * @var string
      */
     public $requestId;
+
     /**
      * @var string
      */
     public $roleArn;
     protected $_name = [
         'authorizationState' => 'AuthorizationState',
-        'requestId'          => 'RequestId',
-        'roleArn'            => 'RoleArn',
+        'requestId' => 'RequestId',
+        'roleArn' => 'RoleArn',
     ];
 
     public function validate()

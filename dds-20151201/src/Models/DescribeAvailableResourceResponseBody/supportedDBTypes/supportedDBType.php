@@ -13,13 +13,14 @@ class supportedDBType extends Model
      * @var availableZones
      */
     public $availableZones;
+
     /**
      * @var string
      */
     public $dbType;
     protected $_name = [
         'availableZones' => 'AvailableZones',
-        'dbType'         => 'DbType',
+        'dbType' => 'DbType',
     ];
 
     public function validate()

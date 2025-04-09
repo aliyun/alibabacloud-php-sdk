@@ -15,83 +15,98 @@ class order extends Model
      * @var string
      */
     public $code;
+
     /**
      * @var bool
      */
     public $contractActivity;
+
     /**
      * @var coupons
      */
     public $coupons;
+
     /**
      * @var string
      */
     public $currency;
+
     /**
      * @var depreciateInfo
      */
     public $depreciateInfo;
+
     /**
      * @var string
      */
     public $discountAmount;
+
     /**
      * @var bool
      */
     public $isContractActivity;
+
     /**
      * @var string
      */
     public $message;
+
     /**
      * @var string
      */
     public $optionalPromotions;
+
     /**
      * @var string
      */
     public $originalAmount;
+
     /**
      * @var string
      */
     public $promDetailList;
+
     /**
      * @var ruleIds
      */
     public $ruleIds;
+
     /**
      * @var bool
      */
     public $showDiscountInfo;
+
     /**
      * @var float
      */
     public $standDiscountPrice;
+
     /**
      * @var float
      */
     public $standPrice;
+
     /**
      * @var string
      */
     public $tradeAmount;
     protected $_name = [
-        'code'               => 'Code',
-        'contractActivity'   => 'ContractActivity',
-        'coupons'            => 'Coupons',
-        'currency'           => 'Currency',
-        'depreciateInfo'     => 'DepreciateInfo',
-        'discountAmount'     => 'DiscountAmount',
+        'code' => 'Code',
+        'contractActivity' => 'ContractActivity',
+        'coupons' => 'Coupons',
+        'currency' => 'Currency',
+        'depreciateInfo' => 'DepreciateInfo',
+        'discountAmount' => 'DiscountAmount',
         'isContractActivity' => 'IsContractActivity',
-        'message'            => 'Message',
+        'message' => 'Message',
         'optionalPromotions' => 'OptionalPromotions',
-        'originalAmount'     => 'OriginalAmount',
-        'promDetailList'     => 'PromDetailList',
-        'ruleIds'            => 'RuleIds',
-        'showDiscountInfo'   => 'ShowDiscountInfo',
+        'originalAmount' => 'OriginalAmount',
+        'promDetailList' => 'PromDetailList',
+        'ruleIds' => 'RuleIds',
+        'showDiscountInfo' => 'ShowDiscountInfo',
         'standDiscountPrice' => 'StandDiscountPrice',
-        'standPrice'         => 'StandPrice',
-        'tradeAmount'        => 'TradeAmount',
+        'standPrice' => 'StandPrice',
+        'tradeAmount' => 'TradeAmount',
     ];
 
     public function validate()

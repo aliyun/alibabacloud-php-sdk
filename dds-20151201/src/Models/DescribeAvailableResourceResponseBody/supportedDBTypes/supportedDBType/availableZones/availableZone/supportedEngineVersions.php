@@ -31,7 +31,7 @@ class supportedEngineVersions extends Model
         if (null !== $this->supportedEngineVersion) {
             if (\is_array($this->supportedEngineVersion)) {
                 $res['SupportedEngineVersion'] = [];
-                $n1                            = 0;
+                $n1 = 0;
                 foreach ($this->supportedEngineVersion as $item1) {
                     $res['SupportedEngineVersion'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -52,7 +52,7 @@ class supportedEngineVersions extends Model
         if (isset($map['SupportedEngineVersion'])) {
             if (!empty($map['SupportedEngineVersion'])) {
                 $model->supportedEngineVersion = [];
-                $n1                            = 0;
+                $n1 = 0;
                 foreach ($map['SupportedEngineVersion'] as $item1) {
                     $model->supportedEngineVersion[$n1++] = supportedEngineVersion::fromMap($item1);
                 }

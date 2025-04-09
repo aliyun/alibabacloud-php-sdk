@@ -12,23 +12,26 @@ class DescribeDBInstanceSSLResponseBody extends Model
      * @var string
      */
     public $certCommonName;
+
     /**
      * @var string
      */
     public $requestId;
+
     /**
      * @var string
      */
     public $SSLExpiredTime;
+
     /**
      * @var string
      */
     public $SSLStatus;
     protected $_name = [
         'certCommonName' => 'CertCommonName',
-        'requestId'      => 'RequestId',
+        'requestId' => 'RequestId',
         'SSLExpiredTime' => 'SSLExpiredTime',
-        'SSLStatus'      => 'SSLStatus',
+        'SSLStatus' => 'SSLStatus',
     ];
 
     public function validate()

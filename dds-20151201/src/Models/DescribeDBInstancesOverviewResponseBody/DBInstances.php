@@ -15,128 +15,152 @@ class DBInstances extends Model
      * @var string
      */
     public $capacityUnit;
+
     /**
      * @var string
      */
     public $chargeType;
+
     /**
      * @var string
      */
     public $creationTime;
+
     /**
      * @var string
      */
     public $DBInstanceClass;
+
     /**
      * @var string
      */
     public $DBInstanceDescription;
+
     /**
      * @var string
      */
     public $DBInstanceId;
+
     /**
      * @var string
      */
     public $DBInstanceStatus;
+
     /**
      * @var int
      */
     public $DBInstanceStorage;
+
     /**
      * @var string
      */
     public $DBInstanceType;
+
     /**
      * @var string
      */
     public $destroyTime;
+
     /**
      * @var string
      */
     public $engine;
+
     /**
      * @var string
      */
     public $engineVersion;
+
     /**
      * @var string
      */
     public $expireTime;
+
     /**
      * @var string
      */
     public $kindCode;
+
     /**
      * @var string
      */
     public $lastDowngradeTime;
+
     /**
      * @var string
      */
     public $lockMode;
+
     /**
      * @var mongosList[]
      */
     public $mongosList;
+
     /**
      * @var string
      */
     public $networkType;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $replicationFactor;
+
     /**
      * @var string
      */
     public $resourceGroupId;
+
     /**
      * @var shardList[]
      */
     public $shardList;
+
     /**
      * @var tags[]
      */
     public $tags;
+
     /**
      * @var string
      */
     public $vpcAuthMode;
+
     /**
      * @var string
      */
     public $zoneId;
     protected $_name = [
-        'capacityUnit'          => 'CapacityUnit',
-        'chargeType'            => 'ChargeType',
-        'creationTime'          => 'CreationTime',
-        'DBInstanceClass'       => 'DBInstanceClass',
+        'capacityUnit' => 'CapacityUnit',
+        'chargeType' => 'ChargeType',
+        'creationTime' => 'CreationTime',
+        'DBInstanceClass' => 'DBInstanceClass',
         'DBInstanceDescription' => 'DBInstanceDescription',
-        'DBInstanceId'          => 'DBInstanceId',
-        'DBInstanceStatus'      => 'DBInstanceStatus',
-        'DBInstanceStorage'     => 'DBInstanceStorage',
-        'DBInstanceType'        => 'DBInstanceType',
-        'destroyTime'           => 'DestroyTime',
-        'engine'                => 'Engine',
-        'engineVersion'         => 'EngineVersion',
-        'expireTime'            => 'ExpireTime',
-        'kindCode'              => 'KindCode',
-        'lastDowngradeTime'     => 'LastDowngradeTime',
-        'lockMode'              => 'LockMode',
-        'mongosList'            => 'MongosList',
-        'networkType'           => 'NetworkType',
-        'regionId'              => 'RegionId',
-        'replicationFactor'     => 'ReplicationFactor',
-        'resourceGroupId'       => 'ResourceGroupId',
-        'shardList'             => 'ShardList',
-        'tags'                  => 'Tags',
-        'vpcAuthMode'           => 'VpcAuthMode',
-        'zoneId'                => 'ZoneId',
+        'DBInstanceId' => 'DBInstanceId',
+        'DBInstanceStatus' => 'DBInstanceStatus',
+        'DBInstanceStorage' => 'DBInstanceStorage',
+        'DBInstanceType' => 'DBInstanceType',
+        'destroyTime' => 'DestroyTime',
+        'engine' => 'Engine',
+        'engineVersion' => 'EngineVersion',
+        'expireTime' => 'ExpireTime',
+        'kindCode' => 'KindCode',
+        'lastDowngradeTime' => 'LastDowngradeTime',
+        'lockMode' => 'LockMode',
+        'mongosList' => 'MongosList',
+        'networkType' => 'NetworkType',
+        'regionId' => 'RegionId',
+        'replicationFactor' => 'ReplicationFactor',
+        'resourceGroupId' => 'ResourceGroupId',
+        'shardList' => 'ShardList',
+        'tags' => 'Tags',
+        'vpcAuthMode' => 'VpcAuthMode',
+        'zoneId' => 'ZoneId',
     ];
 
     public function validate()
@@ -223,7 +247,7 @@ class DBInstances extends Model
         if (null !== $this->mongosList) {
             if (\is_array($this->mongosList)) {
                 $res['MongosList'] = [];
-                $n1                = 0;
+                $n1 = 0;
                 foreach ($this->mongosList as $item1) {
                     $res['MongosList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -249,7 +273,7 @@ class DBInstances extends Model
         if (null !== $this->shardList) {
             if (\is_array($this->shardList)) {
                 $res['ShardList'] = [];
-                $n1               = 0;
+                $n1 = 0;
                 foreach ($this->shardList as $item1) {
                     $res['ShardList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -259,7 +283,7 @@ class DBInstances extends Model
         if (null !== $this->tags) {
             if (\is_array($this->tags)) {
                 $res['Tags'] = [];
-                $n1          = 0;
+                $n1 = 0;
                 foreach ($this->tags as $item1) {
                     $res['Tags'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -352,7 +376,7 @@ class DBInstances extends Model
         if (isset($map['MongosList'])) {
             if (!empty($map['MongosList'])) {
                 $model->mongosList = [];
-                $n1                = 0;
+                $n1 = 0;
                 foreach ($map['MongosList'] as $item1) {
                     $model->mongosList[$n1++] = mongosList::fromMap($item1);
                 }
@@ -378,7 +402,7 @@ class DBInstances extends Model
         if (isset($map['ShardList'])) {
             if (!empty($map['ShardList'])) {
                 $model->shardList = [];
-                $n1               = 0;
+                $n1 = 0;
                 foreach ($map['ShardList'] as $item1) {
                     $model->shardList[$n1++] = shardList::fromMap($item1);
                 }
@@ -388,7 +412,7 @@ class DBInstances extends Model
         if (isset($map['Tags'])) {
             if (!empty($map['Tags'])) {
                 $model->tags = [];
-                $n1          = 0;
+                $n1 = 0;
                 foreach ($map['Tags'] as $item1) {
                     $model->tags[$n1++] = tags::fromMap($item1);
                 }

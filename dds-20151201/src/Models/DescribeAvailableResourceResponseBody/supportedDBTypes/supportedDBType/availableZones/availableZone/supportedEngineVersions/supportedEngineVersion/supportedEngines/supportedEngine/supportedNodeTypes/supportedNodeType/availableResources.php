@@ -31,7 +31,7 @@ class availableResources extends Model
         if (null !== $this->availableResource) {
             if (\is_array($this->availableResource)) {
                 $res['AvailableResource'] = [];
-                $n1                       = 0;
+                $n1 = 0;
                 foreach ($this->availableResource as $item1) {
                     $res['AvailableResource'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -52,7 +52,7 @@ class availableResources extends Model
         if (isset($map['AvailableResource'])) {
             if (!empty($map['AvailableResource'])) {
                 $model->availableResource = [];
-                $n1                       = 0;
+                $n1 = 0;
                 foreach ($map['AvailableResource'] as $item1) {
                     $model->availableResource[$n1++] = availableResource::fromMap($item1);
                 }

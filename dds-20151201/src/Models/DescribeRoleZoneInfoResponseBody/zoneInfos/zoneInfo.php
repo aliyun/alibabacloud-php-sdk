@@ -12,28 +12,32 @@ class zoneInfo extends Model
      * @var string
      */
     public $insName;
+
     /**
      * @var string
      */
     public $nodeType;
+
     /**
      * @var string
      */
     public $roleId;
+
     /**
      * @var string
      */
     public $roleType;
+
     /**
      * @var string
      */
     public $zoneId;
     protected $_name = [
-        'insName'  => 'InsName',
+        'insName' => 'InsName',
         'nodeType' => 'NodeType',
-        'roleId'   => 'RoleId',
+        'roleId' => 'RoleId',
         'roleType' => 'RoleType',
-        'zoneId'   => 'ZoneId',
+        'zoneId' => 'ZoneId',
     ];
 
     public function validate()

@@ -12,73 +12,86 @@ class CheckRecoveryConditionRequest extends Model
      * @var string
      */
     public $backupId;
+
     /**
      * @var string
      */
     public $databaseNames;
+
     /**
      * @var string
      */
     public $destRegion;
+
     /**
      * @var string
      */
     public $engineVersion;
+
     /**
      * @var string
      */
     public $instanceType;
+
     /**
      * @var string
      */
     public $ownerAccount;
+
     /**
      * @var int
      */
     public $ownerId;
+
     /**
      * @var string
      */
     public $resourceGroupId;
+
     /**
      * @var string
      */
     public $resourceOwnerAccount;
+
     /**
      * @var int
      */
     public $resourceOwnerId;
+
     /**
      * @var string
      */
     public $restoreTime;
+
     /**
      * @var string
      */
     public $restoreType;
+
     /**
      * @var string
      */
     public $sourceDBInstance;
+
     /**
      * @var string
      */
     public $srcRegion;
     protected $_name = [
-        'backupId'             => 'BackupId',
-        'databaseNames'        => 'DatabaseNames',
-        'destRegion'           => 'DestRegion',
-        'engineVersion'        => 'EngineVersion',
-        'instanceType'         => 'InstanceType',
-        'ownerAccount'         => 'OwnerAccount',
-        'ownerId'              => 'OwnerId',
-        'resourceGroupId'      => 'ResourceGroupId',
+        'backupId' => 'BackupId',
+        'databaseNames' => 'DatabaseNames',
+        'destRegion' => 'DestRegion',
+        'engineVersion' => 'EngineVersion',
+        'instanceType' => 'InstanceType',
+        'ownerAccount' => 'OwnerAccount',
+        'ownerId' => 'OwnerId',
+        'resourceGroupId' => 'ResourceGroupId',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
-        'resourceOwnerId'      => 'ResourceOwnerId',
-        'restoreTime'          => 'RestoreTime',
-        'restoreType'          => 'RestoreType',
-        'sourceDBInstance'     => 'SourceDBInstance',
-        'srcRegion'            => 'SrcRegion',
+        'resourceOwnerId' => 'ResourceOwnerId',
+        'restoreTime' => 'RestoreTime',
+        'restoreType' => 'RestoreType',
+        'sourceDBInstance' => 'SourceDBInstance',
+        'srcRegion' => 'SrcRegion',
     ];
 
     public function validate()

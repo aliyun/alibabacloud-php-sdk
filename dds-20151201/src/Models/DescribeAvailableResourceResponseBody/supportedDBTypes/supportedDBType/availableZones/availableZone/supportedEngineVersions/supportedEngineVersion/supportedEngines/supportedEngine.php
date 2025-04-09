@@ -13,12 +13,13 @@ class supportedEngine extends Model
      * @var string
      */
     public $engine;
+
     /**
      * @var supportedNodeTypes
      */
     public $supportedNodeTypes;
     protected $_name = [
-        'engine'             => 'Engine',
+        'engine' => 'Engine',
         'supportedNodeTypes' => 'SupportedNodeTypes',
     ];
 

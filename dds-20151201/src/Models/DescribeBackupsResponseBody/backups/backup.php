@@ -12,83 +12,98 @@ class backup extends Model
      * @var string
      */
     public $backupDBNames;
+
     /**
      * @var string
      */
     public $backupDownloadURL;
+
     /**
      * @var string
      */
     public $backupEndTime;
+
     /**
      * @var string
      */
     public $backupId;
+
     /**
      * @var string
      */
     public $backupIntranetDownloadURL;
+
     /**
      * @var string
      */
     public $backupJobId;
+
     /**
      * @var string
      */
     public $backupMethod;
+
     /**
      * @var string
      */
     public $backupMode;
+
     /**
      * @var string
      */
     public $backupName;
+
     /**
      * @var string
      */
     public $backupScale;
+
     /**
      * @var int
      */
     public $backupSize;
+
     /**
      * @var string
      */
     public $backupStartTime;
+
     /**
      * @var string
      */
     public $backupStatus;
+
     /**
      * @var string
      */
     public $backupType;
+
     /**
      * @var string
      */
     public $engineVersion;
+
     /**
      * @var bool
      */
     public $isAvail;
     protected $_name = [
-        'backupDBNames'             => 'BackupDBNames',
-        'backupDownloadURL'         => 'BackupDownloadURL',
-        'backupEndTime'             => 'BackupEndTime',
-        'backupId'                  => 'BackupId',
+        'backupDBNames' => 'BackupDBNames',
+        'backupDownloadURL' => 'BackupDownloadURL',
+        'backupEndTime' => 'BackupEndTime',
+        'backupId' => 'BackupId',
         'backupIntranetDownloadURL' => 'BackupIntranetDownloadURL',
-        'backupJobId'               => 'BackupJobId',
-        'backupMethod'              => 'BackupMethod',
-        'backupMode'                => 'BackupMode',
-        'backupName'                => 'BackupName',
-        'backupScale'               => 'BackupScale',
-        'backupSize'                => 'BackupSize',
-        'backupStartTime'           => 'BackupStartTime',
-        'backupStatus'              => 'BackupStatus',
-        'backupType'                => 'BackupType',
-        'engineVersion'             => 'EngineVersion',
-        'isAvail'                   => 'IsAvail',
+        'backupJobId' => 'BackupJobId',
+        'backupMethod' => 'BackupMethod',
+        'backupMode' => 'BackupMode',
+        'backupName' => 'BackupName',
+        'backupScale' => 'BackupScale',
+        'backupSize' => 'BackupSize',
+        'backupStartTime' => 'BackupStartTime',
+        'backupStatus' => 'BackupStatus',
+        'backupType' => 'BackupType',
+        'engineVersion' => 'EngineVersion',
+        'isAvail' => 'IsAvail',
     ];
 
     public function validate()

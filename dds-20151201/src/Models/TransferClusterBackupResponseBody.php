@@ -12,13 +12,14 @@ class TransferClusterBackupResponseBody extends Model
      * @var string
      */
     public $alreadyDone;
+
     /**
      * @var string
      */
     public $requestId;
     protected $_name = [
         'alreadyDone' => 'AlreadyDone',
-        'requestId'   => 'RequestId',
+        'requestId' => 'RequestId',
     ];
 
     public function validate()

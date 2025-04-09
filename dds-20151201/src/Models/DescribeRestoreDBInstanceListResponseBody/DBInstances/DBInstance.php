@@ -12,63 +12,74 @@ class DBInstance extends Model
      * @var string
      */
     public $creationTime;
+
     /**
      * @var string
      */
     public $DBInstanceDescription;
+
     /**
      * @var string
      */
     public $DBInstanceId;
+
     /**
      * @var string
      */
     public $DBInstanceStatus;
+
     /**
      * @var string
      */
     public $DBInstanceType;
+
     /**
      * @var string
      */
     public $engineVersion;
+
     /**
      * @var string
      */
     public $hiddenZoneId;
+
     /**
      * @var int
      */
     public $isDeleted;
+
     /**
      * @var string
      */
     public $lockMode;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $secondaryZoneId;
+
     /**
      * @var string
      */
     public $zoneId;
     protected $_name = [
-        'creationTime'          => 'CreationTime',
+        'creationTime' => 'CreationTime',
         'DBInstanceDescription' => 'DBInstanceDescription',
-        'DBInstanceId'          => 'DBInstanceId',
-        'DBInstanceStatus'      => 'DBInstanceStatus',
-        'DBInstanceType'        => 'DBInstanceType',
-        'engineVersion'         => 'EngineVersion',
-        'hiddenZoneId'          => 'HiddenZoneId',
-        'isDeleted'             => 'IsDeleted',
-        'lockMode'              => 'LockMode',
-        'regionId'              => 'RegionId',
-        'secondaryZoneId'       => 'SecondaryZoneId',
-        'zoneId'                => 'ZoneId',
+        'DBInstanceId' => 'DBInstanceId',
+        'DBInstanceStatus' => 'DBInstanceStatus',
+        'DBInstanceType' => 'DBInstanceType',
+        'engineVersion' => 'EngineVersion',
+        'hiddenZoneId' => 'HiddenZoneId',
+        'isDeleted' => 'IsDeleted',
+        'lockMode' => 'LockMode',
+        'regionId' => 'RegionId',
+        'secondaryZoneId' => 'SecondaryZoneId',
+        'zoneId' => 'ZoneId',
     ];
 
     public function validate()

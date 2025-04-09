@@ -31,7 +31,7 @@ class mongosList extends Model
         if (null !== $this->mongosAttribute) {
             if (\is_array($this->mongosAttribute)) {
                 $res['MongosAttribute'] = [];
-                $n1                     = 0;
+                $n1 = 0;
                 foreach ($this->mongosAttribute as $item1) {
                     $res['MongosAttribute'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -52,7 +52,7 @@ class mongosList extends Model
         if (isset($map['MongosAttribute'])) {
             if (!empty($map['MongosAttribute'])) {
                 $model->mongosAttribute = [];
-                $n1                     = 0;
+                $n1 = 0;
                 foreach ($map['MongosAttribute'] as $item1) {
                     $model->mongosAttribute[$n1++] = mongosAttribute::fromMap($item1);
                 }

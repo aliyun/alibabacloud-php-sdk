@@ -15,153 +15,182 @@ class DBInstance extends Model
      * @var int
      */
     public $backupRetentionPolicy;
+
     /**
      * @var string
      */
     public $capacityUnit;
+
     /**
      * @var string
      */
     public $chargeType;
+
     /**
      * @var string
      */
     public $creationTime;
+
     /**
      * @var string
      */
     public $DBInstanceClass;
+
     /**
      * @var string
      */
     public $DBInstanceDescription;
+
     /**
      * @var string
      */
     public $DBInstanceId;
+
     /**
      * @var string
      */
     public $DBInstanceStatus;
+
     /**
      * @var int
      */
     public $DBInstanceStorage;
+
     /**
      * @var string
      */
     public $DBInstanceType;
+
     /**
      * @var string
      */
     public $destroyTime;
+
     /**
      * @var string
      */
     public $engine;
+
     /**
      * @var string
      */
     public $engineVersion;
+
     /**
      * @var string
      */
     public $expireTime;
+
     /**
      * @var string
      */
     public $hiddenZoneId;
+
     /**
      * @var string
      */
     public $kindCode;
+
     /**
      * @var string
      */
     public $lastDowngradeTime;
+
     /**
      * @var string
      */
     public $lockMode;
+
     /**
      * @var mongosList
      */
     public $mongosList;
+
     /**
      * @var string
      */
     public $networkType;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $releaseTime;
+
     /**
      * @var string
      */
     public $replicationFactor;
+
     /**
      * @var string
      */
     public $resourceGroupId;
+
     /**
      * @var string
      */
     public $secondaryZoneId;
+
     /**
      * @var shardList
      */
     public $shardList;
+
     /**
      * @var string
      */
     public $storageType;
+
     /**
      * @var tags
      */
     public $tags;
+
     /**
      * @var string
      */
     public $vpcAuthMode;
+
     /**
      * @var string
      */
     public $zoneId;
     protected $_name = [
         'backupRetentionPolicy' => 'BackupRetentionPolicy',
-        'capacityUnit'          => 'CapacityUnit',
-        'chargeType'            => 'ChargeType',
-        'creationTime'          => 'CreationTime',
-        'DBInstanceClass'       => 'DBInstanceClass',
+        'capacityUnit' => 'CapacityUnit',
+        'chargeType' => 'ChargeType',
+        'creationTime' => 'CreationTime',
+        'DBInstanceClass' => 'DBInstanceClass',
         'DBInstanceDescription' => 'DBInstanceDescription',
-        'DBInstanceId'          => 'DBInstanceId',
-        'DBInstanceStatus'      => 'DBInstanceStatus',
-        'DBInstanceStorage'     => 'DBInstanceStorage',
-        'DBInstanceType'        => 'DBInstanceType',
-        'destroyTime'           => 'DestroyTime',
-        'engine'                => 'Engine',
-        'engineVersion'         => 'EngineVersion',
-        'expireTime'            => 'ExpireTime',
-        'hiddenZoneId'          => 'HiddenZoneId',
-        'kindCode'              => 'KindCode',
-        'lastDowngradeTime'     => 'LastDowngradeTime',
-        'lockMode'              => 'LockMode',
-        'mongosList'            => 'MongosList',
-        'networkType'           => 'NetworkType',
-        'regionId'              => 'RegionId',
-        'releaseTime'           => 'ReleaseTime',
-        'replicationFactor'     => 'ReplicationFactor',
-        'resourceGroupId'       => 'ResourceGroupId',
-        'secondaryZoneId'       => 'SecondaryZoneId',
-        'shardList'             => 'ShardList',
-        'storageType'           => 'StorageType',
-        'tags'                  => 'Tags',
-        'vpcAuthMode'           => 'VpcAuthMode',
-        'zoneId'                => 'ZoneId',
+        'DBInstanceId' => 'DBInstanceId',
+        'DBInstanceStatus' => 'DBInstanceStatus',
+        'DBInstanceStorage' => 'DBInstanceStorage',
+        'DBInstanceType' => 'DBInstanceType',
+        'destroyTime' => 'DestroyTime',
+        'engine' => 'Engine',
+        'engineVersion' => 'EngineVersion',
+        'expireTime' => 'ExpireTime',
+        'hiddenZoneId' => 'HiddenZoneId',
+        'kindCode' => 'KindCode',
+        'lastDowngradeTime' => 'LastDowngradeTime',
+        'lockMode' => 'LockMode',
+        'mongosList' => 'MongosList',
+        'networkType' => 'NetworkType',
+        'regionId' => 'RegionId',
+        'releaseTime' => 'ReleaseTime',
+        'replicationFactor' => 'ReplicationFactor',
+        'resourceGroupId' => 'ResourceGroupId',
+        'secondaryZoneId' => 'SecondaryZoneId',
+        'shardList' => 'ShardList',
+        'storageType' => 'StorageType',
+        'tags' => 'Tags',
+        'vpcAuthMode' => 'VpcAuthMode',
+        'zoneId' => 'ZoneId',
     ];
 
     public function validate()

@@ -12,43 +12,50 @@ class DescribeParameterTemplatesRequest extends Model
      * @var string
      */
     public $engine;
+
     /**
      * @var string
      */
     public $engineVersion;
+
     /**
      * @var string
      */
     public $ownerAccount;
+
     /**
      * @var int
      */
     public $ownerId;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $resourceOwnerAccount;
+
     /**
      * @var int
      */
     public $resourceOwnerId;
+
     /**
      * @var string
      */
     public $role;
     protected $_name = [
-        'engine'               => 'Engine',
-        'engineVersion'        => 'EngineVersion',
-        'ownerAccount'         => 'OwnerAccount',
-        'ownerId'              => 'OwnerId',
-        'regionId'             => 'RegionId',
+        'engine' => 'Engine',
+        'engineVersion' => 'EngineVersion',
+        'ownerAccount' => 'OwnerAccount',
+        'ownerId' => 'OwnerId',
+        'regionId' => 'RegionId',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
-        'resourceOwnerId'      => 'ResourceOwnerId',
-        'role'                 => 'Role',
+        'resourceOwnerId' => 'ResourceOwnerId',
+        'role' => 'Role',
     ];
 
     public function validate()

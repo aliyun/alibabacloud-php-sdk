@@ -12,13 +12,14 @@ class releaseNote extends Model
      * @var string
      */
     public $kernelVersion;
+
     /**
      * @var string
      */
     public $releaseNote;
     protected $_name = [
         'kernelVersion' => 'KernelVersion',
-        'releaseNote'   => 'ReleaseNote',
+        'releaseNote' => 'ReleaseNote',
     ];
 
     public function validate()

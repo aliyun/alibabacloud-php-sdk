@@ -12,18 +12,20 @@ class CheckRecoveryConditionResponseBody extends Model
      * @var string
      */
     public $DBInstanceName;
+
     /**
      * @var bool
      */
     public $isValid;
+
     /**
      * @var string
      */
     public $requestId;
     protected $_name = [
         'DBInstanceName' => 'DBInstanceName',
-        'isValid'        => 'IsValid',
-        'requestId'      => 'RequestId',
+        'isValid' => 'IsValid',
+        'requestId' => 'RequestId',
     ];
 
     public function validate()

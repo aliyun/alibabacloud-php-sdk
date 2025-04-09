@@ -13,33 +13,38 @@ class DescribeDBInstanceSwitchLogResponseBody extends Model
      * @var string
      */
     public $DBInstanceId;
+
     /**
      * @var logItems[]
      */
     public $logItems;
+
     /**
      * @var int
      */
     public $pageNumber;
+
     /**
      * @var int
      */
     public $pageSize;
+
     /**
      * @var string
      */
     public $requestId;
+
     /**
      * @var int
      */
     public $totalCount;
     protected $_name = [
         'DBInstanceId' => 'DBInstanceId',
-        'logItems'     => 'LogItems',
-        'pageNumber'   => 'PageNumber',
-        'pageSize'     => 'PageSize',
-        'requestId'    => 'RequestId',
-        'totalCount'   => 'TotalCount',
+        'logItems' => 'LogItems',
+        'pageNumber' => 'PageNumber',
+        'pageSize' => 'PageSize',
+        'requestId' => 'RequestId',
+        'totalCount' => 'TotalCount',
     ];
 
     public function validate()
@@ -60,7 +65,7 @@ class DescribeDBInstanceSwitchLogResponseBody extends Model
         if (null !== $this->logItems) {
             if (\is_array($this->logItems)) {
                 $res['LogItems'] = [];
-                $n1              = 0;
+                $n1 = 0;
                 foreach ($this->logItems as $item1) {
                     $res['LogItems'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -101,7 +106,7 @@ class DescribeDBInstanceSwitchLogResponseBody extends Model
         if (isset($map['LogItems'])) {
             if (!empty($map['LogItems'])) {
                 $model->logItems = [];
-                $n1              = 0;
+                $n1 = 0;
                 foreach ($map['LogItems'] as $item1) {
                     $model->logItems[$n1++] = logItems::fromMap($item1);
                 }

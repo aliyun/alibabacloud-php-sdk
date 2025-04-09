@@ -12,16 +12,18 @@ class DescribeActiveOperationTaskCountResponseBody extends Model
      * @var int
      */
     public $needPop;
+
     /**
      * @var string
      */
     public $requestId;
+
     /**
      * @var int
      */
     public $taskCount;
     protected $_name = [
-        'needPop'   => 'NeedPop',
+        'needPop' => 'NeedPop',
         'requestId' => 'RequestId',
         'taskCount' => 'TaskCount',
     ];

@@ -13,13 +13,14 @@ class DescribeAvailableEngineVersionResponseBody extends Model
      * @var engineVersions
      */
     public $engineVersions;
+
     /**
      * @var string
      */
     public $requestId;
     protected $_name = [
         'engineVersions' => 'EngineVersions',
-        'requestId'      => 'RequestId',
+        'requestId' => 'RequestId',
     ];
 
     public function validate()

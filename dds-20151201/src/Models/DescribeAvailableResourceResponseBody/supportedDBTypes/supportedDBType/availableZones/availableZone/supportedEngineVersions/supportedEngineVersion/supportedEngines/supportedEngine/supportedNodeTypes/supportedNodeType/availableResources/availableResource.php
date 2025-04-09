@@ -13,18 +13,20 @@ class availableResource extends Model
      * @var DBInstanceStorageRange
      */
     public $DBInstanceStorageRange;
+
     /**
      * @var string
      */
     public $instanceClass;
+
     /**
      * @var string
      */
     public $instanceClassRemark;
     protected $_name = [
         'DBInstanceStorageRange' => 'DBInstanceStorageRange',
-        'instanceClass'          => 'InstanceClass',
-        'instanceClassRemark'    => 'InstanceClassRemark',
+        'instanceClass' => 'InstanceClass',
+        'instanceClassRemark' => 'InstanceClassRemark',
     ];
 
     public function validate()

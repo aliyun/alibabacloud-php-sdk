@@ -12,48 +12,56 @@ class ModifySecurityIpsRequest extends Model
      * @var string
      */
     public $DBInstanceId;
+
     /**
      * @var string
      */
     public $modifyMode;
+
     /**
      * @var string
      */
     public $ownerAccount;
+
     /**
      * @var int
      */
     public $ownerId;
+
     /**
      * @var string
      */
     public $resourceOwnerAccount;
+
     /**
      * @var int
      */
     public $resourceOwnerId;
+
     /**
      * @var string
      */
     public $securityIpGroupAttribute;
+
     /**
      * @var string
      */
     public $securityIpGroupName;
+
     /**
      * @var string
      */
     public $securityIps;
     protected $_name = [
-        'DBInstanceId'             => 'DBInstanceId',
-        'modifyMode'               => 'ModifyMode',
-        'ownerAccount'             => 'OwnerAccount',
-        'ownerId'                  => 'OwnerId',
-        'resourceOwnerAccount'     => 'ResourceOwnerAccount',
-        'resourceOwnerId'          => 'ResourceOwnerId',
+        'DBInstanceId' => 'DBInstanceId',
+        'modifyMode' => 'ModifyMode',
+        'ownerAccount' => 'OwnerAccount',
+        'ownerId' => 'OwnerId',
+        'resourceOwnerAccount' => 'ResourceOwnerAccount',
+        'resourceOwnerId' => 'ResourceOwnerId',
         'securityIpGroupAttribute' => 'SecurityIpGroupAttribute',
-        'securityIpGroupName'      => 'SecurityIpGroupName',
-        'securityIps'              => 'SecurityIps',
+        'securityIpGroupName' => 'SecurityIpGroupName',
+        'securityIps' => 'SecurityIps',
     ];
 
     public function validate()

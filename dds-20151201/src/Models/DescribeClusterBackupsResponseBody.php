@@ -13,28 +13,32 @@ class DescribeClusterBackupsResponseBody extends Model
      * @var clusterBackups[]
      */
     public $clusterBackups;
+
     /**
      * @var int
      */
     public $maxResults;
+
     /**
      * @var int
      */
     public $pageNumber;
+
     /**
      * @var int
      */
     public $pageSize;
+
     /**
      * @var string
      */
     public $requestId;
     protected $_name = [
         'clusterBackups' => 'ClusterBackups',
-        'maxResults'     => 'MaxResults',
-        'pageNumber'     => 'PageNumber',
-        'pageSize'       => 'PageSize',
-        'requestId'      => 'RequestId',
+        'maxResults' => 'MaxResults',
+        'pageNumber' => 'PageNumber',
+        'pageSize' => 'PageSize',
+        'requestId' => 'RequestId',
     ];
 
     public function validate()
@@ -51,7 +55,7 @@ class DescribeClusterBackupsResponseBody extends Model
         if (null !== $this->clusterBackups) {
             if (\is_array($this->clusterBackups)) {
                 $res['ClusterBackups'] = [];
-                $n1                    = 0;
+                $n1 = 0;
                 foreach ($this->clusterBackups as $item1) {
                     $res['ClusterBackups'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -88,7 +92,7 @@ class DescribeClusterBackupsResponseBody extends Model
         if (isset($map['ClusterBackups'])) {
             if (!empty($map['ClusterBackups'])) {
                 $model->clusterBackups = [];
-                $n1                    = 0;
+                $n1 = 0;
                 foreach ($map['ClusterBackups'] as $item1) {
                     $model->clusterBackups[$n1++] = clusterBackups::fromMap($item1);
                 }

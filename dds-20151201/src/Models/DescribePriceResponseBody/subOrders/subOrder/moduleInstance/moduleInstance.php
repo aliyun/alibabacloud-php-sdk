@@ -15,88 +15,104 @@ class moduleInstance extends Model
      * @var bool
      */
     public $contractActivity;
+
     /**
      * @var string
      */
     public $cycleFee;
+
     /**
      * @var depreciateInfo
      */
     public $depreciateInfo;
+
     /**
      * @var string
      */
     public $discountFee;
+
     /**
      * @var moduleAttrs
      */
     public $moduleAttrs;
+
     /**
      * @var string
      */
     public $moduleCode;
+
     /**
      * @var int
      */
     public $moduleId;
+
     /**
      * @var string
      */
     public $moduleName;
+
     /**
      * @var bool
      */
     public $needOrderPay;
+
     /**
      * @var float
      */
     public $payFee;
+
     /**
      * @var bool
      */
     public $pricingModule;
+
     /**
      * @var promDetailList
      */
     public $promDetailList;
+
     /**
      * @var float
      */
     public $standDiscountPrice;
+
     /**
      * @var float
      */
     public $standPrice;
+
     /**
      * @var float
      */
     public $totalProductFee;
+
     /**
      * @var string
      */
     public $priceType;
+
     /**
      * @var string
      */
     public $priceUnit;
     protected $_name = [
-        'contractActivity'   => 'ContractActivity',
-        'cycleFee'           => 'CycleFee',
-        'depreciateInfo'     => 'DepreciateInfo',
-        'discountFee'        => 'DiscountFee',
-        'moduleAttrs'        => 'ModuleAttrs',
-        'moduleCode'         => 'ModuleCode',
-        'moduleId'           => 'ModuleId',
-        'moduleName'         => 'ModuleName',
-        'needOrderPay'       => 'NeedOrderPay',
-        'payFee'             => 'PayFee',
-        'pricingModule'      => 'PricingModule',
-        'promDetailList'     => 'PromDetailList',
+        'contractActivity' => 'ContractActivity',
+        'cycleFee' => 'CycleFee',
+        'depreciateInfo' => 'DepreciateInfo',
+        'discountFee' => 'DiscountFee',
+        'moduleAttrs' => 'ModuleAttrs',
+        'moduleCode' => 'ModuleCode',
+        'moduleId' => 'ModuleId',
+        'moduleName' => 'ModuleName',
+        'needOrderPay' => 'NeedOrderPay',
+        'payFee' => 'PayFee',
+        'pricingModule' => 'PricingModule',
+        'promDetailList' => 'PromDetailList',
         'standDiscountPrice' => 'StandDiscountPrice',
-        'standPrice'         => 'StandPrice',
-        'totalProductFee'    => 'TotalProductFee',
-        'priceType'          => 'priceType',
-        'priceUnit'          => 'priceUnit',
+        'standPrice' => 'StandPrice',
+        'totalProductFee' => 'TotalProductFee',
+        'priceType' => 'priceType',
+        'priceUnit' => 'priceUnit',
     ];
 
     public function validate()

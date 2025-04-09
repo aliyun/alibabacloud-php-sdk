@@ -13,58 +13,68 @@ class backups extends Model
      * @var string
      */
     public $backupDownloadURL;
+
     /**
      * @var string
      */
     public $backupEndTime;
+
     /**
      * @var string
      */
     public $backupId;
+
     /**
      * @var string
      */
     public $backupIntranetDownloadURL;
+
     /**
      * @var string
      */
     public $backupName;
+
     /**
      * @var string
      */
     public $backupSize;
+
     /**
      * @var string
      */
     public $backupStartTime;
+
     /**
      * @var string
      */
     public $backupStatus;
+
     /**
      * @var extraInfo
      */
     public $extraInfo;
+
     /**
      * @var string
      */
     public $instanceName;
+
     /**
      * @var string
      */
     public $isAvail;
     protected $_name = [
-        'backupDownloadURL'         => 'BackupDownloadURL',
-        'backupEndTime'             => 'BackupEndTime',
-        'backupId'                  => 'BackupId',
+        'backupDownloadURL' => 'BackupDownloadURL',
+        'backupEndTime' => 'BackupEndTime',
+        'backupId' => 'BackupId',
         'backupIntranetDownloadURL' => 'BackupIntranetDownloadURL',
-        'backupName'                => 'BackupName',
-        'backupSize'                => 'BackupSize',
-        'backupStartTime'           => 'BackupStartTime',
-        'backupStatus'              => 'BackupStatus',
-        'extraInfo'                 => 'ExtraInfo',
-        'instanceName'              => 'InstanceName',
-        'isAvail'                   => 'IsAvail',
+        'backupName' => 'BackupName',
+        'backupSize' => 'BackupSize',
+        'backupStartTime' => 'BackupStartTime',
+        'backupStatus' => 'BackupStatus',
+        'extraInfo' => 'ExtraInfo',
+        'instanceName' => 'InstanceName',
+        'isAvail' => 'IsAvail',
     ];
 
     public function validate()

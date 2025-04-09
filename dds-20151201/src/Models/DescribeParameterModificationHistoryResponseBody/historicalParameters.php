@@ -31,7 +31,7 @@ class historicalParameters extends Model
         if (null !== $this->historicalParameter) {
             if (\is_array($this->historicalParameter)) {
                 $res['HistoricalParameter'] = [];
-                $n1                         = 0;
+                $n1 = 0;
                 foreach ($this->historicalParameter as $item1) {
                     $res['HistoricalParameter'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -52,7 +52,7 @@ class historicalParameters extends Model
         if (isset($map['HistoricalParameter'])) {
             if (!empty($map['HistoricalParameter'])) {
                 $model->historicalParameter = [];
-                $n1                         = 0;
+                $n1 = 0;
                 foreach ($map['HistoricalParameter'] as $item1) {
                     $model->historicalParameter[$n1++] = historicalParameter::fromMap($item1);
                 }

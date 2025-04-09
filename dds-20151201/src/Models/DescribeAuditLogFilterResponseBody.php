@@ -12,18 +12,20 @@ class DescribeAuditLogFilterResponseBody extends Model
      * @var string
      */
     public $filter;
+
     /**
      * @var string
      */
     public $requestId;
+
     /**
      * @var string
      */
     public $roleType;
     protected $_name = [
-        'filter'    => 'Filter',
+        'filter' => 'Filter',
         'requestId' => 'RequestId',
-        'roleType'  => 'RoleType',
+        'roleType' => 'RoleType',
     ];
 
     public function validate()

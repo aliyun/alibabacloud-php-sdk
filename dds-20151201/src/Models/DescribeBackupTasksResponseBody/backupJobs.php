@@ -12,18 +12,22 @@ class backupJobs extends Model
      * @var string
      */
     public $backupSetStatus;
+
     /**
      * @var string
      */
     public $backupStartTime;
+
     /**
      * @var string
      */
     public $backupjobId;
+
     /**
      * @var string
      */
     public $jobMode;
+
     /**
      * @var string
      */
@@ -31,9 +35,9 @@ class backupJobs extends Model
     protected $_name = [
         'backupSetStatus' => 'BackupSetStatus',
         'backupStartTime' => 'BackupStartTime',
-        'backupjobId'     => 'BackupjobId',
-        'jobMode'         => 'JobMode',
-        'progress'        => 'Progress',
+        'backupjobId' => 'BackupjobId',
+        'jobMode' => 'JobMode',
+        'progress' => 'Progress',
     ];
 
     public function validate()

@@ -31,7 +31,7 @@ class compatibleConnections extends Model
         if (null !== $this->compatibleConnection) {
             if (\is_array($this->compatibleConnection)) {
                 $res['CompatibleConnection'] = [];
-                $n1                          = 0;
+                $n1 = 0;
                 foreach ($this->compatibleConnection as $item1) {
                     $res['CompatibleConnection'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -52,7 +52,7 @@ class compatibleConnections extends Model
         if (isset($map['CompatibleConnection'])) {
             if (!empty($map['CompatibleConnection'])) {
                 $model->compatibleConnection = [];
-                $n1                          = 0;
+                $n1 = 0;
                 foreach ($map['CompatibleConnection'] as $item1) {
                     $model->compatibleConnection[$n1++] = compatibleConnection::fromMap($item1);
                 }

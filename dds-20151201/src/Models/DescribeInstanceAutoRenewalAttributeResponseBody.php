@@ -13,28 +13,32 @@ class DescribeInstanceAutoRenewalAttributeResponseBody extends Model
      * @var items
      */
     public $items;
+
     /**
      * @var int
      */
     public $itemsNumbers;
+
     /**
      * @var int
      */
     public $pageNumber;
+
     /**
      * @var int
      */
     public $pageRecordCount;
+
     /**
      * @var string
      */
     public $requestId;
     protected $_name = [
-        'items'           => 'Items',
-        'itemsNumbers'    => 'ItemsNumbers',
-        'pageNumber'      => 'PageNumber',
+        'items' => 'Items',
+        'itemsNumbers' => 'ItemsNumbers',
+        'pageNumber' => 'PageNumber',
         'pageRecordCount' => 'PageRecordCount',
-        'requestId'       => 'RequestId',
+        'requestId' => 'RequestId',
     ];
 
     public function validate()

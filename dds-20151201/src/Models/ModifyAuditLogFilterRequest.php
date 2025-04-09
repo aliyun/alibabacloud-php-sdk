@@ -12,38 +12,44 @@ class ModifyAuditLogFilterRequest extends Model
      * @var string
      */
     public $DBInstanceId;
+
     /**
      * @var string
      */
     public $filter;
+
     /**
      * @var string
      */
     public $ownerAccount;
+
     /**
      * @var int
      */
     public $ownerId;
+
     /**
      * @var string
      */
     public $resourceOwnerAccount;
+
     /**
      * @var int
      */
     public $resourceOwnerId;
+
     /**
      * @var string
      */
     public $roleType;
     protected $_name = [
-        'DBInstanceId'         => 'DBInstanceId',
-        'filter'               => 'Filter',
-        'ownerAccount'         => 'OwnerAccount',
-        'ownerId'              => 'OwnerId',
+        'DBInstanceId' => 'DBInstanceId',
+        'filter' => 'Filter',
+        'ownerAccount' => 'OwnerAccount',
+        'ownerId' => 'OwnerId',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
-        'resourceOwnerId'      => 'ResourceOwnerId',
-        'roleType'             => 'RoleType',
+        'resourceOwnerId' => 'ResourceOwnerId',
+        'roleType' => 'RoleType',
     ];
 
     public function validate()

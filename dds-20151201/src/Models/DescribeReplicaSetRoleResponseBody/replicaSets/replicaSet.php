@@ -12,38 +12,44 @@ class replicaSet extends Model
      * @var string
      */
     public $connectionDomain;
+
     /**
      * @var string
      */
     public $connectionPort;
+
     /**
      * @var string
      */
     public $connectionType;
+
     /**
      * @var string
      */
     public $expiredTime;
+
     /**
      * @var string
      */
     public $networkType;
+
     /**
      * @var string
      */
     public $replicaSetRole;
+
     /**
      * @var string
      */
     public $roleId;
     protected $_name = [
         'connectionDomain' => 'ConnectionDomain',
-        'connectionPort'   => 'ConnectionPort',
-        'connectionType'   => 'ConnectionType',
-        'expiredTime'      => 'ExpiredTime',
-        'networkType'      => 'NetworkType',
-        'replicaSetRole'   => 'ReplicaSetRole',
-        'roleId'           => 'RoleId',
+        'connectionPort' => 'ConnectionPort',
+        'connectionType' => 'ConnectionType',
+        'expiredTime' => 'ExpiredTime',
+        'networkType' => 'NetworkType',
+        'replicaSetRole' => 'ReplicaSetRole',
+        'roleId' => 'RoleId',
     ];
 
     public function validate()

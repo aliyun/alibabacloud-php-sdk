@@ -12,48 +12,56 @@ class ModifyDBInstanceConnectionStringRequest extends Model
      * @var string
      */
     public $currentConnectionString;
+
     /**
      * @var string
      */
     public $DBInstanceId;
+
     /**
      * @var string
      */
     public $newConnectionString;
+
     /**
      * @var int
      */
     public $newPort;
+
     /**
      * @var string
      */
     public $nodeId;
+
     /**
      * @var string
      */
     public $ownerAccount;
+
     /**
      * @var int
      */
     public $ownerId;
+
     /**
      * @var string
      */
     public $resourceOwnerAccount;
+
     /**
      * @var int
      */
     public $resourceOwnerId;
     protected $_name = [
         'currentConnectionString' => 'CurrentConnectionString',
-        'DBInstanceId'            => 'DBInstanceId',
-        'newConnectionString'     => 'NewConnectionString',
-        'newPort'                 => 'NewPort',
-        'nodeId'                  => 'NodeId',
-        'ownerAccount'            => 'OwnerAccount',
-        'ownerId'                 => 'OwnerId',
-        'resourceOwnerAccount'    => 'ResourceOwnerAccount',
-        'resourceOwnerId'         => 'ResourceOwnerId',
+        'DBInstanceId' => 'DBInstanceId',
+        'newConnectionString' => 'NewConnectionString',
+        'newPort' => 'NewPort',
+        'nodeId' => 'NodeId',
+        'ownerAccount' => 'OwnerAccount',
+        'ownerId' => 'OwnerId',
+        'resourceOwnerAccount' => 'ResourceOwnerAccount',
+        'resourceOwnerId' => 'ResourceOwnerId',
     ];
 
     public function validate()

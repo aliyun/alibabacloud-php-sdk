@@ -12,68 +12,80 @@ class DescribeClusterBackupsRequest extends Model
      * @var string
      */
     public $backupId;
+
     /**
      * @var string
      */
     public $DBInstanceId;
+
     /**
      * @var string
      */
     public $destRegion;
+
     /**
      * @var string
      */
     public $endTime;
+
     /**
      * @var bool
      */
     public $isOnlyGetClusterBackUp;
+
     /**
      * @var string
      */
     public $ownerAccount;
+
     /**
      * @var int
      */
     public $ownerId;
+
     /**
      * @var int
      */
     public $pageNo;
+
     /**
      * @var int
      */
     public $pageSize;
+
     /**
      * @var string
      */
     public $resourceOwnerAccount;
+
     /**
      * @var int
      */
     public $resourceOwnerId;
+
     /**
      * @var string
      */
     public $srcRegion;
+
     /**
      * @var string
      */
     public $startTime;
     protected $_name = [
-        'backupId'               => 'BackupId',
-        'DBInstanceId'           => 'DBInstanceId',
-        'destRegion'             => 'DestRegion',
-        'endTime'                => 'EndTime',
+        'backupId' => 'BackupId',
+        'DBInstanceId' => 'DBInstanceId',
+        'destRegion' => 'DestRegion',
+        'endTime' => 'EndTime',
         'isOnlyGetClusterBackUp' => 'IsOnlyGetClusterBackUp',
-        'ownerAccount'           => 'OwnerAccount',
-        'ownerId'                => 'OwnerId',
-        'pageNo'                 => 'PageNo',
-        'pageSize'               => 'PageSize',
-        'resourceOwnerAccount'   => 'ResourceOwnerAccount',
-        'resourceOwnerId'        => 'ResourceOwnerId',
-        'srcRegion'              => 'SrcRegion',
-        'startTime'              => 'StartTime',
+        'ownerAccount' => 'OwnerAccount',
+        'ownerId' => 'OwnerId',
+        'pageNo' => 'PageNo',
+        'pageSize' => 'PageSize',
+        'resourceOwnerAccount' => 'ResourceOwnerAccount',
+        'resourceOwnerId' => 'ResourceOwnerId',
+        'srcRegion' => 'SrcRegion',
+        'startTime' => 'StartTime',
     ];
 
     public function validate()

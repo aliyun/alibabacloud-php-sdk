@@ -30,7 +30,7 @@ class targetArticleItemCodes extends Model
         if (null !== $this->targetArticleItemCode) {
             if (\is_array($this->targetArticleItemCode)) {
                 $res['targetArticleItemCode'] = [];
-                $n1                           = 0;
+                $n1 = 0;
                 foreach ($this->targetArticleItemCode as $item1) {
                     $res['targetArticleItemCode'][$n1++] = $item1;
                 }
@@ -51,7 +51,7 @@ class targetArticleItemCodes extends Model
         if (isset($map['targetArticleItemCode'])) {
             if (!empty($map['targetArticleItemCode'])) {
                 $model->targetArticleItemCode = [];
-                $n1                           = 0;
+                $n1 = 0;
                 foreach ($map['targetArticleItemCode'] as $item1) {
                     $model->targetArticleItemCode[$n1++] = $item1;
                 }

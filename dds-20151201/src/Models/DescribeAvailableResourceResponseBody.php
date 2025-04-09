@@ -13,12 +13,13 @@ class DescribeAvailableResourceResponseBody extends Model
      * @var string
      */
     public $requestId;
+
     /**
      * @var supportedDBTypes
      */
     public $supportedDBTypes;
     protected $_name = [
-        'requestId'        => 'RequestId',
+        'requestId' => 'RequestId',
         'supportedDBTypes' => 'SupportedDBTypes',
     ];
 

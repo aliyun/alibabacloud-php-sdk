@@ -12,58 +12,68 @@ class configserverAttribute extends Model
      * @var string
      */
     public $connectString;
+
     /**
      * @var string
      */
     public $currentKernelVersion;
+
     /**
      * @var string
      */
     public $lockMode;
+
     /**
      * @var int
      */
     public $maxConnections;
+
     /**
      * @var int
      */
     public $maxIOPS;
+
     /**
      * @var string
      */
     public $nodeClass;
+
     /**
      * @var string
      */
     public $nodeDescription;
+
     /**
      * @var string
      */
     public $nodeId;
+
     /**
      * @var int
      */
     public $nodeStorage;
+
     /**
      * @var int
      */
     public $port;
+
     /**
      * @var string
      */
     public $status;
     protected $_name = [
-        'connectString'        => 'ConnectString',
+        'connectString' => 'ConnectString',
         'currentKernelVersion' => 'CurrentKernelVersion',
-        'lockMode'             => 'LockMode',
-        'maxConnections'       => 'MaxConnections',
-        'maxIOPS'              => 'MaxIOPS',
-        'nodeClass'            => 'NodeClass',
-        'nodeDescription'      => 'NodeDescription',
-        'nodeId'               => 'NodeId',
-        'nodeStorage'          => 'NodeStorage',
-        'port'                 => 'Port',
-        'status'               => 'Status',
+        'lockMode' => 'LockMode',
+        'maxConnections' => 'MaxConnections',
+        'maxIOPS' => 'MaxIOPS',
+        'nodeClass' => 'NodeClass',
+        'nodeDescription' => 'NodeDescription',
+        'nodeId' => 'NodeId',
+        'nodeStorage' => 'NodeStorage',
+        'port' => 'Port',
+        'status' => 'Status',
     ];
 
     public function validate()

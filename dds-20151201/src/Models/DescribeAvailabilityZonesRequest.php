@@ -12,93 +12,116 @@ class DescribeAvailabilityZonesRequest extends Model
      * @var string
      */
     public $acceptLanguage;
+
     /**
      * @var string
      */
     public $DBInstanceClass;
+
     /**
      * @var string
      */
     public $dbType;
+
     /**
      * @var string
      */
     public $engineVersion;
+
     /**
      * @var string
      */
     public $excludeSecondaryZoneId;
+
     /**
      * @var string
      */
     public $excludeZoneId;
+
     /**
      * @var string
      */
     public $instanceChargeType;
+
+    /**
+     * @var string
+     */
+    public $instanceType;
+
     /**
      * @var string
      */
     public $mongoType;
+
     /**
      * @var string
      */
     public $ownerAccount;
+
     /**
      * @var int
      */
     public $ownerId;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $replicationFactor;
+
     /**
      * @var string
      */
     public $resourceGroupId;
+
     /**
      * @var string
      */
     public $resourceOwnerAccount;
+
     /**
      * @var int
      */
     public $resourceOwnerId;
+
     /**
      * @var string
      */
     public $storageSupport;
+
     /**
      * @var string
      */
     public $storageType;
+
     /**
      * @var string
      */
     public $zoneId;
     protected $_name = [
-        'acceptLanguage'         => 'AcceptLanguage',
-        'DBInstanceClass'        => 'DBInstanceClass',
-        'dbType'                 => 'DbType',
-        'engineVersion'          => 'EngineVersion',
+        'acceptLanguage' => 'AcceptLanguage',
+        'DBInstanceClass' => 'DBInstanceClass',
+        'dbType' => 'DbType',
+        'engineVersion' => 'EngineVersion',
         'excludeSecondaryZoneId' => 'ExcludeSecondaryZoneId',
-        'excludeZoneId'          => 'ExcludeZoneId',
-        'instanceChargeType'     => 'InstanceChargeType',
-        'mongoType'              => 'MongoType',
-        'ownerAccount'           => 'OwnerAccount',
-        'ownerId'                => 'OwnerId',
-        'regionId'               => 'RegionId',
-        'replicationFactor'      => 'ReplicationFactor',
-        'resourceGroupId'        => 'ResourceGroupId',
-        'resourceOwnerAccount'   => 'ResourceOwnerAccount',
-        'resourceOwnerId'        => 'ResourceOwnerId',
-        'storageSupport'         => 'StorageSupport',
-        'storageType'            => 'StorageType',
-        'zoneId'                 => 'ZoneId',
+        'excludeZoneId' => 'ExcludeZoneId',
+        'instanceChargeType' => 'InstanceChargeType',
+        'instanceType' => 'InstanceType',
+        'mongoType' => 'MongoType',
+        'ownerAccount' => 'OwnerAccount',
+        'ownerId' => 'OwnerId',
+        'regionId' => 'RegionId',
+        'replicationFactor' => 'ReplicationFactor',
+        'resourceGroupId' => 'ResourceGroupId',
+        'resourceOwnerAccount' => 'ResourceOwnerAccount',
+        'resourceOwnerId' => 'ResourceOwnerId',
+        'storageSupport' => 'StorageSupport',
+        'storageType' => 'StorageType',
+        'zoneId' => 'ZoneId',
     ];
 
     public function validate()
@@ -135,6 +158,10 @@ class DescribeAvailabilityZonesRequest extends Model
 
         if (null !== $this->instanceChargeType) {
             $res['InstanceChargeType'] = $this->instanceChargeType;
+        }
+
+        if (null !== $this->instanceType) {
+            $res['InstanceType'] = $this->instanceType;
         }
 
         if (null !== $this->mongoType) {
@@ -218,6 +245,10 @@ class DescribeAvailabilityZonesRequest extends Model
 
         if (isset($map['InstanceChargeType'])) {
             $model->instanceChargeType = $map['InstanceChargeType'];
+        }
+
+        if (isset($map['InstanceType'])) {
+            $model->instanceType = $map['InstanceType'];
         }
 
         if (isset($map['MongoType'])) {

@@ -31,7 +31,7 @@ class networkAddresses extends Model
         if (null !== $this->networkAddress) {
             if (\is_array($this->networkAddress)) {
                 $res['NetworkAddress'] = [];
-                $n1                    = 0;
+                $n1 = 0;
                 foreach ($this->networkAddress as $item1) {
                     $res['NetworkAddress'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -52,7 +52,7 @@ class networkAddresses extends Model
         if (isset($map['NetworkAddress'])) {
             if (!empty($map['NetworkAddress'])) {
                 $model->networkAddress = [];
-                $n1                    = 0;
+                $n1 = 0;
                 foreach ($map['NetworkAddress'] as $item1) {
                     $model->networkAddress[$n1++] = networkAddress::fromMap($item1);
                 }

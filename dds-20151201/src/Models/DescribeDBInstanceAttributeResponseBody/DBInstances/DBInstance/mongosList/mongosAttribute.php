@@ -12,73 +12,86 @@ class mongosAttribute extends Model
      * @var string
      */
     public $connectSting;
+
     /**
      * @var string
      */
     public $connectString;
+
     /**
      * @var string
      */
     public $currentKernelVersion;
+
     /**
      * @var string
      */
     public $lockMode;
+
     /**
      * @var int
      */
     public $maxConnections;
+
     /**
      * @var int
      */
     public $maxIOPS;
+
     /**
      * @var string
      */
     public $nodeClass;
+
     /**
      * @var string
      */
     public $nodeDescription;
+
     /**
      * @var string
      */
     public $nodeId;
+
     /**
      * @var int
      */
     public $port;
+
     /**
      * @var string
      */
     public $status;
+
     /**
      * @var string
      */
     public $VPCId;
+
     /**
      * @var string
      */
     public $vSwitchId;
+
     /**
      * @var string
      */
     public $vpcCloudInstanceId;
     protected $_name = [
-        'connectSting'         => 'ConnectSting',
-        'connectString'        => 'ConnectString',
+        'connectSting' => 'ConnectSting',
+        'connectString' => 'ConnectString',
         'currentKernelVersion' => 'CurrentKernelVersion',
-        'lockMode'             => 'LockMode',
-        'maxConnections'       => 'MaxConnections',
-        'maxIOPS'              => 'MaxIOPS',
-        'nodeClass'            => 'NodeClass',
-        'nodeDescription'      => 'NodeDescription',
-        'nodeId'               => 'NodeId',
-        'port'                 => 'Port',
-        'status'               => 'Status',
-        'VPCId'                => 'VPCId',
-        'vSwitchId'            => 'VSwitchId',
-        'vpcCloudInstanceId'   => 'VpcCloudInstanceId',
+        'lockMode' => 'LockMode',
+        'maxConnections' => 'MaxConnections',
+        'maxIOPS' => 'MaxIOPS',
+        'nodeClass' => 'NodeClass',
+        'nodeDescription' => 'NodeDescription',
+        'nodeId' => 'NodeId',
+        'port' => 'Port',
+        'status' => 'Status',
+        'VPCId' => 'VPCId',
+        'vSwitchId' => 'VSwitchId',
+        'vpcCloudInstanceId' => 'VpcCloudInstanceId',
     ];
 
     public function validate()

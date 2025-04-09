@@ -30,7 +30,7 @@ class optionIds extends Model
         if (null !== $this->optionId) {
             if (\is_array($this->optionId)) {
                 $res['OptionId'] = [];
-                $n1              = 0;
+                $n1 = 0;
                 foreach ($this->optionId as $item1) {
                     $res['OptionId'][$n1++] = $item1;
                 }
@@ -51,7 +51,7 @@ class optionIds extends Model
         if (isset($map['OptionId'])) {
             if (!empty($map['OptionId'])) {
                 $model->optionId = [];
-                $n1              = 0;
+                $n1 = 0;
                 foreach ($map['OptionId'] as $item1) {
                     $model->optionId[$n1++] = $item1;
                 }

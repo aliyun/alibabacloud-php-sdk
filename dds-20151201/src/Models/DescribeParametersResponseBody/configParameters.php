@@ -31,7 +31,7 @@ class configParameters extends Model
         if (null !== $this->parameter) {
             if (\is_array($this->parameter)) {
                 $res['Parameter'] = [];
-                $n1               = 0;
+                $n1 = 0;
                 foreach ($this->parameter as $item1) {
                     $res['Parameter'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -52,7 +52,7 @@ class configParameters extends Model
         if (isset($map['Parameter'])) {
             if (!empty($map['Parameter'])) {
                 $model->parameter = [];
-                $n1               = 0;
+                $n1 = 0;
                 foreach ($map['Parameter'] as $item1) {
                     $model->parameter[$n1++] = parameter::fromMap($item1);
                 }

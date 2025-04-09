@@ -12,43 +12,50 @@ class ModifyGlobalSecurityIPGroupRequest extends Model
      * @var string
      */
     public $GIpList;
+
     /**
      * @var string
      */
     public $globalIgName;
+
     /**
      * @var string
      */
     public $globalSecurityGroupId;
+
     /**
      * @var string
      */
     public $ownerAccount;
+
     /**
      * @var int
      */
     public $ownerId;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $resourceOwnerAccount;
+
     /**
      * @var int
      */
     public $resourceOwnerId;
     protected $_name = [
-        'GIpList'               => 'GIpList',
-        'globalIgName'          => 'GlobalIgName',
+        'GIpList' => 'GIpList',
+        'globalIgName' => 'GlobalIgName',
         'globalSecurityGroupId' => 'GlobalSecurityGroupId',
-        'ownerAccount'          => 'OwnerAccount',
-        'ownerId'               => 'OwnerId',
-        'regionId'              => 'RegionId',
-        'resourceOwnerAccount'  => 'ResourceOwnerAccount',
-        'resourceOwnerId'       => 'ResourceOwnerId',
+        'ownerAccount' => 'OwnerAccount',
+        'ownerId' => 'OwnerId',
+        'regionId' => 'RegionId',
+        'resourceOwnerAccount' => 'ResourceOwnerAccount',
+        'resourceOwnerId' => 'ResourceOwnerId',
     ];
 
     public function validate()

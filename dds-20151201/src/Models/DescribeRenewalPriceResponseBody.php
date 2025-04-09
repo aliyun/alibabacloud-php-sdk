@@ -15,22 +15,25 @@ class DescribeRenewalPriceResponseBody extends Model
      * @var order
      */
     public $order;
+
     /**
      * @var string
      */
     public $requestId;
+
     /**
      * @var rules
      */
     public $rules;
+
     /**
      * @var subOrders
      */
     public $subOrders;
     protected $_name = [
-        'order'     => 'Order',
+        'order' => 'Order',
         'requestId' => 'RequestId',
-        'rules'     => 'Rules',
+        'rules' => 'Rules',
         'subOrders' => 'SubOrders',
     ];
 

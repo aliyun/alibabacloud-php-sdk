@@ -12,47 +12,55 @@ class depreciateInfo extends Model
      * @var float
      */
     public $cheapRate;
+
     /**
      * @var float
      */
     public $cheapStandAmount;
+
     /**
      * @var float
      */
     public $differential;
+
     /**
      * @var string
      */
     public $differentialName;
+
     /**
      * @var bool
      */
     public $isContractActivity;
+
     /**
      * @var string
      */
     public $isShow;
+
     /**
      * @var float
      */
     public $listPrice;
+
     /**
      * @var float
      */
     public $monthPrice;
+
     /**
      * @var float
      */
     public $originalStandAmount;
     protected $_name = [
-        'cheapRate'           => 'CheapRate',
-        'cheapStandAmount'    => 'CheapStandAmount',
-        'differential'        => 'Differential',
-        'differentialName'    => 'DifferentialName',
-        'isContractActivity'  => 'IsContractActivity',
-        'isShow'              => 'IsShow',
-        'listPrice'           => 'ListPrice',
-        'monthPrice'          => 'MonthPrice',
+        'cheapRate' => 'CheapRate',
+        'cheapStandAmount' => 'CheapStandAmount',
+        'differential' => 'Differential',
+        'differentialName' => 'DifferentialName',
+        'isContractActivity' => 'IsContractActivity',
+        'isShow' => 'IsShow',
+        'listPrice' => 'ListPrice',
+        'monthPrice' => 'MonthPrice',
         'originalStandAmount' => 'OriginalStandAmount',
     ];
 

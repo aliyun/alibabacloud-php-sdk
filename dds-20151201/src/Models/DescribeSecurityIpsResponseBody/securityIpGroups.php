@@ -31,7 +31,7 @@ class securityIpGroups extends Model
         if (null !== $this->securityIpGroup) {
             if (\is_array($this->securityIpGroup)) {
                 $res['SecurityIpGroup'] = [];
-                $n1                     = 0;
+                $n1 = 0;
                 foreach ($this->securityIpGroup as $item1) {
                     $res['SecurityIpGroup'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -52,7 +52,7 @@ class securityIpGroups extends Model
         if (isset($map['SecurityIpGroup'])) {
             if (!empty($map['SecurityIpGroup'])) {
                 $model->securityIpGroup = [];
-                $n1                     = 0;
+                $n1 = 0;
                 foreach ($map['SecurityIpGroup'] as $item1) {
                     $model->securityIpGroup[$n1++] = securityIpGroup::fromMap($item1);
                 }

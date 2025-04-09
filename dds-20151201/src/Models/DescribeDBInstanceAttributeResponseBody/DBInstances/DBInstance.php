@@ -17,263 +17,314 @@ class DBInstance extends Model
      * @var bool
      */
     public $burstingEnabled;
+
     /**
      * @var string
      */
     public $capacityUnit;
+
     /**
      * @var string
      */
     public $chargeType;
+
     /**
      * @var configserverList
      */
     public $configserverList;
+
     /**
      * @var string
      */
     public $creationTime;
+
     /**
      * @var string
      */
     public $currentKernelVersion;
+
     /**
      * @var string
      */
     public $DBInstanceClass;
+
     /**
      * @var string
      */
     public $DBInstanceDescription;
+
     /**
      * @var string
      */
     public $DBInstanceId;
+
     /**
      * @var string
      */
     public $DBInstanceOrderStatus;
+
     /**
      * @var bool
      */
     public $DBInstanceReleaseProtection;
+
     /**
      * @var string
      */
     public $DBInstanceStatus;
+
     /**
      * @var int
      */
     public $DBInstanceStorage;
+
     /**
      * @var string
      */
     public $DBInstanceType;
+
     /**
      * @var string
      */
     public $destroyTime;
+
     /**
      * @var bool
      */
     public $encrypted;
+
     /**
      * @var string
      */
     public $encryptionKey;
+
     /**
      * @var string
      */
     public $engine;
+
     /**
      * @var string
      */
     public $engineVersion;
+
     /**
      * @var string
      */
     public $expireTime;
+
     /**
      * @var string
      */
     public $hiddenZoneId;
+
     /**
      * @var string
      */
     public $kindCode;
+
     /**
      * @var string
      */
     public $lastDowngradeTime;
+
     /**
      * @var string
      */
     public $lockMode;
+
     /**
      * @var string
      */
     public $maintainEndTime;
+
     /**
      * @var string
      */
     public $maintainStartTime;
+
     /**
      * @var int
      */
     public $maxConnections;
+
     /**
      * @var int
      */
     public $maxIOPS;
+
     /**
      * @var int
      */
     public $maxMBPS;
+
     /**
      * @var mongosList
      */
     public $mongosList;
+
     /**
      * @var string
      */
     public $networkType;
+
     /**
      * @var string
      */
     public $protocolType;
+
     /**
      * @var int
      */
     public $provisionedIops;
+
     /**
      * @var string
      */
     public $readonlyReplicas;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $replacateId;
+
     /**
      * @var string
      */
     public $replicaSetName;
+
     /**
      * @var replicaSets
      */
     public $replicaSets;
+
     /**
      * @var string
      */
     public $replicationFactor;
+
     /**
      * @var string
      */
     public $resourceGroupId;
+
     /**
      * @var string
      */
     public $secondaryZoneId;
+
     /**
      * @var shardList
      */
     public $shardList;
+
     /**
      * @var string
      */
     public $storageEngine;
+
     /**
      * @var string
      */
     public $storageType;
+
     /**
      * @var string
      */
     public $syncPercent;
+
     /**
      * @var tags
      */
     public $tags;
+
     /**
      * @var bool
      */
     public $useClusterBackup;
+
     /**
      * @var string
      */
     public $VPCCloudInstanceIds;
+
     /**
      * @var string
      */
     public $VPCId;
+
     /**
      * @var string
      */
     public $vSwitchId;
+
     /**
      * @var string
      */
     public $vpcAuthMode;
+
     /**
      * @var string
      */
     public $zoneId;
     protected $_name = [
-        'burstingEnabled'             => 'BurstingEnabled',
-        'capacityUnit'                => 'CapacityUnit',
-        'chargeType'                  => 'ChargeType',
-        'configserverList'            => 'ConfigserverList',
-        'creationTime'                => 'CreationTime',
-        'currentKernelVersion'        => 'CurrentKernelVersion',
-        'DBInstanceClass'             => 'DBInstanceClass',
-        'DBInstanceDescription'       => 'DBInstanceDescription',
-        'DBInstanceId'                => 'DBInstanceId',
-        'DBInstanceOrderStatus'       => 'DBInstanceOrderStatus',
+        'burstingEnabled' => 'BurstingEnabled',
+        'capacityUnit' => 'CapacityUnit',
+        'chargeType' => 'ChargeType',
+        'configserverList' => 'ConfigserverList',
+        'creationTime' => 'CreationTime',
+        'currentKernelVersion' => 'CurrentKernelVersion',
+        'DBInstanceClass' => 'DBInstanceClass',
+        'DBInstanceDescription' => 'DBInstanceDescription',
+        'DBInstanceId' => 'DBInstanceId',
+        'DBInstanceOrderStatus' => 'DBInstanceOrderStatus',
         'DBInstanceReleaseProtection' => 'DBInstanceReleaseProtection',
-        'DBInstanceStatus'            => 'DBInstanceStatus',
-        'DBInstanceStorage'           => 'DBInstanceStorage',
-        'DBInstanceType'              => 'DBInstanceType',
-        'destroyTime'                 => 'DestroyTime',
-        'encrypted'                   => 'Encrypted',
-        'encryptionKey'               => 'EncryptionKey',
-        'engine'                      => 'Engine',
-        'engineVersion'               => 'EngineVersion',
-        'expireTime'                  => 'ExpireTime',
-        'hiddenZoneId'                => 'HiddenZoneId',
-        'kindCode'                    => 'KindCode',
-        'lastDowngradeTime'           => 'LastDowngradeTime',
-        'lockMode'                    => 'LockMode',
-        'maintainEndTime'             => 'MaintainEndTime',
-        'maintainStartTime'           => 'MaintainStartTime',
-        'maxConnections'              => 'MaxConnections',
-        'maxIOPS'                     => 'MaxIOPS',
-        'maxMBPS'                     => 'MaxMBPS',
-        'mongosList'                  => 'MongosList',
-        'networkType'                 => 'NetworkType',
-        'protocolType'                => 'ProtocolType',
-        'provisionedIops'             => 'ProvisionedIops',
-        'readonlyReplicas'            => 'ReadonlyReplicas',
-        'regionId'                    => 'RegionId',
-        'replacateId'                 => 'ReplacateId',
-        'replicaSetName'              => 'ReplicaSetName',
-        'replicaSets'                 => 'ReplicaSets',
-        'replicationFactor'           => 'ReplicationFactor',
-        'resourceGroupId'             => 'ResourceGroupId',
-        'secondaryZoneId'             => 'SecondaryZoneId',
-        'shardList'                   => 'ShardList',
-        'storageEngine'               => 'StorageEngine',
-        'storageType'                 => 'StorageType',
-        'syncPercent'                 => 'SyncPercent',
-        'tags'                        => 'Tags',
-        'useClusterBackup'            => 'UseClusterBackup',
-        'VPCCloudInstanceIds'         => 'VPCCloudInstanceIds',
-        'VPCId'                       => 'VPCId',
-        'vSwitchId'                   => 'VSwitchId',
-        'vpcAuthMode'                 => 'VpcAuthMode',
-        'zoneId'                      => 'ZoneId',
+        'DBInstanceStatus' => 'DBInstanceStatus',
+        'DBInstanceStorage' => 'DBInstanceStorage',
+        'DBInstanceType' => 'DBInstanceType',
+        'destroyTime' => 'DestroyTime',
+        'encrypted' => 'Encrypted',
+        'encryptionKey' => 'EncryptionKey',
+        'engine' => 'Engine',
+        'engineVersion' => 'EngineVersion',
+        'expireTime' => 'ExpireTime',
+        'hiddenZoneId' => 'HiddenZoneId',
+        'kindCode' => 'KindCode',
+        'lastDowngradeTime' => 'LastDowngradeTime',
+        'lockMode' => 'LockMode',
+        'maintainEndTime' => 'MaintainEndTime',
+        'maintainStartTime' => 'MaintainStartTime',
+        'maxConnections' => 'MaxConnections',
+        'maxIOPS' => 'MaxIOPS',
+        'maxMBPS' => 'MaxMBPS',
+        'mongosList' => 'MongosList',
+        'networkType' => 'NetworkType',
+        'protocolType' => 'ProtocolType',
+        'provisionedIops' => 'ProvisionedIops',
+        'readonlyReplicas' => 'ReadonlyReplicas',
+        'regionId' => 'RegionId',
+        'replacateId' => 'ReplacateId',
+        'replicaSetName' => 'ReplicaSetName',
+        'replicaSets' => 'ReplicaSets',
+        'replicationFactor' => 'ReplicationFactor',
+        'resourceGroupId' => 'ResourceGroupId',
+        'secondaryZoneId' => 'SecondaryZoneId',
+        'shardList' => 'ShardList',
+        'storageEngine' => 'StorageEngine',
+        'storageType' => 'StorageType',
+        'syncPercent' => 'SyncPercent',
+        'tags' => 'Tags',
+        'useClusterBackup' => 'UseClusterBackup',
+        'VPCCloudInstanceIds' => 'VPCCloudInstanceIds',
+        'VPCId' => 'VPCId',
+        'vSwitchId' => 'VSwitchId',
+        'vpcAuthMode' => 'VpcAuthMode',
+        'zoneId' => 'ZoneId',
     ];
 
     public function validate()

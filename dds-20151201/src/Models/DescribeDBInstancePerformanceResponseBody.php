@@ -13,23 +13,26 @@ class DescribeDBInstancePerformanceResponseBody extends Model
      * @var string
      */
     public $endTime;
+
     /**
      * @var performanceKeys
      */
     public $performanceKeys;
+
     /**
      * @var string
      */
     public $requestId;
+
     /**
      * @var string
      */
     public $startTime;
     protected $_name = [
-        'endTime'         => 'EndTime',
+        'endTime' => 'EndTime',
         'performanceKeys' => 'PerformanceKeys',
-        'requestId'       => 'RequestId',
-        'startTime'       => 'StartTime',
+        'requestId' => 'RequestId',
+        'startTime' => 'StartTime',
     ];
 
     public function validate()

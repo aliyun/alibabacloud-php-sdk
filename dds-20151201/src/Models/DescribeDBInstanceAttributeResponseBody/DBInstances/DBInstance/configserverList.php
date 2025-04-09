@@ -31,7 +31,7 @@ class configserverList extends Model
         if (null !== $this->configserverAttribute) {
             if (\is_array($this->configserverAttribute)) {
                 $res['ConfigserverAttribute'] = [];
-                $n1                           = 0;
+                $n1 = 0;
                 foreach ($this->configserverAttribute as $item1) {
                     $res['ConfigserverAttribute'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -52,7 +52,7 @@ class configserverList extends Model
         if (isset($map['ConfigserverAttribute'])) {
             if (!empty($map['ConfigserverAttribute'])) {
                 $model->configserverAttribute = [];
-                $n1                           = 0;
+                $n1 = 0;
                 foreach ($map['ConfigserverAttribute'] as $item1) {
                     $model->configserverAttribute[$n1++] = configserverAttribute::fromMap($item1);
                 }

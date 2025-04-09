@@ -31,7 +31,7 @@ class subOrders extends Model
         if (null !== $this->subOrder) {
             if (\is_array($this->subOrder)) {
                 $res['SubOrder'] = [];
-                $n1              = 0;
+                $n1 = 0;
                 foreach ($this->subOrder as $item1) {
                     $res['SubOrder'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -52,7 +52,7 @@ class subOrders extends Model
         if (isset($map['SubOrder'])) {
             if (!empty($map['SubOrder'])) {
                 $model->subOrder = [];
-                $n1              = 0;
+                $n1 = 0;
                 foreach ($map['SubOrder'] as $item1) {
                     $model->subOrder[$n1++] = subOrder::fromMap($item1);
                 }

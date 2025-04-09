@@ -13,18 +13,20 @@ class DescribeDBInstancesOverviewResponseBody extends Model
      * @var DBInstances[]
      */
     public $DBInstances;
+
     /**
      * @var string
      */
     public $requestId;
+
     /**
      * @var string
      */
     public $totalCount;
     protected $_name = [
         'DBInstances' => 'DBInstances',
-        'requestId'   => 'RequestId',
-        'totalCount'  => 'TotalCount',
+        'requestId' => 'RequestId',
+        'totalCount' => 'TotalCount',
     ];
 
     public function validate()
@@ -41,7 +43,7 @@ class DescribeDBInstancesOverviewResponseBody extends Model
         if (null !== $this->DBInstances) {
             if (\is_array($this->DBInstances)) {
                 $res['DBInstances'] = [];
-                $n1                 = 0;
+                $n1 = 0;
                 foreach ($this->DBInstances as $item1) {
                     $res['DBInstances'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -70,7 +72,7 @@ class DescribeDBInstancesOverviewResponseBody extends Model
         if (isset($map['DBInstances'])) {
             if (!empty($map['DBInstances'])) {
                 $model->DBInstances = [];
-                $n1                 = 0;
+                $n1 = 0;
                 foreach ($map['DBInstances'] as $item1) {
                     $model->DBInstances[$n1++] = DBInstances::fromMap($item1);
                 }

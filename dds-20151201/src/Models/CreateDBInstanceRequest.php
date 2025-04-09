@@ -13,208 +13,248 @@ class CreateDBInstanceRequest extends Model
      * @var string
      */
     public $accountPassword;
+
     /**
      * @var string
      */
     public $autoRenew;
+
     /**
      * @var string
      */
     public $backupId;
+
     /**
      * @var string
      */
     public $businessInfo;
+
     /**
      * @var string
      */
     public $chargeType;
+
     /**
      * @var string
      */
     public $clientToken;
+
     /**
      * @var string
      */
     public $clusterId;
+
     /**
      * @var string
      */
     public $couponNo;
+
     /**
      * @var string
      */
     public $DBInstanceClass;
+
     /**
      * @var string
      */
     public $DBInstanceDescription;
+
     /**
      * @var int
      */
     public $DBInstanceStorage;
+
     /**
      * @var string
      */
     public $databaseNames;
+
     /**
      * @var bool
      */
     public $encrypted;
+
     /**
      * @var string
      */
     public $encryptionKey;
+
     /**
      * @var string
      */
     public $engine;
+
     /**
      * @var string
      */
     public $engineVersion;
+
     /**
      * @var string
      */
     public $globalSecurityGroupIds;
+
     /**
      * @var string
      */
     public $hiddenZoneId;
+
     /**
      * @var string
      */
     public $networkType;
+
     /**
      * @var string
      */
     public $ownerAccount;
+
     /**
      * @var int
      */
     public $ownerId;
+
     /**
      * @var int
      */
     public $period;
+
     /**
      * @var int
      */
     public $provisionedIops;
+
     /**
      * @var string
      */
     public $readonlyReplicas;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $replicationFactor;
+
     /**
      * @var string
      */
     public $resourceGroupId;
+
     /**
      * @var string
      */
     public $resourceOwnerAccount;
+
     /**
      * @var int
      */
     public $resourceOwnerId;
+
     /**
      * @var string
      */
     public $restoreTime;
+
     /**
      * @var string
      */
     public $restoreType;
+
     /**
      * @var string
      */
     public $secondaryZoneId;
+
     /**
      * @var string
      */
     public $securityIPList;
+
     /**
      * @var string
      */
     public $srcDBInstanceId;
+
     /**
      * @var string
      */
     public $srcRegion;
+
     /**
      * @var string
      */
     public $storageEngine;
+
     /**
      * @var string
      */
     public $storageType;
+
     /**
      * @var tag[]
      */
     public $tag;
+
     /**
      * @var string
      */
     public $vSwitchId;
+
     /**
      * @var string
      */
     public $vpcId;
+
     /**
      * @var string
      */
     public $zoneId;
     protected $_name = [
-        'accountPassword'        => 'AccountPassword',
-        'autoRenew'              => 'AutoRenew',
-        'backupId'               => 'BackupId',
-        'businessInfo'           => 'BusinessInfo',
-        'chargeType'             => 'ChargeType',
-        'clientToken'            => 'ClientToken',
-        'clusterId'              => 'ClusterId',
-        'couponNo'               => 'CouponNo',
-        'DBInstanceClass'        => 'DBInstanceClass',
-        'DBInstanceDescription'  => 'DBInstanceDescription',
-        'DBInstanceStorage'      => 'DBInstanceStorage',
-        'databaseNames'          => 'DatabaseNames',
-        'encrypted'              => 'Encrypted',
-        'encryptionKey'          => 'EncryptionKey',
-        'engine'                 => 'Engine',
-        'engineVersion'          => 'EngineVersion',
+        'accountPassword' => 'AccountPassword',
+        'autoRenew' => 'AutoRenew',
+        'backupId' => 'BackupId',
+        'businessInfo' => 'BusinessInfo',
+        'chargeType' => 'ChargeType',
+        'clientToken' => 'ClientToken',
+        'clusterId' => 'ClusterId',
+        'couponNo' => 'CouponNo',
+        'DBInstanceClass' => 'DBInstanceClass',
+        'DBInstanceDescription' => 'DBInstanceDescription',
+        'DBInstanceStorage' => 'DBInstanceStorage',
+        'databaseNames' => 'DatabaseNames',
+        'encrypted' => 'Encrypted',
+        'encryptionKey' => 'EncryptionKey',
+        'engine' => 'Engine',
+        'engineVersion' => 'EngineVersion',
         'globalSecurityGroupIds' => 'GlobalSecurityGroupIds',
-        'hiddenZoneId'           => 'HiddenZoneId',
-        'networkType'            => 'NetworkType',
-        'ownerAccount'           => 'OwnerAccount',
-        'ownerId'                => 'OwnerId',
-        'period'                 => 'Period',
-        'provisionedIops'        => 'ProvisionedIops',
-        'readonlyReplicas'       => 'ReadonlyReplicas',
-        'regionId'               => 'RegionId',
-        'replicationFactor'      => 'ReplicationFactor',
-        'resourceGroupId'        => 'ResourceGroupId',
-        'resourceOwnerAccount'   => 'ResourceOwnerAccount',
-        'resourceOwnerId'        => 'ResourceOwnerId',
-        'restoreTime'            => 'RestoreTime',
-        'restoreType'            => 'RestoreType',
-        'secondaryZoneId'        => 'SecondaryZoneId',
-        'securityIPList'         => 'SecurityIPList',
-        'srcDBInstanceId'        => 'SrcDBInstanceId',
-        'srcRegion'              => 'SrcRegion',
-        'storageEngine'          => 'StorageEngine',
-        'storageType'            => 'StorageType',
-        'tag'                    => 'Tag',
-        'vSwitchId'              => 'VSwitchId',
-        'vpcId'                  => 'VpcId',
-        'zoneId'                 => 'ZoneId',
+        'hiddenZoneId' => 'HiddenZoneId',
+        'networkType' => 'NetworkType',
+        'ownerAccount' => 'OwnerAccount',
+        'ownerId' => 'OwnerId',
+        'period' => 'Period',
+        'provisionedIops' => 'ProvisionedIops',
+        'readonlyReplicas' => 'ReadonlyReplicas',
+        'regionId' => 'RegionId',
+        'replicationFactor' => 'ReplicationFactor',
+        'resourceGroupId' => 'ResourceGroupId',
+        'resourceOwnerAccount' => 'ResourceOwnerAccount',
+        'resourceOwnerId' => 'ResourceOwnerId',
+        'restoreTime' => 'RestoreTime',
+        'restoreType' => 'RestoreType',
+        'secondaryZoneId' => 'SecondaryZoneId',
+        'securityIPList' => 'SecurityIPList',
+        'srcDBInstanceId' => 'SrcDBInstanceId',
+        'srcRegion' => 'SrcRegion',
+        'storageEngine' => 'StorageEngine',
+        'storageType' => 'StorageType',
+        'tag' => 'Tag',
+        'vSwitchId' => 'VSwitchId',
+        'vpcId' => 'VpcId',
+        'zoneId' => 'ZoneId',
     ];
 
     public function validate()
@@ -379,7 +419,7 @@ class CreateDBInstanceRequest extends Model
         if (null !== $this->tag) {
             if (\is_array($this->tag)) {
                 $res['Tag'] = [];
-                $n1         = 0;
+                $n1 = 0;
                 foreach ($this->tag as $item1) {
                     $res['Tag'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -560,7 +600,7 @@ class CreateDBInstanceRequest extends Model
         if (isset($map['Tag'])) {
             if (!empty($map['Tag'])) {
                 $model->tag = [];
-                $n1         = 0;
+                $n1 = 0;
                 foreach ($map['Tag'] as $item1) {
                     $model->tag[$n1++] = tag::fromMap($item1);
                 }

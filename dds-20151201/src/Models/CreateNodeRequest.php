@@ -12,83 +12,98 @@ class CreateNodeRequest extends Model
      * @var string
      */
     public $accountName;
+
     /**
      * @var string
      */
     public $accountPassword;
+
     /**
      * @var bool
      */
     public $autoPay;
+
     /**
      * @var string
      */
     public $businessInfo;
+
     /**
      * @var string
      */
     public $clientToken;
+
     /**
      * @var string
      */
     public $couponNo;
+
     /**
      * @var string
      */
     public $DBInstanceId;
+
     /**
      * @var string
      */
     public $nodeClass;
+
     /**
      * @var int
      */
     public $nodeStorage;
+
     /**
      * @var string
      */
     public $nodeType;
+
     /**
      * @var string
      */
     public $ownerAccount;
+
     /**
      * @var int
      */
     public $ownerId;
+
     /**
      * @var int
      */
     public $readonlyReplicas;
+
     /**
      * @var string
      */
     public $resourceOwnerAccount;
+
     /**
      * @var int
      */
     public $resourceOwnerId;
+
     /**
      * @var bool
      */
     public $shardDirect;
     protected $_name = [
-        'accountName'          => 'AccountName',
-        'accountPassword'      => 'AccountPassword',
-        'autoPay'              => 'AutoPay',
-        'businessInfo'         => 'BusinessInfo',
-        'clientToken'          => 'ClientToken',
-        'couponNo'             => 'CouponNo',
-        'DBInstanceId'         => 'DBInstanceId',
-        'nodeClass'            => 'NodeClass',
-        'nodeStorage'          => 'NodeStorage',
-        'nodeType'             => 'NodeType',
-        'ownerAccount'         => 'OwnerAccount',
-        'ownerId'              => 'OwnerId',
-        'readonlyReplicas'     => 'ReadonlyReplicas',
+        'accountName' => 'AccountName',
+        'accountPassword' => 'AccountPassword',
+        'autoPay' => 'AutoPay',
+        'businessInfo' => 'BusinessInfo',
+        'clientToken' => 'ClientToken',
+        'couponNo' => 'CouponNo',
+        'DBInstanceId' => 'DBInstanceId',
+        'nodeClass' => 'NodeClass',
+        'nodeStorage' => 'NodeStorage',
+        'nodeType' => 'NodeType',
+        'ownerAccount' => 'OwnerAccount',
+        'ownerId' => 'OwnerId',
+        'readonlyReplicas' => 'ReadonlyReplicas',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
-        'resourceOwnerId'      => 'ResourceOwnerId',
-        'shardDirect'          => 'ShardDirect',
+        'resourceOwnerId' => 'ResourceOwnerId',
+        'shardDirect' => 'ShardDirect',
     ];
 
     public function validate()

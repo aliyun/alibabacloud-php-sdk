@@ -12,68 +12,80 @@ class DescribeAvailableResourceRequest extends Model
      * @var string
      */
     public $DBInstanceClass;
+
     /**
      * @var string
      */
     public $dbType;
+
     /**
      * @var string
      */
     public $engineVersion;
+
     /**
      * @var string
      */
     public $instanceChargeType;
+
     /**
      * @var string
      */
     public $ownerAccount;
+
     /**
      * @var int
      */
     public $ownerId;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $replicationFactor;
+
     /**
      * @var string
      */
     public $resourceGroupId;
+
     /**
      * @var string
      */
     public $resourceOwnerAccount;
+
     /**
      * @var int
      */
     public $resourceOwnerId;
+
     /**
      * @var string
      */
     public $storageType;
+
     /**
      * @var string
      */
     public $zoneId;
     protected $_name = [
-        'DBInstanceClass'      => 'DBInstanceClass',
-        'dbType'               => 'DbType',
-        'engineVersion'        => 'EngineVersion',
-        'instanceChargeType'   => 'InstanceChargeType',
-        'ownerAccount'         => 'OwnerAccount',
-        'ownerId'              => 'OwnerId',
-        'regionId'             => 'RegionId',
-        'replicationFactor'    => 'ReplicationFactor',
-        'resourceGroupId'      => 'ResourceGroupId',
+        'DBInstanceClass' => 'DBInstanceClass',
+        'dbType' => 'DbType',
+        'engineVersion' => 'EngineVersion',
+        'instanceChargeType' => 'InstanceChargeType',
+        'ownerAccount' => 'OwnerAccount',
+        'ownerId' => 'OwnerId',
+        'regionId' => 'RegionId',
+        'replicationFactor' => 'ReplicationFactor',
+        'resourceGroupId' => 'ResourceGroupId',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
-        'resourceOwnerId'      => 'ResourceOwnerId',
-        'storageType'          => 'StorageType',
-        'zoneId'               => 'ZoneId',
+        'resourceOwnerId' => 'ResourceOwnerId',
+        'storageType' => 'StorageType',
+        'zoneId' => 'ZoneId',
     ];
 
     public function validate()

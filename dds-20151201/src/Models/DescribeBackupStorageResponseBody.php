@@ -12,23 +12,26 @@ class DescribeBackupStorageResponseBody extends Model
      * @var int
      */
     public $freeSize;
+
     /**
      * @var int
      */
     public $fullStorageSize;
+
     /**
      * @var int
      */
     public $logStorageSize;
+
     /**
      * @var string
      */
     public $requestId;
     protected $_name = [
-        'freeSize'        => 'FreeSize',
+        'freeSize' => 'FreeSize',
         'fullStorageSize' => 'FullStorageSize',
-        'logStorageSize'  => 'LogStorageSize',
-        'requestId'       => 'RequestId',
+        'logStorageSize' => 'LogStorageSize',
+        'requestId' => 'RequestId',
     ];
 
     public function validate()

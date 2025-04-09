@@ -12,21 +12,24 @@ class typeList extends Model
      * @var int
      */
     public $count;
+
     /**
      * @var string
      */
     public $taskType;
+
     /**
      * @var string
      */
     public $taskTypeInfoEn;
+
     /**
      * @var string
      */
     public $taskTypeInfoZh;
     protected $_name = [
-        'count'          => 'Count',
-        'taskType'       => 'TaskType',
+        'count' => 'Count',
+        'taskType' => 'TaskType',
         'taskTypeInfoEn' => 'TaskTypeInfoEn',
         'taskTypeInfoZh' => 'TaskTypeInfoZh',
     ];

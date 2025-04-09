@@ -15,33 +15,38 @@ class DescribePriceResponseBody extends Model
      * @var order
      */
     public $order;
+
     /**
      * @var string
      */
     public $orderParams;
+
     /**
      * @var string
      */
     public $requestId;
+
     /**
      * @var rules
      */
     public $rules;
+
     /**
      * @var subOrders
      */
     public $subOrders;
+
     /**
      * @var string
      */
     public $traceId;
     protected $_name = [
-        'order'       => 'Order',
+        'order' => 'Order',
         'orderParams' => 'OrderParams',
-        'requestId'   => 'RequestId',
-        'rules'       => 'Rules',
-        'subOrders'   => 'SubOrders',
-        'traceId'     => 'TraceId',
+        'requestId' => 'RequestId',
+        'rules' => 'Rules',
+        'subOrders' => 'SubOrders',
+        'traceId' => 'TraceId',
     ];
 
     public function validate()

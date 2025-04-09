@@ -12,18 +12,20 @@ class replicaSet extends Model
      * @var string
      */
     public $class;
+
     /**
      * @var int
      */
     public $readonlyReplicas;
+
     /**
      * @var int
      */
     public $storage;
     protected $_name = [
-        'class'            => 'Class',
+        'class' => 'Class',
         'readonlyReplicas' => 'ReadonlyReplicas',
-        'storage'          => 'Storage',
+        'storage' => 'Storage',
     ];
 
     public function validate()

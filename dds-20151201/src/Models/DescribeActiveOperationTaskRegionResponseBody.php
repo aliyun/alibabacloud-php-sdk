@@ -13,13 +13,14 @@ class DescribeActiveOperationTaskRegionResponseBody extends Model
      * @var regionList[]
      */
     public $regionList;
+
     /**
      * @var string
      */
     public $requestId;
     protected $_name = [
         'regionList' => 'RegionList',
-        'requestId'  => 'RequestId',
+        'requestId' => 'RequestId',
     ];
 
     public function validate()
@@ -36,7 +37,7 @@ class DescribeActiveOperationTaskRegionResponseBody extends Model
         if (null !== $this->regionList) {
             if (\is_array($this->regionList)) {
                 $res['RegionList'] = [];
-                $n1                = 0;
+                $n1 = 0;
                 foreach ($this->regionList as $item1) {
                     $res['RegionList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -61,7 +62,7 @@ class DescribeActiveOperationTaskRegionResponseBody extends Model
         if (isset($map['RegionList'])) {
             if (!empty($map['RegionList'])) {
                 $model->regionList = [];
-                $n1                = 0;
+                $n1 = 0;
                 foreach ($map['RegionList'] as $item1) {
                     $model->regionList[$n1++] = regionList::fromMap($item1);
                 }

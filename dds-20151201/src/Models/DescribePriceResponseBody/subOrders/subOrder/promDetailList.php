@@ -31,7 +31,7 @@ class promDetailList extends Model
         if (null !== $this->promDetail) {
             if (\is_array($this->promDetail)) {
                 $res['PromDetail'] = [];
-                $n1                = 0;
+                $n1 = 0;
                 foreach ($this->promDetail as $item1) {
                     $res['PromDetail'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -52,7 +52,7 @@ class promDetailList extends Model
         if (isset($map['PromDetail'])) {
             if (!empty($map['PromDetail'])) {
                 $model->promDetail = [];
-                $n1                = 0;
+                $n1 = 0;
                 foreach ($map['PromDetail'] as $item1) {
                     $model->promDetail[$n1++] = promDetail::fromMap($item1);
                 }

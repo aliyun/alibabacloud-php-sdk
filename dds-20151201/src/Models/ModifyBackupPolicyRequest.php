@@ -12,123 +12,146 @@ class ModifyBackupPolicyRequest extends Model
      * @var string
      */
     public $backupInterval;
+
     /**
      * @var int
      */
     public $backupRetentionPeriod;
+
     /**
      * @var int
      */
     public $backupRetentionPolicyOnClusterDeletion;
+
     /**
      * @var string
      */
     public $crossBackupPeriod;
+
     /**
      * @var string
      */
     public $crossBackupType;
+
     /**
      * @var string
      */
     public $crossLogRetentionType;
+
     /**
      * @var int
      */
     public $crossLogRetentionValue;
+
     /**
      * @var string
      */
     public $crossRetentionType;
+
     /**
      * @var int
      */
     public $crossRetentionValue;
+
     /**
      * @var string
      */
     public $DBInstanceId;
+
     /**
      * @var string
      */
     public $destRegion;
+
     /**
      * @var int
      */
     public $enableBackupLog;
+
     /**
      * @var int
      */
     public $enableCrossLogBackup;
+
     /**
      * @var int
      */
     public $highFrequencyBackupRetention;
+
     /**
      * @var string
      */
     public $instanceType;
+
     /**
      * @var int
      */
     public $logBackupRetentionPeriod;
+
     /**
      * @var string
      */
     public $ownerAccount;
+
     /**
      * @var int
      */
     public $ownerId;
+
     /**
      * @var string
      */
     public $preferredBackupPeriod;
+
     /**
      * @var string
      */
     public $preferredBackupTime;
+
     /**
      * @var string
      */
     public $resourceOwnerAccount;
+
     /**
      * @var int
      */
     public $resourceOwnerId;
+
     /**
      * @var string
      */
     public $snapshotBackupType;
+
     /**
      * @var string
      */
     public $srcRegion;
     protected $_name = [
-        'backupInterval'                         => 'BackupInterval',
-        'backupRetentionPeriod'                  => 'BackupRetentionPeriod',
+        'backupInterval' => 'BackupInterval',
+        'backupRetentionPeriod' => 'BackupRetentionPeriod',
         'backupRetentionPolicyOnClusterDeletion' => 'BackupRetentionPolicyOnClusterDeletion',
-        'crossBackupPeriod'                      => 'CrossBackupPeriod',
-        'crossBackupType'                        => 'CrossBackupType',
-        'crossLogRetentionType'                  => 'CrossLogRetentionType',
-        'crossLogRetentionValue'                 => 'CrossLogRetentionValue',
-        'crossRetentionType'                     => 'CrossRetentionType',
-        'crossRetentionValue'                    => 'CrossRetentionValue',
-        'DBInstanceId'                           => 'DBInstanceId',
-        'destRegion'                             => 'DestRegion',
-        'enableBackupLog'                        => 'EnableBackupLog',
-        'enableCrossLogBackup'                   => 'EnableCrossLogBackup',
-        'highFrequencyBackupRetention'           => 'HighFrequencyBackupRetention',
-        'instanceType'                           => 'InstanceType',
-        'logBackupRetentionPeriod'               => 'LogBackupRetentionPeriod',
-        'ownerAccount'                           => 'OwnerAccount',
-        'ownerId'                                => 'OwnerId',
-        'preferredBackupPeriod'                  => 'PreferredBackupPeriod',
-        'preferredBackupTime'                    => 'PreferredBackupTime',
-        'resourceOwnerAccount'                   => 'ResourceOwnerAccount',
-        'resourceOwnerId'                        => 'ResourceOwnerId',
-        'snapshotBackupType'                     => 'SnapshotBackupType',
-        'srcRegion'                              => 'SrcRegion',
+        'crossBackupPeriod' => 'CrossBackupPeriod',
+        'crossBackupType' => 'CrossBackupType',
+        'crossLogRetentionType' => 'CrossLogRetentionType',
+        'crossLogRetentionValue' => 'CrossLogRetentionValue',
+        'crossRetentionType' => 'CrossRetentionType',
+        'crossRetentionValue' => 'CrossRetentionValue',
+        'DBInstanceId' => 'DBInstanceId',
+        'destRegion' => 'DestRegion',
+        'enableBackupLog' => 'EnableBackupLog',
+        'enableCrossLogBackup' => 'EnableCrossLogBackup',
+        'highFrequencyBackupRetention' => 'HighFrequencyBackupRetention',
+        'instanceType' => 'InstanceType',
+        'logBackupRetentionPeriod' => 'LogBackupRetentionPeriod',
+        'ownerAccount' => 'OwnerAccount',
+        'ownerId' => 'OwnerId',
+        'preferredBackupPeriod' => 'PreferredBackupPeriod',
+        'preferredBackupTime' => 'PreferredBackupTime',
+        'resourceOwnerAccount' => 'ResourceOwnerAccount',
+        'resourceOwnerId' => 'ResourceOwnerId',
+        'snapshotBackupType' => 'SnapshotBackupType',
+        'srcRegion' => 'SrcRegion',
     ];
 
     public function validate()

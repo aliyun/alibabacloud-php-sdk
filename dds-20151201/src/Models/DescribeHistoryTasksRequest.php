@@ -12,73 +12,92 @@ class DescribeHistoryTasksRequest extends Model
      * @var int
      */
     public $fromExecTime;
+
     /**
      * @var string
      */
     public $fromStartTime;
+
     /**
      * @var string
      */
     public $instanceId;
+
     /**
      * @var string
      */
     public $instanceType;
+
     /**
      * @var int
      */
     public $pageNumber;
+
     /**
      * @var int
      */
     public $pageSize;
+
     /**
      * @var string
      */
     public $regionId;
+
+    /**
+     * @var string
+     */
+    public $resourceGroupId;
+
     /**
      * @var string
      */
     public $resourceOwnerAccount;
+
     /**
      * @var int
      */
     public $resourceOwnerId;
+
     /**
      * @var string
      */
     public $status;
+
     /**
      * @var string
      */
     public $taskId;
+
     /**
      * @var string
      */
     public $taskType;
+
     /**
      * @var int
      */
     public $toExecTime;
+
     /**
      * @var string
      */
     public $toStartTime;
     protected $_name = [
-        'fromExecTime'         => 'FromExecTime',
-        'fromStartTime'        => 'FromStartTime',
-        'instanceId'           => 'InstanceId',
-        'instanceType'         => 'InstanceType',
-        'pageNumber'           => 'PageNumber',
-        'pageSize'             => 'PageSize',
-        'regionId'             => 'RegionId',
+        'fromExecTime' => 'FromExecTime',
+        'fromStartTime' => 'FromStartTime',
+        'instanceId' => 'InstanceId',
+        'instanceType' => 'InstanceType',
+        'pageNumber' => 'PageNumber',
+        'pageSize' => 'PageSize',
+        'regionId' => 'RegionId',
+        'resourceGroupId' => 'ResourceGroupId',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
-        'resourceOwnerId'      => 'ResourceOwnerId',
-        'status'               => 'Status',
-        'taskId'               => 'TaskId',
-        'taskType'             => 'TaskType',
-        'toExecTime'           => 'ToExecTime',
-        'toStartTime'          => 'ToStartTime',
+        'resourceOwnerId' => 'ResourceOwnerId',
+        'status' => 'Status',
+        'taskId' => 'TaskId',
+        'taskType' => 'TaskType',
+        'toExecTime' => 'ToExecTime',
+        'toStartTime' => 'ToStartTime',
     ];
 
     public function validate()
@@ -115,6 +134,10 @@ class DescribeHistoryTasksRequest extends Model
 
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
+        }
+
+        if (null !== $this->resourceGroupId) {
+            $res['ResourceGroupId'] = $this->resourceGroupId;
         }
 
         if (null !== $this->resourceOwnerAccount) {
@@ -182,6 +205,10 @@ class DescribeHistoryTasksRequest extends Model
 
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
+        }
+
+        if (isset($map['ResourceGroupId'])) {
+            $model->resourceGroupId = $map['ResourceGroupId'];
         }
 
         if (isset($map['ResourceOwnerAccount'])) {

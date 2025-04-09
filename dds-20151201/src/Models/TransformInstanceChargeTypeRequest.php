@@ -12,63 +12,74 @@ class TransformInstanceChargeTypeRequest extends Model
      * @var bool
      */
     public $autoPay;
+
     /**
      * @var string
      */
     public $autoRenew;
+
     /**
      * @var string
      */
     public $businessInfo;
+
     /**
      * @var string
      */
     public $chargeType;
+
     /**
      * @var string
      */
     public $couponNo;
+
     /**
      * @var string
      */
     public $instanceId;
+
     /**
      * @var string
      */
     public $ownerAccount;
+
     /**
      * @var int
      */
     public $ownerId;
+
     /**
      * @var int
      */
     public $period;
+
     /**
      * @var string
      */
     public $pricingCycle;
+
     /**
      * @var string
      */
     public $resourceOwnerAccount;
+
     /**
      * @var int
      */
     public $resourceOwnerId;
     protected $_name = [
-        'autoPay'              => 'AutoPay',
-        'autoRenew'            => 'AutoRenew',
-        'businessInfo'         => 'BusinessInfo',
-        'chargeType'           => 'ChargeType',
-        'couponNo'             => 'CouponNo',
-        'instanceId'           => 'InstanceId',
-        'ownerAccount'         => 'OwnerAccount',
-        'ownerId'              => 'OwnerId',
-        'period'               => 'Period',
-        'pricingCycle'         => 'PricingCycle',
+        'autoPay' => 'AutoPay',
+        'autoRenew' => 'AutoRenew',
+        'businessInfo' => 'BusinessInfo',
+        'chargeType' => 'ChargeType',
+        'couponNo' => 'CouponNo',
+        'instanceId' => 'InstanceId',
+        'ownerAccount' => 'OwnerAccount',
+        'ownerId' => 'OwnerId',
+        'period' => 'Period',
+        'pricingCycle' => 'PricingCycle',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
-        'resourceOwnerId'      => 'ResourceOwnerId',
+        'resourceOwnerId' => 'ResourceOwnerId',
     ];
 
     public function validate()

@@ -12,22 +12,25 @@ class logRecords extends Model
      * @var string
      */
     public $category;
+
     /**
      * @var string
      */
     public $connInfo;
+
     /**
      * @var string
      */
     public $content;
+
     /**
      * @var string
      */
     public $createTime;
     protected $_name = [
-        'category'   => 'Category',
-        'connInfo'   => 'ConnInfo',
-        'content'    => 'Content',
+        'category' => 'Category',
+        'connInfo' => 'ConnInfo',
+        'content' => 'Content',
         'createTime' => 'CreateTime',
     ];
 

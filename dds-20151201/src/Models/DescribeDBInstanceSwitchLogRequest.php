@@ -12,33 +12,38 @@ class DescribeDBInstanceSwitchLogRequest extends Model
      * @var string
      */
     public $DBInstanceId;
+
     /**
      * @var string
      */
     public $endTime;
+
     /**
      * @var int
      */
     public $pageNumber;
+
     /**
      * @var int
      */
     public $pageSize;
+
     /**
      * @var int
      */
     public $resourceOwnerId;
+
     /**
      * @var string
      */
     public $startTime;
     protected $_name = [
-        'DBInstanceId'    => 'DBInstanceId',
-        'endTime'         => 'EndTime',
-        'pageNumber'      => 'PageNumber',
-        'pageSize'        => 'PageSize',
+        'DBInstanceId' => 'DBInstanceId',
+        'endTime' => 'EndTime',
+        'pageNumber' => 'PageNumber',
+        'pageSize' => 'PageSize',
         'resourceOwnerId' => 'ResourceOwnerId',
-        'startTime'       => 'StartTime',
+        'startTime' => 'StartTime',
     ];
 
     public function validate()

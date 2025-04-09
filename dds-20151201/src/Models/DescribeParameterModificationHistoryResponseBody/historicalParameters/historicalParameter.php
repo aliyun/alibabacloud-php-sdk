@@ -12,23 +12,26 @@ class historicalParameter extends Model
      * @var string
      */
     public $modifyTime;
+
     /**
      * @var string
      */
     public $newParameterValue;
+
     /**
      * @var string
      */
     public $oldParameterValue;
+
     /**
      * @var string
      */
     public $parameterName;
     protected $_name = [
-        'modifyTime'        => 'ModifyTime',
+        'modifyTime' => 'ModifyTime',
         'newParameterValue' => 'NewParameterValue',
         'oldParameterValue' => 'OldParameterValue',
-        'parameterName'     => 'ParameterName',
+        'parameterName' => 'ParameterName',
     ];
 
     public function validate()

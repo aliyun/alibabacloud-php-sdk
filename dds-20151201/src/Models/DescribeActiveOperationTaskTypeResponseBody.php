@@ -13,13 +13,14 @@ class DescribeActiveOperationTaskTypeResponseBody extends Model
      * @var string
      */
     public $requestId;
+
     /**
      * @var typeList[]
      */
     public $typeList;
     protected $_name = [
         'requestId' => 'RequestId',
-        'typeList'  => 'TypeList',
+        'typeList' => 'TypeList',
     ];
 
     public function validate()
@@ -40,7 +41,7 @@ class DescribeActiveOperationTaskTypeResponseBody extends Model
         if (null !== $this->typeList) {
             if (\is_array($this->typeList)) {
                 $res['TypeList'] = [];
-                $n1              = 0;
+                $n1 = 0;
                 foreach ($this->typeList as $item1) {
                     $res['TypeList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -65,7 +66,7 @@ class DescribeActiveOperationTaskTypeResponseBody extends Model
         if (isset($map['TypeList'])) {
             if (!empty($map['TypeList'])) {
                 $model->typeList = [];
-                $n1              = 0;
+                $n1 = 0;
                 foreach ($map['TypeList'] as $item1) {
                     $model->typeList[$n1++] = typeList::fromMap($item1);
                 }

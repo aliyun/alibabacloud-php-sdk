@@ -12,38 +12,44 @@ class compatibleConnection extends Model
      * @var string
      */
     public $expiredTime;
+
     /**
      * @var string
      */
     public $IPAddress;
+
     /**
      * @var string
      */
     public $networkAddress;
+
     /**
      * @var string
      */
     public $networkType;
+
     /**
      * @var string
      */
     public $port;
+
     /**
      * @var string
      */
     public $VPCId;
+
     /**
      * @var string
      */
     public $vswitchId;
     protected $_name = [
-        'expiredTime'    => 'ExpiredTime',
-        'IPAddress'      => 'IPAddress',
+        'expiredTime' => 'ExpiredTime',
+        'IPAddress' => 'IPAddress',
         'networkAddress' => 'NetworkAddress',
-        'networkType'    => 'NetworkType',
-        'port'           => 'Port',
-        'VPCId'          => 'VPCId',
-        'vswitchId'      => 'VswitchId',
+        'networkType' => 'NetworkType',
+        'port' => 'Port',
+        'VPCId' => 'VPCId',
+        'vswitchId' => 'VswitchId',
     ];
 
     public function validate()

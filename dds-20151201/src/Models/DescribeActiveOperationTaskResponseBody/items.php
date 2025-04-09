@@ -12,73 +12,86 @@ class items extends Model
      * @var string
      */
     public $createdTime;
+
     /**
      * @var string
      */
     public $dbType;
+
     /**
      * @var string
      */
     public $deadline;
+
     /**
      * @var int
      */
     public $id;
+
     /**
      * @var string
      */
     public $insName;
+
     /**
      * @var string
      */
     public $modifiedTime;
+
     /**
      * @var string
      */
     public $prepareInterval;
+
     /**
      * @var string
      */
     public $region;
+
     /**
      * @var string
      */
     public $resultInfo;
+
     /**
      * @var string
      */
     public $startTime;
+
     /**
      * @var int
      */
     public $status;
+
     /**
      * @var string
      */
     public $switchTime;
+
     /**
      * @var string
      */
     public $taskParams;
+
     /**
      * @var string
      */
     public $taskType;
     protected $_name = [
-        'createdTime'     => 'CreatedTime',
-        'dbType'          => 'DbType',
-        'deadline'        => 'Deadline',
-        'id'              => 'Id',
-        'insName'         => 'InsName',
-        'modifiedTime'    => 'ModifiedTime',
+        'createdTime' => 'CreatedTime',
+        'dbType' => 'DbType',
+        'deadline' => 'Deadline',
+        'id' => 'Id',
+        'insName' => 'InsName',
+        'modifiedTime' => 'ModifiedTime',
         'prepareInterval' => 'PrepareInterval',
-        'region'          => 'Region',
-        'resultInfo'      => 'ResultInfo',
-        'startTime'       => 'StartTime',
-        'status'          => 'Status',
-        'switchTime'      => 'SwitchTime',
-        'taskParams'      => 'TaskParams',
-        'taskType'        => 'TaskType',
+        'region' => 'Region',
+        'resultInfo' => 'ResultInfo',
+        'startTime' => 'StartTime',
+        'status' => 'Status',
+        'switchTime' => 'SwitchTime',
+        'taskParams' => 'TaskParams',
+        'taskType' => 'TaskType',
     ];
 
     public function validate()

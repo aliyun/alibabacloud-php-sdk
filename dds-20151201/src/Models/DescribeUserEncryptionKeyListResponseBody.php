@@ -13,12 +13,13 @@ class DescribeUserEncryptionKeyListResponseBody extends Model
      * @var keyIds
      */
     public $keyIds;
+
     /**
      * @var string
      */
     public $requestId;
     protected $_name = [
-        'keyIds'    => 'KeyIds',
+        'keyIds' => 'KeyIds',
         'requestId' => 'RequestId',
     ];
 

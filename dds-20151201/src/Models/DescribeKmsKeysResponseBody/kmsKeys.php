@@ -12,13 +12,14 @@ class kmsKeys extends Model
      * @var string
      */
     public $keyAlias;
+
     /**
      * @var string
      */
     public $keyId;
     protected $_name = [
         'keyAlias' => 'KeyAlias',
-        'keyId'    => 'KeyId',
+        'keyId' => 'KeyId',
     ];
 
     public function validate()

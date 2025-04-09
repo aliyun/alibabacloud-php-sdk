@@ -12,73 +12,86 @@ class EvaluateResourceRequest extends Model
      * @var string
      */
     public $DBInstanceClass;
+
     /**
      * @var string
      */
     public $DBInstanceId;
+
     /**
      * @var string
      */
     public $engine;
+
     /**
      * @var string
      */
     public $engineVersion;
+
     /**
      * @var string
      */
     public $ownerAccount;
+
     /**
      * @var int
      */
     public $ownerId;
+
     /**
      * @var string
      */
     public $readonlyReplicas;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $replicationFactor;
+
     /**
      * @var string
      */
     public $resourceOwnerAccount;
+
     /**
      * @var int
      */
     public $resourceOwnerId;
+
     /**
      * @var string
      */
     public $shardsInfo;
+
     /**
      * @var string
      */
     public $storage;
+
     /**
      * @var string
      */
     public $zoneId;
     protected $_name = [
-        'DBInstanceClass'      => 'DBInstanceClass',
-        'DBInstanceId'         => 'DBInstanceId',
-        'engine'               => 'Engine',
-        'engineVersion'        => 'EngineVersion',
-        'ownerAccount'         => 'OwnerAccount',
-        'ownerId'              => 'OwnerId',
-        'readonlyReplicas'     => 'ReadonlyReplicas',
-        'regionId'             => 'RegionId',
-        'replicationFactor'    => 'ReplicationFactor',
+        'DBInstanceClass' => 'DBInstanceClass',
+        'DBInstanceId' => 'DBInstanceId',
+        'engine' => 'Engine',
+        'engineVersion' => 'EngineVersion',
+        'ownerAccount' => 'OwnerAccount',
+        'ownerId' => 'OwnerId',
+        'readonlyReplicas' => 'ReadonlyReplicas',
+        'regionId' => 'RegionId',
+        'replicationFactor' => 'ReplicationFactor',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
-        'resourceOwnerId'      => 'ResourceOwnerId',
-        'shardsInfo'           => 'ShardsInfo',
-        'storage'              => 'Storage',
-        'zoneId'               => 'ZoneId',
+        'resourceOwnerId' => 'ResourceOwnerId',
+        'shardsInfo' => 'ShardsInfo',
+        'storage' => 'Storage',
+        'zoneId' => 'ZoneId',
     ];
 
     public function validate()

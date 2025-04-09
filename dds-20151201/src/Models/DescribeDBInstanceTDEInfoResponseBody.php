@@ -12,18 +12,22 @@ class DescribeDBInstanceTDEInfoResponseBody extends Model
      * @var string
      */
     public $encryptionKey;
+
     /**
      * @var string
      */
     public $encryptorName;
+
     /**
      * @var string
      */
     public $requestId;
+
     /**
      * @var string
      */
     public $roleARN;
+
     /**
      * @var string
      */
@@ -31,9 +35,9 @@ class DescribeDBInstanceTDEInfoResponseBody extends Model
     protected $_name = [
         'encryptionKey' => 'EncryptionKey',
         'encryptorName' => 'EncryptorName',
-        'requestId'     => 'RequestId',
-        'roleARN'       => 'RoleARN',
-        'TDEStatus'     => 'TDEStatus',
+        'requestId' => 'RequestId',
+        'roleARN' => 'RoleARN',
+        'TDEStatus' => 'TDEStatus',
     ];
 
     public function validate()

@@ -14,18 +14,20 @@ class DescribeShardingNetworkAddressResponseBody extends Model
      * @var compatibleConnections
      */
     public $compatibleConnections;
+
     /**
      * @var networkAddresses
      */
     public $networkAddresses;
+
     /**
      * @var string
      */
     public $requestId;
     protected $_name = [
         'compatibleConnections' => 'CompatibleConnections',
-        'networkAddresses'      => 'NetworkAddresses',
-        'requestId'             => 'RequestId',
+        'networkAddresses' => 'NetworkAddresses',
+        'requestId' => 'RequestId',
     ];
 
     public function validate()

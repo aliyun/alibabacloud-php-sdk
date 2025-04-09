@@ -13,12 +13,13 @@ class DescribeAccountsResponseBody extends Model
      * @var accounts
      */
     public $accounts;
+
     /**
      * @var string
      */
     public $requestId;
     protected $_name = [
-        'accounts'  => 'Accounts',
+        'accounts' => 'Accounts',
         'requestId' => 'RequestId',
     ];
 

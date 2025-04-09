@@ -13,13 +13,14 @@ class DescribeParameterModificationHistoryResponseBody extends Model
      * @var historicalParameters
      */
     public $historicalParameters;
+
     /**
      * @var string
      */
     public $requestId;
     protected $_name = [
         'historicalParameters' => 'HistoricalParameters',
-        'requestId'            => 'RequestId',
+        'requestId' => 'RequestId',
     ];
 
     public function validate()

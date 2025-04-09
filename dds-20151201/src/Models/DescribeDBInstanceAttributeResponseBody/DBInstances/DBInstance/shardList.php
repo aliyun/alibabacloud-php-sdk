@@ -31,7 +31,7 @@ class shardList extends Model
         if (null !== $this->shardAttribute) {
             if (\is_array($this->shardAttribute)) {
                 $res['ShardAttribute'] = [];
-                $n1                    = 0;
+                $n1 = 0;
                 foreach ($this->shardAttribute as $item1) {
                     $res['ShardAttribute'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -52,7 +52,7 @@ class shardList extends Model
         if (isset($map['ShardAttribute'])) {
             if (!empty($map['ShardAttribute'])) {
                 $model->shardAttribute = [];
-                $n1                    = 0;
+                $n1 = 0;
                 foreach ($map['ShardAttribute'] as $item1) {
                     $model->shardAttribute[$n1++] = shardAttribute::fromMap($item1);
                 }

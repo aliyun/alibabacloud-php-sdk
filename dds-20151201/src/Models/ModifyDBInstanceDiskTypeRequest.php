@@ -12,53 +12,62 @@ class ModifyDBInstanceDiskTypeRequest extends Model
      * @var bool
      */
     public $autoPay;
+
     /**
      * @var string
      */
     public $autoRenew;
+
     /**
      * @var string
      */
     public $businessInfo;
+
     /**
      * @var string
      */
     public $couponNo;
+
     /**
      * @var string
      */
     public $DBInstanceId;
+
     /**
      * @var string
      */
     public $dbInstanceStorageType;
+
     /**
      * @var string
      */
     public $extraParam;
+
     /**
      * @var string
      */
     public $orderType;
+
     /**
      * @var int
      */
     public $provisionedIops;
+
     /**
      * @var int
      */
     public $resourceOwnerId;
     protected $_name = [
-        'autoPay'               => 'AutoPay',
-        'autoRenew'             => 'AutoRenew',
-        'businessInfo'          => 'BusinessInfo',
-        'couponNo'              => 'CouponNo',
-        'DBInstanceId'          => 'DBInstanceId',
+        'autoPay' => 'AutoPay',
+        'autoRenew' => 'AutoRenew',
+        'businessInfo' => 'BusinessInfo',
+        'couponNo' => 'CouponNo',
+        'DBInstanceId' => 'DBInstanceId',
         'dbInstanceStorageType' => 'DbInstanceStorageType',
-        'extraParam'            => 'ExtraParam',
-        'orderType'             => 'OrderType',
-        'provisionedIops'       => 'ProvisionedIops',
-        'resourceOwnerId'       => 'ResourceOwnerId',
+        'extraParam' => 'ExtraParam',
+        'orderType' => 'OrderType',
+        'provisionedIops' => 'ProvisionedIops',
+        'resourceOwnerId' => 'ResourceOwnerId',
     ];
 
     public function validate()

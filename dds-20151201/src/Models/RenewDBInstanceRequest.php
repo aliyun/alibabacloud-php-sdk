@@ -12,58 +12,68 @@ class RenewDBInstanceRequest extends Model
      * @var bool
      */
     public $autoPay;
+
     /**
      * @var bool
      */
     public $autoRenew;
+
     /**
      * @var string
      */
     public $businessInfo;
+
     /**
      * @var string
      */
     public $clientToken;
+
     /**
      * @var string
      */
     public $couponNo;
+
     /**
      * @var string
      */
     public $DBInstanceId;
+
     /**
      * @var string
      */
     public $ownerAccount;
+
     /**
      * @var int
      */
     public $ownerId;
+
     /**
      * @var int
      */
     public $period;
+
     /**
      * @var string
      */
     public $resourceOwnerAccount;
+
     /**
      * @var int
      */
     public $resourceOwnerId;
     protected $_name = [
-        'autoPay'              => 'AutoPay',
-        'autoRenew'            => 'AutoRenew',
-        'businessInfo'         => 'BusinessInfo',
-        'clientToken'          => 'ClientToken',
-        'couponNo'             => 'CouponNo',
-        'DBInstanceId'         => 'DBInstanceId',
-        'ownerAccount'         => 'OwnerAccount',
-        'ownerId'              => 'OwnerId',
-        'period'               => 'Period',
+        'autoPay' => 'AutoPay',
+        'autoRenew' => 'AutoRenew',
+        'businessInfo' => 'BusinessInfo',
+        'clientToken' => 'ClientToken',
+        'couponNo' => 'CouponNo',
+        'DBInstanceId' => 'DBInstanceId',
+        'ownerAccount' => 'OwnerAccount',
+        'ownerId' => 'OwnerId',
+        'period' => 'Period',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
-        'resourceOwnerId'      => 'ResourceOwnerId',
+        'resourceOwnerId' => 'ResourceOwnerId',
     ];
 
     public function validate()

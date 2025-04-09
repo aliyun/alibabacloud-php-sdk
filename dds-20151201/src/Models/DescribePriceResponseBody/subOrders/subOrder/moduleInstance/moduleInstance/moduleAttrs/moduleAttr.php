@@ -12,22 +12,25 @@ class moduleAttr extends Model
      * @var string
      */
     public $code;
+
     /**
      * @var string
      */
     public $name;
+
     /**
      * @var string
      */
     public $type;
+
     /**
      * @var string
      */
     public $value;
     protected $_name = [
-        'code'  => 'Code',
-        'name'  => 'Name',
-        'type'  => 'Type',
+        'code' => 'Code',
+        'name' => 'Name',
+        'type' => 'Type',
         'value' => 'Value',
     ];
 

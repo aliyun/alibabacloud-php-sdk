@@ -13,18 +13,20 @@ class DescribeReplicaSetRoleResponseBody extends Model
      * @var string
      */
     public $DBInstanceId;
+
     /**
      * @var replicaSets
      */
     public $replicaSets;
+
     /**
      * @var string
      */
     public $requestId;
     protected $_name = [
         'DBInstanceId' => 'DBInstanceId',
-        'replicaSets'  => 'ReplicaSets',
-        'requestId'    => 'RequestId',
+        'replicaSets' => 'ReplicaSets',
+        'requestId' => 'RequestId',
     ];
 
     public function validate()

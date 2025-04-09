@@ -30,7 +30,7 @@ class engineVersions extends Model
         if (null !== $this->engineVersion) {
             if (\is_array($this->engineVersion)) {
                 $res['EngineVersion'] = [];
-                $n1                   = 0;
+                $n1 = 0;
                 foreach ($this->engineVersion as $item1) {
                     $res['EngineVersion'][$n1++] = $item1;
                 }
@@ -51,7 +51,7 @@ class engineVersions extends Model
         if (isset($map['EngineVersion'])) {
             if (!empty($map['EngineVersion'])) {
                 $model->engineVersion = [];
-                $n1                   = 0;
+                $n1 = 0;
                 foreach ($map['EngineVersion'] as $item1) {
                     $model->engineVersion[$n1++] = $item1;
                 }

@@ -13,13 +13,14 @@ class supportedEngineVersion extends Model
      * @var supportedEngines
      */
     public $supportedEngines;
+
     /**
      * @var string
      */
     public $version;
     protected $_name = [
         'supportedEngines' => 'SupportedEngines',
-        'version'          => 'Version',
+        'version' => 'Version',
     ];
 
     public function validate()

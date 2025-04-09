@@ -31,7 +31,7 @@ class availableZones extends Model
         if (null !== $this->availableZone) {
             if (\is_array($this->availableZone)) {
                 $res['AvailableZone'] = [];
-                $n1                   = 0;
+                $n1 = 0;
                 foreach ($this->availableZone as $item1) {
                     $res['AvailableZone'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -52,7 +52,7 @@ class availableZones extends Model
         if (isset($map['AvailableZone'])) {
             if (!empty($map['AvailableZone'])) {
                 $model->availableZone = [];
-                $n1                   = 0;
+                $n1 = 0;
                 foreach ($map['AvailableZone'] as $item1) {
                     $model->availableZone[$n1++] = availableZone::fromMap($item1);
                 }

@@ -12,68 +12,80 @@ class ModifyNodeSpecBatchRequest extends Model
      * @var bool
      */
     public $autoPay;
+
     /**
      * @var string
      */
     public $businessInfo;
+
     /**
      * @var string
      */
     public $clientToken;
+
     /**
      * @var string
      */
     public $couponNo;
+
     /**
      * @var string
      */
     public $DBInstanceId;
+
     /**
      * @var string
      */
     public $effectiveTime;
+
     /**
      * @var string
      */
     public $nodesInfo;
+
     /**
      * @var string
      */
     public $orderType;
+
     /**
      * @var string
      */
     public $ownerAccount;
+
     /**
      * @var int
      */
     public $ownerId;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $resourceOwnerAccount;
+
     /**
      * @var int
      */
     public $resourceOwnerId;
     protected $_name = [
-        'autoPay'              => 'AutoPay',
-        'businessInfo'         => 'BusinessInfo',
-        'clientToken'          => 'ClientToken',
-        'couponNo'             => 'CouponNo',
-        'DBInstanceId'         => 'DBInstanceId',
-        'effectiveTime'        => 'EffectiveTime',
-        'nodesInfo'            => 'NodesInfo',
-        'orderType'            => 'OrderType',
-        'ownerAccount'         => 'OwnerAccount',
-        'ownerId'              => 'OwnerId',
-        'regionId'             => 'RegionId',
+        'autoPay' => 'AutoPay',
+        'businessInfo' => 'BusinessInfo',
+        'clientToken' => 'ClientToken',
+        'couponNo' => 'CouponNo',
+        'DBInstanceId' => 'DBInstanceId',
+        'effectiveTime' => 'EffectiveTime',
+        'nodesInfo' => 'NodesInfo',
+        'orderType' => 'OrderType',
+        'ownerAccount' => 'OwnerAccount',
+        'ownerId' => 'OwnerId',
+        'regionId' => 'RegionId',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
-        'resourceOwnerId'      => 'ResourceOwnerId',
+        'resourceOwnerId' => 'ResourceOwnerId',
     ];
 
     public function validate()

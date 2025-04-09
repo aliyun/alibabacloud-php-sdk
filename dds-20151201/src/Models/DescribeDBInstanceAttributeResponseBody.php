@@ -13,13 +13,14 @@ class DescribeDBInstanceAttributeResponseBody extends Model
      * @var DBInstances
      */
     public $DBInstances;
+
     /**
      * @var string
      */
     public $requestId;
     protected $_name = [
         'DBInstances' => 'DBInstances',
-        'requestId'   => 'RequestId',
+        'requestId' => 'RequestId',
     ];
 
     public function validate()

@@ -16,193 +16,230 @@ class CreateShardingDBInstanceRequest extends Model
      * @var string
      */
     public $accountPassword;
+
     /**
      * @var string
      */
     public $autoRenew;
+
     /**
      * @var string
      */
     public $backupId;
+
     /**
      * @var string
      */
     public $chargeType;
+
     /**
      * @var string
      */
     public $clientToken;
+
     /**
      * @var configServer[]
      */
     public $configServer;
+
     /**
      * @var string
      */
     public $DBInstanceDescription;
+
     /**
      * @var string
      */
     public $destRegion;
+
     /**
      * @var bool
      */
     public $encrypted;
+
     /**
      * @var string
      */
     public $encryptionKey;
+
     /**
      * @var string
      */
     public $engine;
+
     /**
      * @var string
      */
     public $engineVersion;
+
     /**
      * @var string
      */
     public $globalSecurityGroupIds;
+
     /**
      * @var string
      */
     public $hiddenZoneId;
+
     /**
      * @var mongos[]
      */
     public $mongos;
+
     /**
      * @var string
      */
     public $networkType;
+
     /**
      * @var string
      */
     public $ownerAccount;
+
     /**
      * @var int
      */
     public $ownerId;
+
     /**
      * @var int
      */
     public $period;
+
     /**
      * @var string
      */
     public $protocolType;
+
     /**
      * @var int
      */
     public $provisionedIops;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var replicaSet[]
      */
     public $replicaSet;
+
     /**
      * @var string
      */
     public $resourceGroupId;
+
     /**
      * @var string
      */
     public $resourceOwnerAccount;
+
     /**
      * @var int
      */
     public $resourceOwnerId;
+
     /**
      * @var string
      */
     public $restoreTime;
+
     /**
      * @var string
      */
     public $restoreType;
+
     /**
      * @var string
      */
     public $secondaryZoneId;
+
     /**
      * @var string
      */
     public $securityIPList;
+
     /**
      * @var string
      */
     public $srcDBInstanceId;
+
     /**
      * @var string
      */
     public $srcRegion;
+
     /**
      * @var string
      */
     public $storageEngine;
+
     /**
      * @var string
      */
     public $storageType;
+
     /**
      * @var tag[]
      */
     public $tag;
+
     /**
      * @var string
      */
     public $vSwitchId;
+
     /**
      * @var string
      */
     public $vpcId;
+
     /**
      * @var string
      */
     public $zoneId;
     protected $_name = [
-        'accountPassword'        => 'AccountPassword',
-        'autoRenew'              => 'AutoRenew',
-        'backupId'               => 'BackupId',
-        'chargeType'             => 'ChargeType',
-        'clientToken'            => 'ClientToken',
-        'configServer'           => 'ConfigServer',
-        'DBInstanceDescription'  => 'DBInstanceDescription',
-        'destRegion'             => 'DestRegion',
-        'encrypted'              => 'Encrypted',
-        'encryptionKey'          => 'EncryptionKey',
-        'engine'                 => 'Engine',
-        'engineVersion'          => 'EngineVersion',
+        'accountPassword' => 'AccountPassword',
+        'autoRenew' => 'AutoRenew',
+        'backupId' => 'BackupId',
+        'chargeType' => 'ChargeType',
+        'clientToken' => 'ClientToken',
+        'configServer' => 'ConfigServer',
+        'DBInstanceDescription' => 'DBInstanceDescription',
+        'destRegion' => 'DestRegion',
+        'encrypted' => 'Encrypted',
+        'encryptionKey' => 'EncryptionKey',
+        'engine' => 'Engine',
+        'engineVersion' => 'EngineVersion',
         'globalSecurityGroupIds' => 'GlobalSecurityGroupIds',
-        'hiddenZoneId'           => 'HiddenZoneId',
-        'mongos'                 => 'Mongos',
-        'networkType'            => 'NetworkType',
-        'ownerAccount'           => 'OwnerAccount',
-        'ownerId'                => 'OwnerId',
-        'period'                 => 'Period',
-        'protocolType'           => 'ProtocolType',
-        'provisionedIops'        => 'ProvisionedIops',
-        'regionId'               => 'RegionId',
-        'replicaSet'             => 'ReplicaSet',
-        'resourceGroupId'        => 'ResourceGroupId',
-        'resourceOwnerAccount'   => 'ResourceOwnerAccount',
-        'resourceOwnerId'        => 'ResourceOwnerId',
-        'restoreTime'            => 'RestoreTime',
-        'restoreType'            => 'RestoreType',
-        'secondaryZoneId'        => 'SecondaryZoneId',
-        'securityIPList'         => 'SecurityIPList',
-        'srcDBInstanceId'        => 'SrcDBInstanceId',
-        'srcRegion'              => 'SrcRegion',
-        'storageEngine'          => 'StorageEngine',
-        'storageType'            => 'StorageType',
-        'tag'                    => 'Tag',
-        'vSwitchId'              => 'VSwitchId',
-        'vpcId'                  => 'VpcId',
-        'zoneId'                 => 'ZoneId',
+        'hiddenZoneId' => 'HiddenZoneId',
+        'mongos' => 'Mongos',
+        'networkType' => 'NetworkType',
+        'ownerAccount' => 'OwnerAccount',
+        'ownerId' => 'OwnerId',
+        'period' => 'Period',
+        'protocolType' => 'ProtocolType',
+        'provisionedIops' => 'ProvisionedIops',
+        'regionId' => 'RegionId',
+        'replicaSet' => 'ReplicaSet',
+        'resourceGroupId' => 'ResourceGroupId',
+        'resourceOwnerAccount' => 'ResourceOwnerAccount',
+        'resourceOwnerId' => 'ResourceOwnerId',
+        'restoreTime' => 'RestoreTime',
+        'restoreType' => 'RestoreType',
+        'secondaryZoneId' => 'SecondaryZoneId',
+        'securityIPList' => 'SecurityIPList',
+        'srcDBInstanceId' => 'SrcDBInstanceId',
+        'srcRegion' => 'SrcRegion',
+        'storageEngine' => 'StorageEngine',
+        'storageType' => 'StorageType',
+        'tag' => 'Tag',
+        'vSwitchId' => 'VSwitchId',
+        'vpcId' => 'VpcId',
+        'zoneId' => 'ZoneId',
     ];
 
     public function validate()
@@ -248,7 +285,7 @@ class CreateShardingDBInstanceRequest extends Model
         if (null !== $this->configServer) {
             if (\is_array($this->configServer)) {
                 $res['ConfigServer'] = [];
-                $n1                  = 0;
+                $n1 = 0;
                 foreach ($this->configServer as $item1) {
                     $res['ConfigServer'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -290,7 +327,7 @@ class CreateShardingDBInstanceRequest extends Model
         if (null !== $this->mongos) {
             if (\is_array($this->mongos)) {
                 $res['Mongos'] = [];
-                $n1            = 0;
+                $n1 = 0;
                 foreach ($this->mongos as $item1) {
                     $res['Mongos'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -328,7 +365,7 @@ class CreateShardingDBInstanceRequest extends Model
         if (null !== $this->replicaSet) {
             if (\is_array($this->replicaSet)) {
                 $res['ReplicaSet'] = [];
-                $n1                = 0;
+                $n1 = 0;
                 foreach ($this->replicaSet as $item1) {
                     $res['ReplicaSet'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -382,7 +419,7 @@ class CreateShardingDBInstanceRequest extends Model
         if (null !== $this->tag) {
             if (\is_array($this->tag)) {
                 $res['Tag'] = [];
-                $n1         = 0;
+                $n1 = 0;
                 foreach ($this->tag as $item1) {
                     $res['Tag'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -435,7 +472,7 @@ class CreateShardingDBInstanceRequest extends Model
         if (isset($map['ConfigServer'])) {
             if (!empty($map['ConfigServer'])) {
                 $model->configServer = [];
-                $n1                  = 0;
+                $n1 = 0;
                 foreach ($map['ConfigServer'] as $item1) {
                     $model->configServer[$n1++] = configServer::fromMap($item1);
                 }
@@ -477,7 +514,7 @@ class CreateShardingDBInstanceRequest extends Model
         if (isset($map['Mongos'])) {
             if (!empty($map['Mongos'])) {
                 $model->mongos = [];
-                $n1            = 0;
+                $n1 = 0;
                 foreach ($map['Mongos'] as $item1) {
                     $model->mongos[$n1++] = mongos::fromMap($item1);
                 }
@@ -515,7 +552,7 @@ class CreateShardingDBInstanceRequest extends Model
         if (isset($map['ReplicaSet'])) {
             if (!empty($map['ReplicaSet'])) {
                 $model->replicaSet = [];
-                $n1                = 0;
+                $n1 = 0;
                 foreach ($map['ReplicaSet'] as $item1) {
                     $model->replicaSet[$n1++] = replicaSet::fromMap($item1);
                 }
@@ -569,7 +606,7 @@ class CreateShardingDBInstanceRequest extends Model
         if (isset($map['Tag'])) {
             if (!empty($map['Tag'])) {
                 $model->tag = [];
-                $n1         = 0;
+                $n1 = 0;
                 foreach ($map['Tag'] as $item1) {
                     $model->tag[$n1++] = tag::fromMap($item1);
                 }
