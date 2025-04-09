@@ -12,18 +12,20 @@ class CreateListenerResponseBody extends Model
      * @var string
      */
     public $jobId;
+
     /**
      * @var string
      */
     public $listenerId;
+
     /**
      * @var string
      */
     public $requestId;
     protected $_name = [
-        'jobId'      => 'JobId',
+        'jobId' => 'JobId',
         'listenerId' => 'ListenerId',
-        'requestId'  => 'RequestId',
+        'requestId' => 'RequestId',
     ];
 
     public function validate()

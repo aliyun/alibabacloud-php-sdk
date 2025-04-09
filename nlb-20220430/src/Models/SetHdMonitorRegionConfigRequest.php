@@ -12,18 +12,20 @@ class SetHdMonitorRegionConfigRequest extends Model
      * @var string
      */
     public $logProject;
+
     /**
      * @var string
      */
     public $metricStore;
+
     /**
      * @var string
      */
     public $regionId;
     protected $_name = [
-        'logProject'  => 'LogProject',
+        'logProject' => 'LogProject',
         'metricStore' => 'MetricStore',
-        'regionId'    => 'RegionId',
+        'regionId' => 'RegionId',
     ];
 
     public function validate()

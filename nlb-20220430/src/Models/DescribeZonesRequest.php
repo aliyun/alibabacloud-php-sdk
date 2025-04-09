@@ -12,23 +12,26 @@ class DescribeZonesRequest extends Model
      * @var string
      */
     public $acceptLanguage;
+
     /**
      * @var string
      */
     public $clientToken;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $serviceCode;
     protected $_name = [
         'acceptLanguage' => 'AcceptLanguage',
-        'clientToken'    => 'ClientToken',
-        'regionId'       => 'RegionId',
-        'serviceCode'    => 'ServiceCode',
+        'clientToken' => 'ClientToken',
+        'regionId' => 'RegionId',
+        'serviceCode' => 'ServiceCode',
     ];
 
     public function validate()

@@ -12,23 +12,26 @@ class securityPolicies extends Model
      * @var string
      */
     public $ciphers;
+
     /**
      * @var string
      */
     public $securityPolicyId;
+
     /**
      * @var string
      */
     public $securityPolicyName;
+
     /**
      * @var string
      */
     public $tlsVersion;
     protected $_name = [
-        'ciphers'            => 'Ciphers',
-        'securityPolicyId'   => 'SecurityPolicyId',
+        'ciphers' => 'Ciphers',
+        'securityPolicyId' => 'SecurityPolicyId',
         'securityPolicyName' => 'SecurityPolicyName',
-        'tlsVersion'         => 'TlsVersion',
+        'tlsVersion' => 'TlsVersion',
     ];
 
     public function validate()

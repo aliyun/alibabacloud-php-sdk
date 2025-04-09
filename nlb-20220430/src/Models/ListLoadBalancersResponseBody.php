@@ -13,28 +13,32 @@ class ListLoadBalancersResponseBody extends Model
      * @var loadBalancers[]
      */
     public $loadBalancers;
+
     /**
      * @var int
      */
     public $maxResults;
+
     /**
      * @var string
      */
     public $nextToken;
+
     /**
      * @var string
      */
     public $requestId;
+
     /**
      * @var int
      */
     public $totalCount;
     protected $_name = [
         'loadBalancers' => 'LoadBalancers',
-        'maxResults'    => 'MaxResults',
-        'nextToken'     => 'NextToken',
-        'requestId'     => 'RequestId',
-        'totalCount'    => 'TotalCount',
+        'maxResults' => 'MaxResults',
+        'nextToken' => 'NextToken',
+        'requestId' => 'RequestId',
+        'totalCount' => 'TotalCount',
     ];
 
     public function validate()
@@ -51,7 +55,7 @@ class ListLoadBalancersResponseBody extends Model
         if (null !== $this->loadBalancers) {
             if (\is_array($this->loadBalancers)) {
                 $res['LoadBalancers'] = [];
-                $n1                   = 0;
+                $n1 = 0;
                 foreach ($this->loadBalancers as $item1) {
                     $res['LoadBalancers'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -88,7 +92,7 @@ class ListLoadBalancersResponseBody extends Model
         if (isset($map['LoadBalancers'])) {
             if (!empty($map['LoadBalancers'])) {
                 $model->loadBalancers = [];
-                $n1                   = 0;
+                $n1 = 0;
                 foreach ($map['LoadBalancers'] as $item1) {
                     $model->loadBalancers[$n1++] = loadBalancers::fromMap($item1);
                 }

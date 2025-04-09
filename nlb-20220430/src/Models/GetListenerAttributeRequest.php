@@ -12,23 +12,26 @@ class GetListenerAttributeRequest extends Model
      * @var string
      */
     public $clientToken;
+
     /**
      * @var bool
      */
     public $dryRun;
+
     /**
      * @var string
      */
     public $listenerId;
+
     /**
      * @var string
      */
     public $regionId;
     protected $_name = [
         'clientToken' => 'ClientToken',
-        'dryRun'      => 'DryRun',
-        'listenerId'  => 'ListenerId',
-        'regionId'    => 'RegionId',
+        'dryRun' => 'DryRun',
+        'listenerId' => 'ListenerId',
+        'regionId' => 'RegionId',
     ];
 
     public function validate()

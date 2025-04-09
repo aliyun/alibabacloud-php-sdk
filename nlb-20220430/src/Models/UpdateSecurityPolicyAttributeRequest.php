@@ -12,38 +12,44 @@ class UpdateSecurityPolicyAttributeRequest extends Model
      * @var string[]
      */
     public $ciphers;
+
     /**
      * @var string
      */
     public $clientToken;
+
     /**
      * @var bool
      */
     public $dryRun;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $securityPolicyId;
+
     /**
      * @var string
      */
     public $securityPolicyName;
+
     /**
      * @var string[]
      */
     public $tlsVersions;
     protected $_name = [
-        'ciphers'            => 'Ciphers',
-        'clientToken'        => 'ClientToken',
-        'dryRun'             => 'DryRun',
-        'regionId'           => 'RegionId',
-        'securityPolicyId'   => 'SecurityPolicyId',
+        'ciphers' => 'Ciphers',
+        'clientToken' => 'ClientToken',
+        'dryRun' => 'DryRun',
+        'regionId' => 'RegionId',
+        'securityPolicyId' => 'SecurityPolicyId',
         'securityPolicyName' => 'SecurityPolicyName',
-        'tlsVersions'        => 'TlsVersions',
+        'tlsVersions' => 'TlsVersions',
     ];
 
     public function validate()
@@ -63,7 +69,7 @@ class UpdateSecurityPolicyAttributeRequest extends Model
         if (null !== $this->ciphers) {
             if (\is_array($this->ciphers)) {
                 $res['Ciphers'] = [];
-                $n1             = 0;
+                $n1 = 0;
                 foreach ($this->ciphers as $item1) {
                     $res['Ciphers'][$n1++] = $item1;
                 }
@@ -93,7 +99,7 @@ class UpdateSecurityPolicyAttributeRequest extends Model
         if (null !== $this->tlsVersions) {
             if (\is_array($this->tlsVersions)) {
                 $res['TlsVersions'] = [];
-                $n1                 = 0;
+                $n1 = 0;
                 foreach ($this->tlsVersions as $item1) {
                     $res['TlsVersions'][$n1++] = $item1;
                 }
@@ -114,7 +120,7 @@ class UpdateSecurityPolicyAttributeRequest extends Model
         if (isset($map['Ciphers'])) {
             if (!empty($map['Ciphers'])) {
                 $model->ciphers = [];
-                $n1             = 0;
+                $n1 = 0;
                 foreach ($map['Ciphers'] as $item1) {
                     $model->ciphers[$n1++] = $item1;
                 }
@@ -144,7 +150,7 @@ class UpdateSecurityPolicyAttributeRequest extends Model
         if (isset($map['TlsVersions'])) {
             if (!empty($map['TlsVersions'])) {
                 $model->tlsVersions = [];
-                $n1                 = 0;
+                $n1 = 0;
                 foreach ($map['TlsVersions'] as $item1) {
                     $model->tlsVersions[$n1++] = $item1;
                 }

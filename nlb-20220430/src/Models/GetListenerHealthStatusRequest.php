@@ -12,13 +12,14 @@ class GetListenerHealthStatusRequest extends Model
      * @var string
      */
     public $listenerId;
+
     /**
      * @var string
      */
     public $regionId;
     protected $_name = [
         'listenerId' => 'ListenerId',
-        'regionId'   => 'RegionId',
+        'regionId' => 'RegionId',
     ];
 
     public function validate()

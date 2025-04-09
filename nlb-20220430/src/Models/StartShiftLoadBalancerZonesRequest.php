@@ -13,28 +13,32 @@ class StartShiftLoadBalancerZonesRequest extends Model
      * @var string
      */
     public $clientToken;
+
     /**
      * @var bool
      */
     public $dryRun;
+
     /**
      * @var string
      */
     public $loadBalancerId;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var zoneMappings[]
      */
     public $zoneMappings;
     protected $_name = [
-        'clientToken'    => 'ClientToken',
-        'dryRun'         => 'DryRun',
+        'clientToken' => 'ClientToken',
+        'dryRun' => 'DryRun',
         'loadBalancerId' => 'LoadBalancerId',
-        'regionId'       => 'RegionId',
-        'zoneMappings'   => 'ZoneMappings',
+        'regionId' => 'RegionId',
+        'zoneMappings' => 'ZoneMappings',
     ];
 
     public function validate()
@@ -67,7 +71,7 @@ class StartShiftLoadBalancerZonesRequest extends Model
         if (null !== $this->zoneMappings) {
             if (\is_array($this->zoneMappings)) {
                 $res['ZoneMappings'] = [];
-                $n1                  = 0;
+                $n1 = 0;
                 foreach ($this->zoneMappings as $item1) {
                     $res['ZoneMappings'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -104,7 +108,7 @@ class StartShiftLoadBalancerZonesRequest extends Model
         if (isset($map['ZoneMappings'])) {
             if (!empty($map['ZoneMappings'])) {
                 $model->zoneMappings = [];
-                $n1                  = 0;
+                $n1 = 0;
                 foreach ($map['ZoneMappings'] as $item1) {
                     $model->zoneMappings[$n1++] = zoneMappings::fromMap($item1);
                 }

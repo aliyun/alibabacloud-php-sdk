@@ -13,28 +13,32 @@ class RemoveServersFromServerGroupRequest extends Model
      * @var string
      */
     public $clientToken;
+
     /**
      * @var bool
      */
     public $dryRun;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $serverGroupId;
+
     /**
      * @var servers[]
      */
     public $servers;
     protected $_name = [
-        'clientToken'   => 'ClientToken',
-        'dryRun'        => 'DryRun',
-        'regionId'      => 'RegionId',
+        'clientToken' => 'ClientToken',
+        'dryRun' => 'DryRun',
+        'regionId' => 'RegionId',
         'serverGroupId' => 'ServerGroupId',
-        'servers'       => 'Servers',
+        'servers' => 'Servers',
     ];
 
     public function validate()
@@ -67,7 +71,7 @@ class RemoveServersFromServerGroupRequest extends Model
         if (null !== $this->servers) {
             if (\is_array($this->servers)) {
                 $res['Servers'] = [];
-                $n1             = 0;
+                $n1 = 0;
                 foreach ($this->servers as $item1) {
                     $res['Servers'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -104,7 +108,7 @@ class RemoveServersFromServerGroupRequest extends Model
         if (isset($map['Servers'])) {
             if (!empty($map['Servers'])) {
                 $model->servers = [];
-                $n1             = 0;
+                $n1 = 0;
                 foreach ($map['Servers'] as $item1) {
                     $model->servers[$n1++] = servers::fromMap($item1);
                 }

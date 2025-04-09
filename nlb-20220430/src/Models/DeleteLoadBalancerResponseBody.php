@@ -12,12 +12,13 @@ class DeleteLoadBalancerResponseBody extends Model
      * @var string
      */
     public $jobId;
+
     /**
      * @var string
      */
     public $requestId;
     protected $_name = [
-        'jobId'     => 'JobId',
+        'jobId' => 'JobId',
         'requestId' => 'RequestId',
     ];
 

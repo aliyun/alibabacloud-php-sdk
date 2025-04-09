@@ -12,13 +12,14 @@ class GetJobStatusRequest extends Model
      * @var string
      */
     public $clientToken;
+
     /**
      * @var string
      */
     public $jobId;
     protected $_name = [
         'clientToken' => 'ClientToken',
-        'jobId'       => 'JobId',
+        'jobId' => 'JobId',
     ];
 
     public function validate()

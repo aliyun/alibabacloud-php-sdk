@@ -12,23 +12,26 @@ class certificates extends Model
      * @var string
      */
     public $certificateId;
+
     /**
      * @var string
      */
     public $certificateType;
+
     /**
      * @var bool
      */
     public $isDefault;
+
     /**
      * @var string
      */
     public $status;
     protected $_name = [
-        'certificateId'   => 'CertificateId',
+        'certificateId' => 'CertificateId',
         'certificateType' => 'CertificateType',
-        'isDefault'       => 'IsDefault',
-        'status'          => 'Status',
+        'isDefault' => 'IsDefault',
+        'status' => 'Status',
     ];
 
     public function validate()

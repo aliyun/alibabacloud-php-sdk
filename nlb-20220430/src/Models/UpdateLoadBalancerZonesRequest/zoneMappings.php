@@ -12,28 +12,32 @@ class zoneMappings extends Model
      * @var string
      */
     public $allocationId;
+
     /**
      * @var string
      */
     public $eipType;
+
     /**
      * @var string
      */
     public $privateIPv4Address;
+
     /**
      * @var string
      */
     public $vSwitchId;
+
     /**
      * @var string
      */
     public $zoneId;
     protected $_name = [
-        'allocationId'       => 'AllocationId',
-        'eipType'            => 'EipType',
+        'allocationId' => 'AllocationId',
+        'eipType' => 'EipType',
         'privateIPv4Address' => 'PrivateIPv4Address',
-        'vSwitchId'          => 'VSwitchId',
-        'zoneId'             => 'ZoneId',
+        'vSwitchId' => 'VSwitchId',
+        'zoneId' => 'ZoneId',
     ];
 
     public function validate()

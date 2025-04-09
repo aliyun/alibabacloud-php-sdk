@@ -12,28 +12,32 @@ class AttachCommonBandwidthPackageToLoadBalancerRequest extends Model
      * @var string
      */
     public $bandwidthPackageId;
+
     /**
      * @var string
      */
     public $clientToken;
+
     /**
      * @var bool
      */
     public $dryRun;
+
     /**
      * @var string
      */
     public $loadBalancerId;
+
     /**
      * @var string
      */
     public $regionId;
     protected $_name = [
         'bandwidthPackageId' => 'BandwidthPackageId',
-        'clientToken'        => 'ClientToken',
-        'dryRun'             => 'DryRun',
-        'loadBalancerId'     => 'LoadBalancerId',
-        'regionId'           => 'RegionId',
+        'clientToken' => 'ClientToken',
+        'dryRun' => 'DryRun',
+        'loadBalancerId' => 'LoadBalancerId',
+        'regionId' => 'RegionId',
     ];
 
     public function validate()

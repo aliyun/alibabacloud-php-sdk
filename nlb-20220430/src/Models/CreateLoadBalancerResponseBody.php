@@ -12,18 +12,20 @@ class CreateLoadBalancerResponseBody extends Model
      * @var string
      */
     public $loadbalancerId;
+
     /**
      * @var int
      */
     public $orderId;
+
     /**
      * @var string
      */
     public $requestId;
     protected $_name = [
         'loadbalancerId' => 'LoadbalancerId',
-        'orderId'        => 'OrderId',
-        'requestId'      => 'RequestId',
+        'orderId' => 'OrderId',
+        'requestId' => 'RequestId',
     ];
 
     public function validate()

@@ -14,98 +14,116 @@ class serverGroups extends Model
      * @var string
      */
     public $addressIPVersion;
+
     /**
      * @var int
      */
     public $aliUid;
+
     /**
      * @var bool
      */
     public $anyPortEnabled;
+
     /**
      * @var bool
      */
     public $connectionDrainEnabled;
+
     /**
      * @var int
      */
     public $connectionDrainTimeout;
+
     /**
      * @var healthCheck
      */
     public $healthCheck;
+
     /**
      * @var bool
      */
     public $preserveClientIpEnabled;
+
     /**
      * @var string
      */
     public $protocol;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string[]
      */
     public $relatedLoadBalancerIds;
+
     /**
      * @var string
      */
     public $resourceGroupId;
+
     /**
      * @var string
      */
     public $scheduler;
+
     /**
      * @var int
      */
     public $serverCount;
+
     /**
      * @var string
      */
     public $serverGroupId;
+
     /**
      * @var string
      */
     public $serverGroupName;
+
     /**
      * @var string
      */
     public $serverGroupStatus;
+
     /**
      * @var string
      */
     public $serverGroupType;
+
     /**
      * @var tags[]
      */
     public $tags;
+
     /**
      * @var string
      */
     public $vpcId;
     protected $_name = [
-        'addressIPVersion'        => 'AddressIPVersion',
-        'aliUid'                  => 'AliUid',
-        'anyPortEnabled'          => 'AnyPortEnabled',
-        'connectionDrainEnabled'  => 'ConnectionDrainEnabled',
-        'connectionDrainTimeout'  => 'ConnectionDrainTimeout',
-        'healthCheck'             => 'HealthCheck',
+        'addressIPVersion' => 'AddressIPVersion',
+        'aliUid' => 'AliUid',
+        'anyPortEnabled' => 'AnyPortEnabled',
+        'connectionDrainEnabled' => 'ConnectionDrainEnabled',
+        'connectionDrainTimeout' => 'ConnectionDrainTimeout',
+        'healthCheck' => 'HealthCheck',
         'preserveClientIpEnabled' => 'PreserveClientIpEnabled',
-        'protocol'                => 'Protocol',
-        'regionId'                => 'RegionId',
-        'relatedLoadBalancerIds'  => 'RelatedLoadBalancerIds',
-        'resourceGroupId'         => 'ResourceGroupId',
-        'scheduler'               => 'Scheduler',
-        'serverCount'             => 'ServerCount',
-        'serverGroupId'           => 'ServerGroupId',
-        'serverGroupName'         => 'ServerGroupName',
-        'serverGroupStatus'       => 'ServerGroupStatus',
-        'serverGroupType'         => 'ServerGroupType',
-        'tags'                    => 'Tags',
-        'vpcId'                   => 'VpcId',
+        'protocol' => 'Protocol',
+        'regionId' => 'RegionId',
+        'relatedLoadBalancerIds' => 'RelatedLoadBalancerIds',
+        'resourceGroupId' => 'ResourceGroupId',
+        'scheduler' => 'Scheduler',
+        'serverCount' => 'ServerCount',
+        'serverGroupId' => 'ServerGroupId',
+        'serverGroupName' => 'ServerGroupName',
+        'serverGroupStatus' => 'ServerGroupStatus',
+        'serverGroupType' => 'ServerGroupType',
+        'tags' => 'Tags',
+        'vpcId' => 'VpcId',
     ];
 
     public function validate()
@@ -164,7 +182,7 @@ class serverGroups extends Model
         if (null !== $this->relatedLoadBalancerIds) {
             if (\is_array($this->relatedLoadBalancerIds)) {
                 $res['RelatedLoadBalancerIds'] = [];
-                $n1                            = 0;
+                $n1 = 0;
                 foreach ($this->relatedLoadBalancerIds as $item1) {
                     $res['RelatedLoadBalancerIds'][$n1++] = $item1;
                 }
@@ -202,7 +220,7 @@ class serverGroups extends Model
         if (null !== $this->tags) {
             if (\is_array($this->tags)) {
                 $res['Tags'] = [];
-                $n1          = 0;
+                $n1 = 0;
                 foreach ($this->tags as $item1) {
                     $res['Tags'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -263,7 +281,7 @@ class serverGroups extends Model
         if (isset($map['RelatedLoadBalancerIds'])) {
             if (!empty($map['RelatedLoadBalancerIds'])) {
                 $model->relatedLoadBalancerIds = [];
-                $n1                            = 0;
+                $n1 = 0;
                 foreach ($map['RelatedLoadBalancerIds'] as $item1) {
                     $model->relatedLoadBalancerIds[$n1++] = $item1;
                 }
@@ -301,7 +319,7 @@ class serverGroups extends Model
         if (isset($map['Tags'])) {
             if (!empty($map['Tags'])) {
                 $model->tags = [];
-                $n1          = 0;
+                $n1 = 0;
                 foreach ($map['Tags'] as $item1) {
                     $model->tags[$n1++] = tags::fromMap($item1);
                 }

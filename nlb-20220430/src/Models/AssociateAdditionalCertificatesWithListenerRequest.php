@@ -12,28 +12,32 @@ class AssociateAdditionalCertificatesWithListenerRequest extends Model
      * @var string[]
      */
     public $additionalCertificateIds;
+
     /**
      * @var string
      */
     public $clientToken;
+
     /**
      * @var bool
      */
     public $dryRun;
+
     /**
      * @var string
      */
     public $listenerId;
+
     /**
      * @var string
      */
     public $regionId;
     protected $_name = [
         'additionalCertificateIds' => 'AdditionalCertificateIds',
-        'clientToken'              => 'ClientToken',
-        'dryRun'                   => 'DryRun',
-        'listenerId'               => 'ListenerId',
-        'regionId'                 => 'RegionId',
+        'clientToken' => 'ClientToken',
+        'dryRun' => 'DryRun',
+        'listenerId' => 'ListenerId',
+        'regionId' => 'RegionId',
     ];
 
     public function validate()
@@ -50,7 +54,7 @@ class AssociateAdditionalCertificatesWithListenerRequest extends Model
         if (null !== $this->additionalCertificateIds) {
             if (\is_array($this->additionalCertificateIds)) {
                 $res['AdditionalCertificateIds'] = [];
-                $n1                              = 0;
+                $n1 = 0;
                 foreach ($this->additionalCertificateIds as $item1) {
                     $res['AdditionalCertificateIds'][$n1++] = $item1;
                 }
@@ -87,7 +91,7 @@ class AssociateAdditionalCertificatesWithListenerRequest extends Model
         if (isset($map['AdditionalCertificateIds'])) {
             if (!empty($map['AdditionalCertificateIds'])) {
                 $model->additionalCertificateIds = [];
-                $n1                              = 0;
+                $n1 = 0;
                 foreach ($map['AdditionalCertificateIds'] as $item1) {
                     $model->additionalCertificateIds[$n1++] = $item1;
                 }

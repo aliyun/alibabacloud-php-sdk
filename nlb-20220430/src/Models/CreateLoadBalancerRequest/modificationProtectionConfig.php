@@ -12,6 +12,7 @@ class modificationProtectionConfig extends Model
      * @var string
      */
     public $reason;
+
     /**
      * @var string
      */

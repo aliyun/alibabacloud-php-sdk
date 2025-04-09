@@ -12,23 +12,26 @@ class relatedListeners extends Model
      * @var string
      */
     public $listenerId;
+
     /**
      * @var int
      */
     public $listenerPort;
+
     /**
      * @var string
      */
     public $listenerProtocol;
+
     /**
      * @var string
      */
     public $loadBalancerId;
     protected $_name = [
-        'listenerId'       => 'ListenerId',
-        'listenerPort'     => 'ListenerPort',
+        'listenerId' => 'ListenerId',
+        'listenerPort' => 'ListenerPort',
         'listenerProtocol' => 'ListenerProtocol',
-        'loadBalancerId'   => 'LoadBalancerId',
+        'loadBalancerId' => 'LoadBalancerId',
     ];
 
     public function validate()

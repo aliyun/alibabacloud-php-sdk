@@ -12,38 +12,44 @@ class UpdateLoadBalancerAttributeRequest extends Model
      * @var string
      */
     public $clientToken;
+
     /**
      * @var int
      */
     public $cps;
+
     /**
      * @var bool
      */
     public $crossZoneEnabled;
+
     /**
      * @var bool
      */
     public $dryRun;
+
     /**
      * @var string
      */
     public $loadBalancerId;
+
     /**
      * @var string
      */
     public $loadBalancerName;
+
     /**
      * @var string
      */
     public $regionId;
     protected $_name = [
-        'clientToken'      => 'ClientToken',
-        'cps'              => 'Cps',
+        'clientToken' => 'ClientToken',
+        'cps' => 'Cps',
         'crossZoneEnabled' => 'CrossZoneEnabled',
-        'dryRun'           => 'DryRun',
-        'loadBalancerId'   => 'LoadBalancerId',
+        'dryRun' => 'DryRun',
+        'loadBalancerId' => 'LoadBalancerId',
         'loadBalancerName' => 'LoadBalancerName',
-        'regionId'         => 'RegionId',
+        'regionId' => 'RegionId',
     ];
 
     public function validate()

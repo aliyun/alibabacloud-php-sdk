@@ -12,33 +12,38 @@ class ListServerGroupServersRequest extends Model
      * @var int
      */
     public $maxResults;
+
     /**
      * @var string
      */
     public $nextToken;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $serverGroupId;
+
     /**
      * @var string[]
      */
     public $serverIds;
+
     /**
      * @var string[]
      */
     public $serverIps;
     protected $_name = [
-        'maxResults'    => 'MaxResults',
-        'nextToken'     => 'NextToken',
-        'regionId'      => 'RegionId',
+        'maxResults' => 'MaxResults',
+        'nextToken' => 'NextToken',
+        'regionId' => 'RegionId',
         'serverGroupId' => 'ServerGroupId',
-        'serverIds'     => 'ServerIds',
-        'serverIps'     => 'ServerIps',
+        'serverIds' => 'ServerIds',
+        'serverIps' => 'ServerIps',
     ];
 
     public function validate()
@@ -74,7 +79,7 @@ class ListServerGroupServersRequest extends Model
         if (null !== $this->serverIds) {
             if (\is_array($this->serverIds)) {
                 $res['ServerIds'] = [];
-                $n1               = 0;
+                $n1 = 0;
                 foreach ($this->serverIds as $item1) {
                     $res['ServerIds'][$n1++] = $item1;
                 }
@@ -84,7 +89,7 @@ class ListServerGroupServersRequest extends Model
         if (null !== $this->serverIps) {
             if (\is_array($this->serverIps)) {
                 $res['ServerIps'] = [];
-                $n1               = 0;
+                $n1 = 0;
                 foreach ($this->serverIps as $item1) {
                     $res['ServerIps'][$n1++] = $item1;
                 }
@@ -121,7 +126,7 @@ class ListServerGroupServersRequest extends Model
         if (isset($map['ServerIds'])) {
             if (!empty($map['ServerIds'])) {
                 $model->serverIds = [];
-                $n1               = 0;
+                $n1 = 0;
                 foreach ($map['ServerIds'] as $item1) {
                     $model->serverIds[$n1++] = $item1;
                 }
@@ -131,7 +136,7 @@ class ListServerGroupServersRequest extends Model
         if (isset($map['ServerIps'])) {
             if (!empty($map['ServerIps'])) {
                 $model->serverIps = [];
-                $n1               = 0;
+                $n1 = 0;
                 foreach ($map['ServerIps'] as $item1) {
                     $model->serverIps[$n1++] = $item1;
                 }

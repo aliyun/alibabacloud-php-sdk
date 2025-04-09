@@ -13,28 +13,32 @@ class nonNormalServers extends Model
      * @var int
      */
     public $port;
+
     /**
      * @var reason
      */
     public $reason;
+
     /**
      * @var string
      */
     public $serverId;
+
     /**
      * @var string
      */
     public $serverIp;
+
     /**
      * @var string
      */
     public $status;
     protected $_name = [
-        'port'     => 'Port',
-        'reason'   => 'Reason',
+        'port' => 'Port',
+        'reason' => 'Reason',
         'serverId' => 'ServerId',
         'serverIp' => 'ServerIp',
-        'status'   => 'Status',
+        'status' => 'Status',
     ];
 
     public function validate()

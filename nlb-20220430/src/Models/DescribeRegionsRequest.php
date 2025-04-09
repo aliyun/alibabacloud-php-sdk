@@ -12,18 +12,20 @@ class DescribeRegionsRequest extends Model
      * @var string
      */
     public $acceptLanguage;
+
     /**
      * @var string
      */
     public $clientToken;
+
     /**
      * @var string
      */
     public $serviceCode;
     protected $_name = [
         'acceptLanguage' => 'AcceptLanguage',
-        'clientToken'    => 'ClientToken',
-        'serviceCode'    => 'ServiceCode',
+        'clientToken' => 'ClientToken',
+        'serviceCode' => 'ServiceCode',
     ];
 
     public function validate()

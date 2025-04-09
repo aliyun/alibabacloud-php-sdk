@@ -13,21 +13,24 @@ class listenerHealthStatus extends Model
      * @var string
      */
     public $listenerId;
+
     /**
      * @var int
      */
     public $listenerPort;
+
     /**
      * @var string
      */
     public $listenerProtocol;
+
     /**
      * @var serverGroupInfos[]
      */
     public $serverGroupInfos;
     protected $_name = [
-        'listenerId'       => 'ListenerId',
-        'listenerPort'     => 'ListenerPort',
+        'listenerId' => 'ListenerId',
+        'listenerPort' => 'ListenerPort',
         'listenerProtocol' => 'ListenerProtocol',
         'serverGroupInfos' => 'ServerGroupInfos',
     ];
@@ -58,7 +61,7 @@ class listenerHealthStatus extends Model
         if (null !== $this->serverGroupInfos) {
             if (\is_array($this->serverGroupInfos)) {
                 $res['ServerGroupInfos'] = [];
-                $n1                      = 0;
+                $n1 = 0;
                 foreach ($this->serverGroupInfos as $item1) {
                     $res['ServerGroupInfos'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -91,7 +94,7 @@ class listenerHealthStatus extends Model
         if (isset($map['ServerGroupInfos'])) {
             if (!empty($map['ServerGroupInfos'])) {
                 $model->serverGroupInfos = [];
-                $n1                      = 0;
+                $n1 = 0;
                 foreach ($map['ServerGroupInfos'] as $item1) {
                     $model->serverGroupInfos[$n1++] = serverGroupInfos::fromMap($item1);
                 }

@@ -12,18 +12,20 @@ class modificationProtectionConfig extends Model
      * @var string
      */
     public $enabledTime;
+
     /**
      * @var string
      */
     public $reason;
+
     /**
      * @var string
      */
     public $status;
     protected $_name = [
         'enabledTime' => 'EnabledTime',
-        'reason'      => 'Reason',
-        'status'      => 'Status',
+        'reason' => 'Reason',
+        'status' => 'Status',
     ];
 
     public function validate()

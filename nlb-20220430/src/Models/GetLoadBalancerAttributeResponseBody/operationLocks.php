@@ -12,13 +12,14 @@ class operationLocks extends Model
      * @var string
      */
     public $lockReason;
+
     /**
      * @var string
      */
     public $lockType;
     protected $_name = [
         'lockReason' => 'LockReason',
-        'lockType'   => 'LockType',
+        'lockType' => 'LockType',
     ];
 
     public function validate()

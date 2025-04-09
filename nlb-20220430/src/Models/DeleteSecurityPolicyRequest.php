@@ -12,22 +12,25 @@ class DeleteSecurityPolicyRequest extends Model
      * @var string
      */
     public $clientToken;
+
     /**
      * @var bool
      */
     public $dryRun;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $securityPolicyId;
     protected $_name = [
-        'clientToken'      => 'ClientToken',
-        'dryRun'           => 'DryRun',
-        'regionId'         => 'RegionId',
+        'clientToken' => 'ClientToken',
+        'dryRun' => 'DryRun',
+        'regionId' => 'RegionId',
         'securityPolicyId' => 'SecurityPolicyId',
     ];
 

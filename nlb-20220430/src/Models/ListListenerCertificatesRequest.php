@@ -12,33 +12,38 @@ class ListListenerCertificatesRequest extends Model
      * @var string
      */
     public $certType;
+
     /**
      * @var string[]
      */
     public $certificateIds;
+
     /**
      * @var string
      */
     public $listenerId;
+
     /**
      * @var int
      */
     public $maxResults;
+
     /**
      * @var string
      */
     public $nextToken;
+
     /**
      * @var string
      */
     public $regionId;
     protected $_name = [
-        'certType'       => 'CertType',
+        'certType' => 'CertType',
         'certificateIds' => 'CertificateIds',
-        'listenerId'     => 'ListenerId',
-        'maxResults'     => 'MaxResults',
-        'nextToken'      => 'NextToken',
-        'regionId'       => 'RegionId',
+        'listenerId' => 'ListenerId',
+        'maxResults' => 'MaxResults',
+        'nextToken' => 'NextToken',
+        'regionId' => 'RegionId',
     ];
 
     public function validate()
@@ -59,7 +64,7 @@ class ListListenerCertificatesRequest extends Model
         if (null !== $this->certificateIds) {
             if (\is_array($this->certificateIds)) {
                 $res['CertificateIds'] = [];
-                $n1                    = 0;
+                $n1 = 0;
                 foreach ($this->certificateIds as $item1) {
                     $res['CertificateIds'][$n1++] = $item1;
                 }
@@ -100,7 +105,7 @@ class ListListenerCertificatesRequest extends Model
         if (isset($map['CertificateIds'])) {
             if (!empty($map['CertificateIds'])) {
                 $model->certificateIds = [];
-                $n1                    = 0;
+                $n1 = 0;
                 foreach ($map['CertificateIds'] as $item1) {
                     $model->certificateIds[$n1++] = $item1;
                 }

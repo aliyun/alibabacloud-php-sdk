@@ -13,33 +13,38 @@ class ListListenerCertificatesResponseBody extends Model
      * @var string[]
      */
     public $certificateIds;
+
     /**
      * @var certificates[]
      */
     public $certificates;
+
     /**
      * @var int
      */
     public $maxResults;
+
     /**
      * @var string
      */
     public $nextToken;
+
     /**
      * @var string
      */
     public $requestId;
+
     /**
      * @var int
      */
     public $totalCount;
     protected $_name = [
         'certificateIds' => 'CertificateIds',
-        'certificates'   => 'Certificates',
-        'maxResults'     => 'MaxResults',
-        'nextToken'      => 'NextToken',
-        'requestId'      => 'RequestId',
-        'totalCount'     => 'TotalCount',
+        'certificates' => 'Certificates',
+        'maxResults' => 'MaxResults',
+        'nextToken' => 'NextToken',
+        'requestId' => 'RequestId',
+        'totalCount' => 'TotalCount',
     ];
 
     public function validate()
@@ -59,7 +64,7 @@ class ListListenerCertificatesResponseBody extends Model
         if (null !== $this->certificateIds) {
             if (\is_array($this->certificateIds)) {
                 $res['CertificateIds'] = [];
-                $n1                    = 0;
+                $n1 = 0;
                 foreach ($this->certificateIds as $item1) {
                     $res['CertificateIds'][$n1++] = $item1;
                 }
@@ -69,7 +74,7 @@ class ListListenerCertificatesResponseBody extends Model
         if (null !== $this->certificates) {
             if (\is_array($this->certificates)) {
                 $res['Certificates'] = [];
-                $n1                  = 0;
+                $n1 = 0;
                 foreach ($this->certificates as $item1) {
                     $res['Certificates'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -106,7 +111,7 @@ class ListListenerCertificatesResponseBody extends Model
         if (isset($map['CertificateIds'])) {
             if (!empty($map['CertificateIds'])) {
                 $model->certificateIds = [];
-                $n1                    = 0;
+                $n1 = 0;
                 foreach ($map['CertificateIds'] as $item1) {
                     $model->certificateIds[$n1++] = $item1;
                 }
@@ -116,7 +121,7 @@ class ListListenerCertificatesResponseBody extends Model
         if (isset($map['Certificates'])) {
             if (!empty($map['Certificates'])) {
                 $model->certificates = [];
-                $n1                  = 0;
+                $n1 = 0;
                 foreach ($map['Certificates'] as $item1) {
                     $model->certificates[$n1++] = certificates::fromMap($item1);
                 }

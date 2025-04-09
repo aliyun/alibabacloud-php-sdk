@@ -13,23 +13,26 @@ class zoneMappings extends Model
      * @var loadBalancerAddresses[]
      */
     public $loadBalancerAddresses;
+
     /**
      * @var string
      */
     public $status;
+
     /**
      * @var string
      */
     public $vSwitchId;
+
     /**
      * @var string
      */
     public $zoneId;
     protected $_name = [
         'loadBalancerAddresses' => 'LoadBalancerAddresses',
-        'status'                => 'Status',
-        'vSwitchId'             => 'VSwitchId',
-        'zoneId'                => 'ZoneId',
+        'status' => 'Status',
+        'vSwitchId' => 'VSwitchId',
+        'zoneId' => 'ZoneId',
     ];
 
     public function validate()
@@ -46,7 +49,7 @@ class zoneMappings extends Model
         if (null !== $this->loadBalancerAddresses) {
             if (\is_array($this->loadBalancerAddresses)) {
                 $res['LoadBalancerAddresses'] = [];
-                $n1                           = 0;
+                $n1 = 0;
                 foreach ($this->loadBalancerAddresses as $item1) {
                     $res['LoadBalancerAddresses'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -79,7 +82,7 @@ class zoneMappings extends Model
         if (isset($map['LoadBalancerAddresses'])) {
             if (!empty($map['LoadBalancerAddresses'])) {
                 $model->loadBalancerAddresses = [];
-                $n1                           = 0;
+                $n1 = 0;
                 foreach ($map['LoadBalancerAddresses'] as $item1) {
                     $model->loadBalancerAddresses[$n1++] = loadBalancerAddresses::fromMap($item1);
                 }

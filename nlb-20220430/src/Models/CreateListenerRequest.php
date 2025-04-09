@@ -14,118 +14,140 @@ class CreateListenerRequest extends Model
      * @var bool
      */
     public $alpnEnabled;
+
     /**
      * @var string
      */
     public $alpnPolicy;
+
     /**
      * @var string[]
      */
     public $caCertificateIds;
+
     /**
      * @var bool
      */
     public $caEnabled;
+
     /**
      * @var string[]
      */
     public $certificateIds;
+
     /**
      * @var string
      */
     public $clientToken;
+
     /**
      * @var int
      */
     public $cps;
+
     /**
      * @var bool
      */
     public $dryRun;
+
     /**
      * @var int
      */
     public $endPort;
+
     /**
      * @var int
      */
     public $idleTimeout;
+
     /**
      * @var string
      */
     public $listenerDescription;
+
     /**
      * @var int
      */
     public $listenerPort;
+
     /**
      * @var string
      */
     public $listenerProtocol;
+
     /**
      * @var string
      */
     public $loadBalancerId;
+
     /**
      * @var int
      */
     public $mss;
+
     /**
      * @var bool
      */
     public $proxyProtocolEnabled;
+
     /**
      * @var proxyProtocolV2Config
      */
     public $proxyProtocolV2Config;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var bool
      */
     public $secSensorEnabled;
+
     /**
      * @var string
      */
     public $securityPolicyId;
+
     /**
      * @var string
      */
     public $serverGroupId;
+
     /**
      * @var int
      */
     public $startPort;
+
     /**
      * @var tag[]
      */
     public $tag;
     protected $_name = [
-        'alpnEnabled'           => 'AlpnEnabled',
-        'alpnPolicy'            => 'AlpnPolicy',
-        'caCertificateIds'      => 'CaCertificateIds',
-        'caEnabled'             => 'CaEnabled',
-        'certificateIds'        => 'CertificateIds',
-        'clientToken'           => 'ClientToken',
-        'cps'                   => 'Cps',
-        'dryRun'                => 'DryRun',
-        'endPort'               => 'EndPort',
-        'idleTimeout'           => 'IdleTimeout',
-        'listenerDescription'   => 'ListenerDescription',
-        'listenerPort'          => 'ListenerPort',
-        'listenerProtocol'      => 'ListenerProtocol',
-        'loadBalancerId'        => 'LoadBalancerId',
-        'mss'                   => 'Mss',
-        'proxyProtocolEnabled'  => 'ProxyProtocolEnabled',
+        'alpnEnabled' => 'AlpnEnabled',
+        'alpnPolicy' => 'AlpnPolicy',
+        'caCertificateIds' => 'CaCertificateIds',
+        'caEnabled' => 'CaEnabled',
+        'certificateIds' => 'CertificateIds',
+        'clientToken' => 'ClientToken',
+        'cps' => 'Cps',
+        'dryRun' => 'DryRun',
+        'endPort' => 'EndPort',
+        'idleTimeout' => 'IdleTimeout',
+        'listenerDescription' => 'ListenerDescription',
+        'listenerPort' => 'ListenerPort',
+        'listenerProtocol' => 'ListenerProtocol',
+        'loadBalancerId' => 'LoadBalancerId',
+        'mss' => 'Mss',
+        'proxyProtocolEnabled' => 'ProxyProtocolEnabled',
         'proxyProtocolV2Config' => 'ProxyProtocolV2Config',
-        'regionId'              => 'RegionId',
-        'secSensorEnabled'      => 'SecSensorEnabled',
-        'securityPolicyId'      => 'SecurityPolicyId',
-        'serverGroupId'         => 'ServerGroupId',
-        'startPort'             => 'StartPort',
-        'tag'                   => 'Tag',
+        'regionId' => 'RegionId',
+        'secSensorEnabled' => 'SecSensorEnabled',
+        'securityPolicyId' => 'SecurityPolicyId',
+        'serverGroupId' => 'ServerGroupId',
+        'startPort' => 'StartPort',
+        'tag' => 'Tag',
     ];
 
     public function validate()
@@ -159,7 +181,7 @@ class CreateListenerRequest extends Model
         if (null !== $this->caCertificateIds) {
             if (\is_array($this->caCertificateIds)) {
                 $res['CaCertificateIds'] = [];
-                $n1                      = 0;
+                $n1 = 0;
                 foreach ($this->caCertificateIds as $item1) {
                     $res['CaCertificateIds'][$n1++] = $item1;
                 }
@@ -173,7 +195,7 @@ class CreateListenerRequest extends Model
         if (null !== $this->certificateIds) {
             if (\is_array($this->certificateIds)) {
                 $res['CertificateIds'] = [];
-                $n1                    = 0;
+                $n1 = 0;
                 foreach ($this->certificateIds as $item1) {
                     $res['CertificateIds'][$n1++] = $item1;
                 }
@@ -251,7 +273,7 @@ class CreateListenerRequest extends Model
         if (null !== $this->tag) {
             if (\is_array($this->tag)) {
                 $res['Tag'] = [];
-                $n1         = 0;
+                $n1 = 0;
                 foreach ($this->tag as $item1) {
                     $res['Tag'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -280,7 +302,7 @@ class CreateListenerRequest extends Model
         if (isset($map['CaCertificateIds'])) {
             if (!empty($map['CaCertificateIds'])) {
                 $model->caCertificateIds = [];
-                $n1                      = 0;
+                $n1 = 0;
                 foreach ($map['CaCertificateIds'] as $item1) {
                     $model->caCertificateIds[$n1++] = $item1;
                 }
@@ -294,7 +316,7 @@ class CreateListenerRequest extends Model
         if (isset($map['CertificateIds'])) {
             if (!empty($map['CertificateIds'])) {
                 $model->certificateIds = [];
-                $n1                    = 0;
+                $n1 = 0;
                 foreach ($map['CertificateIds'] as $item1) {
                     $model->certificateIds[$n1++] = $item1;
                 }
@@ -372,7 +394,7 @@ class CreateListenerRequest extends Model
         if (isset($map['Tag'])) {
             if (!empty($map['Tag'])) {
                 $model->tag = [];
-                $n1         = 0;
+                $n1 = 0;
                 foreach ($map['Tag'] as $item1) {
                     $model->tag[$n1++] = tag::fromMap($item1);
                 }

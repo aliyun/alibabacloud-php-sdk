@@ -13,83 +13,98 @@ class ListLoadBalancersRequest extends Model
      * @var string
      */
     public $addressIpVersion;
+
     /**
      * @var string
      */
     public $addressType;
+
     /**
      * @var string
      */
     public $DNSName;
+
     /**
      * @var string
      */
     public $ipv6AddressType;
+
     /**
      * @var string
      */
     public $loadBalancerBusinessStatus;
+
     /**
      * @var string[]
      */
     public $loadBalancerIds;
+
     /**
      * @var string[]
      */
     public $loadBalancerNames;
+
     /**
      * @var string
      */
     public $loadBalancerStatus;
+
     /**
      * @var string
      */
     public $loadBalancerType;
+
     /**
      * @var int
      */
     public $maxResults;
+
     /**
      * @var string
      */
     public $nextToken;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $resourceGroupId;
+
     /**
      * @var tag[]
      */
     public $tag;
+
     /**
      * @var string[]
      */
     public $vpcIds;
+
     /**
      * @var string
      */
     public $zoneId;
     protected $_name = [
-        'addressIpVersion'           => 'AddressIpVersion',
-        'addressType'                => 'AddressType',
-        'DNSName'                    => 'DNSName',
-        'ipv6AddressType'            => 'Ipv6AddressType',
+        'addressIpVersion' => 'AddressIpVersion',
+        'addressType' => 'AddressType',
+        'DNSName' => 'DNSName',
+        'ipv6AddressType' => 'Ipv6AddressType',
         'loadBalancerBusinessStatus' => 'LoadBalancerBusinessStatus',
-        'loadBalancerIds'            => 'LoadBalancerIds',
-        'loadBalancerNames'          => 'LoadBalancerNames',
-        'loadBalancerStatus'         => 'LoadBalancerStatus',
-        'loadBalancerType'           => 'LoadBalancerType',
-        'maxResults'                 => 'MaxResults',
-        'nextToken'                  => 'NextToken',
-        'regionId'                   => 'RegionId',
-        'resourceGroupId'            => 'ResourceGroupId',
-        'tag'                        => 'Tag',
-        'vpcIds'                     => 'VpcIds',
-        'zoneId'                     => 'ZoneId',
+        'loadBalancerIds' => 'LoadBalancerIds',
+        'loadBalancerNames' => 'LoadBalancerNames',
+        'loadBalancerStatus' => 'LoadBalancerStatus',
+        'loadBalancerType' => 'LoadBalancerType',
+        'maxResults' => 'MaxResults',
+        'nextToken' => 'NextToken',
+        'regionId' => 'RegionId',
+        'resourceGroupId' => 'ResourceGroupId',
+        'tag' => 'Tag',
+        'vpcIds' => 'VpcIds',
+        'zoneId' => 'ZoneId',
     ];
 
     public function validate()
@@ -135,7 +150,7 @@ class ListLoadBalancersRequest extends Model
         if (null !== $this->loadBalancerIds) {
             if (\is_array($this->loadBalancerIds)) {
                 $res['LoadBalancerIds'] = [];
-                $n1                     = 0;
+                $n1 = 0;
                 foreach ($this->loadBalancerIds as $item1) {
                     $res['LoadBalancerIds'][$n1++] = $item1;
                 }
@@ -145,7 +160,7 @@ class ListLoadBalancersRequest extends Model
         if (null !== $this->loadBalancerNames) {
             if (\is_array($this->loadBalancerNames)) {
                 $res['LoadBalancerNames'] = [];
-                $n1                       = 0;
+                $n1 = 0;
                 foreach ($this->loadBalancerNames as $item1) {
                     $res['LoadBalancerNames'][$n1++] = $item1;
                 }
@@ -179,7 +194,7 @@ class ListLoadBalancersRequest extends Model
         if (null !== $this->tag) {
             if (\is_array($this->tag)) {
                 $res['Tag'] = [];
-                $n1         = 0;
+                $n1 = 0;
                 foreach ($this->tag as $item1) {
                     $res['Tag'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -189,7 +204,7 @@ class ListLoadBalancersRequest extends Model
         if (null !== $this->vpcIds) {
             if (\is_array($this->vpcIds)) {
                 $res['VpcIds'] = [];
-                $n1            = 0;
+                $n1 = 0;
                 foreach ($this->vpcIds as $item1) {
                     $res['VpcIds'][$n1++] = $item1;
                 }
@@ -234,7 +249,7 @@ class ListLoadBalancersRequest extends Model
         if (isset($map['LoadBalancerIds'])) {
             if (!empty($map['LoadBalancerIds'])) {
                 $model->loadBalancerIds = [];
-                $n1                     = 0;
+                $n1 = 0;
                 foreach ($map['LoadBalancerIds'] as $item1) {
                     $model->loadBalancerIds[$n1++] = $item1;
                 }
@@ -244,7 +259,7 @@ class ListLoadBalancersRequest extends Model
         if (isset($map['LoadBalancerNames'])) {
             if (!empty($map['LoadBalancerNames'])) {
                 $model->loadBalancerNames = [];
-                $n1                       = 0;
+                $n1 = 0;
                 foreach ($map['LoadBalancerNames'] as $item1) {
                     $model->loadBalancerNames[$n1++] = $item1;
                 }
@@ -278,7 +293,7 @@ class ListLoadBalancersRequest extends Model
         if (isset($map['Tag'])) {
             if (!empty($map['Tag'])) {
                 $model->tag = [];
-                $n1         = 0;
+                $n1 = 0;
                 foreach ($map['Tag'] as $item1) {
                     $model->tag[$n1++] = tag::fromMap($item1);
                 }
@@ -288,7 +303,7 @@ class ListLoadBalancersRequest extends Model
         if (isset($map['VpcIds'])) {
             if (!empty($map['VpcIds'])) {
                 $model->vpcIds = [];
-                $n1            = 0;
+                $n1 = 0;
                 foreach ($map['VpcIds'] as $item1) {
                     $model->vpcIds[$n1++] = $item1;
                 }

@@ -12,18 +12,20 @@ class proxyProtocolV2Config extends Model
      * @var bool
      */
     public $ppv2PrivateLinkEpIdEnabled;
+
     /**
      * @var bool
      */
     public $ppv2PrivateLinkEpsIdEnabled;
+
     /**
      * @var bool
      */
     public $ppv2VpcIdEnabled;
     protected $_name = [
-        'ppv2PrivateLinkEpIdEnabled'  => 'Ppv2PrivateLinkEpIdEnabled',
+        'ppv2PrivateLinkEpIdEnabled' => 'Ppv2PrivateLinkEpIdEnabled',
         'ppv2PrivateLinkEpsIdEnabled' => 'Ppv2PrivateLinkEpsIdEnabled',
-        'ppv2VpcIdEnabled'            => 'Ppv2VpcIdEnabled',
+        'ppv2VpcIdEnabled' => 'Ppv2VpcIdEnabled',
     ];
 
     public function validate()

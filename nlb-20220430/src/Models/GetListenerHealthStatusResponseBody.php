@@ -13,28 +13,32 @@ class GetListenerHealthStatusResponseBody extends Model
      * @var listenerHealthStatus[]
      */
     public $listenerHealthStatus;
+
     /**
      * @var int
      */
     public $maxResults;
+
     /**
      * @var string
      */
     public $nextToken;
+
     /**
      * @var string
      */
     public $requestId;
+
     /**
      * @var int
      */
     public $totalCount;
     protected $_name = [
         'listenerHealthStatus' => 'ListenerHealthStatus',
-        'maxResults'           => 'MaxResults',
-        'nextToken'            => 'NextToken',
-        'requestId'            => 'RequestId',
-        'totalCount'           => 'TotalCount',
+        'maxResults' => 'MaxResults',
+        'nextToken' => 'NextToken',
+        'requestId' => 'RequestId',
+        'totalCount' => 'TotalCount',
     ];
 
     public function validate()
@@ -51,7 +55,7 @@ class GetListenerHealthStatusResponseBody extends Model
         if (null !== $this->listenerHealthStatus) {
             if (\is_array($this->listenerHealthStatus)) {
                 $res['ListenerHealthStatus'] = [];
-                $n1                          = 0;
+                $n1 = 0;
                 foreach ($this->listenerHealthStatus as $item1) {
                     $res['ListenerHealthStatus'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -88,7 +92,7 @@ class GetListenerHealthStatusResponseBody extends Model
         if (isset($map['ListenerHealthStatus'])) {
             if (!empty($map['ListenerHealthStatus'])) {
                 $model->listenerHealthStatus = [];
-                $n1                          = 0;
+                $n1 = 0;
                 foreach ($map['ListenerHealthStatus'] as $item1) {
                     $model->listenerHealthStatus[$n1++] = listenerHealthStatus::fromMap($item1);
                 }

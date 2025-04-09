@@ -14,118 +14,140 @@ class listeners extends Model
      * @var bool
      */
     public $alpnEnabled;
+
     /**
      * @var string
      */
     public $alpnPolicy;
+
     /**
      * @var string[]
      */
     public $caCertificateIds;
+
     /**
      * @var bool
      */
     public $caEnabled;
+
     /**
      * @var string[]
      */
     public $certificateIds;
+
     /**
      * @var int
      */
     public $cps;
+
     /**
      * @var string
      */
     public $endPort;
+
     /**
      * @var int
      */
     public $idleTimeout;
+
     /**
      * @var string
      */
     public $listenerDescription;
+
     /**
      * @var string
      */
     public $listenerId;
+
     /**
      * @var int
      */
     public $listenerPort;
+
     /**
      * @var string
      */
     public $listenerProtocol;
+
     /**
      * @var string
      */
     public $listenerStatus;
+
     /**
      * @var string
      */
     public $loadBalancerId;
+
     /**
      * @var int
      */
     public $mss;
+
     /**
      * @var bool
      */
     public $proxyProtocolEnabled;
+
     /**
      * @var proxyProtocolV2Config
      */
     public $proxyProtocolV2Config;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var bool
      */
     public $secSensorEnabled;
+
     /**
      * @var string
      */
     public $securityPolicyId;
+
     /**
      * @var string
      */
     public $serverGroupId;
+
     /**
      * @var string
      */
     public $startPort;
+
     /**
      * @var tags[]
      */
     public $tags;
     protected $_name = [
-        'alpnEnabled'           => 'AlpnEnabled',
-        'alpnPolicy'            => 'AlpnPolicy',
-        'caCertificateIds'      => 'CaCertificateIds',
-        'caEnabled'             => 'CaEnabled',
-        'certificateIds'        => 'CertificateIds',
-        'cps'                   => 'Cps',
-        'endPort'               => 'EndPort',
-        'idleTimeout'           => 'IdleTimeout',
-        'listenerDescription'   => 'ListenerDescription',
-        'listenerId'            => 'ListenerId',
-        'listenerPort'          => 'ListenerPort',
-        'listenerProtocol'      => 'ListenerProtocol',
-        'listenerStatus'        => 'ListenerStatus',
-        'loadBalancerId'        => 'LoadBalancerId',
-        'mss'                   => 'Mss',
-        'proxyProtocolEnabled'  => 'ProxyProtocolEnabled',
+        'alpnEnabled' => 'AlpnEnabled',
+        'alpnPolicy' => 'AlpnPolicy',
+        'caCertificateIds' => 'CaCertificateIds',
+        'caEnabled' => 'CaEnabled',
+        'certificateIds' => 'CertificateIds',
+        'cps' => 'Cps',
+        'endPort' => 'EndPort',
+        'idleTimeout' => 'IdleTimeout',
+        'listenerDescription' => 'ListenerDescription',
+        'listenerId' => 'ListenerId',
+        'listenerPort' => 'ListenerPort',
+        'listenerProtocol' => 'ListenerProtocol',
+        'listenerStatus' => 'ListenerStatus',
+        'loadBalancerId' => 'LoadBalancerId',
+        'mss' => 'Mss',
+        'proxyProtocolEnabled' => 'ProxyProtocolEnabled',
         'proxyProtocolV2Config' => 'ProxyProtocolV2Config',
-        'regionId'              => 'RegionId',
-        'secSensorEnabled'      => 'SecSensorEnabled',
-        'securityPolicyId'      => 'SecurityPolicyId',
-        'serverGroupId'         => 'ServerGroupId',
-        'startPort'             => 'StartPort',
-        'tags'                  => 'Tags',
+        'regionId' => 'RegionId',
+        'secSensorEnabled' => 'SecSensorEnabled',
+        'securityPolicyId' => 'SecurityPolicyId',
+        'serverGroupId' => 'ServerGroupId',
+        'startPort' => 'StartPort',
+        'tags' => 'Tags',
     ];
 
     public function validate()
@@ -159,7 +181,7 @@ class listeners extends Model
         if (null !== $this->caCertificateIds) {
             if (\is_array($this->caCertificateIds)) {
                 $res['CaCertificateIds'] = [];
-                $n1                      = 0;
+                $n1 = 0;
                 foreach ($this->caCertificateIds as $item1) {
                     $res['CaCertificateIds'][$n1++] = $item1;
                 }
@@ -173,7 +195,7 @@ class listeners extends Model
         if (null !== $this->certificateIds) {
             if (\is_array($this->certificateIds)) {
                 $res['CertificateIds'] = [];
-                $n1                    = 0;
+                $n1 = 0;
                 foreach ($this->certificateIds as $item1) {
                     $res['CertificateIds'][$n1++] = $item1;
                 }
@@ -251,7 +273,7 @@ class listeners extends Model
         if (null !== $this->tags) {
             if (\is_array($this->tags)) {
                 $res['Tags'] = [];
-                $n1          = 0;
+                $n1 = 0;
                 foreach ($this->tags as $item1) {
                     $res['Tags'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -280,7 +302,7 @@ class listeners extends Model
         if (isset($map['CaCertificateIds'])) {
             if (!empty($map['CaCertificateIds'])) {
                 $model->caCertificateIds = [];
-                $n1                      = 0;
+                $n1 = 0;
                 foreach ($map['CaCertificateIds'] as $item1) {
                     $model->caCertificateIds[$n1++] = $item1;
                 }
@@ -294,7 +316,7 @@ class listeners extends Model
         if (isset($map['CertificateIds'])) {
             if (!empty($map['CertificateIds'])) {
                 $model->certificateIds = [];
-                $n1                    = 0;
+                $n1 = 0;
                 foreach ($map['CertificateIds'] as $item1) {
                     $model->certificateIds[$n1++] = $item1;
                 }
@@ -372,7 +394,7 @@ class listeners extends Model
         if (isset($map['Tags'])) {
             if (!empty($map['Tags'])) {
                 $model->tags = [];
-                $n1          = 0;
+                $n1 = 0;
                 foreach ($map['Tags'] as $item1) {
                     $model->tags[$n1++] = tags::fromMap($item1);
                 }

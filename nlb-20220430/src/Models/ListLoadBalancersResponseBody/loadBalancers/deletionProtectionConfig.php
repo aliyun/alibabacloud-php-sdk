@@ -12,18 +12,20 @@ class deletionProtectionConfig extends Model
      * @var bool
      */
     public $enabled;
+
     /**
      * @var string
      */
     public $enabledTime;
+
     /**
      * @var string
      */
     public $reason;
     protected $_name = [
-        'enabled'     => 'Enabled',
+        'enabled' => 'Enabled',
         'enabledTime' => 'EnabledTime',
-        'reason'      => 'Reason',
+        'reason' => 'Reason',
     ];
 
     public function validate()

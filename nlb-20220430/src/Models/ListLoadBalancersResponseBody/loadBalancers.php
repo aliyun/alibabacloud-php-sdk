@@ -18,113 +18,134 @@ class loadBalancers extends Model
      * @var string
      */
     public $addressIpVersion;
+
     /**
      * @var string
      */
     public $addressType;
+
     /**
      * @var string
      */
     public $bandwidthPackageId;
+
     /**
      * @var string
      */
     public $createTime;
+
     /**
      * @var bool
      */
     public $crossZoneEnabled;
+
     /**
      * @var string
      */
     public $DNSName;
+
     /**
      * @var deletionProtectionConfig
      */
     public $deletionProtectionConfig;
+
     /**
      * @var string
      */
     public $ipv6AddressType;
+
     /**
      * @var loadBalancerBillingConfig
      */
     public $loadBalancerBillingConfig;
+
     /**
      * @var string
      */
     public $loadBalancerBusinessStatus;
+
     /**
      * @var string
      */
     public $loadBalancerId;
+
     /**
      * @var string
      */
     public $loadBalancerName;
+
     /**
      * @var string
      */
     public $loadBalancerStatus;
+
     /**
      * @var string
      */
     public $loadBalancerType;
+
     /**
      * @var modificationProtectionConfig
      */
     public $modificationProtectionConfig;
+
     /**
      * @var operationLocks[]
      */
     public $operationLocks;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $resourceGroupId;
+
     /**
      * @var string[]
      */
     public $securityGroupIds;
+
     /**
      * @var tags[]
      */
     public $tags;
+
     /**
      * @var string
      */
     public $vpcId;
+
     /**
      * @var zoneMappings[]
      */
     public $zoneMappings;
     protected $_name = [
-        'addressIpVersion'             => 'AddressIpVersion',
-        'addressType'                  => 'AddressType',
-        'bandwidthPackageId'           => 'BandwidthPackageId',
-        'createTime'                   => 'CreateTime',
-        'crossZoneEnabled'             => 'CrossZoneEnabled',
-        'DNSName'                      => 'DNSName',
-        'deletionProtectionConfig'     => 'DeletionProtectionConfig',
-        'ipv6AddressType'              => 'Ipv6AddressType',
-        'loadBalancerBillingConfig'    => 'LoadBalancerBillingConfig',
-        'loadBalancerBusinessStatus'   => 'LoadBalancerBusinessStatus',
-        'loadBalancerId'               => 'LoadBalancerId',
-        'loadBalancerName'             => 'LoadBalancerName',
-        'loadBalancerStatus'           => 'LoadBalancerStatus',
-        'loadBalancerType'             => 'LoadBalancerType',
+        'addressIpVersion' => 'AddressIpVersion',
+        'addressType' => 'AddressType',
+        'bandwidthPackageId' => 'BandwidthPackageId',
+        'createTime' => 'CreateTime',
+        'crossZoneEnabled' => 'CrossZoneEnabled',
+        'DNSName' => 'DNSName',
+        'deletionProtectionConfig' => 'DeletionProtectionConfig',
+        'ipv6AddressType' => 'Ipv6AddressType',
+        'loadBalancerBillingConfig' => 'LoadBalancerBillingConfig',
+        'loadBalancerBusinessStatus' => 'LoadBalancerBusinessStatus',
+        'loadBalancerId' => 'LoadBalancerId',
+        'loadBalancerName' => 'LoadBalancerName',
+        'loadBalancerStatus' => 'LoadBalancerStatus',
+        'loadBalancerType' => 'LoadBalancerType',
         'modificationProtectionConfig' => 'ModificationProtectionConfig',
-        'operationLocks'               => 'OperationLocks',
-        'regionId'                     => 'RegionId',
-        'resourceGroupId'              => 'ResourceGroupId',
-        'securityGroupIds'             => 'SecurityGroupIds',
-        'tags'                         => 'Tags',
-        'vpcId'                        => 'VpcId',
-        'zoneMappings'                 => 'ZoneMappings',
+        'operationLocks' => 'OperationLocks',
+        'regionId' => 'RegionId',
+        'resourceGroupId' => 'ResourceGroupId',
+        'securityGroupIds' => 'SecurityGroupIds',
+        'tags' => 'Tags',
+        'vpcId' => 'VpcId',
+        'zoneMappings' => 'ZoneMappings',
     ];
 
     public function validate()
@@ -219,7 +240,7 @@ class loadBalancers extends Model
         if (null !== $this->operationLocks) {
             if (\is_array($this->operationLocks)) {
                 $res['OperationLocks'] = [];
-                $n1                    = 0;
+                $n1 = 0;
                 foreach ($this->operationLocks as $item1) {
                     $res['OperationLocks'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -237,7 +258,7 @@ class loadBalancers extends Model
         if (null !== $this->securityGroupIds) {
             if (\is_array($this->securityGroupIds)) {
                 $res['SecurityGroupIds'] = [];
-                $n1                      = 0;
+                $n1 = 0;
                 foreach ($this->securityGroupIds as $item1) {
                     $res['SecurityGroupIds'][$n1++] = $item1;
                 }
@@ -247,7 +268,7 @@ class loadBalancers extends Model
         if (null !== $this->tags) {
             if (\is_array($this->tags)) {
                 $res['Tags'] = [];
-                $n1          = 0;
+                $n1 = 0;
                 foreach ($this->tags as $item1) {
                     $res['Tags'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -261,7 +282,7 @@ class loadBalancers extends Model
         if (null !== $this->zoneMappings) {
             if (\is_array($this->zoneMappings)) {
                 $res['ZoneMappings'] = [];
-                $n1                  = 0;
+                $n1 = 0;
                 foreach ($this->zoneMappings as $item1) {
                     $res['ZoneMappings'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -342,7 +363,7 @@ class loadBalancers extends Model
         if (isset($map['OperationLocks'])) {
             if (!empty($map['OperationLocks'])) {
                 $model->operationLocks = [];
-                $n1                    = 0;
+                $n1 = 0;
                 foreach ($map['OperationLocks'] as $item1) {
                     $model->operationLocks[$n1++] = operationLocks::fromMap($item1);
                 }
@@ -360,7 +381,7 @@ class loadBalancers extends Model
         if (isset($map['SecurityGroupIds'])) {
             if (!empty($map['SecurityGroupIds'])) {
                 $model->securityGroupIds = [];
-                $n1                      = 0;
+                $n1 = 0;
                 foreach ($map['SecurityGroupIds'] as $item1) {
                     $model->securityGroupIds[$n1++] = $item1;
                 }
@@ -370,7 +391,7 @@ class loadBalancers extends Model
         if (isset($map['Tags'])) {
             if (!empty($map['Tags'])) {
                 $model->tags = [];
-                $n1          = 0;
+                $n1 = 0;
                 foreach ($map['Tags'] as $item1) {
                     $model->tags[$n1++] = tags::fromMap($item1);
                 }
@@ -384,7 +405,7 @@ class loadBalancers extends Model
         if (isset($map['ZoneMappings'])) {
             if (!empty($map['ZoneMappings'])) {
                 $model->zoneMappings = [];
-                $n1                  = 0;
+                $n1 = 0;
                 foreach ($map['ZoneMappings'] as $item1) {
                     $model->zoneMappings[$n1++] = zoneMappings::fromMap($item1);
                 }

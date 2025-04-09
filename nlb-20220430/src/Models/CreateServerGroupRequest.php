@@ -14,83 +14,98 @@ class CreateServerGroupRequest extends Model
      * @var string
      */
     public $addressIPVersion;
+
     /**
      * @var bool
      */
     public $anyPortEnabled;
+
     /**
      * @var string
      */
     public $clientToken;
+
     /**
      * @var bool
      */
     public $connectionDrainEnabled;
+
     /**
      * @var int
      */
     public $connectionDrainTimeout;
+
     /**
      * @var bool
      */
     public $dryRun;
+
     /**
      * @var healthCheckConfig
      */
     public $healthCheckConfig;
+
     /**
      * @var bool
      */
     public $preserveClientIpEnabled;
+
     /**
      * @var string
      */
     public $protocol;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $resourceGroupId;
+
     /**
      * @var string
      */
     public $scheduler;
+
     /**
      * @var string
      */
     public $serverGroupName;
+
     /**
      * @var string
      */
     public $serverGroupType;
+
     /**
      * @var tag[]
      */
     public $tag;
+
     /**
      * @var string
      */
     public $vpcId;
     protected $_name = [
-        'addressIPVersion'        => 'AddressIPVersion',
-        'anyPortEnabled'          => 'AnyPortEnabled',
-        'clientToken'             => 'ClientToken',
-        'connectionDrainEnabled'  => 'ConnectionDrainEnabled',
-        'connectionDrainTimeout'  => 'ConnectionDrainTimeout',
-        'dryRun'                  => 'DryRun',
-        'healthCheckConfig'       => 'HealthCheckConfig',
+        'addressIPVersion' => 'AddressIPVersion',
+        'anyPortEnabled' => 'AnyPortEnabled',
+        'clientToken' => 'ClientToken',
+        'connectionDrainEnabled' => 'ConnectionDrainEnabled',
+        'connectionDrainTimeout' => 'ConnectionDrainTimeout',
+        'dryRun' => 'DryRun',
+        'healthCheckConfig' => 'HealthCheckConfig',
         'preserveClientIpEnabled' => 'PreserveClientIpEnabled',
-        'protocol'                => 'Protocol',
-        'regionId'                => 'RegionId',
-        'resourceGroupId'         => 'ResourceGroupId',
-        'scheduler'               => 'Scheduler',
-        'serverGroupName'         => 'ServerGroupName',
-        'serverGroupType'         => 'ServerGroupType',
-        'tag'                     => 'Tag',
-        'vpcId'                   => 'VpcId',
+        'protocol' => 'Protocol',
+        'regionId' => 'RegionId',
+        'resourceGroupId' => 'ResourceGroupId',
+        'scheduler' => 'Scheduler',
+        'serverGroupName' => 'ServerGroupName',
+        'serverGroupType' => 'ServerGroupType',
+        'tag' => 'Tag',
+        'vpcId' => 'VpcId',
     ];
 
     public function validate()
@@ -166,7 +181,7 @@ class CreateServerGroupRequest extends Model
         if (null !== $this->tag) {
             if (\is_array($this->tag)) {
                 $res['Tag'] = [];
-                $n1         = 0;
+                $n1 = 0;
                 foreach ($this->tag as $item1) {
                     $res['Tag'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -247,7 +262,7 @@ class CreateServerGroupRequest extends Model
         if (isset($map['Tag'])) {
             if (!empty($map['Tag'])) {
                 $model->tag = [];
-                $n1         = 0;
+                $n1 = 0;
                 foreach ($map['Tag'] as $item1) {
                     $model->tag[$n1++] = tag::fromMap($item1);
                 }

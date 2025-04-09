@@ -13,53 +13,62 @@ class UpdateServerGroupAttributeRequest extends Model
      * @var string
      */
     public $clientToken;
+
     /**
      * @var bool
      */
     public $connectionDrainEnabled;
+
     /**
      * @var int
      */
     public $connectionDrainTimeout;
+
     /**
      * @var bool
      */
     public $dryRun;
+
     /**
      * @var healthCheckConfig
      */
     public $healthCheckConfig;
+
     /**
      * @var bool
      */
     public $preserveClientIpEnabled;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $scheduler;
+
     /**
      * @var string
      */
     public $serverGroupId;
+
     /**
      * @var string
      */
     public $serverGroupName;
     protected $_name = [
-        'clientToken'             => 'ClientToken',
-        'connectionDrainEnabled'  => 'ConnectionDrainEnabled',
-        'connectionDrainTimeout'  => 'ConnectionDrainTimeout',
-        'dryRun'                  => 'DryRun',
-        'healthCheckConfig'       => 'HealthCheckConfig',
+        'clientToken' => 'ClientToken',
+        'connectionDrainEnabled' => 'ConnectionDrainEnabled',
+        'connectionDrainTimeout' => 'ConnectionDrainTimeout',
+        'dryRun' => 'DryRun',
+        'healthCheckConfig' => 'HealthCheckConfig',
         'preserveClientIpEnabled' => 'PreserveClientIpEnabled',
-        'regionId'                => 'RegionId',
-        'scheduler'               => 'Scheduler',
-        'serverGroupId'           => 'ServerGroupId',
-        'serverGroupName'         => 'ServerGroupName',
+        'regionId' => 'RegionId',
+        'scheduler' => 'Scheduler',
+        'serverGroupId' => 'ServerGroupId',
+        'serverGroupName' => 'ServerGroupName',
     ];
 
     public function validate()

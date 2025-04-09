@@ -12,22 +12,25 @@ class DeleteServerGroupRequest extends Model
      * @var string
      */
     public $clientToken;
+
     /**
      * @var bool
      */
     public $dryRun;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $serverGroupId;
     protected $_name = [
-        'clientToken'   => 'ClientToken',
-        'dryRun'        => 'DryRun',
-        'regionId'      => 'RegionId',
+        'clientToken' => 'ClientToken',
+        'dryRun' => 'DryRun',
+        'regionId' => 'RegionId',
         'serverGroupId' => 'ServerGroupId',
     ];
 

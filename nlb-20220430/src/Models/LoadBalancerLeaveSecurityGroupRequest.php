@@ -12,27 +12,31 @@ class LoadBalancerLeaveSecurityGroupRequest extends Model
      * @var string
      */
     public $clientToken;
+
     /**
      * @var bool
      */
     public $dryRun;
+
     /**
      * @var string
      */
     public $loadBalancerId;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string[]
      */
     public $securityGroupIds;
     protected $_name = [
-        'clientToken'      => 'ClientToken',
-        'dryRun'           => 'DryRun',
-        'loadBalancerId'   => 'LoadBalancerId',
-        'regionId'         => 'RegionId',
+        'clientToken' => 'ClientToken',
+        'dryRun' => 'DryRun',
+        'loadBalancerId' => 'LoadBalancerId',
+        'regionId' => 'RegionId',
         'securityGroupIds' => 'SecurityGroupIds',
     ];
 
@@ -66,7 +70,7 @@ class LoadBalancerLeaveSecurityGroupRequest extends Model
         if (null !== $this->securityGroupIds) {
             if (\is_array($this->securityGroupIds)) {
                 $res['SecurityGroupIds'] = [];
-                $n1                      = 0;
+                $n1 = 0;
                 foreach ($this->securityGroupIds as $item1) {
                     $res['SecurityGroupIds'][$n1++] = $item1;
                 }
@@ -103,7 +107,7 @@ class LoadBalancerLeaveSecurityGroupRequest extends Model
         if (isset($map['SecurityGroupIds'])) {
             if (!empty($map['SecurityGroupIds'])) {
                 $model->securityGroupIds = [];
-                $n1                      = 0;
+                $n1 = 0;
                 foreach ($map['SecurityGroupIds'] as $item1) {
                     $model->securityGroupIds[$n1++] = $item1;
                 }

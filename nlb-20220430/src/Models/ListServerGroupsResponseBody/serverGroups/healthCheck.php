@@ -12,68 +12,86 @@ class healthCheck extends Model
      * @var int
      */
     public $healthCheckConnectPort;
+
     /**
      * @var int
      */
     public $healthCheckConnectTimeout;
+
     /**
      * @var string
      */
     public $healthCheckDomain;
+
     /**
      * @var bool
      */
     public $healthCheckEnabled;
+
     /**
      * @var string
      */
     public $healthCheckExp;
+
     /**
      * @var string[]
      */
     public $healthCheckHttpCode;
+
+    /**
+     * @var string
+     */
+    public $healthCheckHttpVersion;
+
     /**
      * @var int
      */
     public $healthCheckInterval;
+
     /**
      * @var string
      */
     public $healthCheckReq;
+
     /**
      * @var string
      */
     public $healthCheckType;
+
     /**
      * @var string
      */
     public $healthCheckUrl;
+
     /**
      * @var int
      */
     public $healthyThreshold;
+
     /**
      * @var string
      */
     public $httpCheckMethod;
+
     /**
      * @var int
      */
     public $unhealthyThreshold;
     protected $_name = [
-        'healthCheckConnectPort'    => 'HealthCheckConnectPort',
+        'healthCheckConnectPort' => 'HealthCheckConnectPort',
         'healthCheckConnectTimeout' => 'HealthCheckConnectTimeout',
-        'healthCheckDomain'         => 'HealthCheckDomain',
-        'healthCheckEnabled'        => 'HealthCheckEnabled',
-        'healthCheckExp'            => 'HealthCheckExp',
-        'healthCheckHttpCode'       => 'HealthCheckHttpCode',
-        'healthCheckInterval'       => 'HealthCheckInterval',
-        'healthCheckReq'            => 'HealthCheckReq',
-        'healthCheckType'           => 'HealthCheckType',
-        'healthCheckUrl'            => 'HealthCheckUrl',
-        'healthyThreshold'          => 'HealthyThreshold',
-        'httpCheckMethod'           => 'HttpCheckMethod',
-        'unhealthyThreshold'        => 'UnhealthyThreshold',
+        'healthCheckDomain' => 'HealthCheckDomain',
+        'healthCheckEnabled' => 'HealthCheckEnabled',
+        'healthCheckExp' => 'HealthCheckExp',
+        'healthCheckHttpCode' => 'HealthCheckHttpCode',
+        'healthCheckHttpVersion' => 'HealthCheckHttpVersion',
+        'healthCheckInterval' => 'HealthCheckInterval',
+        'healthCheckReq' => 'HealthCheckReq',
+        'healthCheckType' => 'HealthCheckType',
+        'healthCheckUrl' => 'HealthCheckUrl',
+        'healthyThreshold' => 'HealthyThreshold',
+        'httpCheckMethod' => 'HttpCheckMethod',
+        'unhealthyThreshold' => 'UnhealthyThreshold',
     ];
 
     public function validate()
@@ -110,11 +128,15 @@ class healthCheck extends Model
         if (null !== $this->healthCheckHttpCode) {
             if (\is_array($this->healthCheckHttpCode)) {
                 $res['HealthCheckHttpCode'] = [];
-                $n1                         = 0;
+                $n1 = 0;
                 foreach ($this->healthCheckHttpCode as $item1) {
                     $res['HealthCheckHttpCode'][$n1++] = $item1;
                 }
             }
+        }
+
+        if (null !== $this->healthCheckHttpVersion) {
+            $res['HealthCheckHttpVersion'] = $this->healthCheckHttpVersion;
         }
 
         if (null !== $this->healthCheckInterval) {
@@ -179,11 +201,15 @@ class healthCheck extends Model
         if (isset($map['HealthCheckHttpCode'])) {
             if (!empty($map['HealthCheckHttpCode'])) {
                 $model->healthCheckHttpCode = [];
-                $n1                         = 0;
+                $n1 = 0;
                 foreach ($map['HealthCheckHttpCode'] as $item1) {
                     $model->healthCheckHttpCode[$n1++] = $item1;
                 }
             }
+        }
+
+        if (isset($map['HealthCheckHttpVersion'])) {
+            $model->healthCheckHttpVersion = $map['HealthCheckHttpVersion'];
         }
 
         if (isset($map['HealthCheckInterval'])) {

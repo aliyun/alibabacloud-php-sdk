@@ -12,17 +12,19 @@ class UpdateSecurityPolicyAttributeResponseBody extends Model
      * @var string
      */
     public $jobId;
+
     /**
      * @var string
      */
     public $requestId;
+
     /**
      * @var string
      */
     public $securityPolicyId;
     protected $_name = [
-        'jobId'            => 'JobId',
-        'requestId'        => 'RequestId',
+        'jobId' => 'JobId',
+        'requestId' => 'RequestId',
         'securityPolicyId' => 'SecurityPolicyId',
     ];
 

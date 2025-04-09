@@ -12,43 +12,50 @@ class tagResources extends Model
      * @var int
      */
     public $aliUid;
+
     /**
      * @var string
      */
     public $category;
+
     /**
      * @var string
      */
     public $regionNo;
+
     /**
      * @var string
      */
     public $resourceId;
+
     /**
      * @var string
      */
     public $resourceType;
+
     /**
      * @var string
      */
     public $scope;
+
     /**
      * @var string
      */
     public $tagKey;
+
     /**
      * @var string
      */
     public $tagValue;
     protected $_name = [
-        'aliUid'       => 'AliUid',
-        'category'     => 'Category',
-        'regionNo'     => 'RegionNo',
-        'resourceId'   => 'ResourceId',
+        'aliUid' => 'AliUid',
+        'category' => 'Category',
+        'regionNo' => 'RegionNo',
+        'resourceId' => 'ResourceId',
         'resourceType' => 'ResourceType',
-        'scope'        => 'Scope',
-        'tagKey'       => 'TagKey',
-        'tagValue'     => 'TagValue',
+        'scope' => 'Scope',
+        'tagKey' => 'TagKey',
+        'tagValue' => 'TagValue',
     ];
 
     public function validate()

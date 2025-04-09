@@ -12,43 +12,50 @@ class UpdateLoadBalancerProtectionRequest extends Model
      * @var string
      */
     public $clientToken;
+
     /**
      * @var bool
      */
     public $deletionProtectionEnabled;
+
     /**
      * @var string
      */
     public $deletionProtectionReason;
+
     /**
      * @var bool
      */
     public $dryRun;
+
     /**
      * @var string
      */
     public $loadBalancerId;
+
     /**
      * @var string
      */
     public $modificationProtectionReason;
+
     /**
      * @var string
      */
     public $modificationProtectionStatus;
+
     /**
      * @var string
      */
     public $regionId;
     protected $_name = [
-        'clientToken'                  => 'ClientToken',
-        'deletionProtectionEnabled'    => 'DeletionProtectionEnabled',
-        'deletionProtectionReason'     => 'DeletionProtectionReason',
-        'dryRun'                       => 'DryRun',
-        'loadBalancerId'               => 'LoadBalancerId',
+        'clientToken' => 'ClientToken',
+        'deletionProtectionEnabled' => 'DeletionProtectionEnabled',
+        'deletionProtectionReason' => 'DeletionProtectionReason',
+        'dryRun' => 'DryRun',
+        'loadBalancerId' => 'LoadBalancerId',
         'modificationProtectionReason' => 'ModificationProtectionReason',
         'modificationProtectionStatus' => 'ModificationProtectionStatus',
-        'regionId'                     => 'RegionId',
+        'regionId' => 'RegionId',
     ];
 
     public function validate()

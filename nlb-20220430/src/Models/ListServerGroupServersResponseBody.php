@@ -13,27 +13,31 @@ class ListServerGroupServersResponseBody extends Model
      * @var int
      */
     public $maxResults;
+
     /**
      * @var string
      */
     public $nextToken;
+
     /**
      * @var string
      */
     public $requestId;
+
     /**
      * @var servers[]
      */
     public $servers;
+
     /**
      * @var int
      */
     public $totalCount;
     protected $_name = [
         'maxResults' => 'MaxResults',
-        'nextToken'  => 'NextToken',
-        'requestId'  => 'RequestId',
-        'servers'    => 'Servers',
+        'nextToken' => 'NextToken',
+        'requestId' => 'RequestId',
+        'servers' => 'Servers',
         'totalCount' => 'TotalCount',
     ];
 
@@ -63,7 +67,7 @@ class ListServerGroupServersResponseBody extends Model
         if (null !== $this->servers) {
             if (\is_array($this->servers)) {
                 $res['Servers'] = [];
-                $n1             = 0;
+                $n1 = 0;
                 foreach ($this->servers as $item1) {
                     $res['Servers'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -100,7 +104,7 @@ class ListServerGroupServersResponseBody extends Model
         if (isset($map['Servers'])) {
             if (!empty($map['Servers'])) {
                 $model->servers = [];
-                $n1             = 0;
+                $n1 = 0;
                 foreach ($map['Servers'] as $item1) {
                     $model->servers[$n1++] = servers::fromMap($item1);
                 }

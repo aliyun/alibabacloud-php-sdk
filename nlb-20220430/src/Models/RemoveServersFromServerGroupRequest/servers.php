@@ -12,22 +12,25 @@ class servers extends Model
      * @var int
      */
     public $port;
+
     /**
      * @var string
      */
     public $serverId;
+
     /**
      * @var string
      */
     public $serverIp;
+
     /**
      * @var string
      */
     public $serverType;
     protected $_name = [
-        'port'       => 'Port',
-        'serverId'   => 'ServerId',
-        'serverIp'   => 'ServerIp',
+        'port' => 'Port',
+        'serverId' => 'ServerId',
+        'serverIp' => 'ServerIp',
         'serverType' => 'ServerType',
     ];
 

@@ -12,33 +12,38 @@ class servers extends Model
      * @var string
      */
     public $description;
+
     /**
      * @var int
      */
     public $port;
+
     /**
      * @var string
      */
     public $serverId;
+
     /**
      * @var string
      */
     public $serverIp;
+
     /**
      * @var string
      */
     public $serverType;
+
     /**
      * @var int
      */
     public $weight;
     protected $_name = [
         'description' => 'Description',
-        'port'        => 'Port',
-        'serverId'    => 'ServerId',
-        'serverIp'    => 'ServerIp',
-        'serverType'  => 'ServerType',
-        'weight'      => 'Weight',
+        'port' => 'Port',
+        'serverId' => 'ServerId',
+        'serverIp' => 'ServerIp',
+        'serverType' => 'ServerType',
+        'weight' => 'Weight',
     ];
 
     public function validate()

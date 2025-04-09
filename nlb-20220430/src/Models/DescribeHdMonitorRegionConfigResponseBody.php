@@ -12,23 +12,26 @@ class DescribeHdMonitorRegionConfigResponseBody extends Model
      * @var string
      */
     public $logProject;
+
     /**
      * @var string
      */
     public $metricStore;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $requestId;
     protected $_name = [
-        'logProject'  => 'LogProject',
+        'logProject' => 'LogProject',
         'metricStore' => 'MetricStore',
-        'regionId'    => 'RegionId',
-        'requestId'   => 'RequestId',
+        'regionId' => 'RegionId',
+        'requestId' => 'RequestId',
     ];
 
     public function validate()

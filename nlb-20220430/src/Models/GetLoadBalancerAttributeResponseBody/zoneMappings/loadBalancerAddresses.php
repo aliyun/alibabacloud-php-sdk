@@ -12,48 +12,56 @@ class loadBalancerAddresses extends Model
      * @var string
      */
     public $allocationId;
+
     /**
      * @var string
      */
     public $eniId;
+
     /**
      * @var string[]
      */
     public $ipv4LocalAddresses;
+
     /**
      * @var string
      */
     public $ipv6Address;
+
     /**
      * @var string[]
      */
     public $ipv6LocalAddresses;
+
     /**
      * @var string
      */
     public $privateIPv4Address;
+
     /**
      * @var string
      */
     public $privateIPv4HcStatus;
+
     /**
      * @var string
      */
     public $privateIPv6HcStatus;
+
     /**
      * @var string
      */
     public $publicIPv4Address;
     protected $_name = [
-        'allocationId'        => 'AllocationId',
-        'eniId'               => 'EniId',
-        'ipv4LocalAddresses'  => 'Ipv4LocalAddresses',
-        'ipv6Address'         => 'Ipv6Address',
-        'ipv6LocalAddresses'  => 'Ipv6LocalAddresses',
-        'privateIPv4Address'  => 'PrivateIPv4Address',
+        'allocationId' => 'AllocationId',
+        'eniId' => 'EniId',
+        'ipv4LocalAddresses' => 'Ipv4LocalAddresses',
+        'ipv6Address' => 'Ipv6Address',
+        'ipv6LocalAddresses' => 'Ipv6LocalAddresses',
+        'privateIPv4Address' => 'PrivateIPv4Address',
         'privateIPv4HcStatus' => 'PrivateIPv4HcStatus',
         'privateIPv6HcStatus' => 'PrivateIPv6HcStatus',
-        'publicIPv4Address'   => 'PublicIPv4Address',
+        'publicIPv4Address' => 'PublicIPv4Address',
     ];
 
     public function validate()
@@ -81,7 +89,7 @@ class loadBalancerAddresses extends Model
         if (null !== $this->ipv4LocalAddresses) {
             if (\is_array($this->ipv4LocalAddresses)) {
                 $res['Ipv4LocalAddresses'] = [];
-                $n1                        = 0;
+                $n1 = 0;
                 foreach ($this->ipv4LocalAddresses as $item1) {
                     $res['Ipv4LocalAddresses'][$n1++] = $item1;
                 }
@@ -95,7 +103,7 @@ class loadBalancerAddresses extends Model
         if (null !== $this->ipv6LocalAddresses) {
             if (\is_array($this->ipv6LocalAddresses)) {
                 $res['Ipv6LocalAddresses'] = [];
-                $n1                        = 0;
+                $n1 = 0;
                 foreach ($this->ipv6LocalAddresses as $item1) {
                     $res['Ipv6LocalAddresses'][$n1++] = $item1;
                 }
@@ -140,7 +148,7 @@ class loadBalancerAddresses extends Model
         if (isset($map['Ipv4LocalAddresses'])) {
             if (!empty($map['Ipv4LocalAddresses'])) {
                 $model->ipv4LocalAddresses = [];
-                $n1                        = 0;
+                $n1 = 0;
                 foreach ($map['Ipv4LocalAddresses'] as $item1) {
                     $model->ipv4LocalAddresses[$n1++] = $item1;
                 }
@@ -154,7 +162,7 @@ class loadBalancerAddresses extends Model
         if (isset($map['Ipv6LocalAddresses'])) {
             if (!empty($map['Ipv6LocalAddresses'])) {
                 $model->ipv6LocalAddresses = [];
-                $n1                        = 0;
+                $n1 = 0;
                 foreach ($map['Ipv6LocalAddresses'] as $item1) {
                     $model->ipv6LocalAddresses[$n1++] = $item1;
                 }

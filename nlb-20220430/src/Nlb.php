@@ -149,6 +149,7 @@ class Nlb extends OpenApiClient
      *
      * @param request - AddServersToServerGroupRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns AddServersToServerGroupResponse
      *
      * @param AddServersToServerGroupRequest $request
@@ -187,15 +188,15 @@ class Nlb extends OpenApiClient
             'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'AddServersToServerGroup',
-            'version'     => '2022-04-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'AddServersToServerGroup',
+            'version' => '2022-04-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return AddServersToServerGroupResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -208,6 +209,7 @@ class Nlb extends OpenApiClient
      * Adds backend servers to a specified server group.
      *
      * @param request - AddServersToServerGroupRequest
+     *
      * @returns AddServersToServerGroupResponse
      *
      * @param AddServersToServerGroupRequest $request
@@ -231,6 +233,7 @@ class Nlb extends OpenApiClient
      *
      * @param request - AssociateAdditionalCertificatesWithListenerRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns AssociateAdditionalCertificatesWithListenerResponse
      *
      * @param AssociateAdditionalCertificatesWithListenerRequest $request
@@ -266,15 +269,15 @@ class Nlb extends OpenApiClient
             'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'AssociateAdditionalCertificatesWithListener',
-            'version'     => '2022-04-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'AssociateAdditionalCertificatesWithListener',
+            'version' => '2022-04-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return AssociateAdditionalCertificatesWithListenerResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -292,6 +295,7 @@ class Nlb extends OpenApiClient
      * *   If the listener is in the **Associated** state, the additional certificates are associated.
      *
      * @param request - AssociateAdditionalCertificatesWithListenerRequest
+     *
      * @returns AssociateAdditionalCertificatesWithListenerResponse
      *
      * @param AssociateAdditionalCertificatesWithListenerRequest $request
@@ -310,6 +314,7 @@ class Nlb extends OpenApiClient
      *
      * @param request - AttachCommonBandwidthPackageToLoadBalancerRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns AttachCommonBandwidthPackageToLoadBalancerResponse
      *
      * @param AttachCommonBandwidthPackageToLoadBalancerRequest $request
@@ -345,15 +350,15 @@ class Nlb extends OpenApiClient
             'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'AttachCommonBandwidthPackageToLoadBalancer',
-            'version'     => '2022-04-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'AttachCommonBandwidthPackageToLoadBalancer',
+            'version' => '2022-04-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return AttachCommonBandwidthPackageToLoadBalancerResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -366,6 +371,7 @@ class Nlb extends OpenApiClient
      * Associates an Internet Shared Bandwidth instance with a Network Load Balancer (NLB) instance.
      *
      * @param request - AttachCommonBandwidthPackageToLoadBalancerRequest
+     *
      * @returns AttachCommonBandwidthPackageToLoadBalancerResponse
      *
      * @param AttachCommonBandwidthPackageToLoadBalancerRequest $request
@@ -387,6 +393,7 @@ class Nlb extends OpenApiClient
      *
      * @param request - CancelShiftLoadBalancerZonesRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns CancelShiftLoadBalancerZonesResponse
      *
      * @param CancelShiftLoadBalancerZonesRequest $request
@@ -422,15 +429,15 @@ class Nlb extends OpenApiClient
             'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'CancelShiftLoadBalancerZones',
-            'version'     => '2022-04-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CancelShiftLoadBalancerZones',
+            'version' => '2022-04-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return CancelShiftLoadBalancerZonesResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -446,6 +453,7 @@ class Nlb extends OpenApiClient
      * Before you call this operation, the zone of the Network Load Balancer (NLB) instance is removed from the DNS record by using the console or calling the [StartShiftLoadBalancerZones](https://help.aliyun.com/document_detail/2411999.html) API operation.
      *
      * @param request - CancelShiftLoadBalancerZonesRequest
+     *
      * @returns CancelShiftLoadBalancerZonesResponse
      *
      * @param CancelShiftLoadBalancerZonesRequest $request
@@ -464,6 +472,7 @@ class Nlb extends OpenApiClient
      *
      * @param tmpReq - CreateListenerRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns CreateListenerResponse
      *
      * @param CreateListenerRequest $tmpReq
@@ -577,15 +586,15 @@ class Nlb extends OpenApiClient
             'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'CreateListener',
-            'version'     => '2022-04-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CreateListener',
+            'version' => '2022-04-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return CreateListenerResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -598,6 +607,7 @@ class Nlb extends OpenApiClient
      * Creates a TCP or UDP listener, or a listener that uses SSL over TCP for a Network Load Balancer (NLB) instance.
      *
      * @param request - CreateListenerRequest
+     *
      * @returns CreateListenerResponse
      *
      * @param CreateListenerRequest $request
@@ -622,6 +632,7 @@ class Nlb extends OpenApiClient
      *
      * @param request - CreateLoadBalancerRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns CreateLoadBalancerResponse
      *
      * @param CreateLoadBalancerRequest $request
@@ -700,15 +711,15 @@ class Nlb extends OpenApiClient
             'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'CreateLoadBalancer',
-            'version'     => '2022-04-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CreateLoadBalancer',
+            'version' => '2022-04-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return CreateLoadBalancerResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -727,6 +738,7 @@ class Nlb extends OpenApiClient
      *     *   If an NLB instance is in the **Active** state, the NLB instance is created.
      *
      * @param request - CreateLoadBalancerRequest
+     *
      * @returns CreateLoadBalancerResponse
      *
      * @param CreateLoadBalancerRequest $request
@@ -745,6 +757,7 @@ class Nlb extends OpenApiClient
      *
      * @param request - CreateSecurityPolicyRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns CreateSecurityPolicyResponse
      *
      * @param CreateSecurityPolicyRequest $request
@@ -792,15 +805,15 @@ class Nlb extends OpenApiClient
             'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'CreateSecurityPolicy',
-            'version'     => '2022-04-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CreateSecurityPolicy',
+            'version' => '2022-04-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return CreateSecurityPolicyResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -813,6 +826,7 @@ class Nlb extends OpenApiClient
      * Creates a custom security policy for a TCP/SSL listener.
      *
      * @param request - CreateSecurityPolicyRequest
+     *
      * @returns CreateSecurityPolicyResponse
      *
      * @param CreateSecurityPolicyRequest $request
@@ -830,14 +844,13 @@ class Nlb extends OpenApiClient
      * Creates a server group in a region.
      *
      * @remarks
-     *   **protocol** specifies the protocol used to forward requests to the backend servers.
-     * *   NLB instances support only backend server groups that use TCP, UDP, or SSL over TCP.
-     * *   **CreateServerGroup** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [GetJobStatus](https://help.aliyun.com/document_detail/445904.html) operation to query the creation status of the task.
-     *     *   If the task is in the **Succeeded** status, the server group is created.
-     *     *   If the task is in the **Processing** status, the server group is being created.
+     * *CreateServerGroup** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [GetJobStatus](https://help.aliyun.com/document_detail/445904.html) operation to query the creation status of the task.
+     *    - If the task is in the **Succeeded** status, the server group is created.
+     * -    If the task is in the **Processing** status, the server group is being created.
      *
      * @param request - CreateServerGroupRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns CreateServerGroupResponse
      *
      * @param CreateServerGroupRequest $request
@@ -920,15 +933,15 @@ class Nlb extends OpenApiClient
             'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'CreateServerGroup',
-            'version'     => '2022-04-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CreateServerGroup',
+            'version' => '2022-04-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return CreateServerGroupResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -941,13 +954,12 @@ class Nlb extends OpenApiClient
      * Creates a server group in a region.
      *
      * @remarks
-     *   **protocol** specifies the protocol used to forward requests to the backend servers.
-     * *   NLB instances support only backend server groups that use TCP, UDP, or SSL over TCP.
-     * *   **CreateServerGroup** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [GetJobStatus](https://help.aliyun.com/document_detail/445904.html) operation to query the creation status of the task.
-     *     *   If the task is in the **Succeeded** status, the server group is created.
-     *     *   If the task is in the **Processing** status, the server group is being created.
+     * *CreateServerGroup** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [GetJobStatus](https://help.aliyun.com/document_detail/445904.html) operation to query the creation status of the task.
+     *    - If the task is in the **Succeeded** status, the server group is created.
+     * -    If the task is in the **Processing** status, the server group is being created.
      *
      * @param request - CreateServerGroupRequest
+     *
      * @returns CreateServerGroupResponse
      *
      * @param CreateServerGroupRequest $request
@@ -966,6 +978,7 @@ class Nlb extends OpenApiClient
      *
      * @param request - DeleteListenerRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DeleteListenerResponse
      *
      * @param DeleteListenerRequest $request
@@ -997,15 +1010,15 @@ class Nlb extends OpenApiClient
             'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'DeleteListener',
-            'version'     => '2022-04-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DeleteListener',
+            'version' => '2022-04-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DeleteListenerResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -1018,6 +1031,7 @@ class Nlb extends OpenApiClient
      * Deletes a Network Load Balancer (NLB) listener.
      *
      * @param request - DeleteListenerRequest
+     *
      * @returns DeleteListenerResponse
      *
      * @param DeleteListenerRequest $request
@@ -1036,6 +1050,7 @@ class Nlb extends OpenApiClient
      *
      * @param request - DeleteLoadBalancerRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DeleteLoadBalancerResponse
      *
      * @param DeleteLoadBalancerRequest $request
@@ -1067,15 +1082,15 @@ class Nlb extends OpenApiClient
             'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'DeleteLoadBalancer',
-            'version'     => '2022-04-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DeleteLoadBalancer',
+            'version' => '2022-04-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DeleteLoadBalancerResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -1088,6 +1103,7 @@ class Nlb extends OpenApiClient
      * Deletes a Network Load Balancer (NLB) instance.
      *
      * @param request - DeleteLoadBalancerRequest
+     *
      * @returns DeleteLoadBalancerResponse
      *
      * @param DeleteLoadBalancerRequest $request
@@ -1106,6 +1122,7 @@ class Nlb extends OpenApiClient
      *
      * @param request - DeleteSecurityPolicyRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DeleteSecurityPolicyResponse
      *
      * @param DeleteSecurityPolicyRequest $request
@@ -1137,15 +1154,15 @@ class Nlb extends OpenApiClient
             'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'DeleteSecurityPolicy',
-            'version'     => '2022-04-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DeleteSecurityPolicy',
+            'version' => '2022-04-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DeleteSecurityPolicyResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -1158,6 +1175,7 @@ class Nlb extends OpenApiClient
      * Deletes a custom TLS security policy from a Network Load Balancer (NLB) instance.
      *
      * @param request - DeleteSecurityPolicyRequest
+     *
      * @returns DeleteSecurityPolicyResponse
      *
      * @param DeleteSecurityPolicyRequest $request
@@ -1179,6 +1197,7 @@ class Nlb extends OpenApiClient
      *
      * @param request - DeleteServerGroupRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DeleteServerGroupResponse
      *
      * @param DeleteServerGroupRequest $request
@@ -1210,15 +1229,15 @@ class Nlb extends OpenApiClient
             'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'DeleteServerGroup',
-            'version'     => '2022-04-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DeleteServerGroup',
+            'version' => '2022-04-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DeleteServerGroupResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -1234,6 +1253,7 @@ class Nlb extends OpenApiClient
      * You can delete server groups that are not associated with listeners.
      *
      * @param request - DeleteServerGroupRequest
+     *
      * @returns DeleteServerGroupResponse
      *
      * @param DeleteServerGroupRequest $request
@@ -1248,10 +1268,11 @@ class Nlb extends OpenApiClient
     }
 
     /**
-     * 查询秒级监控存储配置.
+     * Queries the storage configurations of fine-grained monitoring.
      *
      * @param request - DescribeHdMonitorRegionConfigRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribeHdMonitorRegionConfigResponse
      *
      * @param DescribeHdMonitorRegionConfigRequest $request
@@ -1271,15 +1292,15 @@ class Nlb extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeHdMonitorRegionConfig',
-            'version'     => '2022-04-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeHdMonitorRegionConfig',
+            'version' => '2022-04-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DescribeHdMonitorRegionConfigResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -1289,9 +1310,10 @@ class Nlb extends OpenApiClient
     }
 
     /**
-     * 查询秒级监控存储配置.
+     * Queries the storage configurations of fine-grained monitoring.
      *
      * @param request - DescribeHdMonitorRegionConfigRequest
+     *
      * @returns DescribeHdMonitorRegionConfigResponse
      *
      * @param DescribeHdMonitorRegionConfigRequest $request
@@ -1310,6 +1332,7 @@ class Nlb extends OpenApiClient
      *
      * @param request - DescribeRegionsRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribeRegionsResponse
      *
      * @param DescribeRegionsRequest $request
@@ -1336,18 +1359,18 @@ class Nlb extends OpenApiClient
 
         $req = new OpenApiRequest([
             'query' => Utils::query($query),
-            'body'  => Utils::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'DescribeRegions',
-            'version'     => '2022-04-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeRegions',
+            'version' => '2022-04-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DescribeRegionsResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -1360,6 +1383,7 @@ class Nlb extends OpenApiClient
      * Queries regions that support Network Load Balancer (NLB) instances.
      *
      * @param request - DescribeRegionsRequest
+     *
      * @returns DescribeRegionsResponse
      *
      * @param DescribeRegionsRequest $request
@@ -1378,6 +1402,7 @@ class Nlb extends OpenApiClient
      *
      * @param request - DescribeZonesRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribeZonesResponse
      *
      * @param DescribeZonesRequest $request
@@ -1409,15 +1434,15 @@ class Nlb extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeZones',
-            'version'     => '2022-04-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeZones',
+            'version' => '2022-04-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DescribeZonesResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -1430,6 +1455,7 @@ class Nlb extends OpenApiClient
      * Queries the zones of a region in which a Network Load Balancer (NLB) instance is deployed.
      *
      * @param request - DescribeZonesRequest
+     *
      * @returns DescribeZonesResponse
      *
      * @param DescribeZonesRequest $request
@@ -1448,6 +1474,7 @@ class Nlb extends OpenApiClient
      *
      * @param request - DetachCommonBandwidthPackageFromLoadBalancerRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DetachCommonBandwidthPackageFromLoadBalancerResponse
      *
      * @param DetachCommonBandwidthPackageFromLoadBalancerRequest $request
@@ -1483,15 +1510,15 @@ class Nlb extends OpenApiClient
             'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'DetachCommonBandwidthPackageFromLoadBalancer',
-            'version'     => '2022-04-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DetachCommonBandwidthPackageFromLoadBalancer',
+            'version' => '2022-04-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DetachCommonBandwidthPackageFromLoadBalancerResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -1504,6 +1531,7 @@ class Nlb extends OpenApiClient
      * Disassociates a Network Load Balancer (NLB) instance from an Internet Shared Bandwidth instance.
      *
      * @param request - DetachCommonBandwidthPackageFromLoadBalancerRequest
+     *
      * @returns DetachCommonBandwidthPackageFromLoadBalancerResponse
      *
      * @param DetachCommonBandwidthPackageFromLoadBalancerRequest $request
@@ -1522,6 +1550,7 @@ class Nlb extends OpenApiClient
      *
      * @param request - DisableLoadBalancerIpv6InternetRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DisableLoadBalancerIpv6InternetResponse
      *
      * @param DisableLoadBalancerIpv6InternetRequest $request
@@ -1553,15 +1582,15 @@ class Nlb extends OpenApiClient
             'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'DisableLoadBalancerIpv6Internet',
-            'version'     => '2022-04-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DisableLoadBalancerIpv6Internet',
+            'version' => '2022-04-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DisableLoadBalancerIpv6InternetResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -1574,6 +1603,7 @@ class Nlb extends OpenApiClient
      * Changes the public IPv6 address of a dual-stack Network Load Balancer (NLB) instance to a private IPv6 address.
      *
      * @param request - DisableLoadBalancerIpv6InternetRequest
+     *
      * @returns DisableLoadBalancerIpv6InternetResponse
      *
      * @param DisableLoadBalancerIpv6InternetRequest $request
@@ -1597,6 +1627,7 @@ class Nlb extends OpenApiClient
      *
      * @param request - DisassociateAdditionalCertificatesWithListenerRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DisassociateAdditionalCertificatesWithListenerResponse
      *
      * @param DisassociateAdditionalCertificatesWithListenerRequest $request
@@ -1632,15 +1663,15 @@ class Nlb extends OpenApiClient
             'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'DisassociateAdditionalCertificatesWithListener',
-            'version'     => '2022-04-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DisassociateAdditionalCertificatesWithListener',
+            'version' => '2022-04-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DisassociateAdditionalCertificatesWithListenerResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -1658,6 +1689,7 @@ class Nlb extends OpenApiClient
      * *   If an additional certificate is in the **Dissociated** state, the additional certificate is disassociated.
      *
      * @param request - DisassociateAdditionalCertificatesWithListenerRequest
+     *
      * @returns DisassociateAdditionalCertificatesWithListenerResponse
      *
      * @param DisassociateAdditionalCertificatesWithListenerRequest $request
@@ -1672,10 +1704,11 @@ class Nlb extends OpenApiClient
     }
 
     /**
-     * Changes the network type of the IPv6 address of a dual-stack NLB instance from private to the public.
+     * Changes the network type of the IPv6 address of a dual-stack Network Load Balancer (NLB) instance from internal-facing to Internet-facing.
      *
      * @param request - EnableLoadBalancerIpv6InternetRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns EnableLoadBalancerIpv6InternetResponse
      *
      * @param EnableLoadBalancerIpv6InternetRequest $request
@@ -1707,15 +1740,15 @@ class Nlb extends OpenApiClient
             'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'EnableLoadBalancerIpv6Internet',
-            'version'     => '2022-04-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'EnableLoadBalancerIpv6Internet',
+            'version' => '2022-04-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return EnableLoadBalancerIpv6InternetResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -1725,9 +1758,10 @@ class Nlb extends OpenApiClient
     }
 
     /**
-     * Changes the network type of the IPv6 address of a dual-stack NLB instance from private to the public.
+     * Changes the network type of the IPv6 address of a dual-stack Network Load Balancer (NLB) instance from internal-facing to Internet-facing.
      *
      * @param request - EnableLoadBalancerIpv6InternetRequest
+     *
      * @returns EnableLoadBalancerIpv6InternetResponse
      *
      * @param EnableLoadBalancerIpv6InternetRequest $request
@@ -1746,6 +1780,7 @@ class Nlb extends OpenApiClient
      *
      * @param request - GetJobStatusRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns GetJobStatusResponse
      *
      * @param GetJobStatusRequest $request
@@ -1769,15 +1804,15 @@ class Nlb extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'GetJobStatus',
-            'version'     => '2022-04-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetJobStatus',
+            'version' => '2022-04-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return GetJobStatusResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -1790,6 +1825,7 @@ class Nlb extends OpenApiClient
      * Queries the result of an asynchronous operation performed on a Network Load Balancer (NLB) instance.
      *
      * @param request - GetJobStatusRequest
+     *
      * @returns GetJobStatusResponse
      *
      * @param GetJobStatusRequest $request
@@ -1808,6 +1844,7 @@ class Nlb extends OpenApiClient
      *
      * @param request - GetListenerAttributeRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns GetListenerAttributeResponse
      *
      * @param GetListenerAttributeRequest $request
@@ -1839,15 +1876,15 @@ class Nlb extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'GetListenerAttribute',
-            'version'     => '2022-04-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetListenerAttribute',
+            'version' => '2022-04-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return GetListenerAttributeResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -1860,6 +1897,7 @@ class Nlb extends OpenApiClient
      * Queries the details of a Network Load Balancer (NLB) listener.
      *
      * @param request - GetListenerAttributeRequest
+     *
      * @returns GetListenerAttributeResponse
      *
      * @param GetListenerAttributeRequest $request
@@ -1878,6 +1916,7 @@ class Nlb extends OpenApiClient
      *
      * @param request - GetListenerHealthStatusRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns GetListenerHealthStatusResponse
      *
      * @param GetListenerHealthStatusRequest $request
@@ -1901,15 +1940,15 @@ class Nlb extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'GetListenerHealthStatus',
-            'version'     => '2022-04-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetListenerHealthStatus',
+            'version' => '2022-04-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return GetListenerHealthStatusResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -1922,6 +1961,7 @@ class Nlb extends OpenApiClient
      * Queries the health check status of a Network Load Balancer (NLB) listener.
      *
      * @param request - GetListenerHealthStatusRequest
+     *
      * @returns GetListenerHealthStatusResponse
      *
      * @param GetListenerHealthStatusRequest $request
@@ -1940,6 +1980,7 @@ class Nlb extends OpenApiClient
      *
      * @param request - GetLoadBalancerAttributeRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns GetLoadBalancerAttributeResponse
      *
      * @param GetLoadBalancerAttributeRequest $request
@@ -1971,15 +2012,15 @@ class Nlb extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'GetLoadBalancerAttribute',
-            'version'     => '2022-04-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetLoadBalancerAttribute',
+            'version' => '2022-04-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return GetLoadBalancerAttributeResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -1992,6 +2033,7 @@ class Nlb extends OpenApiClient
      * Queries the details about a Network Load Balancer (NLB) instance.
      *
      * @param request - GetLoadBalancerAttributeRequest
+     *
      * @returns GetLoadBalancerAttributeResponse
      *
      * @param GetLoadBalancerAttributeRequest $request
@@ -2010,6 +2052,7 @@ class Nlb extends OpenApiClient
      *
      * @param request - ListListenerCertificatesRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ListListenerCertificatesResponse
      *
      * @param ListListenerCertificatesRequest $request
@@ -2049,15 +2092,15 @@ class Nlb extends OpenApiClient
             'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'ListListenerCertificates',
-            'version'     => '2022-04-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListListenerCertificates',
+            'version' => '2022-04-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return ListListenerCertificatesResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -2070,6 +2113,7 @@ class Nlb extends OpenApiClient
      * Queries the server certificate of a TCP/SSL listener.
      *
      * @param request - ListListenerCertificatesRequest
+     *
      * @returns ListListenerCertificatesResponse
      *
      * @param ListListenerCertificatesRequest $request
@@ -2088,6 +2132,7 @@ class Nlb extends OpenApiClient
      *
      * @param request - ListListenersRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ListListenersResponse
      *
      * @param ListListenersRequest $request
@@ -2135,15 +2180,15 @@ class Nlb extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListListeners',
-            'version'     => '2022-04-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListListeners',
+            'version' => '2022-04-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return ListListenersResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -2156,6 +2201,7 @@ class Nlb extends OpenApiClient
      * Queries listeners added to a Network Load Balancer (NLB) instance.
      *
      * @param request - ListListenersRequest
+     *
      * @returns ListListenersResponse
      *
      * @param ListListenersRequest $request
@@ -2170,10 +2216,11 @@ class Nlb extends OpenApiClient
     }
 
     /**
-     * Queries the basic information about a Network Load Balancer (NLB) instance.
+     * Queries the basic information about Network Load Balancer (NLB) instances.
      *
      * @param request - ListLoadBalancersRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ListLoadBalancersResponse
      *
      * @param ListLoadBalancersRequest $request
@@ -2253,15 +2300,15 @@ class Nlb extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListLoadBalancers',
-            'version'     => '2022-04-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListLoadBalancers',
+            'version' => '2022-04-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return ListLoadBalancersResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -2271,9 +2318,10 @@ class Nlb extends OpenApiClient
     }
 
     /**
-     * Queries the basic information about a Network Load Balancer (NLB) instance.
+     * Queries the basic information about Network Load Balancer (NLB) instances.
      *
      * @param request - ListLoadBalancersRequest
+     *
      * @returns ListLoadBalancersResponse
      *
      * @param ListLoadBalancersRequest $request
@@ -2292,6 +2340,7 @@ class Nlb extends OpenApiClient
      *
      * @param request - ListSecurityPolicyRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ListSecurityPolicyResponse
      *
      * @param ListSecurityPolicyRequest $request
@@ -2334,18 +2383,18 @@ class Nlb extends OpenApiClient
 
         $req = new OpenApiRequest([
             'query' => Utils::query($query),
-            'body'  => Utils::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'ListSecurityPolicy',
-            'version'     => '2022-04-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListSecurityPolicy',
+            'version' => '2022-04-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return ListSecurityPolicyResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -2358,6 +2407,7 @@ class Nlb extends OpenApiClient
      * Queries the TLS security policies set for a Network Load Balancer (NLB) instance.
      *
      * @param request - ListSecurityPolicyRequest
+     *
      * @returns ListSecurityPolicyResponse
      *
      * @param ListSecurityPolicyRequest $request
@@ -2376,6 +2426,7 @@ class Nlb extends OpenApiClient
      *
      * @param request - ListServerGroupServersRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ListServerGroupServersResponse
      *
      * @param ListServerGroupServersRequest $request
@@ -2415,15 +2466,15 @@ class Nlb extends OpenApiClient
             'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'ListServerGroupServers',
-            'version'     => '2022-04-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListServerGroupServers',
+            'version' => '2022-04-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return ListServerGroupServersResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -2436,6 +2487,7 @@ class Nlb extends OpenApiClient
      * Queries servers in a server group of a Network Load Balancer (NLB) instance.
      *
      * @param request - ListServerGroupServersRequest
+     *
      * @returns ListServerGroupServersResponse
      *
      * @param ListServerGroupServersRequest $request
@@ -2454,6 +2506,7 @@ class Nlb extends OpenApiClient
      *
      * @param request - ListServerGroupsRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ListServerGroupsResponse
      *
      * @param ListServerGroupsRequest $request
@@ -2504,18 +2557,18 @@ class Nlb extends OpenApiClient
 
         $req = new OpenApiRequest([
             'query' => Utils::query($query),
-            'body'  => Utils::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'ListServerGroups',
-            'version'     => '2022-04-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListServerGroups',
+            'version' => '2022-04-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return ListServerGroupsResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -2528,6 +2581,7 @@ class Nlb extends OpenApiClient
      * Queries the server groups of a Network Load Balancer (NLB) instance.
      *
      * @param request - ListServerGroupsRequest
+     *
      * @returns ListServerGroupsResponse
      *
      * @param ListServerGroupsRequest $request
@@ -2546,6 +2600,7 @@ class Nlb extends OpenApiClient
      *
      * @param request - ListSystemSecurityPolicyRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ListSystemSecurityPolicyResponse
      *
      * @param ListSystemSecurityPolicyRequest $request
@@ -2565,15 +2620,15 @@ class Nlb extends OpenApiClient
             'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'ListSystemSecurityPolicy',
-            'version'     => '2022-04-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListSystemSecurityPolicy',
+            'version' => '2022-04-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return ListSystemSecurityPolicyResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -2586,6 +2641,7 @@ class Nlb extends OpenApiClient
      * Queries the default TLS policy.
      *
      * @param request - ListSystemSecurityPolicyRequest
+     *
      * @returns ListSystemSecurityPolicyResponse
      *
      * @param ListSystemSecurityPolicyRequest $request
@@ -2604,6 +2660,7 @@ class Nlb extends OpenApiClient
      *
      * @param request - ListTagResourcesRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ListTagResourcesResponse
      *
      * @param ListTagResourcesRequest $request
@@ -2646,15 +2703,15 @@ class Nlb extends OpenApiClient
             'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'ListTagResources',
-            'version'     => '2022-04-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListTagResources',
+            'version' => '2022-04-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return ListTagResourcesResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -2667,6 +2724,7 @@ class Nlb extends OpenApiClient
      * Queries the tags of a resource.
      *
      * @param request - ListTagResourcesRequest
+     *
      * @returns ListTagResourcesResponse
      *
      * @param ListTagResourcesRequest $request
@@ -2693,6 +2751,7 @@ class Nlb extends OpenApiClient
      *
      * @param request - LoadBalancerJoinSecurityGroupRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns LoadBalancerJoinSecurityGroupResponse
      *
      * @param LoadBalancerJoinSecurityGroupRequest $request
@@ -2728,15 +2787,15 @@ class Nlb extends OpenApiClient
             'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'LoadBalancerJoinSecurityGroup',
-            'version'     => '2022-04-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'LoadBalancerJoinSecurityGroup',
+            'version' => '2022-04-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return LoadBalancerJoinSecurityGroupResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -2757,6 +2816,7 @@ class Nlb extends OpenApiClient
      *     *   If the task is in the **Processing** state, the security group is being associated. In this case, you can perform only query operations.
      *
      * @param request - LoadBalancerJoinSecurityGroupRequest
+     *
      * @returns LoadBalancerJoinSecurityGroupResponse
      *
      * @param LoadBalancerJoinSecurityGroupRequest $request
@@ -2780,6 +2840,7 @@ class Nlb extends OpenApiClient
      *
      * @param request - LoadBalancerLeaveSecurityGroupRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns LoadBalancerLeaveSecurityGroupResponse
      *
      * @param LoadBalancerLeaveSecurityGroupRequest $request
@@ -2815,15 +2876,15 @@ class Nlb extends OpenApiClient
             'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'LoadBalancerLeaveSecurityGroup',
-            'version'     => '2022-04-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'LoadBalancerLeaveSecurityGroup',
+            'version' => '2022-04-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return LoadBalancerLeaveSecurityGroupResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -2841,6 +2902,7 @@ class Nlb extends OpenApiClient
      * *   If the task is in the **Processing** state, the security group is being disassociated. In this case, you can perform only query operations.
      *
      * @param request - LoadBalancerLeaveSecurityGroupRequest
+     *
      * @returns LoadBalancerLeaveSecurityGroupResponse
      *
      * @param LoadBalancerLeaveSecurityGroupRequest $request
@@ -2859,6 +2921,7 @@ class Nlb extends OpenApiClient
      *
      * @param request - MoveResourceGroupRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns MoveResourceGroupResponse
      *
      * @param MoveResourceGroupRequest $request
@@ -2890,15 +2953,15 @@ class Nlb extends OpenApiClient
             'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'MoveResourceGroup',
-            'version'     => '2022-04-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'MoveResourceGroup',
+            'version' => '2022-04-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return MoveResourceGroupResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -2911,6 +2974,7 @@ class Nlb extends OpenApiClient
      * Modify the group of resource.
      *
      * @param request - MoveResourceGroupRequest
+     *
      * @returns MoveResourceGroupResponse
      *
      * @param MoveResourceGroupRequest $request
@@ -2929,6 +2993,7 @@ class Nlb extends OpenApiClient
      *
      * @param request - RemoveServersFromServerGroupRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns RemoveServersFromServerGroupResponse
      *
      * @param RemoveServersFromServerGroupRequest $request
@@ -2964,15 +3029,15 @@ class Nlb extends OpenApiClient
             'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'RemoveServersFromServerGroup',
-            'version'     => '2022-04-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'RemoveServersFromServerGroup',
+            'version' => '2022-04-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return RemoveServersFromServerGroupResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -2985,6 +3050,7 @@ class Nlb extends OpenApiClient
      * Deletes server groups from a Network Load Balancer (NLB) instance.
      *
      * @param request - RemoveServersFromServerGroupRequest
+     *
      * @returns RemoveServersFromServerGroupResponse
      *
      * @param RemoveServersFromServerGroupRequest $request
@@ -2999,10 +3065,14 @@ class Nlb extends OpenApiClient
     }
 
     /**
-     * 配置秒级监控存储.
+     * Configures storage for fine-grained monitoring.
+     *
+     * @remarks
+     * This operation is used to configure a data warehouse for the fine-grained monitoring feature. If a listener in the current region has fine-grained monitoring enabled, you must disable fine-grained monitoring before you can configure a warehouse.
      *
      * @param request - SetHdMonitorRegionConfigRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns SetHdMonitorRegionConfigResponse
      *
      * @param SetHdMonitorRegionConfigRequest $request
@@ -3030,15 +3100,15 @@ class Nlb extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'SetHdMonitorRegionConfig',
-            'version'     => '2022-04-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'SetHdMonitorRegionConfig',
+            'version' => '2022-04-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return SetHdMonitorRegionConfigResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -3048,9 +3118,13 @@ class Nlb extends OpenApiClient
     }
 
     /**
-     * 配置秒级监控存储.
+     * Configures storage for fine-grained monitoring.
+     *
+     * @remarks
+     * This operation is used to configure a data warehouse for the fine-grained monitoring feature. If a listener in the current region has fine-grained monitoring enabled, you must disable fine-grained monitoring before you can configure a warehouse.
      *
      * @param request - SetHdMonitorRegionConfigRequest
+     *
      * @returns SetHdMonitorRegionConfigResponse
      *
      * @param SetHdMonitorRegionConfigRequest $request
@@ -3069,6 +3143,7 @@ class Nlb extends OpenApiClient
      *
      * @param request - StartListenerRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns StartListenerResponse
      *
      * @param StartListenerRequest $request
@@ -3100,15 +3175,15 @@ class Nlb extends OpenApiClient
             'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'StartListener',
-            'version'     => '2022-04-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'StartListener',
+            'version' => '2022-04-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return StartListenerResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -3121,6 +3196,7 @@ class Nlb extends OpenApiClient
      * Enables a Network Load Balancer (NLB) listener.
      *
      * @param request - StartListenerRequest
+     *
      * @returns StartListenerResponse
      *
      * @param StartListenerRequest $request
@@ -3135,13 +3211,14 @@ class Nlb extends OpenApiClient
     }
 
     /**
-     * Removes the elastic IP address (EIP) or virtual IP address (VIP) from a zone.
+     * Removes the elastic IP address (EIP) or virtual IP address (VIP) used in a zone from the DNS record.
      *
      * @remarks
-     * > If a Network Load Balancer (NLB) instance is deployed only in one zone, you cannot remove the NLB instance from the zone.
+     * >  If the NLB instance is deployed in only one zone, you cannot remove the EIP or VIP from the DNS record.
      *
      * @param request - StartShiftLoadBalancerZonesRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns StartShiftLoadBalancerZonesResponse
      *
      * @param StartShiftLoadBalancerZonesRequest $request
@@ -3177,15 +3254,15 @@ class Nlb extends OpenApiClient
             'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'StartShiftLoadBalancerZones',
-            'version'     => '2022-04-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'StartShiftLoadBalancerZones',
+            'version' => '2022-04-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return StartShiftLoadBalancerZonesResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -3195,12 +3272,13 @@ class Nlb extends OpenApiClient
     }
 
     /**
-     * Removes the elastic IP address (EIP) or virtual IP address (VIP) from a zone.
+     * Removes the elastic IP address (EIP) or virtual IP address (VIP) used in a zone from the DNS record.
      *
      * @remarks
-     * > If a Network Load Balancer (NLB) instance is deployed only in one zone, you cannot remove the NLB instance from the zone.
+     * >  If the NLB instance is deployed in only one zone, you cannot remove the EIP or VIP from the DNS record.
      *
      * @param request - StartShiftLoadBalancerZonesRequest
+     *
      * @returns StartShiftLoadBalancerZonesResponse
      *
      * @param StartShiftLoadBalancerZonesRequest $request
@@ -3219,6 +3297,7 @@ class Nlb extends OpenApiClient
      *
      * @param request - StopListenerRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns StopListenerResponse
      *
      * @param StopListenerRequest $request
@@ -3250,15 +3329,15 @@ class Nlb extends OpenApiClient
             'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'StopListener',
-            'version'     => '2022-04-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'StopListener',
+            'version' => '2022-04-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return StopListenerResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -3271,6 +3350,7 @@ class Nlb extends OpenApiClient
      * Stops a listener of a Network Load Balancer (NLB) instance.
      *
      * @param request - StopListenerRequest
+     *
      * @returns StopListenerResponse
      *
      * @param StopListenerRequest $request
@@ -3289,6 +3369,7 @@ class Nlb extends OpenApiClient
      *
      * @param request - TagResourcesRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns TagResourcesResponse
      *
      * @param TagResourcesRequest $request
@@ -3331,15 +3412,15 @@ class Nlb extends OpenApiClient
             'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'TagResources',
-            'version'     => '2022-04-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'TagResources',
+            'version' => '2022-04-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return TagResourcesResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -3352,6 +3433,7 @@ class Nlb extends OpenApiClient
      * Adds tags to specified resources.
      *
      * @param request - TagResourcesRequest
+     *
      * @returns TagResourcesResponse
      *
      * @param TagResourcesRequest $request
@@ -3370,6 +3452,7 @@ class Nlb extends OpenApiClient
      *
      * @param request - UntagResourcesRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns UntagResourcesResponse
      *
      * @param UntagResourcesRequest $request
@@ -3416,15 +3499,15 @@ class Nlb extends OpenApiClient
             'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'UntagResources',
-            'version'     => '2022-04-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'UntagResources',
+            'version' => '2022-04-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return UntagResourcesResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -3437,6 +3520,7 @@ class Nlb extends OpenApiClient
      * Removes tags from resources.
      *
      * @param request - UntagResourcesRequest
+     *
      * @returns UntagResourcesResponse
      *
      * @param UntagResourcesRequest $request
@@ -3455,6 +3539,7 @@ class Nlb extends OpenApiClient
      *
      * @param tmpReq - UpdateListenerAttributeRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns UpdateListenerAttributeResponse
      *
      * @param UpdateListenerAttributeRequest $tmpReq
@@ -3548,15 +3633,15 @@ class Nlb extends OpenApiClient
             'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'UpdateListenerAttribute',
-            'version'     => '2022-04-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'UpdateListenerAttribute',
+            'version' => '2022-04-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return UpdateListenerAttributeResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -3569,6 +3654,7 @@ class Nlb extends OpenApiClient
      * Updates the attributes of a listener, such as the name and the idle connection timeout period.
      *
      * @param request - UpdateListenerAttributeRequest
+     *
      * @returns UpdateListenerAttributeResponse
      *
      * @param UpdateListenerAttributeRequest $request
@@ -3594,6 +3680,7 @@ class Nlb extends OpenApiClient
      *
      * @param request - UpdateLoadBalancerAddressTypeConfigRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns UpdateLoadBalancerAddressTypeConfigResponse
      *
      * @param UpdateLoadBalancerAddressTypeConfigRequest $request
@@ -3633,15 +3720,15 @@ class Nlb extends OpenApiClient
             'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'UpdateLoadBalancerAddressTypeConfig',
-            'version'     => '2022-04-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'UpdateLoadBalancerAddressTypeConfig',
+            'version' => '2022-04-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return UpdateLoadBalancerAddressTypeConfigResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -3661,6 +3748,7 @@ class Nlb extends OpenApiClient
      *     *   If the task is in the **Processing** state, the network type of the IPv4 address of the NLB instance is being changed. In this case, you can perform only query operations.
      *
      * @param request - UpdateLoadBalancerAddressTypeConfigRequest
+     *
      * @returns UpdateLoadBalancerAddressTypeConfigResponse
      *
      * @param UpdateLoadBalancerAddressTypeConfigRequest $request
@@ -3679,6 +3767,7 @@ class Nlb extends OpenApiClient
      *
      * @param request - UpdateLoadBalancerAttributeRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns UpdateLoadBalancerAttributeResponse
      *
      * @param UpdateLoadBalancerAttributeRequest $request
@@ -3722,15 +3811,15 @@ class Nlb extends OpenApiClient
             'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'UpdateLoadBalancerAttribute',
-            'version'     => '2022-04-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'UpdateLoadBalancerAttribute',
+            'version' => '2022-04-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return UpdateLoadBalancerAttributeResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -3743,6 +3832,7 @@ class Nlb extends OpenApiClient
      * Updates the attributes, including the name, of a Network Load Balancer (NLB) instance.
      *
      * @param request - UpdateLoadBalancerAttributeRequest
+     *
      * @returns UpdateLoadBalancerAttributeResponse
      *
      * @param UpdateLoadBalancerAttributeRequest $request
@@ -3764,6 +3854,7 @@ class Nlb extends OpenApiClient
      *
      * @param request - UpdateLoadBalancerProtectionRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns UpdateLoadBalancerProtectionResponse
      *
      * @param UpdateLoadBalancerProtectionRequest $request
@@ -3811,15 +3902,15 @@ class Nlb extends OpenApiClient
             'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'UpdateLoadBalancerProtection',
-            'version'     => '2022-04-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'UpdateLoadBalancerProtection',
+            'version' => '2022-04-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return UpdateLoadBalancerProtectionResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -3835,6 +3926,7 @@ class Nlb extends OpenApiClient
      * > You can call the [GetLoadBalancerAttribute](https://help.aliyun.com/document_detail/445873.html) operation to query the details about deletion protection and the configuration read-only mode.
      *
      * @param request - UpdateLoadBalancerProtectionRequest
+     *
      * @returns UpdateLoadBalancerProtectionResponse
      *
      * @param UpdateLoadBalancerProtectionRequest $request
@@ -3862,6 +3954,7 @@ class Nlb extends OpenApiClient
      *
      * @param request - UpdateLoadBalancerZonesRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns UpdateLoadBalancerZonesResponse
      *
      * @param UpdateLoadBalancerZonesRequest $request
@@ -3897,15 +3990,15 @@ class Nlb extends OpenApiClient
             'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'UpdateLoadBalancerZones',
-            'version'     => '2022-04-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'UpdateLoadBalancerZones',
+            'version' => '2022-04-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return UpdateLoadBalancerZonesResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -3927,6 +4020,7 @@ class Nlb extends OpenApiClient
      *     *   If the task is in the **Processing** state, the zones and zone attributes are being modified. In this case, you can perform only query operations.
      *
      * @param request - UpdateLoadBalancerZonesRequest
+     *
      * @returns UpdateLoadBalancerZonesResponse
      *
      * @param UpdateLoadBalancerZonesRequest $request
@@ -3945,6 +4039,7 @@ class Nlb extends OpenApiClient
      *
      * @param request - UpdateSecurityPolicyAttributeRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns UpdateSecurityPolicyAttributeResponse
      *
      * @param UpdateSecurityPolicyAttributeRequest $request
@@ -3988,15 +4083,15 @@ class Nlb extends OpenApiClient
             'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'UpdateSecurityPolicyAttribute',
-            'version'     => '2022-04-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'UpdateSecurityPolicyAttribute',
+            'version' => '2022-04-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return UpdateSecurityPolicyAttributeResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -4009,6 +4104,7 @@ class Nlb extends OpenApiClient
      * Modifies the configurations of a security policy for a Network Load Balancer (NLB) instance.
      *
      * @param request - UpdateSecurityPolicyAttributeRequest
+     *
      * @returns UpdateSecurityPolicyAttributeResponse
      *
      * @param UpdateSecurityPolicyAttributeRequest $request
@@ -4027,6 +4123,7 @@ class Nlb extends OpenApiClient
      *
      * @param request - UpdateServerGroupAttributeRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns UpdateServerGroupAttributeResponse
      *
      * @param UpdateServerGroupAttributeRequest $request
@@ -4085,15 +4182,15 @@ class Nlb extends OpenApiClient
             'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'UpdateServerGroupAttribute',
-            'version'     => '2022-04-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'UpdateServerGroupAttribute',
+            'version' => '2022-04-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return UpdateServerGroupAttributeResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -4106,6 +4203,7 @@ class Nlb extends OpenApiClient
      * Modifies the configurations of a Network Load Balancer (NLB) server group.
      *
      * @param request - UpdateServerGroupAttributeRequest
+     *
      * @returns UpdateServerGroupAttributeResponse
      *
      * @param UpdateServerGroupAttributeRequest $request
@@ -4133,6 +4231,7 @@ class Nlb extends OpenApiClient
      *
      * @param request - UpdateServerGroupServersAttributeRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns UpdateServerGroupServersAttributeResponse
      *
      * @param UpdateServerGroupServersAttributeRequest $request
@@ -4168,15 +4267,15 @@ class Nlb extends OpenApiClient
             'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'UpdateServerGroupServersAttribute',
-            'version'     => '2022-04-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'UpdateServerGroupServersAttribute',
+            'version' => '2022-04-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return UpdateServerGroupServersAttributeResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -4198,6 +4297,7 @@ class Nlb extends OpenApiClient
      *     *   If a backend server is in the **Available** state, it indicates that the backend server is running.
      *
      * @param request - UpdateServerGroupServersAttributeRequest
+     *
      * @returns UpdateServerGroupServersAttributeResponse
      *
      * @param UpdateServerGroupServersAttributeRequest $request

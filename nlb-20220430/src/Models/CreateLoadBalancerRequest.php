@@ -17,78 +17,92 @@ class CreateLoadBalancerRequest extends Model
      * @var string
      */
     public $addressIpVersion;
+
     /**
      * @var string
      */
     public $addressType;
+
     /**
      * @var string
      */
     public $bandwidthPackageId;
+
     /**
      * @var string
      */
     public $clientToken;
+
     /**
      * @var deletionProtectionConfig
      */
     public $deletionProtectionConfig;
+
     /**
      * @var bool
      */
     public $dryRun;
+
     /**
      * @var loadBalancerBillingConfig
      */
     public $loadBalancerBillingConfig;
+
     /**
      * @var string
      */
     public $loadBalancerName;
+
     /**
      * @var string
      */
     public $loadBalancerType;
+
     /**
      * @var modificationProtectionConfig
      */
     public $modificationProtectionConfig;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $resourceGroupId;
+
     /**
      * @var tag[]
      */
     public $tag;
+
     /**
      * @var string
      */
     public $vpcId;
+
     /**
      * @var zoneMappings[]
      */
     public $zoneMappings;
     protected $_name = [
-        'addressIpVersion'             => 'AddressIpVersion',
-        'addressType'                  => 'AddressType',
-        'bandwidthPackageId'           => 'BandwidthPackageId',
-        'clientToken'                  => 'ClientToken',
-        'deletionProtectionConfig'     => 'DeletionProtectionConfig',
-        'dryRun'                       => 'DryRun',
-        'loadBalancerBillingConfig'    => 'LoadBalancerBillingConfig',
-        'loadBalancerName'             => 'LoadBalancerName',
-        'loadBalancerType'             => 'LoadBalancerType',
+        'addressIpVersion' => 'AddressIpVersion',
+        'addressType' => 'AddressType',
+        'bandwidthPackageId' => 'BandwidthPackageId',
+        'clientToken' => 'ClientToken',
+        'deletionProtectionConfig' => 'DeletionProtectionConfig',
+        'dryRun' => 'DryRun',
+        'loadBalancerBillingConfig' => 'LoadBalancerBillingConfig',
+        'loadBalancerName' => 'LoadBalancerName',
+        'loadBalancerType' => 'LoadBalancerType',
         'modificationProtectionConfig' => 'ModificationProtectionConfig',
-        'regionId'                     => 'RegionId',
-        'resourceGroupId'              => 'ResourceGroupId',
-        'tag'                          => 'Tag',
-        'vpcId'                        => 'VpcId',
-        'zoneMappings'                 => 'ZoneMappings',
+        'regionId' => 'RegionId',
+        'resourceGroupId' => 'ResourceGroupId',
+        'tag' => 'Tag',
+        'vpcId' => 'VpcId',
+        'zoneMappings' => 'ZoneMappings',
     ];
 
     public function validate()
@@ -165,7 +179,7 @@ class CreateLoadBalancerRequest extends Model
         if (null !== $this->tag) {
             if (\is_array($this->tag)) {
                 $res['Tag'] = [];
-                $n1         = 0;
+                $n1 = 0;
                 foreach ($this->tag as $item1) {
                     $res['Tag'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -179,7 +193,7 @@ class CreateLoadBalancerRequest extends Model
         if (null !== $this->zoneMappings) {
             if (\is_array($this->zoneMappings)) {
                 $res['ZoneMappings'] = [];
-                $n1                  = 0;
+                $n1 = 0;
                 foreach ($this->zoneMappings as $item1) {
                     $res['ZoneMappings'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -248,7 +262,7 @@ class CreateLoadBalancerRequest extends Model
         if (isset($map['Tag'])) {
             if (!empty($map['Tag'])) {
                 $model->tag = [];
-                $n1         = 0;
+                $n1 = 0;
                 foreach ($map['Tag'] as $item1) {
                     $model->tag[$n1++] = tag::fromMap($item1);
                 }
@@ -262,7 +276,7 @@ class CreateLoadBalancerRequest extends Model
         if (isset($map['ZoneMappings'])) {
             if (!empty($map['ZoneMappings'])) {
                 $model->zoneMappings = [];
-                $n1                  = 0;
+                $n1 = 0;
                 foreach ($map['ZoneMappings'] as $item1) {
                     $model->zoneMappings[$n1++] = zoneMappings::fromMap($item1);
                 }

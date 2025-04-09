@@ -12,38 +12,44 @@ class loadBalancerAddresses extends Model
      * @var string
      */
     public $allocationId;
+
     /**
      * @var string
      */
     public $eniId;
+
     /**
      * @var string
      */
     public $ipv6Address;
+
     /**
      * @var string
      */
     public $privateIPv4Address;
+
     /**
      * @var string
      */
     public $privateIPv4HcStatus;
+
     /**
      * @var string
      */
     public $privateIPv6HcStatus;
+
     /**
      * @var string
      */
     public $publicIPv4Address;
     protected $_name = [
-        'allocationId'        => 'AllocationId',
-        'eniId'               => 'EniId',
-        'ipv6Address'         => 'Ipv6Address',
-        'privateIPv4Address'  => 'PrivateIPv4Address',
+        'allocationId' => 'AllocationId',
+        'eniId' => 'EniId',
+        'ipv6Address' => 'Ipv6Address',
+        'privateIPv4Address' => 'PrivateIPv4Address',
         'privateIPv4HcStatus' => 'PrivateIPv4HcStatus',
         'privateIPv6HcStatus' => 'PrivateIPv6HcStatus',
-        'publicIPv4Address'   => 'PublicIPv4Address',
+        'publicIPv4Address' => 'PublicIPv4Address',
     ];
 
     public function validate()

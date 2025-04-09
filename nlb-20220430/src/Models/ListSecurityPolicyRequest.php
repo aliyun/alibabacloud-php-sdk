@@ -13,38 +13,44 @@ class ListSecurityPolicyRequest extends Model
      * @var int
      */
     public $maxResults;
+
     /**
      * @var string
      */
     public $nextToken;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $resourceGroupId;
+
     /**
      * @var string[]
      */
     public $securityPolicyIds;
+
     /**
      * @var string[]
      */
     public $securityPolicyNames;
+
     /**
      * @var tag[]
      */
     public $tag;
     protected $_name = [
-        'maxResults'          => 'MaxResults',
-        'nextToken'           => 'NextToken',
-        'regionId'            => 'RegionId',
-        'resourceGroupId'     => 'ResourceGroupId',
-        'securityPolicyIds'   => 'SecurityPolicyIds',
+        'maxResults' => 'MaxResults',
+        'nextToken' => 'NextToken',
+        'regionId' => 'RegionId',
+        'resourceGroupId' => 'ResourceGroupId',
+        'securityPolicyIds' => 'SecurityPolicyIds',
         'securityPolicyNames' => 'SecurityPolicyNames',
-        'tag'                 => 'Tag',
+        'tag' => 'Tag',
     ];
 
     public function validate()
@@ -83,7 +89,7 @@ class ListSecurityPolicyRequest extends Model
         if (null !== $this->securityPolicyIds) {
             if (\is_array($this->securityPolicyIds)) {
                 $res['SecurityPolicyIds'] = [];
-                $n1                       = 0;
+                $n1 = 0;
                 foreach ($this->securityPolicyIds as $item1) {
                     $res['SecurityPolicyIds'][$n1++] = $item1;
                 }
@@ -93,7 +99,7 @@ class ListSecurityPolicyRequest extends Model
         if (null !== $this->securityPolicyNames) {
             if (\is_array($this->securityPolicyNames)) {
                 $res['SecurityPolicyNames'] = [];
-                $n1                         = 0;
+                $n1 = 0;
                 foreach ($this->securityPolicyNames as $item1) {
                     $res['SecurityPolicyNames'][$n1++] = $item1;
                 }
@@ -103,7 +109,7 @@ class ListSecurityPolicyRequest extends Model
         if (null !== $this->tag) {
             if (\is_array($this->tag)) {
                 $res['Tag'] = [];
-                $n1         = 0;
+                $n1 = 0;
                 foreach ($this->tag as $item1) {
                     $res['Tag'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -140,7 +146,7 @@ class ListSecurityPolicyRequest extends Model
         if (isset($map['SecurityPolicyIds'])) {
             if (!empty($map['SecurityPolicyIds'])) {
                 $model->securityPolicyIds = [];
-                $n1                       = 0;
+                $n1 = 0;
                 foreach ($map['SecurityPolicyIds'] as $item1) {
                     $model->securityPolicyIds[$n1++] = $item1;
                 }
@@ -150,7 +156,7 @@ class ListSecurityPolicyRequest extends Model
         if (isset($map['SecurityPolicyNames'])) {
             if (!empty($map['SecurityPolicyNames'])) {
                 $model->securityPolicyNames = [];
-                $n1                         = 0;
+                $n1 = 0;
                 foreach ($map['SecurityPolicyNames'] as $item1) {
                     $model->securityPolicyNames[$n1++] = $item1;
                 }
@@ -160,7 +166,7 @@ class ListSecurityPolicyRequest extends Model
         if (isset($map['Tag'])) {
             if (!empty($map['Tag'])) {
                 $model->tag = [];
-                $n1         = 0;
+                $n1 = 0;
                 foreach ($map['Tag'] as $item1) {
                     $model->tag[$n1++] = tag::fromMap($item1);
                 }

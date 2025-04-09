@@ -12,48 +12,56 @@ class servers extends Model
      * @var string
      */
     public $description;
+
     /**
      * @var int
      */
     public $port;
+
     /**
      * @var string
      */
     public $serverGroupId;
+
     /**
      * @var string
      */
     public $serverId;
+
     /**
      * @var string
      */
     public $serverIp;
+
     /**
      * @var string
      */
     public $serverType;
+
     /**
      * @var string
      */
     public $status;
+
     /**
      * @var int
      */
     public $weight;
+
     /**
      * @var string
      */
     public $zoneId;
     protected $_name = [
-        'description'   => 'Description',
-        'port'          => 'Port',
+        'description' => 'Description',
+        'port' => 'Port',
         'serverGroupId' => 'ServerGroupId',
-        'serverId'      => 'ServerId',
-        'serverIp'      => 'ServerIp',
-        'serverType'    => 'ServerType',
-        'status'        => 'Status',
-        'weight'        => 'Weight',
-        'zoneId'        => 'ZoneId',
+        'serverId' => 'ServerId',
+        'serverIp' => 'ServerIp',
+        'serverType' => 'ServerType',
+        'status' => 'Status',
+        'weight' => 'Weight',
+        'zoneId' => 'ZoneId',
     ];
 
     public function validate()

@@ -12,13 +12,14 @@ class deletionProtectionConfig extends Model
      * @var bool
      */
     public $enabled;
+
     /**
      * @var string
      */
     public $reason;
     protected $_name = [
         'enabled' => 'Enabled',
-        'reason'  => 'Reason',
+        'reason' => 'Reason',
     ];
 
     public function validate()
