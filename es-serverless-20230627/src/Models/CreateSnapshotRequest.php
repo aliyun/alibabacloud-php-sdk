@@ -4,31 +4,21 @@
 
 namespace AlibabaCloud\SDK\Esserverless\V20230627\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class CreateSnapshotRequest extends Model
 {
     /**
-     * @description This parameter is required.
-     *
-     * @example product_info
-     *
      * @var string
      */
     public $indices;
 
     /**
-     * @description This parameter is required.
-     *
-     * @example qingning
-     *
      * @var string
      */
     public $snapshot;
 
     /**
-     * @example false
-     *
      * @var bool
      */
     public $dryRun;
@@ -38,17 +28,22 @@ class CreateSnapshotRequest extends Model
         'dryRun' => 'dryRun',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->indices) {
             $res['indices'] = $this->indices;
         }
+
         if (null !== $this->snapshot) {
             $res['snapshot'] = $this->snapshot;
         }
+
         if (null !== $this->dryRun) {
             $res['dryRun'] = $this->dryRun;
         }
@@ -56,20 +51,22 @@ class CreateSnapshotRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return CreateSnapshotRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['indices'])) {
             $model->indices = $map['indices'];
         }
+
         if (isset($map['snapshot'])) {
             $model->snapshot = $map['snapshot'];
         }
+
         if (isset($map['dryRun'])) {
             $model->dryRun = $map['dryRun'];
         }

@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Esserverless\V20230627\Models\UpdateAppRequest\limiterInfo;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class limiters extends Model
 {
@@ -34,47 +34,69 @@ class limiters extends Model
         'values' => 'values',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->values)) {
+            Model::validateArray($this->values);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->maxValue) {
             $res['maxValue'] = $this->maxValue;
         }
+
         if (null !== $this->minValue) {
             $res['minValue'] = $this->minValue;
         }
+
         if (null !== $this->type) {
             $res['type'] = $this->type;
         }
+
         if (null !== $this->values) {
-            $res['values'] = $this->values;
+            if (\is_array($this->values)) {
+                $res['values'] = [];
+                $n1 = 0;
+                foreach ($this->values as $item1) {
+                    $res['values'][$n1++] = $item1;
+                }
+            }
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return limiters
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['maxValue'])) {
             $model->maxValue = $map['maxValue'];
         }
+
         if (isset($map['minValue'])) {
             $model->minValue = $map['minValue'];
         }
+
         if (isset($map['type'])) {
             $model->type = $map['type'];
         }
+
         if (isset($map['values'])) {
             if (!empty($map['values'])) {
-                $model->values = $map['values'];
+                $model->values = [];
+                $n1 = 0;
+                foreach ($map['values'] as $item1) {
+                    $model->values[$n1++] = $item1;
+                }
             }
         }
 

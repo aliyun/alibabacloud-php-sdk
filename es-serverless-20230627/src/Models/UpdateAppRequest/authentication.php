@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Esserverless\V20230627\Models\UpdateAppRequest;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Esserverless\V20230627\Models\UpdateAppRequest\authentication\basicAuth;
-use AlibabaCloud\Tea\Model;
 
 class authentication extends Model
 {
@@ -17,17 +17,23 @@ class authentication extends Model
         'basicAuth' => 'basicAuth',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->basicAuth)) {
+            Model::validateArray($this->basicAuth);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->basicAuth) {
-            $res['basicAuth'] = [];
-            if (null !== $this->basicAuth && \is_array($this->basicAuth)) {
-                $n = 0;
-                foreach ($this->basicAuth as $item) {
-                    $res['basicAuth'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->basicAuth)) {
+                $res['basicAuth'] = [];
+                $n1 = 0;
+                foreach ($this->basicAuth as $item1) {
+                    $res['basicAuth'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
@@ -35,20 +41,20 @@ class authentication extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return authentication
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['basicAuth'])) {
             if (!empty($map['basicAuth'])) {
                 $model->basicAuth = [];
-                $n = 0;
-                foreach ($map['basicAuth'] as $item) {
-                    $model->basicAuth[$n++] = null !== $item ? basicAuth::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['basicAuth'] as $item1) {
+                    $model->basicAuth[$n1++] = basicAuth::fromMap($item1);
                 }
             }
         }

@@ -4,14 +4,12 @@
 
 namespace AlibabaCloud\SDK\Esserverless\V20230627\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Esserverless\V20230627\Models\GetAppQuotaResponseBody\result;
-use AlibabaCloud\Tea\Model;
 
 class GetAppQuotaResponseBody extends Model
 {
     /**
-     * @example 2C5DAA30-****-5181-9B87-9D6181016197
-     *
      * @var string
      */
     public $requestId;
@@ -25,32 +23,40 @@ class GetAppQuotaResponseBody extends Model
         'result' => 'result',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (null !== $this->result) {
+            $this->result->validate();
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->requestId) {
             $res['requestId'] = $this->requestId;
         }
+
         if (null !== $this->result) {
-            $res['result'] = null !== $this->result ? $this->result->toMap() : null;
+            $res['result'] = null !== $this->result ? $this->result->toArray($noStream) : $this->result;
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return GetAppQuotaResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['requestId'])) {
             $model->requestId = $map['requestId'];
         }
+
         if (isset($map['result'])) {
             $model->result = result::fromMap($map['result']);
         }

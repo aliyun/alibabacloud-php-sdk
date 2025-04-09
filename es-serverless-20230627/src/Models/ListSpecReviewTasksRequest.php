@@ -4,13 +4,11 @@
 
 namespace AlibabaCloud\SDK\Esserverless\V20230627\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class ListSpecReviewTasksRequest extends Model
 {
     /**
-     * @example 1
-     *
      * @var int
      */
     public $page;
@@ -26,8 +24,6 @@ class ListSpecReviewTasksRequest extends Model
     public $pageSize;
 
     /**
-     * @example 10
-     *
      * @var int
      */
     public $size;
@@ -38,8 +34,6 @@ class ListSpecReviewTasksRequest extends Model
     public $status;
 
     /**
-     * @example QUOTA
-     *
      * @var string
      */
     public $type;
@@ -52,26 +46,34 @@ class ListSpecReviewTasksRequest extends Model
         'type' => 'type',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->page) {
             $res['page'] = $this->page;
         }
+
         if (null !== $this->pageNumber) {
             $res['pageNumber'] = $this->pageNumber;
         }
+
         if (null !== $this->pageSize) {
             $res['pageSize'] = $this->pageSize;
         }
+
         if (null !== $this->size) {
             $res['size'] = $this->size;
         }
+
         if (null !== $this->status) {
             $res['status'] = $this->status;
         }
+
         if (null !== $this->type) {
             $res['type'] = $this->type;
         }
@@ -79,29 +81,34 @@ class ListSpecReviewTasksRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ListSpecReviewTasksRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['page'])) {
             $model->page = $map['page'];
         }
+
         if (isset($map['pageNumber'])) {
             $model->pageNumber = $map['pageNumber'];
         }
+
         if (isset($map['pageSize'])) {
             $model->pageSize = $map['pageSize'];
         }
+
         if (isset($map['size'])) {
             $model->size = $map['size'];
         }
+
         if (isset($map['status'])) {
             $model->status = $map['status'];
         }
+
         if (isset($map['type'])) {
             $model->type = $map['type'];
         }

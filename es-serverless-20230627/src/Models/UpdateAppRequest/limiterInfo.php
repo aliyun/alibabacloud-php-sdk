@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Esserverless\V20230627\Models\UpdateAppRequest;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Esserverless\V20230627\Models\UpdateAppRequest\limiterInfo\limiters;
-use AlibabaCloud\Tea\Model;
 
 class limiterInfo extends Model
 {
@@ -17,17 +17,23 @@ class limiterInfo extends Model
         'limiters' => 'limiters',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->limiters)) {
+            Model::validateArray($this->limiters);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->limiters) {
-            $res['limiters'] = [];
-            if (null !== $this->limiters && \is_array($this->limiters)) {
-                $n = 0;
-                foreach ($this->limiters as $item) {
-                    $res['limiters'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->limiters)) {
+                $res['limiters'] = [];
+                $n1 = 0;
+                foreach ($this->limiters as $item1) {
+                    $res['limiters'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
@@ -35,20 +41,20 @@ class limiterInfo extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return limiterInfo
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['limiters'])) {
             if (!empty($map['limiters'])) {
                 $model->limiters = [];
-                $n = 0;
-                foreach ($map['limiters'] as $item) {
-                    $model->limiters[$n++] = null !== $item ? limiters::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['limiters'] as $item1) {
+                    $model->limiters[$n1++] = limiters::fromMap($item1);
                 }
             }
         }

@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Esserverless\V20230627\Models\CreateAppRequest\authentication;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class basicAuth extends Model
 {
@@ -22,14 +22,18 @@ class basicAuth extends Model
         'username' => 'username',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->password) {
             $res['password'] = $this->password;
         }
+
         if (null !== $this->username) {
             $res['username'] = $this->username;
         }
@@ -37,17 +41,18 @@ class basicAuth extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return basicAuth
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['password'])) {
             $model->password = $map['password'];
         }
+
         if (isset($map['username'])) {
             $model->username = $map['username'];
         }

@@ -4,20 +4,16 @@
 
 namespace AlibabaCloud\SDK\Esserverless\V20230627\Models\GetSnapshotSettingResponseBody;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class result extends Model
 {
     /**
-     * @example true
-     *
      * @var bool
      */
     public $enable;
 
     /**
-     * @example 0 0 01 ? * * *
-     *
      * @var string
      */
     public $quartzRegex;
@@ -26,14 +22,18 @@ class result extends Model
         'quartzRegex' => 'quartzRegex',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->enable) {
             $res['enable'] = $this->enable;
         }
+
         if (null !== $this->quartzRegex) {
             $res['quartzRegex'] = $this->quartzRegex;
         }
@@ -41,17 +41,18 @@ class result extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return result
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['enable'])) {
             $model->enable = $map['enable'];
         }
+
         if (isset($map['quartzRegex'])) {
             $model->quartzRegex = $map['quartzRegex'];
         }

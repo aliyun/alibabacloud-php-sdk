@@ -4,13 +4,11 @@
 
 namespace AlibabaCloud\SDK\Esserverless\V20230627\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class GetAppRequest extends Model
 {
     /**
-     * @example false
-     *
      * @var bool
      */
     public $detailed;
@@ -18,9 +16,12 @@ class GetAppRequest extends Model
         'detailed' => 'detailed',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->detailed) {
@@ -30,11 +31,11 @@ class GetAppRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return GetAppRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

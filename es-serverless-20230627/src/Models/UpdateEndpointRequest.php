@@ -4,21 +4,17 @@
 
 namespace AlibabaCloud\SDK\Esserverless\V20230627\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Esserverless\V20230627\Models\UpdateEndpointRequest\endpointZones;
-use AlibabaCloud\Tea\Model;
 
 class UpdateEndpointRequest extends Model
 {
     /**
-     * @description This parameter is required.
-     *
      * @var endpointZones[]
      */
     public $endpointZones;
 
     /**
-     * @example test
-     *
      * @var string
      */
     public $name;
@@ -27,20 +23,27 @@ class UpdateEndpointRequest extends Model
         'name' => 'name',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->endpointZones)) {
+            Model::validateArray($this->endpointZones);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->endpointZones) {
-            $res['endpointZones'] = [];
-            if (null !== $this->endpointZones && \is_array($this->endpointZones)) {
-                $n = 0;
-                foreach ($this->endpointZones as $item) {
-                    $res['endpointZones'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->endpointZones)) {
+                $res['endpointZones'] = [];
+                $n1 = 0;
+                foreach ($this->endpointZones as $item1) {
+                    $res['endpointZones'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
+
         if (null !== $this->name) {
             $res['name'] = $this->name;
         }
@@ -48,23 +51,24 @@ class UpdateEndpointRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return UpdateEndpointRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['endpointZones'])) {
             if (!empty($map['endpointZones'])) {
                 $model->endpointZones = [];
-                $n = 0;
-                foreach ($map['endpointZones'] as $item) {
-                    $model->endpointZones[$n++] = null !== $item ? endpointZones::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['endpointZones'] as $item1) {
+                    $model->endpointZones[$n1++] = endpointZones::fromMap($item1);
                 }
             }
         }
+
         if (isset($map['name'])) {
             $model->name = $map['name'];
         }

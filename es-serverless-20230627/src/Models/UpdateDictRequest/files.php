@@ -4,14 +4,12 @@
 
 namespace AlibabaCloud\SDK\Esserverless\V20230627\Models\UpdateDictRequest;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Esserverless\V20230627\Models\UpdateDictRequest\files\ossObject;
-use AlibabaCloud\Tea\Model;
 
 class files extends Model
 {
     /**
-     * @example dic_0.dic
-     *
      * @var string
      */
     public $name;
@@ -25,32 +23,40 @@ class files extends Model
         'ossObject' => 'ossObject',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (null !== $this->ossObject) {
+            $this->ossObject->validate();
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->name) {
             $res['name'] = $this->name;
         }
+
         if (null !== $this->ossObject) {
-            $res['ossObject'] = null !== $this->ossObject ? $this->ossObject->toMap() : null;
+            $res['ossObject'] = null !== $this->ossObject ? $this->ossObject->toArray($noStream) : $this->ossObject;
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return files
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['name'])) {
             $model->name = $map['name'];
         }
+
         if (isset($map['ossObject'])) {
             $model->ossObject = ossObject::fromMap($map['ossObject']);
         }

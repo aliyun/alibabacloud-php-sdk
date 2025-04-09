@@ -4,25 +4,36 @@
 
 namespace AlibabaCloud\SDK\Esserverless\V20230627\Models\CreateAppResponseBody;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class result extends Model
 {
     /**
-     * @example es-serverless-cn-xxx
-     *
+     * @var string
+     */
+    public $appId;
+
+    /**
      * @var string
      */
     public $instaneId;
     protected $_name = [
+        'appId' => 'appId',
         'instaneId' => 'instaneId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->appId) {
+            $res['appId'] = $this->appId;
+        }
+
         if (null !== $this->instaneId) {
             $res['instaneId'] = $this->instaneId;
         }
@@ -30,14 +41,18 @@ class result extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return result
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['appId'])) {
+            $model->appId = $map['appId'];
+        }
+
         if (isset($map['instaneId'])) {
             $model->instaneId = $map['instaneId'];
         }

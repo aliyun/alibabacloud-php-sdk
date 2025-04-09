@@ -4,20 +4,16 @@
 
 namespace AlibabaCloud\SDK\Esserverless\V20230627\Models\UpdateDictRequest\files;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class ossObject extends Model
 {
     /**
-     * @example bucket1
-     *
      * @var string
      */
     public $bucketName;
 
     /**
-     * @example oss/dic_0.dic
-     *
      * @var string
      */
     public $key;
@@ -26,14 +22,18 @@ class ossObject extends Model
         'key' => 'key',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->bucketName) {
             $res['bucketName'] = $this->bucketName;
         }
+
         if (null !== $this->key) {
             $res['key'] = $this->key;
         }
@@ -41,17 +41,18 @@ class ossObject extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ossObject
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['bucketName'])) {
             $model->bucketName = $map['bucketName'];
         }
+
         if (isset($map['key'])) {
             $model->key = $map['key'];
         }

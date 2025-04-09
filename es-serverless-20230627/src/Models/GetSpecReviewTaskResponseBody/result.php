@@ -4,48 +4,26 @@
 
 namespace AlibabaCloud\SDK\Esserverless\V20230627\Models\GetSpecReviewTaskResponseBody;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class result extends Model
 {
     /**
-     * @description 代表资源一级ID的资源属性字段
-     *
-     * @example 339
-     *
      * @var string
      */
     public $id;
 
     /**
-     * @example test
-     *
      * @var string
      */
     public $appName;
 
     /**
-     * @example {
-     * "limiters": [
-     * {
-     * "type": "INDEX_QUOTA",
-     * "maxValue": 500,
-     * "immutable": false
-     * }
-     * ]
-     * }
-     *
      * @var mixed[]
      */
     public $applyLimiter;
 
     /**
-     * @example {
-     * "appType": "TRIAL",
-     * "cu": 4,
-     * "storage": 100
-     * }
-     *
      * @var mixed[]
      */
     public $applyQuota;
@@ -56,88 +34,46 @@ class result extends Model
     public $applyReason;
 
     /**
-     * @example {
-     * "limiters": [
-     * {
-     * "type": "INDEX_QUOTA",
-     * "maxValue": 500,
-     * "immutable": false
-     * }
-     * ]
-     * }
-     *
      * @var mixed[]
      */
     public $effectiveLimiter;
 
     /**
-     * @example {
-     * "appType": "TRIAL",
-     * "cu": 4,
-     * "storage": 100
-     * }
-     *
      * @var mixed[]
      */
     public $effectiveQuota;
 
     /**
-     * @example 2024-05-30T06:28:07.000Z
-     *
      * @var string
      */
     public $gmtCreate;
 
     /**
-     * @example 2024-05-30T06:28:07.000Z
-     *
      * @var string
      */
     public $gmtModified;
 
     /**
-     * @example {
-     * "limiters": [
-     * {
-     * "type": "INDEX_QUOTA",
-     * "maxValue": 500,
-     * "immutable": false
-     * }
-     * ]
-     * }
-     *
      * @var mixed[]
      */
     public $oldLimiter;
 
     /**
-     * @example {
-     * "appType": "TRIAL",
-     * "cu": 2,
-     * "storage": 1
-     * }
-     *
      * @var mixed[]
      */
     public $oldQuota;
 
     /**
-     * @example USER
-     *
      * @var string
      */
     public $source;
 
     /**
-     * @example Pending
-     *
      * @var string
      */
     public $status;
 
     /**
-     * @example QUOTA
-     *
      * @var string
      */
     public $type;
@@ -158,50 +94,114 @@ class result extends Model
         'type' => 'type',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->applyLimiter)) {
+            Model::validateArray($this->applyLimiter);
+        }
+        if (\is_array($this->applyQuota)) {
+            Model::validateArray($this->applyQuota);
+        }
+        if (\is_array($this->effectiveLimiter)) {
+            Model::validateArray($this->effectiveLimiter);
+        }
+        if (\is_array($this->effectiveQuota)) {
+            Model::validateArray($this->effectiveQuota);
+        }
+        if (\is_array($this->oldLimiter)) {
+            Model::validateArray($this->oldLimiter);
+        }
+        if (\is_array($this->oldQuota)) {
+            Model::validateArray($this->oldQuota);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->id) {
             $res['Id'] = $this->id;
         }
+
         if (null !== $this->appName) {
             $res['appName'] = $this->appName;
         }
+
         if (null !== $this->applyLimiter) {
-            $res['applyLimiter'] = $this->applyLimiter;
+            if (\is_array($this->applyLimiter)) {
+                $res['applyLimiter'] = [];
+                foreach ($this->applyLimiter as $key1 => $value1) {
+                    $res['applyLimiter'][$key1] = $value1;
+                }
+            }
         }
+
         if (null !== $this->applyQuota) {
-            $res['applyQuota'] = $this->applyQuota;
+            if (\is_array($this->applyQuota)) {
+                $res['applyQuota'] = [];
+                foreach ($this->applyQuota as $key1 => $value1) {
+                    $res['applyQuota'][$key1] = $value1;
+                }
+            }
         }
+
         if (null !== $this->applyReason) {
             $res['applyReason'] = $this->applyReason;
         }
+
         if (null !== $this->effectiveLimiter) {
-            $res['effectiveLimiter'] = $this->effectiveLimiter;
+            if (\is_array($this->effectiveLimiter)) {
+                $res['effectiveLimiter'] = [];
+                foreach ($this->effectiveLimiter as $key1 => $value1) {
+                    $res['effectiveLimiter'][$key1] = $value1;
+                }
+            }
         }
+
         if (null !== $this->effectiveQuota) {
-            $res['effectiveQuota'] = $this->effectiveQuota;
+            if (\is_array($this->effectiveQuota)) {
+                $res['effectiveQuota'] = [];
+                foreach ($this->effectiveQuota as $key1 => $value1) {
+                    $res['effectiveQuota'][$key1] = $value1;
+                }
+            }
         }
+
         if (null !== $this->gmtCreate) {
             $res['gmtCreate'] = $this->gmtCreate;
         }
+
         if (null !== $this->gmtModified) {
             $res['gmtModified'] = $this->gmtModified;
         }
+
         if (null !== $this->oldLimiter) {
-            $res['oldLimiter'] = $this->oldLimiter;
+            if (\is_array($this->oldLimiter)) {
+                $res['oldLimiter'] = [];
+                foreach ($this->oldLimiter as $key1 => $value1) {
+                    $res['oldLimiter'][$key1] = $value1;
+                }
+            }
         }
+
         if (null !== $this->oldQuota) {
-            $res['oldQuota'] = $this->oldQuota;
+            if (\is_array($this->oldQuota)) {
+                $res['oldQuota'] = [];
+                foreach ($this->oldQuota as $key1 => $value1) {
+                    $res['oldQuota'][$key1] = $value1;
+                }
+            }
         }
+
         if (null !== $this->source) {
             $res['source'] = $this->source;
         }
+
         if (null !== $this->status) {
             $res['status'] = $this->status;
         }
+
         if (null !== $this->type) {
             $res['type'] = $this->type;
         }
@@ -209,53 +209,96 @@ class result extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return result
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Id'])) {
             $model->id = $map['Id'];
         }
+
         if (isset($map['appName'])) {
             $model->appName = $map['appName'];
         }
+
         if (isset($map['applyLimiter'])) {
-            $model->applyLimiter = $map['applyLimiter'];
+            if (!empty($map['applyLimiter'])) {
+                $model->applyLimiter = [];
+                foreach ($map['applyLimiter'] as $key1 => $value1) {
+                    $model->applyLimiter[$key1] = $value1;
+                }
+            }
         }
+
         if (isset($map['applyQuota'])) {
-            $model->applyQuota = $map['applyQuota'];
+            if (!empty($map['applyQuota'])) {
+                $model->applyQuota = [];
+                foreach ($map['applyQuota'] as $key1 => $value1) {
+                    $model->applyQuota[$key1] = $value1;
+                }
+            }
         }
+
         if (isset($map['applyReason'])) {
             $model->applyReason = $map['applyReason'];
         }
+
         if (isset($map['effectiveLimiter'])) {
-            $model->effectiveLimiter = $map['effectiveLimiter'];
+            if (!empty($map['effectiveLimiter'])) {
+                $model->effectiveLimiter = [];
+                foreach ($map['effectiveLimiter'] as $key1 => $value1) {
+                    $model->effectiveLimiter[$key1] = $value1;
+                }
+            }
         }
+
         if (isset($map['effectiveQuota'])) {
-            $model->effectiveQuota = $map['effectiveQuota'];
+            if (!empty($map['effectiveQuota'])) {
+                $model->effectiveQuota = [];
+                foreach ($map['effectiveQuota'] as $key1 => $value1) {
+                    $model->effectiveQuota[$key1] = $value1;
+                }
+            }
         }
+
         if (isset($map['gmtCreate'])) {
             $model->gmtCreate = $map['gmtCreate'];
         }
+
         if (isset($map['gmtModified'])) {
             $model->gmtModified = $map['gmtModified'];
         }
+
         if (isset($map['oldLimiter'])) {
-            $model->oldLimiter = $map['oldLimiter'];
+            if (!empty($map['oldLimiter'])) {
+                $model->oldLimiter = [];
+                foreach ($map['oldLimiter'] as $key1 => $value1) {
+                    $model->oldLimiter[$key1] = $value1;
+                }
+            }
         }
+
         if (isset($map['oldQuota'])) {
-            $model->oldQuota = $map['oldQuota'];
+            if (!empty($map['oldQuota'])) {
+                $model->oldQuota = [];
+                foreach ($map['oldQuota'] as $key1 => $value1) {
+                    $model->oldQuota[$key1] = $value1;
+                }
+            }
         }
+
         if (isset($map['source'])) {
             $model->source = $map['source'];
         }
+
         if (isset($map['status'])) {
             $model->status = $map['status'];
         }
+
         if (isset($map['type'])) {
             $model->type = $map['type'];
         }

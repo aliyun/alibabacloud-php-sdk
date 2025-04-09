@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Esserverless\V20230627\Models\CreateAppRequest;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class quotaInfo extends Model
 {
@@ -28,17 +28,22 @@ class quotaInfo extends Model
         'storage' => 'storage',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->appType) {
             $res['appType'] = $this->appType;
         }
+
         if (null !== $this->cu) {
             $res['cu'] = $this->cu;
         }
+
         if (null !== $this->storage) {
             $res['storage'] = $this->storage;
         }
@@ -46,20 +51,22 @@ class quotaInfo extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return quotaInfo
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['appType'])) {
             $model->appType = $map['appType'];
         }
+
         if (isset($map['cu'])) {
             $model->cu = $map['cu'];
         }
+
         if (isset($map['storage'])) {
             $model->storage = $map['storage'];
         }

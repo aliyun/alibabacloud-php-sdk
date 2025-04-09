@@ -4,52 +4,36 @@
 
 namespace AlibabaCloud\SDK\Esserverless\V20230627\Models\GetMonitorDataResponseBody;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class result extends Model
 {
     /**
-     * @example {
-     * "1689480600":28676235.104761902
-     * }
-     *
      * @var mixed[]
      */
     public $dps;
 
     /**
-     * @example 1
-     *
      * @var float
      */
     public $integrity;
 
     /**
-     * @example 1689566839447
-     *
      * @var int
      */
     public $messageWatermark;
 
     /**
-     * @example elasticsearch-server.logic_cpu.cpu
-     *
      * @var string
      */
     public $metric;
 
     /**
-     * @example 172455913.18935508
-     *
      * @var float
      */
     public $summary;
 
     /**
-     * @example {
-     * "indexName":"test"
-     * }
-     *
      * @var mixed[]
      */
     public $tags;
@@ -62,58 +46,97 @@ class result extends Model
         'tags' => 'tags',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->dps)) {
+            Model::validateArray($this->dps);
+        }
+        if (\is_array($this->tags)) {
+            Model::validateArray($this->tags);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->dps) {
-            $res['dps'] = $this->dps;
+            if (\is_array($this->dps)) {
+                $res['dps'] = [];
+                foreach ($this->dps as $key1 => $value1) {
+                    $res['dps'][$key1] = $value1;
+                }
+            }
         }
+
         if (null !== $this->integrity) {
             $res['integrity'] = $this->integrity;
         }
+
         if (null !== $this->messageWatermark) {
             $res['messageWatermark'] = $this->messageWatermark;
         }
+
         if (null !== $this->metric) {
             $res['metric'] = $this->metric;
         }
+
         if (null !== $this->summary) {
             $res['summary'] = $this->summary;
         }
+
         if (null !== $this->tags) {
-            $res['tags'] = $this->tags;
+            if (\is_array($this->tags)) {
+                $res['tags'] = [];
+                foreach ($this->tags as $key1 => $value1) {
+                    $res['tags'][$key1] = $value1;
+                }
+            }
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return result
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['dps'])) {
-            $model->dps = $map['dps'];
+            if (!empty($map['dps'])) {
+                $model->dps = [];
+                foreach ($map['dps'] as $key1 => $value1) {
+                    $model->dps[$key1] = $value1;
+                }
+            }
         }
+
         if (isset($map['integrity'])) {
             $model->integrity = $map['integrity'];
         }
+
         if (isset($map['messageWatermark'])) {
             $model->messageWatermark = $map['messageWatermark'];
         }
+
         if (isset($map['metric'])) {
             $model->metric = $map['metric'];
         }
+
         if (isset($map['summary'])) {
             $model->summary = $map['summary'];
         }
+
         if (isset($map['tags'])) {
-            $model->tags = $map['tags'];
+            if (!empty($map['tags'])) {
+                $model->tags = [];
+                foreach ($map['tags'] as $key1 => $value1) {
+                    $model->tags[$key1] = $value1;
+                }
+            }
         }
 
         return $model;

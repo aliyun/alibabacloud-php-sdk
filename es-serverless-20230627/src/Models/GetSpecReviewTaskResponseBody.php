@@ -4,14 +4,12 @@
 
 namespace AlibabaCloud\SDK\Esserverless\V20230627\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Esserverless\V20230627\Models\GetSpecReviewTaskResponseBody\result;
-use AlibabaCloud\Tea\Model;
 
 class GetSpecReviewTaskResponseBody extends Model
 {
     /**
-     * @example E310AC54-957A-5FD5-B85B-E972B2BDA8DE
-     *
      * @var string
      */
     public $requestId;
@@ -25,32 +23,40 @@ class GetSpecReviewTaskResponseBody extends Model
         'result' => 'result',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (null !== $this->result) {
+            $this->result->validate();
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->requestId) {
             $res['requestId'] = $this->requestId;
         }
+
         if (null !== $this->result) {
-            $res['result'] = null !== $this->result ? $this->result->toMap() : null;
+            $res['result'] = null !== $this->result ? $this->result->toArray($noStream) : $this->result;
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return GetSpecReviewTaskResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['requestId'])) {
             $model->requestId = $map['requestId'];
         }
+
         if (isset($map['result'])) {
             $model->result = result::fromMap($map['result']);
         }

@@ -4,42 +4,32 @@
 
 namespace AlibabaCloud\SDK\Esserverless\V20230627\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Esserverless\V20230627\Models\UpdateDictRequest\files;
-use AlibabaCloud\Tea\Model;
 
 class UpdateDictRequest extends Model
 {
     /**
-     * @example true
-     *
      * @var bool
      */
     public $allowCover;
 
     /**
-     * @description This parameter is required.
-     *
      * @var files[]
      */
     public $files;
 
     /**
-     * @example OSS
-     *
      * @var string
      */
     public $sourceType;
 
     /**
-     * @example MAIN
-     *
      * @var string
      */
     public $type;
 
     /**
-     * @example true
-     *
      * @var bool
      */
     public $dryRun;
@@ -51,29 +41,39 @@ class UpdateDictRequest extends Model
         'dryRun' => 'dryRun',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->files)) {
+            Model::validateArray($this->files);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->allowCover) {
             $res['allowCover'] = $this->allowCover;
         }
+
         if (null !== $this->files) {
-            $res['files'] = [];
-            if (null !== $this->files && \is_array($this->files)) {
-                $n = 0;
-                foreach ($this->files as $item) {
-                    $res['files'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->files)) {
+                $res['files'] = [];
+                $n1 = 0;
+                foreach ($this->files as $item1) {
+                    $res['files'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
+
         if (null !== $this->sourceType) {
             $res['sourceType'] = $this->sourceType;
         }
+
         if (null !== $this->type) {
             $res['type'] = $this->type;
         }
+
         if (null !== $this->dryRun) {
             $res['dryRun'] = $this->dryRun;
         }
@@ -81,32 +81,36 @@ class UpdateDictRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return UpdateDictRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['allowCover'])) {
             $model->allowCover = $map['allowCover'];
         }
+
         if (isset($map['files'])) {
             if (!empty($map['files'])) {
                 $model->files = [];
-                $n = 0;
-                foreach ($map['files'] as $item) {
-                    $model->files[$n++] = null !== $item ? files::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['files'] as $item1) {
+                    $model->files[$n1++] = files::fromMap($item1);
                 }
             }
         }
+
         if (isset($map['sourceType'])) {
             $model->sourceType = $map['sourceType'];
         }
+
         if (isset($map['type'])) {
             $model->type = $map['type'];
         }
+
         if (isset($map['dryRun'])) {
             $model->dryRun = $map['dryRun'];
         }

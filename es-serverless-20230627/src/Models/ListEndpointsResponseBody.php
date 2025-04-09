@@ -4,14 +4,12 @@
 
 namespace AlibabaCloud\SDK\Esserverless\V20230627\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Esserverless\V20230627\Models\ListEndpointsResponseBody\result;
-use AlibabaCloud\Tea\Model;
 
 class ListEndpointsResponseBody extends Model
 {
     /**
-     * @example D6030CE6-9FEB-5B2F-84AC-3ADE3CBA89E5
-     *
      * @var string
      */
     public $requestId;
@@ -22,8 +20,6 @@ class ListEndpointsResponseBody extends Model
     public $result;
 
     /**
-     * @example 10
-     *
      * @var int
      */
     public $totalCount;
@@ -33,23 +29,31 @@ class ListEndpointsResponseBody extends Model
         'totalCount' => 'totalCount',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->result)) {
+            Model::validateArray($this->result);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->requestId) {
             $res['requestId'] = $this->requestId;
         }
+
         if (null !== $this->result) {
-            $res['result'] = [];
-            if (null !== $this->result && \is_array($this->result)) {
-                $n = 0;
-                foreach ($this->result as $item) {
-                    $res['result'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->result)) {
+                $res['result'] = [];
+                $n1 = 0;
+                foreach ($this->result as $item1) {
+                    $res['result'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
+
         if (null !== $this->totalCount) {
             $res['totalCount'] = $this->totalCount;
         }
@@ -57,26 +61,28 @@ class ListEndpointsResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ListEndpointsResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['requestId'])) {
             $model->requestId = $map['requestId'];
         }
+
         if (isset($map['result'])) {
             if (!empty($map['result'])) {
                 $model->result = [];
-                $n = 0;
-                foreach ($map['result'] as $item) {
-                    $model->result[$n++] = null !== $item ? result::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['result'] as $item1) {
+                    $model->result[$n1++] = result::fromMap($item1);
                 }
             }
         }
+
         if (isset($map['totalCount'])) {
             $model->totalCount = $map['totalCount'];
         }

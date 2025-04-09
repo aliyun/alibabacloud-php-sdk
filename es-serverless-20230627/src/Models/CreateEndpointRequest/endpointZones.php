@@ -4,20 +4,16 @@
 
 namespace AlibabaCloud\SDK\Esserverless\V20230627\Models\CreateEndpointRequest;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class endpointZones extends Model
 {
     /**
-     * @example vsw-uf6qmfkqdcw*****
-     *
      * @var string
      */
     public $vswitchId;
 
     /**
-     * @example cn-hangzhou-h
-     *
      * @var string
      */
     public $zoneId;
@@ -26,14 +22,18 @@ class endpointZones extends Model
         'zoneId' => 'zoneId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->vswitchId) {
             $res['vswitchId'] = $this->vswitchId;
         }
+
         if (null !== $this->zoneId) {
             $res['zoneId'] = $this->zoneId;
         }
@@ -41,17 +41,18 @@ class endpointZones extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return endpointZones
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['vswitchId'])) {
             $model->vswitchId = $map['vswitchId'];
         }
+
         if (isset($map['zoneId'])) {
             $model->zoneId = $map['zoneId'];
         }

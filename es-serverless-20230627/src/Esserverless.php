@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Esserverless\V20230627;
 
-use AlibabaCloud\Endpoint\Endpoint;
-use AlibabaCloud\OpenApiUtil\OpenApiUtilClient;
+use AlibabaCloud\Dara\Models\RuntimeOptions;
+use AlibabaCloud\Dara\Url;
 use AlibabaCloud\SDK\Esserverless\V20230627\Models\CancelSpecReviewTaskResponse;
 use AlibabaCloud\SDK\Esserverless\V20230627\Models\CreateAppRequest;
 use AlibabaCloud\SDK\Esserverless\V20230627\Models\CreateAppResponse;
@@ -45,11 +45,10 @@ use AlibabaCloud\SDK\Esserverless\V20230627\Models\UpdateEndpointRequest;
 use AlibabaCloud\SDK\Esserverless\V20230627\Models\UpdateEndpointResponse;
 use AlibabaCloud\SDK\Esserverless\V20230627\Models\UpdateSnapshotSettingRequest;
 use AlibabaCloud\SDK\Esserverless\V20230627\Models\UpdateSnapshotSettingResponse;
-use AlibabaCloud\Tea\Utils\Utils;
-use AlibabaCloud\Tea\Utils\Utils\RuntimeOptions;
 use Darabonba\OpenApi\Models\OpenApiRequest;
 use Darabonba\OpenApi\Models\Params;
 use Darabonba\OpenApi\OpenApiClient;
+use Darabonba\OpenApi\Utils;
 
 class Esserverless extends OpenApiClient
 {
@@ -74,25 +73,31 @@ class Esserverless extends OpenApiClient
      */
     public function getEndpoint($productId, $regionId, $endpointRule, $network, $suffix, $endpointMap, $endpoint)
     {
-        if (!Utils::empty_($endpoint)) {
+        if (null !== $endpoint) {
             return $endpoint;
         }
-        if (!Utils::isUnset($endpointMap) && !Utils::empty_(@$endpointMap[$regionId])) {
+
+        if (null !== $endpointMap && null !== @$endpointMap[$regionId]) {
             return @$endpointMap[$regionId];
         }
 
-        return Endpoint::getEndpointRules($productId, $regionId, $endpointRule, $network, $suffix);
+        return Utils::getEndpointRules($productId, $regionId, $endpointRule, $network, $suffix);
     }
 
     /**
-     * @summary 撤销规格审批
-     *  *
+     * 撤销规格审批.
+     *
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CancelSpecReviewTaskResponse
+     *
      * @param string         $appName
      * @param string         $taskId
-     * @param string[]       $headers map
-     * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
      *
-     * @return CancelSpecReviewTaskResponse CancelSpecReviewTaskResponse
+     * @return CancelSpecReviewTaskResponse
      */
     public function cancelSpecReviewTaskWithOptions($appName, $taskId, $headers, $runtime)
     {
@@ -103,14 +108,14 @@ class Esserverless extends OpenApiClient
             'action' => 'CancelSpecReviewTask',
             'version' => '2023-06-27',
             'protocol' => 'HTTPS',
-            'pathname' => '/openapi/es-serverless/instances/' . OpenApiUtilClient::getEncodeParam($appName) . '/spec-review-tasks/' . OpenApiUtilClient::getEncodeParam($taskId) . '',
+            'pathname' => '/openapi/es-serverless/instances/' . Url::percentEncode($appName) . '/spec-review-tasks/' . Url::percentEncode($taskId) . '',
             'method' => 'DELETE',
             'authType' => 'AK',
             'style' => 'ROA',
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return CancelSpecReviewTaskResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -118,12 +123,14 @@ class Esserverless extends OpenApiClient
     }
 
     /**
-     * @summary 撤销规格审批
-     *  *
+     * 撤销规格审批.
+     *
+     * @returns CancelSpecReviewTaskResponse
+     *
      * @param string $appName
      * @param string $taskId
      *
-     * @return CancelSpecReviewTaskResponse CancelSpecReviewTaskResponse
+     * @return CancelSpecReviewTaskResponse
      */
     public function cancelSpecReviewTask($appName, $taskId)
     {
@@ -134,56 +141,73 @@ class Esserverless extends OpenApiClient
     }
 
     /**
-     * @summary 创建Serverless应用
-     *  *
-     * @param CreateAppRequest $request CreateAppRequest
-     * @param string[]         $headers map
-     * @param RuntimeOptions   $runtime runtime options for this request RuntimeOptions
+     * 创建Serverless应用.
      *
-     * @return CreateAppResponse CreateAppResponse
+     * @param request - CreateAppRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateAppResponse
+     *
+     * @param CreateAppRequest $request
+     * @param string[]         $headers
+     * @param RuntimeOptions   $runtime
+     *
+     * @return CreateAppResponse
      */
     public function createAppWithOptions($request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->dryRun)) {
-            $query['dryRun'] = $request->dryRun;
+        if (null !== $request->dryRun) {
+            @$query['dryRun'] = $request->dryRun;
         }
+
         $body = [];
-        if (!Utils::isUnset($request->appName)) {
-            $body['appName'] = $request->appName;
+        if (null !== $request->appName) {
+            @$body['appName'] = $request->appName;
         }
-        if (!Utils::isUnset($request->authentication)) {
-            $body['authentication'] = $request->authentication;
+
+        if (null !== $request->authentication) {
+            @$body['authentication'] = $request->authentication;
         }
-        if (!Utils::isUnset($request->chargeType)) {
-            $body['chargeType'] = $request->chargeType;
+
+        if (null !== $request->chargeType) {
+            @$body['chargeType'] = $request->chargeType;
         }
-        if (!Utils::isUnset($request->description)) {
-            $body['description'] = $request->description;
+
+        if (null !== $request->description) {
+            @$body['description'] = $request->description;
         }
-        if (!Utils::isUnset($request->network)) {
-            $body['network'] = $request->network;
+
+        if (null !== $request->network) {
+            @$body['network'] = $request->network;
         }
-        if (!Utils::isUnset($request->privateNetwork)) {
-            $body['privateNetwork'] = $request->privateNetwork;
+
+        if (null !== $request->privateNetwork) {
+            @$body['privateNetwork'] = $request->privateNetwork;
         }
-        if (!Utils::isUnset($request->quotaInfo)) {
-            $body['quotaInfo'] = $request->quotaInfo;
+
+        if (null !== $request->quotaInfo) {
+            @$body['quotaInfo'] = $request->quotaInfo;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $body['regionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$body['regionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->scenario)) {
-            $body['scenario'] = $request->scenario;
+
+        if (null !== $request->scenario) {
+            @$body['scenario'] = $request->scenario;
         }
-        if (!Utils::isUnset($request->version)) {
-            $body['version'] = $request->version;
+
+        if (null !== $request->version) {
+            @$body['version'] = $request->version;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query' => OpenApiUtilClient::query($query),
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'CreateApp',
@@ -196,7 +220,7 @@ class Esserverless extends OpenApiClient
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return CreateAppResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -204,11 +228,15 @@ class Esserverless extends OpenApiClient
     }
 
     /**
-     * @summary 创建Serverless应用
-     *  *
-     * @param CreateAppRequest $request CreateAppRequest
+     * 创建Serverless应用.
      *
-     * @return CreateAppResponse CreateAppResponse
+     * @param request - CreateAppRequest
+     *
+     * @returns CreateAppResponse
+     *
+     * @param CreateAppRequest $request
+     *
+     * @return CreateAppResponse
      */
     public function createApp($request)
     {
@@ -219,35 +247,45 @@ class Esserverless extends OpenApiClient
     }
 
     /**
-     * @summary 创建端点
-     *  *
-     * @param CreateEndpointRequest $request CreateEndpointRequest
-     * @param string[]              $headers map
-     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
+     * 创建端点.
      *
-     * @return CreateEndpointResponse CreateEndpointResponse
+     * @param request - CreateEndpointRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateEndpointResponse
+     *
+     * @param CreateEndpointRequest $request
+     * @param string[]              $headers
+     * @param RuntimeOptions        $runtime
+     *
+     * @return CreateEndpointResponse
      */
     public function createEndpointWithOptions($request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->type)) {
-            $query['type'] = $request->type;
+        if (null !== $request->type) {
+            @$query['type'] = $request->type;
         }
+
         $body = [];
-        if (!Utils::isUnset($request->endpointZones)) {
-            $body['endpointZones'] = $request->endpointZones;
+        if (null !== $request->endpointZones) {
+            @$body['endpointZones'] = $request->endpointZones;
         }
-        if (!Utils::isUnset($request->name)) {
-            $body['name'] = $request->name;
+
+        if (null !== $request->name) {
+            @$body['name'] = $request->name;
         }
-        if (!Utils::isUnset($request->vpcId)) {
-            $body['vpcId'] = $request->vpcId;
+
+        if (null !== $request->vpcId) {
+            @$body['vpcId'] = $request->vpcId;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query' => OpenApiUtilClient::query($query),
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'CreateEndpoint',
@@ -260,7 +298,7 @@ class Esserverless extends OpenApiClient
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return CreateEndpointResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -268,11 +306,15 @@ class Esserverless extends OpenApiClient
     }
 
     /**
-     * @summary 创建端点
-     *  *
-     * @param CreateEndpointRequest $request CreateEndpointRequest
+     * 创建端点.
      *
-     * @return CreateEndpointResponse CreateEndpointResponse
+     * @param request - CreateEndpointRequest
+     *
+     * @returns CreateEndpointResponse
+     *
+     * @param CreateEndpointRequest $request
+     *
+     * @return CreateEndpointResponse
      */
     public function createEndpoint($request)
     {
@@ -283,47 +325,56 @@ class Esserverless extends OpenApiClient
     }
 
     /**
-     * @summary 创建快照
-     *  *
+     * 创建快照.
+     *
+     * @param request - CreateSnapshotRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateSnapshotResponse
+     *
      * @param string                $appName
      * @param string                $repository
-     * @param CreateSnapshotRequest $request    CreateSnapshotRequest
-     * @param string[]              $headers    map
-     * @param RuntimeOptions        $runtime    runtime options for this request RuntimeOptions
+     * @param CreateSnapshotRequest $request
+     * @param string[]              $headers
+     * @param RuntimeOptions        $runtime
      *
-     * @return CreateSnapshotResponse CreateSnapshotResponse
+     * @return CreateSnapshotResponse
      */
     public function createSnapshotWithOptions($appName, $repository, $request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->dryRun)) {
-            $query['dryRun'] = $request->dryRun;
+        if (null !== $request->dryRun) {
+            @$query['dryRun'] = $request->dryRun;
         }
+
         $body = [];
-        if (!Utils::isUnset($request->indices)) {
-            $body['indices'] = $request->indices;
+        if (null !== $request->indices) {
+            @$body['indices'] = $request->indices;
         }
-        if (!Utils::isUnset($request->snapshot)) {
-            $body['snapshot'] = $request->snapshot;
+
+        if (null !== $request->snapshot) {
+            @$body['snapshot'] = $request->snapshot;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query' => OpenApiUtilClient::query($query),
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'CreateSnapshot',
             'version' => '2023-06-27',
             'protocol' => 'HTTPS',
-            'pathname' => '/openapi/es-serverless/instances/' . OpenApiUtilClient::getEncodeParam($appName) . '/snapshot-repositories/' . OpenApiUtilClient::getEncodeParam($repository) . '/snapshots',
+            'pathname' => '/openapi/es-serverless/instances/' . Url::percentEncode($appName) . '/snapshot-repositories/' . Url::percentEncode($repository) . '/snapshots',
             'method' => 'POST',
             'authType' => 'AK',
             'style' => 'ROA',
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return CreateSnapshotResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -331,13 +382,17 @@ class Esserverless extends OpenApiClient
     }
 
     /**
-     * @summary 创建快照
-     *  *
+     * 创建快照.
+     *
+     * @param request - CreateSnapshotRequest
+     *
+     * @returns CreateSnapshotResponse
+     *
      * @param string                $appName
      * @param string                $repository
-     * @param CreateSnapshotRequest $request    CreateSnapshotRequest
+     * @param CreateSnapshotRequest $request
      *
-     * @return CreateSnapshotResponse CreateSnapshotResponse
+     * @return CreateSnapshotResponse
      */
     public function createSnapshot($appName, $repository, $request)
     {
@@ -348,13 +403,18 @@ class Esserverless extends OpenApiClient
     }
 
     /**
-     * @summary 删除Serverless应用。
-     *  *
-     * @param string         $appName
-     * @param string[]       $headers map
-     * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
+     * 删除Serverless应用。
      *
-     * @return DeleteAppResponse DeleteAppResponse
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteAppResponse
+     *
+     * @param string         $appName
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
+     *
+     * @return DeleteAppResponse
      */
     public function deleteAppWithOptions($appName, $headers, $runtime)
     {
@@ -365,14 +425,14 @@ class Esserverless extends OpenApiClient
             'action' => 'DeleteApp',
             'version' => '2023-06-27',
             'protocol' => 'HTTPS',
-            'pathname' => '/openapi/es-serverless/instances/' . OpenApiUtilClient::getEncodeParam($appName) . '',
+            'pathname' => '/openapi/es-serverless/instances/' . Url::percentEncode($appName) . '',
             'method' => 'DELETE',
             'authType' => 'AK',
             'style' => 'ROA',
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DeleteAppResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -380,11 +440,13 @@ class Esserverless extends OpenApiClient
     }
 
     /**
-     * @summary 删除Serverless应用。
-     *  *
+     * 删除Serverless应用。
+     *
+     * @returns DeleteAppResponse
+     *
      * @param string $appName
      *
-     * @return DeleteAppResponse DeleteAppResponse
+     * @return DeleteAppResponse
      */
     public function deleteApp($appName)
     {
@@ -395,41 +457,49 @@ class Esserverless extends OpenApiClient
     }
 
     /**
-     * @summary 删除词典
-     *  *
-     * @param string            $appName
-     * @param DeleteDictRequest $request DeleteDictRequest
-     * @param string[]          $headers map
-     * @param RuntimeOptions    $runtime runtime options for this request RuntimeOptions
+     * 删除词典.
      *
-     * @return DeleteDictResponse DeleteDictResponse
+     * @param request - DeleteDictRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteDictResponse
+     *
+     * @param string            $appName
+     * @param DeleteDictRequest $request
+     * @param string[]          $headers
+     * @param RuntimeOptions    $runtime
+     *
+     * @return DeleteDictResponse
      */
     public function deleteDictWithOptions($appName, $request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->name)) {
-            $body['name'] = $request->name;
+        if (null !== $request->name) {
+            @$body['name'] = $request->name;
         }
-        if (!Utils::isUnset($request->type)) {
-            $body['type'] = $request->type;
+
+        if (null !== $request->type) {
+            @$body['type'] = $request->type;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'DeleteDict',
             'version' => '2023-06-27',
             'protocol' => 'HTTPS',
-            'pathname' => '/openapi/es-serverless/instances/' . OpenApiUtilClient::getEncodeParam($appName) . '/dicts/actions/remove',
+            'pathname' => '/openapi/es-serverless/instances/' . Url::percentEncode($appName) . '/dicts/actions/remove',
             'method' => 'POST',
             'authType' => 'AK',
             'style' => 'ROA',
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DeleteDictResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -437,12 +507,16 @@ class Esserverless extends OpenApiClient
     }
 
     /**
-     * @summary 删除词典
-     *  *
-     * @param string            $appName
-     * @param DeleteDictRequest $request DeleteDictRequest
+     * 删除词典.
      *
-     * @return DeleteDictResponse DeleteDictResponse
+     * @param request - DeleteDictRequest
+     *
+     * @returns DeleteDictResponse
+     *
+     * @param string            $appName
+     * @param DeleteDictRequest $request
+     *
+     * @return DeleteDictResponse
      */
     public function deleteDict($appName, $request)
     {
@@ -453,13 +527,18 @@ class Esserverless extends OpenApiClient
     }
 
     /**
-     * @summary 删除端点
-     *  *
-     * @param string         $endpointId
-     * @param string[]       $headers    map
-     * @param RuntimeOptions $runtime    runtime options for this request RuntimeOptions
+     * 删除端点.
      *
-     * @return DeleteEndpointResponse DeleteEndpointResponse
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteEndpointResponse
+     *
+     * @param string         $endpointId
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
+     *
+     * @return DeleteEndpointResponse
      */
     public function deleteEndpointWithOptions($endpointId, $headers, $runtime)
     {
@@ -470,14 +549,14 @@ class Esserverless extends OpenApiClient
             'action' => 'DeleteEndpoint',
             'version' => '2023-06-27',
             'protocol' => 'HTTPS',
-            'pathname' => '/openapi/es-serverless/endpoints/' . OpenApiUtilClient::getEncodeParam($endpointId) . '',
+            'pathname' => '/openapi/es-serverless/endpoints/' . Url::percentEncode($endpointId) . '',
             'method' => 'DELETE',
             'authType' => 'AK',
             'style' => 'ROA',
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DeleteEndpointResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -485,11 +564,13 @@ class Esserverless extends OpenApiClient
     }
 
     /**
-     * @summary 删除端点
-     *  *
+     * 删除端点.
+     *
+     * @returns DeleteEndpointResponse
+     *
      * @param string $endpointId
      *
-     * @return DeleteEndpointResponse DeleteEndpointResponse
+     * @return DeleteEndpointResponse
      */
     public function deleteEndpoint($endpointId)
     {
@@ -500,15 +581,20 @@ class Esserverless extends OpenApiClient
     }
 
     /**
-     * @summary 删除快照
-     *  *
+     * 删除快照.
+     *
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteSnapshotResponse
+     *
      * @param string         $appName
      * @param string         $repository
      * @param string         $snapshot
-     * @param string[]       $headers    map
-     * @param RuntimeOptions $runtime    runtime options for this request RuntimeOptions
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
      *
-     * @return DeleteSnapshotResponse DeleteSnapshotResponse
+     * @return DeleteSnapshotResponse
      */
     public function deleteSnapshotWithOptions($appName, $repository, $snapshot, $headers, $runtime)
     {
@@ -519,14 +605,14 @@ class Esserverless extends OpenApiClient
             'action' => 'DeleteSnapshot',
             'version' => '2023-06-27',
             'protocol' => 'HTTPS',
-            'pathname' => '/openapi/es-serverless/instances/' . OpenApiUtilClient::getEncodeParam($appName) . '/snapshot-repositories/' . OpenApiUtilClient::getEncodeParam($repository) . '/snapshots/' . OpenApiUtilClient::getEncodeParam($snapshot) . '',
+            'pathname' => '/openapi/es-serverless/instances/' . Url::percentEncode($appName) . '/snapshot-repositories/' . Url::percentEncode($repository) . '/snapshots/' . Url::percentEncode($snapshot) . '',
             'method' => 'DELETE',
             'authType' => 'AK',
             'style' => 'ROA',
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DeleteSnapshotResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -534,13 +620,15 @@ class Esserverless extends OpenApiClient
     }
 
     /**
-     * @summary 删除快照
-     *  *
+     * 删除快照.
+     *
+     * @returns DeleteSnapshotResponse
+     *
      * @param string $appName
      * @param string $repository
      * @param string $snapshot
      *
-     * @return DeleteSnapshotResponse DeleteSnapshotResponse
+     * @return DeleteSnapshotResponse
      */
     public function deleteSnapshot($appName, $repository, $snapshot)
     {
@@ -551,38 +639,45 @@ class Esserverless extends OpenApiClient
     }
 
     /**
-     * @summary 获取Serverless应用详情
-     *  *
-     * @param string         $appName
-     * @param GetAppRequest  $request GetAppRequest
-     * @param string[]       $headers map
-     * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
+     * 获取Serverless应用详情.
      *
-     * @return GetAppResponse GetAppResponse
+     * @param request - GetAppRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetAppResponse
+     *
+     * @param string         $appName
+     * @param GetAppRequest  $request
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
+     *
+     * @return GetAppResponse
      */
     public function getAppWithOptions($appName, $request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->detailed)) {
-            $query['detailed'] = $request->detailed;
+        if (null !== $request->detailed) {
+            @$query['detailed'] = $request->detailed;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'GetApp',
             'version' => '2023-06-27',
             'protocol' => 'HTTPS',
-            'pathname' => '/openapi/es-serverless/instances/' . OpenApiUtilClient::getEncodeParam($appName) . '',
+            'pathname' => '/openapi/es-serverless/instances/' . Url::percentEncode($appName) . '',
             'method' => 'GET',
             'authType' => 'AK',
             'style' => 'ROA',
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return GetAppResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -590,12 +685,16 @@ class Esserverless extends OpenApiClient
     }
 
     /**
-     * @summary 获取Serverless应用详情
-     *  *
-     * @param string        $appName
-     * @param GetAppRequest $request GetAppRequest
+     * 获取Serverless应用详情.
      *
-     * @return GetAppResponse GetAppResponse
+     * @param request - GetAppRequest
+     *
+     * @returns GetAppResponse
+     *
+     * @param string        $appName
+     * @param GetAppRequest $request
+     *
+     * @return GetAppResponse
      */
     public function getApp($appName, $request)
     {
@@ -606,13 +705,18 @@ class Esserverless extends OpenApiClient
     }
 
     /**
-     * @summary 获取Serverless应用配额详情
-     *  *
-     * @param string         $appName
-     * @param string[]       $headers map
-     * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
+     * 获取Serverless应用配额详情.
      *
-     * @return GetAppQuotaResponse GetAppQuotaResponse
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetAppQuotaResponse
+     *
+     * @param string         $appName
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
+     *
+     * @return GetAppQuotaResponse
      */
     public function getAppQuotaWithOptions($appName, $headers, $runtime)
     {
@@ -623,14 +727,14 @@ class Esserverless extends OpenApiClient
             'action' => 'GetAppQuota',
             'version' => '2023-06-27',
             'protocol' => 'HTTPS',
-            'pathname' => '/openapi/es-serverless/instances/' . OpenApiUtilClient::getEncodeParam($appName) . '/quota',
+            'pathname' => '/openapi/es-serverless/instances/' . Url::percentEncode($appName) . '/quota',
             'method' => 'GET',
             'authType' => 'AK',
             'style' => 'ROA',
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return GetAppQuotaResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -638,11 +742,13 @@ class Esserverless extends OpenApiClient
     }
 
     /**
-     * @summary 获取Serverless应用配额详情
-     *  *
+     * 获取Serverless应用配额详情.
+     *
+     * @returns GetAppQuotaResponse
+     *
      * @param string $appName
      *
-     * @return GetAppQuotaResponse GetAppQuotaResponse
+     * @return GetAppQuotaResponse
      */
     public function getAppQuota($appName)
     {
@@ -653,17 +759,23 @@ class Esserverless extends OpenApiClient
     }
 
     /**
-     * @summary 获取监控数据
-     *  *
-     * @param GetMonitorDataRequest $request GetMonitorDataRequest
-     * @param string[]              $headers map
-     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
+     * 获取监控数据.
      *
-     * @return GetMonitorDataResponse GetMonitorDataResponse
+     * @param request - GetMonitorDataRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetMonitorDataResponse
+     *
+     * @param GetMonitorDataRequest $request
+     * @param string[]              $headers
+     * @param RuntimeOptions        $runtime
+     *
+     * @return GetMonitorDataResponse
      */
     public function getMonitorDataWithOptions($request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $req = new OpenApiRequest([
             'headers' => $headers,
             'body' => $request->body,
@@ -679,7 +791,7 @@ class Esserverless extends OpenApiClient
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return GetMonitorDataResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -687,11 +799,15 @@ class Esserverless extends OpenApiClient
     }
 
     /**
-     * @summary 获取监控数据
-     *  *
-     * @param GetMonitorDataRequest $request GetMonitorDataRequest
+     * 获取监控数据.
      *
-     * @return GetMonitorDataResponse GetMonitorDataResponse
+     * @param request - GetMonitorDataRequest
+     *
+     * @returns GetMonitorDataResponse
+     *
+     * @param GetMonitorDataRequest $request
+     *
+     * @return GetMonitorDataResponse
      */
     public function getMonitorData($request)
     {
@@ -702,13 +818,18 @@ class Esserverless extends OpenApiClient
     }
 
     /**
-     * @summary 获取自动备份配置
-     *  *
-     * @param string         $appName
-     * @param string[]       $headers map
-     * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
+     * 获取自动备份配置.
      *
-     * @return GetSnapshotSettingResponse GetSnapshotSettingResponse
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetSnapshotSettingResponse
+     *
+     * @param string         $appName
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
+     *
+     * @return GetSnapshotSettingResponse
      */
     public function getSnapshotSettingWithOptions($appName, $headers, $runtime)
     {
@@ -719,14 +840,14 @@ class Esserverless extends OpenApiClient
             'action' => 'GetSnapshotSetting',
             'version' => '2023-06-27',
             'protocol' => 'HTTPS',
-            'pathname' => '/openapi/es-serverless/instances/' . OpenApiUtilClient::getEncodeParam($appName) . '/auto-snapshot-setting',
+            'pathname' => '/openapi/es-serverless/instances/' . Url::percentEncode($appName) . '/auto-snapshot-setting',
             'method' => 'GET',
             'authType' => 'AK',
             'style' => 'ROA',
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return GetSnapshotSettingResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -734,11 +855,13 @@ class Esserverless extends OpenApiClient
     }
 
     /**
-     * @summary 获取自动备份配置
-     *  *
+     * 获取自动备份配置.
+     *
+     * @returns GetSnapshotSettingResponse
+     *
      * @param string $appName
      *
-     * @return GetSnapshotSettingResponse GetSnapshotSettingResponse
+     * @return GetSnapshotSettingResponse
      */
     public function getSnapshotSetting($appName)
     {
@@ -749,14 +872,19 @@ class Esserverless extends OpenApiClient
     }
 
     /**
-     * @summary 获取配额审批详情
-     *  *
+     * 获取配额审批详情.
+     *
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetSpecReviewTaskResponse
+     *
      * @param string         $appName
      * @param string         $taskId
-     * @param string[]       $headers map
-     * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
      *
-     * @return GetSpecReviewTaskResponse GetSpecReviewTaskResponse
+     * @return GetSpecReviewTaskResponse
      */
     public function getSpecReviewTaskWithOptions($appName, $taskId, $headers, $runtime)
     {
@@ -767,14 +895,14 @@ class Esserverless extends OpenApiClient
             'action' => 'GetSpecReviewTask',
             'version' => '2023-06-27',
             'protocol' => 'HTTPS',
-            'pathname' => '/openapi/es-serverless/instances/' . OpenApiUtilClient::getEncodeParam($appName) . '/spec-review-tasks/' . OpenApiUtilClient::getEncodeParam($taskId) . '',
+            'pathname' => '/openapi/es-serverless/instances/' . Url::percentEncode($appName) . '/spec-review-tasks/' . Url::percentEncode($taskId) . '',
             'method' => 'GET',
             'authType' => 'AK',
             'style' => 'ROA',
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return GetSpecReviewTaskResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -782,12 +910,14 @@ class Esserverless extends OpenApiClient
     }
 
     /**
-     * @summary 获取配额审批详情
-     *  *
+     * 获取配额审批详情.
+     *
+     * @returns GetSpecReviewTaskResponse
+     *
      * @param string $appName
      * @param string $taskId
      *
-     * @return GetSpecReviewTaskResponse GetSpecReviewTaskResponse
+     * @return GetSpecReviewTaskResponse
      */
     public function getSpecReviewTask($appName, $taskId)
     {
@@ -798,42 +928,55 @@ class Esserverless extends OpenApiClient
     }
 
     /**
-     * @summary 查看Serverless应用列表
-     *  *
-     * @param ListAppsRequest $request ListAppsRequest
-     * @param string[]        $headers map
-     * @param RuntimeOptions  $runtime runtime options for this request RuntimeOptions
+     * 查看Serverless应用列表.
      *
-     * @return ListAppsResponse ListAppsResponse
+     * @param request - ListAppsRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListAppsResponse
+     *
+     * @param ListAppsRequest $request
+     * @param string[]        $headers
+     * @param RuntimeOptions  $runtime
+     *
+     * @return ListAppsResponse
      */
     public function listAppsWithOptions($request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->appName)) {
-            $query['appName'] = $request->appName;
+        if (null !== $request->appName) {
+            @$query['appName'] = $request->appName;
         }
-        if (!Utils::isUnset($request->createTime)) {
-            $query['createTime'] = $request->createTime;
+
+        if (null !== $request->createTime) {
+            @$query['createTime'] = $request->createTime;
         }
-        if (!Utils::isUnset($request->description)) {
-            $query['description'] = $request->description;
+
+        if (null !== $request->description) {
+            @$query['description'] = $request->description;
         }
-        if (!Utils::isUnset($request->orderType)) {
-            $query['orderType'] = $request->orderType;
+
+        if (null !== $request->orderType) {
+            @$query['orderType'] = $request->orderType;
         }
-        if (!Utils::isUnset($request->pageNumber)) {
-            $query['pageNumber'] = $request->pageNumber;
+
+        if (null !== $request->pageNumber) {
+            @$query['pageNumber'] = $request->pageNumber;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['pageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$query['pageSize'] = $request->pageSize;
         }
-        if (!Utils::isUnset($request->status)) {
-            $query['status'] = $request->status;
+
+        if (null !== $request->status) {
+            @$query['status'] = $request->status;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'ListApps',
@@ -846,7 +989,7 @@ class Esserverless extends OpenApiClient
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return ListAppsResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -854,11 +997,15 @@ class Esserverless extends OpenApiClient
     }
 
     /**
-     * @summary 查看Serverless应用列表
-     *  *
-     * @param ListAppsRequest $request ListAppsRequest
+     * 查看Serverless应用列表.
      *
-     * @return ListAppsResponse ListAppsResponse
+     * @param request - ListAppsRequest
+     *
+     * @returns ListAppsResponse
+     *
+     * @param ListAppsRequest $request
+     *
+     * @return ListAppsResponse
      */
     public function listApps($request)
     {
@@ -869,41 +1016,49 @@ class Esserverless extends OpenApiClient
     }
 
     /**
-     * @summary 获取词典列表
-     *  *
-     * @param string           $appName
-     * @param ListDictsRequest $request ListDictsRequest
-     * @param string[]         $headers map
-     * @param RuntimeOptions   $runtime runtime options for this request RuntimeOptions
+     * 获取词典列表.
      *
-     * @return ListDictsResponse ListDictsResponse
+     * @param request - ListDictsRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListDictsResponse
+     *
+     * @param string           $appName
+     * @param ListDictsRequest $request
+     * @param string[]         $headers
+     * @param RuntimeOptions   $runtime
+     *
+     * @return ListDictsResponse
      */
     public function listDictsWithOptions($appName, $request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->pageNumber)) {
-            $query['pageNumber'] = $request->pageNumber;
+        if (null !== $request->pageNumber) {
+            @$query['pageNumber'] = $request->pageNumber;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['pageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$query['pageSize'] = $request->pageSize;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'ListDicts',
             'version' => '2023-06-27',
             'protocol' => 'HTTPS',
-            'pathname' => '/openapi/es-serverless/instances/' . OpenApiUtilClient::getEncodeParam($appName) . '/dicts',
+            'pathname' => '/openapi/es-serverless/instances/' . Url::percentEncode($appName) . '/dicts',
             'method' => 'GET',
             'authType' => 'AK',
             'style' => 'ROA',
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return ListDictsResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -911,12 +1066,16 @@ class Esserverless extends OpenApiClient
     }
 
     /**
-     * @summary 获取词典列表
-     *  *
-     * @param string           $appName
-     * @param ListDictsRequest $request ListDictsRequest
+     * 获取词典列表.
      *
-     * @return ListDictsResponse ListDictsResponse
+     * @param request - ListDictsRequest
+     *
+     * @returns ListDictsResponse
+     *
+     * @param string           $appName
+     * @param ListDictsRequest $request
+     *
+     * @return ListDictsResponse
      */
     public function listDicts($appName, $request)
     {
@@ -927,36 +1086,47 @@ class Esserverless extends OpenApiClient
     }
 
     /**
-     * @summary 获取端点信息列表
-     *  *
-     * @param ListEndpointsRequest $request ListEndpointsRequest
-     * @param string[]             $headers map
-     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
+     * 获取端点信息列表.
      *
-     * @return ListEndpointsResponse ListEndpointsResponse
+     * @param request - ListEndpointsRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListEndpointsResponse
+     *
+     * @param ListEndpointsRequest $request
+     * @param string[]             $headers
+     * @param RuntimeOptions       $runtime
+     *
+     * @return ListEndpointsResponse
      */
     public function listEndpointsWithOptions($request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->pageNumber)) {
-            $query['pageNumber'] = $request->pageNumber;
+        if (null !== $request->pageNumber) {
+            @$query['pageNumber'] = $request->pageNumber;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['pageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$query['pageSize'] = $request->pageSize;
         }
-        if (!Utils::isUnset($request->resourceId)) {
-            $query['resourceId'] = $request->resourceId;
+
+        if (null !== $request->resourceId) {
+            @$query['resourceId'] = $request->resourceId;
         }
-        if (!Utils::isUnset($request->type)) {
-            $query['type'] = $request->type;
+
+        if (null !== $request->type) {
+            @$query['type'] = $request->type;
         }
-        if (!Utils::isUnset($request->vpcId)) {
-            $query['vpcId'] = $request->vpcId;
+
+        if (null !== $request->vpcId) {
+            @$query['vpcId'] = $request->vpcId;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'ListEndpoints',
@@ -969,7 +1139,7 @@ class Esserverless extends OpenApiClient
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return ListEndpointsResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -977,11 +1147,15 @@ class Esserverless extends OpenApiClient
     }
 
     /**
-     * @summary 获取端点信息列表
-     *  *
-     * @param ListEndpointsRequest $request ListEndpointsRequest
+     * 获取端点信息列表.
      *
-     * @return ListEndpointsResponse ListEndpointsResponse
+     * @param request - ListEndpointsRequest
+     *
+     * @returns ListEndpointsResponse
+     *
+     * @param ListEndpointsRequest $request
+     *
+     * @return ListEndpointsResponse
      */
     public function listEndpoints($request)
     {
@@ -992,13 +1166,18 @@ class Esserverless extends OpenApiClient
     }
 
     /**
-     * @summary 查看索引列表
-     *  *
-     * @param string         $appName
-     * @param string[]       $headers map
-     * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
+     * 查看索引列表.
      *
-     * @return ListIndicesResponse ListIndicesResponse
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListIndicesResponse
+     *
+     * @param string         $appName
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
+     *
+     * @return ListIndicesResponse
      */
     public function listIndicesWithOptions($appName, $headers, $runtime)
     {
@@ -1009,14 +1188,14 @@ class Esserverless extends OpenApiClient
             'action' => 'ListIndices',
             'version' => '2023-06-27',
             'protocol' => 'HTTPS',
-            'pathname' => '/openapi/es-serverless/instances/' . OpenApiUtilClient::getEncodeParam($appName) . '/indices',
+            'pathname' => '/openapi/es-serverless/instances/' . Url::percentEncode($appName) . '/indices',
             'method' => 'GET',
             'authType' => 'AK',
             'style' => 'ROA',
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return ListIndicesResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -1024,11 +1203,13 @@ class Esserverless extends OpenApiClient
     }
 
     /**
-     * @summary 查看索引列表
-     *  *
+     * 查看索引列表.
+     *
+     * @returns ListIndicesResponse
+     *
      * @param string $appName
      *
-     * @return ListIndicesResponse ListIndicesResponse
+     * @return ListIndicesResponse
      */
     public function listIndices($appName)
     {
@@ -1039,13 +1220,18 @@ class Esserverless extends OpenApiClient
     }
 
     /**
-     * @summary 获取快照仓库列表
-     *  *
-     * @param string         $appName
-     * @param string[]       $headers map
-     * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
+     * 获取快照仓库列表.
      *
-     * @return ListSnapshotRepositoriesResponse ListSnapshotRepositoriesResponse
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListSnapshotRepositoriesResponse
+     *
+     * @param string         $appName
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
+     *
+     * @return ListSnapshotRepositoriesResponse
      */
     public function listSnapshotRepositoriesWithOptions($appName, $headers, $runtime)
     {
@@ -1056,14 +1242,14 @@ class Esserverless extends OpenApiClient
             'action' => 'ListSnapshotRepositories',
             'version' => '2023-06-27',
             'protocol' => 'HTTPS',
-            'pathname' => '/openapi/es-serverless/instances/' . OpenApiUtilClient::getEncodeParam($appName) . '/snapshot-repositories',
+            'pathname' => '/openapi/es-serverless/instances/' . Url::percentEncode($appName) . '/snapshot-repositories',
             'method' => 'GET',
             'authType' => 'AK',
             'style' => 'ROA',
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return ListSnapshotRepositoriesResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -1071,11 +1257,13 @@ class Esserverless extends OpenApiClient
     }
 
     /**
-     * @summary 获取快照仓库列表
-     *  *
+     * 获取快照仓库列表.
+     *
+     * @returns ListSnapshotRepositoriesResponse
+     *
      * @param string $appName
      *
-     * @return ListSnapshotRepositoriesResponse ListSnapshotRepositoriesResponse
+     * @return ListSnapshotRepositoriesResponse
      */
     public function listSnapshotRepositories($appName)
     {
@@ -1086,47 +1274,57 @@ class Esserverless extends OpenApiClient
     }
 
     /**
-     * @summary 获取仓库的快照列表
-     *  *
-     * @param string               $appName
-     * @param ListSnapshotsRequest $request ListSnapshotsRequest
-     * @param string[]             $headers map
-     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
+     * 获取仓库的快照列表.
      *
-     * @return ListSnapshotsResponse ListSnapshotsResponse
+     * @param request - ListSnapshotsRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListSnapshotsResponse
+     *
+     * @param string               $appName
+     * @param ListSnapshotsRequest $request
+     * @param string[]             $headers
+     * @param RuntimeOptions       $runtime
+     *
+     * @return ListSnapshotsResponse
      */
     public function listSnapshotsWithOptions($appName, $request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->pageNumber)) {
-            $query['pageNumber'] = $request->pageNumber;
+        if (null !== $request->pageNumber) {
+            @$query['pageNumber'] = $request->pageNumber;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['pageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$query['pageSize'] = $request->pageSize;
         }
-        if (!Utils::isUnset($request->repository)) {
-            $query['repository'] = $request->repository;
+
+        if (null !== $request->repository) {
+            @$query['repository'] = $request->repository;
         }
-        if (!Utils::isUnset($request->snapshot)) {
-            $query['snapshot'] = $request->snapshot;
+
+        if (null !== $request->snapshot) {
+            @$query['snapshot'] = $request->snapshot;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'ListSnapshots',
             'version' => '2023-06-27',
             'protocol' => 'HTTPS',
-            'pathname' => '/openapi/es-serverless/instances/' . OpenApiUtilClient::getEncodeParam($appName) . '/snapshots',
+            'pathname' => '/openapi/es-serverless/instances/' . Url::percentEncode($appName) . '/snapshots',
             'method' => 'GET',
             'authType' => 'AK',
             'style' => 'ROA',
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return ListSnapshotsResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -1134,12 +1332,16 @@ class Esserverless extends OpenApiClient
     }
 
     /**
-     * @summary 获取仓库的快照列表
-     *  *
-     * @param string               $appName
-     * @param ListSnapshotsRequest $request ListSnapshotsRequest
+     * 获取仓库的快照列表.
      *
-     * @return ListSnapshotsResponse ListSnapshotsResponse
+     * @param request - ListSnapshotsRequest
+     *
+     * @returns ListSnapshotsResponse
+     *
+     * @param string               $appName
+     * @param ListSnapshotsRequest $request
+     *
+     * @return ListSnapshotsResponse
      */
     public function listSnapshots($appName, $request)
     {
@@ -1150,53 +1352,65 @@ class Esserverless extends OpenApiClient
     }
 
     /**
-     * @summary 获取规格审批列表
-     *  *
-     * @param string                     $appName
-     * @param ListSpecReviewTasksRequest $request ListSpecReviewTasksRequest
-     * @param string[]                   $headers map
-     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
+     * 获取规格审批列表.
      *
-     * @return ListSpecReviewTasksResponse ListSpecReviewTasksResponse
+     * @param request - ListSpecReviewTasksRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListSpecReviewTasksResponse
+     *
+     * @param string                     $appName
+     * @param ListSpecReviewTasksRequest $request
+     * @param string[]                   $headers
+     * @param RuntimeOptions             $runtime
+     *
+     * @return ListSpecReviewTasksResponse
      */
     public function listSpecReviewTasksWithOptions($appName, $request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->page)) {
-            $query['page'] = $request->page;
+        if (null !== $request->page) {
+            @$query['page'] = $request->page;
         }
-        if (!Utils::isUnset($request->pageNumber)) {
-            $query['pageNumber'] = $request->pageNumber;
+
+        if (null !== $request->pageNumber) {
+            @$query['pageNumber'] = $request->pageNumber;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['pageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$query['pageSize'] = $request->pageSize;
         }
-        if (!Utils::isUnset($request->size)) {
-            $query['size'] = $request->size;
+
+        if (null !== $request->size) {
+            @$query['size'] = $request->size;
         }
-        if (!Utils::isUnset($request->status)) {
-            $query['status'] = $request->status;
+
+        if (null !== $request->status) {
+            @$query['status'] = $request->status;
         }
-        if (!Utils::isUnset($request->type)) {
-            $query['type'] = $request->type;
+
+        if (null !== $request->type) {
+            @$query['type'] = $request->type;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'ListSpecReviewTasks',
             'version' => '2023-06-27',
             'protocol' => 'HTTPS',
-            'pathname' => '/openapi/es-serverless/instances/' . OpenApiUtilClient::getEncodeParam($appName) . '/spec-review-tasks',
+            'pathname' => '/openapi/es-serverless/instances/' . Url::percentEncode($appName) . '/spec-review-tasks',
             'method' => 'GET',
             'authType' => 'AK',
             'style' => 'ROA',
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return ListSpecReviewTasksResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -1204,12 +1418,16 @@ class Esserverless extends OpenApiClient
     }
 
     /**
-     * @summary 获取规格审批列表
-     *  *
-     * @param string                     $appName
-     * @param ListSpecReviewTasksRequest $request ListSpecReviewTasksRequest
+     * 获取规格审批列表.
      *
-     * @return ListSpecReviewTasksResponse ListSpecReviewTasksResponse
+     * @param request - ListSpecReviewTasksRequest
+     *
+     * @returns ListSpecReviewTasksResponse
+     *
+     * @param string                     $appName
+     * @param ListSpecReviewTasksRequest $request
+     *
+     * @return ListSpecReviewTasksResponse
      */
     public function listSpecReviewTasks($appName, $request)
     {
@@ -1220,56 +1438,69 @@ class Esserverless extends OpenApiClient
     }
 
     /**
-     * @summary 编辑Serverless应用
-     *  *
-     * @param string           $appName
-     * @param UpdateAppRequest $request UpdateAppRequest
-     * @param string[]         $headers map
-     * @param RuntimeOptions   $runtime runtime options for this request RuntimeOptions
+     * 编辑Serverless应用.
      *
-     * @return UpdateAppResponse UpdateAppResponse
+     * @param request - UpdateAppRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateAppResponse
+     *
+     * @param string           $appName
+     * @param UpdateAppRequest $request
+     * @param string[]         $headers
+     * @param RuntimeOptions   $runtime
+     *
+     * @return UpdateAppResponse
      */
     public function updateAppWithOptions($appName, $request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->applyReason)) {
-            $body['applyReason'] = $request->applyReason;
+        if (null !== $request->applyReason) {
+            @$body['applyReason'] = $request->applyReason;
         }
-        if (!Utils::isUnset($request->authentication)) {
-            $body['authentication'] = $request->authentication;
+
+        if (null !== $request->authentication) {
+            @$body['authentication'] = $request->authentication;
         }
-        if (!Utils::isUnset($request->contactInfo)) {
-            $body['contactInfo'] = $request->contactInfo;
+
+        if (null !== $request->contactInfo) {
+            @$body['contactInfo'] = $request->contactInfo;
         }
-        if (!Utils::isUnset($request->description)) {
-            $body['description'] = $request->description;
+
+        if (null !== $request->description) {
+            @$body['description'] = $request->description;
         }
-        if (!Utils::isUnset($request->limiterInfo)) {
-            $body['limiterInfo'] = $request->limiterInfo;
+
+        if (null !== $request->limiterInfo) {
+            @$body['limiterInfo'] = $request->limiterInfo;
         }
-        if (!Utils::isUnset($request->network)) {
-            $body['network'] = $request->network;
+
+        if (null !== $request->network) {
+            @$body['network'] = $request->network;
         }
-        if (!Utils::isUnset($request->privateNetwork)) {
-            $body['privateNetwork'] = $request->privateNetwork;
+
+        if (null !== $request->privateNetwork) {
+            @$body['privateNetwork'] = $request->privateNetwork;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'UpdateApp',
             'version' => '2023-06-27',
             'protocol' => 'HTTPS',
-            'pathname' => '/openapi/es-serverless/instances/' . OpenApiUtilClient::getEncodeParam($appName) . '',
+            'pathname' => '/openapi/es-serverless/instances/' . Url::percentEncode($appName) . '',
             'method' => 'PATCH',
             'authType' => 'AK',
             'style' => 'ROA',
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return UpdateAppResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -1277,12 +1508,16 @@ class Esserverless extends OpenApiClient
     }
 
     /**
-     * @summary 编辑Serverless应用
-     *  *
-     * @param string           $appName
-     * @param UpdateAppRequest $request UpdateAppRequest
+     * 编辑Serverless应用.
      *
-     * @return UpdateAppResponse UpdateAppResponse
+     * @param request - UpdateAppRequest
+     *
+     * @returns UpdateAppResponse
+     *
+     * @param string           $appName
+     * @param UpdateAppRequest $request
+     *
+     * @return UpdateAppResponse
      */
     public function updateApp($appName, $request)
     {
@@ -1293,52 +1528,63 @@ class Esserverless extends OpenApiClient
     }
 
     /**
-     * @summary 创建或更新词典
-     *  *
-     * @param string            $appName
-     * @param UpdateDictRequest $request UpdateDictRequest
-     * @param string[]          $headers map
-     * @param RuntimeOptions    $runtime runtime options for this request RuntimeOptions
+     * 创建或更新词典.
      *
-     * @return UpdateDictResponse UpdateDictResponse
+     * @param request - UpdateDictRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateDictResponse
+     *
+     * @param string            $appName
+     * @param UpdateDictRequest $request
+     * @param string[]          $headers
+     * @param RuntimeOptions    $runtime
+     *
+     * @return UpdateDictResponse
      */
     public function updateDictWithOptions($appName, $request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->allowCover)) {
-            $query['allowCover'] = $request->allowCover;
+        if (null !== $request->allowCover) {
+            @$query['allowCover'] = $request->allowCover;
         }
-        if (!Utils::isUnset($request->dryRun)) {
-            $query['dryRun'] = $request->dryRun;
+
+        if (null !== $request->dryRun) {
+            @$query['dryRun'] = $request->dryRun;
         }
+
         $body = [];
-        if (!Utils::isUnset($request->files)) {
-            $body['files'] = $request->files;
+        if (null !== $request->files) {
+            @$body['files'] = $request->files;
         }
-        if (!Utils::isUnset($request->sourceType)) {
-            $body['sourceType'] = $request->sourceType;
+
+        if (null !== $request->sourceType) {
+            @$body['sourceType'] = $request->sourceType;
         }
-        if (!Utils::isUnset($request->type)) {
-            $body['type'] = $request->type;
+
+        if (null !== $request->type) {
+            @$body['type'] = $request->type;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query' => OpenApiUtilClient::query($query),
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'UpdateDict',
             'version' => '2023-06-27',
             'protocol' => 'HTTPS',
-            'pathname' => '/openapi/es-serverless/instances/' . OpenApiUtilClient::getEncodeParam($appName) . '/dicts',
+            'pathname' => '/openapi/es-serverless/instances/' . Url::percentEncode($appName) . '/dicts',
             'method' => 'PUT',
             'authType' => 'AK',
             'style' => 'ROA',
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return UpdateDictResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -1346,12 +1592,16 @@ class Esserverless extends OpenApiClient
     }
 
     /**
-     * @summary 创建或更新词典
-     *  *
-     * @param string            $appName
-     * @param UpdateDictRequest $request UpdateDictRequest
+     * 创建或更新词典.
      *
-     * @return UpdateDictResponse UpdateDictResponse
+     * @param request - UpdateDictRequest
+     *
+     * @returns UpdateDictResponse
+     *
+     * @param string            $appName
+     * @param UpdateDictRequest $request
+     *
+     * @return UpdateDictResponse
      */
     public function updateDict($appName, $request)
     {
@@ -1362,41 +1612,49 @@ class Esserverless extends OpenApiClient
     }
 
     /**
-     * @summary 修改端点信息
-     *  *
-     * @param string                $endpointId
-     * @param UpdateEndpointRequest $request    UpdateEndpointRequest
-     * @param string[]              $headers    map
-     * @param RuntimeOptions        $runtime    runtime options for this request RuntimeOptions
+     * 修改端点信息.
      *
-     * @return UpdateEndpointResponse UpdateEndpointResponse
+     * @param request - UpdateEndpointRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateEndpointResponse
+     *
+     * @param string                $endpointId
+     * @param UpdateEndpointRequest $request
+     * @param string[]              $headers
+     * @param RuntimeOptions        $runtime
+     *
+     * @return UpdateEndpointResponse
      */
     public function updateEndpointWithOptions($endpointId, $request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->endpointZones)) {
-            $body['endpointZones'] = $request->endpointZones;
+        if (null !== $request->endpointZones) {
+            @$body['endpointZones'] = $request->endpointZones;
         }
-        if (!Utils::isUnset($request->name)) {
-            $body['name'] = $request->name;
+
+        if (null !== $request->name) {
+            @$body['name'] = $request->name;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'UpdateEndpoint',
             'version' => '2023-06-27',
             'protocol' => 'HTTPS',
-            'pathname' => '/openapi/es-serverless/endpoints/' . OpenApiUtilClient::getEncodeParam($endpointId) . '',
+            'pathname' => '/openapi/es-serverless/endpoints/' . Url::percentEncode($endpointId) . '',
             'method' => 'PUT',
             'authType' => 'AK',
             'style' => 'ROA',
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return UpdateEndpointResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -1404,12 +1662,16 @@ class Esserverless extends OpenApiClient
     }
 
     /**
-     * @summary 修改端点信息
-     *  *
-     * @param string                $endpointId
-     * @param UpdateEndpointRequest $request    UpdateEndpointRequest
+     * 修改端点信息.
      *
-     * @return UpdateEndpointResponse UpdateEndpointResponse
+     * @param request - UpdateEndpointRequest
+     *
+     * @returns UpdateEndpointResponse
+     *
+     * @param string                $endpointId
+     * @param UpdateEndpointRequest $request
+     *
+     * @return UpdateEndpointResponse
      */
     public function updateEndpoint($endpointId, $request)
     {
@@ -1420,41 +1682,49 @@ class Esserverless extends OpenApiClient
     }
 
     /**
-     * @summary 修改自动备份配置
-     *  *
-     * @param string                       $appName
-     * @param UpdateSnapshotSettingRequest $request UpdateSnapshotSettingRequest
-     * @param string[]                     $headers map
-     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
+     * 修改自动备份配置.
      *
-     * @return UpdateSnapshotSettingResponse UpdateSnapshotSettingResponse
+     * @param request - UpdateSnapshotSettingRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateSnapshotSettingResponse
+     *
+     * @param string                       $appName
+     * @param UpdateSnapshotSettingRequest $request
+     * @param string[]                     $headers
+     * @param RuntimeOptions               $runtime
+     *
+     * @return UpdateSnapshotSettingResponse
      */
     public function updateSnapshotSettingWithOptions($appName, $request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->enable)) {
-            $body['enable'] = $request->enable;
+        if (null !== $request->enable) {
+            @$body['enable'] = $request->enable;
         }
-        if (!Utils::isUnset($request->quartzRegex)) {
-            $body['quartzRegex'] = $request->quartzRegex;
+
+        if (null !== $request->quartzRegex) {
+            @$body['quartzRegex'] = $request->quartzRegex;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'UpdateSnapshotSetting',
             'version' => '2023-06-27',
             'protocol' => 'HTTPS',
-            'pathname' => '/openapi/es-serverless/instances/' . OpenApiUtilClient::getEncodeParam($appName) . '/auto-snapshot-setting',
+            'pathname' => '/openapi/es-serverless/instances/' . Url::percentEncode($appName) . '/auto-snapshot-setting',
             'method' => 'PUT',
             'authType' => 'AK',
             'style' => 'ROA',
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return UpdateSnapshotSettingResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -1462,12 +1732,16 @@ class Esserverless extends OpenApiClient
     }
 
     /**
-     * @summary 修改自动备份配置
-     *  *
-     * @param string                       $appName
-     * @param UpdateSnapshotSettingRequest $request UpdateSnapshotSettingRequest
+     * 修改自动备份配置.
      *
-     * @return UpdateSnapshotSettingResponse UpdateSnapshotSettingResponse
+     * @param request - UpdateSnapshotSettingRequest
+     *
+     * @returns UpdateSnapshotSettingResponse
+     *
+     * @param string                       $appName
+     * @param UpdateSnapshotSettingRequest $request
+     *
+     * @return UpdateSnapshotSettingResponse
      */
     public function updateSnapshotSetting($appName, $request)
     {

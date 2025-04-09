@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Esserverless\V20230627\Models\UpdateAppRequest;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Esserverless\V20230627\Models\UpdateAppRequest\privateNetwork\whiteIpGroup;
-use AlibabaCloud\Tea\Model;
 
 class privateNetwork extends Model
 {
@@ -41,29 +41,39 @@ class privateNetwork extends Model
         'whiteIpGroup' => 'whiteIpGroup',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->whiteIpGroup)) {
+            Model::validateArray($this->whiteIpGroup);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->enabled) {
             $res['enabled'] = $this->enabled;
         }
+
         if (null !== $this->pvlEndpointId) {
             $res['pvlEndpointId'] = $this->pvlEndpointId;
         }
+
         if (null !== $this->type) {
             $res['type'] = $this->type;
         }
+
         if (null !== $this->vpcId) {
             $res['vpcId'] = $this->vpcId;
         }
+
         if (null !== $this->whiteIpGroup) {
-            $res['whiteIpGroup'] = [];
-            if (null !== $this->whiteIpGroup && \is_array($this->whiteIpGroup)) {
-                $n = 0;
-                foreach ($this->whiteIpGroup as $item) {
-                    $res['whiteIpGroup'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->whiteIpGroup)) {
+                $res['whiteIpGroup'] = [];
+                $n1 = 0;
+                foreach ($this->whiteIpGroup as $item1) {
+                    $res['whiteIpGroup'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
@@ -71,32 +81,36 @@ class privateNetwork extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return privateNetwork
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['enabled'])) {
             $model->enabled = $map['enabled'];
         }
+
         if (isset($map['pvlEndpointId'])) {
             $model->pvlEndpointId = $map['pvlEndpointId'];
         }
+
         if (isset($map['type'])) {
             $model->type = $map['type'];
         }
+
         if (isset($map['vpcId'])) {
             $model->vpcId = $map['vpcId'];
         }
+
         if (isset($map['whiteIpGroup'])) {
             if (!empty($map['whiteIpGroup'])) {
                 $model->whiteIpGroup = [];
-                $n = 0;
-                foreach ($map['whiteIpGroup'] as $item) {
-                    $model->whiteIpGroup[$n++] = null !== $item ? whiteIpGroup::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['whiteIpGroup'] as $item1) {
+                    $model->whiteIpGroup[$n1++] = whiteIpGroup::fromMap($item1);
                 }
             }
         }
