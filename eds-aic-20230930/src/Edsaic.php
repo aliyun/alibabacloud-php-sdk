@@ -13,6 +13,8 @@ use AlibabaCloud\SDK\Edsaic\V20230930\Models\BackupFileRequest;
 use AlibabaCloud\SDK\Edsaic\V20230930\Models\BackupFileResponse;
 use AlibabaCloud\SDK\Edsaic\V20230930\Models\BatchGetAcpConnectionTicketRequest;
 use AlibabaCloud\SDK\Edsaic\V20230930\Models\BatchGetAcpConnectionTicketResponse;
+use AlibabaCloud\SDK\Edsaic\V20230930\Models\ChangeCloudPhoneNodeRequest;
+use AlibabaCloud\SDK\Edsaic\V20230930\Models\ChangeCloudPhoneNodeResponse;
 use AlibabaCloud\SDK\Edsaic\V20230930\Models\CheckResourceStockRequest;
 use AlibabaCloud\SDK\Edsaic\V20230930\Models\CheckResourceStockResponse;
 use AlibabaCloud\SDK\Edsaic\V20230930\Models\CreateAndroidInstanceGroupRequest;
@@ -77,6 +79,8 @@ use AlibabaCloud\SDK\Edsaic\V20230930\Models\DowngradeAndroidInstanceGroupReques
 use AlibabaCloud\SDK\Edsaic\V20230930\Models\DowngradeAndroidInstanceGroupResponse;
 use AlibabaCloud\SDK\Edsaic\V20230930\Models\EndCoordinationRequest;
 use AlibabaCloud\SDK\Edsaic\V20230930\Models\EndCoordinationResponse;
+use AlibabaCloud\SDK\Edsaic\V20230930\Models\ExpandDataVolumeRequest;
+use AlibabaCloud\SDK\Edsaic\V20230930\Models\ExpandDataVolumeResponse;
 use AlibabaCloud\SDK\Edsaic\V20230930\Models\FetchFileRequest;
 use AlibabaCloud\SDK\Edsaic\V20230930\Models\FetchFileResponse;
 use AlibabaCloud\SDK\Edsaic\V20230930\Models\GenerateCoordinationCodeRequest;
@@ -488,6 +492,74 @@ class Edsaic extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->batchGetAcpConnectionTicketWithOptions($request, $runtime);
+    }
+
+    /**
+     * 修改云手机矩阵的配置.
+     *
+     * @param request - ChangeCloudPhoneNodeRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ChangeCloudPhoneNodeResponse
+     *
+     * @param ChangeCloudPhoneNodeRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return ChangeCloudPhoneNodeResponse
+     */
+    public function changeCloudPhoneNodeWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->instanceType) {
+            @$query['InstanceType'] = $request->instanceType;
+        }
+
+        if (null !== $request->nodeId) {
+            @$query['NodeId'] = $request->nodeId;
+        }
+
+        if (null !== $request->phoneCount) {
+            @$query['PhoneCount'] = $request->phoneCount;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ChangeCloudPhoneNode',
+            'version' => '2023-09-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ChangeCloudPhoneNodeResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
+
+        return ChangeCloudPhoneNodeResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * 修改云手机矩阵的配置.
+     *
+     * @param request - ChangeCloudPhoneNodeRequest
+     *
+     * @returns ChangeCloudPhoneNodeResponse
+     *
+     * @param ChangeCloudPhoneNodeRequest $request
+     *
+     * @return ChangeCloudPhoneNodeResponse
+     */
+    public function changeCloudPhoneNode($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->changeCloudPhoneNodeWithOptions($request, $runtime);
     }
 
     /**
@@ -3028,6 +3100,78 @@ class Edsaic extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->endCoordinationWithOptions($request, $runtime);
+    }
+
+    /**
+     * 存储扩容.
+     *
+     * @param request - ExpandDataVolumeRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ExpandDataVolumeResponse
+     *
+     * @param ExpandDataVolumeRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return ExpandDataVolumeResponse
+     */
+    public function expandDataVolumeWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->autoPay) {
+            @$query['AutoPay'] = $request->autoPay;
+        }
+
+        if (null !== $request->bizRegionId) {
+            @$query['BizRegionId'] = $request->bizRegionId;
+        }
+
+        if (null !== $request->nodeIds) {
+            @$query['NodeIds'] = $request->nodeIds;
+        }
+
+        if (null !== $request->shareDataVolume) {
+            @$query['ShareDataVolume'] = $request->shareDataVolume;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ExpandDataVolume',
+            'version' => '2023-09-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ExpandDataVolumeResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
+
+        return ExpandDataVolumeResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * 存储扩容.
+     *
+     * @param request - ExpandDataVolumeRequest
+     *
+     * @returns ExpandDataVolumeResponse
+     *
+     * @param ExpandDataVolumeRequest $request
+     *
+     * @return ExpandDataVolumeResponse
+     */
+    public function expandDataVolume($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->expandDataVolumeWithOptions($request, $runtime);
     }
 
     /**
