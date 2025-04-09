@@ -4,82 +4,94 @@
 
 namespace AlibabaCloud\SDK\OutboundBot\V20191226\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class SuspendJobsRequest extends Model
 {
     /**
-     * @example false
-     *
      * @var bool
      */
     public $all;
 
     /**
-     * @example af81a389-91f0-4157-8d82-720edd02b66a
-     *
      * @var string
      */
     public $instanceId;
 
     /**
-     * @example 6b3ea2a1-32b3-4041-842b-9bde5de9dda0
-     *
      * @var string
      */
     public $jobGroupId;
 
     /**
-     * @example 11994321-e6bc-47bb-8b1c-8eef8f2f768b
-     *
      * @var string[]
      */
     public $jobId;
 
     /**
-     * @example de3ab269-6746-477c-b13d-bd49f13202c2
-     *
      * @var string[]
      */
     public $jobReferenceId;
 
     /**
-     * @example 4b6dd926-3cc3-4111-a333-15d9b006fe81
-     *
      * @var string
      */
     public $scenarioId;
     protected $_name = [
-        'all'            => 'All',
-        'instanceId'     => 'InstanceId',
-        'jobGroupId'     => 'JobGroupId',
-        'jobId'          => 'JobId',
+        'all' => 'All',
+        'instanceId' => 'InstanceId',
+        'jobGroupId' => 'JobGroupId',
+        'jobId' => 'JobId',
         'jobReferenceId' => 'JobReferenceId',
-        'scenarioId'     => 'ScenarioId',
+        'scenarioId' => 'ScenarioId',
     ];
 
     public function validate()
     {
+        if (\is_array($this->jobId)) {
+            Model::validateArray($this->jobId);
+        }
+        if (\is_array($this->jobReferenceId)) {
+            Model::validateArray($this->jobReferenceId);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->all) {
             $res['All'] = $this->all;
         }
+
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
         }
+
         if (null !== $this->jobGroupId) {
             $res['JobGroupId'] = $this->jobGroupId;
         }
+
         if (null !== $this->jobId) {
-            $res['JobId'] = $this->jobId;
+            if (\is_array($this->jobId)) {
+                $res['JobId'] = [];
+                $n1 = 0;
+                foreach ($this->jobId as $item1) {
+                    $res['JobId'][$n1++] = $item1;
+                }
+            }
         }
+
         if (null !== $this->jobReferenceId) {
-            $res['JobReferenceId'] = $this->jobReferenceId;
+            if (\is_array($this->jobReferenceId)) {
+                $res['JobReferenceId'] = [];
+                $n1 = 0;
+                foreach ($this->jobReferenceId as $item1) {
+                    $res['JobReferenceId'][$n1++] = $item1;
+                }
+            }
         }
+
         if (null !== $this->scenarioId) {
             $res['ScenarioId'] = $this->scenarioId;
         }
@@ -87,33 +99,46 @@ class SuspendJobsRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return SuspendJobsRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['All'])) {
             $model->all = $map['All'];
         }
+
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
         }
+
         if (isset($map['JobGroupId'])) {
             $model->jobGroupId = $map['JobGroupId'];
         }
+
         if (isset($map['JobId'])) {
             if (!empty($map['JobId'])) {
-                $model->jobId = $map['JobId'];
+                $model->jobId = [];
+                $n1 = 0;
+                foreach ($map['JobId'] as $item1) {
+                    $model->jobId[$n1++] = $item1;
+                }
             }
         }
+
         if (isset($map['JobReferenceId'])) {
             if (!empty($map['JobReferenceId'])) {
-                $model->jobReferenceId = $map['JobReferenceId'];
+                $model->jobReferenceId = [];
+                $n1 = 0;
+                foreach ($map['JobReferenceId'] as $item1) {
+                    $model->jobReferenceId[$n1++] = $item1;
+                }
             }
         }
+
         if (isset($map['ScenarioId'])) {
             $model->scenarioId = $map['ScenarioId'];
         }

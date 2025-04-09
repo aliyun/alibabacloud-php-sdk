@@ -4,20 +4,16 @@
 
 namespace AlibabaCloud\SDK\OutboundBot\V20191226\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class CreateTagRequest extends Model
 {
     /**
-     * @example 174952ab-9825-4cc9-a5e2-de82d7fa4cdd
-     *
      * @var string
      */
     public $instanceId;
 
     /**
-     * @example 797203ac-3874-422f-838f-d4cd63c72681
-     *
      * @var string
      */
     public $scriptId;
@@ -33,27 +29,31 @@ class CreateTagRequest extends Model
     public $tagName;
     protected $_name = [
         'instanceId' => 'InstanceId',
-        'scriptId'   => 'ScriptId',
-        'tagGroup'   => 'TagGroup',
-        'tagName'    => 'TagName',
+        'scriptId' => 'ScriptId',
+        'tagGroup' => 'TagGroup',
+        'tagName' => 'TagName',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
         }
+
         if (null !== $this->scriptId) {
             $res['ScriptId'] = $this->scriptId;
         }
+
         if (null !== $this->tagGroup) {
             $res['TagGroup'] = $this->tagGroup;
         }
+
         if (null !== $this->tagName) {
             $res['TagName'] = $this->tagName;
         }
@@ -61,23 +61,26 @@ class CreateTagRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return CreateTagRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
         }
+
         if (isset($map['ScriptId'])) {
             $model->scriptId = $map['ScriptId'];
         }
+
         if (isset($map['TagGroup'])) {
             $model->tagGroup = $map['TagGroup'];
         }
+
         if (isset($map['TagName'])) {
             $model->tagName = $map['TagName'];
         }

@@ -4,56 +4,42 @@
 
 namespace AlibabaCloud\SDK\OutboundBot\V20191226\Models\DescribeJobGroupResponseBody\jobGroup;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\OutboundBot\V20191226\Models\DescribeJobGroupResponseBody\jobGroup\strategy\workingTime;
-use AlibabaCloud\Tea\Model;
 
 class strategy extends Model
 {
     /**
-     * @example {}
-     *
      * @var string
      */
     public $customized;
 
     /**
-     * @example 1579881227404
-     *
      * @var int
      */
     public $endTime;
 
     /**
-     * @example NONE
-     *
      * @var string
      */
     public $followUpStrategy;
 
     /**
-     * @example false
-     *
      * @var bool
      */
     public $isTemplate;
 
     /**
-     * @example 2
-     *
      * @var int
      */
     public $maxAttemptsPerDay;
 
     /**
-     * @example 10
-     *
      * @var int
      */
     public $minAttemptInterval;
 
     /**
-     * @example Once
-     *
      * @var string
      */
     public $repeatBy;
@@ -64,15 +50,16 @@ class strategy extends Model
     public $repeatDays;
 
     /**
-     * @example LocalFirst
-     *
+     * @var bool
+     */
+    public $repeatable;
+
+    /**
      * @var string
      */
     public $routingStrategy;
 
     /**
-     * @example 1578881227404
-     *
      * @var int
      */
     public $startTime;
@@ -83,8 +70,6 @@ class strategy extends Model
     public $strategyDescription;
 
     /**
-     * @example a2bff22c-2604-4df2-83d6-5952e2438c5a
-     *
      * @var string
      */
     public $strategyId;
@@ -95,8 +80,6 @@ class strategy extends Model
     public $strategyName;
 
     /**
-     * @example Repeatable
-     *
      * @var string
      */
     public $type;
@@ -106,78 +89,110 @@ class strategy extends Model
      */
     public $workingTime;
     protected $_name = [
-        'customized'          => 'Customized',
-        'endTime'             => 'EndTime',
-        'followUpStrategy'    => 'FollowUpStrategy',
-        'isTemplate'          => 'IsTemplate',
-        'maxAttemptsPerDay'   => 'MaxAttemptsPerDay',
-        'minAttemptInterval'  => 'MinAttemptInterval',
-        'repeatBy'            => 'RepeatBy',
-        'repeatDays'          => 'RepeatDays',
-        'routingStrategy'     => 'RoutingStrategy',
-        'startTime'           => 'StartTime',
+        'customized' => 'Customized',
+        'endTime' => 'EndTime',
+        'followUpStrategy' => 'FollowUpStrategy',
+        'isTemplate' => 'IsTemplate',
+        'maxAttemptsPerDay' => 'MaxAttemptsPerDay',
+        'minAttemptInterval' => 'MinAttemptInterval',
+        'repeatBy' => 'RepeatBy',
+        'repeatDays' => 'RepeatDays',
+        'repeatable' => 'Repeatable',
+        'routingStrategy' => 'RoutingStrategy',
+        'startTime' => 'StartTime',
         'strategyDescription' => 'StrategyDescription',
-        'strategyId'          => 'StrategyId',
-        'strategyName'        => 'StrategyName',
-        'type'                => 'Type',
-        'workingTime'         => 'WorkingTime',
+        'strategyId' => 'StrategyId',
+        'strategyName' => 'StrategyName',
+        'type' => 'Type',
+        'workingTime' => 'WorkingTime',
     ];
 
     public function validate()
     {
+        if (\is_array($this->repeatDays)) {
+            Model::validateArray($this->repeatDays);
+        }
+        if (\is_array($this->workingTime)) {
+            Model::validateArray($this->workingTime);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->customized) {
             $res['Customized'] = $this->customized;
         }
+
         if (null !== $this->endTime) {
             $res['EndTime'] = $this->endTime;
         }
+
         if (null !== $this->followUpStrategy) {
             $res['FollowUpStrategy'] = $this->followUpStrategy;
         }
+
         if (null !== $this->isTemplate) {
             $res['IsTemplate'] = $this->isTemplate;
         }
+
         if (null !== $this->maxAttemptsPerDay) {
             $res['MaxAttemptsPerDay'] = $this->maxAttemptsPerDay;
         }
+
         if (null !== $this->minAttemptInterval) {
             $res['MinAttemptInterval'] = $this->minAttemptInterval;
         }
+
         if (null !== $this->repeatBy) {
             $res['RepeatBy'] = $this->repeatBy;
         }
+
         if (null !== $this->repeatDays) {
-            $res['RepeatDays'] = $this->repeatDays;
+            if (\is_array($this->repeatDays)) {
+                $res['RepeatDays'] = [];
+                $n1 = 0;
+                foreach ($this->repeatDays as $item1) {
+                    $res['RepeatDays'][$n1++] = $item1;
+                }
+            }
         }
+
+        if (null !== $this->repeatable) {
+            $res['Repeatable'] = $this->repeatable;
+        }
+
         if (null !== $this->routingStrategy) {
             $res['RoutingStrategy'] = $this->routingStrategy;
         }
+
         if (null !== $this->startTime) {
             $res['StartTime'] = $this->startTime;
         }
+
         if (null !== $this->strategyDescription) {
             $res['StrategyDescription'] = $this->strategyDescription;
         }
+
         if (null !== $this->strategyId) {
             $res['StrategyId'] = $this->strategyId;
         }
+
         if (null !== $this->strategyName) {
             $res['StrategyName'] = $this->strategyName;
         }
+
         if (null !== $this->type) {
             $res['Type'] = $this->type;
         }
+
         if (null !== $this->workingTime) {
-            $res['WorkingTime'] = [];
-            if (null !== $this->workingTime && \is_array($this->workingTime)) {
-                $n = 0;
-                foreach ($this->workingTime as $item) {
-                    $res['WorkingTime'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->workingTime)) {
+                $res['WorkingTime'] = [];
+                $n1 = 0;
+                foreach ($this->workingTime as $item1) {
+                    $res['WorkingTime'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
@@ -185,64 +200,86 @@ class strategy extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return strategy
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Customized'])) {
             $model->customized = $map['Customized'];
         }
+
         if (isset($map['EndTime'])) {
             $model->endTime = $map['EndTime'];
         }
+
         if (isset($map['FollowUpStrategy'])) {
             $model->followUpStrategy = $map['FollowUpStrategy'];
         }
+
         if (isset($map['IsTemplate'])) {
             $model->isTemplate = $map['IsTemplate'];
         }
+
         if (isset($map['MaxAttemptsPerDay'])) {
             $model->maxAttemptsPerDay = $map['MaxAttemptsPerDay'];
         }
+
         if (isset($map['MinAttemptInterval'])) {
             $model->minAttemptInterval = $map['MinAttemptInterval'];
         }
+
         if (isset($map['RepeatBy'])) {
             $model->repeatBy = $map['RepeatBy'];
         }
+
         if (isset($map['RepeatDays'])) {
             if (!empty($map['RepeatDays'])) {
-                $model->repeatDays = $map['RepeatDays'];
+                $model->repeatDays = [];
+                $n1 = 0;
+                foreach ($map['RepeatDays'] as $item1) {
+                    $model->repeatDays[$n1++] = $item1;
+                }
             }
         }
+
+        if (isset($map['Repeatable'])) {
+            $model->repeatable = $map['Repeatable'];
+        }
+
         if (isset($map['RoutingStrategy'])) {
             $model->routingStrategy = $map['RoutingStrategy'];
         }
+
         if (isset($map['StartTime'])) {
             $model->startTime = $map['StartTime'];
         }
+
         if (isset($map['StrategyDescription'])) {
             $model->strategyDescription = $map['StrategyDescription'];
         }
+
         if (isset($map['StrategyId'])) {
             $model->strategyId = $map['StrategyId'];
         }
+
         if (isset($map['StrategyName'])) {
             $model->strategyName = $map['StrategyName'];
         }
+
         if (isset($map['Type'])) {
             $model->type = $map['Type'];
         }
+
         if (isset($map['WorkingTime'])) {
             if (!empty($map['WorkingTime'])) {
                 $model->workingTime = [];
-                $n                  = 0;
-                foreach ($map['WorkingTime'] as $item) {
-                    $model->workingTime[$n++] = null !== $item ? workingTime::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['WorkingTime'] as $item1) {
+                    $model->workingTime[$n1++] = workingTime::fromMap($item1);
                 }
             }
         }

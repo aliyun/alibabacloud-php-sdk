@@ -4,38 +4,36 @@
 
 namespace AlibabaCloud\SDK\OutboundBot\V20191226\Models\CreateJobGroupResponseBody\jobGroup\strategy;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class workingTime extends Model
 {
     /**
-     * @example 09:00:00
-     *
      * @var string
      */
     public $beginTime;
 
     /**
-     * @example 12:00:00
-     *
      * @var string
      */
     public $endTime;
     protected $_name = [
         'beginTime' => 'BeginTime',
-        'endTime'   => 'EndTime',
+        'endTime' => 'EndTime',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->beginTime) {
             $res['BeginTime'] = $this->beginTime;
         }
+
         if (null !== $this->endTime) {
             $res['EndTime'] = $this->endTime;
         }
@@ -43,17 +41,18 @@ class workingTime extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return workingTime
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['BeginTime'])) {
             $model->beginTime = $map['BeginTime'];
         }
+
         if (isset($map['EndTime'])) {
             $model->endTime = $map['EndTime'];
         }

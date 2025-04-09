@@ -4,38 +4,46 @@
 
 namespace AlibabaCloud\SDK\OutboundBot\V20191226\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class ImportScriptRequest extends Model
 {
     /**
-     * @example af81a389-91f0-4157-8d82-720edd02b66a
-     *
      * @var string
      */
     public $instanceId;
 
     /**
-     * @example http://tiangong-staging.oss-cn-shanghai.aliyuncs.com/record/281eb174-3865-41c1-9274-7b6813edadab.wav
-     *
+     * @var string
+     */
+    public $nluEngine;
+
+    /**
      * @var string
      */
     public $signatureUrl;
     protected $_name = [
-        'instanceId'   => 'InstanceId',
+        'instanceId' => 'InstanceId',
+        'nluEngine' => 'NluEngine',
         'signatureUrl' => 'SignatureUrl',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
         }
+
+        if (null !== $this->nluEngine) {
+            $res['NluEngine'] = $this->nluEngine;
+        }
+
         if (null !== $this->signatureUrl) {
             $res['SignatureUrl'] = $this->signatureUrl;
         }
@@ -43,17 +51,22 @@ class ImportScriptRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ImportScriptRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
         }
+
+        if (isset($map['NluEngine'])) {
+            $model->nluEngine = $map['NluEngine'];
+        }
+
         if (isset($map['SignatureUrl'])) {
             $model->signatureUrl = $map['SignatureUrl'];
         }

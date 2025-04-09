@@ -4,60 +4,56 @@
 
 namespace AlibabaCloud\SDK\OutboundBot\V20191226\Models\CreateBatchRepeatJobResponseBody;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class jobGroup extends Model
 {
     /**
-     * @example 254EB995-DEDF-48A4-9101-9CA5B72FFBCC
-     *
      * @var string
      */
     public $id;
 
     /**
-     * @example 1
-     *
      * @var int
      */
     public $minConcurrency;
 
     /**
-     * @example 3
-     *
      * @var string
      */
     public $priority;
 
     /**
-     * @example 30
-     *
      * @var int
      */
     public $ringingDuration;
     protected $_name = [
-        'id'              => 'Id',
-        'minConcurrency'  => 'MinConcurrency',
-        'priority'        => 'Priority',
+        'id' => 'Id',
+        'minConcurrency' => 'MinConcurrency',
+        'priority' => 'Priority',
         'ringingDuration' => 'RingingDuration',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->id) {
             $res['Id'] = $this->id;
         }
+
         if (null !== $this->minConcurrency) {
             $res['MinConcurrency'] = $this->minConcurrency;
         }
+
         if (null !== $this->priority) {
             $res['Priority'] = $this->priority;
         }
+
         if (null !== $this->ringingDuration) {
             $res['RingingDuration'] = $this->ringingDuration;
         }
@@ -65,23 +61,26 @@ class jobGroup extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return jobGroup
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Id'])) {
             $model->id = $map['Id'];
         }
+
         if (isset($map['MinConcurrency'])) {
             $model->minConcurrency = $map['MinConcurrency'];
         }
+
         if (isset($map['Priority'])) {
             $model->priority = $map['Priority'];
         }
+
         if (isset($map['RingingDuration'])) {
             $model->ringingDuration = $map['RingingDuration'];
         }

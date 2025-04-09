@@ -4,10 +4,15 @@
 
 namespace AlibabaCloud\SDK\OutboundBot\V20191226\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class QueryJobsWithResultRequest extends Model
 {
+    /**
+     * @var int
+     */
+    public $endActualTimeFilter;
+
     /**
      * @var bool
      */
@@ -27,6 +32,11 @@ class QueryJobsWithResultRequest extends Model
      * @var string
      */
     public $instanceId;
+
+    /**
+     * @var string
+     */
+    public $jobFailureReasonsFilter;
 
     /**
      * @var string
@@ -54,56 +64,86 @@ class QueryJobsWithResultRequest extends Model
     public $queryText;
 
     /**
+     * @var int
+     */
+    public $startActualTimeFilter;
+
+    /**
      * @var string
      */
     public $taskStatusFilter;
     protected $_name = [
-        'hasAnsweredFilter'          => 'HasAnsweredFilter',
+        'endActualTimeFilter' => 'EndActualTimeFilter',
+        'hasAnsweredFilter' => 'HasAnsweredFilter',
         'hasHangUpByRejectionFilter' => 'HasHangUpByRejectionFilter',
-        'hasReachedEndOfFlowFilter'  => 'HasReachedEndOfFlowFilter',
-        'instanceId'                 => 'InstanceId',
-        'jobGroupId'                 => 'JobGroupId',
-        'jobStatusFilter'            => 'JobStatusFilter',
-        'pageNumber'                 => 'PageNumber',
-        'pageSize'                   => 'PageSize',
-        'queryText'                  => 'QueryText',
-        'taskStatusFilter'           => 'TaskStatusFilter',
+        'hasReachedEndOfFlowFilter' => 'HasReachedEndOfFlowFilter',
+        'instanceId' => 'InstanceId',
+        'jobFailureReasonsFilter' => 'JobFailureReasonsFilter',
+        'jobGroupId' => 'JobGroupId',
+        'jobStatusFilter' => 'JobStatusFilter',
+        'pageNumber' => 'PageNumber',
+        'pageSize' => 'PageSize',
+        'queryText' => 'QueryText',
+        'startActualTimeFilter' => 'StartActualTimeFilter',
+        'taskStatusFilter' => 'TaskStatusFilter',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->endActualTimeFilter) {
+            $res['EndActualTimeFilter'] = $this->endActualTimeFilter;
+        }
+
         if (null !== $this->hasAnsweredFilter) {
             $res['HasAnsweredFilter'] = $this->hasAnsweredFilter;
         }
+
         if (null !== $this->hasHangUpByRejectionFilter) {
             $res['HasHangUpByRejectionFilter'] = $this->hasHangUpByRejectionFilter;
         }
+
         if (null !== $this->hasReachedEndOfFlowFilter) {
             $res['HasReachedEndOfFlowFilter'] = $this->hasReachedEndOfFlowFilter;
         }
+
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
         }
+
+        if (null !== $this->jobFailureReasonsFilter) {
+            $res['JobFailureReasonsFilter'] = $this->jobFailureReasonsFilter;
+        }
+
         if (null !== $this->jobGroupId) {
             $res['JobGroupId'] = $this->jobGroupId;
         }
+
         if (null !== $this->jobStatusFilter) {
             $res['JobStatusFilter'] = $this->jobStatusFilter;
         }
+
         if (null !== $this->pageNumber) {
             $res['PageNumber'] = $this->pageNumber;
         }
+
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
         }
+
         if (null !== $this->queryText) {
             $res['QueryText'] = $this->queryText;
         }
+
+        if (null !== $this->startActualTimeFilter) {
+            $res['StartActualTimeFilter'] = $this->startActualTimeFilter;
+        }
+
         if (null !== $this->taskStatusFilter) {
             $res['TaskStatusFilter'] = $this->taskStatusFilter;
         }
@@ -111,41 +151,62 @@ class QueryJobsWithResultRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return QueryJobsWithResultRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['EndActualTimeFilter'])) {
+            $model->endActualTimeFilter = $map['EndActualTimeFilter'];
+        }
+
         if (isset($map['HasAnsweredFilter'])) {
             $model->hasAnsweredFilter = $map['HasAnsweredFilter'];
         }
+
         if (isset($map['HasHangUpByRejectionFilter'])) {
             $model->hasHangUpByRejectionFilter = $map['HasHangUpByRejectionFilter'];
         }
+
         if (isset($map['HasReachedEndOfFlowFilter'])) {
             $model->hasReachedEndOfFlowFilter = $map['HasReachedEndOfFlowFilter'];
         }
+
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
         }
+
+        if (isset($map['JobFailureReasonsFilter'])) {
+            $model->jobFailureReasonsFilter = $map['JobFailureReasonsFilter'];
+        }
+
         if (isset($map['JobGroupId'])) {
             $model->jobGroupId = $map['JobGroupId'];
         }
+
         if (isset($map['JobStatusFilter'])) {
             $model->jobStatusFilter = $map['JobStatusFilter'];
         }
+
         if (isset($map['PageNumber'])) {
             $model->pageNumber = $map['PageNumber'];
         }
+
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
         }
+
         if (isset($map['QueryText'])) {
             $model->queryText = $map['QueryText'];
         }
+
+        if (isset($map['StartActualTimeFilter'])) {
+            $model->startActualTimeFilter = $map['StartActualTimeFilter'];
+        }
+
         if (isset($map['TaskStatusFilter'])) {
             $model->taskStatusFilter = $map['TaskStatusFilter'];
         }

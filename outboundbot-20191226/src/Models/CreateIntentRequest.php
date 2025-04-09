@@ -4,13 +4,11 @@
 
 namespace AlibabaCloud\SDK\OutboundBot\V20191226\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class CreateIntentRequest extends Model
 {
     /**
-     * @example 361c8a53-0e29-42f3-8aa7-c7752d010399
-     *
      * @var string
      */
     public $instanceId;
@@ -31,8 +29,6 @@ class CreateIntentRequest extends Model
     public $keywords;
 
     /**
-     * @example b06fad9a-cc74-4ab6-b3a5-8d062adebf2c
-     *
      * @var string
      */
     public $scriptId;
@@ -42,36 +38,42 @@ class CreateIntentRequest extends Model
      */
     public $utterances;
     protected $_name = [
-        'instanceId'        => 'InstanceId',
+        'instanceId' => 'InstanceId',
         'intentDescription' => 'IntentDescription',
-        'intentName'        => 'IntentName',
-        'keywords'          => 'Keywords',
-        'scriptId'          => 'ScriptId',
-        'utterances'        => 'Utterances',
+        'intentName' => 'IntentName',
+        'keywords' => 'Keywords',
+        'scriptId' => 'ScriptId',
+        'utterances' => 'Utterances',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
         }
+
         if (null !== $this->intentDescription) {
             $res['IntentDescription'] = $this->intentDescription;
         }
+
         if (null !== $this->intentName) {
             $res['IntentName'] = $this->intentName;
         }
+
         if (null !== $this->keywords) {
             $res['Keywords'] = $this->keywords;
         }
+
         if (null !== $this->scriptId) {
             $res['ScriptId'] = $this->scriptId;
         }
+
         if (null !== $this->utterances) {
             $res['Utterances'] = $this->utterances;
         }
@@ -79,29 +81,34 @@ class CreateIntentRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return CreateIntentRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
         }
+
         if (isset($map['IntentDescription'])) {
             $model->intentDescription = $map['IntentDescription'];
         }
+
         if (isset($map['IntentName'])) {
             $model->intentName = $map['IntentName'];
         }
+
         if (isset($map['Keywords'])) {
             $model->keywords = $map['Keywords'];
         }
+
         if (isset($map['ScriptId'])) {
             $model->scriptId = $map['ScriptId'];
         }
+
         if (isset($map['Utterances'])) {
             $model->utterances = $map['Utterances'];
         }

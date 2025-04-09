@@ -4,13 +4,11 @@
 
 namespace AlibabaCloud\SDK\OutboundBot\V20191226\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class ApplyNumberDistrictInfoParsingResultRequest extends Model
 {
     /**
-     * @example ffaaa8f0-2de1-438c-ba66-5ac30d83a304
-     *
      * @var string
      */
     public $versionId;
@@ -20,9 +18,10 @@ class ApplyNumberDistrictInfoParsingResultRequest extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->versionId) {
@@ -32,11 +31,11 @@ class ApplyNumberDistrictInfoParsingResultRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ApplyNumberDistrictInfoParsingResultRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

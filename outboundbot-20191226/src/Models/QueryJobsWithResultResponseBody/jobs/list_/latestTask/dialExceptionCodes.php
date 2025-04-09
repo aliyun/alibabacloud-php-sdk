@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\OutboundBot\V20191226\Models\QueryJobsWithResultResponseBody\jobs\list_\latestTask;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class dialExceptionCodes extends Model
 {
@@ -24,14 +24,16 @@ class dialExceptionCodes extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->code) {
             $res['Code'] = $this->code;
         }
+
         if (null !== $this->hint) {
             $res['Hint'] = $this->hint;
         }
@@ -39,17 +41,18 @@ class dialExceptionCodes extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return dialExceptionCodes
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Code'])) {
             $model->code = $map['Code'];
         }
+
         if (isset($map['Hint'])) {
             $model->hint = $map['Hint'];
         }

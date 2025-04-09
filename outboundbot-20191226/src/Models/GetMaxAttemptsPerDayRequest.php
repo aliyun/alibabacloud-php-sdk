@@ -4,38 +4,36 @@
 
 namespace AlibabaCloud\SDK\OutboundBot\V20191226\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class GetMaxAttemptsPerDayRequest extends Model
 {
     /**
-     * @example 2bfa5ae4-7185-4227-a3b8-328f26f11be1
-     *
      * @var string
      */
     public $entryId;
 
     /**
-     * @example 2
-     *
      * @var int
      */
     public $strategyLevel;
     protected $_name = [
-        'entryId'       => 'EntryId',
+        'entryId' => 'EntryId',
         'strategyLevel' => 'StrategyLevel',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->entryId) {
             $res['EntryId'] = $this->entryId;
         }
+
         if (null !== $this->strategyLevel) {
             $res['StrategyLevel'] = $this->strategyLevel;
         }
@@ -43,17 +41,18 @@ class GetMaxAttemptsPerDayRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return GetMaxAttemptsPerDayRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['EntryId'])) {
             $model->entryId = $map['EntryId'];
         }
+
         if (isset($map['StrategyLevel'])) {
             $model->strategyLevel = $map['StrategyLevel'];
         }

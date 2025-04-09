@@ -4,13 +4,11 @@
 
 namespace AlibabaCloud\SDK\OutboundBot\V20191226\Models\ListTagsResponseBody;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class tags extends Model
 {
     /**
-     * @example 8a4c6d3d-5ed6-44ca-b779-16c20f8862be
-     *
      * @var string
      */
     public $scriptId;
@@ -21,15 +19,11 @@ class tags extends Model
     public $tagGroup;
 
     /**
-     * @example d62be647-6202-4b1f-9708-0baeec552635
-     *
      * @var string
      */
     public $tagId;
 
     /**
-     * @example 1
-     *
      * @var int
      */
     public $tagIndex;
@@ -41,30 +35,35 @@ class tags extends Model
     protected $_name = [
         'scriptId' => 'ScriptId',
         'tagGroup' => 'TagGroup',
-        'tagId'    => 'TagId',
+        'tagId' => 'TagId',
         'tagIndex' => 'TagIndex',
-        'tagName'  => 'TagName',
+        'tagName' => 'TagName',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->scriptId) {
             $res['ScriptId'] = $this->scriptId;
         }
+
         if (null !== $this->tagGroup) {
             $res['TagGroup'] = $this->tagGroup;
         }
+
         if (null !== $this->tagId) {
             $res['TagId'] = $this->tagId;
         }
+
         if (null !== $this->tagIndex) {
             $res['TagIndex'] = $this->tagIndex;
         }
+
         if (null !== $this->tagName) {
             $res['TagName'] = $this->tagName;
         }
@@ -72,26 +71,30 @@ class tags extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return tags
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ScriptId'])) {
             $model->scriptId = $map['ScriptId'];
         }
+
         if (isset($map['TagGroup'])) {
             $model->tagGroup = $map['TagGroup'];
         }
+
         if (isset($map['TagId'])) {
             $model->tagId = $map['TagId'];
         }
+
         if (isset($map['TagIndex'])) {
             $model->tagIndex = $map['TagIndex'];
         }
+
         if (isset($map['TagName'])) {
             $model->tagName = $map['TagName'];
         }

@@ -4,49 +4,55 @@
 
 namespace AlibabaCloud\SDK\OutboundBot\V20191226\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class SaveContactWhiteListRequest extends Model
 {
     /**
-     * @example {}
-     *
      * @var string[]
      */
     public $contactWhiteListList;
 
     /**
-     * @example {}
-     *
      * @var string
      */
     public $contactWhiteListsJson;
 
     /**
-     * @example c415bb6c-2e6f-46aa-afd9-3b65b6dbe2bc
-     *
      * @var string
      */
     public $instanceId;
     protected $_name = [
-        'contactWhiteListList'  => 'ContactWhiteListList',
+        'contactWhiteListList' => 'ContactWhiteListList',
         'contactWhiteListsJson' => 'ContactWhiteListsJson',
-        'instanceId'            => 'InstanceId',
+        'instanceId' => 'InstanceId',
     ];
 
     public function validate()
     {
+        if (\is_array($this->contactWhiteListList)) {
+            Model::validateArray($this->contactWhiteListList);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->contactWhiteListList) {
-            $res['ContactWhiteListList'] = $this->contactWhiteListList;
+            if (\is_array($this->contactWhiteListList)) {
+                $res['ContactWhiteListList'] = [];
+                $n1 = 0;
+                foreach ($this->contactWhiteListList as $item1) {
+                    $res['ContactWhiteListList'][$n1++] = $item1;
+                }
+            }
         }
+
         if (null !== $this->contactWhiteListsJson) {
             $res['ContactWhiteListsJson'] = $this->contactWhiteListsJson;
         }
+
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
         }
@@ -54,22 +60,28 @@ class SaveContactWhiteListRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return SaveContactWhiteListRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ContactWhiteListList'])) {
             if (!empty($map['ContactWhiteListList'])) {
-                $model->contactWhiteListList = $map['ContactWhiteListList'];
+                $model->contactWhiteListList = [];
+                $n1 = 0;
+                foreach ($map['ContactWhiteListList'] as $item1) {
+                    $model->contactWhiteListList[$n1++] = $item1;
+                }
             }
         }
+
         if (isset($map['ContactWhiteListsJson'])) {
             $model->contactWhiteListsJson = $map['ContactWhiteListsJson'];
         }
+
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
         }

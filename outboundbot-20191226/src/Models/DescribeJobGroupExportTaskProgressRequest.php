@@ -4,38 +4,36 @@
 
 namespace AlibabaCloud\SDK\OutboundBot\V20191226\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DescribeJobGroupExportTaskProgressRequest extends Model
 {
     /**
-     * @example b3dbfb82-1ae6-4e73-b717-f494727d2af3
-     *
      * @var string
      */
     public $instanceId;
 
     /**
-     * @example e4e2a770-b97b-465a-80d8-06dca008c503
-     *
      * @var string
      */
     public $taskId;
     protected $_name = [
         'instanceId' => 'InstanceId',
-        'taskId'     => 'TaskId',
+        'taskId' => 'TaskId',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
         }
+
         if (null !== $this->taskId) {
             $res['TaskId'] = $this->taskId;
         }
@@ -43,17 +41,18 @@ class DescribeJobGroupExportTaskProgressRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeJobGroupExportTaskProgressRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
         }
+
         if (isset($map['TaskId'])) {
             $model->taskId = $map['TaskId'];
         }

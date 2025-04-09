@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\OutboundBot\V20191226\Models\QueryJobsWithResultResponseBody\jobs;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\OutboundBot\V20191226\Models\QueryJobsWithResultResponseBody\jobs\list_\latestTask;
-use AlibabaCloud\Tea\Model;
 
 class list_ extends Model
 {
@@ -34,32 +34,40 @@ class list_ extends Model
      */
     public $statusName;
     protected $_name = [
-        'id'               => 'Id',
+        'id' => 'Id',
         'jobFailureReason' => 'JobFailureReason',
-        'latestTask'       => 'LatestTask',
-        'status'           => 'Status',
-        'statusName'       => 'StatusName',
+        'latestTask' => 'LatestTask',
+        'status' => 'Status',
+        'statusName' => 'StatusName',
     ];
 
     public function validate()
     {
+        if (null !== $this->latestTask) {
+            $this->latestTask->validate();
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->id) {
             $res['Id'] = $this->id;
         }
+
         if (null !== $this->jobFailureReason) {
             $res['JobFailureReason'] = $this->jobFailureReason;
         }
+
         if (null !== $this->latestTask) {
-            $res['LatestTask'] = null !== $this->latestTask ? $this->latestTask->toMap() : null;
+            $res['LatestTask'] = null !== $this->latestTask ? $this->latestTask->toArray($noStream) : $this->latestTask;
         }
+
         if (null !== $this->status) {
             $res['Status'] = $this->status;
         }
+
         if (null !== $this->statusName) {
             $res['StatusName'] = $this->statusName;
         }
@@ -67,26 +75,30 @@ class list_ extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return list_
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Id'])) {
             $model->id = $map['Id'];
         }
+
         if (isset($map['JobFailureReason'])) {
             $model->jobFailureReason = $map['JobFailureReason'];
         }
+
         if (isset($map['LatestTask'])) {
             $model->latestTask = latestTask::fromMap($map['LatestTask']);
         }
+
         if (isset($map['Status'])) {
             $model->status = $map['Status'];
         }
+
         if (isset($map['StatusName'])) {
             $model->statusName = $map['StatusName'];
         }

@@ -4,38 +4,36 @@
 
 namespace AlibabaCloud\SDK\OutboundBot\V20191226\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class ChangeResourceGroupRequest extends Model
 {
     /**
-     * @example rg-aeky6wvb7yzabqy
-     *
      * @var string
      */
     public $newResourceGroupId;
 
     /**
-     * @example ResourceId.1=b949ae1f-01dc-4191-ae5a-70fbe6772fd8
-     *
      * @var string
      */
     public $resourceId;
     protected $_name = [
         'newResourceGroupId' => 'NewResourceGroupId',
-        'resourceId'         => 'ResourceId',
+        'resourceId' => 'ResourceId',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->newResourceGroupId) {
             $res['NewResourceGroupId'] = $this->newResourceGroupId;
         }
+
         if (null !== $this->resourceId) {
             $res['ResourceId'] = $this->resourceId;
         }
@@ -43,17 +41,18 @@ class ChangeResourceGroupRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ChangeResourceGroupRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['NewResourceGroupId'])) {
             $model->newResourceGroupId = $map['NewResourceGroupId'];
         }
+
         if (isset($map['ResourceId'])) {
             $model->resourceId = $map['ResourceId'];
         }
