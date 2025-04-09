@@ -19,6 +19,11 @@ use AlibabaCloud\SDK\Rds\V20140815\Models\DescribeRCInstanceAttributeResponseBod
 class DescribeRCInstanceAttributeResponseBody extends Model
 {
     /**
+     * @var bool
+     */
+    public $autoRenew;
+
+    /**
      * @var string
      */
     public $clusterId;
@@ -243,6 +248,7 @@ class DescribeRCInstanceAttributeResponseBody extends Model
      */
     public $zoneId;
     protected $_name = [
+        'autoRenew' => 'AutoRenew',
         'clusterId' => 'ClusterId',
         'cpu' => 'Cpu',
         'createMode' => 'CreateMode',
@@ -328,6 +334,10 @@ class DescribeRCInstanceAttributeResponseBody extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->autoRenew) {
+            $res['AutoRenew'] = $this->autoRenew;
+        }
+
         if (null !== $this->clusterId) {
             $res['ClusterId'] = $this->clusterId;
         }
@@ -519,6 +529,10 @@ class DescribeRCInstanceAttributeResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AutoRenew'])) {
+            $model->autoRenew = $map['AutoRenew'];
+        }
+
         if (isset($map['ClusterId'])) {
             $model->clusterId = $map['ClusterId'];
         }

@@ -332,6 +332,11 @@ class DBInstanceAttribute extends Model
     /**
      * @var string
      */
+    public $readOnlyStatus;
+
+    /**
+     * @var string
+     */
     public $readonlyInstanceSQLDelayedTime;
 
     /**
@@ -492,6 +497,7 @@ class DBInstanceAttribute extends Model
         'port' => 'Port',
         'proxyType' => 'ProxyType',
         'readOnlyDBInstanceIds' => 'ReadOnlyDBInstanceIds',
+        'readOnlyStatus' => 'ReadOnlyStatus',
         'readonlyInstanceSQLDelayedTime' => 'ReadonlyInstanceSQLDelayedTime',
         'regionId' => 'RegionId',
         'resourceGroupId' => 'ResourceGroupId',
@@ -790,6 +796,10 @@ class DBInstanceAttribute extends Model
 
         if (null !== $this->readOnlyDBInstanceIds) {
             $res['ReadOnlyDBInstanceIds'] = null !== $this->readOnlyDBInstanceIds ? $this->readOnlyDBInstanceIds->toArray($noStream) : $this->readOnlyDBInstanceIds;
+        }
+
+        if (null !== $this->readOnlyStatus) {
+            $res['ReadOnlyStatus'] = $this->readOnlyStatus;
         }
 
         if (null !== $this->readonlyInstanceSQLDelayedTime) {
@@ -1133,6 +1143,10 @@ class DBInstanceAttribute extends Model
 
         if (isset($map['ReadOnlyDBInstanceIds'])) {
             $model->readOnlyDBInstanceIds = readOnlyDBInstanceIds::fromMap($map['ReadOnlyDBInstanceIds']);
+        }
+
+        if (isset($map['ReadOnlyStatus'])) {
+            $model->readOnlyStatus = $map['ReadOnlyStatus'];
         }
 
         if (isset($map['ReadonlyInstanceSQLDelayedTime'])) {

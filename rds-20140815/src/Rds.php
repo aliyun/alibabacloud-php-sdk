@@ -387,6 +387,11 @@ use AlibabaCloud\SDK\Rds\V20140815\Models\DescribeRCInstanceAttributeRequest;
 use AlibabaCloud\SDK\Rds\V20140815\Models\DescribeRCInstanceAttributeResponse;
 use AlibabaCloud\SDK\Rds\V20140815\Models\DescribeRCInstancesRequest;
 use AlibabaCloud\SDK\Rds\V20140815\Models\DescribeRCInstancesResponse;
+use AlibabaCloud\SDK\Rds\V20140815\Models\DescribeRCInstanceTypeFamiliesRequest;
+use AlibabaCloud\SDK\Rds\V20140815\Models\DescribeRCInstanceTypeFamiliesResponse;
+use AlibabaCloud\SDK\Rds\V20140815\Models\DescribeRCInstanceTypesRequest;
+use AlibabaCloud\SDK\Rds\V20140815\Models\DescribeRCInstanceTypesResponse;
+use AlibabaCloud\SDK\Rds\V20140815\Models\DescribeRCInstanceTypesShrinkRequest;
 use AlibabaCloud\SDK\Rds\V20140815\Models\DescribeRCInstanceVncUrlRequest;
 use AlibabaCloud\SDK\Rds\V20140815\Models\DescribeRCInstanceVncUrlResponse;
 use AlibabaCloud\SDK\Rds\V20140815\Models\DescribeRCMetricListRequest;
@@ -594,6 +599,8 @@ use AlibabaCloud\SDK\Rds\V20140815\Models\ModifyParameterRequest;
 use AlibabaCloud\SDK\Rds\V20140815\Models\ModifyParameterResponse;
 use AlibabaCloud\SDK\Rds\V20140815\Models\ModifyPGHbaConfigRequest;
 use AlibabaCloud\SDK\Rds\V20140815\Models\ModifyPGHbaConfigResponse;
+use AlibabaCloud\SDK\Rds\V20140815\Models\ModifyRCDiskSpecRequest;
+use AlibabaCloud\SDK\Rds\V20140815\Models\ModifyRCDiskSpecResponse;
 use AlibabaCloud\SDK\Rds\V20140815\Models\ModifyRCInstanceAttributeRequest;
 use AlibabaCloud\SDK\Rds\V20140815\Models\ModifyRCInstanceAttributeResponse;
 use AlibabaCloud\SDK\Rds\V20140815\Models\ModifyRCInstanceChargeTypeRequest;
@@ -6595,11 +6602,13 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * Creates a disaster recovery instance for an ApsaraDB RDS instance and configures a data synchronization link.
+     * Creates a data synchronization task for a disaster recovery (DR) ApsaraDB RDS instance.
      *
      * @remarks
-     * ### [](#)Supported database engine
+     * ### [](#)Supported database engines
      * *   PostgreSQL
+     * *   SQL Server
+     * >  The parameters vary based on database engines.
      *
      * @param request - CreateReplicationLinkRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -6685,11 +6694,13 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * Creates a disaster recovery instance for an ApsaraDB RDS instance and configures a data synchronization link.
+     * Creates a data synchronization task for a disaster recovery (DR) ApsaraDB RDS instance.
      *
      * @remarks
-     * ### [](#)Supported database engine
+     * ### [](#)Supported database engines
      * *   PostgreSQL
+     * *   SQL Server
+     * >  The parameters vary based on database engines.
      *
      * @param request - CreateReplicationLinkRequest
      *
@@ -9071,11 +9082,12 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * Deletes the data synchronization link of a disaster recovery RDS instance and promotes the disaster recovery instance to the primary instance.
+     * Deletes the data synchronization link for a disaster recovery (DR) ApsaraDB RDS instance and promotes the DR instance to the primary instance.
      *
      * @remarks
-     * ### [](#)Supported database engine
+     * ### [](#)Supported database engines
      * *   PostgreSQL
+     * *   SQL Server
      *
      * @param request - DeleteReplicationLinkRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -9125,11 +9137,12 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * Deletes the data synchronization link of a disaster recovery RDS instance and promotes the disaster recovery instance to the primary instance.
+     * Deletes the data synchronization link for a disaster recovery (DR) ApsaraDB RDS instance and promotes the DR instance to the primary instance.
      *
      * @remarks
-     * ### [](#)Supported database engine
+     * ### [](#)Supported database engines
      * *   PostgreSQL
+     * *   SQL Server
      *
      * @param request - DeleteReplicationLinkRequest
      *
@@ -19687,6 +19700,144 @@ class Rds extends OpenApiClient
     }
 
     /**
+     * Queries the instance families of RDS Custom instances.
+     *
+     * @param request - DescribeRCInstanceTypeFamiliesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeRCInstanceTypeFamiliesResponse
+     *
+     * @param DescribeRCInstanceTypeFamiliesRequest $request
+     * @param RuntimeOptions                        $runtime
+     *
+     * @return DescribeRCInstanceTypeFamiliesResponse
+     */
+    public function describeRCInstanceTypeFamiliesWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = Utils::query($request->toMap());
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DescribeRCInstanceTypeFamilies',
+            'version' => '2014-08-15',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DescribeRCInstanceTypeFamiliesResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
+
+        return DescribeRCInstanceTypeFamiliesResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * Queries the instance families of RDS Custom instances.
+     *
+     * @param request - DescribeRCInstanceTypeFamiliesRequest
+     *
+     * @returns DescribeRCInstanceTypeFamiliesResponse
+     *
+     * @param DescribeRCInstanceTypeFamiliesRequest $request
+     *
+     * @return DescribeRCInstanceTypeFamiliesResponse
+     */
+    public function describeRCInstanceTypeFamilies($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeRCInstanceTypeFamiliesWithOptions($request, $runtime);
+    }
+
+    /**
+     * 查询RDS Custom规格信息.
+     *
+     * @param tmpReq - DescribeRCInstanceTypesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeRCInstanceTypesResponse
+     *
+     * @param DescribeRCInstanceTypesRequest $tmpReq
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return DescribeRCInstanceTypesResponse
+     */
+    public function describeRCInstanceTypesWithOptions($tmpReq, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new DescribeRCInstanceTypesShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->instanceType) {
+            $request->instanceTypeShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->instanceType, 'InstanceType', 'simple');
+        }
+
+        $query = [];
+        if (null !== $request->commodityCode) {
+            @$query['CommodityCode'] = $request->commodityCode;
+        }
+
+        if (null !== $request->engine) {
+            @$query['Engine'] = $request->engine;
+        }
+
+        if (null !== $request->instanceTypeShrink) {
+            @$query['InstanceType'] = $request->instanceTypeShrink;
+        }
+
+        if (null !== $request->instanceTypeFamily) {
+            @$query['InstanceTypeFamily'] = $request->instanceTypeFamily;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DescribeRCInstanceTypes',
+            'version' => '2014-08-15',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DescribeRCInstanceTypesResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
+
+        return DescribeRCInstanceTypesResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * 查询RDS Custom规格信息.
+     *
+     * @param request - DescribeRCInstanceTypesRequest
+     *
+     * @returns DescribeRCInstanceTypesResponse
+     *
+     * @param DescribeRCInstanceTypesRequest $request
+     *
+     * @return DescribeRCInstanceTypesResponse
+     */
+    public function describeRCInstanceTypes($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeRCInstanceTypesWithOptions($request, $runtime);
+    }
+
+    /**
      * Queries the Virtual Network Computing (VNC) logon address of an RDS Custom instance.
      *
      * @remarks
@@ -27746,13 +27897,14 @@ class Rds extends OpenApiClient
      * Changes the instance type and storage capacity of an ApsaraDB RDS instance.
      *
      * @remarks
-     * ### Supported database engines
+     * ### [](#)Supported database engines
      * *   MySQL
      * *   PostgreSQL
      * *   SQL Server
      * *   MariaDB
-     * ### References
-     * > Fees are generated if the call is successful. Before you call this operation, carefully read the following documentation:
+     * ### [](#)Billing details
+     * [Fees for specification changes](https://help.aliyun.com/document_detail/57178.html) are generated if the call is successful. Before you call this operation, carefully read the following topics.
+     * ### [](#)References
      * *   [Change the specifications of an ApsaraDB RDS for MySQL instance](https://help.aliyun.com/document_detail/96061.html)
      * *   [Change the specifications of an ApsaraDB RDS for PostgreSQL instance](https://help.aliyun.com/document_detail/96750.html)
      * *   [Change the specifications of an ApsaraDB RDS for SQL Server instance](https://help.aliyun.com/document_detail/95665.html)
@@ -27931,13 +28083,14 @@ class Rds extends OpenApiClient
      * Changes the instance type and storage capacity of an ApsaraDB RDS instance.
      *
      * @remarks
-     * ### Supported database engines
+     * ### [](#)Supported database engines
      * *   MySQL
      * *   PostgreSQL
      * *   SQL Server
      * *   MariaDB
-     * ### References
-     * > Fees are generated if the call is successful. Before you call this operation, carefully read the following documentation:
+     * ### [](#)Billing details
+     * [Fees for specification changes](https://help.aliyun.com/document_detail/57178.html) are generated if the call is successful. Before you call this operation, carefully read the following topics.
+     * ### [](#)References
      * *   [Change the specifications of an ApsaraDB RDS for MySQL instance](https://help.aliyun.com/document_detail/96061.html)
      * *   [Change the specifications of an ApsaraDB RDS for PostgreSQL instance](https://help.aliyun.com/document_detail/96750.html)
      * *   [Change the specifications of an ApsaraDB RDS for SQL Server instance](https://help.aliyun.com/document_detail/95665.html)
@@ -30161,6 +30314,86 @@ class Rds extends OpenApiClient
     }
 
     /**
+     * 变更云盘类型或性能级别.
+     *
+     * @param request - ModifyRCDiskSpecRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ModifyRCDiskSpecResponse
+     *
+     * @param ModifyRCDiskSpecRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return ModifyRCDiskSpecResponse
+     */
+    public function modifyRCDiskSpecWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->autoPay) {
+            @$query['AutoPay'] = $request->autoPay;
+        }
+
+        if (null !== $request->diskCategory) {
+            @$query['DiskCategory'] = $request->diskCategory;
+        }
+
+        if (null !== $request->diskId) {
+            @$query['DiskId'] = $request->diskId;
+        }
+
+        if (null !== $request->dryRun) {
+            @$query['DryRun'] = $request->dryRun;
+        }
+
+        if (null !== $request->performanceLevel) {
+            @$query['PerformanceLevel'] = $request->performanceLevel;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ModifyRCDiskSpec',
+            'version' => '2014-08-15',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ModifyRCDiskSpecResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
+
+        return ModifyRCDiskSpecResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * 变更云盘类型或性能级别.
+     *
+     * @param request - ModifyRCDiskSpecRequest
+     *
+     * @returns ModifyRCDiskSpecResponse
+     *
+     * @param ModifyRCDiskSpecRequest $request
+     *
+     * @return ModifyRCDiskSpecResponse
+     */
+    public function modifyRCDiskSpec($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->modifyRCDiskSpecWithOptions($request, $runtime);
+    }
+
+    /**
      * Upgrades or downgrades the instance type of a subscription RDS Custom instance. The new instance type takes effect for the remaining lifecycle of the instance.
      *
      * @remarks
@@ -32175,7 +32408,11 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * 批量重启RC实例.
+     * Restarts multiple RDS Custom instances at a time.
+     *
+     * @remarks
+     * ### [](#)Supported database engine
+     * SQL Server
      *
      * @param tmpReq - RebootRCInstancesRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -32235,7 +32472,11 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * 批量重启RC实例.
+     * Restarts multiple RDS Custom instances at a time.
+     *
+     * @remarks
+     * ### [](#)Supported database engine
+     * SQL Server
      *
      * @param request - RebootRCInstancesRequest
      *
@@ -35403,7 +35644,11 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * 切换到灾备实例.
+     * Switches the data synchronization link to synchronize data from a disaster recovery (DR) instance to the primary ApsaraDB RDS for SQL Server instance.
+     *
+     * @remarks
+     * ### [](#)Supported database engine
+     * SQL Server
      *
      * @param request - SwitchReplicationLinkRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -35457,7 +35702,11 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * 切换到灾备实例.
+     * Switches the data synchronization link to synchronize data from a disaster recovery (DR) instance to the primary ApsaraDB RDS for SQL Server instance.
+     *
+     * @remarks
+     * ### [](#)Supported database engine
+     * SQL Server
      *
      * @param request - SwitchReplicationLinkRequest
      *

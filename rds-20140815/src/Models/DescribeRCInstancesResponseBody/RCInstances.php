@@ -7,6 +7,7 @@ namespace AlibabaCloud\SDK\Rds\V20140815\Models\DescribeRCInstancesResponseBody;
 use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Rds\V20140815\Models\DescribeRCInstancesResponseBody\RCInstances\tagResources;
 use AlibabaCloud\SDK\Rds\V20140815\Models\DescribeRCInstancesResponseBody\RCInstances\tags;
+use AlibabaCloud\SDK\Rds\V20140815\Models\DescribeRCInstancesResponseBody\RCInstances\vpcAttributes;
 
 class RCInstances extends Model
 {
@@ -14,6 +15,11 @@ class RCInstances extends Model
      * @var string
      */
     public $clusterName;
+
+    /**
+     * @var int
+     */
+    public $cpu;
 
     /**
      * @var string
@@ -28,7 +34,17 @@ class RCInstances extends Model
     /**
      * @var string
      */
+    public $deploymentSetId;
+
+    /**
+     * @var string
+     */
     public $description;
+
+    /**
+     * @var string
+     */
+    public $expiredTime;
 
     /**
      * @var string
@@ -44,6 +60,11 @@ class RCInstances extends Model
      * @var string
      */
     public $hostName;
+
+    /**
+     * @var string
+     */
+    public $imageId;
 
     /**
      * @var string
@@ -64,6 +85,11 @@ class RCInstances extends Model
      * @var string
      */
     public $instanceTypeFamily;
+
+    /**
+     * @var int
+     */
+    public $memory;
 
     /**
      * @var string
@@ -101,6 +127,11 @@ class RCInstances extends Model
     public $tags;
 
     /**
+     * @var vpcAttributes
+     */
+    public $vpcAttributes;
+
+    /**
      * @var string
      */
     public $vpcId;
@@ -111,16 +142,21 @@ class RCInstances extends Model
     public $zoneId;
     protected $_name = [
         'clusterName' => 'ClusterName',
+        'cpu' => 'Cpu',
         'createMode' => 'CreateMode',
         'dbType' => 'DbType',
+        'deploymentSetId' => 'DeploymentSetId',
         'description' => 'Description',
+        'expiredTime' => 'ExpiredTime',
         'gmtCreated' => 'GmtCreated',
         'hostIp' => 'HostIp',
         'hostName' => 'HostName',
+        'imageId' => 'ImageId',
         'instanceChargeType' => 'InstanceChargeType',
         'instanceId' => 'InstanceId',
         'instanceType' => 'InstanceType',
         'instanceTypeFamily' => 'InstanceTypeFamily',
+        'memory' => 'Memory',
         'publicIp' => 'PublicIp',
         'regionId' => 'RegionId',
         'securityGroupId' => 'SecurityGroupId',
@@ -128,6 +164,7 @@ class RCInstances extends Model
         'status' => 'Status',
         'tagResources' => 'TagResources',
         'tags' => 'Tags',
+        'vpcAttributes' => 'VpcAttributes',
         'vpcId' => 'VpcId',
         'zoneId' => 'ZoneId',
     ];
@@ -140,6 +177,9 @@ class RCInstances extends Model
         if (\is_array($this->tags)) {
             Model::validateArray($this->tags);
         }
+        if (null !== $this->vpcAttributes) {
+            $this->vpcAttributes->validate();
+        }
         parent::validate();
     }
 
@@ -150,6 +190,10 @@ class RCInstances extends Model
             $res['ClusterName'] = $this->clusterName;
         }
 
+        if (null !== $this->cpu) {
+            $res['Cpu'] = $this->cpu;
+        }
+
         if (null !== $this->createMode) {
             $res['CreateMode'] = $this->createMode;
         }
@@ -158,8 +202,16 @@ class RCInstances extends Model
             $res['DbType'] = $this->dbType;
         }
 
+        if (null !== $this->deploymentSetId) {
+            $res['DeploymentSetId'] = $this->deploymentSetId;
+        }
+
         if (null !== $this->description) {
             $res['Description'] = $this->description;
+        }
+
+        if (null !== $this->expiredTime) {
+            $res['ExpiredTime'] = $this->expiredTime;
         }
 
         if (null !== $this->gmtCreated) {
@@ -172,6 +224,10 @@ class RCInstances extends Model
 
         if (null !== $this->hostName) {
             $res['HostName'] = $this->hostName;
+        }
+
+        if (null !== $this->imageId) {
+            $res['ImageId'] = $this->imageId;
         }
 
         if (null !== $this->instanceChargeType) {
@@ -188,6 +244,10 @@ class RCInstances extends Model
 
         if (null !== $this->instanceTypeFamily) {
             $res['InstanceTypeFamily'] = $this->instanceTypeFamily;
+        }
+
+        if (null !== $this->memory) {
+            $res['Memory'] = $this->memory;
         }
 
         if (null !== $this->publicIp) {
@@ -230,6 +290,10 @@ class RCInstances extends Model
             }
         }
 
+        if (null !== $this->vpcAttributes) {
+            $res['VpcAttributes'] = null !== $this->vpcAttributes ? $this->vpcAttributes->toArray($noStream) : $this->vpcAttributes;
+        }
+
         if (null !== $this->vpcId) {
             $res['VpcId'] = $this->vpcId;
         }
@@ -253,6 +317,10 @@ class RCInstances extends Model
             $model->clusterName = $map['ClusterName'];
         }
 
+        if (isset($map['Cpu'])) {
+            $model->cpu = $map['Cpu'];
+        }
+
         if (isset($map['CreateMode'])) {
             $model->createMode = $map['CreateMode'];
         }
@@ -261,8 +329,16 @@ class RCInstances extends Model
             $model->dbType = $map['DbType'];
         }
 
+        if (isset($map['DeploymentSetId'])) {
+            $model->deploymentSetId = $map['DeploymentSetId'];
+        }
+
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
+        }
+
+        if (isset($map['ExpiredTime'])) {
+            $model->expiredTime = $map['ExpiredTime'];
         }
 
         if (isset($map['GmtCreated'])) {
@@ -275,6 +351,10 @@ class RCInstances extends Model
 
         if (isset($map['HostName'])) {
             $model->hostName = $map['HostName'];
+        }
+
+        if (isset($map['ImageId'])) {
+            $model->imageId = $map['ImageId'];
         }
 
         if (isset($map['InstanceChargeType'])) {
@@ -291,6 +371,10 @@ class RCInstances extends Model
 
         if (isset($map['InstanceTypeFamily'])) {
             $model->instanceTypeFamily = $map['InstanceTypeFamily'];
+        }
+
+        if (isset($map['Memory'])) {
+            $model->memory = $map['Memory'];
         }
 
         if (isset($map['PublicIp'])) {
@@ -331,6 +415,10 @@ class RCInstances extends Model
                     $model->tags[$n1++] = tags::fromMap($item1);
                 }
             }
+        }
+
+        if (isset($map['VpcAttributes'])) {
+            $model->vpcAttributes = vpcAttributes::fromMap($map['VpcAttributes']);
         }
 
         if (isset($map['VpcId'])) {
