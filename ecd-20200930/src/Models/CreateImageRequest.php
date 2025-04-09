@@ -14,6 +14,11 @@ class CreateImageRequest extends Model
     public $autoCleanUserdata;
 
     /**
+     * @var string[]
+     */
+    public $dataSnapshotIds;
+
+    /**
      * @var string
      */
     public $description;
@@ -54,6 +59,7 @@ class CreateImageRequest extends Model
     public $snapshotIds;
     protected $_name = [
         'autoCleanUserdata' => 'AutoCleanUserdata',
+        'dataSnapshotIds' => 'DataSnapshotIds',
         'description' => 'Description',
         'desktopId' => 'DesktopId',
         'diskType' => 'DiskType',
@@ -66,6 +72,9 @@ class CreateImageRequest extends Model
 
     public function validate()
     {
+        if (\is_array($this->dataSnapshotIds)) {
+            Model::validateArray($this->dataSnapshotIds);
+        }
         if (\is_array($this->snapshotIds)) {
             Model::validateArray($this->snapshotIds);
         }
@@ -77,6 +86,16 @@ class CreateImageRequest extends Model
         $res = [];
         if (null !== $this->autoCleanUserdata) {
             $res['AutoCleanUserdata'] = $this->autoCleanUserdata;
+        }
+
+        if (null !== $this->dataSnapshotIds) {
+            if (\is_array($this->dataSnapshotIds)) {
+                $res['DataSnapshotIds'] = [];
+                $n1 = 0;
+                foreach ($this->dataSnapshotIds as $item1) {
+                    $res['DataSnapshotIds'][$n1++] = $item1;
+                }
+            }
         }
 
         if (null !== $this->description) {
@@ -130,6 +149,16 @@ class CreateImageRequest extends Model
         $model = new self();
         if (isset($map['AutoCleanUserdata'])) {
             $model->autoCleanUserdata = $map['AutoCleanUserdata'];
+        }
+
+        if (isset($map['DataSnapshotIds'])) {
+            if (!empty($map['DataSnapshotIds'])) {
+                $model->dataSnapshotIds = [];
+                $n1 = 0;
+                foreach ($map['DataSnapshotIds'] as $item1) {
+                    $model->dataSnapshotIds[$n1++] = $item1;
+                }
+            }
         }
 
         if (isset($map['Description'])) {

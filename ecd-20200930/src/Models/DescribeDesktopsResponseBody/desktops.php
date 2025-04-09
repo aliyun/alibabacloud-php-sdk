@@ -171,6 +171,11 @@ class desktops extends Model
     public $imageId;
 
     /**
+     * @var bool
+     */
+    public $isLdap;
+
+    /**
      * @var string
      */
     public $managementFlag;
@@ -361,6 +366,7 @@ class desktops extends Model
         'hibernationOptionsConfigured' => 'HibernationOptionsConfigured',
         'hostName' => 'HostName',
         'imageId' => 'ImageId',
+        'isLdap' => 'IsLdap',
         'managementFlag' => 'ManagementFlag',
         'managementFlags' => 'ManagementFlags',
         'memory' => 'Memory',
@@ -576,6 +582,10 @@ class desktops extends Model
 
         if (null !== $this->imageId) {
             $res['ImageId'] = $this->imageId;
+        }
+
+        if (null !== $this->isLdap) {
+            $res['IsLdap'] = $this->isLdap;
         }
 
         if (null !== $this->managementFlag) {
@@ -893,6 +903,10 @@ class desktops extends Model
 
         if (isset($map['ImageId'])) {
             $model->imageId = $map['ImageId'];
+        }
+
+        if (isset($map['IsLdap'])) {
+            $model->isLdap = $map['IsLdap'];
         }
 
         if (isset($map['ManagementFlag'])) {

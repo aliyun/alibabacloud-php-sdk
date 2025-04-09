@@ -33,6 +33,11 @@ class endUsers extends Model
     /**
      * @var string
      */
+    public $displayNameNew;
+
+    /**
+     * @var string
+     */
     public $endUserEmail;
 
     /**
@@ -71,6 +76,11 @@ class endUsers extends Model
     public $userDesktopId;
 
     /**
+     * @var string
+     */
+    public $userPrincipalName;
+
+    /**
      * @var userSetPropertiesModels[]
      */
     public $userSetPropertiesModels;
@@ -79,6 +89,7 @@ class endUsers extends Model
         'desktopId' => 'DesktopId',
         'desktopName' => 'DesktopName',
         'displayName' => 'DisplayName',
+        'displayNameNew' => 'DisplayNameNew',
         'endUserEmail' => 'EndUserEmail',
         'endUserId' => 'EndUserId',
         'endUserName' => 'EndUserName',
@@ -87,6 +98,7 @@ class endUsers extends Model
         'endUserType' => 'EndUserType',
         'externalInfo' => 'ExternalInfo',
         'userDesktopId' => 'UserDesktopId',
+        'userPrincipalName' => 'UserPrincipalName',
         'userSetPropertiesModels' => 'UserSetPropertiesModels',
     ];
 
@@ -120,6 +132,10 @@ class endUsers extends Model
             $res['DisplayName'] = $this->displayName;
         }
 
+        if (null !== $this->displayNameNew) {
+            $res['DisplayNameNew'] = $this->displayNameNew;
+        }
+
         if (null !== $this->endUserEmail) {
             $res['EndUserEmail'] = $this->endUserEmail;
         }
@@ -150,6 +166,10 @@ class endUsers extends Model
 
         if (null !== $this->userDesktopId) {
             $res['UserDesktopId'] = $this->userDesktopId;
+        }
+
+        if (null !== $this->userPrincipalName) {
+            $res['UserPrincipalName'] = $this->userPrincipalName;
         }
 
         if (null !== $this->userSetPropertiesModels) {
@@ -189,6 +209,10 @@ class endUsers extends Model
             $model->displayName = $map['DisplayName'];
         }
 
+        if (isset($map['DisplayNameNew'])) {
+            $model->displayNameNew = $map['DisplayNameNew'];
+        }
+
         if (isset($map['EndUserEmail'])) {
             $model->endUserEmail = $map['EndUserEmail'];
         }
@@ -219,6 +243,10 @@ class endUsers extends Model
 
         if (isset($map['UserDesktopId'])) {
             $model->userDesktopId = $map['UserDesktopId'];
+        }
+
+        if (isset($map['UserPrincipalName'])) {
+            $model->userPrincipalName = $map['UserPrincipalName'];
         }
 
         if (isset($map['UserSetPropertiesModels'])) {

@@ -29,6 +29,11 @@ class configTimers extends Model
     public $interval;
 
     /**
+     * @var int
+     */
+    public $notificationTime;
+
+    /**
      * @var string
      */
     public $operationType;
@@ -57,6 +62,7 @@ class configTimers extends Model
         'cronExpression' => 'CronExpression',
         'enforce' => 'Enforce',
         'interval' => 'Interval',
+        'notificationTime' => 'NotificationTime',
         'operationType' => 'OperationType',
         'processWhitelist' => 'ProcessWhitelist',
         'resetType' => 'ResetType',
@@ -89,6 +95,10 @@ class configTimers extends Model
 
         if (null !== $this->interval) {
             $res['Interval'] = $this->interval;
+        }
+
+        if (null !== $this->notificationTime) {
+            $res['NotificationTime'] = $this->notificationTime;
         }
 
         if (null !== $this->operationType) {
@@ -142,6 +152,10 @@ class configTimers extends Model
 
         if (isset($map['Interval'])) {
             $model->interval = $map['Interval'];
+        }
+
+        if (isset($map['NotificationTime'])) {
+            $model->notificationTime = $map['NotificationTime'];
         }
 
         if (isset($map['OperationType'])) {

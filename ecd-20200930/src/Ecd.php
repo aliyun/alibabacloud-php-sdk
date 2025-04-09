@@ -3675,7 +3675,10 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * Creates a cloud disk.
+     * Creates an enterprise drive.
+     *
+     * @remarks
+     * Before you call this operation, make sure that you understand the billing methods and pricing of Enterprise Drive Service (formerly Cloud Drive Service). For more information, see [Overview](https://help.aliyun.com/document_detail/386301.html).
      *
      * @param request - CreateCloudDriveServiceRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3781,7 +3784,10 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * Creates a cloud disk.
+     * Creates an enterprise drive.
+     *
+     * @remarks
+     * Before you call this operation, make sure that you understand the billing methods and pricing of Enterprise Drive Service (formerly Cloud Drive Service). For more information, see [Overview](https://help.aliyun.com/document_detail/386301.html).
      *
      * @param request - CreateCloudDriveServiceRequest
      *
@@ -4657,6 +4663,10 @@ class Ecd extends OpenApiClient
         $query = [];
         if (null !== $request->autoCleanUserdata) {
             @$query['AutoCleanUserdata'] = $request->autoCleanUserdata;
+        }
+
+        if (null !== $request->dataSnapshotIds) {
+            @$query['DataSnapshotIds'] = $request->dataSnapshotIds;
         }
 
         if (null !== $request->description) {
@@ -5709,6 +5719,8 @@ class Ecd extends OpenApiClient
     }
 
     /**
+     * Deletes a center policy.
+     *
      * @param request - DeleteCenterPolicyRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -5761,6 +5773,8 @@ class Ecd extends OpenApiClient
     }
 
     /**
+     * Deletes a center policy.
+     *
      * @param request - DeleteCenterPolicyRequest
      *
      * @returns DeleteCenterPolicyResponse
@@ -7963,7 +7977,7 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * Queries a list of desktop groups.
+     * Queries cloud computer shares.
      *
      * @param request - DescribeDesktopGroupsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -8077,7 +8091,7 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * Queries a list of desktop groups.
+     * Queries cloud computer shares.
      *
      * @param request - DescribeDesktopGroupsRequest
      *
@@ -9923,6 +9937,8 @@ class Ecd extends OpenApiClient
     }
 
     /**
+     * Queries the price for changing the specifications of a monthly subscription cloud computer with unlimited hours or a premium bandwidth plan.
+     *
      * @param request - DescribeModificationPriceRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -9987,6 +10003,8 @@ class Ecd extends OpenApiClient
     }
 
     /**
+     * Queries the price for changing the specifications of a monthly subscription cloud computer with unlimited hours or a premium bandwidth plan.
+     *
      * @param request - DescribeModificationPriceRequest
      *
      * @returns DescribeModificationPriceResponse
@@ -10915,6 +10933,8 @@ class Ecd extends OpenApiClient
     }
 
     /**
+     * Queries the renewal price of an Alibaba Cloud Workspace service.
+     *
      * @param request - DescribeRenewalPriceRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -10975,6 +10995,8 @@ class Ecd extends OpenApiClient
     }
 
     /**
+     * Queries the renewal price of an Alibaba Cloud Workspace service.
+     *
      * @param request - DescribeRenewalPriceRequest
      *
      * @returns DescribeRenewalPriceResponse
@@ -12905,7 +12927,7 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * Queries the information about a cloud computer pool.
+     * Queries the information about a cloud computer share.
      *
      * @param request - GetDesktopGroupDetailRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -12951,7 +12973,7 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * Queries the information about a cloud computer pool.
+     * Queries the information about a cloud computer share.
      *
      * @param request - GetDesktopGroupDetailRequest
      *
@@ -15599,10 +15621,10 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * Modifies the configurations of a cloud computer pool.
+     * Modifies a cloud computer share.
      *
      * @remarks
-     * After a cloud computer pool is created, the system creates a specific number of cloud computers in the pool based on the auto scaling policy and user connections. Cloud computers are created by using the same cloud computer template and security policy. You can modify the configurations of the pool, including the pool name, cloud computer template, and policy, in different business scenarios.
+     * Once a cloud computer share is created, the system automatically provisions cloud computers according to the auto-scaling policy and user connections, all based on the same template and security policy. You can adjust the cloud computer share\\"s configurations, including the share name, template, and policy, for different business scenarios.
      *
      * @param request - ModifyDesktopGroupRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -15744,10 +15766,10 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * Modifies the configurations of a cloud computer pool.
+     * Modifies a cloud computer share.
      *
      * @remarks
-     * After a cloud computer pool is created, the system creates a specific number of cloud computers in the pool based on the auto scaling policy and user connections. Cloud computers are created by using the same cloud computer template and security policy. You can modify the configurations of the pool, including the pool name, cloud computer template, and policy, in different business scenarios.
+     * Once a cloud computer share is created, the system automatically provisions cloud computers according to the auto-scaling policy and user connections, all based on the same template and security policy. You can adjust the cloud computer share\\"s configurations, including the share name, template, and policy, for different business scenarios.
      *
      * @param request - ModifyDesktopGroupRequest
      *
@@ -18063,6 +18085,10 @@ class Ecd extends OpenApiClient
     {
         $request->validate();
         $query = [];
+        if (null !== $request->afterStatus) {
+            @$query['AfterStatus'] = $request->afterStatus;
+        }
+
         if (null !== $request->desktopId) {
             @$query['DesktopId'] = $request->desktopId;
         }

@@ -21,6 +21,11 @@ class users extends Model
     /**
      * @var string
      */
+    public $displayNameNew;
+
+    /**
+     * @var string
+     */
     public $email;
 
     /**
@@ -32,12 +37,19 @@ class users extends Model
      * @var string
      */
     public $phone;
+
+    /**
+     * @var string
+     */
+    public $userPrincipalName;
     protected $_name = [
         'assignedDesktopNumber' => 'AssignedDesktopNumber',
         'displayName' => 'DisplayName',
+        'displayNameNew' => 'DisplayNameNew',
         'email' => 'Email',
         'endUser' => 'EndUser',
         'phone' => 'Phone',
+        'userPrincipalName' => 'UserPrincipalName',
     ];
 
     public function validate()
@@ -56,6 +68,10 @@ class users extends Model
             $res['DisplayName'] = $this->displayName;
         }
 
+        if (null !== $this->displayNameNew) {
+            $res['DisplayNameNew'] = $this->displayNameNew;
+        }
+
         if (null !== $this->email) {
             $res['Email'] = $this->email;
         }
@@ -66,6 +82,10 @@ class users extends Model
 
         if (null !== $this->phone) {
             $res['Phone'] = $this->phone;
+        }
+
+        if (null !== $this->userPrincipalName) {
+            $res['UserPrincipalName'] = $this->userPrincipalName;
         }
 
         return $res;
@@ -87,6 +107,10 @@ class users extends Model
             $model->displayName = $map['DisplayName'];
         }
 
+        if (isset($map['DisplayNameNew'])) {
+            $model->displayNameNew = $map['DisplayNameNew'];
+        }
+
         if (isset($map['Email'])) {
             $model->email = $map['Email'];
         }
@@ -97,6 +121,10 @@ class users extends Model
 
         if (isset($map['Phone'])) {
             $model->phone = $map['Phone'];
+        }
+
+        if (isset($map['UserPrincipalName'])) {
+            $model->userPrincipalName = $map['UserPrincipalName'];
         }
 
         return $model;

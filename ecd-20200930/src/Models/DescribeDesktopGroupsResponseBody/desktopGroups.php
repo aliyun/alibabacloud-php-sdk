@@ -116,6 +116,11 @@ class desktopGroups extends Model
     public $imageId;
 
     /**
+     * @var bool
+     */
+    public $isLdap;
+
+    /**
      * @var int
      */
     public $keepDuration;
@@ -276,6 +281,7 @@ class desktopGroups extends Model
         'gpuSpec' => 'GpuSpec',
         'idleDisconnectDuration' => 'IdleDisconnectDuration',
         'imageId' => 'ImageId',
+        'isLdap' => 'IsLdap',
         'keepDuration' => 'KeepDuration',
         'loadPolicy' => 'LoadPolicy',
         'maxDesktopsCount' => 'MaxDesktopsCount',
@@ -408,6 +414,10 @@ class desktopGroups extends Model
 
         if (null !== $this->imageId) {
             $res['ImageId'] = $this->imageId;
+        }
+
+        if (null !== $this->isLdap) {
+            $res['IsLdap'] = $this->isLdap;
         }
 
         if (null !== $this->keepDuration) {
@@ -627,6 +637,10 @@ class desktopGroups extends Model
 
         if (isset($map['ImageId'])) {
             $model->imageId = $map['ImageId'];
+        }
+
+        if (isset($map['IsLdap'])) {
+            $model->isLdap = $map['IsLdap'];
         }
 
         if (isset($map['KeepDuration'])) {

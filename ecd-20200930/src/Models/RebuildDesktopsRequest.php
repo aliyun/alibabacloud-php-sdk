@@ -9,6 +9,11 @@ use AlibabaCloud\Dara\Model;
 class RebuildDesktopsRequest extends Model
 {
     /**
+     * @var string
+     */
+    public $afterStatus;
+
+    /**
      * @var string[]
      */
     public $desktopId;
@@ -33,6 +38,7 @@ class RebuildDesktopsRequest extends Model
      */
     public $regionId;
     protected $_name = [
+        'afterStatus' => 'AfterStatus',
         'desktopId' => 'DesktopId',
         'imageId' => 'ImageId',
         'language' => 'Language',
@@ -51,6 +57,10 @@ class RebuildDesktopsRequest extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->afterStatus) {
+            $res['AfterStatus'] = $this->afterStatus;
+        }
+
         if (null !== $this->desktopId) {
             if (\is_array($this->desktopId)) {
                 $res['DesktopId'] = [];
@@ -88,6 +98,10 @@ class RebuildDesktopsRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AfterStatus'])) {
+            $model->afterStatus = $map['AfterStatus'];
+        }
+
         if (isset($map['DesktopId'])) {
             if (!empty($map['DesktopId'])) {
                 $model->desktopId = [];
