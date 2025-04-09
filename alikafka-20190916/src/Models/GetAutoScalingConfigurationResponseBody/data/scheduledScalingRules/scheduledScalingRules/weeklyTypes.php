@@ -30,7 +30,7 @@ class weeklyTypes extends Model
         if (null !== $this->weeklyTypes) {
             if (\is_array($this->weeklyTypes)) {
                 $res['WeeklyTypes'] = [];
-                $n1                 = 0;
+                $n1 = 0;
                 foreach ($this->weeklyTypes as $item1) {
                     $res['WeeklyTypes'][$n1++] = $item1;
                 }
@@ -51,7 +51,7 @@ class weeklyTypes extends Model
         if (isset($map['WeeklyTypes'])) {
             if (!empty($map['WeeklyTypes'])) {
                 $model->weeklyTypes = [];
-                $n1                 = 0;
+                $n1 = 0;
                 foreach ($map['WeeklyTypes'] as $item1) {
                     $model->weeklyTypes[$n1++] = $item1;
                 }

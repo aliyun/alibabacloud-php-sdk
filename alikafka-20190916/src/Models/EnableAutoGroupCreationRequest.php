@@ -12,18 +12,20 @@ class EnableAutoGroupCreationRequest extends Model
      * @var bool
      */
     public $enable;
+
     /**
      * @var string
      */
     public $instanceId;
+
     /**
      * @var string
      */
     public $regionId;
     protected $_name = [
-        'enable'     => 'Enable',
+        'enable' => 'Enable',
         'instanceId' => 'InstanceId',
-        'regionId'   => 'RegionId',
+        'regionId' => 'RegionId',
     ];
 
     public function validate()

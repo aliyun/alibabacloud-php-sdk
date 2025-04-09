@@ -12,13 +12,14 @@ class topicSubscribeStatus extends Model
      * @var string[]
      */
     public $consumerGroups;
+
     /**
      * @var string
      */
     public $topic;
     protected $_name = [
         'consumerGroups' => 'ConsumerGroups',
-        'topic'          => 'Topic',
+        'topic' => 'Topic',
     ];
 
     public function validate()
@@ -35,7 +36,7 @@ class topicSubscribeStatus extends Model
         if (null !== $this->consumerGroups) {
             if (\is_array($this->consumerGroups)) {
                 $res['ConsumerGroups'] = [];
-                $n1                    = 0;
+                $n1 = 0;
                 foreach ($this->consumerGroups as $item1) {
                     $res['ConsumerGroups'][$n1++] = $item1;
                 }
@@ -60,7 +61,7 @@ class topicSubscribeStatus extends Model
         if (isset($map['ConsumerGroups'])) {
             if (!empty($map['ConsumerGroups'])) {
                 $model->consumerGroups = [];
-                $n1                    = 0;
+                $n1 = 0;
                 foreach ($map['ConsumerGroups'] as $item1) {
                     $model->consumerGroups[$n1++] = $item1;
                 }

@@ -12,18 +12,20 @@ class ReleaseInstanceRequest extends Model
      * @var bool
      */
     public $forceDeleteInstance;
+
     /**
      * @var string
      */
     public $instanceId;
+
     /**
      * @var string
      */
     public $regionId;
     protected $_name = [
         'forceDeleteInstance' => 'ForceDeleteInstance',
-        'instanceId'          => 'InstanceId',
-        'regionId'            => 'RegionId',
+        'instanceId' => 'InstanceId',
+        'regionId' => 'RegionId',
     ];
 
     public function validate()

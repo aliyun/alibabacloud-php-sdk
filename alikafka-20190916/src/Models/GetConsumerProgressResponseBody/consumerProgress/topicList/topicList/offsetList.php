@@ -31,7 +31,7 @@ class offsetList extends Model
         if (null !== $this->offsetList) {
             if (\is_array($this->offsetList)) {
                 $res['OffsetList'] = [];
-                $n1                = 0;
+                $n1 = 0;
                 foreach ($this->offsetList as $item1) {
                     $res['OffsetList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -52,7 +52,7 @@ class offsetList extends Model
         if (isset($map['OffsetList'])) {
             if (!empty($map['OffsetList'])) {
                 $model->offsetList = [];
-                $n1                = 0;
+                $n1 = 0;
                 foreach ($map['OffsetList'] as $item1) {
                     $model->offsetList[$n1++] = self::fromMap($item1);
                 }

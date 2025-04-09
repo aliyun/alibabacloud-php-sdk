@@ -14,23 +14,26 @@ class consumerProgress extends Model
      * @var int
      */
     public $lastTimestamp;
+
     /**
      * @var rebalanceInfoList
      */
     public $rebalanceInfoList;
+
     /**
      * @var topicList
      */
     public $topicList;
+
     /**
      * @var int
      */
     public $totalDiff;
     protected $_name = [
-        'lastTimestamp'     => 'LastTimestamp',
+        'lastTimestamp' => 'LastTimestamp',
         'rebalanceInfoList' => 'RebalanceInfoList',
-        'topicList'         => 'TopicList',
-        'totalDiff'         => 'TotalDiff',
+        'topicList' => 'TopicList',
+        'totalDiff' => 'TotalDiff',
     ];
 
     public function validate()

@@ -13,27 +13,31 @@ class GetTopicSubscribeStatusResponseBody extends Model
      * @var int
      */
     public $code;
+
     /**
      * @var string
      */
     public $message;
+
     /**
      * @var string
      */
     public $requestId;
+
     /**
      * @var bool
      */
     public $success;
+
     /**
      * @var topicSubscribeStatus
      */
     public $topicSubscribeStatus;
     protected $_name = [
-        'code'                 => 'Code',
-        'message'              => 'Message',
-        'requestId'            => 'RequestId',
-        'success'              => 'Success',
+        'code' => 'Code',
+        'message' => 'Message',
+        'requestId' => 'RequestId',
+        'success' => 'Success',
         'topicSubscribeStatus' => 'TopicSubscribeStatus',
     ];
 

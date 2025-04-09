@@ -12,32 +12,37 @@ class rebalanceInfoList extends Model
      * @var int
      */
     public $generation;
+
     /**
      * @var string
      */
     public $groupId;
+
     /**
      * @var int
      */
     public $lastRebalanceTimestamp;
+
     /**
      * @var string
      */
     public $reason;
+
     /**
      * @var bool
      */
     public $rebalanceSuccess;
+
     /**
      * @var int
      */
     public $rebalanceTimeConsuming;
     protected $_name = [
-        'generation'             => 'Generation',
-        'groupId'                => 'GroupId',
+        'generation' => 'Generation',
+        'groupId' => 'GroupId',
         'lastRebalanceTimestamp' => 'LastRebalanceTimestamp',
-        'reason'                 => 'Reason',
-        'rebalanceSuccess'       => 'RebalanceSuccess',
+        'reason' => 'Reason',
+        'rebalanceSuccess' => 'RebalanceSuccess',
         'rebalanceTimeConsuming' => 'RebalanceTimeConsuming',
     ];
 

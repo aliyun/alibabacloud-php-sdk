@@ -12,108 +12,128 @@ class StartInstanceRequest extends Model
      * @var string
      */
     public $config;
+
     /**
      * @var bool
      */
     public $crossZone;
+
     /**
      * @var string
      */
     public $deployModule;
+
     /**
      * @var string
      */
     public $instanceId;
+
     /**
      * @var bool
      */
     public $isEipInner;
+
     /**
      * @var bool
      */
     public $isForceSelectedZones;
+
     /**
      * @var bool
      */
     public $isSetUserAndPassword;
+
     /**
      * @var string
      */
     public $KMSKeyId;
+
     /**
      * @var string
      */
     public $name;
+
     /**
      * @var string
      */
     public $notifier;
+
     /**
      * @var string
      */
     public $password;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $securityGroup;
+
     /**
      * @var string
      */
     public $selectedZones;
+
     /**
      * @var string
      */
     public $serviceVersion;
+
     /**
      * @var string
      */
     public $userPhoneNum;
+
     /**
      * @var string
      */
     public $username;
+
     /**
      * @var string
      */
     public $vSwitchId;
+
     /**
      * @var string[]
      */
     public $vSwitchIds;
+
     /**
      * @var string
      */
     public $vpcId;
+
     /**
      * @var string
      */
     public $zoneId;
     protected $_name = [
-        'config'               => 'Config',
-        'crossZone'            => 'CrossZone',
-        'deployModule'         => 'DeployModule',
-        'instanceId'           => 'InstanceId',
-        'isEipInner'           => 'IsEipInner',
+        'config' => 'Config',
+        'crossZone' => 'CrossZone',
+        'deployModule' => 'DeployModule',
+        'instanceId' => 'InstanceId',
+        'isEipInner' => 'IsEipInner',
         'isForceSelectedZones' => 'IsForceSelectedZones',
         'isSetUserAndPassword' => 'IsSetUserAndPassword',
-        'KMSKeyId'             => 'KMSKeyId',
-        'name'                 => 'Name',
-        'notifier'             => 'Notifier',
-        'password'             => 'Password',
-        'regionId'             => 'RegionId',
-        'securityGroup'        => 'SecurityGroup',
-        'selectedZones'        => 'SelectedZones',
-        'serviceVersion'       => 'ServiceVersion',
-        'userPhoneNum'         => 'UserPhoneNum',
-        'username'             => 'Username',
-        'vSwitchId'            => 'VSwitchId',
-        'vSwitchIds'           => 'VSwitchIds',
-        'vpcId'                => 'VpcId',
-        'zoneId'               => 'ZoneId',
+        'KMSKeyId' => 'KMSKeyId',
+        'name' => 'Name',
+        'notifier' => 'Notifier',
+        'password' => 'Password',
+        'regionId' => 'RegionId',
+        'securityGroup' => 'SecurityGroup',
+        'selectedZones' => 'SelectedZones',
+        'serviceVersion' => 'ServiceVersion',
+        'userPhoneNum' => 'UserPhoneNum',
+        'username' => 'Username',
+        'vSwitchId' => 'VSwitchId',
+        'vSwitchIds' => 'VSwitchIds',
+        'vpcId' => 'VpcId',
+        'zoneId' => 'ZoneId',
     ];
 
     public function validate()
@@ -202,7 +222,7 @@ class StartInstanceRequest extends Model
         if (null !== $this->vSwitchIds) {
             if (\is_array($this->vSwitchIds)) {
                 $res['VSwitchIds'] = [];
-                $n1                = 0;
+                $n1 = 0;
                 foreach ($this->vSwitchIds as $item1) {
                     $res['VSwitchIds'][$n1++] = $item1;
                 }
@@ -303,7 +323,7 @@ class StartInstanceRequest extends Model
         if (isset($map['VSwitchIds'])) {
             if (!empty($map['VSwitchIds'])) {
                 $model->vSwitchIds = [];
-                $n1                = 0;
+                $n1 = 0;
                 foreach ($map['VSwitchIds'] as $item1) {
                     $model->vSwitchIds[$n1++] = $item1;
                 }

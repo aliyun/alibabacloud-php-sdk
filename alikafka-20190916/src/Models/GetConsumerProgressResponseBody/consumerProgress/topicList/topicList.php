@@ -13,23 +13,26 @@ class topicList extends Model
      * @var int
      */
     public $lastTimestamp;
+
     /**
      * @var offsetList
      */
     public $offsetList;
+
     /**
      * @var string
      */
     public $topic;
+
     /**
      * @var int
      */
     public $totalDiff;
     protected $_name = [
         'lastTimestamp' => 'LastTimestamp',
-        'offsetList'    => 'OffsetList',
-        'topic'         => 'Topic',
-        'totalDiff'     => 'TotalDiff',
+        'offsetList' => 'OffsetList',
+        'topic' => 'Topic',
+        'totalDiff' => 'TotalDiff',
     ];
 
     public function validate()

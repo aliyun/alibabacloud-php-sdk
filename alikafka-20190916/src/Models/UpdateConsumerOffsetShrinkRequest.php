@@ -12,38 +12,44 @@ class UpdateConsumerOffsetShrinkRequest extends Model
      * @var string
      */
     public $consumerId;
+
     /**
      * @var string
      */
     public $instanceId;
+
     /**
      * @var string
      */
     public $offsetsShrink;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $resetType;
+
     /**
      * @var string
      */
     public $time;
+
     /**
      * @var string
      */
     public $topic;
     protected $_name = [
-        'consumerId'    => 'ConsumerId',
-        'instanceId'    => 'InstanceId',
+        'consumerId' => 'ConsumerId',
+        'instanceId' => 'InstanceId',
         'offsetsShrink' => 'Offsets',
-        'regionId'      => 'RegionId',
-        'resetType'     => 'ResetType',
-        'time'          => 'Time',
-        'topic'         => 'Topic',
+        'regionId' => 'RegionId',
+        'resetType' => 'ResetType',
+        'time' => 'Time',
+        'topic' => 'Topic',
     ];
 
     public function validate()

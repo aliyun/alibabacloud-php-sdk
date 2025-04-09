@@ -12,28 +12,32 @@ class GetTopicListRequest extends Model
      * @var string
      */
     public $currentPage;
+
     /**
      * @var string
      */
     public $instanceId;
+
     /**
      * @var string
      */
     public $pageSize;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $topic;
     protected $_name = [
         'currentPage' => 'CurrentPage',
-        'instanceId'  => 'InstanceId',
-        'pageSize'    => 'PageSize',
-        'regionId'    => 'RegionId',
-        'topic'       => 'Topic',
+        'instanceId' => 'InstanceId',
+        'pageSize' => 'PageSize',
+        'regionId' => 'RegionId',
+        'topic' => 'Topic',
     ];
 
     public function validate()

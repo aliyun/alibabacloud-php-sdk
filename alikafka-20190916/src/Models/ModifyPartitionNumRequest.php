@@ -12,23 +12,26 @@ class ModifyPartitionNumRequest extends Model
      * @var int
      */
     public $addPartitionNum;
+
     /**
      * @var string
      */
     public $instanceId;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $topic;
     protected $_name = [
         'addPartitionNum' => 'AddPartitionNum',
-        'instanceId'      => 'InstanceId',
-        'regionId'        => 'RegionId',
-        'topic'           => 'Topic',
+        'instanceId' => 'InstanceId',
+        'regionId' => 'RegionId',
+        'topic' => 'Topic',
     ];
 
     public function validate()

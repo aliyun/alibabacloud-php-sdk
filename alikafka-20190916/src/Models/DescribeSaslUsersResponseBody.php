@@ -13,28 +13,32 @@ class DescribeSaslUsersResponseBody extends Model
      * @var int
      */
     public $code;
+
     /**
      * @var string
      */
     public $message;
+
     /**
      * @var string
      */
     public $requestId;
+
     /**
      * @var saslUserList
      */
     public $saslUserList;
+
     /**
      * @var bool
      */
     public $success;
     protected $_name = [
-        'code'         => 'Code',
-        'message'      => 'Message',
-        'requestId'    => 'RequestId',
+        'code' => 'Code',
+        'message' => 'Message',
+        'requestId' => 'RequestId',
         'saslUserList' => 'SaslUserList',
-        'success'      => 'Success',
+        'success' => 'Success',
     ];
 
     public function validate()

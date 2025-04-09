@@ -12,12 +12,13 @@ class serverlessConfig extends Model
      * @var int
      */
     public $reservedPublishCapacity;
+
     /**
      * @var int
      */
     public $reservedSubscribeCapacity;
     protected $_name = [
-        'reservedPublishCapacity'   => 'ReservedPublishCapacity',
+        'reservedPublishCapacity' => 'ReservedPublishCapacity',
         'reservedSubscribeCapacity' => 'ReservedSubscribeCapacity',
     ];
 

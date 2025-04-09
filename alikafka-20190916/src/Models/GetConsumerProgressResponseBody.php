@@ -13,28 +13,32 @@ class GetConsumerProgressResponseBody extends Model
      * @var int
      */
     public $code;
+
     /**
      * @var consumerProgress
      */
     public $consumerProgress;
+
     /**
      * @var string
      */
     public $message;
+
     /**
      * @var string
      */
     public $requestId;
+
     /**
      * @var bool
      */
     public $success;
     protected $_name = [
-        'code'             => 'Code',
+        'code' => 'Code',
         'consumerProgress' => 'ConsumerProgress',
-        'message'          => 'Message',
-        'requestId'        => 'RequestId',
-        'success'          => 'Success',
+        'message' => 'Message',
+        'requestId' => 'RequestId',
+        'success' => 'Success',
     ];
 
     public function validate()

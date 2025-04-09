@@ -31,7 +31,7 @@ class rebalanceInfoList extends Model
         if (null !== $this->rebalanceInfoList) {
             if (\is_array($this->rebalanceInfoList)) {
                 $res['RebalanceInfoList'] = [];
-                $n1                       = 0;
+                $n1 = 0;
                 foreach ($this->rebalanceInfoList as $item1) {
                     $res['RebalanceInfoList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -52,7 +52,7 @@ class rebalanceInfoList extends Model
         if (isset($map['RebalanceInfoList'])) {
             if (!empty($map['RebalanceInfoList'])) {
                 $model->rebalanceInfoList = [];
-                $n1                       = 0;
+                $n1 = 0;
                 foreach ($map['RebalanceInfoList'] as $item1) {
                     $model->rebalanceInfoList[$n1++] = self::fromMap($item1);
                 }

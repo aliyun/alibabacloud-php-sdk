@@ -12,23 +12,26 @@ class saslUserVO extends Model
      * @var string
      */
     public $mechanism;
+
     /**
      * @var string
      */
     public $password;
+
     /**
      * @var string
      */
     public $type;
+
     /**
      * @var string
      */
     public $username;
     protected $_name = [
         'mechanism' => 'Mechanism',
-        'password'  => 'Password',
-        'type'      => 'Type',
-        'username'  => 'Username',
+        'password' => 'Password',
+        'type' => 'Type',
+        'username' => 'Username',
     ];
 
     public function validate()

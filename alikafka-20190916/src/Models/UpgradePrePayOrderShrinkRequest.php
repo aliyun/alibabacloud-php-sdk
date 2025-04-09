@@ -12,63 +12,74 @@ class UpgradePrePayOrderShrinkRequest extends Model
      * @var string
      */
     public $confluentConfigShrink;
+
     /**
      * @var int
      */
     public $diskSize;
+
     /**
      * @var int
      */
     public $eipMax;
+
     /**
      * @var bool
      */
     public $eipModel;
+
     /**
      * @var string
      */
     public $instanceId;
+
     /**
      * @var int
      */
     public $ioMax;
+
     /**
      * @var string
      */
     public $ioMaxSpec;
+
     /**
      * @var int
      */
     public $paidType;
+
     /**
      * @var int
      */
     public $partitionNum;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $specType;
+
     /**
      * @var int
      */
     public $topicQuota;
     protected $_name = [
         'confluentConfigShrink' => 'ConfluentConfig',
-        'diskSize'              => 'DiskSize',
-        'eipMax'                => 'EipMax',
-        'eipModel'              => 'EipModel',
-        'instanceId'            => 'InstanceId',
-        'ioMax'                 => 'IoMax',
-        'ioMaxSpec'             => 'IoMaxSpec',
-        'paidType'              => 'PaidType',
-        'partitionNum'          => 'PartitionNum',
-        'regionId'              => 'RegionId',
-        'specType'              => 'SpecType',
-        'topicQuota'            => 'TopicQuota',
+        'diskSize' => 'DiskSize',
+        'eipMax' => 'EipMax',
+        'eipModel' => 'EipModel',
+        'instanceId' => 'InstanceId',
+        'ioMax' => 'IoMax',
+        'ioMaxSpec' => 'IoMaxSpec',
+        'paidType' => 'PaidType',
+        'partitionNum' => 'PartitionNum',
+        'regionId' => 'RegionId',
+        'specType' => 'SpecType',
+        'topicQuota' => 'TopicQuota',
     ];
 
     public function validate()

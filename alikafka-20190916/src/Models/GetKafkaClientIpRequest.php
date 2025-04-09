@@ -12,38 +12,44 @@ class GetKafkaClientIpRequest extends Model
      * @var int
      */
     public $endTime;
+
     /**
      * @var string
      */
     public $group;
+
     /**
      * @var string
      */
     public $instanceId;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var int
      */
     public $startTime;
+
     /**
      * @var string
      */
     public $topic;
+
     /**
      * @var string
      */
     public $type;
     protected $_name = [
-        'endTime'    => 'EndTime',
-        'group'      => 'Group',
+        'endTime' => 'EndTime',
+        'group' => 'Group',
         'instanceId' => 'InstanceId',
-        'regionId'   => 'RegionId',
-        'startTime'  => 'StartTime',
-        'topic'      => 'Topic',
-        'type'       => 'Type',
+        'regionId' => 'RegionId',
+        'startTime' => 'StartTime',
+        'topic' => 'Topic',
+        'type' => 'Type',
     ];
 
     public function validate()

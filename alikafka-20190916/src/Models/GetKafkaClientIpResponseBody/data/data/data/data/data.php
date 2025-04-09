@@ -12,12 +12,13 @@ class data extends Model
      * @var string
      */
     public $ip;
+
     /**
      * @var int
      */
     public $num;
     protected $_name = [
-        'ip'  => 'Ip',
+        'ip' => 'Ip',
         'num' => 'Num',
     ];
 

@@ -12,93 +12,110 @@ class confluentConfig extends Model
      * @var int
      */
     public $connectCU;
+
     /**
      * @var int
      */
     public $connectReplica;
+
     /**
      * @var int
      */
     public $controlCenterCU;
+
     /**
      * @var int
      */
     public $controlCenterReplica;
+
     /**
      * @var int
      */
     public $controlCenterStorage;
+
     /**
      * @var int
      */
     public $kafkaCU;
+
     /**
      * @var int
      */
     public $kafkaReplica;
+
     /**
      * @var int
      */
     public $kafkaRestProxyCU;
+
     /**
      * @var int
      */
     public $kafkaRestProxyReplica;
+
     /**
      * @var int
      */
     public $kafkaStorage;
+
     /**
      * @var int
      */
     public $ksqlCU;
+
     /**
      * @var int
      */
     public $ksqlReplica;
+
     /**
      * @var int
      */
     public $ksqlStorage;
+
     /**
      * @var int
      */
     public $schemaRegistryCU;
+
     /**
      * @var int
      */
     public $schemaRegistryReplica;
+
     /**
      * @var int
      */
     public $zooKeeperCU;
+
     /**
      * @var int
      */
     public $zooKeeperReplica;
+
     /**
      * @var int
      */
     public $zooKeeperStorage;
     protected $_name = [
-        'connectCU'             => 'ConnectCU',
-        'connectReplica'        => 'ConnectReplica',
-        'controlCenterCU'       => 'ControlCenterCU',
-        'controlCenterReplica'  => 'ControlCenterReplica',
-        'controlCenterStorage'  => 'ControlCenterStorage',
-        'kafkaCU'               => 'KafkaCU',
-        'kafkaReplica'          => 'KafkaReplica',
-        'kafkaRestProxyCU'      => 'KafkaRestProxyCU',
+        'connectCU' => 'ConnectCU',
+        'connectReplica' => 'ConnectReplica',
+        'controlCenterCU' => 'ControlCenterCU',
+        'controlCenterReplica' => 'ControlCenterReplica',
+        'controlCenterStorage' => 'ControlCenterStorage',
+        'kafkaCU' => 'KafkaCU',
+        'kafkaReplica' => 'KafkaReplica',
+        'kafkaRestProxyCU' => 'KafkaRestProxyCU',
         'kafkaRestProxyReplica' => 'KafkaRestProxyReplica',
-        'kafkaStorage'          => 'KafkaStorage',
-        'ksqlCU'                => 'KsqlCU',
-        'ksqlReplica'           => 'KsqlReplica',
-        'ksqlStorage'           => 'KsqlStorage',
-        'schemaRegistryCU'      => 'SchemaRegistryCU',
+        'kafkaStorage' => 'KafkaStorage',
+        'ksqlCU' => 'KsqlCU',
+        'ksqlReplica' => 'KsqlReplica',
+        'ksqlStorage' => 'KsqlStorage',
+        'schemaRegistryCU' => 'SchemaRegistryCU',
         'schemaRegistryReplica' => 'SchemaRegistryReplica',
-        'zooKeeperCU'           => 'ZooKeeperCU',
-        'zooKeeperReplica'      => 'ZooKeeperReplica',
-        'zooKeeperStorage'      => 'ZooKeeperStorage',
+        'zooKeeperCU' => 'ZooKeeperCU',
+        'zooKeeperReplica' => 'ZooKeeperReplica',
+        'zooKeeperStorage' => 'ZooKeeperStorage',
     ];
 
     public function validate()

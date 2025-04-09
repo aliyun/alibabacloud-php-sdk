@@ -13,18 +13,22 @@ class CreateConsumerGroupRequest extends Model
      * @var string
      */
     public $consumerId;
+
     /**
      * @var string
      */
     public $instanceId;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $remark;
+
     /**
      * @var tag[]
      */
@@ -32,9 +36,9 @@ class CreateConsumerGroupRequest extends Model
     protected $_name = [
         'consumerId' => 'ConsumerId',
         'instanceId' => 'InstanceId',
-        'regionId'   => 'RegionId',
-        'remark'     => 'Remark',
-        'tag'        => 'Tag',
+        'regionId' => 'RegionId',
+        'remark' => 'Remark',
+        'tag' => 'Tag',
     ];
 
     public function validate()
@@ -67,7 +71,7 @@ class CreateConsumerGroupRequest extends Model
         if (null !== $this->tag) {
             if (\is_array($this->tag)) {
                 $res['Tag'] = [];
-                $n1         = 0;
+                $n1 = 0;
                 foreach ($this->tag as $item1) {
                     $res['Tag'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -104,7 +108,7 @@ class CreateConsumerGroupRequest extends Model
         if (isset($map['Tag'])) {
             if (!empty($map['Tag'])) {
                 $model->tag = [];
-                $n1         = 0;
+                $n1 = 0;
                 foreach ($map['Tag'] as $item1) {
                     $model->tag[$n1++] = tag::fromMap($item1);
                 }

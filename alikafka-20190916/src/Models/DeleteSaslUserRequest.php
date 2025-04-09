@@ -12,28 +12,32 @@ class DeleteSaslUserRequest extends Model
      * @var string
      */
     public $instanceId;
+
     /**
      * @var string
      */
     public $mechanism;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $type;
+
     /**
      * @var string
      */
     public $username;
     protected $_name = [
         'instanceId' => 'InstanceId',
-        'mechanism'  => 'Mechanism',
-        'regionId'   => 'RegionId',
-        'type'       => 'Type',
-        'username'   => 'Username',
+        'mechanism' => 'Mechanism',
+        'regionId' => 'RegionId',
+        'type' => 'Type',
+        'username' => 'Username',
     ];
 
     public function validate()

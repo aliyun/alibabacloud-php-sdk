@@ -13,43 +13,50 @@ class GetTopicListResponseBody extends Model
      * @var int
      */
     public $code;
+
     /**
      * @var int
      */
     public $currentPage;
+
     /**
      * @var string
      */
     public $message;
+
     /**
      * @var int
      */
     public $pageSize;
+
     /**
      * @var string
      */
     public $requestId;
+
     /**
      * @var bool
      */
     public $success;
+
     /**
      * @var topicList
      */
     public $topicList;
+
     /**
      * @var int
      */
     public $total;
     protected $_name = [
-        'code'        => 'Code',
+        'code' => 'Code',
         'currentPage' => 'CurrentPage',
-        'message'     => 'Message',
-        'pageSize'    => 'PageSize',
-        'requestId'   => 'RequestId',
-        'success'     => 'Success',
-        'topicList'   => 'TopicList',
-        'total'       => 'Total',
+        'message' => 'Message',
+        'pageSize' => 'PageSize',
+        'requestId' => 'RequestId',
+        'success' => 'Success',
+        'topicList' => 'TopicList',
+        'total' => 'Total',
     ];
 
     public function validate()

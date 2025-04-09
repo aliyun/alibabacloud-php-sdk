@@ -14,18 +14,20 @@ class allowedList extends Model
      * @var int
      */
     public $deployType;
+
     /**
      * @var internetList[]
      */
     public $internetList;
+
     /**
      * @var vpcList[]
      */
     public $vpcList;
     protected $_name = [
-        'deployType'   => 'DeployType',
+        'deployType' => 'DeployType',
         'internetList' => 'InternetList',
-        'vpcList'      => 'VpcList',
+        'vpcList' => 'VpcList',
     ];
 
     public function validate()
@@ -49,7 +51,7 @@ class allowedList extends Model
         if (null !== $this->internetList) {
             if (\is_array($this->internetList)) {
                 $res['InternetList'] = [];
-                $n1                  = 0;
+                $n1 = 0;
                 foreach ($this->internetList as $item1) {
                     $res['InternetList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -59,7 +61,7 @@ class allowedList extends Model
         if (null !== $this->vpcList) {
             if (\is_array($this->vpcList)) {
                 $res['VpcList'] = [];
-                $n1             = 0;
+                $n1 = 0;
                 foreach ($this->vpcList as $item1) {
                     $res['VpcList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -84,7 +86,7 @@ class allowedList extends Model
         if (isset($map['InternetList'])) {
             if (!empty($map['InternetList'])) {
                 $model->internetList = [];
-                $n1                  = 0;
+                $n1 = 0;
                 foreach ($map['InternetList'] as $item1) {
                     $model->internetList[$n1++] = internetList::fromMap($item1);
                 }
@@ -94,7 +96,7 @@ class allowedList extends Model
         if (isset($map['VpcList'])) {
             if (!empty($map['VpcList'])) {
                 $model->vpcList = [];
-                $n1             = 0;
+                $n1 = 0;
                 foreach ($map['VpcList'] as $item1) {
                     $model->vpcList[$n1++] = vpcList::fromMap($item1);
                 }

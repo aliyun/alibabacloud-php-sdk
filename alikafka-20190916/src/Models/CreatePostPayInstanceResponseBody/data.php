@@ -12,13 +12,14 @@ class data extends Model
      * @var string
      */
     public $instanceId;
+
     /**
      * @var int
      */
     public $orderId;
     protected $_name = [
         'instanceId' => 'InstanceId',
-        'orderId'    => 'OrderId',
+        'orderId' => 'OrderId',
     ];
 
     public function validate()

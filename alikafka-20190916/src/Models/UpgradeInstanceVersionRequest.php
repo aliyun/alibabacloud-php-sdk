@@ -12,17 +12,19 @@ class UpgradeInstanceVersionRequest extends Model
      * @var string
      */
     public $instanceId;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $targetVersion;
     protected $_name = [
-        'instanceId'    => 'InstanceId',
-        'regionId'      => 'RegionId',
+        'instanceId' => 'InstanceId',
+        'regionId' => 'RegionId',
         'targetVersion' => 'TargetVersion',
     ];
 

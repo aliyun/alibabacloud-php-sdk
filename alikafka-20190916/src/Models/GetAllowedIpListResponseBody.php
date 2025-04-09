@@ -13,28 +13,32 @@ class GetAllowedIpListResponseBody extends Model
      * @var allowedList
      */
     public $allowedList;
+
     /**
      * @var int
      */
     public $code;
+
     /**
      * @var string
      */
     public $message;
+
     /**
      * @var string
      */
     public $requestId;
+
     /**
      * @var bool
      */
     public $success;
     protected $_name = [
         'allowedList' => 'AllowedList',
-        'code'        => 'Code',
-        'message'     => 'Message',
-        'requestId'   => 'RequestId',
-        'success'     => 'Success',
+        'code' => 'Code',
+        'message' => 'Message',
+        'requestId' => 'RequestId',
+        'success' => 'Success',
     ];
 
     public function validate()

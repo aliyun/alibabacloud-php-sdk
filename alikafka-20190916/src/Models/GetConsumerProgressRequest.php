@@ -12,23 +12,26 @@ class GetConsumerProgressRequest extends Model
      * @var string
      */
     public $consumerId;
+
     /**
      * @var bool
      */
     public $hideLastTimestamp;
+
     /**
      * @var string
      */
     public $instanceId;
+
     /**
      * @var string
      */
     public $regionId;
     protected $_name = [
-        'consumerId'        => 'ConsumerId',
+        'consumerId' => 'ConsumerId',
         'hideLastTimestamp' => 'HideLastTimestamp',
-        'instanceId'        => 'InstanceId',
-        'regionId'          => 'RegionId',
+        'instanceId' => 'InstanceId',
+        'regionId' => 'RegionId',
     ];
 
     public function validate()

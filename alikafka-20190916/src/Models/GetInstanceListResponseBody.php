@@ -13,28 +13,32 @@ class GetInstanceListResponseBody extends Model
      * @var int
      */
     public $code;
+
     /**
      * @var instanceList
      */
     public $instanceList;
+
     /**
      * @var string
      */
     public $message;
+
     /**
      * @var string
      */
     public $requestId;
+
     /**
      * @var bool
      */
     public $success;
     protected $_name = [
-        'code'         => 'Code',
+        'code' => 'Code',
         'instanceList' => 'InstanceList',
-        'message'      => 'Message',
-        'requestId'    => 'RequestId',
-        'success'      => 'Success',
+        'message' => 'Message',
+        'requestId' => 'RequestId',
+        'success' => 'Success',
     ];
 
     public function validate()

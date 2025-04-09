@@ -31,7 +31,7 @@ class kafkaAclList extends Model
         if (null !== $this->kafkaAclVO) {
             if (\is_array($this->kafkaAclVO)) {
                 $res['KafkaAclVO'] = [];
-                $n1                = 0;
+                $n1 = 0;
                 foreach ($this->kafkaAclVO as $item1) {
                     $res['KafkaAclVO'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -52,7 +52,7 @@ class kafkaAclList extends Model
         if (isset($map['KafkaAclVO'])) {
             if (!empty($map['KafkaAclVO'])) {
                 $model->kafkaAclVO = [];
-                $n1                = 0;
+                $n1 = 0;
                 foreach ($map['KafkaAclVO'] as $item1) {
                     $model->kafkaAclVO[$n1++] = kafkaAclVO::fromMap($item1);
                 }

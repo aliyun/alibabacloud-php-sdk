@@ -13,18 +13,20 @@ class topicStatus extends Model
      * @var int
      */
     public $lastTimeStamp;
+
     /**
      * @var offsetTable
      */
     public $offsetTable;
+
     /**
      * @var int
      */
     public $totalCount;
     protected $_name = [
         'lastTimeStamp' => 'LastTimeStamp',
-        'offsetTable'   => 'OffsetTable',
-        'totalCount'    => 'TotalCount',
+        'offsetTable' => 'OffsetTable',
+        'totalCount' => 'TotalCount',
     ];
 
     public function validate()

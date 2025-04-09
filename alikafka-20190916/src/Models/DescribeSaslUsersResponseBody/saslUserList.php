@@ -31,7 +31,7 @@ class saslUserList extends Model
         if (null !== $this->saslUserVO) {
             if (\is_array($this->saslUserVO)) {
                 $res['SaslUserVO'] = [];
-                $n1                = 0;
+                $n1 = 0;
                 foreach ($this->saslUserVO as $item1) {
                     $res['SaslUserVO'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -52,7 +52,7 @@ class saslUserList extends Model
         if (isset($map['SaslUserVO'])) {
             if (!empty($map['SaslUserVO'])) {
                 $model->saslUserVO = [];
-                $n1                = 0;
+                $n1 = 0;
                 foreach ($map['SaslUserVO'] as $item1) {
                     $model->saslUserVO[$n1++] = saslUserVO::fromMap($item1);
                 }

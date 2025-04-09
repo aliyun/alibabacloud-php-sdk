@@ -13,68 +13,80 @@ class scheduledScalingRules extends Model
      * @var int
      */
     public $durationMinutes;
+
     /**
      * @var bool
      */
     public $enable;
+
     /**
      * @var int
      */
     public $estimatedElasticScalingDownTimeSecs;
+
     /**
      * @var int
      */
     public $estimatedElasticScalingUpTimeSecs;
+
     /**
      * @var int
      */
     public $firstScheduledTime;
+
     /**
      * @var string
      */
     public $repeatType;
+
     /**
      * @var int
      */
     public $reservedPubFlow;
+
     /**
      * @var int
      */
     public $reservedSubFlow;
+
     /**
      * @var int
      */
     public $ruleId;
+
     /**
      * @var string
      */
     public $ruleName;
+
     /**
      * @var string
      */
     public $scheduleType;
+
     /**
      * @var string
      */
     public $timeZone;
+
     /**
      * @var weeklyTypes
      */
     public $weeklyTypes;
     protected $_name = [
-        'durationMinutes'                     => 'DurationMinutes',
-        'enable'                              => 'Enable',
+        'durationMinutes' => 'DurationMinutes',
+        'enable' => 'Enable',
         'estimatedElasticScalingDownTimeSecs' => 'EstimatedElasticScalingDownTimeSecs',
-        'estimatedElasticScalingUpTimeSecs'   => 'EstimatedElasticScalingUpTimeSecs',
-        'firstScheduledTime'                  => 'FirstScheduledTime',
-        'repeatType'                          => 'RepeatType',
-        'reservedPubFlow'                     => 'ReservedPubFlow',
-        'reservedSubFlow'                     => 'ReservedSubFlow',
-        'ruleId'                              => 'RuleId',
-        'ruleName'                            => 'RuleName',
-        'scheduleType'                        => 'ScheduleType',
-        'timeZone'                            => 'TimeZone',
-        'weeklyTypes'                         => 'WeeklyTypes',
+        'estimatedElasticScalingUpTimeSecs' => 'EstimatedElasticScalingUpTimeSecs',
+        'firstScheduledTime' => 'FirstScheduledTime',
+        'repeatType' => 'RepeatType',
+        'reservedPubFlow' => 'ReservedPubFlow',
+        'reservedSubFlow' => 'ReservedSubFlow',
+        'ruleId' => 'RuleId',
+        'ruleName' => 'RuleName',
+        'scheduleType' => 'ScheduleType',
+        'timeZone' => 'TimeZone',
+        'weeklyTypes' => 'WeeklyTypes',
     ];
 
     public function validate()

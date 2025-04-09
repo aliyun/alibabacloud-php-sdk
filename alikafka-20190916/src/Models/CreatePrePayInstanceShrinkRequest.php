@@ -13,68 +13,80 @@ class CreatePrePayInstanceShrinkRequest extends Model
      * @var string
      */
     public $confluentConfigShrink;
+
     /**
      * @var int
      */
     public $deployType;
+
     /**
      * @var int
      */
     public $diskSize;
+
     /**
      * @var string
      */
     public $diskType;
+
     /**
      * @var int
      */
     public $duration;
+
     /**
      * @var int
      */
     public $eipMax;
+
     /**
      * @var string
      */
     public $ioMaxSpec;
+
     /**
      * @var int
      */
     public $paidType;
+
     /**
      * @var int
      */
     public $partitionNum;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $resourceGroupId;
+
     /**
      * @var string
      */
     public $specType;
+
     /**
      * @var tag[]
      */
     public $tag;
     protected $_name = [
         'confluentConfigShrink' => 'ConfluentConfig',
-        'deployType'            => 'DeployType',
-        'diskSize'              => 'DiskSize',
-        'diskType'              => 'DiskType',
-        'duration'              => 'Duration',
-        'eipMax'                => 'EipMax',
-        'ioMaxSpec'             => 'IoMaxSpec',
-        'paidType'              => 'PaidType',
-        'partitionNum'          => 'PartitionNum',
-        'regionId'              => 'RegionId',
-        'resourceGroupId'       => 'ResourceGroupId',
-        'specType'              => 'SpecType',
-        'tag'                   => 'Tag',
+        'deployType' => 'DeployType',
+        'diskSize' => 'DiskSize',
+        'diskType' => 'DiskType',
+        'duration' => 'Duration',
+        'eipMax' => 'EipMax',
+        'ioMaxSpec' => 'IoMaxSpec',
+        'paidType' => 'PaidType',
+        'partitionNum' => 'PartitionNum',
+        'regionId' => 'RegionId',
+        'resourceGroupId' => 'ResourceGroupId',
+        'specType' => 'SpecType',
+        'tag' => 'Tag',
     ];
 
     public function validate()
@@ -139,7 +151,7 @@ class CreatePrePayInstanceShrinkRequest extends Model
         if (null !== $this->tag) {
             if (\is_array($this->tag)) {
                 $res['Tag'] = [];
-                $n1         = 0;
+                $n1 = 0;
                 foreach ($this->tag as $item1) {
                     $res['Tag'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -208,7 +220,7 @@ class CreatePrePayInstanceShrinkRequest extends Model
         if (isset($map['Tag'])) {
             if (!empty($map['Tag'])) {
                 $model->tag = [];
-                $n1         = 0;
+                $n1 = 0;
                 foreach ($map['Tag'] as $item1) {
                     $model->tag[$n1++] = tag::fromMap($item1);
                 }

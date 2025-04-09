@@ -12,48 +12,56 @@ class DescribeAclsRequest extends Model
      * @var string
      */
     public $aclOperationType;
+
     /**
      * @var string
      */
     public $aclPermissionType;
+
     /**
      * @var string
      */
     public $aclResourceName;
+
     /**
      * @var string
      */
     public $aclResourcePatternType;
+
     /**
      * @var string
      */
     public $aclResourceType;
+
     /**
      * @var string
      */
     public $host;
+
     /**
      * @var string
      */
     public $instanceId;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $username;
     protected $_name = [
-        'aclOperationType'       => 'AclOperationType',
-        'aclPermissionType'      => 'AclPermissionType',
-        'aclResourceName'        => 'AclResourceName',
+        'aclOperationType' => 'AclOperationType',
+        'aclPermissionType' => 'AclPermissionType',
+        'aclResourceName' => 'AclResourceName',
         'aclResourcePatternType' => 'AclResourcePatternType',
-        'aclResourceType'        => 'AclResourceType',
-        'host'                   => 'Host',
-        'instanceId'             => 'InstanceId',
-        'regionId'               => 'RegionId',
-        'username'               => 'Username',
+        'aclResourceType' => 'AclResourceType',
+        'host' => 'Host',
+        'instanceId' => 'InstanceId',
+        'regionId' => 'RegionId',
+        'username' => 'Username',
     ];
 
     public function validate()

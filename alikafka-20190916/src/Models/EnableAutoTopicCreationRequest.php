@@ -12,27 +12,31 @@ class EnableAutoTopicCreationRequest extends Model
      * @var string
      */
     public $instanceId;
+
     /**
      * @var string
      */
     public $operate;
+
     /**
      * @var int
      */
     public $partitionNum;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var bool
      */
     public $updatePartition;
     protected $_name = [
-        'instanceId'      => 'InstanceId',
-        'operate'         => 'Operate',
-        'partitionNum'    => 'PartitionNum',
-        'regionId'        => 'RegionId',
+        'instanceId' => 'InstanceId',
+        'operate' => 'Operate',
+        'partitionNum' => 'PartitionNum',
+        'regionId' => 'RegionId',
         'updatePartition' => 'UpdatePartition',
     ];
 

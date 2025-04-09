@@ -12,73 +12,86 @@ class messageList extends Model
      * @var int
      */
     public $checksum;
+
     /**
      * @var string
      */
     public $key;
+
     /**
      * @var bool
      */
     public $keyTruncated;
+
     /**
      * @var int
      */
     public $offset;
+
     /**
      * @var int
      */
     public $partition;
+
     /**
      * @var int
      */
     public $serializedKeySize;
+
     /**
      * @var int
      */
     public $serializedValueSize;
+
     /**
      * @var int
      */
     public $timestamp;
+
     /**
      * @var string
      */
     public $timestampType;
+
     /**
      * @var string
      */
     public $topic;
+
     /**
      * @var int
      */
     public $truncatedKeySize;
+
     /**
      * @var int
      */
     public $truncatedValueSize;
+
     /**
      * @var string
      */
     public $value;
+
     /**
      * @var bool
      */
     public $valueTruncated;
     protected $_name = [
-        'checksum'            => 'Checksum',
-        'key'                 => 'Key',
-        'keyTruncated'        => 'KeyTruncated',
-        'offset'              => 'Offset',
-        'partition'           => 'Partition',
-        'serializedKeySize'   => 'SerializedKeySize',
+        'checksum' => 'Checksum',
+        'key' => 'Key',
+        'keyTruncated' => 'KeyTruncated',
+        'offset' => 'Offset',
+        'partition' => 'Partition',
+        'serializedKeySize' => 'SerializedKeySize',
         'serializedValueSize' => 'SerializedValueSize',
-        'timestamp'           => 'Timestamp',
-        'timestampType'       => 'TimestampType',
-        'topic'               => 'Topic',
-        'truncatedKeySize'    => 'TruncatedKeySize',
-        'truncatedValueSize'  => 'TruncatedValueSize',
-        'value'               => 'Value',
-        'valueTruncated'      => 'ValueTruncated',
+        'timestamp' => 'Timestamp',
+        'timestampType' => 'TimestampType',
+        'topic' => 'Topic',
+        'truncatedKeySize' => 'TruncatedKeySize',
+        'truncatedValueSize' => 'TruncatedValueSize',
+        'value' => 'Value',
+        'valueTruncated' => 'ValueTruncated',
     ];
 
     public function validate()

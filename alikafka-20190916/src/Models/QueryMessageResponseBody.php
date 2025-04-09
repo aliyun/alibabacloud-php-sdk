@@ -13,28 +13,32 @@ class QueryMessageResponseBody extends Model
      * @var int
      */
     public $code;
+
     /**
      * @var string
      */
     public $message;
+
     /**
      * @var messageList[]
      */
     public $messageList;
+
     /**
      * @var string
      */
     public $requestId;
+
     /**
      * @var bool
      */
     public $success;
     protected $_name = [
-        'code'        => 'Code',
-        'message'     => 'Message',
+        'code' => 'Code',
+        'message' => 'Message',
         'messageList' => 'MessageList',
-        'requestId'   => 'RequestId',
-        'success'     => 'Success',
+        'requestId' => 'RequestId',
+        'success' => 'Success',
     ];
 
     public function validate()
@@ -59,7 +63,7 @@ class QueryMessageResponseBody extends Model
         if (null !== $this->messageList) {
             if (\is_array($this->messageList)) {
                 $res['MessageList'] = [];
-                $n1                 = 0;
+                $n1 = 0;
                 foreach ($this->messageList as $item1) {
                     $res['MessageList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -96,7 +100,7 @@ class QueryMessageResponseBody extends Model
         if (isset($map['MessageList'])) {
             if (!empty($map['MessageList'])) {
                 $model->messageList = [];
-                $n1                 = 0;
+                $n1 = 0;
                 foreach ($map['MessageList'] as $item1) {
                     $model->messageList[$n1++] = messageList::fromMap($item1);
                 }

@@ -13,26 +13,32 @@ class UpdateConsumerOffsetRequest extends Model
      * @var string
      */
     public $consumerId;
+
     /**
      * @var string
      */
     public $instanceId;
+
     /**
      * @var offsets[]
      */
     public $offsets;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $resetType;
+
     /**
      * @var string
      */
     public $time;
+
     /**
      * @var string
      */
@@ -40,11 +46,11 @@ class UpdateConsumerOffsetRequest extends Model
     protected $_name = [
         'consumerId' => 'ConsumerId',
         'instanceId' => 'InstanceId',
-        'offsets'    => 'Offsets',
-        'regionId'   => 'RegionId',
-        'resetType'  => 'ResetType',
-        'time'       => 'Time',
-        'topic'      => 'Topic',
+        'offsets' => 'Offsets',
+        'regionId' => 'RegionId',
+        'resetType' => 'ResetType',
+        'time' => 'Time',
+        'topic' => 'Topic',
     ];
 
     public function validate()
@@ -69,7 +75,7 @@ class UpdateConsumerOffsetRequest extends Model
         if (null !== $this->offsets) {
             if (\is_array($this->offsets)) {
                 $res['Offsets'] = [];
-                $n1             = 0;
+                $n1 = 0;
                 foreach ($this->offsets as $item1) {
                     $res['Offsets'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -114,7 +120,7 @@ class UpdateConsumerOffsetRequest extends Model
         if (isset($map['Offsets'])) {
             if (!empty($map['Offsets'])) {
                 $model->offsets = [];
-                $n1             = 0;
+                $n1 = 0;
                 foreach ($map['Offsets'] as $item1) {
                     $model->offsets[$n1++] = offsets::fromMap($item1);
                 }

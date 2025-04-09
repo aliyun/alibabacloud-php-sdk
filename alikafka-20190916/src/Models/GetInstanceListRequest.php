@@ -13,33 +13,38 @@ class GetInstanceListRequest extends Model
      * @var string[]
      */
     public $instanceId;
+
     /**
      * @var string
      */
     public $orderId;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $resourceGroupId;
+
     /**
      * @var string
      */
     public $series;
+
     /**
      * @var tag[]
      */
     public $tag;
     protected $_name = [
-        'instanceId'      => 'InstanceId',
-        'orderId'         => 'OrderId',
-        'regionId'        => 'RegionId',
+        'instanceId' => 'InstanceId',
+        'orderId' => 'OrderId',
+        'regionId' => 'RegionId',
         'resourceGroupId' => 'ResourceGroupId',
-        'series'          => 'Series',
-        'tag'             => 'Tag',
+        'series' => 'Series',
+        'tag' => 'Tag',
     ];
 
     public function validate()
@@ -59,7 +64,7 @@ class GetInstanceListRequest extends Model
         if (null !== $this->instanceId) {
             if (\is_array($this->instanceId)) {
                 $res['InstanceId'] = [];
-                $n1                = 0;
+                $n1 = 0;
                 foreach ($this->instanceId as $item1) {
                     $res['InstanceId'][$n1++] = $item1;
                 }
@@ -85,7 +90,7 @@ class GetInstanceListRequest extends Model
         if (null !== $this->tag) {
             if (\is_array($this->tag)) {
                 $res['Tag'] = [];
-                $n1         = 0;
+                $n1 = 0;
                 foreach ($this->tag as $item1) {
                     $res['Tag'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -106,7 +111,7 @@ class GetInstanceListRequest extends Model
         if (isset($map['InstanceId'])) {
             if (!empty($map['InstanceId'])) {
                 $model->instanceId = [];
-                $n1                = 0;
+                $n1 = 0;
                 foreach ($map['InstanceId'] as $item1) {
                     $model->instanceId[$n1++] = $item1;
                 }
@@ -132,7 +137,7 @@ class GetInstanceListRequest extends Model
         if (isset($map['Tag'])) {
             if (!empty($map['Tag'])) {
                 $model->tag = [];
-                $n1         = 0;
+                $n1 = 0;
                 foreach ($map['Tag'] as $item1) {
                     $model->tag[$n1++] = tag::fromMap($item1);
                 }

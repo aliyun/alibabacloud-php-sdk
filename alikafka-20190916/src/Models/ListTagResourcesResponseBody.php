@@ -13,17 +13,19 @@ class ListTagResourcesResponseBody extends Model
      * @var string
      */
     public $nextToken;
+
     /**
      * @var string
      */
     public $requestId;
+
     /**
      * @var tagResources
      */
     public $tagResources;
     protected $_name = [
-        'nextToken'    => 'NextToken',
-        'requestId'    => 'RequestId',
+        'nextToken' => 'NextToken',
+        'requestId' => 'RequestId',
         'tagResources' => 'TagResources',
     ];
 

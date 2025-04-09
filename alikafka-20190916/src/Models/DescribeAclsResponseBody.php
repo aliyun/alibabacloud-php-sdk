@@ -13,28 +13,32 @@ class DescribeAclsResponseBody extends Model
      * @var int
      */
     public $code;
+
     /**
      * @var kafkaAclList
      */
     public $kafkaAclList;
+
     /**
      * @var string
      */
     public $message;
+
     /**
      * @var string
      */
     public $requestId;
+
     /**
      * @var bool
      */
     public $success;
     protected $_name = [
-        'code'         => 'Code',
+        'code' => 'Code',
         'kafkaAclList' => 'KafkaAclList',
-        'message'      => 'Message',
-        'requestId'    => 'RequestId',
-        'success'      => 'Success',
+        'message' => 'Message',
+        'requestId' => 'RequestId',
+        'success' => 'Success',
     ];
 
     public function validate()

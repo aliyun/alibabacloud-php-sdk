@@ -12,23 +12,26 @@ class ConvertPostPayOrderRequest extends Model
      * @var int
      */
     public $duration;
+
     /**
      * @var string
      */
     public $instanceId;
+
     /**
      * @var int
      */
     public $paidType;
+
     /**
      * @var string
      */
     public $regionId;
     protected $_name = [
-        'duration'   => 'Duration',
+        'duration' => 'Duration',
         'instanceId' => 'InstanceId',
-        'paidType'   => 'PaidType',
-        'regionId'   => 'RegionId',
+        'paidType' => 'PaidType',
+        'regionId' => 'RegionId',
     ];
 
     public function validate()

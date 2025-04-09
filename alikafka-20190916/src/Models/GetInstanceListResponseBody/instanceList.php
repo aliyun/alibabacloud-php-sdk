@@ -31,7 +31,7 @@ class instanceList extends Model
         if (null !== $this->instanceVO) {
             if (\is_array($this->instanceVO)) {
                 $res['InstanceVO'] = [];
-                $n1                = 0;
+                $n1 = 0;
                 foreach ($this->instanceVO as $item1) {
                     $res['InstanceVO'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -52,7 +52,7 @@ class instanceList extends Model
         if (isset($map['InstanceVO'])) {
             if (!empty($map['InstanceVO'])) {
                 $model->instanceVO = [];
-                $n1                = 0;
+                $n1 = 0;
                 foreach ($map['InstanceVO'] as $item1) {
                     $model->instanceVO[$n1++] = instanceVO::fromMap($item1);
                 }

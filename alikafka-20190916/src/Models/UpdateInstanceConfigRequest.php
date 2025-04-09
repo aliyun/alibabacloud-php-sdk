@@ -12,18 +12,20 @@ class UpdateInstanceConfigRequest extends Model
      * @var string
      */
     public $config;
+
     /**
      * @var string
      */
     public $instanceId;
+
     /**
      * @var string
      */
     public $regionId;
     protected $_name = [
-        'config'     => 'Config',
+        'config' => 'Config',
         'instanceId' => 'InstanceId',
-        'regionId'   => 'RegionId',
+        'regionId' => 'RegionId',
     ];
 
     public function validate()

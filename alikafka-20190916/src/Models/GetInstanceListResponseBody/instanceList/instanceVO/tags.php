@@ -31,7 +31,7 @@ class tags extends Model
         if (null !== $this->tagVO) {
             if (\is_array($this->tagVO)) {
                 $res['TagVO'] = [];
-                $n1           = 0;
+                $n1 = 0;
                 foreach ($this->tagVO as $item1) {
                     $res['TagVO'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -52,7 +52,7 @@ class tags extends Model
         if (isset($map['TagVO'])) {
             if (!empty($map['TagVO'])) {
                 $model->tagVO = [];
-                $n1           = 0;
+                $n1 = 0;
                 foreach ($map['TagVO'] as $item1) {
                     $model->tagVO[$n1++] = tagVO::fromMap($item1);
                 }

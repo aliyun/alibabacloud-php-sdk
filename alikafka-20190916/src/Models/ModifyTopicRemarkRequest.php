@@ -12,23 +12,26 @@ class ModifyTopicRemarkRequest extends Model
      * @var string
      */
     public $instanceId;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $remark;
+
     /**
      * @var string
      */
     public $topic;
     protected $_name = [
         'instanceId' => 'InstanceId',
-        'regionId'   => 'RegionId',
-        'remark'     => 'Remark',
-        'topic'      => 'Topic',
+        'regionId' => 'RegionId',
+        'remark' => 'Remark',
+        'topic' => 'Topic',
     ];
 
     public function validate()

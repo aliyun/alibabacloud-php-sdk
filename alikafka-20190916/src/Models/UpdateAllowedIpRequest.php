@@ -12,38 +12,44 @@ class UpdateAllowedIpRequest extends Model
      * @var string
      */
     public $allowedListIp;
+
     /**
      * @var string
      */
     public $allowedListType;
+
     /**
      * @var string
      */
     public $description;
+
     /**
      * @var string
      */
     public $instanceId;
+
     /**
      * @var string
      */
     public $portRange;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $updateType;
     protected $_name = [
-        'allowedListIp'   => 'AllowedListIp',
+        'allowedListIp' => 'AllowedListIp',
         'allowedListType' => 'AllowedListType',
-        'description'     => 'Description',
-        'instanceId'      => 'InstanceId',
-        'portRange'       => 'PortRange',
-        'regionId'        => 'RegionId',
-        'updateType'      => 'UpdateType',
+        'description' => 'Description',
+        'instanceId' => 'InstanceId',
+        'portRange' => 'PortRange',
+        'regionId' => 'RegionId',
+        'updateType' => 'UpdateType',
     ];
 
     public function validate()

@@ -13,38 +13,44 @@ class consumerVO extends Model
      * @var bool
      */
     public $automaticallyCreatedGroup;
+
     /**
      * @var string
      */
     public $consumerId;
+
     /**
      * @var int
      */
     public $createTime;
+
     /**
      * @var string
      */
     public $instanceId;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $remark;
+
     /**
      * @var tags
      */
     public $tags;
     protected $_name = [
         'automaticallyCreatedGroup' => 'AutomaticallyCreatedGroup',
-        'consumerId'                => 'ConsumerId',
-        'createTime'                => 'CreateTime',
-        'instanceId'                => 'InstanceId',
-        'regionId'                  => 'RegionId',
-        'remark'                    => 'Remark',
-        'tags'                      => 'Tags',
+        'consumerId' => 'ConsumerId',
+        'createTime' => 'CreateTime',
+        'instanceId' => 'InstanceId',
+        'regionId' => 'RegionId',
+        'remark' => 'Remark',
+        'tags' => 'Tags',
     ];
 
     public function validate()

@@ -12,28 +12,32 @@ class GetConsumerListRequest extends Model
      * @var string
      */
     public $consumerId;
+
     /**
      * @var int
      */
     public $currentPage;
+
     /**
      * @var string
      */
     public $instanceId;
+
     /**
      * @var int
      */
     public $pageSize;
+
     /**
      * @var string
      */
     public $regionId;
     protected $_name = [
-        'consumerId'  => 'ConsumerId',
+        'consumerId' => 'ConsumerId',
         'currentPage' => 'CurrentPage',
-        'instanceId'  => 'InstanceId',
-        'pageSize'    => 'PageSize',
-        'regionId'    => 'RegionId',
+        'instanceId' => 'InstanceId',
+        'pageSize' => 'PageSize',
+        'regionId' => 'RegionId',
     ];
 
     public function validate()

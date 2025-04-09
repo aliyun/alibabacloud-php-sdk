@@ -13,68 +13,80 @@ class topicVO extends Model
      * @var bool
      */
     public $autoCreate;
+
     /**
      * @var bool
      */
     public $compactTopic;
+
     /**
      * @var int
      */
     public $createTime;
+
     /**
      * @var string
      */
     public $instanceId;
+
     /**
      * @var bool
      */
     public $localTopic;
+
     /**
      * @var int
      */
     public $partitionNum;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $remark;
+
     /**
      * @var int
      */
     public $status;
+
     /**
      * @var string
      */
     public $statusName;
+
     /**
      * @var tags
      */
     public $tags;
+
     /**
      * @var string
      */
     public $topic;
+
     /**
      * @var string
      */
     public $topicConfig;
     protected $_name = [
-        'autoCreate'   => 'AutoCreate',
+        'autoCreate' => 'AutoCreate',
         'compactTopic' => 'CompactTopic',
-        'createTime'   => 'CreateTime',
-        'instanceId'   => 'InstanceId',
-        'localTopic'   => 'LocalTopic',
+        'createTime' => 'CreateTime',
+        'instanceId' => 'InstanceId',
+        'localTopic' => 'LocalTopic',
         'partitionNum' => 'PartitionNum',
-        'regionId'     => 'RegionId',
-        'remark'       => 'Remark',
-        'status'       => 'Status',
-        'statusName'   => 'StatusName',
-        'tags'         => 'Tags',
-        'topic'        => 'Topic',
-        'topicConfig'  => 'TopicConfig',
+        'regionId' => 'RegionId',
+        'remark' => 'Remark',
+        'status' => 'Status',
+        'statusName' => 'StatusName',
+        'tags' => 'Tags',
+        'topic' => 'Topic',
+        'topicConfig' => 'TopicConfig',
     ];
 
     public function validate()

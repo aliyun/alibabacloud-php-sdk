@@ -12,28 +12,32 @@ class offsetTable extends Model
      * @var int
      */
     public $lastUpdateTimestamp;
+
     /**
      * @var int
      */
     public $maxOffset;
+
     /**
      * @var int
      */
     public $minOffset;
+
     /**
      * @var int
      */
     public $partition;
+
     /**
      * @var string
      */
     public $topic;
     protected $_name = [
         'lastUpdateTimestamp' => 'LastUpdateTimestamp',
-        'maxOffset'           => 'MaxOffset',
-        'minOffset'           => 'MinOffset',
-        'partition'           => 'Partition',
-        'topic'               => 'Topic',
+        'maxOffset' => 'MaxOffset',
+        'minOffset' => 'MinOffset',
+        'partition' => 'Partition',
+        'topic' => 'Topic',
     ];
 
     public function validate()

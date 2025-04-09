@@ -12,33 +12,38 @@ class CreateSaslUserRequest extends Model
      * @var string
      */
     public $instanceId;
+
     /**
      * @var string
      */
     public $mechanism;
+
     /**
      * @var string
      */
     public $password;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $type;
+
     /**
      * @var string
      */
     public $username;
     protected $_name = [
         'instanceId' => 'InstanceId',
-        'mechanism'  => 'Mechanism',
-        'password'   => 'Password',
-        'regionId'   => 'RegionId',
-        'type'       => 'Type',
-        'username'   => 'Username',
+        'mechanism' => 'Mechanism',
+        'password' => 'Password',
+        'regionId' => 'RegionId',
+        'type' => 'Type',
+        'username' => 'Username',
     ];
 
     public function validate()

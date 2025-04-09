@@ -31,7 +31,7 @@ class scheduledScalingRules extends Model
         if (null !== $this->scheduledScalingRules) {
             if (\is_array($this->scheduledScalingRules)) {
                 $res['ScheduledScalingRules'] = [];
-                $n1                           = 0;
+                $n1 = 0;
                 foreach ($this->scheduledScalingRules as $item1) {
                     $res['ScheduledScalingRules'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -52,7 +52,7 @@ class scheduledScalingRules extends Model
         if (isset($map['ScheduledScalingRules'])) {
             if (!empty($map['ScheduledScalingRules'])) {
                 $model->scheduledScalingRules = [];
-                $n1                           = 0;
+                $n1 = 0;
                 foreach ($map['ScheduledScalingRules'] as $item1) {
                     $model->scheduledScalingRules[$n1++] = self::fromMap($item1);
                 }

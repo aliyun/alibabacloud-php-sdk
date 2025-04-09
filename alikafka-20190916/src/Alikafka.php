@@ -161,6 +161,7 @@ class Alikafka extends OpenApiClient
      *
      * @param request - ChangeResourceGroupRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ChangeResourceGroupResponse
      *
      * @param ChangeResourceGroupRequest $request
@@ -188,15 +189,15 @@ class Alikafka extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ChangeResourceGroup',
-            'version'     => '2019-09-16',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ChangeResourceGroup',
+            'version' => '2019-09-16',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return ChangeResourceGroupResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -209,6 +210,7 @@ class Alikafka extends OpenApiClient
      * Changes the resource group of an ApsaraMQ for Kafka instance.
      *
      * @param request - ChangeResourceGroupRequest
+     *
      * @returns ChangeResourceGroupResponse
      *
      * @param ChangeResourceGroupRequest $request
@@ -227,6 +229,7 @@ class Alikafka extends OpenApiClient
      *
      * @param request - ConvertPostPayOrderRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ConvertPostPayOrderResponse
      *
      * @param ConvertPostPayOrderRequest $request
@@ -258,15 +261,15 @@ class Alikafka extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ConvertPostPayOrder',
-            'version'     => '2019-09-16',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ConvertPostPayOrder',
+            'version' => '2019-09-16',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return ConvertPostPayOrderResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -279,6 +282,7 @@ class Alikafka extends OpenApiClient
      * Changes the billing method of a Message Queue for Apache Kafka instance from pay-as-you-go to subscription.
      *
      * @param request - ConvertPostPayOrderRequest
+     *
      * @returns ConvertPostPayOrderResponse
      *
      * @param ConvertPostPayOrderRequest $request
@@ -297,6 +301,7 @@ class Alikafka extends OpenApiClient
      *
      * @param request - CreateAclRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns CreateAclResponse
      *
      * @param CreateAclRequest $request
@@ -352,15 +357,15 @@ class Alikafka extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'CreateAcl',
-            'version'     => '2019-09-16',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CreateAcl',
+            'version' => '2019-09-16',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return CreateAclResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -373,6 +378,7 @@ class Alikafka extends OpenApiClient
      * Creates an access control list (ACL).
      *
      * @param request - CreateAclRequest
+     *
      * @returns CreateAclResponse
      *
      * @param CreateAclRequest $request
@@ -391,6 +397,7 @@ class Alikafka extends OpenApiClient
      *
      * @param request - CreateConsumerGroupRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns CreateConsumerGroupResponse
      *
      * @param CreateConsumerGroupRequest $request
@@ -426,15 +433,15 @@ class Alikafka extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'CreateConsumerGroup',
-            'version'     => '2019-09-16',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CreateConsumerGroup',
+            'version' => '2019-09-16',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return CreateConsumerGroupResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -447,6 +454,7 @@ class Alikafka extends OpenApiClient
      * Creates a consumer group.
      *
      * @param request - CreateConsumerGroupRequest
+     *
      * @returns CreateConsumerGroupResponse
      *
      * @param CreateConsumerGroupRequest $request
@@ -465,6 +473,7 @@ class Alikafka extends OpenApiClient
      *
      * @param tmpReq - CreatePostPayInstanceRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns CreatePostPayInstanceResponse
      *
      * @param CreatePostPayInstanceRequest $tmpReq
@@ -534,15 +543,15 @@ class Alikafka extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'CreatePostPayInstance',
-            'version'     => '2019-09-16',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CreatePostPayInstance',
+            'version' => '2019-09-16',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return CreatePostPayInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -555,6 +564,7 @@ class Alikafka extends OpenApiClient
      * 创建后付费实例。
      *
      * @param request - CreatePostPayInstanceRequest
+     *
      * @returns CreatePostPayInstanceResponse
      *
      * @param CreatePostPayInstanceRequest $request
@@ -576,6 +586,7 @@ class Alikafka extends OpenApiClient
      *
      * @param tmpReq - CreatePostPayOrderRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns CreatePostPayOrderResponse
      *
      * @param CreatePostPayOrderRequest $tmpReq
@@ -653,15 +664,15 @@ class Alikafka extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'CreatePostPayOrder',
-            'version'     => '2019-09-16',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CreatePostPayOrder',
+            'version' => '2019-09-16',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return CreatePostPayOrderResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -677,6 +688,7 @@ class Alikafka extends OpenApiClient
      * Before you call this operation, make sure that you understand the billing method and pricing of pay-as-you-go Message Queue for Apache Kafka instances. For more information, see [Billing](https://help.aliyun.com/document_detail/84737.html).
      *
      * @param request - CreatePostPayOrderRequest
+     *
      * @returns CreatePostPayOrderResponse
      *
      * @param CreatePostPayOrderRequest $request
@@ -695,6 +707,7 @@ class Alikafka extends OpenApiClient
      *
      * @param tmpReq - CreatePrePayInstanceRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns CreatePrePayInstanceResponse
      *
      * @param CreatePrePayInstanceRequest $tmpReq
@@ -768,15 +781,15 @@ class Alikafka extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'CreatePrePayInstance',
-            'version'     => '2019-09-16',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CreatePrePayInstance',
+            'version' => '2019-09-16',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return CreatePrePayInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -789,6 +802,7 @@ class Alikafka extends OpenApiClient
      * 创建预付费实例.
      *
      * @param request - CreatePrePayInstanceRequest
+     *
      * @returns CreatePrePayInstanceResponse
      *
      * @param CreatePrePayInstanceRequest $request
@@ -811,6 +825,7 @@ class Alikafka extends OpenApiClient
      *
      * @param tmpReq - CreatePrePayOrderRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns CreatePrePayOrderResponse
      *
      * @param CreatePrePayOrderRequest $tmpReq
@@ -892,15 +907,15 @@ class Alikafka extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'CreatePrePayOrder',
-            'version'     => '2019-09-16',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CreatePrePayOrder',
+            'version' => '2019-09-16',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return CreatePrePayOrderResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -917,6 +932,7 @@ class Alikafka extends OpenApiClient
      * *   If you create an ApsaraMQ for Kafka instance by calling this operation, the subscription duration is one month and the auto-renewal feature is enabled by default. The auto-renewal cycle is also one month. If you want to change the auto-renewal cycle or disable the auto-renewal feature, you can go to the [Renewal](https://renew.console.aliyun.com/#/ecs) page in the Alibaba Cloud Management Console.
      *
      * @param request - CreatePrePayOrderRequest
+     *
      * @returns CreatePrePayOrderResponse
      *
      * @param CreatePrePayOrderRequest $request
@@ -935,6 +951,7 @@ class Alikafka extends OpenApiClient
      *
      * @param request - CreateSaslUserRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns CreateSaslUserResponse
      *
      * @param CreateSaslUserRequest $request
@@ -974,15 +991,15 @@ class Alikafka extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'CreateSaslUser',
-            'version'     => '2019-09-16',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CreateSaslUser',
+            'version' => '2019-09-16',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return CreateSaslUserResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -995,6 +1012,7 @@ class Alikafka extends OpenApiClient
      * Creates a Simple Authentication and Security Layer (SASL) user.
      *
      * @param request - CreateSaslUserRequest
+     *
      * @returns CreateSaslUserResponse
      *
      * @param CreateSaslUserRequest $request
@@ -1016,6 +1034,7 @@ class Alikafka extends OpenApiClient
      *
      * @param tmpReq - CreateScheduledScalingRuleRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns CreateScheduledScalingRuleResponse
      *
      * @param CreateScheduledScalingRuleRequest $tmpReq
@@ -1085,15 +1104,15 @@ class Alikafka extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'CreateScheduledScalingRule',
-            'version'     => '2019-09-16',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CreateScheduledScalingRule',
+            'version' => '2019-09-16',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return CreateScheduledScalingRuleResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -1109,6 +1128,7 @@ class Alikafka extends OpenApiClient
      * ###### [](#-v3-serverless-)This operation is supported only by serverless ApsaraMQ for Kafka V3 instances.
      *
      * @param request - CreateScheduledScalingRuleRequest
+     *
      * @returns CreateScheduledScalingRuleResponse
      *
      * @param CreateScheduledScalingRuleRequest $request
@@ -1131,6 +1151,7 @@ class Alikafka extends OpenApiClient
      *
      * @param request - CreateTopicRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns CreateTopicResponse
      *
      * @param CreateTopicRequest $request
@@ -1190,15 +1211,15 @@ class Alikafka extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'CreateTopic',
-            'version'     => '2019-09-16',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CreateTopic',
+            'version' => '2019-09-16',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return CreateTopicResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -1215,6 +1236,7 @@ class Alikafka extends OpenApiClient
      * *   The maximum number of topics that you can create in an instance is determined by the specification of the instance.
      *
      * @param request - CreateTopicRequest
+     *
      * @returns CreateTopicResponse
      *
      * @param CreateTopicRequest $request
@@ -1233,6 +1255,7 @@ class Alikafka extends OpenApiClient
      *
      * @param request - DeleteAclRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DeleteAclResponse
      *
      * @param DeleteAclRequest $request
@@ -1288,15 +1311,15 @@ class Alikafka extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DeleteAcl',
-            'version'     => '2019-09-16',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DeleteAcl',
+            'version' => '2019-09-16',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DeleteAclResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -1309,6 +1332,7 @@ class Alikafka extends OpenApiClient
      * Deletes an access control list (ACL).
      *
      * @param request - DeleteAclRequest
+     *
      * @returns DeleteAclResponse
      *
      * @param DeleteAclRequest $request
@@ -1327,6 +1351,7 @@ class Alikafka extends OpenApiClient
      *
      * @param request - DeleteConsumerGroupRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DeleteConsumerGroupResponse
      *
      * @param DeleteConsumerGroupRequest $request
@@ -1354,15 +1379,15 @@ class Alikafka extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DeleteConsumerGroup',
-            'version'     => '2019-09-16',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DeleteConsumerGroup',
+            'version' => '2019-09-16',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DeleteConsumerGroupResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -1375,6 +1400,7 @@ class Alikafka extends OpenApiClient
      * Deletes a consumer group from a specified Message Queue for Apache Kafka instance.
      *
      * @param request - DeleteConsumerGroupRequest
+     *
      * @returns DeleteConsumerGroupResponse
      *
      * @param DeleteConsumerGroupRequest $request
@@ -1393,6 +1419,7 @@ class Alikafka extends OpenApiClient
      *
      * @param request - DeleteInstanceRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DeleteInstanceResponse
      *
      * @param DeleteInstanceRequest $request
@@ -1416,15 +1443,15 @@ class Alikafka extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DeleteInstance',
-            'version'     => '2019-09-16',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DeleteInstance',
+            'version' => '2019-09-16',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DeleteInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -1437,6 +1464,7 @@ class Alikafka extends OpenApiClient
      * Deletes an instance. You can delete subscription and pay-as-you-go instances after you release them.
      *
      * @param request - DeleteInstanceRequest
+     *
      * @returns DeleteInstanceResponse
      *
      * @param DeleteInstanceRequest $request
@@ -1455,6 +1483,7 @@ class Alikafka extends OpenApiClient
      *
      * @param request - DeleteSaslUserRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DeleteSaslUserResponse
      *
      * @param DeleteSaslUserRequest $request
@@ -1490,15 +1519,15 @@ class Alikafka extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DeleteSaslUser',
-            'version'     => '2019-09-16',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DeleteSaslUser',
+            'version' => '2019-09-16',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DeleteSaslUserResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -1511,6 +1540,7 @@ class Alikafka extends OpenApiClient
      * Deletes a Simple Authentication and Security Layer (SASL) user.
      *
      * @param request - DeleteSaslUserRequest
+     *
      * @returns DeleteSaslUserResponse
      *
      * @param DeleteSaslUserRequest $request
@@ -1532,6 +1562,7 @@ class Alikafka extends OpenApiClient
      *
      * @param request - DeleteScheduledScalingRuleRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DeleteScheduledScalingRuleResponse
      *
      * @param DeleteScheduledScalingRuleRequest $request
@@ -1559,15 +1590,15 @@ class Alikafka extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DeleteScheduledScalingRule',
-            'version'     => '2019-09-16',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DeleteScheduledScalingRule',
+            'version' => '2019-09-16',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DeleteScheduledScalingRuleResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -1583,6 +1614,7 @@ class Alikafka extends OpenApiClient
      * ###### [](#-serverless-)This operation is available only for serverless ApsaraMQ for Kafka instances.
      *
      * @param request - DeleteScheduledScalingRuleRequest
+     *
      * @returns DeleteScheduledScalingRuleResponse
      *
      * @param DeleteScheduledScalingRuleRequest $request
@@ -1601,6 +1633,7 @@ class Alikafka extends OpenApiClient
      *
      * @param request - DeleteTopicRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DeleteTopicResponse
      *
      * @param DeleteTopicRequest $request
@@ -1628,15 +1661,15 @@ class Alikafka extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DeleteTopic',
-            'version'     => '2019-09-16',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DeleteTopic',
+            'version' => '2019-09-16',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DeleteTopicResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -1649,6 +1682,7 @@ class Alikafka extends OpenApiClient
      * Deletes a topic.
      *
      * @param request - DeleteTopicRequest
+     *
      * @returns DeleteTopicResponse
      *
      * @param DeleteTopicRequest $request
@@ -1667,6 +1701,7 @@ class Alikafka extends OpenApiClient
      *
      * @param request - DescribeAclResourceNameRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribeAclResourceNameResponse
      *
      * @param DescribeAclResourceNameRequest $request
@@ -1698,15 +1733,15 @@ class Alikafka extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeAclResourceName',
-            'version'     => '2019-09-16',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeAclResourceName',
+            'version' => '2019-09-16',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DescribeAclResourceNameResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -1719,6 +1754,7 @@ class Alikafka extends OpenApiClient
      * 查询acl资源名.
      *
      * @param request - DescribeAclResourceNameRequest
+     *
      * @returns DescribeAclResourceNameResponse
      *
      * @param DescribeAclResourceNameRequest $request
@@ -1737,6 +1773,7 @@ class Alikafka extends OpenApiClient
      *
      * @param request - DescribeAclsRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribeAclsResponse
      *
      * @param DescribeAclsRequest $request
@@ -1788,15 +1825,15 @@ class Alikafka extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeAcls',
-            'version'     => '2019-09-16',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeAcls',
+            'version' => '2019-09-16',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DescribeAclsResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -1809,6 +1846,7 @@ class Alikafka extends OpenApiClient
      * Queries access control lists (ACLs).
      *
      * @param request - DescribeAclsRequest
+     *
      * @returns DescribeAclsResponse
      *
      * @param DescribeAclsRequest $request
@@ -1827,6 +1865,7 @@ class Alikafka extends OpenApiClient
      *
      * @param request - DescribeSaslUsersRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribeSaslUsersResponse
      *
      * @param DescribeSaslUsersRequest $request
@@ -1850,15 +1889,15 @@ class Alikafka extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeSaslUsers',
-            'version'     => '2019-09-16',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeSaslUsers',
+            'version' => '2019-09-16',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DescribeSaslUsersResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -1871,6 +1910,7 @@ class Alikafka extends OpenApiClient
      * Queries Simple Authentication and Security Layer (SASL) users.
      *
      * @param request - DescribeSaslUsersRequest
+     *
      * @returns DescribeSaslUsersResponse
      *
      * @param DescribeSaslUsersRequest $request
@@ -1889,6 +1929,7 @@ class Alikafka extends OpenApiClient
      *
      * @param request - EnableAutoGroupCreationRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns EnableAutoGroupCreationResponse
      *
      * @param EnableAutoGroupCreationRequest $request
@@ -1916,15 +1957,15 @@ class Alikafka extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'EnableAutoGroupCreation',
-            'version'     => '2019-09-16',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'EnableAutoGroupCreation',
+            'version' => '2019-09-16',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return EnableAutoGroupCreationResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -1937,6 +1978,7 @@ class Alikafka extends OpenApiClient
      * Enables and disables the flexible group creation feature.
      *
      * @param request - EnableAutoGroupCreationRequest
+     *
      * @returns EnableAutoGroupCreationResponse
      *
      * @param EnableAutoGroupCreationRequest $request
@@ -1955,6 +1997,7 @@ class Alikafka extends OpenApiClient
      *
      * @param request - EnableAutoTopicCreationRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns EnableAutoTopicCreationResponse
      *
      * @param EnableAutoTopicCreationRequest $request
@@ -1990,15 +2033,15 @@ class Alikafka extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'EnableAutoTopicCreation',
-            'version'     => '2019-09-16',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'EnableAutoTopicCreation',
+            'version' => '2019-09-16',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return EnableAutoTopicCreationResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -2011,6 +2054,7 @@ class Alikafka extends OpenApiClient
      * Enables or disables the automatic topic creation feature, or changes the number of partitions in topics that are automatically created.
      *
      * @param request - EnableAutoTopicCreationRequest
+     *
      * @returns EnableAutoTopicCreationResponse
      *
      * @param EnableAutoTopicCreationRequest $request
@@ -2029,6 +2073,7 @@ class Alikafka extends OpenApiClient
      *
      * @param request - GetAllInstanceIdListRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns GetAllInstanceIdListResponse
      *
      * @param GetAllInstanceIdListRequest $request
@@ -2048,15 +2093,15 @@ class Alikafka extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'GetAllInstanceIdList',
-            'version'     => '2019-09-16',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetAllInstanceIdList',
+            'version' => '2019-09-16',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return GetAllInstanceIdListResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -2069,6 +2114,7 @@ class Alikafka extends OpenApiClient
      * Queries the IDs of all instances in the current account.
      *
      * @param request - GetAllInstanceIdListRequest
+     *
      * @returns GetAllInstanceIdListResponse
      *
      * @param GetAllInstanceIdListRequest $request
@@ -2087,6 +2133,7 @@ class Alikafka extends OpenApiClient
      *
      * @param request - GetAllowedIpListRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns GetAllowedIpListResponse
      *
      * @param GetAllowedIpListRequest $request
@@ -2110,15 +2157,15 @@ class Alikafka extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'GetAllowedIpList',
-            'version'     => '2019-09-16',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetAllowedIpList',
+            'version' => '2019-09-16',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return GetAllowedIpListResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -2131,6 +2178,7 @@ class Alikafka extends OpenApiClient
      * Queries the IP address whitelist.
      *
      * @param request - GetAllowedIpListRequest
+     *
      * @returns GetAllowedIpListResponse
      *
      * @param GetAllowedIpListRequest $request
@@ -2152,6 +2200,7 @@ class Alikafka extends OpenApiClient
      *
      * @param request - GetAutoScalingConfigurationRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns GetAutoScalingConfigurationResponse
      *
      * @param GetAutoScalingConfigurationRequest $request
@@ -2175,15 +2224,15 @@ class Alikafka extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'GetAutoScalingConfiguration',
-            'version'     => '2019-09-16',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetAutoScalingConfiguration',
+            'version' => '2019-09-16',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return GetAutoScalingConfigurationResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -2199,6 +2248,7 @@ class Alikafka extends OpenApiClient
      * ###### [](#-serverless-)**This operation is available only for serverless ApsaraMQ for Kafka instances.
      *
      * @param request - GetAutoScalingConfigurationRequest
+     *
      * @returns GetAutoScalingConfigurationResponse
      *
      * @param GetAutoScalingConfigurationRequest $request
@@ -2217,6 +2267,7 @@ class Alikafka extends OpenApiClient
      *
      * @param request - GetConsumerListRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns GetConsumerListResponse
      *
      * @param GetConsumerListRequest $request
@@ -2252,15 +2303,15 @@ class Alikafka extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'GetConsumerList',
-            'version'     => '2019-09-16',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetConsumerList',
+            'version' => '2019-09-16',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return GetConsumerListResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -2273,6 +2324,7 @@ class Alikafka extends OpenApiClient
      * Queries one or more consumer groups in a specified Message Queue for Apache Kafka instance.
      *
      * @param request - GetConsumerListRequest
+     *
      * @returns GetConsumerListResponse
      *
      * @param GetConsumerListRequest $request
@@ -2291,6 +2343,7 @@ class Alikafka extends OpenApiClient
      *
      * @param request - GetConsumerProgressRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns GetConsumerProgressResponse
      *
      * @param GetConsumerProgressRequest $request
@@ -2322,15 +2375,15 @@ class Alikafka extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'GetConsumerProgress',
-            'version'     => '2019-09-16',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetConsumerProgress',
+            'version' => '2019-09-16',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return GetConsumerProgressResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -2343,6 +2396,7 @@ class Alikafka extends OpenApiClient
      * Queries the consumer progress of a consumer group.
      *
      * @param request - GetConsumerProgressRequest
+     *
      * @returns GetConsumerProgressResponse
      *
      * @param GetConsumerProgressRequest $request
@@ -2361,6 +2415,7 @@ class Alikafka extends OpenApiClient
      *
      * @param request - GetInstanceListRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns GetInstanceListResponse
      *
      * @param GetInstanceListRequest $request
@@ -2400,15 +2455,15 @@ class Alikafka extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'GetInstanceList',
-            'version'     => '2019-09-16',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetInstanceList',
+            'version' => '2019-09-16',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return GetInstanceListResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -2421,6 +2476,7 @@ class Alikafka extends OpenApiClient
      * Queries the information about instances in a specified region.
      *
      * @param request - GetInstanceListRequest
+     *
      * @returns GetInstanceListResponse
      *
      * @param GetInstanceListRequest $request
@@ -2444,6 +2500,7 @@ class Alikafka extends OpenApiClient
      *
      * @param request - GetKafkaClientIpRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns GetKafkaClientIpResponse
      *
      * @param GetKafkaClientIpRequest $request
@@ -2487,15 +2544,15 @@ class Alikafka extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'GetKafkaClientIp',
-            'version'     => '2019-09-16',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetKafkaClientIp',
+            'version' => '2019-09-16',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return GetKafkaClientIpResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -2513,6 +2570,7 @@ class Alikafka extends OpenApiClient
      * *   If the broker is not of the latest minor version, the sampled logs may not be accurate. This may cause inaccurate IP information. Therefore, we recommend that you update your broker to the latest version at the earliest opportunity.
      *
      * @param request - GetKafkaClientIpRequest
+     *
      * @returns GetKafkaClientIpResponse
      *
      * @param GetKafkaClientIpRequest $request
@@ -2531,6 +2589,7 @@ class Alikafka extends OpenApiClient
      *
      * @param request - GetQuotaTipRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns GetQuotaTipResponse
      *
      * @param GetQuotaTipRequest $request
@@ -2554,15 +2613,15 @@ class Alikafka extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'GetQuotaTip',
-            'version'     => '2019-09-16',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetQuotaTip',
+            'version' => '2019-09-16',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return GetQuotaTipResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -2575,6 +2634,7 @@ class Alikafka extends OpenApiClient
      * Queries the used quota of topics and partitions.
      *
      * @param request - GetQuotaTipRequest
+     *
      * @returns GetQuotaTipResponse
      *
      * @param GetQuotaTipRequest $request
@@ -2593,6 +2653,7 @@ class Alikafka extends OpenApiClient
      *
      * @param request - GetTopicListRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns GetTopicListResponse
      *
      * @param GetTopicListRequest $request
@@ -2628,15 +2689,15 @@ class Alikafka extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'GetTopicList',
-            'version'     => '2019-09-16',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetTopicList',
+            'version' => '2019-09-16',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return GetTopicListResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -2649,6 +2710,7 @@ class Alikafka extends OpenApiClient
      * Queries the information about a topic.
      *
      * @param request - GetTopicListRequest
+     *
      * @returns GetTopicListResponse
      *
      * @param GetTopicListRequest $request
@@ -2667,6 +2729,7 @@ class Alikafka extends OpenApiClient
      *
      * @param request - GetTopicStatusRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns GetTopicStatusResponse
      *
      * @param GetTopicStatusRequest $request
@@ -2694,15 +2757,15 @@ class Alikafka extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'GetTopicStatus',
-            'version'     => '2019-09-16',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetTopicStatus',
+            'version' => '2019-09-16',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return GetTopicStatusResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -2715,6 +2778,7 @@ class Alikafka extends OpenApiClient
      * Queries the messaging status of a topic.
      *
      * @param request - GetTopicStatusRequest
+     *
      * @returns GetTopicStatusResponse
      *
      * @param GetTopicStatusRequest $request
@@ -2733,6 +2797,7 @@ class Alikafka extends OpenApiClient
      *
      * @param request - GetTopicSubscribeStatusRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns GetTopicSubscribeStatusResponse
      *
      * @param GetTopicSubscribeStatusRequest $request
@@ -2760,15 +2825,15 @@ class Alikafka extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'GetTopicSubscribeStatus',
-            'version'     => '2019-09-16',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetTopicSubscribeStatus',
+            'version' => '2019-09-16',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return GetTopicSubscribeStatusResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -2781,6 +2846,7 @@ class Alikafka extends OpenApiClient
      * Queries the information about the groups that subscribe to a topic.
      *
      * @param request - GetTopicSubscribeStatusRequest
+     *
      * @returns GetTopicSubscribeStatusResponse
      *
      * @param GetTopicSubscribeStatusRequest $request
@@ -2799,6 +2865,7 @@ class Alikafka extends OpenApiClient
      *
      * @param request - ListTagResourcesRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ListTagResourcesResponse
      *
      * @param ListTagResourcesRequest $request
@@ -2834,15 +2901,15 @@ class Alikafka extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListTagResources',
-            'version'     => '2019-09-16',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListTagResources',
+            'version' => '2019-09-16',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return ListTagResourcesResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -2855,6 +2922,7 @@ class Alikafka extends OpenApiClient
      * Queries the tags that are attached to a specified resource.
      *
      * @param request - ListTagResourcesRequest
+     *
      * @returns ListTagResourcesResponse
      *
      * @param ListTagResourcesRequest $request
@@ -2873,6 +2941,7 @@ class Alikafka extends OpenApiClient
      *
      * @param request - ModifyInstanceNameRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ModifyInstanceNameResponse
      *
      * @param ModifyInstanceNameRequest $request
@@ -2900,15 +2969,15 @@ class Alikafka extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ModifyInstanceName',
-            'version'     => '2019-09-16',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ModifyInstanceName',
+            'version' => '2019-09-16',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return ModifyInstanceNameResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -2921,6 +2990,7 @@ class Alikafka extends OpenApiClient
      * Changes the name of an ApsaraMQ for Kafka instance. After you deploy an instance, you can call this operation to change the name of the instance.
      *
      * @param request - ModifyInstanceNameRequest
+     *
      * @returns ModifyInstanceNameResponse
      *
      * @param ModifyInstanceNameRequest $request
@@ -2939,6 +3009,7 @@ class Alikafka extends OpenApiClient
      *
      * @param request - ModifyPartitionNumRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ModifyPartitionNumResponse
      *
      * @param ModifyPartitionNumRequest $request
@@ -2970,15 +3041,15 @@ class Alikafka extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ModifyPartitionNum',
-            'version'     => '2019-09-16',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ModifyPartitionNum',
+            'version' => '2019-09-16',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return ModifyPartitionNumResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -2991,6 +3062,7 @@ class Alikafka extends OpenApiClient
      * Changes the number of partitions in a topic.
      *
      * @param request - ModifyPartitionNumRequest
+     *
      * @returns ModifyPartitionNumResponse
      *
      * @param ModifyPartitionNumRequest $request
@@ -3012,6 +3084,7 @@ class Alikafka extends OpenApiClient
      *
      * @param request - ModifyScheduledScalingRuleRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ModifyScheduledScalingRuleResponse
      *
      * @param ModifyScheduledScalingRuleRequest $request
@@ -3043,15 +3116,15 @@ class Alikafka extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ModifyScheduledScalingRule',
-            'version'     => '2019-09-16',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ModifyScheduledScalingRule',
+            'version' => '2019-09-16',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return ModifyScheduledScalingRuleResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -3067,6 +3140,7 @@ class Alikafka extends OpenApiClient
      * ###### [](#-serverless-)This operation is available only for serverless ApsaraMQ for Kafka instances.
      *
      * @param request - ModifyScheduledScalingRuleRequest
+     *
      * @returns ModifyScheduledScalingRuleResponse
      *
      * @param ModifyScheduledScalingRuleRequest $request
@@ -3085,6 +3159,7 @@ class Alikafka extends OpenApiClient
      *
      * @param request - ModifyTopicRemarkRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ModifyTopicRemarkResponse
      *
      * @param ModifyTopicRemarkRequest $request
@@ -3116,15 +3191,15 @@ class Alikafka extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ModifyTopicRemark',
-            'version'     => '2019-09-16',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ModifyTopicRemark',
+            'version' => '2019-09-16',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return ModifyTopicRemarkResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -3137,6 +3212,7 @@ class Alikafka extends OpenApiClient
      * Modifies the description of a topic.
      *
      * @param request - ModifyTopicRemarkRequest
+     *
      * @returns ModifyTopicRemarkResponse
      *
      * @param ModifyTopicRemarkRequest $request
@@ -3155,6 +3231,7 @@ class Alikafka extends OpenApiClient
      *
      * @param request - QueryMessageRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns QueryMessageResponse
      *
      * @param QueryMessageRequest $request
@@ -3166,19 +3243,19 @@ class Alikafka extends OpenApiClient
     {
         $request->validate();
         $query = Utils::query($request->toMap());
-        $req   = new OpenApiRequest([
+        $req = new OpenApiRequest([
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'QueryMessage',
-            'version'     => '2019-09-16',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'QueryMessage',
+            'version' => '2019-09-16',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return QueryMessageResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -3191,6 +3268,7 @@ class Alikafka extends OpenApiClient
      * Queries messages stored in a topic. You can query messages by creation time or offset.
      *
      * @param request - QueryMessageRequest
+     *
      * @returns QueryMessageResponse
      *
      * @param QueryMessageRequest $request
@@ -3212,6 +3290,7 @@ class Alikafka extends OpenApiClient
      *
      * @param request - ReleaseInstanceRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ReleaseInstanceResponse
      *
      * @param ReleaseInstanceRequest $request
@@ -3239,15 +3318,15 @@ class Alikafka extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ReleaseInstance',
-            'version'     => '2019-09-16',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ReleaseInstance',
+            'version' => '2019-09-16',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return ReleaseInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -3263,6 +3342,7 @@ class Alikafka extends OpenApiClient
      * You cannot call this operation to release a subscription Message Queue for Apache Kafka instance.
      *
      * @param request - ReleaseInstanceRequest
+     *
      * @returns ReleaseInstanceResponse
      *
      * @param ReleaseInstanceRequest $request
@@ -3284,6 +3364,7 @@ class Alikafka extends OpenApiClient
      *
      * @param request - ReopenInstanceRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ReopenInstanceResponse
      *
      * @param ReopenInstanceRequest $request
@@ -3307,15 +3388,15 @@ class Alikafka extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ReopenInstance',
-            'version'     => '2019-09-16',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ReopenInstance',
+            'version' => '2019-09-16',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return ReopenInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -3331,6 +3412,7 @@ class Alikafka extends OpenApiClient
      * You can call this operation only if your instance is in the Stopped state.
      *
      * @param request - ReopenInstanceRequest
+     *
      * @returns ReopenInstanceResponse
      *
      * @param ReopenInstanceRequest $request
@@ -3352,6 +3434,7 @@ class Alikafka extends OpenApiClient
      *
      * @param request - StartInstanceRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns StartInstanceResponse
      *
      * @param StartInstanceRequest $request
@@ -3451,15 +3534,15 @@ class Alikafka extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'StartInstance',
-            'version'     => '2019-09-16',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'StartInstance',
+            'version' => '2019-09-16',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return StartInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -3475,6 +3558,7 @@ class Alikafka extends OpenApiClient
      * >  You can call this operation up to twice per second.
      *
      * @param request - StartInstanceRequest
+     *
      * @returns StartInstanceResponse
      *
      * @param StartInstanceRequest $request
@@ -3496,6 +3580,7 @@ class Alikafka extends OpenApiClient
      *
      * @param request - StopInstanceRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns StopInstanceResponse
      *
      * @param StopInstanceRequest $request
@@ -3519,15 +3604,15 @@ class Alikafka extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'StopInstance',
-            'version'     => '2019-09-16',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'StopInstance',
+            'version' => '2019-09-16',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return StopInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -3543,6 +3628,7 @@ class Alikafka extends OpenApiClient
      * You cannot stop a subscription ApsaraMQ for Kafka instance. If you want to stop a subscription ApsaraMQ for Kafka instance, submit a ticket.
      *
      * @param request - StopInstanceRequest
+     *
      * @returns StopInstanceResponse
      *
      * @param StopInstanceRequest $request
@@ -3561,6 +3647,7 @@ class Alikafka extends OpenApiClient
      *
      * @param request - TagResourcesRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns TagResourcesResponse
      *
      * @param TagResourcesRequest $request
@@ -3596,15 +3683,15 @@ class Alikafka extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'TagResources',
-            'version'     => '2019-09-16',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'TagResources',
+            'version' => '2019-09-16',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return TagResourcesResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -3617,6 +3704,7 @@ class Alikafka extends OpenApiClient
      * Attaches a tag to a resource.
      *
      * @param request - TagResourcesRequest
+     *
      * @returns TagResourcesResponse
      *
      * @param TagResourcesRequest $request
@@ -3635,6 +3723,7 @@ class Alikafka extends OpenApiClient
      *
      * @param request - UntagResourcesRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns UntagResourcesResponse
      *
      * @param UntagResourcesRequest $request
@@ -3670,15 +3759,15 @@ class Alikafka extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'UntagResources',
-            'version'     => '2019-09-16',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'UntagResources',
+            'version' => '2019-09-16',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return UntagResourcesResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -3691,6 +3780,7 @@ class Alikafka extends OpenApiClient
      * Detaches tags from a specified resource.
      *
      * @param request - UntagResourcesRequest
+     *
      * @returns UntagResourcesResponse
      *
      * @param UntagResourcesRequest $request
@@ -3709,6 +3799,7 @@ class Alikafka extends OpenApiClient
      *
      * @param request - UpdateAllowedIpRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns UpdateAllowedIpResponse
      *
      * @param UpdateAllowedIpRequest $request
@@ -3752,15 +3843,15 @@ class Alikafka extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'UpdateAllowedIp',
-            'version'     => '2019-09-16',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'UpdateAllowedIp',
+            'version' => '2019-09-16',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return UpdateAllowedIpResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -3773,6 +3864,7 @@ class Alikafka extends OpenApiClient
      * Updates the IP address whitelist of an ApsaraMQ for Kafka instance. Only IP addresses and ports that are configured in the IP address whitelist of an instance can access the instance.
      *
      * @param request - UpdateAllowedIpRequest
+     *
      * @returns UpdateAllowedIpResponse
      *
      * @param UpdateAllowedIpRequest $request
@@ -3797,6 +3889,7 @@ class Alikafka extends OpenApiClient
      *
      * @param tmpReq - UpdateConsumerOffsetRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns UpdateConsumerOffsetResponse
      *
      * @param UpdateConsumerOffsetRequest $tmpReq
@@ -3846,15 +3939,15 @@ class Alikafka extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'UpdateConsumerOffset',
-            'version'     => '2019-09-16',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'UpdateConsumerOffset',
+            'version' => '2019-09-16',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return UpdateConsumerOffsetResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -3873,6 +3966,7 @@ class Alikafka extends OpenApiClient
      * *   Reset the consumer offset of one subscribed topic of a consumer group to a specific offset in a specific partition. This way, you can consume messages from the specified offset in the specified partition.
      *
      * @param request - UpdateConsumerOffsetRequest
+     *
      * @returns UpdateConsumerOffsetResponse
      *
      * @param UpdateConsumerOffsetRequest $request
@@ -3898,6 +3992,7 @@ class Alikafka extends OpenApiClient
      *
      * @param request - UpdateInstanceConfigRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns UpdateInstanceConfigResponse
      *
      * @param UpdateInstanceConfigRequest $request
@@ -3925,15 +4020,15 @@ class Alikafka extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'UpdateInstanceConfig',
-            'version'     => '2019-09-16',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'UpdateInstanceConfig',
+            'version' => '2019-09-16',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return UpdateInstanceConfigResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -3953,6 +4048,7 @@ class Alikafka extends OpenApiClient
      * |UpdateInstanceConfig|alikafka: UpdateInstance|acs:alikafka:*:*:{instanceId}|
      *
      * @param request - UpdateInstanceConfigRequest
+     *
      * @returns UpdateInstanceConfigResponse
      *
      * @param UpdateInstanceConfigRequest $request
@@ -3971,6 +4067,7 @@ class Alikafka extends OpenApiClient
      *
      * @param request - UpdateTopicConfigRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns UpdateTopicConfigResponse
      *
      * @param UpdateTopicConfigRequest $request
@@ -4006,15 +4103,15 @@ class Alikafka extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'UpdateTopicConfig',
-            'version'     => '2019-09-16',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'UpdateTopicConfig',
+            'version' => '2019-09-16',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return UpdateTopicConfigResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -4027,6 +4124,7 @@ class Alikafka extends OpenApiClient
      * Modifies the configurations of a topic. After you create a topic, you can modify the message retention period and maximum message size of the topic.
      *
      * @param request - UpdateTopicConfigRequest
+     *
      * @returns UpdateTopicConfigResponse
      *
      * @param UpdateTopicConfigRequest $request
@@ -4054,6 +4152,7 @@ class Alikafka extends OpenApiClient
      *
      * @param request - UpgradeInstanceVersionRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns UpgradeInstanceVersionResponse
      *
      * @param UpgradeInstanceVersionRequest $request
@@ -4081,15 +4180,15 @@ class Alikafka extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'UpgradeInstanceVersion',
-            'version'     => '2019-09-16',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'UpgradeInstanceVersion',
+            'version' => '2019-09-16',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return UpgradeInstanceVersionResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -4111,6 +4210,7 @@ class Alikafka extends OpenApiClient
      * You can send a maximum of two queries per second (QPS).
      *
      * @param request - UpgradeInstanceVersionRequest
+     *
      * @returns UpgradeInstanceVersionResponse
      *
      * @param UpgradeInstanceVersionRequest $request
@@ -4132,6 +4232,7 @@ class Alikafka extends OpenApiClient
      *
      * @param tmpReq - UpgradePostPayOrderRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns UpgradePostPayOrderResponse
      *
      * @param UpgradePostPayOrderRequest $tmpReq
@@ -4197,15 +4298,15 @@ class Alikafka extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'UpgradePostPayOrder',
-            'version'     => '2019-09-16',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'UpgradePostPayOrder',
+            'version' => '2019-09-16',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return UpgradePostPayOrderResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -4221,6 +4322,7 @@ class Alikafka extends OpenApiClient
      * Before you call this operation, make sure that you understand the billing method and pricing of pay-as-you-go Message Queue for Apache Kafka instances. For more information, see [Billing](https://help.aliyun.com/document_detail/84737.html).
      *
      * @param request - UpgradePostPayOrderRequest
+     *
      * @returns UpgradePostPayOrderResponse
      *
      * @param UpgradePostPayOrderRequest $request
@@ -4242,6 +4344,7 @@ class Alikafka extends OpenApiClient
      *
      * @param tmpReq - UpgradePrePayOrderRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns UpgradePrePayOrderResponse
      *
      * @param UpgradePrePayOrderRequest $tmpReq
@@ -4311,15 +4414,15 @@ class Alikafka extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'UpgradePrePayOrder',
-            'version'     => '2019-09-16',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'UpgradePrePayOrder',
+            'version' => '2019-09-16',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return UpgradePrePayOrderResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -4335,6 +4438,7 @@ class Alikafka extends OpenApiClient
      * Before you call this operation, make sure that you understand the billing method and pricing of subscription Message Queue for Apache Kafka instances. For more information, see [Billing overview](https://help.aliyun.com/document_detail/84737.html).
      *
      * @param request - UpgradePrePayOrderRequest
+     *
      * @returns UpgradePrePayOrderResponse
      *
      * @param UpgradePrePayOrderRequest $request

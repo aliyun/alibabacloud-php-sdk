@@ -12,18 +12,20 @@ class DeleteScheduledScalingRuleRequest extends Model
      * @var string
      */
     public $instanceId;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $ruleName;
     protected $_name = [
         'instanceId' => 'InstanceId',
-        'regionId'   => 'RegionId',
-        'ruleName'   => 'RuleName',
+        'regionId' => 'RegionId',
+        'ruleName' => 'RuleName',
     ];
 
     public function validate()

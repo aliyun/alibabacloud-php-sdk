@@ -12,18 +12,20 @@ class GetTopicStatusRequest extends Model
      * @var string
      */
     public $instanceId;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $topic;
     protected $_name = [
         'instanceId' => 'InstanceId',
-        'regionId'   => 'RegionId',
-        'topic'      => 'Topic',
+        'regionId' => 'RegionId',
+        'topic' => 'Topic',
     ];
 
     public function validate()

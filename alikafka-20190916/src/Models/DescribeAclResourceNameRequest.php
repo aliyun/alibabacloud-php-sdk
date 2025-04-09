@@ -12,23 +12,26 @@ class DescribeAclResourceNameRequest extends Model
      * @var string
      */
     public $aclResourcePatternType;
+
     /**
      * @var string
      */
     public $aclResourceType;
+
     /**
      * @var string
      */
     public $instanceId;
+
     /**
      * @var string
      */
     public $regionId;
     protected $_name = [
         'aclResourcePatternType' => 'AclResourcePatternType',
-        'aclResourceType'        => 'AclResourceType',
-        'instanceId'             => 'InstanceId',
-        'regionId'               => 'RegionId',
+        'aclResourceType' => 'AclResourceType',
+        'instanceId' => 'InstanceId',
+        'regionId' => 'RegionId',
     ];
 
     public function validate()

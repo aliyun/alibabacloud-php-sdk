@@ -12,38 +12,44 @@ class offsetList extends Model
      * @var int
      */
     public $brokerOffset;
+
     /**
      * @var string
      */
     public $clientId;
+
     /**
      * @var string
      */
     public $clientIp;
+
     /**
      * @var int
      */
     public $consumerOffset;
+
     /**
      * @var int
      */
     public $lastTimestamp;
+
     /**
      * @var string
      */
     public $memberId;
+
     /**
      * @var int
      */
     public $partition;
     protected $_name = [
-        'brokerOffset'   => 'BrokerOffset',
-        'clientId'       => 'ClientId',
-        'clientIp'       => 'ClientIp',
+        'brokerOffset' => 'BrokerOffset',
+        'clientId' => 'ClientId',
+        'clientIp' => 'ClientIp',
         'consumerOffset' => 'ConsumerOffset',
-        'lastTimestamp'  => 'LastTimestamp',
-        'memberId'       => 'MemberId',
-        'partition'      => 'Partition',
+        'lastTimestamp' => 'LastTimestamp',
+        'memberId' => 'MemberId',
+        'partition' => 'Partition',
     ];
 
     public function validate()

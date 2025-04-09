@@ -12,33 +12,38 @@ class data extends Model
      * @var bool
      */
     public $alert;
+
     /**
-     * @var \AlibabaCloud\SDK\Alikafka\V20190916\Models\GetKafkaClientIpResponseBody\data\data
+     * @var data\data
      */
     public $data;
+
     /**
      * @var int
      */
     public $endDate;
+
     /**
      * @var int
      */
     public $searchTimeRange;
+
     /**
      * @var int
      */
     public $startDate;
+
     /**
      * @var int
      */
     public $timeLimitDay;
     protected $_name = [
-        'alert'           => 'Alert',
-        'data'            => 'Data',
-        'endDate'         => 'EndDate',
+        'alert' => 'Alert',
+        'data' => 'Data',
+        'endDate' => 'EndDate',
         'searchTimeRange' => 'SearchTimeRange',
-        'startDate'       => 'StartDate',
-        'timeLimitDay'    => 'TimeLimitDay',
+        'startDate' => 'StartDate',
+        'timeLimitDay' => 'TimeLimitDay',
     ];
 
     public function validate()
@@ -92,7 +97,7 @@ class data extends Model
         }
 
         if (isset($map['Data'])) {
-            $model->data = \AlibabaCloud\SDK\Alikafka\V20190916\Models\GetKafkaClientIpResponseBody\data\data::fromMap($map['Data']);
+            $model->data = data\data::fromMap($map['Data']);
         }
 
         if (isset($map['EndDate'])) {

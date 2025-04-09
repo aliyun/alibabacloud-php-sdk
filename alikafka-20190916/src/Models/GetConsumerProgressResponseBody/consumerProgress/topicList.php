@@ -31,7 +31,7 @@ class topicList extends Model
         if (null !== $this->topicList) {
             if (\is_array($this->topicList)) {
                 $res['TopicList'] = [];
-                $n1               = 0;
+                $n1 = 0;
                 foreach ($this->topicList as $item1) {
                     $res['TopicList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -52,7 +52,7 @@ class topicList extends Model
         if (isset($map['TopicList'])) {
             if (!empty($map['TopicList'])) {
                 $model->topicList = [];
-                $n1               = 0;
+                $n1 = 0;
                 foreach ($map['TopicList'] as $item1) {
                     $model->topicList[$n1++] = self::fromMap($item1);
                 }

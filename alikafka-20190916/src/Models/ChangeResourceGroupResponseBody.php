@@ -12,28 +12,32 @@ class ChangeResourceGroupResponseBody extends Model
      * @var int
      */
     public $code;
+
     /**
      * @var string
      */
     public $message;
+
     /**
      * @var string
      */
     public $newResourceGroupId;
+
     /**
      * @var string
      */
     public $requestId;
+
     /**
      * @var int
      */
     public $success;
     protected $_name = [
-        'code'               => 'Code',
-        'message'            => 'Message',
+        'code' => 'Code',
+        'message' => 'Message',
         'newResourceGroupId' => 'NewResourceGroupId',
-        'requestId'          => 'RequestId',
-        'success'            => 'Success',
+        'requestId' => 'RequestId',
+        'success' => 'Success',
     ];
 
     public function validate()

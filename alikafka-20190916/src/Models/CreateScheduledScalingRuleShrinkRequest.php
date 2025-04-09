@@ -12,63 +12,74 @@ class CreateScheduledScalingRuleShrinkRequest extends Model
      * @var int
      */
     public $durationMinutes;
+
     /**
      * @var bool
      */
     public $enable;
+
     /**
      * @var int
      */
     public $firstScheduledTime;
+
     /**
      * @var string
      */
     public $instanceId;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $repeatType;
+
     /**
      * @var int
      */
     public $reservedPubFlow;
+
     /**
      * @var int
      */
     public $reservedSubFlow;
+
     /**
      * @var string
      */
     public $ruleName;
+
     /**
      * @var string
      */
     public $scheduleType;
+
     /**
      * @var string
      */
     public $timeZone;
+
     /**
      * @var string
      */
     public $weeklyTypesShrink;
     protected $_name = [
-        'durationMinutes'    => 'DurationMinutes',
-        'enable'             => 'Enable',
+        'durationMinutes' => 'DurationMinutes',
+        'enable' => 'Enable',
         'firstScheduledTime' => 'FirstScheduledTime',
-        'instanceId'         => 'InstanceId',
-        'regionId'           => 'RegionId',
-        'repeatType'         => 'RepeatType',
-        'reservedPubFlow'    => 'ReservedPubFlow',
-        'reservedSubFlow'    => 'ReservedSubFlow',
-        'ruleName'           => 'RuleName',
-        'scheduleType'       => 'ScheduleType',
-        'timeZone'           => 'TimeZone',
-        'weeklyTypesShrink'  => 'WeeklyTypes',
+        'instanceId' => 'InstanceId',
+        'regionId' => 'RegionId',
+        'repeatType' => 'RepeatType',
+        'reservedPubFlow' => 'ReservedPubFlow',
+        'reservedSubFlow' => 'ReservedSubFlow',
+        'ruleName' => 'RuleName',
+        'scheduleType' => 'ScheduleType',
+        'timeZone' => 'TimeZone',
+        'weeklyTypesShrink' => 'WeeklyTypes',
     ];
 
     public function validate()

@@ -13,43 +13,50 @@ class GetConsumerListResponseBody extends Model
      * @var int
      */
     public $code;
+
     /**
      * @var consumerList
      */
     public $consumerList;
+
     /**
      * @var int
      */
     public $currentPage;
+
     /**
      * @var string
      */
     public $message;
+
     /**
      * @var int
      */
     public $pageSize;
+
     /**
      * @var string
      */
     public $requestId;
+
     /**
      * @var bool
      */
     public $success;
+
     /**
      * @var int
      */
     public $total;
     protected $_name = [
-        'code'         => 'Code',
+        'code' => 'Code',
         'consumerList' => 'ConsumerList',
-        'currentPage'  => 'CurrentPage',
-        'message'      => 'Message',
-        'pageSize'     => 'PageSize',
-        'requestId'    => 'RequestId',
-        'success'      => 'Success',
-        'total'        => 'Total',
+        'currentPage' => 'CurrentPage',
+        'message' => 'Message',
+        'pageSize' => 'PageSize',
+        'requestId' => 'RequestId',
+        'success' => 'Success',
+        'total' => 'Total',
     ];
 
     public function validate()

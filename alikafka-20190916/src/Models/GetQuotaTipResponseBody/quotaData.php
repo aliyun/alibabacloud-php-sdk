@@ -12,58 +12,68 @@ class quotaData extends Model
      * @var int
      */
     public $groupLeft;
+
     /**
      * @var int
      */
     public $groupUsed;
+
     /**
      * @var int
      */
     public $isPartitionBuy;
+
     /**
      * @var int
      */
     public $partitionLeft;
+
     /**
      * @var int
      */
     public $partitionNumOfBuy;
+
     /**
      * @var int
      */
     public $partitionQuota;
+
     /**
      * @var int
      */
     public $partitionUsed;
+
     /**
      * @var int
      */
     public $topicLeft;
+
     /**
      * @var int
      */
     public $topicNumOfBuy;
+
     /**
      * @var int
      */
     public $topicQuota;
+
     /**
      * @var int
      */
     public $topicUsed;
     protected $_name = [
-        'groupLeft'         => 'GroupLeft',
-        'groupUsed'         => 'GroupUsed',
-        'isPartitionBuy'    => 'IsPartitionBuy',
-        'partitionLeft'     => 'PartitionLeft',
+        'groupLeft' => 'GroupLeft',
+        'groupUsed' => 'GroupUsed',
+        'isPartitionBuy' => 'IsPartitionBuy',
+        'partitionLeft' => 'PartitionLeft',
         'partitionNumOfBuy' => 'PartitionNumOfBuy',
-        'partitionQuota'    => 'PartitionQuota',
-        'partitionUsed'     => 'PartitionUsed',
-        'topicLeft'         => 'TopicLeft',
-        'topicNumOfBuy'     => 'TopicNumOfBuy',
-        'topicQuota'        => 'TopicQuota',
-        'topicUsed'         => 'TopicUsed',
+        'partitionQuota' => 'PartitionQuota',
+        'partitionUsed' => 'PartitionUsed',
+        'topicLeft' => 'TopicLeft',
+        'topicNumOfBuy' => 'TopicNumOfBuy',
+        'topicQuota' => 'TopicQuota',
+        'topicUsed' => 'TopicUsed',
     ];
 
     public function validate()

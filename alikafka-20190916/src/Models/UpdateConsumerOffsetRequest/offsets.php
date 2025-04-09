@@ -12,12 +12,13 @@ class offsets extends Model
      * @var int
      */
     public $offset;
+
     /**
      * @var int
      */
     public $partition;
     protected $_name = [
-        'offset'    => 'Offset',
+        'offset' => 'Offset',
         'partition' => 'Partition',
     ];
 

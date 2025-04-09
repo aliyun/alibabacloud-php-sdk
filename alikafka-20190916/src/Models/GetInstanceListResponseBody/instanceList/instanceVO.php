@@ -16,248 +16,296 @@ class instanceVO extends Model
      * @var string
      */
     public $allConfig;
+
     /**
      * @var bool
      */
     public $autoCreateGroupEnable;
+
     /**
      * @var bool
      */
     public $autoCreateTopicEnable;
+
     /**
      * @var string
      */
     public $backupZoneId;
+
     /**
      * @var confluentConfig
      */
     public $confluentConfig;
+
     /**
      * @var int
      */
     public $createTime;
+
     /**
      * @var int
      */
     public $defaultPartitionNum;
+
     /**
      * @var int
      */
     public $deployType;
+
     /**
      * @var int
      */
     public $diskSize;
+
     /**
      * @var int
      */
     public $diskType;
+
     /**
      * @var string
      */
     public $domainEndpoint;
+
     /**
      * @var int
      */
     public $eipMax;
+
     /**
      * @var string
      */
     public $endPoint;
+
     /**
      * @var int
      */
     public $expiredTime;
+
     /**
      * @var string
      */
     public $instanceId;
+
     /**
      * @var int
      */
     public $ioMax;
+
     /**
      * @var int
      */
     public $ioMaxRead;
+
     /**
      * @var string
      */
     public $ioMaxSpec;
+
     /**
      * @var int
      */
     public $ioMaxWrite;
+
     /**
      * @var string
      */
     public $kmsKeyId;
+
     /**
      * @var int
      */
     public $msgRetain;
+
     /**
      * @var string
      */
     public $name;
+
     /**
      * @var int
      */
     public $paidType;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var int
      */
     public $reservedPublishCapacity;
+
     /**
      * @var int
      */
     public $reservedSubscribeCapacity;
+
     /**
      * @var string
      */
     public $resourceGroupId;
+
     /**
      * @var string
      */
     public $saslDomainEndpoint;
+
     /**
      * @var string
      */
     public $saslEndPoint;
+
     /**
      * @var string
      */
     public $securityGroup;
+
     /**
      * @var string
      */
     public $series;
+
     /**
      * @var int
      */
     public $serviceStatus;
+
     /**
      * @var string
      */
     public $specType;
+
     /**
      * @var string
      */
     public $sslDomainEndpoint;
+
     /**
      * @var string
      */
     public $sslEndPoint;
+
     /**
      * @var string
      */
     public $standardZoneId;
+
     /**
      * @var tags
      */
     public $tags;
+
     /**
      * @var int
      */
     public $topicNumLimit;
+
     /**
      * @var upgradeServiceDetailInfo
      */
     public $upgradeServiceDetailInfo;
+
     /**
      * @var int
      */
     public $usedGroupCount;
+
     /**
      * @var int
      */
     public $usedPartitionCount;
+
     /**
      * @var int
      */
     public $usedTopicCount;
+
     /**
      * @var string
      */
     public $vSwitchId;
+
     /**
      * @var vSwitchIds
      */
     public $vSwitchIds;
+
     /**
      * @var int
      */
     public $viewInstanceStatusCode;
+
     /**
      * @var string
      */
     public $vpcId;
+
     /**
      * @var string
      */
     public $vpcSaslDomainEndpoint;
+
     /**
      * @var string
      */
     public $vpcSaslEndPoint;
+
     /**
      * @var string
      */
     public $zoneId;
     protected $_name = [
-        'allConfig'                 => 'AllConfig',
-        'autoCreateGroupEnable'     => 'AutoCreateGroupEnable',
-        'autoCreateTopicEnable'     => 'AutoCreateTopicEnable',
-        'backupZoneId'              => 'BackupZoneId',
-        'confluentConfig'           => 'ConfluentConfig',
-        'createTime'                => 'CreateTime',
-        'defaultPartitionNum'       => 'DefaultPartitionNum',
-        'deployType'                => 'DeployType',
-        'diskSize'                  => 'DiskSize',
-        'diskType'                  => 'DiskType',
-        'domainEndpoint'            => 'DomainEndpoint',
-        'eipMax'                    => 'EipMax',
-        'endPoint'                  => 'EndPoint',
-        'expiredTime'               => 'ExpiredTime',
-        'instanceId'                => 'InstanceId',
-        'ioMax'                     => 'IoMax',
-        'ioMaxRead'                 => 'IoMaxRead',
-        'ioMaxSpec'                 => 'IoMaxSpec',
-        'ioMaxWrite'                => 'IoMaxWrite',
-        'kmsKeyId'                  => 'KmsKeyId',
-        'msgRetain'                 => 'MsgRetain',
-        'name'                      => 'Name',
-        'paidType'                  => 'PaidType',
-        'regionId'                  => 'RegionId',
-        'reservedPublishCapacity'   => 'ReservedPublishCapacity',
+        'allConfig' => 'AllConfig',
+        'autoCreateGroupEnable' => 'AutoCreateGroupEnable',
+        'autoCreateTopicEnable' => 'AutoCreateTopicEnable',
+        'backupZoneId' => 'BackupZoneId',
+        'confluentConfig' => 'ConfluentConfig',
+        'createTime' => 'CreateTime',
+        'defaultPartitionNum' => 'DefaultPartitionNum',
+        'deployType' => 'DeployType',
+        'diskSize' => 'DiskSize',
+        'diskType' => 'DiskType',
+        'domainEndpoint' => 'DomainEndpoint',
+        'eipMax' => 'EipMax',
+        'endPoint' => 'EndPoint',
+        'expiredTime' => 'ExpiredTime',
+        'instanceId' => 'InstanceId',
+        'ioMax' => 'IoMax',
+        'ioMaxRead' => 'IoMaxRead',
+        'ioMaxSpec' => 'IoMaxSpec',
+        'ioMaxWrite' => 'IoMaxWrite',
+        'kmsKeyId' => 'KmsKeyId',
+        'msgRetain' => 'MsgRetain',
+        'name' => 'Name',
+        'paidType' => 'PaidType',
+        'regionId' => 'RegionId',
+        'reservedPublishCapacity' => 'ReservedPublishCapacity',
         'reservedSubscribeCapacity' => 'ReservedSubscribeCapacity',
-        'resourceGroupId'           => 'ResourceGroupId',
-        'saslDomainEndpoint'        => 'SaslDomainEndpoint',
-        'saslEndPoint'              => 'SaslEndPoint',
-        'securityGroup'             => 'SecurityGroup',
-        'series'                    => 'Series',
-        'serviceStatus'             => 'ServiceStatus',
-        'specType'                  => 'SpecType',
-        'sslDomainEndpoint'         => 'SslDomainEndpoint',
-        'sslEndPoint'               => 'SslEndPoint',
-        'standardZoneId'            => 'StandardZoneId',
-        'tags'                      => 'Tags',
-        'topicNumLimit'             => 'TopicNumLimit',
-        'upgradeServiceDetailInfo'  => 'UpgradeServiceDetailInfo',
-        'usedGroupCount'            => 'UsedGroupCount',
-        'usedPartitionCount'        => 'UsedPartitionCount',
-        'usedTopicCount'            => 'UsedTopicCount',
-        'vSwitchId'                 => 'VSwitchId',
-        'vSwitchIds'                => 'VSwitchIds',
-        'viewInstanceStatusCode'    => 'ViewInstanceStatusCode',
-        'vpcId'                     => 'VpcId',
-        'vpcSaslDomainEndpoint'     => 'VpcSaslDomainEndpoint',
-        'vpcSaslEndPoint'           => 'VpcSaslEndPoint',
-        'zoneId'                    => 'ZoneId',
+        'resourceGroupId' => 'ResourceGroupId',
+        'saslDomainEndpoint' => 'SaslDomainEndpoint',
+        'saslEndPoint' => 'SaslEndPoint',
+        'securityGroup' => 'SecurityGroup',
+        'series' => 'Series',
+        'serviceStatus' => 'ServiceStatus',
+        'specType' => 'SpecType',
+        'sslDomainEndpoint' => 'SslDomainEndpoint',
+        'sslEndPoint' => 'SslEndPoint',
+        'standardZoneId' => 'StandardZoneId',
+        'tags' => 'Tags',
+        'topicNumLimit' => 'TopicNumLimit',
+        'upgradeServiceDetailInfo' => 'UpgradeServiceDetailInfo',
+        'usedGroupCount' => 'UsedGroupCount',
+        'usedPartitionCount' => 'UsedPartitionCount',
+        'usedTopicCount' => 'UsedTopicCount',
+        'vSwitchId' => 'VSwitchId',
+        'vSwitchIds' => 'VSwitchIds',
+        'viewInstanceStatusCode' => 'ViewInstanceStatusCode',
+        'vpcId' => 'VpcId',
+        'vpcSaslDomainEndpoint' => 'VpcSaslDomainEndpoint',
+        'vpcSaslEndPoint' => 'VpcSaslEndPoint',
+        'zoneId' => 'ZoneId',
     ];
 
     public function validate()

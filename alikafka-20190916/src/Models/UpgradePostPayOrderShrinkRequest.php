@@ -12,58 +12,68 @@ class UpgradePostPayOrderShrinkRequest extends Model
      * @var int
      */
     public $diskSize;
+
     /**
      * @var int
      */
     public $eipMax;
+
     /**
      * @var bool
      */
     public $eipModel;
+
     /**
      * @var string
      */
     public $instanceId;
+
     /**
      * @var int
      */
     public $ioMax;
+
     /**
      * @var string
      */
     public $ioMaxSpec;
+
     /**
      * @var int
      */
     public $partitionNum;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $serverlessConfigShrink;
+
     /**
      * @var string
      */
     public $specType;
+
     /**
      * @var int
      */
     public $topicQuota;
     protected $_name = [
-        'diskSize'               => 'DiskSize',
-        'eipMax'                 => 'EipMax',
-        'eipModel'               => 'EipModel',
-        'instanceId'             => 'InstanceId',
-        'ioMax'                  => 'IoMax',
-        'ioMaxSpec'              => 'IoMaxSpec',
-        'partitionNum'           => 'PartitionNum',
-        'regionId'               => 'RegionId',
+        'diskSize' => 'DiskSize',
+        'eipMax' => 'EipMax',
+        'eipModel' => 'EipModel',
+        'instanceId' => 'InstanceId',
+        'ioMax' => 'IoMax',
+        'ioMaxSpec' => 'IoMaxSpec',
+        'partitionNum' => 'PartitionNum',
+        'regionId' => 'RegionId',
         'serverlessConfigShrink' => 'ServerlessConfig',
-        'specType'               => 'SpecType',
-        'topicQuota'             => 'TopicQuota',
+        'specType' => 'SpecType',
+        'topicQuota' => 'TopicQuota',
     ];
 
     public function validate()

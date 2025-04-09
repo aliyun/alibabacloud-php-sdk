@@ -12,10 +12,12 @@ class DeleteConsumerGroupRequest extends Model
      * @var string
      */
     public $consumerId;
+
     /**
      * @var string
      */
     public $instanceId;
+
     /**
      * @var string
      */
@@ -23,7 +25,7 @@ class DeleteConsumerGroupRequest extends Model
     protected $_name = [
         'consumerId' => 'ConsumerId',
         'instanceId' => 'InstanceId',
-        'regionId'   => 'RegionId',
+        'regionId' => 'RegionId',
     ];
 
     public function validate()

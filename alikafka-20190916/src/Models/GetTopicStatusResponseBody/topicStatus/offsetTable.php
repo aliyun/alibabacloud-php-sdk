@@ -31,7 +31,7 @@ class offsetTable extends Model
         if (null !== $this->offsetTable) {
             if (\is_array($this->offsetTable)) {
                 $res['OffsetTable'] = [];
-                $n1                 = 0;
+                $n1 = 0;
                 foreach ($this->offsetTable as $item1) {
                     $res['OffsetTable'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -52,7 +52,7 @@ class offsetTable extends Model
         if (isset($map['OffsetTable'])) {
             if (!empty($map['OffsetTable'])) {
                 $model->offsetTable = [];
-                $n1                 = 0;
+                $n1 = 0;
                 foreach ($map['OffsetTable'] as $item1) {
                     $model->offsetTable[$n1++] = self::fromMap($item1);
                 }

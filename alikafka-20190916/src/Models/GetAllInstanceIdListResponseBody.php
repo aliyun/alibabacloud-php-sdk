@@ -12,28 +12,32 @@ class GetAllInstanceIdListResponseBody extends Model
      * @var int
      */
     public $code;
+
     /**
      * @var mixed[]
      */
     public $instanceIds;
+
     /**
      * @var string
      */
     public $message;
+
     /**
      * @var string
      */
     public $requestId;
+
     /**
      * @var bool
      */
     public $success;
     protected $_name = [
-        'code'        => 'Code',
+        'code' => 'Code',
         'instanceIds' => 'InstanceIds',
-        'message'     => 'Message',
-        'requestId'   => 'RequestId',
-        'success'     => 'Success',
+        'message' => 'Message',
+        'requestId' => 'RequestId',
+        'success' => 'Success',
     ];
 
     public function validate()

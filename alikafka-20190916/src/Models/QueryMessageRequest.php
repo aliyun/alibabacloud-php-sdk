@@ -12,38 +12,44 @@ class QueryMessageRequest extends Model
      * @var int
      */
     public $beginTime;
+
     /**
      * @var string
      */
     public $instanceId;
+
     /**
      * @var string
      */
     public $offset;
+
     /**
      * @var string
      */
     public $partition;
+
     /**
      * @var string
      */
     public $queryType;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $topic;
     protected $_name = [
-        'beginTime'  => 'BeginTime',
+        'beginTime' => 'BeginTime',
         'instanceId' => 'InstanceId',
-        'offset'     => 'Offset',
-        'partition'  => 'Partition',
-        'queryType'  => 'QueryType',
-        'regionId'   => 'RegionId',
-        'topic'      => 'Topic',
+        'offset' => 'Offset',
+        'partition' => 'Partition',
+        'queryType' => 'QueryType',
+        'regionId' => 'RegionId',
+        'topic' => 'Topic',
     ];
 
     public function validate()

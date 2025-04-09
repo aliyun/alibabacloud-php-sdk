@@ -12,28 +12,32 @@ class UpdateTopicConfigRequest extends Model
      * @var string
      */
     public $config;
+
     /**
      * @var string
      */
     public $instanceId;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $topic;
+
     /**
      * @var string
      */
     public $value;
     protected $_name = [
-        'config'     => 'Config',
+        'config' => 'Config',
         'instanceId' => 'InstanceId',
-        'regionId'   => 'RegionId',
-        'topic'      => 'Topic',
-        'value'      => 'Value',
+        'regionId' => 'RegionId',
+        'topic' => 'Topic',
+        'value' => 'Value',
     ];
 
     public function validate()
