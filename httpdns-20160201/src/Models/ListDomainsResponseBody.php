@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Httpdns\V20160201\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Httpdns\V20160201\Models\ListDomainsResponseBody\domainInfos;
-use AlibabaCloud\Tea\Model;
 
 class ListDomainsResponseBody extends Model
 {
@@ -15,59 +15,59 @@ class ListDomainsResponseBody extends Model
     public $domainInfos;
 
     /**
-     * @example 1
-     *
      * @var int
      */
     public $pageNumber;
 
     /**
-     * @example 5
-     *
      * @var int
      */
     public $pageSize;
 
     /**
-     * @example 50F9C40E-188D-4208-BE2C-7427E531****
-     *
      * @var string
      */
     public $requestId;
 
     /**
-     * @example 18
-     *
      * @var int
      */
     public $totalCount;
     protected $_name = [
         'domainInfos' => 'DomainInfos',
-        'pageNumber'  => 'PageNumber',
-        'pageSize'    => 'PageSize',
-        'requestId'   => 'RequestId',
-        'totalCount'  => 'TotalCount',
+        'pageNumber' => 'PageNumber',
+        'pageSize' => 'PageSize',
+        'requestId' => 'RequestId',
+        'totalCount' => 'TotalCount',
     ];
 
     public function validate()
     {
+        if (null !== $this->domainInfos) {
+            $this->domainInfos->validate();
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->domainInfos) {
-            $res['DomainInfos'] = null !== $this->domainInfos ? $this->domainInfos->toMap() : null;
+            $res['DomainInfos'] = null !== $this->domainInfos ? $this->domainInfos->toArray($noStream) : $this->domainInfos;
         }
+
         if (null !== $this->pageNumber) {
             $res['PageNumber'] = $this->pageNumber;
         }
+
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
+
         if (null !== $this->totalCount) {
             $res['TotalCount'] = $this->totalCount;
         }
@@ -75,26 +75,30 @@ class ListDomainsResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ListDomainsResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['DomainInfos'])) {
             $model->domainInfos = domainInfos::fromMap($map['DomainInfos']);
         }
+
         if (isset($map['PageNumber'])) {
             $model->pageNumber = $map['PageNumber'];
         }
+
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
+
         if (isset($map['TotalCount'])) {
             $model->totalCount = $map['TotalCount'];
         }

@@ -4,40 +4,36 @@
 
 namespace AlibabaCloud\SDK\Httpdns\V20160201\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DeleteDomainRequest extends Model
 {
     /**
-     * @example 12****
-     *
      * @var string
      */
     public $accountId;
 
     /**
-     * @description This parameter is required.
-     *
-     * @example www.example.com
-     *
      * @var string
      */
     public $domainName;
     protected $_name = [
-        'accountId'  => 'AccountId',
+        'accountId' => 'AccountId',
         'domainName' => 'DomainName',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->accountId) {
             $res['AccountId'] = $this->accountId;
         }
+
         if (null !== $this->domainName) {
             $res['DomainName'] = $this->domainName;
         }
@@ -45,17 +41,18 @@ class DeleteDomainRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DeleteDomainRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AccountId'])) {
             $model->accountId = $map['AccountId'];
         }
+
         if (isset($map['DomainName'])) {
             $model->domainName = $map['DomainName'];
         }

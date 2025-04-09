@@ -4,14 +4,12 @@
 
 namespace AlibabaCloud\SDK\Httpdns\V20160201\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Httpdns\V20160201\Models\GetResolveCountSummaryResponseBody\resolveSummary;
-use AlibabaCloud\Tea\Model;
 
 class GetResolveCountSummaryResponseBody extends Model
 {
     /**
-     * @example 3106FFF3-3612-542A-B2CD-3CF4CD48****
-     *
      * @var string
      */
     public $requestId;
@@ -21,38 +19,44 @@ class GetResolveCountSummaryResponseBody extends Model
      */
     public $resolveSummary;
     protected $_name = [
-        'requestId'      => 'RequestId',
+        'requestId' => 'RequestId',
         'resolveSummary' => 'ResolveSummary',
     ];
 
     public function validate()
     {
+        if (null !== $this->resolveSummary) {
+            $this->resolveSummary->validate();
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
+
         if (null !== $this->resolveSummary) {
-            $res['ResolveSummary'] = null !== $this->resolveSummary ? $this->resolveSummary->toMap() : null;
+            $res['ResolveSummary'] = null !== $this->resolveSummary ? $this->resolveSummary->toArray($noStream) : $this->resolveSummary;
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return GetResolveCountSummaryResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
+
         if (isset($map['ResolveSummary'])) {
             $model->resolveSummary = resolveSummary::fromMap($map['ResolveSummary']);
         }

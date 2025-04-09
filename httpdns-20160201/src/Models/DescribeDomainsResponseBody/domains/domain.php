@@ -4,13 +4,11 @@
 
 namespace AlibabaCloud\SDK\Httpdns\V20160201\Models\DescribeDomainsResponseBody\domains;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class domain extends Model
 {
     /**
-     * @example www.aliyun.com
-     *
      * @var string
      */
     public $domainName;
@@ -20,9 +18,10 @@ class domain extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->domainName) {
@@ -32,11 +31,11 @@ class domain extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return domain
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

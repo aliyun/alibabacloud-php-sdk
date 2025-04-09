@@ -4,42 +4,36 @@
 
 namespace AlibabaCloud\SDK\Httpdns\V20160201\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class GetResolveCountSummaryRequest extends Model
 {
     /**
-     * @description This parameter is required.
-     *
-     * @example day
-     *
      * @var string
      */
     public $granularity;
 
     /**
-     * @description This parameter is required.
-     *
-     * @example 7
-     *
      * @var int
      */
     public $timeSpan;
     protected $_name = [
         'granularity' => 'Granularity',
-        'timeSpan'    => 'TimeSpan',
+        'timeSpan' => 'TimeSpan',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->granularity) {
             $res['Granularity'] = $this->granularity;
         }
+
         if (null !== $this->timeSpan) {
             $res['TimeSpan'] = $this->timeSpan;
         }
@@ -47,17 +41,18 @@ class GetResolveCountSummaryRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return GetResolveCountSummaryRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Granularity'])) {
             $model->granularity = $map['Granularity'];
         }
+
         if (isset($map['TimeSpan'])) {
             $model->timeSpan = $map['TimeSpan'];
         }

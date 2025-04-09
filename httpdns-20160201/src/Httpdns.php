@@ -4,8 +4,7 @@
 
 namespace AlibabaCloud\SDK\Httpdns\V20160201;
 
-use AlibabaCloud\Endpoint\Endpoint;
-use AlibabaCloud\OpenApiUtil\OpenApiUtilClient;
+use AlibabaCloud\Dara\Models\RuntimeOptions;
 use AlibabaCloud\SDK\Httpdns\V20160201\Models\AddDomainRequest;
 use AlibabaCloud\SDK\Httpdns\V20160201\Models\AddDomainResponse;
 use AlibabaCloud\SDK\Httpdns\V20160201\Models\DeleteDomainRequest;
@@ -22,11 +21,10 @@ use AlibabaCloud\SDK\Httpdns\V20160201\Models\ListDomainsResponse;
 use AlibabaCloud\SDK\Httpdns\V20160201\Models\RefreshResolveCacheRequest;
 use AlibabaCloud\SDK\Httpdns\V20160201\Models\RefreshResolveCacheResponse;
 use AlibabaCloud\SDK\Httpdns\V20160201\Models\RefreshResolveCacheShrinkRequest;
-use AlibabaCloud\Tea\Utils\Utils;
-use AlibabaCloud\Tea\Utils\Utils\RuntimeOptions;
 use Darabonba\OpenApi\Models\OpenApiRequest;
 use Darabonba\OpenApi\Models\Params;
 use Darabonba\OpenApi\OpenApiClient;
+use Darabonba\OpenApi\Utils;
 
 class Httpdns extends OpenApiClient
 {
@@ -51,58 +49,73 @@ class Httpdns extends OpenApiClient
      */
     public function getEndpoint($productId, $regionId, $endpointRule, $network, $suffix, $endpointMap, $endpoint)
     {
-        if (!Utils::empty_($endpoint)) {
+        if (null !== $endpoint) {
             return $endpoint;
         }
-        if (!Utils::isUnset($endpointMap) && !Utils::empty_(@$endpointMap[$regionId])) {
+
+        if (null !== $endpointMap && null !== @$endpointMap[$regionId]) {
             return @$endpointMap[$regionId];
         }
 
-        return Endpoint::getEndpointRules($productId, $regionId, $endpointRule, $network, $suffix);
+        return Utils::getEndpointRules($productId, $regionId, $endpointRule, $network, $suffix);
     }
 
     /**
-     * @summary 添加域名
-     *  *
-     * @param AddDomainRequest $request AddDomainRequest
-     * @param RuntimeOptions   $runtime runtime options for this request RuntimeOptions
+     * 添加域名.
      *
-     * @return AddDomainResponse AddDomainResponse
+     * @param request - AddDomainRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns AddDomainResponse
+     *
+     * @param AddDomainRequest $request
+     * @param RuntimeOptions   $runtime
+     *
+     * @return AddDomainResponse
      */
     public function addDomainWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->accountId)) {
-            $query['AccountId'] = $request->accountId;
+        if (null !== $request->accountId) {
+            @$query['AccountId'] = $request->accountId;
         }
-        if (!Utils::isUnset($request->domainName)) {
-            $query['DomainName'] = $request->domainName;
+
+        if (null !== $request->domainName) {
+            @$query['DomainName'] = $request->domainName;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'AddDomain',
-            'version'     => '2016-02-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'AddDomain',
+            'version' => '2016-02-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return AddDomainResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return AddDomainResponse::fromMap($this->callApi($params, $req, $runtime));
+        return AddDomainResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary 添加域名
-     *  *
-     * @param AddDomainRequest $request AddDomainRequest
+     * 添加域名.
      *
-     * @return AddDomainResponse AddDomainResponse
+     * @param request - AddDomainRequest
+     *
+     * @returns AddDomainResponse
+     *
+     * @param AddDomainRequest $request
+     *
+     * @return AddDomainResponse
      */
     public function addDomain($request)
     {
@@ -112,47 +125,61 @@ class Httpdns extends OpenApiClient
     }
 
     /**
-     * @summary 删除域名
-     *  *
-     * @param DeleteDomainRequest $request DeleteDomainRequest
-     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
+     * 删除域名.
      *
-     * @return DeleteDomainResponse DeleteDomainResponse
+     * @param request - DeleteDomainRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteDomainResponse
+     *
+     * @param DeleteDomainRequest $request
+     * @param RuntimeOptions      $runtime
+     *
+     * @return DeleteDomainResponse
      */
     public function deleteDomainWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->accountId)) {
-            $query['AccountId'] = $request->accountId;
+        if (null !== $request->accountId) {
+            @$query['AccountId'] = $request->accountId;
         }
-        if (!Utils::isUnset($request->domainName)) {
-            $query['DomainName'] = $request->domainName;
+
+        if (null !== $request->domainName) {
+            @$query['DomainName'] = $request->domainName;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DeleteDomain',
-            'version'     => '2016-02-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DeleteDomain',
+            'version' => '2016-02-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DeleteDomainResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DeleteDomainResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DeleteDomainResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary 删除域名
-     *  *
-     * @param DeleteDomainRequest $request DeleteDomainRequest
+     * 删除域名.
      *
-     * @return DeleteDomainResponse DeleteDomainResponse
+     * @param request - DeleteDomainRequest
+     *
+     * @returns DeleteDomainResponse
+     *
+     * @param DeleteDomainRequest $request
+     *
+     * @return DeleteDomainResponse
      */
     public function deleteDomain($request)
     {
@@ -162,46 +189,61 @@ class Httpdns extends OpenApiClient
     }
 
     /**
-     * @param DescribeDomainsRequest $request DescribeDomainsRequest
-     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
+     * @param request - DescribeDomainsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
      *
-     * @return DescribeDomainsResponse DescribeDomainsResponse
+     * @returns DescribeDomainsResponse
+     *
+     * @param DescribeDomainsRequest $request
+     * @param RuntimeOptions         $runtime
+     *
+     * @return DescribeDomainsResponse
      */
     public function describeDomainsWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->accountId)) {
-            $query['AccountId'] = $request->accountId;
+        if (null !== $request->accountId) {
+            @$query['AccountId'] = $request->accountId;
         }
-        if (!Utils::isUnset($request->pageNumber)) {
-            $query['PageNumber'] = $request->pageNumber;
+
+        if (null !== $request->pageNumber) {
+            @$query['PageNumber'] = $request->pageNumber;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['PageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeDomains',
-            'version'     => '2016-02-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeDomains',
+            'version' => '2016-02-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DescribeDomainsResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DescribeDomainsResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DescribeDomainsResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @param DescribeDomainsRequest $request DescribeDomainsRequest
+     * @param request - DescribeDomainsRequest
      *
-     * @return DescribeDomainsResponse DescribeDomainsResponse
+     * @returns DescribeDomainsResponse
+     *
+     * @param DescribeDomainsRequest $request
+     *
+     * @return DescribeDomainsResponse
      */
     public function describeDomains($request)
     {
@@ -211,34 +253,44 @@ class Httpdns extends OpenApiClient
     }
 
     /**
-     * @summary 获取用户信息包含配置项
-     *  *
-     * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
+     * 获取用户信息包含配置项.
      *
-     * @return GetAccountInfoResponse GetAccountInfoResponse
+     * @param request - GetAccountInfoRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetAccountInfoResponse
+     *
+     * @param RuntimeOptions $runtime
+     *
+     * @return GetAccountInfoResponse
      */
     public function getAccountInfoWithOptions($runtime)
     {
-        $req    = new OpenApiRequest([]);
+        $req = new OpenApiRequest([]);
         $params = new Params([
-            'action'      => 'GetAccountInfo',
-            'version'     => '2016-02-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetAccountInfo',
+            'version' => '2016-02-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return GetAccountInfoResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GetAccountInfoResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetAccountInfoResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary 获取用户信息包含配置项
-     *  *
-     * @return GetAccountInfoResponse GetAccountInfoResponse
+     * 获取用户信息包含配置项.
+     *
+     * @returns GetAccountInfoResponse
+     *
+     * @return GetAccountInfoResponse
      */
     public function getAccountInfo()
     {
@@ -248,47 +300,61 @@ class Httpdns extends OpenApiClient
     }
 
     /**
-     * @summary 解析次数概览
-     *  *
-     * @param GetResolveCountSummaryRequest $request GetResolveCountSummaryRequest
-     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
+     * 解析次数概览.
      *
-     * @return GetResolveCountSummaryResponse GetResolveCountSummaryResponse
+     * @param request - GetResolveCountSummaryRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetResolveCountSummaryResponse
+     *
+     * @param GetResolveCountSummaryRequest $request
+     * @param RuntimeOptions                $runtime
+     *
+     * @return GetResolveCountSummaryResponse
      */
     public function getResolveCountSummaryWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->granularity)) {
-            $query['Granularity'] = $request->granularity;
+        if (null !== $request->granularity) {
+            @$query['Granularity'] = $request->granularity;
         }
-        if (!Utils::isUnset($request->timeSpan)) {
-            $query['TimeSpan'] = $request->timeSpan;
+
+        if (null !== $request->timeSpan) {
+            @$query['TimeSpan'] = $request->timeSpan;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'GetResolveCountSummary',
-            'version'     => '2016-02-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetResolveCountSummary',
+            'version' => '2016-02-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return GetResolveCountSummaryResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GetResolveCountSummaryResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetResolveCountSummaryResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary 解析次数概览
-     *  *
-     * @param GetResolveCountSummaryRequest $request GetResolveCountSummaryRequest
+     * 解析次数概览.
      *
-     * @return GetResolveCountSummaryResponse GetResolveCountSummaryResponse
+     * @param request - GetResolveCountSummaryRequest
+     *
+     * @returns GetResolveCountSummaryResponse
+     *
+     * @param GetResolveCountSummaryRequest $request
+     *
+     * @return GetResolveCountSummaryResponse
      */
     public function getResolveCountSummary($request)
     {
@@ -298,49 +364,65 @@ class Httpdns extends OpenApiClient
     }
 
     /**
-     * @param GetResolveStatisticsRequest $request GetResolveStatisticsRequest
-     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
+     * @param request - GetResolveStatisticsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
      *
-     * @return GetResolveStatisticsResponse GetResolveStatisticsResponse
+     * @returns GetResolveStatisticsResponse
+     *
+     * @param GetResolveStatisticsRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return GetResolveStatisticsResponse
      */
     public function getResolveStatisticsWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->domainName)) {
-            $query['DomainName'] = $request->domainName;
+        if (null !== $request->domainName) {
+            @$query['DomainName'] = $request->domainName;
         }
-        if (!Utils::isUnset($request->granularity)) {
-            $query['Granularity'] = $request->granularity;
+
+        if (null !== $request->granularity) {
+            @$query['Granularity'] = $request->granularity;
         }
-        if (!Utils::isUnset($request->protocolName)) {
-            $query['ProtocolName'] = $request->protocolName;
+
+        if (null !== $request->protocolName) {
+            @$query['ProtocolName'] = $request->protocolName;
         }
-        if (!Utils::isUnset($request->timeSpan)) {
-            $query['TimeSpan'] = $request->timeSpan;
+
+        if (null !== $request->timeSpan) {
+            @$query['TimeSpan'] = $request->timeSpan;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'GetResolveStatistics',
-            'version'     => '2016-02-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetResolveStatistics',
+            'version' => '2016-02-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return GetResolveStatisticsResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GetResolveStatisticsResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetResolveStatisticsResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @param GetResolveStatisticsRequest $request GetResolveStatisticsRequest
+     * @param request - GetResolveStatisticsRequest
      *
-     * @return GetResolveStatisticsResponse GetResolveStatisticsResponse
+     * @returns GetResolveStatisticsResponse
+     *
+     * @param GetResolveStatisticsRequest $request
+     *
+     * @return GetResolveStatisticsResponse
      */
     public function getResolveStatistics($request)
     {
@@ -350,53 +432,69 @@ class Httpdns extends OpenApiClient
     }
 
     /**
-     * @summary 列举域名以及解析统计信息
-     *  *
-     * @param ListDomainsRequest $request ListDomainsRequest
-     * @param RuntimeOptions     $runtime runtime options for this request RuntimeOptions
+     * 列举域名以及解析统计信息.
      *
-     * @return ListDomainsResponse ListDomainsResponse
+     * @param request - ListDomainsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListDomainsResponse
+     *
+     * @param ListDomainsRequest $request
+     * @param RuntimeOptions     $runtime
+     *
+     * @return ListDomainsResponse
      */
     public function listDomainsWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->pageNumber)) {
-            $query['PageNumber'] = $request->pageNumber;
+        if (null !== $request->pageNumber) {
+            @$query['PageNumber'] = $request->pageNumber;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['PageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
         }
-        if (!Utils::isUnset($request->search)) {
-            $query['Search'] = $request->search;
+
+        if (null !== $request->search) {
+            @$query['Search'] = $request->search;
         }
-        if (!Utils::isUnset($request->withoutMeteringData)) {
-            $query['WithoutMeteringData'] = $request->withoutMeteringData;
+
+        if (null !== $request->withoutMeteringData) {
+            @$query['WithoutMeteringData'] = $request->withoutMeteringData;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListDomains',
-            'version'     => '2016-02-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListDomains',
+            'version' => '2016-02-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ListDomainsResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ListDomainsResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListDomainsResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary 列举域名以及解析统计信息
-     *  *
-     * @param ListDomainsRequest $request ListDomainsRequest
+     * 列举域名以及解析统计信息.
      *
-     * @return ListDomainsResponse ListDomainsResponse
+     * @param request - ListDomainsRequest
+     *
+     * @returns ListDomainsResponse
+     *
+     * @param ListDomainsRequest $request
+     *
+     * @return ListDomainsResponse
      */
     public function listDomains($request)
     {
@@ -406,49 +504,63 @@ class Httpdns extends OpenApiClient
     }
 
     /**
-     * @summary 刷新域名缓存
-     *  *
-     * @param RefreshResolveCacheRequest $tmpReq  RefreshResolveCacheRequest
-     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
+     * 刷新域名缓存.
      *
-     * @return RefreshResolveCacheResponse RefreshResolveCacheResponse
+     * @param tmpReq - RefreshResolveCacheRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns RefreshResolveCacheResponse
+     *
+     * @param RefreshResolveCacheRequest $tmpReq
+     * @param RuntimeOptions             $runtime
+     *
+     * @return RefreshResolveCacheResponse
      */
     public function refreshResolveCacheWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new RefreshResolveCacheShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->domains)) {
-            $request->domainsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->domains, 'Domains', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->domains) {
+            $request->domainsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->domains, 'Domains', 'json');
         }
+
         $query = [];
-        if (!Utils::isUnset($request->domainsShrink)) {
-            $query['Domains'] = $request->domainsShrink;
+        if (null !== $request->domainsShrink) {
+            @$query['Domains'] = $request->domainsShrink;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'RefreshResolveCache',
-            'version'     => '2016-02-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'RefreshResolveCache',
+            'version' => '2016-02-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return RefreshResolveCacheResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return RefreshResolveCacheResponse::fromMap($this->callApi($params, $req, $runtime));
+        return RefreshResolveCacheResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary 刷新域名缓存
-     *  *
-     * @param RefreshResolveCacheRequest $request RefreshResolveCacheRequest
+     * 刷新域名缓存.
      *
-     * @return RefreshResolveCacheResponse RefreshResolveCacheResponse
+     * @param request - RefreshResolveCacheRequest
+     *
+     * @returns RefreshResolveCacheResponse
+     *
+     * @param RefreshResolveCacheRequest $request
+     *
+     * @return RefreshResolveCacheResponse
      */
     public function refreshResolveCache($request)
     {

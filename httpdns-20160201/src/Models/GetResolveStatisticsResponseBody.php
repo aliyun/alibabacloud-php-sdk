@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Httpdns\V20160201\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Httpdns\V20160201\Models\GetResolveStatisticsResponseBody\dataPoints;
-use AlibabaCloud\Tea\Model;
 
 class GetResolveStatisticsResponseBody extends Model
 {
@@ -15,26 +15,29 @@ class GetResolveStatisticsResponseBody extends Model
     public $dataPoints;
 
     /**
-     * @example 50F9C40E-188D-B00B-BE2C-7427E531****
-     *
      * @var string
      */
     public $requestId;
     protected $_name = [
         'dataPoints' => 'DataPoints',
-        'requestId'  => 'RequestId',
+        'requestId' => 'RequestId',
     ];
 
     public function validate()
     {
+        if (null !== $this->dataPoints) {
+            $this->dataPoints->validate();
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->dataPoints) {
-            $res['DataPoints'] = null !== $this->dataPoints ? $this->dataPoints->toMap() : null;
+            $res['DataPoints'] = null !== $this->dataPoints ? $this->dataPoints->toArray($noStream) : $this->dataPoints;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -42,17 +45,18 @@ class GetResolveStatisticsResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return GetResolveStatisticsResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['DataPoints'])) {
             $model->dataPoints = dataPoints::fromMap($map['DataPoints']);
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
