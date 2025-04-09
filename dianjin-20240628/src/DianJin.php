@@ -37,6 +37,8 @@ use AlibabaCloud\SDK\DianJin\V20240628\Models\GetChatQuestionRespRequest;
 use AlibabaCloud\SDK\DianJin\V20240628\Models\GetChatQuestionRespResponse;
 use AlibabaCloud\SDK\DianJin\V20240628\Models\GetDialogAnalysisResultRequest;
 use AlibabaCloud\SDK\DianJin\V20240628\Models\GetDialogAnalysisResultResponse;
+use AlibabaCloud\SDK\DianJin\V20240628\Models\GetDialogDetailRequest;
+use AlibabaCloud\SDK\DianJin\V20240628\Models\GetDialogDetailResponse;
 use AlibabaCloud\SDK\DianJin\V20240628\Models\GetDocumentChunkListRequest;
 use AlibabaCloud\SDK\DianJin\V20240628\Models\GetDocumentChunkListResponse;
 use AlibabaCloud\SDK\DianJin\V20240628\Models\GetDocumentListRequest;
@@ -1367,6 +1369,72 @@ class DianJin extends OpenApiClient
         $headers = [];
 
         return $this->getDialogAnalysisResultWithOptions($workspaceId, $request, $headers, $runtime);
+    }
+
+    /**
+     * 获取异步任务的结果.
+     *
+     * @param request - GetDialogDetailRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetDialogDetailResponse
+     *
+     * @param string                 $workspaceId
+     * @param GetDialogDetailRequest $request
+     * @param string[]               $headers
+     * @param RuntimeOptions         $runtime
+     *
+     * @return GetDialogDetailResponse
+     */
+    public function getDialogDetailWithOptions($workspaceId, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->sessionId) {
+            @$query['sessionId'] = $request->sessionId;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'GetDialogDetail',
+            'version' => '2024-06-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/' . Url::percentEncode($workspaceId) . '/api/virtualHuman/dialog/detail',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return GetDialogDetailResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
+
+        return GetDialogDetailResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * 获取异步任务的结果.
+     *
+     * @param request - GetDialogDetailRequest
+     *
+     * @returns GetDialogDetailResponse
+     *
+     * @param string                 $workspaceId
+     * @param GetDialogDetailRequest $request
+     *
+     * @return GetDialogDetailResponse
+     */
+    public function getDialogDetail($workspaceId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->getDialogDetailWithOptions($workspaceId, $request, $headers, $runtime);
     }
 
     /**
