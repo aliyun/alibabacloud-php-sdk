@@ -29,8 +29,6 @@ use AlibabaCloud\SDK\Brainindustrial\V20200920\Models\ListLicensesRequest;
 use AlibabaCloud\SDK\Brainindustrial\V20200920\Models\ListLicensesResponse;
 use AlibabaCloud\SDK\Brainindustrial\V20200920\Models\ListUserResourcesRequest;
 use AlibabaCloud\SDK\Brainindustrial\V20200920\Models\ListUserResourcesResponse;
-use AlibabaCloud\SDK\Brainindustrial\V20200920\Models\OpenApiInvokeRequest;
-use AlibabaCloud\SDK\Brainindustrial\V20200920\Models\OpenApiInvokeResponse;
 use AlibabaCloud\SDK\Brainindustrial\V20200920\Models\UpdateLicenseDescriptionRequest;
 use AlibabaCloud\SDK\Brainindustrial\V20200920\Models\UpdateLicenseDescriptionResponse;
 use Darabonba\OpenApi\Models\OpenApiRequest;
@@ -848,76 +846,6 @@ class Brainindustrial extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->listUserResourcesWithOptions($request, $runtime);
-    }
-
-    /**
-     * 调用aics openapi.
-     *
-     * @param request - OpenApiInvokeRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns OpenApiInvokeResponse
-     *
-     * @param OpenApiInvokeRequest $request
-     * @param RuntimeOptions       $runtime
-     *
-     * @return OpenApiInvokeResponse
-     */
-    public function openApiInvokeWithOptions($request, $runtime)
-    {
-        $request->validate();
-        $query = [];
-        if (null !== $request->nodeId) {
-            @$query['NodeId'] = $request->nodeId;
-        }
-
-        if (null !== $request->serviceId) {
-            @$query['ServiceId'] = $request->serviceId;
-        }
-
-        $body = [];
-        if (null !== $request->param) {
-            @$body['Param'] = $request->param;
-        }
-
-        $req = new OpenApiRequest([
-            'query' => Utils::query($query),
-            'body' => Utils::parseToMap($body),
-        ]);
-        $params = new Params([
-            'action' => 'OpenApiInvoke',
-            'version' => '2020-09-20',
-            'protocol' => 'HTTPS',
-            'pathname' => '/',
-            'method' => 'POST',
-            'authType' => 'AK',
-            'style' => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType' => 'json',
-        ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return OpenApiInvokeResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
-
-        return OpenApiInvokeResponse::fromMap($this->execute($params, $req, $runtime));
-    }
-
-    /**
-     * 调用aics openapi.
-     *
-     * @param request - OpenApiInvokeRequest
-     *
-     * @returns OpenApiInvokeResponse
-     *
-     * @param OpenApiInvokeRequest $request
-     *
-     * @return OpenApiInvokeResponse
-     */
-    public function openApiInvoke($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->openApiInvokeWithOptions($request, $runtime);
     }
 
     /**
