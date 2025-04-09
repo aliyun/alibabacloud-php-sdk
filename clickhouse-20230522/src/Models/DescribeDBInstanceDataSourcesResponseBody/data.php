@@ -4,39 +4,27 @@
 
 namespace AlibabaCloud\SDK\Clickhouse\V20230522\Models\DescribeDBInstanceDataSourcesResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Clickhouse\V20230522\Models\DescribeDBInstanceDataSourcesResponseBody\data\columns;
-use AlibabaCloud\Tea\Model;
 
 class data extends Model
 {
     /**
-     * @description The columns.
-     *
      * @var columns[]
      */
     public $columns;
 
     /**
-     * @description The cluster ID.
-     *
-     * @example cc-bp100p4q1g9z3****
-     *
      * @var string
      */
     public $DBInstanceId;
 
     /**
-     * @description The account.
-     *
-     * @example default
-     *
      * @var string
      */
     public $schemas;
 
     /**
-     * @description The tables.
-     *
      * @var string[]
      */
     public $tables;
@@ -47,59 +35,84 @@ class data extends Model
         'tables' => 'Tables',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->columns)) {
+            Model::validateArray($this->columns);
+        }
+        if (\is_array($this->tables)) {
+            Model::validateArray($this->tables);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->columns) {
-            $res['Columns'] = [];
-            if (null !== $this->columns && \is_array($this->columns)) {
-                $n = 0;
-                foreach ($this->columns as $item) {
-                    $res['Columns'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->columns)) {
+                $res['Columns'] = [];
+                $n1 = 0;
+                foreach ($this->columns as $item1) {
+                    $res['Columns'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
+
         if (null !== $this->DBInstanceId) {
             $res['DBInstanceId'] = $this->DBInstanceId;
         }
+
         if (null !== $this->schemas) {
             $res['Schemas'] = $this->schemas;
         }
+
         if (null !== $this->tables) {
-            $res['Tables'] = $this->tables;
+            if (\is_array($this->tables)) {
+                $res['Tables'] = [];
+                $n1 = 0;
+                foreach ($this->tables as $item1) {
+                    $res['Tables'][$n1++] = $item1;
+                }
+            }
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return data
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Columns'])) {
             if (!empty($map['Columns'])) {
                 $model->columns = [];
-                $n = 0;
-                foreach ($map['Columns'] as $item) {
-                    $model->columns[$n++] = null !== $item ? columns::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['Columns'] as $item1) {
+                    $model->columns[$n1++] = columns::fromMap($item1);
                 }
             }
         }
+
         if (isset($map['DBInstanceId'])) {
             $model->DBInstanceId = $map['DBInstanceId'];
         }
+
         if (isset($map['Schemas'])) {
             $model->schemas = $map['Schemas'];
         }
+
         if (isset($map['Tables'])) {
             if (!empty($map['Tables'])) {
-                $model->tables = $map['Tables'];
+                $model->tables = [];
+                $n1 = 0;
+                foreach ($map['Tables'] as $item1) {
+                    $model->tables[$n1++] = $item1;
+                }
             }
         }
 

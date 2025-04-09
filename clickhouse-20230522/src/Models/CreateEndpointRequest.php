@@ -4,50 +4,26 @@
 
 namespace AlibabaCloud\SDK\Clickhouse\V20230522\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class CreateEndpointRequest extends Model
 {
     /**
-     * @description The prefix of the new endpoint. The prefix of the ConnectionString parameter.
-     *
-     * @example cc-bp100p4q1g9z3****-clickhouse.clickhouseserver.rds.aliyuncs.com
-     *
      * @var string
      */
     public $connectionPrefix;
 
     /**
-     * @description The cluster ID.
-     *
-     * This parameter is required.
-     *
-     * @example cc-bp100p4q1g9z3****
-     *
      * @var string
      */
     public $DBInstanceId;
 
     /**
-     * @description The network type.
-     *
-     * Valid values:
-     *
-     *   Public
-     *
-     * @example Public
-     *
      * @var string
      */
     public $DBInstanceNetType;
 
     /**
-     * @description The region ID.
-     *
-     * This parameter is required.
-     *
-     * @example cn-hangzhou
-     *
      * @var string
      */
     public $regionId;
@@ -58,20 +34,26 @@ class CreateEndpointRequest extends Model
         'regionId' => 'RegionId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->connectionPrefix) {
             $res['ConnectionPrefix'] = $this->connectionPrefix;
         }
+
         if (null !== $this->DBInstanceId) {
             $res['DBInstanceId'] = $this->DBInstanceId;
         }
+
         if (null !== $this->DBInstanceNetType) {
             $res['DBInstanceNetType'] = $this->DBInstanceNetType;
         }
+
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
@@ -79,23 +61,26 @@ class CreateEndpointRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return CreateEndpointRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ConnectionPrefix'])) {
             $model->connectionPrefix = $map['ConnectionPrefix'];
         }
+
         if (isset($map['DBInstanceId'])) {
             $model->DBInstanceId = $map['DBInstanceId'];
         }
+
         if (isset($map['DBInstanceNetType'])) {
             $model->DBInstanceNetType = $map['DBInstanceNetType'];
         }
+
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
         }

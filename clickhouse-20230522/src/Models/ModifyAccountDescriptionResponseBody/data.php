@@ -4,24 +4,16 @@
 
 namespace AlibabaCloud\SDK\Clickhouse\V20230522\Models\ModifyAccountDescriptionResponseBody;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class data extends Model
 {
     /**
-     * @description The name of the database account.
-     *
-     * @example testuser
-     *
      * @var string
      */
     public $account;
 
     /**
-     * @description The cluster ID.
-     *
-     * @example cc-xxxxx
-     *
      * @var string
      */
     public $DBInstanceId;
@@ -30,14 +22,18 @@ class data extends Model
         'DBInstanceId' => 'DBInstanceId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->account) {
             $res['Account'] = $this->account;
         }
+
         if (null !== $this->DBInstanceId) {
             $res['DBInstanceId'] = $this->DBInstanceId;
         }
@@ -45,17 +41,18 @@ class data extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return data
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Account'])) {
             $model->account = $map['Account'];
         }
+
         if (isset($map['DBInstanceId'])) {
             $model->DBInstanceId = $map['DBInstanceId'];
         }

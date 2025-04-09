@@ -4,61 +4,31 @@
 
 namespace AlibabaCloud\SDK\Clickhouse\V20230522\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class UpgradeMinorVersionRequest extends Model
 {
     /**
-     * @description The cluster ID.
-     *
-     * This parameter is required.
-     *
-     * @example cc-bp1jyis8p15we****
-     *
      * @var string
      */
     public $DBInstanceId;
 
     /**
-     * @description The region ID.
-     *
-     * @example cn-hangzhou
-     *
      * @var string
      */
     public $regionId;
 
     /**
-     * @description The update time. Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC.
-     *
-     * >  If you set SwitchTimeMode to SpecifyTime, you must configure this parameter to specify the update time.
-     *
-     * @example 2023-01-09T05:00:00Z
-     *
      * @var string
      */
     public $switchTime;
 
     /**
-     * @description Specifies whether to update the minor engine version of the cluster immediately. Valid values:
-     *
-     *   **Immediate**: The system immediately performs the update.
-     *   **MaintainTime**: The system performs the update during the specified maintenance window.
-     *   **SpecifyTime**: The system performs the update at a specified time.
-     *
-     * @example Immediate
-     *
      * @var string
      */
     public $switchTimeMode;
 
     /**
-     * @description The minor engine version to which you want to update.
-     *
-     * >  By default, TargetMinorVersion is not set and the minor engine version of the cluster is updated to the latest version.
-     *
-     * @example 23.8.1.41495_6
-     *
      * @var string
      */
     public $targetMinorVersion;
@@ -70,23 +40,30 @@ class UpgradeMinorVersionRequest extends Model
         'targetMinorVersion' => 'TargetMinorVersion',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->DBInstanceId) {
             $res['DBInstanceId'] = $this->DBInstanceId;
         }
+
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
+
         if (null !== $this->switchTime) {
             $res['SwitchTime'] = $this->switchTime;
         }
+
         if (null !== $this->switchTimeMode) {
             $res['SwitchTimeMode'] = $this->switchTimeMode;
         }
+
         if (null !== $this->targetMinorVersion) {
             $res['TargetMinorVersion'] = $this->targetMinorVersion;
         }
@@ -94,26 +71,30 @@ class UpgradeMinorVersionRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return UpgradeMinorVersionRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['DBInstanceId'])) {
             $model->DBInstanceId = $map['DBInstanceId'];
         }
+
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
         }
+
         if (isset($map['SwitchTime'])) {
             $model->switchTime = $map['SwitchTime'];
         }
+
         if (isset($map['SwitchTimeMode'])) {
             $model->switchTimeMode = $map['SwitchTimeMode'];
         }
+
         if (isset($map['TargetMinorVersion'])) {
             $model->targetMinorVersion = $map['TargetMinorVersion'];
         }

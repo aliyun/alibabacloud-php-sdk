@@ -4,49 +4,26 @@
 
 namespace AlibabaCloud\SDK\Clickhouse\V20230522\Models\ModifyAccountAuthorityRequest;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class dmlAuthSetting extends Model
 {
     /**
-     * @description The databases on which you want to grant permissions. Separate multiple databases with commas (,).
-     *
      * @var string[]
      */
     public $allowDatabases;
 
     /**
-     * @description The dictionaries on which you want to grant permissions. Separate multiple dictionaries with commas (,).
-     *
      * @var string[]
      */
     public $allowDictionaries;
 
     /**
-     * @description Specifies whether to grant the DDL permissions to the database account. Valid values:
-     *
-     *   **true**: The account has the permissions to execute DDL statements.
-     *   **false**: The account does not have the permissions to execute DDL statements.
-     *
-     * This parameter is required.
-     *
-     * @example true
-     *
      * @var bool
      */
     public $ddlAuthority;
 
     /**
-     * @description Specifies whether to grant the DML permissions to the database account. Valid values:
-     *
-     *   **0**: The account has the permissions to read data from the database, write data to the database, and modify the settings of the database.
-     *   **1**: The account only has the permissions to read data from the database.
-     *   **2**: The account only has the permissions to read data from the database and modify the settings of the database.
-     *
-     * This parameter is required.
-     *
-     * @example 0
-     *
      * @var int
      */
     public $dmlAuthority;
@@ -57,20 +34,44 @@ class dmlAuthSetting extends Model
         'dmlAuthority' => 'DmlAuthority',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->allowDatabases)) {
+            Model::validateArray($this->allowDatabases);
+        }
+        if (\is_array($this->allowDictionaries)) {
+            Model::validateArray($this->allowDictionaries);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->allowDatabases) {
-            $res['AllowDatabases'] = $this->allowDatabases;
+            if (\is_array($this->allowDatabases)) {
+                $res['AllowDatabases'] = [];
+                $n1 = 0;
+                foreach ($this->allowDatabases as $item1) {
+                    $res['AllowDatabases'][$n1++] = $item1;
+                }
+            }
         }
+
         if (null !== $this->allowDictionaries) {
-            $res['AllowDictionaries'] = $this->allowDictionaries;
+            if (\is_array($this->allowDictionaries)) {
+                $res['AllowDictionaries'] = [];
+                $n1 = 0;
+                foreach ($this->allowDictionaries as $item1) {
+                    $res['AllowDictionaries'][$n1++] = $item1;
+                }
+            }
         }
+
         if (null !== $this->ddlAuthority) {
             $res['DdlAuthority'] = $this->ddlAuthority;
         }
+
         if (null !== $this->dmlAuthority) {
             $res['DmlAuthority'] = $this->dmlAuthority;
         }
@@ -78,27 +79,38 @@ class dmlAuthSetting extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return dmlAuthSetting
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AllowDatabases'])) {
             if (!empty($map['AllowDatabases'])) {
-                $model->allowDatabases = $map['AllowDatabases'];
+                $model->allowDatabases = [];
+                $n1 = 0;
+                foreach ($map['AllowDatabases'] as $item1) {
+                    $model->allowDatabases[$n1++] = $item1;
+                }
             }
         }
+
         if (isset($map['AllowDictionaries'])) {
             if (!empty($map['AllowDictionaries'])) {
-                $model->allowDictionaries = $map['AllowDictionaries'];
+                $model->allowDictionaries = [];
+                $n1 = 0;
+                foreach ($map['AllowDictionaries'] as $item1) {
+                    $model->allowDictionaries[$n1++] = $item1;
+                }
             }
         }
+
         if (isset($map['DdlAuthority'])) {
             $model->ddlAuthority = $map['DdlAuthority'];
         }
+
         if (isset($map['DmlAuthority'])) {
             $model->dmlAuthority = $map['DmlAuthority'];
         }

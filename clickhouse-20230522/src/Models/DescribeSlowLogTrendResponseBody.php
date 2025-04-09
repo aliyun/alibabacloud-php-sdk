@@ -4,23 +4,17 @@
 
 namespace AlibabaCloud\SDK\Clickhouse\V20230522\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Clickhouse\V20230522\Models\DescribeSlowLogTrendResponseBody\data;
-use AlibabaCloud\Tea\Model;
 
 class DescribeSlowLogTrendResponseBody extends Model
 {
     /**
-     * @description The returned result.
-     *
      * @var data
      */
     public $data;
 
     /**
-     * @description The request ID.
-     *
-     * @example 7D3ECB0E-98CA-5E08-A9CA-F70C5A1E9BDF
-     *
      * @var string
      */
     public $requestId;
@@ -29,14 +23,21 @@ class DescribeSlowLogTrendResponseBody extends Model
         'requestId' => 'RequestId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (null !== $this->data) {
+            $this->data->validate();
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->data) {
-            $res['Data'] = null !== $this->data ? $this->data->toMap() : null;
+            $res['Data'] = null !== $this->data ? $this->data->toArray($noStream) : $this->data;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -44,17 +45,18 @@ class DescribeSlowLogTrendResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeSlowLogTrendResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Data'])) {
             $model->data = data::fromMap($map['Data']);
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

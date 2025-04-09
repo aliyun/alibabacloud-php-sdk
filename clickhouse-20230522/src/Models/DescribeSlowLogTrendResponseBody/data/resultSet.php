@@ -4,51 +4,31 @@
 
 namespace AlibabaCloud\SDK\Clickhouse\V20230522\Models\DescribeSlowLogTrendResponseBody\data;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class resultSet extends Model
 {
     /**
-     * @description The average execution duration of slow SQL queries. Minimum value: **1000**. Unit: milliseconds.
-     *
-     * @example 2000
-     *
      * @var int
      */
     public $avgQueryDurationMs;
 
     /**
-     * @description The total number of SQL queries within the specified time range.
-     *
-     * @example 1
-     *
      * @var int
      */
     public $cnt;
 
     /**
-     * @description The maximum execution duration of slow SQL queries. Minimum value: **1000**. Unit: milliseconds.
-     *
-     * @example 3000
-     *
      * @var int
      */
     public $maxQueryDurationMs;
 
     /**
-     * @description The minimum execution duration of slow SQL queries. Minimum value: **1000**. Unit: milliseconds.
-     *
-     * @example 1000
-     *
      * @var int
      */
     public $minQueryDurationMs;
 
     /**
-     * @description The beginning of the time range to query. The time is in the yyyy-MM-dd hh:mm:ss format. The time is displayed in UTC.
-     *
-     * @example 2023-04-13 17:48:00
-     *
      * @var string
      */
     public $queryStartTime;
@@ -60,23 +40,30 @@ class resultSet extends Model
         'queryStartTime' => 'QueryStartTime',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->avgQueryDurationMs) {
             $res['AvgQueryDurationMs'] = $this->avgQueryDurationMs;
         }
+
         if (null !== $this->cnt) {
             $res['Cnt'] = $this->cnt;
         }
+
         if (null !== $this->maxQueryDurationMs) {
             $res['MaxQueryDurationMs'] = $this->maxQueryDurationMs;
         }
+
         if (null !== $this->minQueryDurationMs) {
             $res['MinQueryDurationMs'] = $this->minQueryDurationMs;
         }
+
         if (null !== $this->queryStartTime) {
             $res['QueryStartTime'] = $this->queryStartTime;
         }
@@ -84,26 +71,30 @@ class resultSet extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return resultSet
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AvgQueryDurationMs'])) {
             $model->avgQueryDurationMs = $map['AvgQueryDurationMs'];
         }
+
         if (isset($map['Cnt'])) {
             $model->cnt = $map['Cnt'];
         }
+
         if (isset($map['MaxQueryDurationMs'])) {
             $model->maxQueryDurationMs = $map['MaxQueryDurationMs'];
         }
+
         if (isset($map['MinQueryDurationMs'])) {
             $model->minQueryDurationMs = $map['MinQueryDurationMs'];
         }
+
         if (isset($map['QueryStartTime'])) {
             $model->queryStartTime = $map['QueryStartTime'];
         }

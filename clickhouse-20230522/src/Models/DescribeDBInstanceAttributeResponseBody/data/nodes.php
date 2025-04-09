@@ -4,24 +4,16 @@
 
 namespace AlibabaCloud\SDK\Clickhouse\V20230522\Models\DescribeDBInstanceAttributeResponseBody\data;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class nodes extends Model
 {
     /**
-     * @description The node status.
-     *
-     * @example active
-     *
      * @var string
      */
     public $nodeStatus;
 
     /**
-     * @description The zone ID.
-     *
-     * @example cn-hangzhou-h
-     *
      * @var string
      */
     public $zoneId;
@@ -30,14 +22,18 @@ class nodes extends Model
         'zoneId' => 'ZoneId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->nodeStatus) {
             $res['NodeStatus'] = $this->nodeStatus;
         }
+
         if (null !== $this->zoneId) {
             $res['ZoneId'] = $this->zoneId;
         }
@@ -45,17 +41,18 @@ class nodes extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return nodes
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['NodeStatus'])) {
             $model->nodeStatus = $map['NodeStatus'];
         }
+
         if (isset($map['ZoneId'])) {
             $model->zoneId = $map['ZoneId'];
         }
