@@ -2,18 +2,18 @@
 
 // This file is auto-generated, don't edit it. Thanks.
 
-namespace AlibabaCloud\SDK\Searchplat\V20240529\Models\GetTextEmbeddingResponseBody;
+namespace AlibabaCloud\SDK\Searchplat\V20240529\Models\CreateDocumentAnalyzeTaskRequest;
 
 use AlibabaCloud\Dara\Model;
 
-class usage extends Model
+class strategy extends Model
 {
     /**
-     * @var int
+     * @var bool
      */
-    public $tokenCount;
+    public $enableSemantic;
     protected $_name = [
-        'tokenCount' => 'token_count',
+        'enableSemantic' => 'enable_semantic',
     ];
 
     public function validate()
@@ -24,8 +24,8 @@ class usage extends Model
     public function toArray($noStream = false)
     {
         $res = [];
-        if (null !== $this->tokenCount) {
-            $res['token_count'] = $this->tokenCount;
+        if (null !== $this->enableSemantic) {
+            $res['enable_semantic'] = $this->enableSemantic;
         }
 
         return $res;
@@ -39,8 +39,8 @@ class usage extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['token_count'])) {
-            $model->tokenCount = $map['token_count'];
+        if (isset($map['enable_semantic'])) {
+            $model->enableSemantic = $map['enable_semantic'];
         }
 
         return $model;

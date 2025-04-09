@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Searchplat\V20240529\Models\GetDocumentRankResponseBody\result;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class scores extends Model
 {
@@ -22,14 +22,18 @@ class scores extends Model
         'score' => 'score',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->index) {
             $res['index'] = $this->index;
         }
+
         if (null !== $this->score) {
             $res['score'] = $this->score;
         }
@@ -37,17 +41,18 @@ class scores extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return scores
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['index'])) {
             $model->index = $map['index'];
         }
+
         if (isset($map['score'])) {
             $model->score = $map['score'];
         }

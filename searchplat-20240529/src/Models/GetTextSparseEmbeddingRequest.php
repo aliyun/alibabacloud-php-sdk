@@ -4,20 +4,16 @@
 
 namespace AlibabaCloud\SDK\Searchplat\V20240529\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class GetTextSparseEmbeddingRequest extends Model
 {
     /**
-     * @description This parameter is required.
-     *
      * @var string[]
      */
     public $input;
 
     /**
-     * @example document
-     *
      * @var string
      */
     public $inputType;
@@ -32,17 +28,31 @@ class GetTextSparseEmbeddingRequest extends Model
         'returnToken' => 'return_token',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->input)) {
+            Model::validateArray($this->input);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->input) {
-            $res['input'] = $this->input;
+            if (\is_array($this->input)) {
+                $res['input'] = [];
+                $n1 = 0;
+                foreach ($this->input as $item1) {
+                    $res['input'][$n1++] = $item1;
+                }
+            }
         }
+
         if (null !== $this->inputType) {
             $res['input_type'] = $this->inputType;
         }
+
         if (null !== $this->returnToken) {
             $res['return_token'] = $this->returnToken;
         }
@@ -50,22 +60,28 @@ class GetTextSparseEmbeddingRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return GetTextSparseEmbeddingRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['input'])) {
             if (!empty($map['input'])) {
-                $model->input = $map['input'];
+                $model->input = [];
+                $n1 = 0;
+                foreach ($map['input'] as $item1) {
+                    $model->input[$n1++] = $item1;
+                }
             }
         }
+
         if (isset($map['input_type'])) {
             $model->inputType = $map['input_type'];
         }
+
         if (isset($map['return_token'])) {
             $model->returnToken = $map['return_token'];
         }

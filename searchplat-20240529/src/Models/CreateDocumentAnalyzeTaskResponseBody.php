@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Searchplat\V20240529\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Searchplat\V20240529\Models\CreateDocumentAnalyzeTaskResponseBody\result;
-use AlibabaCloud\Tea\Model;
 
 class CreateDocumentAnalyzeTaskResponseBody extends Model
 {
@@ -29,38 +29,48 @@ class CreateDocumentAnalyzeTaskResponseBody extends Model
         'result' => 'result',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (null !== $this->result) {
+            $this->result->validate();
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->latency) {
             $res['latency'] = $this->latency;
         }
+
         if (null !== $this->requestId) {
             $res['request_id'] = $this->requestId;
         }
+
         if (null !== $this->result) {
-            $res['result'] = null !== $this->result ? $this->result->toMap() : null;
+            $res['result'] = null !== $this->result ? $this->result->toArray($noStream) : $this->result;
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return CreateDocumentAnalyzeTaskResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['latency'])) {
             $model->latency = $map['latency'];
         }
+
         if (isset($map['request_id'])) {
             $model->requestId = $map['request_id'];
         }
+
         if (isset($map['result'])) {
             $model->result = result::fromMap($map['result']);
         }

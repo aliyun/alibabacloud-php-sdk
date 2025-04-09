@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Searchplat\V20240529\Models\GetTextSparseEmbeddingResponseBody\result;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Searchplat\V20240529\Models\GetTextSparseEmbeddingResponseBody\result\sparseEmbeddings\embedding;
-use AlibabaCloud\Tea\Model;
 
 class sparseEmbeddings extends Model
 {
@@ -23,20 +23,27 @@ class sparseEmbeddings extends Model
         'index' => 'index',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->embedding)) {
+            Model::validateArray($this->embedding);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->embedding) {
-            $res['embedding'] = [];
-            if (null !== $this->embedding && \is_array($this->embedding)) {
-                $n = 0;
-                foreach ($this->embedding as $item) {
-                    $res['embedding'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->embedding)) {
+                $res['embedding'] = [];
+                $n1 = 0;
+                foreach ($this->embedding as $item1) {
+                    $res['embedding'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
+
         if (null !== $this->index) {
             $res['index'] = $this->index;
         }
@@ -44,23 +51,24 @@ class sparseEmbeddings extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return sparseEmbeddings
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['embedding'])) {
             if (!empty($map['embedding'])) {
                 $model->embedding = [];
-                $n = 0;
-                foreach ($map['embedding'] as $item) {
-                    $model->embedding[$n++] = null !== $item ? embedding::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['embedding'] as $item1) {
+                    $model->embedding[$n1++] = embedding::fromMap($item1);
                 }
             }
         }
+
         if (isset($map['index'])) {
             $model->index = $map['index'];
         }

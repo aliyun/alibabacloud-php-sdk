@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Searchplat\V20240529\Models\CreateDocumentAnalyzeTaskRequest;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class document extends Model
 {
@@ -34,20 +34,26 @@ class document extends Model
         'url' => 'url',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->content) {
             $res['content'] = $this->content;
         }
+
         if (null !== $this->fileName) {
             $res['file_name'] = $this->fileName;
         }
+
         if (null !== $this->fileType) {
             $res['file_type'] = $this->fileType;
         }
+
         if (null !== $this->url) {
             $res['url'] = $this->url;
         }
@@ -55,23 +61,26 @@ class document extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return document
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['content'])) {
             $model->content = $map['content'];
         }
+
         if (isset($map['file_name'])) {
             $model->fileName = $map['file_name'];
         }
+
         if (isset($map['file_type'])) {
             $model->fileType = $map['file_type'];
         }
+
         if (isset($map['url'])) {
             $model->url = $map['url'];
         }

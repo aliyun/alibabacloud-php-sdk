@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Searchplat\V20240529\Models\GetTextGenerationResponseBody\result;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class searchResults extends Model
 {
@@ -22,14 +22,18 @@ class searchResults extends Model
         'url' => 'url',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->title) {
             $res['title'] = $this->title;
         }
+
         if (null !== $this->url) {
             $res['url'] = $this->url;
         }
@@ -37,17 +41,18 @@ class searchResults extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return searchResults
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['title'])) {
             $model->title = $map['title'];
         }
+
         if (isset($map['url'])) {
             $model->url = $map['url'];
         }

@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Searchplat\V20240529\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Searchplat\V20240529\Models\GetTextGenerationRequest\messages;
-use AlibabaCloud\Tea\Model;
 
 class GetTextGenerationRequest extends Model
 {
@@ -20,8 +20,6 @@ class GetTextGenerationRequest extends Model
     public $enableSearch;
 
     /**
-     * @description This parameter is required.
-     *
      * @var messages[]
      */
     public $messages;
@@ -43,29 +41,47 @@ class GetTextGenerationRequest extends Model
         'stream' => 'stream',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->messages)) {
+            Model::validateArray($this->messages);
+        }
+        if (\is_array($this->parameters)) {
+            Model::validateArray($this->parameters);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->csiLevel) {
             $res['csi_level'] = $this->csiLevel;
         }
+
         if (null !== $this->enableSearch) {
             $res['enable_search'] = $this->enableSearch;
         }
+
         if (null !== $this->messages) {
-            $res['messages'] = [];
-            if (null !== $this->messages && \is_array($this->messages)) {
-                $n = 0;
-                foreach ($this->messages as $item) {
-                    $res['messages'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->messages)) {
+                $res['messages'] = [];
+                $n1 = 0;
+                foreach ($this->messages as $item1) {
+                    $res['messages'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
+
         if (null !== $this->parameters) {
-            $res['parameters'] = $this->parameters;
+            if (\is_array($this->parameters)) {
+                $res['parameters'] = [];
+                foreach ($this->parameters as $key1 => $value1) {
+                    $res['parameters'][$key1] = $value1;
+                }
+            }
         }
+
         if (null !== $this->stream) {
             $res['stream'] = $this->stream;
         }
@@ -73,32 +89,41 @@ class GetTextGenerationRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return GetTextGenerationRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['csi_level'])) {
             $model->csiLevel = $map['csi_level'];
         }
+
         if (isset($map['enable_search'])) {
             $model->enableSearch = $map['enable_search'];
         }
+
         if (isset($map['messages'])) {
             if (!empty($map['messages'])) {
                 $model->messages = [];
-                $n = 0;
-                foreach ($map['messages'] as $item) {
-                    $model->messages[$n++] = null !== $item ? messages::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['messages'] as $item1) {
+                    $model->messages[$n1++] = messages::fromMap($item1);
                 }
             }
         }
+
         if (isset($map['parameters'])) {
-            $model->parameters = $map['parameters'];
+            if (!empty($map['parameters'])) {
+                $model->parameters = [];
+                foreach ($map['parameters'] as $key1 => $value1) {
+                    $model->parameters[$key1] = $value1;
+                }
+            }
         }
+
         if (isset($map['stream'])) {
             $model->stream = $map['stream'];
         }

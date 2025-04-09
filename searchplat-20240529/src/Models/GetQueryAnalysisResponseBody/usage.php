@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Searchplat\V20240529\Models\GetQueryAnalysisResponseBody;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class usage extends Model
 {
@@ -28,17 +28,22 @@ class usage extends Model
         'totalTokens' => 'total_tokens',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->inputTokens) {
             $res['input_tokens'] = $this->inputTokens;
         }
+
         if (null !== $this->outputTokens) {
             $res['output_tokens'] = $this->outputTokens;
         }
+
         if (null !== $this->totalTokens) {
             $res['total_tokens'] = $this->totalTokens;
         }
@@ -46,20 +51,22 @@ class usage extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return usage
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['input_tokens'])) {
             $model->inputTokens = $map['input_tokens'];
         }
+
         if (isset($map['output_tokens'])) {
             $model->outputTokens = $map['output_tokens'];
         }
+
         if (isset($map['total_tokens'])) {
             $model->totalTokens = $map['total_tokens'];
         }

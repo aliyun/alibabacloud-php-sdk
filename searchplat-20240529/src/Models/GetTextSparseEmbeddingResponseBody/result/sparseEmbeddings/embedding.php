@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Searchplat\V20240529\Models\GetTextSparseEmbeddingResponseBody\result\sparseEmbeddings;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class embedding extends Model
 {
@@ -28,17 +28,22 @@ class embedding extends Model
         'weight' => 'weight',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->token) {
             $res['token'] = $this->token;
         }
+
         if (null !== $this->tokenId) {
             $res['token_id'] = $this->tokenId;
         }
+
         if (null !== $this->weight) {
             $res['weight'] = $this->weight;
         }
@@ -46,20 +51,22 @@ class embedding extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return embedding
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['token'])) {
             $model->token = $map['token'];
         }
+
         if (isset($map['token_id'])) {
             $model->tokenId = $map['token_id'];
         }
+
         if (isset($map['weight'])) {
             $model->weight = $map['weight'];
         }

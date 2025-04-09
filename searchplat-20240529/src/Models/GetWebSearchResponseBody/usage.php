@@ -4,9 +4,9 @@
 
 namespace AlibabaCloud\SDK\Searchplat\V20240529\Models\GetWebSearchResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Searchplat\V20240529\Models\GetWebSearchResponseBody\usage\filterModel;
 use AlibabaCloud\SDK\Searchplat\V20240529\Models\GetWebSearchResponseBody\usage\rewriteModel;
-use AlibabaCloud\Tea\Model;
 
 class usage extends Model
 {
@@ -30,17 +30,28 @@ class usage extends Model
         'searchCount' => 'search_count',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (null !== $this->filterModel) {
+            $this->filterModel->validate();
+        }
+        if (null !== $this->rewriteModel) {
+            $this->rewriteModel->validate();
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->filterModel) {
-            $res['filter_model'] = null !== $this->filterModel ? $this->filterModel->toMap() : null;
+            $res['filter_model'] = null !== $this->filterModel ? $this->filterModel->toArray($noStream) : $this->filterModel;
         }
+
         if (null !== $this->rewriteModel) {
-            $res['rewrite_model'] = null !== $this->rewriteModel ? $this->rewriteModel->toMap() : null;
+            $res['rewrite_model'] = null !== $this->rewriteModel ? $this->rewriteModel->toArray($noStream) : $this->rewriteModel;
         }
+
         if (null !== $this->searchCount) {
             $res['search_count'] = $this->searchCount;
         }
@@ -48,20 +59,22 @@ class usage extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return usage
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['filter_model'])) {
             $model->filterModel = filterModel::fromMap($map['filter_model']);
         }
+
         if (isset($map['rewrite_model'])) {
             $model->rewriteModel = rewriteModel::fromMap($map['rewrite_model']);
         }
+
         if (isset($map['search_count'])) {
             $model->searchCount = $map['search_count'];
         }

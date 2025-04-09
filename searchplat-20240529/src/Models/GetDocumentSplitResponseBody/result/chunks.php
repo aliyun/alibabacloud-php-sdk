@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Searchplat\V20240529\Models\GetDocumentSplitResponseBody\result;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class chunks extends Model
 {
@@ -22,34 +22,52 @@ class chunks extends Model
         'meta' => 'meta',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->meta)) {
+            Model::validateArray($this->meta);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->content) {
             $res['content'] = $this->content;
         }
+
         if (null !== $this->meta) {
-            $res['meta'] = $this->meta;
+            if (\is_array($this->meta)) {
+                $res['meta'] = [];
+                foreach ($this->meta as $key1 => $value1) {
+                    $res['meta'][$key1] = $value1;
+                }
+            }
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return chunks
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['content'])) {
             $model->content = $map['content'];
         }
+
         if (isset($map['meta'])) {
-            $model->meta = $map['meta'];
+            if (!empty($map['meta'])) {
+                $model->meta = [];
+                foreach ($map['meta'] as $key1 => $value1) {
+                    $model->meta[$key1] = $value1;
+                }
+            }
         }
 
         return $model;

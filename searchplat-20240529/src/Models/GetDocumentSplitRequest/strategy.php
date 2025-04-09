@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Searchplat\V20240529\Models\GetDocumentSplitRequest;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class strategy extends Model
 {
@@ -28,17 +28,22 @@ class strategy extends Model
         'needSentence' => 'need_sentence',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->computeType) {
             $res['compute_type'] = $this->computeType;
         }
+
         if (null !== $this->maxChunkSize) {
             $res['max_chunk_size'] = $this->maxChunkSize;
         }
+
         if (null !== $this->needSentence) {
             $res['need_sentence'] = $this->needSentence;
         }
@@ -46,20 +51,22 @@ class strategy extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return strategy
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['compute_type'])) {
             $model->computeType = $map['compute_type'];
         }
+
         if (isset($map['max_chunk_size'])) {
             $model->maxChunkSize = $map['max_chunk_size'];
         }
+
         if (isset($map['need_sentence'])) {
             $model->needSentence = $map['need_sentence'];
         }

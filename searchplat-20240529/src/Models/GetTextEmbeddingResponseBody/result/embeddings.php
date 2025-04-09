@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Searchplat\V20240529\Models\GetTextEmbeddingResponseBody\result;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class embeddings extends Model
 {
@@ -22,14 +22,27 @@ class embeddings extends Model
         'index' => 'index',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->embedding)) {
+            Model::validateArray($this->embedding);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->embedding) {
-            $res['embedding'] = $this->embedding;
+            if (\is_array($this->embedding)) {
+                $res['embedding'] = [];
+                $n1 = 0;
+                foreach ($this->embedding as $item1) {
+                    $res['embedding'][$n1++] = $item1;
+                }
+            }
         }
+
         if (null !== $this->index) {
             $res['index'] = $this->index;
         }
@@ -37,19 +50,24 @@ class embeddings extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return embeddings
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['embedding'])) {
             if (!empty($map['embedding'])) {
-                $model->embedding = $map['embedding'];
+                $model->embedding = [];
+                $n1 = 0;
+                foreach ($map['embedding'] as $item1) {
+                    $model->embedding[$n1++] = $item1;
+                }
             }
         }
+
         if (isset($map['index'])) {
             $model->index = $map['index'];
         }

@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Searchplat\V20240529\Models\GetTextGenerationResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Searchplat\V20240529\Models\GetTextGenerationResponseBody\result\searchResults;
-use AlibabaCloud\Tea\Model;
 
 class result extends Model
 {
@@ -23,20 +23,27 @@ class result extends Model
         'text' => 'text',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->searchResults)) {
+            Model::validateArray($this->searchResults);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->searchResults) {
-            $res['search_results'] = [];
-            if (null !== $this->searchResults && \is_array($this->searchResults)) {
-                $n = 0;
-                foreach ($this->searchResults as $item) {
-                    $res['search_results'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->searchResults)) {
+                $res['search_results'] = [];
+                $n1 = 0;
+                foreach ($this->searchResults as $item1) {
+                    $res['search_results'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
+
         if (null !== $this->text) {
             $res['text'] = $this->text;
         }
@@ -44,23 +51,24 @@ class result extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return result
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['search_results'])) {
             if (!empty($map['search_results'])) {
                 $model->searchResults = [];
-                $n = 0;
-                foreach ($map['search_results'] as $item) {
-                    $model->searchResults[$n++] = null !== $item ? searchResults::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['search_results'] as $item1) {
+                    $model->searchResults[$n1++] = searchResults::fromMap($item1);
                 }
             }
         }
+
         if (isset($map['text'])) {
             $model->text = $map['text'];
         }

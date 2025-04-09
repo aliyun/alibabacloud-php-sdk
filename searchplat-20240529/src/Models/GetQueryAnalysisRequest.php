@@ -4,9 +4,9 @@
 
 namespace AlibabaCloud\SDK\Searchplat\V20240529\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Searchplat\V20240529\Models\GetQueryAnalysisRequest\functions;
 use AlibabaCloud\SDK\Searchplat\V20240529\Models\GetQueryAnalysisRequest\history;
-use AlibabaCloud\Tea\Model;
 
 class GetQueryAnalysisRequest extends Model
 {
@@ -21,8 +21,6 @@ class GetQueryAnalysisRequest extends Model
     public $history;
 
     /**
-     * @description This parameter is required.
-     *
      * @var string
      */
     public $query;
@@ -32,29 +30,40 @@ class GetQueryAnalysisRequest extends Model
         'query' => 'query',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->functions)) {
+            Model::validateArray($this->functions);
+        }
+        if (\is_array($this->history)) {
+            Model::validateArray($this->history);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->functions) {
-            $res['functions'] = [];
-            if (null !== $this->functions && \is_array($this->functions)) {
-                $n = 0;
-                foreach ($this->functions as $item) {
-                    $res['functions'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->functions)) {
+                $res['functions'] = [];
+                $n1 = 0;
+                foreach ($this->functions as $item1) {
+                    $res['functions'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
+
         if (null !== $this->history) {
-            $res['history'] = [];
-            if (null !== $this->history && \is_array($this->history)) {
-                $n = 0;
-                foreach ($this->history as $item) {
-                    $res['history'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->history)) {
+                $res['history'] = [];
+                $n1 = 0;
+                foreach ($this->history as $item1) {
+                    $res['history'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
+
         if (null !== $this->query) {
             $res['query'] = $this->query;
         }
@@ -62,32 +71,34 @@ class GetQueryAnalysisRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return GetQueryAnalysisRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['functions'])) {
             if (!empty($map['functions'])) {
                 $model->functions = [];
-                $n = 0;
-                foreach ($map['functions'] as $item) {
-                    $model->functions[$n++] = null !== $item ? functions::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['functions'] as $item1) {
+                    $model->functions[$n1++] = functions::fromMap($item1);
                 }
             }
         }
+
         if (isset($map['history'])) {
             if (!empty($map['history'])) {
                 $model->history = [];
-                $n = 0;
-                foreach ($map['history'] as $item) {
-                    $model->history[$n++] = null !== $item ? history::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['history'] as $item1) {
+                    $model->history[$n1++] = history::fromMap($item1);
                 }
             }
         }
+
         if (isset($map['query'])) {
             $model->query = $map['query'];
         }

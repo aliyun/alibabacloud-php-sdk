@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Searchplat\V20240529\Models\GetWebSearchResponseBody\result;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class searchResult extends Model
 {
@@ -40,23 +40,30 @@ class searchResult extends Model
         'tilte' => 'tilte',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->content) {
             $res['content'] = $this->content;
         }
+
         if (null !== $this->link) {
             $res['link'] = $this->link;
         }
+
         if (null !== $this->position) {
             $res['position'] = $this->position;
         }
+
         if (null !== $this->snippet) {
             $res['snippet'] = $this->snippet;
         }
+
         if (null !== $this->tilte) {
             $res['tilte'] = $this->tilte;
         }
@@ -64,26 +71,30 @@ class searchResult extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return searchResult
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['content'])) {
             $model->content = $map['content'];
         }
+
         if (isset($map['link'])) {
             $model->link = $map['link'];
         }
+
         if (isset($map['position'])) {
             $model->position = $map['position'];
         }
+
         if (isset($map['snippet'])) {
             $model->snippet = $map['snippet'];
         }
+
         if (isset($map['tilte'])) {
             $model->tilte = $map['tilte'];
         }

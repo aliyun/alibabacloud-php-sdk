@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Searchplat\V20240529;
 
-use AlibabaCloud\OpenApiUtil\OpenApiUtilClient;
+use AlibabaCloud\Dara\Models\RuntimeOptions;
 use AlibabaCloud\SDK\Searchplat\V20240529\Models\CreateDocumentAnalyzeTaskRequest;
 use AlibabaCloud\SDK\Searchplat\V20240529\Models\CreateDocumentAnalyzeTaskResponse;
 use AlibabaCloud\SDK\Searchplat\V20240529\Models\CreateImageAnalyzeTaskRequest;
@@ -32,12 +32,11 @@ use AlibabaCloud\SDK\Searchplat\V20240529\Models\GetTextSparseEmbeddingRequest;
 use AlibabaCloud\SDK\Searchplat\V20240529\Models\GetTextSparseEmbeddingResponse;
 use AlibabaCloud\SDK\Searchplat\V20240529\Models\GetWebSearchRequest;
 use AlibabaCloud\SDK\Searchplat\V20240529\Models\GetWebSearchResponse;
-use AlibabaCloud\Tea\Utils\Utils;
-use AlibabaCloud\Tea\Utils\Utils\RuntimeOptions;
 use Darabonba\GatewayPop\Client;
 use Darabonba\OpenApi\Models\OpenApiRequest;
 use Darabonba\OpenApi\Models\Params;
 use Darabonba\OpenApi\OpenApiClient;
+use Darabonba\OpenApi\Utils;
 
 class Searchplat extends OpenApiClient
 {
@@ -51,29 +50,41 @@ class Searchplat extends OpenApiClient
     }
 
     /**
-     * @summary 创建文档解析异步提取任务
-     *  *
+     * 创建文档解析异步提取任务
+     *
+     * @param request - CreateDocumentAnalyzeTaskRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateDocumentAnalyzeTaskResponse
+     *
      * @param string                           $workspaceName
      * @param string                           $serviceId
-     * @param CreateDocumentAnalyzeTaskRequest $request       CreateDocumentAnalyzeTaskRequest
-     * @param string[]                         $headers       map
-     * @param RuntimeOptions                   $runtime       runtime options for this request RuntimeOptions
+     * @param CreateDocumentAnalyzeTaskRequest $request
+     * @param string[]                         $headers
+     * @param RuntimeOptions                   $runtime
      *
-     * @return CreateDocumentAnalyzeTaskResponse CreateDocumentAnalyzeTaskResponse
+     * @return CreateDocumentAnalyzeTaskResponse
      */
     public function createDocumentAnalyzeTaskWithOptions($workspaceName, $serviceId, $request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->document)) {
-            $body['document'] = $request->document;
+        if (null !== $request->document) {
+            @$body['document'] = $request->document;
         }
-        if (!Utils::isUnset($request->output)) {
-            $body['output'] = $request->output;
+
+        if (null !== $request->output) {
+            @$body['output'] = $request->output;
         }
+
+        if (null !== $request->strategy) {
+            @$body['strategy'] = $request->strategy;
+        }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'CreateDocumentAnalyzeTask',
@@ -91,13 +102,17 @@ class Searchplat extends OpenApiClient
     }
 
     /**
-     * @summary 创建文档解析异步提取任务
-     *  *
+     * 创建文档解析异步提取任务
+     *
+     * @param request - CreateDocumentAnalyzeTaskRequest
+     *
+     * @returns CreateDocumentAnalyzeTaskResponse
+     *
      * @param string                           $workspaceName
      * @param string                           $serviceId
-     * @param CreateDocumentAnalyzeTaskRequest $request       CreateDocumentAnalyzeTaskRequest
+     * @param CreateDocumentAnalyzeTaskRequest $request
      *
-     * @return CreateDocumentAnalyzeTaskResponse CreateDocumentAnalyzeTaskResponse
+     * @return CreateDocumentAnalyzeTaskResponse
      */
     public function createDocumentAnalyzeTask($workspaceName, $serviceId, $request)
     {
@@ -108,26 +123,33 @@ class Searchplat extends OpenApiClient
     }
 
     /**
-     * @summary 创建图片解析异步提取任务
-     *  *
+     * 创建图片解析异步提取任务
+     *
+     * @param request - CreateImageAnalyzeTaskRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateImageAnalyzeTaskResponse
+     *
      * @param string                        $workspaceName
      * @param string                        $serviceId
-     * @param CreateImageAnalyzeTaskRequest $request       CreateImageAnalyzeTaskRequest
-     * @param string[]                      $headers       map
-     * @param RuntimeOptions                $runtime       runtime options for this request RuntimeOptions
+     * @param CreateImageAnalyzeTaskRequest $request
+     * @param string[]                      $headers
+     * @param RuntimeOptions                $runtime
      *
-     * @return CreateImageAnalyzeTaskResponse CreateImageAnalyzeTaskResponse
+     * @return CreateImageAnalyzeTaskResponse
      */
     public function createImageAnalyzeTaskWithOptions($workspaceName, $serviceId, $request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->document)) {
-            $body['document'] = $request->document;
+        if (null !== $request->document) {
+            @$body['document'] = $request->document;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'CreateImageAnalyzeTask',
@@ -145,13 +167,17 @@ class Searchplat extends OpenApiClient
     }
 
     /**
-     * @summary 创建图片解析异步提取任务
-     *  *
+     * 创建图片解析异步提取任务
+     *
+     * @param request - CreateImageAnalyzeTaskRequest
+     *
+     * @returns CreateImageAnalyzeTaskResponse
+     *
      * @param string                        $workspaceName
      * @param string                        $serviceId
-     * @param CreateImageAnalyzeTaskRequest $request       CreateImageAnalyzeTaskRequest
+     * @param CreateImageAnalyzeTaskRequest $request
      *
-     * @return CreateImageAnalyzeTaskResponse CreateImageAnalyzeTaskResponse
+     * @return CreateImageAnalyzeTaskResponse
      */
     public function createImageAnalyzeTask($workspaceName, $serviceId, $request)
     {
@@ -162,26 +188,33 @@ class Searchplat extends OpenApiClient
     }
 
     /**
-     * @summary 获取文档解析异步提取任务状态
-     *  *
+     * 获取文档解析异步提取任务状态
+     *
+     * @param request - GetDocumentAnalyzeTaskStatusRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetDocumentAnalyzeTaskStatusResponse
+     *
      * @param string                              $workspaceName
      * @param string                              $serviceId
-     * @param GetDocumentAnalyzeTaskStatusRequest $request       GetDocumentAnalyzeTaskStatusRequest
-     * @param string[]                            $headers       map
-     * @param RuntimeOptions                      $runtime       runtime options for this request RuntimeOptions
+     * @param GetDocumentAnalyzeTaskStatusRequest $request
+     * @param string[]                            $headers
+     * @param RuntimeOptions                      $runtime
      *
-     * @return GetDocumentAnalyzeTaskStatusResponse GetDocumentAnalyzeTaskStatusResponse
+     * @return GetDocumentAnalyzeTaskStatusResponse
      */
     public function getDocumentAnalyzeTaskStatusWithOptions($workspaceName, $serviceId, $request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->taskId)) {
-            $query['task_id'] = $request->taskId;
+        if (null !== $request->taskId) {
+            @$query['task_id'] = $request->taskId;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'GetDocumentAnalyzeTaskStatus',
@@ -199,13 +232,17 @@ class Searchplat extends OpenApiClient
     }
 
     /**
-     * @summary 获取文档解析异步提取任务状态
-     *  *
+     * 获取文档解析异步提取任务状态
+     *
+     * @param request - GetDocumentAnalyzeTaskStatusRequest
+     *
+     * @returns GetDocumentAnalyzeTaskStatusResponse
+     *
      * @param string                              $workspaceName
      * @param string                              $serviceId
-     * @param GetDocumentAnalyzeTaskStatusRequest $request       GetDocumentAnalyzeTaskStatusRequest
+     * @param GetDocumentAnalyzeTaskStatusRequest $request
      *
-     * @return GetDocumentAnalyzeTaskStatusResponse GetDocumentAnalyzeTaskStatusResponse
+     * @return GetDocumentAnalyzeTaskStatusResponse
      */
     public function getDocumentAnalyzeTaskStatus($workspaceName, $serviceId, $request)
     {
@@ -216,29 +253,37 @@ class Searchplat extends OpenApiClient
     }
 
     /**
-     * @summary 文档相关性打分
-     *  *
+     * 文档相关性打分.
+     *
+     * @param request - GetDocumentRankRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetDocumentRankResponse
+     *
      * @param string                 $workspaceName
      * @param string                 $serviceId
-     * @param GetDocumentRankRequest $request       GetDocumentRankRequest
-     * @param string[]               $headers       map
-     * @param RuntimeOptions         $runtime       runtime options for this request RuntimeOptions
+     * @param GetDocumentRankRequest $request
+     * @param string[]               $headers
+     * @param RuntimeOptions         $runtime
      *
-     * @return GetDocumentRankResponse GetDocumentRankResponse
+     * @return GetDocumentRankResponse
      */
     public function getDocumentRankWithOptions($workspaceName, $serviceId, $request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->docs)) {
-            $body['docs'] = $request->docs;
+        if (null !== $request->docs) {
+            @$body['docs'] = $request->docs;
         }
-        if (!Utils::isUnset($request->query)) {
-            $body['query'] = $request->query;
+
+        if (null !== $request->query) {
+            @$body['query'] = $request->query;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'GetDocumentRank',
@@ -256,13 +301,17 @@ class Searchplat extends OpenApiClient
     }
 
     /**
-     * @summary 文档相关性打分
-     *  *
+     * 文档相关性打分.
+     *
+     * @param request - GetDocumentRankRequest
+     *
+     * @returns GetDocumentRankResponse
+     *
      * @param string                 $workspaceName
      * @param string                 $serviceId
-     * @param GetDocumentRankRequest $request       GetDocumentRankRequest
+     * @param GetDocumentRankRequest $request
      *
-     * @return GetDocumentRankResponse GetDocumentRankResponse
+     * @return GetDocumentRankResponse
      */
     public function getDocumentRank($workspaceName, $serviceId, $request)
     {
@@ -273,29 +322,37 @@ class Searchplat extends OpenApiClient
     }
 
     /**
-     * @summary 文档切片
-     *  *
+     * 文档切片.
+     *
+     * @param request - GetDocumentSplitRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetDocumentSplitResponse
+     *
      * @param string                  $workspaceName
      * @param string                  $serviceId
-     * @param GetDocumentSplitRequest $request       GetDocumentSplitRequest
-     * @param string[]                $headers       map
-     * @param RuntimeOptions          $runtime       runtime options for this request RuntimeOptions
+     * @param GetDocumentSplitRequest $request
+     * @param string[]                $headers
+     * @param RuntimeOptions          $runtime
      *
-     * @return GetDocumentSplitResponse GetDocumentSplitResponse
+     * @return GetDocumentSplitResponse
      */
     public function getDocumentSplitWithOptions($workspaceName, $serviceId, $request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->document)) {
-            $body['document'] = $request->document;
+        if (null !== $request->document) {
+            @$body['document'] = $request->document;
         }
-        if (!Utils::isUnset($request->strategy)) {
-            $body['strategy'] = $request->strategy;
+
+        if (null !== $request->strategy) {
+            @$body['strategy'] = $request->strategy;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'GetDocumentSplit',
@@ -313,13 +370,17 @@ class Searchplat extends OpenApiClient
     }
 
     /**
-     * @summary 文档切片
-     *  *
+     * 文档切片.
+     *
+     * @param request - GetDocumentSplitRequest
+     *
+     * @returns GetDocumentSplitResponse
+     *
      * @param string                  $workspaceName
      * @param string                  $serviceId
-     * @param GetDocumentSplitRequest $request       GetDocumentSplitRequest
+     * @param GetDocumentSplitRequest $request
      *
-     * @return GetDocumentSplitResponse GetDocumentSplitResponse
+     * @return GetDocumentSplitResponse
      */
     public function getDocumentSplit($workspaceName, $serviceId, $request)
     {
@@ -330,29 +391,37 @@ class Searchplat extends OpenApiClient
     }
 
     /**
-     * @summary 向量微调
-     *  *
+     * 向量微调.
+     *
+     * @param request - GetEmbeddingTuningRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetEmbeddingTuningResponse
+     *
      * @param string                    $workspaceName
      * @param string                    $serviceId
-     * @param GetEmbeddingTuningRequest $request       GetEmbeddingTuningRequest
-     * @param string[]                  $headers       map
-     * @param RuntimeOptions            $runtime       runtime options for this request RuntimeOptions
+     * @param GetEmbeddingTuningRequest $request
+     * @param string[]                  $headers
+     * @param RuntimeOptions            $runtime
      *
-     * @return GetEmbeddingTuningResponse GetEmbeddingTuningResponse
+     * @return GetEmbeddingTuningResponse
      */
     public function getEmbeddingTuningWithOptions($workspaceName, $serviceId, $request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->input)) {
-            $body['input'] = $request->input;
+        if (null !== $request->input) {
+            @$body['input'] = $request->input;
         }
-        if (!Utils::isUnset($request->parameters)) {
-            $body['parameters'] = $request->parameters;
+
+        if (null !== $request->parameters) {
+            @$body['parameters'] = $request->parameters;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'GetEmbeddingTuning',
@@ -370,13 +439,17 @@ class Searchplat extends OpenApiClient
     }
 
     /**
-     * @summary 向量微调
-     *  *
+     * 向量微调.
+     *
+     * @param request - GetEmbeddingTuningRequest
+     *
+     * @returns GetEmbeddingTuningResponse
+     *
      * @param string                    $workspaceName
      * @param string                    $serviceId
-     * @param GetEmbeddingTuningRequest $request       GetEmbeddingTuningRequest
+     * @param GetEmbeddingTuningRequest $request
      *
-     * @return GetEmbeddingTuningResponse GetEmbeddingTuningResponse
+     * @return GetEmbeddingTuningResponse
      */
     public function getEmbeddingTuning($workspaceName, $serviceId, $request)
     {
@@ -387,26 +460,33 @@ class Searchplat extends OpenApiClient
     }
 
     /**
-     * @summary 获取图片解析异步提取任务状态
-     *  *
+     * 获取图片解析异步提取任务状态
+     *
+     * @param request - GetImageAnalyzeTaskStatusRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetImageAnalyzeTaskStatusResponse
+     *
      * @param string                           $workspaceName
      * @param string                           $serviceId
-     * @param GetImageAnalyzeTaskStatusRequest $request       GetImageAnalyzeTaskStatusRequest
-     * @param string[]                         $headers       map
-     * @param RuntimeOptions                   $runtime       runtime options for this request RuntimeOptions
+     * @param GetImageAnalyzeTaskStatusRequest $request
+     * @param string[]                         $headers
+     * @param RuntimeOptions                   $runtime
      *
-     * @return GetImageAnalyzeTaskStatusResponse GetImageAnalyzeTaskStatusResponse
+     * @return GetImageAnalyzeTaskStatusResponse
      */
     public function getImageAnalyzeTaskStatusWithOptions($workspaceName, $serviceId, $request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->taskId)) {
-            $query['task_id'] = $request->taskId;
+        if (null !== $request->taskId) {
+            @$query['task_id'] = $request->taskId;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'GetImageAnalyzeTaskStatus',
@@ -424,13 +504,17 @@ class Searchplat extends OpenApiClient
     }
 
     /**
-     * @summary 获取图片解析异步提取任务状态
-     *  *
+     * 获取图片解析异步提取任务状态
+     *
+     * @param request - GetImageAnalyzeTaskStatusRequest
+     *
+     * @returns GetImageAnalyzeTaskStatusResponse
+     *
      * @param string                           $workspaceName
      * @param string                           $serviceId
-     * @param GetImageAnalyzeTaskStatusRequest $request       GetImageAnalyzeTaskStatusRequest
+     * @param GetImageAnalyzeTaskStatusRequest $request
      *
-     * @return GetImageAnalyzeTaskStatusResponse GetImageAnalyzeTaskStatusResponse
+     * @return GetImageAnalyzeTaskStatusResponse
      */
     public function getImageAnalyzeTaskStatus($workspaceName, $serviceId, $request)
     {
@@ -441,25 +525,33 @@ class Searchplat extends OpenApiClient
     }
 
     /**
-     * @summary 获取推理结果
-     *  *
-     * @param string               $deploymentId
-     * @param GetPredictionRequest $request      GetPredictionRequest
-     * @param GetPredictionHeaders $headers      GetPredictionHeaders
-     * @param RuntimeOptions       $runtime      runtime options for this request RuntimeOptions
+     * 获取推理结果.
      *
-     * @return GetPredictionResponse GetPredictionResponse
+     * @param request - GetPredictionRequest
+     * @param headers - GetPredictionHeaders
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetPredictionResponse
+     *
+     * @param string               $deploymentId
+     * @param GetPredictionRequest $request
+     * @param GetPredictionHeaders $headers
+     * @param RuntimeOptions       $runtime
+     *
+     * @return GetPredictionResponse
      */
     public function getPredictionWithOptions($deploymentId, $request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $realHeaders = [];
-        if (!Utils::isUnset($headers->commonHeaders)) {
+        if (null !== $headers->commonHeaders) {
             $realHeaders = $headers->commonHeaders;
         }
-        if (!Utils::isUnset($headers->token)) {
-            $realHeaders['Token'] = Utils::toJSONString($headers->token);
+
+        if (null !== $headers->token) {
+            @$realHeaders['Token'] = '' . $headers->token;
         }
+
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
             'body' => $request->body,
@@ -480,12 +572,16 @@ class Searchplat extends OpenApiClient
     }
 
     /**
-     * @summary 获取推理结果
-     *  *
-     * @param string               $deploymentId
-     * @param GetPredictionRequest $request      GetPredictionRequest
+     * 获取推理结果.
      *
-     * @return GetPredictionResponse GetPredictionResponse
+     * @param request - GetPredictionRequest
+     *
+     * @returns GetPredictionResponse
+     *
+     * @param string               $deploymentId
+     * @param GetPredictionRequest $request
+     *
+     * @return GetPredictionResponse
      */
     public function getPrediction($deploymentId, $request)
     {
@@ -496,32 +592,41 @@ class Searchplat extends OpenApiClient
     }
 
     /**
-     * @summary 获取query分析结果
-     *  *
+     * 获取query分析结果.
+     *
+     * @param request - GetQueryAnalysisRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetQueryAnalysisResponse
+     *
      * @param string                  $workspaceName
      * @param string                  $serviceId
-     * @param GetQueryAnalysisRequest $request       GetQueryAnalysisRequest
-     * @param string[]                $headers       map
-     * @param RuntimeOptions          $runtime       runtime options for this request RuntimeOptions
+     * @param GetQueryAnalysisRequest $request
+     * @param string[]                $headers
+     * @param RuntimeOptions          $runtime
      *
-     * @return GetQueryAnalysisResponse GetQueryAnalysisResponse
+     * @return GetQueryAnalysisResponse
      */
     public function getQueryAnalysisWithOptions($workspaceName, $serviceId, $request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->functions)) {
-            $body['functions'] = $request->functions;
+        if (null !== $request->functions) {
+            @$body['functions'] = $request->functions;
         }
-        if (!Utils::isUnset($request->history)) {
-            $body['history'] = $request->history;
+
+        if (null !== $request->history) {
+            @$body['history'] = $request->history;
         }
-        if (!Utils::isUnset($request->query)) {
-            $body['query'] = $request->query;
+
+        if (null !== $request->query) {
+            @$body['query'] = $request->query;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'GetQueryAnalysis',
@@ -539,13 +644,17 @@ class Searchplat extends OpenApiClient
     }
 
     /**
-     * @summary 获取query分析结果
-     *  *
+     * 获取query分析结果.
+     *
+     * @param request - GetQueryAnalysisRequest
+     *
+     * @returns GetQueryAnalysisResponse
+     *
      * @param string                  $workspaceName
      * @param string                  $serviceId
-     * @param GetQueryAnalysisRequest $request       GetQueryAnalysisRequest
+     * @param GetQueryAnalysisRequest $request
      *
-     * @return GetQueryAnalysisResponse GetQueryAnalysisResponse
+     * @return GetQueryAnalysisResponse
      */
     public function getQueryAnalysis($workspaceName, $serviceId, $request)
     {
@@ -556,29 +665,37 @@ class Searchplat extends OpenApiClient
     }
 
     /**
-     * @summary 文本向量化
-     *  *
+     * 文本向量化.
+     *
+     * @param request - GetTextEmbeddingRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetTextEmbeddingResponse
+     *
      * @param string                  $workspaceName
      * @param string                  $serviceId
-     * @param GetTextEmbeddingRequest $request       GetTextEmbeddingRequest
-     * @param string[]                $headers       map
-     * @param RuntimeOptions          $runtime       runtime options for this request RuntimeOptions
+     * @param GetTextEmbeddingRequest $request
+     * @param string[]                $headers
+     * @param RuntimeOptions          $runtime
      *
-     * @return GetTextEmbeddingResponse GetTextEmbeddingResponse
+     * @return GetTextEmbeddingResponse
      */
     public function getTextEmbeddingWithOptions($workspaceName, $serviceId, $request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->input)) {
-            $body['input'] = $request->input;
+        if (null !== $request->input) {
+            @$body['input'] = $request->input;
         }
-        if (!Utils::isUnset($request->inputType)) {
-            $body['input_type'] = $request->inputType;
+
+        if (null !== $request->inputType) {
+            @$body['input_type'] = $request->inputType;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'GetTextEmbedding',
@@ -596,13 +713,17 @@ class Searchplat extends OpenApiClient
     }
 
     /**
-     * @summary 文本向量化
-     *  *
+     * 文本向量化.
+     *
+     * @param request - GetTextEmbeddingRequest
+     *
+     * @returns GetTextEmbeddingResponse
+     *
      * @param string                  $workspaceName
      * @param string                  $serviceId
-     * @param GetTextEmbeddingRequest $request       GetTextEmbeddingRequest
+     * @param GetTextEmbeddingRequest $request
      *
-     * @return GetTextEmbeddingResponse GetTextEmbeddingResponse
+     * @return GetTextEmbeddingResponse
      */
     public function getTextEmbedding($workspaceName, $serviceId, $request)
     {
@@ -613,38 +734,49 @@ class Searchplat extends OpenApiClient
     }
 
     /**
-     * @summary 大模型问答
-     *  *
+     * 大模型问答.
+     *
+     * @param request - GetTextGenerationRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetTextGenerationResponse
+     *
      * @param string                   $workspaceName
      * @param string                   $serviceId
-     * @param GetTextGenerationRequest $request       GetTextGenerationRequest
-     * @param string[]                 $headers       map
-     * @param RuntimeOptions           $runtime       runtime options for this request RuntimeOptions
+     * @param GetTextGenerationRequest $request
+     * @param string[]                 $headers
+     * @param RuntimeOptions           $runtime
      *
-     * @return GetTextGenerationResponse GetTextGenerationResponse
+     * @return GetTextGenerationResponse
      */
     public function getTextGenerationWithOptions($workspaceName, $serviceId, $request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->csiLevel)) {
-            $body['csi_level'] = $request->csiLevel;
+        if (null !== $request->csiLevel) {
+            @$body['csi_level'] = $request->csiLevel;
         }
-        if (!Utils::isUnset($request->enableSearch)) {
-            $body['enable_search'] = $request->enableSearch;
+
+        if (null !== $request->enableSearch) {
+            @$body['enable_search'] = $request->enableSearch;
         }
-        if (!Utils::isUnset($request->messages)) {
-            $body['messages'] = $request->messages;
+
+        if (null !== $request->messages) {
+            @$body['messages'] = $request->messages;
         }
-        if (!Utils::isUnset($request->parameters)) {
-            $body['parameters'] = $request->parameters;
+
+        if (null !== $request->parameters) {
+            @$body['parameters'] = $request->parameters;
         }
-        if (!Utils::isUnset($request->stream)) {
-            $body['stream'] = $request->stream;
+
+        if (null !== $request->stream) {
+            @$body['stream'] = $request->stream;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'GetTextGeneration',
@@ -662,13 +794,17 @@ class Searchplat extends OpenApiClient
     }
 
     /**
-     * @summary 大模型问答
-     *  *
+     * 大模型问答.
+     *
+     * @param request - GetTextGenerationRequest
+     *
+     * @returns GetTextGenerationResponse
+     *
      * @param string                   $workspaceName
      * @param string                   $serviceId
-     * @param GetTextGenerationRequest $request       GetTextGenerationRequest
+     * @param GetTextGenerationRequest $request
      *
-     * @return GetTextGenerationResponse GetTextGenerationResponse
+     * @return GetTextGenerationResponse
      */
     public function getTextGeneration($workspaceName, $serviceId, $request)
     {
@@ -679,32 +815,41 @@ class Searchplat extends OpenApiClient
     }
 
     /**
-     * @summary 文本稀疏向量化
-     *  *
+     * 文本稀疏向量化.
+     *
+     * @param request - GetTextSparseEmbeddingRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetTextSparseEmbeddingResponse
+     *
      * @param string                        $workspaceName
      * @param string                        $serviceId
-     * @param GetTextSparseEmbeddingRequest $request       GetTextSparseEmbeddingRequest
-     * @param string[]                      $headers       map
-     * @param RuntimeOptions                $runtime       runtime options for this request RuntimeOptions
+     * @param GetTextSparseEmbeddingRequest $request
+     * @param string[]                      $headers
+     * @param RuntimeOptions                $runtime
      *
-     * @return GetTextSparseEmbeddingResponse GetTextSparseEmbeddingResponse
+     * @return GetTextSparseEmbeddingResponse
      */
     public function getTextSparseEmbeddingWithOptions($workspaceName, $serviceId, $request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->input)) {
-            $body['input'] = $request->input;
+        if (null !== $request->input) {
+            @$body['input'] = $request->input;
         }
-        if (!Utils::isUnset($request->inputType)) {
-            $body['input_type'] = $request->inputType;
+
+        if (null !== $request->inputType) {
+            @$body['input_type'] = $request->inputType;
         }
-        if (!Utils::isUnset($request->returnToken)) {
-            $body['return_token'] = $request->returnToken;
+
+        if (null !== $request->returnToken) {
+            @$body['return_token'] = $request->returnToken;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'GetTextSparseEmbedding',
@@ -722,13 +867,17 @@ class Searchplat extends OpenApiClient
     }
 
     /**
-     * @summary 文本稀疏向量化
-     *  *
+     * 文本稀疏向量化.
+     *
+     * @param request - GetTextSparseEmbeddingRequest
+     *
+     * @returns GetTextSparseEmbeddingResponse
+     *
      * @param string                        $workspaceName
      * @param string                        $serviceId
-     * @param GetTextSparseEmbeddingRequest $request       GetTextSparseEmbeddingRequest
+     * @param GetTextSparseEmbeddingRequest $request
      *
-     * @return GetTextSparseEmbeddingResponse GetTextSparseEmbeddingResponse
+     * @return GetTextSparseEmbeddingResponse
      */
     public function getTextSparseEmbedding($workspaceName, $serviceId, $request)
     {
@@ -739,32 +888,41 @@ class Searchplat extends OpenApiClient
     }
 
     /**
-     * @summary 联网搜索
-     *  *
+     * 联网搜索.
+     *
+     * @param request - GetWebSearchRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetWebSearchResponse
+     *
      * @param string              $workspaceName
      * @param string              $serviceId
-     * @param GetWebSearchRequest $request       GetWebSearchRequest
-     * @param string[]            $headers       map
-     * @param RuntimeOptions      $runtime       runtime options for this request RuntimeOptions
+     * @param GetWebSearchRequest $request
+     * @param string[]            $headers
+     * @param RuntimeOptions      $runtime
      *
-     * @return GetWebSearchResponse GetWebSearchResponse
+     * @return GetWebSearchResponse
      */
     public function getWebSearchWithOptions($workspaceName, $serviceId, $request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->query)) {
-            $body['query'] = $request->query;
+        if (null !== $request->query) {
+            @$body['query'] = $request->query;
         }
-        if (!Utils::isUnset($request->topK)) {
-            $body['top_k'] = $request->topK;
+
+        if (null !== $request->topK) {
+            @$body['top_k'] = $request->topK;
         }
-        if (!Utils::isUnset($request->way)) {
-            $body['way'] = $request->way;
+
+        if (null !== $request->way) {
+            @$body['way'] = $request->way;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'GetWebSearch',
@@ -782,13 +940,17 @@ class Searchplat extends OpenApiClient
     }
 
     /**
-     * @summary 联网搜索
-     *  *
+     * 联网搜索.
+     *
+     * @param request - GetWebSearchRequest
+     *
+     * @returns GetWebSearchResponse
+     *
      * @param string              $workspaceName
      * @param string              $serviceId
-     * @param GetWebSearchRequest $request       GetWebSearchRequest
+     * @param GetWebSearchRequest $request
      *
-     * @return GetWebSearchResponse GetWebSearchResponse
+     * @return GetWebSearchResponse
      */
     public function getWebSearch($workspaceName, $serviceId, $request)
     {

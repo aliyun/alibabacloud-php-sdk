@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Searchplat\V20240529\Models\GetQueryAnalysisRequest;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class history extends Model
 {
@@ -22,14 +22,18 @@ class history extends Model
         'role' => 'role',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->content) {
             $res['content'] = $this->content;
         }
+
         if (null !== $this->role) {
             $res['role'] = $this->role;
         }
@@ -37,17 +41,18 @@ class history extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return history
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['content'])) {
             $model->content = $map['content'];
         }
+
         if (isset($map['role'])) {
             $model->role = $map['role'];
         }

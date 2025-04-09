@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Searchplat\V20240529\Models\GetImageAnalyzeTaskStatusResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Searchplat\V20240529\Models\GetImageAnalyzeTaskStatusResponseBody\result\data;
-use AlibabaCloud\Tea\Model;
 
 class result extends Model
 {
@@ -35,20 +35,29 @@ class result extends Model
         'taskId' => 'task_id',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (null !== $this->data) {
+            $this->data->validate();
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->data) {
-            $res['data'] = null !== $this->data ? $this->data->toMap() : null;
+            $res['data'] = null !== $this->data ? $this->data->toArray($noStream) : $this->data;
         }
+
         if (null !== $this->error) {
             $res['error'] = $this->error;
         }
+
         if (null !== $this->status) {
             $res['status'] = $this->status;
         }
+
         if (null !== $this->taskId) {
             $res['task_id'] = $this->taskId;
         }
@@ -56,23 +65,26 @@ class result extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return result
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['data'])) {
             $model->data = data::fromMap($map['data']);
         }
+
         if (isset($map['error'])) {
             $model->error = $map['error'];
         }
+
         if (isset($map['status'])) {
             $model->status = $map['status'];
         }
+
         if (isset($map['task_id'])) {
             $model->taskId = $map['task_id'];
         }

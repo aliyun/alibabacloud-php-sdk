@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Searchplat\V20240529\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Searchplat\V20240529\Models\CreateImageAnalyzeTaskRequest\document;
-use AlibabaCloud\Tea\Model;
 
 class CreateImageAnalyzeTaskRequest extends Model
 {
@@ -17,23 +17,29 @@ class CreateImageAnalyzeTaskRequest extends Model
         'document' => 'document',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (null !== $this->document) {
+            $this->document->validate();
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->document) {
-            $res['document'] = null !== $this->document ? $this->document->toMap() : null;
+            $res['document'] = null !== $this->document ? $this->document->toArray($noStream) : $this->document;
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return CreateImageAnalyzeTaskRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

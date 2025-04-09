@@ -4,20 +4,16 @@
 
 namespace AlibabaCloud\SDK\Searchplat\V20240529\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class GetDocumentRankRequest extends Model
 {
     /**
-     * @description This parameter is required.
-     *
      * @var string[]
      */
     public $docs;
 
     /**
-     * @description This parameter is required.
-     *
      * @var string
      */
     public $query;
@@ -26,14 +22,27 @@ class GetDocumentRankRequest extends Model
         'query' => 'query',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->docs)) {
+            Model::validateArray($this->docs);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->docs) {
-            $res['docs'] = $this->docs;
+            if (\is_array($this->docs)) {
+                $res['docs'] = [];
+                $n1 = 0;
+                foreach ($this->docs as $item1) {
+                    $res['docs'][$n1++] = $item1;
+                }
+            }
         }
+
         if (null !== $this->query) {
             $res['query'] = $this->query;
         }
@@ -41,19 +50,24 @@ class GetDocumentRankRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return GetDocumentRankRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['docs'])) {
             if (!empty($map['docs'])) {
-                $model->docs = $map['docs'];
+                $model->docs = [];
+                $n1 = 0;
+                foreach ($map['docs'] as $item1) {
+                    $model->docs[$n1++] = $item1;
+                }
             }
         }
+
         if (isset($map['query'])) {
             $model->query = $map['query'];
         }
