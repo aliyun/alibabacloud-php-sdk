@@ -5,6 +5,7 @@
 namespace AlibabaCloud\SDK\Eflocontroller\V20221215\Models;
 
 use AlibabaCloud\Dara\Model;
+use AlibabaCloud\SDK\Eflocontroller\V20221215\Models\DescribeNodeResponseBody\disks;
 use AlibabaCloud\SDK\Eflocontroller\V20221215\Models\DescribeNodeResponseBody\networks;
 
 class DescribeNodeResponseBody extends Model
@@ -23,6 +24,11 @@ class DescribeNodeResponseBody extends Model
      * @var string
      */
     public $createTime;
+
+    /**
+     * @var disks[]
+     */
+    public $disks;
 
     /**
      * @var string
@@ -107,6 +113,7 @@ class DescribeNodeResponseBody extends Model
         'clusterId' => 'ClusterId',
         'clusterName' => 'ClusterName',
         'createTime' => 'CreateTime',
+        'disks' => 'Disks',
         'expiredTime' => 'ExpiredTime',
         'hostname' => 'Hostname',
         'hpnZone' => 'HpnZone',
@@ -127,6 +134,9 @@ class DescribeNodeResponseBody extends Model
 
     public function validate()
     {
+        if (\is_array($this->disks)) {
+            Model::validateArray($this->disks);
+        }
         if (\is_array($this->networks)) {
             Model::validateArray($this->networks);
         }
@@ -146,6 +156,16 @@ class DescribeNodeResponseBody extends Model
 
         if (null !== $this->createTime) {
             $res['CreateTime'] = $this->createTime;
+        }
+
+        if (null !== $this->disks) {
+            if (\is_array($this->disks)) {
+                $res['Disks'] = [];
+                $n1 = 0;
+                foreach ($this->disks as $item1) {
+                    $res['Disks'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                }
+            }
         }
 
         if (null !== $this->expiredTime) {
@@ -239,6 +259,16 @@ class DescribeNodeResponseBody extends Model
 
         if (isset($map['CreateTime'])) {
             $model->createTime = $map['CreateTime'];
+        }
+
+        if (isset($map['Disks'])) {
+            if (!empty($map['Disks'])) {
+                $model->disks = [];
+                $n1 = 0;
+                foreach ($map['Disks'] as $item1) {
+                    $model->disks[$n1++] = disks::fromMap($item1);
+                }
+            }
         }
 
         if (isset($map['ExpiredTime'])) {

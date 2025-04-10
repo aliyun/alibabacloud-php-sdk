@@ -5,6 +5,7 @@
 namespace AlibabaCloud\SDK\Eflocontroller\V20221215\Models\CreateNodeGroupRequest;
 
 use AlibabaCloud\Dara\Model;
+use AlibabaCloud\SDK\Eflocontroller\V20221215\Models\CreateNodeGroupRequest\nodeGroup\systemDisk;
 
 class nodeGroup extends Model
 {
@@ -34,6 +35,11 @@ class nodeGroup extends Model
     public $nodeGroupName;
 
     /**
+     * @var systemDisk
+     */
+    public $systemDisk;
+
+    /**
      * @var string
      */
     public $userData;
@@ -43,11 +49,15 @@ class nodeGroup extends Model
         'machineType' => 'MachineType',
         'nodeGroupDescription' => 'NodeGroupDescription',
         'nodeGroupName' => 'NodeGroupName',
+        'systemDisk' => 'SystemDisk',
         'userData' => 'UserData',
     ];
 
     public function validate()
     {
+        if (null !== $this->systemDisk) {
+            $this->systemDisk->validate();
+        }
         parent::validate();
     }
 
@@ -72,6 +82,10 @@ class nodeGroup extends Model
 
         if (null !== $this->nodeGroupName) {
             $res['NodeGroupName'] = $this->nodeGroupName;
+        }
+
+        if (null !== $this->systemDisk) {
+            $res['SystemDisk'] = null !== $this->systemDisk ? $this->systemDisk->toArray($noStream) : $this->systemDisk;
         }
 
         if (null !== $this->userData) {
@@ -107,6 +121,10 @@ class nodeGroup extends Model
 
         if (isset($map['NodeGroupName'])) {
             $model->nodeGroupName = $map['NodeGroupName'];
+        }
+
+        if (isset($map['SystemDisk'])) {
+            $model->systemDisk = systemDisk::fromMap($map['SystemDisk']);
         }
 
         if (isset($map['UserData'])) {

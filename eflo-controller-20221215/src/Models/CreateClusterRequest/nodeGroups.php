@@ -6,6 +6,7 @@ namespace AlibabaCloud\SDK\Eflocontroller\V20221215\Models\CreateClusterRequest;
 
 use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Eflocontroller\V20221215\Models\CreateClusterRequest\nodeGroups\nodes;
+use AlibabaCloud\SDK\Eflocontroller\V20221215\Models\CreateClusterRequest\nodeGroups\systemDisk;
 
 class nodeGroups extends Model
 {
@@ -35,6 +36,11 @@ class nodeGroups extends Model
     public $nodes;
 
     /**
+     * @var systemDisk
+     */
+    public $systemDisk;
+
+    /**
      * @var string
      */
     public $userData;
@@ -49,6 +55,7 @@ class nodeGroups extends Model
         'nodeGroupDescription' => 'NodeGroupDescription',
         'nodeGroupName' => 'NodeGroupName',
         'nodes' => 'Nodes',
+        'systemDisk' => 'SystemDisk',
         'userData' => 'UserData',
         'zoneId' => 'ZoneId',
     ];
@@ -57,6 +64,9 @@ class nodeGroups extends Model
     {
         if (\is_array($this->nodes)) {
             Model::validateArray($this->nodes);
+        }
+        if (null !== $this->systemDisk) {
+            $this->systemDisk->validate();
         }
         parent::validate();
     }
@@ -88,6 +98,10 @@ class nodeGroups extends Model
                     $res['Nodes'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
+        }
+
+        if (null !== $this->systemDisk) {
+            $res['SystemDisk'] = null !== $this->systemDisk ? $this->systemDisk->toArray($noStream) : $this->systemDisk;
         }
 
         if (null !== $this->userData) {
@@ -133,6 +147,10 @@ class nodeGroups extends Model
                     $model->nodes[$n1++] = nodes::fromMap($item1);
                 }
             }
+        }
+
+        if (isset($map['SystemDisk'])) {
+            $model->systemDisk = systemDisk::fromMap($map['SystemDisk']);
         }
 
         if (isset($map['UserData'])) {

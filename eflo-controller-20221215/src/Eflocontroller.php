@@ -659,7 +659,10 @@ class Eflocontroller extends OpenApiClient
     }
 
     /**
-     * 创建集群下的节点分组.
+     * Create Node Group under Cluster.
+     *
+     * @remarks
+     * An interface for creating a session, which returns the frontend EndPoint and initiates a periodic task to track the session status
      *
      * @param tmpReq - CreateNodeGroupRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -719,7 +722,10 @@ class Eflocontroller extends OpenApiClient
     }
 
     /**
-     * 创建集群下的节点分组.
+     * Create Node Group under Cluster.
+     *
+     * @remarks
+     * An interface for creating a session, which returns the frontend EndPoint and initiates a periodic task to track the session status
      *
      * @param request - CreateNodeGroupRequest
      *
@@ -871,7 +877,10 @@ class Eflocontroller extends OpenApiClient
     }
 
     /**
-     * 删除节点分组.
+     * Delete Node Group.
+     *
+     * @remarks
+     * An interface for creating a session, which returns the front-end EndPoint and initiates a periodic task to track the session status.
      *
      * @param request - DeleteNodeGroupRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -917,7 +926,10 @@ class Eflocontroller extends OpenApiClient
     }
 
     /**
-     * 删除节点分组.
+     * Delete Node Group.
+     *
+     * @remarks
+     * An interface for creating a session, which returns the front-end EndPoint and initiates a periodic task to track the session status.
      *
      * @param request - DeleteNodeGroupRequest
      *
@@ -995,7 +1007,10 @@ class Eflocontroller extends OpenApiClient
     }
 
     /**
-     * 诊断任务查询接口.
+     * Diagnostic Task Query Interface.
+     *
+     * @remarks
+     * An interface for creating a session, which returns the front-end EndPoint and initiates a periodic task to track the session status.
      *
      * @param request - DescribeDiagnosticResultRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1037,7 +1052,10 @@ class Eflocontroller extends OpenApiClient
     }
 
     /**
-     * 诊断任务查询接口.
+     * Diagnostic Task Query Interface.
+     *
+     * @remarks
+     * An interface for creating a session, which returns the front-end EndPoint and initiates a periodic task to track the session status.
      *
      * @param request - DescribeDiagnosticResultRequest
      *
@@ -3136,7 +3154,10 @@ class Eflocontroller extends OpenApiClient
     }
 
     /**
-     * 更新节点分组.
+     * Update Node Group.
+     *
+     * @remarks
+     * An interface for creating a session, which returns the front-end EndPoint and initiates a periodic task to track the session status.
      *
      * @param request - UpdateNodeGroupRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3186,7 +3207,10 @@ class Eflocontroller extends OpenApiClient
     }
 
     /**
-     * 更新节点分组.
+     * Update Node Group.
+     *
+     * @remarks
+     * An interface for creating a session, which returns the front-end EndPoint and initiates a periodic task to track the session status.
      *
      * @param request - UpdateNodeGroupRequest
      *
