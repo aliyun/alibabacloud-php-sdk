@@ -147,6 +147,16 @@ class officeSites extends Model
     public $fileSystemIds;
 
     /**
+     * @var bool
+     */
+    public $isLdap;
+
+    /**
+     * @var string
+     */
+    public $ldapUrl;
+
+    /**
      * @var logs[]
      */
     public $logs;
@@ -318,6 +328,8 @@ class officeSites extends Model
         'enableInternetAccess' => 'EnableInternetAccess',
         'enableServiceRoute' => 'EnableServiceRoute',
         'fileSystemIds' => 'FileSystemIds',
+        'isLdap' => 'IsLdap',
+        'ldapUrl' => 'LdapUrl',
         'logs' => 'Logs',
         'mfaEnabled' => 'MfaEnabled',
         'name' => 'Name',
@@ -511,6 +523,14 @@ class officeSites extends Model
                     $res['FileSystemIds'][$n1++] = $item1;
                 }
             }
+        }
+
+        if (null !== $this->isLdap) {
+            $res['IsLdap'] = $this->isLdap;
+        }
+
+        if (null !== $this->ldapUrl) {
+            $res['LdapUrl'] = $this->ldapUrl;
         }
 
         if (null !== $this->logs) {
@@ -794,6 +814,14 @@ class officeSites extends Model
                     $model->fileSystemIds[$n1++] = $item1;
                 }
             }
+        }
+
+        if (isset($map['IsLdap'])) {
+            $model->isLdap = $map['IsLdap'];
+        }
+
+        if (isset($map['LdapUrl'])) {
+            $model->ldapUrl = $map['LdapUrl'];
         }
 
         if (isset($map['Logs'])) {

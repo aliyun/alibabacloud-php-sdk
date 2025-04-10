@@ -46,6 +46,16 @@ class snapshots extends Model
     /**
      * @var string
      */
+    public $diskStatus;
+
+    /**
+     * @var string
+     */
+    public $osType;
+
+    /**
+     * @var string
+     */
     public $progress;
 
     /**
@@ -115,6 +125,8 @@ class snapshots extends Model
         'desktopId' => 'DesktopId',
         'desktopName' => 'DesktopName',
         'desktopStatus' => 'DesktopStatus',
+        'diskStatus' => 'DiskStatus',
+        'osType' => 'OsType',
         'progress' => 'Progress',
         'protocolType' => 'ProtocolType',
         'remainTime' => 'RemainTime',
@@ -164,6 +176,14 @@ class snapshots extends Model
 
         if (null !== $this->desktopStatus) {
             $res['DesktopStatus'] = $this->desktopStatus;
+        }
+
+        if (null !== $this->diskStatus) {
+            $res['DiskStatus'] = $this->diskStatus;
+        }
+
+        if (null !== $this->osType) {
+            $res['OsType'] = $this->osType;
         }
 
         if (null !== $this->progress) {
@@ -255,6 +275,14 @@ class snapshots extends Model
 
         if (isset($map['DesktopStatus'])) {
             $model->desktopStatus = $map['DesktopStatus'];
+        }
+
+        if (isset($map['DiskStatus'])) {
+            $model->diskStatus = $map['DiskStatus'];
+        }
+
+        if (isset($map['OsType'])) {
+            $model->osType = $map['OsType'];
         }
 
         if (isset($map['Progress'])) {

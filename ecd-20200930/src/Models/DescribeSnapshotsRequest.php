@@ -41,6 +41,11 @@ class DescribeSnapshotsRequest extends Model
     /**
      * @var string
      */
+    public $osType;
+
+    /**
+     * @var string
+     */
     public $regionId;
 
     /**
@@ -74,6 +79,7 @@ class DescribeSnapshotsRequest extends Model
         'endTime' => 'EndTime',
         'maxResults' => 'MaxResults',
         'nextToken' => 'NextToken',
+        'osType' => 'OsType',
         'regionId' => 'RegionId',
         'snapshotId' => 'SnapshotId',
         'snapshotName' => 'SnapshotName',
@@ -112,6 +118,10 @@ class DescribeSnapshotsRequest extends Model
 
         if (null !== $this->nextToken) {
             $res['NextToken'] = $this->nextToken;
+        }
+
+        if (null !== $this->osType) {
+            $res['OsType'] = $this->osType;
         }
 
         if (null !== $this->regionId) {
@@ -171,6 +181,10 @@ class DescribeSnapshotsRequest extends Model
 
         if (isset($map['NextToken'])) {
             $model->nextToken = $map['NextToken'];
+        }
+
+        if (isset($map['OsType'])) {
+            $model->osType = $map['OsType'];
         }
 
         if (isset($map['RegionId'])) {

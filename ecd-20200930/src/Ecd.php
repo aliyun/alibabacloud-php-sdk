@@ -11213,6 +11213,10 @@ class Ecd extends OpenApiClient
             @$query['NextToken'] = $request->nextToken;
         }
 
+        if (null !== $request->osType) {
+            @$query['OsType'] = $request->osType;
+        }
+
         if (null !== $request->regionId) {
             @$query['RegionId'] = $request->regionId;
         }
