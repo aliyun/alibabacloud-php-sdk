@@ -70,6 +70,11 @@ class DescribeAndroidInstancesRequest extends Model
     public $nodeName;
 
     /**
+     * @var string[]
+     */
+    public $officeSiteIds;
+
+    /**
      * @var string
      */
     public $saleMode;
@@ -96,6 +101,7 @@ class DescribeAndroidInstancesRequest extends Model
         'nextToken' => 'NextToken',
         'nodeId' => 'NodeId',
         'nodeName' => 'NodeName',
+        'officeSiteIds' => 'OfficeSiteIds',
         'saleMode' => 'SaleMode',
         'status' => 'Status',
         'tag' => 'Tag',
@@ -108,6 +114,9 @@ class DescribeAndroidInstancesRequest extends Model
         }
         if (\is_array($this->instanceGroupIds)) {
             Model::validateArray($this->instanceGroupIds);
+        }
+        if (\is_array($this->officeSiteIds)) {
+            Model::validateArray($this->officeSiteIds);
         }
         if (\is_array($this->tag)) {
             Model::validateArray($this->tag);
@@ -176,6 +185,16 @@ class DescribeAndroidInstancesRequest extends Model
 
         if (null !== $this->nodeName) {
             $res['NodeName'] = $this->nodeName;
+        }
+
+        if (null !== $this->officeSiteIds) {
+            if (\is_array($this->officeSiteIds)) {
+                $res['OfficeSiteIds'] = [];
+                $n1 = 0;
+                foreach ($this->officeSiteIds as $item1) {
+                    $res['OfficeSiteIds'][$n1++] = $item1;
+                }
+            }
         }
 
         if (null !== $this->saleMode) {
@@ -265,6 +284,16 @@ class DescribeAndroidInstancesRequest extends Model
 
         if (isset($map['NodeName'])) {
             $model->nodeName = $map['NodeName'];
+        }
+
+        if (isset($map['OfficeSiteIds'])) {
+            if (!empty($map['OfficeSiteIds'])) {
+                $model->officeSiteIds = [];
+                $n1 = 0;
+                foreach ($map['OfficeSiteIds'] as $item1) {
+                    $model->officeSiteIds[$n1++] = $item1;
+                }
+            }
         }
 
         if (isset($map['SaleMode'])) {

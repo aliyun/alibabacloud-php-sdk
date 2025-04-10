@@ -1919,6 +1919,10 @@ class Edsaic extends OpenApiClient
             @$query['NodeName'] = $request->nodeName;
         }
 
+        if (null !== $request->officeSiteIds) {
+            @$query['OfficeSiteIds'] = $request->officeSiteIds;
+        }
+
         if (null !== $request->saleMode) {
             @$query['SaleMode'] = $request->saleMode;
         }
