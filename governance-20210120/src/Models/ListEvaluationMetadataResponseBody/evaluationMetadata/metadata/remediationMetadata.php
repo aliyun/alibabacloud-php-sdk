@@ -4,14 +4,12 @@
 
 namespace AlibabaCloud\SDK\Governance\V20210120\Models\ListEvaluationMetadataResponseBody\evaluationMetadata\metadata;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Governance\V20210120\Models\ListEvaluationMetadataResponseBody\evaluationMetadata\metadata\remediationMetadata\remediation;
-use AlibabaCloud\Tea\Model;
 
 class remediationMetadata extends Model
 {
     /**
-     * @description The fixing items.
-     *
      * @var remediation[]
      */
     public $remediation;
@@ -21,17 +19,21 @@ class remediationMetadata extends Model
 
     public function validate()
     {
+        if (\is_array($this->remediation)) {
+            Model::validateArray($this->remediation);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->remediation) {
-            $res['Remediation'] = [];
-            if (null !== $this->remediation && \is_array($this->remediation)) {
-                $n = 0;
-                foreach ($this->remediation as $item) {
-                    $res['Remediation'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->remediation)) {
+                $res['Remediation'] = [];
+                $n1 = 0;
+                foreach ($this->remediation as $item1) {
+                    $res['Remediation'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
@@ -39,20 +41,20 @@ class remediationMetadata extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return remediationMetadata
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Remediation'])) {
             if (!empty($map['Remediation'])) {
                 $model->remediation = [];
-                $n                  = 0;
-                foreach ($map['Remediation'] as $item) {
-                    $model->remediation[$n++] = null !== $item ? remediation::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['Remediation'] as $item1) {
+                    $model->remediation[$n1++] = remediation::fromMap($item1);
                 }
             }
         }

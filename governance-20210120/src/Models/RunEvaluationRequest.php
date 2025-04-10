@@ -4,15 +4,11 @@
 
 namespace AlibabaCloud\SDK\Governance\V20210120\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class RunEvaluationRequest extends Model
 {
     /**
-     * @description The Alibaba Cloud account ID of the member. This parameter takes effect only when a multi-account governance maturity check is performed.
-     *
-     * @example 176618589410****
-     *
      * @var int
      */
     public $accountId;
@@ -23,48 +19,50 @@ class RunEvaluationRequest extends Model
     public $metricIds;
 
     /**
-     * @description The region ID.
-     *
-     * @example cn-hangzhou
-     *
      * @var string
      */
     public $regionId;
 
     /**
-     * @description The check range of the governance maturity check. Valid values:
-     *
-     *   Account (default): A single-account governance maturity check is performed to check only the Alibaba Cloud account that you use to access Cloud Governance Center.
-     *   ResourceDirectory: A multi-account governance maturity check is performed to check all members within a resource directory. Before you perform a multi-account governance maturity check, you must enable the multi-account governance maturity check feature.
-     *
-     * @example ResourceDirectory
-     *
      * @var string
      */
     public $scope;
     protected $_name = [
         'accountId' => 'AccountId',
         'metricIds' => 'MetricIds',
-        'regionId'  => 'RegionId',
-        'scope'     => 'Scope',
+        'regionId' => 'RegionId',
+        'scope' => 'Scope',
     ];
 
     public function validate()
     {
+        if (\is_array($this->metricIds)) {
+            Model::validateArray($this->metricIds);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->accountId) {
             $res['AccountId'] = $this->accountId;
         }
+
         if (null !== $this->metricIds) {
-            $res['MetricIds'] = $this->metricIds;
+            if (\is_array($this->metricIds)) {
+                $res['MetricIds'] = [];
+                $n1 = 0;
+                foreach ($this->metricIds as $item1) {
+                    $res['MetricIds'][$n1++] = $item1;
+                }
+            }
         }
+
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
+
         if (null !== $this->scope) {
             $res['Scope'] = $this->scope;
         }
@@ -72,25 +70,32 @@ class RunEvaluationRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return RunEvaluationRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AccountId'])) {
             $model->accountId = $map['AccountId'];
         }
+
         if (isset($map['MetricIds'])) {
             if (!empty($map['MetricIds'])) {
-                $model->metricIds = $map['MetricIds'];
+                $model->metricIds = [];
+                $n1 = 0;
+                foreach ($map['MetricIds'] as $item1) {
+                    $model->metricIds[$n1++] = $item1;
+                }
             }
         }
+
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
         }
+
         if (isset($map['Scope'])) {
             $model->scope = $map['Scope'];
         }

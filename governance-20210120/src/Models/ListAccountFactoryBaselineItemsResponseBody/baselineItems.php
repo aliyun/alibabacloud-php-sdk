@@ -4,86 +4,76 @@
 
 namespace AlibabaCloud\SDK\Governance\V20210120\Models\ListAccountFactoryBaselineItemsResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Governance\V20210120\Models\ListAccountFactoryBaselineItemsResponseBody\baselineItems\dependsOn;
-use AlibabaCloud\Tea\Model;
 
 class baselineItems extends Model
 {
     /**
-     * @description The dependency of the baseline item.
-     *
      * @var dependsOn[]
      */
     public $dependsOn;
 
     /**
-     * @description The description of the baseline item.
-     *
-     * @example Notification.
-     *
      * @var string
      */
     public $description;
 
     /**
-     * @description The name of the baseline item.
-     *
-     * @example ACS-BP_ACCOUNT_FACTORY_ACCOUNT_NOTIFICATION
-     *
      * @var string
      */
     public $name;
 
     /**
-     * @description The type of the baseline item.
-     *
-     * @example AccountFactory
-     *
      * @var string
      */
     public $type;
 
     /**
-     * @description The version of the baseline item.
-     *
-     * @example 1.0
-     *
      * @var string
      */
     public $version;
     protected $_name = [
-        'dependsOn'   => 'DependsOn',
+        'dependsOn' => 'DependsOn',
         'description' => 'Description',
-        'name'        => 'Name',
-        'type'        => 'Type',
-        'version'     => 'Version',
+        'name' => 'Name',
+        'type' => 'Type',
+        'version' => 'Version',
     ];
 
     public function validate()
     {
+        if (\is_array($this->dependsOn)) {
+            Model::validateArray($this->dependsOn);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->dependsOn) {
-            $res['DependsOn'] = [];
-            if (null !== $this->dependsOn && \is_array($this->dependsOn)) {
-                $n = 0;
-                foreach ($this->dependsOn as $item) {
-                    $res['DependsOn'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->dependsOn)) {
+                $res['DependsOn'] = [];
+                $n1 = 0;
+                foreach ($this->dependsOn as $item1) {
+                    $res['DependsOn'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
+
         if (null !== $this->description) {
             $res['Description'] = $this->description;
         }
+
         if (null !== $this->name) {
             $res['Name'] = $this->name;
         }
+
         if (null !== $this->type) {
             $res['Type'] = $this->type;
         }
+
         if (null !== $this->version) {
             $res['Version'] = $this->version;
         }
@@ -91,32 +81,36 @@ class baselineItems extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return baselineItems
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['DependsOn'])) {
             if (!empty($map['DependsOn'])) {
                 $model->dependsOn = [];
-                $n                = 0;
-                foreach ($map['DependsOn'] as $item) {
-                    $model->dependsOn[$n++] = null !== $item ? dependsOn::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['DependsOn'] as $item1) {
+                    $model->dependsOn[$n1++] = dependsOn::fromMap($item1);
                 }
             }
         }
+
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
         }
+
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
         }
+
         if (isset($map['Type'])) {
             $model->type = $map['Type'];
         }
+
         if (isset($map['Version'])) {
             $model->version = $map['Version'];
         }

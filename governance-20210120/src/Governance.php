@@ -4,8 +4,7 @@
 
 namespace AlibabaCloud\SDK\Governance\V20210120;
 
-use AlibabaCloud\Endpoint\Endpoint;
-use AlibabaCloud\OpenApiUtil\OpenApiUtilClient;
+use AlibabaCloud\Dara\Models\RuntimeOptions;
 use AlibabaCloud\SDK\Governance\V20210120\Models\BatchEnrollAccountsRequest;
 use AlibabaCloud\SDK\Governance\V20210120\Models\BatchEnrollAccountsResponse;
 use AlibabaCloud\SDK\Governance\V20210120\Models\CreateAccountFactoryBaselineRequest;
@@ -38,11 +37,10 @@ use AlibabaCloud\SDK\Governance\V20210120\Models\RunEvaluationResponse;
 use AlibabaCloud\SDK\Governance\V20210120\Models\RunEvaluationShrinkRequest;
 use AlibabaCloud\SDK\Governance\V20210120\Models\UpdateAccountFactoryBaselineRequest;
 use AlibabaCloud\SDK\Governance\V20210120\Models\UpdateAccountFactoryBaselineResponse;
-use AlibabaCloud\Tea\Utils\Utils;
-use AlibabaCloud\Tea\Utils\Utils\RuntimeOptions;
 use Darabonba\OpenApi\Models\OpenApiRequest;
 use Darabonba\OpenApi\Models\Params;
 use Darabonba\OpenApi\OpenApiClient;
+use Darabonba\OpenApi\Utils;
 
 class Governance extends OpenApiClient
 {
@@ -50,7 +48,7 @@ class Governance extends OpenApiClient
     {
         parent::__construct($config);
         $this->_signatureAlgorithm = 'v2';
-        $this->_endpointRule       = 'regional';
+        $this->_endpointRule = 'regional';
         $this->checkConfig($config);
         $this->_endpoint = $this->getEndpoint('governance', $this->_regionId, $this->_endpointRule, $this->_network, $this->_suffix, $this->_endpointMap, $this->_endpoint);
     }
@@ -68,70 +66,89 @@ class Governance extends OpenApiClient
      */
     public function getEndpoint($productId, $regionId, $endpointRule, $network, $suffix, $endpointMap, $endpoint)
     {
-        if (!Utils::empty_($endpoint)) {
+        if (null !== $endpoint) {
             return $endpoint;
         }
-        if (!Utils::isUnset($endpointMap) && !Utils::empty_(@$endpointMap[$regionId])) {
+
+        if (null !== $endpointMap && null !== @$endpointMap[$regionId]) {
             return @$endpointMap[$regionId];
         }
 
-        return Endpoint::getEndpointRules($productId, $regionId, $endpointRule, $network, $suffix);
+        return Utils::getEndpointRules($productId, $regionId, $endpointRule, $network, $suffix);
     }
 
     /**
-     * @summary Applies an account baseline to multiple existing resource accounts at a time.
-     *  *
-     * @description You can call this operation to apply an account baseline to existing resource accounts.
-     * Accounts are enrolled in the account factory in asynchronous mode. After a resource account is created, an account baseline is applied to the account. You can call the [GetEnrolledAccount](https://help.aliyun.com/document_detail/609062.html) operation to query the details of the account enrolled in the account factory and check whether the account baseline is applied to the account.
-     *  *
-     * @param BatchEnrollAccountsRequest $request BatchEnrollAccountsRequest
-     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
+     * Applies an account baseline to multiple existing resource accounts at a time.
      *
-     * @return BatchEnrollAccountsResponse BatchEnrollAccountsResponse
+     * @remarks
+     * You can call this operation to apply an account baseline to existing resource accounts.
+     * Accounts are enrolled in the account factory in asynchronous mode. After a resource account is created, an account baseline is applied to the account. You can call the [GetEnrolledAccount](https://help.aliyun.com/document_detail/609062.html) operation to query the details of the account enrolled in the account factory and check whether the account baseline is applied to the account.
+     *
+     * @param request - BatchEnrollAccountsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns BatchEnrollAccountsResponse
+     *
+     * @param BatchEnrollAccountsRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return BatchEnrollAccountsResponse
      */
     public function batchEnrollAccountsWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->accounts)) {
-            $query['Accounts'] = $request->accounts;
+        if (null !== $request->accounts) {
+            @$query['Accounts'] = $request->accounts;
         }
-        if (!Utils::isUnset($request->baselineId)) {
-            $query['BaselineId'] = $request->baselineId;
+
+        if (null !== $request->baselineId) {
+            @$query['BaselineId'] = $request->baselineId;
         }
-        if (!Utils::isUnset($request->baselineItems)) {
-            $query['BaselineItems'] = $request->baselineItems;
+
+        if (null !== $request->baselineItems) {
+            @$query['BaselineItems'] = $request->baselineItems;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'BatchEnrollAccounts',
-            'version'     => '2021-01-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'BatchEnrollAccounts',
+            'version' => '2021-01-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return BatchEnrollAccountsResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return BatchEnrollAccountsResponse::fromMap($this->callApi($params, $req, $runtime));
+        return BatchEnrollAccountsResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Applies an account baseline to multiple existing resource accounts at a time.
-     *  *
-     * @description You can call this operation to apply an account baseline to existing resource accounts.
-     * Accounts are enrolled in the account factory in asynchronous mode. After a resource account is created, an account baseline is applied to the account. You can call the [GetEnrolledAccount](https://help.aliyun.com/document_detail/609062.html) operation to query the details of the account enrolled in the account factory and check whether the account baseline is applied to the account.
-     *  *
-     * @param BatchEnrollAccountsRequest $request BatchEnrollAccountsRequest
+     * Applies an account baseline to multiple existing resource accounts at a time.
      *
-     * @return BatchEnrollAccountsResponse BatchEnrollAccountsResponse
+     * @remarks
+     * You can call this operation to apply an account baseline to existing resource accounts.
+     * Accounts are enrolled in the account factory in asynchronous mode. After a resource account is created, an account baseline is applied to the account. You can call the [GetEnrolledAccount](https://help.aliyun.com/document_detail/609062.html) operation to query the details of the account enrolled in the account factory and check whether the account baseline is applied to the account.
+     *
+     * @param request - BatchEnrollAccountsRequest
+     *
+     * @returns BatchEnrollAccountsResponse
+     *
+     * @param BatchEnrollAccountsRequest $request
+     *
+     * @return BatchEnrollAccountsResponse
      */
     public function batchEnrollAccounts($request)
     {
@@ -141,53 +158,69 @@ class Governance extends OpenApiClient
     }
 
     /**
-     * @summary Creates a baseline of the account factory.
-     *  *
-     * @param CreateAccountFactoryBaselineRequest $request CreateAccountFactoryBaselineRequest
-     * @param RuntimeOptions                      $runtime runtime options for this request RuntimeOptions
+     * Creates a baseline of the account factory.
      *
-     * @return CreateAccountFactoryBaselineResponse CreateAccountFactoryBaselineResponse
+     * @param request - CreateAccountFactoryBaselineRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateAccountFactoryBaselineResponse
+     *
+     * @param CreateAccountFactoryBaselineRequest $request
+     * @param RuntimeOptions                      $runtime
+     *
+     * @return CreateAccountFactoryBaselineResponse
      */
     public function createAccountFactoryBaselineWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->baselineItems)) {
-            $query['BaselineItems'] = $request->baselineItems;
+        if (null !== $request->baselineItems) {
+            @$query['BaselineItems'] = $request->baselineItems;
         }
-        if (!Utils::isUnset($request->baselineName)) {
-            $query['BaselineName'] = $request->baselineName;
+
+        if (null !== $request->baselineName) {
+            @$query['BaselineName'] = $request->baselineName;
         }
-        if (!Utils::isUnset($request->description)) {
-            $query['Description'] = $request->description;
+
+        if (null !== $request->description) {
+            @$query['Description'] = $request->description;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'CreateAccountFactoryBaseline',
-            'version'     => '2021-01-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CreateAccountFactoryBaseline',
+            'version' => '2021-01-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return CreateAccountFactoryBaselineResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return CreateAccountFactoryBaselineResponse::fromMap($this->callApi($params, $req, $runtime));
+        return CreateAccountFactoryBaselineResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Creates a baseline of the account factory.
-     *  *
-     * @param CreateAccountFactoryBaselineRequest $request CreateAccountFactoryBaselineRequest
+     * Creates a baseline of the account factory.
      *
-     * @return CreateAccountFactoryBaselineResponse CreateAccountFactoryBaselineResponse
+     * @param request - CreateAccountFactoryBaselineRequest
+     *
+     * @returns CreateAccountFactoryBaselineResponse
+     *
+     * @param CreateAccountFactoryBaselineRequest $request
+     *
+     * @return CreateAccountFactoryBaselineResponse
      */
     public function createAccountFactoryBaseline($request)
     {
@@ -197,47 +230,61 @@ class Governance extends OpenApiClient
     }
 
     /**
-     * @summary Deletes an account factory baseline.
-     *  *
-     * @param DeleteAccountFactoryBaselineRequest $request DeleteAccountFactoryBaselineRequest
-     * @param RuntimeOptions                      $runtime runtime options for this request RuntimeOptions
+     * Deletes an account factory baseline.
      *
-     * @return DeleteAccountFactoryBaselineResponse DeleteAccountFactoryBaselineResponse
+     * @param request - DeleteAccountFactoryBaselineRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteAccountFactoryBaselineResponse
+     *
+     * @param DeleteAccountFactoryBaselineRequest $request
+     * @param RuntimeOptions                      $runtime
+     *
+     * @return DeleteAccountFactoryBaselineResponse
      */
     public function deleteAccountFactoryBaselineWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->baselineId)) {
-            $query['BaselineId'] = $request->baselineId;
+        if (null !== $request->baselineId) {
+            @$query['BaselineId'] = $request->baselineId;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DeleteAccountFactoryBaseline',
-            'version'     => '2021-01-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DeleteAccountFactoryBaseline',
+            'version' => '2021-01-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DeleteAccountFactoryBaselineResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DeleteAccountFactoryBaselineResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DeleteAccountFactoryBaselineResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Deletes an account factory baseline.
-     *  *
-     * @param DeleteAccountFactoryBaselineRequest $request DeleteAccountFactoryBaselineRequest
+     * Deletes an account factory baseline.
      *
-     * @return DeleteAccountFactoryBaselineResponse DeleteAccountFactoryBaselineResponse
+     * @param request - DeleteAccountFactoryBaselineRequest
+     *
+     * @returns DeleteAccountFactoryBaselineResponse
+     *
+     * @param DeleteAccountFactoryBaselineRequest $request
+     *
+     * @return DeleteAccountFactoryBaselineResponse
      */
     public function deleteAccountFactoryBaseline($request)
     {
@@ -247,82 +294,107 @@ class Governance extends OpenApiClient
     }
 
     /**
-     * @summary Enrolls an account. You can create a new account or manage an existing account in the account factory.
-     *  *
-     * @description You can call this API operation to create a new account or manage an existing account and apply the account baseline to the account.
-     * Accounts are created in asynchronous mode. After you create an account, you can apply the account baseline to the account. You can call the [GetEnrolledAccount API](~~GetEnrolledAccount~~) operation to view the details about the account to obtain the result of applying the account baseline to the account.
-     *  *
-     * @param EnrollAccountRequest $tmpReq  EnrollAccountRequest
-     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
+     * Enrolls an account. You can create a new account or manage an existing account in the account factory.
      *
-     * @return EnrollAccountResponse EnrollAccountResponse
+     * @remarks
+     * You can call this API operation to create a new account or manage an existing account and apply the account baseline to the account.
+     * Accounts are created in asynchronous mode. After you create an account, you can apply the account baseline to the account. You can call the [GetEnrolledAccount API](~~GetEnrolledAccount~~) operation to view the details about the account to obtain the result of applying the account baseline to the account.
+     *
+     * @param tmpReq - EnrollAccountRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns EnrollAccountResponse
+     *
+     * @param EnrollAccountRequest $tmpReq
+     * @param RuntimeOptions       $runtime
+     *
+     * @return EnrollAccountResponse
      */
     public function enrollAccountWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new EnrollAccountShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->tag)) {
-            $request->tagShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->tag, 'Tag', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->tag) {
+            $request->tagShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->tag, 'Tag', 'json');
         }
+
         $query = [];
-        if (!Utils::isUnset($request->accountNamePrefix)) {
-            $query['AccountNamePrefix'] = $request->accountNamePrefix;
+        if (null !== $request->accountNamePrefix) {
+            @$query['AccountNamePrefix'] = $request->accountNamePrefix;
         }
-        if (!Utils::isUnset($request->accountUid)) {
-            $query['AccountUid'] = $request->accountUid;
+
+        if (null !== $request->accountUid) {
+            @$query['AccountUid'] = $request->accountUid;
         }
-        if (!Utils::isUnset($request->baselineId)) {
-            $query['BaselineId'] = $request->baselineId;
+
+        if (null !== $request->baselineId) {
+            @$query['BaselineId'] = $request->baselineId;
         }
-        if (!Utils::isUnset($request->baselineItems)) {
-            $query['BaselineItems'] = $request->baselineItems;
+
+        if (null !== $request->baselineItems) {
+            @$query['BaselineItems'] = $request->baselineItems;
         }
-        if (!Utils::isUnset($request->displayName)) {
-            $query['DisplayName'] = $request->displayName;
+
+        if (null !== $request->displayName) {
+            @$query['DisplayName'] = $request->displayName;
         }
-        if (!Utils::isUnset($request->folderId)) {
-            $query['FolderId'] = $request->folderId;
+
+        if (null !== $request->folderId) {
+            @$query['FolderId'] = $request->folderId;
         }
-        if (!Utils::isUnset($request->payerAccountUid)) {
-            $query['PayerAccountUid'] = $request->payerAccountUid;
+
+        if (null !== $request->payerAccountUid) {
+            @$query['PayerAccountUid'] = $request->payerAccountUid;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->resellAccountType)) {
-            $query['ResellAccountType'] = $request->resellAccountType;
+
+        if (null !== $request->resellAccountType) {
+            @$query['ResellAccountType'] = $request->resellAccountType;
         }
-        if (!Utils::isUnset($request->tagShrink)) {
-            $query['Tag'] = $request->tagShrink;
+
+        if (null !== $request->tagShrink) {
+            @$query['Tag'] = $request->tagShrink;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'EnrollAccount',
-            'version'     => '2021-01-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'EnrollAccount',
+            'version' => '2021-01-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return EnrollAccountResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return EnrollAccountResponse::fromMap($this->callApi($params, $req, $runtime));
+        return EnrollAccountResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Enrolls an account. You can create a new account or manage an existing account in the account factory.
-     *  *
-     * @description You can call this API operation to create a new account or manage an existing account and apply the account baseline to the account.
-     * Accounts are created in asynchronous mode. After you create an account, you can apply the account baseline to the account. You can call the [GetEnrolledAccount API](~~GetEnrolledAccount~~) operation to view the details about the account to obtain the result of applying the account baseline to the account.
-     *  *
-     * @param EnrollAccountRequest $request EnrollAccountRequest
+     * Enrolls an account. You can create a new account or manage an existing account in the account factory.
      *
-     * @return EnrollAccountResponse EnrollAccountResponse
+     * @remarks
+     * You can call this API operation to create a new account or manage an existing account and apply the account baseline to the account.
+     * Accounts are created in asynchronous mode. After you create an account, you can apply the account baseline to the account. You can call the [GetEnrolledAccount API](~~GetEnrolledAccount~~) operation to view the details about the account to obtain the result of applying the account baseline to the account.
+     *
+     * @param request - EnrollAccountRequest
+     *
+     * @returns EnrollAccountResponse
+     *
+     * @param EnrollAccountRequest $request
+     *
+     * @return EnrollAccountResponse
      */
     public function enrollAccount($request)
     {
@@ -332,47 +404,61 @@ class Governance extends OpenApiClient
     }
 
     /**
-     * @summary Obtains the details of an account factory baseline.
-     *  *
-     * @param GetAccountFactoryBaselineRequest $request GetAccountFactoryBaselineRequest
-     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
+     * Obtains the details of an account factory baseline.
      *
-     * @return GetAccountFactoryBaselineResponse GetAccountFactoryBaselineResponse
+     * @param request - GetAccountFactoryBaselineRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetAccountFactoryBaselineResponse
+     *
+     * @param GetAccountFactoryBaselineRequest $request
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return GetAccountFactoryBaselineResponse
      */
     public function getAccountFactoryBaselineWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->baselineId)) {
-            $query['BaselineId'] = $request->baselineId;
+        if (null !== $request->baselineId) {
+            @$query['BaselineId'] = $request->baselineId;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'GetAccountFactoryBaseline',
-            'version'     => '2021-01-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetAccountFactoryBaseline',
+            'version' => '2021-01-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return GetAccountFactoryBaselineResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GetAccountFactoryBaselineResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetAccountFactoryBaselineResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Obtains the details of an account factory baseline.
-     *  *
-     * @param GetAccountFactoryBaselineRequest $request GetAccountFactoryBaselineRequest
+     * Obtains the details of an account factory baseline.
      *
-     * @return GetAccountFactoryBaselineResponse GetAccountFactoryBaselineResponse
+     * @param request - GetAccountFactoryBaselineRequest
+     *
+     * @returns GetAccountFactoryBaselineResponse
+     *
+     * @param GetAccountFactoryBaselineRequest $request
+     *
+     * @return GetAccountFactoryBaselineResponse
      */
     public function getAccountFactoryBaseline($request)
     {
@@ -382,47 +468,61 @@ class Governance extends OpenApiClient
     }
 
     /**
-     * @summary Queries the details about an account that is enrolled in the account factory.
-     *  *
-     * @param GetEnrolledAccountRequest $request GetEnrolledAccountRequest
-     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
+     * Queries the details about an account that is enrolled in the account factory.
      *
-     * @return GetEnrolledAccountResponse GetEnrolledAccountResponse
+     * @param request - GetEnrolledAccountRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetEnrolledAccountResponse
+     *
+     * @param GetEnrolledAccountRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return GetEnrolledAccountResponse
      */
     public function getEnrolledAccountWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->accountUid)) {
-            $query['AccountUid'] = $request->accountUid;
+        if (null !== $request->accountUid) {
+            @$query['AccountUid'] = $request->accountUid;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'GetEnrolledAccount',
-            'version'     => '2021-01-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetEnrolledAccount',
+            'version' => '2021-01-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return GetEnrolledAccountResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GetEnrolledAccountResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetEnrolledAccountResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the details about an account that is enrolled in the account factory.
-     *  *
-     * @param GetEnrolledAccountRequest $request GetEnrolledAccountRequest
+     * Queries the details about an account that is enrolled in the account factory.
      *
-     * @return GetEnrolledAccountResponse GetEnrolledAccountResponse
+     * @param request - GetEnrolledAccountRequest
+     *
+     * @returns GetEnrolledAccountResponse
+     *
+     * @param GetEnrolledAccountRequest $request
+     *
+     * @return GetEnrolledAccountResponse
      */
     public function getEnrolledAccount($request)
     {
@@ -432,59 +532,77 @@ class Governance extends OpenApiClient
     }
 
     /**
-     * @summary Queries a list of baseline items that are supported by the account factory of Cloud Governance Center (CGC).
-     *  *
-     * @param ListAccountFactoryBaselineItemsRequest $request ListAccountFactoryBaselineItemsRequest
-     * @param RuntimeOptions                         $runtime runtime options for this request RuntimeOptions
+     * Queries a list of baseline items that are supported by the account factory of Cloud Governance Center (CGC).
      *
-     * @return ListAccountFactoryBaselineItemsResponse ListAccountFactoryBaselineItemsResponse
+     * @param request - ListAccountFactoryBaselineItemsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListAccountFactoryBaselineItemsResponse
+     *
+     * @param ListAccountFactoryBaselineItemsRequest $request
+     * @param RuntimeOptions                         $runtime
+     *
+     * @return ListAccountFactoryBaselineItemsResponse
      */
     public function listAccountFactoryBaselineItemsWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->maxResults)) {
-            $query['MaxResults'] = $request->maxResults;
+        if (null !== $request->maxResults) {
+            @$query['MaxResults'] = $request->maxResults;
         }
-        if (!Utils::isUnset($request->names)) {
-            $query['Names'] = $request->names;
+
+        if (null !== $request->names) {
+            @$query['Names'] = $request->names;
         }
-        if (!Utils::isUnset($request->nextToken)) {
-            $query['NextToken'] = $request->nextToken;
+
+        if (null !== $request->nextToken) {
+            @$query['NextToken'] = $request->nextToken;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->type)) {
-            $query['Type'] = $request->type;
+
+        if (null !== $request->type) {
+            @$query['Type'] = $request->type;
         }
-        if (!Utils::isUnset($request->versions)) {
-            $query['Versions'] = $request->versions;
+
+        if (null !== $request->versions) {
+            @$query['Versions'] = $request->versions;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListAccountFactoryBaselineItems',
-            'version'     => '2021-01-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListAccountFactoryBaselineItems',
+            'version' => '2021-01-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ListAccountFactoryBaselineItemsResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ListAccountFactoryBaselineItemsResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListAccountFactoryBaselineItemsResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries a list of baseline items that are supported by the account factory of Cloud Governance Center (CGC).
-     *  *
-     * @param ListAccountFactoryBaselineItemsRequest $request ListAccountFactoryBaselineItemsRequest
+     * Queries a list of baseline items that are supported by the account factory of Cloud Governance Center (CGC).
      *
-     * @return ListAccountFactoryBaselineItemsResponse ListAccountFactoryBaselineItemsResponse
+     * @param request - ListAccountFactoryBaselineItemsRequest
+     *
+     * @returns ListAccountFactoryBaselineItemsResponse
+     *
+     * @param ListAccountFactoryBaselineItemsRequest $request
+     *
+     * @return ListAccountFactoryBaselineItemsResponse
      */
     public function listAccountFactoryBaselineItems($request)
     {
@@ -494,50 +612,65 @@ class Governance extends OpenApiClient
     }
 
     /**
-     * @summary Obtains a list of baselines in the account factory.
-     *  *
-     * @param ListAccountFactoryBaselinesRequest $request ListAccountFactoryBaselinesRequest
-     * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
+     * Obtains a list of baselines in the account factory.
      *
-     * @return ListAccountFactoryBaselinesResponse ListAccountFactoryBaselinesResponse
+     * @param request - ListAccountFactoryBaselinesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListAccountFactoryBaselinesResponse
+     *
+     * @param ListAccountFactoryBaselinesRequest $request
+     * @param RuntimeOptions                     $runtime
+     *
+     * @return ListAccountFactoryBaselinesResponse
      */
     public function listAccountFactoryBaselinesWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->maxResults)) {
-            $query['MaxResults'] = $request->maxResults;
+        if (null !== $request->maxResults) {
+            @$query['MaxResults'] = $request->maxResults;
         }
-        if (!Utils::isUnset($request->nextToken)) {
-            $query['NextToken'] = $request->nextToken;
+
+        if (null !== $request->nextToken) {
+            @$query['NextToken'] = $request->nextToken;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListAccountFactoryBaselines',
-            'version'     => '2021-01-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListAccountFactoryBaselines',
+            'version' => '2021-01-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ListAccountFactoryBaselinesResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ListAccountFactoryBaselinesResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListAccountFactoryBaselinesResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Obtains a list of baselines in the account factory.
-     *  *
-     * @param ListAccountFactoryBaselinesRequest $request ListAccountFactoryBaselinesRequest
+     * Obtains a list of baselines in the account factory.
      *
-     * @return ListAccountFactoryBaselinesResponse ListAccountFactoryBaselinesResponse
+     * @param request - ListAccountFactoryBaselinesRequest
+     *
+     * @returns ListAccountFactoryBaselinesResponse
+     *
+     * @param ListAccountFactoryBaselinesRequest $request
+     *
+     * @return ListAccountFactoryBaselinesResponse
      */
     public function listAccountFactoryBaselines($request)
     {
@@ -547,50 +680,65 @@ class Governance extends OpenApiClient
     }
 
     /**
-     * @summary Queries a list of accounts that are enrolled in the account factory.
-     *  *
-     * @param ListEnrolledAccountsRequest $request ListEnrolledAccountsRequest
-     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
+     * Queries a list of accounts that are enrolled in the account factory.
      *
-     * @return ListEnrolledAccountsResponse ListEnrolledAccountsResponse
+     * @param request - ListEnrolledAccountsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListEnrolledAccountsResponse
+     *
+     * @param ListEnrolledAccountsRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return ListEnrolledAccountsResponse
      */
     public function listEnrolledAccountsWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->maxResults)) {
-            $query['MaxResults'] = $request->maxResults;
+        if (null !== $request->maxResults) {
+            @$query['MaxResults'] = $request->maxResults;
         }
-        if (!Utils::isUnset($request->nextToken)) {
-            $query['NextToken'] = $request->nextToken;
+
+        if (null !== $request->nextToken) {
+            @$query['NextToken'] = $request->nextToken;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListEnrolledAccounts',
-            'version'     => '2021-01-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListEnrolledAccounts',
+            'version' => '2021-01-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ListEnrolledAccountsResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ListEnrolledAccountsResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListEnrolledAccountsResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries a list of accounts that are enrolled in the account factory.
-     *  *
-     * @param ListEnrolledAccountsRequest $request ListEnrolledAccountsRequest
+     * Queries a list of accounts that are enrolled in the account factory.
      *
-     * @return ListEnrolledAccountsResponse ListEnrolledAccountsResponse
+     * @param request - ListEnrolledAccountsRequest
+     *
+     * @returns ListEnrolledAccountsResponse
+     *
+     * @param ListEnrolledAccountsRequest $request
+     *
+     * @return ListEnrolledAccountsResponse
      */
     public function listEnrolledAccounts($request)
     {
@@ -600,47 +748,61 @@ class Governance extends OpenApiClient
     }
 
     /**
-     * @summary Queries all available information about check items in a governance maturity check, including the name, ID, description, stage, resource metadata, and fixing guide.
-     *  *
-     * @param ListEvaluationMetadataRequest $request ListEvaluationMetadataRequest
-     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
+     * Queries all available information about check items in a governance maturity check, including the name, ID, description, stage, resource metadata, and fixing guide.
      *
-     * @return ListEvaluationMetadataResponse ListEvaluationMetadataResponse
+     * @param request - ListEvaluationMetadataRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListEvaluationMetadataResponse
+     *
+     * @param ListEvaluationMetadataRequest $request
+     * @param RuntimeOptions                $runtime
+     *
+     * @return ListEvaluationMetadataResponse
      */
     public function listEvaluationMetadataWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->language)) {
-            $query['Language'] = $request->language;
+        if (null !== $request->language) {
+            @$query['Language'] = $request->language;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListEvaluationMetadata',
-            'version'     => '2021-01-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListEvaluationMetadata',
+            'version' => '2021-01-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ListEvaluationMetadataResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ListEvaluationMetadataResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListEvaluationMetadataResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries all available information about check items in a governance maturity check, including the name, ID, description, stage, resource metadata, and fixing guide.
-     *  *
-     * @param ListEvaluationMetadataRequest $request ListEvaluationMetadataRequest
+     * Queries all available information about check items in a governance maturity check, including the name, ID, description, stage, resource metadata, and fixing guide.
      *
-     * @return ListEvaluationMetadataResponse ListEvaluationMetadataResponse
+     * @param request - ListEvaluationMetadataRequest
+     *
+     * @returns ListEvaluationMetadataResponse
+     *
+     * @param ListEvaluationMetadataRequest $request
+     *
+     * @return ListEvaluationMetadataResponse
      */
     public function listEvaluationMetadata($request)
     {
@@ -650,56 +812,77 @@ class Governance extends OpenApiClient
     }
 
     /**
-     * @summary Queries the non-compliant resource information of a check item, including the name, ID, category, type, region, and related metadata of non-compliant resources.
-     *  *
-     * @param ListEvaluationMetricDetailsRequest $request ListEvaluationMetricDetailsRequest
-     * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
+     * Queries the non-compliant resource information of a check item, including the name, ID, category, type, region, and related metadata of non-compliant resources.
      *
-     * @return ListEvaluationMetricDetailsResponse ListEvaluationMetricDetailsResponse
+     * @param request - ListEvaluationMetricDetailsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListEvaluationMetricDetailsResponse
+     *
+     * @param ListEvaluationMetricDetailsRequest $request
+     * @param RuntimeOptions                     $runtime
+     *
+     * @return ListEvaluationMetricDetailsResponse
      */
     public function listEvaluationMetricDetailsWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->accountId)) {
-            $query['AccountId'] = $request->accountId;
+        if (null !== $request->accountId) {
+            @$query['AccountId'] = $request->accountId;
         }
-        if (!Utils::isUnset($request->id)) {
-            $query['Id'] = $request->id;
+
+        if (null !== $request->id) {
+            @$query['Id'] = $request->id;
         }
-        if (!Utils::isUnset($request->maxResults)) {
-            $query['MaxResults'] = $request->maxResults;
+
+        if (null !== $request->maxResults) {
+            @$query['MaxResults'] = $request->maxResults;
         }
-        if (!Utils::isUnset($request->nextToken)) {
-            $query['NextToken'] = $request->nextToken;
+
+        if (null !== $request->nextToken) {
+            @$query['NextToken'] = $request->nextToken;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
+
+        if (null !== $request->snapshotId) {
+            @$query['SnapshotId'] = $request->snapshotId;
+        }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListEvaluationMetricDetails',
-            'version'     => '2021-01-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListEvaluationMetricDetails',
+            'version' => '2021-01-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ListEvaluationMetricDetailsResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ListEvaluationMetricDetailsResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListEvaluationMetricDetailsResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the non-compliant resource information of a check item, including the name, ID, category, type, region, and related metadata of non-compliant resources.
-     *  *
-     * @param ListEvaluationMetricDetailsRequest $request ListEvaluationMetricDetailsRequest
+     * Queries the non-compliant resource information of a check item, including the name, ID, category, type, region, and related metadata of non-compliant resources.
      *
-     * @return ListEvaluationMetricDetailsResponse ListEvaluationMetricDetailsResponse
+     * @param request - ListEvaluationMetricDetailsRequest
+     *
+     * @returns ListEvaluationMetricDetailsResponse
+     *
+     * @param ListEvaluationMetricDetailsRequest $request
+     *
+     * @return ListEvaluationMetricDetailsResponse
      */
     public function listEvaluationMetricDetails($request)
     {
@@ -709,47 +892,69 @@ class Governance extends OpenApiClient
     }
 
     /**
-     * @summary Queries the result and status of a governance maturity check.
-     *  *
-     * @param ListEvaluationResultsRequest $request ListEvaluationResultsRequest
-     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
+     * Queries the result and status of a governance check.
      *
-     * @return ListEvaluationResultsResponse ListEvaluationResultsResponse
+     * @param request - ListEvaluationResultsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListEvaluationResultsResponse
+     *
+     * @param ListEvaluationResultsRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return ListEvaluationResultsResponse
      */
     public function listEvaluationResultsWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->accountId)) {
-            $query['AccountId'] = $request->accountId;
+        if (null !== $request->accountId) {
+            @$query['AccountId'] = $request->accountId;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->filters) {
+            @$query['Filters'] = $request->filters;
         }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        if (null !== $request->snapshotId) {
+            @$query['SnapshotId'] = $request->snapshotId;
+        }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListEvaluationResults',
-            'version'     => '2021-01-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListEvaluationResults',
+            'version' => '2021-01-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ListEvaluationResultsResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ListEvaluationResultsResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListEvaluationResultsResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the result and status of a governance maturity check.
-     *  *
-     * @param ListEvaluationResultsRequest $request ListEvaluationResultsRequest
+     * Queries the result and status of a governance check.
      *
-     * @return ListEvaluationResultsResponse ListEvaluationResultsResponse
+     * @param request - ListEvaluationResultsRequest
+     *
+     * @returns ListEvaluationResultsResponse
+     *
+     * @param ListEvaluationResultsRequest $request
+     *
+     * @return ListEvaluationResultsResponse
      */
     public function listEvaluationResults($request)
     {
@@ -759,53 +964,69 @@ class Governance extends OpenApiClient
     }
 
     /**
-     * @summary Queries the historical scores of a governance maturity check.
-     *  *
-     * @param ListEvaluationScoreHistoryRequest $request ListEvaluationScoreHistoryRequest
-     * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
+     * Queries the historical scores of a governance maturity check.
      *
-     * @return ListEvaluationScoreHistoryResponse ListEvaluationScoreHistoryResponse
+     * @param request - ListEvaluationScoreHistoryRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListEvaluationScoreHistoryResponse
+     *
+     * @param ListEvaluationScoreHistoryRequest $request
+     * @param RuntimeOptions                    $runtime
+     *
+     * @return ListEvaluationScoreHistoryResponse
      */
     public function listEvaluationScoreHistoryWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->accountId)) {
-            $query['AccountId'] = $request->accountId;
+        if (null !== $request->accountId) {
+            @$query['AccountId'] = $request->accountId;
         }
-        if (!Utils::isUnset($request->endDate)) {
-            $query['EndDate'] = $request->endDate;
+
+        if (null !== $request->endDate) {
+            @$query['EndDate'] = $request->endDate;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->startDate)) {
-            $query['StartDate'] = $request->startDate;
+
+        if (null !== $request->startDate) {
+            @$query['StartDate'] = $request->startDate;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListEvaluationScoreHistory',
-            'version'     => '2021-01-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListEvaluationScoreHistory',
+            'version' => '2021-01-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ListEvaluationScoreHistoryResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ListEvaluationScoreHistoryResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListEvaluationScoreHistoryResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the historical scores of a governance maturity check.
-     *  *
-     * @param ListEvaluationScoreHistoryRequest $request ListEvaluationScoreHistoryRequest
+     * Queries the historical scores of a governance maturity check.
      *
-     * @return ListEvaluationScoreHistoryResponse ListEvaluationScoreHistoryResponse
+     * @param request - ListEvaluationScoreHistoryRequest
+     *
+     * @returns ListEvaluationScoreHistoryResponse
+     *
+     * @param ListEvaluationScoreHistoryRequest $request
+     *
+     * @return ListEvaluationScoreHistoryResponse
      */
     public function listEvaluationScoreHistory($request)
     {
@@ -815,58 +1036,75 @@ class Governance extends OpenApiClient
     }
 
     /**
-     * @summary Performs a governance maturity check.
-     *  *
-     * @param RunEvaluationRequest $tmpReq  RunEvaluationRequest
-     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
+     * Performs a governance maturity check.
      *
-     * @return RunEvaluationResponse RunEvaluationResponse
+     * @param tmpReq - RunEvaluationRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns RunEvaluationResponse
+     *
+     * @param RunEvaluationRequest $tmpReq
+     * @param RuntimeOptions       $runtime
+     *
+     * @return RunEvaluationResponse
      */
     public function runEvaluationWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new RunEvaluationShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->metricIds)) {
-            $request->metricIdsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->metricIds, 'MetricIds', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->metricIds) {
+            $request->metricIdsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->metricIds, 'MetricIds', 'json');
         }
+
         $query = [];
-        if (!Utils::isUnset($request->accountId)) {
-            $query['AccountId'] = $request->accountId;
+        if (null !== $request->accountId) {
+            @$query['AccountId'] = $request->accountId;
         }
-        if (!Utils::isUnset($request->metricIdsShrink)) {
-            $query['MetricIds'] = $request->metricIdsShrink;
+
+        if (null !== $request->metricIdsShrink) {
+            @$query['MetricIds'] = $request->metricIdsShrink;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->scope)) {
-            $query['Scope'] = $request->scope;
+
+        if (null !== $request->scope) {
+            @$query['Scope'] = $request->scope;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'RunEvaluation',
-            'version'     => '2021-01-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'RunEvaluation',
+            'version' => '2021-01-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return RunEvaluationResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return RunEvaluationResponse::fromMap($this->callApi($params, $req, $runtime));
+        return RunEvaluationResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Performs a governance maturity check.
-     *  *
-     * @param RunEvaluationRequest $request RunEvaluationRequest
+     * Performs a governance maturity check.
      *
-     * @return RunEvaluationResponse RunEvaluationResponse
+     * @param request - RunEvaluationRequest
+     *
+     * @returns RunEvaluationResponse
+     *
+     * @param RunEvaluationRequest $request
+     *
+     * @return RunEvaluationResponse
      */
     public function runEvaluation($request)
     {
@@ -876,56 +1114,73 @@ class Governance extends OpenApiClient
     }
 
     /**
-     * @summary Updates a baseline of the account factory.
-     *  *
-     * @param UpdateAccountFactoryBaselineRequest $request UpdateAccountFactoryBaselineRequest
-     * @param RuntimeOptions                      $runtime runtime options for this request RuntimeOptions
+     * Updates a baseline of the account factory.
      *
-     * @return UpdateAccountFactoryBaselineResponse UpdateAccountFactoryBaselineResponse
+     * @param request - UpdateAccountFactoryBaselineRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateAccountFactoryBaselineResponse
+     *
+     * @param UpdateAccountFactoryBaselineRequest $request
+     * @param RuntimeOptions                      $runtime
+     *
+     * @return UpdateAccountFactoryBaselineResponse
      */
     public function updateAccountFactoryBaselineWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->baselineId)) {
-            $query['BaselineId'] = $request->baselineId;
+        if (null !== $request->baselineId) {
+            @$query['BaselineId'] = $request->baselineId;
         }
-        if (!Utils::isUnset($request->baselineItems)) {
-            $query['BaselineItems'] = $request->baselineItems;
+
+        if (null !== $request->baselineItems) {
+            @$query['BaselineItems'] = $request->baselineItems;
         }
-        if (!Utils::isUnset($request->baselineName)) {
-            $query['BaselineName'] = $request->baselineName;
+
+        if (null !== $request->baselineName) {
+            @$query['BaselineName'] = $request->baselineName;
         }
-        if (!Utils::isUnset($request->description)) {
-            $query['Description'] = $request->description;
+
+        if (null !== $request->description) {
+            @$query['Description'] = $request->description;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'UpdateAccountFactoryBaseline',
-            'version'     => '2021-01-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'UpdateAccountFactoryBaseline',
+            'version' => '2021-01-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return UpdateAccountFactoryBaselineResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return UpdateAccountFactoryBaselineResponse::fromMap($this->callApi($params, $req, $runtime));
+        return UpdateAccountFactoryBaselineResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Updates a baseline of the account factory.
-     *  *
-     * @param UpdateAccountFactoryBaselineRequest $request UpdateAccountFactoryBaselineRequest
+     * Updates a baseline of the account factory.
      *
-     * @return UpdateAccountFactoryBaselineResponse UpdateAccountFactoryBaselineResponse
+     * @param request - UpdateAccountFactoryBaselineRequest
+     *
+     * @returns UpdateAccountFactoryBaselineResponse
+     *
+     * @param UpdateAccountFactoryBaselineRequest $request
+     *
+     * @return UpdateAccountFactoryBaselineResponse
      */
     public function updateAccountFactoryBaseline($request)
     {

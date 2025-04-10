@@ -4,55 +4,46 @@
 
 namespace AlibabaCloud\SDK\Governance\V20210120\Models\ListAccountFactoryBaselineItemsResponseBody\baselineItems;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class dependsOn extends Model
 {
     /**
-     * @description The name of the baseline item.
-     *
-     * @example ACS-BP_ACCOUNT_FACTORY_VPC
-     *
      * @var string
      */
     public $name;
 
     /**
-     * @description The type of the baseline item.
-     *
-     * @example AccountFactory
-     *
      * @var string
      */
     public $type;
 
     /**
-     * @description The version of the baseline item.
-     *
-     * @example 1.0
-     *
      * @var string
      */
     public $version;
     protected $_name = [
-        'name'    => 'Name',
-        'type'    => 'Type',
+        'name' => 'Name',
+        'type' => 'Type',
         'version' => 'Version',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->name) {
             $res['Name'] = $this->name;
         }
+
         if (null !== $this->type) {
             $res['Type'] = $this->type;
         }
+
         if (null !== $this->version) {
             $res['Version'] = $this->version;
         }
@@ -60,20 +51,22 @@ class dependsOn extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return dependsOn
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
         }
+
         if (isset($map['Type'])) {
             $model->type = $map['Type'];
         }
+
         if (isset($map['Version'])) {
             $model->version = $map['Version'];
         }

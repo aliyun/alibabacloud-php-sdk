@@ -4,59 +4,59 @@
 
 namespace AlibabaCloud\SDK\Governance\V20210120\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Governance\V20210120\Models\ListEvaluationScoreHistoryResponseBody\scoreHistory;
-use AlibabaCloud\Tea\Model;
 
 class ListEvaluationScoreHistoryResponseBody extends Model
 {
     /**
-     * @description The request ID.
-     *
-     * @example AC9BD94C-D20C-4D27-88D4-89E8D75C051B
-     *
      * @var string
      */
     public $requestId;
 
     /**
-     * @description The historical scores.
-     *
      * @var scoreHistory
      */
     public $scoreHistory;
     protected $_name = [
-        'requestId'    => 'RequestId',
+        'requestId' => 'RequestId',
         'scoreHistory' => 'ScoreHistory',
     ];
 
     public function validate()
     {
+        if (null !== $this->scoreHistory) {
+            $this->scoreHistory->validate();
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
+
         if (null !== $this->scoreHistory) {
-            $res['ScoreHistory'] = null !== $this->scoreHistory ? $this->scoreHistory->toMap() : null;
+            $res['ScoreHistory'] = null !== $this->scoreHistory ? $this->scoreHistory->toArray($noStream) : $this->scoreHistory;
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ListEvaluationScoreHistoryResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
+
         if (isset($map['ScoreHistory'])) {
             $model->scoreHistory = scoreHistory::fromMap($map['ScoreHistory']);
         }

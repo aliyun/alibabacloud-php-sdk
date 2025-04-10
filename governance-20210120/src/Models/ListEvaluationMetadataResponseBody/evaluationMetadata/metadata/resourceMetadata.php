@@ -4,14 +4,12 @@
 
 namespace AlibabaCloud\SDK\Governance\V20210120\Models\ListEvaluationMetadataResponseBody\evaluationMetadata\metadata;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Governance\V20210120\Models\ListEvaluationMetadataResponseBody\evaluationMetadata\metadata\resourceMetadata\resourcePropertyMetadata;
-use AlibabaCloud\Tea\Model;
 
 class resourceMetadata extends Model
 {
     /**
-     * @description The metadata of the resource properties.
-     *
      * @var resourcePropertyMetadata[]
      */
     public $resourcePropertyMetadata;
@@ -21,17 +19,21 @@ class resourceMetadata extends Model
 
     public function validate()
     {
+        if (\is_array($this->resourcePropertyMetadata)) {
+            Model::validateArray($this->resourcePropertyMetadata);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->resourcePropertyMetadata) {
-            $res['ResourcePropertyMetadata'] = [];
-            if (null !== $this->resourcePropertyMetadata && \is_array($this->resourcePropertyMetadata)) {
-                $n = 0;
-                foreach ($this->resourcePropertyMetadata as $item) {
-                    $res['ResourcePropertyMetadata'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->resourcePropertyMetadata)) {
+                $res['ResourcePropertyMetadata'] = [];
+                $n1 = 0;
+                foreach ($this->resourcePropertyMetadata as $item1) {
+                    $res['ResourcePropertyMetadata'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
@@ -39,20 +41,20 @@ class resourceMetadata extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return resourceMetadata
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ResourcePropertyMetadata'])) {
             if (!empty($map['ResourcePropertyMetadata'])) {
                 $model->resourcePropertyMetadata = [];
-                $n                               = 0;
-                foreach ($map['ResourcePropertyMetadata'] as $item) {
-                    $model->resourcePropertyMetadata[$n++] = null !== $item ? resourcePropertyMetadata::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['ResourcePropertyMetadata'] as $item1) {
+                    $model->resourcePropertyMetadata[$n1++] = resourcePropertyMetadata::fromMap($item1);
                 }
             }
         }

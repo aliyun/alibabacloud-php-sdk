@@ -4,15 +4,11 @@
 
 namespace AlibabaCloud\SDK\Governance\V20210120\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class RunEvaluationResponseBody extends Model
 {
     /**
-     * @description The request ID.
-     *
-     * @example 2D3E2A3A-F2B8-578D-9659-3195F94A****
-     *
      * @var string
      */
     public $requestId;
@@ -22,9 +18,10 @@ class RunEvaluationResponseBody extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->requestId) {
@@ -34,11 +31,11 @@ class RunEvaluationResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return RunEvaluationResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

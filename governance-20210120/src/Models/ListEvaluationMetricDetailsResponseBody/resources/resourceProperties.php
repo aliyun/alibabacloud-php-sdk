@@ -4,40 +4,36 @@
 
 namespace AlibabaCloud\SDK\Governance\V20210120\Models\ListEvaluationMetricDetailsResponseBody\resources;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class resourceProperties extends Model
 {
     /**
-     * @description The name of the resource attribute.
-     *
-     * @example DisplayName
-     *
      * @var string
      */
     public $propertyName;
 
     /**
-     * @description The value of the resource attribute.
-     *
      * @var string
      */
     public $propertyValue;
     protected $_name = [
-        'propertyName'  => 'PropertyName',
+        'propertyName' => 'PropertyName',
         'propertyValue' => 'PropertyValue',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->propertyName) {
             $res['PropertyName'] = $this->propertyName;
         }
+
         if (null !== $this->propertyValue) {
             $res['PropertyValue'] = $this->propertyValue;
         }
@@ -45,17 +41,18 @@ class resourceProperties extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return resourceProperties
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['PropertyName'])) {
             $model->propertyName = $map['PropertyName'];
         }
+
         if (isset($map['PropertyValue'])) {
             $model->propertyValue = $map['PropertyValue'];
         }

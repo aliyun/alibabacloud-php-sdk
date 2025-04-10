@@ -4,49 +4,46 @@
 
 namespace AlibabaCloud\SDK\Governance\V20210120\Models\ListEvaluationMetadataResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Governance\V20210120\Models\ListEvaluationMetadataResponseBody\evaluationMetadata\metadata;
-use AlibabaCloud\Tea\Model;
 
 class evaluationMetadata extends Model
 {
     /**
-     * @description The metadata objects of a specific metadata type.
-     *
      * @var metadata[]
      */
     public $metadata;
 
     /**
-     * @description The type of the metadata. Valid values:
-     *
-     *   Metric: the check item
-     *
-     * @example Metric
-     *
      * @var string
      */
     public $type;
     protected $_name = [
         'metadata' => 'Metadata',
-        'type'     => 'Type',
+        'type' => 'Type',
     ];
 
     public function validate()
     {
+        if (\is_array($this->metadata)) {
+            Model::validateArray($this->metadata);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->metadata) {
-            $res['Metadata'] = [];
-            if (null !== $this->metadata && \is_array($this->metadata)) {
-                $n = 0;
-                foreach ($this->metadata as $item) {
-                    $res['Metadata'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->metadata)) {
+                $res['Metadata'] = [];
+                $n1 = 0;
+                foreach ($this->metadata as $item1) {
+                    $res['Metadata'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
+
         if (null !== $this->type) {
             $res['Type'] = $this->type;
         }
@@ -54,23 +51,24 @@ class evaluationMetadata extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return evaluationMetadata
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Metadata'])) {
             if (!empty($map['Metadata'])) {
                 $model->metadata = [];
-                $n               = 0;
-                foreach ($map['Metadata'] as $item) {
-                    $model->metadata[$n++] = null !== $item ? metadata::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['Metadata'] as $item1) {
+                    $model->metadata[$n1++] = metadata::fromMap($item1);
                 }
             }
         }
+
         if (isset($map['Type'])) {
             $model->type = $map['Type'];
         }

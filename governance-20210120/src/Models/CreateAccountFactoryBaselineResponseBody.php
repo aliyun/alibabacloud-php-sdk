@@ -4,42 +4,36 @@
 
 namespace AlibabaCloud\SDK\Governance\V20210120\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class CreateAccountFactoryBaselineResponseBody extends Model
 {
     /**
-     * @description The baseline ID.
-     *
-     * @example afb-bp1e6ixtiwupap8m****
-     *
      * @var string
      */
     public $baselineId;
 
     /**
-     * @description The request ID.
-     *
-     * @example A5592E2E-0FC4-557C-B989-DF229B5EBE13
-     *
      * @var string
      */
     public $requestId;
     protected $_name = [
         'baselineId' => 'BaselineId',
-        'requestId'  => 'RequestId',
+        'requestId' => 'RequestId',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->baselineId) {
             $res['BaselineId'] = $this->baselineId;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -47,17 +41,18 @@ class CreateAccountFactoryBaselineResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return CreateAccountFactoryBaselineResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['BaselineId'])) {
             $model->baselineId = $map['BaselineId'];
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

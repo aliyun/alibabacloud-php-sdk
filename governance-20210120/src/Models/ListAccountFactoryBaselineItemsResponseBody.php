@@ -4,60 +4,56 @@
 
 namespace AlibabaCloud\SDK\Governance\V20210120\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Governance\V20210120\Models\ListAccountFactoryBaselineItemsResponseBody\baselineItems;
-use AlibabaCloud\Tea\Model;
 
 class ListAccountFactoryBaselineItemsResponseBody extends Model
 {
     /**
-     * @description The baseline items.
-     *
      * @var baselineItems[]
      */
     public $baselineItems;
 
     /**
-     * @description The returned value of NextToken is a pagination token, which can be used in the next request to retrieve a new page of results.
-     *
-     * @example AAAAACDGQdAEX3m42z3sQ+f3VTK2Xr2DzYbz/SAfc/zJRqod
-     *
      * @var string
      */
     public $nextToken;
 
     /**
-     * @description The request ID.
-     *
-     * @example B40D73D8-76AC-5D3C-AC63-4FC8AFCE6671
-     *
      * @var string
      */
     public $requestId;
     protected $_name = [
         'baselineItems' => 'BaselineItems',
-        'nextToken'     => 'NextToken',
-        'requestId'     => 'RequestId',
+        'nextToken' => 'NextToken',
+        'requestId' => 'RequestId',
     ];
 
     public function validate()
     {
+        if (\is_array($this->baselineItems)) {
+            Model::validateArray($this->baselineItems);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->baselineItems) {
-            $res['BaselineItems'] = [];
-            if (null !== $this->baselineItems && \is_array($this->baselineItems)) {
-                $n = 0;
-                foreach ($this->baselineItems as $item) {
-                    $res['BaselineItems'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->baselineItems)) {
+                $res['BaselineItems'] = [];
+                $n1 = 0;
+                foreach ($this->baselineItems as $item1) {
+                    $res['BaselineItems'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
+
         if (null !== $this->nextToken) {
             $res['NextToken'] = $this->nextToken;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -65,26 +61,28 @@ class ListAccountFactoryBaselineItemsResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ListAccountFactoryBaselineItemsResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['BaselineItems'])) {
             if (!empty($map['BaselineItems'])) {
                 $model->baselineItems = [];
-                $n                    = 0;
-                foreach ($map['BaselineItems'] as $item) {
-                    $model->baselineItems[$n++] = null !== $item ? baselineItems::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['BaselineItems'] as $item1) {
+                    $model->baselineItems[$n1++] = baselineItems::fromMap($item1);
                 }
             }
         }
+
         if (isset($map['NextToken'])) {
             $model->nextToken = $map['NextToken'];
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

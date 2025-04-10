@@ -4,14 +4,12 @@
 
 namespace AlibabaCloud\SDK\Governance\V20210120\Models\ListEvaluationScoreHistoryResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Governance\V20210120\Models\ListEvaluationScoreHistoryResponseBody\scoreHistory\totalScoreHistory;
-use AlibabaCloud\Tea\Model;
 
 class scoreHistory extends Model
 {
     /**
-     * @description The historical scores.
-     *
      * @var totalScoreHistory[]
      */
     public $totalScoreHistory;
@@ -21,17 +19,21 @@ class scoreHistory extends Model
 
     public function validate()
     {
+        if (\is_array($this->totalScoreHistory)) {
+            Model::validateArray($this->totalScoreHistory);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->totalScoreHistory) {
-            $res['TotalScoreHistory'] = [];
-            if (null !== $this->totalScoreHistory && \is_array($this->totalScoreHistory)) {
-                $n = 0;
-                foreach ($this->totalScoreHistory as $item) {
-                    $res['TotalScoreHistory'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->totalScoreHistory)) {
+                $res['TotalScoreHistory'] = [];
+                $n1 = 0;
+                foreach ($this->totalScoreHistory as $item1) {
+                    $res['TotalScoreHistory'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
@@ -39,20 +41,20 @@ class scoreHistory extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return scoreHistory
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['TotalScoreHistory'])) {
             if (!empty($map['TotalScoreHistory'])) {
                 $model->totalScoreHistory = [];
-                $n                        = 0;
-                foreach ($map['TotalScoreHistory'] as $item) {
-                    $model->totalScoreHistory[$n++] = null !== $item ? totalScoreHistory::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['TotalScoreHistory'] as $item1) {
+                    $model->totalScoreHistory[$n1++] = totalScoreHistory::fromMap($item1);
                 }
             }
         }

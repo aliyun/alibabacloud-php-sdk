@@ -4,42 +4,36 @@
 
 namespace AlibabaCloud\SDK\Governance\V20210120\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class EnrollAccountResponseBody extends Model
 {
     /**
-     * @description The account ID.
-     *
-     * @example 143165363236****
-     *
      * @var int
      */
     public $accountUid;
 
     /**
-     * @description The request ID.
-     *
-     * @example 7071E5FA-515E-5F53-B335-B87D619C6A66
-     *
      * @var string
      */
     public $requestId;
     protected $_name = [
         'accountUid' => 'AccountUid',
-        'requestId'  => 'RequestId',
+        'requestId' => 'RequestId',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->accountUid) {
             $res['AccountUid'] = $this->accountUid;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -47,17 +41,18 @@ class EnrollAccountResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return EnrollAccountResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AccountUid'])) {
             $model->accountUid = $map['AccountUid'];
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

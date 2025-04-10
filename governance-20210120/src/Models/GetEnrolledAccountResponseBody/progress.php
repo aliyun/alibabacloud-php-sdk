@@ -4,47 +4,36 @@
 
 namespace AlibabaCloud\SDK\Governance\V20210120\Models\GetEnrolledAccountResponseBody;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class progress extends Model
 {
     /**
-     * @description The name of the baseline item.
-     *
-     * @example ACS-BP_ACCOUNT_FACTORY_VPC
-     *
      * @var string
      */
     public $name;
 
     /**
-     * @description The status of applying the baseline to the account. Valid values:
-     *
-     *   Pending: The baseline is pending to be applied to the account.
-     *   Running: The baseline is being applied to the account.
-     *   Finished: : The baseline is applied to the account.
-     *   Failed: : The baseline fails to be applied to the account.
-     *
-     * @example Running
-     *
      * @var string
      */
     public $status;
     protected $_name = [
-        'name'   => 'Name',
+        'name' => 'Name',
         'status' => 'Status',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->name) {
             $res['Name'] = $this->name;
         }
+
         if (null !== $this->status) {
             $res['Status'] = $this->status;
         }
@@ -52,17 +41,18 @@ class progress extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return progress
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
         }
+
         if (isset($map['Status'])) {
             $model->status = $map['Status'];
         }
