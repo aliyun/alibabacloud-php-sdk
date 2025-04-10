@@ -7,6 +7,7 @@ namespace AlibabaCloud\SDK\Esserverless\V20230627\Models\GetAppResponseBody;
 use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Esserverless\V20230627\Models\GetAppResponseBody\result\network;
 use AlibabaCloud\SDK\Esserverless\V20230627\Models\GetAppResponseBody\result\privateNetwork;
+use AlibabaCloud\SDK\Esserverless\V20230627\Models\GetAppResponseBody\result\tags;
 
 class result extends Model
 {
@@ -24,6 +25,11 @@ class result extends Model
      * @var string
      */
     public $appType;
+
+    /**
+     * @var string
+     */
+    public $chargeType;
 
     /**
      * @var string
@@ -68,7 +74,17 @@ class result extends Model
     /**
      * @var string
      */
+    public $scenario;
+
+    /**
+     * @var string
+     */
     public $status;
+
+    /**
+     * @var tags[]
+     */
+    public $tags;
 
     /**
      * @var string
@@ -78,6 +94,7 @@ class result extends Model
         'appId' => 'appId',
         'appName' => 'appName',
         'appType' => 'appType',
+        'chargeType' => 'chargeType',
         'createTime' => 'createTime',
         'description' => 'description',
         'instanceId' => 'instanceId',
@@ -86,7 +103,9 @@ class result extends Model
         'ownerId' => 'ownerId',
         'privateNetwork' => 'privateNetwork',
         'regionId' => 'regionId',
+        'scenario' => 'scenario',
         'status' => 'status',
+        'tags' => 'tags',
         'version' => 'version',
     ];
 
@@ -97,6 +116,9 @@ class result extends Model
         }
         if (\is_array($this->privateNetwork)) {
             Model::validateArray($this->privateNetwork);
+        }
+        if (\is_array($this->tags)) {
+            Model::validateArray($this->tags);
         }
         parent::validate();
     }
@@ -114,6 +136,10 @@ class result extends Model
 
         if (null !== $this->appType) {
             $res['appType'] = $this->appType;
+        }
+
+        if (null !== $this->chargeType) {
+            $res['chargeType'] = $this->chargeType;
         }
 
         if (null !== $this->createTime) {
@@ -160,8 +186,22 @@ class result extends Model
             $res['regionId'] = $this->regionId;
         }
 
+        if (null !== $this->scenario) {
+            $res['scenario'] = $this->scenario;
+        }
+
         if (null !== $this->status) {
             $res['status'] = $this->status;
+        }
+
+        if (null !== $this->tags) {
+            if (\is_array($this->tags)) {
+                $res['tags'] = [];
+                $n1 = 0;
+                foreach ($this->tags as $item1) {
+                    $res['tags'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                }
+            }
         }
 
         if (null !== $this->version) {
@@ -189,6 +229,10 @@ class result extends Model
 
         if (isset($map['appType'])) {
             $model->appType = $map['appType'];
+        }
+
+        if (isset($map['chargeType'])) {
+            $model->chargeType = $map['chargeType'];
         }
 
         if (isset($map['createTime'])) {
@@ -235,8 +279,22 @@ class result extends Model
             $model->regionId = $map['regionId'];
         }
 
+        if (isset($map['scenario'])) {
+            $model->scenario = $map['scenario'];
+        }
+
         if (isset($map['status'])) {
             $model->status = $map['status'];
+        }
+
+        if (isset($map['tags'])) {
+            if (!empty($map['tags'])) {
+                $model->tags = [];
+                $n1 = 0;
+                foreach ($map['tags'] as $item1) {
+                    $model->tags[$n1++] = tags::fromMap($item1);
+                }
+            }
         }
 
         if (isset($map['version'])) {

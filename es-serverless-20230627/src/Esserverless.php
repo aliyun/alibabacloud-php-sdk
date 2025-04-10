@@ -159,6 +159,10 @@ class Esserverless extends OpenApiClient
     {
         $request->validate();
         $query = [];
+        if (null !== $request->clientToken) {
+            @$query['clientToken'] = $request->clientToken;
+        }
+
         if (null !== $request->dryRun) {
             @$query['dryRun'] = $request->dryRun;
         }
@@ -198,6 +202,10 @@ class Esserverless extends OpenApiClient
 
         if (null !== $request->scenario) {
             @$body['scenario'] = $request->scenario;
+        }
+
+        if (null !== $request->tags) {
+            @$body['tags'] = $request->tags;
         }
 
         if (null !== $request->version) {
@@ -972,6 +980,10 @@ class Esserverless extends OpenApiClient
 
         if (null !== $request->status) {
             @$query['status'] = $request->status;
+        }
+
+        if (null !== $request->tags) {
+            @$query['tags'] = $request->tags;
         }
 
         $req = new OpenApiRequest([

@@ -9,6 +9,7 @@ use AlibabaCloud\SDK\Esserverless\V20230627\Models\CreateAppRequest\authenticati
 use AlibabaCloud\SDK\Esserverless\V20230627\Models\CreateAppRequest\network;
 use AlibabaCloud\SDK\Esserverless\V20230627\Models\CreateAppRequest\privateNetwork;
 use AlibabaCloud\SDK\Esserverless\V20230627\Models\CreateAppRequest\quotaInfo;
+use AlibabaCloud\SDK\Esserverless\V20230627\Models\CreateAppRequest\tags;
 
 class CreateAppRequest extends Model
 {
@@ -58,9 +59,19 @@ class CreateAppRequest extends Model
     public $scenario;
 
     /**
+     * @var tags[]
+     */
+    public $tags;
+
+    /**
      * @var string
      */
     public $version;
+
+    /**
+     * @var string
+     */
+    public $clientToken;
 
     /**
      * @var bool
@@ -76,7 +87,9 @@ class CreateAppRequest extends Model
         'quotaInfo' => 'quotaInfo',
         'regionId' => 'regionId',
         'scenario' => 'scenario',
+        'tags' => 'tags',
         'version' => 'version',
+        'clientToken' => 'clientToken',
         'dryRun' => 'dryRun',
     ];
 
@@ -93,6 +106,9 @@ class CreateAppRequest extends Model
         }
         if (null !== $this->quotaInfo) {
             $this->quotaInfo->validate();
+        }
+        if (\is_array($this->tags)) {
+            Model::validateArray($this->tags);
         }
         parent::validate();
     }
@@ -148,8 +164,22 @@ class CreateAppRequest extends Model
             $res['scenario'] = $this->scenario;
         }
 
+        if (null !== $this->tags) {
+            if (\is_array($this->tags)) {
+                $res['tags'] = [];
+                $n1 = 0;
+                foreach ($this->tags as $item1) {
+                    $res['tags'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                }
+            }
+        }
+
         if (null !== $this->version) {
             $res['version'] = $this->version;
+        }
+
+        if (null !== $this->clientToken) {
+            $res['clientToken'] = $this->clientToken;
         }
 
         if (null !== $this->dryRun) {
@@ -215,8 +245,22 @@ class CreateAppRequest extends Model
             $model->scenario = $map['scenario'];
         }
 
+        if (isset($map['tags'])) {
+            if (!empty($map['tags'])) {
+                $model->tags = [];
+                $n1 = 0;
+                foreach ($map['tags'] as $item1) {
+                    $model->tags[$n1++] = tags::fromMap($item1);
+                }
+            }
+        }
+
         if (isset($map['version'])) {
             $model->version = $map['version'];
+        }
+
+        if (isset($map['clientToken'])) {
+            $model->clientToken = $map['clientToken'];
         }
 
         if (isset($map['dryRun'])) {

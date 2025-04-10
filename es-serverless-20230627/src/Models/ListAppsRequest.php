@@ -42,6 +42,11 @@ class ListAppsRequest extends Model
      * @var string
      */
     public $status;
+
+    /**
+     * @var string
+     */
+    public $tags;
     protected $_name = [
         'appName' => 'appName',
         'createTime' => 'createTime',
@@ -50,6 +55,7 @@ class ListAppsRequest extends Model
         'pageNumber' => 'pageNumber',
         'pageSize' => 'pageSize',
         'status' => 'status',
+        'tags' => 'tags',
     ];
 
     public function validate()
@@ -86,6 +92,10 @@ class ListAppsRequest extends Model
 
         if (null !== $this->status) {
             $res['status'] = $this->status;
+        }
+
+        if (null !== $this->tags) {
+            $res['tags'] = $this->tags;
         }
 
         return $res;
@@ -125,6 +135,10 @@ class ListAppsRequest extends Model
 
         if (isset($map['status'])) {
             $model->status = $map['status'];
+        }
+
+        if (isset($map['tags'])) {
+            $model->tags = $map['tags'];
         }
 
         return $model;
