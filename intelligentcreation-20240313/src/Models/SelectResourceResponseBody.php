@@ -12,6 +12,11 @@ class SelectResourceResponseBody extends Model
     /**
      * @var string
      */
+    public $aliyunUid;
+
+    /**
+     * @var string
+     */
     public $requestId;
 
     /**
@@ -19,6 +24,7 @@ class SelectResourceResponseBody extends Model
      */
     public $resourceInfoList;
     protected $_name = [
+        'aliyunUid' => 'aliyunUid',
         'requestId' => 'requestId',
         'resourceInfoList' => 'resourceInfoList',
     ];
@@ -34,6 +40,10 @@ class SelectResourceResponseBody extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->aliyunUid) {
+            $res['aliyunUid'] = $this->aliyunUid;
+        }
+
         if (null !== $this->requestId) {
             $res['requestId'] = $this->requestId;
         }
@@ -59,6 +69,10 @@ class SelectResourceResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['aliyunUid'])) {
+            $model->aliyunUid = $map['aliyunUid'];
+        }
+
         if (isset($map['requestId'])) {
             $model->requestId = $map['requestId'];
         }

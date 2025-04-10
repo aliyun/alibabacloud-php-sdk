@@ -57,6 +57,8 @@ use AlibabaCloud\SDK\IntelligentCreation\V20240313\Models\DeleteIndividuationTex
 use AlibabaCloud\SDK\IntelligentCreation\V20240313\Models\DescribeDocumentResponse;
 use AlibabaCloud\SDK\IntelligentCreation\V20240313\Models\FinishAICoachTaskSessionRequest;
 use AlibabaCloud\SDK\IntelligentCreation\V20240313\Models\FinishAICoachTaskSessionResponse;
+use AlibabaCloud\SDK\IntelligentCreation\V20240313\Models\GetAICoachCheatDetectionRequest;
+use AlibabaCloud\SDK\IntelligentCreation\V20240313\Models\GetAICoachCheatDetectionResponse;
 use AlibabaCloud\SDK\IntelligentCreation\V20240313\Models\GetAICoachScriptRequest;
 use AlibabaCloud\SDK\IntelligentCreation\V20240313\Models\GetAICoachScriptResponse;
 use AlibabaCloud\SDK\IntelligentCreation\V20240313\Models\GetAICoachTaskSessionHistoryRequest;
@@ -1900,6 +1902,70 @@ class IntelligentCreation extends OpenApiClient
         $headers = [];
 
         return $this->finishAICoachTaskSessionWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * 查询作弊检测详情.
+     *
+     * @param request - GetAICoachCheatDetectionRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetAICoachCheatDetectionResponse
+     *
+     * @param GetAICoachCheatDetectionRequest $request
+     * @param string[]                        $headers
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return GetAICoachCheatDetectionResponse
+     */
+    public function getAICoachCheatDetectionWithOptions($request, $headers, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->sessionId) {
+            @$query['sessionId'] = $request->sessionId;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'GetAICoachCheatDetection',
+            'version' => '2024-03-13',
+            'protocol' => 'HTTPS',
+            'pathname' => '/yic/yic-console/openService/v1/aicoach/getCheatDetection',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return GetAICoachCheatDetectionResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
+
+        return GetAICoachCheatDetectionResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * 查询作弊检测详情.
+     *
+     * @param request - GetAICoachCheatDetectionRequest
+     *
+     * @returns GetAICoachCheatDetectionResponse
+     *
+     * @param GetAICoachCheatDetectionRequest $request
+     *
+     * @return GetAICoachCheatDetectionResponse
+     */
+    public function getAICoachCheatDetection($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->getAICoachCheatDetectionWithOptions($request, $headers, $runtime);
     }
 
     /**
