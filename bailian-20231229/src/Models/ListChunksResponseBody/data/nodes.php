@@ -4,29 +4,21 @@
 
 namespace AlibabaCloud\SDK\Bailian\V20231229\Models\ListChunksResponseBody\data;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class nodes extends Model
 {
     /**
-     * @description The metadata map of the chunk.
-     *
      * @var mixed
      */
     public $metadata;
 
     /**
-     * @description The similarity score of the chunk.
-     *
-     * @example 0.3
-     *
      * @var float
      */
     public $score;
 
     /**
-     * @description The text of the chunk.
-     *
      * @var string
      */
     public $text;
@@ -36,17 +28,22 @@ class nodes extends Model
         'text' => 'Text',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->metadata) {
             $res['Metadata'] = $this->metadata;
         }
+
         if (null !== $this->score) {
             $res['Score'] = $this->score;
         }
+
         if (null !== $this->text) {
             $res['Text'] = $this->text;
         }
@@ -54,20 +51,22 @@ class nodes extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return nodes
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Metadata'])) {
             $model->metadata = $map['Metadata'];
         }
+
         if (isset($map['Score'])) {
             $model->score = $map['Score'];
         }
+
         if (isset($map['Text'])) {
             $model->text = $map['Text'];
         }

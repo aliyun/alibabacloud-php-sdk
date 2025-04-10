@@ -4,15 +4,11 @@
 
 namespace AlibabaCloud\SDK\Bailian\V20231229\Models\SubmitIndexAddDocumentsJobResponseBody;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class data extends Model
 {
     /**
-     * @description The primary key ID of the task, `JobId`.
-     *
-     * @example 42687eb254a34802bed398357f5498ae
-     *
      * @var string
      */
     public $id;
@@ -20,9 +16,12 @@ class data extends Model
         'id' => 'Id',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->id) {
@@ -32,11 +31,11 @@ class data extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return data
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

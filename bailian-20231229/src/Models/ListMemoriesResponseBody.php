@@ -4,14 +4,12 @@
 
 namespace AlibabaCloud\SDK\Bailian\V20231229\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Bailian\V20231229\Models\ListMemoriesResponseBody\memories;
-use AlibabaCloud\Tea\Model;
 
 class ListMemoriesResponseBody extends Model
 {
     /**
-     * @example 10
-     *
      * @var int
      */
     public $maxResults;
@@ -22,29 +20,21 @@ class ListMemoriesResponseBody extends Model
     public $memories;
 
     /**
-     * @example dc270401186b433f975d7e1faaa34e0e
-     *
      * @var string
      */
     public $nextToken;
 
     /**
-     * @example 6a71f2d9-f1c9-913b-818b-114029103cad
-     *
      * @var string
      */
     public $requestId;
 
     /**
-     * @example 105
-     *
      * @var int
      */
     public $totalCount;
 
     /**
-     * @example llm-us9hjmt32nysdm5v
-     *
      * @var string
      */
     public $workspaceId;
@@ -57,32 +47,43 @@ class ListMemoriesResponseBody extends Model
         'workspaceId' => 'workspaceId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->memories)) {
+            Model::validateArray($this->memories);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->maxResults) {
             $res['maxResults'] = $this->maxResults;
         }
+
         if (null !== $this->memories) {
-            $res['memories'] = [];
-            if (null !== $this->memories && \is_array($this->memories)) {
-                $n = 0;
-                foreach ($this->memories as $item) {
-                    $res['memories'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->memories)) {
+                $res['memories'] = [];
+                $n1 = 0;
+                foreach ($this->memories as $item1) {
+                    $res['memories'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
+
         if (null !== $this->nextToken) {
             $res['nextToken'] = $this->nextToken;
         }
+
         if (null !== $this->requestId) {
             $res['requestId'] = $this->requestId;
         }
+
         if (null !== $this->totalCount) {
             $res['totalCount'] = $this->totalCount;
         }
+
         if (null !== $this->workspaceId) {
             $res['workspaceId'] = $this->workspaceId;
         }
@@ -90,35 +91,40 @@ class ListMemoriesResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ListMemoriesResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['maxResults'])) {
             $model->maxResults = $map['maxResults'];
         }
+
         if (isset($map['memories'])) {
             if (!empty($map['memories'])) {
                 $model->memories = [];
-                $n = 0;
-                foreach ($map['memories'] as $item) {
-                    $model->memories[$n++] = null !== $item ? memories::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['memories'] as $item1) {
+                    $model->memories[$n1++] = memories::fromMap($item1);
                 }
             }
         }
+
         if (isset($map['nextToken'])) {
             $model->nextToken = $map['nextToken'];
         }
+
         if (isset($map['requestId'])) {
             $model->requestId = $map['requestId'];
         }
+
         if (isset($map['totalCount'])) {
             $model->totalCount = $map['totalCount'];
         }
+
         if (isset($map['workspaceId'])) {
             $model->workspaceId = $map['workspaceId'];
         }

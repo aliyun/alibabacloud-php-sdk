@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Bailian\V20231229\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class ListPublishedAgentRequest extends Model
 {
@@ -22,14 +22,18 @@ class ListPublishedAgentRequest extends Model
         'pageSize' => 'pageSize',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->pageNo) {
             $res['pageNo'] = $this->pageNo;
         }
+
         if (null !== $this->pageSize) {
             $res['pageSize'] = $this->pageSize;
         }
@@ -37,17 +41,18 @@ class ListPublishedAgentRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ListPublishedAgentRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['pageNo'])) {
             $model->pageNo = $map['pageNo'];
         }
+
         if (isset($map['pageSize'])) {
             $model->pageSize = $map['pageSize'];
         }

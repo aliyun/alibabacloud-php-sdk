@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Bailian\V20231229;
 
-use AlibabaCloud\Endpoint\Endpoint;
-use AlibabaCloud\OpenApiUtil\OpenApiUtilClient;
+use AlibabaCloud\Dara\Models\RuntimeOptions;
+use AlibabaCloud\Dara\Url;
 use AlibabaCloud\SDK\Bailian\V20231229\Models\AddCategoryRequest;
 use AlibabaCloud\SDK\Bailian\V20231229\Models\AddCategoryResponse;
 use AlibabaCloud\SDK\Bailian\V20231229\Models\AddFileRequest;
@@ -84,11 +84,10 @@ use AlibabaCloud\SDK\Bailian\V20231229\Models\UpdateMemoryRequest;
 use AlibabaCloud\SDK\Bailian\V20231229\Models\UpdateMemoryResponse;
 use AlibabaCloud\SDK\Bailian\V20231229\Models\UpdatePromptTemplateRequest;
 use AlibabaCloud\SDK\Bailian\V20231229\Models\UpdatePromptTemplateResponse;
-use AlibabaCloud\Tea\Utils\Utils;
-use AlibabaCloud\Tea\Utils\Utils\RuntimeOptions;
 use Darabonba\OpenApi\Models\OpenApiRequest;
 use Darabonba\OpenApi\Models\Params;
 use Darabonba\OpenApi\OpenApiClient;
+use Darabonba\OpenApi\Utils;
 
 class Bailian extends OpenApiClient
 {
@@ -113,55 +112,65 @@ class Bailian extends OpenApiClient
      */
     public function getEndpoint($productId, $regionId, $endpointRule, $network, $suffix, $endpointMap, $endpoint)
     {
-        if (!Utils::empty_($endpoint)) {
+        if (null !== $endpoint) {
             return $endpoint;
         }
-        if (!Utils::isUnset($endpointMap) && !Utils::empty_(@$endpointMap[$regionId])) {
+
+        if (null !== $endpointMap && null !== @$endpointMap[$regionId]) {
             return @$endpointMap[$regionId];
         }
 
-        return Endpoint::getEndpointRules($productId, $regionId, $endpointRule, $network, $suffix);
+        return Utils::getEndpointRules($productId, $regionId, $endpointRule, $network, $suffix);
     }
 
     /**
-     * @summary 添加类目
-     *  *
-     * @param string             $WorkspaceId
-     * @param AddCategoryRequest $request     AddCategoryRequest
-     * @param string[]           $headers     map
-     * @param RuntimeOptions     $runtime     runtime options for this request RuntimeOptions
+     * 添加类目.
      *
-     * @return AddCategoryResponse AddCategoryResponse
+     * @param request - AddCategoryRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns AddCategoryResponse
+     *
+     * @param string             $WorkspaceId
+     * @param AddCategoryRequest $request
+     * @param string[]           $headers
+     * @param RuntimeOptions     $runtime
+     *
+     * @return AddCategoryResponse
      */
     public function addCategoryWithOptions($WorkspaceId, $request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->categoryName)) {
-            $body['CategoryName'] = $request->categoryName;
+        if (null !== $request->categoryName) {
+            @$body['CategoryName'] = $request->categoryName;
         }
-        if (!Utils::isUnset($request->categoryType)) {
-            $body['CategoryType'] = $request->categoryType;
+
+        if (null !== $request->categoryType) {
+            @$body['CategoryType'] = $request->categoryType;
         }
-        if (!Utils::isUnset($request->parentCategoryId)) {
-            $body['ParentCategoryId'] = $request->parentCategoryId;
+
+        if (null !== $request->parentCategoryId) {
+            @$body['ParentCategoryId'] = $request->parentCategoryId;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'AddCategory',
             'version' => '2023-12-29',
             'protocol' => 'HTTPS',
-            'pathname' => '/' . OpenApiUtilClient::getEncodeParam($WorkspaceId) . '/datacenter/category/',
+            'pathname' => '/' . Url::percentEncode($WorkspaceId) . '/datacenter/category/',
             'method' => 'POST',
             'authType' => 'AK',
             'style' => 'ROA',
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return AddCategoryResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -169,12 +178,16 @@ class Bailian extends OpenApiClient
     }
 
     /**
-     * @summary 添加类目
-     *  *
-     * @param string             $WorkspaceId
-     * @param AddCategoryRequest $request     AddCategoryRequest
+     * 添加类目.
      *
-     * @return AddCategoryResponse AddCategoryResponse
+     * @param request - AddCategoryRequest
+     *
+     * @returns AddCategoryResponse
+     *
+     * @param string             $WorkspaceId
+     * @param AddCategoryRequest $request
+     *
+     * @return AddCategoryResponse
      */
     public function addCategory($WorkspaceId, $request)
     {
@@ -185,61 +198,74 @@ class Bailian extends OpenApiClient
     }
 
     /**
-     * @summary Imports an unstructured document stored in the temporary storage space to Data Management. You cannot use the API to import structured documents. Use the console instead.
-     *  *
-     * @description *   Before you call this operation, make sure that you have obtained the lease and uploaded the document to the temporary storage space by using the [ApplyFileUploadLease](https://www.alibabacloud.com/help/en/model-studio/developer-reference/api-bailian-2023-12-29-applyfileuploadlease) operation. For more information, see [Upload files by calling API](https://www.alibabacloud.com/help/en/model-studio/developer-reference/upload-files-by-calling-api).
+     * Imports an unstructured document stored in the temporary storage space to Data Management. You cannot use the API to import structured documents. Use the console instead.
+     *
+     * @remarks
+     *   Before you call this operation, make sure that you have obtained the lease and uploaded the document to the temporary storage space by using the [ApplyFileUploadLease](https://www.alibabacloud.com/help/en/model-studio/developer-reference/api-bailian-2023-12-29-applyfileuploadlease) operation. For more information, see [Upload files by calling API](https://www.alibabacloud.com/help/en/model-studio/developer-reference/upload-files-by-calling-api).
      * >  After you call this operation, the used lease ID expires immediately. Do not use the same lease ID to submit new requests.
      * *   You must call this operation within 12 hours after you call the [ApplyFileUploadLease](https://www.alibabacloud.com/help/en/model-studio/developer-reference/api-bailian-2023-12-29-applyfileuploadlease) operation. Otherwise, the lease expires and the request fails.
      * *   After you call this operation, the system parses and imports your document. The process takes some time.
      * *   This interface is not idempotent.
-     *  *
-     * @param string         $WorkspaceId
-     * @param AddFileRequest $tmpReq      AddFileRequest
-     * @param string[]       $headers     map
-     * @param RuntimeOptions $runtime     runtime options for this request RuntimeOptions
      *
-     * @return AddFileResponse AddFileResponse
+     * @param tmpReq - AddFileRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns AddFileResponse
+     *
+     * @param string         $WorkspaceId
+     * @param AddFileRequest $tmpReq
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
+     *
+     * @return AddFileResponse
      */
     public function addFileWithOptions($WorkspaceId, $tmpReq, $headers, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new AddFileShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->tags)) {
-            $request->tagsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->tags, 'Tags', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->tags) {
+            $request->tagsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->tags, 'Tags', 'json');
         }
+
         $body = [];
-        if (!Utils::isUnset($request->categoryId)) {
-            $body['CategoryId'] = $request->categoryId;
+        if (null !== $request->categoryId) {
+            @$body['CategoryId'] = $request->categoryId;
         }
-        if (!Utils::isUnset($request->categoryType)) {
-            $body['CategoryType'] = $request->categoryType;
+
+        if (null !== $request->categoryType) {
+            @$body['CategoryType'] = $request->categoryType;
         }
-        if (!Utils::isUnset($request->leaseId)) {
-            $body['LeaseId'] = $request->leaseId;
+
+        if (null !== $request->leaseId) {
+            @$body['LeaseId'] = $request->leaseId;
         }
-        if (!Utils::isUnset($request->parser)) {
-            $body['Parser'] = $request->parser;
+
+        if (null !== $request->parser) {
+            @$body['Parser'] = $request->parser;
         }
-        if (!Utils::isUnset($request->tagsShrink)) {
-            $body['Tags'] = $request->tagsShrink;
+
+        if (null !== $request->tagsShrink) {
+            @$body['Tags'] = $request->tagsShrink;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'AddFile',
             'version' => '2023-12-29',
             'protocol' => 'HTTPS',
-            'pathname' => '/' . OpenApiUtilClient::getEncodeParam($WorkspaceId) . '/datacenter/file',
+            'pathname' => '/' . Url::percentEncode($WorkspaceId) . '/datacenter/file',
             'method' => 'PUT',
             'authType' => 'AK',
             'style' => 'ROA',
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return AddFileResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -247,18 +273,23 @@ class Bailian extends OpenApiClient
     }
 
     /**
-     * @summary Imports an unstructured document stored in the temporary storage space to Data Management. You cannot use the API to import structured documents. Use the console instead.
-     *  *
-     * @description *   Before you call this operation, make sure that you have obtained the lease and uploaded the document to the temporary storage space by using the [ApplyFileUploadLease](https://www.alibabacloud.com/help/en/model-studio/developer-reference/api-bailian-2023-12-29-applyfileuploadlease) operation. For more information, see [Upload files by calling API](https://www.alibabacloud.com/help/en/model-studio/developer-reference/upload-files-by-calling-api).
+     * Imports an unstructured document stored in the temporary storage space to Data Management. You cannot use the API to import structured documents. Use the console instead.
+     *
+     * @remarks
+     *   Before you call this operation, make sure that you have obtained the lease and uploaded the document to the temporary storage space by using the [ApplyFileUploadLease](https://www.alibabacloud.com/help/en/model-studio/developer-reference/api-bailian-2023-12-29-applyfileuploadlease) operation. For more information, see [Upload files by calling API](https://www.alibabacloud.com/help/en/model-studio/developer-reference/upload-files-by-calling-api).
      * >  After you call this operation, the used lease ID expires immediately. Do not use the same lease ID to submit new requests.
      * *   You must call this operation within 12 hours after you call the [ApplyFileUploadLease](https://www.alibabacloud.com/help/en/model-studio/developer-reference/api-bailian-2023-12-29-applyfileuploadlease) operation. Otherwise, the lease expires and the request fails.
      * *   After you call this operation, the system parses and imports your document. The process takes some time.
      * *   This interface is not idempotent.
-     *  *
-     * @param string         $WorkspaceId
-     * @param AddFileRequest $request     AddFileRequest
      *
-     * @return AddFileResponse AddFileResponse
+     * @param request - AddFileRequest
+     *
+     * @returns AddFileResponse
+     *
+     * @param string         $WorkspaceId
+     * @param AddFileRequest $request
+     *
+     * @return AddFileResponse
      */
     public function addFile($WorkspaceId, $request)
     {
@@ -269,56 +300,68 @@ class Bailian extends OpenApiClient
     }
 
     /**
-     * @summary Applies for a document upload lease to upload a document.
-     *  *
-     * @description *   This operation returns an HTTP URL that can be used to upload an unstructured document (the lease) and parameters required for the upload. Structured documents are not supported.
+     * Applies for a document upload lease to upload a document.
+     *
+     * @remarks
+     *   This operation returns an HTTP URL that can be used to upload an unstructured document (the lease) and parameters required for the upload. Structured documents are not supported.
      * *   The HTTP URL returned by this operation is valid only for minutes. Upload the document before the URL expires.
      * *   After you apply for a lease and upload a document, the document is stored in a temporary storage space for 12 hours.
      * *   This interface is not idempotent.
-     *  *
+     *
+     * @param request - ApplyFileUploadLeaseRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ApplyFileUploadLeaseResponse
+     *
      * @param string                      $CategoryId
      * @param string                      $WorkspaceId
-     * @param ApplyFileUploadLeaseRequest $request     ApplyFileUploadLeaseRequest
-     * @param string[]                    $headers     map
-     * @param RuntimeOptions              $runtime     runtime options for this request RuntimeOptions
+     * @param ApplyFileUploadLeaseRequest $request
+     * @param string[]                    $headers
+     * @param RuntimeOptions              $runtime
      *
-     * @return ApplyFileUploadLeaseResponse ApplyFileUploadLeaseResponse
+     * @return ApplyFileUploadLeaseResponse
      */
     public function applyFileUploadLeaseWithOptions($CategoryId, $WorkspaceId, $request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->categoryType)) {
-            $body['CategoryType'] = $request->categoryType;
+        if (null !== $request->categoryType) {
+            @$body['CategoryType'] = $request->categoryType;
         }
-        if (!Utils::isUnset($request->fileName)) {
-            $body['FileName'] = $request->fileName;
+
+        if (null !== $request->fileName) {
+            @$body['FileName'] = $request->fileName;
         }
-        if (!Utils::isUnset($request->md5)) {
-            $body['Md5'] = $request->md5;
+
+        if (null !== $request->md5) {
+            @$body['Md5'] = $request->md5;
         }
-        if (!Utils::isUnset($request->sizeInBytes)) {
-            $body['SizeInBytes'] = $request->sizeInBytes;
+
+        if (null !== $request->sizeInBytes) {
+            @$body['SizeInBytes'] = $request->sizeInBytes;
         }
-        if (!Utils::isUnset($request->useInternalEndpoint)) {
-            $body['UseInternalEndpoint'] = $request->useInternalEndpoint;
+
+        if (null !== $request->useInternalEndpoint) {
+            @$body['UseInternalEndpoint'] = $request->useInternalEndpoint;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'ApplyFileUploadLease',
             'version' => '2023-12-29',
             'protocol' => 'HTTPS',
-            'pathname' => '/' . OpenApiUtilClient::getEncodeParam($WorkspaceId) . '/datacenter/category/' . OpenApiUtilClient::getEncodeParam($CategoryId) . '',
+            'pathname' => '/' . Url::percentEncode($WorkspaceId) . '/datacenter/category/' . Url::percentEncode($CategoryId) . '',
             'method' => 'POST',
             'authType' => 'AK',
             'style' => 'ROA',
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return ApplyFileUploadLeaseResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -326,18 +369,23 @@ class Bailian extends OpenApiClient
     }
 
     /**
-     * @summary Applies for a document upload lease to upload a document.
-     *  *
-     * @description *   This operation returns an HTTP URL that can be used to upload an unstructured document (the lease) and parameters required for the upload. Structured documents are not supported.
+     * Applies for a document upload lease to upload a document.
+     *
+     * @remarks
+     *   This operation returns an HTTP URL that can be used to upload an unstructured document (the lease) and parameters required for the upload. Structured documents are not supported.
      * *   The HTTP URL returned by this operation is valid only for minutes. Upload the document before the URL expires.
      * *   After you apply for a lease and upload a document, the document is stored in a temporary storage space for 12 hours.
      * *   This interface is not idempotent.
-     *  *
+     *
+     * @param request - ApplyFileUploadLeaseRequest
+     *
+     * @returns ApplyFileUploadLeaseResponse
+     *
      * @param string                      $CategoryId
      * @param string                      $WorkspaceId
-     * @param ApplyFileUploadLeaseRequest $request     ApplyFileUploadLeaseRequest
+     * @param ApplyFileUploadLeaseRequest $request
      *
-     * @return ApplyFileUploadLeaseResponse ApplyFileUploadLeaseResponse
+     * @return ApplyFileUploadLeaseResponse
      */
     public function applyFileUploadLease($CategoryId, $WorkspaceId, $request)
     {
@@ -348,58 +396,71 @@ class Bailian extends OpenApiClient
     }
 
     /**
-     * @summary 创建并发布智能体应用
-     *  *
-     * @param string                      $workspaceId
-     * @param CreateAndPulishAgentRequest $tmpReq      CreateAndPulishAgentRequest
-     * @param string[]                    $headers     map
-     * @param RuntimeOptions              $runtime     runtime options for this request RuntimeOptions
+     * 创建并发布智能体应用.
      *
-     * @return CreateAndPulishAgentResponse CreateAndPulishAgentResponse
+     * @param tmpReq - CreateAndPulishAgentRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateAndPulishAgentResponse
+     *
+     * @param string                      $workspaceId
+     * @param CreateAndPulishAgentRequest $tmpReq
+     * @param string[]                    $headers
+     * @param RuntimeOptions              $runtime
+     *
+     * @return CreateAndPulishAgentResponse
      */
     public function createAndPulishAgentWithOptions($workspaceId, $tmpReq, $headers, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new CreateAndPulishAgentShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->applicationConfig)) {
-            $request->applicationConfigShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->applicationConfig, 'applicationConfig', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->applicationConfig) {
+            $request->applicationConfigShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->applicationConfig, 'applicationConfig', 'json');
         }
-        if (!Utils::isUnset($tmpReq->sampleLibrary)) {
-            $request->sampleLibraryShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->sampleLibrary, 'sampleLibrary', 'json');
+
+        if (null !== $tmpReq->sampleLibrary) {
+            $request->sampleLibraryShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->sampleLibrary, 'sampleLibrary', 'json');
         }
+
         $body = [];
-        if (!Utils::isUnset($request->applicationConfigShrink)) {
-            $body['applicationConfig'] = $request->applicationConfigShrink;
+        if (null !== $request->applicationConfigShrink) {
+            @$body['applicationConfig'] = $request->applicationConfigShrink;
         }
-        if (!Utils::isUnset($request->instructions)) {
-            $body['instructions'] = $request->instructions;
+
+        if (null !== $request->instructions) {
+            @$body['instructions'] = $request->instructions;
         }
-        if (!Utils::isUnset($request->modelId)) {
-            $body['modelId'] = $request->modelId;
+
+        if (null !== $request->modelId) {
+            @$body['modelId'] = $request->modelId;
         }
-        if (!Utils::isUnset($request->name)) {
-            $body['name'] = $request->name;
+
+        if (null !== $request->name) {
+            @$body['name'] = $request->name;
         }
-        if (!Utils::isUnset($request->sampleLibraryShrink)) {
-            $body['sampleLibrary'] = $request->sampleLibraryShrink;
+
+        if (null !== $request->sampleLibraryShrink) {
+            @$body['sampleLibrary'] = $request->sampleLibraryShrink;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'CreateAndPulishAgent',
             'version' => '2023-12-29',
             'protocol' => 'HTTPS',
-            'pathname' => '/' . OpenApiUtilClient::getEncodeParam($workspaceId) . '/application/agents',
+            'pathname' => '/' . Url::percentEncode($workspaceId) . '/application/agents',
             'method' => 'POST',
             'authType' => 'AK',
             'style' => 'ROA',
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return CreateAndPulishAgentResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -407,12 +468,16 @@ class Bailian extends OpenApiClient
     }
 
     /**
-     * @summary 创建并发布智能体应用
-     *  *
-     * @param string                      $workspaceId
-     * @param CreateAndPulishAgentRequest $request     CreateAndPulishAgentRequest
+     * 创建并发布智能体应用.
      *
-     * @return CreateAndPulishAgentResponse CreateAndPulishAgentResponse
+     * @param request - CreateAndPulishAgentRequest
+     *
+     * @returns CreateAndPulishAgentResponse
+     *
+     * @param string                      $workspaceId
+     * @param CreateAndPulishAgentRequest $request
+     *
+     * @return CreateAndPulishAgentResponse
      */
     public function createAndPulishAgent($workspaceId, $request)
     {
@@ -423,113 +488,144 @@ class Bailian extends OpenApiClient
     }
 
     /**
-     * @summary Creates an unstructured knowledge base and imports one or more parsed documents into the knowledge base. You cannot create a structured knowledge base by calling an API operation. Use the console instead.
-     *  *
-     * @description 1.  You must first upload documents to [Data Management](https://bailian.console.aliyun.com/#/data-center) and obtain the `FileId`. The documents are the knowledge source of the knowledge base. For more information, see [Import Data](https://www.alibabacloud.com/help/en/model-studio/user-guide/data-import-instructions).
+     * Creates an unstructured knowledge base and imports one or more parsed documents into the knowledge base. You cannot create a structured knowledge base by calling an API operation. Use the console instead.
+     *
+     * @remarks
+     * 1.  You must first upload documents to [Data Management](https://bailian.console.aliyun.com/#/data-center) and obtain the `FileId`. The documents are the knowledge source of the knowledge base. For more information, see [Import Data](https://www.alibabacloud.com/help/en/model-studio/user-guide/data-import-instructions).
      * 2.  This operation only initializes a knowledge base creation job. You must also call the [SubmitIndexJob](https://www.alibabacloud.com/help/en/model-studio/developer-reference/api-bailian-2023-12-29-submitindexjob) operation to complete the job.
      * 3.  This interface is not idempotent.
-     *  *
-     * @param string             $WorkspaceId
-     * @param CreateIndexRequest $tmpReq      CreateIndexRequest
-     * @param string[]           $headers     map
-     * @param RuntimeOptions     $runtime     runtime options for this request RuntimeOptions
      *
-     * @return CreateIndexResponse CreateIndexResponse
+     * @param tmpReq - CreateIndexRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateIndexResponse
+     *
+     * @param string             $WorkspaceId
+     * @param CreateIndexRequest $tmpReq
+     * @param string[]           $headers
+     * @param RuntimeOptions     $runtime
+     *
+     * @return CreateIndexResponse
      */
     public function createIndexWithOptions($WorkspaceId, $tmpReq, $headers, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new CreateIndexShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->categoryIds)) {
-            $request->categoryIdsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->categoryIds, 'CategoryIds', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->categoryIds) {
+            $request->categoryIdsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->categoryIds, 'CategoryIds', 'json');
         }
-        if (!Utils::isUnset($tmpReq->columns)) {
-            $request->columnsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->columns, 'Columns', 'json');
+
+        if (null !== $tmpReq->columns) {
+            $request->columnsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->columns, 'Columns', 'json');
         }
-        if (!Utils::isUnset($tmpReq->dataSource)) {
-            $request->dataSourceShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->dataSource, 'DataSource', 'json');
+
+        if (null !== $tmpReq->dataSource) {
+            $request->dataSourceShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->dataSource, 'DataSource', 'json');
         }
-        if (!Utils::isUnset($tmpReq->documentIds)) {
-            $request->documentIdsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->documentIds, 'DocumentIds', 'json');
+
+        if (null !== $tmpReq->documentIds) {
+            $request->documentIdsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->documentIds, 'DocumentIds', 'json');
         }
-        if (!Utils::isUnset($tmpReq->metaExtractColumns)) {
-            $request->metaExtractColumnsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->metaExtractColumns, 'metaExtractColumns', 'json');
+
+        if (null !== $tmpReq->metaExtractColumns) {
+            $request->metaExtractColumnsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->metaExtractColumns, 'metaExtractColumns', 'json');
         }
+
         $query = [];
-        if (!Utils::isUnset($request->categoryIdsShrink)) {
-            $query['CategoryIds'] = $request->categoryIdsShrink;
+        if (null !== $request->categoryIdsShrink) {
+            @$query['CategoryIds'] = $request->categoryIdsShrink;
         }
-        if (!Utils::isUnset($request->chunkSize)) {
-            $query['ChunkSize'] = $request->chunkSize;
+
+        if (null !== $request->chunkSize) {
+            @$query['ChunkSize'] = $request->chunkSize;
         }
-        if (!Utils::isUnset($request->columnsShrink)) {
-            $query['Columns'] = $request->columnsShrink;
+
+        if (null !== $request->columnsShrink) {
+            @$query['Columns'] = $request->columnsShrink;
         }
-        if (!Utils::isUnset($request->dataSourceShrink)) {
-            $query['DataSource'] = $request->dataSourceShrink;
+
+        if (null !== $request->dataSourceShrink) {
+            @$query['DataSource'] = $request->dataSourceShrink;
         }
-        if (!Utils::isUnset($request->description)) {
-            $query['Description'] = $request->description;
+
+        if (null !== $request->description) {
+            @$query['Description'] = $request->description;
         }
-        if (!Utils::isUnset($request->documentIdsShrink)) {
-            $query['DocumentIds'] = $request->documentIdsShrink;
+
+        if (null !== $request->documentIdsShrink) {
+            @$query['DocumentIds'] = $request->documentIdsShrink;
         }
-        if (!Utils::isUnset($request->embeddingModelName)) {
-            $query['EmbeddingModelName'] = $request->embeddingModelName;
+
+        if (null !== $request->embeddingModelName) {
+            @$query['EmbeddingModelName'] = $request->embeddingModelName;
         }
-        if (!Utils::isUnset($request->name)) {
-            $query['Name'] = $request->name;
+
+        if (null !== $request->name) {
+            @$query['Name'] = $request->name;
         }
-        if (!Utils::isUnset($request->overlapSize)) {
-            $query['OverlapSize'] = $request->overlapSize;
+
+        if (null !== $request->overlapSize) {
+            @$query['OverlapSize'] = $request->overlapSize;
         }
-        if (!Utils::isUnset($request->rerankMinScore)) {
-            $query['RerankMinScore'] = $request->rerankMinScore;
+
+        if (null !== $request->rerankMinScore) {
+            @$query['RerankMinScore'] = $request->rerankMinScore;
         }
-        if (!Utils::isUnset($request->rerankModelName)) {
-            $query['RerankModelName'] = $request->rerankModelName;
+
+        if (null !== $request->rerankModelName) {
+            @$query['RerankModelName'] = $request->rerankModelName;
         }
-        if (!Utils::isUnset($request->separator)) {
-            $query['Separator'] = $request->separator;
+
+        if (null !== $request->separator) {
+            @$query['Separator'] = $request->separator;
         }
-        if (!Utils::isUnset($request->sinkInstanceId)) {
-            $query['SinkInstanceId'] = $request->sinkInstanceId;
+
+        if (null !== $request->sinkInstanceId) {
+            @$query['SinkInstanceId'] = $request->sinkInstanceId;
         }
-        if (!Utils::isUnset($request->sinkRegion)) {
-            $query['SinkRegion'] = $request->sinkRegion;
+
+        if (null !== $request->sinkRegion) {
+            @$query['SinkRegion'] = $request->sinkRegion;
         }
-        if (!Utils::isUnset($request->sinkType)) {
-            $query['SinkType'] = $request->sinkType;
+
+        if (null !== $request->sinkType) {
+            @$query['SinkType'] = $request->sinkType;
         }
-        if (!Utils::isUnset($request->sourceType)) {
-            $query['SourceType'] = $request->sourceType;
+
+        if (null !== $request->sourceType) {
+            @$query['SourceType'] = $request->sourceType;
         }
-        if (!Utils::isUnset($request->structureType)) {
-            $query['StructureType'] = $request->structureType;
+
+        if (null !== $request->structureType) {
+            @$query['StructureType'] = $request->structureType;
         }
-        if (!Utils::isUnset($request->enableHeaders)) {
-            $query['enableHeaders'] = $request->enableHeaders;
+
+        if (null !== $request->enableHeaders) {
+            @$query['enableHeaders'] = $request->enableHeaders;
         }
-        if (!Utils::isUnset($request->metaExtractColumnsShrink)) {
-            $query['metaExtractColumns'] = $request->metaExtractColumnsShrink;
+
+        if (null !== $request->metaExtractColumnsShrink) {
+            @$query['metaExtractColumns'] = $request->metaExtractColumnsShrink;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'CreateIndex',
             'version' => '2023-12-29',
             'protocol' => 'HTTPS',
-            'pathname' => '/' . OpenApiUtilClient::getEncodeParam($WorkspaceId) . '/index/create',
+            'pathname' => '/' . Url::percentEncode($WorkspaceId) . '/index/create',
             'method' => 'POST',
             'authType' => 'AK',
             'style' => 'ROA',
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return CreateIndexResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -537,16 +633,21 @@ class Bailian extends OpenApiClient
     }
 
     /**
-     * @summary Creates an unstructured knowledge base and imports one or more parsed documents into the knowledge base. You cannot create a structured knowledge base by calling an API operation. Use the console instead.
-     *  *
-     * @description 1.  You must first upload documents to [Data Management](https://bailian.console.aliyun.com/#/data-center) and obtain the `FileId`. The documents are the knowledge source of the knowledge base. For more information, see [Import Data](https://www.alibabacloud.com/help/en/model-studio/user-guide/data-import-instructions).
+     * Creates an unstructured knowledge base and imports one or more parsed documents into the knowledge base. You cannot create a structured knowledge base by calling an API operation. Use the console instead.
+     *
+     * @remarks
+     * 1.  You must first upload documents to [Data Management](https://bailian.console.aliyun.com/#/data-center) and obtain the `FileId`. The documents are the knowledge source of the knowledge base. For more information, see [Import Data](https://www.alibabacloud.com/help/en/model-studio/user-guide/data-import-instructions).
      * 2.  This operation only initializes a knowledge base creation job. You must also call the [SubmitIndexJob](https://www.alibabacloud.com/help/en/model-studio/developer-reference/api-bailian-2023-12-29-submitindexjob) operation to complete the job.
      * 3.  This interface is not idempotent.
-     *  *
-     * @param string             $WorkspaceId
-     * @param CreateIndexRequest $request     CreateIndexRequest
      *
-     * @return CreateIndexResponse CreateIndexResponse
+     * @param request - CreateIndexRequest
+     *
+     * @returns CreateIndexResponse
+     *
+     * @param string             $WorkspaceId
+     * @param CreateIndexRequest $request
+     *
+     * @return CreateIndexResponse
      */
     public function createIndex($WorkspaceId, $request)
     {
@@ -557,38 +658,45 @@ class Bailian extends OpenApiClient
     }
 
     /**
-     * @summary 创建Memory
-     *  *
-     * @param string              $workspaceId
-     * @param CreateMemoryRequest $request     CreateMemoryRequest
-     * @param string[]            $headers     map
-     * @param RuntimeOptions      $runtime     runtime options for this request RuntimeOptions
+     * 创建Memory.
      *
-     * @return CreateMemoryResponse CreateMemoryResponse
+     * @param request - CreateMemoryRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateMemoryResponse
+     *
+     * @param string              $workspaceId
+     * @param CreateMemoryRequest $request
+     * @param string[]            $headers
+     * @param RuntimeOptions      $runtime
+     *
+     * @return CreateMemoryResponse
      */
     public function createMemoryWithOptions($workspaceId, $request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->description)) {
-            $query['description'] = $request->description;
+        if (null !== $request->description) {
+            @$query['description'] = $request->description;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'CreateMemory',
             'version' => '2023-12-29',
             'protocol' => 'HTTPS',
-            'pathname' => '/' . OpenApiUtilClient::getEncodeParam($workspaceId) . '/memories',
+            'pathname' => '/' . Url::percentEncode($workspaceId) . '/memories',
             'method' => 'POST',
             'authType' => 'AK',
             'style' => 'ROA',
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return CreateMemoryResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -596,12 +704,16 @@ class Bailian extends OpenApiClient
     }
 
     /**
-     * @summary 创建Memory
-     *  *
-     * @param string              $workspaceId
-     * @param CreateMemoryRequest $request     CreateMemoryRequest
+     * 创建Memory.
      *
-     * @return CreateMemoryResponse CreateMemoryResponse
+     * @param request - CreateMemoryRequest
+     *
+     * @returns CreateMemoryResponse
+     *
+     * @param string              $workspaceId
+     * @param CreateMemoryRequest $request
+     *
+     * @return CreateMemoryResponse
      */
     public function createMemory($workspaceId, $request)
     {
@@ -612,39 +724,46 @@ class Bailian extends OpenApiClient
     }
 
     /**
-     * @summary 创建记忆Node
-     *  *
+     * 创建记忆Node.
+     *
+     * @param request - CreateMemoryNodeRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateMemoryNodeResponse
+     *
      * @param string                  $workspaceId
      * @param string                  $memoryId
-     * @param CreateMemoryNodeRequest $request     CreateMemoryNodeRequest
-     * @param string[]                $headers     map
-     * @param RuntimeOptions          $runtime     runtime options for this request RuntimeOptions
+     * @param CreateMemoryNodeRequest $request
+     * @param string[]                $headers
+     * @param RuntimeOptions          $runtime
      *
-     * @return CreateMemoryNodeResponse CreateMemoryNodeResponse
+     * @return CreateMemoryNodeResponse
      */
     public function createMemoryNodeWithOptions($workspaceId, $memoryId, $request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->content)) {
-            $query['content'] = $request->content;
+        if (null !== $request->content) {
+            @$query['content'] = $request->content;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'CreateMemoryNode',
             'version' => '2023-12-29',
             'protocol' => 'HTTPS',
-            'pathname' => '/' . OpenApiUtilClient::getEncodeParam($workspaceId) . '/memories/' . OpenApiUtilClient::getEncodeParam($memoryId) . '/memoryNodes',
+            'pathname' => '/' . Url::percentEncode($workspaceId) . '/memories/' . Url::percentEncode($memoryId) . '/memoryNodes',
             'method' => 'POST',
             'authType' => 'AK',
             'style' => 'ROA',
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return CreateMemoryNodeResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -652,13 +771,17 @@ class Bailian extends OpenApiClient
     }
 
     /**
-     * @summary 创建记忆Node
-     *  *
+     * 创建记忆Node.
+     *
+     * @param request - CreateMemoryNodeRequest
+     *
+     * @returns CreateMemoryNodeResponse
+     *
      * @param string                  $workspaceId
      * @param string                  $memoryId
-     * @param CreateMemoryNodeRequest $request     CreateMemoryNodeRequest
+     * @param CreateMemoryNodeRequest $request
      *
-     * @return CreateMemoryNodeResponse CreateMemoryNodeResponse
+     * @return CreateMemoryNodeResponse
      */
     public function createMemoryNode($workspaceId, $memoryId, $request)
     {
@@ -669,41 +792,49 @@ class Bailian extends OpenApiClient
     }
 
     /**
-     * @summary Creates a prompt template.
-     *  *
-     * @param string                      $workspaceId
-     * @param CreatePromptTemplateRequest $request     CreatePromptTemplateRequest
-     * @param string[]                    $headers     map
-     * @param RuntimeOptions              $runtime     runtime options for this request RuntimeOptions
+     * Creates a prompt template.
      *
-     * @return CreatePromptTemplateResponse CreatePromptTemplateResponse
+     * @param request - CreatePromptTemplateRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreatePromptTemplateResponse
+     *
+     * @param string                      $workspaceId
+     * @param CreatePromptTemplateRequest $request
+     * @param string[]                    $headers
+     * @param RuntimeOptions              $runtime
+     *
+     * @return CreatePromptTemplateResponse
      */
     public function createPromptTemplateWithOptions($workspaceId, $request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->content)) {
-            $query['content'] = $request->content;
+        if (null !== $request->content) {
+            @$query['content'] = $request->content;
         }
-        if (!Utils::isUnset($request->name)) {
-            $query['name'] = $request->name;
+
+        if (null !== $request->name) {
+            @$query['name'] = $request->name;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'CreatePromptTemplate',
             'version' => '2023-12-29',
             'protocol' => 'HTTPS',
-            'pathname' => '/' . OpenApiUtilClient::getEncodeParam($workspaceId) . '/promptTemplates',
+            'pathname' => '/' . Url::percentEncode($workspaceId) . '/promptTemplates',
             'method' => 'POST',
             'authType' => 'AK',
             'style' => 'ROA',
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return CreatePromptTemplateResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -711,12 +842,16 @@ class Bailian extends OpenApiClient
     }
 
     /**
-     * @summary Creates a prompt template.
-     *  *
-     * @param string                      $workspaceId
-     * @param CreatePromptTemplateRequest $request     CreatePromptTemplateRequest
+     * Creates a prompt template.
      *
-     * @return CreatePromptTemplateResponse CreatePromptTemplateResponse
+     * @param request - CreatePromptTemplateRequest
+     *
+     * @returns CreatePromptTemplateResponse
+     *
+     * @param string                      $workspaceId
+     * @param CreatePromptTemplateRequest $request
+     *
+     * @return CreatePromptTemplateResponse
      */
     public function createPromptTemplate($workspaceId, $request)
     {
@@ -727,14 +862,19 @@ class Bailian extends OpenApiClient
     }
 
     /**
-     * @summary 删除智能体
-     *  *
+     * 删除智能体.
+     *
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteAgentResponse
+     *
      * @param string         $workspaceId
      * @param string         $appCode
-     * @param string[]       $headers     map
-     * @param RuntimeOptions $runtime     runtime options for this request RuntimeOptions
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
      *
-     * @return DeleteAgentResponse DeleteAgentResponse
+     * @return DeleteAgentResponse
      */
     public function deleteAgentWithOptions($workspaceId, $appCode, $headers, $runtime)
     {
@@ -745,14 +885,14 @@ class Bailian extends OpenApiClient
             'action' => 'DeleteAgent',
             'version' => '2023-12-29',
             'protocol' => 'HTTPS',
-            'pathname' => '/' . OpenApiUtilClient::getEncodeParam($workspaceId) . '/application/agents/' . OpenApiUtilClient::getEncodeParam($appCode) . '',
+            'pathname' => '/' . Url::percentEncode($workspaceId) . '/application/agents/' . Url::percentEncode($appCode) . '',
             'method' => 'DELETE',
             'authType' => 'AK',
             'style' => 'ROA',
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DeleteAgentResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -760,12 +900,14 @@ class Bailian extends OpenApiClient
     }
 
     /**
-     * @summary 删除智能体
-     *  *
+     * 删除智能体.
+     *
+     * @returns DeleteAgentResponse
+     *
      * @param string $workspaceId
      * @param string $appCode
      *
-     * @return DeleteAgentResponse DeleteAgentResponse
+     * @return DeleteAgentResponse
      */
     public function deleteAgent($workspaceId, $appCode)
     {
@@ -776,14 +918,19 @@ class Bailian extends OpenApiClient
     }
 
     /**
-     * @summary 删除类目
-     *  *
+     * 删除类目.
+     *
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteCategoryResponse
+     *
      * @param string         $CategoryId
      * @param string         $WorkspaceId
-     * @param string[]       $headers     map
-     * @param RuntimeOptions $runtime     runtime options for this request RuntimeOptions
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
      *
-     * @return DeleteCategoryResponse DeleteCategoryResponse
+     * @return DeleteCategoryResponse
      */
     public function deleteCategoryWithOptions($CategoryId, $WorkspaceId, $headers, $runtime)
     {
@@ -794,14 +941,14 @@ class Bailian extends OpenApiClient
             'action' => 'DeleteCategory',
             'version' => '2023-12-29',
             'protocol' => 'HTTPS',
-            'pathname' => '/' . OpenApiUtilClient::getEncodeParam($WorkspaceId) . '/datacenter/category/' . OpenApiUtilClient::getEncodeParam($CategoryId) . '/',
+            'pathname' => '/' . Url::percentEncode($WorkspaceId) . '/datacenter/category/' . Url::percentEncode($CategoryId) . '/',
             'method' => 'DELETE',
             'authType' => 'AK',
             'style' => 'ROA',
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DeleteCategoryResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -809,12 +956,14 @@ class Bailian extends OpenApiClient
     }
 
     /**
-     * @summary 删除类目
-     *  *
+     * 删除类目.
+     *
+     * @returns DeleteCategoryResponse
+     *
      * @param string $CategoryId
      * @param string $WorkspaceId
      *
-     * @return DeleteCategoryResponse DeleteCategoryResponse
+     * @return DeleteCategoryResponse
      */
     public function deleteCategory($CategoryId, $WorkspaceId)
     {
@@ -825,14 +974,19 @@ class Bailian extends OpenApiClient
     }
 
     /**
-     * @summary 删除文档
-     *  *
+     * 删除文档.
+     *
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteFileResponse
+     *
      * @param string         $FileId
      * @param string         $WorkspaceId
-     * @param string[]       $headers     map
-     * @param RuntimeOptions $runtime     runtime options for this request RuntimeOptions
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
      *
-     * @return DeleteFileResponse DeleteFileResponse
+     * @return DeleteFileResponse
      */
     public function deleteFileWithOptions($FileId, $WorkspaceId, $headers, $runtime)
     {
@@ -843,14 +997,14 @@ class Bailian extends OpenApiClient
             'action' => 'DeleteFile',
             'version' => '2023-12-29',
             'protocol' => 'HTTPS',
-            'pathname' => '/' . OpenApiUtilClient::getEncodeParam($WorkspaceId) . '/datacenter/file/' . OpenApiUtilClient::getEncodeParam($FileId) . '/',
+            'pathname' => '/' . Url::percentEncode($WorkspaceId) . '/datacenter/file/' . Url::percentEncode($FileId) . '/',
             'method' => 'DELETE',
             'authType' => 'AK',
             'style' => 'ROA',
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DeleteFileResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -858,12 +1012,14 @@ class Bailian extends OpenApiClient
     }
 
     /**
-     * @summary 删除文档
-     *  *
+     * 删除文档.
+     *
+     * @returns DeleteFileResponse
+     *
      * @param string $FileId
      * @param string $WorkspaceId
      *
-     * @return DeleteFileResponse DeleteFileResponse
+     * @return DeleteFileResponse
      */
     public function deleteFile($FileId, $WorkspaceId)
     {
@@ -874,44 +1030,52 @@ class Bailian extends OpenApiClient
     }
 
     /**
-     * @summary Deletes a specified knowledge base permanently.
-     *  *
-     * @description *   Before you call this operation, make sure that your knowledge base is created and is not deleted. That is, the primary key ID of the knowledge base `IndexId` is valid.
+     * Deletes a specified knowledge base permanently.
+     *
+     * @remarks
+     *   Before you call this operation, make sure that your knowledge base is created and is not deleted. That is, the primary key ID of the knowledge base `IndexId` is valid.
      * *   If a knowledge base is being called by an application, disassociate the knowledge base before you can delete it. To disassociate the knowledge base, you must use the console. For more information, see [Create a knowledge base](https://www.alibabacloud.com/help/en/model-studio/user-guide/rag-knowledge-base).
      * *   After you delete a knowledge base, it cannot be recovered. We recommend that you proceed with caution.
      * *   Imported documents are not deleted from the [Data Management](https://bailian.console.aliyun.com/#/data-center) if you call this operation.
      * *   This interface is idempotent.
-     *  *
-     * @param string             $WorkspaceId
-     * @param DeleteIndexRequest $request     DeleteIndexRequest
-     * @param string[]           $headers     map
-     * @param RuntimeOptions     $runtime     runtime options for this request RuntimeOptions
      *
-     * @return DeleteIndexResponse DeleteIndexResponse
+     * @param request - DeleteIndexRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteIndexResponse
+     *
+     * @param string             $WorkspaceId
+     * @param DeleteIndexRequest $request
+     * @param string[]           $headers
+     * @param RuntimeOptions     $runtime
+     *
+     * @return DeleteIndexResponse
      */
     public function deleteIndexWithOptions($WorkspaceId, $request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->indexId)) {
-            $query['IndexId'] = $request->indexId;
+        if (null !== $request->indexId) {
+            @$query['IndexId'] = $request->indexId;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'DeleteIndex',
             'version' => '2023-12-29',
             'protocol' => 'HTTPS',
-            'pathname' => '/' . OpenApiUtilClient::getEncodeParam($WorkspaceId) . '/index/delete',
+            'pathname' => '/' . Url::percentEncode($WorkspaceId) . '/index/delete',
             'method' => 'POST',
             'authType' => 'AK',
             'style' => 'ROA',
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DeleteIndexResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -919,18 +1083,23 @@ class Bailian extends OpenApiClient
     }
 
     /**
-     * @summary Deletes a specified knowledge base permanently.
-     *  *
-     * @description *   Before you call this operation, make sure that your knowledge base is created and is not deleted. That is, the primary key ID of the knowledge base `IndexId` is valid.
+     * Deletes a specified knowledge base permanently.
+     *
+     * @remarks
+     *   Before you call this operation, make sure that your knowledge base is created and is not deleted. That is, the primary key ID of the knowledge base `IndexId` is valid.
      * *   If a knowledge base is being called by an application, disassociate the knowledge base before you can delete it. To disassociate the knowledge base, you must use the console. For more information, see [Create a knowledge base](https://www.alibabacloud.com/help/en/model-studio/user-guide/rag-knowledge-base).
      * *   After you delete a knowledge base, it cannot be recovered. We recommend that you proceed with caution.
      * *   Imported documents are not deleted from the [Data Management](https://bailian.console.aliyun.com/#/data-center) if you call this operation.
      * *   This interface is idempotent.
-     *  *
-     * @param string             $WorkspaceId
-     * @param DeleteIndexRequest $request     DeleteIndexRequest
      *
-     * @return DeleteIndexResponse DeleteIndexResponse
+     * @param request - DeleteIndexRequest
+     *
+     * @returns DeleteIndexResponse
+     *
+     * @param string             $WorkspaceId
+     * @param DeleteIndexRequest $request
+     *
+     * @return DeleteIndexResponse
      */
     public function deleteIndex($WorkspaceId, $request)
     {
@@ -941,52 +1110,62 @@ class Bailian extends OpenApiClient
     }
 
     /**
-     * @summary Deletes one or more documents from a specified unstructured knowledge base permanently.
-     *  *
-     * @description *   Before you call this operation, make sure that your knowledge base is created and is not deleted. That is, the primary key ID of the knowledge base `IndexId` is valid.
+     * Deletes one or more documents from a specified unstructured knowledge base permanently.
+     *
+     * @remarks
+     *   Before you call this operation, make sure that your knowledge base is created and is not deleted. That is, the primary key ID of the knowledge base `IndexId` is valid.
      * *   Only documents with the INSERT_ERROR and FINISH states can be deleted. To query the status of documents in a specified knowledge base, call the [ListIndexDocuments](https://www.alibabacloud.com/help/en/model-studio/developer-reference/api-bailian-2023-12-29-listindexdocuments) operation.
      * *   After you delete a document, it cannot be recovered and the [Retrieve](https://www.alibabacloud.com/help/en/model-studio/developer-reference/api-bailian-2023-12-29-retrieve) operation cannot query information about the document. We recommend that you proceed with caution.
      * *   Imported documents are not deleted from the [Data Management](https://bailian.console.aliyun.com/#/data-center) if you call this operation.
      * *   This interface is idempotent.
-     *  *
-     * @param string                     $WorkspaceId
-     * @param DeleteIndexDocumentRequest $tmpReq      DeleteIndexDocumentRequest
-     * @param string[]                   $headers     map
-     * @param RuntimeOptions             $runtime     runtime options for this request RuntimeOptions
      *
-     * @return DeleteIndexDocumentResponse DeleteIndexDocumentResponse
+     * @param tmpReq - DeleteIndexDocumentRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteIndexDocumentResponse
+     *
+     * @param string                     $WorkspaceId
+     * @param DeleteIndexDocumentRequest $tmpReq
+     * @param string[]                   $headers
+     * @param RuntimeOptions             $runtime
+     *
+     * @return DeleteIndexDocumentResponse
      */
     public function deleteIndexDocumentWithOptions($WorkspaceId, $tmpReq, $headers, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new DeleteIndexDocumentShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->documentIds)) {
-            $request->documentIdsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->documentIds, 'DocumentIds', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->documentIds) {
+            $request->documentIdsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->documentIds, 'DocumentIds', 'json');
         }
+
         $query = [];
-        if (!Utils::isUnset($request->documentIdsShrink)) {
-            $query['DocumentIds'] = $request->documentIdsShrink;
+        if (null !== $request->documentIdsShrink) {
+            @$query['DocumentIds'] = $request->documentIdsShrink;
         }
-        if (!Utils::isUnset($request->indexId)) {
-            $query['IndexId'] = $request->indexId;
+
+        if (null !== $request->indexId) {
+            @$query['IndexId'] = $request->indexId;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'DeleteIndexDocument',
             'version' => '2023-12-29',
             'protocol' => 'HTTPS',
-            'pathname' => '/' . OpenApiUtilClient::getEncodeParam($WorkspaceId) . '/index/delete_index_document',
+            'pathname' => '/' . Url::percentEncode($WorkspaceId) . '/index/delete_index_document',
             'method' => 'POST',
             'authType' => 'AK',
             'style' => 'ROA',
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DeleteIndexDocumentResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -994,18 +1173,23 @@ class Bailian extends OpenApiClient
     }
 
     /**
-     * @summary Deletes one or more documents from a specified unstructured knowledge base permanently.
-     *  *
-     * @description *   Before you call this operation, make sure that your knowledge base is created and is not deleted. That is, the primary key ID of the knowledge base `IndexId` is valid.
+     * Deletes one or more documents from a specified unstructured knowledge base permanently.
+     *
+     * @remarks
+     *   Before you call this operation, make sure that your knowledge base is created and is not deleted. That is, the primary key ID of the knowledge base `IndexId` is valid.
      * *   Only documents with the INSERT_ERROR and FINISH states can be deleted. To query the status of documents in a specified knowledge base, call the [ListIndexDocuments](https://www.alibabacloud.com/help/en/model-studio/developer-reference/api-bailian-2023-12-29-listindexdocuments) operation.
      * *   After you delete a document, it cannot be recovered and the [Retrieve](https://www.alibabacloud.com/help/en/model-studio/developer-reference/api-bailian-2023-12-29-retrieve) operation cannot query information about the document. We recommend that you proceed with caution.
      * *   Imported documents are not deleted from the [Data Management](https://bailian.console.aliyun.com/#/data-center) if you call this operation.
      * *   This interface is idempotent.
-     *  *
-     * @param string                     $WorkspaceId
-     * @param DeleteIndexDocumentRequest $request     DeleteIndexDocumentRequest
      *
-     * @return DeleteIndexDocumentResponse DeleteIndexDocumentResponse
+     * @param request - DeleteIndexDocumentRequest
+     *
+     * @returns DeleteIndexDocumentResponse
+     *
+     * @param string                     $WorkspaceId
+     * @param DeleteIndexDocumentRequest $request
+     *
+     * @return DeleteIndexDocumentResponse
      */
     public function deleteIndexDocument($WorkspaceId, $request)
     {
@@ -1016,14 +1200,19 @@ class Bailian extends OpenApiClient
     }
 
     /**
-     * @summary 删除memory
-     *  *
+     * 删除memory.
+     *
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteMemoryResponse
+     *
      * @param string         $workspaceId
      * @param string         $memoryId
-     * @param string[]       $headers     map
-     * @param RuntimeOptions $runtime     runtime options for this request RuntimeOptions
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
      *
-     * @return DeleteMemoryResponse DeleteMemoryResponse
+     * @return DeleteMemoryResponse
      */
     public function deleteMemoryWithOptions($workspaceId, $memoryId, $headers, $runtime)
     {
@@ -1034,14 +1223,14 @@ class Bailian extends OpenApiClient
             'action' => 'DeleteMemory',
             'version' => '2023-12-29',
             'protocol' => 'HTTPS',
-            'pathname' => '/' . OpenApiUtilClient::getEncodeParam($workspaceId) . '/memories/' . OpenApiUtilClient::getEncodeParam($memoryId) . '',
+            'pathname' => '/' . Url::percentEncode($workspaceId) . '/memories/' . Url::percentEncode($memoryId) . '',
             'method' => 'DELETE',
             'authType' => 'AK',
             'style' => 'ROA',
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DeleteMemoryResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -1049,12 +1238,14 @@ class Bailian extends OpenApiClient
     }
 
     /**
-     * @summary 删除memory
-     *  *
+     * 删除memory.
+     *
+     * @returns DeleteMemoryResponse
+     *
      * @param string $workspaceId
      * @param string $memoryId
      *
-     * @return DeleteMemoryResponse DeleteMemoryResponse
+     * @return DeleteMemoryResponse
      */
     public function deleteMemory($workspaceId, $memoryId)
     {
@@ -1065,15 +1256,20 @@ class Bailian extends OpenApiClient
     }
 
     /**
-     * @summary 删除记忆Node
-     *  *
+     * 删除记忆Node.
+     *
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteMemoryNodeResponse
+     *
      * @param string         $workspaceId
      * @param string         $memoryId
      * @param string         $memoryNodeId
-     * @param string[]       $headers      map
-     * @param RuntimeOptions $runtime      runtime options for this request RuntimeOptions
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
      *
-     * @return DeleteMemoryNodeResponse DeleteMemoryNodeResponse
+     * @return DeleteMemoryNodeResponse
      */
     public function deleteMemoryNodeWithOptions($workspaceId, $memoryId, $memoryNodeId, $headers, $runtime)
     {
@@ -1084,14 +1280,14 @@ class Bailian extends OpenApiClient
             'action' => 'DeleteMemoryNode',
             'version' => '2023-12-29',
             'protocol' => 'HTTPS',
-            'pathname' => '/' . OpenApiUtilClient::getEncodeParam($workspaceId) . '/memories/' . OpenApiUtilClient::getEncodeParam($memoryId) . '/memoryNodes/' . OpenApiUtilClient::getEncodeParam($memoryNodeId) . '',
+            'pathname' => '/' . Url::percentEncode($workspaceId) . '/memories/' . Url::percentEncode($memoryId) . '/memoryNodes/' . Url::percentEncode($memoryNodeId) . '',
             'method' => 'DELETE',
             'authType' => 'AK',
             'style' => 'ROA',
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DeleteMemoryNodeResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -1099,13 +1295,15 @@ class Bailian extends OpenApiClient
     }
 
     /**
-     * @summary 删除记忆Node
-     *  *
+     * 删除记忆Node.
+     *
+     * @returns DeleteMemoryNodeResponse
+     *
      * @param string $workspaceId
      * @param string $memoryId
      * @param string $memoryNodeId
      *
-     * @return DeleteMemoryNodeResponse DeleteMemoryNodeResponse
+     * @return DeleteMemoryNodeResponse
      */
     public function deleteMemoryNode($workspaceId, $memoryId, $memoryNodeId)
     {
@@ -1116,14 +1314,19 @@ class Bailian extends OpenApiClient
     }
 
     /**
-     * @summary Deletes a prompt template based on the template ID.
-     *  *
+     * Deletes a prompt template based on the template ID.
+     *
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeletePromptTemplateResponse
+     *
      * @param string         $workspaceId
      * @param string         $promptTemplateId
-     * @param string[]       $headers          map
-     * @param RuntimeOptions $runtime          runtime options for this request RuntimeOptions
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
      *
-     * @return DeletePromptTemplateResponse DeletePromptTemplateResponse
+     * @return DeletePromptTemplateResponse
      */
     public function deletePromptTemplateWithOptions($workspaceId, $promptTemplateId, $headers, $runtime)
     {
@@ -1134,14 +1337,14 @@ class Bailian extends OpenApiClient
             'action' => 'DeletePromptTemplate',
             'version' => '2023-12-29',
             'protocol' => 'HTTPS',
-            'pathname' => '/' . OpenApiUtilClient::getEncodeParam($workspaceId) . '/promptTemplates/' . OpenApiUtilClient::getEncodeParam($promptTemplateId) . '',
+            'pathname' => '/' . Url::percentEncode($workspaceId) . '/promptTemplates/' . Url::percentEncode($promptTemplateId) . '',
             'method' => 'DELETE',
             'authType' => 'AK',
             'style' => 'ROA',
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DeletePromptTemplateResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -1149,12 +1352,14 @@ class Bailian extends OpenApiClient
     }
 
     /**
-     * @summary Deletes a prompt template based on the template ID.
-     *  *
+     * Deletes a prompt template based on the template ID.
+     *
+     * @returns DeletePromptTemplateResponse
+     *
      * @param string $workspaceId
      * @param string $promptTemplateId
      *
-     * @return DeletePromptTemplateResponse DeletePromptTemplateResponse
+     * @return DeletePromptTemplateResponse
      */
     public function deletePromptTemplate($workspaceId, $promptTemplateId)
     {
@@ -1165,19 +1370,25 @@ class Bailian extends OpenApiClient
     }
 
     /**
-     * @summary Queries the details of an unstructured document.
-     *  *
-     * @description Before you call this API, make sure that your document is uploaded to the [Data Management](https://bailian.console.aliyun.com/knowledge-base#/data-center) page of Alibaba Cloud Model Studio.
+     * Queries the details of an unstructured document.
+     *
+     * @remarks
+     * Before you call this API, make sure that your document is uploaded to the [Data Management](https://bailian.console.aliyun.com/knowledge-base#/data-center) page of Alibaba Cloud Model Studio.
      * *   You can also call this operation to query unstructured documents that you upload on the [Data Management](https://bailian.console.aliyun.com/knowledge-base#/data-center) page.
      * *   This operation is idempotent.
      * **Throttling:** Make sure that the interval between the two queries is at least 15 seconds. Otherwise, you may trigger system throttling. If throttling is triggered, try again later.
-     *  *
+     *
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeFileResponse
+     *
      * @param string         $WorkspaceId
      * @param string         $FileId
-     * @param string[]       $headers     map
-     * @param RuntimeOptions $runtime     runtime options for this request RuntimeOptions
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
      *
-     * @return DescribeFileResponse DescribeFileResponse
+     * @return DescribeFileResponse
      */
     public function describeFileWithOptions($WorkspaceId, $FileId, $headers, $runtime)
     {
@@ -1188,14 +1399,14 @@ class Bailian extends OpenApiClient
             'action' => 'DescribeFile',
             'version' => '2023-12-29',
             'protocol' => 'HTTPS',
-            'pathname' => '/' . OpenApiUtilClient::getEncodeParam($WorkspaceId) . '/datacenter/file/' . OpenApiUtilClient::getEncodeParam($FileId) . '/',
+            'pathname' => '/' . Url::percentEncode($WorkspaceId) . '/datacenter/file/' . Url::percentEncode($FileId) . '/',
             'method' => 'GET',
             'authType' => 'AK',
             'style' => 'ROA',
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DescribeFileResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -1203,17 +1414,20 @@ class Bailian extends OpenApiClient
     }
 
     /**
-     * @summary Queries the details of an unstructured document.
-     *  *
-     * @description Before you call this API, make sure that your document is uploaded to the [Data Management](https://bailian.console.aliyun.com/knowledge-base#/data-center) page of Alibaba Cloud Model Studio.
+     * Queries the details of an unstructured document.
+     *
+     * @remarks
+     * Before you call this API, make sure that your document is uploaded to the [Data Management](https://bailian.console.aliyun.com/knowledge-base#/data-center) page of Alibaba Cloud Model Studio.
      * *   You can also call this operation to query unstructured documents that you upload on the [Data Management](https://bailian.console.aliyun.com/knowledge-base#/data-center) page.
      * *   This operation is idempotent.
      * **Throttling:** Make sure that the interval between the two queries is at least 15 seconds. Otherwise, you may trigger system throttling. If throttling is triggered, try again later.
-     *  *
+     *
+     * @returns DescribeFileResponse
+     *
      * @param string $WorkspaceId
      * @param string $FileId
      *
-     * @return DescribeFileResponse DescribeFileResponse
+     * @return DescribeFileResponse
      */
     public function describeFile($WorkspaceId, $FileId)
     {
@@ -1224,51 +1438,62 @@ class Bailian extends OpenApiClient
     }
 
     /**
-     * @summary Queries the current status of a specified knowledge base creation or add document job.
-     *  *
-     * @description 1.  A knowledge base job is running. You can call the [SubmitIndexJob](https://www.alibabacloud.com/help/en/model-studio/developer-reference/api-bailian-2023-12-29-submitindexjob) operation to create a creation job or the [SubmitIndexAddDocumentsJob](https://www.alibabacloud.com/help/en/model-studio/developer-reference/api-bailian-2023-12-29-submitindexadddocumentsjob) operation to create a add document job. Then, obtain the `JobId` returned by the operations.
+     * Queries the current status of a specified knowledge base creation or add document job.
+     *
+     * @remarks
+     * 1.  A knowledge base job is running. You can call the [SubmitIndexJob](https://www.alibabacloud.com/help/en/model-studio/developer-reference/api-bailian-2023-12-29-submitindexjob) operation to create a creation job or the [SubmitIndexAddDocumentsJob](https://www.alibabacloud.com/help/en/model-studio/developer-reference/api-bailian-2023-12-29-submitindexadddocumentsjob) operation to create a add document job. Then, obtain the `JobId` returned by the operations.
      * 2.  We recommend that you call this operation at intervals of more than 5 seconds.
      * 3.  This interface is idempotent.
-     *  *
-     * @param string                   $WorkspaceId
-     * @param GetIndexJobStatusRequest $request     GetIndexJobStatusRequest
-     * @param string[]                 $headers     map
-     * @param RuntimeOptions           $runtime     runtime options for this request RuntimeOptions
      *
-     * @return GetIndexJobStatusResponse GetIndexJobStatusResponse
+     * @param request - GetIndexJobStatusRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetIndexJobStatusResponse
+     *
+     * @param string                   $WorkspaceId
+     * @param GetIndexJobStatusRequest $request
+     * @param string[]                 $headers
+     * @param RuntimeOptions           $runtime
+     *
+     * @return GetIndexJobStatusResponse
      */
     public function getIndexJobStatusWithOptions($WorkspaceId, $request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->indexId)) {
-            $query['IndexId'] = $request->indexId;
+        if (null !== $request->indexId) {
+            @$query['IndexId'] = $request->indexId;
         }
-        if (!Utils::isUnset($request->jobId)) {
-            $query['JobId'] = $request->jobId;
+
+        if (null !== $request->jobId) {
+            @$query['JobId'] = $request->jobId;
         }
-        if (!Utils::isUnset($request->pageNumber)) {
-            $query['PageNumber'] = $request->pageNumber;
+
+        if (null !== $request->pageNumber) {
+            @$query['PageNumber'] = $request->pageNumber;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['pageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$query['pageSize'] = $request->pageSize;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'GetIndexJobStatus',
             'version' => '2023-12-29',
             'protocol' => 'HTTPS',
-            'pathname' => '/' . OpenApiUtilClient::getEncodeParam($WorkspaceId) . '/index/job/status',
+            'pathname' => '/' . Url::percentEncode($WorkspaceId) . '/index/job/status',
             'method' => 'GET',
             'authType' => 'AK',
             'style' => 'ROA',
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return GetIndexJobStatusResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -1276,16 +1501,21 @@ class Bailian extends OpenApiClient
     }
 
     /**
-     * @summary Queries the current status of a specified knowledge base creation or add document job.
-     *  *
-     * @description 1.  A knowledge base job is running. You can call the [SubmitIndexJob](https://www.alibabacloud.com/help/en/model-studio/developer-reference/api-bailian-2023-12-29-submitindexjob) operation to create a creation job or the [SubmitIndexAddDocumentsJob](https://www.alibabacloud.com/help/en/model-studio/developer-reference/api-bailian-2023-12-29-submitindexadddocumentsjob) operation to create a add document job. Then, obtain the `JobId` returned by the operations.
+     * Queries the current status of a specified knowledge base creation or add document job.
+     *
+     * @remarks
+     * 1.  A knowledge base job is running. You can call the [SubmitIndexJob](https://www.alibabacloud.com/help/en/model-studio/developer-reference/api-bailian-2023-12-29-submitindexjob) operation to create a creation job or the [SubmitIndexAddDocumentsJob](https://www.alibabacloud.com/help/en/model-studio/developer-reference/api-bailian-2023-12-29-submitindexadddocumentsjob) operation to create a add document job. Then, obtain the `JobId` returned by the operations.
      * 2.  We recommend that you call this operation at intervals of more than 5 seconds.
      * 3.  This interface is idempotent.
-     *  *
-     * @param string                   $WorkspaceId
-     * @param GetIndexJobStatusRequest $request     GetIndexJobStatusRequest
      *
-     * @return GetIndexJobStatusResponse GetIndexJobStatusResponse
+     * @param request - GetIndexJobStatusRequest
+     *
+     * @returns GetIndexJobStatusResponse
+     *
+     * @param string                   $WorkspaceId
+     * @param GetIndexJobStatusRequest $request
+     *
+     * @return GetIndexJobStatusResponse
      */
     public function getIndexJobStatus($WorkspaceId, $request)
     {
@@ -1296,14 +1526,19 @@ class Bailian extends OpenApiClient
     }
 
     /**
-     * @summary 获取memory
-     *  *
+     * 获取memory.
+     *
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetMemoryResponse
+     *
      * @param string         $workspaceId
      * @param string         $memoryId
-     * @param string[]       $headers     map
-     * @param RuntimeOptions $runtime     runtime options for this request RuntimeOptions
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
      *
-     * @return GetMemoryResponse GetMemoryResponse
+     * @return GetMemoryResponse
      */
     public function getMemoryWithOptions($workspaceId, $memoryId, $headers, $runtime)
     {
@@ -1314,14 +1549,14 @@ class Bailian extends OpenApiClient
             'action' => 'GetMemory',
             'version' => '2023-12-29',
             'protocol' => 'HTTPS',
-            'pathname' => '/' . OpenApiUtilClient::getEncodeParam($workspaceId) . '/memories/' . OpenApiUtilClient::getEncodeParam($memoryId) . '',
+            'pathname' => '/' . Url::percentEncode($workspaceId) . '/memories/' . Url::percentEncode($memoryId) . '',
             'method' => 'GET',
             'authType' => 'AK',
             'style' => 'ROA',
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return GetMemoryResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -1329,12 +1564,14 @@ class Bailian extends OpenApiClient
     }
 
     /**
-     * @summary 获取memory
-     *  *
+     * 获取memory.
+     *
+     * @returns GetMemoryResponse
+     *
      * @param string $workspaceId
      * @param string $memoryId
      *
-     * @return GetMemoryResponse GetMemoryResponse
+     * @return GetMemoryResponse
      */
     public function getMemory($workspaceId, $memoryId)
     {
@@ -1345,15 +1582,20 @@ class Bailian extends OpenApiClient
     }
 
     /**
-     * @summary 获取记忆Node
-     *  *
+     * 获取记忆Node.
+     *
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetMemoryNodeResponse
+     *
      * @param string         $workspaceId
      * @param string         $memoryId
      * @param string         $memoryNodeId
-     * @param string[]       $headers      map
-     * @param RuntimeOptions $runtime      runtime options for this request RuntimeOptions
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
      *
-     * @return GetMemoryNodeResponse GetMemoryNodeResponse
+     * @return GetMemoryNodeResponse
      */
     public function getMemoryNodeWithOptions($workspaceId, $memoryId, $memoryNodeId, $headers, $runtime)
     {
@@ -1364,14 +1606,14 @@ class Bailian extends OpenApiClient
             'action' => 'GetMemoryNode',
             'version' => '2023-12-29',
             'protocol' => 'HTTPS',
-            'pathname' => '/' . OpenApiUtilClient::getEncodeParam($workspaceId) . '/memories/' . OpenApiUtilClient::getEncodeParam($memoryId) . '/memoryNodes/' . OpenApiUtilClient::getEncodeParam($memoryNodeId) . '',
+            'pathname' => '/' . Url::percentEncode($workspaceId) . '/memories/' . Url::percentEncode($memoryId) . '/memoryNodes/' . Url::percentEncode($memoryNodeId) . '',
             'method' => 'GET',
             'authType' => 'AK',
             'style' => 'ROA',
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return GetMemoryNodeResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -1379,13 +1621,15 @@ class Bailian extends OpenApiClient
     }
 
     /**
-     * @summary 获取记忆Node
-     *  *
+     * 获取记忆Node.
+     *
+     * @returns GetMemoryNodeResponse
+     *
      * @param string $workspaceId
      * @param string $memoryId
      * @param string $memoryNodeId
      *
-     * @return GetMemoryNodeResponse GetMemoryNodeResponse
+     * @return GetMemoryNodeResponse
      */
     public function getMemoryNode($workspaceId, $memoryId, $memoryNodeId)
     {
@@ -1396,14 +1640,19 @@ class Bailian extends OpenApiClient
     }
 
     /**
-     * @summary Obtains a prompt template based on the template ID.
-     *  *
+     * Obtains a prompt template based on the template ID.
+     *
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetPromptTemplateResponse
+     *
      * @param string         $workspaceId
      * @param string         $promptTemplateId
-     * @param string[]       $headers          map
-     * @param RuntimeOptions $runtime          runtime options for this request RuntimeOptions
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
      *
-     * @return GetPromptTemplateResponse GetPromptTemplateResponse
+     * @return GetPromptTemplateResponse
      */
     public function getPromptTemplateWithOptions($workspaceId, $promptTemplateId, $headers, $runtime)
     {
@@ -1414,14 +1663,14 @@ class Bailian extends OpenApiClient
             'action' => 'GetPromptTemplate',
             'version' => '2023-12-29',
             'protocol' => 'HTTPS',
-            'pathname' => '/' . OpenApiUtilClient::getEncodeParam($workspaceId) . '/promptTemplates/' . OpenApiUtilClient::getEncodeParam($promptTemplateId) . '',
+            'pathname' => '/' . Url::percentEncode($workspaceId) . '/promptTemplates/' . Url::percentEncode($promptTemplateId) . '',
             'method' => 'GET',
             'authType' => 'AK',
             'style' => 'ROA',
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return GetPromptTemplateResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -1429,12 +1678,14 @@ class Bailian extends OpenApiClient
     }
 
     /**
-     * @summary Obtains a prompt template based on the template ID.
-     *  *
+     * Obtains a prompt template based on the template ID.
+     *
+     * @returns GetPromptTemplateResponse
+     *
      * @param string $workspaceId
      * @param string $promptTemplateId
      *
-     * @return GetPromptTemplateResponse GetPromptTemplateResponse
+     * @return GetPromptTemplateResponse
      */
     public function getPromptTemplate($workspaceId, $promptTemplateId)
     {
@@ -1445,14 +1696,19 @@ class Bailian extends OpenApiClient
     }
 
     /**
-     * @summary 获取发布态智能体应用
-     *  *
+     * 获取发布态智能体应用.
+     *
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetPublishedAgentResponse
+     *
      * @param string         $workspaceId
      * @param string         $appCode
-     * @param string[]       $headers     map
-     * @param RuntimeOptions $runtime     runtime options for this request RuntimeOptions
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
      *
-     * @return GetPublishedAgentResponse GetPublishedAgentResponse
+     * @return GetPublishedAgentResponse
      */
     public function getPublishedAgentWithOptions($workspaceId, $appCode, $headers, $runtime)
     {
@@ -1463,14 +1719,14 @@ class Bailian extends OpenApiClient
             'action' => 'GetPublishedAgent',
             'version' => '2023-12-29',
             'protocol' => 'HTTPS',
-            'pathname' => '/' . OpenApiUtilClient::getEncodeParam($workspaceId) . '/application/agents/' . OpenApiUtilClient::getEncodeParam($appCode) . '',
+            'pathname' => '/' . Url::percentEncode($workspaceId) . '/application/agents/' . Url::percentEncode($appCode) . '',
             'method' => 'GET',
             'authType' => 'AK',
             'style' => 'ROA',
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return GetPublishedAgentResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -1478,12 +1734,14 @@ class Bailian extends OpenApiClient
     }
 
     /**
-     * @summary 获取发布态智能体应用
-     *  *
+     * 获取发布态智能体应用.
+     *
+     * @returns GetPublishedAgentResponse
+     *
      * @param string $workspaceId
      * @param string $appCode
      *
-     * @return GetPublishedAgentResponse GetPublishedAgentResponse
+     * @return GetPublishedAgentResponse
      */
     public function getPublishedAgent($workspaceId, $appCode)
     {
@@ -1494,47 +1752,57 @@ class Bailian extends OpenApiClient
     }
 
     /**
-     * @summary ListCategory
-     *  *
-     * @param string              $WorkspaceId
-     * @param ListCategoryRequest $request     ListCategoryRequest
-     * @param string[]            $headers     map
-     * @param RuntimeOptions      $runtime     runtime options for this request RuntimeOptions
+     * ListCategory.
      *
-     * @return ListCategoryResponse ListCategoryResponse
+     * @param request - ListCategoryRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListCategoryResponse
+     *
+     * @param string              $WorkspaceId
+     * @param ListCategoryRequest $request
+     * @param string[]            $headers
+     * @param RuntimeOptions      $runtime
+     *
+     * @return ListCategoryResponse
      */
     public function listCategoryWithOptions($WorkspaceId, $request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->categoryType)) {
-            $body['CategoryType'] = $request->categoryType;
+        if (null !== $request->categoryType) {
+            @$body['CategoryType'] = $request->categoryType;
         }
-        if (!Utils::isUnset($request->maxResults)) {
-            $body['MaxResults'] = $request->maxResults;
+
+        if (null !== $request->maxResults) {
+            @$body['MaxResults'] = $request->maxResults;
         }
-        if (!Utils::isUnset($request->nextToken)) {
-            $body['NextToken'] = $request->nextToken;
+
+        if (null !== $request->nextToken) {
+            @$body['NextToken'] = $request->nextToken;
         }
-        if (!Utils::isUnset($request->parentCategoryId)) {
-            $body['ParentCategoryId'] = $request->parentCategoryId;
+
+        if (null !== $request->parentCategoryId) {
+            @$body['ParentCategoryId'] = $request->parentCategoryId;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'ListCategory',
             'version' => '2023-12-29',
             'protocol' => 'HTTPS',
-            'pathname' => '/' . OpenApiUtilClient::getEncodeParam($WorkspaceId) . '/datacenter/categories',
+            'pathname' => '/' . Url::percentEncode($WorkspaceId) . '/datacenter/categories',
             'method' => 'POST',
             'authType' => 'AK',
             'style' => 'ROA',
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return ListCategoryResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -1542,12 +1810,16 @@ class Bailian extends OpenApiClient
     }
 
     /**
-     * @summary ListCategory
-     *  *
-     * @param string              $WorkspaceId
-     * @param ListCategoryRequest $request     ListCategoryRequest
+     * ListCategory.
      *
-     * @return ListCategoryResponse ListCategoryResponse
+     * @param request - ListCategoryRequest
+     *
+     * @returns ListCategoryResponse
+     *
+     * @param string              $WorkspaceId
+     * @param ListCategoryRequest $request
+     *
+     * @return ListCategoryResponse
      */
     public function listCategory($WorkspaceId, $request)
     {
@@ -1558,56 +1830,69 @@ class Bailian extends OpenApiClient
     }
 
     /**
-     * @summary For unstructured knowledge base, obtains the details of all chunks of a specified document; for structured knowledge base, obtains the details of all chunks.
-     *  *
-     * @description *   Before you call this operation, make sure that your knowledge base is created and is not deleted. That is, the primary key ID of the knowledge base `IndexId` is valid.
-     * *   This interface is idempotent.
-     *  *
-     * @param string            $WorkspaceId
-     * @param ListChunksRequest $request     ListChunksRequest
-     * @param string[]          $headers     map
-     * @param RuntimeOptions    $runtime     runtime options for this request RuntimeOptions
+     * For unstructured knowledge base, obtains the details of all chunks of a specified document; for structured knowledge base, obtains the details of all chunks.
      *
-     * @return ListChunksResponse ListChunksResponse
+     * @remarks
+     *   Before you call this operation, make sure that your knowledge base is created and is not deleted. That is, the primary key ID of the knowledge base `IndexId` is valid.
+     * *   This interface is idempotent.
+     *
+     * @param request - ListChunksRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListChunksResponse
+     *
+     * @param string            $WorkspaceId
+     * @param ListChunksRequest $request
+     * @param string[]          $headers
+     * @param RuntimeOptions    $runtime
+     *
+     * @return ListChunksResponse
      */
     public function listChunksWithOptions($WorkspaceId, $request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->fields)) {
-            $body['Fields'] = $request->fields;
+        if (null !== $request->fields) {
+            @$body['Fields'] = $request->fields;
         }
-        if (!Utils::isUnset($request->fileId)) {
-            $body['FileId'] = $request->fileId;
+
+        if (null !== $request->fileId) {
+            @$body['FileId'] = $request->fileId;
         }
-        if (!Utils::isUnset($request->filed)) {
-            $body['Filed'] = $request->filed;
+
+        if (null !== $request->filed) {
+            @$body['Filed'] = $request->filed;
         }
-        if (!Utils::isUnset($request->indexId)) {
-            $body['IndexId'] = $request->indexId;
+
+        if (null !== $request->indexId) {
+            @$body['IndexId'] = $request->indexId;
         }
-        if (!Utils::isUnset($request->pageNum)) {
-            $body['PageNum'] = $request->pageNum;
+
+        if (null !== $request->pageNum) {
+            @$body['PageNum'] = $request->pageNum;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $body['PageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$body['PageSize'] = $request->pageSize;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'ListChunks',
             'version' => '2023-12-29',
             'protocol' => 'HTTPS',
-            'pathname' => '/' . OpenApiUtilClient::getEncodeParam($WorkspaceId) . '/index/list_chunks',
+            'pathname' => '/' . Url::percentEncode($WorkspaceId) . '/index/list_chunks',
             'method' => 'POST',
             'authType' => 'AK',
             'style' => 'ROA',
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return ListChunksResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -1615,15 +1900,20 @@ class Bailian extends OpenApiClient
     }
 
     /**
-     * @summary For unstructured knowledge base, obtains the details of all chunks of a specified document; for structured knowledge base, obtains the details of all chunks.
-     *  *
-     * @description *   Before you call this operation, make sure that your knowledge base is created and is not deleted. That is, the primary key ID of the knowledge base `IndexId` is valid.
-     * *   This interface is idempotent.
-     *  *
-     * @param string            $WorkspaceId
-     * @param ListChunksRequest $request     ListChunksRequest
+     * For unstructured knowledge base, obtains the details of all chunks of a specified document; for structured knowledge base, obtains the details of all chunks.
      *
-     * @return ListChunksResponse ListChunksResponse
+     * @remarks
+     *   Before you call this operation, make sure that your knowledge base is created and is not deleted. That is, the primary key ID of the knowledge base `IndexId` is valid.
+     * *   This interface is idempotent.
+     *
+     * @param request - ListChunksRequest
+     *
+     * @returns ListChunksResponse
+     *
+     * @param string            $WorkspaceId
+     * @param ListChunksRequest $request
+     *
+     * @return ListChunksResponse
      */
     public function listChunks($WorkspaceId, $request)
     {
@@ -1634,47 +1924,57 @@ class Bailian extends OpenApiClient
     }
 
     /**
-     * @summary 获取文档列表
-     *  *
-     * @param string          $WorkspaceId
-     * @param ListFileRequest $request     ListFileRequest
-     * @param string[]        $headers     map
-     * @param RuntimeOptions  $runtime     runtime options for this request RuntimeOptions
+     * 获取文档列表.
      *
-     * @return ListFileResponse ListFileResponse
+     * @param request - ListFileRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListFileResponse
+     *
+     * @param string          $WorkspaceId
+     * @param ListFileRequest $request
+     * @param string[]        $headers
+     * @param RuntimeOptions  $runtime
+     *
+     * @return ListFileResponse
      */
     public function listFileWithOptions($WorkspaceId, $request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->categoryId)) {
-            $query['CategoryId'] = $request->categoryId;
+        if (null !== $request->categoryId) {
+            @$query['CategoryId'] = $request->categoryId;
         }
-        if (!Utils::isUnset($request->fileName)) {
-            $query['FileName'] = $request->fileName;
+
+        if (null !== $request->fileName) {
+            @$query['FileName'] = $request->fileName;
         }
-        if (!Utils::isUnset($request->maxResults)) {
-            $query['MaxResults'] = $request->maxResults;
+
+        if (null !== $request->maxResults) {
+            @$query['MaxResults'] = $request->maxResults;
         }
-        if (!Utils::isUnset($request->nextToken)) {
-            $query['NextToken'] = $request->nextToken;
+
+        if (null !== $request->nextToken) {
+            @$query['NextToken'] = $request->nextToken;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'ListFile',
             'version' => '2023-12-29',
             'protocol' => 'HTTPS',
-            'pathname' => '/' . OpenApiUtilClient::getEncodeParam($WorkspaceId) . '/datacenter/files',
+            'pathname' => '/' . Url::percentEncode($WorkspaceId) . '/datacenter/files',
             'method' => 'GET',
             'authType' => 'AK',
             'style' => 'ROA',
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return ListFileResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -1682,12 +1982,16 @@ class Bailian extends OpenApiClient
     }
 
     /**
-     * @summary 获取文档列表
-     *  *
-     * @param string          $WorkspaceId
-     * @param ListFileRequest $request     ListFileRequest
+     * 获取文档列表.
      *
-     * @return ListFileResponse ListFileResponse
+     * @param request - ListFileRequest
+     *
+     * @returns ListFileResponse
+     *
+     * @param string          $WorkspaceId
+     * @param ListFileRequest $request
+     *
+     * @return ListFileResponse
      */
     public function listFile($WorkspaceId, $request)
     {
@@ -1698,53 +2002,65 @@ class Bailian extends OpenApiClient
     }
 
     /**
-     * @summary Queries the details of one or more documents in a specified knowledge base.
-     *  *
-     * @description *   Before you call this operation, make sure that your knowledge base is created and is not deleted. That is, the primary key ID of the knowledge base `IndexId` is valid.
-     * *   This interface is idempotent.
-     *  *
-     * @param string                    $WorkspaceId
-     * @param ListIndexDocumentsRequest $request     ListIndexDocumentsRequest
-     * @param string[]                  $headers     map
-     * @param RuntimeOptions            $runtime     runtime options for this request RuntimeOptions
+     * Queries the details of one or more documents in a specified knowledge base.
      *
-     * @return ListIndexDocumentsResponse ListIndexDocumentsResponse
+     * @remarks
+     *   Before you call this operation, make sure that your knowledge base is created and is not deleted. That is, the primary key ID of the knowledge base `IndexId` is valid.
+     * *   This interface is idempotent.
+     *
+     * @param request - ListIndexDocumentsRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListIndexDocumentsResponse
+     *
+     * @param string                    $WorkspaceId
+     * @param ListIndexDocumentsRequest $request
+     * @param string[]                  $headers
+     * @param RuntimeOptions            $runtime
+     *
+     * @return ListIndexDocumentsResponse
      */
     public function listIndexDocumentsWithOptions($WorkspaceId, $request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->documentName)) {
-            $query['DocumentName'] = $request->documentName;
+        if (null !== $request->documentName) {
+            @$query['DocumentName'] = $request->documentName;
         }
-        if (!Utils::isUnset($request->documentStatus)) {
-            $query['DocumentStatus'] = $request->documentStatus;
+
+        if (null !== $request->documentStatus) {
+            @$query['DocumentStatus'] = $request->documentStatus;
         }
-        if (!Utils::isUnset($request->indexId)) {
-            $query['IndexId'] = $request->indexId;
+
+        if (null !== $request->indexId) {
+            @$query['IndexId'] = $request->indexId;
         }
-        if (!Utils::isUnset($request->pageNumber)) {
-            $query['PageNumber'] = $request->pageNumber;
+
+        if (null !== $request->pageNumber) {
+            @$query['PageNumber'] = $request->pageNumber;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['PageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'ListIndexDocuments',
             'version' => '2023-12-29',
             'protocol' => 'HTTPS',
-            'pathname' => '/' . OpenApiUtilClient::getEncodeParam($WorkspaceId) . '/index/list_index_documents',
+            'pathname' => '/' . Url::percentEncode($WorkspaceId) . '/index/list_index_documents',
             'method' => 'GET',
             'authType' => 'AK',
             'style' => 'ROA',
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return ListIndexDocumentsResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -1752,15 +2068,20 @@ class Bailian extends OpenApiClient
     }
 
     /**
-     * @summary Queries the details of one or more documents in a specified knowledge base.
-     *  *
-     * @description *   Before you call this operation, make sure that your knowledge base is created and is not deleted. That is, the primary key ID of the knowledge base `IndexId` is valid.
-     * *   This interface is idempotent.
-     *  *
-     * @param string                    $WorkspaceId
-     * @param ListIndexDocumentsRequest $request     ListIndexDocumentsRequest
+     * Queries the details of one or more documents in a specified knowledge base.
      *
-     * @return ListIndexDocumentsResponse ListIndexDocumentsResponse
+     * @remarks
+     *   Before you call this operation, make sure that your knowledge base is created and is not deleted. That is, the primary key ID of the knowledge base `IndexId` is valid.
+     * *   This interface is idempotent.
+     *
+     * @param request - ListIndexDocumentsRequest
+     *
+     * @returns ListIndexDocumentsResponse
+     *
+     * @param string                    $WorkspaceId
+     * @param ListIndexDocumentsRequest $request
+     *
+     * @return ListIndexDocumentsResponse
      */
     public function listIndexDocuments($WorkspaceId, $request)
     {
@@ -1771,46 +2092,56 @@ class Bailian extends OpenApiClient
     }
 
     /**
-     * @summary Lists knowledge bases in a specified workspace.
-     *  *
-     * @description This interface is idempotent.
-     *  *
-     * @param string             $WorkspaceId
-     * @param ListIndicesRequest $request     ListIndicesRequest
-     * @param string[]           $headers     map
-     * @param RuntimeOptions     $runtime     runtime options for this request RuntimeOptions
+     * Lists knowledge bases in a specified workspace.
      *
-     * @return ListIndicesResponse ListIndicesResponse
+     * @remarks
+     * This interface is idempotent.
+     *
+     * @param request - ListIndicesRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListIndicesResponse
+     *
+     * @param string             $WorkspaceId
+     * @param ListIndicesRequest $request
+     * @param string[]           $headers
+     * @param RuntimeOptions     $runtime
+     *
+     * @return ListIndicesResponse
      */
     public function listIndicesWithOptions($WorkspaceId, $request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->indexName)) {
-            $query['IndexName'] = $request->indexName;
+        if (null !== $request->indexName) {
+            @$query['IndexName'] = $request->indexName;
         }
-        if (!Utils::isUnset($request->pageNumber)) {
-            $query['PageNumber'] = $request->pageNumber;
+
+        if (null !== $request->pageNumber) {
+            @$query['PageNumber'] = $request->pageNumber;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['PageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'ListIndices',
             'version' => '2023-12-29',
             'protocol' => 'HTTPS',
-            'pathname' => '/' . OpenApiUtilClient::getEncodeParam($WorkspaceId) . '/index/list_indices',
+            'pathname' => '/' . Url::percentEncode($WorkspaceId) . '/index/list_indices',
             'method' => 'GET',
             'authType' => 'AK',
             'style' => 'ROA',
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return ListIndicesResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -1818,14 +2149,19 @@ class Bailian extends OpenApiClient
     }
 
     /**
-     * @summary Lists knowledge bases in a specified workspace.
-     *  *
-     * @description This interface is idempotent.
-     *  *
-     * @param string             $WorkspaceId
-     * @param ListIndicesRequest $request     ListIndicesRequest
+     * Lists knowledge bases in a specified workspace.
      *
-     * @return ListIndicesResponse ListIndicesResponse
+     * @remarks
+     * This interface is idempotent.
+     *
+     * @param request - ListIndicesRequest
+     *
+     * @returns ListIndicesResponse
+     *
+     * @param string             $WorkspaceId
+     * @param ListIndicesRequest $request
+     *
+     * @return ListIndicesResponse
      */
     public function listIndices($WorkspaceId, $request)
     {
@@ -1836,41 +2172,49 @@ class Bailian extends OpenApiClient
     }
 
     /**
-     * @summary 获取memory
-     *  *
-     * @param string              $workspaceId
-     * @param ListMemoriesRequest $request     ListMemoriesRequest
-     * @param string[]            $headers     map
-     * @param RuntimeOptions      $runtime     runtime options for this request RuntimeOptions
+     * 获取memory.
      *
-     * @return ListMemoriesResponse ListMemoriesResponse
+     * @param request - ListMemoriesRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListMemoriesResponse
+     *
+     * @param string              $workspaceId
+     * @param ListMemoriesRequest $request
+     * @param string[]            $headers
+     * @param RuntimeOptions      $runtime
+     *
+     * @return ListMemoriesResponse
      */
     public function listMemoriesWithOptions($workspaceId, $request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->maxResults)) {
-            $query['maxResults'] = $request->maxResults;
+        if (null !== $request->maxResults) {
+            @$query['maxResults'] = $request->maxResults;
         }
-        if (!Utils::isUnset($request->nextToken)) {
-            $query['nextToken'] = $request->nextToken;
+
+        if (null !== $request->nextToken) {
+            @$query['nextToken'] = $request->nextToken;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'ListMemories',
             'version' => '2023-12-29',
             'protocol' => 'HTTPS',
-            'pathname' => '/' . OpenApiUtilClient::getEncodeParam($workspaceId) . '/memories',
+            'pathname' => '/' . Url::percentEncode($workspaceId) . '/memories',
             'method' => 'GET',
             'authType' => 'AK',
             'style' => 'ROA',
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return ListMemoriesResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -1878,12 +2222,16 @@ class Bailian extends OpenApiClient
     }
 
     /**
-     * @summary 获取memory
-     *  *
-     * @param string              $workspaceId
-     * @param ListMemoriesRequest $request     ListMemoriesRequest
+     * 获取memory.
      *
-     * @return ListMemoriesResponse ListMemoriesResponse
+     * @param request - ListMemoriesRequest
+     *
+     * @returns ListMemoriesResponse
+     *
+     * @param string              $workspaceId
+     * @param ListMemoriesRequest $request
+     *
+     * @return ListMemoriesResponse
      */
     public function listMemories($workspaceId, $request)
     {
@@ -1894,42 +2242,50 @@ class Bailian extends OpenApiClient
     }
 
     /**
-     * @summary 获取记忆Node列表
-     *  *
+     * 获取记忆Node列表.
+     *
+     * @param request - ListMemoryNodesRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListMemoryNodesResponse
+     *
      * @param string                 $workspaceId
      * @param string                 $memoryId
-     * @param ListMemoryNodesRequest $request     ListMemoryNodesRequest
-     * @param string[]               $headers     map
-     * @param RuntimeOptions         $runtime     runtime options for this request RuntimeOptions
+     * @param ListMemoryNodesRequest $request
+     * @param string[]               $headers
+     * @param RuntimeOptions         $runtime
      *
-     * @return ListMemoryNodesResponse ListMemoryNodesResponse
+     * @return ListMemoryNodesResponse
      */
     public function listMemoryNodesWithOptions($workspaceId, $memoryId, $request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->maxResults)) {
-            $query['maxResults'] = $request->maxResults;
+        if (null !== $request->maxResults) {
+            @$query['maxResults'] = $request->maxResults;
         }
-        if (!Utils::isUnset($request->nextToken)) {
-            $query['nextToken'] = $request->nextToken;
+
+        if (null !== $request->nextToken) {
+            @$query['nextToken'] = $request->nextToken;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'ListMemoryNodes',
             'version' => '2023-12-29',
             'protocol' => 'HTTPS',
-            'pathname' => '/' . OpenApiUtilClient::getEncodeParam($workspaceId) . '/memories/' . OpenApiUtilClient::getEncodeParam($memoryId) . '/memoryNodes',
+            'pathname' => '/' . Url::percentEncode($workspaceId) . '/memories/' . Url::percentEncode($memoryId) . '/memoryNodes',
             'method' => 'GET',
             'authType' => 'AK',
             'style' => 'ROA',
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return ListMemoryNodesResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -1937,13 +2293,17 @@ class Bailian extends OpenApiClient
     }
 
     /**
-     * @summary 获取记忆Node列表
-     *  *
+     * 获取记忆Node列表.
+     *
+     * @param request - ListMemoryNodesRequest
+     *
+     * @returns ListMemoryNodesResponse
+     *
      * @param string                 $workspaceId
      * @param string                 $memoryId
-     * @param ListMemoryNodesRequest $request     ListMemoryNodesRequest
+     * @param ListMemoryNodesRequest $request
      *
-     * @return ListMemoryNodesResponse ListMemoryNodesResponse
+     * @return ListMemoryNodesResponse
      */
     public function listMemoryNodes($workspaceId, $memoryId, $request)
     {
@@ -1954,47 +2314,57 @@ class Bailian extends OpenApiClient
     }
 
     /**
-     * @summary Obtains a list of prompt templates.
-     *  *
-     * @param string                     $workspaceId
-     * @param ListPromptTemplatesRequest $request     ListPromptTemplatesRequest
-     * @param string[]                   $headers     map
-     * @param RuntimeOptions             $runtime     runtime options for this request RuntimeOptions
+     * Obtains a list of prompt templates.
      *
-     * @return ListPromptTemplatesResponse ListPromptTemplatesResponse
+     * @param request - ListPromptTemplatesRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListPromptTemplatesResponse
+     *
+     * @param string                     $workspaceId
+     * @param ListPromptTemplatesRequest $request
+     * @param string[]                   $headers
+     * @param RuntimeOptions             $runtime
+     *
+     * @return ListPromptTemplatesResponse
      */
     public function listPromptTemplatesWithOptions($workspaceId, $request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->maxResults)) {
-            $query['maxResults'] = $request->maxResults;
+        if (null !== $request->maxResults) {
+            @$query['maxResults'] = $request->maxResults;
         }
-        if (!Utils::isUnset($request->name)) {
-            $query['name'] = $request->name;
+
+        if (null !== $request->name) {
+            @$query['name'] = $request->name;
         }
-        if (!Utils::isUnset($request->nextToken)) {
-            $query['nextToken'] = $request->nextToken;
+
+        if (null !== $request->nextToken) {
+            @$query['nextToken'] = $request->nextToken;
         }
-        if (!Utils::isUnset($request->type)) {
-            $query['type'] = $request->type;
+
+        if (null !== $request->type) {
+            @$query['type'] = $request->type;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'ListPromptTemplates',
             'version' => '2023-12-29',
             'protocol' => 'HTTPS',
-            'pathname' => '/' . OpenApiUtilClient::getEncodeParam($workspaceId) . '/promptTemplates',
+            'pathname' => '/' . Url::percentEncode($workspaceId) . '/promptTemplates',
             'method' => 'GET',
             'authType' => 'AK',
             'style' => 'ROA',
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return ListPromptTemplatesResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -2002,12 +2372,16 @@ class Bailian extends OpenApiClient
     }
 
     /**
-     * @summary Obtains a list of prompt templates.
-     *  *
-     * @param string                     $workspaceId
-     * @param ListPromptTemplatesRequest $request     ListPromptTemplatesRequest
+     * Obtains a list of prompt templates.
      *
-     * @return ListPromptTemplatesResponse ListPromptTemplatesResponse
+     * @param request - ListPromptTemplatesRequest
+     *
+     * @returns ListPromptTemplatesResponse
+     *
+     * @param string                     $workspaceId
+     * @param ListPromptTemplatesRequest $request
+     *
+     * @return ListPromptTemplatesResponse
      */
     public function listPromptTemplates($workspaceId, $request)
     {
@@ -2018,41 +2392,49 @@ class Bailian extends OpenApiClient
     }
 
     /**
-     * @summary 查询已发布的智能体应用列表
-     *  *
-     * @param string                    $workspaceId
-     * @param ListPublishedAgentRequest $request     ListPublishedAgentRequest
-     * @param string[]                  $headers     map
-     * @param RuntimeOptions            $runtime     runtime options for this request RuntimeOptions
+     * 查询已发布的智能体应用列表.
      *
-     * @return ListPublishedAgentResponse ListPublishedAgentResponse
+     * @param request - ListPublishedAgentRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListPublishedAgentResponse
+     *
+     * @param string                    $workspaceId
+     * @param ListPublishedAgentRequest $request
+     * @param string[]                  $headers
+     * @param RuntimeOptions            $runtime
+     *
+     * @return ListPublishedAgentResponse
      */
     public function listPublishedAgentWithOptions($workspaceId, $request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->pageNo)) {
-            $query['pageNo'] = $request->pageNo;
+        if (null !== $request->pageNo) {
+            @$query['pageNo'] = $request->pageNo;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['pageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$query['pageSize'] = $request->pageSize;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'ListPublishedAgent',
             'version' => '2023-12-29',
             'protocol' => 'HTTPS',
-            'pathname' => '/' . OpenApiUtilClient::getEncodeParam($workspaceId) . '/application/agents',
+            'pathname' => '/' . Url::percentEncode($workspaceId) . '/application/agents',
             'method' => 'GET',
             'authType' => 'AK',
             'style' => 'ROA',
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return ListPublishedAgentResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -2060,12 +2442,16 @@ class Bailian extends OpenApiClient
     }
 
     /**
-     * @summary 查询已发布的智能体应用列表
-     *  *
-     * @param string                    $workspaceId
-     * @param ListPublishedAgentRequest $request     ListPublishedAgentRequest
+     * 查询已发布的智能体应用列表.
      *
-     * @return ListPublishedAgentResponse ListPublishedAgentResponse
+     * @param request - ListPublishedAgentRequest
+     *
+     * @returns ListPublishedAgentResponse
+     *
+     * @param string                    $workspaceId
+     * @param ListPublishedAgentRequest $request
+     *
+     * @return ListPublishedAgentResponse
      */
     public function listPublishedAgent($workspaceId, $request)
     {
@@ -2076,92 +2462,124 @@ class Bailian extends OpenApiClient
     }
 
     /**
-     * @summary Queries information from a specified knowledge base.
-     *  *
-     * @description *   Before you call this operation, make sure that your knowledge base is created and is not deleted. That is, the primary key ID of the knowledge base `IndexId` is valid.
+     * Queries information from a specified knowledge base.
+     *
+     * @remarks
+     *   Before you call this operation, make sure that your knowledge base is created and is not deleted. That is, the primary key ID of the knowledge base `IndexId` is valid.
      * *   The response time may be long because this operation involves complex retrieval and matching. We recommend that you set appropriate timeout and retry policy for requests.
      * *   This interface is idempotent.
-     *  *
-     * @param string          $WorkspaceId
-     * @param RetrieveRequest $tmpReq      RetrieveRequest
-     * @param string[]        $headers     map
-     * @param RuntimeOptions  $runtime     runtime options for this request RuntimeOptions
      *
-     * @return RetrieveResponse RetrieveResponse
+     * @param tmpReq - RetrieveRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns RetrieveResponse
+     *
+     * @param string          $WorkspaceId
+     * @param RetrieveRequest $tmpReq
+     * @param string[]        $headers
+     * @param RuntimeOptions  $runtime
+     *
+     * @return RetrieveResponse
      */
     public function retrieveWithOptions($WorkspaceId, $tmpReq, $headers, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new RetrieveShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->images)) {
-            $request->imagesShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->images, 'Images', 'simple');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->images) {
+            $request->imagesShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->images, 'Images', 'simple');
         }
-        if (!Utils::isUnset($tmpReq->rerank)) {
-            $request->rerankShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->rerank, 'Rerank', 'json');
+
+        if (null !== $tmpReq->queryHistory) {
+            $request->queryHistoryShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->queryHistory, 'QueryHistory', 'json');
         }
-        if (!Utils::isUnset($tmpReq->rewrite)) {
-            $request->rewriteShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->rewrite, 'Rewrite', 'json');
+
+        if (null !== $tmpReq->rerank) {
+            $request->rerankShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->rerank, 'Rerank', 'json');
         }
-        if (!Utils::isUnset($tmpReq->searchFilters)) {
-            $request->searchFiltersShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->searchFilters, 'SearchFilters', 'json');
+
+        if (null !== $tmpReq->rewrite) {
+            $request->rewriteShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->rewrite, 'Rewrite', 'json');
         }
+
+        if (null !== $tmpReq->searchFilters) {
+            $request->searchFiltersShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->searchFilters, 'SearchFilters', 'json');
+        }
+
         $query = [];
-        if (!Utils::isUnset($request->denseSimilarityTopK)) {
-            $query['DenseSimilarityTopK'] = $request->denseSimilarityTopK;
+        if (null !== $request->denseSimilarityTopK) {
+            @$query['DenseSimilarityTopK'] = $request->denseSimilarityTopK;
         }
-        if (!Utils::isUnset($request->enableReranking)) {
-            $query['EnableReranking'] = $request->enableReranking;
+
+        if (null !== $request->enableReranking) {
+            @$query['EnableReranking'] = $request->enableReranking;
         }
-        if (!Utils::isUnset($request->enableRewrite)) {
-            $query['EnableRewrite'] = $request->enableRewrite;
+
+        if (null !== $request->enableRewrite) {
+            @$query['EnableRewrite'] = $request->enableRewrite;
         }
-        if (!Utils::isUnset($request->imagesShrink)) {
-            $query['Images'] = $request->imagesShrink;
+
+        if (null !== $request->imagesShrink) {
+            @$query['Images'] = $request->imagesShrink;
         }
-        if (!Utils::isUnset($request->indexId)) {
-            $query['IndexId'] = $request->indexId;
+
+        if (null !== $request->indexId) {
+            @$query['IndexId'] = $request->indexId;
         }
-        if (!Utils::isUnset($request->query)) {
-            $query['Query'] = $request->query;
+
+        if (null !== $request->query) {
+            @$query['Query'] = $request->query;
         }
-        if (!Utils::isUnset($request->rerankShrink)) {
-            $query['Rerank'] = $request->rerankShrink;
+
+        if (null !== $request->queryHistoryShrink) {
+            @$query['QueryHistory'] = $request->queryHistoryShrink;
         }
-        if (!Utils::isUnset($request->rerankMinScore)) {
-            $query['RerankMinScore'] = $request->rerankMinScore;
+
+        if (null !== $request->rerankShrink) {
+            @$query['Rerank'] = $request->rerankShrink;
         }
-        if (!Utils::isUnset($request->rerankTopN)) {
-            $query['RerankTopN'] = $request->rerankTopN;
+
+        if (null !== $request->rerankMinScore) {
+            @$query['RerankMinScore'] = $request->rerankMinScore;
         }
-        if (!Utils::isUnset($request->rewriteShrink)) {
-            $query['Rewrite'] = $request->rewriteShrink;
+
+        if (null !== $request->rerankTopN) {
+            @$query['RerankTopN'] = $request->rerankTopN;
         }
-        if (!Utils::isUnset($request->saveRetrieverHistory)) {
-            $query['SaveRetrieverHistory'] = $request->saveRetrieverHistory;
+
+        if (null !== $request->rewriteShrink) {
+            @$query['Rewrite'] = $request->rewriteShrink;
         }
-        if (!Utils::isUnset($request->searchFiltersShrink)) {
-            $query['SearchFilters'] = $request->searchFiltersShrink;
+
+        if (null !== $request->saveRetrieverHistory) {
+            @$query['SaveRetrieverHistory'] = $request->saveRetrieverHistory;
         }
-        if (!Utils::isUnset($request->sparseSimilarityTopK)) {
-            $query['SparseSimilarityTopK'] = $request->sparseSimilarityTopK;
+
+        if (null !== $request->searchFiltersShrink) {
+            @$query['SearchFilters'] = $request->searchFiltersShrink;
         }
+
+        if (null !== $request->sparseSimilarityTopK) {
+            @$query['SparseSimilarityTopK'] = $request->sparseSimilarityTopK;
+        }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'Retrieve',
             'version' => '2023-12-29',
             'protocol' => 'HTTPS',
-            'pathname' => '/' . OpenApiUtilClient::getEncodeParam($WorkspaceId) . '/index/retrieve',
+            'pathname' => '/' . Url::percentEncode($WorkspaceId) . '/index/retrieve',
             'method' => 'POST',
             'authType' => 'AK',
             'style' => 'ROA',
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return RetrieveResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -2169,16 +2587,21 @@ class Bailian extends OpenApiClient
     }
 
     /**
-     * @summary Queries information from a specified knowledge base.
-     *  *
-     * @description *   Before you call this operation, make sure that your knowledge base is created and is not deleted. That is, the primary key ID of the knowledge base `IndexId` is valid.
+     * Queries information from a specified knowledge base.
+     *
+     * @remarks
+     *   Before you call this operation, make sure that your knowledge base is created and is not deleted. That is, the primary key ID of the knowledge base `IndexId` is valid.
      * *   The response time may be long because this operation involves complex retrieval and matching. We recommend that you set appropriate timeout and retry policy for requests.
      * *   This interface is idempotent.
-     *  *
-     * @param string          $WorkspaceId
-     * @param RetrieveRequest $request     RetrieveRequest
      *
-     * @return RetrieveResponse RetrieveResponse
+     * @param request - RetrieveRequest
+     *
+     * @returns RetrieveResponse
+     *
+     * @param string          $WorkspaceId
+     * @param RetrieveRequest $request
+     *
+     * @return RetrieveResponse
      */
     public function retrieve($WorkspaceId, $request)
     {
@@ -2189,60 +2612,73 @@ class Bailian extends OpenApiClient
     }
 
     /**
-     * @summary Adds parsed documents to an unstructured knowledge base.
-     *  *
-     * @description *   You must first upload documents to [Data Management](https://bailian.console.aliyun.com/#/data-center) and obtain the `FileId`. The documents are the knowledge source of the knowledge base. For more information, see [Import Data](https://www.alibabacloud.com/help/en/model-studio/user-guide/data-import-instructions).
+     * Adds parsed documents to an unstructured knowledge base.
+     *
+     * @remarks
+     *   You must first upload documents to [Data Management](https://bailian.console.aliyun.com/#/data-center) and obtain the `FileId`. The documents are the knowledge source of the knowledge base. For more information, see [Import Data](https://www.alibabacloud.com/help/en/model-studio/user-guide/data-import-instructions).
      * *   Before you call this operation, make sure that your knowledge base is created and is not deleted. That is, the primary key ID of the knowledge base `IndexId` is valid.
      * *   After you call this operation, you can call the [GetIndexJobStatus](https://www.alibabacloud.com/help/en/model-studio/developer-reference/api-bailian-2023-12-29-getindexjobstatus) operation to query the status of the job. More than 20 calls to the GetIndexJobStatus operation per minute may trigger throttling.
      * *   Execution takes a period of time after this operation is called. Do not make new request before the request is returned. This interface is not idempotent.
-     *  *
-     * @param string                            $WorkspaceId
-     * @param SubmitIndexAddDocumentsJobRequest $tmpReq      SubmitIndexAddDocumentsJobRequest
-     * @param string[]                          $headers     map
-     * @param RuntimeOptions                    $runtime     runtime options for this request RuntimeOptions
      *
-     * @return SubmitIndexAddDocumentsJobResponse SubmitIndexAddDocumentsJobResponse
+     * @param tmpReq - SubmitIndexAddDocumentsJobRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns SubmitIndexAddDocumentsJobResponse
+     *
+     * @param string                            $WorkspaceId
+     * @param SubmitIndexAddDocumentsJobRequest $tmpReq
+     * @param string[]                          $headers
+     * @param RuntimeOptions                    $runtime
+     *
+     * @return SubmitIndexAddDocumentsJobResponse
      */
     public function submitIndexAddDocumentsJobWithOptions($WorkspaceId, $tmpReq, $headers, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new SubmitIndexAddDocumentsJobShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->categoryIds)) {
-            $request->categoryIdsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->categoryIds, 'CategoryIds', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->categoryIds) {
+            $request->categoryIdsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->categoryIds, 'CategoryIds', 'json');
         }
-        if (!Utils::isUnset($tmpReq->documentIds)) {
-            $request->documentIdsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->documentIds, 'DocumentIds', 'json');
+
+        if (null !== $tmpReq->documentIds) {
+            $request->documentIdsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->documentIds, 'DocumentIds', 'json');
         }
+
         $query = [];
-        if (!Utils::isUnset($request->categoryIdsShrink)) {
-            $query['CategoryIds'] = $request->categoryIdsShrink;
+        if (null !== $request->categoryIdsShrink) {
+            @$query['CategoryIds'] = $request->categoryIdsShrink;
         }
-        if (!Utils::isUnset($request->documentIdsShrink)) {
-            $query['DocumentIds'] = $request->documentIdsShrink;
+
+        if (null !== $request->documentIdsShrink) {
+            @$query['DocumentIds'] = $request->documentIdsShrink;
         }
-        if (!Utils::isUnset($request->indexId)) {
-            $query['IndexId'] = $request->indexId;
+
+        if (null !== $request->indexId) {
+            @$query['IndexId'] = $request->indexId;
         }
-        if (!Utils::isUnset($request->sourceType)) {
-            $query['SourceType'] = $request->sourceType;
+
+        if (null !== $request->sourceType) {
+            @$query['SourceType'] = $request->sourceType;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'SubmitIndexAddDocumentsJob',
             'version' => '2023-12-29',
             'protocol' => 'HTTPS',
-            'pathname' => '/' . OpenApiUtilClient::getEncodeParam($WorkspaceId) . '/index/add_documents_to_index',
+            'pathname' => '/' . Url::percentEncode($WorkspaceId) . '/index/add_documents_to_index',
             'method' => 'POST',
             'authType' => 'AK',
             'style' => 'ROA',
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return SubmitIndexAddDocumentsJobResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -2250,17 +2686,22 @@ class Bailian extends OpenApiClient
     }
 
     /**
-     * @summary Adds parsed documents to an unstructured knowledge base.
-     *  *
-     * @description *   You must first upload documents to [Data Management](https://bailian.console.aliyun.com/#/data-center) and obtain the `FileId`. The documents are the knowledge source of the knowledge base. For more information, see [Import Data](https://www.alibabacloud.com/help/en/model-studio/user-guide/data-import-instructions).
+     * Adds parsed documents to an unstructured knowledge base.
+     *
+     * @remarks
+     *   You must first upload documents to [Data Management](https://bailian.console.aliyun.com/#/data-center) and obtain the `FileId`. The documents are the knowledge source of the knowledge base. For more information, see [Import Data](https://www.alibabacloud.com/help/en/model-studio/user-guide/data-import-instructions).
      * *   Before you call this operation, make sure that your knowledge base is created and is not deleted. That is, the primary key ID of the knowledge base `IndexId` is valid.
      * *   After you call this operation, you can call the [GetIndexJobStatus](https://www.alibabacloud.com/help/en/model-studio/developer-reference/api-bailian-2023-12-29-getindexjobstatus) operation to query the status of the job. More than 20 calls to the GetIndexJobStatus operation per minute may trigger throttling.
      * *   Execution takes a period of time after this operation is called. Do not make new request before the request is returned. This interface is not idempotent.
-     *  *
-     * @param string                            $WorkspaceId
-     * @param SubmitIndexAddDocumentsJobRequest $request     SubmitIndexAddDocumentsJobRequest
      *
-     * @return SubmitIndexAddDocumentsJobResponse SubmitIndexAddDocumentsJobResponse
+     * @param request - SubmitIndexAddDocumentsJobRequest
+     *
+     * @returns SubmitIndexAddDocumentsJobResponse
+     *
+     * @param string                            $WorkspaceId
+     * @param SubmitIndexAddDocumentsJobRequest $request
+     *
+     * @return SubmitIndexAddDocumentsJobResponse
      */
     public function submitIndexAddDocumentsJob($WorkspaceId, $request)
     {
@@ -2271,43 +2712,51 @@ class Bailian extends OpenApiClient
     }
 
     /**
-     * @summary Submits a specified CreateIndex job to complete knowledge base creation.
-     *  *
-     * @description 1.  Before you call this operation, you must call the [CreateIndex](https://www.alibabacloud.com/help/en/model-studio/developer-reference/api-bailian-2023-12-29-createindex) operation and obtain the `IndexId`.
+     * Submits a specified CreateIndex job to complete knowledge base creation.
+     *
+     * @remarks
+     * 1.  Before you call this operation, you must call the [CreateIndex](https://www.alibabacloud.com/help/en/model-studio/developer-reference/api-bailian-2023-12-29-createindex) operation and obtain the `IndexId`.
      * 2.  Execution takes a period of time after this operation is called. Do not make new request before the request is returned.
      * 3.  If you want to query the execution status of the job after you call this operation, call the [GetIndexJobStatus](https://www.alibabacloud.com/help/en/model-studio/developer-reference/api-bailian-2023-12-29-getindexjobstatus) operation.
      * 4.  This interface is not idempotent.
-     *  *
-     * @param string                $WorkspaceId
-     * @param SubmitIndexJobRequest $request     SubmitIndexJobRequest
-     * @param string[]              $headers     map
-     * @param RuntimeOptions        $runtime     runtime options for this request RuntimeOptions
      *
-     * @return SubmitIndexJobResponse SubmitIndexJobResponse
+     * @param request - SubmitIndexJobRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns SubmitIndexJobResponse
+     *
+     * @param string                $WorkspaceId
+     * @param SubmitIndexJobRequest $request
+     * @param string[]              $headers
+     * @param RuntimeOptions        $runtime
+     *
+     * @return SubmitIndexJobResponse
      */
     public function submitIndexJobWithOptions($WorkspaceId, $request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->indexId)) {
-            $query['IndexId'] = $request->indexId;
+        if (null !== $request->indexId) {
+            @$query['IndexId'] = $request->indexId;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'SubmitIndexJob',
             'version' => '2023-12-29',
             'protocol' => 'HTTPS',
-            'pathname' => '/' . OpenApiUtilClient::getEncodeParam($WorkspaceId) . '/index/submit_index_job',
+            'pathname' => '/' . Url::percentEncode($WorkspaceId) . '/index/submit_index_job',
             'method' => 'POST',
             'authType' => 'AK',
             'style' => 'ROA',
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return SubmitIndexJobResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -2315,17 +2764,22 @@ class Bailian extends OpenApiClient
     }
 
     /**
-     * @summary Submits a specified CreateIndex job to complete knowledge base creation.
-     *  *
-     * @description 1.  Before you call this operation, you must call the [CreateIndex](https://www.alibabacloud.com/help/en/model-studio/developer-reference/api-bailian-2023-12-29-createindex) operation and obtain the `IndexId`.
+     * Submits a specified CreateIndex job to complete knowledge base creation.
+     *
+     * @remarks
+     * 1.  Before you call this operation, you must call the [CreateIndex](https://www.alibabacloud.com/help/en/model-studio/developer-reference/api-bailian-2023-12-29-createindex) operation and obtain the `IndexId`.
      * 2.  Execution takes a period of time after this operation is called. Do not make new request before the request is returned.
      * 3.  If you want to query the execution status of the job after you call this operation, call the [GetIndexJobStatus](https://www.alibabacloud.com/help/en/model-studio/developer-reference/api-bailian-2023-12-29-getindexjobstatus) operation.
      * 4.  This interface is not idempotent.
-     *  *
-     * @param string                $WorkspaceId
-     * @param SubmitIndexJobRequest $request     SubmitIndexJobRequest
      *
-     * @return SubmitIndexJobResponse SubmitIndexJobResponse
+     * @param request - SubmitIndexJobRequest
+     *
+     * @returns SubmitIndexJobResponse
+     *
+     * @param string                $WorkspaceId
+     * @param SubmitIndexJobRequest $request
+     *
+     * @return SubmitIndexJobResponse
      */
     public function submitIndexJob($WorkspaceId, $request)
     {
@@ -2336,59 +2790,72 @@ class Bailian extends OpenApiClient
     }
 
     /**
-     * @summary 更新并发布智能体应用
-     *  *
+     * 更新并发布智能体应用.
+     *
+     * @param tmpReq - UpdateAndPublishAgentRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateAndPublishAgentResponse
+     *
      * @param string                       $workspaceId
      * @param string                       $appCode
-     * @param UpdateAndPublishAgentRequest $tmpReq      UpdateAndPublishAgentRequest
-     * @param string[]                     $headers     map
-     * @param RuntimeOptions               $runtime     runtime options for this request RuntimeOptions
+     * @param UpdateAndPublishAgentRequest $tmpReq
+     * @param string[]                     $headers
+     * @param RuntimeOptions               $runtime
      *
-     * @return UpdateAndPublishAgentResponse UpdateAndPublishAgentResponse
+     * @return UpdateAndPublishAgentResponse
      */
     public function updateAndPublishAgentWithOptions($workspaceId, $appCode, $tmpReq, $headers, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new UpdateAndPublishAgentShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->applicationConfig)) {
-            $request->applicationConfigShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->applicationConfig, 'applicationConfig', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->applicationConfig) {
+            $request->applicationConfigShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->applicationConfig, 'applicationConfig', 'json');
         }
-        if (!Utils::isUnset($tmpReq->sampleLibrary)) {
-            $request->sampleLibraryShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->sampleLibrary, 'sampleLibrary', 'json');
+
+        if (null !== $tmpReq->sampleLibrary) {
+            $request->sampleLibraryShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->sampleLibrary, 'sampleLibrary', 'json');
         }
+
         $body = [];
-        if (!Utils::isUnset($request->applicationConfigShrink)) {
-            $body['applicationConfig'] = $request->applicationConfigShrink;
+        if (null !== $request->applicationConfigShrink) {
+            @$body['applicationConfig'] = $request->applicationConfigShrink;
         }
-        if (!Utils::isUnset($request->instructions)) {
-            $body['instructions'] = $request->instructions;
+
+        if (null !== $request->instructions) {
+            @$body['instructions'] = $request->instructions;
         }
-        if (!Utils::isUnset($request->modelId)) {
-            $body['modelId'] = $request->modelId;
+
+        if (null !== $request->modelId) {
+            @$body['modelId'] = $request->modelId;
         }
-        if (!Utils::isUnset($request->name)) {
-            $body['name'] = $request->name;
+
+        if (null !== $request->name) {
+            @$body['name'] = $request->name;
         }
-        if (!Utils::isUnset($request->sampleLibraryShrink)) {
-            $body['sampleLibrary'] = $request->sampleLibraryShrink;
+
+        if (null !== $request->sampleLibraryShrink) {
+            @$body['sampleLibrary'] = $request->sampleLibraryShrink;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'UpdateAndPublishAgent',
             'version' => '2023-12-29',
             'protocol' => 'HTTPS',
-            'pathname' => '/' . OpenApiUtilClient::getEncodeParam($workspaceId) . '/application/agents/' . OpenApiUtilClient::getEncodeParam($appCode) . '',
+            'pathname' => '/' . Url::percentEncode($workspaceId) . '/application/agents/' . Url::percentEncode($appCode) . '',
             'method' => 'PUT',
             'authType' => 'AK',
             'style' => 'ROA',
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return UpdateAndPublishAgentResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -2396,13 +2863,17 @@ class Bailian extends OpenApiClient
     }
 
     /**
-     * @summary 更新并发布智能体应用
-     *  *
+     * 更新并发布智能体应用.
+     *
+     * @param request - UpdateAndPublishAgentRequest
+     *
+     * @returns UpdateAndPublishAgentResponse
+     *
      * @param string                       $workspaceId
      * @param string                       $appCode
-     * @param UpdateAndPublishAgentRequest $request     UpdateAndPublishAgentRequest
+     * @param UpdateAndPublishAgentRequest $request
      *
-     * @return UpdateAndPublishAgentResponse UpdateAndPublishAgentResponse
+     * @return UpdateAndPublishAgentResponse
      */
     public function updateAndPublishAgent($workspaceId, $appCode, $request)
     {
@@ -2413,59 +2884,72 @@ class Bailian extends OpenApiClient
     }
 
     /**
-     * @summary 选择更新并发布智能体应用
-     *  *
+     * 选择更新并发布智能体应用.
+     *
+     * @param tmpReq - UpdateAndPublishAgentSelectiveRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateAndPublishAgentSelectiveResponse
+     *
      * @param string                                $workspaceId
      * @param string                                $appCode
-     * @param UpdateAndPublishAgentSelectiveRequest $tmpReq      UpdateAndPublishAgentSelectiveRequest
-     * @param string[]                              $headers     map
-     * @param RuntimeOptions                        $runtime     runtime options for this request RuntimeOptions
+     * @param UpdateAndPublishAgentSelectiveRequest $tmpReq
+     * @param string[]                              $headers
+     * @param RuntimeOptions                        $runtime
      *
-     * @return UpdateAndPublishAgentSelectiveResponse UpdateAndPublishAgentSelectiveResponse
+     * @return UpdateAndPublishAgentSelectiveResponse
      */
     public function updateAndPublishAgentSelectiveWithOptions($workspaceId, $appCode, $tmpReq, $headers, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new UpdateAndPublishAgentSelectiveShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->applicationConfig)) {
-            $request->applicationConfigShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->applicationConfig, 'applicationConfig', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->applicationConfig) {
+            $request->applicationConfigShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->applicationConfig, 'applicationConfig', 'json');
         }
-        if (!Utils::isUnset($tmpReq->sampleLibrary)) {
-            $request->sampleLibraryShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->sampleLibrary, 'sampleLibrary', 'json');
+
+        if (null !== $tmpReq->sampleLibrary) {
+            $request->sampleLibraryShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->sampleLibrary, 'sampleLibrary', 'json');
         }
+
         $body = [];
-        if (!Utils::isUnset($request->applicationConfigShrink)) {
-            $body['applicationConfig'] = $request->applicationConfigShrink;
+        if (null !== $request->applicationConfigShrink) {
+            @$body['applicationConfig'] = $request->applicationConfigShrink;
         }
-        if (!Utils::isUnset($request->instructions)) {
-            $body['instructions'] = $request->instructions;
+
+        if (null !== $request->instructions) {
+            @$body['instructions'] = $request->instructions;
         }
-        if (!Utils::isUnset($request->modelId)) {
-            $body['modelId'] = $request->modelId;
+
+        if (null !== $request->modelId) {
+            @$body['modelId'] = $request->modelId;
         }
-        if (!Utils::isUnset($request->name)) {
-            $body['name'] = $request->name;
+
+        if (null !== $request->name) {
+            @$body['name'] = $request->name;
         }
-        if (!Utils::isUnset($request->sampleLibraryShrink)) {
-            $body['sampleLibrary'] = $request->sampleLibraryShrink;
+
+        if (null !== $request->sampleLibraryShrink) {
+            @$body['sampleLibrary'] = $request->sampleLibraryShrink;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'UpdateAndPublishAgentSelective',
             'version' => '2023-12-29',
             'protocol' => 'HTTPS',
-            'pathname' => '/' . OpenApiUtilClient::getEncodeParam($workspaceId) . '/application/agents/' . OpenApiUtilClient::getEncodeParam($appCode) . '/updateAndPublishAgentSelective',
+            'pathname' => '/' . Url::percentEncode($workspaceId) . '/application/agents/' . Url::percentEncode($appCode) . '/updateAndPublishAgentSelective',
             'method' => 'PUT',
             'authType' => 'AK',
             'style' => 'ROA',
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return UpdateAndPublishAgentSelectiveResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -2473,13 +2957,17 @@ class Bailian extends OpenApiClient
     }
 
     /**
-     * @summary 选择更新并发布智能体应用
-     *  *
+     * 选择更新并发布智能体应用.
+     *
+     * @param request - UpdateAndPublishAgentSelectiveRequest
+     *
+     * @returns UpdateAndPublishAgentSelectiveResponse
+     *
      * @param string                                $workspaceId
      * @param string                                $appCode
-     * @param UpdateAndPublishAgentSelectiveRequest $request     UpdateAndPublishAgentSelectiveRequest
+     * @param UpdateAndPublishAgentSelectiveRequest $request
      *
-     * @return UpdateAndPublishAgentSelectiveResponse UpdateAndPublishAgentSelectiveResponse
+     * @return UpdateAndPublishAgentSelectiveResponse
      */
     public function updateAndPublishAgentSelective($workspaceId, $appCode, $request)
     {
@@ -2490,44 +2978,52 @@ class Bailian extends OpenApiClient
     }
 
     /**
-     * @summary 更新文档Tag
-     *  *
+     * 更新文档Tag.
+     *
+     * @param tmpReq - UpdateFileTagRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateFileTagResponse
+     *
      * @param string               $WorkspaceId
      * @param string               $FileId
-     * @param UpdateFileTagRequest $tmpReq      UpdateFileTagRequest
-     * @param string[]             $headers     map
-     * @param RuntimeOptions       $runtime     runtime options for this request RuntimeOptions
+     * @param UpdateFileTagRequest $tmpReq
+     * @param string[]             $headers
+     * @param RuntimeOptions       $runtime
      *
-     * @return UpdateFileTagResponse UpdateFileTagResponse
+     * @return UpdateFileTagResponse
      */
     public function updateFileTagWithOptions($WorkspaceId, $FileId, $tmpReq, $headers, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new UpdateFileTagShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->tags)) {
-            $request->tagsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->tags, 'Tags', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->tags) {
+            $request->tagsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->tags, 'Tags', 'json');
         }
+
         $body = [];
-        if (!Utils::isUnset($request->tagsShrink)) {
-            $body['Tags'] = $request->tagsShrink;
+        if (null !== $request->tagsShrink) {
+            @$body['Tags'] = $request->tagsShrink;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'UpdateFileTag',
             'version' => '2023-12-29',
             'protocol' => 'HTTPS',
-            'pathname' => '/' . OpenApiUtilClient::getEncodeParam($WorkspaceId) . '/datacenter/file/' . OpenApiUtilClient::getEncodeParam($FileId) . '',
+            'pathname' => '/' . Url::percentEncode($WorkspaceId) . '/datacenter/file/' . Url::percentEncode($FileId) . '',
             'method' => 'PUT',
             'authType' => 'AK',
             'style' => 'ROA',
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return UpdateFileTagResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -2535,13 +3031,17 @@ class Bailian extends OpenApiClient
     }
 
     /**
-     * @summary 更新文档Tag
-     *  *
+     * 更新文档Tag.
+     *
+     * @param request - UpdateFileTagRequest
+     *
+     * @returns UpdateFileTagResponse
+     *
      * @param string               $WorkspaceId
      * @param string               $FileId
-     * @param UpdateFileTagRequest $request     UpdateFileTagRequest
+     * @param UpdateFileTagRequest $request
      *
-     * @return UpdateFileTagResponse UpdateFileTagResponse
+     * @return UpdateFileTagResponse
      */
     public function updateFileTag($WorkspaceId, $FileId, $request)
     {
@@ -2552,39 +3052,46 @@ class Bailian extends OpenApiClient
     }
 
     /**
-     * @summary 更新memory
-     *  *
+     * 更新memory.
+     *
+     * @param request - UpdateMemoryRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateMemoryResponse
+     *
      * @param string              $workspaceId
      * @param string              $memoryId
-     * @param UpdateMemoryRequest $request     UpdateMemoryRequest
-     * @param string[]            $headers     map
-     * @param RuntimeOptions      $runtime     runtime options for this request RuntimeOptions
+     * @param UpdateMemoryRequest $request
+     * @param string[]            $headers
+     * @param RuntimeOptions      $runtime
      *
-     * @return UpdateMemoryResponse UpdateMemoryResponse
+     * @return UpdateMemoryResponse
      */
     public function updateMemoryWithOptions($workspaceId, $memoryId, $request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->description)) {
-            $query['description'] = $request->description;
+        if (null !== $request->description) {
+            @$query['description'] = $request->description;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'UpdateMemory',
             'version' => '2023-12-29',
             'protocol' => 'HTTPS',
-            'pathname' => '/' . OpenApiUtilClient::getEncodeParam($workspaceId) . '/memories/' . OpenApiUtilClient::getEncodeParam($memoryId) . '',
+            'pathname' => '/' . Url::percentEncode($workspaceId) . '/memories/' . Url::percentEncode($memoryId) . '',
             'method' => 'PUT',
             'authType' => 'AK',
             'style' => 'ROA',
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return UpdateMemoryResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -2592,13 +3099,17 @@ class Bailian extends OpenApiClient
     }
 
     /**
-     * @summary 更新memory
-     *  *
+     * 更新memory.
+     *
+     * @param request - UpdateMemoryRequest
+     *
+     * @returns UpdateMemoryResponse
+     *
      * @param string              $workspaceId
      * @param string              $memoryId
-     * @param UpdateMemoryRequest $request     UpdateMemoryRequest
+     * @param UpdateMemoryRequest $request
      *
-     * @return UpdateMemoryResponse UpdateMemoryResponse
+     * @return UpdateMemoryResponse
      */
     public function updateMemory($workspaceId, $memoryId, $request)
     {
@@ -2609,40 +3120,47 @@ class Bailian extends OpenApiClient
     }
 
     /**
-     * @summary 更新记忆Node
-     *  *
+     * 更新记忆Node.
+     *
+     * @param request - UpdateMemoryNodeRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateMemoryNodeResponse
+     *
      * @param string                  $workspaceId
      * @param string                  $memoryId
      * @param string                  $memoryNodeId
-     * @param UpdateMemoryNodeRequest $request      UpdateMemoryNodeRequest
-     * @param string[]                $headers      map
-     * @param RuntimeOptions          $runtime      runtime options for this request RuntimeOptions
+     * @param UpdateMemoryNodeRequest $request
+     * @param string[]                $headers
+     * @param RuntimeOptions          $runtime
      *
-     * @return UpdateMemoryNodeResponse UpdateMemoryNodeResponse
+     * @return UpdateMemoryNodeResponse
      */
     public function updateMemoryNodeWithOptions($workspaceId, $memoryId, $memoryNodeId, $request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->content)) {
-            $query['content'] = $request->content;
+        if (null !== $request->content) {
+            @$query['content'] = $request->content;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'UpdateMemoryNode',
             'version' => '2023-12-29',
             'protocol' => 'HTTPS',
-            'pathname' => '/' . OpenApiUtilClient::getEncodeParam($workspaceId) . '/memories/' . OpenApiUtilClient::getEncodeParam($memoryId) . '/memoryNodes/' . OpenApiUtilClient::getEncodeParam($memoryNodeId) . '',
+            'pathname' => '/' . Url::percentEncode($workspaceId) . '/memories/' . Url::percentEncode($memoryId) . '/memoryNodes/' . Url::percentEncode($memoryNodeId) . '',
             'method' => 'PUT',
             'authType' => 'AK',
             'style' => 'ROA',
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return UpdateMemoryNodeResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -2650,14 +3168,18 @@ class Bailian extends OpenApiClient
     }
 
     /**
-     * @summary 更新记忆Node
-     *  *
+     * 更新记忆Node.
+     *
+     * @param request - UpdateMemoryNodeRequest
+     *
+     * @returns UpdateMemoryNodeResponse
+     *
      * @param string                  $workspaceId
      * @param string                  $memoryId
      * @param string                  $memoryNodeId
-     * @param UpdateMemoryNodeRequest $request      UpdateMemoryNodeRequest
+     * @param UpdateMemoryNodeRequest $request
      *
-     * @return UpdateMemoryNodeResponse UpdateMemoryNodeResponse
+     * @return UpdateMemoryNodeResponse
      */
     public function updateMemoryNode($workspaceId, $memoryId, $memoryNodeId, $request)
     {
@@ -2668,42 +3190,50 @@ class Bailian extends OpenApiClient
     }
 
     /**
-     * @summary Updates a prompt template based on the template ID.
-     *  *
+     * Updates a prompt template based on the template ID.
+     *
+     * @param request - UpdatePromptTemplateRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdatePromptTemplateResponse
+     *
      * @param string                      $workspaceId
      * @param string                      $promptTemplateId
-     * @param UpdatePromptTemplateRequest $request          UpdatePromptTemplateRequest
-     * @param string[]                    $headers          map
-     * @param RuntimeOptions              $runtime          runtime options for this request RuntimeOptions
+     * @param UpdatePromptTemplateRequest $request
+     * @param string[]                    $headers
+     * @param RuntimeOptions              $runtime
      *
-     * @return UpdatePromptTemplateResponse UpdatePromptTemplateResponse
+     * @return UpdatePromptTemplateResponse
      */
     public function updatePromptTemplateWithOptions($workspaceId, $promptTemplateId, $request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->content)) {
-            $query['content'] = $request->content;
+        if (null !== $request->content) {
+            @$query['content'] = $request->content;
         }
-        if (!Utils::isUnset($request->name)) {
-            $query['name'] = $request->name;
+
+        if (null !== $request->name) {
+            @$query['name'] = $request->name;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'UpdatePromptTemplate',
             'version' => '2023-12-29',
             'protocol' => 'HTTPS',
-            'pathname' => '/' . OpenApiUtilClient::getEncodeParam($workspaceId) . '/promptTemplates/' . OpenApiUtilClient::getEncodeParam($promptTemplateId) . '',
+            'pathname' => '/' . Url::percentEncode($workspaceId) . '/promptTemplates/' . Url::percentEncode($promptTemplateId) . '',
             'method' => 'PATCH',
             'authType' => 'AK',
             'style' => 'ROA',
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return UpdatePromptTemplateResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -2711,13 +3241,17 @@ class Bailian extends OpenApiClient
     }
 
     /**
-     * @summary Updates a prompt template based on the template ID.
-     *  *
+     * Updates a prompt template based on the template ID.
+     *
+     * @param request - UpdatePromptTemplateRequest
+     *
+     * @returns UpdatePromptTemplateResponse
+     *
      * @param string                      $workspaceId
      * @param string                      $promptTemplateId
-     * @param UpdatePromptTemplateRequest $request          UpdatePromptTemplateRequest
+     * @param UpdatePromptTemplateRequest $request
      *
-     * @return UpdatePromptTemplateResponse UpdatePromptTemplateResponse
+     * @return UpdatePromptTemplateResponse
      */
     public function updatePromptTemplate($workspaceId, $promptTemplateId, $request)
     {

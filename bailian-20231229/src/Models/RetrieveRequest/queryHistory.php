@@ -2,24 +2,24 @@
 
 // This file is auto-generated, don't edit it. Thanks.
 
-namespace AlibabaCloud\SDK\Bailian\V20231229\Models\AddCategoryResponseBody;
+namespace AlibabaCloud\SDK\Bailian\V20231229\Models\RetrieveRequest;
 
 use AlibabaCloud\Dara\Model;
 
-class data extends Model
+class queryHistory extends Model
 {
     /**
      * @var string
      */
-    public $categoryId;
+    public $content;
 
     /**
      * @var string
      */
-    public $categoryName;
+    public $role;
     protected $_name = [
-        'categoryId' => 'CategoryId',
-        'categoryName' => 'CategoryName',
+        'content' => 'content',
+        'role' => 'role',
     ];
 
     public function validate()
@@ -30,12 +30,12 @@ class data extends Model
     public function toArray($noStream = false)
     {
         $res = [];
-        if (null !== $this->categoryId) {
-            $res['CategoryId'] = $this->categoryId;
+        if (null !== $this->content) {
+            $res['content'] = $this->content;
         }
 
-        if (null !== $this->categoryName) {
-            $res['CategoryName'] = $this->categoryName;
+        if (null !== $this->role) {
+            $res['role'] = $this->role;
         }
 
         return $res;
@@ -49,12 +49,12 @@ class data extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['CategoryId'])) {
-            $model->categoryId = $map['CategoryId'];
+        if (isset($map['content'])) {
+            $model->content = $map['content'];
         }
 
-        if (isset($map['CategoryName'])) {
-            $model->categoryName = $map['CategoryName'];
+        if (isset($map['role'])) {
+            $model->role = $map['role'];
         }
 
         return $model;

@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Bailian\V20231229\Models\CreateAndPulishAgentRequest\applicationConfig;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class securityConfig extends Model
 {
@@ -16,9 +16,12 @@ class securityConfig extends Model
         'processingStrategy' => 'processingStrategy',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->processingStrategy) {
@@ -28,11 +31,11 @@ class securityConfig extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return securityConfig
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

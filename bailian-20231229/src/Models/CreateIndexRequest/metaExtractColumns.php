@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Bailian\V20231229\Models\CreateIndexRequest;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class metaExtractColumns extends Model
 {
@@ -46,26 +46,34 @@ class metaExtractColumns extends Model
         'value' => 'Value',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->desc) {
             $res['Desc'] = $this->desc;
         }
+
         if (null !== $this->enableLlm) {
             $res['EnableLlm'] = $this->enableLlm;
         }
+
         if (null !== $this->enableSearch) {
             $res['EnableSearch'] = $this->enableSearch;
         }
+
         if (null !== $this->key) {
             $res['Key'] = $this->key;
         }
+
         if (null !== $this->type) {
             $res['Type'] = $this->type;
         }
+
         if (null !== $this->value) {
             $res['Value'] = $this->value;
         }
@@ -73,29 +81,34 @@ class metaExtractColumns extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return metaExtractColumns
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Desc'])) {
             $model->desc = $map['Desc'];
         }
+
         if (isset($map['EnableLlm'])) {
             $model->enableLlm = $map['EnableLlm'];
         }
+
         if (isset($map['EnableSearch'])) {
             $model->enableSearch = $map['EnableSearch'];
         }
+
         if (isset($map['Key'])) {
             $model->key = $map['Key'];
         }
+
         if (isset($map['Type'])) {
             $model->type = $map['Type'];
         }
+
         if (isset($map['Value'])) {
             $model->value = $map['Value'];
         }

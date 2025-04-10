@@ -4,9 +4,9 @@
 
 namespace AlibabaCloud\SDK\Bailian\V20231229\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Bailian\V20231229\Models\CreateAndPulishAgentRequest\applicationConfig;
 use AlibabaCloud\SDK\Bailian\V20231229\Models\CreateAndPulishAgentRequest\sampleLibrary;
-use AlibabaCloud\Tea\Model;
 
 class CreateAndPulishAgentRequest extends Model
 {
@@ -42,50 +42,67 @@ class CreateAndPulishAgentRequest extends Model
         'sampleLibrary' => 'sampleLibrary',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (null !== $this->applicationConfig) {
+            $this->applicationConfig->validate();
+        }
+        if (null !== $this->sampleLibrary) {
+            $this->sampleLibrary->validate();
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->applicationConfig) {
-            $res['applicationConfig'] = null !== $this->applicationConfig ? $this->applicationConfig->toMap() : null;
+            $res['applicationConfig'] = null !== $this->applicationConfig ? $this->applicationConfig->toArray($noStream) : $this->applicationConfig;
         }
+
         if (null !== $this->instructions) {
             $res['instructions'] = $this->instructions;
         }
+
         if (null !== $this->modelId) {
             $res['modelId'] = $this->modelId;
         }
+
         if (null !== $this->name) {
             $res['name'] = $this->name;
         }
+
         if (null !== $this->sampleLibrary) {
-            $res['sampleLibrary'] = null !== $this->sampleLibrary ? $this->sampleLibrary->toMap() : null;
+            $res['sampleLibrary'] = null !== $this->sampleLibrary ? $this->sampleLibrary->toArray($noStream) : $this->sampleLibrary;
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return CreateAndPulishAgentRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['applicationConfig'])) {
             $model->applicationConfig = applicationConfig::fromMap($map['applicationConfig']);
         }
+
         if (isset($map['instructions'])) {
             $model->instructions = $map['instructions'];
         }
+
         if (isset($map['modelId'])) {
             $model->modelId = $map['modelId'];
         }
+
         if (isset($map['name'])) {
             $model->name = $map['name'];
         }
+
         if (isset($map['sampleLibrary'])) {
             $model->sampleLibrary = sampleLibrary::fromMap($map['sampleLibrary']);
         }

@@ -4,14 +4,12 @@
 
 namespace AlibabaCloud\SDK\Bailian\V20231229\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Bailian\V20231229\Models\ListMemoryNodesResponseBody\memoryNodes;
-use AlibabaCloud\Tea\Model;
 
 class ListMemoryNodesResponseBody extends Model
 {
     /**
-     * @example 20
-     *
      * @var int
      */
     public $maxResults;
@@ -22,22 +20,16 @@ class ListMemoryNodesResponseBody extends Model
     public $memoryNodes;
 
     /**
-     * @example dc270401186b433f975d7e1faaa34e0e
-     *
      * @var string
      */
     public $nextToken;
 
     /**
-     * @example 6a71f2d9-f1c9-913b-818b-114029103cad
-     *
      * @var string
      */
     public $requestId;
 
     /**
-     * @example 100
-     *
      * @var int
      */
     public $totalCount;
@@ -49,29 +41,39 @@ class ListMemoryNodesResponseBody extends Model
         'totalCount' => 'totalCount',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->memoryNodes)) {
+            Model::validateArray($this->memoryNodes);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->maxResults) {
             $res['maxResults'] = $this->maxResults;
         }
+
         if (null !== $this->memoryNodes) {
-            $res['memoryNodes'] = [];
-            if (null !== $this->memoryNodes && \is_array($this->memoryNodes)) {
-                $n = 0;
-                foreach ($this->memoryNodes as $item) {
-                    $res['memoryNodes'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->memoryNodes)) {
+                $res['memoryNodes'] = [];
+                $n1 = 0;
+                foreach ($this->memoryNodes as $item1) {
+                    $res['memoryNodes'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
+
         if (null !== $this->nextToken) {
             $res['nextToken'] = $this->nextToken;
         }
+
         if (null !== $this->requestId) {
             $res['requestId'] = $this->requestId;
         }
+
         if (null !== $this->totalCount) {
             $res['totalCount'] = $this->totalCount;
         }
@@ -79,32 +81,36 @@ class ListMemoryNodesResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ListMemoryNodesResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['maxResults'])) {
             $model->maxResults = $map['maxResults'];
         }
+
         if (isset($map['memoryNodes'])) {
             if (!empty($map['memoryNodes'])) {
                 $model->memoryNodes = [];
-                $n = 0;
-                foreach ($map['memoryNodes'] as $item) {
-                    $model->memoryNodes[$n++] = null !== $item ? memoryNodes::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['memoryNodes'] as $item1) {
+                    $model->memoryNodes[$n1++] = memoryNodes::fromMap($item1);
                 }
             }
         }
+
         if (isset($map['nextToken'])) {
             $model->nextToken = $map['nextToken'];
         }
+
         if (isset($map['requestId'])) {
             $model->requestId = $map['requestId'];
         }
+
         if (isset($map['totalCount'])) {
             $model->totalCount = $map['totalCount'];
         }
