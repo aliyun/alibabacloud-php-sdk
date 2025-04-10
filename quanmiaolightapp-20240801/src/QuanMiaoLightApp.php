@@ -1422,6 +1422,10 @@ class QuanMiaoLightApp extends OpenApiClient
         }
 
         $body = [];
+        if (null !== $request->apiKey) {
+            @$body['apiKey'] = $request->apiKey;
+        }
+
         if (null !== $request->businessType) {
             @$body['businessType'] = $request->businessType;
         }
@@ -1682,6 +1686,10 @@ class QuanMiaoLightApp extends OpenApiClient
         }
 
         $body = [];
+        if (null !== $request->apiKey) {
+            @$body['apiKey'] = $request->apiKey;
+        }
+
         if (null !== $request->businessType) {
             @$body['businessType'] = $request->businessType;
         }

@@ -11,6 +11,11 @@ class SubmitTagMiningAnalysisTaskShrinkRequest extends Model
     /**
      * @var string
      */
+    public $apiKey;
+
+    /**
+     * @var string
+     */
     public $businessType;
 
     /**
@@ -48,6 +53,7 @@ class SubmitTagMiningAnalysisTaskShrinkRequest extends Model
      */
     public $url;
     protected $_name = [
+        'apiKey' => 'apiKey',
         'businessType' => 'businessType',
         'contentsShrink' => 'contents',
         'extraInfo' => 'extraInfo',
@@ -66,6 +72,10 @@ class SubmitTagMiningAnalysisTaskShrinkRequest extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->apiKey) {
+            $res['apiKey'] = $this->apiKey;
+        }
+
         if (null !== $this->businessType) {
             $res['businessType'] = $this->businessType;
         }
@@ -109,6 +119,10 @@ class SubmitTagMiningAnalysisTaskShrinkRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['apiKey'])) {
+            $model->apiKey = $map['apiKey'];
+        }
+
         if (isset($map['businessType'])) {
             $model->businessType = $map['businessType'];
         }
