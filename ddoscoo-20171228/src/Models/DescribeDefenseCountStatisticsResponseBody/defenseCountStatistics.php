@@ -4,49 +4,46 @@
 
 namespace AlibabaCloud\SDK\Ddoscoo\V20171228\Models\DescribeDefenseCountStatisticsResponseBody;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class defenseCountStatistics extends Model
 {
     /**
-     * @example 0
-     *
      * @var int
      */
     public $defenseCountTotalUsageOfCurrentMonth;
 
     /**
-     * @example 10
-     *
      * @var int
      */
     public $flowPackCountRemain;
 
     /**
-     * @example 0
-     *
      * @var int
      */
     public $maxUsableDefenseCountCurrentMonth;
     protected $_name = [
         'defenseCountTotalUsageOfCurrentMonth' => 'DefenseCountTotalUsageOfCurrentMonth',
-        'flowPackCountRemain'                  => 'FlowPackCountRemain',
-        'maxUsableDefenseCountCurrentMonth'    => 'MaxUsableDefenseCountCurrentMonth',
+        'flowPackCountRemain' => 'FlowPackCountRemain',
+        'maxUsableDefenseCountCurrentMonth' => 'MaxUsableDefenseCountCurrentMonth',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->defenseCountTotalUsageOfCurrentMonth) {
             $res['DefenseCountTotalUsageOfCurrentMonth'] = $this->defenseCountTotalUsageOfCurrentMonth;
         }
+
         if (null !== $this->flowPackCountRemain) {
             $res['FlowPackCountRemain'] = $this->flowPackCountRemain;
         }
+
         if (null !== $this->maxUsableDefenseCountCurrentMonth) {
             $res['MaxUsableDefenseCountCurrentMonth'] = $this->maxUsableDefenseCountCurrentMonth;
         }
@@ -54,20 +51,22 @@ class defenseCountStatistics extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return defenseCountStatistics
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['DefenseCountTotalUsageOfCurrentMonth'])) {
             $model->defenseCountTotalUsageOfCurrentMonth = $map['DefenseCountTotalUsageOfCurrentMonth'];
         }
+
         if (isset($map['FlowPackCountRemain'])) {
             $model->flowPackCountRemain = $map['FlowPackCountRemain'];
         }
+
         if (isset($map['MaxUsableDefenseCountCurrentMonth'])) {
             $model->maxUsableDefenseCountCurrentMonth = $map['MaxUsableDefenseCountCurrentMonth'];
         }

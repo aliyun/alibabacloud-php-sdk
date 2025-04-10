@@ -4,97 +4,95 @@
 
 namespace AlibabaCloud\SDK\Ddoscoo\V20171228\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DescribeDomainsRequest extends Model
 {
     /**
-     * @example www.aliyun.com
-     *
      * @var string
      */
     public $domain;
 
     /**
-     * @example ddoscoo-cn-XXXXXX
-     *
      * @var string[]
      */
     public $instanceIds;
 
     /**
-     * @description This parameter is required.
-     *
-     * @example 0
-     *
      * @var int
      */
     public $offset;
 
     /**
-     * @description This parameter is required.
-     *
-     * @example 10
-     *
      * @var string
      */
     public $pageSize;
 
     /**
-     * @example fuzzy
-     *
      * @var string
      */
     public $queryDomainPattern;
 
     /**
-     * @example test
-     *
      * @var string
      */
     public $resourceGroupId;
 
     /**
-     * @example 1.1.1.1
-     *
      * @var string
      */
     public $sourceIp;
     protected $_name = [
-        'domain'             => 'Domain',
-        'instanceIds'        => 'InstanceIds',
-        'offset'             => 'Offset',
-        'pageSize'           => 'PageSize',
+        'domain' => 'Domain',
+        'instanceIds' => 'InstanceIds',
+        'offset' => 'Offset',
+        'pageSize' => 'PageSize',
         'queryDomainPattern' => 'QueryDomainPattern',
-        'resourceGroupId'    => 'ResourceGroupId',
-        'sourceIp'           => 'SourceIp',
+        'resourceGroupId' => 'ResourceGroupId',
+        'sourceIp' => 'SourceIp',
     ];
 
     public function validate()
     {
+        if (\is_array($this->instanceIds)) {
+            Model::validateArray($this->instanceIds);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->domain) {
             $res['Domain'] = $this->domain;
         }
+
         if (null !== $this->instanceIds) {
-            $res['InstanceIds'] = $this->instanceIds;
+            if (\is_array($this->instanceIds)) {
+                $res['InstanceIds'] = [];
+                $n1 = 0;
+                foreach ($this->instanceIds as $item1) {
+                    $res['InstanceIds'][$n1++] = $item1;
+                }
+            }
         }
+
         if (null !== $this->offset) {
             $res['Offset'] = $this->offset;
         }
+
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
         }
+
         if (null !== $this->queryDomainPattern) {
             $res['QueryDomainPattern'] = $this->queryDomainPattern;
         }
+
         if (null !== $this->resourceGroupId) {
             $res['ResourceGroupId'] = $this->resourceGroupId;
         }
+
         if (null !== $this->sourceIp) {
             $res['SourceIp'] = $this->sourceIp;
         }
@@ -102,34 +100,44 @@ class DescribeDomainsRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeDomainsRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Domain'])) {
             $model->domain = $map['Domain'];
         }
+
         if (isset($map['InstanceIds'])) {
             if (!empty($map['InstanceIds'])) {
-                $model->instanceIds = $map['InstanceIds'];
+                $model->instanceIds = [];
+                $n1 = 0;
+                foreach ($map['InstanceIds'] as $item1) {
+                    $model->instanceIds[$n1++] = $item1;
+                }
             }
         }
+
         if (isset($map['Offset'])) {
             $model->offset = $map['Offset'];
         }
+
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
         }
+
         if (isset($map['QueryDomainPattern'])) {
             $model->queryDomainPattern = $map['QueryDomainPattern'];
         }
+
         if (isset($map['ResourceGroupId'])) {
             $model->resourceGroupId = $map['ResourceGroupId'];
         }
+
         if (isset($map['SourceIp'])) {
             $model->sourceIp = $map['SourceIp'];
         }

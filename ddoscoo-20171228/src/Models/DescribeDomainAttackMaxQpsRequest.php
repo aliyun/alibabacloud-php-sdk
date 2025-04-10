@@ -4,64 +4,56 @@
 
 namespace AlibabaCloud\SDK\Ddoscoo\V20171228\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DescribeDomainAttackMaxQpsRequest extends Model
 {
     /**
-     * @example example.aliyundoc.com
-     *
      * @var string
      */
     public $domain;
 
     /**
-     * @description This parameter is required.
-     *
-     * @example 1667801940
-     *
      * @var int
      */
     public $endTime;
 
     /**
-     * @example rg-acfm2pz25js****
-     *
      * @var string
      */
     public $resourceGroupId;
 
     /**
-     * @description This parameter is required.
-     *
-     * @example 1657562370
-     *
      * @var int
      */
     public $startTime;
     protected $_name = [
-        'domain'          => 'Domain',
-        'endTime'         => 'EndTime',
+        'domain' => 'Domain',
+        'endTime' => 'EndTime',
         'resourceGroupId' => 'ResourceGroupId',
-        'startTime'       => 'StartTime',
+        'startTime' => 'StartTime',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->domain) {
             $res['Domain'] = $this->domain;
         }
+
         if (null !== $this->endTime) {
             $res['EndTime'] = $this->endTime;
         }
+
         if (null !== $this->resourceGroupId) {
             $res['ResourceGroupId'] = $this->resourceGroupId;
         }
+
         if (null !== $this->startTime) {
             $res['StartTime'] = $this->startTime;
         }
@@ -69,23 +61,26 @@ class DescribeDomainAttackMaxQpsRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeDomainAttackMaxQpsRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Domain'])) {
             $model->domain = $map['Domain'];
         }
+
         if (isset($map['EndTime'])) {
             $model->endTime = $map['EndTime'];
         }
+
         if (isset($map['ResourceGroupId'])) {
             $model->resourceGroupId = $map['ResourceGroupId'];
         }
+
         if (isset($map['StartTime'])) {
             $model->startTime = $map['StartTime'];
         }

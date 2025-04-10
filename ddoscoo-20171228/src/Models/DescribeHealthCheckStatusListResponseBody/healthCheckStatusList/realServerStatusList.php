@@ -4,38 +4,36 @@
 
 namespace AlibabaCloud\SDK\Ddoscoo\V20171228\Models\DescribeHealthCheckStatusListResponseBody\healthCheckStatusList;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class realServerStatusList extends Model
 {
     /**
-     * @example 1.1.1.1
-     *
      * @var string
      */
     public $address;
 
     /**
-     * @example normal
-     *
      * @var string
      */
     public $status;
     protected $_name = [
         'address' => 'Address',
-        'status'  => 'Status',
+        'status' => 'Status',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->address) {
             $res['Address'] = $this->address;
         }
+
         if (null !== $this->status) {
             $res['Status'] = $this->status;
         }
@@ -43,17 +41,18 @@ class realServerStatusList extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return realServerStatusList
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Address'])) {
             $model->address = $map['Address'];
         }
+
         if (isset($map['Status'])) {
             $model->status = $map['Status'];
         }

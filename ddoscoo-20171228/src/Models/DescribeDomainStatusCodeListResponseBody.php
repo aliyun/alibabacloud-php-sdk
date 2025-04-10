@@ -4,14 +4,12 @@
 
 namespace AlibabaCloud\SDK\Ddoscoo\V20171228\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Ddoscoo\V20171228\Models\DescribeDomainStatusCodeListResponseBody\statusCodeList;
-use AlibabaCloud\Tea\Model;
 
 class DescribeDomainStatusCodeListResponseBody extends Model
 {
     /**
-     * @example 3B63C0DD-8AC5-44B2-95D6-064CA9296B9C
-     *
      * @var string
      */
     public $requestId;
@@ -21,26 +19,31 @@ class DescribeDomainStatusCodeListResponseBody extends Model
      */
     public $statusCodeList;
     protected $_name = [
-        'requestId'      => 'RequestId',
+        'requestId' => 'RequestId',
         'statusCodeList' => 'StatusCodeList',
     ];
 
     public function validate()
     {
+        if (\is_array($this->statusCodeList)) {
+            Model::validateArray($this->statusCodeList);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
+
         if (null !== $this->statusCodeList) {
-            $res['StatusCodeList'] = [];
-            if (null !== $this->statusCodeList && \is_array($this->statusCodeList)) {
-                $n = 0;
-                foreach ($this->statusCodeList as $item) {
-                    $res['StatusCodeList'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->statusCodeList)) {
+                $res['StatusCodeList'] = [];
+                $n1 = 0;
+                foreach ($this->statusCodeList as $item1) {
+                    $res['StatusCodeList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
@@ -48,23 +51,24 @@ class DescribeDomainStatusCodeListResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeDomainStatusCodeListResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
+
         if (isset($map['StatusCodeList'])) {
             if (!empty($map['StatusCodeList'])) {
                 $model->statusCodeList = [];
-                $n                     = 0;
-                foreach ($map['StatusCodeList'] as $item) {
-                    $model->statusCodeList[$n++] = null !== $item ? statusCodeList::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['StatusCodeList'] as $item1) {
+                    $model->statusCodeList[$n1++] = statusCodeList::fromMap($item1);
                 }
             }
         }

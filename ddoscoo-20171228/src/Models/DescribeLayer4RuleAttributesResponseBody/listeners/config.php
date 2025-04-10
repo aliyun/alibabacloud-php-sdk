@@ -4,11 +4,11 @@
 
 namespace AlibabaCloud\SDK\Ddoscoo\V20171228\Models\DescribeLayer4RuleAttributesResponseBody\listeners;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Ddoscoo\V20171228\Models\DescribeLayer4RuleAttributesResponseBody\listeners\config\cc;
 use AlibabaCloud\SDK\Ddoscoo\V20171228\Models\DescribeLayer4RuleAttributesResponseBody\listeners\config\payloadLen;
 use AlibabaCloud\SDK\Ddoscoo\V20171228\Models\DescribeLayer4RuleAttributesResponseBody\listeners\config\sla;
 use AlibabaCloud\SDK\Ddoscoo\V20171228\Models\DescribeLayer4RuleAttributesResponseBody\listeners\config\slimit;
-use AlibabaCloud\Tea\Model;
 
 class config extends Model
 {
@@ -18,8 +18,6 @@ class config extends Model
     public $cc;
 
     /**
-     * @example on
-     *
      * @var string
      */
     public $nodataConn;
@@ -30,8 +28,6 @@ class config extends Model
     public $payloadLen;
 
     /**
-     * @example 0
-     *
      * @var int
      */
     public $persistenceTimeout;
@@ -47,46 +43,63 @@ class config extends Model
     public $slimit;
 
     /**
-     * @example on
-     *
      * @var string
      */
     public $synproxy;
     protected $_name = [
-        'cc'                 => 'Cc',
-        'nodataConn'         => 'NodataConn',
-        'payloadLen'         => 'PayloadLen',
+        'cc' => 'Cc',
+        'nodataConn' => 'NodataConn',
+        'payloadLen' => 'PayloadLen',
         'persistenceTimeout' => 'PersistenceTimeout',
-        'sla'                => 'Sla',
-        'slimit'             => 'Slimit',
-        'synproxy'           => 'Synproxy',
+        'sla' => 'Sla',
+        'slimit' => 'Slimit',
+        'synproxy' => 'Synproxy',
     ];
 
     public function validate()
     {
+        if (null !== $this->cc) {
+            $this->cc->validate();
+        }
+        if (null !== $this->payloadLen) {
+            $this->payloadLen->validate();
+        }
+        if (null !== $this->sla) {
+            $this->sla->validate();
+        }
+        if (null !== $this->slimit) {
+            $this->slimit->validate();
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->cc) {
-            $res['Cc'] = null !== $this->cc ? $this->cc->toMap() : null;
+            $res['Cc'] = null !== $this->cc ? $this->cc->toArray($noStream) : $this->cc;
         }
+
         if (null !== $this->nodataConn) {
             $res['NodataConn'] = $this->nodataConn;
         }
+
         if (null !== $this->payloadLen) {
-            $res['PayloadLen'] = null !== $this->payloadLen ? $this->payloadLen->toMap() : null;
+            $res['PayloadLen'] = null !== $this->payloadLen ? $this->payloadLen->toArray($noStream) : $this->payloadLen;
         }
+
         if (null !== $this->persistenceTimeout) {
             $res['PersistenceTimeout'] = $this->persistenceTimeout;
         }
+
         if (null !== $this->sla) {
-            $res['Sla'] = null !== $this->sla ? $this->sla->toMap() : null;
+            $res['Sla'] = null !== $this->sla ? $this->sla->toArray($noStream) : $this->sla;
         }
+
         if (null !== $this->slimit) {
-            $res['Slimit'] = null !== $this->slimit ? $this->slimit->toMap() : null;
+            $res['Slimit'] = null !== $this->slimit ? $this->slimit->toArray($noStream) : $this->slimit;
         }
+
         if (null !== $this->synproxy) {
             $res['Synproxy'] = $this->synproxy;
         }
@@ -94,32 +107,38 @@ class config extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return config
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Cc'])) {
             $model->cc = cc::fromMap($map['Cc']);
         }
+
         if (isset($map['NodataConn'])) {
             $model->nodataConn = $map['NodataConn'];
         }
+
         if (isset($map['PayloadLen'])) {
             $model->payloadLen = payloadLen::fromMap($map['PayloadLen']);
         }
+
         if (isset($map['PersistenceTimeout'])) {
             $model->persistenceTimeout = $map['PersistenceTimeout'];
         }
+
         if (isset($map['Sla'])) {
             $model->sla = sla::fromMap($map['Sla']);
         }
+
         if (isset($map['Slimit'])) {
             $model->slimit = slimit::fromMap($map['Slimit']);
         }
+
         if (isset($map['Synproxy'])) {
             $model->synproxy = $map['Synproxy'];
         }

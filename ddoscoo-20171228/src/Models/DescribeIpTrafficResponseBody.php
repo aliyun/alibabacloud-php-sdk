@@ -4,21 +4,17 @@
 
 namespace AlibabaCloud\SDK\Ddoscoo\V20171228\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Ddoscoo\V20171228\Models\DescribeIpTrafficResponseBody\ipTrafficPoints;
-use AlibabaCloud\Tea\Model;
 
 class DescribeIpTrafficResponseBody extends Model
 {
     /**
-     * @example 10000
-     *
      * @var int
      */
     public $avgInBps;
 
     /**
-     * @example 10000
-     *
      * @var int
      */
     public $avgOutBps;
@@ -29,62 +25,65 @@ class DescribeIpTrafficResponseBody extends Model
     public $ipTrafficPoints;
 
     /**
-     * @example 10000
-     *
      * @var int
      */
     public $maxInBps;
 
     /**
-     * @example 10000
-     *
      * @var int
      */
     public $maxOutBps;
 
     /**
-     * @example CF33B4C3-196E-4015-AADD-5CAD00057B80
-     *
      * @var string
      */
     public $requestId;
     protected $_name = [
-        'avgInBps'        => 'AvgInBps',
-        'avgOutBps'       => 'AvgOutBps',
+        'avgInBps' => 'AvgInBps',
+        'avgOutBps' => 'AvgOutBps',
         'ipTrafficPoints' => 'IpTrafficPoints',
-        'maxInBps'        => 'MaxInBps',
-        'maxOutBps'       => 'MaxOutBps',
-        'requestId'       => 'RequestId',
+        'maxInBps' => 'MaxInBps',
+        'maxOutBps' => 'MaxOutBps',
+        'requestId' => 'RequestId',
     ];
 
     public function validate()
     {
+        if (\is_array($this->ipTrafficPoints)) {
+            Model::validateArray($this->ipTrafficPoints);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->avgInBps) {
             $res['AvgInBps'] = $this->avgInBps;
         }
+
         if (null !== $this->avgOutBps) {
             $res['AvgOutBps'] = $this->avgOutBps;
         }
+
         if (null !== $this->ipTrafficPoints) {
-            $res['IpTrafficPoints'] = [];
-            if (null !== $this->ipTrafficPoints && \is_array($this->ipTrafficPoints)) {
-                $n = 0;
-                foreach ($this->ipTrafficPoints as $item) {
-                    $res['IpTrafficPoints'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->ipTrafficPoints)) {
+                $res['IpTrafficPoints'] = [];
+                $n1 = 0;
+                foreach ($this->ipTrafficPoints as $item1) {
+                    $res['IpTrafficPoints'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
+
         if (null !== $this->maxInBps) {
             $res['MaxInBps'] = $this->maxInBps;
         }
+
         if (null !== $this->maxOutBps) {
             $res['MaxOutBps'] = $this->maxOutBps;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -92,35 +91,40 @@ class DescribeIpTrafficResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeIpTrafficResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AvgInBps'])) {
             $model->avgInBps = $map['AvgInBps'];
         }
+
         if (isset($map['AvgOutBps'])) {
             $model->avgOutBps = $map['AvgOutBps'];
         }
+
         if (isset($map['IpTrafficPoints'])) {
             if (!empty($map['IpTrafficPoints'])) {
                 $model->ipTrafficPoints = [];
-                $n                      = 0;
-                foreach ($map['IpTrafficPoints'] as $item) {
-                    $model->ipTrafficPoints[$n++] = null !== $item ? ipTrafficPoints::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['IpTrafficPoints'] as $item1) {
+                    $model->ipTrafficPoints[$n1++] = ipTrafficPoints::fromMap($item1);
                 }
             }
         }
+
         if (isset($map['MaxInBps'])) {
             $model->maxInBps = $map['MaxInBps'];
         }
+
         if (isset($map['MaxOutBps'])) {
             $model->maxOutBps = $map['MaxOutBps'];
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

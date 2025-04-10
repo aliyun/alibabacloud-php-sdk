@@ -1,3 +1,9 @@
+2025-04-10 Version: 1.0.6
+- Update API ConfigLayer4Rule: add request parameters UsTimeout.
+- Update API CreateLayer4Rule: add request parameters UsTimeout.
+- Update API DescribeLayer4Rules: add response parameters Body.Listeners.$.UsTimeout.
+
+
 2025-03-12 Version: 1.0.5
 - Generated php 2017-12-28 for ddoscoo.
 

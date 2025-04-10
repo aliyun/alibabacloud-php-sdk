@@ -4,15 +4,12 @@
 
 namespace AlibabaCloud\SDK\Ddoscoo\V20171228\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
+use AlibabaCloud\SDK\Ddoscoo\V20171228\Models\CreateLayer4RuleRequest\usTimeout;
 
 class CreateLayer4RuleRequest extends Model
 {
     /**
-     * @description This parameter is required.
-     *
-     * @example [{"InstanceId":"xxxxxx-xxxxxx-xxxxxx-xxxxxxx","Protocol":"tcp","FrontendPort":80,"BackendPort":5,"RealServers":"1.1.1.1","2.2.2.2"}]
-     *
      * @var string
      */
     public $listeners;
@@ -21,41 +18,61 @@ class CreateLayer4RuleRequest extends Model
      * @var int
      */
     public $proxyEnable;
+
+    /**
+     * @var usTimeout
+     */
+    public $usTimeout;
     protected $_name = [
-        'listeners'   => 'Listeners',
+        'listeners' => 'Listeners',
         'proxyEnable' => 'ProxyEnable',
+        'usTimeout' => 'UsTimeout',
     ];
 
     public function validate()
     {
+        if (null !== $this->usTimeout) {
+            $this->usTimeout->validate();
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->listeners) {
             $res['Listeners'] = $this->listeners;
         }
+
         if (null !== $this->proxyEnable) {
             $res['ProxyEnable'] = $this->proxyEnable;
+        }
+
+        if (null !== $this->usTimeout) {
+            $res['UsTimeout'] = null !== $this->usTimeout ? $this->usTimeout->toArray($noStream) : $this->usTimeout;
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return CreateLayer4RuleRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Listeners'])) {
             $model->listeners = $map['Listeners'];
         }
+
         if (isset($map['ProxyEnable'])) {
             $model->proxyEnable = $map['ProxyEnable'];
+        }
+
+        if (isset($map['UsTimeout'])) {
+            $model->usTimeout = usTimeout::fromMap($map['UsTimeout']);
         }
 
         return $model;

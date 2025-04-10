@@ -4,60 +4,56 @@
 
 namespace AlibabaCloud\SDK\Ddoscoo\V20171228\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DescribeDomainSlsStatusResponseBody extends Model
 {
     /**
-     * @example CF33B4C3-196E-4015-AADD-5CAD00057B80
-     *
      * @var string
      */
     public $requestId;
 
     /**
-     * @example ddoscoo-logstore
-     *
      * @var string
      */
     public $slsLogstore;
 
     /**
-     * @example ddoscoo-project-xxxx-cn-hangzhou
-     *
      * @var string
      */
     public $slsProject;
 
     /**
-     * @example true
-     *
      * @var bool
      */
     public $slsStatus;
     protected $_name = [
-        'requestId'   => 'RequestId',
+        'requestId' => 'RequestId',
         'slsLogstore' => 'SlsLogstore',
-        'slsProject'  => 'SlsProject',
-        'slsStatus'   => 'SlsStatus',
+        'slsProject' => 'SlsProject',
+        'slsStatus' => 'SlsStatus',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
+
         if (null !== $this->slsLogstore) {
             $res['SlsLogstore'] = $this->slsLogstore;
         }
+
         if (null !== $this->slsProject) {
             $res['SlsProject'] = $this->slsProject;
         }
+
         if (null !== $this->slsStatus) {
             $res['SlsStatus'] = $this->slsStatus;
         }
@@ -65,23 +61,26 @@ class DescribeDomainSlsStatusResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeDomainSlsStatusResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
+
         if (isset($map['SlsLogstore'])) {
             $model->slsLogstore = $map['SlsLogstore'];
         }
+
         if (isset($map['SlsProject'])) {
             $model->slsProject = $map['SlsProject'];
         }
+
         if (isset($map['SlsStatus'])) {
             $model->slsStatus = $map['SlsStatus'];
         }

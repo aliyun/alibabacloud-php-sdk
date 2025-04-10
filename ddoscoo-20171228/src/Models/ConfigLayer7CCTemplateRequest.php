@@ -4,53 +4,46 @@
 
 namespace AlibabaCloud\SDK\Ddoscoo\V20171228\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class ConfigLayer7CCTemplateRequest extends Model
 {
     /**
-     * @description This parameter is required.
-     *
-     * @example www.aliyun.com
-     *
      * @var string
      */
     public $domain;
 
     /**
-     * @example test
-     *
      * @var string
      */
     public $resourceGroupId;
 
     /**
-     * @description This parameter is required.
-     *
-     * @example default
-     *
      * @var string
      */
     public $template;
     protected $_name = [
-        'domain'          => 'Domain',
+        'domain' => 'Domain',
         'resourceGroupId' => 'ResourceGroupId',
-        'template'        => 'Template',
+        'template' => 'Template',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->domain) {
             $res['Domain'] = $this->domain;
         }
+
         if (null !== $this->resourceGroupId) {
             $res['ResourceGroupId'] = $this->resourceGroupId;
         }
+
         if (null !== $this->template) {
             $res['Template'] = $this->template;
         }
@@ -58,20 +51,22 @@ class ConfigLayer7CCTemplateRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ConfigLayer7CCTemplateRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Domain'])) {
             $model->domain = $map['Domain'];
         }
+
         if (isset($map['ResourceGroupId'])) {
             $model->resourceGroupId = $map['ResourceGroupId'];
         }
+
         if (isset($map['Template'])) {
             $model->template = $map['Template'];
         }

@@ -4,13 +4,11 @@
 
 namespace AlibabaCloud\SDK\Ddoscoo\V20171228\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class ModifyInstanceRemarkRequest extends Model
 {
     /**
-     * @example ddoscoo-cn-XXXXX
-     *
      * @var string
      */
     public $instanceId;
@@ -21,30 +19,31 @@ class ModifyInstanceRemarkRequest extends Model
     public $remark;
 
     /**
-     * @example 1.1.1.1
-     *
      * @var string
      */
     public $sourceIp;
     protected $_name = [
         'instanceId' => 'InstanceId',
-        'remark'     => 'Remark',
-        'sourceIp'   => 'SourceIp',
+        'remark' => 'Remark',
+        'sourceIp' => 'SourceIp',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
         }
+
         if (null !== $this->remark) {
             $res['Remark'] = $this->remark;
         }
+
         if (null !== $this->sourceIp) {
             $res['SourceIp'] = $this->sourceIp;
         }
@@ -52,20 +51,22 @@ class ModifyInstanceRemarkRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ModifyInstanceRemarkRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
         }
+
         if (isset($map['Remark'])) {
             $model->remark = $map['Remark'];
         }
+
         if (isset($map['SourceIp'])) {
             $model->sourceIp = $map['SourceIp'];
         }

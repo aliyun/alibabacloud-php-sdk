@@ -4,28 +4,22 @@
 
 namespace AlibabaCloud\SDK\Ddoscoo\V20171228\Models\DescribeHealthCheckStatusListResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Ddoscoo\V20171228\Models\DescribeHealthCheckStatusListResponseBody\healthCheckStatusList\realServerStatusList;
-use AlibabaCloud\Tea\Model;
 
 class healthCheckStatusList extends Model
 {
     /**
-     * @example 233
-     *
      * @var int
      */
     public $frontendPort;
 
     /**
-     * @example ddoscoo-cn-XXXXX
-     *
      * @var string
      */
     public $instanceId;
 
     /**
-     * @example tcp
-     *
      * @var string
      */
     public $protocol;
@@ -36,44 +30,50 @@ class healthCheckStatusList extends Model
     public $realServerStatusList;
 
     /**
-     * @example normal
-     *
      * @var string
      */
     public $status;
     protected $_name = [
-        'frontendPort'         => 'FrontendPort',
-        'instanceId'           => 'InstanceId',
-        'protocol'             => 'Protocol',
+        'frontendPort' => 'FrontendPort',
+        'instanceId' => 'InstanceId',
+        'protocol' => 'Protocol',
         'realServerStatusList' => 'RealServerStatusList',
-        'status'               => 'Status',
+        'status' => 'Status',
     ];
 
     public function validate()
     {
+        if (\is_array($this->realServerStatusList)) {
+            Model::validateArray($this->realServerStatusList);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->frontendPort) {
             $res['FrontendPort'] = $this->frontendPort;
         }
+
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
         }
+
         if (null !== $this->protocol) {
             $res['Protocol'] = $this->protocol;
         }
+
         if (null !== $this->realServerStatusList) {
-            $res['RealServerStatusList'] = [];
-            if (null !== $this->realServerStatusList && \is_array($this->realServerStatusList)) {
-                $n = 0;
-                foreach ($this->realServerStatusList as $item) {
-                    $res['RealServerStatusList'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->realServerStatusList)) {
+                $res['RealServerStatusList'] = [];
+                $n1 = 0;
+                foreach ($this->realServerStatusList as $item1) {
+                    $res['RealServerStatusList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
+
         if (null !== $this->status) {
             $res['Status'] = $this->status;
         }
@@ -81,32 +81,36 @@ class healthCheckStatusList extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return healthCheckStatusList
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['FrontendPort'])) {
             $model->frontendPort = $map['FrontendPort'];
         }
+
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
         }
+
         if (isset($map['Protocol'])) {
             $model->protocol = $map['Protocol'];
         }
+
         if (isset($map['RealServerStatusList'])) {
             if (!empty($map['RealServerStatusList'])) {
                 $model->realServerStatusList = [];
-                $n                           = 0;
-                foreach ($map['RealServerStatusList'] as $item) {
-                    $model->realServerStatusList[$n++] = null !== $item ? realServerStatusList::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['RealServerStatusList'] as $item1) {
+                    $model->realServerStatusList[$n1++] = realServerStatusList::fromMap($item1);
                 }
             }
         }
+
         if (isset($map['Status'])) {
             $model->status = $map['Status'];
         }

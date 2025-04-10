@@ -4,14 +4,12 @@
 
 namespace AlibabaCloud\SDK\Ddoscoo\V20171228\Models\DescribeHealthCheckListResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Ddoscoo\V20171228\Models\DescribeHealthCheckListResponseBody\listeners\healthCheck;
-use AlibabaCloud\Tea\Model;
 
 class listeners extends Model
 {
     /**
-     * @example 233
-     *
      * @var int
      */
     public $frontendPort;
@@ -22,41 +20,44 @@ class listeners extends Model
     public $healthCheck;
 
     /**
-     * @example ddoscoo-cn-XXXXX
-     *
      * @var string
      */
     public $instanceId;
 
     /**
-     * @example tcp
-     *
      * @var string
      */
     public $protocol;
     protected $_name = [
         'frontendPort' => 'FrontendPort',
-        'healthCheck'  => 'HealthCheck',
-        'instanceId'   => 'InstanceId',
-        'protocol'     => 'Protocol',
+        'healthCheck' => 'HealthCheck',
+        'instanceId' => 'InstanceId',
+        'protocol' => 'Protocol',
     ];
 
     public function validate()
     {
+        if (null !== $this->healthCheck) {
+            $this->healthCheck->validate();
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->frontendPort) {
             $res['FrontendPort'] = $this->frontendPort;
         }
+
         if (null !== $this->healthCheck) {
-            $res['HealthCheck'] = null !== $this->healthCheck ? $this->healthCheck->toMap() : null;
+            $res['HealthCheck'] = null !== $this->healthCheck ? $this->healthCheck->toArray($noStream) : $this->healthCheck;
         }
+
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
         }
+
         if (null !== $this->protocol) {
             $res['Protocol'] = $this->protocol;
         }
@@ -64,23 +65,26 @@ class listeners extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return listeners
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['FrontendPort'])) {
             $model->frontendPort = $map['FrontendPort'];
         }
+
         if (isset($map['HealthCheck'])) {
             $model->healthCheck = healthCheck::fromMap($map['HealthCheck']);
         }
+
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
         }
+
         if (isset($map['Protocol'])) {
             $model->protocol = $map['Protocol'];
         }

@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Ddoscoo\V20171228\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Ddoscoo\V20171228\Models\DescribeInstanceStatisticsResponseBody\instanceStatistics;
-use AlibabaCloud\Tea\Model;
 
 class DescribeInstanceStatisticsResponseBody extends Model
 {
@@ -15,32 +15,35 @@ class DescribeInstanceStatisticsResponseBody extends Model
     public $instanceStatistics;
 
     /**
-     * @example CF33B4C3-196E-4015-AADD-5CAD00057B80
-     *
      * @var string
      */
     public $requestId;
     protected $_name = [
         'instanceStatistics' => 'InstanceStatistics',
-        'requestId'          => 'RequestId',
+        'requestId' => 'RequestId',
     ];
 
     public function validate()
     {
+        if (\is_array($this->instanceStatistics)) {
+            Model::validateArray($this->instanceStatistics);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->instanceStatistics) {
-            $res['InstanceStatistics'] = [];
-            if (null !== $this->instanceStatistics && \is_array($this->instanceStatistics)) {
-                $n = 0;
-                foreach ($this->instanceStatistics as $item) {
-                    $res['InstanceStatistics'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->instanceStatistics)) {
+                $res['InstanceStatistics'] = [];
+                $n1 = 0;
+                foreach ($this->instanceStatistics as $item1) {
+                    $res['InstanceStatistics'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -48,23 +51,24 @@ class DescribeInstanceStatisticsResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeInstanceStatisticsResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['InstanceStatistics'])) {
             if (!empty($map['InstanceStatistics'])) {
                 $model->instanceStatistics = [];
-                $n                         = 0;
-                foreach ($map['InstanceStatistics'] as $item) {
-                    $model->instanceStatistics[$n++] = null !== $item ? instanceStatistics::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['InstanceStatistics'] as $item1) {
+                    $model->instanceStatistics[$n1++] = instanceStatistics::fromMap($item1);
                 }
             }
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

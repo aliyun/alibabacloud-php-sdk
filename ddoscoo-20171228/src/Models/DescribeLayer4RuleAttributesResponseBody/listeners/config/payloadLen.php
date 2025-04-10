@@ -4,20 +4,16 @@
 
 namespace AlibabaCloud\SDK\Ddoscoo\V20171228\Models\DescribeLayer4RuleAttributesResponseBody\listeners\config;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class payloadLen extends Model
 {
     /**
-     * @example 2
-     *
      * @var int
      */
     public $max;
 
     /**
-     * @example 1
-     *
      * @var int
      */
     public $min;
@@ -28,14 +24,16 @@ class payloadLen extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->max) {
             $res['Max'] = $this->max;
         }
+
         if (null !== $this->min) {
             $res['Min'] = $this->min;
         }
@@ -43,17 +41,18 @@ class payloadLen extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return payloadLen
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Max'])) {
             $model->max = $map['Max'];
         }
+
         if (isset($map['Min'])) {
             $model->min = $map['Min'];
         }

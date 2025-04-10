@@ -4,38 +4,36 @@
 
 namespace AlibabaCloud\SDK\Ddoscoo\V20171228\Models\DescribeDomainAccessModeResponseBody;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class domainModeList extends Model
 {
     /**
-     * @example 1
-     *
      * @var int
      */
     public $accessMode;
 
     /**
-     * @example www.aliyun.com
-     *
      * @var string
      */
     public $domain;
     protected $_name = [
         'accessMode' => 'AccessMode',
-        'domain'     => 'Domain',
+        'domain' => 'Domain',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->accessMode) {
             $res['AccessMode'] = $this->accessMode;
         }
+
         if (null !== $this->domain) {
             $res['Domain'] = $this->domain;
         }
@@ -43,17 +41,18 @@ class domainModeList extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return domainModeList
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AccessMode'])) {
             $model->accessMode = $map['AccessMode'];
         }
+
         if (isset($map['Domain'])) {
             $model->domain = $map['Domain'];
         }

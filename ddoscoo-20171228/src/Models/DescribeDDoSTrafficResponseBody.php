@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Ddoscoo\V20171228\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Ddoscoo\V20171228\Models\DescribeDDoSTrafficResponseBody\DDoSTrafficPoints;
-use AlibabaCloud\Tea\Model;
 
 class DescribeDDoSTrafficResponseBody extends Model
 {
@@ -15,54 +15,55 @@ class DescribeDDoSTrafficResponseBody extends Model
     public $DDoSTrafficPoints;
 
     /**
-     * @example 23482234
-     *
      * @var int
      */
     public $defenseInBytes;
 
     /**
-     * @example CF33B4C3-196E-4015-AADD-5CAD00057B80
-     *
      * @var string
      */
     public $requestId;
 
     /**
-     * @example 19284762
-     *
      * @var int
      */
     public $sourceInBytes;
     protected $_name = [
         'DDoSTrafficPoints' => 'DDoSTrafficPoints',
-        'defenseInBytes'    => 'DefenseInBytes',
-        'requestId'         => 'RequestId',
-        'sourceInBytes'     => 'SourceInBytes',
+        'defenseInBytes' => 'DefenseInBytes',
+        'requestId' => 'RequestId',
+        'sourceInBytes' => 'SourceInBytes',
     ];
 
     public function validate()
     {
+        if (\is_array($this->DDoSTrafficPoints)) {
+            Model::validateArray($this->DDoSTrafficPoints);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->DDoSTrafficPoints) {
-            $res['DDoSTrafficPoints'] = [];
-            if (null !== $this->DDoSTrafficPoints && \is_array($this->DDoSTrafficPoints)) {
-                $n = 0;
-                foreach ($this->DDoSTrafficPoints as $item) {
-                    $res['DDoSTrafficPoints'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->DDoSTrafficPoints)) {
+                $res['DDoSTrafficPoints'] = [];
+                $n1 = 0;
+                foreach ($this->DDoSTrafficPoints as $item1) {
+                    $res['DDoSTrafficPoints'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
+
         if (null !== $this->defenseInBytes) {
             $res['DefenseInBytes'] = $this->defenseInBytes;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
+
         if (null !== $this->sourceInBytes) {
             $res['SourceInBytes'] = $this->sourceInBytes;
         }
@@ -70,29 +71,32 @@ class DescribeDDoSTrafficResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeDDoSTrafficResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['DDoSTrafficPoints'])) {
             if (!empty($map['DDoSTrafficPoints'])) {
                 $model->DDoSTrafficPoints = [];
-                $n                        = 0;
-                foreach ($map['DDoSTrafficPoints'] as $item) {
-                    $model->DDoSTrafficPoints[$n++] = null !== $item ? DDoSTrafficPoints::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['DDoSTrafficPoints'] as $item1) {
+                    $model->DDoSTrafficPoints[$n1++] = DDoSTrafficPoints::fromMap($item1);
                 }
             }
         }
+
         if (isset($map['DefenseInBytes'])) {
             $model->defenseInBytes = $map['DefenseInBytes'];
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
+
         if (isset($map['SourceInBytes'])) {
             $model->sourceInBytes = $map['SourceInBytes'];
         }

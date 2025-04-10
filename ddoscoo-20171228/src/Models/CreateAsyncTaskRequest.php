@@ -4,53 +4,46 @@
 
 namespace AlibabaCloud\SDK\Ddoscoo\V20171228\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class CreateAsyncTaskRequest extends Model
 {
     /**
-     * @example test
-     *
      * @var string
      */
     public $resourceGroupId;
 
     /**
-     * @description This parameter is required.
-     *
-     * @example {"timestamp": 1530276554, "instanceId": "ddoscoo-woieuroi234"}
-     *
      * @var string
      */
     public $taskParams;
 
     /**
-     * @description This parameter is required.
-     *
-     * @example 1
-     *
      * @var int
      */
     public $taskType;
     protected $_name = [
         'resourceGroupId' => 'ResourceGroupId',
-        'taskParams'      => 'TaskParams',
-        'taskType'        => 'TaskType',
+        'taskParams' => 'TaskParams',
+        'taskType' => 'TaskType',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->resourceGroupId) {
             $res['ResourceGroupId'] = $this->resourceGroupId;
         }
+
         if (null !== $this->taskParams) {
             $res['TaskParams'] = $this->taskParams;
         }
+
         if (null !== $this->taskType) {
             $res['TaskType'] = $this->taskType;
         }
@@ -58,20 +51,22 @@ class CreateAsyncTaskRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return CreateAsyncTaskRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ResourceGroupId'])) {
             $model->resourceGroupId = $map['ResourceGroupId'];
         }
+
         if (isset($map['TaskParams'])) {
             $model->taskParams = $map['TaskParams'];
         }
+
         if (isset($map['TaskType'])) {
             $model->taskType = $map['TaskType'];
         }

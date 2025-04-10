@@ -4,62 +4,56 @@
 
 namespace AlibabaCloud\SDK\Ddoscoo\V20171228\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class CloseDomainSlsConfigRequest extends Model
 {
     /**
-     * @description This parameter is required.
-     *
-     * @example www.example.com
-     *
      * @var string
      */
     public $domain;
 
     /**
-     * @example cn
-     *
      * @var string
      */
     public $lang;
 
     /**
-     * @example xx
-     *
      * @var string
      */
     public $resourceGroupId;
 
     /**
-     * @example 1.1.1.1
-     *
      * @var string
      */
     public $sourceIp;
     protected $_name = [
-        'domain'          => 'Domain',
-        'lang'            => 'Lang',
+        'domain' => 'Domain',
+        'lang' => 'Lang',
         'resourceGroupId' => 'ResourceGroupId',
-        'sourceIp'        => 'SourceIp',
+        'sourceIp' => 'SourceIp',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->domain) {
             $res['Domain'] = $this->domain;
         }
+
         if (null !== $this->lang) {
             $res['Lang'] = $this->lang;
         }
+
         if (null !== $this->resourceGroupId) {
             $res['ResourceGroupId'] = $this->resourceGroupId;
         }
+
         if (null !== $this->sourceIp) {
             $res['SourceIp'] = $this->sourceIp;
         }
@@ -67,23 +61,26 @@ class CloseDomainSlsConfigRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return CloseDomainSlsConfigRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Domain'])) {
             $model->domain = $map['Domain'];
         }
+
         if (isset($map['Lang'])) {
             $model->lang = $map['Lang'];
         }
+
         if (isset($map['ResourceGroupId'])) {
             $model->resourceGroupId = $map['ResourceGroupId'];
         }
+
         if (isset($map['SourceIp'])) {
             $model->sourceIp = $map['SourceIp'];
         }

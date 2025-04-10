@@ -4,8 +4,7 @@
 
 namespace AlibabaCloud\SDK\Ddoscoo\V20171228;
 
-use AlibabaCloud\Endpoint\Endpoint;
-use AlibabaCloud\OpenApiUtil\OpenApiUtilClient;
+use AlibabaCloud\Dara\Models\RuntimeOptions;
 use AlibabaCloud\SDK\Ddoscoo\V20171228\Models\AddLayer7CCRuleRequest;
 use AlibabaCloud\SDK\Ddoscoo\V20171228\Models\AddLayer7CCRuleResponse;
 use AlibabaCloud\SDK\Ddoscoo\V20171228\Models\CloseDomainSlsConfigRequest;
@@ -16,6 +15,7 @@ use AlibabaCloud\SDK\Ddoscoo\V20171228\Models\ConfigLayer4RuleAttributeRequest;
 use AlibabaCloud\SDK\Ddoscoo\V20171228\Models\ConfigLayer4RuleAttributeResponse;
 use AlibabaCloud\SDK\Ddoscoo\V20171228\Models\ConfigLayer4RuleRequest;
 use AlibabaCloud\SDK\Ddoscoo\V20171228\Models\ConfigLayer4RuleResponse;
+use AlibabaCloud\SDK\Ddoscoo\V20171228\Models\ConfigLayer4RuleShrinkRequest;
 use AlibabaCloud\SDK\Ddoscoo\V20171228\Models\ConfigLayer7BlackWhiteListRequest;
 use AlibabaCloud\SDK\Ddoscoo\V20171228\Models\ConfigLayer7BlackWhiteListResponse;
 use AlibabaCloud\SDK\Ddoscoo\V20171228\Models\ConfigLayer7CCRuleRequest;
@@ -30,6 +30,7 @@ use AlibabaCloud\SDK\Ddoscoo\V20171228\Models\CreateAsyncTaskRequest;
 use AlibabaCloud\SDK\Ddoscoo\V20171228\Models\CreateAsyncTaskResponse;
 use AlibabaCloud\SDK\Ddoscoo\V20171228\Models\CreateLayer4RuleRequest;
 use AlibabaCloud\SDK\Ddoscoo\V20171228\Models\CreateLayer4RuleResponse;
+use AlibabaCloud\SDK\Ddoscoo\V20171228\Models\CreateLayer4RuleShrinkRequest;
 use AlibabaCloud\SDK\Ddoscoo\V20171228\Models\CreateLayer7RuleRequest;
 use AlibabaCloud\SDK\Ddoscoo\V20171228\Models\CreateLayer7RuleResponse;
 use AlibabaCloud\SDK\Ddoscoo\V20171228\Models\DeleteAsyncTaskRequest;
@@ -144,11 +145,10 @@ use AlibabaCloud\SDK\Ddoscoo\V20171228\Models\TagResourcesRequest;
 use AlibabaCloud\SDK\Ddoscoo\V20171228\Models\TagResourcesResponse;
 use AlibabaCloud\SDK\Ddoscoo\V20171228\Models\UntagResourcesRequest;
 use AlibabaCloud\SDK\Ddoscoo\V20171228\Models\UntagResourcesResponse;
-use AlibabaCloud\Tea\Utils\Utils;
-use AlibabaCloud\Tea\Utils\Utils\RuntimeOptions;
 use Darabonba\OpenApi\Models\OpenApiRequest;
 use Darabonba\OpenApi\Models\Params;
 use Darabonba\OpenApi\OpenApiClient;
+use Darabonba\OpenApi\Utils;
 
 class Ddoscoo extends OpenApiClient
 {
@@ -173,68 +173,83 @@ class Ddoscoo extends OpenApiClient
      */
     public function getEndpoint($productId, $regionId, $endpointRule, $network, $suffix, $endpointMap, $endpoint)
     {
-        if (!Utils::empty_($endpoint)) {
+        if (null !== $endpoint) {
             return $endpoint;
         }
-        if (!Utils::isUnset($endpointMap) && !Utils::empty_(@$endpointMap[$regionId])) {
+
+        if (null !== $endpointMap && null !== @$endpointMap[$regionId]) {
             return @$endpointMap[$regionId];
         }
 
-        return Endpoint::getEndpointRules($productId, $regionId, $endpointRule, $network, $suffix);
+        return Utils::getEndpointRules($productId, $regionId, $endpointRule, $network, $suffix);
     }
 
     /**
-     * @param AddLayer7CCRuleRequest $request AddLayer7CCRuleRequest
-     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
+     * @param request - AddLayer7CCRuleRequest
+     * @param runtime - runtime options for this request RuntimeOptions
      *
-     * @return AddLayer7CCRuleResponse AddLayer7CCRuleResponse
+     * @returns AddLayer7CCRuleResponse
+     *
+     * @param AddLayer7CCRuleRequest $request
+     * @param RuntimeOptions         $runtime
+     *
+     * @return AddLayer7CCRuleResponse
      */
     public function addLayer7CCRuleWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->act)) {
-            $query['Act'] = $request->act;
+        if (null !== $request->act) {
+            @$query['Act'] = $request->act;
         }
-        if (!Utils::isUnset($request->count)) {
-            $query['Count'] = $request->count;
+
+        if (null !== $request->count) {
+            @$query['Count'] = $request->count;
         }
-        if (!Utils::isUnset($request->domain)) {
-            $query['Domain'] = $request->domain;
+
+        if (null !== $request->domain) {
+            @$query['Domain'] = $request->domain;
         }
-        if (!Utils::isUnset($request->interval)) {
-            $query['Interval'] = $request->interval;
+
+        if (null !== $request->interval) {
+            @$query['Interval'] = $request->interval;
         }
-        if (!Utils::isUnset($request->mode)) {
-            $query['Mode'] = $request->mode;
+
+        if (null !== $request->mode) {
+            @$query['Mode'] = $request->mode;
         }
-        if (!Utils::isUnset($request->name)) {
-            $query['Name'] = $request->name;
+
+        if (null !== $request->name) {
+            @$query['Name'] = $request->name;
         }
-        if (!Utils::isUnset($request->resourceGroupId)) {
-            $query['ResourceGroupId'] = $request->resourceGroupId;
+
+        if (null !== $request->resourceGroupId) {
+            @$query['ResourceGroupId'] = $request->resourceGroupId;
         }
-        if (!Utils::isUnset($request->ttl)) {
-            $query['Ttl'] = $request->ttl;
+
+        if (null !== $request->ttl) {
+            @$query['Ttl'] = $request->ttl;
         }
-        if (!Utils::isUnset($request->uri)) {
-            $query['Uri'] = $request->uri;
+
+        if (null !== $request->uri) {
+            @$query['Uri'] = $request->uri;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'AddLayer7CCRule',
-            'version'     => '2017-12-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'AddLayer7CCRule',
+            'version' => '2017-12-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return AddLayer7CCRuleResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -242,9 +257,13 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * @param AddLayer7CCRuleRequest $request AddLayer7CCRuleRequest
+     * @param request - AddLayer7CCRuleRequest
      *
-     * @return AddLayer7CCRuleResponse AddLayer7CCRuleResponse
+     * @returns AddLayer7CCRuleResponse
+     *
+     * @param AddLayer7CCRuleRequest $request
+     *
+     * @return AddLayer7CCRuleResponse
      */
     public function addLayer7CCRule($request)
     {
@@ -254,42 +273,51 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * @param CloseDomainSlsConfigRequest $request CloseDomainSlsConfigRequest
-     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
+     * @param request - CloseDomainSlsConfigRequest
+     * @param runtime - runtime options for this request RuntimeOptions
      *
-     * @return CloseDomainSlsConfigResponse CloseDomainSlsConfigResponse
+     * @returns CloseDomainSlsConfigResponse
+     *
+     * @param CloseDomainSlsConfigRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return CloseDomainSlsConfigResponse
      */
     public function closeDomainSlsConfigWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->domain)) {
-            $query['Domain'] = $request->domain;
+        if (null !== $request->domain) {
+            @$query['Domain'] = $request->domain;
         }
-        if (!Utils::isUnset($request->lang)) {
-            $query['Lang'] = $request->lang;
+
+        if (null !== $request->lang) {
+            @$query['Lang'] = $request->lang;
         }
-        if (!Utils::isUnset($request->resourceGroupId)) {
-            $query['ResourceGroupId'] = $request->resourceGroupId;
+
+        if (null !== $request->resourceGroupId) {
+            @$query['ResourceGroupId'] = $request->resourceGroupId;
         }
-        if (!Utils::isUnset($request->sourceIp)) {
-            $query['SourceIp'] = $request->sourceIp;
+
+        if (null !== $request->sourceIp) {
+            @$query['SourceIp'] = $request->sourceIp;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'CloseDomainSlsConfig',
-            'version'     => '2017-12-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CloseDomainSlsConfig',
+            'version' => '2017-12-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return CloseDomainSlsConfigResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -297,9 +325,13 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * @param CloseDomainSlsConfigRequest $request CloseDomainSlsConfigRequest
+     * @param request - CloseDomainSlsConfigRequest
      *
-     * @return CloseDomainSlsConfigResponse CloseDomainSlsConfigResponse
+     * @returns CloseDomainSlsConfigResponse
+     *
+     * @param CloseDomainSlsConfigRequest $request
+     *
+     * @return CloseDomainSlsConfigResponse
      */
     public function closeDomainSlsConfig($request)
     {
@@ -309,42 +341,51 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * @param ConfigHealthCheckRequest $request ConfigHealthCheckRequest
-     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
+     * @param request - ConfigHealthCheckRequest
+     * @param runtime - runtime options for this request RuntimeOptions
      *
-     * @return ConfigHealthCheckResponse ConfigHealthCheckResponse
+     * @returns ConfigHealthCheckResponse
+     *
+     * @param ConfigHealthCheckRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return ConfigHealthCheckResponse
      */
     public function configHealthCheckWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->forwardProtocol)) {
-            $query['ForwardProtocol'] = $request->forwardProtocol;
+        if (null !== $request->forwardProtocol) {
+            @$query['ForwardProtocol'] = $request->forwardProtocol;
         }
-        if (!Utils::isUnset($request->frontendPort)) {
-            $query['FrontendPort'] = $request->frontendPort;
+
+        if (null !== $request->frontendPort) {
+            @$query['FrontendPort'] = $request->frontendPort;
         }
-        if (!Utils::isUnset($request->healthCheck)) {
-            $query['HealthCheck'] = $request->healthCheck;
+
+        if (null !== $request->healthCheck) {
+            @$query['HealthCheck'] = $request->healthCheck;
         }
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ConfigHealthCheck',
-            'version'     => '2017-12-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ConfigHealthCheck',
+            'version' => '2017-12-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return ConfigHealthCheckResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -352,9 +393,13 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * @param ConfigHealthCheckRequest $request ConfigHealthCheckRequest
+     * @param request - ConfigHealthCheckRequest
      *
-     * @return ConfigHealthCheckResponse ConfigHealthCheckResponse
+     * @returns ConfigHealthCheckResponse
+     *
+     * @param ConfigHealthCheckRequest $request
+     *
+     * @return ConfigHealthCheckResponse
      */
     public function configHealthCheck($request)
     {
@@ -364,36 +409,53 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * @param ConfigLayer4RuleRequest $request ConfigLayer4RuleRequest
-     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
+     * @param tmpReq - ConfigLayer4RuleRequest
+     * @param runtime - runtime options for this request RuntimeOptions
      *
-     * @return ConfigLayer4RuleResponse ConfigLayer4RuleResponse
+     * @returns ConfigLayer4RuleResponse
+     *
+     * @param ConfigLayer4RuleRequest $tmpReq
+     * @param RuntimeOptions          $runtime
+     *
+     * @return ConfigLayer4RuleResponse
      */
-    public function configLayer4RuleWithOptions($request, $runtime)
+    public function configLayer4RuleWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($request);
+        $tmpReq->validate();
+        $request = new ConfigLayer4RuleShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->usTimeout) {
+            $request->usTimeoutShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->usTimeout, 'UsTimeout', 'json');
+        }
+
         $query = [];
-        if (!Utils::isUnset($request->listeners)) {
-            $query['Listeners'] = $request->listeners;
+        if (null !== $request->listeners) {
+            @$query['Listeners'] = $request->listeners;
         }
-        if (!Utils::isUnset($request->proxyEnable)) {
-            $query['ProxyEnable'] = $request->proxyEnable;
+
+        if (null !== $request->proxyEnable) {
+            @$query['ProxyEnable'] = $request->proxyEnable;
         }
+
+        if (null !== $request->usTimeoutShrink) {
+            @$query['UsTimeout'] = $request->usTimeoutShrink;
+        }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ConfigLayer4Rule',
-            'version'     => '2017-12-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ConfigLayer4Rule',
+            'version' => '2017-12-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return ConfigLayer4RuleResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -401,9 +463,13 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * @param ConfigLayer4RuleRequest $request ConfigLayer4RuleRequest
+     * @param request - ConfigLayer4RuleRequest
      *
-     * @return ConfigLayer4RuleResponse ConfigLayer4RuleResponse
+     * @returns ConfigLayer4RuleResponse
+     *
+     * @param ConfigLayer4RuleRequest $request
+     *
+     * @return ConfigLayer4RuleResponse
      */
     public function configLayer4Rule($request)
     {
@@ -413,42 +479,51 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * @param ConfigLayer4RuleAttributeRequest $request ConfigLayer4RuleAttributeRequest
-     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
+     * @param request - ConfigLayer4RuleAttributeRequest
+     * @param runtime - runtime options for this request RuntimeOptions
      *
-     * @return ConfigLayer4RuleAttributeResponse ConfigLayer4RuleAttributeResponse
+     * @returns ConfigLayer4RuleAttributeResponse
+     *
+     * @param ConfigLayer4RuleAttributeRequest $request
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return ConfigLayer4RuleAttributeResponse
      */
     public function configLayer4RuleAttributeWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->config)) {
-            $query['Config'] = $request->config;
+        if (null !== $request->config) {
+            @$query['Config'] = $request->config;
         }
-        if (!Utils::isUnset($request->forwardProtocol)) {
-            $query['ForwardProtocol'] = $request->forwardProtocol;
+
+        if (null !== $request->forwardProtocol) {
+            @$query['ForwardProtocol'] = $request->forwardProtocol;
         }
-        if (!Utils::isUnset($request->frontendPort)) {
-            $query['FrontendPort'] = $request->frontendPort;
+
+        if (null !== $request->frontendPort) {
+            @$query['FrontendPort'] = $request->frontendPort;
         }
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ConfigLayer4RuleAttribute',
-            'version'     => '2017-12-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ConfigLayer4RuleAttribute',
+            'version' => '2017-12-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return ConfigLayer4RuleAttributeResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -456,9 +531,13 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * @param ConfigLayer4RuleAttributeRequest $request ConfigLayer4RuleAttributeRequest
+     * @param request - ConfigLayer4RuleAttributeRequest
      *
-     * @return ConfigLayer4RuleAttributeResponse ConfigLayer4RuleAttributeResponse
+     * @returns ConfigLayer4RuleAttributeResponse
+     *
+     * @param ConfigLayer4RuleAttributeRequest $request
+     *
+     * @return ConfigLayer4RuleAttributeResponse
      */
     public function configLayer4RuleAttribute($request)
     {
@@ -468,42 +547,51 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * @param ConfigLayer7BlackWhiteListRequest $request ConfigLayer7BlackWhiteListRequest
-     * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
+     * @param request - ConfigLayer7BlackWhiteListRequest
+     * @param runtime - runtime options for this request RuntimeOptions
      *
-     * @return ConfigLayer7BlackWhiteListResponse ConfigLayer7BlackWhiteListResponse
+     * @returns ConfigLayer7BlackWhiteListResponse
+     *
+     * @param ConfigLayer7BlackWhiteListRequest $request
+     * @param RuntimeOptions                    $runtime
+     *
+     * @return ConfigLayer7BlackWhiteListResponse
      */
     public function configLayer7BlackWhiteListWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->blackList)) {
-            $query['BlackList'] = $request->blackList;
+        if (null !== $request->blackList) {
+            @$query['BlackList'] = $request->blackList;
         }
-        if (!Utils::isUnset($request->domain)) {
-            $query['Domain'] = $request->domain;
+
+        if (null !== $request->domain) {
+            @$query['Domain'] = $request->domain;
         }
-        if (!Utils::isUnset($request->resourceGroupId)) {
-            $query['ResourceGroupId'] = $request->resourceGroupId;
+
+        if (null !== $request->resourceGroupId) {
+            @$query['ResourceGroupId'] = $request->resourceGroupId;
         }
-        if (!Utils::isUnset($request->whiteList)) {
-            $query['WhiteList'] = $request->whiteList;
+
+        if (null !== $request->whiteList) {
+            @$query['WhiteList'] = $request->whiteList;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ConfigLayer7BlackWhiteList',
-            'version'     => '2017-12-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ConfigLayer7BlackWhiteList',
+            'version' => '2017-12-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return ConfigLayer7BlackWhiteListResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -511,9 +599,13 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * @param ConfigLayer7BlackWhiteListRequest $request ConfigLayer7BlackWhiteListRequest
+     * @param request - ConfigLayer7BlackWhiteListRequest
      *
-     * @return ConfigLayer7BlackWhiteListResponse ConfigLayer7BlackWhiteListResponse
+     * @returns ConfigLayer7BlackWhiteListResponse
+     *
+     * @param ConfigLayer7BlackWhiteListRequest $request
+     *
+     * @return ConfigLayer7BlackWhiteListResponse
      */
     public function configLayer7BlackWhiteList($request)
     {
@@ -523,57 +615,71 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * @param ConfigLayer7CCRuleRequest $request ConfigLayer7CCRuleRequest
-     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
+     * @param request - ConfigLayer7CCRuleRequest
+     * @param runtime - runtime options for this request RuntimeOptions
      *
-     * @return ConfigLayer7CCRuleResponse ConfigLayer7CCRuleResponse
+     * @returns ConfigLayer7CCRuleResponse
+     *
+     * @param ConfigLayer7CCRuleRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return ConfigLayer7CCRuleResponse
      */
     public function configLayer7CCRuleWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->act)) {
-            $query['Act'] = $request->act;
+        if (null !== $request->act) {
+            @$query['Act'] = $request->act;
         }
-        if (!Utils::isUnset($request->count)) {
-            $query['Count'] = $request->count;
+
+        if (null !== $request->count) {
+            @$query['Count'] = $request->count;
         }
-        if (!Utils::isUnset($request->domain)) {
-            $query['Domain'] = $request->domain;
+
+        if (null !== $request->domain) {
+            @$query['Domain'] = $request->domain;
         }
-        if (!Utils::isUnset($request->interval)) {
-            $query['Interval'] = $request->interval;
+
+        if (null !== $request->interval) {
+            @$query['Interval'] = $request->interval;
         }
-        if (!Utils::isUnset($request->mode)) {
-            $query['Mode'] = $request->mode;
+
+        if (null !== $request->mode) {
+            @$query['Mode'] = $request->mode;
         }
-        if (!Utils::isUnset($request->name)) {
-            $query['Name'] = $request->name;
+
+        if (null !== $request->name) {
+            @$query['Name'] = $request->name;
         }
-        if (!Utils::isUnset($request->resourceGroupId)) {
-            $query['ResourceGroupId'] = $request->resourceGroupId;
+
+        if (null !== $request->resourceGroupId) {
+            @$query['ResourceGroupId'] = $request->resourceGroupId;
         }
-        if (!Utils::isUnset($request->ttl)) {
-            $query['Ttl'] = $request->ttl;
+
+        if (null !== $request->ttl) {
+            @$query['Ttl'] = $request->ttl;
         }
-        if (!Utils::isUnset($request->uri)) {
-            $query['Uri'] = $request->uri;
+
+        if (null !== $request->uri) {
+            @$query['Uri'] = $request->uri;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ConfigLayer7CCRule',
-            'version'     => '2017-12-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ConfigLayer7CCRule',
+            'version' => '2017-12-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return ConfigLayer7CCRuleResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -581,9 +687,13 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * @param ConfigLayer7CCRuleRequest $request ConfigLayer7CCRuleRequest
+     * @param request - ConfigLayer7CCRuleRequest
      *
-     * @return ConfigLayer7CCRuleResponse ConfigLayer7CCRuleResponse
+     * @returns ConfigLayer7CCRuleResponse
+     *
+     * @param ConfigLayer7CCRuleRequest $request
+     *
+     * @return ConfigLayer7CCRuleResponse
      */
     public function configLayer7CCRule($request)
     {
@@ -593,39 +703,47 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * @param ConfigLayer7CCTemplateRequest $request ConfigLayer7CCTemplateRequest
-     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
+     * @param request - ConfigLayer7CCTemplateRequest
+     * @param runtime - runtime options for this request RuntimeOptions
      *
-     * @return ConfigLayer7CCTemplateResponse ConfigLayer7CCTemplateResponse
+     * @returns ConfigLayer7CCTemplateResponse
+     *
+     * @param ConfigLayer7CCTemplateRequest $request
+     * @param RuntimeOptions                $runtime
+     *
+     * @return ConfigLayer7CCTemplateResponse
      */
     public function configLayer7CCTemplateWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->domain)) {
-            $query['Domain'] = $request->domain;
+        if (null !== $request->domain) {
+            @$query['Domain'] = $request->domain;
         }
-        if (!Utils::isUnset($request->resourceGroupId)) {
-            $query['ResourceGroupId'] = $request->resourceGroupId;
+
+        if (null !== $request->resourceGroupId) {
+            @$query['ResourceGroupId'] = $request->resourceGroupId;
         }
-        if (!Utils::isUnset($request->template)) {
-            $query['Template'] = $request->template;
+
+        if (null !== $request->template) {
+            @$query['Template'] = $request->template;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ConfigLayer7CCTemplate',
-            'version'     => '2017-12-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ConfigLayer7CCTemplate',
+            'version' => '2017-12-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return ConfigLayer7CCTemplateResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -633,9 +751,13 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * @param ConfigLayer7CCTemplateRequest $request ConfigLayer7CCTemplateRequest
+     * @param request - ConfigLayer7CCTemplateRequest
      *
-     * @return ConfigLayer7CCTemplateResponse ConfigLayer7CCTemplateResponse
+     * @returns ConfigLayer7CCTemplateResponse
+     *
+     * @param ConfigLayer7CCTemplateRequest $request
+     *
+     * @return ConfigLayer7CCTemplateResponse
      */
     public function configLayer7CCTemplate($request)
     {
@@ -645,54 +767,67 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * @param ConfigLayer7CertRequest $request ConfigLayer7CertRequest
-     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
+     * @param request - ConfigLayer7CertRequest
+     * @param runtime - runtime options for this request RuntimeOptions
      *
-     * @return ConfigLayer7CertResponse ConfigLayer7CertResponse
+     * @returns ConfigLayer7CertResponse
+     *
+     * @param ConfigLayer7CertRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return ConfigLayer7CertResponse
      */
     public function configLayer7CertWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->cert)) {
-            $query['Cert'] = $request->cert;
+        if (null !== $request->cert) {
+            @$query['Cert'] = $request->cert;
         }
-        if (!Utils::isUnset($request->certId)) {
-            $query['CertId'] = $request->certId;
+
+        if (null !== $request->certId) {
+            @$query['CertId'] = $request->certId;
         }
-        if (!Utils::isUnset($request->certIdentifier)) {
-            $query['CertIdentifier'] = $request->certIdentifier;
+
+        if (null !== $request->certIdentifier) {
+            @$query['CertIdentifier'] = $request->certIdentifier;
         }
-        if (!Utils::isUnset($request->certName)) {
-            $query['CertName'] = $request->certName;
+
+        if (null !== $request->certName) {
+            @$query['CertName'] = $request->certName;
         }
-        if (!Utils::isUnset($request->certRegion)) {
-            $query['CertRegion'] = $request->certRegion;
+
+        if (null !== $request->certRegion) {
+            @$query['CertRegion'] = $request->certRegion;
         }
-        if (!Utils::isUnset($request->domain)) {
-            $query['Domain'] = $request->domain;
+
+        if (null !== $request->domain) {
+            @$query['Domain'] = $request->domain;
         }
-        if (!Utils::isUnset($request->key)) {
-            $query['Key'] = $request->key;
+
+        if (null !== $request->key) {
+            @$query['Key'] = $request->key;
         }
-        if (!Utils::isUnset($request->resourceGroupId)) {
-            $query['ResourceGroupId'] = $request->resourceGroupId;
+
+        if (null !== $request->resourceGroupId) {
+            @$query['ResourceGroupId'] = $request->resourceGroupId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ConfigLayer7Cert',
-            'version'     => '2017-12-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ConfigLayer7Cert',
+            'version' => '2017-12-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return ConfigLayer7CertResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -700,9 +835,13 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * @param ConfigLayer7CertRequest $request ConfigLayer7CertRequest
+     * @param request - ConfigLayer7CertRequest
      *
-     * @return ConfigLayer7CertResponse ConfigLayer7CertResponse
+     * @returns ConfigLayer7CertResponse
+     *
+     * @param ConfigLayer7CertRequest $request
+     *
+     * @return ConfigLayer7CertResponse
      */
     public function configLayer7Cert($request)
     {
@@ -712,51 +851,63 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * @param ConfigLayer7RuleRequest $request ConfigLayer7RuleRequest
-     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
+     * @param request - ConfigLayer7RuleRequest
+     * @param runtime - runtime options for this request RuntimeOptions
      *
-     * @return ConfigLayer7RuleResponse ConfigLayer7RuleResponse
+     * @returns ConfigLayer7RuleResponse
+     *
+     * @param ConfigLayer7RuleRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return ConfigLayer7RuleResponse
      */
     public function configLayer7RuleWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->domain)) {
-            $query['Domain'] = $request->domain;
+        if (null !== $request->domain) {
+            @$query['Domain'] = $request->domain;
         }
-        if (!Utils::isUnset($request->instanceIds)) {
-            $query['InstanceIds'] = $request->instanceIds;
+
+        if (null !== $request->instanceIds) {
+            @$query['InstanceIds'] = $request->instanceIds;
         }
-        if (!Utils::isUnset($request->proxyTypeList)) {
-            $query['ProxyTypeList'] = $request->proxyTypeList;
+
+        if (null !== $request->proxyTypeList) {
+            @$query['ProxyTypeList'] = $request->proxyTypeList;
         }
-        if (!Utils::isUnset($request->proxyTypes)) {
-            $query['ProxyTypes'] = $request->proxyTypes;
+
+        if (null !== $request->proxyTypes) {
+            @$query['ProxyTypes'] = $request->proxyTypes;
         }
-        if (!Utils::isUnset($request->realServers)) {
-            $query['RealServers'] = $request->realServers;
+
+        if (null !== $request->realServers) {
+            @$query['RealServers'] = $request->realServers;
         }
-        if (!Utils::isUnset($request->resourceGroupId)) {
-            $query['ResourceGroupId'] = $request->resourceGroupId;
+
+        if (null !== $request->resourceGroupId) {
+            @$query['ResourceGroupId'] = $request->resourceGroupId;
         }
-        if (!Utils::isUnset($request->rsType)) {
-            $query['RsType'] = $request->rsType;
+
+        if (null !== $request->rsType) {
+            @$query['RsType'] = $request->rsType;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ConfigLayer7Rule',
-            'version'     => '2017-12-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ConfigLayer7Rule',
+            'version' => '2017-12-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return ConfigLayer7RuleResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -764,9 +915,13 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * @param ConfigLayer7RuleRequest $request ConfigLayer7RuleRequest
+     * @param request - ConfigLayer7RuleRequest
      *
-     * @return ConfigLayer7RuleResponse ConfigLayer7RuleResponse
+     * @returns ConfigLayer7RuleResponse
+     *
+     * @param ConfigLayer7RuleRequest $request
+     *
+     * @return ConfigLayer7RuleResponse
      */
     public function configLayer7Rule($request)
     {
@@ -776,39 +931,47 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * @param CreateAsyncTaskRequest $request CreateAsyncTaskRequest
-     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
+     * @param request - CreateAsyncTaskRequest
+     * @param runtime - runtime options for this request RuntimeOptions
      *
-     * @return CreateAsyncTaskResponse CreateAsyncTaskResponse
+     * @returns CreateAsyncTaskResponse
+     *
+     * @param CreateAsyncTaskRequest $request
+     * @param RuntimeOptions         $runtime
+     *
+     * @return CreateAsyncTaskResponse
      */
     public function createAsyncTaskWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->resourceGroupId)) {
-            $query['ResourceGroupId'] = $request->resourceGroupId;
+        if (null !== $request->resourceGroupId) {
+            @$query['ResourceGroupId'] = $request->resourceGroupId;
         }
-        if (!Utils::isUnset($request->taskParams)) {
-            $query['TaskParams'] = $request->taskParams;
+
+        if (null !== $request->taskParams) {
+            @$query['TaskParams'] = $request->taskParams;
         }
-        if (!Utils::isUnset($request->taskType)) {
-            $query['TaskType'] = $request->taskType;
+
+        if (null !== $request->taskType) {
+            @$query['TaskType'] = $request->taskType;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'CreateAsyncTask',
-            'version'     => '2017-12-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CreateAsyncTask',
+            'version' => '2017-12-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return CreateAsyncTaskResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -816,9 +979,13 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * @param CreateAsyncTaskRequest $request CreateAsyncTaskRequest
+     * @param request - CreateAsyncTaskRequest
      *
-     * @return CreateAsyncTaskResponse CreateAsyncTaskResponse
+     * @returns CreateAsyncTaskResponse
+     *
+     * @param CreateAsyncTaskRequest $request
+     *
+     * @return CreateAsyncTaskResponse
      */
     public function createAsyncTask($request)
     {
@@ -828,36 +995,53 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * @param CreateLayer4RuleRequest $request CreateLayer4RuleRequest
-     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
+     * @param tmpReq - CreateLayer4RuleRequest
+     * @param runtime - runtime options for this request RuntimeOptions
      *
-     * @return CreateLayer4RuleResponse CreateLayer4RuleResponse
+     * @returns CreateLayer4RuleResponse
+     *
+     * @param CreateLayer4RuleRequest $tmpReq
+     * @param RuntimeOptions          $runtime
+     *
+     * @return CreateLayer4RuleResponse
      */
-    public function createLayer4RuleWithOptions($request, $runtime)
+    public function createLayer4RuleWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($request);
+        $tmpReq->validate();
+        $request = new CreateLayer4RuleShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->usTimeout) {
+            $request->usTimeoutShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->usTimeout, 'UsTimeout', 'json');
+        }
+
         $query = [];
-        if (!Utils::isUnset($request->listeners)) {
-            $query['Listeners'] = $request->listeners;
+        if (null !== $request->listeners) {
+            @$query['Listeners'] = $request->listeners;
         }
-        if (!Utils::isUnset($request->proxyEnable)) {
-            $query['ProxyEnable'] = $request->proxyEnable;
+
+        if (null !== $request->proxyEnable) {
+            @$query['ProxyEnable'] = $request->proxyEnable;
         }
+
+        if (null !== $request->usTimeoutShrink) {
+            @$query['UsTimeout'] = $request->usTimeoutShrink;
+        }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'CreateLayer4Rule',
-            'version'     => '2017-12-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CreateLayer4Rule',
+            'version' => '2017-12-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return CreateLayer4RuleResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -865,9 +1049,13 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * @param CreateLayer4RuleRequest $request CreateLayer4RuleRequest
+     * @param request - CreateLayer4RuleRequest
      *
-     * @return CreateLayer4RuleResponse CreateLayer4RuleResponse
+     * @returns CreateLayer4RuleResponse
+     *
+     * @param CreateLayer4RuleRequest $request
+     *
+     * @return CreateLayer4RuleResponse
      */
     public function createLayer4Rule($request)
     {
@@ -877,45 +1065,55 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * @param CreateLayer7RuleRequest $request CreateLayer7RuleRequest
-     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
+     * @param request - CreateLayer7RuleRequest
+     * @param runtime - runtime options for this request RuntimeOptions
      *
-     * @return CreateLayer7RuleResponse CreateLayer7RuleResponse
+     * @returns CreateLayer7RuleResponse
+     *
+     * @param CreateLayer7RuleRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return CreateLayer7RuleResponse
      */
     public function createLayer7RuleWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->domain)) {
-            $query['Domain'] = $request->domain;
+        if (null !== $request->domain) {
+            @$query['Domain'] = $request->domain;
         }
-        if (!Utils::isUnset($request->instanceIds)) {
-            $query['InstanceIds'] = $request->instanceIds;
+
+        if (null !== $request->instanceIds) {
+            @$query['InstanceIds'] = $request->instanceIds;
         }
-        if (!Utils::isUnset($request->resourceGroupId)) {
-            $query['ResourceGroupId'] = $request->resourceGroupId;
+
+        if (null !== $request->resourceGroupId) {
+            @$query['ResourceGroupId'] = $request->resourceGroupId;
         }
-        if (!Utils::isUnset($request->rsType)) {
-            $query['RsType'] = $request->rsType;
+
+        if (null !== $request->rsType) {
+            @$query['RsType'] = $request->rsType;
         }
-        if (!Utils::isUnset($request->rules)) {
-            $query['Rules'] = $request->rules;
+
+        if (null !== $request->rules) {
+            @$query['Rules'] = $request->rules;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'CreateLayer7Rule',
-            'version'     => '2017-12-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CreateLayer7Rule',
+            'version' => '2017-12-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return CreateLayer7RuleResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -923,9 +1121,13 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * @param CreateLayer7RuleRequest $request CreateLayer7RuleRequest
+     * @param request - CreateLayer7RuleRequest
      *
-     * @return CreateLayer7RuleResponse CreateLayer7RuleResponse
+     * @returns CreateLayer7RuleResponse
+     *
+     * @param CreateLayer7RuleRequest $request
+     *
+     * @return CreateLayer7RuleResponse
      */
     public function createLayer7Rule($request)
     {
@@ -935,36 +1137,43 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * @param DeleteAsyncTaskRequest $request DeleteAsyncTaskRequest
-     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
+     * @param request - DeleteAsyncTaskRequest
+     * @param runtime - runtime options for this request RuntimeOptions
      *
-     * @return DeleteAsyncTaskResponse DeleteAsyncTaskResponse
+     * @returns DeleteAsyncTaskResponse
+     *
+     * @param DeleteAsyncTaskRequest $request
+     * @param RuntimeOptions         $runtime
+     *
+     * @return DeleteAsyncTaskResponse
      */
     public function deleteAsyncTaskWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->resourceGroupId)) {
-            $query['ResourceGroupId'] = $request->resourceGroupId;
+        if (null !== $request->resourceGroupId) {
+            @$query['ResourceGroupId'] = $request->resourceGroupId;
         }
-        if (!Utils::isUnset($request->taskId)) {
-            $query['TaskId'] = $request->taskId;
+
+        if (null !== $request->taskId) {
+            @$query['TaskId'] = $request->taskId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DeleteAsyncTask',
-            'version'     => '2017-12-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DeleteAsyncTask',
+            'version' => '2017-12-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DeleteAsyncTaskResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -972,9 +1181,13 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * @param DeleteAsyncTaskRequest $request DeleteAsyncTaskRequest
+     * @param request - DeleteAsyncTaskRequest
      *
-     * @return DeleteAsyncTaskResponse DeleteAsyncTaskResponse
+     * @returns DeleteAsyncTaskResponse
+     *
+     * @param DeleteAsyncTaskRequest $request
+     *
+     * @return DeleteAsyncTaskResponse
      */
     public function deleteAsyncTask($request)
     {
@@ -984,33 +1197,39 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * @param DeleteLayer4RuleRequest $request DeleteLayer4RuleRequest
-     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
+     * @param request - DeleteLayer4RuleRequest
+     * @param runtime - runtime options for this request RuntimeOptions
      *
-     * @return DeleteLayer4RuleResponse DeleteLayer4RuleResponse
+     * @returns DeleteLayer4RuleResponse
+     *
+     * @param DeleteLayer4RuleRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return DeleteLayer4RuleResponse
      */
     public function deleteLayer4RuleWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->listeners)) {
-            $query['Listeners'] = $request->listeners;
+        if (null !== $request->listeners) {
+            @$query['Listeners'] = $request->listeners;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DeleteLayer4Rule',
-            'version'     => '2017-12-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DeleteLayer4Rule',
+            'version' => '2017-12-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DeleteLayer4RuleResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -1018,9 +1237,13 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * @param DeleteLayer4RuleRequest $request DeleteLayer4RuleRequest
+     * @param request - DeleteLayer4RuleRequest
      *
-     * @return DeleteLayer4RuleResponse DeleteLayer4RuleResponse
+     * @returns DeleteLayer4RuleResponse
+     *
+     * @param DeleteLayer4RuleRequest $request
+     *
+     * @return DeleteLayer4RuleResponse
      */
     public function deleteLayer4Rule($request)
     {
@@ -1030,39 +1253,47 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * @param DeleteLayer7CCRuleRequest $request DeleteLayer7CCRuleRequest
-     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
+     * @param request - DeleteLayer7CCRuleRequest
+     * @param runtime - runtime options for this request RuntimeOptions
      *
-     * @return DeleteLayer7CCRuleResponse DeleteLayer7CCRuleResponse
+     * @returns DeleteLayer7CCRuleResponse
+     *
+     * @param DeleteLayer7CCRuleRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return DeleteLayer7CCRuleResponse
      */
     public function deleteLayer7CCRuleWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->domain)) {
-            $query['Domain'] = $request->domain;
+        if (null !== $request->domain) {
+            @$query['Domain'] = $request->domain;
         }
-        if (!Utils::isUnset($request->name)) {
-            $query['Name'] = $request->name;
+
+        if (null !== $request->name) {
+            @$query['Name'] = $request->name;
         }
-        if (!Utils::isUnset($request->resourceGroupId)) {
-            $query['ResourceGroupId'] = $request->resourceGroupId;
+
+        if (null !== $request->resourceGroupId) {
+            @$query['ResourceGroupId'] = $request->resourceGroupId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DeleteLayer7CCRule',
-            'version'     => '2017-12-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DeleteLayer7CCRule',
+            'version' => '2017-12-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DeleteLayer7CCRuleResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -1070,9 +1301,13 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * @param DeleteLayer7CCRuleRequest $request DeleteLayer7CCRuleRequest
+     * @param request - DeleteLayer7CCRuleRequest
      *
-     * @return DeleteLayer7CCRuleResponse DeleteLayer7CCRuleResponse
+     * @returns DeleteLayer7CCRuleResponse
+     *
+     * @param DeleteLayer7CCRuleRequest $request
+     *
+     * @return DeleteLayer7CCRuleResponse
      */
     public function deleteLayer7CCRule($request)
     {
@@ -1082,36 +1317,43 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * @param DeleteLayer7RuleRequest $request DeleteLayer7RuleRequest
-     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
+     * @param request - DeleteLayer7RuleRequest
+     * @param runtime - runtime options for this request RuntimeOptions
      *
-     * @return DeleteLayer7RuleResponse DeleteLayer7RuleResponse
+     * @returns DeleteLayer7RuleResponse
+     *
+     * @param DeleteLayer7RuleRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return DeleteLayer7RuleResponse
      */
     public function deleteLayer7RuleWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->domain)) {
-            $query['Domain'] = $request->domain;
+        if (null !== $request->domain) {
+            @$query['Domain'] = $request->domain;
         }
-        if (!Utils::isUnset($request->resourceGroupId)) {
-            $query['ResourceGroupId'] = $request->resourceGroupId;
+
+        if (null !== $request->resourceGroupId) {
+            @$query['ResourceGroupId'] = $request->resourceGroupId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DeleteLayer7Rule',
-            'version'     => '2017-12-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DeleteLayer7Rule',
+            'version' => '2017-12-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DeleteLayer7RuleResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -1119,9 +1361,13 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * @param DeleteLayer7RuleRequest $request DeleteLayer7RuleRequest
+     * @param request - DeleteLayer7RuleRequest
      *
-     * @return DeleteLayer7RuleResponse DeleteLayer7RuleResponse
+     * @returns DeleteLayer7RuleResponse
+     *
+     * @param DeleteLayer7RuleRequest $request
+     *
+     * @return DeleteLayer7RuleResponse
      */
     public function deleteLayer7Rule($request)
     {
@@ -1131,42 +1377,51 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * @param DescribeBackSourceCidrRequest $request DescribeBackSourceCidrRequest
-     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
+     * @param request - DescribeBackSourceCidrRequest
+     * @param runtime - runtime options for this request RuntimeOptions
      *
-     * @return DescribeBackSourceCidrResponse DescribeBackSourceCidrResponse
+     * @returns DescribeBackSourceCidrResponse
+     *
+     * @param DescribeBackSourceCidrRequest $request
+     * @param RuntimeOptions                $runtime
+     *
+     * @return DescribeBackSourceCidrResponse
      */
     public function describeBackSourceCidrWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->ipVersion)) {
-            $query['IpVersion'] = $request->ipVersion;
+        if (null !== $request->ipVersion) {
+            @$query['IpVersion'] = $request->ipVersion;
         }
-        if (!Utils::isUnset($request->line)) {
-            $query['Line'] = $request->line;
+
+        if (null !== $request->line) {
+            @$query['Line'] = $request->line;
         }
-        if (!Utils::isUnset($request->resourceGroupId)) {
-            $query['ResourceGroupId'] = $request->resourceGroupId;
+
+        if (null !== $request->resourceGroupId) {
+            @$query['ResourceGroupId'] = $request->resourceGroupId;
         }
-        if (!Utils::isUnset($request->sourceIp)) {
-            $query['SourceIp'] = $request->sourceIp;
+
+        if (null !== $request->sourceIp) {
+            @$query['SourceIp'] = $request->sourceIp;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeBackSourceCidr',
-            'version'     => '2017-12-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeBackSourceCidr',
+            'version' => '2017-12-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DescribeBackSourceCidrResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -1174,9 +1429,13 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * @param DescribeBackSourceCidrRequest $request DescribeBackSourceCidrRequest
+     * @param request - DescribeBackSourceCidrRequest
      *
-     * @return DescribeBackSourceCidrResponse DescribeBackSourceCidrResponse
+     * @returns DescribeBackSourceCidrResponse
+     *
+     * @param DescribeBackSourceCidrRequest $request
+     *
+     * @return DescribeBackSourceCidrResponse
      */
     public function describeBackSourceCidr($request)
     {
@@ -1186,47 +1445,57 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * @summary rosetta迁移
-     *  *
-     * @param DescribeBatchSlsDispatchStatusRequest $request DescribeBatchSlsDispatchStatusRequest
-     * @param RuntimeOptions                        $runtime runtime options for this request RuntimeOptions
+     * rosetta迁移.
      *
-     * @return DescribeBatchSlsDispatchStatusResponse DescribeBatchSlsDispatchStatusResponse
+     * @param request - DescribeBatchSlsDispatchStatusRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeBatchSlsDispatchStatusResponse
+     *
+     * @param DescribeBatchSlsDispatchStatusRequest $request
+     * @param RuntimeOptions                        $runtime
+     *
+     * @return DescribeBatchSlsDispatchStatusResponse
      */
     public function describeBatchSlsDispatchStatusWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->lang)) {
-            $query['Lang'] = $request->lang;
+        if (null !== $request->lang) {
+            @$query['Lang'] = $request->lang;
         }
-        if (!Utils::isUnset($request->pageNo)) {
-            $query['PageNo'] = $request->pageNo;
+
+        if (null !== $request->pageNo) {
+            @$query['PageNo'] = $request->pageNo;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['PageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
         }
-        if (!Utils::isUnset($request->resourceGroupId)) {
-            $query['ResourceGroupId'] = $request->resourceGroupId;
+
+        if (null !== $request->resourceGroupId) {
+            @$query['ResourceGroupId'] = $request->resourceGroupId;
         }
-        if (!Utils::isUnset($request->sourceIp)) {
-            $query['SourceIp'] = $request->sourceIp;
+
+        if (null !== $request->sourceIp) {
+            @$query['SourceIp'] = $request->sourceIp;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeBatchSlsDispatchStatus',
-            'version'     => '2017-12-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeBatchSlsDispatchStatus',
+            'version' => '2017-12-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DescribeBatchSlsDispatchStatusResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -1234,11 +1503,15 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * @summary rosetta迁移
-     *  *
-     * @param DescribeBatchSlsDispatchStatusRequest $request DescribeBatchSlsDispatchStatusRequest
+     * rosetta迁移.
      *
-     * @return DescribeBatchSlsDispatchStatusResponse DescribeBatchSlsDispatchStatusResponse
+     * @param request - DescribeBatchSlsDispatchStatusRequest
+     *
+     * @returns DescribeBatchSlsDispatchStatusResponse
+     *
+     * @param DescribeBatchSlsDispatchStatusRequest $request
+     *
+     * @return DescribeBatchSlsDispatchStatusResponse
      */
     public function describeBatchSlsDispatchStatus($request)
     {
@@ -1248,51 +1521,63 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * @param DescribeDDoSEventsRequest $request DescribeDDoSEventsRequest
-     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
+     * @param request - DescribeDDoSEventsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
      *
-     * @return DescribeDDoSEventsResponse DescribeDDoSEventsResponse
+     * @returns DescribeDDoSEventsResponse
+     *
+     * @param DescribeDDoSEventsRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return DescribeDDoSEventsResponse
      */
     public function describeDDoSEventsWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->eip)) {
-            $query['Eip'] = $request->eip;
+        if (null !== $request->eip) {
+            @$query['Eip'] = $request->eip;
         }
-        if (!Utils::isUnset($request->endTime)) {
-            $query['EndTime'] = $request->endTime;
+
+        if (null !== $request->endTime) {
+            @$query['EndTime'] = $request->endTime;
         }
-        if (!Utils::isUnset($request->offset)) {
-            $query['Offset'] = $request->offset;
+
+        if (null !== $request->offset) {
+            @$query['Offset'] = $request->offset;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['PageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
         }
-        if (!Utils::isUnset($request->resourceGroupId)) {
-            $query['ResourceGroupId'] = $request->resourceGroupId;
+
+        if (null !== $request->resourceGroupId) {
+            @$query['ResourceGroupId'] = $request->resourceGroupId;
         }
-        if (!Utils::isUnset($request->sourceIp)) {
-            $query['SourceIp'] = $request->sourceIp;
+
+        if (null !== $request->sourceIp) {
+            @$query['SourceIp'] = $request->sourceIp;
         }
-        if (!Utils::isUnset($request->startTime)) {
-            $query['StartTime'] = $request->startTime;
+
+        if (null !== $request->startTime) {
+            @$query['StartTime'] = $request->startTime;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeDDoSEvents',
-            'version'     => '2017-12-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeDDoSEvents',
+            'version' => '2017-12-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DescribeDDoSEventsResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -1300,9 +1585,13 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * @param DescribeDDoSEventsRequest $request DescribeDDoSEventsRequest
+     * @param request - DescribeDDoSEventsRequest
      *
-     * @return DescribeDDoSEventsResponse DescribeDDoSEventsResponse
+     * @returns DescribeDDoSEventsResponse
+     *
+     * @param DescribeDDoSEventsRequest $request
+     *
+     * @return DescribeDDoSEventsResponse
      */
     public function describeDDoSEvents($request)
     {
@@ -1312,48 +1601,59 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * @param DescribeDDoSTrafficRequest $request DescribeDDoSTrafficRequest
-     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
+     * @param request - DescribeDDoSTrafficRequest
+     * @param runtime - runtime options for this request RuntimeOptions
      *
-     * @return DescribeDDoSTrafficResponse DescribeDDoSTrafficResponse
+     * @returns DescribeDDoSTrafficResponse
+     *
+     * @param DescribeDDoSTrafficRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return DescribeDDoSTrafficResponse
      */
     public function describeDDoSTrafficWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->eip)) {
-            $query['Eip'] = $request->eip;
+        if (null !== $request->eip) {
+            @$query['Eip'] = $request->eip;
         }
-        if (!Utils::isUnset($request->endTime)) {
-            $query['EndTime'] = $request->endTime;
+
+        if (null !== $request->endTime) {
+            @$query['EndTime'] = $request->endTime;
         }
-        if (!Utils::isUnset($request->interval)) {
-            $query['Interval'] = $request->interval;
+
+        if (null !== $request->interval) {
+            @$query['Interval'] = $request->interval;
         }
-        if (!Utils::isUnset($request->resourceGroupId)) {
-            $query['ResourceGroupId'] = $request->resourceGroupId;
+
+        if (null !== $request->resourceGroupId) {
+            @$query['ResourceGroupId'] = $request->resourceGroupId;
         }
-        if (!Utils::isUnset($request->sourceIp)) {
-            $query['SourceIp'] = $request->sourceIp;
+
+        if (null !== $request->sourceIp) {
+            @$query['SourceIp'] = $request->sourceIp;
         }
-        if (!Utils::isUnset($request->startTime)) {
-            $query['StartTime'] = $request->startTime;
+
+        if (null !== $request->startTime) {
+            @$query['StartTime'] = $request->startTime;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeDDoSTraffic',
-            'version'     => '2017-12-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeDDoSTraffic',
+            'version' => '2017-12-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DescribeDDoSTrafficResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -1361,9 +1661,13 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * @param DescribeDDoSTrafficRequest $request DescribeDDoSTrafficRequest
+     * @param request - DescribeDDoSTrafficRequest
      *
-     * @return DescribeDDoSTrafficResponse DescribeDDoSTrafficResponse
+     * @returns DescribeDDoSTrafficResponse
+     *
+     * @param DescribeDDoSTrafficRequest $request
+     *
+     * @return DescribeDDoSTrafficResponse
      */
     public function describeDDoSTraffic($request)
     {
@@ -1373,36 +1677,43 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * @param DescribeDefenseCountStatisticsRequest $request DescribeDefenseCountStatisticsRequest
-     * @param RuntimeOptions                        $runtime runtime options for this request RuntimeOptions
+     * @param request - DescribeDefenseCountStatisticsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
      *
-     * @return DescribeDefenseCountStatisticsResponse DescribeDefenseCountStatisticsResponse
+     * @returns DescribeDefenseCountStatisticsResponse
+     *
+     * @param DescribeDefenseCountStatisticsRequest $request
+     * @param RuntimeOptions                        $runtime
+     *
+     * @return DescribeDefenseCountStatisticsResponse
      */
     public function describeDefenseCountStatisticsWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->resourceGroupId)) {
-            $query['ResourceGroupId'] = $request->resourceGroupId;
+        if (null !== $request->resourceGroupId) {
+            @$query['ResourceGroupId'] = $request->resourceGroupId;
         }
-        if (!Utils::isUnset($request->sourceIp)) {
-            $query['SourceIp'] = $request->sourceIp;
+
+        if (null !== $request->sourceIp) {
+            @$query['SourceIp'] = $request->sourceIp;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeDefenseCountStatistics',
-            'version'     => '2017-12-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeDefenseCountStatistics',
+            'version' => '2017-12-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DescribeDefenseCountStatisticsResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -1410,9 +1721,13 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * @param DescribeDefenseCountStatisticsRequest $request DescribeDefenseCountStatisticsRequest
+     * @param request - DescribeDefenseCountStatisticsRequest
      *
-     * @return DescribeDefenseCountStatisticsResponse DescribeDefenseCountStatisticsResponse
+     * @returns DescribeDefenseCountStatisticsResponse
+     *
+     * @param DescribeDefenseCountStatisticsRequest $request
+     *
+     * @return DescribeDefenseCountStatisticsResponse
      */
     public function describeDefenseCountStatistics($request)
     {
@@ -1422,36 +1737,43 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * @param DescribeDomainAccessModeRequest $request DescribeDomainAccessModeRequest
-     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
+     * @param request - DescribeDomainAccessModeRequest
+     * @param runtime - runtime options for this request RuntimeOptions
      *
-     * @return DescribeDomainAccessModeResponse DescribeDomainAccessModeResponse
+     * @returns DescribeDomainAccessModeResponse
+     *
+     * @param DescribeDomainAccessModeRequest $request
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return DescribeDomainAccessModeResponse
      */
     public function describeDomainAccessModeWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->domainList)) {
-            $query['DomainList'] = $request->domainList;
+        if (null !== $request->domainList) {
+            @$query['DomainList'] = $request->domainList;
         }
-        if (!Utils::isUnset($request->sourceIp)) {
-            $query['SourceIp'] = $request->sourceIp;
+
+        if (null !== $request->sourceIp) {
+            @$query['SourceIp'] = $request->sourceIp;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeDomainAccessMode',
-            'version'     => '2017-12-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeDomainAccessMode',
+            'version' => '2017-12-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DescribeDomainAccessModeResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -1459,9 +1781,13 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * @param DescribeDomainAccessModeRequest $request DescribeDomainAccessModeRequest
+     * @param request - DescribeDomainAccessModeRequest
      *
-     * @return DescribeDomainAccessModeResponse DescribeDomainAccessModeResponse
+     * @returns DescribeDomainAccessModeResponse
+     *
+     * @param DescribeDomainAccessModeRequest $request
+     *
+     * @return DescribeDomainAccessModeResponse
      */
     public function describeDomainAccessMode($request)
     {
@@ -1471,48 +1797,59 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * @param DescribeDomainAttackEventListRequest $request DescribeDomainAttackEventListRequest
-     * @param RuntimeOptions                       $runtime runtime options for this request RuntimeOptions
+     * @param request - DescribeDomainAttackEventListRequest
+     * @param runtime - runtime options for this request RuntimeOptions
      *
-     * @return DescribeDomainAttackEventListResponse DescribeDomainAttackEventListResponse
+     * @returns DescribeDomainAttackEventListResponse
+     *
+     * @param DescribeDomainAttackEventListRequest $request
+     * @param RuntimeOptions                       $runtime
+     *
+     * @return DescribeDomainAttackEventListResponse
      */
     public function describeDomainAttackEventListWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->domain)) {
-            $query['Domain'] = $request->domain;
+        if (null !== $request->domain) {
+            @$query['Domain'] = $request->domain;
         }
-        if (!Utils::isUnset($request->endTime)) {
-            $query['EndTime'] = $request->endTime;
+
+        if (null !== $request->endTime) {
+            @$query['EndTime'] = $request->endTime;
         }
-        if (!Utils::isUnset($request->pageNo)) {
-            $query['PageNo'] = $request->pageNo;
+
+        if (null !== $request->pageNo) {
+            @$query['PageNo'] = $request->pageNo;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['PageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
         }
-        if (!Utils::isUnset($request->resourceGroupId)) {
-            $query['ResourceGroupId'] = $request->resourceGroupId;
+
+        if (null !== $request->resourceGroupId) {
+            @$query['ResourceGroupId'] = $request->resourceGroupId;
         }
-        if (!Utils::isUnset($request->startTime)) {
-            $query['StartTime'] = $request->startTime;
+
+        if (null !== $request->startTime) {
+            @$query['StartTime'] = $request->startTime;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeDomainAttackEventList',
-            'version'     => '2017-12-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeDomainAttackEventList',
+            'version' => '2017-12-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DescribeDomainAttackEventListResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -1520,9 +1857,13 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * @param DescribeDomainAttackEventListRequest $request DescribeDomainAttackEventListRequest
+     * @param request - DescribeDomainAttackEventListRequest
      *
-     * @return DescribeDomainAttackEventListResponse DescribeDomainAttackEventListResponse
+     * @returns DescribeDomainAttackEventListResponse
+     *
+     * @param DescribeDomainAttackEventListRequest $request
+     *
+     * @return DescribeDomainAttackEventListResponse
      */
     public function describeDomainAttackEventList($request)
     {
@@ -1532,42 +1873,51 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * @param DescribeDomainAttackMaxQpsRequest $request DescribeDomainAttackMaxQpsRequest
-     * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
+     * @param request - DescribeDomainAttackMaxQpsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
      *
-     * @return DescribeDomainAttackMaxQpsResponse DescribeDomainAttackMaxQpsResponse
+     * @returns DescribeDomainAttackMaxQpsResponse
+     *
+     * @param DescribeDomainAttackMaxQpsRequest $request
+     * @param RuntimeOptions                    $runtime
+     *
+     * @return DescribeDomainAttackMaxQpsResponse
      */
     public function describeDomainAttackMaxQpsWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->domain)) {
-            $query['Domain'] = $request->domain;
+        if (null !== $request->domain) {
+            @$query['Domain'] = $request->domain;
         }
-        if (!Utils::isUnset($request->endTime)) {
-            $query['EndTime'] = $request->endTime;
+
+        if (null !== $request->endTime) {
+            @$query['EndTime'] = $request->endTime;
         }
-        if (!Utils::isUnset($request->resourceGroupId)) {
-            $query['ResourceGroupId'] = $request->resourceGroupId;
+
+        if (null !== $request->resourceGroupId) {
+            @$query['ResourceGroupId'] = $request->resourceGroupId;
         }
-        if (!Utils::isUnset($request->startTime)) {
-            $query['StartTime'] = $request->startTime;
+
+        if (null !== $request->startTime) {
+            @$query['StartTime'] = $request->startTime;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeDomainAttackMaxQps',
-            'version'     => '2017-12-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeDomainAttackMaxQps',
+            'version' => '2017-12-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DescribeDomainAttackMaxQpsResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -1575,9 +1925,13 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * @param DescribeDomainAttackMaxQpsRequest $request DescribeDomainAttackMaxQpsRequest
+     * @param request - DescribeDomainAttackMaxQpsRequest
      *
-     * @return DescribeDomainAttackMaxQpsResponse DescribeDomainAttackMaxQpsResponse
+     * @returns DescribeDomainAttackMaxQpsResponse
+     *
+     * @param DescribeDomainAttackMaxQpsRequest $request
+     *
+     * @return DescribeDomainAttackMaxQpsResponse
      */
     public function describeDomainAttackMaxQps($request)
     {
@@ -1587,42 +1941,51 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * @param DescribeDomainOverviewRequest $request DescribeDomainOverviewRequest
-     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
+     * @param request - DescribeDomainOverviewRequest
+     * @param runtime - runtime options for this request RuntimeOptions
      *
-     * @return DescribeDomainOverviewResponse DescribeDomainOverviewResponse
+     * @returns DescribeDomainOverviewResponse
+     *
+     * @param DescribeDomainOverviewRequest $request
+     * @param RuntimeOptions                $runtime
+     *
+     * @return DescribeDomainOverviewResponse
      */
     public function describeDomainOverviewWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->domain)) {
-            $query['Domain'] = $request->domain;
+        if (null !== $request->domain) {
+            @$query['Domain'] = $request->domain;
         }
-        if (!Utils::isUnset($request->endTime)) {
-            $query['EndTime'] = $request->endTime;
+
+        if (null !== $request->endTime) {
+            @$query['EndTime'] = $request->endTime;
         }
-        if (!Utils::isUnset($request->resourceGroupId)) {
-            $query['ResourceGroupId'] = $request->resourceGroupId;
+
+        if (null !== $request->resourceGroupId) {
+            @$query['ResourceGroupId'] = $request->resourceGroupId;
         }
-        if (!Utils::isUnset($request->startTime)) {
-            $query['StartTime'] = $request->startTime;
+
+        if (null !== $request->startTime) {
+            @$query['StartTime'] = $request->startTime;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeDomainOverview',
-            'version'     => '2017-12-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeDomainOverview',
+            'version' => '2017-12-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DescribeDomainOverviewResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -1630,9 +1993,13 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * @param DescribeDomainOverviewRequest $request DescribeDomainOverviewRequest
+     * @param request - DescribeDomainOverviewRequest
      *
-     * @return DescribeDomainOverviewResponse DescribeDomainOverviewResponse
+     * @returns DescribeDomainOverviewResponse
+     *
+     * @param DescribeDomainOverviewRequest $request
+     *
+     * @return DescribeDomainOverviewResponse
      */
     public function describeDomainOverview($request)
     {
@@ -1642,45 +2009,55 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * @param DescribeDomainQpsListRequest $request DescribeDomainQpsListRequest
-     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
+     * @param request - DescribeDomainQpsListRequest
+     * @param runtime - runtime options for this request RuntimeOptions
      *
-     * @return DescribeDomainQpsListResponse DescribeDomainQpsListResponse
+     * @returns DescribeDomainQpsListResponse
+     *
+     * @param DescribeDomainQpsListRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return DescribeDomainQpsListResponse
      */
     public function describeDomainQpsListWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->domain)) {
-            $query['Domain'] = $request->domain;
+        if (null !== $request->domain) {
+            @$query['Domain'] = $request->domain;
         }
-        if (!Utils::isUnset($request->endTime)) {
-            $query['EndTime'] = $request->endTime;
+
+        if (null !== $request->endTime) {
+            @$query['EndTime'] = $request->endTime;
         }
-        if (!Utils::isUnset($request->interval)) {
-            $query['Interval'] = $request->interval;
+
+        if (null !== $request->interval) {
+            @$query['Interval'] = $request->interval;
         }
-        if (!Utils::isUnset($request->resourceGroupId)) {
-            $query['ResourceGroupId'] = $request->resourceGroupId;
+
+        if (null !== $request->resourceGroupId) {
+            @$query['ResourceGroupId'] = $request->resourceGroupId;
         }
-        if (!Utils::isUnset($request->startTime)) {
-            $query['StartTime'] = $request->startTime;
+
+        if (null !== $request->startTime) {
+            @$query['StartTime'] = $request->startTime;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeDomainQpsList',
-            'version'     => '2017-12-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeDomainQpsList',
+            'version' => '2017-12-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DescribeDomainQpsListResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -1688,9 +2065,13 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * @param DescribeDomainQpsListRequest $request DescribeDomainQpsListRequest
+     * @param request - DescribeDomainQpsListRequest
      *
-     * @return DescribeDomainQpsListResponse DescribeDomainQpsListResponse
+     * @returns DescribeDomainQpsListResponse
+     *
+     * @param DescribeDomainQpsListRequest $request
+     *
+     * @return DescribeDomainQpsListResponse
      */
     public function describeDomainQpsList($request)
     {
@@ -1700,45 +2081,55 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * @param DescribeDomainQpsWithCacheRequest $request DescribeDomainQpsWithCacheRequest
-     * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
+     * @param request - DescribeDomainQpsWithCacheRequest
+     * @param runtime - runtime options for this request RuntimeOptions
      *
-     * @return DescribeDomainQpsWithCacheResponse DescribeDomainQpsWithCacheResponse
+     * @returns DescribeDomainQpsWithCacheResponse
+     *
+     * @param DescribeDomainQpsWithCacheRequest $request
+     * @param RuntimeOptions                    $runtime
+     *
+     * @return DescribeDomainQpsWithCacheResponse
      */
     public function describeDomainQpsWithCacheWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->domain)) {
-            $query['Domain'] = $request->domain;
+        if (null !== $request->domain) {
+            @$query['Domain'] = $request->domain;
         }
-        if (!Utils::isUnset($request->endTime)) {
-            $query['EndTime'] = $request->endTime;
+
+        if (null !== $request->endTime) {
+            @$query['EndTime'] = $request->endTime;
         }
-        if (!Utils::isUnset($request->resourceGroupId)) {
-            $query['ResourceGroupId'] = $request->resourceGroupId;
+
+        if (null !== $request->resourceGroupId) {
+            @$query['ResourceGroupId'] = $request->resourceGroupId;
         }
-        if (!Utils::isUnset($request->sourceIp)) {
-            $query['SourceIp'] = $request->sourceIp;
+
+        if (null !== $request->sourceIp) {
+            @$query['SourceIp'] = $request->sourceIp;
         }
-        if (!Utils::isUnset($request->startTime)) {
-            $query['StartTime'] = $request->startTime;
+
+        if (null !== $request->startTime) {
+            @$query['StartTime'] = $request->startTime;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeDomainQpsWithCache',
-            'version'     => '2017-12-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeDomainQpsWithCache',
+            'version' => '2017-12-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DescribeDomainQpsWithCacheResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -1746,9 +2137,13 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * @param DescribeDomainQpsWithCacheRequest $request DescribeDomainQpsWithCacheRequest
+     * @param request - DescribeDomainQpsWithCacheRequest
      *
-     * @return DescribeDomainQpsWithCacheResponse DescribeDomainQpsWithCacheResponse
+     * @returns DescribeDomainQpsWithCacheResponse
+     *
+     * @param DescribeDomainQpsWithCacheRequest $request
+     *
+     * @return DescribeDomainQpsWithCacheResponse
      */
     public function describeDomainQpsWithCache($request)
     {
@@ -1758,42 +2153,51 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * @param DescribeDomainSlsStatusRequest $request DescribeDomainSlsStatusRequest
-     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
+     * @param request - DescribeDomainSlsStatusRequest
+     * @param runtime - runtime options for this request RuntimeOptions
      *
-     * @return DescribeDomainSlsStatusResponse DescribeDomainSlsStatusResponse
+     * @returns DescribeDomainSlsStatusResponse
+     *
+     * @param DescribeDomainSlsStatusRequest $request
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return DescribeDomainSlsStatusResponse
      */
     public function describeDomainSlsStatusWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->domain)) {
-            $query['Domain'] = $request->domain;
+        if (null !== $request->domain) {
+            @$query['Domain'] = $request->domain;
         }
-        if (!Utils::isUnset($request->lang)) {
-            $query['Lang'] = $request->lang;
+
+        if (null !== $request->lang) {
+            @$query['Lang'] = $request->lang;
         }
-        if (!Utils::isUnset($request->resourceGroupId)) {
-            $query['ResourceGroupId'] = $request->resourceGroupId;
+
+        if (null !== $request->resourceGroupId) {
+            @$query['ResourceGroupId'] = $request->resourceGroupId;
         }
-        if (!Utils::isUnset($request->sourceIp)) {
-            $query['SourceIp'] = $request->sourceIp;
+
+        if (null !== $request->sourceIp) {
+            @$query['SourceIp'] = $request->sourceIp;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeDomainSlsStatus',
-            'version'     => '2017-12-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeDomainSlsStatus',
+            'version' => '2017-12-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DescribeDomainSlsStatusResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -1801,9 +2205,13 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * @param DescribeDomainSlsStatusRequest $request DescribeDomainSlsStatusRequest
+     * @param request - DescribeDomainSlsStatusRequest
      *
-     * @return DescribeDomainSlsStatusResponse DescribeDomainSlsStatusResponse
+     * @returns DescribeDomainSlsStatusResponse
+     *
+     * @param DescribeDomainSlsStatusRequest $request
+     *
+     * @return DescribeDomainSlsStatusResponse
      */
     public function describeDomainSlsStatus($request)
     {
@@ -1813,50 +2221,61 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * @summary 查询网站业务的响应状态码统计信息
-     *  *
-     * @param DescribeDomainStatusCodeListRequest $request DescribeDomainStatusCodeListRequest
-     * @param RuntimeOptions                      $runtime runtime options for this request RuntimeOptions
+     * 查询网站业务的响应状态码统计信息.
      *
-     * @return DescribeDomainStatusCodeListResponse DescribeDomainStatusCodeListResponse
+     * @param request - DescribeDomainStatusCodeListRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeDomainStatusCodeListResponse
+     *
+     * @param DescribeDomainStatusCodeListRequest $request
+     * @param RuntimeOptions                      $runtime
+     *
+     * @return DescribeDomainStatusCodeListResponse
      */
     public function describeDomainStatusCodeListWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->domain)) {
-            $query['Domain'] = $request->domain;
+        if (null !== $request->domain) {
+            @$query['Domain'] = $request->domain;
         }
-        if (!Utils::isUnset($request->endTime)) {
-            $query['EndTime'] = $request->endTime;
+
+        if (null !== $request->endTime) {
+            @$query['EndTime'] = $request->endTime;
         }
-        if (!Utils::isUnset($request->interval)) {
-            $query['Interval'] = $request->interval;
+
+        if (null !== $request->interval) {
+            @$query['Interval'] = $request->interval;
         }
-        if (!Utils::isUnset($request->queryType)) {
-            $query['QueryType'] = $request->queryType;
+
+        if (null !== $request->queryType) {
+            @$query['QueryType'] = $request->queryType;
         }
-        if (!Utils::isUnset($request->resourceGroupId)) {
-            $query['ResourceGroupId'] = $request->resourceGroupId;
+
+        if (null !== $request->resourceGroupId) {
+            @$query['ResourceGroupId'] = $request->resourceGroupId;
         }
-        if (!Utils::isUnset($request->startTime)) {
-            $query['StartTime'] = $request->startTime;
+
+        if (null !== $request->startTime) {
+            @$query['StartTime'] = $request->startTime;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeDomainStatusCodeList',
-            'version'     => '2017-12-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeDomainStatusCodeList',
+            'version' => '2017-12-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DescribeDomainStatusCodeListResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -1864,11 +2283,15 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * @summary 查询网站业务的响应状态码统计信息
-     *  *
-     * @param DescribeDomainStatusCodeListRequest $request DescribeDomainStatusCodeListRequest
+     * 查询网站业务的响应状态码统计信息.
      *
-     * @return DescribeDomainStatusCodeListResponse DescribeDomainStatusCodeListResponse
+     * @param request - DescribeDomainStatusCodeListRequest
+     *
+     * @returns DescribeDomainStatusCodeListResponse
+     *
+     * @param DescribeDomainStatusCodeListRequest $request
+     *
+     * @return DescribeDomainStatusCodeListResponse
      */
     public function describeDomainStatusCodeList($request)
     {
@@ -1878,51 +2301,63 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * @param DescribeDomainsRequest $request DescribeDomainsRequest
-     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
+     * @param request - DescribeDomainsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
      *
-     * @return DescribeDomainsResponse DescribeDomainsResponse
+     * @returns DescribeDomainsResponse
+     *
+     * @param DescribeDomainsRequest $request
+     * @param RuntimeOptions         $runtime
+     *
+     * @return DescribeDomainsResponse
      */
     public function describeDomainsWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->domain)) {
-            $query['Domain'] = $request->domain;
+        if (null !== $request->domain) {
+            @$query['Domain'] = $request->domain;
         }
-        if (!Utils::isUnset($request->instanceIds)) {
-            $query['InstanceIds'] = $request->instanceIds;
+
+        if (null !== $request->instanceIds) {
+            @$query['InstanceIds'] = $request->instanceIds;
         }
-        if (!Utils::isUnset($request->offset)) {
-            $query['Offset'] = $request->offset;
+
+        if (null !== $request->offset) {
+            @$query['Offset'] = $request->offset;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['PageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
         }
-        if (!Utils::isUnset($request->queryDomainPattern)) {
-            $query['QueryDomainPattern'] = $request->queryDomainPattern;
+
+        if (null !== $request->queryDomainPattern) {
+            @$query['QueryDomainPattern'] = $request->queryDomainPattern;
         }
-        if (!Utils::isUnset($request->resourceGroupId)) {
-            $query['ResourceGroupId'] = $request->resourceGroupId;
+
+        if (null !== $request->resourceGroupId) {
+            @$query['ResourceGroupId'] = $request->resourceGroupId;
         }
-        if (!Utils::isUnset($request->sourceIp)) {
-            $query['SourceIp'] = $request->sourceIp;
+
+        if (null !== $request->sourceIp) {
+            @$query['SourceIp'] = $request->sourceIp;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeDomains',
-            'version'     => '2017-12-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeDomains',
+            'version' => '2017-12-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DescribeDomainsResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -1930,9 +2365,13 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * @param DescribeDomainsRequest $request DescribeDomainsRequest
+     * @param request - DescribeDomainsRequest
      *
-     * @return DescribeDomainsResponse DescribeDomainsResponse
+     * @returns DescribeDomainsResponse
+     *
+     * @param DescribeDomainsRequest $request
+     *
+     * @return DescribeDomainsResponse
      */
     public function describeDomains($request)
     {
@@ -1942,36 +2381,43 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * @param DescribeElasticBandwidthSpecRequest $request DescribeElasticBandwidthSpecRequest
-     * @param RuntimeOptions                      $runtime runtime options for this request RuntimeOptions
+     * @param request - DescribeElasticBandwidthSpecRequest
+     * @param runtime - runtime options for this request RuntimeOptions
      *
-     * @return DescribeElasticBandwidthSpecResponse DescribeElasticBandwidthSpecResponse
+     * @returns DescribeElasticBandwidthSpecResponse
+     *
+     * @param DescribeElasticBandwidthSpecRequest $request
+     * @param RuntimeOptions                      $runtime
+     *
+     * @return DescribeElasticBandwidthSpecResponse
      */
     public function describeElasticBandwidthSpecWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
-        if (!Utils::isUnset($request->sourceIp)) {
-            $query['SourceIp'] = $request->sourceIp;
+
+        if (null !== $request->sourceIp) {
+            @$query['SourceIp'] = $request->sourceIp;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeElasticBandwidthSpec',
-            'version'     => '2017-12-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeElasticBandwidthSpec',
+            'version' => '2017-12-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DescribeElasticBandwidthSpecResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -1979,9 +2425,13 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * @param DescribeElasticBandwidthSpecRequest $request DescribeElasticBandwidthSpecRequest
+     * @param request - DescribeElasticBandwidthSpecRequest
      *
-     * @return DescribeElasticBandwidthSpecResponse DescribeElasticBandwidthSpecResponse
+     * @returns DescribeElasticBandwidthSpecResponse
+     *
+     * @param DescribeElasticBandwidthSpecRequest $request
+     *
+     * @return DescribeElasticBandwidthSpecResponse
      */
     public function describeElasticBandwidthSpec($request)
     {
@@ -1991,36 +2441,43 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * @param DescribeHealthCheckListRequest $request DescribeHealthCheckListRequest
-     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
+     * @param request - DescribeHealthCheckListRequest
+     * @param runtime - runtime options for this request RuntimeOptions
      *
-     * @return DescribeHealthCheckListResponse DescribeHealthCheckListResponse
+     * @returns DescribeHealthCheckListResponse
+     *
+     * @param DescribeHealthCheckListRequest $request
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return DescribeHealthCheckListResponse
      */
     public function describeHealthCheckListWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->listeners)) {
-            $query['Listeners'] = $request->listeners;
+        if (null !== $request->listeners) {
+            @$query['Listeners'] = $request->listeners;
         }
-        if (!Utils::isUnset($request->sourceIp)) {
-            $query['SourceIp'] = $request->sourceIp;
+
+        if (null !== $request->sourceIp) {
+            @$query['SourceIp'] = $request->sourceIp;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeHealthCheckList',
-            'version'     => '2017-12-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeHealthCheckList',
+            'version' => '2017-12-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DescribeHealthCheckListResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -2028,9 +2485,13 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * @param DescribeHealthCheckListRequest $request DescribeHealthCheckListRequest
+     * @param request - DescribeHealthCheckListRequest
      *
-     * @return DescribeHealthCheckListResponse DescribeHealthCheckListResponse
+     * @returns DescribeHealthCheckListResponse
+     *
+     * @param DescribeHealthCheckListRequest $request
+     *
+     * @return DescribeHealthCheckListResponse
      */
     public function describeHealthCheckList($request)
     {
@@ -2040,36 +2501,43 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * @param DescribeHealthCheckStatusListRequest $request DescribeHealthCheckStatusListRequest
-     * @param RuntimeOptions                       $runtime runtime options for this request RuntimeOptions
+     * @param request - DescribeHealthCheckStatusListRequest
+     * @param runtime - runtime options for this request RuntimeOptions
      *
-     * @return DescribeHealthCheckStatusListResponse DescribeHealthCheckStatusListResponse
+     * @returns DescribeHealthCheckStatusListResponse
+     *
+     * @param DescribeHealthCheckStatusListRequest $request
+     * @param RuntimeOptions                       $runtime
+     *
+     * @return DescribeHealthCheckStatusListResponse
      */
     public function describeHealthCheckStatusListWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->listeners)) {
-            $query['Listeners'] = $request->listeners;
+        if (null !== $request->listeners) {
+            @$query['Listeners'] = $request->listeners;
         }
-        if (!Utils::isUnset($request->sourceIp)) {
-            $query['SourceIp'] = $request->sourceIp;
+
+        if (null !== $request->sourceIp) {
+            @$query['SourceIp'] = $request->sourceIp;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeHealthCheckStatusList',
-            'version'     => '2017-12-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeHealthCheckStatusList',
+            'version' => '2017-12-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DescribeHealthCheckStatusListResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -2077,9 +2545,13 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * @param DescribeHealthCheckStatusListRequest $request DescribeHealthCheckStatusListRequest
+     * @param request - DescribeHealthCheckStatusListRequest
      *
-     * @return DescribeHealthCheckStatusListResponse DescribeHealthCheckStatusListResponse
+     * @returns DescribeHealthCheckStatusListResponse
+     *
+     * @param DescribeHealthCheckStatusListRequest $request
+     *
+     * @return DescribeHealthCheckStatusListResponse
      */
     public function describeHealthCheckStatusList($request)
     {
@@ -2089,36 +2561,43 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * @param DescribeInstanceDetailsRequest $request DescribeInstanceDetailsRequest
-     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
+     * @param request - DescribeInstanceDetailsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
      *
-     * @return DescribeInstanceDetailsResponse DescribeInstanceDetailsResponse
+     * @returns DescribeInstanceDetailsResponse
+     *
+     * @param DescribeInstanceDetailsRequest $request
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return DescribeInstanceDetailsResponse
      */
     public function describeInstanceDetailsWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->instanceIds)) {
-            $query['InstanceIds'] = $request->instanceIds;
+        if (null !== $request->instanceIds) {
+            @$query['InstanceIds'] = $request->instanceIds;
         }
-        if (!Utils::isUnset($request->sourceIp)) {
-            $query['SourceIp'] = $request->sourceIp;
+
+        if (null !== $request->sourceIp) {
+            @$query['SourceIp'] = $request->sourceIp;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeInstanceDetails',
-            'version'     => '2017-12-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeInstanceDetails',
+            'version' => '2017-12-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DescribeInstanceDetailsResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -2126,9 +2605,13 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * @param DescribeInstanceDetailsRequest $request DescribeInstanceDetailsRequest
+     * @param request - DescribeInstanceDetailsRequest
      *
-     * @return DescribeInstanceDetailsResponse DescribeInstanceDetailsResponse
+     * @returns DescribeInstanceDetailsResponse
+     *
+     * @param DescribeInstanceDetailsRequest $request
+     *
+     * @return DescribeInstanceDetailsResponse
      */
     public function describeInstanceDetails($request)
     {
@@ -2138,36 +2621,43 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * @param DescribeInstanceSpecsRequest $request DescribeInstanceSpecsRequest
-     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
+     * @param request - DescribeInstanceSpecsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
      *
-     * @return DescribeInstanceSpecsResponse DescribeInstanceSpecsResponse
+     * @returns DescribeInstanceSpecsResponse
+     *
+     * @param DescribeInstanceSpecsRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return DescribeInstanceSpecsResponse
      */
     public function describeInstanceSpecsWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->instanceIds)) {
-            $query['InstanceIds'] = $request->instanceIds;
+        if (null !== $request->instanceIds) {
+            @$query['InstanceIds'] = $request->instanceIds;
         }
-        if (!Utils::isUnset($request->sourceIp)) {
-            $query['SourceIp'] = $request->sourceIp;
+
+        if (null !== $request->sourceIp) {
+            @$query['SourceIp'] = $request->sourceIp;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeInstanceSpecs',
-            'version'     => '2017-12-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeInstanceSpecs',
+            'version' => '2017-12-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DescribeInstanceSpecsResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -2175,9 +2665,13 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * @param DescribeInstanceSpecsRequest $request DescribeInstanceSpecsRequest
+     * @param request - DescribeInstanceSpecsRequest
      *
-     * @return DescribeInstanceSpecsResponse DescribeInstanceSpecsResponse
+     * @returns DescribeInstanceSpecsResponse
+     *
+     * @param DescribeInstanceSpecsRequest $request
+     *
+     * @return DescribeInstanceSpecsResponse
      */
     public function describeInstanceSpecs($request)
     {
@@ -2187,36 +2681,43 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * @param DescribeInstanceStatisticsRequest $request DescribeInstanceStatisticsRequest
-     * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
+     * @param request - DescribeInstanceStatisticsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
      *
-     * @return DescribeInstanceStatisticsResponse DescribeInstanceStatisticsResponse
+     * @returns DescribeInstanceStatisticsResponse
+     *
+     * @param DescribeInstanceStatisticsRequest $request
+     * @param RuntimeOptions                    $runtime
+     *
+     * @return DescribeInstanceStatisticsResponse
      */
     public function describeInstanceStatisticsWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->instanceIds)) {
-            $query['InstanceIds'] = $request->instanceIds;
+        if (null !== $request->instanceIds) {
+            @$query['InstanceIds'] = $request->instanceIds;
         }
-        if (!Utils::isUnset($request->sourceIp)) {
-            $query['SourceIp'] = $request->sourceIp;
+
+        if (null !== $request->sourceIp) {
+            @$query['SourceIp'] = $request->sourceIp;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeInstanceStatistics',
-            'version'     => '2017-12-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeInstanceStatistics',
+            'version' => '2017-12-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DescribeInstanceStatisticsResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -2224,9 +2725,13 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * @param DescribeInstanceStatisticsRequest $request DescribeInstanceStatisticsRequest
+     * @param request - DescribeInstanceStatisticsRequest
      *
-     * @return DescribeInstanceStatisticsResponse DescribeInstanceStatisticsResponse
+     * @returns DescribeInstanceStatisticsResponse
+     *
+     * @param DescribeInstanceStatisticsRequest $request
+     *
+     * @return DescribeInstanceStatisticsResponse
      */
     public function describeInstanceStatistics($request)
     {
@@ -2236,69 +2741,87 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * @param DescribeInstancesRequest $request DescribeInstancesRequest
-     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
+     * @param request - DescribeInstancesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
      *
-     * @return DescribeInstancesResponse DescribeInstancesResponse
+     * @returns DescribeInstancesResponse
+     *
+     * @param DescribeInstancesRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return DescribeInstancesResponse
      */
     public function describeInstancesWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->edition)) {
-            $query['Edition'] = $request->edition;
+        if (null !== $request->edition) {
+            @$query['Edition'] = $request->edition;
         }
-        if (!Utils::isUnset($request->enabled)) {
-            $query['Enabled'] = $request->enabled;
+
+        if (null !== $request->enabled) {
+            @$query['Enabled'] = $request->enabled;
         }
-        if (!Utils::isUnset($request->expireEndTime)) {
-            $query['ExpireEndTime'] = $request->expireEndTime;
+
+        if (null !== $request->expireEndTime) {
+            @$query['ExpireEndTime'] = $request->expireEndTime;
         }
-        if (!Utils::isUnset($request->expireStartTime)) {
-            $query['ExpireStartTime'] = $request->expireStartTime;
+
+        if (null !== $request->expireStartTime) {
+            @$query['ExpireStartTime'] = $request->expireStartTime;
         }
-        if (!Utils::isUnset($request->instanceIds)) {
-            $query['InstanceIds'] = $request->instanceIds;
+
+        if (null !== $request->instanceIds) {
+            @$query['InstanceIds'] = $request->instanceIds;
         }
-        if (!Utils::isUnset($request->ip)) {
-            $query['Ip'] = $request->ip;
+
+        if (null !== $request->ip) {
+            @$query['Ip'] = $request->ip;
         }
-        if (!Utils::isUnset($request->pageNo)) {
-            $query['PageNo'] = $request->pageNo;
+
+        if (null !== $request->pageNo) {
+            @$query['PageNo'] = $request->pageNo;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['PageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
         }
-        if (!Utils::isUnset($request->remark)) {
-            $query['Remark'] = $request->remark;
+
+        if (null !== $request->remark) {
+            @$query['Remark'] = $request->remark;
         }
-        if (!Utils::isUnset($request->resourceGroupId)) {
-            $query['ResourceGroupId'] = $request->resourceGroupId;
+
+        if (null !== $request->resourceGroupId) {
+            @$query['ResourceGroupId'] = $request->resourceGroupId;
         }
-        if (!Utils::isUnset($request->sourceIp)) {
-            $query['SourceIp'] = $request->sourceIp;
+
+        if (null !== $request->sourceIp) {
+            @$query['SourceIp'] = $request->sourceIp;
         }
-        if (!Utils::isUnset($request->status)) {
-            $query['Status'] = $request->status;
+
+        if (null !== $request->status) {
+            @$query['Status'] = $request->status;
         }
-        if (!Utils::isUnset($request->tag)) {
-            $query['Tag'] = $request->tag;
+
+        if (null !== $request->tag) {
+            @$query['Tag'] = $request->tag;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeInstances',
-            'version'     => '2017-12-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeInstances',
+            'version' => '2017-12-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DescribeInstancesResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -2306,9 +2829,13 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * @param DescribeInstancesRequest $request DescribeInstancesRequest
+     * @param request - DescribeInstancesRequest
      *
-     * @return DescribeInstancesResponse DescribeInstancesResponse
+     * @returns DescribeInstancesResponse
+     *
+     * @param DescribeInstancesRequest $request
+     *
+     * @return DescribeInstancesResponse
      */
     public function describeInstances($request)
     {
@@ -2318,54 +2845,67 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * @param DescribeIpTrafficRequest $request DescribeIpTrafficRequest
-     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
+     * @param request - DescribeIpTrafficRequest
+     * @param runtime - runtime options for this request RuntimeOptions
      *
-     * @return DescribeIpTrafficResponse DescribeIpTrafficResponse
+     * @returns DescribeIpTrafficResponse
+     *
+     * @param DescribeIpTrafficRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return DescribeIpTrafficResponse
      */
     public function describeIpTrafficWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->eip)) {
-            $query['Eip'] = $request->eip;
+        if (null !== $request->eip) {
+            @$query['Eip'] = $request->eip;
         }
-        if (!Utils::isUnset($request->endTime)) {
-            $query['EndTime'] = $request->endTime;
+
+        if (null !== $request->endTime) {
+            @$query['EndTime'] = $request->endTime;
         }
-        if (!Utils::isUnset($request->interval)) {
-            $query['Interval'] = $request->interval;
+
+        if (null !== $request->interval) {
+            @$query['Interval'] = $request->interval;
         }
-        if (!Utils::isUnset($request->port)) {
-            $query['Port'] = $request->port;
+
+        if (null !== $request->port) {
+            @$query['Port'] = $request->port;
         }
-        if (!Utils::isUnset($request->queryProtocol)) {
-            $query['QueryProtocol'] = $request->queryProtocol;
+
+        if (null !== $request->queryProtocol) {
+            @$query['QueryProtocol'] = $request->queryProtocol;
         }
-        if (!Utils::isUnset($request->resourceGroupId)) {
-            $query['ResourceGroupId'] = $request->resourceGroupId;
+
+        if (null !== $request->resourceGroupId) {
+            @$query['ResourceGroupId'] = $request->resourceGroupId;
         }
-        if (!Utils::isUnset($request->sourceIp)) {
-            $query['SourceIp'] = $request->sourceIp;
+
+        if (null !== $request->sourceIp) {
+            @$query['SourceIp'] = $request->sourceIp;
         }
-        if (!Utils::isUnset($request->startTime)) {
-            $query['StartTime'] = $request->startTime;
+
+        if (null !== $request->startTime) {
+            @$query['StartTime'] = $request->startTime;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeIpTraffic',
-            'version'     => '2017-12-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeIpTraffic',
+            'version' => '2017-12-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DescribeIpTrafficResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -2373,9 +2913,13 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * @param DescribeIpTrafficRequest $request DescribeIpTrafficRequest
+     * @param request - DescribeIpTrafficRequest
      *
-     * @return DescribeIpTrafficResponse DescribeIpTrafficResponse
+     * @returns DescribeIpTrafficResponse
+     *
+     * @param DescribeIpTrafficRequest $request
+     *
+     * @return DescribeIpTrafficResponse
      */
     public function describeIpTraffic($request)
     {
@@ -2385,36 +2929,43 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * @param DescribeLayer4RuleAttributesRequest $request DescribeLayer4RuleAttributesRequest
-     * @param RuntimeOptions                      $runtime runtime options for this request RuntimeOptions
+     * @param request - DescribeLayer4RuleAttributesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
      *
-     * @return DescribeLayer4RuleAttributesResponse DescribeLayer4RuleAttributesResponse
+     * @returns DescribeLayer4RuleAttributesResponse
+     *
+     * @param DescribeLayer4RuleAttributesRequest $request
+     * @param RuntimeOptions                      $runtime
+     *
+     * @return DescribeLayer4RuleAttributesResponse
      */
     public function describeLayer4RuleAttributesWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->listeners)) {
-            $query['Listeners'] = $request->listeners;
+        if (null !== $request->listeners) {
+            @$query['Listeners'] = $request->listeners;
         }
-        if (!Utils::isUnset($request->sourceIp)) {
-            $query['SourceIp'] = $request->sourceIp;
+
+        if (null !== $request->sourceIp) {
+            @$query['SourceIp'] = $request->sourceIp;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeLayer4RuleAttributes',
-            'version'     => '2017-12-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeLayer4RuleAttributes',
+            'version' => '2017-12-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DescribeLayer4RuleAttributesResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -2422,9 +2973,13 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * @param DescribeLayer4RuleAttributesRequest $request DescribeLayer4RuleAttributesRequest
+     * @param request - DescribeLayer4RuleAttributesRequest
      *
-     * @return DescribeLayer4RuleAttributesResponse DescribeLayer4RuleAttributesResponse
+     * @returns DescribeLayer4RuleAttributesResponse
+     *
+     * @param DescribeLayer4RuleAttributesRequest $request
+     *
+     * @return DescribeLayer4RuleAttributesResponse
      */
     public function describeLayer4RuleAttributes($request)
     {
@@ -2434,50 +2989,61 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * @summary Call DescribeLayer4Rules to query the detailed configuration of port forwarding rules for DDoS protection instances.
-     *  *
-     * @param DescribeLayer4RulesRequest $request DescribeLayer4RulesRequest
-     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
+     * Call DescribeLayer4Rules to query the detailed configuration of port forwarding rules for DDoS protection instances.
      *
-     * @return DescribeLayer4RulesResponse DescribeLayer4RulesResponse
+     * @param request - DescribeLayer4RulesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeLayer4RulesResponse
+     *
+     * @param DescribeLayer4RulesRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return DescribeLayer4RulesResponse
      */
     public function describeLayer4RulesWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->forwardProtocol)) {
-            $query['ForwardProtocol'] = $request->forwardProtocol;
+        if (null !== $request->forwardProtocol) {
+            @$query['ForwardProtocol'] = $request->forwardProtocol;
         }
-        if (!Utils::isUnset($request->frontendPort)) {
-            $query['FrontendPort'] = $request->frontendPort;
+
+        if (null !== $request->frontendPort) {
+            @$query['FrontendPort'] = $request->frontendPort;
         }
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
-        if (!Utils::isUnset($request->offset)) {
-            $query['Offset'] = $request->offset;
+
+        if (null !== $request->offset) {
+            @$query['Offset'] = $request->offset;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['PageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
         }
-        if (!Utils::isUnset($request->sourceIp)) {
-            $query['SourceIp'] = $request->sourceIp;
+
+        if (null !== $request->sourceIp) {
+            @$query['SourceIp'] = $request->sourceIp;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeLayer4Rules',
-            'version'     => '2017-12-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeLayer4Rules',
+            'version' => '2017-12-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DescribeLayer4RulesResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -2485,11 +3051,15 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * @summary Call DescribeLayer4Rules to query the detailed configuration of port forwarding rules for DDoS protection instances.
-     *  *
-     * @param DescribeLayer4RulesRequest $request DescribeLayer4RulesRequest
+     * Call DescribeLayer4Rules to query the detailed configuration of port forwarding rules for DDoS protection instances.
      *
-     * @return DescribeLayer4RulesResponse DescribeLayer4RulesResponse
+     * @param request - DescribeLayer4RulesRequest
+     *
+     * @returns DescribeLayer4RulesResponse
+     *
+     * @param DescribeLayer4RulesRequest $request
+     *
+     * @return DescribeLayer4RulesResponse
      */
     public function describeLayer4Rules($request)
     {
@@ -2499,45 +3069,55 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * @param DescribeLayer7CCRulesRequest $request DescribeLayer7CCRulesRequest
-     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
+     * @param request - DescribeLayer7CCRulesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
      *
-     * @return DescribeLayer7CCRulesResponse DescribeLayer7CCRulesResponse
+     * @returns DescribeLayer7CCRulesResponse
+     *
+     * @param DescribeLayer7CCRulesRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return DescribeLayer7CCRulesResponse
      */
     public function describeLayer7CCRulesWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->domain)) {
-            $query['Domain'] = $request->domain;
+        if (null !== $request->domain) {
+            @$query['Domain'] = $request->domain;
         }
-        if (!Utils::isUnset($request->offset)) {
-            $query['Offset'] = $request->offset;
+
+        if (null !== $request->offset) {
+            @$query['Offset'] = $request->offset;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['PageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
         }
-        if (!Utils::isUnset($request->resourceGroupId)) {
-            $query['ResourceGroupId'] = $request->resourceGroupId;
+
+        if (null !== $request->resourceGroupId) {
+            @$query['ResourceGroupId'] = $request->resourceGroupId;
         }
-        if (!Utils::isUnset($request->sourceIp)) {
-            $query['SourceIp'] = $request->sourceIp;
+
+        if (null !== $request->sourceIp) {
+            @$query['SourceIp'] = $request->sourceIp;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeLayer7CCRules',
-            'version'     => '2017-12-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeLayer7CCRules',
+            'version' => '2017-12-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DescribeLayer7CCRulesResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -2545,9 +3125,13 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * @param DescribeLayer7CCRulesRequest $request DescribeLayer7CCRulesRequest
+     * @param request - DescribeLayer7CCRulesRequest
      *
-     * @return DescribeLayer7CCRulesResponse DescribeLayer7CCRulesResponse
+     * @returns DescribeLayer7CCRulesResponse
+     *
+     * @param DescribeLayer7CCRulesRequest $request
+     *
+     * @return DescribeLayer7CCRulesResponse
      */
     public function describeLayer7CCRules($request)
     {
@@ -2557,39 +3141,47 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * @param DescribeLogStoreExistStatusRequest $request DescribeLogStoreExistStatusRequest
-     * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
+     * @param request - DescribeLogStoreExistStatusRequest
+     * @param runtime - runtime options for this request RuntimeOptions
      *
-     * @return DescribeLogStoreExistStatusResponse DescribeLogStoreExistStatusResponse
+     * @returns DescribeLogStoreExistStatusResponse
+     *
+     * @param DescribeLogStoreExistStatusRequest $request
+     * @param RuntimeOptions                     $runtime
+     *
+     * @return DescribeLogStoreExistStatusResponse
      */
     public function describeLogStoreExistStatusWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->lang)) {
-            $query['Lang'] = $request->lang;
+        if (null !== $request->lang) {
+            @$query['Lang'] = $request->lang;
         }
-        if (!Utils::isUnset($request->resourceGroupId)) {
-            $query['ResourceGroupId'] = $request->resourceGroupId;
+
+        if (null !== $request->resourceGroupId) {
+            @$query['ResourceGroupId'] = $request->resourceGroupId;
         }
-        if (!Utils::isUnset($request->sourceIp)) {
-            $query['SourceIp'] = $request->sourceIp;
+
+        if (null !== $request->sourceIp) {
+            @$query['SourceIp'] = $request->sourceIp;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeLogStoreExistStatus',
-            'version'     => '2017-12-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeLogStoreExistStatus',
+            'version' => '2017-12-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DescribeLogStoreExistStatusResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -2597,9 +3189,13 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * @param DescribeLogStoreExistStatusRequest $request DescribeLogStoreExistStatusRequest
+     * @param request - DescribeLogStoreExistStatusRequest
      *
-     * @return DescribeLogStoreExistStatusResponse DescribeLogStoreExistStatusResponse
+     * @returns DescribeLogStoreExistStatusResponse
+     *
+     * @param DescribeLogStoreExistStatusRequest $request
+     *
+     * @return DescribeLogStoreExistStatusResponse
      */
     public function describeLogStoreExistStatus($request)
     {
@@ -2609,57 +3205,71 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * @param DescribeOpEntitiesRequest $request DescribeOpEntitiesRequest
-     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
+     * @param request - DescribeOpEntitiesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
      *
-     * @return DescribeOpEntitiesResponse DescribeOpEntitiesResponse
+     * @returns DescribeOpEntitiesResponse
+     *
+     * @param DescribeOpEntitiesRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return DescribeOpEntitiesResponse
      */
     public function describeOpEntitiesWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->endTime)) {
-            $query['EndTime'] = $request->endTime;
+        if (null !== $request->endTime) {
+            @$query['EndTime'] = $request->endTime;
         }
-        if (!Utils::isUnset($request->entityObject)) {
-            $query['EntityObject'] = $request->entityObject;
+
+        if (null !== $request->entityObject) {
+            @$query['EntityObject'] = $request->entityObject;
         }
-        if (!Utils::isUnset($request->entityType)) {
-            $query['EntityType'] = $request->entityType;
+
+        if (null !== $request->entityType) {
+            @$query['EntityType'] = $request->entityType;
         }
-        if (!Utils::isUnset($request->opAction)) {
-            $query['OpAction'] = $request->opAction;
+
+        if (null !== $request->opAction) {
+            @$query['OpAction'] = $request->opAction;
         }
-        if (!Utils::isUnset($request->pageNo)) {
-            $query['PageNo'] = $request->pageNo;
+
+        if (null !== $request->pageNo) {
+            @$query['PageNo'] = $request->pageNo;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['PageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
         }
-        if (!Utils::isUnset($request->resourceGroupId)) {
-            $query['ResourceGroupId'] = $request->resourceGroupId;
+
+        if (null !== $request->resourceGroupId) {
+            @$query['ResourceGroupId'] = $request->resourceGroupId;
         }
-        if (!Utils::isUnset($request->sourceIp)) {
-            $query['SourceIp'] = $request->sourceIp;
+
+        if (null !== $request->sourceIp) {
+            @$query['SourceIp'] = $request->sourceIp;
         }
-        if (!Utils::isUnset($request->startTime)) {
-            $query['StartTime'] = $request->startTime;
+
+        if (null !== $request->startTime) {
+            @$query['StartTime'] = $request->startTime;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeOpEntities',
-            'version'     => '2017-12-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeOpEntities',
+            'version' => '2017-12-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DescribeOpEntitiesResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -2667,9 +3277,13 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * @param DescribeOpEntitiesRequest $request DescribeOpEntitiesRequest
+     * @param request - DescribeOpEntitiesRequest
      *
-     * @return DescribeOpEntitiesResponse DescribeOpEntitiesResponse
+     * @returns DescribeOpEntitiesResponse
+     *
+     * @param DescribeOpEntitiesRequest $request
+     *
+     * @return DescribeOpEntitiesResponse
      */
     public function describeOpEntities($request)
     {
@@ -2679,42 +3293,51 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * @param DescribeSimpleDomainsRequest $request DescribeSimpleDomainsRequest
-     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
+     * @param request - DescribeSimpleDomainsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
      *
-     * @return DescribeSimpleDomainsResponse DescribeSimpleDomainsResponse
+     * @returns DescribeSimpleDomainsResponse
+     *
+     * @param DescribeSimpleDomainsRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return DescribeSimpleDomainsResponse
      */
     public function describeSimpleDomainsWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->instanceIds)) {
-            $query['InstanceIds'] = $request->instanceIds;
+        if (null !== $request->instanceIds) {
+            @$query['InstanceIds'] = $request->instanceIds;
         }
-        if (!Utils::isUnset($request->lang)) {
-            $query['Lang'] = $request->lang;
+
+        if (null !== $request->lang) {
+            @$query['Lang'] = $request->lang;
         }
-        if (!Utils::isUnset($request->resourceGroupId)) {
-            $query['ResourceGroupId'] = $request->resourceGroupId;
+
+        if (null !== $request->resourceGroupId) {
+            @$query['ResourceGroupId'] = $request->resourceGroupId;
         }
-        if (!Utils::isUnset($request->sourceIp)) {
-            $query['SourceIp'] = $request->sourceIp;
+
+        if (null !== $request->sourceIp) {
+            @$query['SourceIp'] = $request->sourceIp;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeSimpleDomains',
-            'version'     => '2017-12-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeSimpleDomains',
+            'version' => '2017-12-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DescribeSimpleDomainsResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -2722,9 +3345,13 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * @param DescribeSimpleDomainsRequest $request DescribeSimpleDomainsRequest
+     * @param request - DescribeSimpleDomainsRequest
      *
-     * @return DescribeSimpleDomainsResponse DescribeSimpleDomainsResponse
+     * @returns DescribeSimpleDomainsResponse
+     *
+     * @param DescribeSimpleDomainsRequest $request
+     *
+     * @return DescribeSimpleDomainsResponse
      */
     public function describeSimpleDomains($request)
     {
@@ -2734,39 +3361,47 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * @param DescribeSlsAuthStatusRequest $request DescribeSlsAuthStatusRequest
-     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
+     * @param request - DescribeSlsAuthStatusRequest
+     * @param runtime - runtime options for this request RuntimeOptions
      *
-     * @return DescribeSlsAuthStatusResponse DescribeSlsAuthStatusResponse
+     * @returns DescribeSlsAuthStatusResponse
+     *
+     * @param DescribeSlsAuthStatusRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return DescribeSlsAuthStatusResponse
      */
     public function describeSlsAuthStatusWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->lang)) {
-            $query['Lang'] = $request->lang;
+        if (null !== $request->lang) {
+            @$query['Lang'] = $request->lang;
         }
-        if (!Utils::isUnset($request->resourceGroupId)) {
-            $query['ResourceGroupId'] = $request->resourceGroupId;
+
+        if (null !== $request->resourceGroupId) {
+            @$query['ResourceGroupId'] = $request->resourceGroupId;
         }
-        if (!Utils::isUnset($request->sourceIp)) {
-            $query['SourceIp'] = $request->sourceIp;
+
+        if (null !== $request->sourceIp) {
+            @$query['SourceIp'] = $request->sourceIp;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeSlsAuthStatus',
-            'version'     => '2017-12-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeSlsAuthStatus',
+            'version' => '2017-12-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DescribeSlsAuthStatusResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -2774,9 +3409,13 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * @param DescribeSlsAuthStatusRequest $request DescribeSlsAuthStatusRequest
+     * @param request - DescribeSlsAuthStatusRequest
      *
-     * @return DescribeSlsAuthStatusResponse DescribeSlsAuthStatusResponse
+     * @returns DescribeSlsAuthStatusResponse
+     *
+     * @param DescribeSlsAuthStatusRequest $request
+     *
+     * @return DescribeSlsAuthStatusResponse
      */
     public function describeSlsAuthStatus($request)
     {
@@ -2786,39 +3425,47 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * @param DescribeSlsEmptyCountRequest $request DescribeSlsEmptyCountRequest
-     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
+     * @param request - DescribeSlsEmptyCountRequest
+     * @param runtime - runtime options for this request RuntimeOptions
      *
-     * @return DescribeSlsEmptyCountResponse DescribeSlsEmptyCountResponse
+     * @returns DescribeSlsEmptyCountResponse
+     *
+     * @param DescribeSlsEmptyCountRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return DescribeSlsEmptyCountResponse
      */
     public function describeSlsEmptyCountWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->lang)) {
-            $query['Lang'] = $request->lang;
+        if (null !== $request->lang) {
+            @$query['Lang'] = $request->lang;
         }
-        if (!Utils::isUnset($request->resourceGroupId)) {
-            $query['ResourceGroupId'] = $request->resourceGroupId;
+
+        if (null !== $request->resourceGroupId) {
+            @$query['ResourceGroupId'] = $request->resourceGroupId;
         }
-        if (!Utils::isUnset($request->sourceIp)) {
-            $query['SourceIp'] = $request->sourceIp;
+
+        if (null !== $request->sourceIp) {
+            @$query['SourceIp'] = $request->sourceIp;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeSlsEmptyCount',
-            'version'     => '2017-12-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeSlsEmptyCount',
+            'version' => '2017-12-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DescribeSlsEmptyCountResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -2826,9 +3473,13 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * @param DescribeSlsEmptyCountRequest $request DescribeSlsEmptyCountRequest
+     * @param request - DescribeSlsEmptyCountRequest
      *
-     * @return DescribeSlsEmptyCountResponse DescribeSlsEmptyCountResponse
+     * @returns DescribeSlsEmptyCountResponse
+     *
+     * @param DescribeSlsEmptyCountRequest $request
+     *
+     * @return DescribeSlsEmptyCountResponse
      */
     public function describeSlsEmptyCount($request)
     {
@@ -2838,39 +3489,47 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * @param DescribeSlsLogstoreInfoRequest $request DescribeSlsLogstoreInfoRequest
-     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
+     * @param request - DescribeSlsLogstoreInfoRequest
+     * @param runtime - runtime options for this request RuntimeOptions
      *
-     * @return DescribeSlsLogstoreInfoResponse DescribeSlsLogstoreInfoResponse
+     * @returns DescribeSlsLogstoreInfoResponse
+     *
+     * @param DescribeSlsLogstoreInfoRequest $request
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return DescribeSlsLogstoreInfoResponse
      */
     public function describeSlsLogstoreInfoWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->lang)) {
-            $query['Lang'] = $request->lang;
+        if (null !== $request->lang) {
+            @$query['Lang'] = $request->lang;
         }
-        if (!Utils::isUnset($request->resourceGroupId)) {
-            $query['ResourceGroupId'] = $request->resourceGroupId;
+
+        if (null !== $request->resourceGroupId) {
+            @$query['ResourceGroupId'] = $request->resourceGroupId;
         }
-        if (!Utils::isUnset($request->sourceIp)) {
-            $query['SourceIp'] = $request->sourceIp;
+
+        if (null !== $request->sourceIp) {
+            @$query['SourceIp'] = $request->sourceIp;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeSlsLogstoreInfo',
-            'version'     => '2017-12-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeSlsLogstoreInfo',
+            'version' => '2017-12-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DescribeSlsLogstoreInfoResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -2878,9 +3537,13 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * @param DescribeSlsLogstoreInfoRequest $request DescribeSlsLogstoreInfoRequest
+     * @param request - DescribeSlsLogstoreInfoRequest
      *
-     * @return DescribeSlsLogstoreInfoResponse DescribeSlsLogstoreInfoResponse
+     * @returns DescribeSlsLogstoreInfoResponse
+     *
+     * @param DescribeSlsLogstoreInfoRequest $request
+     *
+     * @return DescribeSlsLogstoreInfoResponse
      */
     public function describeSlsLogstoreInfo($request)
     {
@@ -2890,39 +3553,47 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * @param DescribeSlsOpenStatusRequest $request DescribeSlsOpenStatusRequest
-     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
+     * @param request - DescribeSlsOpenStatusRequest
+     * @param runtime - runtime options for this request RuntimeOptions
      *
-     * @return DescribeSlsOpenStatusResponse DescribeSlsOpenStatusResponse
+     * @returns DescribeSlsOpenStatusResponse
+     *
+     * @param DescribeSlsOpenStatusRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return DescribeSlsOpenStatusResponse
      */
     public function describeSlsOpenStatusWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->lang)) {
-            $query['Lang'] = $request->lang;
+        if (null !== $request->lang) {
+            @$query['Lang'] = $request->lang;
         }
-        if (!Utils::isUnset($request->resourceGroupId)) {
-            $query['ResourceGroupId'] = $request->resourceGroupId;
+
+        if (null !== $request->resourceGroupId) {
+            @$query['ResourceGroupId'] = $request->resourceGroupId;
         }
-        if (!Utils::isUnset($request->sourceIp)) {
-            $query['SourceIp'] = $request->sourceIp;
+
+        if (null !== $request->sourceIp) {
+            @$query['SourceIp'] = $request->sourceIp;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeSlsOpenStatus',
-            'version'     => '2017-12-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeSlsOpenStatus',
+            'version' => '2017-12-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DescribeSlsOpenStatusResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -2930,9 +3601,13 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * @param DescribeSlsOpenStatusRequest $request DescribeSlsOpenStatusRequest
+     * @param request - DescribeSlsOpenStatusRequest
      *
-     * @return DescribeSlsOpenStatusResponse DescribeSlsOpenStatusResponse
+     * @returns DescribeSlsOpenStatusResponse
+     *
+     * @param DescribeSlsOpenStatusRequest $request
+     *
+     * @return DescribeSlsOpenStatusResponse
      */
     public function describeSlsOpenStatus($request)
     {
@@ -2942,39 +3617,47 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * @param DescribleCertListRequest $request DescribleCertListRequest
-     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
+     * @param request - DescribleCertListRequest
+     * @param runtime - runtime options for this request RuntimeOptions
      *
-     * @return DescribleCertListResponse DescribleCertListResponse
+     * @returns DescribleCertListResponse
+     *
+     * @param DescribleCertListRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return DescribleCertListResponse
      */
     public function describleCertListWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->domain)) {
-            $query['Domain'] = $request->domain;
+        if (null !== $request->domain) {
+            @$query['Domain'] = $request->domain;
         }
-        if (!Utils::isUnset($request->resourceGroupId)) {
-            $query['ResourceGroupId'] = $request->resourceGroupId;
+
+        if (null !== $request->resourceGroupId) {
+            @$query['ResourceGroupId'] = $request->resourceGroupId;
         }
-        if (!Utils::isUnset($request->sourceIp)) {
-            $query['SourceIp'] = $request->sourceIp;
+
+        if (null !== $request->sourceIp) {
+            @$query['SourceIp'] = $request->sourceIp;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribleCertList',
-            'version'     => '2017-12-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribleCertList',
+            'version' => '2017-12-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DescribleCertListResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -2982,9 +3665,13 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * @param DescribleCertListRequest $request DescribleCertListRequest
+     * @param request - DescribleCertListRequest
      *
-     * @return DescribleCertListResponse DescribleCertListResponse
+     * @returns DescribleCertListResponse
+     *
+     * @param DescribleCertListRequest $request
+     *
+     * @return DescribleCertListResponse
      */
     public function describleCertList($request)
     {
@@ -2994,39 +3681,47 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * @param DescribleLayer7InstanceRelationsRequest $request DescribleLayer7InstanceRelationsRequest
-     * @param RuntimeOptions                          $runtime runtime options for this request RuntimeOptions
+     * @param request - DescribleLayer7InstanceRelationsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
      *
-     * @return DescribleLayer7InstanceRelationsResponse DescribleLayer7InstanceRelationsResponse
+     * @returns DescribleLayer7InstanceRelationsResponse
+     *
+     * @param DescribleLayer7InstanceRelationsRequest $request
+     * @param RuntimeOptions                          $runtime
+     *
+     * @return DescribleLayer7InstanceRelationsResponse
      */
     public function describleLayer7InstanceRelationsWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->domainList)) {
-            $query['DomainList'] = $request->domainList;
+        if (null !== $request->domainList) {
+            @$query['DomainList'] = $request->domainList;
         }
-        if (!Utils::isUnset($request->resourceGroupId)) {
-            $query['ResourceGroupId'] = $request->resourceGroupId;
+
+        if (null !== $request->resourceGroupId) {
+            @$query['ResourceGroupId'] = $request->resourceGroupId;
         }
-        if (!Utils::isUnset($request->sourceIp)) {
-            $query['SourceIp'] = $request->sourceIp;
+
+        if (null !== $request->sourceIp) {
+            @$query['SourceIp'] = $request->sourceIp;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribleLayer7InstanceRelations',
-            'version'     => '2017-12-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribleLayer7InstanceRelations',
+            'version' => '2017-12-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DescribleLayer7InstanceRelationsResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -3034,9 +3729,13 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * @param DescribleLayer7InstanceRelationsRequest $request DescribleLayer7InstanceRelationsRequest
+     * @param request - DescribleLayer7InstanceRelationsRequest
      *
-     * @return DescribleLayer7InstanceRelationsResponse DescribleLayer7InstanceRelationsResponse
+     * @returns DescribleLayer7InstanceRelationsResponse
+     *
+     * @param DescribleLayer7InstanceRelationsRequest $request
+     *
+     * @return DescribleLayer7InstanceRelationsResponse
      */
     public function describleLayer7InstanceRelations($request)
     {
@@ -3046,39 +3745,47 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * @param DisableLayer7CCRequest $request DisableLayer7CCRequest
-     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
+     * @param request - DisableLayer7CCRequest
+     * @param runtime - runtime options for this request RuntimeOptions
      *
-     * @return DisableLayer7CCResponse DisableLayer7CCResponse
+     * @returns DisableLayer7CCResponse
+     *
+     * @param DisableLayer7CCRequest $request
+     * @param RuntimeOptions         $runtime
+     *
+     * @return DisableLayer7CCResponse
      */
     public function disableLayer7CCWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->domain)) {
-            $query['Domain'] = $request->domain;
+        if (null !== $request->domain) {
+            @$query['Domain'] = $request->domain;
         }
-        if (!Utils::isUnset($request->resourceGroupId)) {
-            $query['ResourceGroupId'] = $request->resourceGroupId;
+
+        if (null !== $request->resourceGroupId) {
+            @$query['ResourceGroupId'] = $request->resourceGroupId;
         }
-        if (!Utils::isUnset($request->sourceIp)) {
-            $query['SourceIp'] = $request->sourceIp;
+
+        if (null !== $request->sourceIp) {
+            @$query['SourceIp'] = $request->sourceIp;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DisableLayer7CC',
-            'version'     => '2017-12-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DisableLayer7CC',
+            'version' => '2017-12-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DisableLayer7CCResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -3086,9 +3793,13 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * @param DisableLayer7CCRequest $request DisableLayer7CCRequest
+     * @param request - DisableLayer7CCRequest
      *
-     * @return DisableLayer7CCResponse DisableLayer7CCResponse
+     * @returns DisableLayer7CCResponse
+     *
+     * @param DisableLayer7CCRequest $request
+     *
+     * @return DisableLayer7CCResponse
      */
     public function disableLayer7CC($request)
     {
@@ -3098,39 +3809,47 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * @param DisableLayer7CCRuleRequest $request DisableLayer7CCRuleRequest
-     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
+     * @param request - DisableLayer7CCRuleRequest
+     * @param runtime - runtime options for this request RuntimeOptions
      *
-     * @return DisableLayer7CCRuleResponse DisableLayer7CCRuleResponse
+     * @returns DisableLayer7CCRuleResponse
+     *
+     * @param DisableLayer7CCRuleRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return DisableLayer7CCRuleResponse
      */
     public function disableLayer7CCRuleWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->domain)) {
-            $query['Domain'] = $request->domain;
+        if (null !== $request->domain) {
+            @$query['Domain'] = $request->domain;
         }
-        if (!Utils::isUnset($request->resourceGroupId)) {
-            $query['ResourceGroupId'] = $request->resourceGroupId;
+
+        if (null !== $request->resourceGroupId) {
+            @$query['ResourceGroupId'] = $request->resourceGroupId;
         }
-        if (!Utils::isUnset($request->sourceIp)) {
-            $query['SourceIp'] = $request->sourceIp;
+
+        if (null !== $request->sourceIp) {
+            @$query['SourceIp'] = $request->sourceIp;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DisableLayer7CCRule',
-            'version'     => '2017-12-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DisableLayer7CCRule',
+            'version' => '2017-12-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DisableLayer7CCRuleResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -3138,9 +3857,13 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * @param DisableLayer7CCRuleRequest $request DisableLayer7CCRuleRequest
+     * @param request - DisableLayer7CCRuleRequest
      *
-     * @return DisableLayer7CCRuleResponse DisableLayer7CCRuleResponse
+     * @returns DisableLayer7CCRuleResponse
+     *
+     * @param DisableLayer7CCRuleRequest $request
+     *
+     * @return DisableLayer7CCRuleResponse
      */
     public function disableLayer7CCRule($request)
     {
@@ -3150,39 +3873,47 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * @param EmptySlsLogstoreRequest $request EmptySlsLogstoreRequest
-     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
+     * @param request - EmptySlsLogstoreRequest
+     * @param runtime - runtime options for this request RuntimeOptions
      *
-     * @return EmptySlsLogstoreResponse EmptySlsLogstoreResponse
+     * @returns EmptySlsLogstoreResponse
+     *
+     * @param EmptySlsLogstoreRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return EmptySlsLogstoreResponse
      */
     public function emptySlsLogstoreWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->lang)) {
-            $query['Lang'] = $request->lang;
+        if (null !== $request->lang) {
+            @$query['Lang'] = $request->lang;
         }
-        if (!Utils::isUnset($request->resourceGroupId)) {
-            $query['ResourceGroupId'] = $request->resourceGroupId;
+
+        if (null !== $request->resourceGroupId) {
+            @$query['ResourceGroupId'] = $request->resourceGroupId;
         }
-        if (!Utils::isUnset($request->sourceIp)) {
-            $query['SourceIp'] = $request->sourceIp;
+
+        if (null !== $request->sourceIp) {
+            @$query['SourceIp'] = $request->sourceIp;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'EmptySlsLogstore',
-            'version'     => '2017-12-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'EmptySlsLogstore',
+            'version' => '2017-12-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return EmptySlsLogstoreResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -3190,9 +3921,13 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * @param EmptySlsLogstoreRequest $request EmptySlsLogstoreRequest
+     * @param request - EmptySlsLogstoreRequest
      *
-     * @return EmptySlsLogstoreResponse EmptySlsLogstoreResponse
+     * @returns EmptySlsLogstoreResponse
+     *
+     * @param EmptySlsLogstoreRequest $request
+     *
+     * @return EmptySlsLogstoreResponse
      */
     public function emptySlsLogstore($request)
     {
@@ -3202,39 +3937,47 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * @param EnableLayer7CCRequest $request EnableLayer7CCRequest
-     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
+     * @param request - EnableLayer7CCRequest
+     * @param runtime - runtime options for this request RuntimeOptions
      *
-     * @return EnableLayer7CCResponse EnableLayer7CCResponse
+     * @returns EnableLayer7CCResponse
+     *
+     * @param EnableLayer7CCRequest $request
+     * @param RuntimeOptions        $runtime
+     *
+     * @return EnableLayer7CCResponse
      */
     public function enableLayer7CCWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->domain)) {
-            $query['Domain'] = $request->domain;
+        if (null !== $request->domain) {
+            @$query['Domain'] = $request->domain;
         }
-        if (!Utils::isUnset($request->resourceGroupId)) {
-            $query['ResourceGroupId'] = $request->resourceGroupId;
+
+        if (null !== $request->resourceGroupId) {
+            @$query['ResourceGroupId'] = $request->resourceGroupId;
         }
-        if (!Utils::isUnset($request->sourceIp)) {
-            $query['SourceIp'] = $request->sourceIp;
+
+        if (null !== $request->sourceIp) {
+            @$query['SourceIp'] = $request->sourceIp;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'EnableLayer7CC',
-            'version'     => '2017-12-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'EnableLayer7CC',
+            'version' => '2017-12-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return EnableLayer7CCResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -3242,9 +3985,13 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * @param EnableLayer7CCRequest $request EnableLayer7CCRequest
+     * @param request - EnableLayer7CCRequest
      *
-     * @return EnableLayer7CCResponse EnableLayer7CCResponse
+     * @returns EnableLayer7CCResponse
+     *
+     * @param EnableLayer7CCRequest $request
+     *
+     * @return EnableLayer7CCResponse
      */
     public function enableLayer7CC($request)
     {
@@ -3254,39 +4001,47 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * @param EnableLayer7CCRuleRequest $request EnableLayer7CCRuleRequest
-     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
+     * @param request - EnableLayer7CCRuleRequest
+     * @param runtime - runtime options for this request RuntimeOptions
      *
-     * @return EnableLayer7CCRuleResponse EnableLayer7CCRuleResponse
+     * @returns EnableLayer7CCRuleResponse
+     *
+     * @param EnableLayer7CCRuleRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return EnableLayer7CCRuleResponse
      */
     public function enableLayer7CCRuleWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->domain)) {
-            $query['Domain'] = $request->domain;
+        if (null !== $request->domain) {
+            @$query['Domain'] = $request->domain;
         }
-        if (!Utils::isUnset($request->resourceGroupId)) {
-            $query['ResourceGroupId'] = $request->resourceGroupId;
+
+        if (null !== $request->resourceGroupId) {
+            @$query['ResourceGroupId'] = $request->resourceGroupId;
         }
-        if (!Utils::isUnset($request->sourceIp)) {
-            $query['SourceIp'] = $request->sourceIp;
+
+        if (null !== $request->sourceIp) {
+            @$query['SourceIp'] = $request->sourceIp;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'EnableLayer7CCRule',
-            'version'     => '2017-12-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'EnableLayer7CCRule',
+            'version' => '2017-12-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return EnableLayer7CCRuleResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -3294,9 +4049,13 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * @param EnableLayer7CCRuleRequest $request EnableLayer7CCRuleRequest
+     * @param request - EnableLayer7CCRuleRequest
      *
-     * @return EnableLayer7CCRuleResponse EnableLayer7CCRuleResponse
+     * @returns EnableLayer7CCRuleResponse
+     *
+     * @param EnableLayer7CCRuleRequest $request
+     *
+     * @return EnableLayer7CCRuleResponse
      */
     public function enableLayer7CCRule($request)
     {
@@ -3306,45 +4065,55 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * @param ListAsyncTaskRequest $request ListAsyncTaskRequest
-     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
+     * @param request - ListAsyncTaskRequest
+     * @param runtime - runtime options for this request RuntimeOptions
      *
-     * @return ListAsyncTaskResponse ListAsyncTaskResponse
+     * @returns ListAsyncTaskResponse
+     *
+     * @param ListAsyncTaskRequest $request
+     * @param RuntimeOptions       $runtime
+     *
+     * @return ListAsyncTaskResponse
      */
     public function listAsyncTaskWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->lang)) {
-            $query['Lang'] = $request->lang;
+        if (null !== $request->lang) {
+            @$query['Lang'] = $request->lang;
         }
-        if (!Utils::isUnset($request->pageNo)) {
-            $query['PageNo'] = $request->pageNo;
+
+        if (null !== $request->pageNo) {
+            @$query['PageNo'] = $request->pageNo;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['PageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
         }
-        if (!Utils::isUnset($request->resourceGroupId)) {
-            $query['ResourceGroupId'] = $request->resourceGroupId;
+
+        if (null !== $request->resourceGroupId) {
+            @$query['ResourceGroupId'] = $request->resourceGroupId;
         }
-        if (!Utils::isUnset($request->sourceIp)) {
-            $query['SourceIp'] = $request->sourceIp;
+
+        if (null !== $request->sourceIp) {
+            @$query['SourceIp'] = $request->sourceIp;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListAsyncTask',
-            'version'     => '2017-12-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListAsyncTask',
+            'version' => '2017-12-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return ListAsyncTaskResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -3352,9 +4121,13 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * @param ListAsyncTaskRequest $request ListAsyncTaskRequest
+     * @param request - ListAsyncTaskRequest
      *
-     * @return ListAsyncTaskResponse ListAsyncTaskResponse
+     * @returns ListAsyncTaskResponse
+     *
+     * @param ListAsyncTaskRequest $request
+     *
+     * @return ListAsyncTaskResponse
      */
     public function listAsyncTask($request)
     {
@@ -3364,39 +4137,47 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * @param ListLayer7CustomPortsRequest $request ListLayer7CustomPortsRequest
-     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
+     * @param request - ListLayer7CustomPortsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
      *
-     * @return ListLayer7CustomPortsResponse ListLayer7CustomPortsResponse
+     * @returns ListLayer7CustomPortsResponse
+     *
+     * @param ListLayer7CustomPortsRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return ListLayer7CustomPortsResponse
      */
     public function listLayer7CustomPortsWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->lang)) {
-            $query['Lang'] = $request->lang;
+        if (null !== $request->lang) {
+            @$query['Lang'] = $request->lang;
         }
-        if (!Utils::isUnset($request->resourceGroupId)) {
-            $query['ResourceGroupId'] = $request->resourceGroupId;
+
+        if (null !== $request->resourceGroupId) {
+            @$query['ResourceGroupId'] = $request->resourceGroupId;
         }
-        if (!Utils::isUnset($request->sourceIp)) {
-            $query['SourceIp'] = $request->sourceIp;
+
+        if (null !== $request->sourceIp) {
+            @$query['SourceIp'] = $request->sourceIp;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListLayer7CustomPorts',
-            'version'     => '2017-12-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListLayer7CustomPorts',
+            'version' => '2017-12-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return ListLayer7CustomPortsResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -3404,9 +4185,13 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * @param ListLayer7CustomPortsRequest $request ListLayer7CustomPortsRequest
+     * @param request - ListLayer7CustomPortsRequest
      *
-     * @return ListLayer7CustomPortsResponse ListLayer7CustomPortsResponse
+     * @returns ListLayer7CustomPortsResponse
+     *
+     * @param ListLayer7CustomPortsRequest $request
+     *
+     * @return ListLayer7CustomPortsResponse
      */
     public function listLayer7CustomPorts($request)
     {
@@ -3416,45 +4201,55 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * @param ListTagKeysRequest $request ListTagKeysRequest
-     * @param RuntimeOptions     $runtime runtime options for this request RuntimeOptions
+     * @param request - ListTagKeysRequest
+     * @param runtime - runtime options for this request RuntimeOptions
      *
-     * @return ListTagKeysResponse ListTagKeysResponse
+     * @returns ListTagKeysResponse
+     *
+     * @param ListTagKeysRequest $request
+     * @param RuntimeOptions     $runtime
+     *
+     * @return ListTagKeysResponse
      */
     public function listTagKeysWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->currentPage)) {
-            $query['CurrentPage'] = $request->currentPage;
+        if (null !== $request->currentPage) {
+            @$query['CurrentPage'] = $request->currentPage;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['PageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->resourceGroupId)) {
-            $query['ResourceGroupId'] = $request->resourceGroupId;
+
+        if (null !== $request->resourceGroupId) {
+            @$query['ResourceGroupId'] = $request->resourceGroupId;
         }
-        if (!Utils::isUnset($request->resourceType)) {
-            $query['ResourceType'] = $request->resourceType;
+
+        if (null !== $request->resourceType) {
+            @$query['ResourceType'] = $request->resourceType;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListTagKeys',
-            'version'     => '2017-12-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListTagKeys',
+            'version' => '2017-12-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return ListTagKeysResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -3462,9 +4257,13 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * @param ListTagKeysRequest $request ListTagKeysRequest
+     * @param request - ListTagKeysRequest
      *
-     * @return ListTagKeysResponse ListTagKeysResponse
+     * @returns ListTagKeysResponse
+     *
+     * @param ListTagKeysRequest $request
+     *
+     * @return ListTagKeysResponse
      */
     public function listTagKeys($request)
     {
@@ -3474,48 +4273,59 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * @param ListTagResourcesRequest $request ListTagResourcesRequest
-     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
+     * @param request - ListTagResourcesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
      *
-     * @return ListTagResourcesResponse ListTagResourcesResponse
+     * @returns ListTagResourcesResponse
+     *
+     * @param ListTagResourcesRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return ListTagResourcesResponse
      */
     public function listTagResourcesWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->nextToken)) {
-            $query['NextToken'] = $request->nextToken;
+        if (null !== $request->nextToken) {
+            @$query['NextToken'] = $request->nextToken;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->resourceGroupId)) {
-            $query['ResourceGroupId'] = $request->resourceGroupId;
+
+        if (null !== $request->resourceGroupId) {
+            @$query['ResourceGroupId'] = $request->resourceGroupId;
         }
-        if (!Utils::isUnset($request->resourceId)) {
-            $query['ResourceId'] = $request->resourceId;
+
+        if (null !== $request->resourceId) {
+            @$query['ResourceId'] = $request->resourceId;
         }
-        if (!Utils::isUnset($request->resourceType)) {
-            $query['ResourceType'] = $request->resourceType;
+
+        if (null !== $request->resourceType) {
+            @$query['ResourceType'] = $request->resourceType;
         }
-        if (!Utils::isUnset($request->tag)) {
-            $query['Tag'] = $request->tag;
+
+        if (null !== $request->tag) {
+            @$query['Tag'] = $request->tag;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListTagResources',
-            'version'     => '2017-12-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListTagResources',
+            'version' => '2017-12-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return ListTagResourcesResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -3523,9 +4333,13 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * @param ListTagResourcesRequest $request ListTagResourcesRequest
+     * @param request - ListTagResourcesRequest
      *
-     * @return ListTagResourcesResponse ListTagResourcesResponse
+     * @returns ListTagResourcesResponse
+     *
+     * @param ListTagResourcesRequest $request
+     *
+     * @return ListTagResourcesResponse
      */
     public function listTagResources($request)
     {
@@ -3535,36 +4349,43 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * @param ListValueAddedRequest $request ListValueAddedRequest
-     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
+     * @param request - ListValueAddedRequest
+     * @param runtime - runtime options for this request RuntimeOptions
      *
-     * @return ListValueAddedResponse ListValueAddedResponse
+     * @returns ListValueAddedResponse
+     *
+     * @param ListValueAddedRequest $request
+     * @param RuntimeOptions        $runtime
+     *
+     * @return ListValueAddedResponse
      */
     public function listValueAddedWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->resourceGroupId)) {
-            $query['ResourceGroupId'] = $request->resourceGroupId;
+        if (null !== $request->resourceGroupId) {
+            @$query['ResourceGroupId'] = $request->resourceGroupId;
         }
-        if (!Utils::isUnset($request->sourceIp)) {
-            $query['SourceIp'] = $request->sourceIp;
+
+        if (null !== $request->sourceIp) {
+            @$query['SourceIp'] = $request->sourceIp;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListValueAdded',
-            'version'     => '2017-12-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListValueAdded',
+            'version' => '2017-12-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return ListValueAddedResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -3572,9 +4393,13 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * @param ListValueAddedRequest $request ListValueAddedRequest
+     * @param request - ListValueAddedRequest
      *
-     * @return ListValueAddedResponse ListValueAddedResponse
+     * @returns ListValueAddedResponse
+     *
+     * @param ListValueAddedRequest $request
+     *
+     * @return ListValueAddedResponse
      */
     public function listValueAdded($request)
     {
@@ -3584,39 +4409,47 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * @param ModifyElasticBandWidthRequest $request ModifyElasticBandWidthRequest
-     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
+     * @param request - ModifyElasticBandWidthRequest
+     * @param runtime - runtime options for this request RuntimeOptions
      *
-     * @return ModifyElasticBandWidthResponse ModifyElasticBandWidthResponse
+     * @returns ModifyElasticBandWidthResponse
+     *
+     * @param ModifyElasticBandWidthRequest $request
+     * @param RuntimeOptions                $runtime
+     *
+     * @return ModifyElasticBandWidthResponse
      */
     public function modifyElasticBandWidthWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->elasticBandwidth)) {
-            $query['ElasticBandwidth'] = $request->elasticBandwidth;
+        if (null !== $request->elasticBandwidth) {
+            @$query['ElasticBandwidth'] = $request->elasticBandwidth;
         }
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
-        if (!Utils::isUnset($request->sourceIp)) {
-            $query['SourceIp'] = $request->sourceIp;
+
+        if (null !== $request->sourceIp) {
+            @$query['SourceIp'] = $request->sourceIp;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ModifyElasticBandWidth',
-            'version'     => '2017-12-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ModifyElasticBandWidth',
+            'version' => '2017-12-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return ModifyElasticBandWidthResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -3624,9 +4457,13 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * @param ModifyElasticBandWidthRequest $request ModifyElasticBandWidthRequest
+     * @param request - ModifyElasticBandWidthRequest
      *
-     * @return ModifyElasticBandWidthResponse ModifyElasticBandWidthResponse
+     * @returns ModifyElasticBandWidthResponse
+     *
+     * @param ModifyElasticBandWidthRequest $request
+     *
+     * @return ModifyElasticBandWidthResponse
      */
     public function modifyElasticBandWidth($request)
     {
@@ -3636,42 +4473,51 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * @param ModifyFullLogTtlRequest $request ModifyFullLogTtlRequest
-     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
+     * @param request - ModifyFullLogTtlRequest
+     * @param runtime - runtime options for this request RuntimeOptions
      *
-     * @return ModifyFullLogTtlResponse ModifyFullLogTtlResponse
+     * @returns ModifyFullLogTtlResponse
+     *
+     * @param ModifyFullLogTtlRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return ModifyFullLogTtlResponse
      */
     public function modifyFullLogTtlWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->lang)) {
-            $query['Lang'] = $request->lang;
+        if (null !== $request->lang) {
+            @$query['Lang'] = $request->lang;
         }
-        if (!Utils::isUnset($request->resourceGroupId)) {
-            $query['ResourceGroupId'] = $request->resourceGroupId;
+
+        if (null !== $request->resourceGroupId) {
+            @$query['ResourceGroupId'] = $request->resourceGroupId;
         }
-        if (!Utils::isUnset($request->sourceIp)) {
-            $query['SourceIp'] = $request->sourceIp;
+
+        if (null !== $request->sourceIp) {
+            @$query['SourceIp'] = $request->sourceIp;
         }
-        if (!Utils::isUnset($request->ttl)) {
-            $query['Ttl'] = $request->ttl;
+
+        if (null !== $request->ttl) {
+            @$query['Ttl'] = $request->ttl;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ModifyFullLogTtl',
-            'version'     => '2017-12-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ModifyFullLogTtl',
+            'version' => '2017-12-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return ModifyFullLogTtlResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -3679,9 +4525,13 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * @param ModifyFullLogTtlRequest $request ModifyFullLogTtlRequest
+     * @param request - ModifyFullLogTtlRequest
      *
-     * @return ModifyFullLogTtlResponse ModifyFullLogTtlResponse
+     * @returns ModifyFullLogTtlResponse
+     *
+     * @param ModifyFullLogTtlRequest $request
+     *
+     * @return ModifyFullLogTtlResponse
      */
     public function modifyFullLogTtl($request)
     {
@@ -3691,39 +4541,47 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * @param ModifyInstanceRemarkRequest $request ModifyInstanceRemarkRequest
-     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
+     * @param request - ModifyInstanceRemarkRequest
+     * @param runtime - runtime options for this request RuntimeOptions
      *
-     * @return ModifyInstanceRemarkResponse ModifyInstanceRemarkResponse
+     * @returns ModifyInstanceRemarkResponse
+     *
+     * @param ModifyInstanceRemarkRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return ModifyInstanceRemarkResponse
      */
     public function modifyInstanceRemarkWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
-        if (!Utils::isUnset($request->remark)) {
-            $query['Remark'] = $request->remark;
+
+        if (null !== $request->remark) {
+            @$query['Remark'] = $request->remark;
         }
-        if (!Utils::isUnset($request->sourceIp)) {
-            $query['SourceIp'] = $request->sourceIp;
+
+        if (null !== $request->sourceIp) {
+            @$query['SourceIp'] = $request->sourceIp;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ModifyInstanceRemark',
-            'version'     => '2017-12-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ModifyInstanceRemark',
+            'version' => '2017-12-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return ModifyInstanceRemarkResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -3731,9 +4589,13 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * @param ModifyInstanceRemarkRequest $request ModifyInstanceRemarkRequest
+     * @param request - ModifyInstanceRemarkRequest
      *
-     * @return ModifyInstanceRemarkResponse ModifyInstanceRemarkResponse
+     * @returns ModifyInstanceRemarkResponse
+     *
+     * @param ModifyInstanceRemarkRequest $request
+     *
+     * @return ModifyInstanceRemarkResponse
      */
     public function modifyInstanceRemark($request)
     {
@@ -3743,42 +4605,51 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * @param OpenDomainSlsConfigRequest $request OpenDomainSlsConfigRequest
-     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
+     * @param request - OpenDomainSlsConfigRequest
+     * @param runtime - runtime options for this request RuntimeOptions
      *
-     * @return OpenDomainSlsConfigResponse OpenDomainSlsConfigResponse
+     * @returns OpenDomainSlsConfigResponse
+     *
+     * @param OpenDomainSlsConfigRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return OpenDomainSlsConfigResponse
      */
     public function openDomainSlsConfigWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->domain)) {
-            $query['Domain'] = $request->domain;
+        if (null !== $request->domain) {
+            @$query['Domain'] = $request->domain;
         }
-        if (!Utils::isUnset($request->lang)) {
-            $query['Lang'] = $request->lang;
+
+        if (null !== $request->lang) {
+            @$query['Lang'] = $request->lang;
         }
-        if (!Utils::isUnset($request->resourceGroupId)) {
-            $query['ResourceGroupId'] = $request->resourceGroupId;
+
+        if (null !== $request->resourceGroupId) {
+            @$query['ResourceGroupId'] = $request->resourceGroupId;
         }
-        if (!Utils::isUnset($request->sourceIp)) {
-            $query['SourceIp'] = $request->sourceIp;
+
+        if (null !== $request->sourceIp) {
+            @$query['SourceIp'] = $request->sourceIp;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'OpenDomainSlsConfig',
-            'version'     => '2017-12-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'OpenDomainSlsConfig',
+            'version' => '2017-12-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return OpenDomainSlsConfigResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -3786,9 +4657,13 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * @param OpenDomainSlsConfigRequest $request OpenDomainSlsConfigRequest
+     * @param request - OpenDomainSlsConfigRequest
      *
-     * @return OpenDomainSlsConfigResponse OpenDomainSlsConfigResponse
+     * @returns OpenDomainSlsConfigResponse
+     *
+     * @param OpenDomainSlsConfigRequest $request
+     *
+     * @return OpenDomainSlsConfigResponse
      */
     public function openDomainSlsConfig($request)
     {
@@ -3798,36 +4673,43 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * @param ReleaseInstanceRequest $request ReleaseInstanceRequest
-     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
+     * @param request - ReleaseInstanceRequest
+     * @param runtime - runtime options for this request RuntimeOptions
      *
-     * @return ReleaseInstanceResponse ReleaseInstanceResponse
+     * @returns ReleaseInstanceResponse
+     *
+     * @param ReleaseInstanceRequest $request
+     * @param RuntimeOptions         $runtime
+     *
+     * @return ReleaseInstanceResponse
      */
     public function releaseInstanceWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
-        if (!Utils::isUnset($request->sourceIp)) {
-            $query['SourceIp'] = $request->sourceIp;
+
+        if (null !== $request->sourceIp) {
+            @$query['SourceIp'] = $request->sourceIp;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ReleaseInstance',
-            'version'     => '2017-12-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ReleaseInstance',
+            'version' => '2017-12-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return ReleaseInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -3835,9 +4717,13 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * @param ReleaseInstanceRequest $request ReleaseInstanceRequest
+     * @param request - ReleaseInstanceRequest
      *
-     * @return ReleaseInstanceResponse ReleaseInstanceResponse
+     * @returns ReleaseInstanceResponse
+     *
+     * @param ReleaseInstanceRequest $request
+     *
+     * @return ReleaseInstanceResponse
      */
     public function releaseInstance($request)
     {
@@ -3847,36 +4733,43 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * @param ReleaseValueAddedRequest $request ReleaseValueAddedRequest
-     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
+     * @param request - ReleaseValueAddedRequest
+     * @param runtime - runtime options for this request RuntimeOptions
      *
-     * @return ReleaseValueAddedResponse ReleaseValueAddedResponse
+     * @returns ReleaseValueAddedResponse
+     *
+     * @param ReleaseValueAddedRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return ReleaseValueAddedResponse
      */
     public function releaseValueAddedWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
-        if (!Utils::isUnset($request->sourceIp)) {
-            $query['SourceIp'] = $request->sourceIp;
+
+        if (null !== $request->sourceIp) {
+            @$query['SourceIp'] = $request->sourceIp;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ReleaseValueAdded',
-            'version'     => '2017-12-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ReleaseValueAdded',
+            'version' => '2017-12-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return ReleaseValueAddedResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -3884,9 +4777,13 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * @param ReleaseValueAddedRequest $request ReleaseValueAddedRequest
+     * @param request - ReleaseValueAddedRequest
      *
-     * @return ReleaseValueAddedResponse ReleaseValueAddedResponse
+     * @returns ReleaseValueAddedResponse
+     *
+     * @param ReleaseValueAddedRequest $request
+     *
+     * @return ReleaseValueAddedResponse
      */
     public function releaseValueAdded($request)
     {
@@ -3896,45 +4793,55 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * @param TagResourcesRequest $request TagResourcesRequest
-     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
+     * @param request - TagResourcesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
      *
-     * @return TagResourcesResponse TagResourcesResponse
+     * @returns TagResourcesResponse
+     *
+     * @param TagResourcesRequest $request
+     * @param RuntimeOptions      $runtime
+     *
+     * @return TagResourcesResponse
      */
     public function tagResourcesWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->resourceGroupId)) {
-            $query['ResourceGroupId'] = $request->resourceGroupId;
+
+        if (null !== $request->resourceGroupId) {
+            @$query['ResourceGroupId'] = $request->resourceGroupId;
         }
-        if (!Utils::isUnset($request->resourceId)) {
-            $query['ResourceId'] = $request->resourceId;
+
+        if (null !== $request->resourceId) {
+            @$query['ResourceId'] = $request->resourceId;
         }
-        if (!Utils::isUnset($request->resourceType)) {
-            $query['ResourceType'] = $request->resourceType;
+
+        if (null !== $request->resourceType) {
+            @$query['ResourceType'] = $request->resourceType;
         }
-        if (!Utils::isUnset($request->tag)) {
-            $query['Tag'] = $request->tag;
+
+        if (null !== $request->tag) {
+            @$query['Tag'] = $request->tag;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'TagResources',
-            'version'     => '2017-12-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'TagResources',
+            'version' => '2017-12-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return TagResourcesResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -3942,9 +4849,13 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * @param TagResourcesRequest $request TagResourcesRequest
+     * @param request - TagResourcesRequest
      *
-     * @return TagResourcesResponse TagResourcesResponse
+     * @returns TagResourcesResponse
+     *
+     * @param TagResourcesRequest $request
+     *
+     * @return TagResourcesResponse
      */
     public function tagResources($request)
     {
@@ -3954,48 +4865,59 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * @param UntagResourcesRequest $request UntagResourcesRequest
-     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
+     * @param request - UntagResourcesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
      *
-     * @return UntagResourcesResponse UntagResourcesResponse
+     * @returns UntagResourcesResponse
+     *
+     * @param UntagResourcesRequest $request
+     * @param RuntimeOptions        $runtime
+     *
+     * @return UntagResourcesResponse
      */
     public function untagResourcesWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->all)) {
-            $query['All'] = $request->all;
+        if (null !== $request->all) {
+            @$query['All'] = $request->all;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->resourceGroupId)) {
-            $query['ResourceGroupId'] = $request->resourceGroupId;
+
+        if (null !== $request->resourceGroupId) {
+            @$query['ResourceGroupId'] = $request->resourceGroupId;
         }
-        if (!Utils::isUnset($request->resourceId)) {
-            $query['ResourceId'] = $request->resourceId;
+
+        if (null !== $request->resourceId) {
+            @$query['ResourceId'] = $request->resourceId;
         }
-        if (!Utils::isUnset($request->resourceType)) {
-            $query['ResourceType'] = $request->resourceType;
+
+        if (null !== $request->resourceType) {
+            @$query['ResourceType'] = $request->resourceType;
         }
-        if (!Utils::isUnset($request->tagKey)) {
-            $query['TagKey'] = $request->tagKey;
+
+        if (null !== $request->tagKey) {
+            @$query['TagKey'] = $request->tagKey;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'UntagResources',
-            'version'     => '2017-12-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'UntagResources',
+            'version' => '2017-12-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return UntagResourcesResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -4003,9 +4925,13 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * @param UntagResourcesRequest $request UntagResourcesRequest
+     * @param request - UntagResourcesRequest
      *
-     * @return UntagResourcesResponse UntagResourcesResponse
+     * @returns UntagResourcesResponse
+     *
+     * @param UntagResourcesRequest $request
+     *
+     * @return UntagResourcesResponse
      */
     public function untagResources($request)
     {

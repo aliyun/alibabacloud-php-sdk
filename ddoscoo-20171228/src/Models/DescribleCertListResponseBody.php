@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Ddoscoo\V20171228\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Ddoscoo\V20171228\Models\DescribleCertListResponseBody\certList;
-use AlibabaCloud\Tea\Model;
 
 class DescribleCertListResponseBody extends Model
 {
@@ -15,32 +15,35 @@ class DescribleCertListResponseBody extends Model
     public $certList;
 
     /**
-     * @example CF33B4C3-196E-4015-AADD-5CAD00057B80
-     *
      * @var string
      */
     public $requestId;
     protected $_name = [
-        'certList'  => 'CertList',
+        'certList' => 'CertList',
         'requestId' => 'RequestId',
     ];
 
     public function validate()
     {
+        if (\is_array($this->certList)) {
+            Model::validateArray($this->certList);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->certList) {
-            $res['CertList'] = [];
-            if (null !== $this->certList && \is_array($this->certList)) {
-                $n = 0;
-                foreach ($this->certList as $item) {
-                    $res['CertList'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->certList)) {
+                $res['CertList'] = [];
+                $n1 = 0;
+                foreach ($this->certList as $item1) {
+                    $res['CertList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -48,23 +51,24 @@ class DescribleCertListResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribleCertListResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['CertList'])) {
             if (!empty($map['CertList'])) {
                 $model->certList = [];
-                $n               = 0;
-                foreach ($map['CertList'] as $item) {
-                    $model->certList[$n++] = null !== $item ? certList::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['CertList'] as $item1) {
+                    $model->certList[$n1++] = certList::fromMap($item1);
                 }
             }
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
