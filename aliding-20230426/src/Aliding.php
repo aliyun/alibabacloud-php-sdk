@@ -336,6 +336,9 @@ use AlibabaCloud\SDK\Aliding\V20230426\Models\GetAllSheetsRequest;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\GetAllSheetsResponse;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\GetAllSheetsShrinkHeaders;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\GetAllSheetsShrinkRequest;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\GetAssistantCapabilityHeaders;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\GetAssistantCapabilityRequest;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\GetAssistantCapabilityResponse;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\GetConversaionSpaceHeaders;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\GetConversaionSpaceRequest;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\GetConversaionSpaceResponse;
@@ -8330,6 +8333,107 @@ class Aliding extends OpenApiClient
         $headers = new GetAllSheetsHeaders([]);
 
         return $this->getAllSheetsWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * 获取助理能力.
+     *
+     * @param request - GetAssistantCapabilityRequest
+     * @param headers - GetAssistantCapabilityHeaders
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetAssistantCapabilityResponse
+     *
+     * @param GetAssistantCapabilityRequest $request
+     * @param GetAssistantCapabilityHeaders $headers
+     * @param RuntimeOptions                $runtime
+     *
+     * @return GetAssistantCapabilityResponse
+     */
+    public function getAssistantCapabilityWithOptions($request, $headers, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->assistantId) {
+            @$body['assistantId'] = $request->assistantId;
+        }
+
+        if (null !== $request->content) {
+            @$body['content'] = $request->content;
+        }
+
+        if (null !== $request->id) {
+            @$body['id'] = $request->id;
+        }
+
+        if (null !== $request->metadata) {
+            @$body['metadata'] = $request->metadata;
+        }
+
+        if (null !== $request->originalAssistantId) {
+            @$body['originalAssistantId'] = $request->originalAssistantId;
+        }
+
+        if (null !== $request->protocol) {
+            @$body['protocol'] = $request->protocol;
+        }
+
+        if (null !== $request->threadId) {
+            @$body['threadId'] = $request->threadId;
+        }
+
+        if (null !== $request->timeout) {
+            @$body['timeout'] = $request->timeout;
+        }
+
+        $realHeaders = [];
+        if (null !== $headers->commonHeaders) {
+            $realHeaders = $headers->commonHeaders;
+        }
+
+        if (null !== $headers->accountId) {
+            @$realHeaders['accountId'] = '' . $headers->accountId;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $realHeaders,
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'GetAssistantCapability',
+            'version' => '2023-04-26',
+            'protocol' => 'HTTPS',
+            'pathname' => '/ai/v1/assistant/getAssistantCapability',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return GetAssistantCapabilityResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
+
+        return GetAssistantCapabilityResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * 获取助理能力.
+     *
+     * @param request - GetAssistantCapabilityRequest
+     *
+     * @returns GetAssistantCapabilityResponse
+     *
+     * @param GetAssistantCapabilityRequest $request
+     *
+     * @return GetAssistantCapabilityResponse
+     */
+    public function getAssistantCapability($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = new GetAssistantCapabilityHeaders([]);
+
+        return $this->getAssistantCapabilityWithOptions($request, $headers, $runtime);
     }
 
     /**
