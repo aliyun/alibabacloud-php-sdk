@@ -31,6 +31,8 @@ use AlibabaCloud\SDK\FC\V20230330\Models\DeleteProvisionConfigRequest;
 use AlibabaCloud\SDK\FC\V20230330\Models\DeleteProvisionConfigResponse;
 use AlibabaCloud\SDK\FC\V20230330\Models\DeleteTriggerResponse;
 use AlibabaCloud\SDK\FC\V20230330\Models\DeleteVpcBindingResponse;
+use AlibabaCloud\SDK\FC\V20230330\Models\DescribeRegionsRequest;
+use AlibabaCloud\SDK\FC\V20230330\Models\DescribeRegionsResponse;
 use AlibabaCloud\SDK\FC\V20230330\Models\DisableFunctionInvocationRequest;
 use AlibabaCloud\SDK\FC\V20230330\Models\DisableFunctionInvocationResponse;
 use AlibabaCloud\SDK\FC\V20230330\Models\EnableFunctionInvocationResponse;
@@ -1096,7 +1098,74 @@ class FC extends OpenApiClient
     }
 
     /**
-     * 禁止函数调用.
+     * 查询产品的地域信息列表.
+     *
+     * @param request - DescribeRegionsRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeRegionsResponse
+     *
+     * @param DescribeRegionsRequest $request
+     * @param string[]               $headers
+     * @param RuntimeOptions         $runtime
+     *
+     * @return DescribeRegionsResponse
+     */
+    public function describeRegionsWithOptions($request, $headers, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->acceptLanguage) {
+            @$query['AcceptLanguage'] = $request->acceptLanguage;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DescribeRegions',
+            'version' => '2023-03-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/2023-03-30/regions',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DescribeRegionsResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
+
+        return DescribeRegionsResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * 查询产品的地域信息列表.
+     *
+     * @param request - DescribeRegionsRequest
+     *
+     * @returns DescribeRegionsResponse
+     *
+     * @param DescribeRegionsRequest $request
+     *
+     * @return DescribeRegionsResponse
+     */
+    public function describeRegions($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->describeRegionsWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * The DisableFunctionInvocation operation prevents a function from being invoked and optionally terminates all requests that are being processed. Once a function\\"s invocation is disabled, no new instances can be created, and the existing provisioned instances are destroyed. This operation is currently in private preview.
+     *
+     * @remarks
+     * Exercise caution when you call this operation on a function in a production environment, as improper deactivation may lead to business disruptions.
      *
      * @param request - DisableFunctionInvocationRequest
      * @param headers - map
@@ -1146,7 +1215,10 @@ class FC extends OpenApiClient
     }
 
     /**
-     * 禁止函数调用.
+     * The DisableFunctionInvocation operation prevents a function from being invoked and optionally terminates all requests that are being processed. Once a function\\"s invocation is disabled, no new instances can be created, and the existing provisioned instances are destroyed. This operation is currently in private preview.
+     *
+     * @remarks
+     * Exercise caution when you call this operation on a function in a production environment, as improper deactivation may lead to business disruptions.
      *
      * @param request - DisableFunctionInvocationRequest
      *
@@ -2444,6 +2516,9 @@ class FC extends OpenApiClient
     /**
      * 列出函数。
      *
+     * @remarks
+     * ListFunctions returns only a subset of a function\\"s attribute fields. To obtain the additional fields, which include state, stateReasonCode, stateReason, lastUpdateStatus, lastUpdateStatusReasonCode, and lastUpdateStatusReason, use [GetFunction](https://help.aliyun.com/document_detail/2618610.html).
+     *
      * @param tmpReq - ListFunctionsRequest
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2522,6 +2597,9 @@ class FC extends OpenApiClient
 
     /**
      * 列出函数。
+     *
+     * @remarks
+     * ListFunctions returns only a subset of a function\\"s attribute fields. To obtain the additional fields, which include state, stateReasonCode, stateReason, lastUpdateStatus, lastUpdateStatusReasonCode, and lastUpdateStatusReason, use [GetFunction](https://help.aliyun.com/document_detail/2618610.html).
      *
      * @param request - ListFunctionsRequest
      *
