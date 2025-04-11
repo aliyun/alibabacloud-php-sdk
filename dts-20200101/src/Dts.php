@@ -8419,6 +8419,10 @@ class Dts extends OpenApiClient
             @$query['Username'] = $request->username;
         }
 
+        if (null !== $request->zeroEtlJob) {
+            @$query['ZeroEtlJob'] = $request->zeroEtlJob;
+        }
+
         $req = new OpenApiRequest([
             'query' => Utils::query($query),
         ]);

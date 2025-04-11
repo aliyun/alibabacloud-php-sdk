@@ -107,6 +107,11 @@ class ModifyDtsJobEndpointRequest extends Model
      * @var string
      */
     public $username;
+
+    /**
+     * @var bool
+     */
+    public $zeroEtlJob;
     protected $_name = [
         'aliyunUid' => 'AliyunUid',
         'database' => 'Database',
@@ -128,6 +133,7 @@ class ModifyDtsJobEndpointRequest extends Model
         'shardUsername' => 'ShardUsername',
         'synchronizationDirection' => 'SynchronizationDirection',
         'username' => 'Username',
+        'zeroEtlJob' => 'ZeroEtlJob',
     ];
 
     public function validate()
@@ -216,6 +222,10 @@ class ModifyDtsJobEndpointRequest extends Model
 
         if (null !== $this->username) {
             $res['Username'] = $this->username;
+        }
+
+        if (null !== $this->zeroEtlJob) {
+            $res['ZeroEtlJob'] = $this->zeroEtlJob;
         }
 
         return $res;
@@ -307,6 +317,10 @@ class ModifyDtsJobEndpointRequest extends Model
 
         if (isset($map['Username'])) {
             $model->username = $map['Username'];
+        }
+
+        if (isset($map['ZeroEtlJob'])) {
+            $model->zeroEtlJob = $map['ZeroEtlJob'];
         }
 
         return $model;

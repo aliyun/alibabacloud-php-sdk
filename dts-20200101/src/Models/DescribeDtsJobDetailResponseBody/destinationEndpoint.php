@@ -9,6 +9,11 @@ use AlibabaCloud\Dara\Model;
 class destinationEndpoint extends Model
 {
     /**
+     * @var string
+     */
+    public $aliyunUid;
+
+    /**
      * @var bool
      */
     public $canModifyPassword;
@@ -56,6 +61,11 @@ class destinationEndpoint extends Model
     /**
      * @var string
      */
+    public $roleName;
+
+    /**
+     * @var string
+     */
     public $sslSolutionEnum;
 
     /**
@@ -63,6 +73,7 @@ class destinationEndpoint extends Model
      */
     public $userName;
     protected $_name = [
+        'aliyunUid' => 'AliyunUid',
         'canModifyPassword' => 'CanModifyPassword',
         'databaseName' => 'DatabaseName',
         'engineName' => 'EngineName',
@@ -72,6 +83,7 @@ class destinationEndpoint extends Model
         'oracleSID' => 'OracleSID',
         'port' => 'Port',
         'region' => 'Region',
+        'roleName' => 'RoleName',
         'sslSolutionEnum' => 'SslSolutionEnum',
         'userName' => 'UserName',
     ];
@@ -84,6 +96,10 @@ class destinationEndpoint extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->aliyunUid) {
+            $res['AliyunUid'] = $this->aliyunUid;
+        }
+
         if (null !== $this->canModifyPassword) {
             $res['CanModifyPassword'] = $this->canModifyPassword;
         }
@@ -120,6 +136,10 @@ class destinationEndpoint extends Model
             $res['Region'] = $this->region;
         }
 
+        if (null !== $this->roleName) {
+            $res['RoleName'] = $this->roleName;
+        }
+
         if (null !== $this->sslSolutionEnum) {
             $res['SslSolutionEnum'] = $this->sslSolutionEnum;
         }
@@ -139,6 +159,10 @@ class destinationEndpoint extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AliyunUid'])) {
+            $model->aliyunUid = $map['AliyunUid'];
+        }
+
         if (isset($map['CanModifyPassword'])) {
             $model->canModifyPassword = $map['CanModifyPassword'];
         }
@@ -173,6 +197,10 @@ class destinationEndpoint extends Model
 
         if (isset($map['Region'])) {
             $model->region = $map['Region'];
+        }
+
+        if (isset($map['RoleName'])) {
+            $model->roleName = $map['RoleName'];
         }
 
         if (isset($map['SslSolutionEnum'])) {
