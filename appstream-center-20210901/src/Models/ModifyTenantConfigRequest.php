@@ -4,20 +4,11 @@
 
 namespace AlibabaCloud\SDK\Appstreamcenter\V20210901\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class ModifyTenantConfigRequest extends Model
 {
     /**
-     * @description Specifies whether to enable the resource expiration reminder feature.
-     *
-     * Valid values:
-     *
-     *   true
-     *   false
-     *
-     * @example true
-     *
      * @var bool
      */
     public $appInstanceGroupExpireRemind;
@@ -25,9 +16,12 @@ class ModifyTenantConfigRequest extends Model
         'appInstanceGroupExpireRemind' => 'AppInstanceGroupExpireRemind',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->appInstanceGroupExpireRemind) {
@@ -37,11 +31,11 @@ class ModifyTenantConfigRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ModifyTenantConfigRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

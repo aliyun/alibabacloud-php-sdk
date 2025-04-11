@@ -4,27 +4,21 @@
 
 namespace AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\CreateAppInstanceGroupRequest\nodePool\recurrenceSchedules;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class timerPeriods extends Model
 {
     /**
-     * @example 2
-     *
      * @var int
      */
     public $amount;
 
     /**
-     * @example 15:00
-     *
      * @var string
      */
     public $endTime;
 
     /**
-     * @example 12:00
-     *
      * @var string
      */
     public $startTime;
@@ -34,17 +28,22 @@ class timerPeriods extends Model
         'startTime' => 'StartTime',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->amount) {
             $res['Amount'] = $this->amount;
         }
+
         if (null !== $this->endTime) {
             $res['EndTime'] = $this->endTime;
         }
+
         if (null !== $this->startTime) {
             $res['StartTime'] = $this->startTime;
         }
@@ -52,20 +51,22 @@ class timerPeriods extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return timerPeriods
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Amount'])) {
             $model->amount = $map['Amount'];
         }
+
         if (isset($map['EndTime'])) {
             $model->endTime = $map['EndTime'];
         }
+
         if (isset($map['StartTime'])) {
             $model->startTime = $map['StartTime'];
         }

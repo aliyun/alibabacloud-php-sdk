@@ -4,27 +4,21 @@
 
 namespace AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\CreateAppInstanceGroupResponseBody;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class appInstanceGroupModel extends Model
 {
     /**
-     * @example aig-9ciijz60n4xsv****
-     *
      * @var string
      */
     public $appInstanceGroupId;
 
     /**
-     * @example rg-ew7va2g1wl3vm****
-     *
      * @var string
      */
     public $nodePoolId;
 
     /**
-     * @example 12345****
-     *
      * @var string
      */
     public $orderId;
@@ -34,17 +28,22 @@ class appInstanceGroupModel extends Model
         'orderId' => 'OrderId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->appInstanceGroupId) {
             $res['AppInstanceGroupId'] = $this->appInstanceGroupId;
         }
+
         if (null !== $this->nodePoolId) {
             $res['NodePoolId'] = $this->nodePoolId;
         }
+
         if (null !== $this->orderId) {
             $res['OrderId'] = $this->orderId;
         }
@@ -52,20 +51,22 @@ class appInstanceGroupModel extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return appInstanceGroupModel
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AppInstanceGroupId'])) {
             $model->appInstanceGroupId = $map['AppInstanceGroupId'];
         }
+
         if (isset($map['NodePoolId'])) {
             $model->nodePoolId = $map['NodePoolId'];
         }
+
         if (isset($map['OrderId'])) {
             $model->orderId = $map['OrderId'];
         }

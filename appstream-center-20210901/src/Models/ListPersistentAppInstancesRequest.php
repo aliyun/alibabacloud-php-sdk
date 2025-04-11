@@ -4,15 +4,11 @@
 
 namespace AlibabaCloud\SDK\Appstreamcenter\V20210901\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class ListPersistentAppInstancesRequest extends Model
 {
     /**
-     * @description This parameter is required.
-     *
-     * @example aig-0bxls9m9arax6****
-     *
      * @var string
      */
     public $appInstanceGroupId;
@@ -23,24 +19,16 @@ class ListPersistentAppInstancesRequest extends Model
     public $appInstancePersistentIds;
 
     /**
-     * @example 1
-     *
      * @var int
      */
     public $pageNumber;
 
     /**
-     * @example 20
-     *
      * @var int
      */
     public $pageSize;
 
     /**
-     * @description This parameter is required.
-     *
-     * @example CloudApp
-     *
      * @var string
      */
     public $productType;
@@ -52,23 +40,39 @@ class ListPersistentAppInstancesRequest extends Model
         'productType' => 'ProductType',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->appInstancePersistentIds)) {
+            Model::validateArray($this->appInstancePersistentIds);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->appInstanceGroupId) {
             $res['AppInstanceGroupId'] = $this->appInstanceGroupId;
         }
+
         if (null !== $this->appInstancePersistentIds) {
-            $res['AppInstancePersistentIds'] = $this->appInstancePersistentIds;
+            if (\is_array($this->appInstancePersistentIds)) {
+                $res['AppInstancePersistentIds'] = [];
+                $n1 = 0;
+                foreach ($this->appInstancePersistentIds as $item1) {
+                    $res['AppInstancePersistentIds'][$n1++] = $item1;
+                }
+            }
         }
+
         if (null !== $this->pageNumber) {
             $res['PageNumber'] = $this->pageNumber;
         }
+
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
         }
+
         if (null !== $this->productType) {
             $res['ProductType'] = $this->productType;
         }
@@ -76,28 +80,36 @@ class ListPersistentAppInstancesRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ListPersistentAppInstancesRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AppInstanceGroupId'])) {
             $model->appInstanceGroupId = $map['AppInstanceGroupId'];
         }
+
         if (isset($map['AppInstancePersistentIds'])) {
             if (!empty($map['AppInstancePersistentIds'])) {
-                $model->appInstancePersistentIds = $map['AppInstancePersistentIds'];
+                $model->appInstancePersistentIds = [];
+                $n1 = 0;
+                foreach ($map['AppInstancePersistentIds'] as $item1) {
+                    $model->appInstancePersistentIds[$n1++] = $item1;
+                }
             }
         }
+
         if (isset($map['PageNumber'])) {
             $model->pageNumber = $map['PageNumber'];
         }
+
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
         }
+
         if (isset($map['ProductType'])) {
             $model->productType = $map['ProductType'];
         }

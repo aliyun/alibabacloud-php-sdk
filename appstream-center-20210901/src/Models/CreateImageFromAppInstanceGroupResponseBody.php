@@ -4,24 +4,16 @@
 
 namespace AlibabaCloud\SDK\Appstreamcenter\V20210901\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class CreateImageFromAppInstanceGroupResponseBody extends Model
 {
     /**
-     * @description The image ID.
-     *
-     * @example img-bp13mu****
-     *
      * @var string
      */
     public $imageId;
 
     /**
-     * @description The request ID.
-     *
-     * @example 1CBAFFAB-B697-4049-A9B1-67E1FC5F****
-     *
      * @var string
      */
     public $requestId;
@@ -30,14 +22,18 @@ class CreateImageFromAppInstanceGroupResponseBody extends Model
         'requestId' => 'RequestId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->imageId) {
             $res['ImageId'] = $this->imageId;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -45,17 +41,18 @@ class CreateImageFromAppInstanceGroupResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return CreateImageFromAppInstanceGroupResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ImageId'])) {
             $model->imageId = $map['ImageId'];
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

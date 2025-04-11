@@ -4,14 +4,12 @@
 
 namespace AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\ModifyAppInstanceGroupAttributeRequest;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\ModifyAppInstanceGroupAttributeRequest\network\domainRules;
-use AlibabaCloud\Tea\Model;
 
 class network extends Model
 {
     /**
-     * @description The domain name rules.
-     *
      * @var domainRules[]
      */
     public $domainRules;
@@ -19,17 +17,23 @@ class network extends Model
         'domainRules' => 'DomainRules',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->domainRules)) {
+            Model::validateArray($this->domainRules);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->domainRules) {
-            $res['DomainRules'] = [];
-            if (null !== $this->domainRules && \is_array($this->domainRules)) {
-                $n = 0;
-                foreach ($this->domainRules as $item) {
-                    $res['DomainRules'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->domainRules)) {
+                $res['DomainRules'] = [];
+                $n1 = 0;
+                foreach ($this->domainRules as $item1) {
+                    $res['DomainRules'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
@@ -37,20 +41,20 @@ class network extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return network
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['DomainRules'])) {
             if (!empty($map['DomainRules'])) {
                 $model->domainRules = [];
-                $n = 0;
-                foreach ($map['DomainRules'] as $item) {
-                    $model->domainRules[$n++] = null !== $item ? domainRules::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['DomainRules'] as $item1) {
+                    $model->domainRules[$n1++] = domainRules::fromMap($item1);
                 }
             }
         }

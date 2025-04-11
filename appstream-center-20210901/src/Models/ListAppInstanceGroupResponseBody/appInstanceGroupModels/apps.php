@@ -4,47 +4,31 @@
 
 namespace AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\ListAppInstanceGroupResponseBody\appInstanceGroupModels;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class apps extends Model
 {
     /**
-     * @description The app icon.
-     *
-     * @example https://app-center-icon-****.png
-     *
      * @var string
      */
     public $appIcon;
 
     /**
-     * @description The app ID.
-     *
-     * @example ca-i87mycyn419nu****
-     *
      * @var string
      */
     public $appId;
 
     /**
-     * @description The app name.
-     *
      * @var string
      */
     public $appName;
 
     /**
-     * @description The app version.
-     *
-     * @example 1.0.0
-     *
      * @var string
      */
     public $appVersion;
 
     /**
-     * @description The name of the app version.
-     *
      * @var string
      */
     public $appVersionName;
@@ -56,23 +40,30 @@ class apps extends Model
         'appVersionName' => 'AppVersionName',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->appIcon) {
             $res['AppIcon'] = $this->appIcon;
         }
+
         if (null !== $this->appId) {
             $res['AppId'] = $this->appId;
         }
+
         if (null !== $this->appName) {
             $res['AppName'] = $this->appName;
         }
+
         if (null !== $this->appVersion) {
             $res['AppVersion'] = $this->appVersion;
         }
+
         if (null !== $this->appVersionName) {
             $res['AppVersionName'] = $this->appVersionName;
         }
@@ -80,26 +71,30 @@ class apps extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return apps
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AppIcon'])) {
             $model->appIcon = $map['AppIcon'];
         }
+
         if (isset($map['AppId'])) {
             $model->appId = $map['AppId'];
         }
+
         if (isset($map['AppName'])) {
             $model->appName = $map['AppName'];
         }
+
         if (isset($map['AppVersion'])) {
             $model->appVersion = $map['AppVersion'];
         }
+
         if (isset($map['AppVersionName'])) {
             $model->appVersionName = $map['AppVersionName'];
         }

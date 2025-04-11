@@ -4,45 +4,21 @@
 
 namespace AlibabaCloud\SDK\Appstreamcenter\V20210901\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class UntagCloudResourcesRequest extends Model
 {
     /**
-     * @description The resource IDs. You can specify up to 50 resource IDs. You do not need to specify this parameter if you set ResourceType to AliUid.
-     *
      * @var string[]
      */
     public $resourceIds;
 
     /**
-     * @description The type of the resource from which you want to remove tags.
-     *
-     * Valid values:
-     *
-     *   AppId: app ID.
-     *   WyId: Alibaba Cloud Workspace user ID.
-     *   AppInstanceGroupId: delivery group ID.
-     *   AliUid: tenant ID.
-     *
-     * This parameter is required.
-     *
-     * @example AppInstanceGroupId
-     *
      * @var string
      */
     public $resourceType;
 
     /**
-     * @description The tags that you want to remove from the cloud resources. System and custom tags are supported. You can specify up to 10 tags.
-     *
-     * Valid values for system tags:
-     *
-     *   `System/Scheduler/GRAYSCALE`: canary tags.
-     *   `System/Scheduler/STOP_NEW_USER_CONNECTION`: tags used to stop new users bound to the delivery group from establishing a connection.
-     *
-     * This parameter is required.
-     *
      * @var string[]
      */
     public $tagKeys;
@@ -52,43 +28,76 @@ class UntagCloudResourcesRequest extends Model
         'tagKeys' => 'TagKeys',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->resourceIds)) {
+            Model::validateArray($this->resourceIds);
+        }
+        if (\is_array($this->tagKeys)) {
+            Model::validateArray($this->tagKeys);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->resourceIds) {
-            $res['ResourceIds'] = $this->resourceIds;
+            if (\is_array($this->resourceIds)) {
+                $res['ResourceIds'] = [];
+                $n1 = 0;
+                foreach ($this->resourceIds as $item1) {
+                    $res['ResourceIds'][$n1++] = $item1;
+                }
+            }
         }
+
         if (null !== $this->resourceType) {
             $res['ResourceType'] = $this->resourceType;
         }
+
         if (null !== $this->tagKeys) {
-            $res['TagKeys'] = $this->tagKeys;
+            if (\is_array($this->tagKeys)) {
+                $res['TagKeys'] = [];
+                $n1 = 0;
+                foreach ($this->tagKeys as $item1) {
+                    $res['TagKeys'][$n1++] = $item1;
+                }
+            }
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return UntagCloudResourcesRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ResourceIds'])) {
             if (!empty($map['ResourceIds'])) {
-                $model->resourceIds = $map['ResourceIds'];
+                $model->resourceIds = [];
+                $n1 = 0;
+                foreach ($map['ResourceIds'] as $item1) {
+                    $model->resourceIds[$n1++] = $item1;
+                }
             }
         }
+
         if (isset($map['ResourceType'])) {
             $model->resourceType = $map['ResourceType'];
         }
+
         if (isset($map['TagKeys'])) {
             if (!empty($map['TagKeys'])) {
-                $model->tagKeys = $map['TagKeys'];
+                $model->tagKeys = [];
+                $n1 = 0;
+                foreach ($map['TagKeys'] as $item1) {
+                    $model->tagKeys[$n1++] = $item1;
+                }
             }
         }
 

@@ -4,15 +4,11 @@
 
 namespace AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\ModifyNodePoolAmountResponseBody;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class data extends Model
 {
     /**
-     * @description The order ID.
-     *
-     * @example 23429322113****
-     *
      * @var string
      */
     public $orderId;
@@ -20,9 +16,12 @@ class data extends Model
         'orderId' => 'OrderId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->orderId) {
@@ -32,11 +31,11 @@ class data extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return data
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

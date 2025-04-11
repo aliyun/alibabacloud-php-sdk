@@ -4,33 +4,16 @@
 
 namespace AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\ListNodesResponseBody;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class nodeModels extends Model
 {
     /**
-     * @description The billing method of the resource node.
-     *
-     * >  This parameter is returned only if the ChargeResourceMode parameter of the delivery group to which the resource node belongs is set to Node.
-     *
-     * Valid values:
-     *
-     *   PostPaid: pay-as-you-go
-     *   Prepaid: subscription
-     *
-     * @example PostPaid
-     *
      * @var string
      */
     public $chargeType;
 
     /**
-     * @description The ID of the resource node.
-     *
-     * >  This parameter is returned only if the ChargeResourceMode parameter of the delivery group to which the resource node belongs is set to Node.
-     *
-     * @example i-bp13********
-     *
      * @var string
      */
     public $nodeId;
@@ -39,14 +22,18 @@ class nodeModels extends Model
         'nodeId' => 'NodeId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->chargeType) {
             $res['ChargeType'] = $this->chargeType;
         }
+
         if (null !== $this->nodeId) {
             $res['NodeId'] = $this->nodeId;
         }
@@ -54,17 +41,18 @@ class nodeModels extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return nodeModels
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ChargeType'])) {
             $model->chargeType = $map['ChargeType'];
         }
+
         if (isset($map['NodeId'])) {
             $model->nodeId = $map['NodeId'];
         }

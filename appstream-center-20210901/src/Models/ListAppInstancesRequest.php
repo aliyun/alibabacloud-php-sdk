@@ -4,79 +4,46 @@
 
 namespace AlibabaCloud\SDK\Appstreamcenter\V20210901\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class ListAppInstancesRequest extends Model
 {
     /**
-     * @description The ID of the delivery group.
-     *
-     * This parameter is required.
-     *
-     * @example aig-4p5f8tj16yb8b****
-     *
      * @var string
      */
     public $appInstanceGroupId;
 
     /**
-     * @description The ID of the application instance.
-     *
-     * @example ai-azn3kmwruh1vl****
-     *
      * @var string
      */
     public $appInstanceId;
 
     /**
-     * @description The IDs of the application instances. Up to 100 IDs can be specified.
-     *
      * @var string[]
      */
     public $appInstanceIdList;
 
     /**
-     * @description Specifies whether to query the information about deleted app instances. If you set this parameter to true, you must configure AppInstanceIdList. Otherwise, a parameter error is reported.
-     *
-     * Valid values:
-     *
-     *   true
-     *   false
-     *
-     * @example true
-     *
      * @var bool
      */
     public $includeDeleted;
 
     /**
-     * @description The page number. Default value: `1`. We recommend that you specify this parameter.
-     *
-     * @example 1
-     *
      * @var int
      */
     public $pageNumber;
 
     /**
-     * @description The number of entries per page. The value cannot be greater than `100`. Default value: `20`. We recommend that you specify this parameter.
-     *
-     * @example 20
-     *
      * @var int
      */
     public $pageSize;
 
     /**
-     * @description The status of the application instances.
-     *
      * @var string[]
      */
     public $status;
 
     /**
-     * @description The user IDs. You can specify up to 100 IDs.
-     *
      * @var string[]
      */
     public $userIdList;
@@ -91,75 +58,131 @@ class ListAppInstancesRequest extends Model
         'userIdList' => 'UserIdList',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->appInstanceIdList)) {
+            Model::validateArray($this->appInstanceIdList);
+        }
+        if (\is_array($this->status)) {
+            Model::validateArray($this->status);
+        }
+        if (\is_array($this->userIdList)) {
+            Model::validateArray($this->userIdList);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->appInstanceGroupId) {
             $res['AppInstanceGroupId'] = $this->appInstanceGroupId;
         }
+
         if (null !== $this->appInstanceId) {
             $res['AppInstanceId'] = $this->appInstanceId;
         }
+
         if (null !== $this->appInstanceIdList) {
-            $res['AppInstanceIdList'] = $this->appInstanceIdList;
+            if (\is_array($this->appInstanceIdList)) {
+                $res['AppInstanceIdList'] = [];
+                $n1 = 0;
+                foreach ($this->appInstanceIdList as $item1) {
+                    $res['AppInstanceIdList'][$n1++] = $item1;
+                }
+            }
         }
+
         if (null !== $this->includeDeleted) {
             $res['IncludeDeleted'] = $this->includeDeleted;
         }
+
         if (null !== $this->pageNumber) {
             $res['PageNumber'] = $this->pageNumber;
         }
+
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
         }
+
         if (null !== $this->status) {
-            $res['Status'] = $this->status;
+            if (\is_array($this->status)) {
+                $res['Status'] = [];
+                $n1 = 0;
+                foreach ($this->status as $item1) {
+                    $res['Status'][$n1++] = $item1;
+                }
+            }
         }
+
         if (null !== $this->userIdList) {
-            $res['UserIdList'] = $this->userIdList;
+            if (\is_array($this->userIdList)) {
+                $res['UserIdList'] = [];
+                $n1 = 0;
+                foreach ($this->userIdList as $item1) {
+                    $res['UserIdList'][$n1++] = $item1;
+                }
+            }
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ListAppInstancesRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AppInstanceGroupId'])) {
             $model->appInstanceGroupId = $map['AppInstanceGroupId'];
         }
+
         if (isset($map['AppInstanceId'])) {
             $model->appInstanceId = $map['AppInstanceId'];
         }
+
         if (isset($map['AppInstanceIdList'])) {
             if (!empty($map['AppInstanceIdList'])) {
-                $model->appInstanceIdList = $map['AppInstanceIdList'];
+                $model->appInstanceIdList = [];
+                $n1 = 0;
+                foreach ($map['AppInstanceIdList'] as $item1) {
+                    $model->appInstanceIdList[$n1++] = $item1;
+                }
             }
         }
+
         if (isset($map['IncludeDeleted'])) {
             $model->includeDeleted = $map['IncludeDeleted'];
         }
+
         if (isset($map['PageNumber'])) {
             $model->pageNumber = $map['PageNumber'];
         }
+
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
         }
+
         if (isset($map['Status'])) {
             if (!empty($map['Status'])) {
-                $model->status = $map['Status'];
+                $model->status = [];
+                $n1 = 0;
+                foreach ($map['Status'] as $item1) {
+                    $model->status[$n1++] = $item1;
+                }
             }
         }
+
         if (isset($map['UserIdList'])) {
             if (!empty($map['UserIdList'])) {
-                $model->userIdList = $map['UserIdList'];
+                $model->userIdList = [];
+                $n1 = 0;
+                foreach ($map['UserIdList'] as $item1) {
+                    $model->userIdList[$n1++] = $item1;
+                }
             }
         }
 

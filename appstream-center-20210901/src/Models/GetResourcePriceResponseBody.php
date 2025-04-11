@@ -4,53 +4,33 @@
 
 namespace AlibabaCloud\SDK\Appstreamcenter\V20210901\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\GetResourcePriceResponseBody\priceList;
 use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\GetResourcePriceResponseBody\priceModel;
-use AlibabaCloud\Tea\Model;
 
 class GetResourcePriceResponseBody extends Model
 {
     /**
-     * @description The error code.
-     *
-     * @example InvalidParameter.ProductType
-     *
      * @var string
      */
     public $code;
 
     /**
-     * @description The error message.
-     *
-     * @example The parameter ProductType is invalid.
-     *
      * @var string
      */
     public $message;
 
     /**
-     * @description The price objects.
-     *
-     * This parameter is returned only if a value is specified for AppInstanceType.
-     *
      * @var priceList[]
      */
     public $priceList;
 
     /**
-     * @description The price object.
-     *
-     * This parameter is returned only if a value is specified for NodeInstanceType.
-     *
      * @var priceModel
      */
     public $priceModel;
 
     /**
-     * @description The request ID.
-     *
-     * @example 1CBAFFAB-B697-4049-A9B1-67E1FC5F****
-     *
      * @var string
      */
     public $requestId;
@@ -62,29 +42,42 @@ class GetResourcePriceResponseBody extends Model
         'requestId' => 'RequestId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->priceList)) {
+            Model::validateArray($this->priceList);
+        }
+        if (null !== $this->priceModel) {
+            $this->priceModel->validate();
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->code) {
             $res['Code'] = $this->code;
         }
+
         if (null !== $this->message) {
             $res['Message'] = $this->message;
         }
+
         if (null !== $this->priceList) {
-            $res['PriceList'] = [];
-            if (null !== $this->priceList && \is_array($this->priceList)) {
-                $n = 0;
-                foreach ($this->priceList as $item) {
-                    $res['PriceList'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->priceList)) {
+                $res['PriceList'] = [];
+                $n1 = 0;
+                foreach ($this->priceList as $item1) {
+                    $res['PriceList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
+
         if (null !== $this->priceModel) {
-            $res['PriceModel'] = null !== $this->priceModel ? $this->priceModel->toMap() : null;
+            $res['PriceModel'] = null !== $this->priceModel ? $this->priceModel->toArray($noStream) : $this->priceModel;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -92,32 +85,36 @@ class GetResourcePriceResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return GetResourcePriceResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Code'])) {
             $model->code = $map['Code'];
         }
+
         if (isset($map['Message'])) {
             $model->message = $map['Message'];
         }
+
         if (isset($map['PriceList'])) {
             if (!empty($map['PriceList'])) {
                 $model->priceList = [];
-                $n = 0;
-                foreach ($map['PriceList'] as $item) {
-                    $model->priceList[$n++] = null !== $item ? priceList::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['PriceList'] as $item1) {
+                    $model->priceList[$n1++] = priceList::fromMap($item1);
                 }
             }
         }
+
         if (isset($map['PriceModel'])) {
             $model->priceModel = priceModel::fromMap($map['PriceModel']);
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

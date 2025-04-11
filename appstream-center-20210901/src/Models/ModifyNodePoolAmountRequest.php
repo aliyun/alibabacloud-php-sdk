@@ -4,42 +4,22 @@
 
 namespace AlibabaCloud\SDK\Appstreamcenter\V20210901\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\ModifyNodePoolAmountRequest\nodePool;
-use AlibabaCloud\Tea\Model;
 
 class ModifyNodePoolAmountRequest extends Model
 {
     /**
-     * @description The ID of the delivery group.
-     *
-     * This parameter is required.
-     *
-     * @example aig-9ciijz60n4xsv****
-     *
      * @var string
      */
     public $appInstanceGroupId;
 
     /**
-     * @description The parameters related to the configuration change of the node pool.
-     *
-     * This parameter is required.
-     *
      * @var nodePool
      */
     public $nodePool;
 
     /**
-     * @description The product type.
-     *
-     * Valid value:
-     *
-     *   CloudApp: App Streaming
-     *
-     * This parameter is required.
-     *
-     * @example CloudApp
-     *
      * @var string
      */
     public $productType;
@@ -49,17 +29,25 @@ class ModifyNodePoolAmountRequest extends Model
         'productType' => 'ProductType',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (null !== $this->nodePool) {
+            $this->nodePool->validate();
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->appInstanceGroupId) {
             $res['AppInstanceGroupId'] = $this->appInstanceGroupId;
         }
+
         if (null !== $this->nodePool) {
-            $res['NodePool'] = null !== $this->nodePool ? $this->nodePool->toMap() : null;
+            $res['NodePool'] = null !== $this->nodePool ? $this->nodePool->toArray($noStream) : $this->nodePool;
         }
+
         if (null !== $this->productType) {
             $res['ProductType'] = $this->productType;
         }
@@ -67,20 +55,22 @@ class ModifyNodePoolAmountRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ModifyNodePoolAmountRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AppInstanceGroupId'])) {
             $model->appInstanceGroupId = $map['AppInstanceGroupId'];
         }
+
         if (isset($map['NodePool'])) {
             $model->nodePool = nodePool::fromMap($map['NodePool']);
         }
+
         if (isset($map['ProductType'])) {
             $model->productType = $map['ProductType'];
         }

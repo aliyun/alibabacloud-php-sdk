@@ -4,36 +4,22 @@
 
 namespace AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\ModifyNodePoolAttributeRequest\nodePoolStrategy;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\ModifyNodePoolAttributeRequest\nodePoolStrategy\recurrenceSchedules\timerPeriods;
-use AlibabaCloud\Tea\Model;
 
 class recurrenceSchedules extends Model
 {
     /**
-     * @description 策略执行周期的类型。必须同时指定`RecurrenceType`和`RecurrenceValues`。
-     *
-     * @example weekly
-     *
      * @var string
      */
     public $recurrenceType;
 
     /**
-     * @description 策略执行周期的数值列表。
-     *
      * @var int[]
      */
     public $recurrenceValues;
 
     /**
-     * @description 策略执行周期的时间段列表。时间段设置要求：
-     *
-     * - 最多可添加3个时间段。
-     * - 时间段之间不重叠。
-     * - 时间段之间的间隔大于或等于5分钟。
-     * - 单个时间段的时长大于或等于15分钟。
-     * - 所有时间段累计不跨天。
-     *
      * @var timerPeriods[]
      */
     public $timerPeriods;
@@ -43,23 +29,40 @@ class recurrenceSchedules extends Model
         'timerPeriods' => 'TimerPeriods',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->recurrenceValues)) {
+            Model::validateArray($this->recurrenceValues);
+        }
+        if (\is_array($this->timerPeriods)) {
+            Model::validateArray($this->timerPeriods);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->recurrenceType) {
             $res['RecurrenceType'] = $this->recurrenceType;
         }
+
         if (null !== $this->recurrenceValues) {
-            $res['RecurrenceValues'] = $this->recurrenceValues;
+            if (\is_array($this->recurrenceValues)) {
+                $res['RecurrenceValues'] = [];
+                $n1 = 0;
+                foreach ($this->recurrenceValues as $item1) {
+                    $res['RecurrenceValues'][$n1++] = $item1;
+                }
+            }
         }
+
         if (null !== $this->timerPeriods) {
-            $res['TimerPeriods'] = [];
-            if (null !== $this->timerPeriods && \is_array($this->timerPeriods)) {
-                $n = 0;
-                foreach ($this->timerPeriods as $item) {
-                    $res['TimerPeriods'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->timerPeriods)) {
+                $res['TimerPeriods'] = [];
+                $n1 = 0;
+                foreach ($this->timerPeriods as $item1) {
+                    $res['TimerPeriods'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
@@ -67,28 +70,34 @@ class recurrenceSchedules extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return recurrenceSchedules
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['RecurrenceType'])) {
             $model->recurrenceType = $map['RecurrenceType'];
         }
+
         if (isset($map['RecurrenceValues'])) {
             if (!empty($map['RecurrenceValues'])) {
-                $model->recurrenceValues = $map['RecurrenceValues'];
+                $model->recurrenceValues = [];
+                $n1 = 0;
+                foreach ($map['RecurrenceValues'] as $item1) {
+                    $model->recurrenceValues[$n1++] = $item1;
+                }
             }
         }
+
         if (isset($map['TimerPeriods'])) {
             if (!empty($map['TimerPeriods'])) {
                 $model->timerPeriods = [];
-                $n = 0;
-                foreach ($map['TimerPeriods'] as $item) {
-                    $model->timerPeriods[$n++] = null !== $item ? timerPeriods::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['TimerPeriods'] as $item1) {
+                    $model->timerPeriods[$n1++] = timerPeriods::fromMap($item1);
                 }
             }
         }

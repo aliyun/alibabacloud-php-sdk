@@ -4,31 +4,21 @@
 
 namespace AlibabaCloud\SDK\Appstreamcenter\V20210901\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class GetAccessPageSessionRequest extends Model
 {
     /**
-     * @description This parameter is required.
-     *
-     * @example a-062wec3cwmayw****
-     *
      * @var string
      */
     public $accessPageId;
 
     /**
-     * @description This parameter is required.
-     *
-     * @example 8141B1A674D48ACB8E5D2D6CE53FDB2F3CF8710A5F8F78578D5254BC6F******
-     *
      * @var string
      */
     public $accessPageToken;
 
     /**
-     * @example Banca******
-     *
      * @var string
      */
     public $externalUserId;
@@ -38,17 +28,22 @@ class GetAccessPageSessionRequest extends Model
         'externalUserId' => 'ExternalUserId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->accessPageId) {
             $res['AccessPageId'] = $this->accessPageId;
         }
+
         if (null !== $this->accessPageToken) {
             $res['AccessPageToken'] = $this->accessPageToken;
         }
+
         if (null !== $this->externalUserId) {
             $res['ExternalUserId'] = $this->externalUserId;
         }
@@ -56,20 +51,22 @@ class GetAccessPageSessionRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return GetAccessPageSessionRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AccessPageId'])) {
             $model->accessPageId = $map['AccessPageId'];
         }
+
         if (isset($map['AccessPageToken'])) {
             $model->accessPageToken = $map['AccessPageToken'];
         }
+
         if (isset($map['ExternalUserId'])) {
             $model->externalUserId = $map['ExternalUserId'];
         }

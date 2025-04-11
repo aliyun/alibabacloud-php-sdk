@@ -4,60 +4,36 @@
 
 namespace AlibabaCloud\SDK\Appstreamcenter\V20210901\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class GetOtaTaskByTaskIdResponseBody extends Model
 {
     /**
-     * @description The error code.
-     *
-     * @example OtaTask.Running
-     *
      * @var string
      */
     public $code;
 
     /**
-     * @description The error message.
-     *
-     * @example The task is running and cannot be sumitted.
-     *
      * @var string
      */
     public $message;
 
     /**
-     * @description The OTA version.
-     *
-     * @example 0.0.1-R-20220708.110604
-     *
      * @var string
      */
     public $otaVersion;
 
     /**
-     * @description The version description.
-     *
      * @var string
      */
     public $releaseNote;
 
     /**
-     * @description The request ID.
-     *
-     * @example 1CBAFFAB-B697-4049-A9B1-67E1FC5F****
-     *
      * @var string
      */
     public $requestId;
 
     /**
-     * @description The execution time of the OTA update task. The time follows the ISO 8601 standard.
-     *
-     * Use the UTC time format: yyyy-MM-ddTHH:mmZ
-     *
-     * @example 2022-08-04T14:36:00+08:00
-     *
      * @var string
      */
     public $taskStartTime;
@@ -70,26 +46,34 @@ class GetOtaTaskByTaskIdResponseBody extends Model
         'taskStartTime' => 'TaskStartTime',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->code) {
             $res['Code'] = $this->code;
         }
+
         if (null !== $this->message) {
             $res['Message'] = $this->message;
         }
+
         if (null !== $this->otaVersion) {
             $res['OtaVersion'] = $this->otaVersion;
         }
+
         if (null !== $this->releaseNote) {
             $res['ReleaseNote'] = $this->releaseNote;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
+
         if (null !== $this->taskStartTime) {
             $res['TaskStartTime'] = $this->taskStartTime;
         }
@@ -97,29 +81,34 @@ class GetOtaTaskByTaskIdResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return GetOtaTaskByTaskIdResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Code'])) {
             $model->code = $map['Code'];
         }
+
         if (isset($map['Message'])) {
             $model->message = $map['Message'];
         }
+
         if (isset($map['OtaVersion'])) {
             $model->otaVersion = $map['OtaVersion'];
         }
+
         if (isset($map['ReleaseNote'])) {
             $model->releaseNote = $map['ReleaseNote'];
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
+
         if (isset($map['TaskStartTime'])) {
             $model->taskStartTime = $map['TaskStartTime'];
         }

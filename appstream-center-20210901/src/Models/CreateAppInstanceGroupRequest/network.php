@@ -4,9 +4,9 @@
 
 namespace AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\CreateAppInstanceGroupRequest;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\CreateAppInstanceGroupRequest\network\domainRules;
 use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\CreateAppInstanceGroupRequest\network\routes;
-use AlibabaCloud\Tea\Model;
 
 class network extends Model
 {
@@ -16,8 +16,6 @@ class network extends Model
     public $domainRules;
 
     /**
-     * @example 60
-     *
      * @var int
      */
     public $ipExpireMinutes;
@@ -33,8 +31,6 @@ class network extends Model
     public $routes;
 
     /**
-     * @example Shared
-     *
      * @var string
      */
     public $strategyType;
@@ -52,83 +48,115 @@ class network extends Model
         'vSwitchIds' => 'VSwitchIds',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->domainRules)) {
+            Model::validateArray($this->domainRules);
+        }
+        if (\is_array($this->routes)) {
+            Model::validateArray($this->routes);
+        }
+        if (\is_array($this->vSwitchIds)) {
+            Model::validateArray($this->vSwitchIds);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->domainRules) {
-            $res['DomainRules'] = [];
-            if (null !== $this->domainRules && \is_array($this->domainRules)) {
-                $n = 0;
-                foreach ($this->domainRules as $item) {
-                    $res['DomainRules'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->domainRules)) {
+                $res['DomainRules'] = [];
+                $n1 = 0;
+                foreach ($this->domainRules as $item1) {
+                    $res['DomainRules'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
+
         if (null !== $this->ipExpireMinutes) {
             $res['IpExpireMinutes'] = $this->ipExpireMinutes;
         }
+
         if (null !== $this->officeSiteId) {
             $res['OfficeSiteId'] = $this->officeSiteId;
         }
+
         if (null !== $this->routes) {
-            $res['Routes'] = [];
-            if (null !== $this->routes && \is_array($this->routes)) {
-                $n = 0;
-                foreach ($this->routes as $item) {
-                    $res['Routes'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->routes)) {
+                $res['Routes'] = [];
+                $n1 = 0;
+                foreach ($this->routes as $item1) {
+                    $res['Routes'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
+
         if (null !== $this->strategyType) {
             $res['StrategyType'] = $this->strategyType;
         }
+
         if (null !== $this->vSwitchIds) {
-            $res['VSwitchIds'] = $this->vSwitchIds;
+            if (\is_array($this->vSwitchIds)) {
+                $res['VSwitchIds'] = [];
+                $n1 = 0;
+                foreach ($this->vSwitchIds as $item1) {
+                    $res['VSwitchIds'][$n1++] = $item1;
+                }
+            }
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return network
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['DomainRules'])) {
             if (!empty($map['DomainRules'])) {
                 $model->domainRules = [];
-                $n = 0;
-                foreach ($map['DomainRules'] as $item) {
-                    $model->domainRules[$n++] = null !== $item ? domainRules::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['DomainRules'] as $item1) {
+                    $model->domainRules[$n1++] = domainRules::fromMap($item1);
                 }
             }
         }
+
         if (isset($map['IpExpireMinutes'])) {
             $model->ipExpireMinutes = $map['IpExpireMinutes'];
         }
+
         if (isset($map['OfficeSiteId'])) {
             $model->officeSiteId = $map['OfficeSiteId'];
         }
+
         if (isset($map['Routes'])) {
             if (!empty($map['Routes'])) {
                 $model->routes = [];
-                $n = 0;
-                foreach ($map['Routes'] as $item) {
-                    $model->routes[$n++] = null !== $item ? routes::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['Routes'] as $item1) {
+                    $model->routes[$n1++] = routes::fromMap($item1);
                 }
             }
         }
+
         if (isset($map['StrategyType'])) {
             $model->strategyType = $map['StrategyType'];
         }
+
         if (isset($map['VSwitchIds'])) {
             if (!empty($map['VSwitchIds'])) {
-                $model->vSwitchIds = $map['VSwitchIds'];
+                $model->vSwitchIds = [];
+                $n1 = 0;
+                foreach ($map['VSwitchIds'] as $item1) {
+                    $model->vSwitchIds[$n1++] = $item1;
+                }
             }
         }
 

@@ -4,47 +4,26 @@
 
 namespace AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\DeleteAppInstancesResponseBody;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class deleteAppInstanceModels extends Model
 {
     /**
-     * @description The ID of the application instance.
-     *
-     * @example ai-gbuea*****
-     *
      * @var string
      */
     public $appInstanceId;
 
     /**
-     * @description The error code.
-     *
-     * @example InvalidParameter.ProductType
-     *
      * @var string
      */
     public $code;
 
     /**
-     * @description The error message.
-     *
-     * @example The parameter ProductType is invalid.
-     *
      * @var string
      */
     public $message;
 
     /**
-     * @description Specifies whether the application instance is deleted.
-     *
-     * Valid values:
-     *
-     *   true
-     *   false
-     *
-     * @example true
-     *
      * @var bool
      */
     public $success;
@@ -55,20 +34,26 @@ class deleteAppInstanceModels extends Model
         'success' => 'Success',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->appInstanceId) {
             $res['AppInstanceId'] = $this->appInstanceId;
         }
+
         if (null !== $this->code) {
             $res['Code'] = $this->code;
         }
+
         if (null !== $this->message) {
             $res['Message'] = $this->message;
         }
+
         if (null !== $this->success) {
             $res['Success'] = $this->success;
         }
@@ -76,23 +61,26 @@ class deleteAppInstanceModels extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return deleteAppInstanceModels
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AppInstanceId'])) {
             $model->appInstanceId = $map['AppInstanceId'];
         }
+
         if (isset($map['Code'])) {
             $model->code = $map['Code'];
         }
+
         if (isset($map['Message'])) {
             $model->message = $map['Message'];
         }
+
         if (isset($map['Success'])) {
             $model->success = $map['Success'];
         }

@@ -4,50 +4,32 @@
 
 namespace AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\GetResourcePriceResponseBody\priceList;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\GetResourcePriceResponseBody\priceList\price\promotions;
-use AlibabaCloud\Tea\Model;
 
 class price extends Model
 {
     /**
-     * @description The currency type.
-     *
-     * @example CNY
-     *
      * @var string
      */
     public $currency;
 
     /**
-     * @description The discount. The actual price is calculated based on the following formula: Actual price = Original price - Discount.
-     *
-     * @example 999.0
-     *
      * @var string
      */
     public $discountPrice;
 
     /**
-     * @description The original price.
-     *
-     * @example 6700
-     *
      * @var string
      */
     public $originalPrice;
 
     /**
-     * @description The coupon metadata.
-     *
      * @var promotions[]
      */
     public $promotions;
 
     /**
-     * @description The actual price. The actual price is calculated based on the following formula: Actual price = Original price - Discount.
-     *
-     * @example 5278.0
-     *
      * @var string
      */
     public $tradePrice;
@@ -59,29 +41,39 @@ class price extends Model
         'tradePrice' => 'TradePrice',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->promotions)) {
+            Model::validateArray($this->promotions);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->currency) {
             $res['Currency'] = $this->currency;
         }
+
         if (null !== $this->discountPrice) {
             $res['DiscountPrice'] = $this->discountPrice;
         }
+
         if (null !== $this->originalPrice) {
             $res['OriginalPrice'] = $this->originalPrice;
         }
+
         if (null !== $this->promotions) {
-            $res['Promotions'] = [];
-            if (null !== $this->promotions && \is_array($this->promotions)) {
-                $n = 0;
-                foreach ($this->promotions as $item) {
-                    $res['Promotions'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->promotions)) {
+                $res['Promotions'] = [];
+                $n1 = 0;
+                foreach ($this->promotions as $item1) {
+                    $res['Promotions'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
+
         if (null !== $this->tradePrice) {
             $res['TradePrice'] = $this->tradePrice;
         }
@@ -89,32 +81,36 @@ class price extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return price
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Currency'])) {
             $model->currency = $map['Currency'];
         }
+
         if (isset($map['DiscountPrice'])) {
             $model->discountPrice = $map['DiscountPrice'];
         }
+
         if (isset($map['OriginalPrice'])) {
             $model->originalPrice = $map['OriginalPrice'];
         }
+
         if (isset($map['Promotions'])) {
             if (!empty($map['Promotions'])) {
                 $model->promotions = [];
-                $n = 0;
-                foreach ($map['Promotions'] as $item) {
-                    $model->promotions[$n++] = null !== $item ? promotions::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['Promotions'] as $item1) {
+                    $model->promotions[$n1++] = promotions::fromMap($item1);
                 }
             }
         }
+
         if (isset($map['TradePrice'])) {
             $model->tradePrice = $map['TradePrice'];
         }
