@@ -31,6 +31,11 @@ class data extends Model
     /**
      * @var string
      */
+    public $appType;
+
+    /**
+     * @var string
+     */
     public $bizRegionId;
 
     /**
@@ -82,6 +87,7 @@ class data extends Model
         'apkSize' => 'ApkSize',
         'appId' => 'AppId',
         'appName' => 'AppName',
+        'appType' => 'AppType',
         'bizRegionId' => 'BizRegionId',
         'description' => 'Description',
         'gmtCreate' => 'GmtCreate',
@@ -119,6 +125,10 @@ class data extends Model
 
         if (null !== $this->appName) {
             $res['AppName'] = $this->appName;
+        }
+
+        if (null !== $this->appType) {
+            $res['AppType'] = $this->appType;
         }
 
         if (null !== $this->bizRegionId) {
@@ -192,6 +202,10 @@ class data extends Model
 
         if (isset($map['AppName'])) {
             $model->appName = $map['AppName'];
+        }
+
+        if (isset($map['AppType'])) {
+            $model->appType = $map['AppType'];
         }
 
         if (isset($map['BizRegionId'])) {

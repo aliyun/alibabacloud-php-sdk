@@ -53,6 +53,11 @@ class CreateAppRequest extends Model
      * @var string
      */
     public $ossAppUrl;
+
+    /**
+     * @var string
+     */
+    public $signApk;
     protected $_name = [
         'appName' => 'AppName',
         'bizRegionId' => 'BizRegionId',
@@ -63,6 +68,7 @@ class CreateAppRequest extends Model
         'iconUrl' => 'IconUrl',
         'installParam' => 'InstallParam',
         'ossAppUrl' => 'OssAppUrl',
+        'signApk' => 'SignApk',
     ];
 
     public function validate()
@@ -112,6 +118,10 @@ class CreateAppRequest extends Model
             $res['OssAppUrl'] = $this->ossAppUrl;
         }
 
+        if (null !== $this->signApk) {
+            $res['SignApk'] = $this->signApk;
+        }
+
         return $res;
     }
 
@@ -157,6 +167,10 @@ class CreateAppRequest extends Model
 
         if (isset($map['OssAppUrl'])) {
             $model->ossAppUrl = $map['OssAppUrl'];
+        }
+
+        if (isset($map['SignApk'])) {
+            $model->signApk = $map['SignApk'];
         }
 
         return $model;

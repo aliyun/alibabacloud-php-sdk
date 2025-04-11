@@ -856,6 +856,10 @@ class Edsaic extends OpenApiClient
             @$query['OssAppUrl'] = $request->ossAppUrl;
         }
 
+        if (null !== $request->signApk) {
+            @$query['SignApk'] = $request->signApk;
+        }
+
         $req = new OpenApiRequest([
             'query' => Utils::query($query),
         ]);
@@ -1997,6 +2001,10 @@ class Edsaic extends OpenApiClient
 
         if (null !== $request->appName) {
             @$query['AppName'] = $request->appName;
+        }
+
+        if (null !== $request->appType) {
+            @$query['AppType'] = $request->appType;
         }
 
         if (null !== $request->bizRegionId) {

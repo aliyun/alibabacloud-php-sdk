@@ -21,6 +21,11 @@ class DescribeAppsRequest extends Model
     /**
      * @var string
      */
+    public $appType;
+
+    /**
+     * @var string
+     */
     public $bizRegionId;
 
     /**
@@ -50,6 +55,7 @@ class DescribeAppsRequest extends Model
     protected $_name = [
         'appIdList' => 'AppIdList',
         'appName' => 'AppName',
+        'appType' => 'AppType',
         'bizRegionId' => 'BizRegionId',
         'installationStatus' => 'InstallationStatus',
         'MD5' => 'MD5',
@@ -81,6 +87,10 @@ class DescribeAppsRequest extends Model
 
         if (null !== $this->appName) {
             $res['AppName'] = $this->appName;
+        }
+
+        if (null !== $this->appType) {
+            $res['AppType'] = $this->appType;
         }
 
         if (null !== $this->bizRegionId) {
@@ -130,6 +140,10 @@ class DescribeAppsRequest extends Model
 
         if (isset($map['AppName'])) {
             $model->appName = $map['AppName'];
+        }
+
+        if (isset($map['AppType'])) {
+            $model->appType = $map['AppType'];
         }
 
         if (isset($map['BizRegionId'])) {

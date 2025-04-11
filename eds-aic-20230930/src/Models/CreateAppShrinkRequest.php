@@ -52,6 +52,11 @@ class CreateAppShrinkRequest extends Model
      * @var string
      */
     public $ossAppUrl;
+
+    /**
+     * @var string
+     */
+    public $signApk;
     protected $_name = [
         'appName' => 'AppName',
         'bizRegionId' => 'BizRegionId',
@@ -62,6 +67,7 @@ class CreateAppShrinkRequest extends Model
         'iconUrl' => 'IconUrl',
         'installParam' => 'InstallParam',
         'ossAppUrl' => 'OssAppUrl',
+        'signApk' => 'SignApk',
     ];
 
     public function validate()
@@ -106,6 +112,10 @@ class CreateAppShrinkRequest extends Model
 
         if (null !== $this->ossAppUrl) {
             $res['OssAppUrl'] = $this->ossAppUrl;
+        }
+
+        if (null !== $this->signApk) {
+            $res['SignApk'] = $this->signApk;
         }
 
         return $res;
@@ -153,6 +163,10 @@ class CreateAppShrinkRequest extends Model
 
         if (isset($map['OssAppUrl'])) {
             $model->ossAppUrl = $map['OssAppUrl'];
+        }
+
+        if (isset($map['SignApk'])) {
+            $model->signApk = $map['SignApk'];
         }
 
         return $model;
