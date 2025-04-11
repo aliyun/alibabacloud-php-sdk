@@ -31,7 +31,7 @@ class orginInterRegionBandwidthLimits extends Model
         if (null !== $this->orginInterRegionBandwidthLimit) {
             if (\is_array($this->orginInterRegionBandwidthLimit)) {
                 $res['OrginInterRegionBandwidthLimit'] = [];
-                $n1                                    = 0;
+                $n1 = 0;
                 foreach ($this->orginInterRegionBandwidthLimit as $item1) {
                     $res['OrginInterRegionBandwidthLimit'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -52,7 +52,7 @@ class orginInterRegionBandwidthLimits extends Model
         if (isset($map['OrginInterRegionBandwidthLimit'])) {
             if (!empty($map['OrginInterRegionBandwidthLimit'])) {
                 $model->orginInterRegionBandwidthLimit = [];
-                $n1                                    = 0;
+                $n1 = 0;
                 foreach ($map['OrginInterRegionBandwidthLimit'] as $item1) {
                     $model->orginInterRegionBandwidthLimit[$n1++] = orginInterRegionBandwidthLimit::fromMap($item1);
                 }

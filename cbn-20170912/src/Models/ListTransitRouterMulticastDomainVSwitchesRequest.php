@@ -12,48 +12,56 @@ class ListTransitRouterMulticastDomainVSwitchesRequest extends Model
      * @var string
      */
     public $cenId;
+
     /**
      * @var int
      */
     public $maxResults;
+
     /**
      * @var string
      */
     public $nextToken;
+
     /**
      * @var string
      */
     public $ownerAccount;
+
     /**
      * @var int
      */
     public $ownerId;
+
     /**
      * @var string
      */
     public $resourceOwnerAccount;
+
     /**
      * @var int
      */
     public $resourceOwnerId;
+
     /**
      * @var string[]
      */
     public $vSwitchIds;
+
     /**
      * @var string
      */
     public $vpcId;
     protected $_name = [
-        'cenId'                => 'CenId',
-        'maxResults'           => 'MaxResults',
-        'nextToken'            => 'NextToken',
-        'ownerAccount'         => 'OwnerAccount',
-        'ownerId'              => 'OwnerId',
+        'cenId' => 'CenId',
+        'maxResults' => 'MaxResults',
+        'nextToken' => 'NextToken',
+        'ownerAccount' => 'OwnerAccount',
+        'ownerId' => 'OwnerId',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
-        'resourceOwnerId'      => 'ResourceOwnerId',
-        'vSwitchIds'           => 'VSwitchIds',
-        'vpcId'                => 'VpcId',
+        'resourceOwnerId' => 'ResourceOwnerId',
+        'vSwitchIds' => 'VSwitchIds',
+        'vpcId' => 'VpcId',
     ];
 
     public function validate()
@@ -98,7 +106,7 @@ class ListTransitRouterMulticastDomainVSwitchesRequest extends Model
         if (null !== $this->vSwitchIds) {
             if (\is_array($this->vSwitchIds)) {
                 $res['VSwitchIds'] = [];
-                $n1                = 0;
+                $n1 = 0;
                 foreach ($this->vSwitchIds as $item1) {
                     $res['VSwitchIds'][$n1++] = $item1;
                 }
@@ -151,7 +159,7 @@ class ListTransitRouterMulticastDomainVSwitchesRequest extends Model
         if (isset($map['VSwitchIds'])) {
             if (!empty($map['VSwitchIds'])) {
                 $model->vSwitchIds = [];
-                $n1                = 0;
+                $n1 = 0;
                 foreach ($map['VSwitchIds'] as $item1) {
                     $model->vSwitchIds[$n1++] = $item1;
                 }

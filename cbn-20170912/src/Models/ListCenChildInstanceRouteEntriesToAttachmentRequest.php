@@ -13,57 +13,67 @@ class ListCenChildInstanceRouteEntriesToAttachmentRequest extends Model
      * @var string
      */
     public $cenId;
+
     /**
      * @var string
      */
     public $childInstanceRouteTableId;
+
     /**
      * @var int
      */
     public $maxResults;
+
     /**
      * @var string
      */
     public $nextToken;
+
     /**
      * @var string
      */
     public $ownerAccount;
+
     /**
      * @var int
      */
     public $ownerId;
+
     /**
      * @var string
      */
     public $resourceOwnerAccount;
+
     /**
      * @var int
      */
     public $resourceOwnerId;
+
     /**
      * @var routeFilter[]
      */
     public $routeFilter;
+
     /**
      * @var string
      */
     public $serviceType;
+
     /**
      * @var string
      */
     public $transitRouterAttachmentId;
     protected $_name = [
-        'cenId'                     => 'CenId',
+        'cenId' => 'CenId',
         'childInstanceRouteTableId' => 'ChildInstanceRouteTableId',
-        'maxResults'                => 'MaxResults',
-        'nextToken'                 => 'NextToken',
-        'ownerAccount'              => 'OwnerAccount',
-        'ownerId'                   => 'OwnerId',
-        'resourceOwnerAccount'      => 'ResourceOwnerAccount',
-        'resourceOwnerId'           => 'ResourceOwnerId',
-        'routeFilter'               => 'RouteFilter',
-        'serviceType'               => 'ServiceType',
+        'maxResults' => 'MaxResults',
+        'nextToken' => 'NextToken',
+        'ownerAccount' => 'OwnerAccount',
+        'ownerId' => 'OwnerId',
+        'resourceOwnerAccount' => 'ResourceOwnerAccount',
+        'resourceOwnerId' => 'ResourceOwnerId',
+        'routeFilter' => 'RouteFilter',
+        'serviceType' => 'ServiceType',
         'transitRouterAttachmentId' => 'TransitRouterAttachmentId',
     ];
 
@@ -113,7 +123,7 @@ class ListCenChildInstanceRouteEntriesToAttachmentRequest extends Model
         if (null !== $this->routeFilter) {
             if (\is_array($this->routeFilter)) {
                 $res['RouteFilter'] = [];
-                $n1                 = 0;
+                $n1 = 0;
                 foreach ($this->routeFilter as $item1) {
                     $res['RouteFilter'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -174,7 +184,7 @@ class ListCenChildInstanceRouteEntriesToAttachmentRequest extends Model
         if (isset($map['RouteFilter'])) {
             if (!empty($map['RouteFilter'])) {
                 $model->routeFilter = [];
-                $n1                 = 0;
+                $n1 = 0;
                 foreach ($map['RouteFilter'] as $item1) {
                     $model->routeFilter[$n1++] = routeFilter::fromMap($item1);
                 }

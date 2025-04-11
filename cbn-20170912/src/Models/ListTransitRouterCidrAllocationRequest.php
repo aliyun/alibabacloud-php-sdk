@@ -12,83 +12,98 @@ class ListTransitRouterCidrAllocationRequest extends Model
      * @var string
      */
     public $attachmentId;
+
     /**
      * @var string
      */
     public $attachmentName;
+
     /**
      * @var string
      */
     public $cidr;
+
     /**
      * @var string
      */
     public $cidrBlock;
+
     /**
      * @var string
      */
     public $clientToken;
+
     /**
      * @var string
      */
     public $dedicatedOwnerId;
+
     /**
      * @var bool
      */
     public $dryRun;
+
     /**
      * @var int
      */
     public $maxResults;
+
     /**
      * @var string
      */
     public $nextToken;
+
     /**
      * @var string
      */
     public $ownerAccount;
+
     /**
      * @var int
      */
     public $ownerId;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $resourceOwnerAccount;
+
     /**
      * @var int
      */
     public $resourceOwnerId;
+
     /**
      * @var string
      */
     public $transitRouterCidrId;
+
     /**
      * @var string
      */
     public $transitRouterId;
     protected $_name = [
-        'attachmentId'         => 'AttachmentId',
-        'attachmentName'       => 'AttachmentName',
-        'cidr'                 => 'Cidr',
-        'cidrBlock'            => 'CidrBlock',
-        'clientToken'          => 'ClientToken',
-        'dedicatedOwnerId'     => 'DedicatedOwnerId',
-        'dryRun'               => 'DryRun',
-        'maxResults'           => 'MaxResults',
-        'nextToken'            => 'NextToken',
-        'ownerAccount'         => 'OwnerAccount',
-        'ownerId'              => 'OwnerId',
-        'regionId'             => 'RegionId',
+        'attachmentId' => 'AttachmentId',
+        'attachmentName' => 'AttachmentName',
+        'cidr' => 'Cidr',
+        'cidrBlock' => 'CidrBlock',
+        'clientToken' => 'ClientToken',
+        'dedicatedOwnerId' => 'DedicatedOwnerId',
+        'dryRun' => 'DryRun',
+        'maxResults' => 'MaxResults',
+        'nextToken' => 'NextToken',
+        'ownerAccount' => 'OwnerAccount',
+        'ownerId' => 'OwnerId',
+        'regionId' => 'RegionId',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
-        'resourceOwnerId'      => 'ResourceOwnerId',
-        'transitRouterCidrId'  => 'TransitRouterCidrId',
-        'transitRouterId'      => 'TransitRouterId',
+        'resourceOwnerId' => 'ResourceOwnerId',
+        'transitRouterCidrId' => 'TransitRouterCidrId',
+        'transitRouterId' => 'TransitRouterId',
     ];
 
     public function validate()

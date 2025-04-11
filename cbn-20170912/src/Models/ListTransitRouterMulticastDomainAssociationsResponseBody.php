@@ -13,27 +13,31 @@ class ListTransitRouterMulticastDomainAssociationsResponseBody extends Model
      * @var int
      */
     public $maxResults;
+
     /**
      * @var string
      */
     public $nextToken;
+
     /**
      * @var string
      */
     public $requestId;
+
     /**
      * @var int
      */
     public $totalCount;
+
     /**
      * @var transitRouterMulticastAssociations[]
      */
     public $transitRouterMulticastAssociations;
     protected $_name = [
-        'maxResults'                         => 'MaxResults',
-        'nextToken'                          => 'NextToken',
-        'requestId'                          => 'RequestId',
-        'totalCount'                         => 'TotalCount',
+        'maxResults' => 'MaxResults',
+        'nextToken' => 'NextToken',
+        'requestId' => 'RequestId',
+        'totalCount' => 'TotalCount',
         'transitRouterMulticastAssociations' => 'TransitRouterMulticastAssociations',
     ];
 
@@ -67,7 +71,7 @@ class ListTransitRouterMulticastDomainAssociationsResponseBody extends Model
         if (null !== $this->transitRouterMulticastAssociations) {
             if (\is_array($this->transitRouterMulticastAssociations)) {
                 $res['TransitRouterMulticastAssociations'] = [];
-                $n1                                        = 0;
+                $n1 = 0;
                 foreach ($this->transitRouterMulticastAssociations as $item1) {
                     $res['TransitRouterMulticastAssociations'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -104,7 +108,7 @@ class ListTransitRouterMulticastDomainAssociationsResponseBody extends Model
         if (isset($map['TransitRouterMulticastAssociations'])) {
             if (!empty($map['TransitRouterMulticastAssociations'])) {
                 $model->transitRouterMulticastAssociations = [];
-                $n1                                        = 0;
+                $n1 = 0;
                 foreach ($map['TransitRouterMulticastAssociations'] as $item1) {
                     $model->transitRouterMulticastAssociations[$n1++] = transitRouterMulticastAssociations::fromMap($item1);
                 }

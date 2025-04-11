@@ -13,18 +13,22 @@ class DescribeGrantRulesToResourceResponseBody extends Model
      * @var grantRules[]
      */
     public $grantRules;
+
     /**
      * @var int
      */
     public $maxResults;
+
     /**
      * @var string
      */
     public $nextToken;
+
     /**
      * @var string
      */
     public $requestId;
+
     /**
      * @var int
      */
@@ -32,8 +36,8 @@ class DescribeGrantRulesToResourceResponseBody extends Model
     protected $_name = [
         'grantRules' => 'GrantRules',
         'maxResults' => 'MaxResults',
-        'nextToken'  => 'NextToken',
-        'requestId'  => 'RequestId',
+        'nextToken' => 'NextToken',
+        'requestId' => 'RequestId',
         'totalCount' => 'TotalCount',
     ];
 
@@ -51,7 +55,7 @@ class DescribeGrantRulesToResourceResponseBody extends Model
         if (null !== $this->grantRules) {
             if (\is_array($this->grantRules)) {
                 $res['GrantRules'] = [];
-                $n1                = 0;
+                $n1 = 0;
                 foreach ($this->grantRules as $item1) {
                     $res['GrantRules'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -88,7 +92,7 @@ class DescribeGrantRulesToResourceResponseBody extends Model
         if (isset($map['GrantRules'])) {
             if (!empty($map['GrantRules'])) {
                 $model->grantRules = [];
-                $n1                = 0;
+                $n1 = 0;
                 foreach ($map['GrantRules'] as $item1) {
                     $model->grantRules[$n1++] = grantRules::fromMap($item1);
                 }

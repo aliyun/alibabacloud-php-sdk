@@ -12,58 +12,68 @@ class DescribeCenRouteMapsRequest extends Model
      * @var string
      */
     public $cenId;
+
     /**
      * @var string
      */
     public $cenRegionId;
+
     /**
      * @var string
      */
     public $ownerAccount;
+
     /**
      * @var int
      */
     public $ownerId;
+
     /**
      * @var int
      */
     public $pageNumber;
+
     /**
      * @var int
      */
     public $pageSize;
+
     /**
      * @var string
      */
     public $resourceOwnerAccount;
+
     /**
      * @var int
      */
     public $resourceOwnerId;
+
     /**
      * @var string
      */
     public $routeMapId;
+
     /**
      * @var string
      */
     public $transitRouterRouteTableId;
+
     /**
      * @var string
      */
     public $transmitDirection;
     protected $_name = [
-        'cenId'                     => 'CenId',
-        'cenRegionId'               => 'CenRegionId',
-        'ownerAccount'              => 'OwnerAccount',
-        'ownerId'                   => 'OwnerId',
-        'pageNumber'                => 'PageNumber',
-        'pageSize'                  => 'PageSize',
-        'resourceOwnerAccount'      => 'ResourceOwnerAccount',
-        'resourceOwnerId'           => 'ResourceOwnerId',
-        'routeMapId'                => 'RouteMapId',
+        'cenId' => 'CenId',
+        'cenRegionId' => 'CenRegionId',
+        'ownerAccount' => 'OwnerAccount',
+        'ownerId' => 'OwnerId',
+        'pageNumber' => 'PageNumber',
+        'pageSize' => 'PageSize',
+        'resourceOwnerAccount' => 'ResourceOwnerAccount',
+        'resourceOwnerId' => 'ResourceOwnerId',
+        'routeMapId' => 'RouteMapId',
         'transitRouterRouteTableId' => 'TransitRouterRouteTableId',
-        'transmitDirection'         => 'TransmitDirection',
+        'transmitDirection' => 'TransmitDirection',
     ];
 
     public function validate()

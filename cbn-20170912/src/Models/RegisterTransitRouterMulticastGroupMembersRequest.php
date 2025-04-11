@@ -12,58 +12,68 @@ class RegisterTransitRouterMulticastGroupMembersRequest extends Model
      * @var string
      */
     public $clientToken;
+
     /**
      * @var bool
      */
     public $dryRun;
+
     /**
      * @var string
      */
     public $groupIpAddress;
+
     /**
      * @var string[]
      */
     public $networkInterfaceIds;
+
     /**
      * @var string
      */
     public $ownerAccount;
+
     /**
      * @var int
      */
     public $ownerId;
+
     /**
      * @var string[]
      */
     public $peerTransitRouterMulticastDomains;
+
     /**
      * @var string
      */
     public $resourceOwnerAccount;
+
     /**
      * @var int
      */
     public $resourceOwnerId;
+
     /**
      * @var string
      */
     public $transitRouterMulticastDomainId;
+
     /**
      * @var string
      */
     public $vpcId;
     protected $_name = [
-        'clientToken'                       => 'ClientToken',
-        'dryRun'                            => 'DryRun',
-        'groupIpAddress'                    => 'GroupIpAddress',
-        'networkInterfaceIds'               => 'NetworkInterfaceIds',
-        'ownerAccount'                      => 'OwnerAccount',
-        'ownerId'                           => 'OwnerId',
+        'clientToken' => 'ClientToken',
+        'dryRun' => 'DryRun',
+        'groupIpAddress' => 'GroupIpAddress',
+        'networkInterfaceIds' => 'NetworkInterfaceIds',
+        'ownerAccount' => 'OwnerAccount',
+        'ownerId' => 'OwnerId',
         'peerTransitRouterMulticastDomains' => 'PeerTransitRouterMulticastDomains',
-        'resourceOwnerAccount'              => 'ResourceOwnerAccount',
-        'resourceOwnerId'                   => 'ResourceOwnerId',
-        'transitRouterMulticastDomainId'    => 'TransitRouterMulticastDomainId',
-        'vpcId'                             => 'VpcId',
+        'resourceOwnerAccount' => 'ResourceOwnerAccount',
+        'resourceOwnerId' => 'ResourceOwnerId',
+        'transitRouterMulticastDomainId' => 'TransitRouterMulticastDomainId',
+        'vpcId' => 'VpcId',
     ];
 
     public function validate()
@@ -95,7 +105,7 @@ class RegisterTransitRouterMulticastGroupMembersRequest extends Model
         if (null !== $this->networkInterfaceIds) {
             if (\is_array($this->networkInterfaceIds)) {
                 $res['NetworkInterfaceIds'] = [];
-                $n1                         = 0;
+                $n1 = 0;
                 foreach ($this->networkInterfaceIds as $item1) {
                     $res['NetworkInterfaceIds'][$n1++] = $item1;
                 }
@@ -113,7 +123,7 @@ class RegisterTransitRouterMulticastGroupMembersRequest extends Model
         if (null !== $this->peerTransitRouterMulticastDomains) {
             if (\is_array($this->peerTransitRouterMulticastDomains)) {
                 $res['PeerTransitRouterMulticastDomains'] = [];
-                $n1                                       = 0;
+                $n1 = 0;
                 foreach ($this->peerTransitRouterMulticastDomains as $item1) {
                     $res['PeerTransitRouterMulticastDomains'][$n1++] = $item1;
                 }
@@ -162,7 +172,7 @@ class RegisterTransitRouterMulticastGroupMembersRequest extends Model
         if (isset($map['NetworkInterfaceIds'])) {
             if (!empty($map['NetworkInterfaceIds'])) {
                 $model->networkInterfaceIds = [];
-                $n1                         = 0;
+                $n1 = 0;
                 foreach ($map['NetworkInterfaceIds'] as $item1) {
                     $model->networkInterfaceIds[$n1++] = $item1;
                 }
@@ -180,7 +190,7 @@ class RegisterTransitRouterMulticastGroupMembersRequest extends Model
         if (isset($map['PeerTransitRouterMulticastDomains'])) {
             if (!empty($map['PeerTransitRouterMulticastDomains'])) {
                 $model->peerTransitRouterMulticastDomains = [];
-                $n1                                       = 0;
+                $n1 = 0;
                 foreach ($map['PeerTransitRouterMulticastDomains'] as $item1) {
                     $model->peerTransitRouterMulticastDomains[$n1++] = $item1;
                 }

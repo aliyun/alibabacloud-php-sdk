@@ -12,58 +12,68 @@ class trafficQosQueues extends Model
      * @var string
      */
     public $bandwidth;
+
     /**
      * @var int[]
      */
     public $dscps;
+
     /**
      * @var string
      */
     public $effectiveBandwidth;
+
     /**
      * @var int
      */
     public $remainBandwidthPercent;
+
     /**
      * @var string
      */
     public $status;
+
     /**
      * @var string
      */
     public $trafficQosPolicyId;
+
     /**
      * @var string
      */
     public $trafficQosQueueDescription;
+
     /**
      * @var string
      */
     public $trafficQosQueueId;
+
     /**
      * @var string
      */
     public $trafficQosQueueName;
+
     /**
      * @var string
      */
     public $transitRouterAttachmentId;
+
     /**
      * @var string
      */
     public $transitRouterId;
     protected $_name = [
-        'bandwidth'                  => 'Bandwidth',
-        'dscps'                      => 'Dscps',
-        'effectiveBandwidth'         => 'EffectiveBandwidth',
-        'remainBandwidthPercent'     => 'RemainBandwidthPercent',
-        'status'                     => 'Status',
-        'trafficQosPolicyId'         => 'TrafficQosPolicyId',
+        'bandwidth' => 'Bandwidth',
+        'dscps' => 'Dscps',
+        'effectiveBandwidth' => 'EffectiveBandwidth',
+        'remainBandwidthPercent' => 'RemainBandwidthPercent',
+        'status' => 'Status',
+        'trafficQosPolicyId' => 'TrafficQosPolicyId',
         'trafficQosQueueDescription' => 'TrafficQosQueueDescription',
-        'trafficQosQueueId'          => 'TrafficQosQueueId',
-        'trafficQosQueueName'        => 'TrafficQosQueueName',
-        'transitRouterAttachmentId'  => 'TransitRouterAttachmentId',
-        'transitRouterId'            => 'TransitRouterId',
+        'trafficQosQueueId' => 'TrafficQosQueueId',
+        'trafficQosQueueName' => 'TrafficQosQueueName',
+        'transitRouterAttachmentId' => 'TransitRouterAttachmentId',
+        'transitRouterId' => 'TransitRouterId',
     ];
 
     public function validate()
@@ -84,7 +94,7 @@ class trafficQosQueues extends Model
         if (null !== $this->dscps) {
             if (\is_array($this->dscps)) {
                 $res['Dscps'] = [];
-                $n1           = 0;
+                $n1 = 0;
                 foreach ($this->dscps as $item1) {
                     $res['Dscps'][$n1++] = $item1;
                 }
@@ -145,7 +155,7 @@ class trafficQosQueues extends Model
         if (isset($map['Dscps'])) {
             if (!empty($map['Dscps'])) {
                 $model->dscps = [];
-                $n1           = 0;
+                $n1 = 0;
                 foreach ($map['Dscps'] as $item1) {
                     $model->dscps[$n1++] = $item1;
                 }

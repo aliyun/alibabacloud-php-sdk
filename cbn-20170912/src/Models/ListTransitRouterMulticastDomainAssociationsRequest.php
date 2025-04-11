@@ -12,63 +12,74 @@ class ListTransitRouterMulticastDomainAssociationsRequest extends Model
      * @var string
      */
     public $clientToken;
+
     /**
      * @var int
      */
     public $maxResults;
+
     /**
      * @var string
      */
     public $nextToken;
+
     /**
      * @var string
      */
     public $ownerAccount;
+
     /**
      * @var int
      */
     public $ownerId;
+
     /**
      * @var string
      */
     public $resourceId;
+
     /**
      * @var string
      */
     public $resourceOwnerAccount;
+
     /**
      * @var int
      */
     public $resourceOwnerId;
+
     /**
      * @var string
      */
     public $resourceType;
+
     /**
      * @var string
      */
     public $transitRouterAttachmentId;
+
     /**
      * @var string
      */
     public $transitRouterMulticastDomainId;
+
     /**
      * @var string[]
      */
     public $vSwitchIds;
     protected $_name = [
-        'clientToken'                    => 'ClientToken',
-        'maxResults'                     => 'MaxResults',
-        'nextToken'                      => 'NextToken',
-        'ownerAccount'                   => 'OwnerAccount',
-        'ownerId'                        => 'OwnerId',
-        'resourceId'                     => 'ResourceId',
-        'resourceOwnerAccount'           => 'ResourceOwnerAccount',
-        'resourceOwnerId'                => 'ResourceOwnerId',
-        'resourceType'                   => 'ResourceType',
-        'transitRouterAttachmentId'      => 'TransitRouterAttachmentId',
+        'clientToken' => 'ClientToken',
+        'maxResults' => 'MaxResults',
+        'nextToken' => 'NextToken',
+        'ownerAccount' => 'OwnerAccount',
+        'ownerId' => 'OwnerId',
+        'resourceId' => 'ResourceId',
+        'resourceOwnerAccount' => 'ResourceOwnerAccount',
+        'resourceOwnerId' => 'ResourceOwnerId',
+        'resourceType' => 'ResourceType',
+        'transitRouterAttachmentId' => 'TransitRouterAttachmentId',
         'transitRouterMulticastDomainId' => 'TransitRouterMulticastDomainId',
-        'vSwitchIds'                     => 'VSwitchIds',
+        'vSwitchIds' => 'VSwitchIds',
     ];
 
     public function validate()
@@ -129,7 +140,7 @@ class ListTransitRouterMulticastDomainAssociationsRequest extends Model
         if (null !== $this->vSwitchIds) {
             if (\is_array($this->vSwitchIds)) {
                 $res['VSwitchIds'] = [];
-                $n1                = 0;
+                $n1 = 0;
                 foreach ($this->vSwitchIds as $item1) {
                     $res['VSwitchIds'][$n1++] = $item1;
                 }
@@ -194,7 +205,7 @@ class ListTransitRouterMulticastDomainAssociationsRequest extends Model
         if (isset($map['VSwitchIds'])) {
             if (!empty($map['VSwitchIds'])) {
                 $model->vSwitchIds = [];
-                $n1                = 0;
+                $n1 = 0;
                 foreach ($map['VSwitchIds'] as $item1) {
                     $model->vSwitchIds[$n1++] = $item1;
                 }

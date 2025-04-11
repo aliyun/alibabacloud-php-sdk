@@ -12,63 +12,74 @@ class ListGrantVSwitchEnisRequest extends Model
      * @var string
      */
     public $cenId;
+
     /**
      * @var int
      */
     public $maxResults;
+
     /**
      * @var string[]
      */
     public $networkInterfaceId;
+
     /**
      * @var string
      */
     public $networkInterfaceName;
+
     /**
      * @var string
      */
     public $nextToken;
+
     /**
      * @var string
      */
     public $ownerAccount;
+
     /**
      * @var int
      */
     public $ownerId;
+
     /**
      * @var string
      */
     public $primaryIpAddress;
+
     /**
      * @var string
      */
     public $resourceOwnerAccount;
+
     /**
      * @var int
      */
     public $resourceOwnerId;
+
     /**
      * @var string
      */
     public $vSwitchId;
+
     /**
      * @var string
      */
     public $vpcId;
     protected $_name = [
-        'cenId'                => 'CenId',
-        'maxResults'           => 'MaxResults',
-        'networkInterfaceId'   => 'NetworkInterfaceId',
+        'cenId' => 'CenId',
+        'maxResults' => 'MaxResults',
+        'networkInterfaceId' => 'NetworkInterfaceId',
         'networkInterfaceName' => 'NetworkInterfaceName',
-        'nextToken'            => 'NextToken',
-        'ownerAccount'         => 'OwnerAccount',
-        'ownerId'              => 'OwnerId',
-        'primaryIpAddress'     => 'PrimaryIpAddress',
+        'nextToken' => 'NextToken',
+        'ownerAccount' => 'OwnerAccount',
+        'ownerId' => 'OwnerId',
+        'primaryIpAddress' => 'PrimaryIpAddress',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
-        'resourceOwnerId'      => 'ResourceOwnerId',
-        'vSwitchId'            => 'VSwitchId',
-        'vpcId'                => 'VpcId',
+        'resourceOwnerId' => 'ResourceOwnerId',
+        'vSwitchId' => 'VSwitchId',
+        'vpcId' => 'VpcId',
     ];
 
     public function validate()
@@ -93,7 +104,7 @@ class ListGrantVSwitchEnisRequest extends Model
         if (null !== $this->networkInterfaceId) {
             if (\is_array($this->networkInterfaceId)) {
                 $res['NetworkInterfaceId'] = [];
-                $n1                        = 0;
+                $n1 = 0;
                 foreach ($this->networkInterfaceId as $item1) {
                     $res['NetworkInterfaceId'][$n1++] = $item1;
                 }
@@ -158,7 +169,7 @@ class ListGrantVSwitchEnisRequest extends Model
         if (isset($map['NetworkInterfaceId'])) {
             if (!empty($map['NetworkInterfaceId'])) {
                 $model->networkInterfaceId = [];
-                $n1                        = 0;
+                $n1 = 0;
                 foreach ($map['NetworkInterfaceId'] as $item1) {
                     $model->networkInterfaceId[$n1++] = $item1;
                 }

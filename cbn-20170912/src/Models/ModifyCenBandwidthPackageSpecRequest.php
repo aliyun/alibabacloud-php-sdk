@@ -12,33 +12,38 @@ class ModifyCenBandwidthPackageSpecRequest extends Model
      * @var int
      */
     public $bandwidth;
+
     /**
      * @var string
      */
     public $cenBandwidthPackageId;
+
     /**
      * @var string
      */
     public $ownerAccount;
+
     /**
      * @var int
      */
     public $ownerId;
+
     /**
      * @var string
      */
     public $resourceOwnerAccount;
+
     /**
      * @var int
      */
     public $resourceOwnerId;
     protected $_name = [
-        'bandwidth'             => 'Bandwidth',
+        'bandwidth' => 'Bandwidth',
         'cenBandwidthPackageId' => 'CenBandwidthPackageId',
-        'ownerAccount'          => 'OwnerAccount',
-        'ownerId'               => 'OwnerId',
-        'resourceOwnerAccount'  => 'ResourceOwnerAccount',
-        'resourceOwnerId'       => 'ResourceOwnerId',
+        'ownerAccount' => 'OwnerAccount',
+        'ownerId' => 'OwnerId',
+        'resourceOwnerAccount' => 'ResourceOwnerAccount',
+        'resourceOwnerId' => 'ResourceOwnerId',
     ];
 
     public function validate()

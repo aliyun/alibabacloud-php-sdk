@@ -30,7 +30,7 @@ class cenBandwidthPackageIds extends Model
         if (null !== $this->cenBandwidthPackageId) {
             if (\is_array($this->cenBandwidthPackageId)) {
                 $res['CenBandwidthPackageId'] = [];
-                $n1                           = 0;
+                $n1 = 0;
                 foreach ($this->cenBandwidthPackageId as $item1) {
                     $res['CenBandwidthPackageId'][$n1++] = $item1;
                 }
@@ -51,7 +51,7 @@ class cenBandwidthPackageIds extends Model
         if (isset($map['CenBandwidthPackageId'])) {
             if (!empty($map['CenBandwidthPackageId'])) {
                 $model->cenBandwidthPackageId = [];
-                $n1                           = 0;
+                $n1 = 0;
                 foreach ($map['CenBandwidthPackageId'] as $item1) {
                     $model->cenBandwidthPackageId[$n1++] = $item1;
                 }

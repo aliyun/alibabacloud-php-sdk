@@ -12,38 +12,44 @@ class DeleteTransitRouterRequest extends Model
      * @var string
      */
     public $clientToken;
+
     /**
      * @var bool
      */
     public $dryRun;
+
     /**
      * @var string
      */
     public $ownerAccount;
+
     /**
      * @var int
      */
     public $ownerId;
+
     /**
      * @var string
      */
     public $resourceOwnerAccount;
+
     /**
      * @var int
      */
     public $resourceOwnerId;
+
     /**
      * @var string
      */
     public $transitRouterId;
     protected $_name = [
-        'clientToken'          => 'ClientToken',
-        'dryRun'               => 'DryRun',
-        'ownerAccount'         => 'OwnerAccount',
-        'ownerId'              => 'OwnerId',
+        'clientToken' => 'ClientToken',
+        'dryRun' => 'DryRun',
+        'ownerAccount' => 'OwnerAccount',
+        'ownerId' => 'OwnerId',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
-        'resourceOwnerId'      => 'ResourceOwnerId',
-        'transitRouterId'      => 'TransitRouterId',
+        'resourceOwnerId' => 'ResourceOwnerId',
+        'transitRouterId' => 'TransitRouterId',
     ];
 
     public function validate()

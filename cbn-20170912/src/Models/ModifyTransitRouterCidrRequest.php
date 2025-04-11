@@ -12,68 +12,80 @@ class ModifyTransitRouterCidrRequest extends Model
      * @var string
      */
     public $cidr;
+
     /**
      * @var string
      */
     public $clientToken;
+
     /**
      * @var string
      */
     public $description;
+
     /**
      * @var bool
      */
     public $dryRun;
+
     /**
      * @var string
      */
     public $name;
+
     /**
      * @var string
      */
     public $ownerAccount;
+
     /**
      * @var int
      */
     public $ownerId;
+
     /**
      * @var bool
      */
     public $publishCidrRoute;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $resourceOwnerAccount;
+
     /**
      * @var int
      */
     public $resourceOwnerId;
+
     /**
      * @var string
      */
     public $transitRouterCidrId;
+
     /**
      * @var string
      */
     public $transitRouterId;
     protected $_name = [
-        'cidr'                 => 'Cidr',
-        'clientToken'          => 'ClientToken',
-        'description'          => 'Description',
-        'dryRun'               => 'DryRun',
-        'name'                 => 'Name',
-        'ownerAccount'         => 'OwnerAccount',
-        'ownerId'              => 'OwnerId',
-        'publishCidrRoute'     => 'PublishCidrRoute',
-        'regionId'             => 'RegionId',
+        'cidr' => 'Cidr',
+        'clientToken' => 'ClientToken',
+        'description' => 'Description',
+        'dryRun' => 'DryRun',
+        'name' => 'Name',
+        'ownerAccount' => 'OwnerAccount',
+        'ownerId' => 'OwnerId',
+        'publishCidrRoute' => 'PublishCidrRoute',
+        'regionId' => 'RegionId',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
-        'resourceOwnerId'      => 'ResourceOwnerId',
-        'transitRouterCidrId'  => 'TransitRouterCidrId',
-        'transitRouterId'      => 'TransitRouterId',
+        'resourceOwnerId' => 'ResourceOwnerId',
+        'transitRouterCidrId' => 'TransitRouterCidrId',
+        'transitRouterId' => 'TransitRouterId',
     ];
 
     public function validate()

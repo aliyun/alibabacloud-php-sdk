@@ -12,43 +12,50 @@ class WithdrawPublishedRouteEntriesRequest extends Model
      * @var string
      */
     public $cenId;
+
     /**
      * @var string
      */
     public $childInstanceId;
+
     /**
      * @var string
      */
     public $childInstanceRegionId;
+
     /**
      * @var string
      */
     public $childInstanceRouteTableId;
+
     /**
      * @var string
      */
     public $childInstanceType;
+
     /**
      * @var string
      */
     public $destinationCidrBlock;
+
     /**
      * @var string
      */
     public $resourceOwnerAccount;
+
     /**
      * @var int
      */
     public $resourceOwnerId;
     protected $_name = [
-        'cenId'                     => 'CenId',
-        'childInstanceId'           => 'ChildInstanceId',
-        'childInstanceRegionId'     => 'ChildInstanceRegionId',
+        'cenId' => 'CenId',
+        'childInstanceId' => 'ChildInstanceId',
+        'childInstanceRegionId' => 'ChildInstanceRegionId',
         'childInstanceRouteTableId' => 'ChildInstanceRouteTableId',
-        'childInstanceType'         => 'ChildInstanceType',
-        'destinationCidrBlock'      => 'DestinationCidrBlock',
-        'resourceOwnerAccount'      => 'ResourceOwnerAccount',
-        'resourceOwnerId'           => 'ResourceOwnerId',
+        'childInstanceType' => 'ChildInstanceType',
+        'destinationCidrBlock' => 'DestinationCidrBlock',
+        'resourceOwnerAccount' => 'ResourceOwnerAccount',
+        'resourceOwnerId' => 'ResourceOwnerId',
     ];
 
     public function validate()

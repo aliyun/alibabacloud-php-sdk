@@ -31,7 +31,7 @@ class grantRules extends Model
         if (null !== $this->grantRule) {
             if (\is_array($this->grantRule)) {
                 $res['GrantRule'] = [];
-                $n1               = 0;
+                $n1 = 0;
                 foreach ($this->grantRule as $item1) {
                     $res['GrantRule'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -52,7 +52,7 @@ class grantRules extends Model
         if (isset($map['GrantRule'])) {
             if (!empty($map['GrantRule'])) {
                 $model->grantRule = [];
-                $n1               = 0;
+                $n1 = 0;
                 foreach ($map['GrantRule'] as $item1) {
                     $model->grantRule[$n1++] = grantRule::fromMap($item1);
                 }

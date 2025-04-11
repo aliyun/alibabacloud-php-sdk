@@ -12,38 +12,44 @@ class DescribeCenPrivateZoneRoutesRequest extends Model
      * @var string
      */
     public $accessRegionId;
+
     /**
      * @var string
      */
     public $cenId;
+
     /**
      * @var string
      */
     public $hostRegionId;
+
     /**
      * @var int
      */
     public $pageNumber;
+
     /**
      * @var int
      */
     public $pageSize;
+
     /**
      * @var string
      */
     public $resourceOwnerAccount;
+
     /**
      * @var int
      */
     public $resourceOwnerId;
     protected $_name = [
-        'accessRegionId'       => 'AccessRegionId',
-        'cenId'                => 'CenId',
-        'hostRegionId'         => 'HostRegionId',
-        'pageNumber'           => 'PageNumber',
-        'pageSize'             => 'PageSize',
+        'accessRegionId' => 'AccessRegionId',
+        'cenId' => 'CenId',
+        'hostRegionId' => 'HostRegionId',
+        'pageNumber' => 'PageNumber',
+        'pageSize' => 'PageSize',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
-        'resourceOwnerId'      => 'ResourceOwnerId',
+        'resourceOwnerId' => 'ResourceOwnerId',
     ];
 
     public function validate()

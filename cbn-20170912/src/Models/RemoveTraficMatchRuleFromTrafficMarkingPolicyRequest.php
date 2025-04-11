@@ -12,42 +12,49 @@ class RemoveTraficMatchRuleFromTrafficMarkingPolicyRequest extends Model
      * @var string
      */
     public $clientToken;
+
     /**
      * @var bool
      */
     public $dryRun;
+
     /**
      * @var string
      */
     public $ownerAccount;
+
     /**
      * @var int
      */
     public $ownerId;
+
     /**
      * @var string
      */
     public $resourceOwnerAccount;
+
     /**
      * @var int
      */
     public $resourceOwnerId;
+
     /**
      * @var string[]
      */
     public $trafficMarkRuleIds;
+
     /**
      * @var string
      */
     public $trafficMarkingPolicyId;
     protected $_name = [
-        'clientToken'            => 'ClientToken',
-        'dryRun'                 => 'DryRun',
-        'ownerAccount'           => 'OwnerAccount',
-        'ownerId'                => 'OwnerId',
-        'resourceOwnerAccount'   => 'ResourceOwnerAccount',
-        'resourceOwnerId'        => 'ResourceOwnerId',
-        'trafficMarkRuleIds'     => 'TrafficMarkRuleIds',
+        'clientToken' => 'ClientToken',
+        'dryRun' => 'DryRun',
+        'ownerAccount' => 'OwnerAccount',
+        'ownerId' => 'OwnerId',
+        'resourceOwnerAccount' => 'ResourceOwnerAccount',
+        'resourceOwnerId' => 'ResourceOwnerId',
+        'trafficMarkRuleIds' => 'TrafficMarkRuleIds',
         'trafficMarkingPolicyId' => 'TrafficMarkingPolicyId',
     ];
 
@@ -89,7 +96,7 @@ class RemoveTraficMatchRuleFromTrafficMarkingPolicyRequest extends Model
         if (null !== $this->trafficMarkRuleIds) {
             if (\is_array($this->trafficMarkRuleIds)) {
                 $res['TrafficMarkRuleIds'] = [];
-                $n1                        = 0;
+                $n1 = 0;
                 foreach ($this->trafficMarkRuleIds as $item1) {
                     $res['TrafficMarkRuleIds'][$n1++] = $item1;
                 }
@@ -138,7 +145,7 @@ class RemoveTraficMatchRuleFromTrafficMarkingPolicyRequest extends Model
         if (isset($map['TrafficMarkRuleIds'])) {
             if (!empty($map['TrafficMarkRuleIds'])) {
                 $model->trafficMarkRuleIds = [];
-                $n1                        = 0;
+                $n1 = 0;
                 foreach ($map['TrafficMarkRuleIds'] as $item1) {
                     $model->trafficMarkRuleIds[$n1++] = $item1;
                 }

@@ -13,27 +13,31 @@ class DescribeCenRouteMapsResponseBody extends Model
      * @var int
      */
     public $pageNumber;
+
     /**
      * @var int
      */
     public $pageSize;
+
     /**
      * @var string
      */
     public $requestId;
+
     /**
      * @var routeMaps
      */
     public $routeMaps;
+
     /**
      * @var int
      */
     public $totalCount;
     protected $_name = [
         'pageNumber' => 'PageNumber',
-        'pageSize'   => 'PageSize',
-        'requestId'  => 'RequestId',
-        'routeMaps'  => 'RouteMaps',
+        'pageSize' => 'PageSize',
+        'requestId' => 'RequestId',
+        'routeMaps' => 'RouteMaps',
         'totalCount' => 'TotalCount',
     ];
 

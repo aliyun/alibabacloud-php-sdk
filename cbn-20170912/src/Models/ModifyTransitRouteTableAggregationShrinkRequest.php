@@ -12,63 +12,74 @@ class ModifyTransitRouteTableAggregationShrinkRequest extends Model
      * @var string
      */
     public $clientToken;
+
     /**
      * @var bool
      */
     public $dryRun;
+
     /**
      * @var string
      */
     public $ownerAccount;
+
     /**
      * @var int
      */
     public $ownerId;
+
     /**
      * @var string
      */
     public $resourceOwnerAccount;
+
     /**
      * @var int
      */
     public $resourceOwnerId;
+
     /**
      * @var string
      */
     public $transitRouteTableAggregationCidr;
+
     /**
      * @var string
      */
     public $transitRouteTableAggregationDescription;
+
     /**
      * @var string
      */
     public $transitRouteTableAggregationName;
+
     /**
      * @var string
      */
     public $transitRouteTableAggregationScope;
+
     /**
      * @var string
      */
     public $transitRouteTableAggregationScopeListShrink;
+
     /**
      * @var string
      */
     public $transitRouteTableId;
     protected $_name = [
-        'clientToken'                                 => 'ClientToken',
-        'dryRun'                                      => 'DryRun',
-        'ownerAccount'                                => 'OwnerAccount',
-        'ownerId'                                     => 'OwnerId',
-        'resourceOwnerAccount'                        => 'ResourceOwnerAccount',
-        'resourceOwnerId'                             => 'ResourceOwnerId',
-        'transitRouteTableAggregationCidr'            => 'TransitRouteTableAggregationCidr',
-        'transitRouteTableAggregationDescription'     => 'TransitRouteTableAggregationDescription',
-        'transitRouteTableAggregationName'            => 'TransitRouteTableAggregationName',
-        'transitRouteTableAggregationScope'           => 'TransitRouteTableAggregationScope',
+        'clientToken' => 'ClientToken',
+        'dryRun' => 'DryRun',
+        'ownerAccount' => 'OwnerAccount',
+        'ownerId' => 'OwnerId',
+        'resourceOwnerAccount' => 'ResourceOwnerAccount',
+        'resourceOwnerId' => 'ResourceOwnerId',
+        'transitRouteTableAggregationCidr' => 'TransitRouteTableAggregationCidr',
+        'transitRouteTableAggregationDescription' => 'TransitRouteTableAggregationDescription',
+        'transitRouteTableAggregationName' => 'TransitRouteTableAggregationName',
+        'transitRouteTableAggregationScope' => 'TransitRouteTableAggregationScope',
         'transitRouteTableAggregationScopeListShrink' => 'TransitRouteTableAggregationScopeList',
-        'transitRouteTableId'                         => 'TransitRouteTableId',
+        'transitRouteTableId' => 'TransitRouteTableId',
     ];
 
     public function validate()

@@ -12,48 +12,56 @@ class DescribeCenAttachedChildInstancesRequest extends Model
      * @var string
      */
     public $cenId;
+
     /**
      * @var string
      */
     public $childInstanceRegionId;
+
     /**
      * @var string
      */
     public $childInstanceType;
+
     /**
      * @var string
      */
     public $ownerAccount;
+
     /**
      * @var int
      */
     public $ownerId;
+
     /**
      * @var int
      */
     public $pageNumber;
+
     /**
      * @var int
      */
     public $pageSize;
+
     /**
      * @var string
      */
     public $resourceOwnerAccount;
+
     /**
      * @var int
      */
     public $resourceOwnerId;
     protected $_name = [
-        'cenId'                 => 'CenId',
+        'cenId' => 'CenId',
         'childInstanceRegionId' => 'ChildInstanceRegionId',
-        'childInstanceType'     => 'ChildInstanceType',
-        'ownerAccount'          => 'OwnerAccount',
-        'ownerId'               => 'OwnerId',
-        'pageNumber'            => 'PageNumber',
-        'pageSize'              => 'PageSize',
-        'resourceOwnerAccount'  => 'ResourceOwnerAccount',
-        'resourceOwnerId'       => 'ResourceOwnerId',
+        'childInstanceType' => 'ChildInstanceType',
+        'ownerAccount' => 'OwnerAccount',
+        'ownerId' => 'OwnerId',
+        'pageNumber' => 'PageNumber',
+        'pageSize' => 'PageSize',
+        'resourceOwnerAccount' => 'ResourceOwnerAccount',
+        'resourceOwnerId' => 'ResourceOwnerId',
     ];
 
     public function validate()

@@ -31,7 +31,7 @@ class cenInterRegionBandwidthLimits extends Model
         if (null !== $this->cenInterRegionBandwidthLimit) {
             if (\is_array($this->cenInterRegionBandwidthLimit)) {
                 $res['CenInterRegionBandwidthLimit'] = [];
-                $n1                                  = 0;
+                $n1 = 0;
                 foreach ($this->cenInterRegionBandwidthLimit as $item1) {
                     $res['CenInterRegionBandwidthLimit'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -52,7 +52,7 @@ class cenInterRegionBandwidthLimits extends Model
         if (isset($map['CenInterRegionBandwidthLimit'])) {
             if (!empty($map['CenInterRegionBandwidthLimit'])) {
                 $model->cenInterRegionBandwidthLimit = [];
-                $n1                                  = 0;
+                $n1 = 0;
                 foreach ($map['CenInterRegionBandwidthLimit'] as $item1) {
                     $model->cenInterRegionBandwidthLimit[$n1++] = cenInterRegionBandwidthLimit::fromMap($item1);
                 }

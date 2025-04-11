@@ -358,6 +358,7 @@ class Cbn extends OpenApiClient
      *
      * @param request - ActiveFlowLogRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ActiveFlowLogResponse
      *
      * @param ActiveFlowLogRequest $request
@@ -405,15 +406,15 @@ class Cbn extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ActiveFlowLog',
-            'version'     => '2017-09-12',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ActiveFlowLog',
+            'version' => '2017-09-12',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return ActiveFlowLogResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -432,6 +433,7 @@ class Cbn extends OpenApiClient
      *     *   If a flow log is in the **Active** state, the flow log is enabled.
      *
      * @param request - ActiveFlowLogRequest
+     *
      * @returns ActiveFlowLogResponse
      *
      * @param ActiveFlowLogRequest $request
@@ -455,6 +457,7 @@ class Cbn extends OpenApiClient
      *
      * @param request - AddTrafficMatchRuleToTrafficMarkingPolicyRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns AddTrafficMatchRuleToTrafficMarkingPolicyResponse
      *
      * @param AddTrafficMatchRuleToTrafficMarkingPolicyRequest $request
@@ -502,15 +505,15 @@ class Cbn extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'AddTrafficMatchRuleToTrafficMarkingPolicy',
-            'version'     => '2017-09-12',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'AddTrafficMatchRuleToTrafficMarkingPolicy',
+            'version' => '2017-09-12',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return AddTrafficMatchRuleToTrafficMarkingPolicyResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -528,6 +531,7 @@ class Cbn extends OpenApiClient
      * *   If a traffic classification rule is in the **Active** state, the traffic classification rule is added to the traffic marking policy.
      *
      * @param request - AddTrafficMatchRuleToTrafficMarkingPolicyRequest
+     *
      * @returns AddTrafficMatchRuleToTrafficMarkingPolicyResponse
      *
      * @param AddTrafficMatchRuleToTrafficMarkingPolicyRequest $request
@@ -542,7 +546,6 @@ class Cbn extends OpenApiClient
     }
 
     // Deprecated
-
     /**
      * Adds a traffic classification rule to a traffic marking policy.
      *
@@ -554,6 +557,7 @@ class Cbn extends OpenApiClient
      *
      * @param request - AddTraficMatchRuleToTrafficMarkingPolicyRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns AddTraficMatchRuleToTrafficMarkingPolicyResponse
      *
      * @param AddTraficMatchRuleToTrafficMarkingPolicyRequest $request
@@ -601,15 +605,15 @@ class Cbn extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'AddTraficMatchRuleToTrafficMarkingPolicy',
-            'version'     => '2017-09-12',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'AddTraficMatchRuleToTrafficMarkingPolicy',
+            'version' => '2017-09-12',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return AddTraficMatchRuleToTrafficMarkingPolicyResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -619,7 +623,6 @@ class Cbn extends OpenApiClient
     }
 
     // Deprecated
-
     /**
      * Adds a traffic classification rule to a traffic marking policy.
      *
@@ -630,6 +633,7 @@ class Cbn extends OpenApiClient
      * @deprecated openAPI AddTraficMatchRuleToTrafficMarkingPolicy is deprecated, please use Cbn::2017-09-12::AddTrafficMatchRuleToTrafficMarkingPolicy instead
      *
      * @param request - AddTraficMatchRuleToTrafficMarkingPolicyRequest
+     *
      * @returns AddTraficMatchRuleToTrafficMarkingPolicyResponse
      *
      * @param AddTraficMatchRuleToTrafficMarkingPolicyRequest $request
@@ -652,6 +656,7 @@ class Cbn extends OpenApiClient
      *
      * @param request - AssociateCenBandwidthPackageRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns AssociateCenBandwidthPackageResponse
      *
      * @param AssociateCenBandwidthPackageRequest $request
@@ -691,15 +696,15 @@ class Cbn extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'AssociateCenBandwidthPackage',
-            'version'     => '2017-09-12',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'AssociateCenBandwidthPackage',
+            'version' => '2017-09-12',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return AssociateCenBandwidthPackageResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -716,6 +721,7 @@ class Cbn extends OpenApiClient
      * For example, if a CEN instance is associated with a bandwidth plan that connects networks in the Chinese mainland, you cannot associate another bandwidth plan that also connects networks in the Chinese mainland with the CEN instance. However, you can associate a bandwidth plan that connects the Chinese mainland to North America with the CEN instance.
      *
      * @param request - AssociateCenBandwidthPackageRequest
+     *
      * @returns AssociateCenBandwidthPackageResponse
      *
      * @param AssociateCenBandwidthPackageRequest $request
@@ -742,6 +748,7 @@ class Cbn extends OpenApiClient
      *
      * @param request - AssociateTransitRouterAttachmentWithRouteTableRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns AssociateTransitRouterAttachmentWithRouteTableResponse
      *
      * @param AssociateTransitRouterAttachmentWithRouteTableRequest $request
@@ -789,15 +796,15 @@ class Cbn extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'AssociateTransitRouterAttachmentWithRouteTable',
-            'version'     => '2017-09-12',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'AssociateTransitRouterAttachmentWithRouteTable',
+            'version' => '2017-09-12',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return AssociateTransitRouterAttachmentWithRouteTableResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -818,6 +825,7 @@ class Cbn extends OpenApiClient
      *     *   If an associated forwarding correlation is in the **Active** state, the associated forwarding correlation is created.
      *
      * @param request - AssociateTransitRouterAttachmentWithRouteTableRequest
+     *
      * @returns AssociateTransitRouterAttachmentWithRouteTableResponse
      *
      * @param AssociateTransitRouterAttachmentWithRouteTableRequest $request
@@ -843,6 +851,7 @@ class Cbn extends OpenApiClient
      *
      * @param request - AssociateTransitRouterMulticastDomainRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns AssociateTransitRouterMulticastDomainResponse
      *
      * @param AssociateTransitRouterMulticastDomainRequest $request
@@ -894,15 +903,15 @@ class Cbn extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'AssociateTransitRouterMulticastDomain',
-            'version'     => '2017-09-12',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'AssociateTransitRouterMulticastDomain',
+            'version' => '2017-09-12',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return AssociateTransitRouterMulticastDomainResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -922,6 +931,7 @@ class Cbn extends OpenApiClient
      * - The VPC of the vSwitch must be associated with an Enterprise Edition transit router. For more information about how to associate a VPC with an Enterprise Edition transit router, see [CreateTransitRouterVpcAttachment](https://help.aliyun.com/document_detail/468237.html).
      *
      * @param request - AssociateTransitRouterMulticastDomainRequest
+     *
      * @returns AssociateTransitRouterMulticastDomainResponse
      *
      * @param AssociateTransitRouterMulticastDomainRequest $request
@@ -946,6 +956,7 @@ class Cbn extends OpenApiClient
      *
      * @param request - AttachCenChildInstanceRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns AttachCenChildInstanceResponse
      *
      * @param AttachCenChildInstanceRequest $request
@@ -997,15 +1008,15 @@ class Cbn extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'AttachCenChildInstance',
-            'version'     => '2017-09-12',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'AttachCenChildInstance',
+            'version' => '2017-09-12',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return AttachCenChildInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -1024,6 +1035,7 @@ class Cbn extends OpenApiClient
      * *   By default, you cannot grant permissions on virtual border routers (VBRs) that belong to another Alibaba Cloud account to a CEN instance. If you need to use this feature, contact your account manager.
      *
      * @param request - AttachCenChildInstanceRequest
+     *
      * @returns AttachCenChildInstanceResponse
      *
      * @param AttachCenChildInstanceRequest $request
@@ -1042,6 +1054,7 @@ class Cbn extends OpenApiClient
      *
      * @param request - CheckTransitRouterServiceRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns CheckTransitRouterServiceResponse
      *
      * @param CheckTransitRouterServiceRequest $request
@@ -1077,15 +1090,15 @@ class Cbn extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'CheckTransitRouterService',
-            'version'     => '2017-09-12',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CheckTransitRouterService',
+            'version' => '2017-09-12',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return CheckTransitRouterServiceResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -1098,6 +1111,7 @@ class Cbn extends OpenApiClient
      * Queries whether your Alibaba Cloud account has the transit router feature activated.
      *
      * @param request - CheckTransitRouterServiceRequest
+     *
      * @returns CheckTransitRouterServiceResponse
      *
      * @param CheckTransitRouterServiceRequest $request
@@ -1121,6 +1135,7 @@ class Cbn extends OpenApiClient
      *
      * @param request - CreateCenRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns CreateCenResponse
      *
      * @param CreateCenRequest $request
@@ -1172,15 +1187,15 @@ class Cbn extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'CreateCen',
-            'version'     => '2017-09-12',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CreateCen',
+            'version' => '2017-09-12',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return CreateCenResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -1198,6 +1213,7 @@ class Cbn extends OpenApiClient
      * *   If a CEN instance is in the **Active** state, the CEN instance is created.
      *
      * @param request - CreateCenRequest
+     *
      * @returns CreateCenResponse
      *
      * @param CreateCenRequest $request
@@ -1221,6 +1237,7 @@ class Cbn extends OpenApiClient
      *
      * @param request - CreateCenBandwidthPackageRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns CreateCenBandwidthPackageResponse
      *
      * @param CreateCenBandwidthPackageRequest $request
@@ -1304,15 +1321,15 @@ class Cbn extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'CreateCenBandwidthPackage',
-            'version'     => '2017-09-12',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CreateCenBandwidthPackage',
+            'version' => '2017-09-12',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return CreateCenBandwidthPackageResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -1330,6 +1347,7 @@ class Cbn extends OpenApiClient
      * *   **CreateCenBandwidthPackage** is an asynchronous operation. After you send a request, the system returns a bandwidth plan instance ID and runs the task in the background. You can call the **DescribeCenBandwidthPackages** operation to query the status of a bandwidth plan. If a bandwidth plan is in the **Idle** or **InUse** state, the bandwidth plan is created.
      *
      * @param request - CreateCenBandwidthPackageRequest
+     *
      * @returns CreateCenBandwidthPackageResponse
      *
      * @param CreateCenBandwidthPackageRequest $request
@@ -1355,6 +1373,7 @@ class Cbn extends OpenApiClient
      *
      * @param request - CreateCenChildInstanceRouteEntryToAttachmentRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns CreateCenChildInstanceRouteEntryToAttachmentResponse
      *
      * @param CreateCenChildInstanceRouteEntryToAttachmentRequest $request
@@ -1410,15 +1429,15 @@ class Cbn extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'CreateCenChildInstanceRouteEntryToAttachment',
-            'version'     => '2017-09-12',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CreateCenChildInstanceRouteEntryToAttachment',
+            'version' => '2017-09-12',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return CreateCenChildInstanceRouteEntryToAttachmentResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -1438,6 +1457,7 @@ class Cbn extends OpenApiClient
      *     *   If a route is in the **Available** state, the route is created.
      *
      * @param request - CreateCenChildInstanceRouteEntryToAttachmentRequest
+     *
      * @returns CreateCenChildInstanceRouteEntryToAttachmentResponse
      *
      * @param CreateCenChildInstanceRouteEntryToAttachmentRequest $request
@@ -1462,6 +1482,7 @@ class Cbn extends OpenApiClient
      *
      * @param request - CreateCenChildInstanceRouteEntryToCenRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns CreateCenChildInstanceRouteEntryToCenResponse
      *
      * @param CreateCenChildInstanceRouteEntryToCenRequest $request
@@ -1521,15 +1542,15 @@ class Cbn extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'CreateCenChildInstanceRouteEntryToCen',
-            'version'     => '2017-09-12',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CreateCenChildInstanceRouteEntryToCen',
+            'version' => '2017-09-12',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return CreateCenChildInstanceRouteEntryToCenResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -1548,6 +1569,7 @@ class Cbn extends OpenApiClient
      * *   By default, the next hop of the route entry is the regional gateway of the Cloud Enterprise Network (CEN) instance. You cannot modify the next hop.
      *
      * @param request - CreateCenChildInstanceRouteEntryToCenRequest
+     *
      * @returns CreateCenChildInstanceRouteEntryToCenResponse
      *
      * @param CreateCenChildInstanceRouteEntryToCenRequest $request
@@ -1578,6 +1600,7 @@ class Cbn extends OpenApiClient
      *
      * @param request - CreateCenInterRegionTrafficQosPolicyRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns CreateCenInterRegionTrafficQosPolicyResponse
      *
      * @param CreateCenInterRegionTrafficQosPolicyRequest $request
@@ -1641,15 +1664,15 @@ class Cbn extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'CreateCenInterRegionTrafficQosPolicy',
-            'version'     => '2017-09-12',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CreateCenInterRegionTrafficQosPolicy',
+            'version' => '2017-09-12',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return CreateCenInterRegionTrafficQosPolicyResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -1674,6 +1697,7 @@ class Cbn extends OpenApiClient
      * *   A traffic marking policy is created. For more information, see [CreateTrafficMarkingPolicy](https://help.aliyun.com/document_detail/419025.html).
      *
      * @param request - CreateCenInterRegionTrafficQosPolicyRequest
+     *
      * @returns CreateCenInterRegionTrafficQosPolicyResponse
      *
      * @param CreateCenInterRegionTrafficQosPolicyRequest $request
@@ -1697,6 +1721,7 @@ class Cbn extends OpenApiClient
      *
      * @param request - CreateCenInterRegionTrafficQosQueueRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns CreateCenInterRegionTrafficQosQueueResponse
      *
      * @param CreateCenInterRegionTrafficQosQueueRequest $request
@@ -1760,15 +1785,15 @@ class Cbn extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'CreateCenInterRegionTrafficQosQueue',
-            'version'     => '2017-09-12',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CreateCenInterRegionTrafficQosQueue',
+            'version' => '2017-09-12',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return CreateCenInterRegionTrafficQosQueueResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -1786,6 +1811,7 @@ class Cbn extends OpenApiClient
      * - If a QoS policy is in the **Active** state, the queue is created.
      *
      * @param request - CreateCenInterRegionTrafficQosQueueRequest
+     *
      * @returns CreateCenInterRegionTrafficQosQueueResponse
      *
      * @param CreateCenInterRegionTrafficQosQueueRequest $request
@@ -1810,6 +1836,7 @@ class Cbn extends OpenApiClient
      *
      * @param request - CreateCenRouteMapRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns CreateCenRouteMapResponse
      *
      * @param CreateCenRouteMapRequest $request
@@ -1961,15 +1988,15 @@ class Cbn extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'CreateCenRouteMap',
-            'version'     => '2017-09-12',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CreateCenRouteMap',
+            'version' => '2017-09-12',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return CreateCenRouteMapResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -1988,6 +2015,7 @@ class Cbn extends OpenApiClient
      * *   If a routing policy is in the **Active** state, the routing policy is created.
      *
      * @param request - CreateCenRouteMapRequest
+     *
      * @returns CreateCenRouteMapResponse
      *
      * @param CreateCenRouteMapRequest $request
@@ -2024,6 +2052,7 @@ class Cbn extends OpenApiClient
      *
      * @param request - CreateFlowlogRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns CreateFlowlogResponse
      *
      * @param CreateFlowlogRequest $request
@@ -2103,15 +2132,15 @@ class Cbn extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'CreateFlowlog',
-            'version'     => '2017-09-12',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CreateFlowlog',
+            'version' => '2017-09-12',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return CreateFlowlogResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -2142,6 +2171,7 @@ class Cbn extends OpenApiClient
      * *   [CreateTransitRouter](https://help.aliyun.com/document_detail/468222.html)
      *
      * @param request - CreateFlowlogRequest
+     *
      * @returns CreateFlowlogResponse
      *
      * @param CreateFlowlogRequest $request
@@ -2166,6 +2196,7 @@ class Cbn extends OpenApiClient
      *
      * @param request - CreateTrafficMarkingPolicyRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns CreateTrafficMarkingPolicyResponse
      *
      * @param CreateTrafficMarkingPolicyRequest $request
@@ -2229,15 +2260,15 @@ class Cbn extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'CreateTrafficMarkingPolicy',
-            'version'     => '2017-09-12',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CreateTrafficMarkingPolicy',
+            'version' => '2017-09-12',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return CreateTrafficMarkingPolicyResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -2256,6 +2287,7 @@ class Cbn extends OpenApiClient
      *     *   If a traffic marking policy is in the **Active** state, the traffic marking policy is created.
      *
      * @param request - CreateTrafficMarkingPolicyRequest
+     *
      * @returns CreateTrafficMarkingPolicyResponse
      *
      * @param CreateTrafficMarkingPolicyRequest $request
@@ -2273,13 +2305,14 @@ class Cbn extends OpenApiClient
      * Creates an aggregate route.
      *
      * @remarks
-     * After you add an aggregate route to a route table of an Enterprise Edition transit router, the Enterprise Edition transit router advertises its routes only to route tables of virtual private clouds (VPCs) that are associated with a route table of the Enterprise Edition transit router and have route synchronization enabled.
+     * After you add an aggregate route to a route table of an Enterprise Edition transit router, the transit router advertises its routes only to route tables of associated virtual private clouds (VPCs) and have route synchronization enabled.
      * Perform the following operations before you create an aggregate route. Otherwise, the Enterprise Edition transit router does not advertise routes to VPC route tables:
      * *   Associated forwarding is enabled between the VPCs and the Enterprise Edition transit router. For more information, see [AssociateTransitRouterAttachmentWithRouteTable](https://help.aliyun.com/document_detail/261242.html).
      * *   Route synchronization is enabled for the VPCs. For more information, see [CreateTransitRouterVpcAttachment](https://help.aliyun.com/document_detail/261358.html).
      *
      * @param tmpReq - CreateTransitRouteTableAggregationRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns CreateTransitRouteTableAggregationResponse
      *
      * @param CreateTransitRouteTableAggregationRequest $tmpReq
@@ -2349,15 +2382,15 @@ class Cbn extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'CreateTransitRouteTableAggregation',
-            'version'     => '2017-09-12',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CreateTransitRouteTableAggregation',
+            'version' => '2017-09-12',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return CreateTransitRouteTableAggregationResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -2370,12 +2403,13 @@ class Cbn extends OpenApiClient
      * Creates an aggregate route.
      *
      * @remarks
-     * After you add an aggregate route to a route table of an Enterprise Edition transit router, the Enterprise Edition transit router advertises its routes only to route tables of virtual private clouds (VPCs) that are associated with a route table of the Enterprise Edition transit router and have route synchronization enabled.
+     * After you add an aggregate route to a route table of an Enterprise Edition transit router, the transit router advertises its routes only to route tables of associated virtual private clouds (VPCs) and have route synchronization enabled.
      * Perform the following operations before you create an aggregate route. Otherwise, the Enterprise Edition transit router does not advertise routes to VPC route tables:
      * *   Associated forwarding is enabled between the VPCs and the Enterprise Edition transit router. For more information, see [AssociateTransitRouterAttachmentWithRouteTable](https://help.aliyun.com/document_detail/261242.html).
      * *   Route synchronization is enabled for the VPCs. For more information, see [CreateTransitRouterVpcAttachment](https://help.aliyun.com/document_detail/261358.html).
      *
      * @param request - CreateTransitRouteTableAggregationRequest
+     *
      * @returns CreateTransitRouteTableAggregationResponse
      *
      * @param CreateTransitRouteTableAggregationRequest $request
@@ -2400,6 +2434,7 @@ class Cbn extends OpenApiClient
      *
      * @param tmpReq - CreateTransitRouterRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns CreateTransitRouterResponse
      *
      * @param CreateTransitRouterRequest $tmpReq
@@ -2473,15 +2508,15 @@ class Cbn extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'CreateTransitRouter',
-            'version'     => '2017-09-12',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CreateTransitRouter',
+            'version' => '2017-09-12',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return CreateTransitRouterResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -2500,6 +2535,7 @@ class Cbn extends OpenApiClient
      *     *   If an Enterprise Edition transit router is in the **Active** state, the Enterprise Edition transit router is created.
      *
      * @param request - CreateTransitRouterRequest
+     *
      * @returns CreateTransitRouterResponse
      *
      * @param CreateTransitRouterRequest $request
@@ -2531,6 +2567,7 @@ class Cbn extends OpenApiClient
      *
      * @param request - CreateTransitRouterCidrRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns CreateTransitRouterCidrResponse
      *
      * @param CreateTransitRouterCidrRequest $request
@@ -2594,15 +2631,15 @@ class Cbn extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'CreateTransitRouterCidr',
-            'version'     => '2017-09-12',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CreateTransitRouterCidr',
+            'version' => '2017-09-12',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return CreateTransitRouterCidrResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -2628,6 +2665,7 @@ class Cbn extends OpenApiClient
      *     You can call the [ListTransitRouterCidrAllocation](https://help.aliyun.com/document_detail/464173.html) operation to query reserved CIDR blocks and IP addresses allocated to network connections.
      *
      * @param request - CreateTransitRouterCidrRequest
+     *
      * @returns CreateTransitRouterCidrResponse
      *
      * @param CreateTransitRouterCidrRequest $request
@@ -2663,6 +2701,7 @@ class Cbn extends OpenApiClient
      *
      * @param request - CreateTransitRouterEcrAttachmentRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns CreateTransitRouterEcrAttachmentResponse
      *
      * @param CreateTransitRouterEcrAttachmentRequest $request
@@ -2734,15 +2773,15 @@ class Cbn extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'CreateTransitRouterEcrAttachment',
-            'version'     => '2017-09-12',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CreateTransitRouterEcrAttachment',
+            'version' => '2017-09-12',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return CreateTransitRouterEcrAttachmentResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -2772,6 +2811,7 @@ class Cbn extends OpenApiClient
      *     **If you call the DeleteTransitRouterEcrAttachment operation to forcefully delete an ECR connection, the association between the ECR connection and Enterprise Edition transit router is deleted.**
      *
      * @param request - CreateTransitRouterEcrAttachmentRequest
+     *
      * @returns CreateTransitRouterEcrAttachmentResponse
      *
      * @param CreateTransitRouterEcrAttachmentRequest $request
@@ -2796,6 +2836,7 @@ class Cbn extends OpenApiClient
      *
      * @param request - CreateTransitRouterMulticastDomainRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns CreateTransitRouterMulticastDomainResponse
      *
      * @param CreateTransitRouterMulticastDomainRequest $request
@@ -2863,15 +2904,15 @@ class Cbn extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'CreateTransitRouterMulticastDomain',
-            'version'     => '2017-09-12',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CreateTransitRouterMulticastDomain',
+            'version' => '2017-09-12',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return CreateTransitRouterMulticastDomainResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -2890,6 +2931,7 @@ class Cbn extends OpenApiClient
      * *   When you call **CreateTransitRouterMulticastDomain**, if you set **CenId** and **RegionId**, you do not need to set **TransitRouterId**. If you set **TransitRouterId**, you do not need to set **CenId** or **RegionId**.
      *
      * @param request - CreateTransitRouterMulticastDomainRequest
+     *
      * @returns CreateTransitRouterMulticastDomainResponse
      *
      * @param CreateTransitRouterMulticastDomainRequest $request
@@ -2918,6 +2960,7 @@ class Cbn extends OpenApiClient
      *
      * @param request - CreateTransitRouterPeerAttachmentRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns CreateTransitRouterPeerAttachmentResponse
      *
      * @param CreateTransitRouterPeerAttachmentRequest $request
@@ -3009,15 +3052,15 @@ class Cbn extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'CreateTransitRouterPeerAttachment',
-            'version'     => '2017-09-12',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CreateTransitRouterPeerAttachment',
+            'version' => '2017-09-12',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return CreateTransitRouterPeerAttachmentResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -3040,6 +3083,7 @@ class Cbn extends OpenApiClient
      *     *   If the inter-region connection is in the **Attached** state, the inter-region connection is created.
      *
      * @param request - CreateTransitRouterPeerAttachmentRequest
+     *
      * @returns CreateTransitRouterPeerAttachmentResponse
      *
      * @param CreateTransitRouterPeerAttachmentRequest $request
@@ -3064,6 +3108,7 @@ class Cbn extends OpenApiClient
      *
      * @param request - CreateTransitRouterPrefixListAssociationRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns CreateTransitRouterPrefixListAssociationResponse
      *
      * @param CreateTransitRouterPrefixListAssociationRequest $request
@@ -3131,15 +3176,15 @@ class Cbn extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'CreateTransitRouterPrefixListAssociation',
-            'version'     => '2017-09-12',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CreateTransitRouterPrefixListAssociation',
+            'version' => '2017-09-12',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return CreateTransitRouterPrefixListAssociationResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -3158,6 +3203,7 @@ class Cbn extends OpenApiClient
      * *   If the prefix list and the Enterprise Edition transit router belong to different Alibaba Cloud accounts, the prefix list is shared with the Alibaba Cloud account that owns the Enterprise Edition transit router. For more information, see [Resource sharing](https://help.aliyun.com/document_detail/160622.html) and [API references for resource sharing](https://help.aliyun.com/document_detail/193445.html).
      *
      * @param request - CreateTransitRouterPrefixListAssociationRequest
+     *
      * @returns CreateTransitRouterPrefixListAssociationResponse
      *
      * @param CreateTransitRouterPrefixListAssociationRequest $request
@@ -3181,6 +3227,7 @@ class Cbn extends OpenApiClient
      *
      * @param request - CreateTransitRouterRouteEntryRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns CreateTransitRouterRouteEntryResponse
      *
      * @param CreateTransitRouterRouteEntryRequest $request
@@ -3244,15 +3291,15 @@ class Cbn extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'CreateTransitRouterRouteEntry',
-            'version'     => '2017-09-12',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CreateTransitRouterRouteEntry',
+            'version' => '2017-09-12',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return CreateTransitRouterRouteEntryResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -3270,6 +3317,7 @@ class Cbn extends OpenApiClient
      * *   If a route is in the **Active** state, the route is created.
      *
      * @param request - CreateTransitRouterRouteEntryRequest
+     *
      * @returns CreateTransitRouterRouteEntryResponse
      *
      * @param CreateTransitRouterRouteEntryRequest $request
@@ -3294,6 +3342,7 @@ class Cbn extends OpenApiClient
      *
      * @param request - CreateTransitRouterRouteTableRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns CreateTransitRouterRouteTableResponse
      *
      * @param CreateTransitRouterRouteTableRequest $request
@@ -3353,15 +3402,15 @@ class Cbn extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'CreateTransitRouterRouteTable',
-            'version'     => '2017-09-12',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CreateTransitRouterRouteTable',
+            'version' => '2017-09-12',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return CreateTransitRouterRouteTableResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -3380,6 +3429,7 @@ class Cbn extends OpenApiClient
      *     *   If a route table is in the **Active** state, the route table is created.
      *
      * @param request - CreateTransitRouterRouteTableRequest
+     *
      * @returns CreateTransitRouterRouteTableResponse
      *
      * @param CreateTransitRouterRouteTableRequest $request
@@ -3410,6 +3460,7 @@ class Cbn extends OpenApiClient
      *
      * @param request - CreateTransitRouterVbrAttachmentRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns CreateTransitRouterVbrAttachmentResponse
      *
      * @param CreateTransitRouterVbrAttachmentRequest $request
@@ -3485,15 +3536,15 @@ class Cbn extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'CreateTransitRouterVbrAttachment',
-            'version'     => '2017-09-12',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CreateTransitRouterVbrAttachment',
+            'version' => '2017-09-12',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return CreateTransitRouterVbrAttachmentResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -3518,6 +3569,7 @@ class Cbn extends OpenApiClient
      * *   After you create a VBR connection, it is not in route learning or associated forwarding relationship with transit router route tables by default.
      *
      * @param request - CreateTransitRouterVbrAttachmentRequest
+     *
      * @returns CreateTransitRouterVbrAttachmentResponse
      *
      * @param CreateTransitRouterVbrAttachmentRequest $request
@@ -3550,6 +3602,7 @@ class Cbn extends OpenApiClient
      *
      * @param tmpReq - CreateTransitRouterVpcAttachmentRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns CreateTransitRouterVpcAttachmentResponse
      *
      * @param CreateTransitRouterVpcAttachmentRequest $tmpReq
@@ -3643,15 +3696,15 @@ class Cbn extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'CreateTransitRouterVpcAttachment',
-            'version'     => '2017-09-12',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CreateTransitRouterVpcAttachment',
+            'version' => '2017-09-12',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return CreateTransitRouterVpcAttachmentResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -3678,6 +3731,7 @@ class Cbn extends OpenApiClient
      * *   VPC connections incur fees. Make sure that you understand the billing rules of VPC connections before you create a VPC connection. For more information, see [Billing](https://help.aliyun.com/document_detail/189836.html).
      *
      * @param request - CreateTransitRouterVpcAttachmentRequest
+     *
      * @returns CreateTransitRouterVpcAttachmentResponse
      *
      * @param CreateTransitRouterVpcAttachmentRequest $request
@@ -3703,6 +3757,7 @@ class Cbn extends OpenApiClient
      *
      * @param request - CreateTransitRouterVpnAttachmentRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns CreateTransitRouterVpnAttachmentResponse
      *
      * @param CreateTransitRouterVpnAttachmentRequest $request
@@ -3786,15 +3841,15 @@ class Cbn extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'CreateTransitRouterVpnAttachment',
-            'version'     => '2017-09-12',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CreateTransitRouterVpnAttachment',
+            'version' => '2017-09-12',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return CreateTransitRouterVpnAttachmentResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -3814,6 +3869,7 @@ class Cbn extends OpenApiClient
      * *   If the IPsec-VPN connection to be attached to the transit router belongs to a different Alibaba Cloud account, make sure that the transit router has obtained the required permissions from the IPsec-VPN connection. For more information, see [GrantInstanceToTransitRouter](https://help.aliyun.com/document_detail/417520.html).
      *
      * @param request - CreateTransitRouterVpnAttachmentRequest
+     *
      * @returns CreateTransitRouterVpnAttachmentResponse
      *
      * @param CreateTransitRouterVpnAttachmentRequest $request
@@ -3837,6 +3893,7 @@ class Cbn extends OpenApiClient
      *
      * @param request - DeactiveFlowLogRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DeactiveFlowLogResponse
      *
      * @param DeactiveFlowLogRequest $request
@@ -3884,15 +3941,15 @@ class Cbn extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DeactiveFlowLog',
-            'version'     => '2017-09-12',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DeactiveFlowLog',
+            'version' => '2017-09-12',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DeactiveFlowLogResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -3910,6 +3967,7 @@ class Cbn extends OpenApiClient
      * *   If a flow log is in the **Inactive** state, the flow log is disabled.
      *
      * @param request - DeactiveFlowLogRequest
+     *
      * @returns DeactiveFlowLogResponse
      *
      * @param DeactiveFlowLogRequest $request
@@ -3943,6 +4001,7 @@ class Cbn extends OpenApiClient
      *
      * @param request - DeleteCenRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DeleteCenResponse
      *
      * @param DeleteCenRequest $request
@@ -3978,15 +4037,15 @@ class Cbn extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DeleteCen',
-            'version'     => '2017-09-12',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DeleteCen',
+            'version' => '2017-09-12',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DeleteCenResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -4014,6 +4073,7 @@ class Cbn extends OpenApiClient
      * *   For more information about how to disassociate a bandwidth plan from a CEN instance, see [UnassociateCenBandwidthPackage](https://help.aliyun.com/document_detail/65935.html).
      *
      * @param request - DeleteCenRequest
+     *
      * @returns DeleteCenResponse
      *
      * @param DeleteCenRequest $request
@@ -4030,6 +4090,7 @@ class Cbn extends OpenApiClient
     /**
      * @param request - DeleteCenBandwidthPackageRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DeleteCenBandwidthPackageResponse
      *
      * @param DeleteCenBandwidthPackageRequest $request
@@ -4065,15 +4126,15 @@ class Cbn extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DeleteCenBandwidthPackage',
-            'version'     => '2017-09-12',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DeleteCenBandwidthPackage',
+            'version' => '2017-09-12',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DeleteCenBandwidthPackageResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -4084,6 +4145,7 @@ class Cbn extends OpenApiClient
 
     /**
      * @param request - DeleteCenBandwidthPackageRequest
+     *
      * @returns DeleteCenBandwidthPackageResponse
      *
      * @param DeleteCenBandwidthPackageRequest $request
@@ -4108,6 +4170,7 @@ class Cbn extends OpenApiClient
      *
      * @param request - DeleteCenChildInstanceRouteEntryToAttachmentRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DeleteCenChildInstanceRouteEntryToAttachmentResponse
      *
      * @param DeleteCenChildInstanceRouteEntryToAttachmentRequest $request
@@ -4163,15 +4226,15 @@ class Cbn extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DeleteCenChildInstanceRouteEntryToAttachment',
-            'version'     => '2017-09-12',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DeleteCenChildInstanceRouteEntryToAttachment',
+            'version' => '2017-09-12',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DeleteCenChildInstanceRouteEntryToAttachmentResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -4190,6 +4253,7 @@ class Cbn extends OpenApiClient
      *     *   If a route cannot be found, the route is deleted.
      *
      * @param request - DeleteCenChildInstanceRouteEntryToAttachmentRequest
+     *
      * @returns DeleteCenChildInstanceRouteEntryToAttachmentResponse
      *
      * @param DeleteCenChildInstanceRouteEntryToAttachmentRequest $request
@@ -4213,6 +4277,7 @@ class Cbn extends OpenApiClient
      *
      * @param request - DeleteCenChildInstanceRouteEntryToCenRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DeleteCenChildInstanceRouteEntryToCenResponse
      *
      * @param DeleteCenChildInstanceRouteEntryToCenRequest $request
@@ -4272,15 +4337,15 @@ class Cbn extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DeleteCenChildInstanceRouteEntryToCen',
-            'version'     => '2017-09-12',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DeleteCenChildInstanceRouteEntryToCen',
+            'version' => '2017-09-12',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DeleteCenChildInstanceRouteEntryToCenResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -4298,6 +4363,7 @@ class Cbn extends OpenApiClient
      * *   You cannot delete a route entry from an Enterprise Edition transit router by calling the DeleteCenChildInstanceRouteEntryToCen operation.
      *
      * @param request - DeleteCenChildInstanceRouteEntryToCenRequest
+     *
      * @returns DeleteCenChildInstanceRouteEntryToCenResponse
      *
      * @param DeleteCenChildInstanceRouteEntryToCenRequest $request
@@ -4322,6 +4388,7 @@ class Cbn extends OpenApiClient
      *
      * @param request - DeleteCenInterRegionTrafficQosPolicyRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DeleteCenInterRegionTrafficQosPolicyResponse
      *
      * @param DeleteCenInterRegionTrafficQosPolicyRequest $request
@@ -4365,15 +4432,15 @@ class Cbn extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DeleteCenInterRegionTrafficQosPolicy',
-            'version'     => '2017-09-12',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DeleteCenInterRegionTrafficQosPolicy',
+            'version' => '2017-09-12',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DeleteCenInterRegionTrafficQosPolicyResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -4392,6 +4459,7 @@ class Cbn extends OpenApiClient
      *     *   If a QoS policy cannot be found, the QoS policy is deleted.
      *
      * @param request - DeleteCenInterRegionTrafficQosPolicyRequest
+     *
      * @returns DeleteCenInterRegionTrafficQosPolicyResponse
      *
      * @param DeleteCenInterRegionTrafficQosPolicyRequest $request
@@ -4414,6 +4482,7 @@ class Cbn extends OpenApiClient
      *
      * @param request - DeleteCenInterRegionTrafficQosQueueRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DeleteCenInterRegionTrafficQosQueueResponse
      *
      * @param DeleteCenInterRegionTrafficQosQueueRequest $request
@@ -4457,15 +4526,15 @@ class Cbn extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DeleteCenInterRegionTrafficQosQueue',
-            'version'     => '2017-09-12',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DeleteCenInterRegionTrafficQosQueue',
+            'version' => '2017-09-12',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DeleteCenInterRegionTrafficQosQueueResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -4482,6 +4551,7 @@ class Cbn extends OpenApiClient
      * *   **DeleteCenInterRegionTrafficQosQueue** is an asynchronous operation. After you send a request, the system returns a **request ID** and runs the task in the background. You can call the **ListCenInterRegionTrafficQosPolicies** operation to query the status of a queue. If a queue cannot be found, the queue is deleted.
      *
      * @param request - DeleteCenInterRegionTrafficQosQueueRequest
+     *
      * @returns DeleteCenInterRegionTrafficQosQueueResponse
      *
      * @param DeleteCenInterRegionTrafficQosQueueRequest $request
@@ -4505,6 +4575,7 @@ class Cbn extends OpenApiClient
      *
      * @param request - DeleteCenRouteMapRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DeleteCenRouteMapResponse
      *
      * @param DeleteCenRouteMapRequest $request
@@ -4548,15 +4619,15 @@ class Cbn extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DeleteCenRouteMap',
-            'version'     => '2017-09-12',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DeleteCenRouteMap',
+            'version' => '2017-09-12',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DeleteCenRouteMapResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -4574,6 +4645,7 @@ class Cbn extends OpenApiClient
      * *   If a routing policy cannot be found, it is deleted.
      *
      * @param request - DeleteCenRouteMapRequest
+     *
      * @returns DeleteCenRouteMapResponse
      *
      * @param DeleteCenRouteMapRequest $request
@@ -4597,6 +4669,7 @@ class Cbn extends OpenApiClient
      *
      * @param request - DeleteFlowlogRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DeleteFlowlogResponse
      *
      * @param DeleteFlowlogRequest $request
@@ -4644,15 +4717,15 @@ class Cbn extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DeleteFlowlog',
-            'version'     => '2017-09-12',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DeleteFlowlog',
+            'version' => '2017-09-12',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DeleteFlowlogResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -4670,6 +4743,7 @@ class Cbn extends OpenApiClient
      * *   If a flow log cannot be found, the flow log is deleted.
      *
      * @param request - DeleteFlowlogRequest
+     *
      * @returns DeleteFlowlogResponse
      *
      * @param DeleteFlowlogRequest $request
@@ -4693,6 +4767,7 @@ class Cbn extends OpenApiClient
      *
      * @param request - DeleteRouteServiceInCenRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DeleteRouteServiceInCenResponse
      *
      * @param DeleteRouteServiceInCenRequest $request
@@ -4744,15 +4819,15 @@ class Cbn extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DeleteRouteServiceInCen',
-            'version'     => '2017-09-12',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DeleteRouteServiceInCen',
+            'version' => '2017-09-12',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DeleteRouteServiceInCenResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -4770,6 +4845,7 @@ class Cbn extends OpenApiClient
      * *   If the specified cloud service configuration cannot be found, the cloud service configuration is deleted.
      *
      * @param request - DeleteRouteServiceInCenRequest
+     *
      * @returns DeleteRouteServiceInCenResponse
      *
      * @param DeleteRouteServiceInCenRequest $request
@@ -4794,6 +4870,7 @@ class Cbn extends OpenApiClient
      *
      * @param request - DeleteTrafficMarkingPolicyRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DeleteTrafficMarkingPolicyResponse
      *
      * @param DeleteTrafficMarkingPolicyRequest $request
@@ -4811,6 +4888,10 @@ class Cbn extends OpenApiClient
 
         if (null !== $request->dryRun) {
             @$query['DryRun'] = $request->dryRun;
+        }
+
+        if (null !== $request->force) {
+            @$query['Force'] = $request->force;
         }
 
         if (null !== $request->ownerAccount) {
@@ -4837,15 +4918,15 @@ class Cbn extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DeleteTrafficMarkingPolicy',
-            'version'     => '2017-09-12',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DeleteTrafficMarkingPolicy',
+            'version' => '2017-09-12',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DeleteTrafficMarkingPolicyResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -4864,6 +4945,7 @@ class Cbn extends OpenApiClient
      * *   Before you delete a traffic marking policy, you must delete all traffic classification rules from the policy. For more information, see [RemoveTrafficMatchRuleFromTrafficMarkingPolicy](https://help.aliyun.com/document_detail/468330.html).
      *
      * @param request - DeleteTrafficMarkingPolicyRequest
+     *
      * @returns DeleteTrafficMarkingPolicyResponse
      *
      * @param DeleteTrafficMarkingPolicyRequest $request
@@ -4886,6 +4968,7 @@ class Cbn extends OpenApiClient
      *
      * @param request - DeleteTransitRouteTableAggregationRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DeleteTransitRouteTableAggregationResponse
      *
      * @param DeleteTransitRouteTableAggregationRequest $request
@@ -4933,15 +5016,15 @@ class Cbn extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DeleteTransitRouteTableAggregation',
-            'version'     => '2017-09-12',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DeleteTransitRouteTableAggregation',
+            'version' => '2017-09-12',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DeleteTransitRouteTableAggregationResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -4958,6 +5041,7 @@ class Cbn extends OpenApiClient
      * *   After an aggregate route is deleted, the aggregate route is automatically withdrawn from virtual private clouds (VPCs). Specific routes that fall within the aggregate route are advertised to the VPCs.
      *
      * @param request - DeleteTransitRouteTableAggregationRequest
+     *
      * @returns DeleteTransitRouteTableAggregationResponse
      *
      * @param DeleteTransitRouteTableAggregationRequest $request
@@ -4991,6 +5075,7 @@ class Cbn extends OpenApiClient
      *
      * @param request - DeleteTransitRouterRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DeleteTransitRouterResponse
      *
      * @param DeleteTransitRouterRequest $request
@@ -5034,15 +5119,15 @@ class Cbn extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DeleteTransitRouter',
-            'version'     => '2017-09-12',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DeleteTransitRouter',
+            'version' => '2017-09-12',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DeleteTransitRouterResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -5070,6 +5155,7 @@ class Cbn extends OpenApiClient
      * - No custom route tables are created on the transit router. For more information about how to delete a custom route table, see [DeleteTransitRouterRouteTable](https://help.aliyun.com/document_detail/261235.html).
      *
      * @param request - DeleteTransitRouterRequest
+     *
      * @returns DeleteTransitRouterResponse
      *
      * @param DeleteTransitRouterRequest $request
@@ -5091,6 +5177,7 @@ class Cbn extends OpenApiClient
      *
      * @param request - DeleteTransitRouterCidrRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DeleteTransitRouterCidrResponse
      *
      * @param DeleteTransitRouterCidrRequest $request
@@ -5142,15 +5229,15 @@ class Cbn extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DeleteTransitRouterCidr',
-            'version'     => '2017-09-12',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DeleteTransitRouterCidr',
+            'version' => '2017-09-12',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DeleteTransitRouterCidrResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -5166,6 +5253,7 @@ class Cbn extends OpenApiClient
      * If IP addresses within the CIDR block have been allocated to network instances, the CIDR block cannot be deleted.
      *
      * @param request - DeleteTransitRouterCidrRequest
+     *
      * @returns DeleteTransitRouterCidrResponse
      *
      * @param DeleteTransitRouterCidrRequest $request
@@ -5188,6 +5276,7 @@ class Cbn extends OpenApiClient
      *
      * @param request - DeleteTransitRouterEcrAttachmentRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DeleteTransitRouterEcrAttachmentResponse
      *
      * @param DeleteTransitRouterEcrAttachmentRequest $request
@@ -5235,15 +5324,15 @@ class Cbn extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DeleteTransitRouterEcrAttachment',
-            'version'     => '2017-09-12',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DeleteTransitRouterEcrAttachment',
+            'version' => '2017-09-12',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DeleteTransitRouterEcrAttachmentResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -5260,6 +5349,7 @@ class Cbn extends OpenApiClient
      * If the ECR connection is in the Detaching state, the ECR connection is being deleted. In this case, you can query the ECR connection but cannot perform other operations on the ECR connection. If the ECR connection cannot be found, the ECR connection is deleted. Before you call the DeleteTransitRouterEcrAttachment operation, make sure that all request parameters are valid. If a request is invalid, a request ID is returned but the ECR connection is not deleted.
      *
      * @param request - DeleteTransitRouterEcrAttachmentRequest
+     *
      * @returns DeleteTransitRouterEcrAttachmentResponse
      *
      * @param DeleteTransitRouterEcrAttachmentRequest $request
@@ -5285,6 +5375,7 @@ class Cbn extends OpenApiClient
      *
      * @param request - DeleteTransitRouterMulticastDomainRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DeleteTransitRouterMulticastDomainResponse
      *
      * @param DeleteTransitRouterMulticastDomainRequest $request
@@ -5328,15 +5419,15 @@ class Cbn extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DeleteTransitRouterMulticastDomain',
-            'version'     => '2017-09-12',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DeleteTransitRouterMulticastDomain',
+            'version' => '2017-09-12',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DeleteTransitRouterMulticastDomainResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -5356,6 +5447,7 @@ class Cbn extends OpenApiClient
      * *   Make sure all the request parameters are valid. If a request parameter is invalid, a request ID is returned after you call the operation, but the multicast domain is not deleted.
      *
      * @param request - DeleteTransitRouterMulticastDomainRequest
+     *
      * @returns DeleteTransitRouterMulticastDomainResponse
      *
      * @param DeleteTransitRouterMulticastDomainRequest $request
@@ -5386,6 +5478,7 @@ class Cbn extends OpenApiClient
      *
      * @param request - DeleteTransitRouterPeerAttachmentRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DeleteTransitRouterPeerAttachmentResponse
      *
      * @param DeleteTransitRouterPeerAttachmentRequest $request
@@ -5433,15 +5526,15 @@ class Cbn extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DeleteTransitRouterPeerAttachment',
-            'version'     => '2017-09-12',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DeleteTransitRouterPeerAttachment',
+            'version' => '2017-09-12',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DeleteTransitRouterPeerAttachmentResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -5466,6 +5559,7 @@ class Cbn extends OpenApiClient
      * *   No quality of service (QoS) policy is configured for the inter-region connection. For more information about how to delete QoS policies, see [DeleteCenInterRegionTrafficQosPolicy](https://help.aliyun.com/document_detail/427547.html).
      *
      * @param request - DeleteTransitRouterPeerAttachmentRequest
+     *
      * @returns DeleteTransitRouterPeerAttachmentResponse
      *
      * @param DeleteTransitRouterPeerAttachmentRequest $request
@@ -5487,6 +5581,7 @@ class Cbn extends OpenApiClient
      *
      * @param request - DeleteTransitRouterPrefixListAssociationRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DeleteTransitRouterPrefixListAssociationResponse
      *
      * @param DeleteTransitRouterPrefixListAssociationRequest $request
@@ -5550,15 +5645,15 @@ class Cbn extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DeleteTransitRouterPrefixListAssociation',
-            'version'     => '2017-09-12',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DeleteTransitRouterPrefixListAssociation',
+            'version' => '2017-09-12',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DeleteTransitRouterPrefixListAssociationResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -5574,6 +5669,7 @@ class Cbn extends OpenApiClient
      * After you disassociate a route table of an Enterprise Edition transit router from a prefix list, the routes that point to the CIDR blocks in the prefix list are automatically withdrawn from the route table. Before you disassociate the route table of an Enterprise Edition transit router from a prefix list, you must migrate workloads that use the routes in case services are interrupted.
      *
      * @param request - DeleteTransitRouterPrefixListAssociationRequest
+     *
      * @returns DeleteTransitRouterPrefixListAssociationResponse
      *
      * @param DeleteTransitRouterPrefixListAssociationRequest $request
@@ -5604,6 +5700,7 @@ class Cbn extends OpenApiClient
      *
      * @param request - DeleteTransitRouterRouteEntryRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DeleteTransitRouterRouteEntryResponse
      *
      * @param DeleteTransitRouterRouteEntryRequest $request
@@ -5663,15 +5760,15 @@ class Cbn extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DeleteTransitRouterRouteEntry',
-            'version'     => '2017-09-12',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DeleteTransitRouterRouteEntry',
+            'version' => '2017-09-12',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DeleteTransitRouterRouteEntryResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -5696,6 +5793,7 @@ class Cbn extends OpenApiClient
      * You can call this operation to delete only static routes. Automatically learned routes are not supported. You can call the [ListTransitRouterRouteEntries](https://help.aliyun.com/document_detail/260941.html) operation to query route types.
      *
      * @param request - DeleteTransitRouterRouteEntryRequest
+     *
      * @returns DeleteTransitRouterRouteEntryResponse
      *
      * @param DeleteTransitRouterRouteEntryRequest $request
@@ -5720,6 +5818,7 @@ class Cbn extends OpenApiClient
      *
      * @param request - DeleteTransitRouterRouteTableRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DeleteTransitRouterRouteTableResponse
      *
      * @param DeleteTransitRouterRouteTableRequest $request
@@ -5763,15 +5862,15 @@ class Cbn extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DeleteTransitRouterRouteTable',
-            'version'     => '2017-09-12',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DeleteTransitRouterRouteTable',
+            'version' => '2017-09-12',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DeleteTransitRouterRouteTableResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -5790,6 +5889,7 @@ class Cbn extends OpenApiClient
      *     *   If a custom route table cannot be found, the custom route table is deleted.
      *
      * @param request - DeleteTransitRouterRouteTableRequest
+     *
      * @returns DeleteTransitRouterRouteTableResponse
      *
      * @param DeleteTransitRouterRouteTableRequest $request
@@ -5819,6 +5919,7 @@ class Cbn extends OpenApiClient
      *
      * @param request - DeleteTransitRouterVbrAttachmentRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DeleteTransitRouterVbrAttachmentResponse
      *
      * @param DeleteTransitRouterVbrAttachmentRequest $request
@@ -5866,15 +5967,15 @@ class Cbn extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DeleteTransitRouterVbrAttachment',
-            'version'     => '2017-09-12',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DeleteTransitRouterVbrAttachment',
+            'version' => '2017-09-12',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DeleteTransitRouterVbrAttachmentResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -5898,6 +5999,7 @@ class Cbn extends OpenApiClient
      * *   The route tables of the Enterprise Edition transit router do not contain a route whose next hop is the VBR connection and that is generated from a prefix list. You can delete such routes by disassociating the route table from the prefix list. For more information, see [DeleteTransitRouterPrefixListAssociation](https://help.aliyun.com/document_detail/445486.html).
      *
      * @param request - DeleteTransitRouterVbrAttachmentRequest
+     *
      * @returns DeleteTransitRouterVbrAttachmentResponse
      *
      * @param DeleteTransitRouterVbrAttachmentRequest $request
@@ -5928,6 +6030,7 @@ class Cbn extends OpenApiClient
      *
      * @param request - DeleteTransitRouterVpcAttachmentRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DeleteTransitRouterVpcAttachmentResponse
      *
      * @param DeleteTransitRouterVpcAttachmentRequest $request
@@ -5975,15 +6078,15 @@ class Cbn extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DeleteTransitRouterVpcAttachment',
-            'version'     => '2017-09-12',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DeleteTransitRouterVpcAttachment',
+            'version' => '2017-09-12',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DeleteTransitRouterVpcAttachmentResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -6008,6 +6111,7 @@ class Cbn extends OpenApiClient
      * *   The route tables of the Enterprise Edition transit router do not contain a route that is generated from a prefix list and the next hop is the VPC connection. You can delete such routes by disassociating the route table from the prefix list. For more information, see [DeleteTransitRouterPrefixListAssociation](https://help.aliyun.com/document_detail/445486.html).
      *
      * @param request - DeleteTransitRouterVpcAttachmentRequest
+     *
      * @returns DeleteTransitRouterVpcAttachmentResponse
      *
      * @param DeleteTransitRouterVpcAttachmentRequest $request
@@ -6029,6 +6133,7 @@ class Cbn extends OpenApiClient
      *
      * @param request - DeleteTransitRouterVpnAttachmentRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DeleteTransitRouterVpnAttachmentResponse
      *
      * @param DeleteTransitRouterVpnAttachmentRequest $request
@@ -6076,15 +6181,15 @@ class Cbn extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DeleteTransitRouterVpnAttachment',
-            'version'     => '2017-09-12',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DeleteTransitRouterVpnAttachment',
+            'version' => '2017-09-12',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DeleteTransitRouterVpnAttachmentResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -6100,6 +6205,7 @@ class Cbn extends OpenApiClient
      * Before you call the **DeleteTransitRouterVpnAttachment** operation, make sure that all request parameters are valid. If a request parameter is invalid, a **request ID** is returned, but the VPN attachment is not deleted.
      *
      * @param request - DeleteTransitRouterVpnAttachmentRequest
+     *
      * @returns DeleteTransitRouterVpnAttachmentResponse
      *
      * @param DeleteTransitRouterVpnAttachmentRequest $request
@@ -6124,6 +6230,7 @@ class Cbn extends OpenApiClient
      *
      * @param request - DeregisterTransitRouterMulticastGroupMembersRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DeregisterTransitRouterMulticastGroupMembersResponse
      *
      * @param DeregisterTransitRouterMulticastGroupMembersRequest $request
@@ -6179,15 +6286,15 @@ class Cbn extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DeregisterTransitRouterMulticastGroupMembers',
-            'version'     => '2017-09-12',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DeregisterTransitRouterMulticastGroupMembers',
+            'version' => '2017-09-12',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DeregisterTransitRouterMulticastGroupMembersResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -6206,6 +6313,7 @@ class Cbn extends OpenApiClient
      * Before you call the DeregisterTransitRouterMulticastGroupMembers operation, make sure that all request parameters are valid. If a request parameter is invalid, a request ID is returned but the multicast member is not removed.
      *
      * @param request - DeregisterTransitRouterMulticastGroupMembersRequest
+     *
      * @returns DeregisterTransitRouterMulticastGroupMembersResponse
      *
      * @param DeregisterTransitRouterMulticastGroupMembersRequest $request
@@ -6230,6 +6338,7 @@ class Cbn extends OpenApiClient
      *
      * @param request - DeregisterTransitRouterMulticastGroupSourcesRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DeregisterTransitRouterMulticastGroupSourcesResponse
      *
      * @param DeregisterTransitRouterMulticastGroupSourcesRequest $request
@@ -6281,15 +6390,15 @@ class Cbn extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DeregisterTransitRouterMulticastGroupSources',
-            'version'     => '2017-09-12',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DeregisterTransitRouterMulticastGroupSources',
+            'version' => '2017-09-12',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DeregisterTransitRouterMulticastGroupSourcesResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -6308,6 +6417,7 @@ class Cbn extends OpenApiClient
      * Before you call DeregisterTransitRouterMulticastGroupSources, make sure that all the request parameters are valid. If a request parameter is invalid, a request ID is returned but the multicast source is not deleted.
      *
      * @param request - DeregisterTransitRouterMulticastGroupSourcesRequest
+     *
      * @returns DeregisterTransitRouterMulticastGroupSourcesResponse
      *
      * @param DeregisterTransitRouterMulticastGroupSourcesRequest $request
@@ -6326,6 +6436,7 @@ class Cbn extends OpenApiClient
      *
      * @param request - DescribeCenAttachedChildInstanceAttributeRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribeCenAttachedChildInstanceAttributeResponse
      *
      * @param DescribeCenAttachedChildInstanceAttributeRequest $request
@@ -6373,15 +6484,15 @@ class Cbn extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeCenAttachedChildInstanceAttribute',
-            'version'     => '2017-09-12',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeCenAttachedChildInstanceAttribute',
+            'version' => '2017-09-12',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DescribeCenAttachedChildInstanceAttributeResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -6394,6 +6505,7 @@ class Cbn extends OpenApiClient
      * Queries the information about a network instance, such as a virtual private cloud (VPC), a virtual border router, or a Cloud Connect Network (CCN) instance, that is attached to a Cloud Enterprise Network (CEN) instance.
      *
      * @param request - DescribeCenAttachedChildInstanceAttributeRequest
+     *
      * @returns DescribeCenAttachedChildInstanceAttributeResponse
      *
      * @param DescribeCenAttachedChildInstanceAttributeRequest $request
@@ -6418,6 +6530,7 @@ class Cbn extends OpenApiClient
      *
      * @param request - DescribeCenAttachedChildInstancesRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribeCenAttachedChildInstancesResponse
      *
      * @param DescribeCenAttachedChildInstancesRequest $request
@@ -6469,15 +6582,15 @@ class Cbn extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeCenAttachedChildInstances',
-            'version'     => '2017-09-12',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeCenAttachedChildInstances',
+            'version' => '2017-09-12',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DescribeCenAttachedChildInstancesResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -6496,6 +6609,7 @@ class Cbn extends OpenApiClient
      * *   You can query a specified type of network instances that are attached to a CEN instance by setting the `CenId` and `ChildInstanceType` parameters.
      *
      * @param request - DescribeCenAttachedChildInstancesRequest
+     *
      * @returns DescribeCenAttachedChildInstancesResponse
      *
      * @param DescribeCenAttachedChildInstancesRequest $request
@@ -6514,6 +6628,7 @@ class Cbn extends OpenApiClient
      *
      * @param request - DescribeCenBandwidthPackagesRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribeCenBandwidthPackagesResponse
      *
      * @param DescribeCenBandwidthPackagesRequest $request
@@ -6573,15 +6688,15 @@ class Cbn extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeCenBandwidthPackages',
-            'version'     => '2017-09-12',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeCenBandwidthPackages',
+            'version' => '2017-09-12',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DescribeCenBandwidthPackagesResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -6594,6 +6709,7 @@ class Cbn extends OpenApiClient
      * Queries the information about bandwidth plans.
      *
      * @param request - DescribeCenBandwidthPackagesRequest
+     *
      * @returns DescribeCenBandwidthPackagesResponse
      *
      * @param DescribeCenBandwidthPackagesRequest $request
@@ -6612,6 +6728,7 @@ class Cbn extends OpenApiClient
      *
      * @param request - DescribeCenChildInstanceRouteEntriesRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribeCenChildInstanceRouteEntriesResponse
      *
      * @param DescribeCenChildInstanceRouteEntriesRequest $request
@@ -6675,15 +6792,15 @@ class Cbn extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeCenChildInstanceRouteEntries',
-            'version'     => '2017-09-12',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeCenChildInstanceRouteEntries',
+            'version' => '2017-09-12',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DescribeCenChildInstanceRouteEntriesResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -6696,6 +6813,7 @@ class Cbn extends OpenApiClient
      * Queries the routes of a network instance that is attached to a Cloud Enterprise Network (CEN) instance.
      *
      * @param request - DescribeCenChildInstanceRouteEntriesRequest
+     *
      * @returns DescribeCenChildInstanceRouteEntriesResponse
      *
      * @param DescribeCenChildInstanceRouteEntriesRequest $request
@@ -6714,6 +6832,7 @@ class Cbn extends OpenApiClient
      *
      * @param request - DescribeCenGeographicSpanRemainingBandwidthRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribeCenGeographicSpanRemainingBandwidthResponse
      *
      * @param DescribeCenGeographicSpanRemainingBandwidthRequest $request
@@ -6765,15 +6884,15 @@ class Cbn extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeCenGeographicSpanRemainingBandwidth',
-            'version'     => '2017-09-12',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeCenGeographicSpanRemainingBandwidth',
+            'version' => '2017-09-12',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DescribeCenGeographicSpanRemainingBandwidthResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -6786,6 +6905,7 @@ class Cbn extends OpenApiClient
      * Queries the remaining bandwidth of a bandwidth plan.
      *
      * @param request - DescribeCenGeographicSpanRemainingBandwidthRequest
+     *
      * @returns DescribeCenGeographicSpanRemainingBandwidthResponse
      *
      * @param DescribeCenGeographicSpanRemainingBandwidthRequest $request
@@ -6804,6 +6924,7 @@ class Cbn extends OpenApiClient
      *
      * @param request - DescribeCenGeographicSpansRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribeCenGeographicSpansResponse
      *
      * @param DescribeCenGeographicSpansRequest $request
@@ -6847,15 +6968,15 @@ class Cbn extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeCenGeographicSpans',
-            'version'     => '2017-09-12',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeCenGeographicSpans',
+            'version' => '2017-09-12',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DescribeCenGeographicSpansResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -6868,6 +6989,7 @@ class Cbn extends OpenApiClient
      * Queries the areas that a Cloud Enterprise Network (CEN) instance can connect.
      *
      * @param request - DescribeCenGeographicSpansRequest
+     *
      * @returns DescribeCenGeographicSpansResponse
      *
      * @param DescribeCenGeographicSpansRequest $request
@@ -6886,6 +7008,7 @@ class Cbn extends OpenApiClient
      *
      * @param request - DescribeCenInterRegionBandwidthLimitsRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribeCenInterRegionBandwidthLimitsResponse
      *
      * @param DescribeCenInterRegionBandwidthLimitsRequest $request
@@ -6933,15 +7056,15 @@ class Cbn extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeCenInterRegionBandwidthLimits',
-            'version'     => '2017-09-12',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeCenInterRegionBandwidthLimits',
+            'version' => '2017-09-12',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DescribeCenInterRegionBandwidthLimitsResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -6954,6 +7077,7 @@ class Cbn extends OpenApiClient
      * Queries the bandwidth of connections between regions.
      *
      * @param request - DescribeCenInterRegionBandwidthLimitsRequest
+     *
      * @returns DescribeCenInterRegionBandwidthLimitsResponse
      *
      * @param DescribeCenInterRegionBandwidthLimitsRequest $request
@@ -6972,6 +7096,7 @@ class Cbn extends OpenApiClient
      *
      * @param request - DescribeCenPrivateZoneRoutesRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribeCenPrivateZoneRoutesResponse
      *
      * @param DescribeCenPrivateZoneRoutesRequest $request
@@ -7015,15 +7140,15 @@ class Cbn extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeCenPrivateZoneRoutes',
-            'version'     => '2017-09-12',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeCenPrivateZoneRoutes',
+            'version' => '2017-09-12',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DescribeCenPrivateZoneRoutesResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -7036,6 +7161,7 @@ class Cbn extends OpenApiClient
      * Queries the connections to PrivateZone.
      *
      * @param request - DescribeCenPrivateZoneRoutesRequest
+     *
      * @returns DescribeCenPrivateZoneRoutesResponse
      *
      * @param DescribeCenPrivateZoneRoutesRequest $request
@@ -7054,6 +7180,7 @@ class Cbn extends OpenApiClient
      *
      * @param request - DescribeCenRegionDomainRouteEntriesRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribeCenRegionDomainRouteEntriesResponse
      *
      * @param DescribeCenRegionDomainRouteEntriesRequest $request
@@ -7105,15 +7232,15 @@ class Cbn extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeCenRegionDomainRouteEntries',
-            'version'     => '2017-09-12',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeCenRegionDomainRouteEntries',
+            'version' => '2017-09-12',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DescribeCenRegionDomainRouteEntriesResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -7126,6 +7253,7 @@ class Cbn extends OpenApiClient
      * Queries the details about routes in a region for a Cloud Enterprise Network (CEN) instance.
      *
      * @param request - DescribeCenRegionDomainRouteEntriesRequest
+     *
      * @returns DescribeCenRegionDomainRouteEntriesResponse
      *
      * @param DescribeCenRegionDomainRouteEntriesRequest $request
@@ -7144,6 +7272,7 @@ class Cbn extends OpenApiClient
      *
      * @param request - DescribeCenRouteMapsRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribeCenRouteMapsResponse
      *
      * @param DescribeCenRouteMapsRequest $request
@@ -7203,15 +7332,15 @@ class Cbn extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeCenRouteMaps',
-            'version'     => '2017-09-12',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeCenRouteMaps',
+            'version' => '2017-09-12',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DescribeCenRouteMapsResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -7224,6 +7353,7 @@ class Cbn extends OpenApiClient
      * Queries routing policies.
      *
      * @param request - DescribeCenRouteMapsRequest
+     *
      * @returns DescribeCenRouteMapsResponse
      *
      * @param DescribeCenRouteMapsRequest $request
@@ -7242,6 +7372,7 @@ class Cbn extends OpenApiClient
      *
      * @param request - DescribeCenVbrHealthCheckRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribeCenVbrHealthCheckResponse
      *
      * @param DescribeCenVbrHealthCheckRequest $request
@@ -7297,15 +7428,15 @@ class Cbn extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeCenVbrHealthCheck',
-            'version'     => '2017-09-12',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeCenVbrHealthCheck',
+            'version' => '2017-09-12',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DescribeCenVbrHealthCheckResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -7318,6 +7449,7 @@ class Cbn extends OpenApiClient
      * Queries the health check configurations of virtual border routers (VBRs) in a region.
      *
      * @param request - DescribeCenVbrHealthCheckRequest
+     *
      * @returns DescribeCenVbrHealthCheckResponse
      *
      * @param DescribeCenVbrHealthCheckRequest $request
@@ -7336,6 +7468,7 @@ class Cbn extends OpenApiClient
      *
      * @param request - DescribeCensRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribeCensResponse
      *
      * @param DescribeCensRequest $request
@@ -7387,15 +7520,15 @@ class Cbn extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeCens',
-            'version'     => '2017-09-12',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeCens',
+            'version' => '2017-09-12',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DescribeCensResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -7408,6 +7541,7 @@ class Cbn extends OpenApiClient
      * Queries the information about your Cloud Enterprise Network (CEN) instances.
      *
      * @param request - DescribeCensRequest
+     *
      * @returns DescribeCensResponse
      *
      * @param DescribeCensRequest $request
@@ -7429,6 +7563,7 @@ class Cbn extends OpenApiClient
      *
      * @param request - DescribeChildInstanceRegionsRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribeChildInstanceRegionsResponse
      *
      * @param DescribeChildInstanceRegionsRequest $request
@@ -7468,15 +7603,15 @@ class Cbn extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeChildInstanceRegions',
-            'version'     => '2017-09-12',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeChildInstanceRegions',
+            'version' => '2017-09-12',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DescribeChildInstanceRegionsResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -7492,6 +7627,7 @@ class Cbn extends OpenApiClient
      * The regions that support CEN vary based on the network instance type. To query the regions where you can attach a specified type of network instance to CEN, set the `ProductType` parameter. If you do not set the `ProductType` parameter, the system queries all regions in which you can attach network instances to CEN, regardless of the network instance type.
      *
      * @param request - DescribeChildInstanceRegionsRequest
+     *
      * @returns DescribeChildInstanceRegionsResponse
      *
      * @param DescribeChildInstanceRegionsRequest $request
@@ -7510,6 +7646,7 @@ class Cbn extends OpenApiClient
      *
      * @param request - DescribeFlowlogsRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribeFlowlogsResponse
      *
      * @param DescribeFlowlogsRequest $request
@@ -7605,15 +7742,15 @@ class Cbn extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeFlowlogs',
-            'version'     => '2017-09-12',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeFlowlogs',
+            'version' => '2017-09-12',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DescribeFlowlogsResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -7626,6 +7763,7 @@ class Cbn extends OpenApiClient
      * Queries flow logs.
      *
      * @param request - DescribeFlowlogsRequest
+     *
      * @returns DescribeFlowlogsResponse
      *
      * @param DescribeFlowlogsRequest $request
@@ -7644,6 +7782,7 @@ class Cbn extends OpenApiClient
      *
      * @param request - DescribeGeographicRegionMembershipRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribeGeographicRegionMembershipResponse
      *
      * @param DescribeGeographicRegionMembershipRequest $request
@@ -7687,15 +7826,15 @@ class Cbn extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeGeographicRegionMembership',
-            'version'     => '2017-09-12',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeGeographicRegionMembership',
+            'version' => '2017-09-12',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DescribeGeographicRegionMembershipResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -7708,6 +7847,7 @@ class Cbn extends OpenApiClient
      * Queries regions in an area.
      *
      * @param request - DescribeGeographicRegionMembershipRequest
+     *
      * @returns DescribeGeographicRegionMembershipResponse
      *
      * @param DescribeGeographicRegionMembershipRequest $request
@@ -7729,6 +7869,7 @@ class Cbn extends OpenApiClient
      *
      * @param request - DescribeGrantRulesToCenRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribeGrantRulesToCenResponse
      *
      * @param DescribeGrantRulesToCenRequest $request
@@ -7792,15 +7933,15 @@ class Cbn extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeGrantRulesToCen',
-            'version'     => '2017-09-12',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeGrantRulesToCen',
+            'version' => '2017-09-12',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DescribeGrantRulesToCenResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -7816,6 +7957,7 @@ class Cbn extends OpenApiClient
      * Before you call the **DescribeGrantRulesToCen** operation, make sure that all request parameters are valid. If a request parameter is invalid, a **request ID** is returned, but the network instances are not returned.
      *
      * @param request - DescribeGrantRulesToCenRequest
+     *
      * @returns DescribeGrantRulesToCenResponse
      *
      * @param DescribeGrantRulesToCenRequest $request
@@ -7834,6 +7976,7 @@ class Cbn extends OpenApiClient
      *
      * @param request - DescribeGrantRulesToResourceRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribeGrantRulesToResourceResponse
      *
      * @param DescribeGrantRulesToResourceRequest $request
@@ -7885,15 +8028,15 @@ class Cbn extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeGrantRulesToResource',
-            'version'     => '2017-09-12',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeGrantRulesToResource',
+            'version' => '2017-09-12',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DescribeGrantRulesToResourceResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -7906,6 +8049,7 @@ class Cbn extends OpenApiClient
      * Queries the information about the permissions that the Alibaba Cloud account of a network instance granted to a Cloud Enterprise Network (CEN) instance in a different Alibaba Cloud account, the ID of the CEN instance, and the Alibaba Cloud account that pays the fees of the network instance.
      *
      * @param request - DescribeGrantRulesToResourceRequest
+     *
      * @returns DescribeGrantRulesToResourceResponse
      *
      * @param DescribeGrantRulesToResourceRequest $request
@@ -7924,6 +8068,7 @@ class Cbn extends OpenApiClient
      *
      * @param request - DescribePublishedRouteEntriesRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribePublishedRouteEntriesResponse
      *
      * @param DescribePublishedRouteEntriesRequest $request
@@ -7979,15 +8124,15 @@ class Cbn extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribePublishedRouteEntries',
-            'version'     => '2017-09-12',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribePublishedRouteEntries',
+            'version' => '2017-09-12',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DescribePublishedRouteEntriesResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -8000,6 +8145,7 @@ class Cbn extends OpenApiClient
      * Queries whether the routes of virtual private clouds (VPCs) and virtual border routers (VBRs) are advertised to the Cloud Enterprise Network (CEN) instance to which the VCPs and VBRs are attached.
      *
      * @param request - DescribePublishedRouteEntriesRequest
+     *
      * @returns DescribePublishedRouteEntriesResponse
      *
      * @param DescribePublishedRouteEntriesRequest $request
@@ -8018,6 +8164,7 @@ class Cbn extends OpenApiClient
      *
      * @param request - DescribeRouteConflictRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribeRouteConflictResponse
      *
      * @param DescribeRouteConflictRequest $request
@@ -8077,15 +8224,15 @@ class Cbn extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeRouteConflict',
-            'version'     => '2017-09-12',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeRouteConflict',
+            'version' => '2017-09-12',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DescribeRouteConflictResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -8098,6 +8245,7 @@ class Cbn extends OpenApiClient
      * Queries overlapping routes.
      *
      * @param request - DescribeRouteConflictRequest
+     *
      * @returns DescribeRouteConflictResponse
      *
      * @param DescribeRouteConflictRequest $request
@@ -8116,6 +8264,7 @@ class Cbn extends OpenApiClient
      *
      * @param request - DescribeRouteServicesInCenRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribeRouteServicesInCenResponse
      *
      * @param DescribeRouteServicesInCenRequest $request
@@ -8175,15 +8324,15 @@ class Cbn extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeRouteServicesInCen',
-            'version'     => '2017-09-12',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeRouteServicesInCen',
+            'version' => '2017-09-12',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DescribeRouteServicesInCenResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -8196,6 +8345,7 @@ class Cbn extends OpenApiClient
      * Queries the configurations of cloud services, such as the cloud service status and the ID of the associated VPC.
      *
      * @param request - DescribeRouteServicesInCenRequest
+     *
      * @returns DescribeRouteServicesInCenResponse
      *
      * @param DescribeRouteServicesInCenRequest $request
@@ -8213,10 +8363,11 @@ class Cbn extends OpenApiClient
      * Queries the aggregate routes on an Enterprise Edition transit router.
      *
      * @remarks
-     * You can set the **TransitRouteTableId** and **TransitRouteTableAggregationCidr** parameters to specify the aggregate routes that you want to query. If you set only the **TransitRouteTableId** parameter, all aggregate routes in the specified route table are queried.
+     * You can specify the values of the **TransitRouteTableId** and **TransitRouteTableAggregationCidr** parameters to query a specified aggregate route. If you specify only the **TransitRouteTableId** parameter, all aggregated routes in the route table are queried.
      *
      * @param request - DescribeTransitRouteTableAggregationRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribeTransitRouteTableAggregationResponse
      *
      * @param DescribeTransitRouteTableAggregationRequest $request
@@ -8268,15 +8419,15 @@ class Cbn extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeTransitRouteTableAggregation',
-            'version'     => '2017-09-12',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeTransitRouteTableAggregation',
+            'version' => '2017-09-12',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DescribeTransitRouteTableAggregationResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -8289,9 +8440,10 @@ class Cbn extends OpenApiClient
      * Queries the aggregate routes on an Enterprise Edition transit router.
      *
      * @remarks
-     * You can set the **TransitRouteTableId** and **TransitRouteTableAggregationCidr** parameters to specify the aggregate routes that you want to query. If you set only the **TransitRouteTableId** parameter, all aggregate routes in the specified route table are queried.
+     * You can specify the values of the **TransitRouteTableId** and **TransitRouteTableAggregationCidr** parameters to query a specified aggregate route. If you specify only the **TransitRouteTableId** parameter, all aggregated routes in the route table are queried.
      *
      * @param request - DescribeTransitRouteTableAggregationRequest
+     *
      * @returns DescribeTransitRouteTableAggregationResponse
      *
      * @param DescribeTransitRouteTableAggregationRequest $request
@@ -8310,6 +8462,7 @@ class Cbn extends OpenApiClient
      *
      * @param request - DescribeTransitRouteTableAggregationDetailRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribeTransitRouteTableAggregationDetailResponse
      *
      * @param DescribeTransitRouteTableAggregationDetailRequest $request
@@ -8353,15 +8506,15 @@ class Cbn extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeTransitRouteTableAggregationDetail',
-            'version'     => '2017-09-12',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeTransitRouteTableAggregationDetail',
+            'version' => '2017-09-12',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DescribeTransitRouteTableAggregationDetailResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -8374,6 +8527,7 @@ class Cbn extends OpenApiClient
      * Queries the configuration of an aggregate route.
      *
      * @param request - DescribeTransitRouteTableAggregationDetailRequest
+     *
      * @returns DescribeTransitRouteTableAggregationDetailResponse
      *
      * @param DescribeTransitRouteTableAggregationDetailRequest $request
@@ -8392,6 +8546,7 @@ class Cbn extends OpenApiClient
      *
      * @param request - DetachCenChildInstanceRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DetachCenChildInstanceResponse
      *
      * @param DetachCenChildInstanceRequest $request
@@ -8447,15 +8602,15 @@ class Cbn extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DetachCenChildInstance',
-            'version'     => '2017-09-12',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DetachCenChildInstance',
+            'version' => '2017-09-12',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DetachCenChildInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -8468,6 +8623,7 @@ class Cbn extends OpenApiClient
      * Detaches a network instance from a Cloud Enterprise Network (CEN) instance.
      *
      * @param request - DetachCenChildInstanceRequest
+     *
      * @returns DetachCenChildInstanceResponse
      *
      * @param DetachCenChildInstanceRequest $request
@@ -8489,6 +8645,7 @@ class Cbn extends OpenApiClient
      *
      * @param request - DisableCenVbrHealthCheckRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DisableCenVbrHealthCheckResponse
      *
      * @param DisableCenVbrHealthCheckRequest $request
@@ -8536,15 +8693,15 @@ class Cbn extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DisableCenVbrHealthCheck',
-            'version'     => '2017-09-12',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DisableCenVbrHealthCheck',
+            'version' => '2017-09-12',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DisableCenVbrHealthCheckResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -8560,6 +8717,7 @@ class Cbn extends OpenApiClient
      * *DisableCenVbrHealthCheck** is an asynchronous operation. After you send a request, the system returns a **request ID** and runs the task in the background. You can call the **DescribeCenVbrHealthCheck** operation to query the status of health check configurations. If the health check configurations cannot be found, the health check configurations are deleted.
      *
      * @param request - DisableCenVbrHealthCheckRequest
+     *
      * @returns DisableCenVbrHealthCheckResponse
      *
      * @param DisableCenVbrHealthCheckRequest $request
@@ -8583,6 +8741,7 @@ class Cbn extends OpenApiClient
      *
      * @param request - DisableTransitRouterRouteTablePropagationRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DisableTransitRouterRouteTablePropagationResponse
      *
      * @param DisableTransitRouterRouteTablePropagationRequest $request
@@ -8630,15 +8789,15 @@ class Cbn extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DisableTransitRouterRouteTablePropagation',
-            'version'     => '2017-09-12',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DisableTransitRouterRouteTablePropagation',
+            'version' => '2017-09-12',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DisableTransitRouterRouteTablePropagationResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -8656,6 +8815,7 @@ class Cbn extends OpenApiClient
      * *   If a route learning correlation cannot be found, the route learning correlation is deleted.
      *
      * @param request - DisableTransitRouterRouteTablePropagationRequest
+     *
      * @returns DisableTransitRouterRouteTablePropagationResponse
      *
      * @param DisableTransitRouterRouteTablePropagationRequest $request
@@ -8681,6 +8841,7 @@ class Cbn extends OpenApiClient
      *
      * @param request - DisassociateTransitRouterMulticastDomainRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DisassociateTransitRouterMulticastDomainResponse
      *
      * @param DisassociateTransitRouterMulticastDomainRequest $request
@@ -8732,15 +8893,15 @@ class Cbn extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DisassociateTransitRouterMulticastDomain',
-            'version'     => '2017-09-12',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DisassociateTransitRouterMulticastDomain',
+            'version' => '2017-09-12',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DisassociateTransitRouterMulticastDomainResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -8760,6 +8921,7 @@ class Cbn extends OpenApiClient
      *     *   If the vSwitch cannot be found, the vSwitch is disassociated from the multicast domain.
      *
      * @param request - DisassociateTransitRouterMulticastDomainRequest
+     *
      * @returns DisassociateTransitRouterMulticastDomainResponse
      *
      * @param DisassociateTransitRouterMulticastDomainRequest $request
@@ -8783,6 +8945,7 @@ class Cbn extends OpenApiClient
      *
      * @param request - DissociateTransitRouterAttachmentFromRouteTableRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DissociateTransitRouterAttachmentFromRouteTableResponse
      *
      * @param DissociateTransitRouterAttachmentFromRouteTableRequest $request
@@ -8830,15 +8993,15 @@ class Cbn extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DissociateTransitRouterAttachmentFromRouteTable',
-            'version'     => '2017-09-12',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DissociateTransitRouterAttachmentFromRouteTable',
+            'version' => '2017-09-12',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DissociateTransitRouterAttachmentFromRouteTableResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -8856,6 +9019,7 @@ class Cbn extends OpenApiClient
      * *   If an associated forwarding correlation cannot be found, the associated forwarding correlation is deleted.
      *
      * @param request - DissociateTransitRouterAttachmentFromRouteTableRequest
+     *
      * @returns DissociateTransitRouterAttachmentFromRouteTableResponse
      *
      * @param DissociateTransitRouterAttachmentFromRouteTableRequest $request
@@ -8881,6 +9045,7 @@ class Cbn extends OpenApiClient
      *
      * @param request - EnableCenVbrHealthCheckRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns EnableCenVbrHealthCheckResponse
      *
      * @param EnableCenVbrHealthCheckRequest $request
@@ -8952,15 +9117,15 @@ class Cbn extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'EnableCenVbrHealthCheck',
-            'version'     => '2017-09-12',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'EnableCenVbrHealthCheck',
+            'version' => '2017-09-12',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return EnableCenVbrHealthCheckResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -8980,6 +9145,7 @@ class Cbn extends OpenApiClient
      * *   **EnableCenVbrHealthCheck** is an asynchronous operation. After you send a request, the system returns a **request ID** and runs the task in the background. You can call the **DescribeCenVbrHealthCheck** operation to query the status of health check configurations. If health check configurations are returned, health check is configured or modified.
      *
      * @param request - EnableCenVbrHealthCheckRequest
+     *
      * @returns EnableCenVbrHealthCheckResponse
      *
      * @param EnableCenVbrHealthCheckRequest $request
@@ -9005,6 +9171,7 @@ class Cbn extends OpenApiClient
      *
      * @param request - EnableTransitRouterRouteTablePropagationRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns EnableTransitRouterRouteTablePropagationResponse
      *
      * @param EnableTransitRouterRouteTablePropagationRequest $request
@@ -9052,15 +9219,15 @@ class Cbn extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'EnableTransitRouterRouteTablePropagation',
-            'version'     => '2017-09-12',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'EnableTransitRouterRouteTablePropagation',
+            'version' => '2017-09-12',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return EnableTransitRouterRouteTablePropagationResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -9080,6 +9247,7 @@ class Cbn extends OpenApiClient
      *     *   **Active** indicates that the route learning correlation is created between the network instance connection and route table.
      *
      * @param request - EnableTransitRouterRouteTablePropagationRequest
+     *
      * @returns EnableTransitRouterRouteTablePropagationResponse
      *
      * @param EnableTransitRouterRouteTablePropagationRequest $request
@@ -9111,6 +9279,7 @@ class Cbn extends OpenApiClient
      *
      * @param request - GrantInstanceToTransitRouterRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns GrantInstanceToTransitRouterResponse
      *
      * @param GrantInstanceToTransitRouterRequest $request
@@ -9166,15 +9335,15 @@ class Cbn extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'GrantInstanceToTransitRouter',
-            'version'     => '2017-09-12',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GrantInstanceToTransitRouter',
+            'version' => '2017-09-12',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return GrantInstanceToTransitRouterResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -9200,6 +9369,7 @@ class Cbn extends OpenApiClient
      *     If the IPsec-VPN connection is attached to a transit router, detach the IPsec-VPN connection from the transit router. For more information, see [Delete a network instance connection](https://help.aliyun.com/document_detail/181554.html).
      *
      * @param request - GrantInstanceToTransitRouterRequest
+     *
      * @returns GrantInstanceToTransitRouterResponse
      *
      * @param GrantInstanceToTransitRouterRequest $request
@@ -9221,6 +9391,7 @@ class Cbn extends OpenApiClient
      *
      * @param request - ListCenChildInstanceRouteEntriesToAttachmentRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ListCenChildInstanceRouteEntriesToAttachmentResponse
      *
      * @param ListCenChildInstanceRouteEntriesToAttachmentRequest $request
@@ -9280,15 +9451,15 @@ class Cbn extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListCenChildInstanceRouteEntriesToAttachment',
-            'version'     => '2017-09-12',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListCenChildInstanceRouteEntriesToAttachment',
+            'version' => '2017-09-12',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return ListCenChildInstanceRouteEntriesToAttachmentResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -9304,6 +9475,7 @@ class Cbn extends OpenApiClient
      * Before you call the ListCenChildInstanceRouteEntriesToAttachment operation, make sure that all request parameter values are valid. If a parameter is set to an invalid value, a request ID is returned, but the routes to the network instance are not returned.
      *
      * @param request - ListCenChildInstanceRouteEntriesToAttachmentRequest
+     *
      * @returns ListCenChildInstanceRouteEntriesToAttachmentResponse
      *
      * @param ListCenChildInstanceRouteEntriesToAttachmentRequest $request
@@ -9329,6 +9501,7 @@ class Cbn extends OpenApiClient
      *
      * @param request - ListCenInterRegionTrafficQosPoliciesRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ListCenInterRegionTrafficQosPoliciesResponse
      *
      * @param ListCenInterRegionTrafficQosPoliciesRequest $request
@@ -9388,15 +9561,15 @@ class Cbn extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListCenInterRegionTrafficQosPolicies',
-            'version'     => '2017-09-12',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListCenInterRegionTrafficQosPolicies',
+            'version' => '2017-09-12',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return ListCenInterRegionTrafficQosPoliciesResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -9416,6 +9589,7 @@ class Cbn extends OpenApiClient
      * *   Make sure that all the request parameters are valid. If a request parameter is invalid, a request ID is returned but the information about the QoS policy is not returned.
      *
      * @param request - ListCenInterRegionTrafficQosPoliciesRequest
+     *
      * @returns ListCenInterRegionTrafficQosPoliciesResponse
      *
      * @param ListCenInterRegionTrafficQosPoliciesRequest $request
@@ -9438,6 +9612,7 @@ class Cbn extends OpenApiClient
      *
      * @param request - ListCenInterRegionTrafficQosQueuesRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ListCenInterRegionTrafficQosQueuesResponse
      *
      * @param ListCenInterRegionTrafficQosQueuesRequest $request
@@ -9505,15 +9680,15 @@ class Cbn extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListCenInterRegionTrafficQosQueues',
-            'version'     => '2017-09-12',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListCenInterRegionTrafficQosQueues',
+            'version' => '2017-09-12',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return ListCenInterRegionTrafficQosQueuesResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -9530,6 +9705,7 @@ class Cbn extends OpenApiClient
      * Make sure that all the request parameters are valid. If a request parameter is invalid, a **request ID** is returned but the QoS queue information is not returned.
      *
      * @param request - ListCenInterRegionTrafficQosQueuesRequest
+     *
      * @returns ListCenInterRegionTrafficQosQueuesResponse
      *
      * @param ListCenInterRegionTrafficQosQueuesRequest $request
@@ -9551,6 +9727,7 @@ class Cbn extends OpenApiClient
      *
      * @param request - ListGrantVSwitchEnisRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ListGrantVSwitchEnisResponse
      *
      * @param ListGrantVSwitchEnisRequest $request
@@ -9614,15 +9791,15 @@ class Cbn extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListGrantVSwitchEnis',
-            'version'     => '2017-09-12',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListGrantVSwitchEnis',
+            'version' => '2017-09-12',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return ListGrantVSwitchEnisResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -9638,6 +9815,7 @@ class Cbn extends OpenApiClient
      * Before you call `ListGrantVSwitchEnis`, make sure that the VPC is attached to a Cloud Enterprise Network (CEN) instance. For more information, see [CreateTransitRouterVpcAttachment](https://help.aliyun.com/document_detail/468237.html).
      *
      * @param request - ListGrantVSwitchEnisRequest
+     *
      * @returns ListGrantVSwitchEnisResponse
      *
      * @param ListGrantVSwitchEnisRequest $request
@@ -9663,6 +9841,7 @@ class Cbn extends OpenApiClient
      *
      * @param request - ListGrantVSwitchesToCenRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ListGrantVSwitchesToCenResponse
      *
      * @param ListGrantVSwitchesToCenRequest $request
@@ -9722,15 +9901,15 @@ class Cbn extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListGrantVSwitchesToCen',
-            'version'     => '2017-09-12',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListGrantVSwitchesToCen',
+            'version' => '2017-09-12',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return ListGrantVSwitchesToCenResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -9750,6 +9929,7 @@ class Cbn extends OpenApiClient
      *     *   For more information about how to connect a Basic Edition transit router to a VPC, see [AttachCenChildInstance](https://help.aliyun.com/document_detail/65902.html).
      *
      * @param request - ListGrantVSwitchesToCenRequest
+     *
      * @returns ListGrantVSwitchesToCenResponse
      *
      * @param ListGrantVSwitchesToCenRequest $request
@@ -9776,6 +9956,7 @@ class Cbn extends OpenApiClient
      *
      * @param request - ListTagResourcesRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ListTagResourcesResponse
      *
      * @param ListTagResourcesRequest $request
@@ -9831,15 +10012,15 @@ class Cbn extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListTagResources',
-            'version'     => '2017-09-12',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListTagResources',
+            'version' => '2017-09-12',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return ListTagResourcesResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -9860,6 +10041,7 @@ class Cbn extends OpenApiClient
      *     *   If multiple tag keys are specified, the logical operator among these tag keys is **AND**.
      *
      * @param request - ListTagResourcesRequest
+     *
      * @returns ListTagResourcesResponse
      *
      * @param ListTagResourcesRequest $request
@@ -9884,6 +10066,7 @@ class Cbn extends OpenApiClient
      *
      * @param request - ListTrafficMarkingPoliciesRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ListTrafficMarkingPoliciesResponse
      *
      * @param ListTrafficMarkingPoliciesRequest $request
@@ -9939,15 +10122,15 @@ class Cbn extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListTrafficMarkingPolicies',
-            'version'     => '2017-09-12',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListTrafficMarkingPolicies',
+            'version' => '2017-09-12',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return ListTrafficMarkingPoliciesResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -9966,6 +10149,7 @@ class Cbn extends OpenApiClient
      * *   If you specify a traffic marking policy ID (**TrafficMarkingPolicyId**), the operation queries the information about the traffic marking policy and traffic classification rules. The **TrafficMatchRules** parameter is returned in the response. If the value of the **TrafficMatchRules** parameter is an empty array, the traffic marking policy does not contain a traffic classification rule.
      *
      * @param request - ListTrafficMarkingPoliciesRequest
+     *
      * @returns ListTrafficMarkingPoliciesResponse
      *
      * @param ListTrafficMarkingPoliciesRequest $request
@@ -9993,6 +10177,7 @@ class Cbn extends OpenApiClient
      *
      * @param request - ListTransitRouterAvailableResourceRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ListTransitRouterAvailableResourceResponse
      *
      * @param ListTransitRouterAvailableResourceRequest $request
@@ -10032,15 +10217,15 @@ class Cbn extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListTransitRouterAvailableResource',
-            'version'     => '2017-09-12',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListTransitRouterAvailableResource',
+            'version' => '2017-09-12',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return ListTransitRouterAvailableResourceResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -10062,6 +10247,7 @@ class Cbn extends OpenApiClient
      * For more information about the optimization, see [Announcement: Optimization on VPC-connected Enterprise Edition transit routers](https://help.aliyun.com/document_detail/434191.html).
      *
      * @param request - ListTransitRouterAvailableResourceRequest
+     *
      * @returns ListTransitRouterAvailableResourceResponse
      *
      * @param ListTransitRouterAvailableResourceRequest $request
@@ -10080,6 +10266,7 @@ class Cbn extends OpenApiClient
      *
      * @param request - ListTransitRouterCidrRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ListTransitRouterCidrResponse
      *
      * @param ListTransitRouterCidrRequest $request
@@ -10131,15 +10318,15 @@ class Cbn extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListTransitRouterCidr',
-            'version'     => '2017-09-12',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListTransitRouterCidr',
+            'version' => '2017-09-12',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return ListTransitRouterCidrResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -10152,6 +10339,7 @@ class Cbn extends OpenApiClient
      * Queries the CIDR blocks of a transit router.
      *
      * @param request - ListTransitRouterCidrRequest
+     *
      * @returns ListTransitRouterCidrResponse
      *
      * @param ListTransitRouterCidrRequest $request
@@ -10170,6 +10358,7 @@ class Cbn extends OpenApiClient
      *
      * @param request - ListTransitRouterCidrAllocationRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ListTransitRouterCidrAllocationResponse
      *
      * @param ListTransitRouterCidrAllocationRequest $request
@@ -10249,15 +10438,15 @@ class Cbn extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListTransitRouterCidrAllocation',
-            'version'     => '2017-09-12',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListTransitRouterCidrAllocation',
+            'version' => '2017-09-12',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return ListTransitRouterCidrAllocationResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -10270,6 +10459,7 @@ class Cbn extends OpenApiClient
      * Queries how a CIDR block is allocated.
      *
      * @param request - ListTransitRouterCidrAllocationRequest
+     *
      * @returns ListTransitRouterCidrAllocationResponse
      *
      * @param ListTransitRouterCidrAllocationRequest $request
@@ -10294,6 +10484,7 @@ class Cbn extends OpenApiClient
      *
      * @param request - ListTransitRouterEcrAttachmentsRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ListTransitRouterEcrAttachmentsResponse
      *
      * @param ListTransitRouterEcrAttachmentsRequest $request
@@ -10353,15 +10544,15 @@ class Cbn extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListTransitRouterEcrAttachments',
-            'version'     => '2017-09-12',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListTransitRouterEcrAttachments',
+            'version' => '2017-09-12',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return ListTransitRouterEcrAttachmentsResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -10380,6 +10571,7 @@ class Cbn extends OpenApiClient
      * *   Configure the **TransitRouterAttachmentId** parameter to specify the ECR connection that you want to query.
      *
      * @param request - ListTransitRouterEcrAttachmentsRequest
+     *
      * @returns ListTransitRouterEcrAttachmentsResponse
      *
      * @param ListTransitRouterEcrAttachmentsRequest $request
@@ -10402,6 +10594,7 @@ class Cbn extends OpenApiClient
      *
      * @param request - ListTransitRouterMulticastDomainAssociationsRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ListTransitRouterMulticastDomainAssociationsResponse
      *
      * @param ListTransitRouterMulticastDomainAssociationsRequest $request
@@ -10465,15 +10658,15 @@ class Cbn extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListTransitRouterMulticastDomainAssociations',
-            'version'     => '2017-09-12',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListTransitRouterMulticastDomainAssociations',
+            'version' => '2017-09-12',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return ListTransitRouterMulticastDomainAssociationsResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -10490,6 +10683,7 @@ class Cbn extends OpenApiClient
      * *   Before you call **ListTransitRouterMulticastDomainAssociations**, make sure that all the request parameters are valid. If a request parameter is invalid, the system returns a **request ID** but does not return the vSwitches that are associated with the multicast domain.
      *
      * @param request - ListTransitRouterMulticastDomainAssociationsRequest
+     *
      * @returns ListTransitRouterMulticastDomainAssociationsResponse
      *
      * @param ListTransitRouterMulticastDomainAssociationsRequest $request
@@ -10506,6 +10700,7 @@ class Cbn extends OpenApiClient
     /**
      * @param request - ListTransitRouterMulticastDomainVSwitchesRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ListTransitRouterMulticastDomainVSwitchesResponse
      *
      * @param ListTransitRouterMulticastDomainVSwitchesRequest $request
@@ -10557,15 +10752,15 @@ class Cbn extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListTransitRouterMulticastDomainVSwitches',
-            'version'     => '2017-09-12',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListTransitRouterMulticastDomainVSwitches',
+            'version' => '2017-09-12',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return ListTransitRouterMulticastDomainVSwitchesResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -10576,6 +10771,7 @@ class Cbn extends OpenApiClient
 
     /**
      * @param request - ListTransitRouterMulticastDomainVSwitchesRequest
+     *
      * @returns ListTransitRouterMulticastDomainVSwitchesResponse
      *
      * @param ListTransitRouterMulticastDomainVSwitchesRequest $request
@@ -10598,6 +10794,7 @@ class Cbn extends OpenApiClient
      *
      * @param request - ListTransitRouterMulticastDomainsRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ListTransitRouterMulticastDomainsResponse
      *
      * @param ListTransitRouterMulticastDomainsRequest $request
@@ -10661,15 +10858,15 @@ class Cbn extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListTransitRouterMulticastDomains',
-            'version'     => '2017-09-12',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListTransitRouterMulticastDomains',
+            'version' => '2017-09-12',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return ListTransitRouterMulticastDomainsResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -10686,6 +10883,7 @@ class Cbn extends OpenApiClient
      * *   Make sure that all the request parameters are valid. If a request parameter is invalid, a **request ID** is returned but the information about the multicast domain is not returned.
      *
      * @param request - ListTransitRouterMulticastDomainsRequest
+     *
      * @returns ListTransitRouterMulticastDomainsResponse
      *
      * @param ListTransitRouterMulticastDomainsRequest $request
@@ -10713,6 +10911,7 @@ class Cbn extends OpenApiClient
      *
      * @param request - ListTransitRouterMulticastGroupsRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ListTransitRouterMulticastGroupsResponse
      *
      * @param ListTransitRouterMulticastGroupsRequest $request
@@ -10796,15 +10995,15 @@ class Cbn extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListTransitRouterMulticastGroups',
-            'version'     => '2017-09-12',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListTransitRouterMulticastGroups',
+            'version' => '2017-09-12',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return ListTransitRouterMulticastGroupsResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -10826,6 +11025,7 @@ class Cbn extends OpenApiClient
      * *   If you set only **TransitRouterMulticastDomainId**, the system queries all the multicast resources in the multicast domain.
      *
      * @param request - ListTransitRouterMulticastGroupsRequest
+     *
      * @returns ListTransitRouterMulticastGroupsResponse
      *
      * @param ListTransitRouterMulticastGroupsRequest $request
@@ -10849,6 +11049,7 @@ class Cbn extends OpenApiClient
      *
      * @param request - ListTransitRouterPeerAttachmentsRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ListTransitRouterPeerAttachmentsResponse
      *
      * @param ListTransitRouterPeerAttachmentsRequest $request
@@ -10908,15 +11109,15 @@ class Cbn extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListTransitRouterPeerAttachments',
-            'version'     => '2017-09-12',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListTransitRouterPeerAttachments',
+            'version' => '2017-09-12',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return ListTransitRouterPeerAttachmentsResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -10934,6 +11135,7 @@ class Cbn extends OpenApiClient
      * *   Query all inter-region connections on an Enterprise Edition transit router by specifying the ID of the Cloud Enterprise Network (CEN) instance and the ID of the region where the transit router is deployed.
      *
      * @param request - ListTransitRouterPeerAttachmentsRequest
+     *
      * @returns ListTransitRouterPeerAttachmentsResponse
      *
      * @param ListTransitRouterPeerAttachmentsRequest $request
@@ -10952,6 +11154,7 @@ class Cbn extends OpenApiClient
      *
      * @param request - ListTransitRouterPrefixListAssociationRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ListTransitRouterPrefixListAssociationResponse
      *
      * @param ListTransitRouterPrefixListAssociationRequest $request
@@ -11027,15 +11230,15 @@ class Cbn extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListTransitRouterPrefixListAssociation',
-            'version'     => '2017-09-12',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListTransitRouterPrefixListAssociation',
+            'version' => '2017-09-12',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return ListTransitRouterPrefixListAssociationResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -11048,6 +11251,7 @@ class Cbn extends OpenApiClient
      * Queries the prefix lists that are associated with an Enterprise Edition transit router.
      *
      * @param request - ListTransitRouterPrefixListAssociationRequest
+     *
      * @returns ListTransitRouterPrefixListAssociationResponse
      *
      * @param ListTransitRouterPrefixListAssociationRequest $request
@@ -11066,6 +11270,7 @@ class Cbn extends OpenApiClient
      *
      * @param request - ListTransitRouterRouteEntriesRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ListTransitRouterRouteEntriesResponse
      *
      * @param ListTransitRouterRouteEntriesRequest $request
@@ -11161,15 +11366,15 @@ class Cbn extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListTransitRouterRouteEntries',
-            'version'     => '2017-09-12',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListTransitRouterRouteEntries',
+            'version' => '2017-09-12',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return ListTransitRouterRouteEntriesResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -11182,6 +11387,7 @@ class Cbn extends OpenApiClient
      * Queries the details about routes in the route tables of an Enterprise Edition transit router.
      *
      * @param request - ListTransitRouterRouteEntriesRequest
+     *
      * @returns ListTransitRouterRouteEntriesResponse
      *
      * @param ListTransitRouterRouteEntriesRequest $request
@@ -11208,6 +11414,7 @@ class Cbn extends OpenApiClient
      *
      * @param request - ListTransitRouterRouteTableAssociationsRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ListTransitRouterRouteTableAssociationsResponse
      *
      * @param ListTransitRouterRouteTableAssociationsRequest $request
@@ -11267,15 +11474,15 @@ class Cbn extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListTransitRouterRouteTableAssociations',
-            'version'     => '2017-09-12',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListTransitRouterRouteTableAssociations',
+            'version' => '2017-09-12',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return ListTransitRouterRouteTableAssociationsResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -11296,6 +11503,7 @@ class Cbn extends OpenApiClient
      *     *   If no associated forwarding correlation is created between the network instance connection and the route table of the Enterprise Edition transit router, **TransitRouterAssociations** in the response is empty.
      *
      * @param request - ListTransitRouterRouteTableAssociationsRequest
+     *
      * @returns ListTransitRouterRouteTableAssociationsResponse
      *
      * @param ListTransitRouterRouteTableAssociationsRequest $request
@@ -11314,6 +11522,7 @@ class Cbn extends OpenApiClient
      *
      * @param request - ListTransitRouterRouteTablePropagationsRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ListTransitRouterRouteTablePropagationsResponse
      *
      * @param ListTransitRouterRouteTablePropagationsRequest $request
@@ -11373,15 +11582,15 @@ class Cbn extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListTransitRouterRouteTablePropagations',
-            'version'     => '2017-09-12',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListTransitRouterRouteTablePropagations',
+            'version' => '2017-09-12',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return ListTransitRouterRouteTablePropagationsResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -11394,6 +11603,7 @@ class Cbn extends OpenApiClient
      * Queries the route learning correlations of an Enterprise Edition transit router.
      *
      * @param request - ListTransitRouterRouteTablePropagationsRequest
+     *
      * @returns ListTransitRouterRouteTablePropagationsResponse
      *
      * @param ListTransitRouterRouteTablePropagationsRequest $request
@@ -11412,6 +11622,7 @@ class Cbn extends OpenApiClient
      *
      * @param request - ListTransitRouterRouteTablesRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ListTransitRouterRouteTablesResponse
      *
      * @param ListTransitRouterRouteTablesRequest $request
@@ -11479,15 +11690,15 @@ class Cbn extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListTransitRouterRouteTables',
-            'version'     => '2017-09-12',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListTransitRouterRouteTables',
+            'version' => '2017-09-12',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return ListTransitRouterRouteTablesResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -11500,6 +11711,7 @@ class Cbn extends OpenApiClient
      * Queries the route tables of an Enterprise Edition transit router.
      *
      * @param request - ListTransitRouterRouteTablesRequest
+     *
      * @returns ListTransitRouterRouteTablesResponse
      *
      * @param ListTransitRouterRouteTablesRequest $request
@@ -11523,6 +11735,7 @@ class Cbn extends OpenApiClient
      *
      * @param request - ListTransitRouterVbrAttachmentsRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ListTransitRouterVbrAttachmentsResponse
      *
      * @param ListTransitRouterVbrAttachmentsRequest $request
@@ -11582,15 +11795,15 @@ class Cbn extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListTransitRouterVbrAttachments',
-            'version'     => '2017-09-12',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListTransitRouterVbrAttachments',
+            'version' => '2017-09-12',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return ListTransitRouterVbrAttachmentsResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -11608,6 +11821,7 @@ class Cbn extends OpenApiClient
      * *   Specify the ID of the relevant Cloud Enterprise Network (CEN) instance and the region ID of the Enterprise Edition transit router.
      *
      * @param request - ListTransitRouterVbrAttachmentsRequest
+     *
      * @returns ListTransitRouterVbrAttachmentsResponse
      *
      * @param ListTransitRouterVbrAttachmentsRequest $request
@@ -11632,6 +11846,7 @@ class Cbn extends OpenApiClient
      *
      * @param request - ListTransitRouterVpcAttachmentsRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ListTransitRouterVpcAttachmentsResponse
      *
      * @param ListTransitRouterVpcAttachmentsRequest $request
@@ -11703,15 +11918,15 @@ class Cbn extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListTransitRouterVpcAttachments',
-            'version'     => '2017-09-12',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListTransitRouterVpcAttachments',
+            'version' => '2017-09-12',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return ListTransitRouterVpcAttachmentsResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -11730,6 +11945,7 @@ class Cbn extends OpenApiClient
      * *   Specify the ID of the region where the Enterprise Edition transit router is deployed.
      *
      * @param request - ListTransitRouterVpcAttachmentsRequest
+     *
      * @returns ListTransitRouterVpcAttachmentsResponse
      *
      * @param ListTransitRouterVpcAttachmentsRequest $request
@@ -11755,6 +11971,7 @@ class Cbn extends OpenApiClient
      *
      * @param request - ListTransitRouterVpnAttachmentsRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ListTransitRouterVpnAttachmentsResponse
      *
      * @param ListTransitRouterVpnAttachmentsRequest $request
@@ -11814,15 +12031,15 @@ class Cbn extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListTransitRouterVpnAttachments',
-            'version'     => '2017-09-12',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListTransitRouterVpnAttachments',
+            'version' => '2017-09-12',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return ListTransitRouterVpnAttachmentsResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -11842,6 +12059,7 @@ class Cbn extends OpenApiClient
      * Before you call the **ListTransitRouterVpnAttachments** operation, make sure that all request parameters are valid. If a request parameter is invalid, a **request ID** is returned, but the information about the VPN attachments is not returned.
      *
      * @param request - ListTransitRouterVpnAttachmentsRequest
+     *
      * @returns ListTransitRouterVpnAttachmentsResponse
      *
      * @param ListTransitRouterVpnAttachmentsRequest $request
@@ -11867,6 +12085,7 @@ class Cbn extends OpenApiClient
      *
      * @param request - ListTransitRoutersRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ListTransitRoutersResponse
      *
      * @param ListTransitRoutersRequest $request
@@ -11938,15 +12157,15 @@ class Cbn extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListTransitRouters',
-            'version'     => '2017-09-12',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListTransitRouters',
+            'version' => '2017-09-12',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return ListTransitRoutersResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -11966,6 +12185,7 @@ class Cbn extends OpenApiClient
      * *   If you set both **RegionId** and **TransitRouterId**, the system queries the specified transit router in the specified region.
      *
      * @param request - ListTransitRoutersRequest
+     *
      * @returns ListTransitRoutersResponse
      *
      * @param ListTransitRoutersRequest $request
@@ -11989,6 +12209,7 @@ class Cbn extends OpenApiClient
      *
      * @param request - ModifyCenAttributeRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ModifyCenAttributeResponse
      *
      * @param ModifyCenAttributeRequest $request
@@ -12036,15 +12257,15 @@ class Cbn extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ModifyCenAttribute',
-            'version'     => '2017-09-12',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ModifyCenAttribute',
+            'version' => '2017-09-12',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return ModifyCenAttributeResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -12062,6 +12283,7 @@ class Cbn extends OpenApiClient
      * *   If a CEN instance is in the **Active** state, the CEN instance is modified.
      *
      * @param request - ModifyCenAttributeRequest
+     *
      * @returns ModifyCenAttributeResponse
      *
      * @param ModifyCenAttributeRequest $request
@@ -12080,6 +12302,7 @@ class Cbn extends OpenApiClient
      *
      * @param request - ModifyCenBandwidthPackageAttributeRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ModifyCenBandwidthPackageAttributeResponse
      *
      * @param ModifyCenBandwidthPackageAttributeRequest $request
@@ -12123,15 +12346,15 @@ class Cbn extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ModifyCenBandwidthPackageAttribute',
-            'version'     => '2017-09-12',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ModifyCenBandwidthPackageAttribute',
+            'version' => '2017-09-12',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return ModifyCenBandwidthPackageAttributeResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -12144,6 +12367,7 @@ class Cbn extends OpenApiClient
      * Modifies the name and description of a bandwidth plan.
      *
      * @param request - ModifyCenBandwidthPackageAttributeRequest
+     *
      * @returns ModifyCenBandwidthPackageAttributeResponse
      *
      * @param ModifyCenBandwidthPackageAttributeRequest $request
@@ -12162,6 +12386,7 @@ class Cbn extends OpenApiClient
      *
      * @param request - ModifyCenBandwidthPackageSpecRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ModifyCenBandwidthPackageSpecResponse
      *
      * @param ModifyCenBandwidthPackageSpecRequest $request
@@ -12201,15 +12426,15 @@ class Cbn extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ModifyCenBandwidthPackageSpec',
-            'version'     => '2017-09-12',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ModifyCenBandwidthPackageSpec',
+            'version' => '2017-09-12',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return ModifyCenBandwidthPackageSpecResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -12222,6 +12447,7 @@ class Cbn extends OpenApiClient
      * Modifies the maximum bandwidth of a bandwidth plan.
      *
      * @param request - ModifyCenBandwidthPackageSpecRequest
+     *
      * @returns ModifyCenBandwidthPackageSpecResponse
      *
      * @param ModifyCenBandwidthPackageSpecRequest $request
@@ -12245,6 +12471,7 @@ class Cbn extends OpenApiClient
      *
      * @param request - ModifyCenRouteMapRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ModifyCenRouteMapResponse
      *
      * @param ModifyCenRouteMapRequest $request
@@ -12392,15 +12619,15 @@ class Cbn extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ModifyCenRouteMap',
-            'version'     => '2017-09-12',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ModifyCenRouteMap',
+            'version' => '2017-09-12',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return ModifyCenRouteMapResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -12418,6 +12645,7 @@ class Cbn extends OpenApiClient
      * *   **Active**: indicates that the routing policy is modified.
      *
      * @param request - ModifyCenRouteMapRequest
+     *
      * @returns ModifyCenRouteMapResponse
      *
      * @param ModifyCenRouteMapRequest $request
@@ -12441,6 +12669,7 @@ class Cbn extends OpenApiClient
      *
      * @param request - ModifyFlowLogAttributeRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ModifyFlowLogAttributeResponse
      *
      * @param ModifyFlowLogAttributeRequest $request
@@ -12500,15 +12729,15 @@ class Cbn extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ModifyFlowLogAttribute',
-            'version'     => '2017-09-12',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ModifyFlowLogAttribute',
+            'version' => '2017-09-12',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return ModifyFlowLogAttributeResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -12526,6 +12755,7 @@ class Cbn extends OpenApiClient
      * *   If a flow log is in the **Active** state, the flow log is modified.
      *
      * @param request - ModifyFlowLogAttributeRequest
+     *
      * @returns ModifyFlowLogAttributeResponse
      *
      * @param ModifyFlowLogAttributeRequest $request
@@ -12544,6 +12774,7 @@ class Cbn extends OpenApiClient
      *
      * @param request - ModifyTrafficMatchRuleToTrafficMarkingPolicyRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ModifyTrafficMatchRuleToTrafficMarkingPolicyResponse
      *
      * @param ModifyTrafficMatchRuleToTrafficMarkingPolicyRequest $request
@@ -12599,15 +12830,15 @@ class Cbn extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ModifyTrafficMatchRuleToTrafficMarkingPolicy',
-            'version'     => '2017-09-12',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ModifyTrafficMatchRuleToTrafficMarkingPolicy',
+            'version' => '2017-09-12',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return ModifyTrafficMatchRuleToTrafficMarkingPolicyResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -12620,6 +12851,7 @@ class Cbn extends OpenApiClient
      * Modifies the name and description of a traffic classification rule.
      *
      * @param request - ModifyTrafficMatchRuleToTrafficMarkingPolicyRequest
+     *
      * @returns ModifyTrafficMatchRuleToTrafficMarkingPolicyResponse
      *
      * @param ModifyTrafficMatchRuleToTrafficMarkingPolicyRequest $request
@@ -12634,10 +12866,11 @@ class Cbn extends OpenApiClient
     }
 
     /**
-     * 编辑聚合路由.
+     * Edit an aggregate route.
      *
      * @param tmpReq - ModifyTransitRouteTableAggregationRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ModifyTransitRouteTableAggregationResponse
      *
      * @param ModifyTransitRouteTableAggregationRequest $tmpReq
@@ -12707,15 +12940,15 @@ class Cbn extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ModifyTransitRouteTableAggregation',
-            'version'     => '2017-09-12',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ModifyTransitRouteTableAggregation',
+            'version' => '2017-09-12',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return ModifyTransitRouteTableAggregationResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -12725,9 +12958,10 @@ class Cbn extends OpenApiClient
     }
 
     /**
-     * 编辑聚合路由.
+     * Edit an aggregate route.
      *
      * @param request - ModifyTransitRouteTableAggregationRequest
+     *
      * @returns ModifyTransitRouteTableAggregationResponse
      *
      * @param ModifyTransitRouteTableAggregationRequest $request
@@ -12754,6 +12988,7 @@ class Cbn extends OpenApiClient
      *
      * @param request - ModifyTransitRouterCidrRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ModifyTransitRouterCidrResponse
      *
      * @param ModifyTransitRouterCidrRequest $request
@@ -12821,15 +13056,15 @@ class Cbn extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ModifyTransitRouterCidr',
-            'version'     => '2017-09-12',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ModifyTransitRouterCidr',
+            'version' => '2017-09-12',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return ModifyTransitRouterCidrResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -12850,6 +13085,7 @@ class Cbn extends OpenApiClient
      *     *   If the CIDR block of the transit router is changed to the one that you specify in the request, the CIDR block has been modified.
      *
      * @param request - ModifyTransitRouterCidrRequest
+     *
      * @returns ModifyTransitRouterCidrResponse
      *
      * @param ModifyTransitRouterCidrRequest $request
@@ -12868,6 +13104,7 @@ class Cbn extends OpenApiClient
      *
      * @param request - ModifyTransitRouterMulticastDomainRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ModifyTransitRouterMulticastDomainResponse
      *
      * @param ModifyTransitRouterMulticastDomainRequest $request
@@ -12923,15 +13160,15 @@ class Cbn extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ModifyTransitRouterMulticastDomain',
-            'version'     => '2017-09-12',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ModifyTransitRouterMulticastDomain',
+            'version' => '2017-09-12',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return ModifyTransitRouterMulticastDomainResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -12944,6 +13181,7 @@ class Cbn extends OpenApiClient
      * You can call the ModifyTransitRouterMulticastDomain operation to modify the name, description, and feature options of a multicast domain.
      *
      * @param request - ModifyTransitRouterMulticastDomainRequest
+     *
      * @returns ModifyTransitRouterMulticastDomainResponse
      *
      * @param ModifyTransitRouterMulticastDomainRequest $request
@@ -12965,6 +13203,7 @@ class Cbn extends OpenApiClient
      *
      * @param request - MoveResourceGroupRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns MoveResourceGroupResponse
      *
      * @param MoveResourceGroupRequest $request
@@ -13016,15 +13255,15 @@ class Cbn extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'MoveResourceGroup',
-            'version'     => '2017-09-12',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'MoveResourceGroup',
+            'version' => '2017-09-12',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return MoveResourceGroupResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -13040,6 +13279,7 @@ class Cbn extends OpenApiClient
      * By default, CEN instances and bandwidth plans are in the default resource group. You can call the `MoveResourceGroup` operation to move CEN instances or bandwidth plans to another resource group.
      *
      * @param request - MoveResourceGroupRequest
+     *
      * @returns MoveResourceGroupResponse
      *
      * @param MoveResourceGroupRequest $request
@@ -13061,6 +13301,7 @@ class Cbn extends OpenApiClient
      *
      * @param request - OpenTransitRouterServiceRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns OpenTransitRouterServiceResponse
      *
      * @param OpenTransitRouterServiceRequest $request
@@ -13096,15 +13337,15 @@ class Cbn extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'OpenTransitRouterService',
-            'version'     => '2017-09-12',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'OpenTransitRouterService',
+            'version' => '2017-09-12',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return OpenTransitRouterServiceResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -13120,6 +13361,7 @@ class Cbn extends OpenApiClient
      * You can call the `OpenTransitRouterService` operation to activate the transit router feature free of charge. After the `OpenTransitRouterService` operation succeeds, an order is automatically generated. You can use the returned order ID to query the order information in [Alibaba Cloud User Center](https://usercenter2-intl.aliyun.com/billing/#/account/overview).
      *
      * @param request - OpenTransitRouterServiceRequest
+     *
      * @returns OpenTransitRouterServiceResponse
      *
      * @param OpenTransitRouterServiceRequest $request
@@ -13153,6 +13395,7 @@ class Cbn extends OpenApiClient
      *
      * @param request - PublishRouteEntriesRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns PublishRouteEntriesResponse
      *
      * @param PublishRouteEntriesRequest $request
@@ -13200,15 +13443,15 @@ class Cbn extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'PublishRouteEntries',
-            'version'     => '2017-09-12',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'PublishRouteEntries',
+            'version' => '2017-09-12',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return PublishRouteEntriesResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -13236,6 +13479,7 @@ class Cbn extends OpenApiClient
      * |Border Gateway Protocol (BGP) routes|VBR|Yes|
      *
      * @param request - PublishRouteEntriesRequest
+     *
      * @returns PublishRouteEntriesResponse
      *
      * @param PublishRouteEntriesRequest $request
@@ -13254,6 +13498,7 @@ class Cbn extends OpenApiClient
      *
      * @param request - RefreshTransitRouteTableAggregationRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns RefreshTransitRouteTableAggregationResponse
      *
      * @param RefreshTransitRouteTableAggregationRequest $request
@@ -13297,15 +13542,15 @@ class Cbn extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'RefreshTransitRouteTableAggregation',
-            'version'     => '2017-09-12',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'RefreshTransitRouteTableAggregation',
+            'version' => '2017-09-12',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return RefreshTransitRouteTableAggregationResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -13318,6 +13563,7 @@ class Cbn extends OpenApiClient
      * Re-advertises an aggregate route.
      *
      * @param request - RefreshTransitRouteTableAggregationRequest
+     *
      * @returns RefreshTransitRouteTableAggregationResponse
      *
      * @param RefreshTransitRouteTableAggregationRequest $request
@@ -13345,6 +13591,7 @@ class Cbn extends OpenApiClient
      *
      * @param request - RegisterTransitRouterMulticastGroupMembersRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns RegisterTransitRouterMulticastGroupMembersResponse
      *
      * @param RegisterTransitRouterMulticastGroupMembersRequest $request
@@ -13404,15 +13651,15 @@ class Cbn extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'RegisterTransitRouterMulticastGroupMembers',
-            'version'     => '2017-09-12',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'RegisterTransitRouterMulticastGroupMembers',
+            'version' => '2017-09-12',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return RegisterTransitRouterMulticastGroupMembersResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -13434,6 +13681,7 @@ class Cbn extends OpenApiClient
      *     *   If the multicast member is in the **Registered** state, the multicast member is created.
      *
      * @param request - RegisterTransitRouterMulticastGroupMembersRequest
+     *
      * @returns RegisterTransitRouterMulticastGroupMembersResponse
      *
      * @param RegisterTransitRouterMulticastGroupMembersRequest $request
@@ -13460,6 +13708,7 @@ class Cbn extends OpenApiClient
      *
      * @param request - RegisterTransitRouterMulticastGroupSourcesRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns RegisterTransitRouterMulticastGroupSourcesResponse
      *
      * @param RegisterTransitRouterMulticastGroupSourcesRequest $request
@@ -13515,15 +13764,15 @@ class Cbn extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'RegisterTransitRouterMulticastGroupSources',
-            'version'     => '2017-09-12',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'RegisterTransitRouterMulticastGroupSources',
+            'version' => '2017-09-12',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return RegisterTransitRouterMulticastGroupSourcesResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -13544,6 +13793,7 @@ class Cbn extends OpenApiClient
      * Before you call `RegisterTransitRouterMulticastGroupSources`, make sure that the vSwitch on which the ENI is created is associated with the multicast domain. For more information, see [AssociateTransitRouterMulticastDomain](https://help.aliyun.com/document_detail/429778.html).
      *
      * @param request - RegisterTransitRouterMulticastGroupSourcesRequest
+     *
      * @returns RegisterTransitRouterMulticastGroupSourcesResponse
      *
      * @param RegisterTransitRouterMulticastGroupSourcesRequest $request
@@ -13571,6 +13821,7 @@ class Cbn extends OpenApiClient
      *
      * @param request - RemoveTrafficMatchRuleFromTrafficMarkingPolicyRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns RemoveTrafficMatchRuleFromTrafficMarkingPolicyResponse
      *
      * @param RemoveTrafficMatchRuleFromTrafficMarkingPolicyRequest $request
@@ -13618,15 +13869,15 @@ class Cbn extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'RemoveTrafficMatchRuleFromTrafficMarkingPolicy',
-            'version'     => '2017-09-12',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'RemoveTrafficMatchRuleFromTrafficMarkingPolicy',
+            'version' => '2017-09-12',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return RemoveTrafficMatchRuleFromTrafficMarkingPolicyResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -13648,6 +13899,7 @@ class Cbn extends OpenApiClient
      *     *   If a traffic classification rule cannot be found, the traffic classification rule is deleted.
      *
      * @param request - RemoveTrafficMatchRuleFromTrafficMarkingPolicyRequest
+     *
      * @returns RemoveTrafficMatchRuleFromTrafficMarkingPolicyResponse
      *
      * @param RemoveTrafficMatchRuleFromTrafficMarkingPolicyRequest $request
@@ -13662,7 +13914,6 @@ class Cbn extends OpenApiClient
     }
 
     // Deprecated
-
     /**
      * Removes a traffic classification rule from a traffic marking policy.
      *
@@ -13674,6 +13925,7 @@ class Cbn extends OpenApiClient
      *
      * @param request - RemoveTraficMatchRuleFromTrafficMarkingPolicyRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns RemoveTraficMatchRuleFromTrafficMarkingPolicyResponse
      *
      * @param RemoveTraficMatchRuleFromTrafficMarkingPolicyRequest $request
@@ -13721,15 +13973,15 @@ class Cbn extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'RemoveTraficMatchRuleFromTrafficMarkingPolicy',
-            'version'     => '2017-09-12',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'RemoveTraficMatchRuleFromTrafficMarkingPolicy',
+            'version' => '2017-09-12',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return RemoveTraficMatchRuleFromTrafficMarkingPolicyResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -13739,7 +13991,6 @@ class Cbn extends OpenApiClient
     }
 
     // Deprecated
-
     /**
      * Removes a traffic classification rule from a traffic marking policy.
      *
@@ -13750,6 +14001,7 @@ class Cbn extends OpenApiClient
      * @deprecated openAPI RemoveTraficMatchRuleFromTrafficMarkingPolicy is deprecated, please use Cbn::2017-09-12::RemoveTrafficMatchRuleFromTrafficMarkingPolicy instead
      *
      * @param request - RemoveTraficMatchRuleFromTrafficMarkingPolicyRequest
+     *
      * @returns RemoveTraficMatchRuleFromTrafficMarkingPolicyResponse
      *
      * @param RemoveTraficMatchRuleFromTrafficMarkingPolicyRequest $request
@@ -13768,6 +14020,7 @@ class Cbn extends OpenApiClient
      *
      * @param request - ReplaceTransitRouterRouteTableAssociationRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ReplaceTransitRouterRouteTableAssociationResponse
      *
      * @param ReplaceTransitRouterRouteTableAssociationRequest $request
@@ -13815,15 +14068,15 @@ class Cbn extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ReplaceTransitRouterRouteTableAssociation',
-            'version'     => '2017-09-12',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ReplaceTransitRouterRouteTableAssociation',
+            'version' => '2017-09-12',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return ReplaceTransitRouterRouteTableAssociationResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -13836,6 +14089,7 @@ class Cbn extends OpenApiClient
      * Associates a network instance connection with another route table of a transit router.
      *
      * @param request - ReplaceTransitRouterRouteTableAssociationRequest
+     *
      * @returns ReplaceTransitRouterRouteTableAssociationResponse
      *
      * @param ReplaceTransitRouterRouteTableAssociationRequest $request
@@ -13867,6 +14121,7 @@ class Cbn extends OpenApiClient
      *
      * @param request - ResolveAndRouteServiceInCenRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ResolveAndRouteServiceInCenResponse
      *
      * @param ResolveAndRouteServiceInCenRequest $request
@@ -13926,15 +14181,15 @@ class Cbn extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ResolveAndRouteServiceInCen',
-            'version'     => '2017-09-12',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ResolveAndRouteServiceInCen',
+            'version' => '2017-09-12',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return ResolveAndRouteServiceInCenResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -13960,6 +14215,7 @@ class Cbn extends OpenApiClient
      * *   A VPC that is deployed in the same region as the cloud service is attached to the CEN instance. For more information, see [AttachCenChildInstance](https://help.aliyun.com/document_detail/65902.html).
      *
      * @param request - ResolveAndRouteServiceInCenRequest
+     *
      * @returns ResolveAndRouteServiceInCenResponse
      *
      * @param ResolveAndRouteServiceInCenRequest $request
@@ -13989,6 +14245,7 @@ class Cbn extends OpenApiClient
      *
      * @param request - RevokeInstanceFromTransitRouterRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns RevokeInstanceFromTransitRouterResponse
      *
      * @param RevokeInstanceFromTransitRouterRequest $request
@@ -14040,15 +14297,15 @@ class Cbn extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'RevokeInstanceFromTransitRouter',
-            'version'     => '2017-09-12',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'RevokeInstanceFromTransitRouter',
+            'version' => '2017-09-12',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return RevokeInstanceFromTransitRouterResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -14072,6 +14329,7 @@ class Cbn extends OpenApiClient
      * *   For more information about how to detach network instances from Basic Edition transit routers, see [DetachCenChildInstance](https://help.aliyun.com/document_detail/65915.html).
      *
      * @param request - RevokeInstanceFromTransitRouterRequest
+     *
      * @returns RevokeInstanceFromTransitRouterResponse
      *
      * @param RevokeInstanceFromTransitRouterRequest $request
@@ -14104,6 +14362,7 @@ class Cbn extends OpenApiClient
      *
      * @param request - RoutePrivateZoneInCenToVpcRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns RoutePrivateZoneInCenToVpcResponse
      *
      * @param RoutePrivateZoneInCenToVpcRequest $request
@@ -14151,15 +14410,15 @@ class Cbn extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'RoutePrivateZoneInCenToVpc',
-            'version'     => '2017-09-12',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'RoutePrivateZoneInCenToVpc',
+            'version' => '2017-09-12',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return RoutePrivateZoneInCenToVpcResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -14186,6 +14445,7 @@ class Cbn extends OpenApiClient
      * - If your on-premises network uses a CCN instance to connect to Alibaba Cloud and the account that owns the CCN instance is different from the account that owns the VPC or CEN instance, you must grant the CCN instance required permissions. For more information, see [Grant permissions to CCN](https://help.aliyun.com/document_detail/181654.html).
      *
      * @param request - RoutePrivateZoneInCenToVpcRequest
+     *
      * @returns RoutePrivateZoneInCenToVpcResponse
      *
      * @param RoutePrivateZoneInCenToVpcRequest $request
@@ -14218,6 +14478,7 @@ class Cbn extends OpenApiClient
      *
      * @param request - SetCenInterRegionBandwidthLimitRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns SetCenInterRegionBandwidthLimitResponse
      *
      * @param SetCenInterRegionBandwidthLimitRequest $request
@@ -14269,15 +14530,15 @@ class Cbn extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'SetCenInterRegionBandwidthLimit',
-            'version'     => '2017-09-12',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'SetCenInterRegionBandwidthLimit',
+            'version' => '2017-09-12',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return SetCenInterRegionBandwidthLimitResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -14304,6 +14565,7 @@ class Cbn extends OpenApiClient
      *     To configure, modify, or delete the bandwidth of inter-region connections for Enterprise Edition transit routers, call the [CreateTransitRouterPeerAttachment](https://help.aliyun.com/document_detail/261363.html), [UpdateTransitRouterPeerAttachmentAttribute](https://help.aliyun.com/document_detail/261229.html), or [DeleteTransitRouterPeerAttachment](https://help.aliyun.com/document_detail/261227.html) operation.
      *
      * @param request - SetCenInterRegionBandwidthLimitRequest
+     *
      * @returns SetCenInterRegionBandwidthLimitResponse
      *
      * @param SetCenInterRegionBandwidthLimitRequest $request
@@ -14327,6 +14589,7 @@ class Cbn extends OpenApiClient
      *
      * @param request - TagResourcesRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns TagResourcesResponse
      *
      * @param TagResourcesRequest $request
@@ -14374,15 +14637,15 @@ class Cbn extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'TagResources',
-            'version'     => '2017-09-12',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'TagResources',
+            'version' => '2017-09-12',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return TagResourcesResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -14400,6 +14663,7 @@ class Cbn extends OpenApiClient
      * *   You can add at most 20 tags to a CEN instance.
      *
      * @param request - TagResourcesRequest
+     *
      * @returns TagResourcesResponse
      *
      * @param TagResourcesRequest $request
@@ -14414,8 +14678,11 @@ class Cbn extends OpenApiClient
     }
 
     /**
+     * 进行云企业网预付费带宽包临时升配.
+     *
      * @param request - TempUpgradeCenBandwidthPackageSpecRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns TempUpgradeCenBandwidthPackageSpecResponse
      *
      * @param TempUpgradeCenBandwidthPackageSpecRequest $request
@@ -14459,15 +14726,15 @@ class Cbn extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'TempUpgradeCenBandwidthPackageSpec',
-            'version'     => '2017-09-12',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'TempUpgradeCenBandwidthPackageSpec',
+            'version' => '2017-09-12',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return TempUpgradeCenBandwidthPackageSpecResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -14477,7 +14744,10 @@ class Cbn extends OpenApiClient
     }
 
     /**
+     * 进行云企业网预付费带宽包临时升配.
+     *
      * @param request - TempUpgradeCenBandwidthPackageSpecRequest
+     *
      * @returns TempUpgradeCenBandwidthPackageSpecResponse
      *
      * @param TempUpgradeCenBandwidthPackageSpecRequest $request
@@ -14499,6 +14769,7 @@ class Cbn extends OpenApiClient
      *
      * @param request - UnassociateCenBandwidthPackageRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns UnassociateCenBandwidthPackageResponse
      *
      * @param UnassociateCenBandwidthPackageRequest $request
@@ -14538,15 +14809,15 @@ class Cbn extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'UnassociateCenBandwidthPackage',
-            'version'     => '2017-09-12',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'UnassociateCenBandwidthPackage',
+            'version' => '2017-09-12',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return UnassociateCenBandwidthPackageResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -14562,6 +14833,7 @@ class Cbn extends OpenApiClient
      * No inter-region connections are configured in the bandwidth plan. For more information about how to delete inter-region connections, see [SetCenInterRegionBandwidthLimit](https://help.aliyun.com/document_detail/65942.html).
      *
      * @param request - UnassociateCenBandwidthPackageRequest
+     *
      * @returns UnassociateCenBandwidthPackageResponse
      *
      * @param UnassociateCenBandwidthPackageRequest $request
@@ -14578,6 +14850,7 @@ class Cbn extends OpenApiClient
     /**
      * @param request - UnroutePrivateZoneInCenToVpcRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns UnroutePrivateZoneInCenToVpcResponse
      *
      * @param UnroutePrivateZoneInCenToVpcRequest $request
@@ -14617,15 +14890,15 @@ class Cbn extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'UnroutePrivateZoneInCenToVpc',
-            'version'     => '2017-09-12',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'UnroutePrivateZoneInCenToVpc',
+            'version' => '2017-09-12',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return UnroutePrivateZoneInCenToVpcResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -14636,6 +14909,7 @@ class Cbn extends OpenApiClient
 
     /**
      * @param request - UnroutePrivateZoneInCenToVpcRequest
+     *
      * @returns UnroutePrivateZoneInCenToVpcResponse
      *
      * @param UnroutePrivateZoneInCenToVpcRequest $request
@@ -14654,6 +14928,7 @@ class Cbn extends OpenApiClient
      *
      * @param request - UntagResourcesRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns UntagResourcesResponse
      *
      * @param UntagResourcesRequest $request
@@ -14705,15 +14980,15 @@ class Cbn extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'UntagResources',
-            'version'     => '2017-09-12',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'UntagResources',
+            'version' => '2017-09-12',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return UntagResourcesResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -14726,6 +15001,7 @@ class Cbn extends OpenApiClient
      * The ID of the request.
      *
      * @param request - UntagResourcesRequest
+     *
      * @returns UntagResourcesResponse
      *
      * @param UntagResourcesRequest $request
@@ -14744,6 +15020,7 @@ class Cbn extends OpenApiClient
      *
      * @param request - UpdateCenInterRegionTrafficQosPolicyAttributeRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns UpdateCenInterRegionTrafficQosPolicyAttributeResponse
      *
      * @param UpdateCenInterRegionTrafficQosPolicyAttributeRequest $request
@@ -14795,15 +15072,15 @@ class Cbn extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'UpdateCenInterRegionTrafficQosPolicyAttribute',
-            'version'     => '2017-09-12',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'UpdateCenInterRegionTrafficQosPolicyAttribute',
+            'version' => '2017-09-12',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return UpdateCenInterRegionTrafficQosPolicyAttributeResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -14816,6 +15093,7 @@ class Cbn extends OpenApiClient
      * Modifies the name and description of a quality of service (QoS) policy.
      *
      * @param request - UpdateCenInterRegionTrafficQosPolicyAttributeRequest
+     *
      * @returns UpdateCenInterRegionTrafficQosPolicyAttributeResponse
      *
      * @param UpdateCenInterRegionTrafficQosPolicyAttributeRequest $request
@@ -14834,6 +15112,7 @@ class Cbn extends OpenApiClient
      *
      * @param request - UpdateCenInterRegionTrafficQosQueueAttributeRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns UpdateCenInterRegionTrafficQosQueueAttributeResponse
      *
      * @param UpdateCenInterRegionTrafficQosQueueAttributeRequest $request
@@ -14897,15 +15176,15 @@ class Cbn extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'UpdateCenInterRegionTrafficQosQueueAttribute',
-            'version'     => '2017-09-12',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'UpdateCenInterRegionTrafficQosQueueAttribute',
+            'version' => '2017-09-12',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return UpdateCenInterRegionTrafficQosQueueAttributeResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -14918,6 +15197,7 @@ class Cbn extends OpenApiClient
      * Modifies the name, description, inter-region bandwidth, and Differentiated Services Code Point (DSCP) value of a quality of service (QoS) queue.
      *
      * @param request - UpdateCenInterRegionTrafficQosQueueAttributeRequest
+     *
      * @returns UpdateCenInterRegionTrafficQosQueueAttributeResponse
      *
      * @param UpdateCenInterRegionTrafficQosQueueAttributeRequest $request
@@ -14936,6 +15216,7 @@ class Cbn extends OpenApiClient
      *
      * @param request - UpdateTrafficMarkingPolicyAttributeRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns UpdateTrafficMarkingPolicyAttributeResponse
      *
      * @param UpdateTrafficMarkingPolicyAttributeRequest $request
@@ -14995,15 +15276,15 @@ class Cbn extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'UpdateTrafficMarkingPolicyAttribute',
-            'version'     => '2017-09-12',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'UpdateTrafficMarkingPolicyAttribute',
+            'version' => '2017-09-12',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return UpdateTrafficMarkingPolicyAttributeResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -15016,6 +15297,7 @@ class Cbn extends OpenApiClient
      * Modifies the name, description, and traffic classification rules of a traffic marking policy.
      *
      * @param request - UpdateTrafficMarkingPolicyAttributeRequest
+     *
      * @returns UpdateTrafficMarkingPolicyAttributeResponse
      *
      * @param UpdateTrafficMarkingPolicyAttributeRequest $request
@@ -15039,6 +15321,7 @@ class Cbn extends OpenApiClient
      *
      * @param request - UpdateTransitRouterRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns UpdateTransitRouterResponse
      *
      * @param UpdateTransitRouterRequest $request
@@ -15094,15 +15377,15 @@ class Cbn extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'UpdateTransitRouter',
-            'version'     => '2017-09-12',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'UpdateTransitRouter',
+            'version' => '2017-09-12',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return UpdateTransitRouterResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -15120,6 +15403,7 @@ class Cbn extends OpenApiClient
      * *   If a transit router is in the **Active** state, the configuration of the transit router is modified.
      *
      * @param request - UpdateTransitRouterRequest
+     *
      * @returns UpdateTransitRouterResponse
      *
      * @param UpdateTransitRouterRequest $request
@@ -15142,6 +15426,7 @@ class Cbn extends OpenApiClient
      *
      * @param request - UpdateTransitRouterEcrAttachmentAttributeRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns UpdateTransitRouterEcrAttachmentAttributeResponse
      *
      * @param UpdateTransitRouterEcrAttachmentAttributeRequest $request
@@ -15193,15 +15478,15 @@ class Cbn extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'UpdateTransitRouterEcrAttachmentAttribute',
-            'version'     => '2017-09-12',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'UpdateTransitRouterEcrAttachmentAttribute',
+            'version' => '2017-09-12',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return UpdateTransitRouterEcrAttachmentAttributeResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -15218,6 +15503,7 @@ class Cbn extends OpenApiClient
      * If an ECR connection is in the Modifying state, the ECR connection is being modified. In this case, you can query the ECR connection but cannot perform other operations on the ECR connection. If an ECR connection is in the Attached state, the ECR connection is modified.
      *
      * @param request - UpdateTransitRouterEcrAttachmentAttributeRequest
+     *
      * @returns UpdateTransitRouterEcrAttachmentAttributeResponse
      *
      * @param UpdateTransitRouterEcrAttachmentAttributeRequest $request
@@ -15241,6 +15527,7 @@ class Cbn extends OpenApiClient
      *
      * @param request - UpdateTransitRouterPeerAttachmentAttributeRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns UpdateTransitRouterPeerAttachmentAttributeResponse
      *
      * @param UpdateTransitRouterPeerAttachmentAttributeRequest $request
@@ -15312,15 +15599,15 @@ class Cbn extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'UpdateTransitRouterPeerAttachmentAttribute',
-            'version'     => '2017-09-12',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'UpdateTransitRouterPeerAttachmentAttribute',
+            'version' => '2017-09-12',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return UpdateTransitRouterPeerAttachmentAttributeResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -15338,6 +15625,7 @@ class Cbn extends OpenApiClient
      * *   If an inter-region connection is in the **Attached** state, the inter-region connection is modified.
      *
      * @param request - UpdateTransitRouterPeerAttachmentAttributeRequest
+     *
      * @returns UpdateTransitRouterPeerAttachmentAttributeResponse
      *
      * @param UpdateTransitRouterPeerAttachmentAttributeRequest $request
@@ -15356,6 +15644,7 @@ class Cbn extends OpenApiClient
      *
      * @param request - UpdateTransitRouterRouteEntryRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns UpdateTransitRouterRouteEntryResponse
      *
      * @param UpdateTransitRouterRouteEntryRequest $request
@@ -15407,15 +15696,15 @@ class Cbn extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'UpdateTransitRouterRouteEntry',
-            'version'     => '2017-09-12',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'UpdateTransitRouterRouteEntry',
+            'version' => '2017-09-12',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return UpdateTransitRouterRouteEntryResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -15428,6 +15717,7 @@ class Cbn extends OpenApiClient
      * Modifies the name and description of a route in a route table of an Enterprise Edition transit router.
      *
      * @param request - UpdateTransitRouterRouteEntryRequest
+     *
      * @returns UpdateTransitRouterRouteEntryResponse
      *
      * @param UpdateTransitRouterRouteEntryRequest $request
@@ -15446,6 +15736,7 @@ class Cbn extends OpenApiClient
      *
      * @param request - UpdateTransitRouterRouteTableRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns UpdateTransitRouterRouteTableResponse
      *
      * @param UpdateTransitRouterRouteTableRequest $request
@@ -15501,15 +15792,15 @@ class Cbn extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'UpdateTransitRouterRouteTable',
-            'version'     => '2017-09-12',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'UpdateTransitRouterRouteTable',
+            'version' => '2017-09-12',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return UpdateTransitRouterRouteTableResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -15522,6 +15813,7 @@ class Cbn extends OpenApiClient
      * Modifies the name and description of a route table of an Enterprise Edition transit router and enables or disables multi-region equal-cost multi-path (ECMP) routing.
      *
      * @param request - UpdateTransitRouterRouteTableRequest
+     *
      * @returns UpdateTransitRouterRouteTableResponse
      *
      * @param UpdateTransitRouterRouteTableRequest $request
@@ -15545,6 +15837,7 @@ class Cbn extends OpenApiClient
      *
      * @param request - UpdateTransitRouterVbrAttachmentAttributeRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns UpdateTransitRouterVbrAttachmentAttributeResponse
      *
      * @param UpdateTransitRouterVbrAttachmentAttributeRequest $request
@@ -15600,15 +15893,15 @@ class Cbn extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'UpdateTransitRouterVbrAttachmentAttribute',
-            'version'     => '2017-09-12',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'UpdateTransitRouterVbrAttachmentAttribute',
+            'version' => '2017-09-12',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return UpdateTransitRouterVbrAttachmentAttributeResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -15626,6 +15919,7 @@ class Cbn extends OpenApiClient
      * *   If the VBR connection is in the **Attached** state, the VBR connection is modified.
      *
      * @param request - UpdateTransitRouterVbrAttachmentAttributeRequest
+     *
      * @returns UpdateTransitRouterVbrAttachmentAttributeResponse
      *
      * @param UpdateTransitRouterVbrAttachmentAttributeRequest $request
@@ -15649,6 +15943,7 @@ class Cbn extends OpenApiClient
      *
      * @param tmpReq - UpdateTransitRouterVpcAttachmentAttributeRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns UpdateTransitRouterVpcAttachmentAttributeResponse
      *
      * @param UpdateTransitRouterVpcAttachmentAttributeRequest $tmpReq
@@ -15714,15 +16009,15 @@ class Cbn extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'UpdateTransitRouterVpcAttachmentAttribute',
-            'version'     => '2017-09-12',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'UpdateTransitRouterVpcAttachmentAttribute',
+            'version' => '2017-09-12',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return UpdateTransitRouterVpcAttachmentAttributeResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -15740,6 +16035,7 @@ class Cbn extends OpenApiClient
      * *   If a VPC connection is in the **Attached** state, the VPC connection is modified.
      *
      * @param request - UpdateTransitRouterVpcAttachmentAttributeRequest
+     *
      * @returns UpdateTransitRouterVpcAttachmentAttributeResponse
      *
      * @param UpdateTransitRouterVpcAttachmentAttributeRequest $request
@@ -15764,6 +16060,7 @@ class Cbn extends OpenApiClient
      *
      * @param request - UpdateTransitRouterVpcAttachmentZonesRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns UpdateTransitRouterVpcAttachmentZonesResponse
      *
      * @param UpdateTransitRouterVpcAttachmentZonesRequest $request
@@ -15815,15 +16112,15 @@ class Cbn extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'UpdateTransitRouterVpcAttachmentZones',
-            'version'     => '2017-09-12',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'UpdateTransitRouterVpcAttachmentZones',
+            'version' => '2017-09-12',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return UpdateTransitRouterVpcAttachmentZonesResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -15842,6 +16139,7 @@ class Cbn extends OpenApiClient
      *     *   If a VPC connection is in the **Attached** state, the VPC connection is modified.
      *
      * @param request - UpdateTransitRouterVpcAttachmentZonesRequest
+     *
      * @returns UpdateTransitRouterVpcAttachmentZonesResponse
      *
      * @param UpdateTransitRouterVpcAttachmentZonesRequest $request
@@ -15860,6 +16158,7 @@ class Cbn extends OpenApiClient
      *
      * @param request - UpdateTransitRouterVpnAttachmentAttributeRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns UpdateTransitRouterVpnAttachmentAttributeResponse
      *
      * @param UpdateTransitRouterVpnAttachmentAttributeRequest $request
@@ -15915,15 +16214,15 @@ class Cbn extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'UpdateTransitRouterVpnAttachmentAttribute',
-            'version'     => '2017-09-12',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'UpdateTransitRouterVpnAttachmentAttribute',
+            'version' => '2017-09-12',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return UpdateTransitRouterVpnAttachmentAttributeResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -15936,6 +16235,7 @@ class Cbn extends OpenApiClient
      * Modifies the configuration of a VPN attachment.
      *
      * @param request - UpdateTransitRouterVpnAttachmentAttributeRequest
+     *
      * @returns UpdateTransitRouterVpnAttachmentAttributeResponse
      *
      * @param UpdateTransitRouterVpnAttachmentAttributeRequest $request
@@ -15954,6 +16254,7 @@ class Cbn extends OpenApiClient
      *
      * @param request - WithdrawPublishedRouteEntriesRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns WithdrawPublishedRouteEntriesResponse
      *
      * @param WithdrawPublishedRouteEntriesRequest $request
@@ -16001,15 +16302,15 @@ class Cbn extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'WithdrawPublishedRouteEntries',
-            'version'     => '2017-09-12',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'WithdrawPublishedRouteEntries',
+            'version' => '2017-09-12',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return WithdrawPublishedRouteEntriesResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -16022,6 +16323,7 @@ class Cbn extends OpenApiClient
      * Withdraws the routes of a virtual private cloud (VPC) or a virtual border router (VBR) from a Cloud Enterprise Network (CEN) instance.
      *
      * @param request - WithdrawPublishedRouteEntriesRequest
+     *
      * @returns WithdrawPublishedRouteEntriesResponse
      *
      * @param WithdrawPublishedRouteEntriesRequest $request

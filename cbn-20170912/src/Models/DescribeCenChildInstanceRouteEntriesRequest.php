@@ -12,63 +12,74 @@ class DescribeCenChildInstanceRouteEntriesRequest extends Model
      * @var string
      */
     public $cenId;
+
     /**
      * @var string
      */
     public $childInstanceId;
+
     /**
      * @var string
      */
     public $childInstanceRegionId;
+
     /**
      * @var string
      */
     public $childInstanceRouteTableId;
+
     /**
      * @var string
      */
     public $childInstanceType;
+
     /**
      * @var string
      */
     public $ownerAccount;
+
     /**
      * @var int
      */
     public $ownerId;
+
     /**
      * @var int
      */
     public $pageNumber;
+
     /**
      * @var int
      */
     public $pageSize;
+
     /**
      * @var string
      */
     public $resourceOwnerAccount;
+
     /**
      * @var int
      */
     public $resourceOwnerId;
+
     /**
      * @var string
      */
     public $status;
     protected $_name = [
-        'cenId'                     => 'CenId',
-        'childInstanceId'           => 'ChildInstanceId',
-        'childInstanceRegionId'     => 'ChildInstanceRegionId',
+        'cenId' => 'CenId',
+        'childInstanceId' => 'ChildInstanceId',
+        'childInstanceRegionId' => 'ChildInstanceRegionId',
         'childInstanceRouteTableId' => 'ChildInstanceRouteTableId',
-        'childInstanceType'         => 'ChildInstanceType',
-        'ownerAccount'              => 'OwnerAccount',
-        'ownerId'                   => 'OwnerId',
-        'pageNumber'                => 'PageNumber',
-        'pageSize'                  => 'PageSize',
-        'resourceOwnerAccount'      => 'ResourceOwnerAccount',
-        'resourceOwnerId'           => 'ResourceOwnerId',
-        'status'                    => 'Status',
+        'childInstanceType' => 'ChildInstanceType',
+        'ownerAccount' => 'OwnerAccount',
+        'ownerId' => 'OwnerId',
+        'pageNumber' => 'PageNumber',
+        'pageSize' => 'PageSize',
+        'resourceOwnerAccount' => 'ResourceOwnerAccount',
+        'resourceOwnerId' => 'ResourceOwnerId',
+        'status' => 'Status',
     ];
 
     public function validate()

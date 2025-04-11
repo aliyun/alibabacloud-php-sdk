@@ -12,43 +12,50 @@ class cenInterRegionBandwidthLimit extends Model
      * @var int
      */
     public $bandwidthLimit;
+
     /**
      * @var string
      */
     public $bandwidthPackageId;
+
     /**
      * @var string
      */
     public $bandwidthType;
+
     /**
      * @var string
      */
     public $cenId;
+
     /**
      * @var string
      */
     public $geographicSpanId;
+
     /**
      * @var string
      */
     public $localRegionId;
+
     /**
      * @var string
      */
     public $oppositeRegionId;
+
     /**
      * @var string
      */
     public $status;
     protected $_name = [
-        'bandwidthLimit'     => 'BandwidthLimit',
+        'bandwidthLimit' => 'BandwidthLimit',
         'bandwidthPackageId' => 'BandwidthPackageId',
-        'bandwidthType'      => 'BandwidthType',
-        'cenId'              => 'CenId',
-        'geographicSpanId'   => 'GeographicSpanId',
-        'localRegionId'      => 'LocalRegionId',
-        'oppositeRegionId'   => 'OppositeRegionId',
-        'status'             => 'Status',
+        'bandwidthType' => 'BandwidthType',
+        'cenId' => 'CenId',
+        'geographicSpanId' => 'GeographicSpanId',
+        'localRegionId' => 'LocalRegionId',
+        'oppositeRegionId' => 'OppositeRegionId',
+        'status' => 'Status',
     ];
 
     public function validate()

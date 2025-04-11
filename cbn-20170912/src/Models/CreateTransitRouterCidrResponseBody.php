@@ -12,12 +12,13 @@ class CreateTransitRouterCidrResponseBody extends Model
      * @var string
      */
     public $requestId;
+
     /**
      * @var string
      */
     public $transitRouterCidrId;
     protected $_name = [
-        'requestId'           => 'RequestId',
+        'requestId' => 'RequestId',
         'transitRouterCidrId' => 'TransitRouterCidrId',
     ];
 

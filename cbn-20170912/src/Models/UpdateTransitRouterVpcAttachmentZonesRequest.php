@@ -14,47 +14,55 @@ class UpdateTransitRouterVpcAttachmentZonesRequest extends Model
      * @var addZoneMappings[]
      */
     public $addZoneMappings;
+
     /**
      * @var string
      */
     public $clientToken;
+
     /**
      * @var bool
      */
     public $dryRun;
+
     /**
      * @var string
      */
     public $ownerAccount;
+
     /**
      * @var int
      */
     public $ownerId;
+
     /**
      * @var removeZoneMappings[]
      */
     public $removeZoneMappings;
+
     /**
      * @var string
      */
     public $resourceOwnerAccount;
+
     /**
      * @var int
      */
     public $resourceOwnerId;
+
     /**
      * @var string
      */
     public $transitRouterAttachmentId;
     protected $_name = [
-        'addZoneMappings'           => 'AddZoneMappings',
-        'clientToken'               => 'ClientToken',
-        'dryRun'                    => 'DryRun',
-        'ownerAccount'              => 'OwnerAccount',
-        'ownerId'                   => 'OwnerId',
-        'removeZoneMappings'        => 'RemoveZoneMappings',
-        'resourceOwnerAccount'      => 'ResourceOwnerAccount',
-        'resourceOwnerId'           => 'ResourceOwnerId',
+        'addZoneMappings' => 'AddZoneMappings',
+        'clientToken' => 'ClientToken',
+        'dryRun' => 'DryRun',
+        'ownerAccount' => 'OwnerAccount',
+        'ownerId' => 'OwnerId',
+        'removeZoneMappings' => 'RemoveZoneMappings',
+        'resourceOwnerAccount' => 'ResourceOwnerAccount',
+        'resourceOwnerId' => 'ResourceOwnerId',
         'transitRouterAttachmentId' => 'TransitRouterAttachmentId',
     ];
 
@@ -75,7 +83,7 @@ class UpdateTransitRouterVpcAttachmentZonesRequest extends Model
         if (null !== $this->addZoneMappings) {
             if (\is_array($this->addZoneMappings)) {
                 $res['AddZoneMappings'] = [];
-                $n1                     = 0;
+                $n1 = 0;
                 foreach ($this->addZoneMappings as $item1) {
                     $res['AddZoneMappings'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -101,7 +109,7 @@ class UpdateTransitRouterVpcAttachmentZonesRequest extends Model
         if (null !== $this->removeZoneMappings) {
             if (\is_array($this->removeZoneMappings)) {
                 $res['RemoveZoneMappings'] = [];
-                $n1                        = 0;
+                $n1 = 0;
                 foreach ($this->removeZoneMappings as $item1) {
                     $res['RemoveZoneMappings'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -134,7 +142,7 @@ class UpdateTransitRouterVpcAttachmentZonesRequest extends Model
         if (isset($map['AddZoneMappings'])) {
             if (!empty($map['AddZoneMappings'])) {
                 $model->addZoneMappings = [];
-                $n1                     = 0;
+                $n1 = 0;
                 foreach ($map['AddZoneMappings'] as $item1) {
                     $model->addZoneMappings[$n1++] = addZoneMappings::fromMap($item1);
                 }
@@ -160,7 +168,7 @@ class UpdateTransitRouterVpcAttachmentZonesRequest extends Model
         if (isset($map['RemoveZoneMappings'])) {
             if (!empty($map['RemoveZoneMappings'])) {
                 $model->removeZoneMappings = [];
-                $n1                        = 0;
+                $n1 = 0;
                 foreach ($map['RemoveZoneMappings'] as $item1) {
                     $model->removeZoneMappings[$n1++] = removeZoneMappings::fromMap($item1);
                 }

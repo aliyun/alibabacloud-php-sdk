@@ -13,27 +13,31 @@ class ListCenInterRegionTrafficQosPoliciesResponseBody extends Model
      * @var int
      */
     public $maxResults;
+
     /**
      * @var string
      */
     public $nextToken;
+
     /**
      * @var string
      */
     public $requestId;
+
     /**
      * @var int
      */
     public $totalCount;
+
     /**
      * @var trafficQosPolicies[]
      */
     public $trafficQosPolicies;
     protected $_name = [
-        'maxResults'         => 'MaxResults',
-        'nextToken'          => 'NextToken',
-        'requestId'          => 'RequestId',
-        'totalCount'         => 'TotalCount',
+        'maxResults' => 'MaxResults',
+        'nextToken' => 'NextToken',
+        'requestId' => 'RequestId',
+        'totalCount' => 'TotalCount',
         'trafficQosPolicies' => 'TrafficQosPolicies',
     ];
 
@@ -67,7 +71,7 @@ class ListCenInterRegionTrafficQosPoliciesResponseBody extends Model
         if (null !== $this->trafficQosPolicies) {
             if (\is_array($this->trafficQosPolicies)) {
                 $res['TrafficQosPolicies'] = [];
-                $n1                        = 0;
+                $n1 = 0;
                 foreach ($this->trafficQosPolicies as $item1) {
                     $res['TrafficQosPolicies'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -104,7 +108,7 @@ class ListCenInterRegionTrafficQosPoliciesResponseBody extends Model
         if (isset($map['TrafficQosPolicies'])) {
             if (!empty($map['TrafficQosPolicies'])) {
                 $model->trafficQosPolicies = [];
-                $n1                        = 0;
+                $n1 = 0;
                 foreach ($map['TrafficQosPolicies'] as $item1) {
                     $model->trafficQosPolicies[$n1++] = trafficQosPolicies::fromMap($item1);
                 }

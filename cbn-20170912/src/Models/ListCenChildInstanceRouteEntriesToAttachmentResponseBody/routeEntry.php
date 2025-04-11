@@ -12,32 +12,37 @@ class routeEntry extends Model
      * @var string
      */
     public $cenId;
+
     /**
      * @var string
      */
     public $childInstanceRouteTableId;
+
     /**
      * @var string
      */
     public $destinationCidrBlock;
+
     /**
      * @var string
      */
     public $serviceType;
+
     /**
      * @var string
      */
     public $status;
+
     /**
      * @var string
      */
     public $transitRouterAttachmentId;
     protected $_name = [
-        'cenId'                     => 'CenId',
+        'cenId' => 'CenId',
         'childInstanceRouteTableId' => 'ChildInstanceRouteTableId',
-        'destinationCidrBlock'      => 'DestinationCidrBlock',
-        'serviceType'               => 'ServiceType',
-        'status'                    => 'Status',
+        'destinationCidrBlock' => 'DestinationCidrBlock',
+        'serviceType' => 'ServiceType',
+        'status' => 'Status',
         'transitRouterAttachmentId' => 'TransitRouterAttachmentId',
     ];
 

@@ -13,27 +13,31 @@ class ListTrafficMarkingPoliciesResponseBody extends Model
      * @var int
      */
     public $maxResults;
+
     /**
      * @var string
      */
     public $nextToken;
+
     /**
      * @var string
      */
     public $requestId;
+
     /**
      * @var int
      */
     public $totalCount;
+
     /**
      * @var trafficMarkingPolicies[]
      */
     public $trafficMarkingPolicies;
     protected $_name = [
-        'maxResults'             => 'MaxResults',
-        'nextToken'              => 'NextToken',
-        'requestId'              => 'RequestId',
-        'totalCount'             => 'TotalCount',
+        'maxResults' => 'MaxResults',
+        'nextToken' => 'NextToken',
+        'requestId' => 'RequestId',
+        'totalCount' => 'TotalCount',
         'trafficMarkingPolicies' => 'TrafficMarkingPolicies',
     ];
 
@@ -67,7 +71,7 @@ class ListTrafficMarkingPoliciesResponseBody extends Model
         if (null !== $this->trafficMarkingPolicies) {
             if (\is_array($this->trafficMarkingPolicies)) {
                 $res['TrafficMarkingPolicies'] = [];
-                $n1                            = 0;
+                $n1 = 0;
                 foreach ($this->trafficMarkingPolicies as $item1) {
                     $res['TrafficMarkingPolicies'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -104,7 +108,7 @@ class ListTrafficMarkingPoliciesResponseBody extends Model
         if (isset($map['TrafficMarkingPolicies'])) {
             if (!empty($map['TrafficMarkingPolicies'])) {
                 $model->trafficMarkingPolicies = [];
-                $n1                            = 0;
+                $n1 = 0;
                 foreach ($map['TrafficMarkingPolicies'] as $item1) {
                     $model->trafficMarkingPolicies[$n1++] = trafficMarkingPolicies::fromMap($item1);
                 }

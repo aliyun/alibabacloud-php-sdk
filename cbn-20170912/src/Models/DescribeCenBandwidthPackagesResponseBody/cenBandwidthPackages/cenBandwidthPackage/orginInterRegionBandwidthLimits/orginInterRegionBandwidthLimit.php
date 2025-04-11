@@ -12,22 +12,25 @@ class orginInterRegionBandwidthLimit extends Model
      * @var string
      */
     public $bandwidthLimit;
+
     /**
      * @var string
      */
     public $geographicSpanId;
+
     /**
      * @var string
      */
     public $localRegionId;
+
     /**
      * @var string
      */
     public $oppositeRegionId;
     protected $_name = [
-        'bandwidthLimit'   => 'BandwidthLimit',
+        'bandwidthLimit' => 'BandwidthLimit',
         'geographicSpanId' => 'GeographicSpanId',
-        'localRegionId'    => 'LocalRegionId',
+        'localRegionId' => 'LocalRegionId',
         'oppositeRegionId' => 'OppositeRegionId',
     ];
 

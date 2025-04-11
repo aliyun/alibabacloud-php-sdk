@@ -31,7 +31,7 @@ class vbrHealthChecks extends Model
         if (null !== $this->vbrHealthCheck) {
             if (\is_array($this->vbrHealthCheck)) {
                 $res['VbrHealthCheck'] = [];
-                $n1                    = 0;
+                $n1 = 0;
                 foreach ($this->vbrHealthCheck as $item1) {
                     $res['VbrHealthCheck'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -52,7 +52,7 @@ class vbrHealthChecks extends Model
         if (isset($map['VbrHealthCheck'])) {
             if (!empty($map['VbrHealthCheck'])) {
                 $model->vbrHealthCheck = [];
-                $n1                    = 0;
+                $n1 = 0;
                 foreach ($map['VbrHealthCheck'] as $item1) {
                     $model->vbrHealthCheck[$n1++] = vbrHealthCheck::fromMap($item1);
                 }

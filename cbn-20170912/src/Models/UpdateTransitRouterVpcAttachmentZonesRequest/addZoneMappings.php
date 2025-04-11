@@ -12,13 +12,14 @@ class addZoneMappings extends Model
      * @var string
      */
     public $vSwitchId;
+
     /**
      * @var string
      */
     public $zoneId;
     protected $_name = [
         'vSwitchId' => 'VSwitchId',
-        'zoneId'    => 'ZoneId',
+        'zoneId' => 'ZoneId',
     ];
 
     public function validate()

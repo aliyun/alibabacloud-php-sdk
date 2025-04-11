@@ -12,12 +12,13 @@ class CreateCenRouteMapResponseBody extends Model
      * @var string
      */
     public $requestId;
+
     /**
      * @var string
      */
     public $routeMapId;
     protected $_name = [
-        'requestId'  => 'RequestId',
+        'requestId' => 'RequestId',
         'routeMapId' => 'RouteMapId',
     ];
 

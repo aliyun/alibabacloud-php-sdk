@@ -12,48 +12,56 @@ class UpdateCenInterRegionTrafficQosPolicyAttributeRequest extends Model
      * @var string
      */
     public $clientToken;
+
     /**
      * @var bool
      */
     public $dryRun;
+
     /**
      * @var string
      */
     public $ownerAccount;
+
     /**
      * @var int
      */
     public $ownerId;
+
     /**
      * @var string
      */
     public $resourceOwnerAccount;
+
     /**
      * @var int
      */
     public $resourceOwnerId;
+
     /**
      * @var string
      */
     public $trafficQosPolicyDescription;
+
     /**
      * @var string
      */
     public $trafficQosPolicyId;
+
     /**
      * @var string
      */
     public $trafficQosPolicyName;
     protected $_name = [
-        'clientToken'                 => 'ClientToken',
-        'dryRun'                      => 'DryRun',
-        'ownerAccount'                => 'OwnerAccount',
-        'ownerId'                     => 'OwnerId',
-        'resourceOwnerAccount'        => 'ResourceOwnerAccount',
-        'resourceOwnerId'             => 'ResourceOwnerId',
+        'clientToken' => 'ClientToken',
+        'dryRun' => 'DryRun',
+        'ownerAccount' => 'OwnerAccount',
+        'ownerId' => 'OwnerId',
+        'resourceOwnerAccount' => 'ResourceOwnerAccount',
+        'resourceOwnerId' => 'ResourceOwnerId',
         'trafficQosPolicyDescription' => 'TrafficQosPolicyDescription',
-        'trafficQosPolicyId'          => 'TrafficQosPolicyId',
-        'trafficQosPolicyName'        => 'TrafficQosPolicyName',
+        'trafficQosPolicyId' => 'TrafficQosPolicyId',
+        'trafficQosPolicyName' => 'TrafficQosPolicyName',
     ];
 
     public function validate()

@@ -12,58 +12,68 @@ class trafficMatchRules extends Model
      * @var string
      */
     public $addressFamily;
+
     /**
      * @var string
      */
     public $dstCidr;
+
     /**
      * @var int[]
      */
     public $dstPortRange;
+
     /**
      * @var int
      */
     public $matchDscp;
+
     /**
      * @var string
      */
     public $protocol;
+
     /**
      * @var string
      */
     public $srcCidr;
+
     /**
      * @var int[]
      */
     public $srcPortRange;
+
     /**
      * @var string
      */
     public $trafficMatchRuleDescription;
+
     /**
      * @var string
      */
     public $trafficMatchRuleId;
+
     /**
      * @var string
      */
     public $trafficMatchRuleName;
+
     /**
      * @var string
      */
     public $trafficMatchRuleStatus;
     protected $_name = [
-        'addressFamily'               => 'AddressFamily',
-        'dstCidr'                     => 'DstCidr',
-        'dstPortRange'                => 'DstPortRange',
-        'matchDscp'                   => 'MatchDscp',
-        'protocol'                    => 'Protocol',
-        'srcCidr'                     => 'SrcCidr',
-        'srcPortRange'                => 'SrcPortRange',
+        'addressFamily' => 'AddressFamily',
+        'dstCidr' => 'DstCidr',
+        'dstPortRange' => 'DstPortRange',
+        'matchDscp' => 'MatchDscp',
+        'protocol' => 'Protocol',
+        'srcCidr' => 'SrcCidr',
+        'srcPortRange' => 'SrcPortRange',
         'trafficMatchRuleDescription' => 'TrafficMatchRuleDescription',
-        'trafficMatchRuleId'          => 'TrafficMatchRuleId',
-        'trafficMatchRuleName'        => 'TrafficMatchRuleName',
-        'trafficMatchRuleStatus'      => 'TrafficMatchRuleStatus',
+        'trafficMatchRuleId' => 'TrafficMatchRuleId',
+        'trafficMatchRuleName' => 'TrafficMatchRuleName',
+        'trafficMatchRuleStatus' => 'TrafficMatchRuleStatus',
     ];
 
     public function validate()
@@ -91,7 +101,7 @@ class trafficMatchRules extends Model
         if (null !== $this->dstPortRange) {
             if (\is_array($this->dstPortRange)) {
                 $res['DstPortRange'] = [];
-                $n1                  = 0;
+                $n1 = 0;
                 foreach ($this->dstPortRange as $item1) {
                     $res['DstPortRange'][$n1++] = $item1;
                 }
@@ -113,7 +123,7 @@ class trafficMatchRules extends Model
         if (null !== $this->srcPortRange) {
             if (\is_array($this->srcPortRange)) {
                 $res['SrcPortRange'] = [];
-                $n1                  = 0;
+                $n1 = 0;
                 foreach ($this->srcPortRange as $item1) {
                     $res['SrcPortRange'][$n1++] = $item1;
                 }
@@ -158,7 +168,7 @@ class trafficMatchRules extends Model
         if (isset($map['DstPortRange'])) {
             if (!empty($map['DstPortRange'])) {
                 $model->dstPortRange = [];
-                $n1                  = 0;
+                $n1 = 0;
                 foreach ($map['DstPortRange'] as $item1) {
                     $model->dstPortRange[$n1++] = $item1;
                 }
@@ -180,7 +190,7 @@ class trafficMatchRules extends Model
         if (isset($map['SrcPortRange'])) {
             if (!empty($map['SrcPortRange'])) {
                 $model->srcPortRange = [];
-                $n1                  = 0;
+                $n1 = 0;
                 foreach ($map['SrcPortRange'] as $item1) {
                     $model->srcPortRange[$n1++] = $item1;
                 }

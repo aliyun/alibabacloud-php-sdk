@@ -12,17 +12,19 @@ class geographicSpanModel extends Model
      * @var string
      */
     public $geographicSpanId;
+
     /**
      * @var string
      */
     public $localGeoRegionId;
+
     /**
      * @var string
      */
     public $oppositeGeoRegionId;
     protected $_name = [
-        'geographicSpanId'    => 'GeographicSpanId',
-        'localGeoRegionId'    => 'LocalGeoRegionId',
+        'geographicSpanId' => 'GeographicSpanId',
+        'localGeoRegionId' => 'LocalGeoRegionId',
         'oppositeGeoRegionId' => 'OppositeGeoRegionId',
     ];
 

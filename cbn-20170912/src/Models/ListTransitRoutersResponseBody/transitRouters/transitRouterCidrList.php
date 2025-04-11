@@ -12,27 +12,31 @@ class transitRouterCidrList extends Model
      * @var string
      */
     public $cidr;
+
     /**
      * @var string
      */
     public $description;
+
     /**
      * @var string
      */
     public $name;
+
     /**
      * @var bool
      */
     public $publishCidrRoute;
+
     /**
      * @var string
      */
     public $transitRouterCidrId;
     protected $_name = [
-        'cidr'                => 'Cidr',
-        'description'         => 'Description',
-        'name'                => 'Name',
-        'publishCidrRoute'    => 'PublishCidrRoute',
+        'cidr' => 'Cidr',
+        'description' => 'Description',
+        'name' => 'Name',
+        'publishCidrRoute' => 'PublishCidrRoute',
         'transitRouterCidrId' => 'TransitRouterCidrId',
     ];
 

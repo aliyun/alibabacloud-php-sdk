@@ -12,18 +12,20 @@ class CreateCenBandwidthPackageResponseBody extends Model
      * @var string
      */
     public $cenBandwidthPackageId;
+
     /**
      * @var string
      */
     public $cenBandwidthPackageOrderId;
+
     /**
      * @var string
      */
     public $requestId;
     protected $_name = [
-        'cenBandwidthPackageId'      => 'CenBandwidthPackageId',
+        'cenBandwidthPackageId' => 'CenBandwidthPackageId',
         'cenBandwidthPackageOrderId' => 'CenBandwidthPackageOrderId',
-        'requestId'                  => 'RequestId',
+        'requestId' => 'RequestId',
     ];
 
     public function validate()

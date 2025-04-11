@@ -12,13 +12,14 @@ class DescribeCenGeographicSpanRemainingBandwidthResponseBody extends Model
      * @var int
      */
     public $remainingBandwidth;
+
     /**
      * @var string
      */
     public $requestId;
     protected $_name = [
         'remainingBandwidth' => 'RemainingBandwidth',
-        'requestId'          => 'RequestId',
+        'requestId' => 'RequestId',
     ];
 
     public function validate()

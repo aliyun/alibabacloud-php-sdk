@@ -12,26 +12,30 @@ class transitRouterAssociations extends Model
      * @var string
      */
     public $resourceId;
+
     /**
      * @var string
      */
     public $resourceType;
+
     /**
      * @var string
      */
     public $status;
+
     /**
      * @var string
      */
     public $transitRouterAttachmentId;
+
     /**
      * @var string
      */
     public $transitRouterRouteTableId;
     protected $_name = [
-        'resourceId'                => 'ResourceId',
-        'resourceType'              => 'ResourceType',
-        'status'                    => 'Status',
+        'resourceId' => 'ResourceId',
+        'resourceType' => 'ResourceType',
+        'status' => 'Status',
         'transitRouterAttachmentId' => 'TransitRouterAttachmentId',
         'transitRouterRouteTableId' => 'TransitRouterRouteTableId',
     ];

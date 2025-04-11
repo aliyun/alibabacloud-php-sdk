@@ -12,12 +12,13 @@ class CreateCenResponseBody extends Model
      * @var string
      */
     public $cenId;
+
     /**
      * @var string
      */
     public $requestId;
     protected $_name = [
-        'cenId'     => 'CenId',
+        'cenId' => 'CenId',
         'requestId' => 'RequestId',
     ];
 

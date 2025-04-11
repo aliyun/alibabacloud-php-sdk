@@ -14,48 +14,56 @@ class DescribeCensRequest extends Model
      * @var filter[]
      */
     public $filter;
+
     /**
      * @var string
      */
     public $ownerAccount;
+
     /**
      * @var int
      */
     public $ownerId;
+
     /**
      * @var int
      */
     public $pageNumber;
+
     /**
      * @var int
      */
     public $pageSize;
+
     /**
      * @var string
      */
     public $resourceGroupId;
+
     /**
      * @var string
      */
     public $resourceOwnerAccount;
+
     /**
      * @var int
      */
     public $resourceOwnerId;
+
     /**
      * @var tag[]
      */
     public $tag;
     protected $_name = [
-        'filter'               => 'Filter',
-        'ownerAccount'         => 'OwnerAccount',
-        'ownerId'              => 'OwnerId',
-        'pageNumber'           => 'PageNumber',
-        'pageSize'             => 'PageSize',
-        'resourceGroupId'      => 'ResourceGroupId',
+        'filter' => 'Filter',
+        'ownerAccount' => 'OwnerAccount',
+        'ownerId' => 'OwnerId',
+        'pageNumber' => 'PageNumber',
+        'pageSize' => 'PageSize',
+        'resourceGroupId' => 'ResourceGroupId',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
-        'resourceOwnerId'      => 'ResourceOwnerId',
-        'tag'                  => 'Tag',
+        'resourceOwnerId' => 'ResourceOwnerId',
+        'tag' => 'Tag',
     ];
 
     public function validate()
@@ -75,7 +83,7 @@ class DescribeCensRequest extends Model
         if (null !== $this->filter) {
             if (\is_array($this->filter)) {
                 $res['Filter'] = [];
-                $n1            = 0;
+                $n1 = 0;
                 foreach ($this->filter as $item1) {
                     $res['Filter'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -113,7 +121,7 @@ class DescribeCensRequest extends Model
         if (null !== $this->tag) {
             if (\is_array($this->tag)) {
                 $res['Tag'] = [];
-                $n1         = 0;
+                $n1 = 0;
                 foreach ($this->tag as $item1) {
                     $res['Tag'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -134,7 +142,7 @@ class DescribeCensRequest extends Model
         if (isset($map['Filter'])) {
             if (!empty($map['Filter'])) {
                 $model->filter = [];
-                $n1            = 0;
+                $n1 = 0;
                 foreach ($map['Filter'] as $item1) {
                     $model->filter[$n1++] = filter::fromMap($item1);
                 }
@@ -172,7 +180,7 @@ class DescribeCensRequest extends Model
         if (isset($map['Tag'])) {
             if (!empty($map['Tag'])) {
                 $model->tag = [];
-                $n1         = 0;
+                $n1 = 0;
                 foreach ($map['Tag'] as $item1) {
                     $model->tag[$n1++] = tag::fromMap($item1);
                 }

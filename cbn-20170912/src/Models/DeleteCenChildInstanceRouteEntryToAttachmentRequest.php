@@ -12,52 +12,61 @@ class DeleteCenChildInstanceRouteEntryToAttachmentRequest extends Model
      * @var string
      */
     public $cenId;
+
     /**
      * @var string
      */
     public $clientToken;
+
     /**
      * @var string
      */
     public $destinationCidrBlock;
+
     /**
      * @var bool
      */
     public $dryRun;
+
     /**
      * @var string
      */
     public $ownerAccount;
+
     /**
      * @var int
      */
     public $ownerId;
+
     /**
      * @var string
      */
     public $resourceOwnerAccount;
+
     /**
      * @var int
      */
     public $resourceOwnerId;
+
     /**
      * @var string
      */
     public $routeTableId;
+
     /**
      * @var string
      */
     public $transitRouterAttachmentId;
     protected $_name = [
-        'cenId'                     => 'CenId',
-        'clientToken'               => 'ClientToken',
-        'destinationCidrBlock'      => 'DestinationCidrBlock',
-        'dryRun'                    => 'DryRun',
-        'ownerAccount'              => 'OwnerAccount',
-        'ownerId'                   => 'OwnerId',
-        'resourceOwnerAccount'      => 'ResourceOwnerAccount',
-        'resourceOwnerId'           => 'ResourceOwnerId',
-        'routeTableId'              => 'RouteTableId',
+        'cenId' => 'CenId',
+        'clientToken' => 'ClientToken',
+        'destinationCidrBlock' => 'DestinationCidrBlock',
+        'dryRun' => 'DryRun',
+        'ownerAccount' => 'OwnerAccount',
+        'ownerId' => 'OwnerId',
+        'resourceOwnerAccount' => 'ResourceOwnerAccount',
+        'resourceOwnerId' => 'ResourceOwnerId',
+        'routeTableId' => 'RouteTableId',
         'transitRouterAttachmentId' => 'TransitRouterAttachmentId',
     ];
 

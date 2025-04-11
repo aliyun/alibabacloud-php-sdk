@@ -30,7 +30,7 @@ class matchAsns extends Model
         if (null !== $this->matchAsn) {
             if (\is_array($this->matchAsn)) {
                 $res['MatchAsn'] = [];
-                $n1              = 0;
+                $n1 = 0;
                 foreach ($this->matchAsn as $item1) {
                     $res['MatchAsn'][$n1++] = $item1;
                 }
@@ -51,7 +51,7 @@ class matchAsns extends Model
         if (isset($map['MatchAsn'])) {
             if (!empty($map['MatchAsn'])) {
                 $model->matchAsn = [];
-                $n1              = 0;
+                $n1 = 0;
                 foreach ($map['MatchAsn'] as $item1) {
                     $model->matchAsn[$n1++] = $item1;
                 }

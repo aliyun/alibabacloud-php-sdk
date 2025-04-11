@@ -12,58 +12,68 @@ class DescribeRouteConflictRequest extends Model
      * @var string
      */
     public $childInstanceId;
+
     /**
      * @var string
      */
     public $childInstanceRegionId;
+
     /**
      * @var string
      */
     public $childInstanceRouteTableId;
+
     /**
      * @var string
      */
     public $childInstanceType;
+
     /**
      * @var string
      */
     public $destinationCidrBlock;
+
     /**
      * @var string
      */
     public $ownerAccount;
+
     /**
      * @var int
      */
     public $ownerId;
+
     /**
      * @var int
      */
     public $pageNumber;
+
     /**
      * @var int
      */
     public $pageSize;
+
     /**
      * @var string
      */
     public $resourceOwnerAccount;
+
     /**
      * @var int
      */
     public $resourceOwnerId;
     protected $_name = [
-        'childInstanceId'           => 'ChildInstanceId',
-        'childInstanceRegionId'     => 'ChildInstanceRegionId',
+        'childInstanceId' => 'ChildInstanceId',
+        'childInstanceRegionId' => 'ChildInstanceRegionId',
         'childInstanceRouteTableId' => 'ChildInstanceRouteTableId',
-        'childInstanceType'         => 'ChildInstanceType',
-        'destinationCidrBlock'      => 'DestinationCidrBlock',
-        'ownerAccount'              => 'OwnerAccount',
-        'ownerId'                   => 'OwnerId',
-        'pageNumber'                => 'PageNumber',
-        'pageSize'                  => 'PageSize',
-        'resourceOwnerAccount'      => 'ResourceOwnerAccount',
-        'resourceOwnerId'           => 'ResourceOwnerId',
+        'childInstanceType' => 'ChildInstanceType',
+        'destinationCidrBlock' => 'DestinationCidrBlock',
+        'ownerAccount' => 'OwnerAccount',
+        'ownerId' => 'OwnerId',
+        'pageNumber' => 'PageNumber',
+        'pageSize' => 'PageSize',
+        'resourceOwnerAccount' => 'ResourceOwnerAccount',
+        'resourceOwnerId' => 'ResourceOwnerId',
     ];
 
     public function validate()

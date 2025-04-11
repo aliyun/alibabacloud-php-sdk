@@ -13,88 +13,104 @@ class transitRouterRouteEntries extends Model
      * @var string
      */
     public $createTime;
+
     /**
      * @var bool
      */
     public $operationalMode;
+
     /**
      * @var pathAttributes
      */
     public $pathAttributes;
+
     /**
      * @var string
      */
     public $prefixListId;
+
     /**
      * @var string
      */
     public $tag;
+
     /**
      * @var string
      */
     public $transitRouterRouteEntryDescription;
+
     /**
      * @var string
      */
     public $transitRouterRouteEntryDestinationCidrBlock;
+
     /**
      * @var string
      */
     public $transitRouterRouteEntryId;
+
     /**
      * @var string
      */
     public $transitRouterRouteEntryName;
+
     /**
      * @var string
      */
     public $transitRouterRouteEntryNextHopId;
+
     /**
      * @var string
      */
     public $transitRouterRouteEntryNextHopResourceId;
+
     /**
      * @var string
      */
     public $transitRouterRouteEntryNextHopResourceType;
+
     /**
      * @var string
      */
     public $transitRouterRouteEntryNextHopType;
+
     /**
      * @var string
      */
     public $transitRouterRouteEntryOriginResourceId;
+
     /**
      * @var string
      */
     public $transitRouterRouteEntryOriginResourceType;
+
     /**
      * @var string
      */
     public $transitRouterRouteEntryStatus;
+
     /**
      * @var string
      */
     public $transitRouterRouteEntryType;
     protected $_name = [
-        'createTime'                                  => 'CreateTime',
-        'operationalMode'                             => 'OperationalMode',
-        'pathAttributes'                              => 'PathAttributes',
-        'prefixListId'                                => 'PrefixListId',
-        'tag'                                         => 'Tag',
-        'transitRouterRouteEntryDescription'          => 'TransitRouterRouteEntryDescription',
+        'createTime' => 'CreateTime',
+        'operationalMode' => 'OperationalMode',
+        'pathAttributes' => 'PathAttributes',
+        'prefixListId' => 'PrefixListId',
+        'tag' => 'Tag',
+        'transitRouterRouteEntryDescription' => 'TransitRouterRouteEntryDescription',
         'transitRouterRouteEntryDestinationCidrBlock' => 'TransitRouterRouteEntryDestinationCidrBlock',
-        'transitRouterRouteEntryId'                   => 'TransitRouterRouteEntryId',
-        'transitRouterRouteEntryName'                 => 'TransitRouterRouteEntryName',
-        'transitRouterRouteEntryNextHopId'            => 'TransitRouterRouteEntryNextHopId',
-        'transitRouterRouteEntryNextHopResourceId'    => 'TransitRouterRouteEntryNextHopResourceId',
-        'transitRouterRouteEntryNextHopResourceType'  => 'TransitRouterRouteEntryNextHopResourceType',
-        'transitRouterRouteEntryNextHopType'          => 'TransitRouterRouteEntryNextHopType',
-        'transitRouterRouteEntryOriginResourceId'     => 'TransitRouterRouteEntryOriginResourceId',
-        'transitRouterRouteEntryOriginResourceType'   => 'TransitRouterRouteEntryOriginResourceType',
-        'transitRouterRouteEntryStatus'               => 'TransitRouterRouteEntryStatus',
-        'transitRouterRouteEntryType'                 => 'TransitRouterRouteEntryType',
+        'transitRouterRouteEntryId' => 'TransitRouterRouteEntryId',
+        'transitRouterRouteEntryName' => 'TransitRouterRouteEntryName',
+        'transitRouterRouteEntryNextHopId' => 'TransitRouterRouteEntryNextHopId',
+        'transitRouterRouteEntryNextHopResourceId' => 'TransitRouterRouteEntryNextHopResourceId',
+        'transitRouterRouteEntryNextHopResourceType' => 'TransitRouterRouteEntryNextHopResourceType',
+        'transitRouterRouteEntryNextHopType' => 'TransitRouterRouteEntryNextHopType',
+        'transitRouterRouteEntryOriginResourceId' => 'TransitRouterRouteEntryOriginResourceId',
+        'transitRouterRouteEntryOriginResourceType' => 'TransitRouterRouteEntryOriginResourceType',
+        'transitRouterRouteEntryStatus' => 'TransitRouterRouteEntryStatus',
+        'transitRouterRouteEntryType' => 'TransitRouterRouteEntryType',
     ];
 
     public function validate()

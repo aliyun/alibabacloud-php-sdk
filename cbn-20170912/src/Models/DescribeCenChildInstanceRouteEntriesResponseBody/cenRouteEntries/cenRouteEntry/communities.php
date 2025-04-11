@@ -30,7 +30,7 @@ class communities extends Model
         if (null !== $this->community) {
             if (\is_array($this->community)) {
                 $res['Community'] = [];
-                $n1               = 0;
+                $n1 = 0;
                 foreach ($this->community as $item1) {
                     $res['Community'][$n1++] = $item1;
                 }
@@ -51,7 +51,7 @@ class communities extends Model
         if (isset($map['Community'])) {
             if (!empty($map['Community'])) {
                 $model->community = [];
-                $n1               = 0;
+                $n1 = 0;
                 foreach ($map['Community'] as $item1) {
                     $model->community[$n1++] = $item1;
                 }

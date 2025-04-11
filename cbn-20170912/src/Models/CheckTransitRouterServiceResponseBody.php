@@ -12,12 +12,13 @@ class CheckTransitRouterServiceResponseBody extends Model
      * @var string
      */
     public $enabled;
+
     /**
      * @var string
      */
     public $requestId;
     protected $_name = [
-        'enabled'   => 'Enabled',
+        'enabled' => 'Enabled',
         'requestId' => 'RequestId',
     ];
 

@@ -14,53 +14,62 @@ class cen extends Model
      * @var cenBandwidthPackageIds
      */
     public $cenBandwidthPackageIds;
+
     /**
      * @var string
      */
     public $cenId;
+
     /**
      * @var string
      */
     public $creationTime;
+
     /**
      * @var string
      */
     public $description;
+
     /**
      * @var string
      */
     public $ipv6Level;
+
     /**
      * @var string
      */
     public $name;
+
     /**
      * @var string
      */
     public $protectionLevel;
+
     /**
      * @var string
      */
     public $resourceGroupId;
+
     /**
      * @var string
      */
     public $status;
+
     /**
      * @var tags
      */
     public $tags;
     protected $_name = [
         'cenBandwidthPackageIds' => 'CenBandwidthPackageIds',
-        'cenId'                  => 'CenId',
-        'creationTime'           => 'CreationTime',
-        'description'            => 'Description',
-        'ipv6Level'              => 'Ipv6Level',
-        'name'                   => 'Name',
-        'protectionLevel'        => 'ProtectionLevel',
-        'resourceGroupId'        => 'ResourceGroupId',
-        'status'                 => 'Status',
-        'tags'                   => 'Tags',
+        'cenId' => 'CenId',
+        'creationTime' => 'CreationTime',
+        'description' => 'Description',
+        'ipv6Level' => 'Ipv6Level',
+        'name' => 'Name',
+        'protectionLevel' => 'ProtectionLevel',
+        'resourceGroupId' => 'ResourceGroupId',
+        'status' => 'Status',
+        'tags' => 'Tags',
     ];
 
     public function validate()

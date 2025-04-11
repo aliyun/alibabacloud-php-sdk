@@ -13,53 +13,62 @@ class DescribeCenAttachedChildInstanceAttributeResponseBody extends Model
      * @var string
      */
     public $cenId;
+
     /**
      * @var string
      */
     public $childInstanceAttachTime;
+
     /**
      * @var childInstanceAttributes
      */
     public $childInstanceAttributes;
+
     /**
      * @var string
      */
     public $childInstanceId;
+
     /**
      * @var string
      */
     public $childInstanceName;
+
     /**
      * @var int
      */
     public $childInstanceOwnerId;
+
     /**
      * @var string
      */
     public $childInstanceRegionId;
+
     /**
      * @var string
      */
     public $childInstanceType;
+
     /**
      * @var string
      */
     public $requestId;
+
     /**
      * @var string
      */
     public $status;
     protected $_name = [
-        'cenId'                   => 'CenId',
+        'cenId' => 'CenId',
         'childInstanceAttachTime' => 'ChildInstanceAttachTime',
         'childInstanceAttributes' => 'ChildInstanceAttributes',
-        'childInstanceId'         => 'ChildInstanceId',
-        'childInstanceName'       => 'ChildInstanceName',
-        'childInstanceOwnerId'    => 'ChildInstanceOwnerId',
-        'childInstanceRegionId'   => 'ChildInstanceRegionId',
-        'childInstanceType'       => 'ChildInstanceType',
-        'requestId'               => 'RequestId',
-        'status'                  => 'Status',
+        'childInstanceId' => 'ChildInstanceId',
+        'childInstanceName' => 'ChildInstanceName',
+        'childInstanceOwnerId' => 'ChildInstanceOwnerId',
+        'childInstanceRegionId' => 'ChildInstanceRegionId',
+        'childInstanceType' => 'ChildInstanceType',
+        'requestId' => 'RequestId',
+        'status' => 'Status',
     ];
 
     public function validate()

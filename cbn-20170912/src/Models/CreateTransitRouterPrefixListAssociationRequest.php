@@ -12,67 +12,79 @@ class CreateTransitRouterPrefixListAssociationRequest extends Model
      * @var string
      */
     public $clientToken;
+
     /**
      * @var bool
      */
     public $dryRun;
+
     /**
      * @var string
      */
     public $nextHop;
+
     /**
      * @var string
      */
     public $nextHopType;
+
     /**
      * @var string
      */
     public $ownerAccount;
+
     /**
      * @var int
      */
     public $ownerId;
+
     /**
      * @var int
      */
     public $ownerUid;
+
     /**
      * @var string
      */
     public $prefixListId;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $resourceOwnerAccount;
+
     /**
      * @var int
      */
     public $resourceOwnerId;
+
     /**
      * @var string
      */
     public $transitRouterId;
+
     /**
      * @var string
      */
     public $transitRouterTableId;
     protected $_name = [
-        'clientToken'          => 'ClientToken',
-        'dryRun'               => 'DryRun',
-        'nextHop'              => 'NextHop',
-        'nextHopType'          => 'NextHopType',
-        'ownerAccount'         => 'OwnerAccount',
-        'ownerId'              => 'OwnerId',
-        'ownerUid'             => 'OwnerUid',
-        'prefixListId'         => 'PrefixListId',
-        'regionId'             => 'RegionId',
+        'clientToken' => 'ClientToken',
+        'dryRun' => 'DryRun',
+        'nextHop' => 'NextHop',
+        'nextHopType' => 'NextHopType',
+        'ownerAccount' => 'OwnerAccount',
+        'ownerId' => 'OwnerId',
+        'ownerUid' => 'OwnerUid',
+        'prefixListId' => 'PrefixListId',
+        'regionId' => 'RegionId',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
-        'resourceOwnerId'      => 'ResourceOwnerId',
-        'transitRouterId'      => 'TransitRouterId',
+        'resourceOwnerId' => 'ResourceOwnerId',
+        'transitRouterId' => 'TransitRouterId',
         'transitRouterTableId' => 'TransitRouterTableId',
     ];
 

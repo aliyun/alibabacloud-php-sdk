@@ -12,37 +12,49 @@ class DeleteTrafficMarkingPolicyRequest extends Model
      * @var string
      */
     public $clientToken;
+
     /**
      * @var bool
      */
     public $dryRun;
+
+    /**
+     * @var bool
+     */
+    public $force;
+
     /**
      * @var string
      */
     public $ownerAccount;
+
     /**
      * @var int
      */
     public $ownerId;
+
     /**
      * @var string
      */
     public $resourceOwnerAccount;
+
     /**
      * @var int
      */
     public $resourceOwnerId;
+
     /**
      * @var string
      */
     public $trafficMarkingPolicyId;
     protected $_name = [
-        'clientToken'            => 'ClientToken',
-        'dryRun'                 => 'DryRun',
-        'ownerAccount'           => 'OwnerAccount',
-        'ownerId'                => 'OwnerId',
-        'resourceOwnerAccount'   => 'ResourceOwnerAccount',
-        'resourceOwnerId'        => 'ResourceOwnerId',
+        'clientToken' => 'ClientToken',
+        'dryRun' => 'DryRun',
+        'force' => 'Force',
+        'ownerAccount' => 'OwnerAccount',
+        'ownerId' => 'OwnerId',
+        'resourceOwnerAccount' => 'ResourceOwnerAccount',
+        'resourceOwnerId' => 'ResourceOwnerId',
         'trafficMarkingPolicyId' => 'TrafficMarkingPolicyId',
     ];
 
@@ -60,6 +72,10 @@ class DeleteTrafficMarkingPolicyRequest extends Model
 
         if (null !== $this->dryRun) {
             $res['DryRun'] = $this->dryRun;
+        }
+
+        if (null !== $this->force) {
+            $res['Force'] = $this->force;
         }
 
         if (null !== $this->ownerAccount) {
@@ -99,6 +115,10 @@ class DeleteTrafficMarkingPolicyRequest extends Model
 
         if (isset($map['DryRun'])) {
             $model->dryRun = $map['DryRun'];
+        }
+
+        if (isset($map['Force'])) {
+            $model->force = $map['Force'];
         }
 
         if (isset($map['OwnerAccount'])) {

@@ -30,7 +30,7 @@ class destinationRouteTableIds extends Model
         if (null !== $this->destinationRouteTableId) {
             if (\is_array($this->destinationRouteTableId)) {
                 $res['DestinationRouteTableId'] = [];
-                $n1                             = 0;
+                $n1 = 0;
                 foreach ($this->destinationRouteTableId as $item1) {
                     $res['DestinationRouteTableId'][$n1++] = $item1;
                 }
@@ -51,7 +51,7 @@ class destinationRouteTableIds extends Model
         if (isset($map['DestinationRouteTableId'])) {
             if (!empty($map['DestinationRouteTableId'])) {
                 $model->destinationRouteTableId = [];
-                $n1                             = 0;
+                $n1 = 0;
                 foreach ($map['DestinationRouteTableId'] as $item1) {
                     $model->destinationRouteTableId[$n1++] = $item1;
                 }

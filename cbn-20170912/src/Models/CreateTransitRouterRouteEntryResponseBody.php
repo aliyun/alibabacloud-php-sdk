@@ -12,12 +12,13 @@ class CreateTransitRouterRouteEntryResponseBody extends Model
      * @var string
      */
     public $requestId;
+
     /**
      * @var string
      */
     public $transitRouterRouteEntryId;
     protected $_name = [
-        'requestId'                 => 'RequestId',
+        'requestId' => 'RequestId',
         'transitRouterRouteEntryId' => 'TransitRouterRouteEntryId',
     ];
 

@@ -12,38 +12,44 @@ class DeleteCenRouteMapRequest extends Model
      * @var string
      */
     public $cenId;
+
     /**
      * @var string
      */
     public $cenRegionId;
+
     /**
      * @var string
      */
     public $ownerAccount;
+
     /**
      * @var int
      */
     public $ownerId;
+
     /**
      * @var string
      */
     public $resourceOwnerAccount;
+
     /**
      * @var int
      */
     public $resourceOwnerId;
+
     /**
      * @var string
      */
     public $routeMapId;
     protected $_name = [
-        'cenId'                => 'CenId',
-        'cenRegionId'          => 'CenRegionId',
-        'ownerAccount'         => 'OwnerAccount',
-        'ownerId'              => 'OwnerId',
+        'cenId' => 'CenId',
+        'cenRegionId' => 'CenRegionId',
+        'ownerAccount' => 'OwnerAccount',
+        'ownerId' => 'OwnerId',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
-        'resourceOwnerId'      => 'ResourceOwnerId',
-        'routeMapId'           => 'RouteMapId',
+        'resourceOwnerId' => 'ResourceOwnerId',
+        'routeMapId' => 'RouteMapId',
     ];
 
     public function validate()

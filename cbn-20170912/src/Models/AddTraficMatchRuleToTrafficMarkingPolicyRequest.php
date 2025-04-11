@@ -13,43 +13,50 @@ class AddTraficMatchRuleToTrafficMarkingPolicyRequest extends Model
      * @var string
      */
     public $clientToken;
+
     /**
      * @var bool
      */
     public $dryRun;
+
     /**
      * @var string
      */
     public $ownerAccount;
+
     /**
      * @var int
      */
     public $ownerId;
+
     /**
      * @var string
      */
     public $resourceOwnerAccount;
+
     /**
      * @var int
      */
     public $resourceOwnerId;
+
     /**
      * @var string
      */
     public $trafficMarkingPolicyId;
+
     /**
      * @var trafficMatchRules[]
      */
     public $trafficMatchRules;
     protected $_name = [
-        'clientToken'            => 'ClientToken',
-        'dryRun'                 => 'DryRun',
-        'ownerAccount'           => 'OwnerAccount',
-        'ownerId'                => 'OwnerId',
-        'resourceOwnerAccount'   => 'ResourceOwnerAccount',
-        'resourceOwnerId'        => 'ResourceOwnerId',
+        'clientToken' => 'ClientToken',
+        'dryRun' => 'DryRun',
+        'ownerAccount' => 'OwnerAccount',
+        'ownerId' => 'OwnerId',
+        'resourceOwnerAccount' => 'ResourceOwnerAccount',
+        'resourceOwnerId' => 'ResourceOwnerId',
         'trafficMarkingPolicyId' => 'TrafficMarkingPolicyId',
-        'trafficMatchRules'      => 'TrafficMatchRules',
+        'trafficMatchRules' => 'TrafficMatchRules',
     ];
 
     public function validate()
@@ -94,7 +101,7 @@ class AddTraficMatchRuleToTrafficMarkingPolicyRequest extends Model
         if (null !== $this->trafficMatchRules) {
             if (\is_array($this->trafficMatchRules)) {
                 $res['TrafficMatchRules'] = [];
-                $n1                       = 0;
+                $n1 = 0;
                 foreach ($this->trafficMatchRules as $item1) {
                     $res['TrafficMatchRules'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -143,7 +150,7 @@ class AddTraficMatchRuleToTrafficMarkingPolicyRequest extends Model
         if (isset($map['TrafficMatchRules'])) {
             if (!empty($map['TrafficMatchRules'])) {
                 $model->trafficMatchRules = [];
-                $n1                       = 0;
+                $n1 = 0;
                 foreach ($map['TrafficMatchRules'] as $item1) {
                     $model->trafficMatchRules[$n1++] = trafficMatchRules::fromMap($item1);
                 }

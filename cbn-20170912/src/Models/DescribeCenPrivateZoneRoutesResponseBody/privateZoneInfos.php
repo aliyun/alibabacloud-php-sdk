@@ -31,7 +31,7 @@ class privateZoneInfos extends Model
         if (null !== $this->privateZoneInfo) {
             if (\is_array($this->privateZoneInfo)) {
                 $res['PrivateZoneInfo'] = [];
-                $n1                     = 0;
+                $n1 = 0;
                 foreach ($this->privateZoneInfo as $item1) {
                     $res['PrivateZoneInfo'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -52,7 +52,7 @@ class privateZoneInfos extends Model
         if (isset($map['PrivateZoneInfo'])) {
             if (!empty($map['PrivateZoneInfo'])) {
                 $model->privateZoneInfo = [];
-                $n1                     = 0;
+                $n1 = 0;
                 foreach ($map['PrivateZoneInfo'] as $item1) {
                     $model->privateZoneInfo[$n1++] = privateZoneInfo::fromMap($item1);
                 }

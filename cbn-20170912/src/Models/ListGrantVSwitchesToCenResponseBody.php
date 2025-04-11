@@ -13,28 +13,32 @@ class ListGrantVSwitchesToCenResponseBody extends Model
      * @var int
      */
     public $pageNumber;
+
     /**
      * @var int
      */
     public $pageSize;
+
     /**
      * @var string
      */
     public $requestId;
+
     /**
      * @var int
      */
     public $totalCount;
+
     /**
      * @var vSwitches[]
      */
     public $vSwitches;
     protected $_name = [
         'pageNumber' => 'PageNumber',
-        'pageSize'   => 'PageSize',
-        'requestId'  => 'RequestId',
+        'pageSize' => 'PageSize',
+        'requestId' => 'RequestId',
         'totalCount' => 'TotalCount',
-        'vSwitches'  => 'VSwitches',
+        'vSwitches' => 'VSwitches',
     ];
 
     public function validate()
@@ -67,7 +71,7 @@ class ListGrantVSwitchesToCenResponseBody extends Model
         if (null !== $this->vSwitches) {
             if (\is_array($this->vSwitches)) {
                 $res['VSwitches'] = [];
-                $n1               = 0;
+                $n1 = 0;
                 foreach ($this->vSwitches as $item1) {
                     $res['VSwitches'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -104,7 +108,7 @@ class ListGrantVSwitchesToCenResponseBody extends Model
         if (isset($map['VSwitches'])) {
             if (!empty($map['VSwitches'])) {
                 $model->vSwitches = [];
-                $n1               = 0;
+                $n1 = 0;
                 foreach ($map['VSwitches'] as $item1) {
                     $model->vSwitches[$n1++] = vSwitches::fromMap($item1);
                 }

@@ -13,68 +13,80 @@ class ListCenInterRegionTrafficQosQueuesRequest extends Model
      * @var effectiveBandwidthFilter
      */
     public $effectiveBandwidthFilter;
+
     /**
      * @var int
      */
     public $maxResults;
+
     /**
      * @var string
      */
     public $nextToken;
+
     /**
      * @var string
      */
     public $ownerAccount;
+
     /**
      * @var int
      */
     public $ownerId;
+
     /**
      * @var string
      */
     public $resourceOwnerAccount;
+
     /**
      * @var int
      */
     public $resourceOwnerId;
+
     /**
      * @var string
      */
     public $trafficQosPolicyId;
+
     /**
      * @var string
      */
     public $trafficQosQueueDescription;
+
     /**
      * @var string
      */
     public $trafficQosQueueId;
+
     /**
      * @var string
      */
     public $trafficQosQueueName;
+
     /**
      * @var string
      */
     public $transitRouterAttachmentId;
+
     /**
      * @var string
      */
     public $transitRouterId;
     protected $_name = [
-        'effectiveBandwidthFilter'   => 'EffectiveBandwidthFilter',
-        'maxResults'                 => 'MaxResults',
-        'nextToken'                  => 'NextToken',
-        'ownerAccount'               => 'OwnerAccount',
-        'ownerId'                    => 'OwnerId',
-        'resourceOwnerAccount'       => 'ResourceOwnerAccount',
-        'resourceOwnerId'            => 'ResourceOwnerId',
-        'trafficQosPolicyId'         => 'TrafficQosPolicyId',
+        'effectiveBandwidthFilter' => 'EffectiveBandwidthFilter',
+        'maxResults' => 'MaxResults',
+        'nextToken' => 'NextToken',
+        'ownerAccount' => 'OwnerAccount',
+        'ownerId' => 'OwnerId',
+        'resourceOwnerAccount' => 'ResourceOwnerAccount',
+        'resourceOwnerId' => 'ResourceOwnerId',
+        'trafficQosPolicyId' => 'TrafficQosPolicyId',
         'trafficQosQueueDescription' => 'TrafficQosQueueDescription',
-        'trafficQosQueueId'          => 'TrafficQosQueueId',
-        'trafficQosQueueName'        => 'TrafficQosQueueName',
-        'transitRouterAttachmentId'  => 'TransitRouterAttachmentId',
-        'transitRouterId'            => 'TransitRouterId',
+        'trafficQosQueueId' => 'TrafficQosQueueId',
+        'trafficQosQueueName' => 'TrafficQosQueueName',
+        'transitRouterAttachmentId' => 'TransitRouterAttachmentId',
+        'transitRouterId' => 'TransitRouterId',
     ];
 
     public function validate()

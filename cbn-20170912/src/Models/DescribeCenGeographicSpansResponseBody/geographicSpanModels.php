@@ -31,7 +31,7 @@ class geographicSpanModels extends Model
         if (null !== $this->geographicSpanModel) {
             if (\is_array($this->geographicSpanModel)) {
                 $res['GeographicSpanModel'] = [];
-                $n1                         = 0;
+                $n1 = 0;
                 foreach ($this->geographicSpanModel as $item1) {
                     $res['GeographicSpanModel'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -52,7 +52,7 @@ class geographicSpanModels extends Model
         if (isset($map['GeographicSpanModel'])) {
             if (!empty($map['GeographicSpanModel'])) {
                 $model->geographicSpanModel = [];
-                $n1                         = 0;
+                $n1 = 0;
                 foreach ($map['GeographicSpanModel'] as $item1) {
                     $model->geographicSpanModel[$n1++] = geographicSpanModel::fromMap($item1);
                 }

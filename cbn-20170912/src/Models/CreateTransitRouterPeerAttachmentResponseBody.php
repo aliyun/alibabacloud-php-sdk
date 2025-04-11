@@ -12,12 +12,13 @@ class CreateTransitRouterPeerAttachmentResponseBody extends Model
      * @var string
      */
     public $requestId;
+
     /**
      * @var string
      */
     public $transitRouterAttachmentId;
     protected $_name = [
-        'requestId'                 => 'RequestId',
+        'requestId' => 'RequestId',
         'transitRouterAttachmentId' => 'TransitRouterAttachmentId',
     ];
 

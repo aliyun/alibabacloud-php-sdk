@@ -13,43 +13,50 @@ class trafficQosPolicies extends Model
      * @var string
      */
     public $bandwidthGuaranteeMode;
+
     /**
      * @var string
      */
     public $trafficQosPolicyDescription;
+
     /**
      * @var string
      */
     public $trafficQosPolicyId;
+
     /**
      * @var string
      */
     public $trafficQosPolicyName;
+
     /**
      * @var string
      */
     public $trafficQosPolicyStatus;
+
     /**
      * @var trafficQosQueues[]
      */
     public $trafficQosQueues;
+
     /**
      * @var string
      */
     public $transitRouterAttachmentId;
+
     /**
      * @var string
      */
     public $transitRouterId;
     protected $_name = [
-        'bandwidthGuaranteeMode'      => 'BandwidthGuaranteeMode',
+        'bandwidthGuaranteeMode' => 'BandwidthGuaranteeMode',
         'trafficQosPolicyDescription' => 'TrafficQosPolicyDescription',
-        'trafficQosPolicyId'          => 'TrafficQosPolicyId',
-        'trafficQosPolicyName'        => 'TrafficQosPolicyName',
-        'trafficQosPolicyStatus'      => 'TrafficQosPolicyStatus',
-        'trafficQosQueues'            => 'TrafficQosQueues',
-        'transitRouterAttachmentId'   => 'TransitRouterAttachmentId',
-        'transitRouterId'             => 'TransitRouterId',
+        'trafficQosPolicyId' => 'TrafficQosPolicyId',
+        'trafficQosPolicyName' => 'TrafficQosPolicyName',
+        'trafficQosPolicyStatus' => 'TrafficQosPolicyStatus',
+        'trafficQosQueues' => 'TrafficQosQueues',
+        'transitRouterAttachmentId' => 'TransitRouterAttachmentId',
+        'transitRouterId' => 'TransitRouterId',
     ];
 
     public function validate()
@@ -86,7 +93,7 @@ class trafficQosPolicies extends Model
         if (null !== $this->trafficQosQueues) {
             if (\is_array($this->trafficQosQueues)) {
                 $res['TrafficQosQueues'] = [];
-                $n1                      = 0;
+                $n1 = 0;
                 foreach ($this->trafficQosQueues as $item1) {
                     $res['TrafficQosQueues'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -135,7 +142,7 @@ class trafficQosPolicies extends Model
         if (isset($map['TrafficQosQueues'])) {
             if (!empty($map['TrafficQosQueues'])) {
                 $model->trafficQosQueues = [];
-                $n1                      = 0;
+                $n1 = 0;
                 foreach ($map['TrafficQosQueues'] as $item1) {
                     $model->trafficQosQueues[$n1++] = trafficQosQueues::fromMap($item1);
                 }

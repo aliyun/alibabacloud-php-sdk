@@ -1,3 +1,7 @@
+2025-04-11 Version: 1.2.5
+- Update API DeleteTrafficMarkingPolicy: add request parameters Force.
+
+
 2025-02-28 Version: 1.2.4
 - Generated php 2017-09-12 for Cbn.
 

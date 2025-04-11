@@ -13,27 +13,31 @@ class ListTransitRouterMulticastDomainsResponseBody extends Model
      * @var int
      */
     public $maxResults;
+
     /**
      * @var string
      */
     public $nextToken;
+
     /**
      * @var string
      */
     public $requestId;
+
     /**
      * @var int
      */
     public $totalCount;
+
     /**
      * @var transitRouterMulticastDomains[]
      */
     public $transitRouterMulticastDomains;
     protected $_name = [
-        'maxResults'                    => 'MaxResults',
-        'nextToken'                     => 'NextToken',
-        'requestId'                     => 'RequestId',
-        'totalCount'                    => 'TotalCount',
+        'maxResults' => 'MaxResults',
+        'nextToken' => 'NextToken',
+        'requestId' => 'RequestId',
+        'totalCount' => 'TotalCount',
         'transitRouterMulticastDomains' => 'TransitRouterMulticastDomains',
     ];
 
@@ -67,7 +71,7 @@ class ListTransitRouterMulticastDomainsResponseBody extends Model
         if (null !== $this->transitRouterMulticastDomains) {
             if (\is_array($this->transitRouterMulticastDomains)) {
                 $res['TransitRouterMulticastDomains'] = [];
-                $n1                                   = 0;
+                $n1 = 0;
                 foreach ($this->transitRouterMulticastDomains as $item1) {
                     $res['TransitRouterMulticastDomains'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -104,7 +108,7 @@ class ListTransitRouterMulticastDomainsResponseBody extends Model
         if (isset($map['TransitRouterMulticastDomains'])) {
             if (!empty($map['TransitRouterMulticastDomains'])) {
                 $model->transitRouterMulticastDomains = [];
-                $n1                                   = 0;
+                $n1 = 0;
                 foreach ($map['TransitRouterMulticastDomains'] as $item1) {
                     $model->transitRouterMulticastDomains[$n1++] = transitRouterMulticastDomains::fromMap($item1);
                 }

@@ -30,7 +30,7 @@ class sourceInstanceIds extends Model
         if (null !== $this->sourceInstanceId) {
             if (\is_array($this->sourceInstanceId)) {
                 $res['SourceInstanceId'] = [];
-                $n1                      = 0;
+                $n1 = 0;
                 foreach ($this->sourceInstanceId as $item1) {
                     $res['SourceInstanceId'][$n1++] = $item1;
                 }
@@ -51,7 +51,7 @@ class sourceInstanceIds extends Model
         if (isset($map['SourceInstanceId'])) {
             if (!empty($map['SourceInstanceId'])) {
                 $model->sourceInstanceId = [];
-                $n1                      = 0;
+                $n1 = 0;
                 foreach ($map['SourceInstanceId'] as $item1) {
                     $model->sourceInstanceId[$n1++] = $item1;
                 }

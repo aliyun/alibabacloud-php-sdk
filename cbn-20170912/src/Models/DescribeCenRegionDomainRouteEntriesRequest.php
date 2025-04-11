@@ -12,48 +12,56 @@ class DescribeCenRegionDomainRouteEntriesRequest extends Model
      * @var string
      */
     public $cenId;
+
     /**
      * @var string
      */
     public $cenRegionId;
+
     /**
      * @var string
      */
     public $ownerAccount;
+
     /**
      * @var int
      */
     public $ownerId;
+
     /**
      * @var int
      */
     public $pageNumber;
+
     /**
      * @var int
      */
     public $pageSize;
+
     /**
      * @var string
      */
     public $resourceOwnerAccount;
+
     /**
      * @var int
      */
     public $resourceOwnerId;
+
     /**
      * @var string
      */
     public $status;
     protected $_name = [
-        'cenId'                => 'CenId',
-        'cenRegionId'          => 'CenRegionId',
-        'ownerAccount'         => 'OwnerAccount',
-        'ownerId'              => 'OwnerId',
-        'pageNumber'           => 'PageNumber',
-        'pageSize'             => 'PageSize',
+        'cenId' => 'CenId',
+        'cenRegionId' => 'CenRegionId',
+        'ownerAccount' => 'OwnerAccount',
+        'ownerId' => 'OwnerId',
+        'pageNumber' => 'PageNumber',
+        'pageSize' => 'PageSize',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
-        'resourceOwnerId'      => 'ResourceOwnerId',
-        'status'               => 'Status',
+        'resourceOwnerId' => 'ResourceOwnerId',
+        'status' => 'Status',
     ];
 
     public function validate()

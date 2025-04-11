@@ -12,63 +12,74 @@ class DescribeGrantRulesToCenRequest extends Model
      * @var string
      */
     public $cenId;
+
     /**
      * @var string
      */
     public $childInstanceId;
+
     /**
      * @var int
      */
     public $childInstanceOwnerId;
+
     /**
      * @var bool
      */
     public $enabledIpv6;
+
     /**
      * @var int
      */
     public $maxResults;
+
     /**
      * @var string
      */
     public $nextToken;
+
     /**
      * @var string
      */
     public $ownerAccount;
+
     /**
      * @var int
      */
     public $ownerId;
+
     /**
      * @var string
      */
     public $productType;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $resourceOwnerAccount;
+
     /**
      * @var int
      */
     public $resourceOwnerId;
     protected $_name = [
-        'cenId'                => 'CenId',
-        'childInstanceId'      => 'ChildInstanceId',
+        'cenId' => 'CenId',
+        'childInstanceId' => 'ChildInstanceId',
         'childInstanceOwnerId' => 'ChildInstanceOwnerId',
-        'enabledIpv6'          => 'EnabledIpv6',
-        'maxResults'           => 'MaxResults',
-        'nextToken'            => 'NextToken',
-        'ownerAccount'         => 'OwnerAccount',
-        'ownerId'              => 'OwnerId',
-        'productType'          => 'ProductType',
-        'regionId'             => 'RegionId',
+        'enabledIpv6' => 'EnabledIpv6',
+        'maxResults' => 'MaxResults',
+        'nextToken' => 'NextToken',
+        'ownerAccount' => 'OwnerAccount',
+        'ownerId' => 'OwnerId',
+        'productType' => 'ProductType',
+        'regionId' => 'RegionId',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
-        'resourceOwnerId'      => 'ResourceOwnerId',
+        'resourceOwnerId' => 'ResourceOwnerId',
     ];
 
     public function validate()

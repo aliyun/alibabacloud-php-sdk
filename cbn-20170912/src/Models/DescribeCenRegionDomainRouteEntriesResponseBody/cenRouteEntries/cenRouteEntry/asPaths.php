@@ -30,7 +30,7 @@ class asPaths extends Model
         if (null !== $this->asPath) {
             if (\is_array($this->asPath)) {
                 $res['AsPath'] = [];
-                $n1            = 0;
+                $n1 = 0;
                 foreach ($this->asPath as $item1) {
                     $res['AsPath'][$n1++] = $item1;
                 }
@@ -51,7 +51,7 @@ class asPaths extends Model
         if (isset($map['AsPath'])) {
             if (!empty($map['AsPath'])) {
                 $model->asPath = [];
-                $n1            = 0;
+                $n1 = 0;
                 foreach ($map['AsPath'] as $item1) {
                     $model->asPath[$n1++] = $item1;
                 }

@@ -13,28 +13,32 @@ class DescribeCenInterRegionBandwidthLimitsResponseBody extends Model
      * @var cenInterRegionBandwidthLimits
      */
     public $cenInterRegionBandwidthLimits;
+
     /**
      * @var int
      */
     public $pageNumber;
+
     /**
      * @var int
      */
     public $pageSize;
+
     /**
      * @var string
      */
     public $requestId;
+
     /**
      * @var int
      */
     public $totalCount;
     protected $_name = [
         'cenInterRegionBandwidthLimits' => 'CenInterRegionBandwidthLimits',
-        'pageNumber'                    => 'PageNumber',
-        'pageSize'                      => 'PageSize',
-        'requestId'                     => 'RequestId',
-        'totalCount'                    => 'TotalCount',
+        'pageNumber' => 'PageNumber',
+        'pageSize' => 'PageSize',
+        'requestId' => 'RequestId',
+        'totalCount' => 'TotalCount',
     ];
 
     public function validate()

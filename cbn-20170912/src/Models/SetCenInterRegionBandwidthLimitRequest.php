@@ -12,48 +12,56 @@ class SetCenInterRegionBandwidthLimitRequest extends Model
      * @var int
      */
     public $bandwidthLimit;
+
     /**
      * @var string
      */
     public $bandwidthType;
+
     /**
      * @var string
      */
     public $cenId;
+
     /**
      * @var string
      */
     public $localRegionId;
+
     /**
      * @var string
      */
     public $oppositeRegionId;
+
     /**
      * @var string
      */
     public $ownerAccount;
+
     /**
      * @var int
      */
     public $ownerId;
+
     /**
      * @var string
      */
     public $resourceOwnerAccount;
+
     /**
      * @var int
      */
     public $resourceOwnerId;
     protected $_name = [
-        'bandwidthLimit'       => 'BandwidthLimit',
-        'bandwidthType'        => 'BandwidthType',
-        'cenId'                => 'CenId',
-        'localRegionId'        => 'LocalRegionId',
-        'oppositeRegionId'     => 'OppositeRegionId',
-        'ownerAccount'         => 'OwnerAccount',
-        'ownerId'              => 'OwnerId',
+        'bandwidthLimit' => 'BandwidthLimit',
+        'bandwidthType' => 'BandwidthType',
+        'cenId' => 'CenId',
+        'localRegionId' => 'LocalRegionId',
+        'oppositeRegionId' => 'OppositeRegionId',
+        'ownerAccount' => 'OwnerAccount',
+        'ownerId' => 'OwnerId',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
-        'resourceOwnerId'      => 'ResourceOwnerId',
+        'resourceOwnerId' => 'ResourceOwnerId',
     ];
 
     public function validate()

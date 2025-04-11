@@ -13,98 +13,116 @@ class CreateTransitRouterPeerAttachmentRequest extends Model
      * @var bool
      */
     public $autoPublishRouteEnabled;
+
     /**
      * @var int
      */
     public $bandwidth;
+
     /**
      * @var string
      */
     public $bandwidthType;
+
     /**
      * @var string
      */
     public $cenBandwidthPackageId;
+
     /**
      * @var string
      */
     public $cenId;
+
     /**
      * @var string
      */
     public $clientToken;
+
     /**
      * @var string
      */
     public $defaultLinkType;
+
     /**
      * @var bool
      */
     public $dryRun;
+
     /**
      * @var string
      */
     public $ownerAccount;
+
     /**
      * @var int
      */
     public $ownerId;
+
     /**
      * @var string
      */
     public $peerTransitRouterId;
+
     /**
      * @var string
      */
     public $peerTransitRouterRegionId;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $resourceOwnerAccount;
+
     /**
      * @var int
      */
     public $resourceOwnerId;
+
     /**
      * @var tag[]
      */
     public $tag;
+
     /**
      * @var string
      */
     public $transitRouterAttachmentDescription;
+
     /**
      * @var string
      */
     public $transitRouterAttachmentName;
+
     /**
      * @var string
      */
     public $transitRouterId;
     protected $_name = [
-        'autoPublishRouteEnabled'            => 'AutoPublishRouteEnabled',
-        'bandwidth'                          => 'Bandwidth',
-        'bandwidthType'                      => 'BandwidthType',
-        'cenBandwidthPackageId'              => 'CenBandwidthPackageId',
-        'cenId'                              => 'CenId',
-        'clientToken'                        => 'ClientToken',
-        'defaultLinkType'                    => 'DefaultLinkType',
-        'dryRun'                             => 'DryRun',
-        'ownerAccount'                       => 'OwnerAccount',
-        'ownerId'                            => 'OwnerId',
-        'peerTransitRouterId'                => 'PeerTransitRouterId',
-        'peerTransitRouterRegionId'          => 'PeerTransitRouterRegionId',
-        'regionId'                           => 'RegionId',
-        'resourceOwnerAccount'               => 'ResourceOwnerAccount',
-        'resourceOwnerId'                    => 'ResourceOwnerId',
-        'tag'                                => 'Tag',
+        'autoPublishRouteEnabled' => 'AutoPublishRouteEnabled',
+        'bandwidth' => 'Bandwidth',
+        'bandwidthType' => 'BandwidthType',
+        'cenBandwidthPackageId' => 'CenBandwidthPackageId',
+        'cenId' => 'CenId',
+        'clientToken' => 'ClientToken',
+        'defaultLinkType' => 'DefaultLinkType',
+        'dryRun' => 'DryRun',
+        'ownerAccount' => 'OwnerAccount',
+        'ownerId' => 'OwnerId',
+        'peerTransitRouterId' => 'PeerTransitRouterId',
+        'peerTransitRouterRegionId' => 'PeerTransitRouterRegionId',
+        'regionId' => 'RegionId',
+        'resourceOwnerAccount' => 'ResourceOwnerAccount',
+        'resourceOwnerId' => 'ResourceOwnerId',
+        'tag' => 'Tag',
         'transitRouterAttachmentDescription' => 'TransitRouterAttachmentDescription',
-        'transitRouterAttachmentName'        => 'TransitRouterAttachmentName',
-        'transitRouterId'                    => 'TransitRouterId',
+        'transitRouterAttachmentName' => 'TransitRouterAttachmentName',
+        'transitRouterId' => 'TransitRouterId',
     ];
 
     public function validate()
@@ -181,7 +199,7 @@ class CreateTransitRouterPeerAttachmentRequest extends Model
         if (null !== $this->tag) {
             if (\is_array($this->tag)) {
                 $res['Tag'] = [];
-                $n1         = 0;
+                $n1 = 0;
                 foreach ($this->tag as $item1) {
                     $res['Tag'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -274,7 +292,7 @@ class CreateTransitRouterPeerAttachmentRequest extends Model
         if (isset($map['Tag'])) {
             if (!empty($map['Tag'])) {
                 $model->tag = [];
-                $n1         = 0;
+                $n1 = 0;
                 foreach ($map['Tag'] as $item1) {
                     $model->tag[$n1++] = tag::fromMap($item1);
                 }

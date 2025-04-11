@@ -12,23 +12,26 @@ class privateZoneInfo extends Model
      * @var string
      */
     public $accessRegionId;
+
     /**
      * @var string
      */
     public $hostRegionId;
+
     /**
      * @var string
      */
     public $hostVpcId;
+
     /**
      * @var string
      */
     public $status;
     protected $_name = [
         'accessRegionId' => 'AccessRegionId',
-        'hostRegionId'   => 'HostRegionId',
-        'hostVpcId'      => 'HostVpcId',
-        'status'         => 'Status',
+        'hostRegionId' => 'HostRegionId',
+        'hostVpcId' => 'HostVpcId',
+        'status' => 'Status',
     ];
 
     public function validate()

@@ -13,78 +13,92 @@ class flowLog extends Model
      * @var string
      */
     public $cenId;
+
     /**
      * @var string
      */
     public $creationTime;
+
     /**
      * @var string
      */
     public $description;
+
     /**
      * @var string
      */
     public $flowLogId;
+
     /**
      * @var string
      */
     public $flowLogName;
+
     /**
      * @var string
      */
     public $flowLogVersion;
+
     /**
      * @var int
      */
     public $interval;
+
     /**
      * @var string
      */
     public $logFormatString;
+
     /**
      * @var string
      */
     public $logStoreName;
+
     /**
      * @var string
      */
     public $projectName;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $status;
+
     /**
      * @var tags
      */
     public $tags;
+
     /**
      * @var string
      */
     public $transitRouterAttachmentId;
+
     /**
      * @var string
      */
     public $transitRouterId;
     protected $_name = [
-        'cenId'                     => 'CenId',
-        'creationTime'              => 'CreationTime',
-        'description'               => 'Description',
-        'flowLogId'                 => 'FlowLogId',
-        'flowLogName'               => 'FlowLogName',
-        'flowLogVersion'            => 'FlowLogVersion',
-        'interval'                  => 'Interval',
-        'logFormatString'           => 'LogFormatString',
-        'logStoreName'              => 'LogStoreName',
-        'projectName'               => 'ProjectName',
-        'regionId'                  => 'RegionId',
-        'status'                    => 'Status',
-        'tags'                      => 'Tags',
+        'cenId' => 'CenId',
+        'creationTime' => 'CreationTime',
+        'description' => 'Description',
+        'flowLogId' => 'FlowLogId',
+        'flowLogName' => 'FlowLogName',
+        'flowLogVersion' => 'FlowLogVersion',
+        'interval' => 'Interval',
+        'logFormatString' => 'LogFormatString',
+        'logStoreName' => 'LogStoreName',
+        'projectName' => 'ProjectName',
+        'regionId' => 'RegionId',
+        'status' => 'Status',
+        'tags' => 'Tags',
         'transitRouterAttachmentId' => 'TransitRouterAttachmentId',
-        'transitRouterId'           => 'TransitRouterId',
+        'transitRouterId' => 'TransitRouterId',
     ];
 
     public function validate()

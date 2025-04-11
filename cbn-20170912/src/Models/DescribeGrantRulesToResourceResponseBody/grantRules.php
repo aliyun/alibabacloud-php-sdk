@@ -12,23 +12,26 @@ class grantRules extends Model
      * @var string
      */
     public $cenId;
+
     /**
      * @var int
      */
     public $cenOwnerId;
+
     /**
      * @var string
      */
     public $createTime;
+
     /**
      * @var string
      */
     public $orderType;
     protected $_name = [
-        'cenId'      => 'CenId',
+        'cenId' => 'CenId',
         'cenOwnerId' => 'CenOwnerId',
         'createTime' => 'CreateTime',
-        'orderType'  => 'OrderType',
+        'orderType' => 'OrderType',
     ];
 
     public function validate()

@@ -12,38 +12,44 @@ class cidrLists extends Model
      * @var string
      */
     public $cidr;
+
     /**
      * @var string
      */
     public $description;
+
     /**
      * @var string
      */
     public $family;
+
     /**
      * @var string
      */
     public $name;
+
     /**
      * @var bool
      */
     public $publishCidrRoute;
+
     /**
      * @var string
      */
     public $transitRouterCidrId;
+
     /**
      * @var string
      */
     public $transitRouterId;
     protected $_name = [
-        'cidr'                => 'Cidr',
-        'description'         => 'Description',
-        'family'              => 'Family',
-        'name'                => 'Name',
-        'publishCidrRoute'    => 'PublishCidrRoute',
+        'cidr' => 'Cidr',
+        'description' => 'Description',
+        'family' => 'Family',
+        'name' => 'Name',
+        'publishCidrRoute' => 'PublishCidrRoute',
         'transitRouterCidrId' => 'TransitRouterCidrId',
-        'transitRouterId'     => 'TransitRouterId',
+        'transitRouterId' => 'TransitRouterId',
     ];
 
     public function validate()

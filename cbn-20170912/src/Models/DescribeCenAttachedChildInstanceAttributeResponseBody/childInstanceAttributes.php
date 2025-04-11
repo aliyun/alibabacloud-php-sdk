@@ -14,22 +14,25 @@ class childInstanceAttributes extends Model
      * @var string
      */
     public $cidrBlock;
+
     /**
      * @var string
      */
     public $ipv6CidrBlock;
+
     /**
      * @var ipv6CidrBlocks
      */
     public $ipv6CidrBlocks;
+
     /**
      * @var secondaryCidrBlocks
      */
     public $secondaryCidrBlocks;
     protected $_name = [
-        'cidrBlock'           => 'CidrBlock',
-        'ipv6CidrBlock'       => 'Ipv6CidrBlock',
-        'ipv6CidrBlocks'      => 'Ipv6CidrBlocks',
+        'cidrBlock' => 'CidrBlock',
+        'ipv6CidrBlock' => 'Ipv6CidrBlock',
+        'ipv6CidrBlocks' => 'Ipv6CidrBlocks',
         'secondaryCidrBlocks' => 'SecondaryCidrBlocks',
     ];
 

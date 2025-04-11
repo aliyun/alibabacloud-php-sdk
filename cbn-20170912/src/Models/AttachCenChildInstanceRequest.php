@@ -12,48 +12,56 @@ class AttachCenChildInstanceRequest extends Model
      * @var string
      */
     public $cenId;
+
     /**
      * @var string
      */
     public $childInstanceId;
+
     /**
      * @var int
      */
     public $childInstanceOwnerId;
+
     /**
      * @var string
      */
     public $childInstanceRegionId;
+
     /**
      * @var string
      */
     public $childInstanceType;
+
     /**
      * @var string
      */
     public $ownerAccount;
+
     /**
      * @var int
      */
     public $ownerId;
+
     /**
      * @var string
      */
     public $resourceOwnerAccount;
+
     /**
      * @var int
      */
     public $resourceOwnerId;
     protected $_name = [
-        'cenId'                 => 'CenId',
-        'childInstanceId'       => 'ChildInstanceId',
-        'childInstanceOwnerId'  => 'ChildInstanceOwnerId',
+        'cenId' => 'CenId',
+        'childInstanceId' => 'ChildInstanceId',
+        'childInstanceOwnerId' => 'ChildInstanceOwnerId',
         'childInstanceRegionId' => 'ChildInstanceRegionId',
-        'childInstanceType'     => 'ChildInstanceType',
-        'ownerAccount'          => 'OwnerAccount',
-        'ownerId'               => 'OwnerId',
-        'resourceOwnerAccount'  => 'ResourceOwnerAccount',
-        'resourceOwnerId'       => 'ResourceOwnerId',
+        'childInstanceType' => 'ChildInstanceType',
+        'ownerAccount' => 'OwnerAccount',
+        'ownerId' => 'OwnerId',
+        'resourceOwnerAccount' => 'ResourceOwnerAccount',
+        'resourceOwnerId' => 'ResourceOwnerId',
     ];
 
     public function validate()

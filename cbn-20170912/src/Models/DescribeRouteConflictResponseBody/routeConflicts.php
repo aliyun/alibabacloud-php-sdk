@@ -31,7 +31,7 @@ class routeConflicts extends Model
         if (null !== $this->routeConflict) {
             if (\is_array($this->routeConflict)) {
                 $res['RouteConflict'] = [];
-                $n1                   = 0;
+                $n1 = 0;
                 foreach ($this->routeConflict as $item1) {
                     $res['RouteConflict'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -52,7 +52,7 @@ class routeConflicts extends Model
         if (isset($map['RouteConflict'])) {
             if (!empty($map['RouteConflict'])) {
                 $model->routeConflict = [];
-                $n1                   = 0;
+                $n1 = 0;
                 foreach ($map['RouteConflict'] as $item1) {
                     $model->routeConflict[$n1++] = routeConflict::fromMap($item1);
                 }

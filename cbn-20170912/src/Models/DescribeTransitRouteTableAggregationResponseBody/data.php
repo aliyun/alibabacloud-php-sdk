@@ -12,42 +12,49 @@ class data extends Model
      * @var string
      */
     public $description;
+
     /**
      * @var string
      */
     public $name;
+
     /**
      * @var string
      */
     public $routeType;
+
     /**
      * @var string
      */
     public $scope;
+
     /**
      * @var string[]
      */
     public $scopeList;
+
     /**
      * @var string
      */
     public $status;
+
     /**
      * @var string
      */
     public $trRouteTableId;
+
     /**
      * @var string
      */
     public $transitRouteTableAggregationCidr;
     protected $_name = [
-        'description'                      => 'Description',
-        'name'                             => 'Name',
-        'routeType'                        => 'RouteType',
-        'scope'                            => 'Scope',
-        'scopeList'                        => 'ScopeList',
-        'status'                           => 'Status',
-        'trRouteTableId'                   => 'TrRouteTableId',
+        'description' => 'Description',
+        'name' => 'Name',
+        'routeType' => 'RouteType',
+        'scope' => 'Scope',
+        'scopeList' => 'ScopeList',
+        'status' => 'Status',
+        'trRouteTableId' => 'TrRouteTableId',
         'transitRouteTableAggregationCidr' => 'TransitRouteTableAggregationCidr',
     ];
 
@@ -81,7 +88,7 @@ class data extends Model
         if (null !== $this->scopeList) {
             if (\is_array($this->scopeList)) {
                 $res['ScopeList'] = [];
-                $n1               = 0;
+                $n1 = 0;
                 foreach ($this->scopeList as $item1) {
                     $res['ScopeList'][$n1++] = $item1;
                 }
@@ -130,7 +137,7 @@ class data extends Model
         if (isset($map['ScopeList'])) {
             if (!empty($map['ScopeList'])) {
                 $model->scopeList = [];
-                $n1               = 0;
+                $n1 = 0;
                 foreach ($map['ScopeList'] as $item1) {
                     $model->scopeList[$n1++] = $item1;
                 }

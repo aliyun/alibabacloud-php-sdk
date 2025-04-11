@@ -13,18 +13,22 @@ class DescribeGrantRulesToCenResponseBody extends Model
      * @var grantRules
      */
     public $grantRules;
+
     /**
      * @var int
      */
     public $maxResults;
+
     /**
      * @var string
      */
     public $nextToken;
+
     /**
      * @var string
      */
     public $requestId;
+
     /**
      * @var int
      */
@@ -32,8 +36,8 @@ class DescribeGrantRulesToCenResponseBody extends Model
     protected $_name = [
         'grantRules' => 'GrantRules',
         'maxResults' => 'MaxResults',
-        'nextToken'  => 'NextToken',
-        'requestId'  => 'RequestId',
+        'nextToken' => 'NextToken',
+        'requestId' => 'RequestId',
         'totalCount' => 'TotalCount',
     ];
 

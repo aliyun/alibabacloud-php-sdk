@@ -12,12 +12,13 @@ class CreateTrafficMarkingPolicyResponseBody extends Model
      * @var string
      */
     public $requestId;
+
     /**
      * @var string
      */
     public $trafficMarkingPolicyId;
     protected $_name = [
-        'requestId'              => 'RequestId',
+        'requestId' => 'RequestId',
         'trafficMarkingPolicyId' => 'TrafficMarkingPolicyId',
     ];
 

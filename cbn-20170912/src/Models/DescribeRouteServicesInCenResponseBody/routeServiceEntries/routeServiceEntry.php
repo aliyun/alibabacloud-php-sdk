@@ -13,43 +13,50 @@ class routeServiceEntry extends Model
      * @var string
      */
     public $accessRegionId;
+
     /**
      * @var string
      */
     public $cenId;
+
     /**
      * @var cidrs
      */
     public $cidrs;
+
     /**
      * @var string
      */
     public $description;
+
     /**
      * @var string
      */
     public $host;
+
     /**
      * @var string
      */
     public $hostRegionId;
+
     /**
      * @var string
      */
     public $hostVpcId;
+
     /**
      * @var string
      */
     public $status;
     protected $_name = [
         'accessRegionId' => 'AccessRegionId',
-        'cenId'          => 'CenId',
-        'cidrs'          => 'Cidrs',
-        'description'    => 'Description',
-        'host'           => 'Host',
-        'hostRegionId'   => 'HostRegionId',
-        'hostVpcId'      => 'HostVpcId',
-        'status'         => 'Status',
+        'cenId' => 'CenId',
+        'cidrs' => 'Cidrs',
+        'description' => 'Description',
+        'host' => 'Host',
+        'hostRegionId' => 'HostRegionId',
+        'hostVpcId' => 'HostVpcId',
+        'status' => 'Status',
     ];
 
     public function validate()

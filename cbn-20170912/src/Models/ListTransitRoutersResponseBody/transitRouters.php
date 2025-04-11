@@ -14,63 +14,74 @@ class transitRouters extends Model
      * @var int
      */
     public $aliUid;
+
     /**
      * @var string
      */
     public $cenId;
+
     /**
      * @var string
      */
     public $creationTime;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $status;
+
     /**
      * @var bool
      */
     public $supportMulticast;
+
     /**
      * @var tags[]
      */
     public $tags;
+
     /**
      * @var transitRouterCidrList[]
      */
     public $transitRouterCidrList;
+
     /**
      * @var string
      */
     public $transitRouterDescription;
+
     /**
      * @var string
      */
     public $transitRouterId;
+
     /**
      * @var string
      */
     public $transitRouterName;
+
     /**
      * @var string
      */
     public $type;
     protected $_name = [
-        'aliUid'                   => 'AliUid',
-        'cenId'                    => 'CenId',
-        'creationTime'             => 'CreationTime',
-        'regionId'                 => 'RegionId',
-        'status'                   => 'Status',
-        'supportMulticast'         => 'SupportMulticast',
-        'tags'                     => 'Tags',
-        'transitRouterCidrList'    => 'TransitRouterCidrList',
+        'aliUid' => 'AliUid',
+        'cenId' => 'CenId',
+        'creationTime' => 'CreationTime',
+        'regionId' => 'RegionId',
+        'status' => 'Status',
+        'supportMulticast' => 'SupportMulticast',
+        'tags' => 'Tags',
+        'transitRouterCidrList' => 'TransitRouterCidrList',
         'transitRouterDescription' => 'TransitRouterDescription',
-        'transitRouterId'          => 'TransitRouterId',
-        'transitRouterName'        => 'TransitRouterName',
-        'type'                     => 'Type',
+        'transitRouterId' => 'TransitRouterId',
+        'transitRouterName' => 'TransitRouterName',
+        'type' => 'Type',
     ];
 
     public function validate()
@@ -114,7 +125,7 @@ class transitRouters extends Model
         if (null !== $this->tags) {
             if (\is_array($this->tags)) {
                 $res['Tags'] = [];
-                $n1          = 0;
+                $n1 = 0;
                 foreach ($this->tags as $item1) {
                     $res['Tags'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -124,7 +135,7 @@ class transitRouters extends Model
         if (null !== $this->transitRouterCidrList) {
             if (\is_array($this->transitRouterCidrList)) {
                 $res['TransitRouterCidrList'] = [];
-                $n1                           = 0;
+                $n1 = 0;
                 foreach ($this->transitRouterCidrList as $item1) {
                     $res['TransitRouterCidrList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -185,7 +196,7 @@ class transitRouters extends Model
         if (isset($map['Tags'])) {
             if (!empty($map['Tags'])) {
                 $model->tags = [];
-                $n1          = 0;
+                $n1 = 0;
                 foreach ($map['Tags'] as $item1) {
                     $model->tags[$n1++] = tags::fromMap($item1);
                 }
@@ -195,7 +206,7 @@ class transitRouters extends Model
         if (isset($map['TransitRouterCidrList'])) {
             if (!empty($map['TransitRouterCidrList'])) {
                 $model->transitRouterCidrList = [];
-                $n1                           = 0;
+                $n1 = 0;
                 foreach ($map['TransitRouterCidrList'] as $item1) {
                     $model->transitRouterCidrList[$n1++] = transitRouterCidrList::fromMap($item1);
                 }

@@ -12,43 +12,50 @@ class grantRule extends Model
      * @var string
      */
     public $cenId;
+
     /**
      * @var int
      */
     public $cenOwnerId;
+
     /**
      * @var string
      */
     public $childInstanceId;
+
     /**
      * @var int
      */
     public $childInstanceOwnerId;
+
     /**
      * @var string
      */
     public $childInstanceRegionId;
+
     /**
      * @var string
      */
     public $childInstanceType;
+
     /**
      * @var int
      */
     public $createTime;
+
     /**
      * @var string
      */
     public $orderType;
     protected $_name = [
-        'cenId'                 => 'CenId',
-        'cenOwnerId'            => 'CenOwnerId',
-        'childInstanceId'       => 'ChildInstanceId',
-        'childInstanceOwnerId'  => 'ChildInstanceOwnerId',
+        'cenId' => 'CenId',
+        'cenOwnerId' => 'CenOwnerId',
+        'childInstanceId' => 'ChildInstanceId',
+        'childInstanceOwnerId' => 'ChildInstanceOwnerId',
         'childInstanceRegionId' => 'ChildInstanceRegionId',
-        'childInstanceType'     => 'ChildInstanceType',
-        'createTime'            => 'CreateTime',
-        'orderType'             => 'OrderType',
+        'childInstanceType' => 'ChildInstanceType',
+        'createTime' => 'CreateTime',
+        'orderType' => 'OrderType',
     ];
 
     public function validate()

@@ -13,98 +13,116 @@ class transitRouterAttachments extends Model
      * @var bool
      */
     public $autoPublishRouteEnabled;
+
     /**
      * @var int
      */
     public $bandwidth;
+
     /**
      * @var string
      */
     public $bandwidthType;
+
     /**
      * @var string
      */
     public $cenBandwidthPackageId;
+
     /**
      * @var string
      */
     public $cenId;
+
     /**
      * @var string
      */
     public $creationTime;
+
     /**
      * @var string
      */
     public $defaultLinkType;
+
     /**
      * @var string
      */
     public $geographicSpanId;
+
     /**
      * @var string
      */
     public $peerTransitRouterId;
+
     /**
      * @var int
      */
     public $peerTransitRouterOwnerId;
+
     /**
      * @var string
      */
     public $peerTransitRouterRegionId;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $resourceType;
+
     /**
      * @var string
      */
     public $status;
+
     /**
      * @var tags[]
      */
     public $tags;
+
     /**
      * @var string
      */
     public $transitRouterAttachmentDescription;
+
     /**
      * @var string
      */
     public $transitRouterAttachmentId;
+
     /**
      * @var string
      */
     public $transitRouterAttachmentName;
+
     /**
      * @var string
      */
     public $transitRouterId;
     protected $_name = [
-        'autoPublishRouteEnabled'            => 'AutoPublishRouteEnabled',
-        'bandwidth'                          => 'Bandwidth',
-        'bandwidthType'                      => 'BandwidthType',
-        'cenBandwidthPackageId'              => 'CenBandwidthPackageId',
-        'cenId'                              => 'CenId',
-        'creationTime'                       => 'CreationTime',
-        'defaultLinkType'                    => 'DefaultLinkType',
-        'geographicSpanId'                   => 'GeographicSpanId',
-        'peerTransitRouterId'                => 'PeerTransitRouterId',
-        'peerTransitRouterOwnerId'           => 'PeerTransitRouterOwnerId',
-        'peerTransitRouterRegionId'          => 'PeerTransitRouterRegionId',
-        'regionId'                           => 'RegionId',
-        'resourceType'                       => 'ResourceType',
-        'status'                             => 'Status',
-        'tags'                               => 'Tags',
+        'autoPublishRouteEnabled' => 'AutoPublishRouteEnabled',
+        'bandwidth' => 'Bandwidth',
+        'bandwidthType' => 'BandwidthType',
+        'cenBandwidthPackageId' => 'CenBandwidthPackageId',
+        'cenId' => 'CenId',
+        'creationTime' => 'CreationTime',
+        'defaultLinkType' => 'DefaultLinkType',
+        'geographicSpanId' => 'GeographicSpanId',
+        'peerTransitRouterId' => 'PeerTransitRouterId',
+        'peerTransitRouterOwnerId' => 'PeerTransitRouterOwnerId',
+        'peerTransitRouterRegionId' => 'PeerTransitRouterRegionId',
+        'regionId' => 'RegionId',
+        'resourceType' => 'ResourceType',
+        'status' => 'Status',
+        'tags' => 'Tags',
         'transitRouterAttachmentDescription' => 'TransitRouterAttachmentDescription',
-        'transitRouterAttachmentId'          => 'TransitRouterAttachmentId',
-        'transitRouterAttachmentName'        => 'TransitRouterAttachmentName',
-        'transitRouterId'                    => 'TransitRouterId',
+        'transitRouterAttachmentId' => 'TransitRouterAttachmentId',
+        'transitRouterAttachmentName' => 'TransitRouterAttachmentName',
+        'transitRouterId' => 'TransitRouterId',
     ];
 
     public function validate()
@@ -177,7 +195,7 @@ class transitRouterAttachments extends Model
         if (null !== $this->tags) {
             if (\is_array($this->tags)) {
                 $res['Tags'] = [];
-                $n1          = 0;
+                $n1 = 0;
                 foreach ($this->tags as $item1) {
                     $res['Tags'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -270,7 +288,7 @@ class transitRouterAttachments extends Model
         if (isset($map['Tags'])) {
             if (!empty($map['Tags'])) {
                 $model->tags = [];
-                $n1          = 0;
+                $n1 = 0;
                 foreach ($map['Tags'] as $item1) {
                     $model->tags[$n1++] = tags::fromMap($item1);
                 }

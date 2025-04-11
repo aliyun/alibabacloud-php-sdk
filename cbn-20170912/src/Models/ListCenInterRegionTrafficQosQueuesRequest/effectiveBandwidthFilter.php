@@ -12,6 +12,7 @@ class effectiveBandwidthFilter extends Model
      * @var int
      */
     public $gte;
+
     /**
      * @var int
      */

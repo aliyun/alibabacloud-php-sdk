@@ -12,73 +12,86 @@ class UpdateTransitRouterPeerAttachmentAttributeRequest extends Model
      * @var bool
      */
     public $autoPublishRouteEnabled;
+
     /**
      * @var int
      */
     public $bandwidth;
+
     /**
      * @var string
      */
     public $bandwidthType;
+
     /**
      * @var string
      */
     public $cenBandwidthPackageId;
+
     /**
      * @var string
      */
     public $clientToken;
+
     /**
      * @var string
      */
     public $defaultLinkType;
+
     /**
      * @var bool
      */
     public $dryRun;
+
     /**
      * @var string
      */
     public $ownerAccount;
+
     /**
      * @var int
      */
     public $ownerId;
+
     /**
      * @var string
      */
     public $resourceOwnerAccount;
+
     /**
      * @var int
      */
     public $resourceOwnerId;
+
     /**
      * @var string
      */
     public $transitRouterAttachmentDescription;
+
     /**
      * @var string
      */
     public $transitRouterAttachmentId;
+
     /**
      * @var string
      */
     public $transitRouterAttachmentName;
     protected $_name = [
-        'autoPublishRouteEnabled'            => 'AutoPublishRouteEnabled',
-        'bandwidth'                          => 'Bandwidth',
-        'bandwidthType'                      => 'BandwidthType',
-        'cenBandwidthPackageId'              => 'CenBandwidthPackageId',
-        'clientToken'                        => 'ClientToken',
-        'defaultLinkType'                    => 'DefaultLinkType',
-        'dryRun'                             => 'DryRun',
-        'ownerAccount'                       => 'OwnerAccount',
-        'ownerId'                            => 'OwnerId',
-        'resourceOwnerAccount'               => 'ResourceOwnerAccount',
-        'resourceOwnerId'                    => 'ResourceOwnerId',
+        'autoPublishRouteEnabled' => 'AutoPublishRouteEnabled',
+        'bandwidth' => 'Bandwidth',
+        'bandwidthType' => 'BandwidthType',
+        'cenBandwidthPackageId' => 'CenBandwidthPackageId',
+        'clientToken' => 'ClientToken',
+        'defaultLinkType' => 'DefaultLinkType',
+        'dryRun' => 'DryRun',
+        'ownerAccount' => 'OwnerAccount',
+        'ownerId' => 'OwnerId',
+        'resourceOwnerAccount' => 'ResourceOwnerAccount',
+        'resourceOwnerId' => 'ResourceOwnerId',
         'transitRouterAttachmentDescription' => 'TransitRouterAttachmentDescription',
-        'transitRouterAttachmentId'          => 'TransitRouterAttachmentId',
-        'transitRouterAttachmentName'        => 'TransitRouterAttachmentName',
+        'transitRouterAttachmentId' => 'TransitRouterAttachmentId',
+        'transitRouterAttachmentName' => 'TransitRouterAttachmentName',
     ];
 
     public function validate()

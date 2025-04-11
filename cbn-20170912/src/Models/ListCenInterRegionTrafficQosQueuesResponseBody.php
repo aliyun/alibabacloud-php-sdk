@@ -13,17 +13,19 @@ class ListCenInterRegionTrafficQosQueuesResponseBody extends Model
      * @var string
      */
     public $nextToken;
+
     /**
      * @var string
      */
     public $requestId;
+
     /**
      * @var trafficQosQueues[]
      */
     public $trafficQosQueues;
     protected $_name = [
-        'nextToken'        => 'NextToken',
-        'requestId'        => 'RequestId',
+        'nextToken' => 'NextToken',
+        'requestId' => 'RequestId',
         'trafficQosQueues' => 'TrafficQosQueues',
     ];
 
@@ -49,7 +51,7 @@ class ListCenInterRegionTrafficQosQueuesResponseBody extends Model
         if (null !== $this->trafficQosQueues) {
             if (\is_array($this->trafficQosQueues)) {
                 $res['TrafficQosQueues'] = [];
-                $n1                      = 0;
+                $n1 = 0;
                 foreach ($this->trafficQosQueues as $item1) {
                     $res['TrafficQosQueues'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -78,7 +80,7 @@ class ListCenInterRegionTrafficQosQueuesResponseBody extends Model
         if (isset($map['TrafficQosQueues'])) {
             if (!empty($map['TrafficQosQueues'])) {
                 $model->trafficQosQueues = [];
-                $n1                      = 0;
+                $n1 = 0;
                 foreach ($map['TrafficQosQueues'] as $item1) {
                     $model->trafficQosQueues[$n1++] = trafficQosQueues::fromMap($item1);
                 }

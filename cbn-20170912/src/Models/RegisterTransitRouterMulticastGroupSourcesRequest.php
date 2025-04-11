@@ -12,53 +12,62 @@ class RegisterTransitRouterMulticastGroupSourcesRequest extends Model
      * @var string
      */
     public $clientToken;
+
     /**
      * @var bool
      */
     public $dryRun;
+
     /**
      * @var string
      */
     public $groupIpAddress;
+
     /**
      * @var string[]
      */
     public $networkInterfaceIds;
+
     /**
      * @var string
      */
     public $ownerAccount;
+
     /**
      * @var int
      */
     public $ownerId;
+
     /**
      * @var string
      */
     public $resourceOwnerAccount;
+
     /**
      * @var int
      */
     public $resourceOwnerId;
+
     /**
      * @var string
      */
     public $transitRouterMulticastDomainId;
+
     /**
      * @var string
      */
     public $vpcId;
     protected $_name = [
-        'clientToken'                    => 'ClientToken',
-        'dryRun'                         => 'DryRun',
-        'groupIpAddress'                 => 'GroupIpAddress',
-        'networkInterfaceIds'            => 'NetworkInterfaceIds',
-        'ownerAccount'                   => 'OwnerAccount',
-        'ownerId'                        => 'OwnerId',
-        'resourceOwnerAccount'           => 'ResourceOwnerAccount',
-        'resourceOwnerId'                => 'ResourceOwnerId',
+        'clientToken' => 'ClientToken',
+        'dryRun' => 'DryRun',
+        'groupIpAddress' => 'GroupIpAddress',
+        'networkInterfaceIds' => 'NetworkInterfaceIds',
+        'ownerAccount' => 'OwnerAccount',
+        'ownerId' => 'OwnerId',
+        'resourceOwnerAccount' => 'ResourceOwnerAccount',
+        'resourceOwnerId' => 'ResourceOwnerId',
         'transitRouterMulticastDomainId' => 'TransitRouterMulticastDomainId',
-        'vpcId'                          => 'VpcId',
+        'vpcId' => 'VpcId',
     ];
 
     public function validate()
@@ -87,7 +96,7 @@ class RegisterTransitRouterMulticastGroupSourcesRequest extends Model
         if (null !== $this->networkInterfaceIds) {
             if (\is_array($this->networkInterfaceIds)) {
                 $res['NetworkInterfaceIds'] = [];
-                $n1                         = 0;
+                $n1 = 0;
                 foreach ($this->networkInterfaceIds as $item1) {
                     $res['NetworkInterfaceIds'][$n1++] = $item1;
                 }
@@ -144,7 +153,7 @@ class RegisterTransitRouterMulticastGroupSourcesRequest extends Model
         if (isset($map['NetworkInterfaceIds'])) {
             if (!empty($map['NetworkInterfaceIds'])) {
                 $model->networkInterfaceIds = [];
-                $n1                         = 0;
+                $n1 = 0;
                 foreach ($map['NetworkInterfaceIds'] as $item1) {
                     $model->networkInterfaceIds[$n1++] = $item1;
                 }

@@ -14,73 +14,86 @@ class ListTransitRoutersRequest extends Model
      * @var string
      */
     public $cenId;
+
     /**
      * @var featureFilter[]
      */
     public $featureFilter;
+
     /**
      * @var string
      */
     public $ownerAccount;
+
     /**
      * @var int
      */
     public $ownerId;
+
     /**
      * @var int
      */
     public $pageNumber;
+
     /**
      * @var int
      */
     public $pageSize;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $resourceOwnerAccount;
+
     /**
      * @var int
      */
     public $resourceOwnerId;
+
     /**
      * @var string
      */
     public $status;
+
     /**
      * @var tag[]
      */
     public $tag;
+
     /**
      * @var string
      */
     public $transitRouterId;
+
     /**
      * @var string
      */
     public $transitRouterName;
+
     /**
      * @var string
      */
     public $type;
     protected $_name = [
-        'cenId'                => 'CenId',
-        'featureFilter'        => 'FeatureFilter',
-        'ownerAccount'         => 'OwnerAccount',
-        'ownerId'              => 'OwnerId',
-        'pageNumber'           => 'PageNumber',
-        'pageSize'             => 'PageSize',
-        'regionId'             => 'RegionId',
+        'cenId' => 'CenId',
+        'featureFilter' => 'FeatureFilter',
+        'ownerAccount' => 'OwnerAccount',
+        'ownerId' => 'OwnerId',
+        'pageNumber' => 'PageNumber',
+        'pageSize' => 'PageSize',
+        'regionId' => 'RegionId',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
-        'resourceOwnerId'      => 'ResourceOwnerId',
-        'status'               => 'Status',
-        'tag'                  => 'Tag',
-        'transitRouterId'      => 'TransitRouterId',
-        'transitRouterName'    => 'TransitRouterName',
-        'type'                 => 'Type',
+        'resourceOwnerId' => 'ResourceOwnerId',
+        'status' => 'Status',
+        'tag' => 'Tag',
+        'transitRouterId' => 'TransitRouterId',
+        'transitRouterName' => 'TransitRouterName',
+        'type' => 'Type',
     ];
 
     public function validate()
@@ -104,7 +117,7 @@ class ListTransitRoutersRequest extends Model
         if (null !== $this->featureFilter) {
             if (\is_array($this->featureFilter)) {
                 $res['FeatureFilter'] = [];
-                $n1                   = 0;
+                $n1 = 0;
                 foreach ($this->featureFilter as $item1) {
                     $res['FeatureFilter'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -146,7 +159,7 @@ class ListTransitRoutersRequest extends Model
         if (null !== $this->tag) {
             if (\is_array($this->tag)) {
                 $res['Tag'] = [];
-                $n1         = 0;
+                $n1 = 0;
                 foreach ($this->tag as $item1) {
                     $res['Tag'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -183,7 +196,7 @@ class ListTransitRoutersRequest extends Model
         if (isset($map['FeatureFilter'])) {
             if (!empty($map['FeatureFilter'])) {
                 $model->featureFilter = [];
-                $n1                   = 0;
+                $n1 = 0;
                 foreach ($map['FeatureFilter'] as $item1) {
                     $model->featureFilter[$n1++] = featureFilter::fromMap($item1);
                 }
@@ -225,7 +238,7 @@ class ListTransitRoutersRequest extends Model
         if (isset($map['Tag'])) {
             if (!empty($map['Tag'])) {
                 $model->tag = [];
-                $n1         = 0;
+                $n1 = 0;
                 foreach ($map['Tag'] as $item1) {
                     $model->tag[$n1++] = tag::fromMap($item1);
                 }

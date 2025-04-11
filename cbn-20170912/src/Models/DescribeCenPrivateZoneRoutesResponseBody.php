@@ -13,38 +13,44 @@ class DescribeCenPrivateZoneRoutesResponseBody extends Model
      * @var string
      */
     public $cenId;
+
     /**
      * @var int
      */
     public $pageNumber;
+
     /**
      * @var int
      */
     public $pageSize;
+
     /**
      * @var string
      */
     public $privateZoneDnsServers;
+
     /**
      * @var privateZoneInfos
      */
     public $privateZoneInfos;
+
     /**
      * @var string
      */
     public $requestId;
+
     /**
      * @var int
      */
     public $totalCount;
     protected $_name = [
-        'cenId'                 => 'CenId',
-        'pageNumber'            => 'PageNumber',
-        'pageSize'              => 'PageSize',
+        'cenId' => 'CenId',
+        'pageNumber' => 'PageNumber',
+        'pageSize' => 'PageSize',
         'privateZoneDnsServers' => 'PrivateZoneDnsServers',
-        'privateZoneInfos'      => 'PrivateZoneInfos',
-        'requestId'             => 'RequestId',
-        'totalCount'            => 'TotalCount',
+        'privateZoneInfos' => 'PrivateZoneInfos',
+        'requestId' => 'RequestId',
+        'totalCount' => 'TotalCount',
     ];
 
     public function validate()

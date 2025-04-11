@@ -13,43 +13,50 @@ class publishedRouteEntry extends Model
      * @var string
      */
     public $childInstanceRouteTableId;
+
     /**
      * @var conflicts
      */
     public $conflicts;
+
     /**
      * @var string
      */
     public $destinationCidrBlock;
+
     /**
      * @var string
      */
     public $nextHopId;
+
     /**
      * @var string
      */
     public $nextHopType;
+
     /**
      * @var bool
      */
     public $operationalMode;
+
     /**
      * @var string
      */
     public $publishStatus;
+
     /**
      * @var string
      */
     public $routeType;
     protected $_name = [
         'childInstanceRouteTableId' => 'ChildInstanceRouteTableId',
-        'conflicts'                 => 'Conflicts',
-        'destinationCidrBlock'      => 'DestinationCidrBlock',
-        'nextHopId'                 => 'NextHopId',
-        'nextHopType'               => 'NextHopType',
-        'operationalMode'           => 'OperationalMode',
-        'publishStatus'             => 'PublishStatus',
-        'routeType'                 => 'RouteType',
+        'conflicts' => 'Conflicts',
+        'destinationCidrBlock' => 'DestinationCidrBlock',
+        'nextHopId' => 'NextHopId',
+        'nextHopType' => 'NextHopType',
+        'operationalMode' => 'OperationalMode',
+        'publishStatus' => 'PublishStatus',
+        'routeType' => 'RouteType',
     ];
 
     public function validate()

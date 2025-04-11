@@ -30,7 +30,7 @@ class matchCommunitySet extends Model
         if (null !== $this->matchCommunity) {
             if (\is_array($this->matchCommunity)) {
                 $res['MatchCommunity'] = [];
-                $n1                    = 0;
+                $n1 = 0;
                 foreach ($this->matchCommunity as $item1) {
                     $res['MatchCommunity'][$n1++] = $item1;
                 }
@@ -51,7 +51,7 @@ class matchCommunitySet extends Model
         if (isset($map['MatchCommunity'])) {
             if (!empty($map['MatchCommunity'])) {
                 $model->matchCommunity = [];
-                $n1                    = 0;
+                $n1 = 0;
                 foreach ($map['MatchCommunity'] as $item1) {
                     $model->matchCommunity[$n1++] = $item1;
                 }

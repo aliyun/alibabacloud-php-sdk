@@ -12,42 +12,49 @@ class prefixLists extends Model
      * @var string
      */
     public $nextHop;
+
     /**
      * @var string
      */
     public $nextHopInstanceId;
+
     /**
      * @var string
      */
     public $nextHopType;
+
     /**
      * @var int
      */
     public $ownerUid;
+
     /**
      * @var string
      */
     public $prefixListId;
+
     /**
      * @var string
      */
     public $status;
+
     /**
      * @var string
      */
     public $transitRouterId;
+
     /**
      * @var string
      */
     public $transitRouterTableId;
     protected $_name = [
-        'nextHop'              => 'NextHop',
-        'nextHopInstanceId'    => 'NextHopInstanceId',
-        'nextHopType'          => 'NextHopType',
-        'ownerUid'             => 'OwnerUid',
-        'prefixListId'         => 'PrefixListId',
-        'status'               => 'Status',
-        'transitRouterId'      => 'TransitRouterId',
+        'nextHop' => 'NextHop',
+        'nextHopInstanceId' => 'NextHopInstanceId',
+        'nextHopType' => 'NextHopType',
+        'ownerUid' => 'OwnerUid',
+        'prefixListId' => 'PrefixListId',
+        'status' => 'Status',
+        'transitRouterId' => 'TransitRouterId',
         'transitRouterTableId' => 'TransitRouterTableId',
     ];
 

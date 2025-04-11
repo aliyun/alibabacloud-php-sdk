@@ -12,43 +12,50 @@ class DescribeCenInterRegionBandwidthLimitsRequest extends Model
      * @var string
      */
     public $cenId;
+
     /**
      * @var string
      */
     public $ownerAccount;
+
     /**
      * @var int
      */
     public $ownerId;
+
     /**
      * @var int
      */
     public $pageNumber;
+
     /**
      * @var int
      */
     public $pageSize;
+
     /**
      * @var string
      */
     public $resourceOwnerAccount;
+
     /**
      * @var int
      */
     public $resourceOwnerId;
+
     /**
      * @var string
      */
     public $trRegionId;
     protected $_name = [
-        'cenId'                => 'CenId',
-        'ownerAccount'         => 'OwnerAccount',
-        'ownerId'              => 'OwnerId',
-        'pageNumber'           => 'PageNumber',
-        'pageSize'             => 'PageSize',
+        'cenId' => 'CenId',
+        'ownerAccount' => 'OwnerAccount',
+        'ownerId' => 'OwnerId',
+        'pageNumber' => 'PageNumber',
+        'pageSize' => 'PageSize',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
-        'resourceOwnerId'      => 'ResourceOwnerId',
-        'trRegionId'           => 'TrRegionId',
+        'resourceOwnerId' => 'ResourceOwnerId',
+        'trRegionId' => 'TrRegionId',
     ];
 
     public function validate()

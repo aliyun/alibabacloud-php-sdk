@@ -13,32 +13,37 @@ class DescribeFlowlogsResponseBody extends Model
      * @var flowLogs
      */
     public $flowLogs;
+
     /**
      * @var string
      */
     public $pageNumber;
+
     /**
      * @var string
      */
     public $pageSize;
+
     /**
      * @var string
      */
     public $requestId;
+
     /**
      * @var string
      */
     public $success;
+
     /**
      * @var string
      */
     public $totalCount;
     protected $_name = [
-        'flowLogs'   => 'FlowLogs',
+        'flowLogs' => 'FlowLogs',
         'pageNumber' => 'PageNumber',
-        'pageSize'   => 'PageSize',
-        'requestId'  => 'RequestId',
-        'success'    => 'Success',
+        'pageSize' => 'PageSize',
+        'requestId' => 'RequestId',
+        'success' => 'Success',
         'totalCount' => 'TotalCount',
     ];
 

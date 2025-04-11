@@ -12,73 +12,86 @@ class EnableCenVbrHealthCheckRequest extends Model
      * @var string
      */
     public $cenId;
+
     /**
      * @var string
      */
     public $description;
+
     /**
      * @var int
      */
     public $healthCheckInterval;
+
     /**
      * @var bool
      */
     public $healthCheckOnly;
+
     /**
      * @var string
      */
     public $healthCheckSourceIp;
+
     /**
      * @var string
      */
     public $healthCheckTargetIp;
+
     /**
      * @var int
      */
     public $healthyThreshold;
+
     /**
      * @var string
      */
     public $ownerAccount;
+
     /**
      * @var int
      */
     public $ownerId;
+
     /**
      * @var string
      */
     public $resourceOwnerAccount;
+
     /**
      * @var int
      */
     public $resourceOwnerId;
+
     /**
      * @var string
      */
     public $vbrInstanceId;
+
     /**
      * @var int
      */
     public $vbrInstanceOwnerId;
+
     /**
      * @var string
      */
     public $vbrInstanceRegionId;
     protected $_name = [
-        'cenId'                => 'CenId',
-        'description'          => 'Description',
-        'healthCheckInterval'  => 'HealthCheckInterval',
-        'healthCheckOnly'      => 'HealthCheckOnly',
-        'healthCheckSourceIp'  => 'HealthCheckSourceIp',
-        'healthCheckTargetIp'  => 'HealthCheckTargetIp',
-        'healthyThreshold'     => 'HealthyThreshold',
-        'ownerAccount'         => 'OwnerAccount',
-        'ownerId'              => 'OwnerId',
+        'cenId' => 'CenId',
+        'description' => 'Description',
+        'healthCheckInterval' => 'HealthCheckInterval',
+        'healthCheckOnly' => 'HealthCheckOnly',
+        'healthCheckSourceIp' => 'HealthCheckSourceIp',
+        'healthCheckTargetIp' => 'HealthCheckTargetIp',
+        'healthyThreshold' => 'HealthyThreshold',
+        'ownerAccount' => 'OwnerAccount',
+        'ownerId' => 'OwnerId',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
-        'resourceOwnerId'      => 'ResourceOwnerId',
-        'vbrInstanceId'        => 'VbrInstanceId',
-        'vbrInstanceOwnerId'   => 'VbrInstanceOwnerId',
-        'vbrInstanceRegionId'  => 'VbrInstanceRegionId',
+        'resourceOwnerId' => 'ResourceOwnerId',
+        'vbrInstanceId' => 'VbrInstanceId',
+        'vbrInstanceOwnerId' => 'VbrInstanceOwnerId',
+        'vbrInstanceRegionId' => 'VbrInstanceRegionId',
     ];
 
     public function validate()

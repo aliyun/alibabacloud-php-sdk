@@ -12,38 +12,44 @@ class childInstance extends Model
      * @var string
      */
     public $cenId;
+
     /**
      * @var string
      */
     public $childInstanceAttachTime;
+
     /**
      * @var string
      */
     public $childInstanceId;
+
     /**
      * @var int
      */
     public $childInstanceOwnerId;
+
     /**
      * @var string
      */
     public $childInstanceRegionId;
+
     /**
      * @var string
      */
     public $childInstanceType;
+
     /**
      * @var string
      */
     public $status;
     protected $_name = [
-        'cenId'                   => 'CenId',
+        'cenId' => 'CenId',
         'childInstanceAttachTime' => 'ChildInstanceAttachTime',
-        'childInstanceId'         => 'ChildInstanceId',
-        'childInstanceOwnerId'    => 'ChildInstanceOwnerId',
-        'childInstanceRegionId'   => 'ChildInstanceRegionId',
-        'childInstanceType'       => 'ChildInstanceType',
-        'status'                  => 'Status',
+        'childInstanceId' => 'ChildInstanceId',
+        'childInstanceOwnerId' => 'ChildInstanceOwnerId',
+        'childInstanceRegionId' => 'ChildInstanceRegionId',
+        'childInstanceType' => 'ChildInstanceType',
+        'status' => 'Status',
     ];
 
     public function validate()

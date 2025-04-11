@@ -12,38 +12,44 @@ class grantVSwitchEnis extends Model
      * @var string
      */
     public $description;
+
     /**
      * @var string
      */
     public $networkInterfaceId;
+
     /**
      * @var string
      */
     public $networkInterfaceName;
+
     /**
      * @var string
      */
     public $primaryIpAddress;
+
     /**
      * @var bool
      */
     public $transitRouterFlag;
+
     /**
      * @var string
      */
     public $vSwitchId;
+
     /**
      * @var string
      */
     public $vpcId;
     protected $_name = [
-        'description'          => 'Description',
-        'networkInterfaceId'   => 'NetworkInterfaceId',
+        'description' => 'Description',
+        'networkInterfaceId' => 'NetworkInterfaceId',
         'networkInterfaceName' => 'NetworkInterfaceName',
-        'primaryIpAddress'     => 'PrimaryIpAddress',
-        'transitRouterFlag'    => 'TransitRouterFlag',
-        'vSwitchId'            => 'VSwitchId',
-        'vpcId'                => 'VpcId',
+        'primaryIpAddress' => 'PrimaryIpAddress',
+        'transitRouterFlag' => 'TransitRouterFlag',
+        'vSwitchId' => 'VSwitchId',
+        'vpcId' => 'VpcId',
     ];
 
     public function validate()

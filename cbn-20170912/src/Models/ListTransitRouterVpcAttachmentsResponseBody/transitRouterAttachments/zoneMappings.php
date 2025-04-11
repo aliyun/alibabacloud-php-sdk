@@ -12,18 +12,20 @@ class zoneMappings extends Model
      * @var string
      */
     public $networkInterfaceId;
+
     /**
      * @var string
      */
     public $vSwitchId;
+
     /**
      * @var string
      */
     public $zoneId;
     protected $_name = [
         'networkInterfaceId' => 'NetworkInterfaceId',
-        'vSwitchId'          => 'VSwitchId',
-        'zoneId'             => 'ZoneId',
+        'vSwitchId' => 'VSwitchId',
+        'zoneId' => 'ZoneId',
     ];
 
     public function validate()

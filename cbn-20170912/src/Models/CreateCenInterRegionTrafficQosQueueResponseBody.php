@@ -12,13 +12,14 @@ class CreateCenInterRegionTrafficQosQueueResponseBody extends Model
      * @var string
      */
     public $qosQueueId;
+
     /**
      * @var string
      */
     public $requestId;
     protected $_name = [
         'qosQueueId' => 'QosQueueId',
-        'requestId'  => 'RequestId',
+        'requestId' => 'RequestId',
     ];
 
     public function validate()

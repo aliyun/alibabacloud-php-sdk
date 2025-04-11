@@ -13,27 +13,31 @@ class ListTransitRouterMulticastGroupsResponseBody extends Model
      * @var int
      */
     public $maxResults;
+
     /**
      * @var string
      */
     public $nextToken;
+
     /**
      * @var string
      */
     public $requestId;
+
     /**
      * @var int
      */
     public $totalCount;
+
     /**
      * @var transitRouterMulticastGroups[]
      */
     public $transitRouterMulticastGroups;
     protected $_name = [
-        'maxResults'                   => 'MaxResults',
-        'nextToken'                    => 'NextToken',
-        'requestId'                    => 'RequestId',
-        'totalCount'                   => 'TotalCount',
+        'maxResults' => 'MaxResults',
+        'nextToken' => 'NextToken',
+        'requestId' => 'RequestId',
+        'totalCount' => 'TotalCount',
         'transitRouterMulticastGroups' => 'TransitRouterMulticastGroups',
     ];
 
@@ -67,7 +71,7 @@ class ListTransitRouterMulticastGroupsResponseBody extends Model
         if (null !== $this->transitRouterMulticastGroups) {
             if (\is_array($this->transitRouterMulticastGroups)) {
                 $res['TransitRouterMulticastGroups'] = [];
-                $n1                                  = 0;
+                $n1 = 0;
                 foreach ($this->transitRouterMulticastGroups as $item1) {
                     $res['TransitRouterMulticastGroups'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -104,7 +108,7 @@ class ListTransitRouterMulticastGroupsResponseBody extends Model
         if (isset($map['TransitRouterMulticastGroups'])) {
             if (!empty($map['TransitRouterMulticastGroups'])) {
                 $model->transitRouterMulticastGroups = [];
-                $n1                                  = 0;
+                $n1 = 0;
                 foreach ($map['TransitRouterMulticastGroups'] as $item1) {
                     $model->transitRouterMulticastGroups[$n1++] = transitRouterMulticastGroups::fromMap($item1);
                 }

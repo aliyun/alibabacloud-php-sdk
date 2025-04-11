@@ -12,38 +12,44 @@ class transitRouterMulticastAssociations extends Model
      * @var string
      */
     public $resourceId;
+
     /**
      * @var int
      */
     public $resourceOwnerId;
+
     /**
      * @var string
      */
     public $resourceType;
+
     /**
      * @var string
      */
     public $status;
+
     /**
      * @var string
      */
     public $transitRouterAttachmentId;
+
     /**
      * @var string
      */
     public $transitRouterMulticastDomainId;
+
     /**
      * @var string
      */
     public $vSwitchId;
     protected $_name = [
-        'resourceId'                     => 'ResourceId',
-        'resourceOwnerId'                => 'ResourceOwnerId',
-        'resourceType'                   => 'ResourceType',
-        'status'                         => 'Status',
-        'transitRouterAttachmentId'      => 'TransitRouterAttachmentId',
+        'resourceId' => 'ResourceId',
+        'resourceOwnerId' => 'ResourceOwnerId',
+        'resourceType' => 'ResourceType',
+        'status' => 'Status',
+        'transitRouterAttachmentId' => 'TransitRouterAttachmentId',
         'transitRouterMulticastDomainId' => 'TransitRouterMulticastDomainId',
-        'vSwitchId'                      => 'VSwitchId',
+        'vSwitchId' => 'VSwitchId',
     ];
 
     public function validate()

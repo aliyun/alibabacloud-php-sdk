@@ -31,7 +31,7 @@ class conflicts extends Model
         if (null !== $this->conflict) {
             if (\is_array($this->conflict)) {
                 $res['Conflict'] = [];
-                $n1              = 0;
+                $n1 = 0;
                 foreach ($this->conflict as $item1) {
                     $res['Conflict'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -52,7 +52,7 @@ class conflicts extends Model
         if (isset($map['Conflict'])) {
             if (!empty($map['Conflict'])) {
                 $model->conflict = [];
-                $n1              = 0;
+                $n1 = 0;
                 foreach ($map['Conflict'] as $item1) {
                     $model->conflict[$n1++] = conflict::fromMap($item1);
                 }

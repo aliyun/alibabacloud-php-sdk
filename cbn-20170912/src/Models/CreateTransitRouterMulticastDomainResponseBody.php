@@ -12,12 +12,13 @@ class CreateTransitRouterMulticastDomainResponseBody extends Model
      * @var string
      */
     public $requestId;
+
     /**
      * @var string
      */
     public $transitRouterMulticastDomainId;
     protected $_name = [
-        'requestId'                      => 'RequestId',
+        'requestId' => 'RequestId',
         'transitRouterMulticastDomainId' => 'TransitRouterMulticastDomainId',
     ];
 

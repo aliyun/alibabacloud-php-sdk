@@ -12,73 +12,86 @@ class transitRouterMulticastGroups extends Model
      * @var string
      */
     public $groupIpAddress;
+
     /**
      * @var bool
      */
     public $groupMember;
+
     /**
      * @var bool
      */
     public $groupSource;
+
     /**
      * @var string
      */
     public $memberType;
+
     /**
      * @var string
      */
     public $networkInterfaceId;
+
     /**
      * @var string
      */
     public $peerTransitRouterMulticastDomainId;
+
     /**
      * @var string
      */
     public $resourceId;
+
     /**
      * @var int
      */
     public $resourceOwnerId;
+
     /**
      * @var string
      */
     public $resourceType;
+
     /**
      * @var string
      */
     public $sourceType;
+
     /**
      * @var string
      */
     public $status;
+
     /**
      * @var string
      */
     public $transitRouterAttachmentId;
+
     /**
      * @var string
      */
     public $transitRouterMulticastDomainId;
+
     /**
      * @var string
      */
     public $vSwitchId;
     protected $_name = [
-        'groupIpAddress'                     => 'GroupIpAddress',
-        'groupMember'                        => 'GroupMember',
-        'groupSource'                        => 'GroupSource',
-        'memberType'                         => 'MemberType',
-        'networkInterfaceId'                 => 'NetworkInterfaceId',
+        'groupIpAddress' => 'GroupIpAddress',
+        'groupMember' => 'GroupMember',
+        'groupSource' => 'GroupSource',
+        'memberType' => 'MemberType',
+        'networkInterfaceId' => 'NetworkInterfaceId',
         'peerTransitRouterMulticastDomainId' => 'PeerTransitRouterMulticastDomainId',
-        'resourceId'                         => 'ResourceId',
-        'resourceOwnerId'                    => 'ResourceOwnerId',
-        'resourceType'                       => 'ResourceType',
-        'sourceType'                         => 'SourceType',
-        'status'                             => 'Status',
-        'transitRouterAttachmentId'          => 'TransitRouterAttachmentId',
-        'transitRouterMulticastDomainId'     => 'TransitRouterMulticastDomainId',
-        'vSwitchId'                          => 'VSwitchId',
+        'resourceId' => 'ResourceId',
+        'resourceOwnerId' => 'ResourceOwnerId',
+        'resourceType' => 'ResourceType',
+        'sourceType' => 'SourceType',
+        'status' => 'Status',
+        'transitRouterAttachmentId' => 'TransitRouterAttachmentId',
+        'transitRouterMulticastDomainId' => 'TransitRouterMulticastDomainId',
+        'vSwitchId' => 'VSwitchId',
     ];
 
     public function validate()

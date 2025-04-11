@@ -12,63 +12,74 @@ class CreateCenInterRegionTrafficQosQueueRequest extends Model
      * @var int
      */
     public $bandwidth;
+
     /**
      * @var string
      */
     public $clientToken;
+
     /**
      * @var bool
      */
     public $dryRun;
+
     /**
      * @var int[]
      */
     public $dscps;
+
     /**
      * @var string
      */
     public $ownerAccount;
+
     /**
      * @var int
      */
     public $ownerId;
+
     /**
      * @var string
      */
     public $qosQueueDescription;
+
     /**
      * @var string
      */
     public $qosQueueName;
+
     /**
      * @var string
      */
     public $remainBandwidthPercent;
+
     /**
      * @var string
      */
     public $resourceOwnerAccount;
+
     /**
      * @var int
      */
     public $resourceOwnerId;
+
     /**
      * @var string
      */
     public $trafficQosPolicyId;
     protected $_name = [
-        'bandwidth'              => 'Bandwidth',
-        'clientToken'            => 'ClientToken',
-        'dryRun'                 => 'DryRun',
-        'dscps'                  => 'Dscps',
-        'ownerAccount'           => 'OwnerAccount',
-        'ownerId'                => 'OwnerId',
-        'qosQueueDescription'    => 'QosQueueDescription',
-        'qosQueueName'           => 'QosQueueName',
+        'bandwidth' => 'Bandwidth',
+        'clientToken' => 'ClientToken',
+        'dryRun' => 'DryRun',
+        'dscps' => 'Dscps',
+        'ownerAccount' => 'OwnerAccount',
+        'ownerId' => 'OwnerId',
+        'qosQueueDescription' => 'QosQueueDescription',
+        'qosQueueName' => 'QosQueueName',
         'remainBandwidthPercent' => 'RemainBandwidthPercent',
-        'resourceOwnerAccount'   => 'ResourceOwnerAccount',
-        'resourceOwnerId'        => 'ResourceOwnerId',
-        'trafficQosPolicyId'     => 'TrafficQosPolicyId',
+        'resourceOwnerAccount' => 'ResourceOwnerAccount',
+        'resourceOwnerId' => 'ResourceOwnerId',
+        'trafficQosPolicyId' => 'TrafficQosPolicyId',
     ];
 
     public function validate()
@@ -97,7 +108,7 @@ class CreateCenInterRegionTrafficQosQueueRequest extends Model
         if (null !== $this->dscps) {
             if (\is_array($this->dscps)) {
                 $res['Dscps'] = [];
-                $n1           = 0;
+                $n1 = 0;
                 foreach ($this->dscps as $item1) {
                     $res['Dscps'][$n1++] = $item1;
                 }
@@ -162,7 +173,7 @@ class CreateCenInterRegionTrafficQosQueueRequest extends Model
         if (isset($map['Dscps'])) {
             if (!empty($map['Dscps'])) {
                 $model->dscps = [];
-                $n1           = 0;
+                $n1 = 0;
                 foreach ($map['Dscps'] as $item1) {
                     $model->dscps[$n1++] = $item1;
                 }

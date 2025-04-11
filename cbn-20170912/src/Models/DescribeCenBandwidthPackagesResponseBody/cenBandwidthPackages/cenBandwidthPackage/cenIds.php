@@ -30,7 +30,7 @@ class cenIds extends Model
         if (null !== $this->cenId) {
             if (\is_array($this->cenId)) {
                 $res['CenId'] = [];
-                $n1           = 0;
+                $n1 = 0;
                 foreach ($this->cenId as $item1) {
                     $res['CenId'][$n1++] = $item1;
                 }
@@ -51,7 +51,7 @@ class cenIds extends Model
         if (isset($map['CenId'])) {
             if (!empty($map['CenId'])) {
                 $model->cenId = [];
-                $n1           = 0;
+                $n1 = 0;
                 foreach ($map['CenId'] as $item1) {
                     $model->cenId[$n1++] = $item1;
                 }

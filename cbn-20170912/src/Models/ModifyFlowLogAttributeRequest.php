@@ -12,58 +12,68 @@ class ModifyFlowLogAttributeRequest extends Model
      * @var string
      */
     public $cenId;
+
     /**
      * @var string
      */
     public $clientToken;
+
     /**
      * @var string
      */
     public $description;
+
     /**
      * @var string
      */
     public $flowLogId;
+
     /**
      * @var string
      */
     public $flowLogName;
+
     /**
      * @var int
      */
     public $interval;
+
     /**
      * @var string
      */
     public $ownerAccount;
+
     /**
      * @var int
      */
     public $ownerId;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $resourceOwnerAccount;
+
     /**
      * @var int
      */
     public $resourceOwnerId;
     protected $_name = [
-        'cenId'                => 'CenId',
-        'clientToken'          => 'ClientToken',
-        'description'          => 'Description',
-        'flowLogId'            => 'FlowLogId',
-        'flowLogName'          => 'FlowLogName',
-        'interval'             => 'Interval',
-        'ownerAccount'         => 'OwnerAccount',
-        'ownerId'              => 'OwnerId',
-        'regionId'             => 'RegionId',
+        'cenId' => 'CenId',
+        'clientToken' => 'ClientToken',
+        'description' => 'Description',
+        'flowLogId' => 'FlowLogId',
+        'flowLogName' => 'FlowLogName',
+        'interval' => 'Interval',
+        'ownerAccount' => 'OwnerAccount',
+        'ownerId' => 'OwnerId',
+        'regionId' => 'RegionId',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
-        'resourceOwnerId'      => 'ResourceOwnerId',
+        'resourceOwnerId' => 'ResourceOwnerId',
     ];
 
     public function validate()

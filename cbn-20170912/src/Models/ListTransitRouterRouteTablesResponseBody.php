@@ -13,27 +13,31 @@ class ListTransitRouterRouteTablesResponseBody extends Model
      * @var int
      */
     public $maxResults;
+
     /**
      * @var string
      */
     public $nextToken;
+
     /**
      * @var string
      */
     public $requestId;
+
     /**
      * @var int
      */
     public $totalCount;
+
     /**
      * @var transitRouterRouteTables[]
      */
     public $transitRouterRouteTables;
     protected $_name = [
-        'maxResults'               => 'MaxResults',
-        'nextToken'                => 'NextToken',
-        'requestId'                => 'RequestId',
-        'totalCount'               => 'TotalCount',
+        'maxResults' => 'MaxResults',
+        'nextToken' => 'NextToken',
+        'requestId' => 'RequestId',
+        'totalCount' => 'TotalCount',
         'transitRouterRouteTables' => 'TransitRouterRouteTables',
     ];
 
@@ -67,7 +71,7 @@ class ListTransitRouterRouteTablesResponseBody extends Model
         if (null !== $this->transitRouterRouteTables) {
             if (\is_array($this->transitRouterRouteTables)) {
                 $res['TransitRouterRouteTables'] = [];
-                $n1                              = 0;
+                $n1 = 0;
                 foreach ($this->transitRouterRouteTables as $item1) {
                     $res['TransitRouterRouteTables'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -104,7 +108,7 @@ class ListTransitRouterRouteTablesResponseBody extends Model
         if (isset($map['TransitRouterRouteTables'])) {
             if (!empty($map['TransitRouterRouteTables'])) {
                 $model->transitRouterRouteTables = [];
-                $n1                              = 0;
+                $n1 = 0;
                 foreach ($map['TransitRouterRouteTables'] as $item1) {
                     $model->transitRouterRouteTables[$n1++] = transitRouterRouteTables::fromMap($item1);
                 }

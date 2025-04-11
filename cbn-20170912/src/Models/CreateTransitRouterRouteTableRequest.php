@@ -14,58 +14,68 @@ class CreateTransitRouterRouteTableRequest extends Model
      * @var string
      */
     public $clientToken;
+
     /**
      * @var bool
      */
     public $dryRun;
+
     /**
      * @var string
      */
     public $ownerAccount;
+
     /**
      * @var int
      */
     public $ownerId;
+
     /**
      * @var string
      */
     public $resourceOwnerAccount;
+
     /**
      * @var int
      */
     public $resourceOwnerId;
+
     /**
      * @var routeTableOptions
      */
     public $routeTableOptions;
+
     /**
      * @var tag[]
      */
     public $tag;
+
     /**
      * @var string
      */
     public $transitRouterId;
+
     /**
      * @var string
      */
     public $transitRouterRouteTableDescription;
+
     /**
      * @var string
      */
     public $transitRouterRouteTableName;
     protected $_name = [
-        'clientToken'                        => 'ClientToken',
-        'dryRun'                             => 'DryRun',
-        'ownerAccount'                       => 'OwnerAccount',
-        'ownerId'                            => 'OwnerId',
-        'resourceOwnerAccount'               => 'ResourceOwnerAccount',
-        'resourceOwnerId'                    => 'ResourceOwnerId',
-        'routeTableOptions'                  => 'RouteTableOptions',
-        'tag'                                => 'Tag',
-        'transitRouterId'                    => 'TransitRouterId',
+        'clientToken' => 'ClientToken',
+        'dryRun' => 'DryRun',
+        'ownerAccount' => 'OwnerAccount',
+        'ownerId' => 'OwnerId',
+        'resourceOwnerAccount' => 'ResourceOwnerAccount',
+        'resourceOwnerId' => 'ResourceOwnerId',
+        'routeTableOptions' => 'RouteTableOptions',
+        'tag' => 'Tag',
+        'transitRouterId' => 'TransitRouterId',
         'transitRouterRouteTableDescription' => 'TransitRouterRouteTableDescription',
-        'transitRouterRouteTableName'        => 'TransitRouterRouteTableName',
+        'transitRouterRouteTableName' => 'TransitRouterRouteTableName',
     ];
 
     public function validate()
@@ -113,7 +123,7 @@ class CreateTransitRouterRouteTableRequest extends Model
         if (null !== $this->tag) {
             if (\is_array($this->tag)) {
                 $res['Tag'] = [];
-                $n1         = 0;
+                $n1 = 0;
                 foreach ($this->tag as $item1) {
                     $res['Tag'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -174,7 +184,7 @@ class CreateTransitRouterRouteTableRequest extends Model
         if (isset($map['Tag'])) {
             if (!empty($map['Tag'])) {
                 $model->tag = [];
-                $n1         = 0;
+                $n1 = 0;
                 foreach ($map['Tag'] as $item1) {
                     $model->tag[$n1++] = tag::fromMap($item1);
                 }

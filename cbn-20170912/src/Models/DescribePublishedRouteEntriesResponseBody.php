@@ -13,28 +13,32 @@ class DescribePublishedRouteEntriesResponseBody extends Model
      * @var int
      */
     public $pageNumber;
+
     /**
      * @var int
      */
     public $pageSize;
+
     /**
      * @var publishedRouteEntries
      */
     public $publishedRouteEntries;
+
     /**
      * @var string
      */
     public $requestId;
+
     /**
      * @var int
      */
     public $totalCount;
     protected $_name = [
-        'pageNumber'            => 'PageNumber',
-        'pageSize'              => 'PageSize',
+        'pageNumber' => 'PageNumber',
+        'pageSize' => 'PageSize',
         'publishedRouteEntries' => 'PublishedRouteEntries',
-        'requestId'             => 'RequestId',
-        'totalCount'            => 'TotalCount',
+        'requestId' => 'RequestId',
+        'totalCount' => 'TotalCount',
     ];
 
     public function validate()

@@ -12,48 +12,56 @@ class UntagResourcesRequest extends Model
      * @var bool
      */
     public $all;
+
     /**
      * @var string
      */
     public $ownerAccount;
+
     /**
      * @var int
      */
     public $ownerId;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string[]
      */
     public $resourceId;
+
     /**
      * @var string
      */
     public $resourceOwnerAccount;
+
     /**
      * @var int
      */
     public $resourceOwnerId;
+
     /**
      * @var string
      */
     public $resourceType;
+
     /**
      * @var string[]
      */
     public $tagKey;
     protected $_name = [
-        'all'                  => 'All',
-        'ownerAccount'         => 'OwnerAccount',
-        'ownerId'              => 'OwnerId',
-        'regionId'             => 'RegionId',
-        'resourceId'           => 'ResourceId',
+        'all' => 'All',
+        'ownerAccount' => 'OwnerAccount',
+        'ownerId' => 'OwnerId',
+        'regionId' => 'RegionId',
+        'resourceId' => 'ResourceId',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
-        'resourceOwnerId'      => 'ResourceOwnerId',
-        'resourceType'         => 'ResourceType',
-        'tagKey'               => 'TagKey',
+        'resourceOwnerId' => 'ResourceOwnerId',
+        'resourceType' => 'ResourceType',
+        'tagKey' => 'TagKey',
     ];
 
     public function validate()
@@ -89,7 +97,7 @@ class UntagResourcesRequest extends Model
         if (null !== $this->resourceId) {
             if (\is_array($this->resourceId)) {
                 $res['ResourceId'] = [];
-                $n1                = 0;
+                $n1 = 0;
                 foreach ($this->resourceId as $item1) {
                     $res['ResourceId'][$n1++] = $item1;
                 }
@@ -111,7 +119,7 @@ class UntagResourcesRequest extends Model
         if (null !== $this->tagKey) {
             if (\is_array($this->tagKey)) {
                 $res['TagKey'] = [];
-                $n1            = 0;
+                $n1 = 0;
                 foreach ($this->tagKey as $item1) {
                     $res['TagKey'][$n1++] = $item1;
                 }
@@ -148,7 +156,7 @@ class UntagResourcesRequest extends Model
         if (isset($map['ResourceId'])) {
             if (!empty($map['ResourceId'])) {
                 $model->resourceId = [];
-                $n1                = 0;
+                $n1 = 0;
                 foreach ($map['ResourceId'] as $item1) {
                     $model->resourceId[$n1++] = $item1;
                 }
@@ -170,7 +178,7 @@ class UntagResourcesRequest extends Model
         if (isset($map['TagKey'])) {
             if (!empty($map['TagKey'])) {
                 $model->tagKey = [];
-                $n1            = 0;
+                $n1 = 0;
                 foreach ($map['TagKey'] as $item1) {
                     $model->tagKey[$n1++] = $item1;
                 }

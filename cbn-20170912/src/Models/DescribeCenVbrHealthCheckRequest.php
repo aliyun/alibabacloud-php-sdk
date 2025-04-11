@@ -12,53 +12,62 @@ class DescribeCenVbrHealthCheckRequest extends Model
      * @var string
      */
     public $cenId;
+
     /**
      * @var string
      */
     public $ownerAccount;
+
     /**
      * @var int
      */
     public $ownerId;
+
     /**
      * @var int
      */
     public $pageNumber;
+
     /**
      * @var int
      */
     public $pageSize;
+
     /**
      * @var string
      */
     public $resourceOwnerAccount;
+
     /**
      * @var int
      */
     public $resourceOwnerId;
+
     /**
      * @var string
      */
     public $vbrInstanceId;
+
     /**
      * @var int
      */
     public $vbrInstanceOwnerId;
+
     /**
      * @var string
      */
     public $vbrInstanceRegionId;
     protected $_name = [
-        'cenId'                => 'CenId',
-        'ownerAccount'         => 'OwnerAccount',
-        'ownerId'              => 'OwnerId',
-        'pageNumber'           => 'PageNumber',
-        'pageSize'             => 'PageSize',
+        'cenId' => 'CenId',
+        'ownerAccount' => 'OwnerAccount',
+        'ownerId' => 'OwnerId',
+        'pageNumber' => 'PageNumber',
+        'pageSize' => 'PageSize',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
-        'resourceOwnerId'      => 'ResourceOwnerId',
-        'vbrInstanceId'        => 'VbrInstanceId',
-        'vbrInstanceOwnerId'   => 'VbrInstanceOwnerId',
-        'vbrInstanceRegionId'  => 'VbrInstanceRegionId',
+        'resourceOwnerId' => 'ResourceOwnerId',
+        'vbrInstanceId' => 'VbrInstanceId',
+        'vbrInstanceOwnerId' => 'VbrInstanceOwnerId',
+        'vbrInstanceRegionId' => 'VbrInstanceRegionId',
     ];
 
     public function validate()

@@ -12,12 +12,13 @@ class cenOutRouteMapRecord extends Model
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $routeMapId;
     protected $_name = [
-        'regionId'   => 'RegionId',
+        'regionId' => 'RegionId',
         'routeMapId' => 'RouteMapId',
     ];
 

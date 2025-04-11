@@ -31,7 +31,7 @@ class cens extends Model
         if (null !== $this->cen) {
             if (\is_array($this->cen)) {
                 $res['Cen'] = [];
-                $n1         = 0;
+                $n1 = 0;
                 foreach ($this->cen as $item1) {
                     $res['Cen'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -52,7 +52,7 @@ class cens extends Model
         if (isset($map['Cen'])) {
             if (!empty($map['Cen'])) {
                 $model->cen = [];
-                $n1         = 0;
+                $n1 = 0;
                 foreach ($map['Cen'] as $item1) {
                     $model->cen[$n1++] = cen::fromMap($item1);
                 }

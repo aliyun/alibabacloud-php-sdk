@@ -14,68 +14,80 @@ class ListTransitRouterRouteTablesRequest extends Model
      * @var int
      */
     public $maxResults;
+
     /**
      * @var string
      */
     public $nextToken;
+
     /**
      * @var string
      */
     public $ownerAccount;
+
     /**
      * @var int
      */
     public $ownerId;
+
     /**
      * @var string
      */
     public $resourceOwnerAccount;
+
     /**
      * @var int
      */
     public $resourceOwnerId;
+
     /**
      * @var routeTableOptions
      */
     public $routeTableOptions;
+
     /**
      * @var tag[]
      */
     public $tag;
+
     /**
      * @var string
      */
     public $transitRouterId;
+
     /**
      * @var string[]
      */
     public $transitRouterRouteTableIds;
+
     /**
      * @var string[]
      */
     public $transitRouterRouteTableNames;
+
     /**
      * @var string
      */
     public $transitRouterRouteTableStatus;
+
     /**
      * @var string
      */
     public $transitRouterRouteTableType;
     protected $_name = [
-        'maxResults'                    => 'MaxResults',
-        'nextToken'                     => 'NextToken',
-        'ownerAccount'                  => 'OwnerAccount',
-        'ownerId'                       => 'OwnerId',
-        'resourceOwnerAccount'          => 'ResourceOwnerAccount',
-        'resourceOwnerId'               => 'ResourceOwnerId',
-        'routeTableOptions'             => 'RouteTableOptions',
-        'tag'                           => 'Tag',
-        'transitRouterId'               => 'TransitRouterId',
-        'transitRouterRouteTableIds'    => 'TransitRouterRouteTableIds',
-        'transitRouterRouteTableNames'  => 'TransitRouterRouteTableNames',
+        'maxResults' => 'MaxResults',
+        'nextToken' => 'NextToken',
+        'ownerAccount' => 'OwnerAccount',
+        'ownerId' => 'OwnerId',
+        'resourceOwnerAccount' => 'ResourceOwnerAccount',
+        'resourceOwnerId' => 'ResourceOwnerId',
+        'routeTableOptions' => 'RouteTableOptions',
+        'tag' => 'Tag',
+        'transitRouterId' => 'TransitRouterId',
+        'transitRouterRouteTableIds' => 'TransitRouterRouteTableIds',
+        'transitRouterRouteTableNames' => 'TransitRouterRouteTableNames',
         'transitRouterRouteTableStatus' => 'TransitRouterRouteTableStatus',
-        'transitRouterRouteTableType'   => 'TransitRouterRouteTableType',
+        'transitRouterRouteTableType' => 'TransitRouterRouteTableType',
     ];
 
     public function validate()
@@ -129,7 +141,7 @@ class ListTransitRouterRouteTablesRequest extends Model
         if (null !== $this->tag) {
             if (\is_array($this->tag)) {
                 $res['Tag'] = [];
-                $n1         = 0;
+                $n1 = 0;
                 foreach ($this->tag as $item1) {
                     $res['Tag'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -143,7 +155,7 @@ class ListTransitRouterRouteTablesRequest extends Model
         if (null !== $this->transitRouterRouteTableIds) {
             if (\is_array($this->transitRouterRouteTableIds)) {
                 $res['TransitRouterRouteTableIds'] = [];
-                $n1                                = 0;
+                $n1 = 0;
                 foreach ($this->transitRouterRouteTableIds as $item1) {
                     $res['TransitRouterRouteTableIds'][$n1++] = $item1;
                 }
@@ -153,7 +165,7 @@ class ListTransitRouterRouteTablesRequest extends Model
         if (null !== $this->transitRouterRouteTableNames) {
             if (\is_array($this->transitRouterRouteTableNames)) {
                 $res['TransitRouterRouteTableNames'] = [];
-                $n1                                  = 0;
+                $n1 = 0;
                 foreach ($this->transitRouterRouteTableNames as $item1) {
                     $res['TransitRouterRouteTableNames'][$n1++] = $item1;
                 }
@@ -210,7 +222,7 @@ class ListTransitRouterRouteTablesRequest extends Model
         if (isset($map['Tag'])) {
             if (!empty($map['Tag'])) {
                 $model->tag = [];
-                $n1         = 0;
+                $n1 = 0;
                 foreach ($map['Tag'] as $item1) {
                     $model->tag[$n1++] = tag::fromMap($item1);
                 }
@@ -224,7 +236,7 @@ class ListTransitRouterRouteTablesRequest extends Model
         if (isset($map['TransitRouterRouteTableIds'])) {
             if (!empty($map['TransitRouterRouteTableIds'])) {
                 $model->transitRouterRouteTableIds = [];
-                $n1                                = 0;
+                $n1 = 0;
                 foreach ($map['TransitRouterRouteTableIds'] as $item1) {
                     $model->transitRouterRouteTableIds[$n1++] = $item1;
                 }
@@ -234,7 +246,7 @@ class ListTransitRouterRouteTablesRequest extends Model
         if (isset($map['TransitRouterRouteTableNames'])) {
             if (!empty($map['TransitRouterRouteTableNames'])) {
                 $model->transitRouterRouteTableNames = [];
-                $n1                                  = 0;
+                $n1 = 0;
                 foreach ($map['TransitRouterRouteTableNames'] as $item1) {
                     $model->transitRouterRouteTableNames[$n1++] = $item1;
                 }

@@ -12,53 +12,62 @@ class ModifyTrafficMatchRuleToTrafficMarkingPolicyRequest extends Model
      * @var string
      */
     public $clientToken;
+
     /**
      * @var bool
      */
     public $dryRun;
+
     /**
      * @var string
      */
     public $ownerAccount;
+
     /**
      * @var int
      */
     public $ownerId;
+
     /**
      * @var string
      */
     public $resourceOwnerAccount;
+
     /**
      * @var int
      */
     public $resourceOwnerId;
+
     /**
      * @var string
      */
     public $trafficMarkingPolicyId;
+
     /**
      * @var string
      */
     public $trafficMatchRuleDescription;
+
     /**
      * @var string
      */
     public $trafficMatchRuleId;
+
     /**
      * @var string
      */
     public $trafficMatchRuleName;
     protected $_name = [
-        'clientToken'                 => 'ClientToken',
-        'dryRun'                      => 'DryRun',
-        'ownerAccount'                => 'OwnerAccount',
-        'ownerId'                     => 'OwnerId',
-        'resourceOwnerAccount'        => 'ResourceOwnerAccount',
-        'resourceOwnerId'             => 'ResourceOwnerId',
-        'trafficMarkingPolicyId'      => 'TrafficMarkingPolicyId',
+        'clientToken' => 'ClientToken',
+        'dryRun' => 'DryRun',
+        'ownerAccount' => 'OwnerAccount',
+        'ownerId' => 'OwnerId',
+        'resourceOwnerAccount' => 'ResourceOwnerAccount',
+        'resourceOwnerId' => 'ResourceOwnerId',
+        'trafficMarkingPolicyId' => 'TrafficMarkingPolicyId',
         'trafficMatchRuleDescription' => 'TrafficMatchRuleDescription',
-        'trafficMatchRuleId'          => 'TrafficMatchRuleId',
-        'trafficMatchRuleName'        => 'TrafficMatchRuleName',
+        'trafficMatchRuleId' => 'TrafficMatchRuleId',
+        'trafficMatchRuleName' => 'TrafficMatchRuleName',
     ];
 
     public function validate()

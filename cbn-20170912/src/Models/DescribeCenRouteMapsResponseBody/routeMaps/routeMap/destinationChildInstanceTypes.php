@@ -30,7 +30,7 @@ class destinationChildInstanceTypes extends Model
         if (null !== $this->destinationChildInstanceType) {
             if (\is_array($this->destinationChildInstanceType)) {
                 $res['DestinationChildInstanceType'] = [];
-                $n1                                  = 0;
+                $n1 = 0;
                 foreach ($this->destinationChildInstanceType as $item1) {
                     $res['DestinationChildInstanceType'][$n1++] = $item1;
                 }
@@ -51,7 +51,7 @@ class destinationChildInstanceTypes extends Model
         if (isset($map['DestinationChildInstanceType'])) {
             if (!empty($map['DestinationChildInstanceType'])) {
                 $model->destinationChildInstanceType = [];
-                $n1                                  = 0;
+                $n1 = 0;
                 foreach ($map['DestinationChildInstanceType'] as $item1) {
                     $model->destinationChildInstanceType[$n1++] = $item1;
                 }

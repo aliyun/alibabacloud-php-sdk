@@ -12,58 +12,68 @@ class ResolveAndRouteServiceInCenRequest extends Model
      * @var string[]
      */
     public $accessRegionIds;
+
     /**
      * @var string
      */
     public $cenId;
+
     /**
      * @var string
      */
     public $clientToken;
+
     /**
      * @var string
      */
     public $description;
+
     /**
      * @var string
      */
     public $host;
+
     /**
      * @var string
      */
     public $hostRegionId;
+
     /**
      * @var string
      */
     public $hostVpcId;
+
     /**
      * @var string
      */
     public $ownerAccount;
+
     /**
      * @var int
      */
     public $ownerId;
+
     /**
      * @var string
      */
     public $resourceOwnerAccount;
+
     /**
      * @var int
      */
     public $resourceOwnerId;
     protected $_name = [
-        'accessRegionIds'      => 'AccessRegionIds',
-        'cenId'                => 'CenId',
-        'clientToken'          => 'ClientToken',
-        'description'          => 'Description',
-        'host'                 => 'Host',
-        'hostRegionId'         => 'HostRegionId',
-        'hostVpcId'            => 'HostVpcId',
-        'ownerAccount'         => 'OwnerAccount',
-        'ownerId'              => 'OwnerId',
+        'accessRegionIds' => 'AccessRegionIds',
+        'cenId' => 'CenId',
+        'clientToken' => 'ClientToken',
+        'description' => 'Description',
+        'host' => 'Host',
+        'hostRegionId' => 'HostRegionId',
+        'hostVpcId' => 'HostVpcId',
+        'ownerAccount' => 'OwnerAccount',
+        'ownerId' => 'OwnerId',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
-        'resourceOwnerId'      => 'ResourceOwnerId',
+        'resourceOwnerId' => 'ResourceOwnerId',
     ];
 
     public function validate()
@@ -80,7 +90,7 @@ class ResolveAndRouteServiceInCenRequest extends Model
         if (null !== $this->accessRegionIds) {
             if (\is_array($this->accessRegionIds)) {
                 $res['AccessRegionIds'] = [];
-                $n1                     = 0;
+                $n1 = 0;
                 foreach ($this->accessRegionIds as $item1) {
                     $res['AccessRegionIds'][$n1++] = $item1;
                 }
@@ -141,7 +151,7 @@ class ResolveAndRouteServiceInCenRequest extends Model
         if (isset($map['AccessRegionIds'])) {
             if (!empty($map['AccessRegionIds'])) {
                 $model->accessRegionIds = [];
-                $n1                     = 0;
+                $n1 = 0;
                 foreach ($map['AccessRegionIds'] as $item1) {
                     $model->accessRegionIds[$n1++] = $item1;
                 }

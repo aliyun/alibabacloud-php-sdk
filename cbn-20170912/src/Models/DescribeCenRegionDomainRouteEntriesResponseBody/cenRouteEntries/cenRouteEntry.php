@@ -16,63 +16,74 @@ class cenRouteEntry extends Model
      * @var asPaths
      */
     public $asPaths;
+
     /**
      * @var cenOutRouteMapRecords
      */
     public $cenOutRouteMapRecords;
+
     /**
      * @var cenRouteMapRecords
      */
     public $cenRouteMapRecords;
+
     /**
      * @var communities
      */
     public $communities;
+
     /**
      * @var string
      */
     public $destinationCidrBlock;
+
     /**
      * @var string
      */
     public $nextHopInstanceId;
+
     /**
      * @var string
      */
     public $nextHopRegionId;
+
     /**
      * @var string
      */
     public $nextHopType;
+
     /**
      * @var int
      */
     public $preference;
+
     /**
      * @var string
      */
     public $status;
+
     /**
      * @var string
      */
     public $toOtherRegionStatus;
+
     /**
      * @var string
      */
     public $type;
     protected $_name = [
-        'asPaths'               => 'AsPaths',
+        'asPaths' => 'AsPaths',
         'cenOutRouteMapRecords' => 'CenOutRouteMapRecords',
-        'cenRouteMapRecords'    => 'CenRouteMapRecords',
-        'communities'           => 'Communities',
-        'destinationCidrBlock'  => 'DestinationCidrBlock',
-        'nextHopInstanceId'     => 'NextHopInstanceId',
-        'nextHopRegionId'       => 'NextHopRegionId',
-        'nextHopType'           => 'NextHopType',
-        'preference'            => 'Preference',
-        'status'                => 'Status',
-        'toOtherRegionStatus'   => 'ToOtherRegionStatus',
-        'type'                  => 'Type',
+        'cenRouteMapRecords' => 'CenRouteMapRecords',
+        'communities' => 'Communities',
+        'destinationCidrBlock' => 'DestinationCidrBlock',
+        'nextHopInstanceId' => 'NextHopInstanceId',
+        'nextHopRegionId' => 'NextHopRegionId',
+        'nextHopType' => 'NextHopType',
+        'preference' => 'Preference',
+        'status' => 'Status',
+        'toOtherRegionStatus' => 'ToOtherRegionStatus',
+        'type' => 'Type',
     ];
 
     public function validate()

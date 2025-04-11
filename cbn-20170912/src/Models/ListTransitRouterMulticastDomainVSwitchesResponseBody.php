@@ -12,26 +12,30 @@ class ListTransitRouterMulticastDomainVSwitchesResponseBody extends Model
      * @var int
      */
     public $maxResults;
+
     /**
      * @var string
      */
     public $nextToken;
+
     /**
      * @var string
      */
     public $requestId;
+
     /**
      * @var int
      */
     public $totalCount;
+
     /**
      * @var string[]
      */
     public $vSwitchIds;
     protected $_name = [
         'maxResults' => 'MaxResults',
-        'nextToken'  => 'NextToken',
-        'requestId'  => 'RequestId',
+        'nextToken' => 'NextToken',
+        'requestId' => 'RequestId',
         'totalCount' => 'TotalCount',
         'vSwitchIds' => 'VSwitchIds',
     ];
@@ -66,7 +70,7 @@ class ListTransitRouterMulticastDomainVSwitchesResponseBody extends Model
         if (null !== $this->vSwitchIds) {
             if (\is_array($this->vSwitchIds)) {
                 $res['VSwitchIds'] = [];
-                $n1                = 0;
+                $n1 = 0;
                 foreach ($this->vSwitchIds as $item1) {
                     $res['VSwitchIds'][$n1++] = $item1;
                 }
@@ -103,7 +107,7 @@ class ListTransitRouterMulticastDomainVSwitchesResponseBody extends Model
         if (isset($map['VSwitchIds'])) {
             if (!empty($map['VSwitchIds'])) {
                 $model->vSwitchIds = [];
-                $n1                = 0;
+                $n1 = 0;
                 foreach ($map['VSwitchIds'] as $item1) {
                     $model->vSwitchIds[$n1++] = $item1;
                 }

@@ -12,63 +12,74 @@ class ModifyTransitRouteTableAggregationRequest extends Model
      * @var string
      */
     public $clientToken;
+
     /**
      * @var bool
      */
     public $dryRun;
+
     /**
      * @var string
      */
     public $ownerAccount;
+
     /**
      * @var int
      */
     public $ownerId;
+
     /**
      * @var string
      */
     public $resourceOwnerAccount;
+
     /**
      * @var int
      */
     public $resourceOwnerId;
+
     /**
      * @var string
      */
     public $transitRouteTableAggregationCidr;
+
     /**
      * @var string
      */
     public $transitRouteTableAggregationDescription;
+
     /**
      * @var string
      */
     public $transitRouteTableAggregationName;
+
     /**
      * @var string
      */
     public $transitRouteTableAggregationScope;
+
     /**
      * @var string[]
      */
     public $transitRouteTableAggregationScopeList;
+
     /**
      * @var string
      */
     public $transitRouteTableId;
     protected $_name = [
-        'clientToken'                             => 'ClientToken',
-        'dryRun'                                  => 'DryRun',
-        'ownerAccount'                            => 'OwnerAccount',
-        'ownerId'                                 => 'OwnerId',
-        'resourceOwnerAccount'                    => 'ResourceOwnerAccount',
-        'resourceOwnerId'                         => 'ResourceOwnerId',
-        'transitRouteTableAggregationCidr'        => 'TransitRouteTableAggregationCidr',
+        'clientToken' => 'ClientToken',
+        'dryRun' => 'DryRun',
+        'ownerAccount' => 'OwnerAccount',
+        'ownerId' => 'OwnerId',
+        'resourceOwnerAccount' => 'ResourceOwnerAccount',
+        'resourceOwnerId' => 'ResourceOwnerId',
+        'transitRouteTableAggregationCidr' => 'TransitRouteTableAggregationCidr',
         'transitRouteTableAggregationDescription' => 'TransitRouteTableAggregationDescription',
-        'transitRouteTableAggregationName'        => 'TransitRouteTableAggregationName',
-        'transitRouteTableAggregationScope'       => 'TransitRouteTableAggregationScope',
-        'transitRouteTableAggregationScopeList'   => 'TransitRouteTableAggregationScopeList',
-        'transitRouteTableId'                     => 'TransitRouteTableId',
+        'transitRouteTableAggregationName' => 'TransitRouteTableAggregationName',
+        'transitRouteTableAggregationScope' => 'TransitRouteTableAggregationScope',
+        'transitRouteTableAggregationScopeList' => 'TransitRouteTableAggregationScopeList',
+        'transitRouteTableId' => 'TransitRouteTableId',
     ];
 
     public function validate()
@@ -125,7 +136,7 @@ class ModifyTransitRouteTableAggregationRequest extends Model
         if (null !== $this->transitRouteTableAggregationScopeList) {
             if (\is_array($this->transitRouteTableAggregationScopeList)) {
                 $res['TransitRouteTableAggregationScopeList'] = [];
-                $n1                                           = 0;
+                $n1 = 0;
                 foreach ($this->transitRouteTableAggregationScopeList as $item1) {
                     $res['TransitRouteTableAggregationScopeList'][$n1++] = $item1;
                 }
@@ -190,7 +201,7 @@ class ModifyTransitRouteTableAggregationRequest extends Model
         if (isset($map['TransitRouteTableAggregationScopeList'])) {
             if (!empty($map['TransitRouteTableAggregationScopeList'])) {
                 $model->transitRouteTableAggregationScopeList = [];
-                $n1                                           = 0;
+                $n1 = 0;
                 foreach ($map['TransitRouteTableAggregationScopeList'] as $item1) {
                     $model->transitRouteTableAggregationScopeList[$n1++] = $item1;
                 }

@@ -12,48 +12,56 @@ class DeleteRouteServiceInCenRequest extends Model
      * @var string
      */
     public $accessRegionId;
+
     /**
      * @var string
      */
     public $cenId;
+
     /**
      * @var string
      */
     public $host;
+
     /**
      * @var string
      */
     public $hostRegionId;
+
     /**
      * @var string
      */
     public $hostVpcId;
+
     /**
      * @var string
      */
     public $ownerAccount;
+
     /**
      * @var int
      */
     public $ownerId;
+
     /**
      * @var string
      */
     public $resourceOwnerAccount;
+
     /**
      * @var int
      */
     public $resourceOwnerId;
     protected $_name = [
-        'accessRegionId'       => 'AccessRegionId',
-        'cenId'                => 'CenId',
-        'host'                 => 'Host',
-        'hostRegionId'         => 'HostRegionId',
-        'hostVpcId'            => 'HostVpcId',
-        'ownerAccount'         => 'OwnerAccount',
-        'ownerId'              => 'OwnerId',
+        'accessRegionId' => 'AccessRegionId',
+        'cenId' => 'CenId',
+        'host' => 'Host',
+        'hostRegionId' => 'HostRegionId',
+        'hostVpcId' => 'HostVpcId',
+        'ownerAccount' => 'OwnerAccount',
+        'ownerId' => 'OwnerId',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
-        'resourceOwnerId'      => 'ResourceOwnerId',
+        'resourceOwnerId' => 'ResourceOwnerId',
     ];
 
     public function validate()

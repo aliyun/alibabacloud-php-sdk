@@ -13,27 +13,31 @@ class ListTransitRouterPeerAttachmentsResponseBody extends Model
      * @var int
      */
     public $maxResults;
+
     /**
      * @var string
      */
     public $nextToken;
+
     /**
      * @var string
      */
     public $requestId;
+
     /**
      * @var int
      */
     public $totalCount;
+
     /**
      * @var transitRouterAttachments[]
      */
     public $transitRouterAttachments;
     protected $_name = [
-        'maxResults'               => 'MaxResults',
-        'nextToken'                => 'NextToken',
-        'requestId'                => 'RequestId',
-        'totalCount'               => 'TotalCount',
+        'maxResults' => 'MaxResults',
+        'nextToken' => 'NextToken',
+        'requestId' => 'RequestId',
+        'totalCount' => 'TotalCount',
         'transitRouterAttachments' => 'TransitRouterAttachments',
     ];
 
@@ -67,7 +71,7 @@ class ListTransitRouterPeerAttachmentsResponseBody extends Model
         if (null !== $this->transitRouterAttachments) {
             if (\is_array($this->transitRouterAttachments)) {
                 $res['TransitRouterAttachments'] = [];
-                $n1                              = 0;
+                $n1 = 0;
                 foreach ($this->transitRouterAttachments as $item1) {
                     $res['TransitRouterAttachments'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -104,7 +108,7 @@ class ListTransitRouterPeerAttachmentsResponseBody extends Model
         if (isset($map['TransitRouterAttachments'])) {
             if (!empty($map['TransitRouterAttachments'])) {
                 $model->transitRouterAttachments = [];
-                $n1                              = 0;
+                $n1 = 0;
                 foreach ($map['TransitRouterAttachments'] as $item1) {
                     $model->transitRouterAttachments[$n1++] = transitRouterAttachments::fromMap($item1);
                 }

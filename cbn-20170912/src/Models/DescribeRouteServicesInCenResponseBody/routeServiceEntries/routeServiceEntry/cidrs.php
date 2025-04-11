@@ -30,7 +30,7 @@ class cidrs extends Model
         if (null !== $this->cidr) {
             if (\is_array($this->cidr)) {
                 $res['Cidr'] = [];
-                $n1          = 0;
+                $n1 = 0;
                 foreach ($this->cidr as $item1) {
                     $res['Cidr'][$n1++] = $item1;
                 }
@@ -51,7 +51,7 @@ class cidrs extends Model
         if (isset($map['Cidr'])) {
             if (!empty($map['Cidr'])) {
                 $model->cidr = [];
-                $n1          = 0;
+                $n1 = 0;
                 foreach ($map['Cidr'] as $item1) {
                     $model->cidr[$n1++] = $item1;
                 }

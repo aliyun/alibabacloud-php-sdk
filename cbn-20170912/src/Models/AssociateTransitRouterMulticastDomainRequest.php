@@ -12,48 +12,56 @@ class AssociateTransitRouterMulticastDomainRequest extends Model
      * @var string
      */
     public $clientToken;
+
     /**
      * @var bool
      */
     public $dryRun;
+
     /**
      * @var string
      */
     public $ownerAccount;
+
     /**
      * @var int
      */
     public $ownerId;
+
     /**
      * @var string
      */
     public $resourceOwnerAccount;
+
     /**
      * @var int
      */
     public $resourceOwnerId;
+
     /**
      * @var string
      */
     public $transitRouterAttachmentId;
+
     /**
      * @var string
      */
     public $transitRouterMulticastDomainId;
+
     /**
      * @var string[]
      */
     public $vSwitchIds;
     protected $_name = [
-        'clientToken'                    => 'ClientToken',
-        'dryRun'                         => 'DryRun',
-        'ownerAccount'                   => 'OwnerAccount',
-        'ownerId'                        => 'OwnerId',
-        'resourceOwnerAccount'           => 'ResourceOwnerAccount',
-        'resourceOwnerId'                => 'ResourceOwnerId',
-        'transitRouterAttachmentId'      => 'TransitRouterAttachmentId',
+        'clientToken' => 'ClientToken',
+        'dryRun' => 'DryRun',
+        'ownerAccount' => 'OwnerAccount',
+        'ownerId' => 'OwnerId',
+        'resourceOwnerAccount' => 'ResourceOwnerAccount',
+        'resourceOwnerId' => 'ResourceOwnerId',
+        'transitRouterAttachmentId' => 'TransitRouterAttachmentId',
         'transitRouterMulticastDomainId' => 'TransitRouterMulticastDomainId',
-        'vSwitchIds'                     => 'VSwitchIds',
+        'vSwitchIds' => 'VSwitchIds',
     ];
 
     public function validate()
@@ -102,7 +110,7 @@ class AssociateTransitRouterMulticastDomainRequest extends Model
         if (null !== $this->vSwitchIds) {
             if (\is_array($this->vSwitchIds)) {
                 $res['VSwitchIds'] = [];
-                $n1                = 0;
+                $n1 = 0;
                 foreach ($this->vSwitchIds as $item1) {
                     $res['VSwitchIds'][$n1++] = $item1;
                 }
@@ -155,7 +163,7 @@ class AssociateTransitRouterMulticastDomainRequest extends Model
         if (isset($map['VSwitchIds'])) {
             if (!empty($map['VSwitchIds'])) {
                 $model->vSwitchIds = [];
-                $n1                = 0;
+                $n1 = 0;
                 foreach ($map['VSwitchIds'] as $item1) {
                     $model->vSwitchIds[$n1++] = $item1;
                 }

@@ -30,7 +30,7 @@ class sourceRegionIds extends Model
         if (null !== $this->sourceRegionId) {
             if (\is_array($this->sourceRegionId)) {
                 $res['SourceRegionId'] = [];
-                $n1                    = 0;
+                $n1 = 0;
                 foreach ($this->sourceRegionId as $item1) {
                     $res['SourceRegionId'][$n1++] = $item1;
                 }
@@ -51,7 +51,7 @@ class sourceRegionIds extends Model
         if (isset($map['SourceRegionId'])) {
             if (!empty($map['SourceRegionId'])) {
                 $model->sourceRegionId = [];
-                $n1                    = 0;
+                $n1 = 0;
                 foreach ($map['SourceRegionId'] as $item1) {
                     $model->sourceRegionId[$n1++] = $item1;
                 }

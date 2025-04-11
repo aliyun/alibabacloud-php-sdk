@@ -13,78 +13,92 @@ class CreateTransitRouterVbrAttachmentRequest extends Model
      * @var bool
      */
     public $autoPublishRouteEnabled;
+
     /**
      * @var string
      */
     public $cenId;
+
     /**
      * @var string
      */
     public $clientToken;
+
     /**
      * @var bool
      */
     public $dryRun;
+
     /**
      * @var string
      */
     public $ownerAccount;
+
     /**
      * @var int
      */
     public $ownerId;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $resourceOwnerAccount;
+
     /**
      * @var int
      */
     public $resourceOwnerId;
+
     /**
      * @var tag[]
      */
     public $tag;
+
     /**
      * @var string
      */
     public $transitRouterAttachmentDescription;
+
     /**
      * @var string
      */
     public $transitRouterAttachmentName;
+
     /**
      * @var string
      */
     public $transitRouterId;
+
     /**
      * @var string
      */
     public $vbrId;
+
     /**
      * @var int
      */
     public $vbrOwnerId;
     protected $_name = [
-        'autoPublishRouteEnabled'            => 'AutoPublishRouteEnabled',
-        'cenId'                              => 'CenId',
-        'clientToken'                        => 'ClientToken',
-        'dryRun'                             => 'DryRun',
-        'ownerAccount'                       => 'OwnerAccount',
-        'ownerId'                            => 'OwnerId',
-        'regionId'                           => 'RegionId',
-        'resourceOwnerAccount'               => 'ResourceOwnerAccount',
-        'resourceOwnerId'                    => 'ResourceOwnerId',
-        'tag'                                => 'Tag',
+        'autoPublishRouteEnabled' => 'AutoPublishRouteEnabled',
+        'cenId' => 'CenId',
+        'clientToken' => 'ClientToken',
+        'dryRun' => 'DryRun',
+        'ownerAccount' => 'OwnerAccount',
+        'ownerId' => 'OwnerId',
+        'regionId' => 'RegionId',
+        'resourceOwnerAccount' => 'ResourceOwnerAccount',
+        'resourceOwnerId' => 'ResourceOwnerId',
+        'tag' => 'Tag',
         'transitRouterAttachmentDescription' => 'TransitRouterAttachmentDescription',
-        'transitRouterAttachmentName'        => 'TransitRouterAttachmentName',
-        'transitRouterId'                    => 'TransitRouterId',
-        'vbrId'                              => 'VbrId',
-        'vbrOwnerId'                         => 'VbrOwnerId',
+        'transitRouterAttachmentName' => 'TransitRouterAttachmentName',
+        'transitRouterId' => 'TransitRouterId',
+        'vbrId' => 'VbrId',
+        'vbrOwnerId' => 'VbrOwnerId',
     ];
 
     public function validate()
@@ -137,7 +151,7 @@ class CreateTransitRouterVbrAttachmentRequest extends Model
         if (null !== $this->tag) {
             if (\is_array($this->tag)) {
                 $res['Tag'] = [];
-                $n1         = 0;
+                $n1 = 0;
                 foreach ($this->tag as $item1) {
                     $res['Tag'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -214,7 +228,7 @@ class CreateTransitRouterVbrAttachmentRequest extends Model
         if (isset($map['Tag'])) {
             if (!empty($map['Tag'])) {
                 $model->tag = [];
-                $n1         = 0;
+                $n1 = 0;
                 foreach ($map['Tag'] as $item1) {
                     $model->tag[$n1++] = tag::fromMap($item1);
                 }

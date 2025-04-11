@@ -12,58 +12,68 @@ class ListTransitRouterRouteTableAssociationsRequest extends Model
      * @var int
      */
     public $maxResults;
+
     /**
      * @var string
      */
     public $nextToken;
+
     /**
      * @var string
      */
     public $ownerAccount;
+
     /**
      * @var int
      */
     public $ownerId;
+
     /**
      * @var string
      */
     public $resourceOwnerAccount;
+
     /**
      * @var int
      */
     public $resourceOwnerId;
+
     /**
      * @var string
      */
     public $status;
+
     /**
      * @var string
      */
     public $transitRouterAttachmentId;
+
     /**
      * @var string
      */
     public $transitRouterAttachmentResourceId;
+
     /**
      * @var string
      */
     public $transitRouterAttachmentResourceType;
+
     /**
      * @var string
      */
     public $transitRouterRouteTableId;
     protected $_name = [
-        'maxResults'                          => 'MaxResults',
-        'nextToken'                           => 'NextToken',
-        'ownerAccount'                        => 'OwnerAccount',
-        'ownerId'                             => 'OwnerId',
-        'resourceOwnerAccount'                => 'ResourceOwnerAccount',
-        'resourceOwnerId'                     => 'ResourceOwnerId',
-        'status'                              => 'Status',
-        'transitRouterAttachmentId'           => 'TransitRouterAttachmentId',
-        'transitRouterAttachmentResourceId'   => 'TransitRouterAttachmentResourceId',
+        'maxResults' => 'MaxResults',
+        'nextToken' => 'NextToken',
+        'ownerAccount' => 'OwnerAccount',
+        'ownerId' => 'OwnerId',
+        'resourceOwnerAccount' => 'ResourceOwnerAccount',
+        'resourceOwnerId' => 'ResourceOwnerId',
+        'status' => 'Status',
+        'transitRouterAttachmentId' => 'TransitRouterAttachmentId',
+        'transitRouterAttachmentResourceId' => 'TransitRouterAttachmentResourceId',
         'transitRouterAttachmentResourceType' => 'TransitRouterAttachmentResourceType',
-        'transitRouterRouteTableId'           => 'TransitRouterRouteTableId',
+        'transitRouterRouteTableId' => 'TransitRouterRouteTableId',
     ];
 
     public function validate()

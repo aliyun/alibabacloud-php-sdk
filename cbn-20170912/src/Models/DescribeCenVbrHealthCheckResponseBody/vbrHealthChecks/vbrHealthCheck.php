@@ -12,47 +12,55 @@ class vbrHealthCheck extends Model
      * @var string
      */
     public $cenId;
+
     /**
      * @var string
      */
     public $description;
+
     /**
      * @var int
      */
     public $healthCheckInterval;
+
     /**
      * @var bool
      */
     public $healthCheckOnly;
+
     /**
      * @var string
      */
     public $healthCheckSourceIp;
+
     /**
      * @var string
      */
     public $healthCheckTargetIp;
+
     /**
      * @var int
      */
     public $healthyThreshold;
+
     /**
      * @var string
      */
     public $vbrInstanceId;
+
     /**
      * @var string
      */
     public $vbrInstanceRegionId;
     protected $_name = [
-        'cenId'               => 'CenId',
-        'description'         => 'Description',
+        'cenId' => 'CenId',
+        'description' => 'Description',
         'healthCheckInterval' => 'HealthCheckInterval',
-        'healthCheckOnly'     => 'HealthCheckOnly',
+        'healthCheckOnly' => 'HealthCheckOnly',
         'healthCheckSourceIp' => 'HealthCheckSourceIp',
         'healthCheckTargetIp' => 'HealthCheckTargetIp',
-        'healthyThreshold'    => 'HealthyThreshold',
-        'vbrInstanceId'       => 'VbrInstanceId',
+        'healthyThreshold' => 'HealthyThreshold',
+        'vbrInstanceId' => 'VbrInstanceId',
         'vbrInstanceRegionId' => 'VbrInstanceRegionId',
     ];
 

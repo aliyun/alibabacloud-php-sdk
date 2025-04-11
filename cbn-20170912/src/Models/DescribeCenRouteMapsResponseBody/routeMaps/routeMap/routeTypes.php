@@ -30,7 +30,7 @@ class routeTypes extends Model
         if (null !== $this->routeType) {
             if (\is_array($this->routeType)) {
                 $res['RouteType'] = [];
-                $n1               = 0;
+                $n1 = 0;
                 foreach ($this->routeType as $item1) {
                     $res['RouteType'][$n1++] = $item1;
                 }
@@ -51,7 +51,7 @@ class routeTypes extends Model
         if (isset($map['RouteType'])) {
             if (!empty($map['RouteType'])) {
                 $model->routeType = [];
-                $n1               = 0;
+                $n1 = 0;
                 foreach ($map['RouteType'] as $item1) {
                     $model->routeType[$n1++] = $item1;
                 }

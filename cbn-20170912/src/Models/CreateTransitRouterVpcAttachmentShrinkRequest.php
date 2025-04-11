@@ -14,93 +14,110 @@ class CreateTransitRouterVpcAttachmentShrinkRequest extends Model
      * @var bool
      */
     public $autoPublishRouteEnabled;
+
     /**
      * @var string
      */
     public $cenId;
+
     /**
      * @var string
      */
     public $chargeType;
+
     /**
      * @var string
      */
     public $clientToken;
+
     /**
      * @var bool
      */
     public $dryRun;
+
     /**
      * @var string
      */
     public $ownerAccount;
+
     /**
      * @var int
      */
     public $ownerId;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $resourceOwnerAccount;
+
     /**
      * @var int
      */
     public $resourceOwnerId;
+
     /**
      * @var tag[]
      */
     public $tag;
+
     /**
      * @var string
      */
     public $transitRouterAttachmentDescription;
+
     /**
      * @var string
      */
     public $transitRouterAttachmentName;
+
     /**
      * @var string
      */
     public $transitRouterId;
+
     /**
      * @var string
      */
     public $transitRouterVPCAttachmentOptionsShrink;
+
     /**
      * @var string
      */
     public $vpcId;
+
     /**
      * @var int
      */
     public $vpcOwnerId;
+
     /**
      * @var zoneMappings[]
      */
     public $zoneMappings;
     protected $_name = [
-        'autoPublishRouteEnabled'                 => 'AutoPublishRouteEnabled',
-        'cenId'                                   => 'CenId',
-        'chargeType'                              => 'ChargeType',
-        'clientToken'                             => 'ClientToken',
-        'dryRun'                                  => 'DryRun',
-        'ownerAccount'                            => 'OwnerAccount',
-        'ownerId'                                 => 'OwnerId',
-        'regionId'                                => 'RegionId',
-        'resourceOwnerAccount'                    => 'ResourceOwnerAccount',
-        'resourceOwnerId'                         => 'ResourceOwnerId',
-        'tag'                                     => 'Tag',
-        'transitRouterAttachmentDescription'      => 'TransitRouterAttachmentDescription',
-        'transitRouterAttachmentName'             => 'TransitRouterAttachmentName',
-        'transitRouterId'                         => 'TransitRouterId',
+        'autoPublishRouteEnabled' => 'AutoPublishRouteEnabled',
+        'cenId' => 'CenId',
+        'chargeType' => 'ChargeType',
+        'clientToken' => 'ClientToken',
+        'dryRun' => 'DryRun',
+        'ownerAccount' => 'OwnerAccount',
+        'ownerId' => 'OwnerId',
+        'regionId' => 'RegionId',
+        'resourceOwnerAccount' => 'ResourceOwnerAccount',
+        'resourceOwnerId' => 'ResourceOwnerId',
+        'tag' => 'Tag',
+        'transitRouterAttachmentDescription' => 'TransitRouterAttachmentDescription',
+        'transitRouterAttachmentName' => 'TransitRouterAttachmentName',
+        'transitRouterId' => 'TransitRouterId',
         'transitRouterVPCAttachmentOptionsShrink' => 'TransitRouterVPCAttachmentOptions',
-        'vpcId'                                   => 'VpcId',
-        'vpcOwnerId'                              => 'VpcOwnerId',
-        'zoneMappings'                            => 'ZoneMappings',
+        'vpcId' => 'VpcId',
+        'vpcOwnerId' => 'VpcOwnerId',
+        'zoneMappings' => 'ZoneMappings',
     ];
 
     public function validate()
@@ -160,7 +177,7 @@ class CreateTransitRouterVpcAttachmentShrinkRequest extends Model
         if (null !== $this->tag) {
             if (\is_array($this->tag)) {
                 $res['Tag'] = [];
-                $n1         = 0;
+                $n1 = 0;
                 foreach ($this->tag as $item1) {
                     $res['Tag'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -194,7 +211,7 @@ class CreateTransitRouterVpcAttachmentShrinkRequest extends Model
         if (null !== $this->zoneMappings) {
             if (\is_array($this->zoneMappings)) {
                 $res['ZoneMappings'] = [];
-                $n1                  = 0;
+                $n1 = 0;
                 foreach ($this->zoneMappings as $item1) {
                     $res['ZoneMappings'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -255,7 +272,7 @@ class CreateTransitRouterVpcAttachmentShrinkRequest extends Model
         if (isset($map['Tag'])) {
             if (!empty($map['Tag'])) {
                 $model->tag = [];
-                $n1         = 0;
+                $n1 = 0;
                 foreach ($map['Tag'] as $item1) {
                     $model->tag[$n1++] = tag::fromMap($item1);
                 }
@@ -289,7 +306,7 @@ class CreateTransitRouterVpcAttachmentShrinkRequest extends Model
         if (isset($map['ZoneMappings'])) {
             if (!empty($map['ZoneMappings'])) {
                 $model->zoneMappings = [];
-                $n1                  = 0;
+                $n1 = 0;
                 foreach ($map['ZoneMappings'] as $item1) {
                     $model->zoneMappings[$n1++] = zoneMappings::fromMap($item1);
                 }

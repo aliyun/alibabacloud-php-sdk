@@ -14,83 +14,98 @@ class transitRouterAttachments extends Model
      * @var bool
      */
     public $autoPublishRouteEnabled;
+
     /**
      * @var string
      */
     public $cenId;
+
     /**
      * @var string
      */
     public $chargeType;
+
     /**
      * @var string
      */
     public $creationTime;
+
     /**
      * @var string
      */
     public $orderType;
+
     /**
      * @var string
      */
     public $resourceType;
+
     /**
      * @var string
      */
     public $status;
+
     /**
      * @var tags[]
      */
     public $tags;
+
     /**
      * @var string
      */
     public $transitRouterAttachmentDescription;
+
     /**
      * @var string
      */
     public $transitRouterAttachmentId;
+
     /**
      * @var string
      */
     public $transitRouterAttachmentName;
+
     /**
      * @var string
      */
     public $transitRouterId;
+
     /**
      * @var string
      */
     public $vpnId;
+
     /**
      * @var int
      */
     public $vpnOwnerId;
+
     /**
      * @var string
      */
     public $vpnRegionId;
+
     /**
      * @var zones[]
      */
     public $zones;
     protected $_name = [
-        'autoPublishRouteEnabled'            => 'AutoPublishRouteEnabled',
-        'cenId'                              => 'CenId',
-        'chargeType'                         => 'ChargeType',
-        'creationTime'                       => 'CreationTime',
-        'orderType'                          => 'OrderType',
-        'resourceType'                       => 'ResourceType',
-        'status'                             => 'Status',
-        'tags'                               => 'Tags',
+        'autoPublishRouteEnabled' => 'AutoPublishRouteEnabled',
+        'cenId' => 'CenId',
+        'chargeType' => 'ChargeType',
+        'creationTime' => 'CreationTime',
+        'orderType' => 'OrderType',
+        'resourceType' => 'ResourceType',
+        'status' => 'Status',
+        'tags' => 'Tags',
         'transitRouterAttachmentDescription' => 'TransitRouterAttachmentDescription',
-        'transitRouterAttachmentId'          => 'TransitRouterAttachmentId',
-        'transitRouterAttachmentName'        => 'TransitRouterAttachmentName',
-        'transitRouterId'                    => 'TransitRouterId',
-        'vpnId'                              => 'VpnId',
-        'vpnOwnerId'                         => 'VpnOwnerId',
-        'vpnRegionId'                        => 'VpnRegionId',
-        'zones'                              => 'Zones',
+        'transitRouterAttachmentId' => 'TransitRouterAttachmentId',
+        'transitRouterAttachmentName' => 'TransitRouterAttachmentName',
+        'transitRouterId' => 'TransitRouterId',
+        'vpnId' => 'VpnId',
+        'vpnOwnerId' => 'VpnOwnerId',
+        'vpnRegionId' => 'VpnRegionId',
+        'zones' => 'Zones',
     ];
 
     public function validate()
@@ -138,7 +153,7 @@ class transitRouterAttachments extends Model
         if (null !== $this->tags) {
             if (\is_array($this->tags)) {
                 $res['Tags'] = [];
-                $n1          = 0;
+                $n1 = 0;
                 foreach ($this->tags as $item1) {
                     $res['Tags'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -176,7 +191,7 @@ class transitRouterAttachments extends Model
         if (null !== $this->zones) {
             if (\is_array($this->zones)) {
                 $res['Zones'] = [];
-                $n1           = 0;
+                $n1 = 0;
                 foreach ($this->zones as $item1) {
                     $res['Zones'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -225,7 +240,7 @@ class transitRouterAttachments extends Model
         if (isset($map['Tags'])) {
             if (!empty($map['Tags'])) {
                 $model->tags = [];
-                $n1          = 0;
+                $n1 = 0;
                 foreach ($map['Tags'] as $item1) {
                     $model->tags[$n1++] = tags::fromMap($item1);
                 }
@@ -263,7 +278,7 @@ class transitRouterAttachments extends Model
         if (isset($map['Zones'])) {
             if (!empty($map['Zones'])) {
                 $model->zones = [];
-                $n1           = 0;
+                $n1 = 0;
                 foreach ($map['Zones'] as $item1) {
                     $model->zones[$n1++] = zones::fromMap($item1);
                 }

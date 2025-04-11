@@ -31,7 +31,7 @@ class cenOutRouteMapRecords extends Model
         if (null !== $this->cenOutRouteMapRecord) {
             if (\is_array($this->cenOutRouteMapRecord)) {
                 $res['CenOutRouteMapRecord'] = [];
-                $n1                          = 0;
+                $n1 = 0;
                 foreach ($this->cenOutRouteMapRecord as $item1) {
                     $res['CenOutRouteMapRecord'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -52,7 +52,7 @@ class cenOutRouteMapRecords extends Model
         if (isset($map['CenOutRouteMapRecord'])) {
             if (!empty($map['CenOutRouteMapRecord'])) {
                 $model->cenOutRouteMapRecord = [];
-                $n1                          = 0;
+                $n1 = 0;
                 foreach ($map['CenOutRouteMapRecord'] as $item1) {
                     $model->cenOutRouteMapRecord[$n1++] = cenOutRouteMapRecord::fromMap($item1);
                 }

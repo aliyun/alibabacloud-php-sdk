@@ -30,7 +30,7 @@ class destinationCidrBlocks extends Model
         if (null !== $this->destinationCidrBlock) {
             if (\is_array($this->destinationCidrBlock)) {
                 $res['DestinationCidrBlock'] = [];
-                $n1                          = 0;
+                $n1 = 0;
                 foreach ($this->destinationCidrBlock as $item1) {
                     $res['DestinationCidrBlock'][$n1++] = $item1;
                 }
@@ -51,7 +51,7 @@ class destinationCidrBlocks extends Model
         if (isset($map['DestinationCidrBlock'])) {
             if (!empty($map['DestinationCidrBlock'])) {
                 $model->destinationCidrBlock = [];
-                $n1                          = 0;
+                $n1 = 0;
                 foreach ($map['DestinationCidrBlock'] as $item1) {
                     $model->destinationCidrBlock[$n1++] = $item1;
                 }

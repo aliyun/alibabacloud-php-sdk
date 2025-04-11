@@ -12,77 +12,91 @@ class ListTransitRouterPrefixListAssociationRequest extends Model
      * @var string
      */
     public $nextHop;
+
     /**
      * @var string
      */
     public $nextHopInstanceId;
+
     /**
      * @var string
      */
     public $nextHopType;
+
     /**
      * @var string
      */
     public $ownerAccount;
+
     /**
      * @var int
      */
     public $ownerId;
+
     /**
      * @var int
      */
     public $ownerUid;
+
     /**
      * @var int
      */
     public $pageNumber;
+
     /**
      * @var int
      */
     public $pageSize;
+
     /**
      * @var string
      */
     public $prefixListId;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $resourceOwnerAccount;
+
     /**
      * @var int
      */
     public $resourceOwnerId;
+
     /**
      * @var string
      */
     public $status;
+
     /**
      * @var string
      */
     public $transitRouterId;
+
     /**
      * @var string
      */
     public $transitRouterTableId;
     protected $_name = [
-        'nextHop'              => 'NextHop',
-        'nextHopInstanceId'    => 'NextHopInstanceId',
-        'nextHopType'          => 'NextHopType',
-        'ownerAccount'         => 'OwnerAccount',
-        'ownerId'              => 'OwnerId',
-        'ownerUid'             => 'OwnerUid',
-        'pageNumber'           => 'PageNumber',
-        'pageSize'             => 'PageSize',
-        'prefixListId'         => 'PrefixListId',
-        'regionId'             => 'RegionId',
+        'nextHop' => 'NextHop',
+        'nextHopInstanceId' => 'NextHopInstanceId',
+        'nextHopType' => 'NextHopType',
+        'ownerAccount' => 'OwnerAccount',
+        'ownerId' => 'OwnerId',
+        'ownerUid' => 'OwnerUid',
+        'pageNumber' => 'PageNumber',
+        'pageSize' => 'PageSize',
+        'prefixListId' => 'PrefixListId',
+        'regionId' => 'RegionId',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
-        'resourceOwnerId'      => 'ResourceOwnerId',
-        'status'               => 'Status',
-        'transitRouterId'      => 'TransitRouterId',
+        'resourceOwnerId' => 'ResourceOwnerId',
+        'status' => 'Status',
+        'transitRouterId' => 'TransitRouterId',
         'transitRouterTableId' => 'TransitRouterTableId',
     ];
 

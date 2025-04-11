@@ -13,73 +13,86 @@ class ListTransitRouterVpcAttachmentsRequest extends Model
      * @var string
      */
     public $cenId;
+
     /**
      * @var int
      */
     public $maxResults;
+
     /**
      * @var string
      */
     public $nextToken;
+
     /**
      * @var string
      */
     public $orderType;
+
     /**
      * @var string
      */
     public $ownerAccount;
+
     /**
      * @var int
      */
     public $ownerId;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $resourceOwnerAccount;
+
     /**
      * @var int
      */
     public $resourceOwnerId;
+
     /**
      * @var string
      */
     public $status;
+
     /**
      * @var tag[]
      */
     public $tag;
+
     /**
      * @var string
      */
     public $transitRouterAttachmentId;
+
     /**
      * @var string
      */
     public $transitRouterId;
+
     /**
      * @var string
      */
     public $vpcId;
     protected $_name = [
-        'cenId'                     => 'CenId',
-        'maxResults'                => 'MaxResults',
-        'nextToken'                 => 'NextToken',
-        'orderType'                 => 'OrderType',
-        'ownerAccount'              => 'OwnerAccount',
-        'ownerId'                   => 'OwnerId',
-        'regionId'                  => 'RegionId',
-        'resourceOwnerAccount'      => 'ResourceOwnerAccount',
-        'resourceOwnerId'           => 'ResourceOwnerId',
-        'status'                    => 'Status',
-        'tag'                       => 'Tag',
+        'cenId' => 'CenId',
+        'maxResults' => 'MaxResults',
+        'nextToken' => 'NextToken',
+        'orderType' => 'OrderType',
+        'ownerAccount' => 'OwnerAccount',
+        'ownerId' => 'OwnerId',
+        'regionId' => 'RegionId',
+        'resourceOwnerAccount' => 'ResourceOwnerAccount',
+        'resourceOwnerId' => 'ResourceOwnerId',
+        'status' => 'Status',
+        'tag' => 'Tag',
         'transitRouterAttachmentId' => 'TransitRouterAttachmentId',
-        'transitRouterId'           => 'TransitRouterId',
-        'vpcId'                     => 'VpcId',
+        'transitRouterId' => 'TransitRouterId',
+        'vpcId' => 'VpcId',
     ];
 
     public function validate()
@@ -136,7 +149,7 @@ class ListTransitRouterVpcAttachmentsRequest extends Model
         if (null !== $this->tag) {
             if (\is_array($this->tag)) {
                 $res['Tag'] = [];
-                $n1         = 0;
+                $n1 = 0;
                 foreach ($this->tag as $item1) {
                     $res['Tag'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -209,7 +222,7 @@ class ListTransitRouterVpcAttachmentsRequest extends Model
         if (isset($map['Tag'])) {
             if (!empty($map['Tag'])) {
                 $model->tag = [];
-                $n1         = 0;
+                $n1 = 0;
                 foreach ($map['Tag'] as $item1) {
                     $model->tag[$n1++] = tag::fromMap($item1);
                 }

@@ -12,43 +12,50 @@ class ModifyCenAttributeRequest extends Model
      * @var string
      */
     public $cenId;
+
     /**
      * @var string
      */
     public $description;
+
     /**
      * @var string
      */
     public $name;
+
     /**
      * @var string
      */
     public $ownerAccount;
+
     /**
      * @var int
      */
     public $ownerId;
+
     /**
      * @var string
      */
     public $protectionLevel;
+
     /**
      * @var string
      */
     public $resourceOwnerAccount;
+
     /**
      * @var int
      */
     public $resourceOwnerId;
     protected $_name = [
-        'cenId'                => 'CenId',
-        'description'          => 'Description',
-        'name'                 => 'Name',
-        'ownerAccount'         => 'OwnerAccount',
-        'ownerId'              => 'OwnerId',
-        'protectionLevel'      => 'ProtectionLevel',
+        'cenId' => 'CenId',
+        'description' => 'Description',
+        'name' => 'Name',
+        'ownerAccount' => 'OwnerAccount',
+        'ownerId' => 'OwnerId',
+        'protectionLevel' => 'ProtectionLevel',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
-        'resourceOwnerId'      => 'ResourceOwnerId',
+        'resourceOwnerId' => 'ResourceOwnerId',
     ];
 
     public function validate()

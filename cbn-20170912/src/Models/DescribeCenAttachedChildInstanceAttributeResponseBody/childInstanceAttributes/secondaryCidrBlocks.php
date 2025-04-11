@@ -30,7 +30,7 @@ class secondaryCidrBlocks extends Model
         if (null !== $this->secondaryCidrBlock) {
             if (\is_array($this->secondaryCidrBlock)) {
                 $res['secondaryCidrBlock'] = [];
-                $n1                        = 0;
+                $n1 = 0;
                 foreach ($this->secondaryCidrBlock as $item1) {
                     $res['secondaryCidrBlock'][$n1++] = $item1;
                 }
@@ -51,7 +51,7 @@ class secondaryCidrBlocks extends Model
         if (isset($map['secondaryCidrBlock'])) {
             if (!empty($map['secondaryCidrBlock'])) {
                 $model->secondaryCidrBlock = [];
-                $n1                        = 0;
+                $n1 = 0;
                 foreach ($map['secondaryCidrBlock'] as $item1) {
                     $model->secondaryCidrBlock[$n1++] = $item1;
                 }

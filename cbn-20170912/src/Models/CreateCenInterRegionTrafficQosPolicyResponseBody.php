@@ -12,12 +12,13 @@ class CreateCenInterRegionTrafficQosPolicyResponseBody extends Model
      * @var string
      */
     public $requestId;
+
     /**
      * @var string
      */
     public $trafficQosPolicyId;
     protected $_name = [
-        'requestId'          => 'RequestId',
+        'requestId' => 'RequestId',
         'trafficQosPolicyId' => 'TrafficQosPolicyId',
     ];
 

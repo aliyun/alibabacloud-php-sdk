@@ -12,33 +12,38 @@ class pathAttributes extends Model
      * @var string[]
      */
     public $asPaths;
+
     /**
      * @var string[]
      */
     public $communities;
+
     /**
      * @var string
      */
     public $originInstanceId;
+
     /**
      * @var string
      */
     public $originInstanceType;
+
     /**
      * @var string
      */
     public $originRouteType;
+
     /**
      * @var int
      */
     public $preference;
     protected $_name = [
-        'asPaths'            => 'AsPaths',
-        'communities'        => 'Communities',
-        'originInstanceId'   => 'OriginInstanceId',
+        'asPaths' => 'AsPaths',
+        'communities' => 'Communities',
+        'originInstanceId' => 'OriginInstanceId',
         'originInstanceType' => 'OriginInstanceType',
-        'originRouteType'    => 'OriginRouteType',
-        'preference'         => 'Preference',
+        'originRouteType' => 'OriginRouteType',
+        'preference' => 'Preference',
     ];
 
     public function validate()
@@ -58,7 +63,7 @@ class pathAttributes extends Model
         if (null !== $this->asPaths) {
             if (\is_array($this->asPaths)) {
                 $res['AsPaths'] = [];
-                $n1             = 0;
+                $n1 = 0;
                 foreach ($this->asPaths as $item1) {
                     $res['AsPaths'][$n1++] = $item1;
                 }
@@ -68,7 +73,7 @@ class pathAttributes extends Model
         if (null !== $this->communities) {
             if (\is_array($this->communities)) {
                 $res['Communities'] = [];
-                $n1                 = 0;
+                $n1 = 0;
                 foreach ($this->communities as $item1) {
                     $res['Communities'][$n1++] = $item1;
                 }
@@ -105,7 +110,7 @@ class pathAttributes extends Model
         if (isset($map['AsPaths'])) {
             if (!empty($map['AsPaths'])) {
                 $model->asPaths = [];
-                $n1             = 0;
+                $n1 = 0;
                 foreach ($map['AsPaths'] as $item1) {
                     $model->asPaths[$n1++] = $item1;
                 }
@@ -115,7 +120,7 @@ class pathAttributes extends Model
         if (isset($map['Communities'])) {
             if (!empty($map['Communities'])) {
                 $model->communities = [];
-                $n1                 = 0;
+                $n1 = 0;
                 foreach ($map['Communities'] as $item1) {
                     $model->communities[$n1++] = $item1;
                 }

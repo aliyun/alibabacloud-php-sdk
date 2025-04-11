@@ -12,48 +12,56 @@ class DescribeTransitRouteTableAggregationRequest extends Model
      * @var string
      */
     public $clientToken;
+
     /**
      * @var int
      */
     public $maxResults;
+
     /**
      * @var string
      */
     public $nextToken;
+
     /**
      * @var string
      */
     public $ownerAccount;
+
     /**
      * @var int
      */
     public $ownerId;
+
     /**
      * @var string
      */
     public $resourceOwnerAccount;
+
     /**
      * @var int
      */
     public $resourceOwnerId;
+
     /**
      * @var string
      */
     public $transitRouteTableAggregationCidr;
+
     /**
      * @var string
      */
     public $transitRouteTableId;
     protected $_name = [
-        'clientToken'                      => 'ClientToken',
-        'maxResults'                       => 'MaxResults',
-        'nextToken'                        => 'NextToken',
-        'ownerAccount'                     => 'OwnerAccount',
-        'ownerId'                          => 'OwnerId',
-        'resourceOwnerAccount'             => 'ResourceOwnerAccount',
-        'resourceOwnerId'                  => 'ResourceOwnerId',
+        'clientToken' => 'ClientToken',
+        'maxResults' => 'MaxResults',
+        'nextToken' => 'NextToken',
+        'ownerAccount' => 'OwnerAccount',
+        'ownerId' => 'OwnerId',
+        'resourceOwnerAccount' => 'ResourceOwnerAccount',
+        'resourceOwnerId' => 'ResourceOwnerId',
         'transitRouteTableAggregationCidr' => 'TransitRouteTableAggregationCidr',
-        'transitRouteTableId'              => 'TransitRouteTableId',
+        'transitRouteTableId' => 'TransitRouteTableId',
     ];
 
     public function validate()

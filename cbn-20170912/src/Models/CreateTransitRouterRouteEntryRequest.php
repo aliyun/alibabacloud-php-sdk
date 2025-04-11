@@ -12,63 +12,74 @@ class CreateTransitRouterRouteEntryRequest extends Model
      * @var string
      */
     public $clientToken;
+
     /**
      * @var bool
      */
     public $dryRun;
+
     /**
      * @var string
      */
     public $ownerAccount;
+
     /**
      * @var int
      */
     public $ownerId;
+
     /**
      * @var string
      */
     public $resourceOwnerAccount;
+
     /**
      * @var int
      */
     public $resourceOwnerId;
+
     /**
      * @var string
      */
     public $transitRouterRouteEntryDescription;
+
     /**
      * @var string
      */
     public $transitRouterRouteEntryDestinationCidrBlock;
+
     /**
      * @var string
      */
     public $transitRouterRouteEntryName;
+
     /**
      * @var string
      */
     public $transitRouterRouteEntryNextHopId;
+
     /**
      * @var string
      */
     public $transitRouterRouteEntryNextHopType;
+
     /**
      * @var string
      */
     public $transitRouterRouteTableId;
     protected $_name = [
-        'clientToken'                                 => 'ClientToken',
-        'dryRun'                                      => 'DryRun',
-        'ownerAccount'                                => 'OwnerAccount',
-        'ownerId'                                     => 'OwnerId',
-        'resourceOwnerAccount'                        => 'ResourceOwnerAccount',
-        'resourceOwnerId'                             => 'ResourceOwnerId',
-        'transitRouterRouteEntryDescription'          => 'TransitRouterRouteEntryDescription',
+        'clientToken' => 'ClientToken',
+        'dryRun' => 'DryRun',
+        'ownerAccount' => 'OwnerAccount',
+        'ownerId' => 'OwnerId',
+        'resourceOwnerAccount' => 'ResourceOwnerAccount',
+        'resourceOwnerId' => 'ResourceOwnerId',
+        'transitRouterRouteEntryDescription' => 'TransitRouterRouteEntryDescription',
         'transitRouterRouteEntryDestinationCidrBlock' => 'TransitRouterRouteEntryDestinationCidrBlock',
-        'transitRouterRouteEntryName'                 => 'TransitRouterRouteEntryName',
-        'transitRouterRouteEntryNextHopId'            => 'TransitRouterRouteEntryNextHopId',
-        'transitRouterRouteEntryNextHopType'          => 'TransitRouterRouteEntryNextHopType',
-        'transitRouterRouteTableId'                   => 'TransitRouterRouteTableId',
+        'transitRouterRouteEntryName' => 'TransitRouterRouteEntryName',
+        'transitRouterRouteEntryNextHopId' => 'TransitRouterRouteEntryNextHopId',
+        'transitRouterRouteEntryNextHopType' => 'TransitRouterRouteEntryNextHopType',
+        'transitRouterRouteTableId' => 'TransitRouterRouteTableId',
     ];
 
     public function validate()

@@ -13,27 +13,31 @@ class ListTransitRoutersResponseBody extends Model
      * @var int
      */
     public $pageNumber;
+
     /**
      * @var int
      */
     public $pageSize;
+
     /**
      * @var string
      */
     public $requestId;
+
     /**
      * @var int
      */
     public $totalCount;
+
     /**
      * @var transitRouters[]
      */
     public $transitRouters;
     protected $_name = [
-        'pageNumber'     => 'PageNumber',
-        'pageSize'       => 'PageSize',
-        'requestId'      => 'RequestId',
-        'totalCount'     => 'TotalCount',
+        'pageNumber' => 'PageNumber',
+        'pageSize' => 'PageSize',
+        'requestId' => 'RequestId',
+        'totalCount' => 'TotalCount',
         'transitRouters' => 'TransitRouters',
     ];
 
@@ -67,7 +71,7 @@ class ListTransitRoutersResponseBody extends Model
         if (null !== $this->transitRouters) {
             if (\is_array($this->transitRouters)) {
                 $res['TransitRouters'] = [];
-                $n1                    = 0;
+                $n1 = 0;
                 foreach ($this->transitRouters as $item1) {
                     $res['TransitRouters'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -104,7 +108,7 @@ class ListTransitRoutersResponseBody extends Model
         if (isset($map['TransitRouters'])) {
             if (!empty($map['TransitRouters'])) {
                 $model->transitRouters = [];
-                $n1                    = 0;
+                $n1 = 0;
                 foreach ($map['TransitRouters'] as $item1) {
                     $model->transitRouters[$n1++] = transitRouters::fromMap($item1);
                 }

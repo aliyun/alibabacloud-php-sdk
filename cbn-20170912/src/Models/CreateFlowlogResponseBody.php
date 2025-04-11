@@ -12,10 +12,12 @@ class CreateFlowlogResponseBody extends Model
      * @var string
      */
     public $flowLogId;
+
     /**
      * @var string
      */
     public $requestId;
+
     /**
      * @var string
      */
@@ -23,7 +25,7 @@ class CreateFlowlogResponseBody extends Model
     protected $_name = [
         'flowLogId' => 'FlowLogId',
         'requestId' => 'RequestId',
-        'success'   => 'Success',
+        'success' => 'Success',
     ];
 
     public function validate()

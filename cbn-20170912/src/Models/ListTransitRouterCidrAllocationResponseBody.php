@@ -13,27 +13,31 @@ class ListTransitRouterCidrAllocationResponseBody extends Model
      * @var int
      */
     public $maxResults;
+
     /**
      * @var string
      */
     public $nextToken;
+
     /**
      * @var string
      */
     public $requestId;
+
     /**
      * @var int
      */
     public $totalCount;
+
     /**
      * @var transitRouterCidrAllocations[]
      */
     public $transitRouterCidrAllocations;
     protected $_name = [
-        'maxResults'                   => 'MaxResults',
-        'nextToken'                    => 'NextToken',
-        'requestId'                    => 'RequestId',
-        'totalCount'                   => 'TotalCount',
+        'maxResults' => 'MaxResults',
+        'nextToken' => 'NextToken',
+        'requestId' => 'RequestId',
+        'totalCount' => 'TotalCount',
         'transitRouterCidrAllocations' => 'TransitRouterCidrAllocations',
     ];
 
@@ -67,7 +71,7 @@ class ListTransitRouterCidrAllocationResponseBody extends Model
         if (null !== $this->transitRouterCidrAllocations) {
             if (\is_array($this->transitRouterCidrAllocations)) {
                 $res['TransitRouterCidrAllocations'] = [];
-                $n1                                  = 0;
+                $n1 = 0;
                 foreach ($this->transitRouterCidrAllocations as $item1) {
                     $res['TransitRouterCidrAllocations'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -104,7 +108,7 @@ class ListTransitRouterCidrAllocationResponseBody extends Model
         if (isset($map['TransitRouterCidrAllocations'])) {
             if (!empty($map['TransitRouterCidrAllocations'])) {
                 $model->transitRouterCidrAllocations = [];
-                $n1                                  = 0;
+                $n1 = 0;
                 foreach ($map['TransitRouterCidrAllocations'] as $item1) {
                     $model->transitRouterCidrAllocations[$n1++] = transitRouterCidrAllocations::fromMap($item1);
                 }

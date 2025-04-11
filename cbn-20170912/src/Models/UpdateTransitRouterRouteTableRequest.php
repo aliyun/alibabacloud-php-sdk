@@ -13,53 +13,62 @@ class UpdateTransitRouterRouteTableRequest extends Model
      * @var string
      */
     public $clientToken;
+
     /**
      * @var bool
      */
     public $dryRun;
+
     /**
      * @var string
      */
     public $ownerAccount;
+
     /**
      * @var int
      */
     public $ownerId;
+
     /**
      * @var string
      */
     public $resourceOwnerAccount;
+
     /**
      * @var int
      */
     public $resourceOwnerId;
+
     /**
      * @var routeTableOptions
      */
     public $routeTableOptions;
+
     /**
      * @var string
      */
     public $transitRouterRouteTableDescription;
+
     /**
      * @var string
      */
     public $transitRouterRouteTableId;
+
     /**
      * @var string
      */
     public $transitRouterRouteTableName;
     protected $_name = [
-        'clientToken'                        => 'ClientToken',
-        'dryRun'                             => 'DryRun',
-        'ownerAccount'                       => 'OwnerAccount',
-        'ownerId'                            => 'OwnerId',
-        'resourceOwnerAccount'               => 'ResourceOwnerAccount',
-        'resourceOwnerId'                    => 'ResourceOwnerId',
-        'routeTableOptions'                  => 'RouteTableOptions',
+        'clientToken' => 'ClientToken',
+        'dryRun' => 'DryRun',
+        'ownerAccount' => 'OwnerAccount',
+        'ownerId' => 'OwnerId',
+        'resourceOwnerAccount' => 'ResourceOwnerAccount',
+        'resourceOwnerId' => 'ResourceOwnerId',
+        'routeTableOptions' => 'RouteTableOptions',
         'transitRouterRouteTableDescription' => 'TransitRouterRouteTableDescription',
-        'transitRouterRouteTableId'          => 'TransitRouterRouteTableId',
-        'transitRouterRouteTableName'        => 'TransitRouterRouteTableName',
+        'transitRouterRouteTableId' => 'TransitRouterRouteTableId',
+        'transitRouterRouteTableName' => 'TransitRouterRouteTableName',
     ];
 
     public function validate()

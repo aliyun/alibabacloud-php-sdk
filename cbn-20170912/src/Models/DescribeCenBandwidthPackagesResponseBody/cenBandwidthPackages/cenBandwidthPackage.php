@@ -15,113 +15,134 @@ class cenBandwidthPackage extends Model
      * @var int
      */
     public $bandwidth;
+
     /**
      * @var string
      */
     public $bandwidthPackageChargeType;
+
     /**
      * @var string
      */
     public $businessStatus;
+
     /**
      * @var string
      */
     public $cenBandwidthPackageId;
+
     /**
      * @var cenIds
      */
     public $cenIds;
+
     /**
      * @var string
      */
     public $creationTime;
+
     /**
      * @var string
      */
     public $description;
+
     /**
      * @var string
      */
     public $expiredTime;
+
     /**
      * @var string
      */
     public $geographicRegionAId;
+
     /**
      * @var string
      */
     public $geographicRegionBId;
+
     /**
      * @var string
      */
     public $geographicSpanId;
+
     /**
      * @var string
      */
     public $hasReservationData;
+
     /**
      * @var bool
      */
     public $isCrossBorder;
+
     /**
      * @var string
      */
     public $name;
+
     /**
      * @var orginInterRegionBandwidthLimits
      */
     public $orginInterRegionBandwidthLimits;
+
     /**
      * @var string
      */
     public $reservationActiveTime;
+
     /**
      * @var string
      */
     public $reservationBandwidth;
+
     /**
      * @var string
      */
     public $reservationInternetChargeType;
+
     /**
      * @var string
      */
     public $reservationOrderType;
+
     /**
      * @var string
      */
     public $resourceGroupId;
+
     /**
      * @var string
      */
     public $status;
+
     /**
      * @var tags
      */
     public $tags;
     protected $_name = [
-        'bandwidth'                       => 'Bandwidth',
-        'bandwidthPackageChargeType'      => 'BandwidthPackageChargeType',
-        'businessStatus'                  => 'BusinessStatus',
-        'cenBandwidthPackageId'           => 'CenBandwidthPackageId',
-        'cenIds'                          => 'CenIds',
-        'creationTime'                    => 'CreationTime',
-        'description'                     => 'Description',
-        'expiredTime'                     => 'ExpiredTime',
-        'geographicRegionAId'             => 'GeographicRegionAId',
-        'geographicRegionBId'             => 'GeographicRegionBId',
-        'geographicSpanId'                => 'GeographicSpanId',
-        'hasReservationData'              => 'HasReservationData',
-        'isCrossBorder'                   => 'IsCrossBorder',
-        'name'                            => 'Name',
+        'bandwidth' => 'Bandwidth',
+        'bandwidthPackageChargeType' => 'BandwidthPackageChargeType',
+        'businessStatus' => 'BusinessStatus',
+        'cenBandwidthPackageId' => 'CenBandwidthPackageId',
+        'cenIds' => 'CenIds',
+        'creationTime' => 'CreationTime',
+        'description' => 'Description',
+        'expiredTime' => 'ExpiredTime',
+        'geographicRegionAId' => 'GeographicRegionAId',
+        'geographicRegionBId' => 'GeographicRegionBId',
+        'geographicSpanId' => 'GeographicSpanId',
+        'hasReservationData' => 'HasReservationData',
+        'isCrossBorder' => 'IsCrossBorder',
+        'name' => 'Name',
         'orginInterRegionBandwidthLimits' => 'OrginInterRegionBandwidthLimits',
-        'reservationActiveTime'           => 'ReservationActiveTime',
-        'reservationBandwidth'            => 'ReservationBandwidth',
-        'reservationInternetChargeType'   => 'ReservationInternetChargeType',
-        'reservationOrderType'            => 'ReservationOrderType',
-        'resourceGroupId'                 => 'ResourceGroupId',
-        'status'                          => 'Status',
-        'tags'                            => 'Tags',
+        'reservationActiveTime' => 'ReservationActiveTime',
+        'reservationBandwidth' => 'ReservationBandwidth',
+        'reservationInternetChargeType' => 'ReservationInternetChargeType',
+        'reservationOrderType' => 'ReservationOrderType',
+        'resourceGroupId' => 'ResourceGroupId',
+        'status' => 'Status',
+        'tags' => 'Tags',
     ];
 
     public function validate()

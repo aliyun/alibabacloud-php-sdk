@@ -12,28 +12,32 @@ class conflict extends Model
      * @var string
      */
     public $destinationCidrBlock;
+
     /**
      * @var string
      */
     public $instanceId;
+
     /**
      * @var string
      */
     public $instanceType;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $status;
     protected $_name = [
         'destinationCidrBlock' => 'DestinationCidrBlock',
-        'instanceId'           => 'InstanceId',
-        'instanceType'         => 'InstanceType',
-        'regionId'             => 'RegionId',
-        'status'               => 'Status',
+        'instanceId' => 'InstanceId',
+        'instanceType' => 'InstanceType',
+        'regionId' => 'RegionId',
+        'status' => 'Status',
     ];
 
     public function validate()

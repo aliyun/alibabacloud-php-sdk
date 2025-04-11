@@ -12,37 +12,43 @@ class trafficQosQueues extends Model
      * @var string
      */
     public $bandwidth;
+
     /**
      * @var int[]
      */
     public $dscps;
+
     /**
      * @var string
      */
     public $effectiveBandwidth;
+
     /**
      * @var string
      */
     public $qosQueueDescription;
+
     /**
      * @var string
      */
     public $qosQueueId;
+
     /**
      * @var string
      */
     public $qosQueueName;
+
     /**
      * @var int
      */
     public $remainBandwidthPercent;
     protected $_name = [
-        'bandwidth'              => 'Bandwidth',
-        'dscps'                  => 'Dscps',
-        'effectiveBandwidth'     => 'EffectiveBandwidth',
-        'qosQueueDescription'    => 'QosQueueDescription',
-        'qosQueueId'             => 'QosQueueId',
-        'qosQueueName'           => 'QosQueueName',
+        'bandwidth' => 'Bandwidth',
+        'dscps' => 'Dscps',
+        'effectiveBandwidth' => 'EffectiveBandwidth',
+        'qosQueueDescription' => 'QosQueueDescription',
+        'qosQueueId' => 'QosQueueId',
+        'qosQueueName' => 'QosQueueName',
         'remainBandwidthPercent' => 'RemainBandwidthPercent',
     ];
 
@@ -64,7 +70,7 @@ class trafficQosQueues extends Model
         if (null !== $this->dscps) {
             if (\is_array($this->dscps)) {
                 $res['Dscps'] = [];
-                $n1           = 0;
+                $n1 = 0;
                 foreach ($this->dscps as $item1) {
                     $res['Dscps'][$n1++] = $item1;
                 }
@@ -109,7 +115,7 @@ class trafficQosQueues extends Model
         if (isset($map['Dscps'])) {
             if (!empty($map['Dscps'])) {
                 $model->dscps = [];
-                $n1           = 0;
+                $n1 = 0;
                 foreach ($map['Dscps'] as $item1) {
                     $model->dscps[$n1++] = $item1;
                 }

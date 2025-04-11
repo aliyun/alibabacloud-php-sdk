@@ -12,58 +12,68 @@ class DeleteCenChildInstanceRouteEntryToCenRequest extends Model
      * @var string
      */
     public $cenId;
+
     /**
      * @var int
      */
     public $childInstanceAliUid;
+
     /**
      * @var string
      */
     public $childInstanceId;
+
     /**
      * @var string
      */
     public $childInstanceRegionId;
+
     /**
      * @var string
      */
     public $childInstanceType;
+
     /**
      * @var string
      */
     public $destinationCidrBlock;
+
     /**
      * @var string
      */
     public $ownerAccount;
+
     /**
      * @var int
      */
     public $ownerId;
+
     /**
      * @var string
      */
     public $resourceOwnerAccount;
+
     /**
      * @var int
      */
     public $resourceOwnerId;
+
     /**
      * @var string
      */
     public $routeTableId;
     protected $_name = [
-        'cenId'                 => 'CenId',
-        'childInstanceAliUid'   => 'ChildInstanceAliUid',
-        'childInstanceId'       => 'ChildInstanceId',
+        'cenId' => 'CenId',
+        'childInstanceAliUid' => 'ChildInstanceAliUid',
+        'childInstanceId' => 'ChildInstanceId',
         'childInstanceRegionId' => 'ChildInstanceRegionId',
-        'childInstanceType'     => 'ChildInstanceType',
-        'destinationCidrBlock'  => 'DestinationCidrBlock',
-        'ownerAccount'          => 'OwnerAccount',
-        'ownerId'               => 'OwnerId',
-        'resourceOwnerAccount'  => 'ResourceOwnerAccount',
-        'resourceOwnerId'       => 'ResourceOwnerId',
-        'routeTableId'          => 'RouteTableId',
+        'childInstanceType' => 'ChildInstanceType',
+        'destinationCidrBlock' => 'DestinationCidrBlock',
+        'ownerAccount' => 'OwnerAccount',
+        'ownerId' => 'OwnerId',
+        'resourceOwnerAccount' => 'ResourceOwnerAccount',
+        'resourceOwnerId' => 'ResourceOwnerId',
+        'routeTableId' => 'RouteTableId',
     ];
 
     public function validate()

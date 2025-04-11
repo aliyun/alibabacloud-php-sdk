@@ -14,58 +14,68 @@ class UpdateTrafficMarkingPolicyAttributeRequest extends Model
      * @var addTrafficMatchRules[]
      */
     public $addTrafficMatchRules;
+
     /**
      * @var string
      */
     public $clientToken;
+
     /**
      * @var deleteTrafficMatchRules[]
      */
     public $deleteTrafficMatchRules;
+
     /**
      * @var bool
      */
     public $dryRun;
+
     /**
      * @var string
      */
     public $ownerAccount;
+
     /**
      * @var int
      */
     public $ownerId;
+
     /**
      * @var string
      */
     public $resourceOwnerAccount;
+
     /**
      * @var int
      */
     public $resourceOwnerId;
+
     /**
      * @var string
      */
     public $trafficMarkingPolicyDescription;
+
     /**
      * @var string
      */
     public $trafficMarkingPolicyId;
+
     /**
      * @var string
      */
     public $trafficMarkingPolicyName;
     protected $_name = [
-        'addTrafficMatchRules'            => 'AddTrafficMatchRules',
-        'clientToken'                     => 'ClientToken',
-        'deleteTrafficMatchRules'         => 'DeleteTrafficMatchRules',
-        'dryRun'                          => 'DryRun',
-        'ownerAccount'                    => 'OwnerAccount',
-        'ownerId'                         => 'OwnerId',
-        'resourceOwnerAccount'            => 'ResourceOwnerAccount',
-        'resourceOwnerId'                 => 'ResourceOwnerId',
+        'addTrafficMatchRules' => 'AddTrafficMatchRules',
+        'clientToken' => 'ClientToken',
+        'deleteTrafficMatchRules' => 'DeleteTrafficMatchRules',
+        'dryRun' => 'DryRun',
+        'ownerAccount' => 'OwnerAccount',
+        'ownerId' => 'OwnerId',
+        'resourceOwnerAccount' => 'ResourceOwnerAccount',
+        'resourceOwnerId' => 'ResourceOwnerId',
         'trafficMarkingPolicyDescription' => 'TrafficMarkingPolicyDescription',
-        'trafficMarkingPolicyId'          => 'TrafficMarkingPolicyId',
-        'trafficMarkingPolicyName'        => 'TrafficMarkingPolicyName',
+        'trafficMarkingPolicyId' => 'TrafficMarkingPolicyId',
+        'trafficMarkingPolicyName' => 'TrafficMarkingPolicyName',
     ];
 
     public function validate()
@@ -85,7 +95,7 @@ class UpdateTrafficMarkingPolicyAttributeRequest extends Model
         if (null !== $this->addTrafficMatchRules) {
             if (\is_array($this->addTrafficMatchRules)) {
                 $res['AddTrafficMatchRules'] = [];
-                $n1                          = 0;
+                $n1 = 0;
                 foreach ($this->addTrafficMatchRules as $item1) {
                     $res['AddTrafficMatchRules'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -99,7 +109,7 @@ class UpdateTrafficMarkingPolicyAttributeRequest extends Model
         if (null !== $this->deleteTrafficMatchRules) {
             if (\is_array($this->deleteTrafficMatchRules)) {
                 $res['DeleteTrafficMatchRules'] = [];
-                $n1                             = 0;
+                $n1 = 0;
                 foreach ($this->deleteTrafficMatchRules as $item1) {
                     $res['DeleteTrafficMatchRules'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -152,7 +162,7 @@ class UpdateTrafficMarkingPolicyAttributeRequest extends Model
         if (isset($map['AddTrafficMatchRules'])) {
             if (!empty($map['AddTrafficMatchRules'])) {
                 $model->addTrafficMatchRules = [];
-                $n1                          = 0;
+                $n1 = 0;
                 foreach ($map['AddTrafficMatchRules'] as $item1) {
                     $model->addTrafficMatchRules[$n1++] = addTrafficMatchRules::fromMap($item1);
                 }
@@ -166,7 +176,7 @@ class UpdateTrafficMarkingPolicyAttributeRequest extends Model
         if (isset($map['DeleteTrafficMatchRules'])) {
             if (!empty($map['DeleteTrafficMatchRules'])) {
                 $model->deleteTrafficMatchRules = [];
-                $n1                             = 0;
+                $n1 = 0;
                 foreach ($map['DeleteTrafficMatchRules'] as $item1) {
                     $model->deleteTrafficMatchRules[$n1++] = deleteTrafficMatchRules::fromMap($item1);
                 }

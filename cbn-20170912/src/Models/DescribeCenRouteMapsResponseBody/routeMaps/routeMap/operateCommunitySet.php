@@ -30,7 +30,7 @@ class operateCommunitySet extends Model
         if (null !== $this->operateCommunity) {
             if (\is_array($this->operateCommunity)) {
                 $res['OperateCommunity'] = [];
-                $n1                      = 0;
+                $n1 = 0;
                 foreach ($this->operateCommunity as $item1) {
                     $res['OperateCommunity'][$n1++] = $item1;
                 }
@@ -51,7 +51,7 @@ class operateCommunitySet extends Model
         if (isset($map['OperateCommunity'])) {
             if (!empty($map['OperateCommunity'])) {
                 $model->operateCommunity = [];
-                $n1                      = 0;
+                $n1 = 0;
                 foreach ($map['OperateCommunity'] as $item1) {
                     $model->operateCommunity[$n1++] = $item1;
                 }

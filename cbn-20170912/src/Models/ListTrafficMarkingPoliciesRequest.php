@@ -12,53 +12,62 @@ class ListTrafficMarkingPoliciesRequest extends Model
      * @var int
      */
     public $maxResults;
+
     /**
      * @var string
      */
     public $nextToken;
+
     /**
      * @var string
      */
     public $ownerAccount;
+
     /**
      * @var int
      */
     public $ownerId;
+
     /**
      * @var string
      */
     public $resourceOwnerAccount;
+
     /**
      * @var int
      */
     public $resourceOwnerId;
+
     /**
      * @var string
      */
     public $trafficMarkingPolicyDescription;
+
     /**
      * @var string
      */
     public $trafficMarkingPolicyId;
+
     /**
      * @var string
      */
     public $trafficMarkingPolicyName;
+
     /**
      * @var string
      */
     public $transitRouterId;
     protected $_name = [
-        'maxResults'                      => 'MaxResults',
-        'nextToken'                       => 'NextToken',
-        'ownerAccount'                    => 'OwnerAccount',
-        'ownerId'                         => 'OwnerId',
-        'resourceOwnerAccount'            => 'ResourceOwnerAccount',
-        'resourceOwnerId'                 => 'ResourceOwnerId',
+        'maxResults' => 'MaxResults',
+        'nextToken' => 'NextToken',
+        'ownerAccount' => 'OwnerAccount',
+        'ownerId' => 'OwnerId',
+        'resourceOwnerAccount' => 'ResourceOwnerAccount',
+        'resourceOwnerId' => 'ResourceOwnerId',
         'trafficMarkingPolicyDescription' => 'TrafficMarkingPolicyDescription',
-        'trafficMarkingPolicyId'          => 'TrafficMarkingPolicyId',
-        'trafficMarkingPolicyName'        => 'TrafficMarkingPolicyName',
-        'transitRouterId'                 => 'TransitRouterId',
+        'trafficMarkingPolicyId' => 'TrafficMarkingPolicyId',
+        'trafficMarkingPolicyName' => 'TrafficMarkingPolicyName',
+        'transitRouterId' => 'TransitRouterId',
     ];
 
     public function validate()

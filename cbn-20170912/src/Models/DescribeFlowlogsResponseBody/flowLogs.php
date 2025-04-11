@@ -31,7 +31,7 @@ class flowLogs extends Model
         if (null !== $this->flowLog) {
             if (\is_array($this->flowLog)) {
                 $res['FlowLog'] = [];
-                $n1             = 0;
+                $n1 = 0;
                 foreach ($this->flowLog as $item1) {
                     $res['FlowLog'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -52,7 +52,7 @@ class flowLogs extends Model
         if (isset($map['FlowLog'])) {
             if (!empty($map['FlowLog'])) {
                 $model->flowLog = [];
-                $n1             = 0;
+                $n1 = 0;
                 foreach ($map['FlowLog'] as $item1) {
                     $model->flowLog[$n1++] = flowLog::fromMap($item1);
                 }

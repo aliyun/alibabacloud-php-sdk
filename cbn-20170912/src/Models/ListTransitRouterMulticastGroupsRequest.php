@@ -12,88 +12,104 @@ class ListTransitRouterMulticastGroupsRequest extends Model
      * @var string
      */
     public $clientToken;
+
     /**
      * @var string
      */
     public $groupIpAddress;
+
     /**
      * @var bool
      */
     public $isGroupMember;
+
     /**
      * @var bool
      */
     public $isGroupSource;
+
     /**
      * @var int
      */
     public $maxResults;
+
     /**
      * @var string[]
      */
     public $networkInterfaceIds;
+
     /**
      * @var string
      */
     public $nextToken;
+
     /**
      * @var string
      */
     public $ownerAccount;
+
     /**
      * @var int
      */
     public $ownerId;
+
     /**
      * @var string[]
      */
     public $peerTransitRouterMulticastDomains;
+
     /**
      * @var string
      */
     public $resourceId;
+
     /**
      * @var string
      */
     public $resourceOwnerAccount;
+
     /**
      * @var int
      */
     public $resourceOwnerId;
+
     /**
      * @var string
      */
     public $resourceType;
+
     /**
      * @var string
      */
     public $transitRouterAttachmentId;
+
     /**
      * @var string
      */
     public $transitRouterMulticastDomainId;
+
     /**
      * @var string[]
      */
     public $vSwitchIds;
     protected $_name = [
-        'clientToken'                       => 'ClientToken',
-        'groupIpAddress'                    => 'GroupIpAddress',
-        'isGroupMember'                     => 'IsGroupMember',
-        'isGroupSource'                     => 'IsGroupSource',
-        'maxResults'                        => 'MaxResults',
-        'networkInterfaceIds'               => 'NetworkInterfaceIds',
-        'nextToken'                         => 'NextToken',
-        'ownerAccount'                      => 'OwnerAccount',
-        'ownerId'                           => 'OwnerId',
+        'clientToken' => 'ClientToken',
+        'groupIpAddress' => 'GroupIpAddress',
+        'isGroupMember' => 'IsGroupMember',
+        'isGroupSource' => 'IsGroupSource',
+        'maxResults' => 'MaxResults',
+        'networkInterfaceIds' => 'NetworkInterfaceIds',
+        'nextToken' => 'NextToken',
+        'ownerAccount' => 'OwnerAccount',
+        'ownerId' => 'OwnerId',
         'peerTransitRouterMulticastDomains' => 'PeerTransitRouterMulticastDomains',
-        'resourceId'                        => 'ResourceId',
-        'resourceOwnerAccount'              => 'ResourceOwnerAccount',
-        'resourceOwnerId'                   => 'ResourceOwnerId',
-        'resourceType'                      => 'ResourceType',
-        'transitRouterAttachmentId'         => 'TransitRouterAttachmentId',
-        'transitRouterMulticastDomainId'    => 'TransitRouterMulticastDomainId',
-        'vSwitchIds'                        => 'VSwitchIds',
+        'resourceId' => 'ResourceId',
+        'resourceOwnerAccount' => 'ResourceOwnerAccount',
+        'resourceOwnerId' => 'ResourceOwnerId',
+        'resourceType' => 'ResourceType',
+        'transitRouterAttachmentId' => 'TransitRouterAttachmentId',
+        'transitRouterMulticastDomainId' => 'TransitRouterMulticastDomainId',
+        'vSwitchIds' => 'VSwitchIds',
     ];
 
     public function validate()
@@ -136,7 +152,7 @@ class ListTransitRouterMulticastGroupsRequest extends Model
         if (null !== $this->networkInterfaceIds) {
             if (\is_array($this->networkInterfaceIds)) {
                 $res['NetworkInterfaceIds'] = [];
-                $n1                         = 0;
+                $n1 = 0;
                 foreach ($this->networkInterfaceIds as $item1) {
                     $res['NetworkInterfaceIds'][$n1++] = $item1;
                 }
@@ -158,7 +174,7 @@ class ListTransitRouterMulticastGroupsRequest extends Model
         if (null !== $this->peerTransitRouterMulticastDomains) {
             if (\is_array($this->peerTransitRouterMulticastDomains)) {
                 $res['PeerTransitRouterMulticastDomains'] = [];
-                $n1                                       = 0;
+                $n1 = 0;
                 foreach ($this->peerTransitRouterMulticastDomains as $item1) {
                     $res['PeerTransitRouterMulticastDomains'][$n1++] = $item1;
                 }
@@ -192,7 +208,7 @@ class ListTransitRouterMulticastGroupsRequest extends Model
         if (null !== $this->vSwitchIds) {
             if (\is_array($this->vSwitchIds)) {
                 $res['VSwitchIds'] = [];
-                $n1                = 0;
+                $n1 = 0;
                 foreach ($this->vSwitchIds as $item1) {
                     $res['VSwitchIds'][$n1++] = $item1;
                 }
@@ -233,7 +249,7 @@ class ListTransitRouterMulticastGroupsRequest extends Model
         if (isset($map['NetworkInterfaceIds'])) {
             if (!empty($map['NetworkInterfaceIds'])) {
                 $model->networkInterfaceIds = [];
-                $n1                         = 0;
+                $n1 = 0;
                 foreach ($map['NetworkInterfaceIds'] as $item1) {
                     $model->networkInterfaceIds[$n1++] = $item1;
                 }
@@ -255,7 +271,7 @@ class ListTransitRouterMulticastGroupsRequest extends Model
         if (isset($map['PeerTransitRouterMulticastDomains'])) {
             if (!empty($map['PeerTransitRouterMulticastDomains'])) {
                 $model->peerTransitRouterMulticastDomains = [];
-                $n1                                       = 0;
+                $n1 = 0;
                 foreach ($map['PeerTransitRouterMulticastDomains'] as $item1) {
                     $model->peerTransitRouterMulticastDomains[$n1++] = $item1;
                 }
@@ -289,7 +305,7 @@ class ListTransitRouterMulticastGroupsRequest extends Model
         if (isset($map['VSwitchIds'])) {
             if (!empty($map['VSwitchIds'])) {
                 $model->vSwitchIds = [];
-                $n1                = 0;
+                $n1 = 0;
                 foreach ($map['VSwitchIds'] as $item1) {
                     $model->vSwitchIds[$n1++] = $item1;
                 }

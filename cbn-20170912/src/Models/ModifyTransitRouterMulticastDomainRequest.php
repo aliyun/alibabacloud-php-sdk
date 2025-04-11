@@ -13,53 +13,62 @@ class ModifyTransitRouterMulticastDomainRequest extends Model
      * @var string
      */
     public $clientToken;
+
     /**
      * @var bool
      */
     public $dryRun;
+
     /**
      * @var options
      */
     public $options;
+
     /**
      * @var string
      */
     public $ownerAccount;
+
     /**
      * @var int
      */
     public $ownerId;
+
     /**
      * @var string
      */
     public $resourceOwnerAccount;
+
     /**
      * @var int
      */
     public $resourceOwnerId;
+
     /**
      * @var string
      */
     public $transitRouterMulticastDomainDescription;
+
     /**
      * @var string
      */
     public $transitRouterMulticastDomainId;
+
     /**
      * @var string
      */
     public $transitRouterMulticastDomainName;
     protected $_name = [
-        'clientToken'                             => 'ClientToken',
-        'dryRun'                                  => 'DryRun',
-        'options'                                 => 'Options',
-        'ownerAccount'                            => 'OwnerAccount',
-        'ownerId'                                 => 'OwnerId',
-        'resourceOwnerAccount'                    => 'ResourceOwnerAccount',
-        'resourceOwnerId'                         => 'ResourceOwnerId',
+        'clientToken' => 'ClientToken',
+        'dryRun' => 'DryRun',
+        'options' => 'Options',
+        'ownerAccount' => 'OwnerAccount',
+        'ownerId' => 'OwnerId',
+        'resourceOwnerAccount' => 'ResourceOwnerAccount',
+        'resourceOwnerId' => 'ResourceOwnerId',
         'transitRouterMulticastDomainDescription' => 'TransitRouterMulticastDomainDescription',
-        'transitRouterMulticastDomainId'          => 'TransitRouterMulticastDomainId',
-        'transitRouterMulticastDomainName'        => 'TransitRouterMulticastDomainName',
+        'transitRouterMulticastDomainId' => 'TransitRouterMulticastDomainId',
+        'transitRouterMulticastDomainName' => 'TransitRouterMulticastDomainName',
     ];
 
     public function validate()

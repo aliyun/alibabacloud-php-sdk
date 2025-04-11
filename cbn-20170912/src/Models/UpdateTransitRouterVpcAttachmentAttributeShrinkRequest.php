@@ -12,57 +12,67 @@ class UpdateTransitRouterVpcAttachmentAttributeShrinkRequest extends Model
      * @var bool
      */
     public $autoPublishRouteEnabled;
+
     /**
      * @var string
      */
     public $clientToken;
+
     /**
      * @var bool
      */
     public $dryRun;
+
     /**
      * @var string
      */
     public $ownerAccount;
+
     /**
      * @var int
      */
     public $ownerId;
+
     /**
      * @var string
      */
     public $resourceOwnerAccount;
+
     /**
      * @var int
      */
     public $resourceOwnerId;
+
     /**
      * @var string
      */
     public $transitRouterAttachmentDescription;
+
     /**
      * @var string
      */
     public $transitRouterAttachmentId;
+
     /**
      * @var string
      */
     public $transitRouterAttachmentName;
+
     /**
      * @var string
      */
     public $transitRouterVPCAttachmentOptionsShrink;
     protected $_name = [
-        'autoPublishRouteEnabled'                 => 'AutoPublishRouteEnabled',
-        'clientToken'                             => 'ClientToken',
-        'dryRun'                                  => 'DryRun',
-        'ownerAccount'                            => 'OwnerAccount',
-        'ownerId'                                 => 'OwnerId',
-        'resourceOwnerAccount'                    => 'ResourceOwnerAccount',
-        'resourceOwnerId'                         => 'ResourceOwnerId',
-        'transitRouterAttachmentDescription'      => 'TransitRouterAttachmentDescription',
-        'transitRouterAttachmentId'               => 'TransitRouterAttachmentId',
-        'transitRouterAttachmentName'             => 'TransitRouterAttachmentName',
+        'autoPublishRouteEnabled' => 'AutoPublishRouteEnabled',
+        'clientToken' => 'ClientToken',
+        'dryRun' => 'DryRun',
+        'ownerAccount' => 'OwnerAccount',
+        'ownerId' => 'OwnerId',
+        'resourceOwnerAccount' => 'ResourceOwnerAccount',
+        'resourceOwnerId' => 'ResourceOwnerId',
+        'transitRouterAttachmentDescription' => 'TransitRouterAttachmentDescription',
+        'transitRouterAttachmentId' => 'TransitRouterAttachmentId',
+        'transitRouterAttachmentName' => 'TransitRouterAttachmentName',
         'transitRouterVPCAttachmentOptionsShrink' => 'TransitRouterVPCAttachmentOptions',
     ];
 

@@ -13,27 +13,31 @@ class DescribeGeographicRegionMembershipResponseBody extends Model
      * @var int
      */
     public $pageNumber;
+
     /**
      * @var int
      */
     public $pageSize;
+
     /**
      * @var regionIds
      */
     public $regionIds;
+
     /**
      * @var string
      */
     public $requestId;
+
     /**
      * @var int
      */
     public $totalCount;
     protected $_name = [
         'pageNumber' => 'PageNumber',
-        'pageSize'   => 'PageSize',
-        'regionIds'  => 'RegionIds',
-        'requestId'  => 'RequestId',
+        'pageSize' => 'PageSize',
+        'regionIds' => 'RegionIds',
+        'requestId' => 'RequestId',
         'totalCount' => 'TotalCount',
     ];
 

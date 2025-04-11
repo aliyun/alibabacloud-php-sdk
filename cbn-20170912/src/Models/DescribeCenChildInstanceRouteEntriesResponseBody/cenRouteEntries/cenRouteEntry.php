@@ -16,68 +16,80 @@ class cenRouteEntry extends Model
      * @var asPaths
      */
     public $asPaths;
+
     /**
      * @var cenRouteMapRecords
      */
     public $cenRouteMapRecords;
+
     /**
      * @var communities
      */
     public $communities;
+
     /**
      * @var conflicts
      */
     public $conflicts;
+
     /**
      * @var string
      */
     public $destinationCidrBlock;
+
     /**
      * @var string
      */
     public $nextHopInstanceId;
+
     /**
      * @var string
      */
     public $nextHopRegionId;
+
     /**
      * @var string
      */
     public $nextHopType;
+
     /**
      * @var bool
      */
     public $operationalMode;
+
     /**
      * @var string
      */
     public $publishStatus;
+
     /**
      * @var string
      */
     public $routeTableId;
+
     /**
      * @var string
      */
     public $status;
+
     /**
      * @var string
      */
     public $type;
     protected $_name = [
-        'asPaths'              => 'AsPaths',
-        'cenRouteMapRecords'   => 'CenRouteMapRecords',
-        'communities'          => 'Communities',
-        'conflicts'            => 'Conflicts',
+        'asPaths' => 'AsPaths',
+        'cenRouteMapRecords' => 'CenRouteMapRecords',
+        'communities' => 'Communities',
+        'conflicts' => 'Conflicts',
         'destinationCidrBlock' => 'DestinationCidrBlock',
-        'nextHopInstanceId'    => 'NextHopInstanceId',
-        'nextHopRegionId'      => 'NextHopRegionId',
-        'nextHopType'          => 'NextHopType',
-        'operationalMode'      => 'OperationalMode',
-        'publishStatus'        => 'PublishStatus',
-        'routeTableId'         => 'RouteTableId',
-        'status'               => 'Status',
-        'type'                 => 'Type',
+        'nextHopInstanceId' => 'NextHopInstanceId',
+        'nextHopRegionId' => 'NextHopRegionId',
+        'nextHopType' => 'NextHopType',
+        'operationalMode' => 'OperationalMode',
+        'publishStatus' => 'PublishStatus',
+        'routeTableId' => 'RouteTableId',
+        'status' => 'Status',
+        'type' => 'Type',
     ];
 
     public function validate()

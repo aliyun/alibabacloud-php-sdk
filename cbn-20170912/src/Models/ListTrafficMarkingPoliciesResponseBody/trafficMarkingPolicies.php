@@ -13,43 +13,50 @@ class trafficMarkingPolicies extends Model
      * @var int
      */
     public $markingDscp;
+
     /**
      * @var int
      */
     public $priority;
+
     /**
      * @var string
      */
     public $trafficMarkingPolicyDescription;
+
     /**
      * @var string
      */
     public $trafficMarkingPolicyId;
+
     /**
      * @var string
      */
     public $trafficMarkingPolicyName;
+
     /**
      * @var string
      */
     public $trafficMarkingPolicyStatus;
+
     /**
      * @var trafficMatchRules[]
      */
     public $trafficMatchRules;
+
     /**
      * @var string
      */
     public $transitRouterId;
     protected $_name = [
-        'markingDscp'                     => 'MarkingDscp',
-        'priority'                        => 'Priority',
+        'markingDscp' => 'MarkingDscp',
+        'priority' => 'Priority',
         'trafficMarkingPolicyDescription' => 'TrafficMarkingPolicyDescription',
-        'trafficMarkingPolicyId'          => 'TrafficMarkingPolicyId',
-        'trafficMarkingPolicyName'        => 'TrafficMarkingPolicyName',
-        'trafficMarkingPolicyStatus'      => 'TrafficMarkingPolicyStatus',
-        'trafficMatchRules'               => 'TrafficMatchRules',
-        'transitRouterId'                 => 'TransitRouterId',
+        'trafficMarkingPolicyId' => 'TrafficMarkingPolicyId',
+        'trafficMarkingPolicyName' => 'TrafficMarkingPolicyName',
+        'trafficMarkingPolicyStatus' => 'TrafficMarkingPolicyStatus',
+        'trafficMatchRules' => 'TrafficMatchRules',
+        'transitRouterId' => 'TransitRouterId',
     ];
 
     public function validate()
@@ -90,7 +97,7 @@ class trafficMarkingPolicies extends Model
         if (null !== $this->trafficMatchRules) {
             if (\is_array($this->trafficMatchRules)) {
                 $res['TrafficMatchRules'] = [];
-                $n1                       = 0;
+                $n1 = 0;
                 foreach ($this->trafficMatchRules as $item1) {
                     $res['TrafficMatchRules'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -139,7 +146,7 @@ class trafficMarkingPolicies extends Model
         if (isset($map['TrafficMatchRules'])) {
             if (!empty($map['TrafficMatchRules'])) {
                 $model->trafficMatchRules = [];
-                $n1                       = 0;
+                $n1 = 0;
                 foreach ($map['TrafficMatchRules'] as $item1) {
                     $model->trafficMatchRules[$n1++] = trafficMatchRules::fromMap($item1);
                 }

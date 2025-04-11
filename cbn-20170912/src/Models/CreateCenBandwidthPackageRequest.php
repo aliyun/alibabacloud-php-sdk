@@ -13,88 +13,104 @@ class CreateCenBandwidthPackageRequest extends Model
      * @var bool
      */
     public $autoPay;
+
     /**
      * @var bool
      */
     public $autoRenew;
+
     /**
      * @var int
      */
     public $autoRenewDuration;
+
     /**
      * @var int
      */
     public $bandwidth;
+
     /**
      * @var string
      */
     public $bandwidthPackageChargeType;
+
     /**
      * @var string
      */
     public $clientToken;
+
     /**
      * @var string
      */
     public $description;
+
     /**
      * @var string
      */
     public $geographicRegionAId;
+
     /**
      * @var string
      */
     public $geographicRegionBId;
+
     /**
      * @var string
      */
     public $name;
+
     /**
      * @var string
      */
     public $ownerAccount;
+
     /**
      * @var int
      */
     public $ownerId;
+
     /**
      * @var int
      */
     public $period;
+
     /**
      * @var string
      */
     public $pricingCycle;
+
     /**
      * @var string
      */
     public $resourceOwnerAccount;
+
     /**
      * @var int
      */
     public $resourceOwnerId;
+
     /**
      * @var tag[]
      */
     public $tag;
     protected $_name = [
-        'autoPay'                    => 'AutoPay',
-        'autoRenew'                  => 'AutoRenew',
-        'autoRenewDuration'          => 'AutoRenewDuration',
-        'bandwidth'                  => 'Bandwidth',
+        'autoPay' => 'AutoPay',
+        'autoRenew' => 'AutoRenew',
+        'autoRenewDuration' => 'AutoRenewDuration',
+        'bandwidth' => 'Bandwidth',
         'bandwidthPackageChargeType' => 'BandwidthPackageChargeType',
-        'clientToken'                => 'ClientToken',
-        'description'                => 'Description',
-        'geographicRegionAId'        => 'GeographicRegionAId',
-        'geographicRegionBId'        => 'GeographicRegionBId',
-        'name'                       => 'Name',
-        'ownerAccount'               => 'OwnerAccount',
-        'ownerId'                    => 'OwnerId',
-        'period'                     => 'Period',
-        'pricingCycle'               => 'PricingCycle',
-        'resourceOwnerAccount'       => 'ResourceOwnerAccount',
-        'resourceOwnerId'            => 'ResourceOwnerId',
-        'tag'                        => 'Tag',
+        'clientToken' => 'ClientToken',
+        'description' => 'Description',
+        'geographicRegionAId' => 'GeographicRegionAId',
+        'geographicRegionBId' => 'GeographicRegionBId',
+        'name' => 'Name',
+        'ownerAccount' => 'OwnerAccount',
+        'ownerId' => 'OwnerId',
+        'period' => 'Period',
+        'pricingCycle' => 'PricingCycle',
+        'resourceOwnerAccount' => 'ResourceOwnerAccount',
+        'resourceOwnerId' => 'ResourceOwnerId',
+        'tag' => 'Tag',
     ];
 
     public function validate()
@@ -175,7 +191,7 @@ class CreateCenBandwidthPackageRequest extends Model
         if (null !== $this->tag) {
             if (\is_array($this->tag)) {
                 $res['Tag'] = [];
-                $n1         = 0;
+                $n1 = 0;
                 foreach ($this->tag as $item1) {
                     $res['Tag'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -260,7 +276,7 @@ class CreateCenBandwidthPackageRequest extends Model
         if (isset($map['Tag'])) {
             if (!empty($map['Tag'])) {
                 $model->tag = [];
-                $n1         = 0;
+                $n1 = 0;
                 foreach ($map['Tag'] as $item1) {
                     $model->tag[$n1++] = tag::fromMap($item1);
                 }

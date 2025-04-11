@@ -26,163 +26,194 @@ class routeMap extends Model
      * @var string
      */
     public $asPathMatchMode;
+
     /**
      * @var string
      */
     public $cenId;
+
     /**
      * @var string
      */
     public $cenRegionId;
+
     /**
      * @var string
      */
     public $cidrMatchMode;
+
     /**
      * @var string
      */
     public $communityMatchMode;
+
     /**
      * @var string
      */
     public $communityOperateMode;
+
     /**
      * @var string
      */
     public $description;
+
     /**
      * @var destinationChildInstanceTypes
      */
     public $destinationChildInstanceTypes;
+
     /**
      * @var destinationCidrBlocks
      */
     public $destinationCidrBlocks;
+
     /**
      * @var destinationInstanceIds
      */
     public $destinationInstanceIds;
+
     /**
      * @var bool
      */
     public $destinationInstanceIdsReverseMatch;
+
     /**
      * @var destinationRegionIds
      */
     public $destinationRegionIds;
+
     /**
      * @var destinationRouteTableIds
      */
     public $destinationRouteTableIds;
+
     /**
      * @var string
      */
     public $mapResult;
+
     /**
      * @var string
      */
     public $matchAddressType;
+
     /**
      * @var matchAsns
      */
     public $matchAsns;
+
     /**
      * @var matchCommunitySet
      */
     public $matchCommunitySet;
+
     /**
      * @var int
      */
     public $nextPriority;
+
     /**
      * @var operateCommunitySet
      */
     public $operateCommunitySet;
+
     /**
      * @var int
      */
     public $preference;
+
     /**
      * @var prependAsPath
      */
     public $prependAsPath;
+
     /**
      * @var int
      */
     public $priority;
+
     /**
      * @var string
      */
     public $routeMapId;
+
     /**
      * @var routeTypes
      */
     public $routeTypes;
+
     /**
      * @var sourceChildInstanceTypes
      */
     public $sourceChildInstanceTypes;
+
     /**
      * @var sourceInstanceIds
      */
     public $sourceInstanceIds;
+
     /**
      * @var bool
      */
     public $sourceInstanceIdsReverseMatch;
+
     /**
      * @var sourceRegionIds
      */
     public $sourceRegionIds;
+
     /**
      * @var sourceRouteTableIds
      */
     public $sourceRouteTableIds;
+
     /**
      * @var string
      */
     public $status;
+
     /**
      * @var string
      */
     public $transitRouterRouteTableId;
+
     /**
      * @var string
      */
     public $transmitDirection;
     protected $_name = [
-        'asPathMatchMode'                    => 'AsPathMatchMode',
-        'cenId'                              => 'CenId',
-        'cenRegionId'                        => 'CenRegionId',
-        'cidrMatchMode'                      => 'CidrMatchMode',
-        'communityMatchMode'                 => 'CommunityMatchMode',
-        'communityOperateMode'               => 'CommunityOperateMode',
-        'description'                        => 'Description',
-        'destinationChildInstanceTypes'      => 'DestinationChildInstanceTypes',
-        'destinationCidrBlocks'              => 'DestinationCidrBlocks',
-        'destinationInstanceIds'             => 'DestinationInstanceIds',
+        'asPathMatchMode' => 'AsPathMatchMode',
+        'cenId' => 'CenId',
+        'cenRegionId' => 'CenRegionId',
+        'cidrMatchMode' => 'CidrMatchMode',
+        'communityMatchMode' => 'CommunityMatchMode',
+        'communityOperateMode' => 'CommunityOperateMode',
+        'description' => 'Description',
+        'destinationChildInstanceTypes' => 'DestinationChildInstanceTypes',
+        'destinationCidrBlocks' => 'DestinationCidrBlocks',
+        'destinationInstanceIds' => 'DestinationInstanceIds',
         'destinationInstanceIdsReverseMatch' => 'DestinationInstanceIdsReverseMatch',
-        'destinationRegionIds'               => 'DestinationRegionIds',
-        'destinationRouteTableIds'           => 'DestinationRouteTableIds',
-        'mapResult'                          => 'MapResult',
-        'matchAddressType'                   => 'MatchAddressType',
-        'matchAsns'                          => 'MatchAsns',
-        'matchCommunitySet'                  => 'MatchCommunitySet',
-        'nextPriority'                       => 'NextPriority',
-        'operateCommunitySet'                => 'OperateCommunitySet',
-        'preference'                         => 'Preference',
-        'prependAsPath'                      => 'PrependAsPath',
-        'priority'                           => 'Priority',
-        'routeMapId'                         => 'RouteMapId',
-        'routeTypes'                         => 'RouteTypes',
-        'sourceChildInstanceTypes'           => 'SourceChildInstanceTypes',
-        'sourceInstanceIds'                  => 'SourceInstanceIds',
-        'sourceInstanceIdsReverseMatch'      => 'SourceInstanceIdsReverseMatch',
-        'sourceRegionIds'                    => 'SourceRegionIds',
-        'sourceRouteTableIds'                => 'SourceRouteTableIds',
-        'status'                             => 'Status',
-        'transitRouterRouteTableId'          => 'TransitRouterRouteTableId',
-        'transmitDirection'                  => 'TransmitDirection',
+        'destinationRegionIds' => 'DestinationRegionIds',
+        'destinationRouteTableIds' => 'DestinationRouteTableIds',
+        'mapResult' => 'MapResult',
+        'matchAddressType' => 'MatchAddressType',
+        'matchAsns' => 'MatchAsns',
+        'matchCommunitySet' => 'MatchCommunitySet',
+        'nextPriority' => 'NextPriority',
+        'operateCommunitySet' => 'OperateCommunitySet',
+        'preference' => 'Preference',
+        'prependAsPath' => 'PrependAsPath',
+        'priority' => 'Priority',
+        'routeMapId' => 'RouteMapId',
+        'routeTypes' => 'RouteTypes',
+        'sourceChildInstanceTypes' => 'SourceChildInstanceTypes',
+        'sourceInstanceIds' => 'SourceInstanceIds',
+        'sourceInstanceIdsReverseMatch' => 'SourceInstanceIdsReverseMatch',
+        'sourceRegionIds' => 'SourceRegionIds',
+        'sourceRouteTableIds' => 'SourceRouteTableIds',
+        'status' => 'Status',
+        'transitRouterRouteTableId' => 'TransitRouterRouteTableId',
+        'transmitDirection' => 'TransmitDirection',
     ];
 
     public function validate()

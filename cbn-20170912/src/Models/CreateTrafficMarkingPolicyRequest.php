@@ -13,63 +13,74 @@ class CreateTrafficMarkingPolicyRequest extends Model
      * @var string
      */
     public $clientToken;
+
     /**
      * @var bool
      */
     public $dryRun;
+
     /**
      * @var int
      */
     public $markingDscp;
+
     /**
      * @var string
      */
     public $ownerAccount;
+
     /**
      * @var int
      */
     public $ownerId;
+
     /**
      * @var int
      */
     public $priority;
+
     /**
      * @var string
      */
     public $resourceOwnerAccount;
+
     /**
      * @var int
      */
     public $resourceOwnerId;
+
     /**
      * @var string
      */
     public $trafficMarkingPolicyDescription;
+
     /**
      * @var string
      */
     public $trafficMarkingPolicyName;
+
     /**
      * @var trafficMatchRules[]
      */
     public $trafficMatchRules;
+
     /**
      * @var string
      */
     public $transitRouterId;
     protected $_name = [
-        'clientToken'                     => 'ClientToken',
-        'dryRun'                          => 'DryRun',
-        'markingDscp'                     => 'MarkingDscp',
-        'ownerAccount'                    => 'OwnerAccount',
-        'ownerId'                         => 'OwnerId',
-        'priority'                        => 'Priority',
-        'resourceOwnerAccount'            => 'ResourceOwnerAccount',
-        'resourceOwnerId'                 => 'ResourceOwnerId',
+        'clientToken' => 'ClientToken',
+        'dryRun' => 'DryRun',
+        'markingDscp' => 'MarkingDscp',
+        'ownerAccount' => 'OwnerAccount',
+        'ownerId' => 'OwnerId',
+        'priority' => 'Priority',
+        'resourceOwnerAccount' => 'ResourceOwnerAccount',
+        'resourceOwnerId' => 'ResourceOwnerId',
         'trafficMarkingPolicyDescription' => 'TrafficMarkingPolicyDescription',
-        'trafficMarkingPolicyName'        => 'TrafficMarkingPolicyName',
-        'trafficMatchRules'               => 'TrafficMatchRules',
-        'transitRouterId'                 => 'TransitRouterId',
+        'trafficMarkingPolicyName' => 'TrafficMarkingPolicyName',
+        'trafficMatchRules' => 'TrafficMatchRules',
+        'transitRouterId' => 'TransitRouterId',
     ];
 
     public function validate()
@@ -126,7 +137,7 @@ class CreateTrafficMarkingPolicyRequest extends Model
         if (null !== $this->trafficMatchRules) {
             if (\is_array($this->trafficMatchRules)) {
                 $res['TrafficMatchRules'] = [];
-                $n1                       = 0;
+                $n1 = 0;
                 foreach ($this->trafficMatchRules as $item1) {
                     $res['TrafficMatchRules'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -191,7 +202,7 @@ class CreateTrafficMarkingPolicyRequest extends Model
         if (isset($map['TrafficMatchRules'])) {
             if (!empty($map['TrafficMatchRules'])) {
                 $model->trafficMatchRules = [];
-                $n1                       = 0;
+                $n1 = 0;
                 foreach ($map['TrafficMatchRules'] as $item1) {
                     $model->trafficMatchRules[$n1++] = trafficMatchRules::fromMap($item1);
                 }

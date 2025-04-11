@@ -12,27 +12,31 @@ class transitRouterCidrAllocations extends Model
      * @var string
      */
     public $allocatedCidrBlock;
+
     /**
      * @var string
      */
     public $attachmentId;
+
     /**
      * @var string
      */
     public $attachmentName;
+
     /**
      * @var string
      */
     public $cidr;
+
     /**
      * @var string
      */
     public $transitRouterCidrId;
     protected $_name = [
-        'allocatedCidrBlock'  => 'AllocatedCidrBlock',
-        'attachmentId'        => 'AttachmentId',
-        'attachmentName'      => 'AttachmentName',
-        'cidr'                => 'Cidr',
+        'allocatedCidrBlock' => 'AllocatedCidrBlock',
+        'attachmentId' => 'AttachmentId',
+        'attachmentName' => 'AttachmentName',
+        'cidr' => 'Cidr',
         'transitRouterCidrId' => 'TransitRouterCidrId',
     ];
 

@@ -13,6 +13,7 @@ class ListTransitRouterCidrResponseBody extends Model
      * @var cidrLists[]
      */
     public $cidrLists;
+
     /**
      * @var string
      */
@@ -36,7 +37,7 @@ class ListTransitRouterCidrResponseBody extends Model
         if (null !== $this->cidrLists) {
             if (\is_array($this->cidrLists)) {
                 $res['CidrLists'] = [];
-                $n1               = 0;
+                $n1 = 0;
                 foreach ($this->cidrLists as $item1) {
                     $res['CidrLists'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -61,7 +62,7 @@ class ListTransitRouterCidrResponseBody extends Model
         if (isset($map['CidrLists'])) {
             if (!empty($map['CidrLists'])) {
                 $model->cidrLists = [];
-                $n1               = 0;
+                $n1 = 0;
                 foreach ($map['CidrLists'] as $item1) {
                     $model->cidrLists[$n1++] = cidrLists::fromMap($item1);
                 }
