@@ -5,11 +5,17 @@
 namespace AlibabaCloud\SDK\Governance\V20210120\Models\ListEvaluationResultsResponseBody\results;
 
 use AlibabaCloud\Dara\Model;
+use AlibabaCloud\SDK\Governance\V20210120\Models\ListEvaluationResultsResponseBody\results\metricResults\accountSummary;
 use AlibabaCloud\SDK\Governance\V20210120\Models\ListEvaluationResultsResponseBody\results\metricResults\errorInfo;
 use AlibabaCloud\SDK\Governance\V20210120\Models\ListEvaluationResultsResponseBody\results\metricResults\resourcesSummary;
 
 class metricResults extends Model
 {
+    /**
+     * @var accountSummary
+     */
+    public $accountSummary;
+
     /**
      * @var errorInfo
      */
@@ -45,6 +51,7 @@ class metricResults extends Model
      */
     public $status;
     protected $_name = [
+        'accountSummary' => 'AccountSummary',
         'errorInfo' => 'ErrorInfo',
         'evaluationTime' => 'EvaluationTime',
         'id' => 'Id',
@@ -56,6 +63,9 @@ class metricResults extends Model
 
     public function validate()
     {
+        if (null !== $this->accountSummary) {
+            $this->accountSummary->validate();
+        }
         if (null !== $this->errorInfo) {
             $this->errorInfo->validate();
         }
@@ -68,6 +78,10 @@ class metricResults extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->accountSummary) {
+            $res['AccountSummary'] = null !== $this->accountSummary ? $this->accountSummary->toArray($noStream) : $this->accountSummary;
+        }
+
         if (null !== $this->errorInfo) {
             $res['ErrorInfo'] = null !== $this->errorInfo ? $this->errorInfo->toArray($noStream) : $this->errorInfo;
         }
@@ -107,6 +121,10 @@ class metricResults extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AccountSummary'])) {
+            $model->accountSummary = accountSummary::fromMap($map['AccountSummary']);
+        }
+
         if (isset($map['ErrorInfo'])) {
             $model->errorInfo = errorInfo::fromMap($map['ErrorInfo']);
         }

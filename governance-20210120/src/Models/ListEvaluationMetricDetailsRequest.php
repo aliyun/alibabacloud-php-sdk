@@ -36,6 +36,11 @@ class ListEvaluationMetricDetailsRequest extends Model
     /**
      * @var string
      */
+    public $scope;
+
+    /**
+     * @var string
+     */
     public $snapshotId;
     protected $_name = [
         'accountId' => 'AccountId',
@@ -43,6 +48,7 @@ class ListEvaluationMetricDetailsRequest extends Model
         'maxResults' => 'MaxResults',
         'nextToken' => 'NextToken',
         'regionId' => 'RegionId',
+        'scope' => 'Scope',
         'snapshotId' => 'SnapshotId',
     ];
 
@@ -72,6 +78,10 @@ class ListEvaluationMetricDetailsRequest extends Model
 
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
+        }
+
+        if (null !== $this->scope) {
+            $res['Scope'] = $this->scope;
         }
 
         if (null !== $this->snapshotId) {
@@ -107,6 +117,10 @@ class ListEvaluationMetricDetailsRequest extends Model
 
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
+        }
+
+        if (isset($map['Scope'])) {
+            $model->scope = $map['Scope'];
         }
 
         if (isset($map['SnapshotId'])) {

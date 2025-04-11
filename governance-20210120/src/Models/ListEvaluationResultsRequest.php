@@ -27,11 +27,17 @@ class ListEvaluationResultsRequest extends Model
     /**
      * @var string
      */
+    public $scope;
+
+    /**
+     * @var string
+     */
     public $snapshotId;
     protected $_name = [
         'accountId' => 'AccountId',
         'filters' => 'Filters',
         'regionId' => 'RegionId',
+        'scope' => 'Scope',
         'snapshotId' => 'SnapshotId',
     ];
 
@@ -62,6 +68,10 @@ class ListEvaluationResultsRequest extends Model
 
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
+        }
+
+        if (null !== $this->scope) {
+            $res['Scope'] = $this->scope;
         }
 
         if (null !== $this->snapshotId) {
@@ -95,6 +105,10 @@ class ListEvaluationResultsRequest extends Model
 
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
+        }
+
+        if (isset($map['Scope'])) {
+            $model->scope = $map['Scope'];
         }
 
         if (isset($map['SnapshotId'])) {

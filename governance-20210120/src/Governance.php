@@ -848,6 +848,10 @@ class Governance extends OpenApiClient
             @$query['RegionId'] = $request->regionId;
         }
 
+        if (null !== $request->scope) {
+            @$query['Scope'] = $request->scope;
+        }
+
         if (null !== $request->snapshotId) {
             @$query['SnapshotId'] = $request->snapshotId;
         }
@@ -918,6 +922,10 @@ class Governance extends OpenApiClient
 
         if (null !== $request->regionId) {
             @$query['RegionId'] = $request->regionId;
+        }
+
+        if (null !== $request->scope) {
+            @$query['Scope'] = $request->scope;
         }
 
         if (null !== $request->snapshotId) {
