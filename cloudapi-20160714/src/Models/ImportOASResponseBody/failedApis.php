@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\CloudAPI\V20160714\Models\ImportOASResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\CloudAPI\V20160714\Models\ImportOASResponseBody\failedApis\failedApi;
-use AlibabaCloud\Tea\Model;
 
 class failedApis extends Model
 {
@@ -17,17 +17,23 @@ class failedApis extends Model
         'failedApi' => 'FailedApi',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->failedApi)) {
+            Model::validateArray($this->failedApi);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->failedApi) {
-            $res['FailedApi'] = [];
-            if (null !== $this->failedApi && \is_array($this->failedApi)) {
-                $n = 0;
-                foreach ($this->failedApi as $item) {
-                    $res['FailedApi'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->failedApi)) {
+                $res['FailedApi'] = [];
+                $n1 = 0;
+                foreach ($this->failedApi as $item1) {
+                    $res['FailedApi'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
@@ -35,20 +41,20 @@ class failedApis extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return failedApis
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['FailedApi'])) {
             if (!empty($map['FailedApi'])) {
                 $model->failedApi = [];
-                $n = 0;
-                foreach ($map['FailedApi'] as $item) {
-                    $model->failedApi[$n++] = null !== $item ? failedApi::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['FailedApi'] as $item1) {
+                    $model->failedApi[$n1++] = failedApi::fromMap($item1);
                 }
             }
         }

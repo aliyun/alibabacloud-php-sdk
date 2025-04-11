@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\CloudAPI\V20160714\Models\DescribeApiGroupResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\CloudAPI\V20160714\Models\DescribeApiGroupResponseBody\stageItems\stageInfo;
-use AlibabaCloud\Tea\Model;
 
 class stageItems extends Model
 {
@@ -17,17 +17,23 @@ class stageItems extends Model
         'stageInfo' => 'StageInfo',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->stageInfo)) {
+            Model::validateArray($this->stageInfo);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->stageInfo) {
-            $res['StageInfo'] = [];
-            if (null !== $this->stageInfo && \is_array($this->stageInfo)) {
-                $n = 0;
-                foreach ($this->stageInfo as $item) {
-                    $res['StageInfo'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->stageInfo)) {
+                $res['StageInfo'] = [];
+                $n1 = 0;
+                foreach ($this->stageInfo as $item1) {
+                    $res['StageInfo'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
@@ -35,20 +41,20 @@ class stageItems extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return stageItems
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['StageInfo'])) {
             if (!empty($map['StageInfo'])) {
                 $model->stageInfo = [];
-                $n = 0;
-                foreach ($map['StageInfo'] as $item) {
-                    $model->stageInfo[$n++] = null !== $item ? stageInfo::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['StageInfo'] as $item1) {
+                    $model->stageInfo[$n1++] = stageInfo::fromMap($item1);
                 }
             }
         }

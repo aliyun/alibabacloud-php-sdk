@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\CloudAPI\V20160714\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DeleteTrafficControlRequest extends Model
 {
@@ -14,12 +14,6 @@ class DeleteTrafficControlRequest extends Model
     public $securityToken;
 
     /**
-     * @description The ID of the throttling policy.
-     *
-     * This parameter is required.
-     *
-     * @example tf123456
-     *
      * @var string
      */
     public $trafficControlId;
@@ -28,14 +22,18 @@ class DeleteTrafficControlRequest extends Model
         'trafficControlId' => 'TrafficControlId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->securityToken) {
             $res['SecurityToken'] = $this->securityToken;
         }
+
         if (null !== $this->trafficControlId) {
             $res['TrafficControlId'] = $this->trafficControlId;
         }
@@ -43,17 +41,18 @@ class DeleteTrafficControlRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DeleteTrafficControlRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['SecurityToken'])) {
             $model->securityToken = $map['SecurityToken'];
         }
+
         if (isset($map['TrafficControlId'])) {
             $model->trafficControlId = $map['TrafficControlId'];
         }

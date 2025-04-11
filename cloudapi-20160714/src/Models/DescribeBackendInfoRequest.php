@@ -4,15 +4,11 @@
 
 namespace AlibabaCloud\SDK\CloudAPI\V20160714\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DescribeBackendInfoRequest extends Model
 {
     /**
-     * @description The ID of the backend service.
-     *
-     * @example 739b68751c0b4e899e04d0c92b6d0be7
-     *
      * @var string
      */
     public $backendId;
@@ -26,14 +22,18 @@ class DescribeBackendInfoRequest extends Model
         'securityToken' => 'SecurityToken',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->backendId) {
             $res['BackendId'] = $this->backendId;
         }
+
         if (null !== $this->securityToken) {
             $res['SecurityToken'] = $this->securityToken;
         }
@@ -41,17 +41,18 @@ class DescribeBackendInfoRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeBackendInfoRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['BackendId'])) {
             $model->backendId = $map['BackendId'];
         }
+
         if (isset($map['SecurityToken'])) {
             $model->securityToken = $map['SecurityToken'];
         }

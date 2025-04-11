@@ -4,24 +4,16 @@
 
 namespace AlibabaCloud\SDK\CloudAPI\V20160714\Models\DescribeInstanceHttpCodeResponseBody\instanceHttpCode;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class monitorItem extends Model
 {
     /**
-     * @description The HTTP status code returned.
-     *
-     * @example 404
-     *
      * @var string
      */
     public $itemTime;
 
     /**
-     * @description The corresponding value.
-     *
-     * @example 1
-     *
      * @var string
      */
     public $itemValue;
@@ -30,14 +22,18 @@ class monitorItem extends Model
         'itemValue' => 'ItemValue',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->itemTime) {
             $res['ItemTime'] = $this->itemTime;
         }
+
         if (null !== $this->itemValue) {
             $res['ItemValue'] = $this->itemValue;
         }
@@ -45,17 +41,18 @@ class monitorItem extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return monitorItem
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ItemTime'])) {
             $model->itemTime = $map['ItemTime'];
         }
+
         if (isset($map['ItemValue'])) {
             $model->itemValue = $map['ItemValue'];
         }

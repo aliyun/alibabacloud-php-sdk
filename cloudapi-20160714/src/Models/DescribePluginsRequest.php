@@ -4,52 +4,32 @@
 
 namespace AlibabaCloud\SDK\CloudAPI\V20160714\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\CloudAPI\V20160714\Models\DescribePluginsRequest\tag;
-use AlibabaCloud\Tea\Model;
 
 class DescribePluginsRequest extends Model
 {
     /**
-     * @description The number of the page to return. Pages start from page 1. Default value: 1.
-     *
-     * @example 1
-     *
      * @var int
      */
     public $pageNumber;
 
     /**
-     * @description The number of entries per page. Maximum value: 100. Default value: 10.
-     *
-     * @example 10
-     *
      * @var int
      */
     public $pageSize;
 
     /**
-     * @description The ID of the plug-in.
-     *
-     * @example a96926e82f994915a8da40a119374537
-     *
      * @var string
      */
     public $pluginId;
 
     /**
-     * @description The name of the plug-in.
-     *
-     * @example testPlugin
-     *
      * @var string
      */
     public $pluginName;
 
     /**
-     * @description The business type of the plug-in.
-     *
-     * @example cors
-     *
      * @var string
      */
     public $pluginType;
@@ -60,10 +40,6 @@ class DescribePluginsRequest extends Model
     public $securityToken;
 
     /**
-     * @description The tag of objects that match the lifecycle rule. You can specify multiple tags.
-     *
-     * @example Key， Value
-     *
      * @var tag[]
      */
     public $tag;
@@ -77,35 +53,47 @@ class DescribePluginsRequest extends Model
         'tag' => 'Tag',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->tag)) {
+            Model::validateArray($this->tag);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->pageNumber) {
             $res['PageNumber'] = $this->pageNumber;
         }
+
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
         }
+
         if (null !== $this->pluginId) {
             $res['PluginId'] = $this->pluginId;
         }
+
         if (null !== $this->pluginName) {
             $res['PluginName'] = $this->pluginName;
         }
+
         if (null !== $this->pluginType) {
             $res['PluginType'] = $this->pluginType;
         }
+
         if (null !== $this->securityToken) {
             $res['SecurityToken'] = $this->securityToken;
         }
+
         if (null !== $this->tag) {
-            $res['Tag'] = [];
-            if (null !== $this->tag && \is_array($this->tag)) {
-                $n = 0;
-                foreach ($this->tag as $item) {
-                    $res['Tag'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->tag)) {
+                $res['Tag'] = [];
+                $n1 = 0;
+                foreach ($this->tag as $item1) {
+                    $res['Tag'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
@@ -113,38 +101,44 @@ class DescribePluginsRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribePluginsRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['PageNumber'])) {
             $model->pageNumber = $map['PageNumber'];
         }
+
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
         }
+
         if (isset($map['PluginId'])) {
             $model->pluginId = $map['PluginId'];
         }
+
         if (isset($map['PluginName'])) {
             $model->pluginName = $map['PluginName'];
         }
+
         if (isset($map['PluginType'])) {
             $model->pluginType = $map['PluginType'];
         }
+
         if (isset($map['SecurityToken'])) {
             $model->securityToken = $map['SecurityToken'];
         }
+
         if (isset($map['Tag'])) {
             if (!empty($map['Tag'])) {
                 $model->tag = [];
-                $n = 0;
-                foreach ($map['Tag'] as $item) {
-                    $model->tag[$n++] = null !== $item ? tag::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['Tag'] as $item1) {
+                    $model->tag[$n1++] = tag::fromMap($item1);
                 }
             }
         }

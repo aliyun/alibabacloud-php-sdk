@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\CloudAPI\V20160714\Models\DescribeApiResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\CloudAPI\V20160714\Models\DescribeApiResponseBody\deployedInfos\deployedInfo;
-use AlibabaCloud\Tea\Model;
 
 class deployedInfos extends Model
 {
@@ -17,17 +17,23 @@ class deployedInfos extends Model
         'deployedInfo' => 'DeployedInfo',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->deployedInfo)) {
+            Model::validateArray($this->deployedInfo);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->deployedInfo) {
-            $res['DeployedInfo'] = [];
-            if (null !== $this->deployedInfo && \is_array($this->deployedInfo)) {
-                $n = 0;
-                foreach ($this->deployedInfo as $item) {
-                    $res['DeployedInfo'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->deployedInfo)) {
+                $res['DeployedInfo'] = [];
+                $n1 = 0;
+                foreach ($this->deployedInfo as $item1) {
+                    $res['DeployedInfo'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
@@ -35,20 +41,20 @@ class deployedInfos extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return deployedInfos
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['DeployedInfo'])) {
             if (!empty($map['DeployedInfo'])) {
                 $model->deployedInfo = [];
-                $n = 0;
-                foreach ($map['DeployedInfo'] as $item) {
-                    $model->deployedInfo[$n++] = null !== $item ? deployedInfo::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['DeployedInfo'] as $item1) {
+                    $model->deployedInfo[$n1++] = deployedInfo::fromMap($item1);
                 }
             }
         }

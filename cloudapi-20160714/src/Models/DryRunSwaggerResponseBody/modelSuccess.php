@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\CloudAPI\V20160714\Models\DryRunSwaggerResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\CloudAPI\V20160714\Models\DryRunSwaggerResponseBody\modelSuccess\apiImportModelSuccess;
-use AlibabaCloud\Tea\Model;
 
 class modelSuccess extends Model
 {
@@ -17,17 +17,23 @@ class modelSuccess extends Model
         'apiImportModelSuccess' => 'ApiImportModelSuccess',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->apiImportModelSuccess)) {
+            Model::validateArray($this->apiImportModelSuccess);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->apiImportModelSuccess) {
-            $res['ApiImportModelSuccess'] = [];
-            if (null !== $this->apiImportModelSuccess && \is_array($this->apiImportModelSuccess)) {
-                $n = 0;
-                foreach ($this->apiImportModelSuccess as $item) {
-                    $res['ApiImportModelSuccess'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->apiImportModelSuccess)) {
+                $res['ApiImportModelSuccess'] = [];
+                $n1 = 0;
+                foreach ($this->apiImportModelSuccess as $item1) {
+                    $res['ApiImportModelSuccess'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
@@ -35,20 +41,20 @@ class modelSuccess extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return modelSuccess
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ApiImportModelSuccess'])) {
             if (!empty($map['ApiImportModelSuccess'])) {
                 $model->apiImportModelSuccess = [];
-                $n = 0;
-                foreach ($map['ApiImportModelSuccess'] as $item) {
-                    $model->apiImportModelSuccess[$n++] = null !== $item ? apiImportModelSuccess::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['ApiImportModelSuccess'] as $item1) {
+                    $model->apiImportModelSuccess[$n1++] = apiImportModelSuccess::fromMap($item1);
                 }
             }
         }

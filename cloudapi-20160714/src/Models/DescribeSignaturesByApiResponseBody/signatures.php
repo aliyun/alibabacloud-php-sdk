@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\CloudAPI\V20160714\Models\DescribeSignaturesByApiResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\CloudAPI\V20160714\Models\DescribeSignaturesByApiResponseBody\signatures\signatureItem;
-use AlibabaCloud\Tea\Model;
 
 class signatures extends Model
 {
@@ -17,17 +17,23 @@ class signatures extends Model
         'signatureItem' => 'SignatureItem',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->signatureItem)) {
+            Model::validateArray($this->signatureItem);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->signatureItem) {
-            $res['SignatureItem'] = [];
-            if (null !== $this->signatureItem && \is_array($this->signatureItem)) {
-                $n = 0;
-                foreach ($this->signatureItem as $item) {
-                    $res['SignatureItem'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->signatureItem)) {
+                $res['SignatureItem'] = [];
+                $n1 = 0;
+                foreach ($this->signatureItem as $item1) {
+                    $res['SignatureItem'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
@@ -35,20 +41,20 @@ class signatures extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return signatures
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['SignatureItem'])) {
             if (!empty($map['SignatureItem'])) {
                 $model->signatureItem = [];
-                $n = 0;
-                foreach ($map['SignatureItem'] as $item) {
-                    $model->signatureItem[$n++] = null !== $item ? signatureItem::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['SignatureItem'] as $item1) {
+                    $model->signatureItem[$n1++] = signatureItem::fromMap($item1);
                 }
             }
         }

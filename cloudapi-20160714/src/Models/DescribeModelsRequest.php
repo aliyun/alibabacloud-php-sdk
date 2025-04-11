@@ -4,61 +4,37 @@
 
 namespace AlibabaCloud\SDK\CloudAPI\V20160714\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\CloudAPI\V20160714\Models\DescribeModelsRequest\tag;
-use AlibabaCloud\Tea\Model;
 
 class DescribeModelsRequest extends Model
 {
     /**
-     * @description The ID of the API group.
-     *
-     * This parameter is required.
-     *
-     * @example 30e792398d6c4569b04c0e53a3494381
-     *
      * @var string
      */
     public $groupId;
 
     /**
-     * @description The ID of the model.
-     *
-     * @example 123
-     *
      * @var string
      */
     public $modelId;
 
     /**
-     * @description The name of the model.
-     *
-     * @example Test
-     *
      * @var string
      */
     public $modelName;
 
     /**
-     * @description The number of the page to return. Pages start from page 1. Default value: 1.
-     *
-     * @example 1
-     *
      * @var int
      */
     public $pageNumber;
 
     /**
-     * @description The number of entries to return on each page. Maximum value: 100. Default value: 10.
-     *
-     * @example 10
-     *
      * @var int
      */
     public $pageSize;
 
     /**
-     * @description The tag of objects that match the rule. You can specify multiple tags.
-     *
      * @var tag[]
      */
     public $tag;
@@ -71,32 +47,43 @@ class DescribeModelsRequest extends Model
         'tag' => 'Tag',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->tag)) {
+            Model::validateArray($this->tag);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->groupId) {
             $res['GroupId'] = $this->groupId;
         }
+
         if (null !== $this->modelId) {
             $res['ModelId'] = $this->modelId;
         }
+
         if (null !== $this->modelName) {
             $res['ModelName'] = $this->modelName;
         }
+
         if (null !== $this->pageNumber) {
             $res['PageNumber'] = $this->pageNumber;
         }
+
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
         }
+
         if (null !== $this->tag) {
-            $res['Tag'] = [];
-            if (null !== $this->tag && \is_array($this->tag)) {
-                $n = 0;
-                foreach ($this->tag as $item) {
-                    $res['Tag'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->tag)) {
+                $res['Tag'] = [];
+                $n1 = 0;
+                foreach ($this->tag as $item1) {
+                    $res['Tag'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
@@ -104,35 +91,40 @@ class DescribeModelsRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeModelsRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['GroupId'])) {
             $model->groupId = $map['GroupId'];
         }
+
         if (isset($map['ModelId'])) {
             $model->modelId = $map['ModelId'];
         }
+
         if (isset($map['ModelName'])) {
             $model->modelName = $map['ModelName'];
         }
+
         if (isset($map['PageNumber'])) {
             $model->pageNumber = $map['PageNumber'];
         }
+
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
         }
+
         if (isset($map['Tag'])) {
             if (!empty($map['Tag'])) {
                 $model->tag = [];
-                $n = 0;
-                foreach ($map['Tag'] as $item) {
-                    $model->tag[$n++] = null !== $item ? tag::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['Tag'] as $item1) {
+                    $model->tag[$n1++] = tag::fromMap($item1);
                 }
             }
         }

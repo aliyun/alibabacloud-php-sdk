@@ -4,15 +4,11 @@
 
 namespace AlibabaCloud\SDK\CloudAPI\V20160714\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DeleteApiStageVariableResponseBody extends Model
 {
     /**
-     * @description The ID of the request.
-     *
-     * @example 03442A3D-3B7D-434C-8A95-A5FEB969B529
-     *
      * @var string
      */
     public $requestId;
@@ -20,9 +16,12 @@ class DeleteApiStageVariableResponseBody extends Model
         'requestId' => 'RequestId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->requestId) {
@@ -32,11 +31,11 @@ class DeleteApiStageVariableResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DeleteApiStageVariableResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

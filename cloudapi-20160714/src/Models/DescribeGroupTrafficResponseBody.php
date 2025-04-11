@@ -4,23 +4,17 @@
 
 namespace AlibabaCloud\SDK\CloudAPI\V20160714\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\CloudAPI\V20160714\Models\DescribeGroupTrafficResponseBody\trafficPerSecond;
-use AlibabaCloud\Tea\Model;
 
 class DescribeGroupTrafficResponseBody extends Model
 {
     /**
-     * @description The request ID.
-     *
-     * @example EF924FE4-2EDD-4CD3-89EC-34E4708574E7
-     *
      * @var string
      */
     public $requestId;
 
     /**
-     * @description The traffic information per second.
-     *
      * @var trafficPerSecond
      */
     public $trafficPerSecond;
@@ -29,32 +23,40 @@ class DescribeGroupTrafficResponseBody extends Model
         'trafficPerSecond' => 'TrafficPerSecond',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (null !== $this->trafficPerSecond) {
+            $this->trafficPerSecond->validate();
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
+
         if (null !== $this->trafficPerSecond) {
-            $res['TrafficPerSecond'] = null !== $this->trafficPerSecond ? $this->trafficPerSecond->toMap() : null;
+            $res['TrafficPerSecond'] = null !== $this->trafficPerSecond ? $this->trafficPerSecond->toArray($noStream) : $this->trafficPerSecond;
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeGroupTrafficResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
+
         if (isset($map['TrafficPerSecond'])) {
             $model->trafficPerSecond = trafficPerSecond::fromMap($map['TrafficPerSecond']);
         }

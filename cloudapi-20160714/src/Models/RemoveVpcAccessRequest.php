@@ -4,37 +4,21 @@
 
 namespace AlibabaCloud\SDK\CloudAPI\V20160714\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class RemoveVpcAccessRequest extends Model
 {
     /**
-     * @description The ID of an ECS or SLB instance in the VPC.
-     *
-     * This parameter is required.
-     *
-     * @example i-uf6bzcg1pr4oh5jjmxxx
-     *
      * @var string
      */
     public $instanceId;
 
     /**
-     * @description Specifies whether batch work is required.
-     *
-     * @example true
-     *
      * @var bool
      */
     public $needBatchWork;
 
     /**
-     * @description The port number that corresponds to the instance.
-     *
-     * This parameter is required.
-     *
-     * @example 80
-     *
      * @var int
      */
     public $port;
@@ -45,12 +29,6 @@ class RemoveVpcAccessRequest extends Model
     public $securityToken;
 
     /**
-     * @description The ID of the VPC.
-     *
-     * This parameter is required.
-     *
-     * @example vpc-uf657qec7lx42paw3qxxx
-     *
      * @var string
      */
     public $vpcId;
@@ -62,23 +40,30 @@ class RemoveVpcAccessRequest extends Model
         'vpcId' => 'VpcId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
         }
+
         if (null !== $this->needBatchWork) {
             $res['NeedBatchWork'] = $this->needBatchWork;
         }
+
         if (null !== $this->port) {
             $res['Port'] = $this->port;
         }
+
         if (null !== $this->securityToken) {
             $res['SecurityToken'] = $this->securityToken;
         }
+
         if (null !== $this->vpcId) {
             $res['VpcId'] = $this->vpcId;
         }
@@ -86,26 +71,30 @@ class RemoveVpcAccessRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return RemoveVpcAccessRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
         }
+
         if (isset($map['NeedBatchWork'])) {
             $model->needBatchWork = $map['NeedBatchWork'];
         }
+
         if (isset($map['Port'])) {
             $model->port = $map['Port'];
         }
+
         if (isset($map['SecurityToken'])) {
             $model->securityToken = $map['SecurityToken'];
         }
+
         if (isset($map['VpcId'])) {
             $model->vpcId = $map['VpcId'];
         }

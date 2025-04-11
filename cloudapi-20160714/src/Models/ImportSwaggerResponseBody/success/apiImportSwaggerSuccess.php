@@ -4,42 +4,26 @@
 
 namespace AlibabaCloud\SDK\CloudAPI\V20160714\Models\ImportSwaggerResponseBody\success;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class apiImportSwaggerSuccess extends Model
 {
     /**
-     * @description Specifies whether the operation is CREATE or MODIFY.
-     *
-     * @example CREATE
-     *
      * @var string
      */
     public $apiOperation;
 
     /**
-     * @description The UID of the successfully imported API.
-     *
-     * @example 8e274ec61cf6468e83b68371956831cb
-     *
      * @var string
      */
     public $apiUid;
 
     /**
-     * @description The HTTP method configured when the API is created.
-     *
-     * @example get
-     *
      * @var string
      */
     public $httpMethod;
 
     /**
-     * @description The request path configured when the API is created.
-     *
-     * @example /http/get/mapping
-     *
      * @var string
      */
     public $path;
@@ -50,20 +34,26 @@ class apiImportSwaggerSuccess extends Model
         'path' => 'Path',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->apiOperation) {
             $res['ApiOperation'] = $this->apiOperation;
         }
+
         if (null !== $this->apiUid) {
             $res['ApiUid'] = $this->apiUid;
         }
+
         if (null !== $this->httpMethod) {
             $res['HttpMethod'] = $this->httpMethod;
         }
+
         if (null !== $this->path) {
             $res['Path'] = $this->path;
         }
@@ -71,23 +61,26 @@ class apiImportSwaggerSuccess extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return apiImportSwaggerSuccess
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ApiOperation'])) {
             $model->apiOperation = $map['ApiOperation'];
         }
+
         if (isset($map['ApiUid'])) {
             $model->apiUid = $map['ApiUid'];
         }
+
         if (isset($map['HttpMethod'])) {
             $model->httpMethod = $map['HttpMethod'];
         }
+
         if (isset($map['Path'])) {
             $model->path = $map['Path'];
         }

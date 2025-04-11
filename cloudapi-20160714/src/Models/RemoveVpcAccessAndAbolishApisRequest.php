@@ -4,31 +4,21 @@
 
 namespace AlibabaCloud\SDK\CloudAPI\V20160714\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class RemoveVpcAccessAndAbolishApisRequest extends Model
 {
     /**
-     * @description This parameter is required.
-     *
-     * @example i-uf6iaale3gfef9t9cb41
-     *
      * @var string
      */
     public $instanceId;
 
     /**
-     * @example true
-     *
      * @var bool
      */
     public $needBatchWork;
 
     /**
-     * @description This parameter is required.
-     *
-     * @example 8080
-     *
      * @var int
      */
     public $port;
@@ -39,10 +29,6 @@ class RemoveVpcAccessAndAbolishApisRequest extends Model
     public $securityToken;
 
     /**
-     * @description This parameter is required.
-     *
-     * @example vpc-bp1iw82phcgkvupgfv0o8
-     *
      * @var string
      */
     public $vpcId;
@@ -54,23 +40,30 @@ class RemoveVpcAccessAndAbolishApisRequest extends Model
         'vpcId' => 'VpcId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
         }
+
         if (null !== $this->needBatchWork) {
             $res['NeedBatchWork'] = $this->needBatchWork;
         }
+
         if (null !== $this->port) {
             $res['Port'] = $this->port;
         }
+
         if (null !== $this->securityToken) {
             $res['SecurityToken'] = $this->securityToken;
         }
+
         if (null !== $this->vpcId) {
             $res['VpcId'] = $this->vpcId;
         }
@@ -78,26 +71,30 @@ class RemoveVpcAccessAndAbolishApisRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return RemoveVpcAccessAndAbolishApisRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
         }
+
         if (isset($map['NeedBatchWork'])) {
             $model->needBatchWork = $map['NeedBatchWork'];
         }
+
         if (isset($map['Port'])) {
             $model->port = $map['Port'];
         }
+
         if (isset($map['SecurityToken'])) {
             $model->securityToken = $map['SecurityToken'];
         }
+
         if (isset($map['VpcId'])) {
             $model->vpcId = $map['VpcId'];
         }

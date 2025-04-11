@@ -4,95 +4,57 @@
 
 namespace AlibabaCloud\SDK\CloudAPI\V20160714\Models\DescribeVpcAccessesResponseBody\vpcAccessAttributes;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\CloudAPI\V20160714\Models\DescribeVpcAccessesResponseBody\vpcAccessAttributes\vpcAccessAttribute\tags;
-use AlibabaCloud\Tea\Model;
 
 class vpcAccessAttribute extends Model
 {
     /**
-     * @description The time when the authorization was created.
-     *
-     * @example 2017-01-30T04:10:19Z
-     *
      * @var string
      */
     public $createdTime;
 
     /**
-     * @description The description of the VPC access authorization.
-     *
-     * @example Test
-     *
      * @var string
      */
     public $description;
 
     /**
-     * @description The ID of an Elastic Compute Service (ECS) or Server Load Balancer (SLB) instance in the VPC.
-     *
-     * @example i-uf6bzcg1pr4oh5jjmxxx
-     *
      * @var string
      */
     public $instanceId;
 
     /**
-     * @description The name of the authorization.
-     *
-     * @example test
-     *
      * @var string
      */
     public $name;
 
     /**
-     * @description The port number that corresponds to the instance.
-     *
-     * @example 80
-     *
      * @var int
      */
     public $port;
 
     /**
-     * @description The region ID.
-     *
-     * @example cn-hangzhou
-     *
      * @var string
      */
     public $regionId;
 
     /**
-     * @description The tags.
-     *
      * @var tags
      */
     public $tags;
 
     /**
-     * @description The ID of the VPC access authorization.
-     *
-     * @example vpc-*****ssds24
-     *
      * @var string
      */
     public $vpcAccessId;
 
     /**
-     * @description The VPC ID.
-     *
-     * @example vpc-uf657qec7lx42paw3qxxx
-     *
      * @var string
      */
     public $vpcId;
 
     /**
-     * @description The host of the backend service.
-     *
-     * @example hos-a***.fh-**nc.com
-     *
      * @var string
      */
     public $vpcTargetHostName;
@@ -109,38 +71,53 @@ class vpcAccessAttribute extends Model
         'vpcTargetHostName' => 'VpcTargetHostName',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (null !== $this->tags) {
+            $this->tags->validate();
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->createdTime) {
             $res['CreatedTime'] = $this->createdTime;
         }
+
         if (null !== $this->description) {
             $res['Description'] = $this->description;
         }
+
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
         }
+
         if (null !== $this->name) {
             $res['Name'] = $this->name;
         }
+
         if (null !== $this->port) {
             $res['Port'] = $this->port;
         }
+
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
+
         if (null !== $this->tags) {
-            $res['Tags'] = null !== $this->tags ? $this->tags->toMap() : null;
+            $res['Tags'] = null !== $this->tags ? $this->tags->toArray($noStream) : $this->tags;
         }
+
         if (null !== $this->vpcAccessId) {
             $res['VpcAccessId'] = $this->vpcAccessId;
         }
+
         if (null !== $this->vpcId) {
             $res['VpcId'] = $this->vpcId;
         }
+
         if (null !== $this->vpcTargetHostName) {
             $res['VpcTargetHostName'] = $this->vpcTargetHostName;
         }
@@ -148,41 +125,50 @@ class vpcAccessAttribute extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return vpcAccessAttribute
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['CreatedTime'])) {
             $model->createdTime = $map['CreatedTime'];
         }
+
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
         }
+
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
         }
+
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
         }
+
         if (isset($map['Port'])) {
             $model->port = $map['Port'];
         }
+
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
         }
+
         if (isset($map['Tags'])) {
             $model->tags = tags::fromMap($map['Tags']);
         }
+
         if (isset($map['VpcAccessId'])) {
             $model->vpcAccessId = $map['VpcAccessId'];
         }
+
         if (isset($map['VpcId'])) {
             $model->vpcId = $map['VpcId'];
         }
+
         if (isset($map['VpcTargetHostName'])) {
             $model->vpcTargetHostName = $map['VpcTargetHostName'];
         }

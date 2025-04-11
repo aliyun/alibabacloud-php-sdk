@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\CloudAPI\V20160714\Models\DescribeApiHistoryResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\CloudAPI\V20160714\Models\DescribeApiHistoryResponseBody\constantParameters\constantParameter;
-use AlibabaCloud\Tea\Model;
 
 class constantParameters extends Model
 {
@@ -17,17 +17,23 @@ class constantParameters extends Model
         'constantParameter' => 'ConstantParameter',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->constantParameter)) {
+            Model::validateArray($this->constantParameter);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->constantParameter) {
-            $res['ConstantParameter'] = [];
-            if (null !== $this->constantParameter && \is_array($this->constantParameter)) {
-                $n = 0;
-                foreach ($this->constantParameter as $item) {
-                    $res['ConstantParameter'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->constantParameter)) {
+                $res['ConstantParameter'] = [];
+                $n1 = 0;
+                foreach ($this->constantParameter as $item1) {
+                    $res['ConstantParameter'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
@@ -35,20 +41,20 @@ class constantParameters extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return constantParameters
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ConstantParameter'])) {
             if (!empty($map['ConstantParameter'])) {
                 $model->constantParameter = [];
-                $n = 0;
-                foreach ($map['ConstantParameter'] as $item) {
-                    $model->constantParameter[$n++] = null !== $item ? constantParameter::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['ConstantParameter'] as $item1) {
+                    $model->constantParameter[$n1++] = constantParameter::fromMap($item1);
                 }
             }
         }

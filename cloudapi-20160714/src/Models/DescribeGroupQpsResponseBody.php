@@ -4,23 +4,17 @@
 
 namespace AlibabaCloud\SDK\CloudAPI\V20160714\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\CloudAPI\V20160714\Models\DescribeGroupQpsResponseBody\groupQps;
-use AlibabaCloud\Tea\Model;
 
 class DescribeGroupQpsResponseBody extends Model
 {
     /**
-     * @description The number of requests directed to the API group.
-     *
      * @var groupQps
      */
     public $groupQps;
 
     /**
-     * @description The request ID.
-     *
-     * @example D6E46F10-F26C-4AA0-BB69-FE2743D9AE62
-     *
      * @var string
      */
     public $requestId;
@@ -29,14 +23,21 @@ class DescribeGroupQpsResponseBody extends Model
         'requestId' => 'RequestId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (null !== $this->groupQps) {
+            $this->groupQps->validate();
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->groupQps) {
-            $res['GroupQps'] = null !== $this->groupQps ? $this->groupQps->toMap() : null;
+            $res['GroupQps'] = null !== $this->groupQps ? $this->groupQps->toArray($noStream) : $this->groupQps;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -44,17 +45,18 @@ class DescribeGroupQpsResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeGroupQpsResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['GroupQps'])) {
             $model->groupQps = groupQps::fromMap($map['GroupQps']);
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

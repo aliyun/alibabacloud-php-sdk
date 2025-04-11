@@ -4,33 +4,21 @@
 
 namespace AlibabaCloud\SDK\CloudAPI\V20160714\Models\DescribeTrafficControlsByApiResponseBody\trafficControlItems;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class trafficControlItem extends Model
 {
     /**
-     * @description The binding time of the policy.
-     *
-     * @example 2016-07-23T08:28:48Z
-     *
      * @var string
      */
     public $boundTime;
 
     /**
-     * @description The ID of the throttling policy.
-     *
-     * @example dd05f1c54d6749eda95f9fa6d491449a
-     *
      * @var string
      */
     public $trafficControlItemId;
 
     /**
-     * @description The name of the throttling policy.
-     *
-     * @example mysecret
-     *
      * @var string
      */
     public $trafficControlItemName;
@@ -40,17 +28,22 @@ class trafficControlItem extends Model
         'trafficControlItemName' => 'TrafficControlItemName',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->boundTime) {
             $res['BoundTime'] = $this->boundTime;
         }
+
         if (null !== $this->trafficControlItemId) {
             $res['TrafficControlItemId'] = $this->trafficControlItemId;
         }
+
         if (null !== $this->trafficControlItemName) {
             $res['TrafficControlItemName'] = $this->trafficControlItemName;
         }
@@ -58,20 +51,22 @@ class trafficControlItem extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return trafficControlItem
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['BoundTime'])) {
             $model->boundTime = $map['BoundTime'];
         }
+
         if (isset($map['TrafficControlItemId'])) {
             $model->trafficControlItemId = $map['TrafficControlItemId'];
         }
+
         if (isset($map['TrafficControlItemName'])) {
             $model->trafficControlItemName = $map['TrafficControlItemName'];
         }

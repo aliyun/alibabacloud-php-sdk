@@ -4,69 +4,41 @@
 
 namespace AlibabaCloud\SDK\CloudAPI\V20160714\Models\DescribeApisByBackendResponseBody\apiInfoList;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class apiInfo extends Model
 {
     /**
-     * @description The ID of the API.
-     *
-     * @example 20bcdc9453524b78a8beb1f6de21edb7
-     *
      * @var string
      */
     public $apiId;
 
     /**
-     * @description The name of the API.
-     *
-     * @example testApi
-     *
      * @var string
      */
     public $apiName;
 
     /**
-     * @description The description of the API.
-     *
-     * @example test
-     *
      * @var string
      */
     public $description;
 
     /**
-     * @description The ID of the API group.
-     *
-     * @example 15bcdc9453524b7gs8beb1f6de21edb7
-     *
      * @var string
      */
     public $groupId;
 
     /**
-     * @description The name of the API group.
-     *
-     * @example testApiGroup
-     *
      * @var string
      */
     public $groupName;
 
     /**
-     * @description The request method of the API.
-     *
-     * @example GET
-     *
      * @var string
      */
     public $method;
 
     /**
-     * @description The request path of the API.
-     *
-     * @example /test
-     *
      * @var string
      */
     public $path;
@@ -80,29 +52,38 @@ class apiInfo extends Model
         'path' => 'Path',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->apiId) {
             $res['ApiId'] = $this->apiId;
         }
+
         if (null !== $this->apiName) {
             $res['ApiName'] = $this->apiName;
         }
+
         if (null !== $this->description) {
             $res['Description'] = $this->description;
         }
+
         if (null !== $this->groupId) {
             $res['GroupId'] = $this->groupId;
         }
+
         if (null !== $this->groupName) {
             $res['GroupName'] = $this->groupName;
         }
+
         if (null !== $this->method) {
             $res['Method'] = $this->method;
         }
+
         if (null !== $this->path) {
             $res['Path'] = $this->path;
         }
@@ -110,32 +91,38 @@ class apiInfo extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return apiInfo
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ApiId'])) {
             $model->apiId = $map['ApiId'];
         }
+
         if (isset($map['ApiName'])) {
             $model->apiName = $map['ApiName'];
         }
+
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
         }
+
         if (isset($map['GroupId'])) {
             $model->groupId = $map['GroupId'];
         }
+
         if (isset($map['GroupName'])) {
             $model->groupName = $map['GroupName'];
         }
+
         if (isset($map['Method'])) {
             $model->method = $map['Method'];
         }
+
         if (isset($map['Path'])) {
             $model->path = $map['Path'];
         }

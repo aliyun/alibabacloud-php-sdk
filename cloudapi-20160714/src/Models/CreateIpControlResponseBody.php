@@ -4,24 +4,16 @@
 
 namespace AlibabaCloud\SDK\CloudAPI\V20160714\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class CreateIpControlResponseBody extends Model
 {
     /**
-     * @description The ID of the ACL.
-     *
-     * @example 7ea91319a34d48a09b5c9c871d9768b1
-     *
      * @var string
      */
     public $ipControlId;
 
     /**
-     * @description The ID of the request.
-     *
-     * @example CE5722A6-AE78-4741-A9B0-6C817D360510
-     *
      * @var string
      */
     public $requestId;
@@ -30,14 +22,18 @@ class CreateIpControlResponseBody extends Model
         'requestId' => 'RequestId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->ipControlId) {
             $res['IpControlId'] = $this->ipControlId;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -45,17 +41,18 @@ class CreateIpControlResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return CreateIpControlResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['IpControlId'])) {
             $model->ipControlId = $map['IpControlId'];
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

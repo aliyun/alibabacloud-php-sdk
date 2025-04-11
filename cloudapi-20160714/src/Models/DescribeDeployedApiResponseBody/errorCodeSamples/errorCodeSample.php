@@ -4,33 +4,21 @@
 
 namespace AlibabaCloud\SDK\CloudAPI\V20160714\Models\DescribeDeployedApiResponseBody\errorCodeSamples;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class errorCodeSample extends Model
 {
     /**
-     * @description The error code.
-     *
-     * @example Error
-     *
      * @var string
      */
     public $code;
 
     /**
-     * @description The description.
-     *
-     * @example Description
-     *
      * @var string
      */
     public $description;
 
     /**
-     * @description The error message.
-     *
-     * @example error message
-     *
      * @var string
      */
     public $message;
@@ -40,17 +28,22 @@ class errorCodeSample extends Model
         'message' => 'Message',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->code) {
             $res['Code'] = $this->code;
         }
+
         if (null !== $this->description) {
             $res['Description'] = $this->description;
         }
+
         if (null !== $this->message) {
             $res['Message'] = $this->message;
         }
@@ -58,20 +51,22 @@ class errorCodeSample extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return errorCodeSample
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Code'])) {
             $model->code = $map['Code'];
         }
+
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
         }
+
         if (isset($map['Message'])) {
             $model->message = $map['Message'];
         }

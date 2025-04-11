@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\CloudAPI\V20160714\Models\DescribePluginGroupsResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\CloudAPI\V20160714\Models\DescribePluginGroupsResponseBody\groupSummarys\groupPluginSummary;
-use AlibabaCloud\Tea\Model;
 
 class groupSummarys extends Model
 {
@@ -17,17 +17,23 @@ class groupSummarys extends Model
         'groupPluginSummary' => 'GroupPluginSummary',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->groupPluginSummary)) {
+            Model::validateArray($this->groupPluginSummary);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->groupPluginSummary) {
-            $res['GroupPluginSummary'] = [];
-            if (null !== $this->groupPluginSummary && \is_array($this->groupPluginSummary)) {
-                $n = 0;
-                foreach ($this->groupPluginSummary as $item) {
-                    $res['GroupPluginSummary'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->groupPluginSummary)) {
+                $res['GroupPluginSummary'] = [];
+                $n1 = 0;
+                foreach ($this->groupPluginSummary as $item1) {
+                    $res['GroupPluginSummary'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
@@ -35,20 +41,20 @@ class groupSummarys extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return groupSummarys
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['GroupPluginSummary'])) {
             if (!empty($map['GroupPluginSummary'])) {
                 $model->groupPluginSummary = [];
-                $n = 0;
-                foreach ($map['GroupPluginSummary'] as $item) {
-                    $model->groupPluginSummary[$n++] = null !== $item ? groupPluginSummary::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['GroupPluginSummary'] as $item1) {
+                    $model->groupPluginSummary[$n1++] = groupPluginSummary::fromMap($item1);
                 }
             }
         }

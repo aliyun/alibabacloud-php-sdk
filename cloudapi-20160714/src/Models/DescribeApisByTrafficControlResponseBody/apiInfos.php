@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\CloudAPI\V20160714\Models\DescribeApisByTrafficControlResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\CloudAPI\V20160714\Models\DescribeApisByTrafficControlResponseBody\apiInfos\apiInfo;
-use AlibabaCloud\Tea\Model;
 
 class apiInfos extends Model
 {
@@ -17,17 +17,23 @@ class apiInfos extends Model
         'apiInfo' => 'ApiInfo',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->apiInfo)) {
+            Model::validateArray($this->apiInfo);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->apiInfo) {
-            $res['ApiInfo'] = [];
-            if (null !== $this->apiInfo && \is_array($this->apiInfo)) {
-                $n = 0;
-                foreach ($this->apiInfo as $item) {
-                    $res['ApiInfo'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->apiInfo)) {
+                $res['ApiInfo'] = [];
+                $n1 = 0;
+                foreach ($this->apiInfo as $item1) {
+                    $res['ApiInfo'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
@@ -35,20 +41,20 @@ class apiInfos extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return apiInfos
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ApiInfo'])) {
             if (!empty($map['ApiInfo'])) {
                 $model->apiInfo = [];
-                $n = 0;
-                foreach ($map['ApiInfo'] as $item) {
-                    $model->apiInfo[$n++] = null !== $item ? apiInfo::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['ApiInfo'] as $item1) {
+                    $model->apiInfo[$n1++] = apiInfo::fromMap($item1);
                 }
             }
         }

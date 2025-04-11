@@ -4,78 +4,46 @@
 
 namespace AlibabaCloud\SDK\CloudAPI\V20160714\Models\DescribeDeployedApiResponseBody\resultDescriptions;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class resultDescription extends Model
 {
     /**
-     * @description The description.
-     *
-     * @example result description
-     *
      * @var string
      */
     public $description;
 
     /**
-     * @description Specifies whether a subnode exists.
-     *
-     * @example false
-     *
      * @var bool
      */
     public $hasChild;
 
     /**
-     * @description The ID of the result.
-     *
-     * @example id
-     *
      * @var string
      */
     public $id;
 
     /**
-     * @description The primary key of the result.
-     *
-     * @example DEMO
-     *
      * @var string
      */
     public $key;
 
     /**
-     * @description Specifies whether the parameter is required.
-     *
-     * @example true
-     *
      * @var bool
      */
     public $mandatory;
 
     /**
-     * @description The name of the result.
-     *
-     * @example fwqf
-     *
      * @var string
      */
     public $name;
 
     /**
-     * @description The ID of the parent node.
-     *
-     * @example pid
-     *
      * @var string
      */
     public $pid;
 
     /**
-     * @description The type of the result.
-     *
-     * @example String
-     *
      * @var string
      */
     public $type;
@@ -90,32 +58,42 @@ class resultDescription extends Model
         'type' => 'Type',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->description) {
             $res['Description'] = $this->description;
         }
+
         if (null !== $this->hasChild) {
             $res['HasChild'] = $this->hasChild;
         }
+
         if (null !== $this->id) {
             $res['Id'] = $this->id;
         }
+
         if (null !== $this->key) {
             $res['Key'] = $this->key;
         }
+
         if (null !== $this->mandatory) {
             $res['Mandatory'] = $this->mandatory;
         }
+
         if (null !== $this->name) {
             $res['Name'] = $this->name;
         }
+
         if (null !== $this->pid) {
             $res['Pid'] = $this->pid;
         }
+
         if (null !== $this->type) {
             $res['Type'] = $this->type;
         }
@@ -123,35 +101,42 @@ class resultDescription extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return resultDescription
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
         }
+
         if (isset($map['HasChild'])) {
             $model->hasChild = $map['HasChild'];
         }
+
         if (isset($map['Id'])) {
             $model->id = $map['Id'];
         }
+
         if (isset($map['Key'])) {
             $model->key = $map['Key'];
         }
+
         if (isset($map['Mandatory'])) {
             $model->mandatory = $map['Mandatory'];
         }
+
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
         }
+
         if (isset($map['Pid'])) {
             $model->pid = $map['Pid'];
         }
+
         if (isset($map['Type'])) {
             $model->type = $map['Type'];
         }

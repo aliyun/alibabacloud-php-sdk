@@ -4,44 +4,26 @@
 
 namespace AlibabaCloud\SDK\CloudAPI\V20160714\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DescribeAppsByApiProductRequest extends Model
 {
     /**
-     * @description The ID of the API product.
-     *
-     * This parameter is required.
-     *
-     * @example 117b7a64a8b3f064eaa4a47ac62aac5e
-     *
      * @var string
      */
     public $apiProductId;
 
     /**
-     * @description The application name.
-     *
-     * @example testApp
-     *
      * @var string
      */
     public $appName;
 
     /**
-     * @description The number of the page to return. Pages start from page 1. Default value: 1.
-     *
-     * @example 1
-     *
      * @var int
      */
     public $pageNumber;
 
     /**
-     * @description The number of entries per page. Maximum value: 100. Default value: 10.
-     *
-     * @example 10
-     *
      * @var int
      */
     public $pageSize;
@@ -58,23 +40,30 @@ class DescribeAppsByApiProductRequest extends Model
         'securityToken' => 'SecurityToken',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->apiProductId) {
             $res['ApiProductId'] = $this->apiProductId;
         }
+
         if (null !== $this->appName) {
             $res['AppName'] = $this->appName;
         }
+
         if (null !== $this->pageNumber) {
             $res['PageNumber'] = $this->pageNumber;
         }
+
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
         }
+
         if (null !== $this->securityToken) {
             $res['SecurityToken'] = $this->securityToken;
         }
@@ -82,26 +71,30 @@ class DescribeAppsByApiProductRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeAppsByApiProductRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ApiProductId'])) {
             $model->apiProductId = $map['ApiProductId'];
         }
+
         if (isset($map['AppName'])) {
             $model->appName = $map['AppName'];
         }
+
         if (isset($map['PageNumber'])) {
             $model->pageNumber = $map['PageNumber'];
         }
+
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
         }
+
         if (isset($map['SecurityToken'])) {
             $model->securityToken = $map['SecurityToken'];
         }

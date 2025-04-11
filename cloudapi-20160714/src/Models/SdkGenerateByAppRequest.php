@@ -4,24 +4,16 @@
 
 namespace AlibabaCloud\SDK\CloudAPI\V20160714\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class SdkGenerateByAppRequest extends Model
 {
     /**
-     * @description This parameter is required.
-     *
-     * @example 110797019
-     *
      * @var int
      */
     public $appId;
 
     /**
-     * @description This parameter is required.
-     *
-     * @example java
-     *
      * @var string
      */
     public $language;
@@ -36,17 +28,22 @@ class SdkGenerateByAppRequest extends Model
         'securityToken' => 'SecurityToken',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->appId) {
             $res['AppId'] = $this->appId;
         }
+
         if (null !== $this->language) {
             $res['Language'] = $this->language;
         }
+
         if (null !== $this->securityToken) {
             $res['SecurityToken'] = $this->securityToken;
         }
@@ -54,20 +51,22 @@ class SdkGenerateByAppRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return SdkGenerateByAppRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AppId'])) {
             $model->appId = $map['AppId'];
         }
+
         if (isset($map['Language'])) {
             $model->language = $map['Language'];
         }
+
         if (isset($map['SecurityToken'])) {
             $model->securityToken = $map['SecurityToken'];
         }

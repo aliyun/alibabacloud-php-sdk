@@ -4,20 +4,16 @@
 
 namespace AlibabaCloud\SDK\CloudAPI\V20160714\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class CreateDatasetItemResponseBody extends Model
 {
     /**
-     * @example 5045****
-     *
      * @var string
      */
     public $datasetItemId;
 
     /**
-     * @example 8A5E2053-4D9F-5280-B7A9-D357********
-     *
      * @var string
      */
     public $requestId;
@@ -26,14 +22,18 @@ class CreateDatasetItemResponseBody extends Model
         'requestId' => 'RequestId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->datasetItemId) {
             $res['DatasetItemId'] = $this->datasetItemId;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -41,17 +41,18 @@ class CreateDatasetItemResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return CreateDatasetItemResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['DatasetItemId'])) {
             $model->datasetItemId = $map['DatasetItemId'];
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
