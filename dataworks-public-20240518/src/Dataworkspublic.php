@@ -7,6 +7,8 @@ namespace AlibabaCloud\SDK\Dataworkspublic\V20240518;
 use AlibabaCloud\Dara\Models\RuntimeOptions;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\AbolishDeploymentRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\AbolishDeploymentResponse;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\AddEntityIntoMetaCollectionRequest;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\AddEntityIntoMetaCollectionResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\AssociateProjectToResourceGroupRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\AssociateProjectToResourceGroupResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\AttachDataQualityRulesToEvaluationTaskRequest;
@@ -50,6 +52,11 @@ use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\CreateDIJobResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\CreateDIJobShrinkRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\CreateFunctionRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\CreateFunctionResponse;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\CreateLineageRelationshipRequest;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\CreateLineageRelationshipResponse;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\CreateLineageRelationshipShrinkRequest;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\CreateMetaCollectionRequest;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\CreateMetaCollectionResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\CreateNetworkRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\CreateNetworkResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\CreateNodeRequest;
@@ -95,6 +102,10 @@ use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\DeleteDIJobRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\DeleteDIJobResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\DeleteFunctionRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\DeleteFunctionResponse;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\DeleteLineageRelationshipRequest;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\DeleteLineageRelationshipResponse;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\DeleteMetaCollectionRequest;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\DeleteMetaCollectionResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\DeleteNetworkRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\DeleteNetworkResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\DeleteNodeRequest;
@@ -127,10 +138,16 @@ use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\ExecuteAdhocWorkflowInstan
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\ExecuteAdhocWorkflowInstanceShrinkRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\GetAlertRuleRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\GetAlertRuleResponse;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\GetCatalogRequest;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\GetCatalogResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\GetCertificateRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\GetCertificateResponse;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\GetColumnRequest;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\GetColumnResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\GetCreateWorkflowInstancesResultRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\GetCreateWorkflowInstancesResultResponse;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\GetDatabaseRequest;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\GetDatabaseResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\GetDataQualityEvaluationTaskInstanceRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\GetDataQualityEvaluationTaskInstanceResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\GetDataQualityEvaluationTaskRequest;
@@ -151,10 +168,16 @@ use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\GetFunctionRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\GetFunctionResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\GetJobStatusRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\GetJobStatusResponse;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\GetLineageRelationshipRequest;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\GetLineageRelationshipResponse;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\GetMetaCollectionRequest;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\GetMetaCollectionResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\GetNetworkRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\GetNetworkResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\GetNodeRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\GetNodeResponse;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\GetPartitionRequest;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\GetPartitionResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\GetProjectMemberRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\GetProjectMemberResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\GetProjectRequest;
@@ -167,6 +190,10 @@ use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\GetResourceRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\GetResourceResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\GetRouteRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\GetRouteResponse;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\GetSchemaRequest;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\GetSchemaResponse;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\GetTableRequest;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\GetTableResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\GetTaskInstanceLogRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\GetTaskInstanceLogResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\GetTaskInstanceRequest;
@@ -190,13 +217,21 @@ use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\ImportWorkflowDefinitionRe
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\ListAlertRulesRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\ListAlertRulesResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\ListAlertRulesShrinkRequest;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\ListCatalogsRequest;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\ListCatalogsResponse;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\ListCatalogsShrinkRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\ListCertificatesRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\ListCertificatesResponse;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\ListColumnsRequest;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\ListColumnsResponse;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\ListCrawlerTypesResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\ListDataAssetsRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\ListDataAssetsResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\ListDataAssetsShrinkRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\ListDataAssetTagsRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\ListDataAssetTagsResponse;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\ListDatabasesRequest;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\ListDatabasesResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\ListDataQualityEvaluationTaskInstancesRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\ListDataQualityEvaluationTaskInstancesResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\ListDataQualityEvaluationTasksRequest;
@@ -229,14 +264,24 @@ use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\ListDownstreamTaskInstance
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\ListDownstreamTaskInstancesResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\ListDownstreamTasksRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\ListDownstreamTasksResponse;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\ListEntitiesInMetaCollectionRequest;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\ListEntitiesInMetaCollectionResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\ListFunctionsRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\ListFunctionsResponse;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\ListLineageRelationshipsRequest;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\ListLineageRelationshipsResponse;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\ListLineagesRequest;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\ListLineagesResponse;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\ListMetaCollectionsRequest;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\ListMetaCollectionsResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\ListNetworksRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\ListNetworksResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\ListNodeDependenciesRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\ListNodeDependenciesResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\ListNodesRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\ListNodesResponse;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\ListPartitionsRequest;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\ListPartitionsResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\ListProjectMembersRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\ListProjectMembersResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\ListProjectMembersShrinkRequest;
@@ -253,6 +298,12 @@ use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\ListResourcesRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\ListResourcesResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\ListRoutesRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\ListRoutesResponse;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\ListSchemasRequest;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\ListSchemasResponse;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\ListSchemasShrinkRequest;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\ListTablesRequest;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\ListTablesResponse;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\ListTablesShrinkRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\ListTaskInstanceOperationLogsRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\ListTaskInstanceOperationLogsResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\ListTaskInstancesRequest;
@@ -283,6 +334,8 @@ use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\MoveResourceRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\MoveResourceResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\MoveWorkflowDefinitionRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\MoveWorkflowDefinitionResponse;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\RemoveEntityFromMetaCollectionRequest;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\RemoveEntityFromMetaCollectionResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\RemoveTaskInstanceDependenciesRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\RemoveTaskInstanceDependenciesResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\RemoveTaskInstanceDependenciesShrinkRequest;
@@ -336,6 +389,8 @@ use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\UnTagDataAssetsShrinkReque
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\UpdateAlertRuleRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\UpdateAlertRuleResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\UpdateAlertRuleShrinkRequest;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\UpdateColumnBusinessMetadataRequest;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\UpdateColumnBusinessMetadataResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\UpdateDataAssetTagRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\UpdateDataAssetTagResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\UpdateDataAssetTagShrinkRequest;
@@ -358,6 +413,9 @@ use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\UpdateDIJobResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\UpdateDIJobShrinkRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\UpdateFunctionRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\UpdateFunctionResponse;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\UpdateMetaCollectionRequest;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\UpdateMetaCollectionResponse;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\UpdateMetaCollectionShrinkRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\UpdateNodeRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\UpdateNodeResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\UpdateProjectRequest;
@@ -368,6 +426,8 @@ use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\UpdateResourceRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\UpdateResourceResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\UpdateRouteRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\UpdateRouteResponse;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\UpdateTableBusinessMetadataRequest;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\UpdateTableBusinessMetadataResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\UpdateTaskInstancesRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\UpdateTaskInstancesResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\UpdateTaskInstancesShrinkRequest;
@@ -517,6 +577,74 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
+     * 从集合中移除实体对象
+     *
+     * @param request - AddEntityIntoMetaCollectionRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns AddEntityIntoMetaCollectionResponse
+     *
+     * @param AddEntityIntoMetaCollectionRequest $request
+     * @param RuntimeOptions                     $runtime
+     *
+     * @return AddEntityIntoMetaCollectionResponse
+     */
+    public function addEntityIntoMetaCollectionWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->id) {
+            @$query['Id'] = $request->id;
+        }
+
+        if (null !== $request->metaCollectionId) {
+            @$query['MetaCollectionId'] = $request->metaCollectionId;
+        }
+
+        if (null !== $request->remark) {
+            @$query['Remark'] = $request->remark;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'AddEntityIntoMetaCollection',
+            'version' => '2024-05-18',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return AddEntityIntoMetaCollectionResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
+
+        return AddEntityIntoMetaCollectionResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * 从集合中移除实体对象
+     *
+     * @param request - AddEntityIntoMetaCollectionRequest
+     *
+     * @returns AddEntityIntoMetaCollectionResponse
+     *
+     * @param AddEntityIntoMetaCollectionRequest $request
+     *
+     * @return AddEntityIntoMetaCollectionResponse
+     */
+    public function addEntityIntoMetaCollection($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->addEntityIntoMetaCollectionWithOptions($request, $runtime);
+    }
+
+    /**
      * Associates a resource group with a workspace.
      *
      * @remarks
@@ -591,7 +719,7 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * Associates monitoring rules with a monitor.
+     * Associates monitoring rules with a data quality monitoring task.
      *
      * @param tmpReq - AttachDataQualityRulesToEvaluationTaskRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -647,7 +775,7 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * Associates monitoring rules with a monitor.
+     * Associates monitoring rules with a data quality monitoring task.
      *
      * @param request - AttachDataQualityRulesToEvaluationTaskRequest
      *
@@ -1878,6 +2006,160 @@ class Dataworkspublic extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->createFunctionWithOptions($request, $runtime);
+    }
+
+    /**
+     * 注册血缘关系.
+     *
+     * @param tmpReq - CreateLineageRelationshipRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateLineageRelationshipResponse
+     *
+     * @param CreateLineageRelationshipRequest $tmpReq
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return CreateLineageRelationshipResponse
+     */
+    public function createLineageRelationshipWithOptions($tmpReq, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new CreateLineageRelationshipShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->dstEntity) {
+            $request->dstEntityShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->dstEntity, 'DstEntity', 'json');
+        }
+
+        if (null !== $tmpReq->srcEntity) {
+            $request->srcEntityShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->srcEntity, 'SrcEntity', 'json');
+        }
+
+        if (null !== $tmpReq->task) {
+            $request->taskShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->task, 'Task', 'json');
+        }
+
+        $query = [];
+        if (null !== $request->dstEntityShrink) {
+            @$query['DstEntity'] = $request->dstEntityShrink;
+        }
+
+        if (null !== $request->srcEntityShrink) {
+            @$query['SrcEntity'] = $request->srcEntityShrink;
+        }
+
+        if (null !== $request->taskShrink) {
+            @$query['Task'] = $request->taskShrink;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'CreateLineageRelationship',
+            'version' => '2024-05-18',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return CreateLineageRelationshipResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
+
+        return CreateLineageRelationshipResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * 注册血缘关系.
+     *
+     * @param request - CreateLineageRelationshipRequest
+     *
+     * @returns CreateLineageRelationshipResponse
+     *
+     * @param CreateLineageRelationshipRequest $request
+     *
+     * @return CreateLineageRelationshipResponse
+     */
+    public function createLineageRelationship($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createLineageRelationshipWithOptions($request, $runtime);
+    }
+
+    /**
+     * 创建集合.
+     *
+     * @param request - CreateMetaCollectionRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateMetaCollectionResponse
+     *
+     * @param CreateMetaCollectionRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return CreateMetaCollectionResponse
+     */
+    public function createMetaCollectionWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->description) {
+            @$query['Description'] = $request->description;
+        }
+
+        if (null !== $request->name) {
+            @$query['Name'] = $request->name;
+        }
+
+        if (null !== $request->parentId) {
+            @$query['ParentId'] = $request->parentId;
+        }
+
+        if (null !== $request->type) {
+            @$query['Type'] = $request->type;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'CreateMetaCollection',
+            'version' => '2024-05-18',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return CreateMetaCollectionResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
+
+        return CreateMetaCollectionResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * 创建集合.
+     *
+     * @param request - CreateMetaCollectionRequest
+     *
+     * @returns CreateMetaCollectionResponse
+     *
+     * @param CreateMetaCollectionRequest $request
+     *
+     * @return CreateMetaCollectionResponse
+     */
+    public function createMetaCollection($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createMetaCollectionWithOptions($request, $runtime);
     }
 
     /**
@@ -3373,6 +3655,126 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
+     * 删除血缘关系.
+     *
+     * @param request - DeleteLineageRelationshipRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteLineageRelationshipResponse
+     *
+     * @param DeleteLineageRelationshipRequest $request
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return DeleteLineageRelationshipResponse
+     */
+    public function deleteLineageRelationshipWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->id) {
+            @$body['Id'] = $request->id;
+        }
+
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'DeleteLineageRelationship',
+            'version' => '2024-05-18',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DeleteLineageRelationshipResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
+
+        return DeleteLineageRelationshipResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * 删除血缘关系.
+     *
+     * @param request - DeleteLineageRelationshipRequest
+     *
+     * @returns DeleteLineageRelationshipResponse
+     *
+     * @param DeleteLineageRelationshipRequest $request
+     *
+     * @return DeleteLineageRelationshipResponse
+     */
+    public function deleteLineageRelationship($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteLineageRelationshipWithOptions($request, $runtime);
+    }
+
+    /**
+     * 删除集合.
+     *
+     * @param request - DeleteMetaCollectionRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteMetaCollectionResponse
+     *
+     * @param DeleteMetaCollectionRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return DeleteMetaCollectionResponse
+     */
+    public function deleteMetaCollectionWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->id) {
+            @$query['Id'] = $request->id;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DeleteMetaCollection',
+            'version' => '2024-05-18',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DeleteMetaCollectionResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
+
+        return DeleteMetaCollectionResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * 删除集合.
+     *
+     * @param request - DeleteMetaCollectionRequest
+     *
+     * @returns DeleteMetaCollectionResponse
+     *
+     * @param DeleteMetaCollectionRequest $request
+     *
+     * @return DeleteMetaCollectionResponse
+     */
+    public function deleteMetaCollection($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteMetaCollectionWithOptions($request, $runtime);
+    }
+
+    /**
      * Disassociates and deletes a network from a general resource group.
      *
      * @remarks
@@ -4065,7 +4467,7 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * Disassociates monitoring rules from a monitor.
+     * Disassociates monitoring rules from a data quality monitoring task.
      *
      * @param tmpReq - DetachDataQualityRulesFromEvaluationTaskRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -4121,7 +4523,7 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * Disassociates monitoring rules from a monitor.
+     * Disassociates monitoring rules from a data quality monitoring task.
      *
      * @param request - DetachDataQualityRulesFromEvaluationTaskRequest
      *
@@ -4439,6 +4841,62 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
+     * 获取数据目录详情.
+     *
+     * @param request - GetCatalogRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetCatalogResponse
+     *
+     * @param GetCatalogRequest $request
+     * @param RuntimeOptions    $runtime
+     *
+     * @return GetCatalogResponse
+     */
+    public function getCatalogWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = Utils::query($request->toMap());
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'GetCatalog',
+            'version' => '2024-05-18',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return GetCatalogResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
+
+        return GetCatalogResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * 获取数据目录详情.
+     *
+     * @param request - GetCatalogRequest
+     *
+     * @returns GetCatalogResponse
+     *
+     * @param GetCatalogRequest $request
+     *
+     * @return GetCatalogResponse
+     */
+    public function getCatalog($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getCatalogWithOptions($request, $runtime);
+    }
+
+    /**
      * Queries a certificate file.
      *
      * @remarks
@@ -4500,6 +4958,62 @@ class Dataworkspublic extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->getCertificateWithOptions($request, $runtime);
+    }
+
+    /**
+     * 获取字段详情.
+     *
+     * @param request - GetColumnRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetColumnResponse
+     *
+     * @param GetColumnRequest $request
+     * @param RuntimeOptions   $runtime
+     *
+     * @return GetColumnResponse
+     */
+    public function getColumnWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = Utils::query($request->toMap());
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'GetColumn',
+            'version' => '2024-05-18',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return GetColumnResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
+
+        return GetColumnResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * 获取字段详情.
+     *
+     * @param request - GetColumnRequest
+     *
+     * @returns GetColumnResponse
+     *
+     * @param GetColumnRequest $request
+     *
+     * @return GetColumnResponse
+     */
+    public function getColumn($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getColumnWithOptions($request, $runtime);
     }
 
     /**
@@ -4991,6 +5505,62 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
+     * 获取数据库详情.
+     *
+     * @param request - GetDatabaseRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetDatabaseResponse
+     *
+     * @param GetDatabaseRequest $request
+     * @param RuntimeOptions     $runtime
+     *
+     * @return GetDatabaseResponse
+     */
+    public function getDatabaseWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = Utils::query($request->toMap());
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'GetDatabase',
+            'version' => '2024-05-18',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return GetDatabaseResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
+
+        return GetDatabaseResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * 获取数据库详情.
+     *
+     * @param request - GetDatabaseRequest
+     *
+     * @returns GetDatabaseResponse
+     *
+     * @param GetDatabaseRequest $request
+     *
+     * @return GetDatabaseResponse
+     */
+    public function getDatabase($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getDatabaseWithOptions($request, $runtime);
+    }
+
+    /**
      * Queries the information about a process for deploying or undeploying an entity.
      *
      * @param request - GetDeploymentRequest
@@ -5159,6 +5729,118 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
+     * 获取血缘关系详情.
+     *
+     * @param request - GetLineageRelationshipRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetLineageRelationshipResponse
+     *
+     * @param GetLineageRelationshipRequest $request
+     * @param RuntimeOptions                $runtime
+     *
+     * @return GetLineageRelationshipResponse
+     */
+    public function getLineageRelationshipWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = Utils::query($request->toMap());
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'GetLineageRelationship',
+            'version' => '2024-05-18',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return GetLineageRelationshipResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
+
+        return GetLineageRelationshipResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * 获取血缘关系详情.
+     *
+     * @param request - GetLineageRelationshipRequest
+     *
+     * @returns GetLineageRelationshipResponse
+     *
+     * @param GetLineageRelationshipRequest $request
+     *
+     * @return GetLineageRelationshipResponse
+     */
+    public function getLineageRelationship($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getLineageRelationshipWithOptions($request, $runtime);
+    }
+
+    /**
+     * 请求collection详情.
+     *
+     * @param request - GetMetaCollectionRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetMetaCollectionResponse
+     *
+     * @param GetMetaCollectionRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return GetMetaCollectionResponse
+     */
+    public function getMetaCollectionWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = Utils::query($request->toMap());
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'GetMetaCollection',
+            'version' => '2024-05-18',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return GetMetaCollectionResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
+
+        return GetMetaCollectionResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * 请求collection详情.
+     *
+     * @param request - GetMetaCollectionRequest
+     *
+     * @returns GetMetaCollectionResponse
+     *
+     * @param GetMetaCollectionRequest $request
+     *
+     * @return GetMetaCollectionResponse
+     */
+    public function getMetaCollection($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getMetaCollectionWithOptions($request, $runtime);
+    }
+
+    /**
      * Queries the information about a network resource.
      *
      * @remarks
@@ -5274,6 +5956,62 @@ class Dataworkspublic extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->getNodeWithOptions($request, $runtime);
+    }
+
+    /**
+     * 获取数据表的分区详情.
+     *
+     * @param request - GetPartitionRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetPartitionResponse
+     *
+     * @param GetPartitionRequest $request
+     * @param RuntimeOptions      $runtime
+     *
+     * @return GetPartitionResponse
+     */
+    public function getPartitionWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = Utils::query($request->toMap());
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'GetPartition',
+            'version' => '2024-05-18',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return GetPartitionResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
+
+        return GetPartitionResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * 获取数据表的分区详情.
+     *
+     * @param request - GetPartitionRequest
+     *
+     * @returns GetPartitionResponse
+     *
+     * @param GetPartitionRequest $request
+     *
+     * @return GetPartitionResponse
+     */
+    public function getPartition($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getPartitionWithOptions($request, $runtime);
     }
 
     /**
@@ -5656,6 +6394,118 @@ class Dataworkspublic extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->getRouteWithOptions($request, $runtime);
+    }
+
+    /**
+     * 获取模式详情.
+     *
+     * @param request - GetSchemaRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetSchemaResponse
+     *
+     * @param GetSchemaRequest $request
+     * @param RuntimeOptions   $runtime
+     *
+     * @return GetSchemaResponse
+     */
+    public function getSchemaWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = Utils::query($request->toMap());
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'GetSchema',
+            'version' => '2024-05-18',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return GetSchemaResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
+
+        return GetSchemaResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * 获取模式详情.
+     *
+     * @param request - GetSchemaRequest
+     *
+     * @returns GetSchemaResponse
+     *
+     * @param GetSchemaRequest $request
+     *
+     * @return GetSchemaResponse
+     */
+    public function getSchema($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getSchemaWithOptions($request, $runtime);
+    }
+
+    /**
+     * 获取表详情.
+     *
+     * @param request - GetTableRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetTableResponse
+     *
+     * @param GetTableRequest $request
+     * @param RuntimeOptions  $runtime
+     *
+     * @return GetTableResponse
+     */
+    public function getTableWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = Utils::query($request->toMap());
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'GetTable',
+            'version' => '2024-05-18',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return GetTableResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
+
+        return GetTableResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * 获取表详情.
+     *
+     * @param request - GetTableRequest
+     *
+     * @returns GetTableResponse
+     *
+     * @param GetTableRequest $request
+     *
+     * @return GetTableResponse
+     */
+    public function getTable($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getTableWithOptions($request, $runtime);
     }
 
     /**
@@ -6420,6 +7270,68 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
+     * 查询数据目录列表.
+     *
+     * @param tmpReq - ListCatalogsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListCatalogsResponse
+     *
+     * @param ListCatalogsRequest $tmpReq
+     * @param RuntimeOptions      $runtime
+     *
+     * @return ListCatalogsResponse
+     */
+    public function listCatalogsWithOptions($tmpReq, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new ListCatalogsShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->types) {
+            $request->typesShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->types, 'Types', 'simple');
+        }
+
+        $query = Utils::query($request->toMap());
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListCatalogs',
+            'version' => '2024-05-18',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ListCatalogsResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
+
+        return ListCatalogsResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * 查询数据目录列表.
+     *
+     * @param request - ListCatalogsRequest
+     *
+     * @returns ListCatalogsResponse
+     *
+     * @param ListCatalogsRequest $request
+     *
+     * @return ListCatalogsResponse
+     */
+    public function listCatalogs($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listCatalogsWithOptions($request, $runtime);
+    }
+
+    /**
      * Queries a list of certificate files.
      *
      * @remarks
@@ -6481,6 +7393,109 @@ class Dataworkspublic extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->listCertificatesWithOptions($request, $runtime);
+    }
+
+    /**
+     * 查询字段列表.
+     *
+     * @param request - ListColumnsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListColumnsResponse
+     *
+     * @param ListColumnsRequest $request
+     * @param RuntimeOptions     $runtime
+     *
+     * @return ListColumnsResponse
+     */
+    public function listColumnsWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = Utils::query($request->toMap());
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListColumns',
+            'version' => '2024-05-18',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ListColumnsResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
+
+        return ListColumnsResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * 查询字段列表.
+     *
+     * @param request - ListColumnsRequest
+     *
+     * @returns ListColumnsResponse
+     *
+     * @param ListColumnsRequest $request
+     *
+     * @return ListColumnsResponse
+     */
+    public function listColumns($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listColumnsWithOptions($request, $runtime);
+    }
+
+    /**
+     * 查询元数据采集器类型列表.
+     *
+     * @param request - ListCrawlerTypesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListCrawlerTypesResponse
+     *
+     * @param RuntimeOptions $runtime
+     *
+     * @return ListCrawlerTypesResponse
+     */
+    public function listCrawlerTypesWithOptions($runtime)
+    {
+        $req = new OpenApiRequest([]);
+        $params = new Params([
+            'action' => 'ListCrawlerTypes',
+            'version' => '2024-05-18',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ListCrawlerTypesResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
+
+        return ListCrawlerTypesResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * 查询元数据采集器类型列表.
+     *
+     * @returns ListCrawlerTypesResponse
+     *
+     * @return ListCrawlerTypesResponse
+     */
+    public function listCrawlerTypes()
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listCrawlerTypesWithOptions($runtime);
     }
 
     /**
@@ -6732,7 +7747,7 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * Queries a list of synchronization tasks.
+     * Queries a list of new-version synchronization tasks in Data Integration. A new-version synchronization task can be a real-time synchronization task used to synchronize full or incremental data in a database, a batch synchronization task used to synchronize full or incremental data in a database, or a real-time synchronization task used to synchronize incremental data in a single table.
      *
      * @remarks
      * This API operation is available for all DataWorks editions.
@@ -6773,7 +7788,7 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * Queries a list of synchronization tasks.
+     * Queries a list of new-version synchronization tasks in Data Integration. A new-version synchronization task can be a real-time synchronization task used to synchronize full or incremental data in a database, a batch synchronization task used to synchronize full or incremental data in a database, or a real-time synchronization task used to synchronize incremental data in a single table.
      *
      * @remarks
      * This API operation is available for all DataWorks editions.
@@ -7366,6 +8381,62 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
+     * 查询数据库列表.
+     *
+     * @param request - ListDatabasesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListDatabasesResponse
+     *
+     * @param ListDatabasesRequest $request
+     * @param RuntimeOptions       $runtime
+     *
+     * @return ListDatabasesResponse
+     */
+    public function listDatabasesWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = Utils::query($request->toMap());
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListDatabases',
+            'version' => '2024-05-18',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ListDatabasesResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
+
+        return ListDatabasesResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * 查询数据库列表.
+     *
+     * @param request - ListDatabasesRequest
+     *
+     * @returns ListDatabasesResponse
+     *
+     * @param ListDatabasesRequest $request
+     *
+     * @return ListDatabasesResponse
+     */
+    public function listDatabases($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listDatabasesWithOptions($request, $runtime);
+    }
+
+    /**
      * Queries a list of processes that are used to deploy or undeploy entities in DataStudio. You can also specify filter conditions to query specific processes.
      *
      * @param request - ListDeploymentsRequest
@@ -7540,6 +8611,62 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
+     * 查询集合中的实体列表.
+     *
+     * @param request - ListEntitiesInMetaCollectionRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListEntitiesInMetaCollectionResponse
+     *
+     * @param ListEntitiesInMetaCollectionRequest $request
+     * @param RuntimeOptions                      $runtime
+     *
+     * @return ListEntitiesInMetaCollectionResponse
+     */
+    public function listEntitiesInMetaCollectionWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = Utils::query($request->toMap());
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListEntitiesInMetaCollection',
+            'version' => '2024-05-18',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ListEntitiesInMetaCollectionResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
+
+        return ListEntitiesInMetaCollectionResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * 查询集合中的实体列表.
+     *
+     * @param request - ListEntitiesInMetaCollectionRequest
+     *
+     * @returns ListEntitiesInMetaCollectionResponse
+     *
+     * @param ListEntitiesInMetaCollectionRequest $request
+     *
+     * @return ListEntitiesInMetaCollectionResponse
+     */
+    public function listEntitiesInMetaCollection($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listEntitiesInMetaCollectionWithOptions($request, $runtime);
+    }
+
+    /**
      * Queries a list of user-defined functions (UDFs) in DataStudio. You can also specify filter conditions to query specific UDFs.
      *
      * @param request - ListFunctionsRequest
@@ -7593,6 +8720,174 @@ class Dataworkspublic extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->listFunctionsWithOptions($request, $runtime);
+    }
+
+    /**
+     * 查询血缘关系.
+     *
+     * @param request - ListLineageRelationshipsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListLineageRelationshipsResponse
+     *
+     * @param ListLineageRelationshipsRequest $request
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return ListLineageRelationshipsResponse
+     */
+    public function listLineageRelationshipsWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = Utils::query($request->toMap());
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListLineageRelationships',
+            'version' => '2024-05-18',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ListLineageRelationshipsResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
+
+        return ListLineageRelationshipsResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * 查询血缘关系.
+     *
+     * @param request - ListLineageRelationshipsRequest
+     *
+     * @returns ListLineageRelationshipsResponse
+     *
+     * @param ListLineageRelationshipsRequest $request
+     *
+     * @return ListLineageRelationshipsResponse
+     */
+    public function listLineageRelationships($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listLineageRelationshipsWithOptions($request, $runtime);
+    }
+
+    /**
+     * 查询实体血缘.
+     *
+     * @param request - ListLineagesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListLineagesResponse
+     *
+     * @param ListLineagesRequest $request
+     * @param RuntimeOptions      $runtime
+     *
+     * @return ListLineagesResponse
+     */
+    public function listLineagesWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = Utils::query($request->toMap());
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListLineages',
+            'version' => '2024-05-18',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ListLineagesResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
+
+        return ListLineagesResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * 查询实体血缘.
+     *
+     * @param request - ListLineagesRequest
+     *
+     * @returns ListLineagesResponse
+     *
+     * @param ListLineagesRequest $request
+     *
+     * @return ListLineagesResponse
+     */
+    public function listLineages($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listLineagesWithOptions($request, $runtime);
+    }
+
+    /**
+     * 查询Collection列表.
+     *
+     * @param request - ListMetaCollectionsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListMetaCollectionsResponse
+     *
+     * @param ListMetaCollectionsRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return ListMetaCollectionsResponse
+     */
+    public function listMetaCollectionsWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = Utils::query($request->toMap());
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListMetaCollections',
+            'version' => '2024-05-18',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ListMetaCollectionsResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
+
+        return ListMetaCollectionsResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * 查询Collection列表.
+     *
+     * @param request - ListMetaCollectionsRequest
+     *
+     * @returns ListMetaCollectionsResponse
+     *
+     * @param ListMetaCollectionsRequest $request
+     *
+     * @return ListMetaCollectionsResponse
+     */
+    public function listMetaCollections($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listMetaCollectionsWithOptions($request, $runtime);
     }
 
     /**
@@ -7767,6 +9062,62 @@ class Dataworkspublic extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->listNodesWithOptions($request, $runtime);
+    }
+
+    /**
+     * 查询数据表的分区列表.
+     *
+     * @param request - ListPartitionsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListPartitionsResponse
+     *
+     * @param ListPartitionsRequest $request
+     * @param RuntimeOptions        $runtime
+     *
+     * @return ListPartitionsResponse
+     */
+    public function listPartitionsWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = Utils::query($request->toMap());
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListPartitions',
+            'version' => '2024-05-18',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ListPartitionsResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
+
+        return ListPartitionsResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * 查询数据表的分区列表.
+     *
+     * @param request - ListPartitionsRequest
+     *
+     * @returns ListPartitionsResponse
+     *
+     * @param ListPartitionsRequest $request
+     *
+     * @return ListPartitionsResponse
+     */
+    public function listPartitions($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listPartitionsWithOptions($request, $runtime);
     }
 
     /**
@@ -8253,6 +9604,130 @@ class Dataworkspublic extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->listRoutesWithOptions($request, $runtime);
+    }
+
+    /**
+     * 查询模式列表.
+     *
+     * @param tmpReq - ListSchemasRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListSchemasResponse
+     *
+     * @param ListSchemasRequest $tmpReq
+     * @param RuntimeOptions     $runtime
+     *
+     * @return ListSchemasResponse
+     */
+    public function listSchemasWithOptions($tmpReq, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new ListSchemasShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->types) {
+            $request->typesShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->types, 'Types', 'simple');
+        }
+
+        $query = Utils::query($request->toMap());
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListSchemas',
+            'version' => '2024-05-18',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ListSchemasResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
+
+        return ListSchemasResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * 查询模式列表.
+     *
+     * @param request - ListSchemasRequest
+     *
+     * @returns ListSchemasResponse
+     *
+     * @param ListSchemasRequest $request
+     *
+     * @return ListSchemasResponse
+     */
+    public function listSchemas($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listSchemasWithOptions($request, $runtime);
+    }
+
+    /**
+     * 查询数据表列表.
+     *
+     * @param tmpReq - ListTablesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListTablesResponse
+     *
+     * @param ListTablesRequest $tmpReq
+     * @param RuntimeOptions    $runtime
+     *
+     * @return ListTablesResponse
+     */
+    public function listTablesWithOptions($tmpReq, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new ListTablesShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->tableTypes) {
+            $request->tableTypesShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->tableTypes, 'TableTypes', 'simple');
+        }
+
+        $query = Utils::query($request->toMap());
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListTables',
+            'version' => '2024-05-18',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ListTablesResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
+
+        return ListTablesResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * 查询数据表列表.
+     *
+     * @param request - ListTablesRequest
+     *
+     * @returns ListTablesResponse
+     *
+     * @param ListTablesRequest $request
+     *
+     * @return ListTablesResponse
+     */
+    public function listTables($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listTablesWithOptions($request, $runtime);
     }
 
     /**
@@ -9301,6 +10776,70 @@ class Dataworkspublic extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->moveWorkflowDefinitionWithOptions($request, $runtime);
+    }
+
+    /**
+     * 从集合中移除实体对象
+     *
+     * @param request - RemoveEntityFromMetaCollectionRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns RemoveEntityFromMetaCollectionResponse
+     *
+     * @param RemoveEntityFromMetaCollectionRequest $request
+     * @param RuntimeOptions                        $runtime
+     *
+     * @return RemoveEntityFromMetaCollectionResponse
+     */
+    public function removeEntityFromMetaCollectionWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->id) {
+            @$query['Id'] = $request->id;
+        }
+
+        if (null !== $request->metaCollectionId) {
+            @$query['MetaCollectionId'] = $request->metaCollectionId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'RemoveEntityFromMetaCollection',
+            'version' => '2024-05-18',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return RemoveEntityFromMetaCollectionResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
+
+        return RemoveEntityFromMetaCollectionResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * 从集合中移除实体对象
+     *
+     * @param request - RemoveEntityFromMetaCollectionRequest
+     *
+     * @returns RemoveEntityFromMetaCollectionResponse
+     *
+     * @param RemoveEntityFromMetaCollectionRequest $request
+     *
+     * @return RemoveEntityFromMetaCollectionResponse
+     */
+    public function removeEntityFromMetaCollection($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->removeEntityFromMetaCollectionWithOptions($request, $runtime);
     }
 
     /**
@@ -10830,6 +12369,70 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
+     * 更新字段业务元数据.
+     *
+     * @param request - UpdateColumnBusinessMetadataRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateColumnBusinessMetadataResponse
+     *
+     * @param UpdateColumnBusinessMetadataRequest $request
+     * @param RuntimeOptions                      $runtime
+     *
+     * @return UpdateColumnBusinessMetadataResponse
+     */
+    public function updateColumnBusinessMetadataWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->description) {
+            @$body['Description'] = $request->description;
+        }
+
+        if (null !== $request->id) {
+            @$body['Id'] = $request->id;
+        }
+
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'UpdateColumnBusinessMetadata',
+            'version' => '2024-05-18',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return UpdateColumnBusinessMetadataResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
+
+        return UpdateColumnBusinessMetadataResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * 更新字段业务元数据.
+     *
+     * @param request - UpdateColumnBusinessMetadataRequest
+     *
+     * @returns UpdateColumnBusinessMetadataResponse
+     *
+     * @param UpdateColumnBusinessMetadataRequest $request
+     *
+     * @return UpdateColumnBusinessMetadataResponse
+     */
+    public function updateColumnBusinessMetadata($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->updateColumnBusinessMetadataWithOptions($request, $runtime);
+    }
+
+    /**
      * Updates an alert rule configured for a synchronization task.
      *
      * @param tmpReq - UpdateDIAlarmRuleRequest
@@ -11550,6 +13153,84 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
+     * 更新集合.
+     *
+     * @param tmpReq - UpdateMetaCollectionRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateMetaCollectionResponse
+     *
+     * @param UpdateMetaCollectionRequest $tmpReq
+     * @param RuntimeOptions              $runtime
+     *
+     * @return UpdateMetaCollectionResponse
+     */
+    public function updateMetaCollectionWithOptions($tmpReq, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new UpdateMetaCollectionShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->administrators) {
+            $request->administratorsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->administrators, 'Administrators', 'simple');
+        }
+
+        $query = [];
+        if (null !== $request->administratorsShrink) {
+            @$query['Administrators'] = $request->administratorsShrink;
+        }
+
+        if (null !== $request->description) {
+            @$query['Description'] = $request->description;
+        }
+
+        if (null !== $request->id) {
+            @$query['Id'] = $request->id;
+        }
+
+        if (null !== $request->name) {
+            @$query['Name'] = $request->name;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'UpdateMetaCollection',
+            'version' => '2024-05-18',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return UpdateMetaCollectionResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
+
+        return UpdateMetaCollectionResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * 更新集合.
+     *
+     * @param request - UpdateMetaCollectionRequest
+     *
+     * @returns UpdateMetaCollectionResponse
+     *
+     * @param UpdateMetaCollectionRequest $request
+     *
+     * @return UpdateMetaCollectionResponse
+     */
+    public function updateMetaCollection($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->updateMetaCollectionWithOptions($request, $runtime);
+    }
+
+    /**
      * Updates the basic information about a node in DataStudio. This API operation performs an incremental update. The update information is described by using FlowSpec.
      *
      * @param request - UpdateNodeRequest
@@ -11915,6 +13596,70 @@ class Dataworkspublic extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->updateRouteWithOptions($request, $runtime);
+    }
+
+    /**
+     * 更新数据表业务元数据.
+     *
+     * @param request - UpdateTableBusinessMetadataRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateTableBusinessMetadataResponse
+     *
+     * @param UpdateTableBusinessMetadataRequest $request
+     * @param RuntimeOptions                     $runtime
+     *
+     * @return UpdateTableBusinessMetadataResponse
+     */
+    public function updateTableBusinessMetadataWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->id) {
+            @$body['Id'] = $request->id;
+        }
+
+        if (null !== $request->readme) {
+            @$body['Readme'] = $request->readme;
+        }
+
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'UpdateTableBusinessMetadata',
+            'version' => '2024-05-18',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return UpdateTableBusinessMetadataResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
+
+        return UpdateTableBusinessMetadataResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * 更新数据表业务元数据.
+     *
+     * @param request - UpdateTableBusinessMetadataRequest
+     *
+     * @returns UpdateTableBusinessMetadataResponse
+     *
+     * @param UpdateTableBusinessMetadataRequest $request
+     *
+     * @return UpdateTableBusinessMetadataResponse
+     */
+    public function updateTableBusinessMetadata($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->updateTableBusinessMetadataWithOptions($request, $runtime);
     }
 
     /**
