@@ -5,10 +5,22 @@
 namespace AlibabaCloud\SDK\BssOpenApi\V20230930;
 
 use AlibabaCloud\Dara\Models\RuntimeOptions;
+use AlibabaCloud\SDK\BssOpenApi\V20230930\Models\AddCouponDeductTagRequest;
+use AlibabaCloud\SDK\BssOpenApi\V20230930\Models\AddCouponDeductTagResponse;
+use AlibabaCloud\SDK\BssOpenApi\V20230930\Models\AddCouponDeductTagShrinkRequest;
 use AlibabaCloud\SDK\BssOpenApi\V20230930\Models\CancelFundAccountLowAvailableAmountAlarmRequest;
 use AlibabaCloud\SDK\BssOpenApi\V20230930\Models\CancelFundAccountLowAvailableAmountAlarmResponse;
 use AlibabaCloud\SDK\BssOpenApi\V20230930\Models\CreateFundAccountTransferRequest;
 use AlibabaCloud\SDK\BssOpenApi\V20230930\Models\CreateFundAccountTransferResponse;
+use AlibabaCloud\SDK\BssOpenApi\V20230930\Models\DeleteCouponDeductTagRequest;
+use AlibabaCloud\SDK\BssOpenApi\V20230930\Models\DeleteCouponDeductTagResponse;
+use AlibabaCloud\SDK\BssOpenApi\V20230930\Models\DeleteCouponDeductTagShrinkRequest;
+use AlibabaCloud\SDK\BssOpenApi\V20230930\Models\DescribeCouponItemListRequest;
+use AlibabaCloud\SDK\BssOpenApi\V20230930\Models\DescribeCouponItemListResponse;
+use AlibabaCloud\SDK\BssOpenApi\V20230930\Models\DescribeCouponItemListShrinkRequest;
+use AlibabaCloud\SDK\BssOpenApi\V20230930\Models\DescribeCouponRequest;
+use AlibabaCloud\SDK\BssOpenApi\V20230930\Models\DescribeCouponResponse;
+use AlibabaCloud\SDK\BssOpenApi\V20230930\Models\DescribeCouponShrinkRequest;
 use AlibabaCloud\SDK\BssOpenApi\V20230930\Models\GetFundAccountAvailableAmountRequest;
 use AlibabaCloud\SDK\BssOpenApi\V20230930\Models\GetFundAccountAvailableAmountResponse;
 use AlibabaCloud\SDK\BssOpenApi\V20230930\Models\GetFundAccountCanAllocateCreditAmountRequest;
@@ -24,12 +36,17 @@ use AlibabaCloud\SDK\BssOpenApi\V20230930\Models\GetFundAccountLowAvailableAmoun
 use AlibabaCloud\SDK\BssOpenApi\V20230930\Models\GetFundAccountTransactionDetailsRequest;
 use AlibabaCloud\SDK\BssOpenApi\V20230930\Models\GetFundAccountTransactionDetailsResponse;
 use AlibabaCloud\SDK\BssOpenApi\V20230930\Models\GetFundAccountTransactionDetailsShrinkRequest;
+use AlibabaCloud\SDK\BssOpenApi\V20230930\Models\ListCouponDeductTagRequest;
+use AlibabaCloud\SDK\BssOpenApi\V20230930\Models\ListCouponDeductTagResponse;
+use AlibabaCloud\SDK\BssOpenApi\V20230930\Models\ListCouponDeductTagShrinkRequest;
 use AlibabaCloud\SDK\BssOpenApi\V20230930\Models\ListFundAccountPayRelationRequest;
 use AlibabaCloud\SDK\BssOpenApi\V20230930\Models\ListFundAccountPayRelationResponse;
 use AlibabaCloud\SDK\BssOpenApi\V20230930\Models\ListFundAccountRequest;
 use AlibabaCloud\SDK\BssOpenApi\V20230930\Models\ListFundAccountResponse;
 use AlibabaCloud\SDK\BssOpenApi\V20230930\Models\SetFundAccountCreditAmountRequest;
 use AlibabaCloud\SDK\BssOpenApi\V20230930\Models\SetFundAccountCreditAmountResponse;
+use AlibabaCloud\SDK\BssOpenApi\V20230930\Models\SetFundAccountLowAvailableAmountAlarmRequest;
+use AlibabaCloud\SDK\BssOpenApi\V20230930\Models\SetFundAccountLowAvailableAmountAlarmResponse;
 use AlibabaCloud\SDK\BssOpenApi\V20230930\Models\SetSavingPlanUserDeductRuleRequest;
 use AlibabaCloud\SDK\BssOpenApi\V20230930\Models\SetSavingPlanUserDeductRuleResponse;
 use AlibabaCloud\SDK\BssOpenApi\V20230930\Models\SetSavingPlanUserDeductRuleShrinkRequest;
@@ -44,65 +61,65 @@ class BssOpenApi extends OpenApiClient
     {
         parent::__construct($config);
         $this->_endpointRule = 'regional';
-        $this->_endpointMap  = [
-            'cn-hangzhou'                 => 'business.aliyuncs.com',
-            'cn-shanghai'                 => 'business.aliyuncs.com',
-            'ap-southeast-1'              => 'business.ap-southeast-1.aliyuncs.com',
-            'ap-northeast-1'              => 'business.ap-southeast-1.aliyuncs.com',
-            'ap-northeast-2'              => 'business.ap-southeast-1.aliyuncs.com',
-            'ap-northeast-2-pop'          => 'business.ap-southeast-1.aliyuncs.com',
-            'ap-south-1'                  => 'business.ap-southeast-1.aliyuncs.com',
-            'ap-southeast-2'              => 'business.ap-southeast-1.aliyuncs.com',
-            'ap-southeast-3'              => 'business.ap-southeast-1.aliyuncs.com',
-            'ap-southeast-5'              => 'business.ap-southeast-1.aliyuncs.com',
-            'cn-beijing'                  => 'business.aliyuncs.com',
-            'cn-beijing-finance-1'        => 'business.aliyuncs.com',
-            'cn-beijing-finance-pop'      => 'business.aliyuncs.com',
-            'cn-beijing-gov-1'            => 'business.aliyuncs.com',
-            'cn-beijing-nu16-b01'         => 'business.aliyuncs.com',
-            'cn-chengdu'                  => 'business.aliyuncs.com',
-            'cn-edge-1'                   => 'business.aliyuncs.com',
-            'cn-fujian'                   => 'business.aliyuncs.com',
-            'cn-haidian-cm12-c01'         => 'business.aliyuncs.com',
-            'cn-hangzhou-bj-b01'          => 'business.aliyuncs.com',
-            'cn-hangzhou-finance'         => 'business.aliyuncs.com',
+        $this->_endpointMap = [
+            'cn-hangzhou' => 'business.aliyuncs.com',
+            'cn-shanghai' => 'business.aliyuncs.com',
+            'ap-southeast-1' => 'business.ap-southeast-1.aliyuncs.com',
+            'ap-northeast-1' => 'business.ap-southeast-1.aliyuncs.com',
+            'ap-northeast-2' => 'business.ap-southeast-1.aliyuncs.com',
+            'ap-northeast-2-pop' => 'business.ap-southeast-1.aliyuncs.com',
+            'ap-south-1' => 'business.ap-southeast-1.aliyuncs.com',
+            'ap-southeast-2' => 'business.ap-southeast-1.aliyuncs.com',
+            'ap-southeast-3' => 'business.ap-southeast-1.aliyuncs.com',
+            'ap-southeast-5' => 'business.ap-southeast-1.aliyuncs.com',
+            'cn-beijing' => 'business.aliyuncs.com',
+            'cn-beijing-finance-1' => 'business.aliyuncs.com',
+            'cn-beijing-finance-pop' => 'business.aliyuncs.com',
+            'cn-beijing-gov-1' => 'business.aliyuncs.com',
+            'cn-beijing-nu16-b01' => 'business.aliyuncs.com',
+            'cn-chengdu' => 'business.aliyuncs.com',
+            'cn-edge-1' => 'business.aliyuncs.com',
+            'cn-fujian' => 'business.aliyuncs.com',
+            'cn-haidian-cm12-c01' => 'business.aliyuncs.com',
+            'cn-hangzhou-bj-b01' => 'business.aliyuncs.com',
+            'cn-hangzhou-finance' => 'business.aliyuncs.com',
             'cn-hangzhou-internal-prod-1' => 'business.aliyuncs.com',
             'cn-hangzhou-internal-test-1' => 'business.aliyuncs.com',
             'cn-hangzhou-internal-test-2' => 'business.aliyuncs.com',
             'cn-hangzhou-internal-test-3' => 'business.aliyuncs.com',
-            'cn-hangzhou-test-306'        => 'business.aliyuncs.com',
-            'cn-hongkong'                 => 'business.aliyuncs.com',
-            'cn-hongkong-finance-pop'     => 'business.aliyuncs.com',
-            'cn-huhehaote'                => 'business.aliyuncs.com',
-            'cn-huhehaote-nebula-1'       => 'business.aliyuncs.com',
-            'cn-north-2-gov-1'            => 'business.aliyuncs.com',
-            'cn-qingdao'                  => 'business.aliyuncs.com',
-            'cn-qingdao-nebula'           => 'business.aliyuncs.com',
-            'cn-shanghai-et15-b01'        => 'business.aliyuncs.com',
-            'cn-shanghai-et2-b01'         => 'business.aliyuncs.com',
-            'cn-shanghai-finance-1'       => 'business.aliyuncs.com',
-            'cn-shanghai-inner'           => 'business.aliyuncs.com',
+            'cn-hangzhou-test-306' => 'business.aliyuncs.com',
+            'cn-hongkong' => 'business.aliyuncs.com',
+            'cn-hongkong-finance-pop' => 'business.aliyuncs.com',
+            'cn-huhehaote' => 'business.aliyuncs.com',
+            'cn-huhehaote-nebula-1' => 'business.aliyuncs.com',
+            'cn-north-2-gov-1' => 'business.aliyuncs.com',
+            'cn-qingdao' => 'business.aliyuncs.com',
+            'cn-qingdao-nebula' => 'business.aliyuncs.com',
+            'cn-shanghai-et15-b01' => 'business.aliyuncs.com',
+            'cn-shanghai-et2-b01' => 'business.aliyuncs.com',
+            'cn-shanghai-finance-1' => 'business.aliyuncs.com',
+            'cn-shanghai-inner' => 'business.aliyuncs.com',
             'cn-shanghai-internal-test-1' => 'business.aliyuncs.com',
-            'cn-shenzhen'                 => 'business.aliyuncs.com',
-            'cn-shenzhen-finance-1'       => 'business.aliyuncs.com',
-            'cn-shenzhen-inner'           => 'business.aliyuncs.com',
-            'cn-shenzhen-st4-d01'         => 'business.aliyuncs.com',
-            'cn-shenzhen-su18-b01'        => 'business.aliyuncs.com',
-            'cn-wuhan'                    => 'business.aliyuncs.com',
-            'cn-wulanchabu'               => 'business.aliyuncs.com',
-            'cn-yushanfang'               => 'business.aliyuncs.com',
-            'cn-zhangbei'                 => 'business.aliyuncs.com',
-            'cn-zhangbei-na61-b01'        => 'business.aliyuncs.com',
-            'cn-zhangjiakou'              => 'business.aliyuncs.com',
-            'cn-zhangjiakou-na62-a01'     => 'business.aliyuncs.com',
-            'cn-zhengzhou-nebula-1'       => 'business.aliyuncs.com',
-            'eu-central-1'                => 'business.ap-southeast-1.aliyuncs.com',
-            'eu-west-1'                   => 'business.ap-southeast-1.aliyuncs.com',
-            'eu-west-1-oxs'               => 'business.ap-southeast-1.aliyuncs.com',
-            'me-east-1'                   => 'business.ap-southeast-1.aliyuncs.com',
-            'rus-west-1-pop'              => 'business.ap-southeast-1.aliyuncs.com',
-            'us-east-1'                   => 'business.ap-southeast-1.aliyuncs.com',
-            'us-west-1'                   => 'business.ap-southeast-1.aliyuncs.com',
+            'cn-shenzhen' => 'business.aliyuncs.com',
+            'cn-shenzhen-finance-1' => 'business.aliyuncs.com',
+            'cn-shenzhen-inner' => 'business.aliyuncs.com',
+            'cn-shenzhen-st4-d01' => 'business.aliyuncs.com',
+            'cn-shenzhen-su18-b01' => 'business.aliyuncs.com',
+            'cn-wuhan' => 'business.aliyuncs.com',
+            'cn-wulanchabu' => 'business.aliyuncs.com',
+            'cn-yushanfang' => 'business.aliyuncs.com',
+            'cn-zhangbei' => 'business.aliyuncs.com',
+            'cn-zhangbei-na61-b01' => 'business.aliyuncs.com',
+            'cn-zhangjiakou' => 'business.aliyuncs.com',
+            'cn-zhangjiakou-na62-a01' => 'business.aliyuncs.com',
+            'cn-zhengzhou-nebula-1' => 'business.aliyuncs.com',
+            'eu-central-1' => 'business.ap-southeast-1.aliyuncs.com',
+            'eu-west-1' => 'business.ap-southeast-1.aliyuncs.com',
+            'eu-west-1-oxs' => 'business.ap-southeast-1.aliyuncs.com',
+            'me-east-1' => 'business.ap-southeast-1.aliyuncs.com',
+            'rus-west-1-pop' => 'business.ap-southeast-1.aliyuncs.com',
+            'us-east-1' => 'business.ap-southeast-1.aliyuncs.com',
+            'us-west-1' => 'business.ap-southeast-1.aliyuncs.com',
         ];
         $this->checkConfig($config);
         $this->_endpoint = $this->getEndpoint('bssopenapi', $this->_regionId, $this->_endpointRule, $this->_network, $this->_suffix, $this->_endpointMap, $this->_endpoint);
@@ -133,10 +150,93 @@ class BssOpenApi extends OpenApiClient
     }
 
     /**
+     * 添加优惠券抵扣标签.
+     *
+     * @param tmpReq - AddCouponDeductTagRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns AddCouponDeductTagResponse
+     *
+     * @param AddCouponDeductTagRequest $tmpReq
+     * @param RuntimeOptions            $runtime
+     *
+     * @return AddCouponDeductTagResponse
+     */
+    public function addCouponDeductTagWithOptions($tmpReq, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new AddCouponDeductTagShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->ecIdAccountIds) {
+            $request->ecIdAccountIdsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->ecIdAccountIds, 'EcIdAccountIds', 'json');
+        }
+
+        if (null !== $tmpReq->tags) {
+            $request->tagsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->tags, 'Tags', 'json');
+        }
+
+        $query = [];
+        if (null !== $request->couponId) {
+            @$query['CouponId'] = $request->couponId;
+        }
+
+        if (null !== $request->ecIdAccountIdsShrink) {
+            @$query['EcIdAccountIds'] = $request->ecIdAccountIdsShrink;
+        }
+
+        if (null !== $request->nbid) {
+            @$query['Nbid'] = $request->nbid;
+        }
+
+        if (null !== $request->tagsShrink) {
+            @$query['Tags'] = $request->tagsShrink;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'AddCouponDeductTag',
+            'version' => '2023-09-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return AddCouponDeductTagResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
+
+        return AddCouponDeductTagResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * 添加优惠券抵扣标签.
+     *
+     * @param request - AddCouponDeductTagRequest
+     *
+     * @returns AddCouponDeductTagResponse
+     *
+     * @param AddCouponDeductTagRequest $request
+     *
+     * @return AddCouponDeductTagResponse
+     */
+    public function addCouponDeductTag($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->addCouponDeductTagWithOptions($request, $runtime);
+    }
+
+    /**
      * 取消资金账户低额预警.
      *
      * @param request - CancelFundAccountLowAvailableAmountAlarmRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns CancelFundAccountLowAvailableAmountAlarmResponse
      *
      * @param CancelFundAccountLowAvailableAmountAlarmRequest $request
@@ -156,15 +256,15 @@ class BssOpenApi extends OpenApiClient
             'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'CancelFundAccountLowAvailableAmountAlarm',
-            'version'     => '2023-09-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CancelFundAccountLowAvailableAmountAlarm',
+            'version' => '2023-09-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return CancelFundAccountLowAvailableAmountAlarmResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -177,6 +277,7 @@ class BssOpenApi extends OpenApiClient
      * 取消资金账户低额预警.
      *
      * @param request - CancelFundAccountLowAvailableAmountAlarmRequest
+     *
      * @returns CancelFundAccountLowAvailableAmountAlarmResponse
      *
      * @param CancelFundAccountLowAvailableAmountAlarmRequest $request
@@ -195,6 +296,7 @@ class BssOpenApi extends OpenApiClient
      *
      * @param request - CreateFundAccountTransferRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns CreateFundAccountTransferResponse
      *
      * @param CreateFundAccountTransferRequest $request
@@ -238,15 +340,15 @@ class BssOpenApi extends OpenApiClient
             'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'CreateFundAccountTransfer',
-            'version'     => '2023-09-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CreateFundAccountTransfer',
+            'version' => '2023-09-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return CreateFundAccountTransferResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -259,6 +361,7 @@ class BssOpenApi extends OpenApiClient
      * 创建资金账户划拨/回收.
      *
      * @param request - CreateFundAccountTransferRequest
+     *
      * @returns CreateFundAccountTransferResponse
      *
      * @param CreateFundAccountTransferRequest $request
@@ -273,10 +376,217 @@ class BssOpenApi extends OpenApiClient
     }
 
     /**
+     * 删除优惠券的抵扣标签.
+     *
+     * @param tmpReq - DeleteCouponDeductTagRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteCouponDeductTagResponse
+     *
+     * @param DeleteCouponDeductTagRequest $tmpReq
+     * @param RuntimeOptions               $runtime
+     *
+     * @return DeleteCouponDeductTagResponse
+     */
+    public function deleteCouponDeductTagWithOptions($tmpReq, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new DeleteCouponDeductTagShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->ecIdAccountIds) {
+            $request->ecIdAccountIdsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->ecIdAccountIds, 'EcIdAccountIds', 'json');
+        }
+
+        if (null !== $tmpReq->tagKeys) {
+            $request->tagKeysShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->tagKeys, 'TagKeys', 'json');
+        }
+
+        $query = [];
+        if (null !== $request->couponId) {
+            @$query['CouponId'] = $request->couponId;
+        }
+
+        if (null !== $request->ecIdAccountIdsShrink) {
+            @$query['EcIdAccountIds'] = $request->ecIdAccountIdsShrink;
+        }
+
+        if (null !== $request->nbid) {
+            @$query['Nbid'] = $request->nbid;
+        }
+
+        if (null !== $request->tagKeysShrink) {
+            @$query['TagKeys'] = $request->tagKeysShrink;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DeleteCouponDeductTag',
+            'version' => '2023-09-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DeleteCouponDeductTagResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
+
+        return DeleteCouponDeductTagResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * 删除优惠券的抵扣标签.
+     *
+     * @param request - DeleteCouponDeductTagRequest
+     *
+     * @returns DeleteCouponDeductTagResponse
+     *
+     * @param DeleteCouponDeductTagRequest $request
+     *
+     * @return DeleteCouponDeductTagResponse
+     */
+    public function deleteCouponDeductTag($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteCouponDeductTagWithOptions($request, $runtime);
+    }
+
+    /**
+     * 查询优惠券列表.
+     *
+     * @param tmpReq - DescribeCouponRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeCouponResponse
+     *
+     * @param DescribeCouponRequest $tmpReq
+     * @param RuntimeOptions        $runtime
+     *
+     * @return DescribeCouponResponse
+     */
+    public function describeCouponWithOptions($tmpReq, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new DescribeCouponShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->ecIdAccountIds) {
+            $request->ecIdAccountIdsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->ecIdAccountIds, 'EcIdAccountIds', 'json');
+        }
+
+        $query = Utils::query($request->toMap());
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DescribeCoupon',
+            'version' => '2023-09-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DescribeCouponResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
+
+        return DescribeCouponResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * 查询优惠券列表.
+     *
+     * @param request - DescribeCouponRequest
+     *
+     * @returns DescribeCouponResponse
+     *
+     * @param DescribeCouponRequest $request
+     *
+     * @return DescribeCouponResponse
+     */
+    public function describeCoupon($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeCouponWithOptions($request, $runtime);
+    }
+
+    /**
+     * 查询优惠券可用商品列表.
+     *
+     * @param tmpReq - DescribeCouponItemListRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeCouponItemListResponse
+     *
+     * @param DescribeCouponItemListRequest $tmpReq
+     * @param RuntimeOptions                $runtime
+     *
+     * @return DescribeCouponItemListResponse
+     */
+    public function describeCouponItemListWithOptions($tmpReq, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new DescribeCouponItemListShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->ecIdAccountIds) {
+            $request->ecIdAccountIdsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->ecIdAccountIds, 'EcIdAccountIds', 'json');
+        }
+
+        $query = Utils::query($request->toMap());
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DescribeCouponItemList',
+            'version' => '2023-09-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DescribeCouponItemListResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
+
+        return DescribeCouponItemListResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * 查询优惠券可用商品列表.
+     *
+     * @param request - DescribeCouponItemListRequest
+     *
+     * @returns DescribeCouponItemListResponse
+     *
+     * @param DescribeCouponItemListRequest $request
+     *
+     * @return DescribeCouponItemListResponse
+     */
+    public function describeCouponItemList($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeCouponItemListWithOptions($request, $runtime);
+    }
+
+    /**
      * 查询资金账户可用金.
      *
      * @param request - GetFundAccountAvailableAmountRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns GetFundAccountAvailableAmountResponse
      *
      * @param GetFundAccountAvailableAmountRequest $request
@@ -296,15 +606,15 @@ class BssOpenApi extends OpenApiClient
             'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'GetFundAccountAvailableAmount',
-            'version'     => '2023-09-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetFundAccountAvailableAmount',
+            'version' => '2023-09-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return GetFundAccountAvailableAmountResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -317,6 +627,7 @@ class BssOpenApi extends OpenApiClient
      * 查询资金账户可用金.
      *
      * @param request - GetFundAccountAvailableAmountRequest
+     *
      * @returns GetFundAccountAvailableAmountResponse
      *
      * @param GetFundAccountAvailableAmountRequest $request
@@ -335,6 +646,7 @@ class BssOpenApi extends OpenApiClient
      *
      * @param request - GetFundAccountCanAllocateCreditAmountRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns GetFundAccountCanAllocateCreditAmountResponse
      *
      * @param GetFundAccountCanAllocateCreditAmountRequest $request
@@ -354,15 +666,15 @@ class BssOpenApi extends OpenApiClient
             'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'GetFundAccountCanAllocateCreditAmount',
-            'version'     => '2023-09-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetFundAccountCanAllocateCreditAmount',
+            'version' => '2023-09-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return GetFundAccountCanAllocateCreditAmountResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -375,6 +687,7 @@ class BssOpenApi extends OpenApiClient
      * 查询资金账户可分配信控额度.
      *
      * @param request - GetFundAccountCanAllocateCreditAmountRequest
+     *
      * @returns GetFundAccountCanAllocateCreditAmountResponse
      *
      * @param GetFundAccountCanAllocateCreditAmountRequest $request
@@ -393,6 +706,7 @@ class BssOpenApi extends OpenApiClient
      *
      * @param request - GetFundAccountCanRecycleAmountRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns GetFundAccountCanRecycleAmountResponse
      *
      * @param GetFundAccountCanRecycleAmountRequest $request
@@ -416,15 +730,15 @@ class BssOpenApi extends OpenApiClient
             'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'GetFundAccountCanRecycleAmount',
-            'version'     => '2023-09-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetFundAccountCanRecycleAmount',
+            'version' => '2023-09-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return GetFundAccountCanRecycleAmountResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -437,6 +751,7 @@ class BssOpenApi extends OpenApiClient
      * 查询资金账户可回收金额.
      *
      * @param request - GetFundAccountCanRecycleAmountRequest
+     *
      * @returns GetFundAccountCanRecycleAmountResponse
      *
      * @param GetFundAccountCanRecycleAmountRequest $request
@@ -455,6 +770,7 @@ class BssOpenApi extends OpenApiClient
      *
      * @param request - GetFundAccountCanTransferAmountRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns GetFundAccountCanTransferAmountResponse
      *
      * @param GetFundAccountCanTransferAmountRequest $request
@@ -478,15 +794,15 @@ class BssOpenApi extends OpenApiClient
             'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'GetFundAccountCanTransferAmount',
-            'version'     => '2023-09-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetFundAccountCanTransferAmount',
+            'version' => '2023-09-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return GetFundAccountCanTransferAmountResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -499,6 +815,7 @@ class BssOpenApi extends OpenApiClient
      * 查询资金账户的可转出金额.
      *
      * @param request - GetFundAccountCanTransferAmountRequest
+     *
      * @returns GetFundAccountCanTransferAmountResponse
      *
      * @param GetFundAccountCanTransferAmountRequest $request
@@ -517,6 +834,7 @@ class BssOpenApi extends OpenApiClient
      *
      * @param request - GetFundAccountCanWithdrawAmountRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns GetFundAccountCanWithdrawAmountResponse
      *
      * @param GetFundAccountCanWithdrawAmountRequest $request
@@ -536,15 +854,15 @@ class BssOpenApi extends OpenApiClient
             'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'GetFundAccountCanWithdrawAmount',
-            'version'     => '2023-09-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetFundAccountCanWithdrawAmount',
+            'version' => '2023-09-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return GetFundAccountCanWithdrawAmountResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -557,6 +875,7 @@ class BssOpenApi extends OpenApiClient
      * 查询资金账户可提现金额.
      *
      * @param request - GetFundAccountCanWithdrawAmountRequest
+     *
      * @returns GetFundAccountCanWithdrawAmountResponse
      *
      * @param GetFundAccountCanWithdrawAmountRequest $request
@@ -575,6 +894,7 @@ class BssOpenApi extends OpenApiClient
      *
      * @param request - GetFundAccountLowAvailableAmountAlarmRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns GetFundAccountLowAvailableAmountAlarmResponse
      *
      * @param GetFundAccountLowAvailableAmountAlarmRequest $request
@@ -594,15 +914,15 @@ class BssOpenApi extends OpenApiClient
             'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'GetFundAccountLowAvailableAmountAlarm',
-            'version'     => '2023-09-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetFundAccountLowAvailableAmountAlarm',
+            'version' => '2023-09-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return GetFundAccountLowAvailableAmountAlarmResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -615,6 +935,7 @@ class BssOpenApi extends OpenApiClient
      * 查询资金账户低额预警.
      *
      * @param request - GetFundAccountLowAvailableAmountAlarmRequest
+     *
      * @returns GetFundAccountLowAvailableAmountAlarmResponse
      *
      * @param GetFundAccountLowAvailableAmountAlarmRequest $request
@@ -633,6 +954,7 @@ class BssOpenApi extends OpenApiClient
      *
      * @param tmpReq - GetFundAccountTransactionDetailsRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns GetFundAccountTransactionDetailsResponse
      *
      * @param GetFundAccountTransactionDetailsRequest $tmpReq
@@ -705,18 +1027,18 @@ class BssOpenApi extends OpenApiClient
 
         $req = new OpenApiRequest([
             'query' => Utils::query($query),
-            'body'  => Utils::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'GetFundAccountTransactionDetails',
-            'version'     => '2023-09-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetFundAccountTransactionDetails',
+            'version' => '2023-09-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return GetFundAccountTransactionDetailsResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -729,6 +1051,7 @@ class BssOpenApi extends OpenApiClient
      * 查询资金账户收支明细.
      *
      * @param request - GetFundAccountTransactionDetailsRequest
+     *
      * @returns GetFundAccountTransactionDetailsResponse
      *
      * @param GetFundAccountTransactionDetailsRequest $request
@@ -743,10 +1066,85 @@ class BssOpenApi extends OpenApiClient
     }
 
     /**
+     * 查询优惠券设置的抵扣标签.
+     *
+     * @param tmpReq - ListCouponDeductTagRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListCouponDeductTagResponse
+     *
+     * @param ListCouponDeductTagRequest $tmpReq
+     * @param RuntimeOptions             $runtime
+     *
+     * @return ListCouponDeductTagResponse
+     */
+    public function listCouponDeductTagWithOptions($tmpReq, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new ListCouponDeductTagShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->ecIdAccountIds) {
+            $request->ecIdAccountIdsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->ecIdAccountIds, 'EcIdAccountIds', 'json');
+        }
+
+        $query = [];
+        if (null !== $request->couponId) {
+            @$query['CouponId'] = $request->couponId;
+        }
+
+        if (null !== $request->ecIdAccountIdsShrink) {
+            @$query['EcIdAccountIds'] = $request->ecIdAccountIdsShrink;
+        }
+
+        if (null !== $request->nbid) {
+            @$query['Nbid'] = $request->nbid;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListCouponDeductTag',
+            'version' => '2023-09-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ListCouponDeductTagResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
+
+        return ListCouponDeductTagResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * 查询优惠券设置的抵扣标签.
+     *
+     * @param request - ListCouponDeductTagRequest
+     *
+     * @returns ListCouponDeductTagResponse
+     *
+     * @param ListCouponDeductTagRequest $request
+     *
+     * @return ListCouponDeductTagResponse
+     */
+    public function listCouponDeductTag($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listCouponDeductTagWithOptions($request, $runtime);
+    }
+
+    /**
      * 查询资金账户列表.
      *
      * @param request - ListFundAccountRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ListFundAccountResponse
      *
      * @param ListFundAccountRequest $request
@@ -773,18 +1171,18 @@ class BssOpenApi extends OpenApiClient
 
         $req = new OpenApiRequest([
             'query' => Utils::query($query),
-            'body'  => Utils::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'ListFundAccount',
-            'version'     => '2023-09-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListFundAccount',
+            'version' => '2023-09-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return ListFundAccountResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -797,6 +1195,7 @@ class BssOpenApi extends OpenApiClient
      * 查询资金账户列表.
      *
      * @param request - ListFundAccountRequest
+     *
      * @returns ListFundAccountResponse
      *
      * @param ListFundAccountRequest $request
@@ -815,6 +1214,7 @@ class BssOpenApi extends OpenApiClient
      *
      * @param request - ListFundAccountPayRelationRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ListFundAccountPayRelationResponse
      *
      * @param ListFundAccountPayRelationRequest $request
@@ -849,18 +1249,18 @@ class BssOpenApi extends OpenApiClient
 
         $req = new OpenApiRequest([
             'query' => Utils::query($query),
-            'body'  => Utils::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'ListFundAccountPayRelation',
-            'version'     => '2023-09-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListFundAccountPayRelation',
+            'version' => '2023-09-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return ListFundAccountPayRelationResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -873,6 +1273,7 @@ class BssOpenApi extends OpenApiClient
      * 查询资金账户的付款关系.
      *
      * @param request - ListFundAccountPayRelationRequest
+     *
      * @returns ListFundAccountPayRelationResponse
      *
      * @param ListFundAccountPayRelationRequest $request
@@ -891,6 +1292,7 @@ class BssOpenApi extends OpenApiClient
      *
      * @param request - SetFundAccountCreditAmountRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns SetFundAccountCreditAmountResponse
      *
      * @param SetFundAccountCreditAmountRequest $request
@@ -918,15 +1320,15 @@ class BssOpenApi extends OpenApiClient
             'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'SetFundAccountCreditAmount',
-            'version'     => '2023-09-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'SetFundAccountCreditAmount',
+            'version' => '2023-09-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return SetFundAccountCreditAmountResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -939,6 +1341,7 @@ class BssOpenApi extends OpenApiClient
      * 设置资金账户的信控限额.
      *
      * @param request - SetFundAccountCreditAmountRequest
+     *
      * @returns SetFundAccountCreditAmountResponse
      *
      * @param SetFundAccountCreditAmountRequest $request
@@ -953,10 +1356,75 @@ class BssOpenApi extends OpenApiClient
     }
 
     /**
+     * 设置资金账户低额预警.
+     *
+     * @param request - SetFundAccountLowAvailableAmountAlarmRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns SetFundAccountLowAvailableAmountAlarmResponse
+     *
+     * @param SetFundAccountLowAvailableAmountAlarmRequest $request
+     * @param RuntimeOptions                               $runtime
+     *
+     * @return SetFundAccountLowAvailableAmountAlarmResponse
+     */
+    public function setFundAccountLowAvailableAmountAlarmWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->fundAccountId) {
+            @$body['FundAccountId'] = $request->fundAccountId;
+        }
+
+        if (null !== $request->thresholdAmount) {
+            @$body['ThresholdAmount'] = $request->thresholdAmount;
+        }
+
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'SetFundAccountLowAvailableAmountAlarm',
+            'version' => '2023-09-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return SetFundAccountLowAvailableAmountAlarmResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
+
+        return SetFundAccountLowAvailableAmountAlarmResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * 设置资金账户低额预警.
+     *
+     * @param request - SetFundAccountLowAvailableAmountAlarmRequest
+     *
+     * @returns SetFundAccountLowAvailableAmountAlarmResponse
+     *
+     * @param SetFundAccountLowAvailableAmountAlarmRequest $request
+     *
+     * @return SetFundAccountLowAvailableAmountAlarmResponse
+     */
+    public function setFundAccountLowAvailableAmountAlarm($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->setFundAccountLowAvailableAmountAlarmWithOptions($request, $runtime);
+    }
+
+    /**
      * 设置节省计划用户级抵扣规则.
      *
      * @param tmpReq - SetSavingPlanUserDeductRuleRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns SetSavingPlanUserDeductRuleResponse
      *
      * @param SetSavingPlanUserDeductRuleRequest $tmpReq
@@ -997,18 +1465,18 @@ class BssOpenApi extends OpenApiClient
 
         $req = new OpenApiRequest([
             'query' => Utils::query($query),
-            'body'  => Utils::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'SetSavingPlanUserDeductRule',
-            'version'     => '2023-09-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'SetSavingPlanUserDeductRule',
+            'version' => '2023-09-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return SetSavingPlanUserDeductRuleResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -1021,6 +1489,7 @@ class BssOpenApi extends OpenApiClient
      * 设置节省计划用户级抵扣规则.
      *
      * @param request - SetSavingPlanUserDeductRuleRequest
+     *
      * @returns SetSavingPlanUserDeductRuleResponse
      *
      * @param SetSavingPlanUserDeductRuleRequest $request

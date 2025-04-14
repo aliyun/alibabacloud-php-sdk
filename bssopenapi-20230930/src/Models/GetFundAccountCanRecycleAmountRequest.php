@@ -12,12 +12,13 @@ class GetFundAccountCanRecycleAmountRequest extends Model
      * @var string
      */
     public $currency;
+
     /**
      * @var string
      */
     public $recycleFromFundAccountId;
     protected $_name = [
-        'currency'                 => 'Currency',
+        'currency' => 'Currency',
         'recycleFromFundAccountId' => 'RecycleFromFundAccountId',
     ];
 

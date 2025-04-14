@@ -12,17 +12,19 @@ class extendLedgerList extends Model
      * @var string
      */
     public $currency;
+
     /**
      * @var string
      */
     public $ledgerName;
+
     /**
      * @var string
      */
     public $originalAmount;
     protected $_name = [
-        'currency'       => 'Currency',
-        'ledgerName'     => 'LedgerName',
+        'currency' => 'Currency',
+        'ledgerName' => 'LedgerName',
         'originalAmount' => 'OriginalAmount',
     ];
 

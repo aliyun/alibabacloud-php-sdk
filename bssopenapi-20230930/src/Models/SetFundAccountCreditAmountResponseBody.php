@@ -12,12 +12,13 @@ class SetFundAccountCreditAmountResponseBody extends Model
      * @var mixed
      */
     public $metadata;
+
     /**
      * @var string
      */
     public $requestId;
     protected $_name = [
-        'metadata'  => 'Metadata',
+        'metadata' => 'Metadata',
         'requestId' => 'RequestId',
     ];
 

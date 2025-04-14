@@ -14,21 +14,24 @@ class SetSavingPlanUserDeductRuleRequest extends Model
      * @var ecIdAccountIds[]
      */
     public $ecIdAccountIds;
+
     /**
      * @var string
      */
     public $nbid;
+
     /**
      * @var string
      */
     public $spnInstanceCode;
+
     /**
      * @var userDeductRules[]
      */
     public $userDeductRules;
     protected $_name = [
-        'ecIdAccountIds'  => 'EcIdAccountIds',
-        'nbid'            => 'Nbid',
+        'ecIdAccountIds' => 'EcIdAccountIds',
+        'nbid' => 'Nbid',
         'spnInstanceCode' => 'SpnInstanceCode',
         'userDeductRules' => 'UserDeductRules',
     ];
@@ -50,7 +53,7 @@ class SetSavingPlanUserDeductRuleRequest extends Model
         if (null !== $this->ecIdAccountIds) {
             if (\is_array($this->ecIdAccountIds)) {
                 $res['EcIdAccountIds'] = [];
-                $n1                    = 0;
+                $n1 = 0;
                 foreach ($this->ecIdAccountIds as $item1) {
                     $res['EcIdAccountIds'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -68,7 +71,7 @@ class SetSavingPlanUserDeductRuleRequest extends Model
         if (null !== $this->userDeductRules) {
             if (\is_array($this->userDeductRules)) {
                 $res['UserDeductRules'] = [];
-                $n1                     = 0;
+                $n1 = 0;
                 foreach ($this->userDeductRules as $item1) {
                     $res['UserDeductRules'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -89,7 +92,7 @@ class SetSavingPlanUserDeductRuleRequest extends Model
         if (isset($map['EcIdAccountIds'])) {
             if (!empty($map['EcIdAccountIds'])) {
                 $model->ecIdAccountIds = [];
-                $n1                    = 0;
+                $n1 = 0;
                 foreach ($map['EcIdAccountIds'] as $item1) {
                     $model->ecIdAccountIds[$n1++] = ecIdAccountIds::fromMap($item1);
                 }
@@ -107,7 +110,7 @@ class SetSavingPlanUserDeductRuleRequest extends Model
         if (isset($map['UserDeductRules'])) {
             if (!empty($map['UserDeductRules'])) {
                 $model->userDeductRules = [];
-                $n1                     = 0;
+                $n1 = 0;
                 foreach ($map['UserDeductRules'] as $item1) {
                     $model->userDeductRules[$n1++] = userDeductRules::fromMap($item1);
                 }

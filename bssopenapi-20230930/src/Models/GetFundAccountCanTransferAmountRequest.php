@@ -12,12 +12,13 @@ class GetFundAccountCanTransferAmountRequest extends Model
      * @var string
      */
     public $currency;
+
     /**
      * @var string
      */
     public $fundAccountId;
     protected $_name = [
-        'currency'      => 'Currency',
+        'currency' => 'Currency',
         'fundAccountId' => 'FundAccountId',
     ];
 

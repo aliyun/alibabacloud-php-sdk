@@ -12,17 +12,19 @@ class ListFundAccountRequest extends Model
      * @var string
      */
     public $nbid;
+
     /**
      * @var bool
      */
     public $queryOnlyInUse;
+
     /**
      * @var bool
      */
     public $queryOnlyManage;
     protected $_name = [
-        'nbid'            => 'Nbid',
-        'queryOnlyInUse'  => 'QueryOnlyInUse',
+        'nbid' => 'Nbid',
+        'queryOnlyInUse' => 'QueryOnlyInUse',
         'queryOnlyManage' => 'QueryOnlyManage',
     ];
 

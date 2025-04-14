@@ -12,38 +12,44 @@ class CreateFundAccountTransferRequest extends Model
      * @var string
      */
     public $amount;
+
     /**
      * @var string
      */
     public $currency;
+
     /**
      * @var string
      */
     public $financeType;
+
     /**
      * @var int
      */
     public $fromFundAccountId;
+
     /**
      * @var string
      */
     public $remark;
+
     /**
      * @var int
      */
     public $toFundAccountId;
+
     /**
      * @var string
      */
     public $transferType;
     protected $_name = [
-        'amount'            => 'Amount',
-        'currency'          => 'Currency',
-        'financeType'       => 'FinanceType',
+        'amount' => 'Amount',
+        'currency' => 'Currency',
+        'financeType' => 'FinanceType',
         'fromFundAccountId' => 'FromFundAccountId',
-        'remark'            => 'Remark',
-        'toFundAccountId'   => 'ToFundAccountId',
-        'transferType'      => 'TransferType',
+        'remark' => 'Remark',
+        'toFundAccountId' => 'ToFundAccountId',
+        'transferType' => 'TransferType',
     ];
 
     public function validate()

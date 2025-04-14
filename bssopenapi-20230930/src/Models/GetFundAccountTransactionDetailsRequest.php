@@ -12,63 +12,74 @@ class GetFundAccountTransactionDetailsRequest extends Model
      * @var string
      */
     public $billNumber;
+
     /**
      * @var string
      */
     public $channelTransactionNumber;
+
     /**
      * @var int
      */
     public $currentPage;
+
     /**
      * @var int
      */
     public $endTime;
+
     /**
      * @var int
      */
     public $fundAccountId;
+
     /**
      * @var int
      */
     public $pageSize;
+
     /**
      * @var int
      */
     public $startTime;
+
     /**
      * @var string[]
      */
     public $transactionChannelList;
+
     /**
      * @var string
      */
     public $transactionDirection;
+
     /**
      * @var int
      */
     public $transactionNumber;
+
     /**
      * @var string
      */
     public $transactionType;
+
     /**
      * @var string[]
      */
     public $transactionTypeList;
     protected $_name = [
-        'billNumber'               => 'BillNumber',
+        'billNumber' => 'BillNumber',
         'channelTransactionNumber' => 'ChannelTransactionNumber',
-        'currentPage'              => 'CurrentPage',
-        'endTime'                  => 'EndTime',
-        'fundAccountId'            => 'FundAccountId',
-        'pageSize'                 => 'PageSize',
-        'startTime'                => 'StartTime',
-        'transactionChannelList'   => 'TransactionChannelList',
-        'transactionDirection'     => 'TransactionDirection',
-        'transactionNumber'        => 'TransactionNumber',
-        'transactionType'          => 'TransactionType',
-        'transactionTypeList'      => 'TransactionTypeList',
+        'currentPage' => 'CurrentPage',
+        'endTime' => 'EndTime',
+        'fundAccountId' => 'FundAccountId',
+        'pageSize' => 'PageSize',
+        'startTime' => 'StartTime',
+        'transactionChannelList' => 'TransactionChannelList',
+        'transactionDirection' => 'TransactionDirection',
+        'transactionNumber' => 'TransactionNumber',
+        'transactionType' => 'TransactionType',
+        'transactionTypeList' => 'TransactionTypeList',
     ];
 
     public function validate()
@@ -116,7 +127,7 @@ class GetFundAccountTransactionDetailsRequest extends Model
         if (null !== $this->transactionChannelList) {
             if (\is_array($this->transactionChannelList)) {
                 $res['TransactionChannelList'] = [];
-                $n1                            = 0;
+                $n1 = 0;
                 foreach ($this->transactionChannelList as $item1) {
                     $res['TransactionChannelList'][$n1++] = $item1;
                 }
@@ -138,7 +149,7 @@ class GetFundAccountTransactionDetailsRequest extends Model
         if (null !== $this->transactionTypeList) {
             if (\is_array($this->transactionTypeList)) {
                 $res['TransactionTypeList'] = [];
-                $n1                         = 0;
+                $n1 = 0;
                 foreach ($this->transactionTypeList as $item1) {
                     $res['TransactionTypeList'][$n1++] = $item1;
                 }
@@ -187,7 +198,7 @@ class GetFundAccountTransactionDetailsRequest extends Model
         if (isset($map['TransactionChannelList'])) {
             if (!empty($map['TransactionChannelList'])) {
                 $model->transactionChannelList = [];
-                $n1                            = 0;
+                $n1 = 0;
                 foreach ($map['TransactionChannelList'] as $item1) {
                     $model->transactionChannelList[$n1++] = $item1;
                 }
@@ -209,7 +220,7 @@ class GetFundAccountTransactionDetailsRequest extends Model
         if (isset($map['TransactionTypeList'])) {
             if (!empty($map['TransactionTypeList'])) {
                 $model->transactionTypeList = [];
-                $n1                         = 0;
+                $n1 = 0;
                 foreach ($map['TransactionTypeList'] as $item1) {
                     $model->transactionTypeList[$n1++] = $item1;
                 }

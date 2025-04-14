@@ -12,27 +12,31 @@ class recycleToFundAccountList extends Model
      * @var string
      */
     public $fundAccountId;
+
     /**
      * @var string
      */
     public $fundAccountName;
+
     /**
      * @var string
      */
     public $fundAccountOwnerAccountId;
+
     /**
      * @var string
      */
     public $maxRecyclableAmount;
+
     /**
      * @var string
      */
     public $originalTransferRemainAmount;
     protected $_name = [
-        'fundAccountId'                => 'FundAccountId',
-        'fundAccountName'              => 'FundAccountName',
-        'fundAccountOwnerAccountId'    => 'FundAccountOwnerAccountId',
-        'maxRecyclableAmount'          => 'MaxRecyclableAmount',
+        'fundAccountId' => 'FundAccountId',
+        'fundAccountName' => 'FundAccountName',
+        'fundAccountOwnerAccountId' => 'FundAccountOwnerAccountId',
+        'maxRecyclableAmount' => 'MaxRecyclableAmount',
         'originalTransferRemainAmount' => 'OriginalTransferRemainAmount',
     ];
 

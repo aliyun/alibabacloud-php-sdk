@@ -12,63 +12,74 @@ class GetFundAccountTransactionDetailsShrinkRequest extends Model
      * @var string
      */
     public $billNumber;
+
     /**
      * @var string
      */
     public $channelTransactionNumber;
+
     /**
      * @var int
      */
     public $currentPage;
+
     /**
      * @var int
      */
     public $endTime;
+
     /**
      * @var int
      */
     public $fundAccountId;
+
     /**
      * @var int
      */
     public $pageSize;
+
     /**
      * @var int
      */
     public $startTime;
+
     /**
      * @var string
      */
     public $transactionChannelListShrink;
+
     /**
      * @var string
      */
     public $transactionDirection;
+
     /**
      * @var int
      */
     public $transactionNumber;
+
     /**
      * @var string
      */
     public $transactionType;
+
     /**
      * @var string
      */
     public $transactionTypeListShrink;
     protected $_name = [
-        'billNumber'                   => 'BillNumber',
-        'channelTransactionNumber'     => 'ChannelTransactionNumber',
-        'currentPage'                  => 'CurrentPage',
-        'endTime'                      => 'EndTime',
-        'fundAccountId'                => 'FundAccountId',
-        'pageSize'                     => 'PageSize',
-        'startTime'                    => 'StartTime',
+        'billNumber' => 'BillNumber',
+        'channelTransactionNumber' => 'ChannelTransactionNumber',
+        'currentPage' => 'CurrentPage',
+        'endTime' => 'EndTime',
+        'fundAccountId' => 'FundAccountId',
+        'pageSize' => 'PageSize',
+        'startTime' => 'StartTime',
         'transactionChannelListShrink' => 'TransactionChannelList',
-        'transactionDirection'         => 'TransactionDirection',
-        'transactionNumber'            => 'TransactionNumber',
-        'transactionType'              => 'TransactionType',
-        'transactionTypeListShrink'    => 'TransactionTypeList',
+        'transactionDirection' => 'TransactionDirection',
+        'transactionNumber' => 'TransactionNumber',
+        'transactionType' => 'TransactionType',
+        'transactionTypeListShrink' => 'TransactionTypeList',
     ];
 
     public function validate()

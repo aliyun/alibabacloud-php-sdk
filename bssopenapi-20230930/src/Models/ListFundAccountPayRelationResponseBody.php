@@ -13,33 +13,38 @@ class ListFundAccountPayRelationResponseBody extends Model
      * @var int
      */
     public $currentPage;
+
     /**
      * @var data[]
      */
     public $data;
+
     /**
      * @var mixed
      */
     public $metadata;
+
     /**
      * @var int
      */
     public $pageSize;
+
     /**
      * @var string
      */
     public $requestId;
+
     /**
      * @var int
      */
     public $totalCount;
     protected $_name = [
         'currentPage' => 'CurrentPage',
-        'data'        => 'Data',
-        'metadata'    => 'Metadata',
-        'pageSize'    => 'PageSize',
-        'requestId'   => 'RequestId',
-        'totalCount'  => 'TotalCount',
+        'data' => 'Data',
+        'metadata' => 'Metadata',
+        'pageSize' => 'PageSize',
+        'requestId' => 'RequestId',
+        'totalCount' => 'TotalCount',
     ];
 
     public function validate()
@@ -60,7 +65,7 @@ class ListFundAccountPayRelationResponseBody extends Model
         if (null !== $this->data) {
             if (\is_array($this->data)) {
                 $res['Data'] = [];
-                $n1          = 0;
+                $n1 = 0;
                 foreach ($this->data as $item1) {
                     $res['Data'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -101,7 +106,7 @@ class ListFundAccountPayRelationResponseBody extends Model
         if (isset($map['Data'])) {
             if (!empty($map['Data'])) {
                 $model->data = [];
-                $n1          = 0;
+                $n1 = 0;
                 foreach ($map['Data'] as $item1) {
                     $model->data[$n1++] = data::fromMap($item1);
                 }

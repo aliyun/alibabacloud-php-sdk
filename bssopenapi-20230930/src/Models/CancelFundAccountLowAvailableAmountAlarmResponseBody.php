@@ -12,17 +12,19 @@ class CancelFundAccountLowAvailableAmountAlarmResponseBody extends Model
      * @var bool
      */
     public $data;
+
     /**
      * @var mixed
      */
     public $metadata;
+
     /**
      * @var string
      */
     public $requestId;
     protected $_name = [
-        'data'      => 'Data',
-        'metadata'  => 'Metadata',
+        'data' => 'Data',
+        'metadata' => 'Metadata',
         'requestId' => 'RequestId',
     ];
 

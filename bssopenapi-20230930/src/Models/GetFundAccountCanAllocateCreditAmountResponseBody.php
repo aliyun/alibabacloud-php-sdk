@@ -12,68 +12,80 @@ class GetFundAccountCanAllocateCreditAmountResponseBody extends Model
      * @var string
      */
     public $ecid;
+
     /**
      * @var string
      */
     public $ecidAllocatedCreditAmount;
+
     /**
      * @var string
      */
     public $ecidCreditAmount;
+
     /**
      * @var string
      */
     public $fundAccountEcid;
+
     /**
      * @var int
      */
     public $fundAccountId;
+
     /**
      * @var string
      */
     public $fundAccountName;
+
     /**
      * @var int
      */
     public $fundAccountOwnerAccountId;
+
     /**
      * @var string
      */
     public $maxCanAllocateCreditAmount;
+
     /**
      * @var mixed
      */
     public $metadata;
+
     /**
      * @var string
      */
     public $minCanAllocateCreditAmount;
+
     /**
      * @var string
      */
     public $nbid;
+
     /**
      * @var string
      */
     public $requestId;
+
     /**
      * @var string
      */
     public $site;
     protected $_name = [
-        'ecid'                       => 'Ecid',
-        'ecidAllocatedCreditAmount'  => 'EcidAllocatedCreditAmount',
-        'ecidCreditAmount'           => 'EcidCreditAmount',
-        'fundAccountEcid'            => 'FundAccountEcid',
-        'fundAccountId'              => 'FundAccountId',
-        'fundAccountName'            => 'FundAccountName',
-        'fundAccountOwnerAccountId'  => 'FundAccountOwnerAccountId',
+        'ecid' => 'Ecid',
+        'ecidAllocatedCreditAmount' => 'EcidAllocatedCreditAmount',
+        'ecidCreditAmount' => 'EcidCreditAmount',
+        'fundAccountEcid' => 'FundAccountEcid',
+        'fundAccountId' => 'FundAccountId',
+        'fundAccountName' => 'FundAccountName',
+        'fundAccountOwnerAccountId' => 'FundAccountOwnerAccountId',
         'maxCanAllocateCreditAmount' => 'MaxCanAllocateCreditAmount',
-        'metadata'                   => 'Metadata',
+        'metadata' => 'Metadata',
         'minCanAllocateCreditAmount' => 'MinCanAllocateCreditAmount',
-        'nbid'                       => 'Nbid',
-        'requestId'                  => 'RequestId',
-        'site'                       => 'Site',
+        'nbid' => 'Nbid',
+        'requestId' => 'RequestId',
+        'site' => 'Site',
     ];
 
     public function validate()

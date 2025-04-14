@@ -12,22 +12,25 @@ class GetFundAccountLowAvailableAmountAlarmResponseBody extends Model
      * @var bool
      */
     public $alarmEnabled;
+
     /**
      * @var mixed
      */
     public $metadata;
+
     /**
      * @var string
      */
     public $requestId;
+
     /**
      * @var string
      */
     public $thresholdAmount;
     protected $_name = [
-        'alarmEnabled'    => 'AlarmEnabled',
-        'metadata'        => 'Metadata',
-        'requestId'       => 'RequestId',
+        'alarmEnabled' => 'AlarmEnabled',
+        'metadata' => 'Metadata',
+        'requestId' => 'RequestId',
         'thresholdAmount' => 'ThresholdAmount',
     ];
 

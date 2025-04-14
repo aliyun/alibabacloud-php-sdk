@@ -12,98 +12,116 @@ class data extends Model
      * @var string
      */
     public $balance;
+
     /**
      * @var string
      */
     public $billNumber;
+
     /**
      * @var string
      */
     public $channelTransactionNumber;
+
     /**
      * @var string
      */
     public $currency;
+
     /**
      * @var string
      */
     public $fundAccountEcid;
+
     /**
      * @var int
      */
     public $fundAccountId;
+
     /**
      * @var string
      */
     public $fundAccountName;
+
     /**
      * @var int
      */
     public $fundAccountOwnerAccountId;
+
     /**
      * @var string
      */
     public $fundType;
+
     /**
      * @var string
      */
     public $nbid;
+
     /**
      * @var string
      */
     public $remark;
+
     /**
      * @var string
      */
     public $site;
+
     /**
      * @var string
      */
     public $transactionAccount;
+
     /**
      * @var string
      */
     public $transactionAmount;
+
     /**
      * @var string
      */
     public $transactionChannel;
+
     /**
      * @var string
      */
     public $transactionDirection;
+
     /**
      * @var int
      */
     public $transactionNumber;
+
     /**
      * @var string
      */
     public $transactionTime;
+
     /**
      * @var string
      */
     public $transactionType;
     protected $_name = [
-        'balance'                   => 'Balance',
-        'billNumber'                => 'BillNumber',
-        'channelTransactionNumber'  => 'ChannelTransactionNumber',
-        'currency'                  => 'Currency',
-        'fundAccountEcid'           => 'FundAccountEcid',
-        'fundAccountId'             => 'FundAccountId',
-        'fundAccountName'           => 'FundAccountName',
+        'balance' => 'Balance',
+        'billNumber' => 'BillNumber',
+        'channelTransactionNumber' => 'ChannelTransactionNumber',
+        'currency' => 'Currency',
+        'fundAccountEcid' => 'FundAccountEcid',
+        'fundAccountId' => 'FundAccountId',
+        'fundAccountName' => 'FundAccountName',
         'fundAccountOwnerAccountId' => 'FundAccountOwnerAccountId',
-        'fundType'                  => 'FundType',
-        'nbid'                      => 'Nbid',
-        'remark'                    => 'Remark',
-        'site'                      => 'Site',
-        'transactionAccount'        => 'TransactionAccount',
-        'transactionAmount'         => 'TransactionAmount',
-        'transactionChannel'        => 'TransactionChannel',
-        'transactionDirection'      => 'TransactionDirection',
-        'transactionNumber'         => 'TransactionNumber',
-        'transactionTime'           => 'TransactionTime',
-        'transactionType'           => 'TransactionType',
+        'fundType' => 'FundType',
+        'nbid' => 'Nbid',
+        'remark' => 'Remark',
+        'site' => 'Site',
+        'transactionAccount' => 'TransactionAccount',
+        'transactionAmount' => 'TransactionAmount',
+        'transactionChannel' => 'TransactionChannel',
+        'transactionDirection' => 'TransactionDirection',
+        'transactionNumber' => 'TransactionNumber',
+        'transactionTime' => 'TransactionTime',
+        'transactionType' => 'TransactionType',
     ];
 
     public function validate()

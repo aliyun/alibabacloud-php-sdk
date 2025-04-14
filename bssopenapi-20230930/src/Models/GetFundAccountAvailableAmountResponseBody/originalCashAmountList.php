@@ -12,12 +12,13 @@ class originalCashAmountList extends Model
      * @var string
      */
     public $amount;
+
     /**
      * @var string
      */
     public $currency;
     protected $_name = [
-        'amount'   => 'Amount',
+        'amount' => 'Amount',
         'currency' => 'Currency',
     ];
 

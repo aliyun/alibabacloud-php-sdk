@@ -14,113 +14,134 @@ class GetFundAccountAvailableAmountResponseBody extends Model
      * @var string
      */
     public $availableAmount;
+
     /**
      * @var string
      */
     public $availableCreditAmount;
+
     /**
      * @var string
      */
     public $bankAcceptanceAmount;
+
     /**
      * @var string
      */
     public $cashAmount;
+
     /**
      * @var string
      */
     public $creditAmount;
+
     /**
      * @var string
      */
     public $creditRefundAmount;
+
     /**
      * @var bool
      */
     public $creditUser;
+
     /**
      * @var string
      */
     public $currency;
+
     /**
      * @var string
      */
     public $currentMonthUnclearedAmount;
+
     /**
      * @var extendLedgerList[]
      */
     public $extendLedgerList;
+
     /**
      * @var string
      */
     public $fundAccountId;
+
     /**
      * @var string
      */
     public $fundAccountOwnerAccountId;
+
     /**
      * @var string
      */
     public $fundAccountStatus;
+
     /**
      * @var string
      */
     public $fundAccountType;
+
     /**
      * @var string
      */
     public $historyMonthUnclearedAmount;
+
     /**
      * @var mixed
      */
     public $metadata;
+
     /**
      * @var string
      */
     public $negativeBillAmount;
+
     /**
      * @var originalCashAmountList[]
      */
     public $originalCashAmountList;
+
     /**
      * @var string
      */
     public $quotaAmount;
+
     /**
      * @var string
      */
     public $quotaConsumedAmount;
+
     /**
      * @var string
      */
     public $requestId;
+
     /**
      * @var string
      */
     public $unclearedAmount;
     protected $_name = [
-        'availableAmount'             => 'AvailableAmount',
-        'availableCreditAmount'       => 'AvailableCreditAmount',
-        'bankAcceptanceAmount'        => 'BankAcceptanceAmount',
-        'cashAmount'                  => 'CashAmount',
-        'creditAmount'                => 'CreditAmount',
-        'creditRefundAmount'          => 'CreditRefundAmount',
-        'creditUser'                  => 'CreditUser',
-        'currency'                    => 'Currency',
+        'availableAmount' => 'AvailableAmount',
+        'availableCreditAmount' => 'AvailableCreditAmount',
+        'bankAcceptanceAmount' => 'BankAcceptanceAmount',
+        'cashAmount' => 'CashAmount',
+        'creditAmount' => 'CreditAmount',
+        'creditRefundAmount' => 'CreditRefundAmount',
+        'creditUser' => 'CreditUser',
+        'currency' => 'Currency',
         'currentMonthUnclearedAmount' => 'CurrentMonthUnclearedAmount',
-        'extendLedgerList'            => 'ExtendLedgerList',
-        'fundAccountId'               => 'FundAccountId',
-        'fundAccountOwnerAccountId'   => 'FundAccountOwnerAccountId',
-        'fundAccountStatus'           => 'FundAccountStatus',
-        'fundAccountType'             => 'FundAccountType',
+        'extendLedgerList' => 'ExtendLedgerList',
+        'fundAccountId' => 'FundAccountId',
+        'fundAccountOwnerAccountId' => 'FundAccountOwnerAccountId',
+        'fundAccountStatus' => 'FundAccountStatus',
+        'fundAccountType' => 'FundAccountType',
         'historyMonthUnclearedAmount' => 'HistoryMonthUnclearedAmount',
-        'metadata'                    => 'Metadata',
-        'negativeBillAmount'          => 'NegativeBillAmount',
-        'originalCashAmountList'      => 'OriginalCashAmountList',
-        'quotaAmount'                 => 'QuotaAmount',
-        'quotaConsumedAmount'         => 'QuotaConsumedAmount',
-        'requestId'                   => 'RequestId',
-        'unclearedAmount'             => 'UnclearedAmount',
+        'metadata' => 'Metadata',
+        'negativeBillAmount' => 'NegativeBillAmount',
+        'originalCashAmountList' => 'OriginalCashAmountList',
+        'quotaAmount' => 'QuotaAmount',
+        'quotaConsumedAmount' => 'QuotaConsumedAmount',
+        'requestId' => 'RequestId',
+        'unclearedAmount' => 'UnclearedAmount',
     ];
 
     public function validate()
@@ -176,7 +197,7 @@ class GetFundAccountAvailableAmountResponseBody extends Model
         if (null !== $this->extendLedgerList) {
             if (\is_array($this->extendLedgerList)) {
                 $res['ExtendLedgerList'] = [];
-                $n1                      = 0;
+                $n1 = 0;
                 foreach ($this->extendLedgerList as $item1) {
                     $res['ExtendLedgerList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -214,7 +235,7 @@ class GetFundAccountAvailableAmountResponseBody extends Model
         if (null !== $this->originalCashAmountList) {
             if (\is_array($this->originalCashAmountList)) {
                 $res['OriginalCashAmountList'] = [];
-                $n1                            = 0;
+                $n1 = 0;
                 foreach ($this->originalCashAmountList as $item1) {
                     $res['OriginalCashAmountList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -287,7 +308,7 @@ class GetFundAccountAvailableAmountResponseBody extends Model
         if (isset($map['ExtendLedgerList'])) {
             if (!empty($map['ExtendLedgerList'])) {
                 $model->extendLedgerList = [];
-                $n1                      = 0;
+                $n1 = 0;
                 foreach ($map['ExtendLedgerList'] as $item1) {
                     $model->extendLedgerList[$n1++] = extendLedgerList::fromMap($item1);
                 }
@@ -325,7 +346,7 @@ class GetFundAccountAvailableAmountResponseBody extends Model
         if (isset($map['OriginalCashAmountList'])) {
             if (!empty($map['OriginalCashAmountList'])) {
                 $model->originalCashAmountList = [];
-                $n1                            = 0;
+                $n1 = 0;
                 foreach ($map['OriginalCashAmountList'] as $item1) {
                     $model->originalCashAmountList[$n1++] = originalCashAmountList::fromMap($item1);
                 }

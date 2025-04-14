@@ -12,22 +12,25 @@ class SetSavingPlanUserDeductRuleShrinkRequest extends Model
      * @var string
      */
     public $ecIdAccountIdsShrink;
+
     /**
      * @var string
      */
     public $nbid;
+
     /**
      * @var string
      */
     public $spnInstanceCode;
+
     /**
      * @var string
      */
     public $userDeductRulesShrink;
     protected $_name = [
-        'ecIdAccountIdsShrink'  => 'EcIdAccountIds',
-        'nbid'                  => 'Nbid',
-        'spnInstanceCode'       => 'SpnInstanceCode',
+        'ecIdAccountIdsShrink' => 'EcIdAccountIds',
+        'nbid' => 'Nbid',
+        'spnInstanceCode' => 'SpnInstanceCode',
         'userDeductRulesShrink' => 'UserDeductRules',
     ];
 

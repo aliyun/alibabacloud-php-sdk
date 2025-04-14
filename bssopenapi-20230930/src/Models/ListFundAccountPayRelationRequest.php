@@ -12,28 +12,32 @@ class ListFundAccountPayRelationRequest extends Model
      * @var int
      */
     public $currentPage;
+
     /**
      * @var string
      */
     public $fundAccountId;
+
     /**
      * @var string
      */
     public $nbid;
+
     /**
      * @var int
      */
     public $pageSize;
+
     /**
      * @var string
      */
     public $status;
     protected $_name = [
-        'currentPage'   => 'CurrentPage',
+        'currentPage' => 'CurrentPage',
         'fundAccountId' => 'FundAccountId',
-        'nbid'          => 'Nbid',
-        'pageSize'      => 'PageSize',
-        'status'        => 'Status',
+        'nbid' => 'Nbid',
+        'pageSize' => 'PageSize',
+        'status' => 'Status',
     ];
 
     public function validate()

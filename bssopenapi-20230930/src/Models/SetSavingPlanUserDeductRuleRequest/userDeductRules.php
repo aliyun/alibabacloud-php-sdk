@@ -12,18 +12,20 @@ class userDeductRules extends Model
      * @var string
      */
     public $commodityCode;
+
     /**
      * @var string
      */
     public $moduleCode;
+
     /**
      * @var bool
      */
     public $skipDeduct;
     protected $_name = [
         'commodityCode' => 'CommodityCode',
-        'moduleCode'    => 'ModuleCode',
-        'skipDeduct'    => 'SkipDeduct',
+        'moduleCode' => 'ModuleCode',
+        'skipDeduct' => 'SkipDeduct',
     ];
 
     public function validate()

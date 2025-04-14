@@ -12,58 +12,68 @@ class GetFundAccountCanWithdrawAmountResponseBody extends Model
      * @var string
      */
     public $canOriginalWithdrawAmount;
+
     /**
      * @var string
      */
     public $canWithdrawAmount;
+
     /**
      * @var string
      */
     public $cannotOriginalWithdrawAmount;
+
     /**
      * @var string
      */
     public $cashAmount;
+
     /**
      * @var string
      */
     public $creditMemoAmount;
+
     /**
      * @var string
      */
     public $currentMonthUnclearedAmount;
+
     /**
      * @var string
      */
     public $historyMonthUnclearedAmount;
+
     /**
      * @var mixed
      */
     public $metadata;
+
     /**
      * @var string
      */
     public $payAsYouGoReversedAmount;
+
     /**
      * @var string
      */
     public $requestId;
+
     /**
      * @var string
      */
     public $transferAmount;
     protected $_name = [
-        'canOriginalWithdrawAmount'    => 'CanOriginalWithdrawAmount',
-        'canWithdrawAmount'            => 'CanWithdrawAmount',
+        'canOriginalWithdrawAmount' => 'CanOriginalWithdrawAmount',
+        'canWithdrawAmount' => 'CanWithdrawAmount',
         'cannotOriginalWithdrawAmount' => 'CannotOriginalWithdrawAmount',
-        'cashAmount'                   => 'CashAmount',
-        'creditMemoAmount'             => 'CreditMemoAmount',
-        'currentMonthUnclearedAmount'  => 'CurrentMonthUnclearedAmount',
-        'historyMonthUnclearedAmount'  => 'HistoryMonthUnclearedAmount',
-        'metadata'                     => 'Metadata',
-        'payAsYouGoReversedAmount'     => 'PayAsYouGoReversedAmount',
-        'requestId'                    => 'RequestId',
-        'transferAmount'               => 'TransferAmount',
+        'cashAmount' => 'CashAmount',
+        'creditMemoAmount' => 'CreditMemoAmount',
+        'currentMonthUnclearedAmount' => 'CurrentMonthUnclearedAmount',
+        'historyMonthUnclearedAmount' => 'HistoryMonthUnclearedAmount',
+        'metadata' => 'Metadata',
+        'payAsYouGoReversedAmount' => 'PayAsYouGoReversedAmount',
+        'requestId' => 'RequestId',
+        'transferAmount' => 'TransferAmount',
     ];
 
     public function validate()

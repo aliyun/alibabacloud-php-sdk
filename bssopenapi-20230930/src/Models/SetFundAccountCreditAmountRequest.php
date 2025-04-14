@@ -12,17 +12,19 @@ class SetFundAccountCreditAmountRequest extends Model
      * @var string
      */
     public $creditAmount;
+
     /**
      * @var string
      */
     public $currency;
+
     /**
      * @var int
      */
     public $fundAccountId;
     protected $_name = [
-        'creditAmount'  => 'CreditAmount',
-        'currency'      => 'Currency',
+        'creditAmount' => 'CreditAmount',
+        'currency' => 'Currency',
         'fundAccountId' => 'FundAccountId',
     ];
 

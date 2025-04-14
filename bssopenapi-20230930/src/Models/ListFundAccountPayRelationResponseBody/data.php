@@ -12,73 +12,86 @@ class data extends Model
      * @var string
      */
     public $accountId;
+
     /**
      * @var string
      */
     public $accountName;
+
     /**
      * @var string
      */
     public $ecid;
+
     /**
      * @var string
      */
     public $effectiveTime;
+
     /**
      * @var string
      */
     public $fundAccountId;
+
     /**
      * @var string
      */
     public $fundAccountOwnerAccountId;
+
     /**
      * @var string
      */
     public $ineffectiveTime;
+
     /**
      * @var string
      */
     public $nbid;
+
     /**
      * @var string
      */
     public $operatorName;
+
     /**
      * @var string
      */
     public $operatorNo;
+
     /**
      * @var string
      */
     public $operatorType;
+
     /**
      * @var string
      */
     public $relationType;
+
     /**
      * @var string
      */
     public $site;
+
     /**
      * @var string
      */
     public $status;
     protected $_name = [
-        'accountId'                 => 'AccountId',
-        'accountName'               => 'AccountName',
-        'ecid'                      => 'Ecid',
-        'effectiveTime'             => 'EffectiveTime',
-        'fundAccountId'             => 'FundAccountId',
+        'accountId' => 'AccountId',
+        'accountName' => 'AccountName',
+        'ecid' => 'Ecid',
+        'effectiveTime' => 'EffectiveTime',
+        'fundAccountId' => 'FundAccountId',
         'fundAccountOwnerAccountId' => 'FundAccountOwnerAccountId',
-        'ineffectiveTime'           => 'IneffectiveTime',
-        'nbid'                      => 'Nbid',
-        'operatorName'              => 'OperatorName',
-        'operatorNo'                => 'OperatorNo',
-        'operatorType'              => 'OperatorType',
-        'relationType'              => 'RelationType',
-        'site'                      => 'Site',
-        'status'                    => 'Status',
+        'ineffectiveTime' => 'IneffectiveTime',
+        'nbid' => 'Nbid',
+        'operatorName' => 'OperatorName',
+        'operatorNo' => 'OperatorNo',
+        'operatorType' => 'OperatorType',
+        'relationType' => 'RelationType',
+        'site' => 'Site',
+        'status' => 'Status',
     ];
 
     public function validate()

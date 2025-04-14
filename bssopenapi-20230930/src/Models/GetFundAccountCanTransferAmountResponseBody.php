@@ -12,68 +12,80 @@ class GetFundAccountCanTransferAmountResponseBody extends Model
      * @var string
      */
     public $availableAmount;
+
     /**
      * @var string
      */
     public $cashAmount;
+
     /**
      * @var string
      */
     public $currency;
+
     /**
      * @var string
      */
     public $fundAccountEcid;
+
     /**
      * @var int
      */
     public $fundAccountId;
+
     /**
      * @var string
      */
     public $fundAccountName;
+
     /**
      * @var int
      */
     public $fundAccountOwnerAccountId;
+
     /**
      * @var string
      */
     public $maxTransferableAmount;
+
     /**
      * @var mixed
      */
     public $metadata;
+
     /**
      * @var string
      */
     public $nbid;
+
     /**
      * @var string
      */
     public $requestId;
+
     /**
      * @var string
      */
     public $site;
+
     /**
      * @var string
      */
     public $transferAmount;
     protected $_name = [
-        'availableAmount'           => 'AvailableAmount',
-        'cashAmount'                => 'CashAmount',
-        'currency'                  => 'Currency',
-        'fundAccountEcid'           => 'FundAccountEcid',
-        'fundAccountId'             => 'FundAccountId',
-        'fundAccountName'           => 'FundAccountName',
+        'availableAmount' => 'AvailableAmount',
+        'cashAmount' => 'CashAmount',
+        'currency' => 'Currency',
+        'fundAccountEcid' => 'FundAccountEcid',
+        'fundAccountId' => 'FundAccountId',
+        'fundAccountName' => 'FundAccountName',
         'fundAccountOwnerAccountId' => 'FundAccountOwnerAccountId',
-        'maxTransferableAmount'     => 'MaxTransferableAmount',
-        'metadata'                  => 'Metadata',
-        'nbid'                      => 'Nbid',
-        'requestId'                 => 'RequestId',
-        'site'                      => 'Site',
-        'transferAmount'            => 'TransferAmount',
+        'maxTransferableAmount' => 'MaxTransferableAmount',
+        'metadata' => 'Metadata',
+        'nbid' => 'Nbid',
+        'requestId' => 'RequestId',
+        'site' => 'Site',
+        'transferAmount' => 'TransferAmount',
     ];
 
     public function validate()

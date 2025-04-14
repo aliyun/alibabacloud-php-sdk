@@ -12,13 +12,14 @@ class ecIdAccountIds extends Model
      * @var int[]
      */
     public $accountIds;
+
     /**
      * @var string
      */
     public $ecId;
     protected $_name = [
         'accountIds' => 'AccountIds',
-        'ecId'       => 'EcId',
+        'ecId' => 'EcId',
     ];
 
     public function validate()
@@ -35,7 +36,7 @@ class ecIdAccountIds extends Model
         if (null !== $this->accountIds) {
             if (\is_array($this->accountIds)) {
                 $res['AccountIds'] = [];
-                $n1                = 0;
+                $n1 = 0;
                 foreach ($this->accountIds as $item1) {
                     $res['AccountIds'][$n1++] = $item1;
                 }
@@ -60,7 +61,7 @@ class ecIdAccountIds extends Model
         if (isset($map['AccountIds'])) {
             if (!empty($map['AccountIds'])) {
                 $model->accountIds = [];
-                $n1                = 0;
+                $n1 = 0;
                 foreach ($map['AccountIds'] as $item1) {
                     $model->accountIds[$n1++] = $item1;
                 }

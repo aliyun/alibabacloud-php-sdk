@@ -12,58 +12,68 @@ class data extends Model
      * @var string
      */
     public $createDate;
+
     /**
      * @var string
      */
     public $fundAccountAdminAccountId;
+
     /**
      * @var string
      */
     public $fundAccountAdminAccountName;
+
     /**
      * @var string
      */
     public $fundAccountId;
+
     /**
      * @var string
      */
     public $fundAccountName;
+
     /**
      * @var string
      */
     public $fundAccountOwnerAccountId;
+
     /**
      * @var string
      */
     public $fundAccountStatus;
+
     /**
      * @var string
      */
     public $fundAccountType;
+
     /**
      * @var string
      */
     public $nbid;
+
     /**
      * @var string[]
      */
     public $permissions;
+
     /**
      * @var string
      */
     public $site;
     protected $_name = [
-        'createDate'                  => 'CreateDate',
-        'fundAccountAdminAccountId'   => 'FundAccountAdminAccountId',
+        'createDate' => 'CreateDate',
+        'fundAccountAdminAccountId' => 'FundAccountAdminAccountId',
         'fundAccountAdminAccountName' => 'FundAccountAdminAccountName',
-        'fundAccountId'               => 'FundAccountId',
-        'fundAccountName'             => 'FundAccountName',
-        'fundAccountOwnerAccountId'   => 'FundAccountOwnerAccountId',
-        'fundAccountStatus'           => 'FundAccountStatus',
-        'fundAccountType'             => 'FundAccountType',
-        'nbid'                        => 'Nbid',
-        'permissions'                 => 'Permissions',
-        'site'                        => 'Site',
+        'fundAccountId' => 'FundAccountId',
+        'fundAccountName' => 'FundAccountName',
+        'fundAccountOwnerAccountId' => 'FundAccountOwnerAccountId',
+        'fundAccountStatus' => 'FundAccountStatus',
+        'fundAccountType' => 'FundAccountType',
+        'nbid' => 'Nbid',
+        'permissions' => 'Permissions',
+        'site' => 'Site',
     ];
 
     public function validate()
@@ -116,7 +126,7 @@ class data extends Model
         if (null !== $this->permissions) {
             if (\is_array($this->permissions)) {
                 $res['Permissions'] = [];
-                $n1                 = 0;
+                $n1 = 0;
                 foreach ($this->permissions as $item1) {
                     $res['Permissions'][$n1++] = $item1;
                 }
@@ -177,7 +187,7 @@ class data extends Model
         if (isset($map['Permissions'])) {
             if (!empty($map['Permissions'])) {
                 $model->permissions = [];
-                $n1                 = 0;
+                $n1 = 0;
                 foreach ($map['Permissions'] as $item1) {
                     $model->permissions[$n1++] = $item1;
                 }

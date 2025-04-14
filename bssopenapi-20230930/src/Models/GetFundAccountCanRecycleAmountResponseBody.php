@@ -13,38 +13,44 @@ class GetFundAccountCanRecycleAmountResponseBody extends Model
      * @var string
      */
     public $availableAmount;
+
     /**
      * @var string
      */
     public $currency;
+
     /**
      * @var mixed
      */
     public $metadata;
+
     /**
      * @var string
      */
     public $recycleFromFundAccountId;
+
     /**
      * @var recycleToFundAccountList[]
      */
     public $recycleToFundAccountList;
+
     /**
      * @var string
      */
     public $requestId;
+
     /**
      * @var string
      */
     public $transferAmount;
     protected $_name = [
-        'availableAmount'          => 'AvailableAmount',
-        'currency'                 => 'Currency',
-        'metadata'                 => 'Metadata',
+        'availableAmount' => 'AvailableAmount',
+        'currency' => 'Currency',
+        'metadata' => 'Metadata',
         'recycleFromFundAccountId' => 'RecycleFromFundAccountId',
         'recycleToFundAccountList' => 'RecycleToFundAccountList',
-        'requestId'                => 'RequestId',
-        'transferAmount'           => 'TransferAmount',
+        'requestId' => 'RequestId',
+        'transferAmount' => 'TransferAmount',
     ];
 
     public function validate()
@@ -77,7 +83,7 @@ class GetFundAccountCanRecycleAmountResponseBody extends Model
         if (null !== $this->recycleToFundAccountList) {
             if (\is_array($this->recycleToFundAccountList)) {
                 $res['RecycleToFundAccountList'] = [];
-                $n1                              = 0;
+                $n1 = 0;
                 foreach ($this->recycleToFundAccountList as $item1) {
                     $res['RecycleToFundAccountList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -122,7 +128,7 @@ class GetFundAccountCanRecycleAmountResponseBody extends Model
         if (isset($map['RecycleToFundAccountList'])) {
             if (!empty($map['RecycleToFundAccountList'])) {
                 $model->recycleToFundAccountList = [];
-                $n1                              = 0;
+                $n1 = 0;
                 foreach ($map['RecycleToFundAccountList'] as $item1) {
                     $model->recycleToFundAccountList[$n1++] = recycleToFundAccountList::fromMap($item1);
                 }
