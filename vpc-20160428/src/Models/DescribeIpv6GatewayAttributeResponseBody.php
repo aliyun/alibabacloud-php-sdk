@@ -52,6 +52,11 @@ class DescribeIpv6GatewayAttributeResponseBody extends Model
     /**
      * @var string
      */
+    public $ownerId;
+
+    /**
+     * @var string
+     */
     public $regionId;
 
     /**
@@ -87,6 +92,7 @@ class DescribeIpv6GatewayAttributeResponseBody extends Model
         'instanceChargeType' => 'InstanceChargeType',
         'ipv6GatewayId' => 'Ipv6GatewayId',
         'name' => 'Name',
+        'ownerId' => 'OwnerId',
         'regionId' => 'RegionId',
         'requestId' => 'RequestId',
         'resourceGroupId' => 'ResourceGroupId',
@@ -136,6 +142,10 @@ class DescribeIpv6GatewayAttributeResponseBody extends Model
 
         if (null !== $this->name) {
             $res['Name'] = $this->name;
+        }
+
+        if (null !== $this->ownerId) {
+            $res['OwnerId'] = $this->ownerId;
         }
 
         if (null !== $this->regionId) {
@@ -203,6 +213,10 @@ class DescribeIpv6GatewayAttributeResponseBody extends Model
 
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
+        }
+
+        if (isset($map['OwnerId'])) {
+            $model->ownerId = $map['OwnerId'];
         }
 
         if (isset($map['RegionId'])) {
