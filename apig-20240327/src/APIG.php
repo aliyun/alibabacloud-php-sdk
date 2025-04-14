@@ -3198,6 +3198,10 @@ class APIG extends OpenApiClient
             @$query['sourceType'] = $request->sourceType;
         }
 
+        if (null !== $request->sourceTypes) {
+            @$query['sourceTypes'] = $request->sourceTypes;
+        }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
             'query' => Utils::query($query),

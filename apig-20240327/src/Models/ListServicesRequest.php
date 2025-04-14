@@ -37,6 +37,11 @@ class ListServicesRequest extends Model
      * @var string
      */
     public $sourceType;
+
+    /**
+     * @var string
+     */
+    public $sourceTypes;
     protected $_name = [
         'gatewayId' => 'gatewayId',
         'name' => 'name',
@@ -44,6 +49,7 @@ class ListServicesRequest extends Model
         'pageSize' => 'pageSize',
         'resourceGroupId' => 'resourceGroupId',
         'sourceType' => 'sourceType',
+        'sourceTypes' => 'sourceTypes',
     ];
 
     public function validate()
@@ -76,6 +82,10 @@ class ListServicesRequest extends Model
 
         if (null !== $this->sourceType) {
             $res['sourceType'] = $this->sourceType;
+        }
+
+        if (null !== $this->sourceTypes) {
+            $res['sourceTypes'] = $this->sourceTypes;
         }
 
         return $res;
@@ -111,6 +121,10 @@ class ListServicesRequest extends Model
 
         if (isset($map['sourceType'])) {
             $model->sourceType = $map['sourceType'];
+        }
+
+        if (isset($map['sourceTypes'])) {
+            $model->sourceTypes = $map['sourceTypes'];
         }
 
         return $model;
