@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Quickbipublic\V20220101\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class AddUserRequest extends Model
 {
@@ -14,33 +14,21 @@ class AddUserRequest extends Model
     public $accountId;
 
     /**
-     * @example xxxxxx@163.com
-     *
-     * @deprecated
-     *
      * @var string
      */
     public $accountName;
 
     /**
-     * @description Add organization members.
-     *
-     * @example true
-     *
      * @var bool
      */
     public $adminUser;
 
     /**
-     * @example true
-     *
      * @var bool
      */
     public $authAdminUser;
 
     /**
-     * @description This parameter is required.
-     *
      * @var string
      */
     public $nickName;
@@ -51,10 +39,6 @@ class AddUserRequest extends Model
     public $roleIds;
 
     /**
-     * @description This parameter is required.
-     *
-     * @example 1
-     *
      * @var int
      */
     public $userType;
@@ -68,29 +52,38 @@ class AddUserRequest extends Model
         'userType' => 'UserType',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->accountId) {
             $res['AccountId'] = $this->accountId;
         }
+
         if (null !== $this->accountName) {
             $res['AccountName'] = $this->accountName;
         }
+
         if (null !== $this->adminUser) {
             $res['AdminUser'] = $this->adminUser;
         }
+
         if (null !== $this->authAdminUser) {
             $res['AuthAdminUser'] = $this->authAdminUser;
         }
+
         if (null !== $this->nickName) {
             $res['NickName'] = $this->nickName;
         }
+
         if (null !== $this->roleIds) {
             $res['RoleIds'] = $this->roleIds;
         }
+
         if (null !== $this->userType) {
             $res['UserType'] = $this->userType;
         }
@@ -98,32 +91,38 @@ class AddUserRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return AddUserRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AccountId'])) {
             $model->accountId = $map['AccountId'];
         }
+
         if (isset($map['AccountName'])) {
             $model->accountName = $map['AccountName'];
         }
+
         if (isset($map['AdminUser'])) {
             $model->adminUser = $map['AdminUser'];
         }
+
         if (isset($map['AuthAdminUser'])) {
             $model->authAdminUser = $map['AuthAdminUser'];
         }
+
         if (isset($map['NickName'])) {
             $model->nickName = $map['NickName'];
         }
+
         if (isset($map['RoleIds'])) {
             $model->roleIds = $map['RoleIds'];
         }
+
         if (isset($map['UserType'])) {
             $model->userType = $map['UserType'];
         }

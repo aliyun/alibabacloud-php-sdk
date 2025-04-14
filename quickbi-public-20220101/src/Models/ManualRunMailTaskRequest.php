@@ -4,17 +4,11 @@
 
 namespace AlibabaCloud\SDK\Quickbipublic\V20220101\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class ManualRunMailTaskRequest extends Model
 {
     /**
-     * @description The ID of the email task in the subscription management interface.
-     *
-     * This parameter is required.
-     *
-     * @example 3423423sdfa****sdadw
-     *
      * @var string
      */
     public $mailId;
@@ -22,9 +16,12 @@ class ManualRunMailTaskRequest extends Model
         'mailId' => 'MailId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->mailId) {
@@ -34,11 +31,11 @@ class ManualRunMailTaskRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ManualRunMailTaskRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

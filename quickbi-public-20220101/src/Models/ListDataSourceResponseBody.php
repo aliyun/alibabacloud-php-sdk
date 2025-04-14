@@ -4,32 +4,22 @@
 
 namespace AlibabaCloud\SDK\Quickbipublic\V20220101\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Quickbipublic\V20220101\Models\ListDataSourceResponseBody\result;
-use AlibabaCloud\Tea\Model;
 
 class ListDataSourceResponseBody extends Model
 {
     /**
-     * @description Request ID.
-     *
-     * @example 7FC9A6A6-****-5CED-B*****E891E4075
-     *
      * @var string
      */
     public $requestId;
 
     /**
-     * @description Array of data source information.
-     *
      * @var result[]
      */
     public $result;
 
     /**
-     * @description Whether the request was successful.
-     *
-     * @example true
-     *
      * @var bool
      */
     public $success;
@@ -39,23 +29,31 @@ class ListDataSourceResponseBody extends Model
         'success' => 'Success',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->result)) {
+            Model::validateArray($this->result);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
+
         if (null !== $this->result) {
-            $res['Result'] = [];
-            if (null !== $this->result && \is_array($this->result)) {
-                $n = 0;
-                foreach ($this->result as $item) {
-                    $res['Result'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->result)) {
+                $res['Result'] = [];
+                $n1 = 0;
+                foreach ($this->result as $item1) {
+                    $res['Result'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
+
         if (null !== $this->success) {
             $res['Success'] = $this->success;
         }
@@ -63,26 +61,28 @@ class ListDataSourceResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ListDataSourceResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
+
         if (isset($map['Result'])) {
             if (!empty($map['Result'])) {
                 $model->result = [];
-                $n = 0;
-                foreach ($map['Result'] as $item) {
-                    $model->result[$n++] = null !== $item ? result::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['Result'] as $item1) {
+                    $model->result[$n1++] = result::fromMap($item1);
                 }
             }
         }
+
         if (isset($map['Success'])) {
             $model->success = $map['Success'];
         }

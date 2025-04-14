@@ -4,34 +4,22 @@
 
 namespace AlibabaCloud\SDK\Quickbipublic\V20220101\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Quickbipublic\V20220101\Models\ListWorkspaceRoleUsersResponseBody\result;
-use AlibabaCloud\Tea\Model;
 
 class ListWorkspaceRoleUsersResponseBody extends Model
 {
     /**
-     * @description Request ID.
-     *
-     * @example D787E1A3-A93C-424A-B626-C2B05DF8D885
-     *
      * @var string
      */
     public $requestId;
 
     /**
-     * @description Returns the list of users under the specified workspace role.
-     *
      * @var result
      */
     public $result;
 
     /**
-     * @description 是否请求成功。取值范围：
-     * - true：请求成功
-     * - false：请求失败
-     *
-     * @example true
-     *
      * @var bool
      */
     public $success;
@@ -41,17 +29,25 @@ class ListWorkspaceRoleUsersResponseBody extends Model
         'success' => 'Success',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (null !== $this->result) {
+            $this->result->validate();
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
+
         if (null !== $this->result) {
-            $res['Result'] = null !== $this->result ? $this->result->toMap() : null;
+            $res['Result'] = null !== $this->result ? $this->result->toArray($noStream) : $this->result;
         }
+
         if (null !== $this->success) {
             $res['Success'] = $this->success;
         }
@@ -59,20 +55,22 @@ class ListWorkspaceRoleUsersResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ListWorkspaceRoleUsersResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
+
         if (isset($map['Result'])) {
             $model->result = result::fromMap($map['Result']);
         }
+
         if (isset($map['Success'])) {
             $model->success = $map['Success'];
         }

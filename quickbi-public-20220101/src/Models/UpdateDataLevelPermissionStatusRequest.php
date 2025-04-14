@@ -4,35 +4,21 @@
 
 namespace AlibabaCloud\SDK\Quickbipublic\V20220101\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class UpdateDataLevelPermissionStatusRequest extends Model
 {
     /**
-     * @description The ID of the training dataset that you want to remove from the specified custom linguistic model.
-     *
-     * This parameter is required.
-     *
-     * @example 7c7223ae-****-3c744528014b
-     *
      * @var string
      */
     public $cubeId;
 
     /**
-     * @description This parameter is required.
-     *
-     * @example 1
-     *
      * @var int
      */
     public $isOpen;
 
     /**
-     * @description This parameter is required.
-     *
-     * @example ROW_LEVEL
-     *
      * @var string
      */
     public $ruleType;
@@ -42,17 +28,22 @@ class UpdateDataLevelPermissionStatusRequest extends Model
         'ruleType' => 'RuleType',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->cubeId) {
             $res['CubeId'] = $this->cubeId;
         }
+
         if (null !== $this->isOpen) {
             $res['IsOpen'] = $this->isOpen;
         }
+
         if (null !== $this->ruleType) {
             $res['RuleType'] = $this->ruleType;
         }
@@ -60,20 +51,22 @@ class UpdateDataLevelPermissionStatusRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return UpdateDataLevelPermissionStatusRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['CubeId'])) {
             $model->cubeId = $map['CubeId'];
         }
+
         if (isset($map['IsOpen'])) {
             $model->isOpen = $map['IsOpen'];
         }
+
         if (isset($map['RuleType'])) {
             $model->ruleType = $map['RuleType'];
         }

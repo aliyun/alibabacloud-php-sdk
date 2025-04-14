@@ -4,24 +4,16 @@
 
 namespace AlibabaCloud\SDK\Quickbipublic\V20220101\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DeleteUserRequest extends Model
 {
     /**
-     * @example f5****afccd9e434a274
-     *
      * @var string
      */
     public $transferUserId;
 
     /**
-     * @description Deletes a user from a specified organization.
-     *
-     * This parameter is required.
-     *
-     * @example fe67f61a35a94b7da1a34ba174a7****
-     *
      * @var string
      */
     public $userId;
@@ -30,14 +22,18 @@ class DeleteUserRequest extends Model
         'userId' => 'UserId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->transferUserId) {
             $res['TransferUserId'] = $this->transferUserId;
         }
+
         if (null !== $this->userId) {
             $res['UserId'] = $this->userId;
         }
@@ -45,17 +41,18 @@ class DeleteUserRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DeleteUserRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['TransferUserId'])) {
             $model->transferUserId = $map['TransferUserId'];
         }
+
         if (isset($map['UserId'])) {
             $model->userId = $map['UserId'];
         }

@@ -4,17 +4,11 @@
 
 namespace AlibabaCloud\SDK\Quickbipublic\V20220101\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DeleteTicketRequest extends Model
 {
     /**
-     * @description Deletes a specified ticket from an embedded report.
-     *
-     * This parameter is required.
-     *
-     * @example 040e6f79d****7d283c7206c070
-     *
      * @var string
      */
     public $ticket;
@@ -22,9 +16,12 @@ class DeleteTicketRequest extends Model
         'ticket' => 'Ticket',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->ticket) {
@@ -34,11 +31,11 @@ class DeleteTicketRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DeleteTicketRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

@@ -4,17 +4,11 @@
 
 namespace AlibabaCloud\SDK\Quickbipublic\V20220101\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class ListUserGroupsByUserIdRequest extends Model
 {
     /**
-     * @description The ID of the user group.
-     *
-     * This parameter is required.
-     *
-     * @example 46e5374665ba4b679ee22e2a2927****
-     *
      * @var string
      */
     public $userId;
@@ -22,9 +16,12 @@ class ListUserGroupsByUserIdRequest extends Model
         'userId' => 'UserId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->userId) {
@@ -34,11 +31,11 @@ class ListUserGroupsByUserIdRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ListUserGroupsByUserIdRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Quickbipublic\V20220101\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class AddUserTagMetaRequest extends Model
 {
@@ -14,8 +14,6 @@ class AddUserTagMetaRequest extends Model
     public $tagDescription;
 
     /**
-     * @description This parameter is required.
-     *
      * @var string
      */
     public $tagName;
@@ -24,14 +22,18 @@ class AddUserTagMetaRequest extends Model
         'tagName' => 'TagName',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->tagDescription) {
             $res['TagDescription'] = $this->tagDescription;
         }
+
         if (null !== $this->tagName) {
             $res['TagName'] = $this->tagName;
         }
@@ -39,17 +41,18 @@ class AddUserTagMetaRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return AddUserTagMetaRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['TagDescription'])) {
             $model->tagDescription = $map['TagDescription'];
         }
+
         if (isset($map['TagName'])) {
             $model->tagName = $map['TagName'];
         }

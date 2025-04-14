@@ -4,15 +4,11 @@
 
 namespace AlibabaCloud\SDK\Quickbipublic\V20220101\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class UpdateWorkspaceUserRoleRequest extends Model
 {
     /**
-     * @example 25
-     *
-     * @deprecated
-     *
      * @var int
      */
     public $roleId;
@@ -23,19 +19,11 @@ class UpdateWorkspaceUserRoleRequest extends Model
     public $roleIds;
 
     /**
-     * @description This parameter is required.
-     *
-     * @example f5698bedeb384b1986afccd9e434****
-     *
      * @var string
      */
     public $userId;
 
     /**
-     * @description This parameter is required.
-     *
-     * @example 95296e95-ca89-4c7d-8af9-dedf0ad0****
-     *
      * @var string
      */
     public $workspaceId;
@@ -46,20 +34,26 @@ class UpdateWorkspaceUserRoleRequest extends Model
         'workspaceId' => 'WorkspaceId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->roleId) {
             $res['RoleId'] = $this->roleId;
         }
+
         if (null !== $this->roleIds) {
             $res['RoleIds'] = $this->roleIds;
         }
+
         if (null !== $this->userId) {
             $res['UserId'] = $this->userId;
         }
+
         if (null !== $this->workspaceId) {
             $res['WorkspaceId'] = $this->workspaceId;
         }
@@ -67,23 +61,26 @@ class UpdateWorkspaceUserRoleRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return UpdateWorkspaceUserRoleRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['RoleId'])) {
             $model->roleId = $map['RoleId'];
         }
+
         if (isset($map['RoleIds'])) {
             $model->roleIds = $map['RoleIds'];
         }
+
         if (isset($map['UserId'])) {
             $model->userId = $map['UserId'];
         }
+
         if (isset($map['WorkspaceId'])) {
             $model->workspaceId = $map['WorkspaceId'];
         }

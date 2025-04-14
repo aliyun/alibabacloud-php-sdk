@@ -4,13 +4,11 @@
 
 namespace AlibabaCloud\SDK\Quickbipublic\V20220101\Models\UpdateWorkspaceUsersRoleResponseBody;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class result extends Model
 {
     /**
-     * @example 0
-     *
      * @var int
      */
     public $failure;
@@ -21,15 +19,11 @@ class result extends Model
     public $failureDetail;
 
     /**
-     * @example 2
-     *
      * @var int
      */
     public $success;
 
     /**
-     * @example 2
-     *
      * @var int
      */
     public $total;
@@ -40,20 +34,34 @@ class result extends Model
         'total' => 'Total',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->failureDetail)) {
+            Model::validateArray($this->failureDetail);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->failure) {
             $res['Failure'] = $this->failure;
         }
+
         if (null !== $this->failureDetail) {
-            $res['FailureDetail'] = $this->failureDetail;
+            if (\is_array($this->failureDetail)) {
+                $res['FailureDetail'] = [];
+                foreach ($this->failureDetail as $key1 => $value1) {
+                    $res['FailureDetail'][$key1] = $value1;
+                }
+            }
         }
+
         if (null !== $this->success) {
             $res['Success'] = $this->success;
         }
+
         if (null !== $this->total) {
             $res['Total'] = $this->total;
         }
@@ -61,23 +69,31 @@ class result extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return result
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Failure'])) {
             $model->failure = $map['Failure'];
         }
+
         if (isset($map['FailureDetail'])) {
-            $model->failureDetail = $map['FailureDetail'];
+            if (!empty($map['FailureDetail'])) {
+                $model->failureDetail = [];
+                foreach ($map['FailureDetail'] as $key1 => $value1) {
+                    $model->failureDetail[$key1] = $value1;
+                }
+            }
         }
+
         if (isset($map['Success'])) {
             $model->success = $map['Success'];
         }
+
         if (isset($map['Total'])) {
             $model->total = $map['Total'];
         }

@@ -4,31 +4,22 @@
 
 namespace AlibabaCloud\SDK\Quickbipublic\V20220101\Models\QueryDataResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Quickbipublic\V20220101\Models\QueryDataResponseBody\result\headers;
-use AlibabaCloud\Tea\Model;
 
 class result extends Model
 {
     /**
-     * @description Column headers.
-     *
      * @var headers[]
      */
     public $headers;
 
     /**
-     * @description The SQL query that was executed.
-     * > The filter conditions in the returned SQL statement include not only the parameters passed through this interface but also the row and column permission configurations.
-     *
-     * @example SELECT COMPANY_T_1_.`area` AS D_AREA_2_, COMPANY_T_1_.`city` AS D_CITY_3_, SUM(COMPANY_T_1_.`profit_amt`) AS D_PROFIT_4_ FROM `quickbi_test`.`company_sales_record_copy` AS COMPANY_T_1_ WHERE COMPANY_T_1_.`area` LIKE \\"%华东%\\" GROUP BY COMPANY_T_1_.`area`, COMPANY_T_1_.`city` HAVING SUM(COMPANY_T_1_.`order_amt`) > 1 LIMIT 0, 10
-     *
      * @var string
      */
     public $sql;
 
     /**
-     * @description The results of the query.
-     *
      * @var mixed[][]
      */
     public $values;
@@ -38,53 +29,86 @@ class result extends Model
         'values' => 'Values',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->headers)) {
+            Model::validateArray($this->headers);
+        }
+        if (\is_array($this->values)) {
+            Model::validateArray($this->values);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->headers) {
-            $res['Headers'] = [];
-            if (null !== $this->headers && \is_array($this->headers)) {
-                $n = 0;
-                foreach ($this->headers as $item) {
-                    $res['Headers'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->headers)) {
+                $res['Headers'] = [];
+                $n1 = 0;
+                foreach ($this->headers as $item1) {
+                    $res['Headers'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
+
         if (null !== $this->sql) {
             $res['Sql'] = $this->sql;
         }
+
         if (null !== $this->values) {
-            $res['Values'] = $this->values;
+            if (\is_array($this->values)) {
+                $res['Values'] = [];
+                $n1 = 0;
+                foreach ($this->values as $item1) {
+                    if (\is_array($item1)) {
+                        $res['Values'][$n1++] = [];
+                        foreach ($item1 as $key2 => $value2) {
+                            $res['Values'][$n1++][$key2] = $value2;
+                        }
+                    }
+                }
+            }
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return result
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Headers'])) {
             if (!empty($map['Headers'])) {
                 $model->headers = [];
-                $n = 0;
-                foreach ($map['Headers'] as $item) {
-                    $model->headers[$n++] = null !== $item ? headers::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['Headers'] as $item1) {
+                    $model->headers[$n1++] = headers::fromMap($item1);
                 }
             }
         }
+
         if (isset($map['Sql'])) {
             $model->sql = $map['Sql'];
         }
+
         if (isset($map['Values'])) {
             if (!empty($map['Values'])) {
-                $model->values = $map['Values'];
+                $model->values = [];
+                $n1 = 0;
+                foreach ($map['Values'] as $item1) {
+                    if (!empty($item1)) {
+                        $model->values[$n1++] = [];
+                        foreach ($item1 as $key2 => $value2) {
+                            $model->values[$n1++][$key2] = $value2;
+                        }
+                    }
+                }
             }
         }
 

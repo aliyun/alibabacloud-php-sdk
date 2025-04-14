@@ -4,17 +4,11 @@
 
 namespace AlibabaCloud\SDK\Quickbipublic\V20220101\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class QueryEmbeddedStatusRequest extends Model
 {
     /**
-     * @description The work ID of the query.
-     *
-     * This parameter is required.
-     *
-     * @example 95296e95-ca89-4c7d-8af9-dedf0ad0****
-     *
      * @var string
      */
     public $worksId;
@@ -22,9 +16,12 @@ class QueryEmbeddedStatusRequest extends Model
         'worksId' => 'WorksId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->worksId) {
@@ -34,11 +31,11 @@ class QueryEmbeddedStatusRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return QueryEmbeddedStatusRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

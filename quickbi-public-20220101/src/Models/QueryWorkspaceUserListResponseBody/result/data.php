@@ -4,21 +4,17 @@
 
 namespace AlibabaCloud\SDK\Quickbipublic\V20220101\Models\QueryWorkspaceUserListResponseBody\result;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Quickbipublic\V20220101\Models\QueryWorkspaceUserListResponseBody\result\data\role;
-use AlibabaCloud\Tea\Model;
 
 class data extends Model
 {
     /**
-     * @example 16020915****8429
-     *
      * @var string
      */
     public $accountId;
 
     /**
-     * @example pop****@aliyunid.test
-     *
      * @var string
      */
     public $accountName;
@@ -34,8 +30,6 @@ class data extends Model
     public $role;
 
     /**
-     * @example de4bc5f9429141cc8091cdd1c15b****
-     *
      * @var string
      */
     public $userId;
@@ -47,23 +41,33 @@ class data extends Model
         'userId' => 'UserId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (null !== $this->role) {
+            $this->role->validate();
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->accountId) {
             $res['AccountId'] = $this->accountId;
         }
+
         if (null !== $this->accountName) {
             $res['AccountName'] = $this->accountName;
         }
+
         if (null !== $this->nickName) {
             $res['NickName'] = $this->nickName;
         }
+
         if (null !== $this->role) {
-            $res['Role'] = null !== $this->role ? $this->role->toMap() : null;
+            $res['Role'] = null !== $this->role ? $this->role->toArray($noStream) : $this->role;
         }
+
         if (null !== $this->userId) {
             $res['UserId'] = $this->userId;
         }
@@ -71,26 +75,30 @@ class data extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return data
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AccountId'])) {
             $model->accountId = $map['AccountId'];
         }
+
         if (isset($map['AccountName'])) {
             $model->accountName = $map['AccountName'];
         }
+
         if (isset($map['NickName'])) {
             $model->nickName = $map['NickName'];
         }
+
         if (isset($map['Role'])) {
             $model->role = role::fromMap($map['Role']);
         }
+
         if (isset($map['UserId'])) {
             $model->userId = $map['UserId'];
         }

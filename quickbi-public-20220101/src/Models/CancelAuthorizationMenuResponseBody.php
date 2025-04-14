@@ -4,27 +4,21 @@
 
 namespace AlibabaCloud\SDK\Quickbipublic\V20220101\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class CancelAuthorizationMenuResponseBody extends Model
 {
     /**
-     * @example D8749D65-E80A-433C-AF1B-CE9C180FF3B4
-     *
      * @var string
      */
     public $requestId;
 
     /**
-     * @example 2
-     *
      * @var int
      */
     public $result;
 
     /**
-     * @example true
-     *
      * @var bool
      */
     public $success;
@@ -34,17 +28,22 @@ class CancelAuthorizationMenuResponseBody extends Model
         'success' => 'Success',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
+
         if (null !== $this->result) {
             $res['Result'] = $this->result;
         }
+
         if (null !== $this->success) {
             $res['Success'] = $this->success;
         }
@@ -52,20 +51,22 @@ class CancelAuthorizationMenuResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return CancelAuthorizationMenuResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
+
         if (isset($map['Result'])) {
             $model->result = $map['Result'];
         }
+
         if (isset($map['Success'])) {
             $model->success = $map['Success'];
         }

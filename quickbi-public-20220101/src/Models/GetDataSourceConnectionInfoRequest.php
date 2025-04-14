@@ -4,17 +4,11 @@
 
 namespace AlibabaCloud\SDK\Quickbipublic\V20220101\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class GetDataSourceConnectionInfoRequest extends Model
 {
     /**
-     * @description Data source ID.
-     *
-     * This parameter is required.
-     *
-     * @example 7AAB95D-*****-****-*4FC0C976
-     *
      * @var string
      */
     public $dsId;
@@ -22,9 +16,12 @@ class GetDataSourceConnectionInfoRequest extends Model
         'dsId' => 'DsId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->dsId) {
@@ -34,11 +31,11 @@ class GetDataSourceConnectionInfoRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return GetDataSourceConnectionInfoRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

@@ -4,22 +4,11 @@
 
 namespace AlibabaCloud\SDK\Quickbipublic\V20220101\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class QueryOrganizationRoleConfigRequest extends Model
 {
     /**
-     * @description Organization role ID, including predefined roles and custom roles:
-     *
-     * - Organization Administrator (predefined role): 111111111
-     * - Permission Administrator (predefined role): 111111112
-     * - Regular User (predefined role): 111111113
-     * - Custom Role: The corresponding role ID of the custom role
-     *
-     * This parameter is required.
-     *
-     * @example 111111111
-     *
      * @var int
      */
     public $roleId;
@@ -27,9 +16,12 @@ class QueryOrganizationRoleConfigRequest extends Model
         'roleId' => 'RoleId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->roleId) {
@@ -39,11 +31,11 @@ class QueryOrganizationRoleConfigRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return QueryOrganizationRoleConfigRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

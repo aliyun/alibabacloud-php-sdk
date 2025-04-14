@@ -4,13 +4,11 @@
 
 namespace AlibabaCloud\SDK\Quickbipublic\V20220101\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class QueryCopilotEmbedConfigRequest extends Model
 {
     /**
-     * @example 06-ELive
-     *
      * @var string
      */
     public $keyword;
@@ -18,9 +16,12 @@ class QueryCopilotEmbedConfigRequest extends Model
         'keyword' => 'Keyword',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->keyword) {
@@ -30,11 +31,11 @@ class QueryCopilotEmbedConfigRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return QueryCopilotEmbedConfigRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

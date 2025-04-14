@@ -4,30 +4,16 @@
 
 namespace AlibabaCloud\SDK\Quickbipublic\V20220101\Models\DataSetBloodResponseBody;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class result extends Model
 {
     /**
-     * @description Work ID.
-     *
-     * @example ccd3428c-****-****-a608-26bae29dffee
-     *
      * @var string
      */
     public $worksId;
 
     /**
-     * @description Work types: - REPORT:
-     * - REPORT: Workbooks
-     * - dashboardOfflineQuery: Downloads
-     * - DASHBOARD: Dashboard
-     * - ANALYSIS: Ad Hoc Analysis
-     * - SCREEN: Visualization Screen
-     * - PAGE: Old dashboard
-     *
-     * @example PAGE
-     *
      * @var string
      */
     public $worksType;
@@ -36,14 +22,18 @@ class result extends Model
         'worksType' => 'WorksType',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->worksId) {
             $res['WorksId'] = $this->worksId;
         }
+
         if (null !== $this->worksType) {
             $res['WorksType'] = $this->worksType;
         }
@@ -51,17 +41,18 @@ class result extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return result
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['WorksId'])) {
             $model->worksId = $map['WorksId'];
         }
+
         if (isset($map['WorksType'])) {
             $model->worksType = $map['WorksType'];
         }

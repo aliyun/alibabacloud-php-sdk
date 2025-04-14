@@ -4,42 +4,26 @@
 
 namespace AlibabaCloud\SDK\Quickbipublic\V20220101\Models\ListWorkspaceRoleUsersResponseBody\result;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class data extends Model
 {
     /**
-     * @description Nickname of the organization member.
-     *
-     * @example Test user
-     *
      * @var string
      */
     public $nickName;
 
     /**
-     * @description UserID of the organization member in Quick BI.
-     *
-     * @example b5d8fd9348cc4327****afb604
-     *
      * @var string
      */
     public $userId;
 
     /**
-     * @description Workspace ID.
-     *
-     * @example 7350a155-0e94-4c6c-8620-57bbec38****
-     *
      * @var string
      */
     public $workspaceId;
 
     /**
-     * @description Workspace name.
-     *
-     * @example Test space
-     *
      * @var string
      */
     public $workspaceName;
@@ -50,20 +34,26 @@ class data extends Model
         'workspaceName' => 'WorkspaceName',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->nickName) {
             $res['NickName'] = $this->nickName;
         }
+
         if (null !== $this->userId) {
             $res['UserId'] = $this->userId;
         }
+
         if (null !== $this->workspaceId) {
             $res['WorkspaceId'] = $this->workspaceId;
         }
+
         if (null !== $this->workspaceName) {
             $res['WorkspaceName'] = $this->workspaceName;
         }
@@ -71,23 +61,26 @@ class data extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return data
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['NickName'])) {
             $model->nickName = $map['NickName'];
         }
+
         if (isset($map['UserId'])) {
             $model->userId = $map['UserId'];
         }
+
         if (isset($map['WorkspaceId'])) {
             $model->workspaceId = $map['WorkspaceId'];
         }
+
         if (isset($map['WorkspaceName'])) {
             $model->workspaceName = $map['WorkspaceName'];
         }

@@ -4,17 +4,11 @@
 
 namespace AlibabaCloud\SDK\Quickbipublic\V20220101\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class QueryWorksBloodRelationshipRequest extends Model
 {
     /**
-     * @description Obtains the kinship of a data work, including the datasets referenced by each component and query field information. Currently, only supported data works include dashboards, workbooks, and self-service data retrieval.
-     *
-     * This parameter is required.
-     *
-     * @example abcd****
-     *
      * @var string
      */
     public $worksId;
@@ -22,9 +16,12 @@ class QueryWorksBloodRelationshipRequest extends Model
         'worksId' => 'WorksId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->worksId) {
@@ -34,11 +31,11 @@ class QueryWorksBloodRelationshipRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return QueryWorksBloodRelationshipRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

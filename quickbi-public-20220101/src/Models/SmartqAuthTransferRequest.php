@@ -4,24 +4,16 @@
 
 namespace AlibabaCloud\SDK\Quickbipublic\V20220101\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class SmartqAuthTransferRequest extends Model
 {
     /**
-     * @description This parameter is required.
-     *
-     * @example ASDHASD*************12EASDA
-     *
      * @var string
      */
     public $originUserId;
 
     /**
-     * @description This parameter is required.
-     *
-     * @example 12313********dasfa,ASDASF*****SDAFEEG
-     *
      * @var string
      */
     public $targetUserIds;
@@ -30,14 +22,18 @@ class SmartqAuthTransferRequest extends Model
         'targetUserIds' => 'TargetUserIds',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->originUserId) {
             $res['OriginUserId'] = $this->originUserId;
         }
+
         if (null !== $this->targetUserIds) {
             $res['TargetUserIds'] = $this->targetUserIds;
         }
@@ -45,17 +41,18 @@ class SmartqAuthTransferRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return SmartqAuthTransferRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['OriginUserId'])) {
             $model->originUserId = $map['OriginUserId'];
         }
+
         if (isset($map['TargetUserIds'])) {
             $model->targetUserIds = $map['TargetUserIds'];
         }

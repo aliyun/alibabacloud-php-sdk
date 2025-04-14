@@ -4,17 +4,11 @@
 
 namespace AlibabaCloud\SDK\Quickbipublic\V20220101\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DeleteUserTagMetaRequest extends Model
 {
     /**
-     * @description The ID of the tag to be deleted.
-     *
-     * This parameter is required.
-     *
-     * @example pop_001
-     *
      * @var string
      */
     public $tagId;
@@ -22,9 +16,12 @@ class DeleteUserTagMetaRequest extends Model
         'tagId' => 'TagId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->tagId) {
@@ -34,11 +31,11 @@ class DeleteUserTagMetaRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DeleteUserTagMetaRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

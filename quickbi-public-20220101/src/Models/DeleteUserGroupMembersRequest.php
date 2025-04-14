@@ -4,30 +4,16 @@
 
 namespace AlibabaCloud\SDK\Quickbipublic\V20220101\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DeleteUserGroupMembersRequest extends Model
 {
     /**
-     * @description The ID of the user group(s) to exit.
-     *
-     * - Supports batch parameters, separate IDs with a comma (,).
-     *
-     * This parameter is required.
-     *
-     * @example 34fd141d-4598-4093-8c33-8e066dcb****,3d2c23d4-2b41-4af8-a1f5-f6390f32****
-     *
      * @var string
      */
     public $userGroupIds;
 
     /**
-     * @description The UserID of the user to be removed from the user group. Note that this UserID refers to the Quick BI UserID, not the Alibaba Cloud UID.
-     *
-     * This parameter is required.
-     *
-     * @example 204627493484****
-     *
      * @var string
      */
     public $userId;
@@ -36,14 +22,18 @@ class DeleteUserGroupMembersRequest extends Model
         'userId' => 'UserId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->userGroupIds) {
             $res['UserGroupIds'] = $this->userGroupIds;
         }
+
         if (null !== $this->userId) {
             $res['UserId'] = $this->userId;
         }
@@ -51,17 +41,18 @@ class DeleteUserGroupMembersRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DeleteUserGroupMembersRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['UserGroupIds'])) {
             $model->userGroupIds = $map['UserGroupIds'];
         }
+
         if (isset($map['UserId'])) {
             $model->userId = $map['UserId'];
         }

@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Quickbipublic\V20220101\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class CreateTicket4CopilotRequest extends Model
 {
@@ -14,38 +14,26 @@ class CreateTicket4CopilotRequest extends Model
     public $accountName;
 
     /**
-     * @example 1
-     *
      * @var int
      */
     public $accountType;
 
     /**
-     * @description This parameter is required.
-     *
-     * @example ccd3428c-dd23-460c-a608-26bae29dffee
-     *
      * @var string
      */
     public $copilotId;
 
     /**
-     * @example 200
-     *
      * @var int
      */
     public $expireTime;
 
     /**
-     * @example 1
-     *
      * @var int
      */
     public $ticketNum;
 
     /**
-     * @example 9c-asdawf-casxcasd-asdasd
-     *
      * @var string
      */
     public $userId;
@@ -58,26 +46,34 @@ class CreateTicket4CopilotRequest extends Model
         'userId' => 'UserId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->accountName) {
             $res['AccountName'] = $this->accountName;
         }
+
         if (null !== $this->accountType) {
             $res['AccountType'] = $this->accountType;
         }
+
         if (null !== $this->copilotId) {
             $res['CopilotId'] = $this->copilotId;
         }
+
         if (null !== $this->expireTime) {
             $res['ExpireTime'] = $this->expireTime;
         }
+
         if (null !== $this->ticketNum) {
             $res['TicketNum'] = $this->ticketNum;
         }
+
         if (null !== $this->userId) {
             $res['UserId'] = $this->userId;
         }
@@ -85,29 +81,34 @@ class CreateTicket4CopilotRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return CreateTicket4CopilotRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AccountName'])) {
             $model->accountName = $map['AccountName'];
         }
+
         if (isset($map['AccountType'])) {
             $model->accountType = $map['AccountType'];
         }
+
         if (isset($map['CopilotId'])) {
             $model->copilotId = $map['CopilotId'];
         }
+
         if (isset($map['ExpireTime'])) {
             $model->expireTime = $map['ExpireTime'];
         }
+
         if (isset($map['TicketNum'])) {
             $model->ticketNum = $map['TicketNum'];
         }
+
         if (isset($map['UserId'])) {
             $model->userId = $map['UserId'];
         }

@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Quickbipublic\V20220101\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class QueryDataRangeRequest extends Model
 {
@@ -14,10 +14,6 @@ class QueryDataRangeRequest extends Model
     public $keyword;
 
     /**
-     * @description This parameter is required.
-     *
-     * @example llmCube
-     *
      * @var string
      */
     public $type;
@@ -26,14 +22,18 @@ class QueryDataRangeRequest extends Model
         'type' => 'Type',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->keyword) {
             $res['Keyword'] = $this->keyword;
         }
+
         if (null !== $this->type) {
             $res['Type'] = $this->type;
         }
@@ -41,17 +41,18 @@ class QueryDataRangeRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return QueryDataRangeRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Keyword'])) {
             $model->keyword = $map['Keyword'];
         }
+
         if (isset($map['Type'])) {
             $model->type = $map['Type'];
         }
