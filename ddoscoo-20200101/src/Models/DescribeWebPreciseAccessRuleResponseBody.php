@@ -13,13 +13,14 @@ class DescribeWebPreciseAccessRuleResponseBody extends Model
      * @var preciseAccessConfigList[]
      */
     public $preciseAccessConfigList;
+
     /**
      * @var string
      */
     public $requestId;
     protected $_name = [
         'preciseAccessConfigList' => 'PreciseAccessConfigList',
-        'requestId'               => 'RequestId',
+        'requestId' => 'RequestId',
     ];
 
     public function validate()
@@ -36,7 +37,7 @@ class DescribeWebPreciseAccessRuleResponseBody extends Model
         if (null !== $this->preciseAccessConfigList) {
             if (\is_array($this->preciseAccessConfigList)) {
                 $res['PreciseAccessConfigList'] = [];
-                $n1                             = 0;
+                $n1 = 0;
                 foreach ($this->preciseAccessConfigList as $item1) {
                     $res['PreciseAccessConfigList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -61,7 +62,7 @@ class DescribeWebPreciseAccessRuleResponseBody extends Model
         if (isset($map['PreciseAccessConfigList'])) {
             if (!empty($map['PreciseAccessConfigList'])) {
                 $model->preciseAccessConfigList = [];
-                $n1                             = 0;
+                $n1 = 0;
                 foreach ($map['PreciseAccessConfigList'] as $item1) {
                     $model->preciseAccessConfigList[$n1++] = preciseAccessConfigList::fromMap($item1);
                 }

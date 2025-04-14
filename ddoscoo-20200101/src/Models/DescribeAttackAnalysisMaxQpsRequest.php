@@ -12,12 +12,13 @@ class DescribeAttackAnalysisMaxQpsRequest extends Model
      * @var int
      */
     public $endTime;
+
     /**
      * @var int
      */
     public $startTime;
     protected $_name = [
-        'endTime'   => 'EndTime',
+        'endTime' => 'EndTime',
         'startTime' => 'StartTime',
     ];
 

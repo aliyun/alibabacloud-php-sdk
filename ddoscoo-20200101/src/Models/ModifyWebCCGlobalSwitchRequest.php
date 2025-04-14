@@ -12,13 +12,14 @@ class ModifyWebCCGlobalSwitchRequest extends Model
      * @var string
      */
     public $ccGlobalSwitch;
+
     /**
      * @var string
      */
     public $domain;
     protected $_name = [
         'ccGlobalSwitch' => 'CcGlobalSwitch',
-        'domain'         => 'Domain',
+        'domain' => 'Domain',
     ];
 
     public function validate()

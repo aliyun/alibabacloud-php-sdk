@@ -13,13 +13,14 @@ class DescribeDomainTopHttpMethodResponseBody extends Model
      * @var domainTopMethod[]
      */
     public $domainTopMethod;
+
     /**
      * @var string
      */
     public $requestId;
     protected $_name = [
         'domainTopMethod' => 'DomainTopMethod',
-        'requestId'       => 'RequestId',
+        'requestId' => 'RequestId',
     ];
 
     public function validate()
@@ -36,7 +37,7 @@ class DescribeDomainTopHttpMethodResponseBody extends Model
         if (null !== $this->domainTopMethod) {
             if (\is_array($this->domainTopMethod)) {
                 $res['DomainTopMethod'] = [];
-                $n1                     = 0;
+                $n1 = 0;
                 foreach ($this->domainTopMethod as $item1) {
                     $res['DomainTopMethod'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -61,7 +62,7 @@ class DescribeDomainTopHttpMethodResponseBody extends Model
         if (isset($map['DomainTopMethod'])) {
             if (!empty($map['DomainTopMethod'])) {
                 $model->domainTopMethod = [];
-                $n1                     = 0;
+                $n1 = 0;
                 foreach ($map['DomainTopMethod'] as $item1) {
                     $model->domainTopMethod[$n1++] = domainTopMethod::fromMap($item1);
                 }

@@ -12,18 +12,20 @@ class domainTopFp extends Model
      * @var string
      */
     public $domain;
+
     /**
      * @var string
      */
     public $fingerprinting;
+
     /**
      * @var int
      */
     public $pv;
     protected $_name = [
-        'domain'         => 'Domain',
+        'domain' => 'Domain',
         'fingerprinting' => 'Fingerprinting',
-        'pv'             => 'Pv',
+        'pv' => 'Pv',
     ];
 
     public function validate()

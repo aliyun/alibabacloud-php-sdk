@@ -12,42 +12,49 @@ class attackEvents extends Model
      * @var string
      */
     public $area;
+
     /**
      * @var int
      */
     public $endTime;
+
     /**
      * @var string
      */
     public $eventType;
+
     /**
      * @var string
      */
     public $ip;
+
     /**
      * @var int
      */
     public $mbps;
+
     /**
      * @var string
      */
     public $port;
+
     /**
      * @var int
      */
     public $pps;
+
     /**
      * @var int
      */
     public $startTime;
     protected $_name = [
-        'area'      => 'Area',
-        'endTime'   => 'EndTime',
+        'area' => 'Area',
+        'endTime' => 'EndTime',
         'eventType' => 'EventType',
-        'ip'        => 'Ip',
-        'mbps'      => 'Mbps',
-        'port'      => 'Port',
-        'pps'       => 'Pps',
+        'ip' => 'Ip',
+        'mbps' => 'Mbps',
+        'port' => 'Port',
+        'pps' => 'Pps',
         'startTime' => 'StartTime',
     ];
 

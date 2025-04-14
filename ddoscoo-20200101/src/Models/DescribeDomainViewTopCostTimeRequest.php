@@ -12,28 +12,32 @@ class DescribeDomainViewTopCostTimeRequest extends Model
      * @var string
      */
     public $domain;
+
     /**
      * @var int
      */
     public $endTime;
+
     /**
      * @var string
      */
     public $resourceGroupId;
+
     /**
      * @var int
      */
     public $startTime;
+
     /**
      * @var int
      */
     public $top;
     protected $_name = [
-        'domain'          => 'Domain',
-        'endTime'         => 'EndTime',
+        'domain' => 'Domain',
+        'endTime' => 'EndTime',
         'resourceGroupId' => 'ResourceGroupId',
-        'startTime'       => 'StartTime',
-        'top'             => 'Top',
+        'startTime' => 'StartTime',
+        'top' => 'Top',
     ];
 
     public function validate()

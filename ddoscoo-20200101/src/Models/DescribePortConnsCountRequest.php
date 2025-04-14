@@ -12,28 +12,32 @@ class DescribePortConnsCountRequest extends Model
      * @var int
      */
     public $endTime;
+
     /**
      * @var string[]
      */
     public $instanceIds;
+
     /**
      * @var string
      */
     public $port;
+
     /**
      * @var string
      */
     public $resourceGroupId;
+
     /**
      * @var int
      */
     public $startTime;
     protected $_name = [
-        'endTime'         => 'EndTime',
-        'instanceIds'     => 'InstanceIds',
-        'port'            => 'Port',
+        'endTime' => 'EndTime',
+        'instanceIds' => 'InstanceIds',
+        'port' => 'Port',
         'resourceGroupId' => 'ResourceGroupId',
-        'startTime'       => 'StartTime',
+        'startTime' => 'StartTime',
     ];
 
     public function validate()
@@ -54,7 +58,7 @@ class DescribePortConnsCountRequest extends Model
         if (null !== $this->instanceIds) {
             if (\is_array($this->instanceIds)) {
                 $res['InstanceIds'] = [];
-                $n1                 = 0;
+                $n1 = 0;
                 foreach ($this->instanceIds as $item1) {
                     $res['InstanceIds'][$n1++] = $item1;
                 }
@@ -91,7 +95,7 @@ class DescribePortConnsCountRequest extends Model
         if (isset($map['InstanceIds'])) {
             if (!empty($map['InstanceIds'])) {
                 $model->instanceIds = [];
-                $n1                 = 0;
+                $n1 = 0;
                 foreach ($map['InstanceIds'] as $item1) {
                     $model->instanceIds[$n1++] = $item1;
                 }

@@ -13,13 +13,14 @@ class DescribeDomainTopFingerprintResponseBody extends Model
      * @var domainTopFp[]
      */
     public $domainTopFp;
+
     /**
      * @var string
      */
     public $requestId;
     protected $_name = [
         'domainTopFp' => 'DomainTopFp',
-        'requestId'   => 'RequestId',
+        'requestId' => 'RequestId',
     ];
 
     public function validate()
@@ -36,7 +37,7 @@ class DescribeDomainTopFingerprintResponseBody extends Model
         if (null !== $this->domainTopFp) {
             if (\is_array($this->domainTopFp)) {
                 $res['DomainTopFp'] = [];
-                $n1                 = 0;
+                $n1 = 0;
                 foreach ($this->domainTopFp as $item1) {
                     $res['DomainTopFp'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -61,7 +62,7 @@ class DescribeDomainTopFingerprintResponseBody extends Model
         if (isset($map['DomainTopFp'])) {
             if (!empty($map['DomainTopFp'])) {
                 $model->domainTopFp = [];
-                $n1                 = 0;
+                $n1 = 0;
                 foreach ($map['DomainTopFp'] as $item1) {
                     $model->domainTopFp[$n1++] = domainTopFp::fromMap($item1);
                 }

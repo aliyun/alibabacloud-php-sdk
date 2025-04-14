@@ -12,18 +12,20 @@ class domainH2Fp extends Model
      * @var string
      */
     public $domain;
+
     /**
      * @var string
      */
     public $h2Fingerprint;
+
     /**
      * @var int
      */
     public $pv;
     protected $_name = [
-        'domain'        => 'Domain',
+        'domain' => 'Domain',
         'h2Fingerprint' => 'H2Fingerprint',
-        'pv'            => 'Pv',
+        'pv' => 'Pv',
     ];
 
     public function validate()

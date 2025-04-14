@@ -12,12 +12,13 @@ class ConfigL7UsKeepaliveRequest extends Model
      * @var string
      */
     public $domain;
+
     /**
      * @var string
      */
     public $upstreamKeepalive;
     protected $_name = [
-        'domain'            => 'Domain',
+        'domain' => 'Domain',
         'upstreamKeepalive' => 'UpstreamKeepalive',
     ];
 

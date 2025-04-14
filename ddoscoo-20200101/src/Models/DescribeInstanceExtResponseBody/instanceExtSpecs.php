@@ -12,28 +12,32 @@ class instanceExtSpecs extends Model
      * @var int
      */
     public $functionVersion;
+
     /**
      * @var string
      */
     public $instanceId;
+
     /**
      * @var int
      */
     public $normalBandwidth;
+
     /**
      * @var int
      */
     public $productPlan;
+
     /**
      * @var string
      */
     public $servicePartner;
     protected $_name = [
         'functionVersion' => 'FunctionVersion',
-        'instanceId'      => 'InstanceId',
+        'instanceId' => 'InstanceId',
         'normalBandwidth' => 'NormalBandwidth',
-        'productPlan'     => 'ProductPlan',
-        'servicePartner'  => 'ServicePartner',
+        'productPlan' => 'ProductPlan',
+        'servicePartner' => 'ServicePartner',
     ];
 
     public function validate()

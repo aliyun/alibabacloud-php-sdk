@@ -12,38 +12,44 @@ class webCCRules extends Model
      * @var string
      */
     public $act;
+
     /**
      * @var int
      */
     public $count;
+
     /**
      * @var int
      */
     public $interval;
+
     /**
      * @var string
      */
     public $mode;
+
     /**
      * @var string
      */
     public $name;
+
     /**
      * @var int
      */
     public $ttl;
+
     /**
      * @var string
      */
     public $uri;
     protected $_name = [
-        'act'      => 'Act',
-        'count'    => 'Count',
+        'act' => 'Act',
+        'count' => 'Count',
         'interval' => 'Interval',
-        'mode'     => 'Mode',
-        'name'     => 'Name',
-        'ttl'      => 'Ttl',
-        'uri'      => 'Uri',
+        'mode' => 'Mode',
+        'name' => 'Name',
+        'ttl' => 'Ttl',
+        'uri' => 'Uri',
     ];
 
     public function validate()

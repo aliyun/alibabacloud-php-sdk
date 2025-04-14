@@ -12,22 +12,25 @@ class sla extends Model
      * @var int
      */
     public $cps;
+
     /**
      * @var int
      */
     public $cpsEnable;
+
     /**
      * @var int
      */
     public $maxconn;
+
     /**
      * @var int
      */
     public $maxconnEnable;
     protected $_name = [
-        'cps'           => 'Cps',
-        'cpsEnable'     => 'CpsEnable',
-        'maxconn'       => 'Maxconn',
+        'cps' => 'Cps',
+        'cpsEnable' => 'CpsEnable',
+        'maxconn' => 'Maxconn',
         'maxconnEnable' => 'MaxconnEnable',
     ];
 

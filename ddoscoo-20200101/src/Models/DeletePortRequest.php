@@ -12,28 +12,32 @@ class DeletePortRequest extends Model
      * @var string
      */
     public $backendPort;
+
     /**
      * @var string
      */
     public $frontendPort;
+
     /**
      * @var string
      */
     public $frontendProtocol;
+
     /**
      * @var string
      */
     public $instanceId;
+
     /**
      * @var string[]
      */
     public $realServers;
     protected $_name = [
-        'backendPort'      => 'BackendPort',
-        'frontendPort'     => 'FrontendPort',
+        'backendPort' => 'BackendPort',
+        'frontendPort' => 'FrontendPort',
         'frontendProtocol' => 'FrontendProtocol',
-        'instanceId'       => 'InstanceId',
-        'realServers'      => 'RealServers',
+        'instanceId' => 'InstanceId',
+        'realServers' => 'RealServers',
     ];
 
     public function validate()
@@ -66,7 +70,7 @@ class DeletePortRequest extends Model
         if (null !== $this->realServers) {
             if (\is_array($this->realServers)) {
                 $res['RealServers'] = [];
-                $n1                 = 0;
+                $n1 = 0;
                 foreach ($this->realServers as $item1) {
                     $res['RealServers'][$n1++] = $item1;
                 }
@@ -103,7 +107,7 @@ class DeletePortRequest extends Model
         if (isset($map['RealServers'])) {
             if (!empty($map['RealServers'])) {
                 $model->realServers = [];
-                $n1                 = 0;
+                $n1 = 0;
                 foreach ($map['RealServers'] as $item1) {
                     $model->realServers[$n1++] = $item1;
                 }

@@ -15,6 +15,8 @@ use AlibabaCloud\SDK\Ddoscoo\V20200101\Models\AttachSceneDefenseObjectRequest;
 use AlibabaCloud\SDK\Ddoscoo\V20200101\Models\AttachSceneDefenseObjectResponse;
 use AlibabaCloud\SDK\Ddoscoo\V20200101\Models\ConfigDomainSecurityProfileRequest;
 use AlibabaCloud\SDK\Ddoscoo\V20200101\Models\ConfigDomainSecurityProfileResponse;
+use AlibabaCloud\SDK\Ddoscoo\V20200101\Models\ConfigL7GlobalRuleRequest;
+use AlibabaCloud\SDK\Ddoscoo\V20200101\Models\ConfigL7GlobalRuleResponse;
 use AlibabaCloud\SDK\Ddoscoo\V20200101\Models\ConfigL7RsPolicyRequest;
 use AlibabaCloud\SDK\Ddoscoo\V20200101\Models\ConfigL7RsPolicyResponse;
 use AlibabaCloud\SDK\Ddoscoo\V20200101\Models\ConfigL7UsKeepaliveRequest;
@@ -189,6 +191,8 @@ use AlibabaCloud\SDK\Ddoscoo\V20200101\Models\DescribeInstanceStatisticsRequest;
 use AlibabaCloud\SDK\Ddoscoo\V20200101\Models\DescribeInstanceStatisticsResponse;
 use AlibabaCloud\SDK\Ddoscoo\V20200101\Models\DescribeInstanceStatusRequest;
 use AlibabaCloud\SDK\Ddoscoo\V20200101\Models\DescribeInstanceStatusResponse;
+use AlibabaCloud\SDK\Ddoscoo\V20200101\Models\DescribeL7GlobalRuleRequest;
+use AlibabaCloud\SDK\Ddoscoo\V20200101\Models\DescribeL7GlobalRuleResponse;
 use AlibabaCloud\SDK\Ddoscoo\V20200101\Models\DescribeL7RsPolicyRequest;
 use AlibabaCloud\SDK\Ddoscoo\V20200101\Models\DescribeL7RsPolicyResponse;
 use AlibabaCloud\SDK\Ddoscoo\V20200101\Models\DescribeL7UsKeepaliveRequest;
@@ -427,6 +431,7 @@ class Ddoscoo extends OpenApiClient
     /**
      * @param request - AddAutoCcBlacklistRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns AddAutoCcBlacklistResponse
      *
      * @param AddAutoCcBlacklistRequest $request
@@ -454,15 +459,15 @@ class Ddoscoo extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'AddAutoCcBlacklist',
-            'version'     => '2020-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'AddAutoCcBlacklist',
+            'version' => '2020-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return AddAutoCcBlacklistResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -473,6 +478,7 @@ class Ddoscoo extends OpenApiClient
 
     /**
      * @param request - AddAutoCcBlacklistRequest
+     *
      * @returns AddAutoCcBlacklistResponse
      *
      * @param AddAutoCcBlacklistRequest $request
@@ -497,6 +503,7 @@ class Ddoscoo extends OpenApiClient
      *
      * @param request - AddAutoCcWhitelistRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns AddAutoCcWhitelistResponse
      *
      * @param AddAutoCcWhitelistRequest $request
@@ -524,15 +531,15 @@ class Ddoscoo extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'AddAutoCcWhitelist',
-            'version'     => '2020-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'AddAutoCcWhitelist',
+            'version' => '2020-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return AddAutoCcWhitelistResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -551,6 +558,7 @@ class Ddoscoo extends OpenApiClient
      * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
      *
      * @param request - AddAutoCcWhitelistRequest
+     *
      * @returns AddAutoCcWhitelistResponse
      *
      * @param AddAutoCcWhitelistRequest $request
@@ -569,6 +577,7 @@ class Ddoscoo extends OpenApiClient
      *
      * @param request - AssociateWebCertRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns AssociateWebCertResponse
      *
      * @param AssociateWebCertRequest $request
@@ -612,15 +621,15 @@ class Ddoscoo extends OpenApiClient
             'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'AssociateWebCert',
-            'version'     => '2020-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'AssociateWebCert',
+            'version' => '2020-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return AssociateWebCertResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -633,6 +642,7 @@ class Ddoscoo extends OpenApiClient
      * Associates an SSL certificate with the forwarding rule of a website.
      *
      * @param request - AssociateWebCertRequest
+     *
      * @returns AssociateWebCertResponse
      *
      * @param AssociateWebCertRequest $request
@@ -651,6 +661,7 @@ class Ddoscoo extends OpenApiClient
      *
      * @param request - AttachSceneDefenseObjectRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns AttachSceneDefenseObjectResponse
      *
      * @param AttachSceneDefenseObjectRequest $request
@@ -678,15 +689,15 @@ class Ddoscoo extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'AttachSceneDefenseObject',
-            'version'     => '2020-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'AttachSceneDefenseObject',
+            'version' => '2020-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return AttachSceneDefenseObjectResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -699,6 +710,7 @@ class Ddoscoo extends OpenApiClient
      * Adds an object to a scenario-specific custom policy for protection.
      *
      * @param request - AttachSceneDefenseObjectRequest
+     *
      * @returns AttachSceneDefenseObjectResponse
      *
      * @param AttachSceneDefenseObjectRequest $request
@@ -717,6 +729,7 @@ class Ddoscoo extends OpenApiClient
      *
      * @param request - ConfigDomainSecurityProfileRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ConfigDomainSecurityProfileResponse
      *
      * @param ConfigDomainSecurityProfileRequest $request
@@ -744,15 +757,15 @@ class Ddoscoo extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ConfigDomainSecurityProfile',
-            'version'     => '2020-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ConfigDomainSecurityProfile',
+            'version' => '2020-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return ConfigDomainSecurityProfileResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -765,6 +778,7 @@ class Ddoscoo extends OpenApiClient
      * Configures the global mitigation policy feature, including the feature status and settings.
      *
      * @param request - ConfigDomainSecurityProfileRequest
+     *
      * @returns ConfigDomainSecurityProfileResponse
      *
      * @param ConfigDomainSecurityProfileRequest $request
@@ -779,6 +793,70 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
+     * 配置全局模板规则.
+     *
+     * @param request - ConfigL7GlobalRuleRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ConfigL7GlobalRuleResponse
+     *
+     * @param ConfigL7GlobalRuleRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return ConfigL7GlobalRuleResponse
+     */
+    public function configL7GlobalRuleWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->domain) {
+            @$query['Domain'] = $request->domain;
+        }
+
+        if (null !== $request->ruleAttr) {
+            @$query['RuleAttr'] = $request->ruleAttr;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ConfigL7GlobalRule',
+            'version' => '2020-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ConfigL7GlobalRuleResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
+
+        return ConfigL7GlobalRuleResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * 配置全局模板规则.
+     *
+     * @param request - ConfigL7GlobalRuleRequest
+     *
+     * @returns ConfigL7GlobalRuleResponse
+     *
+     * @param ConfigL7GlobalRuleRequest $request
+     *
+     * @return ConfigL7GlobalRuleResponse
+     */
+    public function configL7GlobalRule($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->configL7GlobalRuleWithOptions($request, $runtime);
+    }
+
+    /**
      * Configures a back-to-origin policy for the forwarding rule of a website.
      *
      * @remarks
@@ -786,6 +864,7 @@ class Ddoscoo extends OpenApiClient
      *
      * @param request - ConfigL7RsPolicyRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ConfigL7RsPolicyResponse
      *
      * @param ConfigL7RsPolicyRequest $request
@@ -817,15 +896,15 @@ class Ddoscoo extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ConfigL7RsPolicy',
-            'version'     => '2020-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ConfigL7RsPolicy',
+            'version' => '2020-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return ConfigL7RsPolicyResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -841,6 +920,7 @@ class Ddoscoo extends OpenApiClient
      * If multiple origin servers are configured for a website that is added to Anti-DDoS Pro or Anti-DDoS Premium, you can modify the load balancing algorithms for back-to-origin traffic based on back-to-origin policies. The IP hash algorithm is used by default. You can change the algorithm to the round-robin or least response time algorithm. For more information, see the description of the **Policy** parameter in the "Request parameters" section of this topic.
      *
      * @param request - ConfigL7RsPolicyRequest
+     *
      * @returns ConfigL7RsPolicyResponse
      *
      * @param ConfigL7RsPolicyRequest $request
@@ -859,6 +939,7 @@ class Ddoscoo extends OpenApiClient
      *
      * @param request - ConfigL7UsKeepaliveRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ConfigL7UsKeepaliveResponse
      *
      * @param ConfigL7UsKeepaliveRequest $request
@@ -882,15 +963,15 @@ class Ddoscoo extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ConfigL7UsKeepalive',
-            'version'     => '2020-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ConfigL7UsKeepalive',
+            'version' => '2020-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return ConfigL7UsKeepaliveResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -903,6 +984,7 @@ class Ddoscoo extends OpenApiClient
      * Configures the settings for back-to-origin persistent connections for a domain name.
      *
      * @param request - ConfigL7UsKeepaliveRequest
+     *
      * @returns ConfigL7UsKeepaliveResponse
      *
      * @param ConfigL7UsKeepaliveRequest $request
@@ -921,6 +1003,7 @@ class Ddoscoo extends OpenApiClient
      *
      * @param request - ConfigLayer4RealLimitRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ConfigLayer4RealLimitResponse
      *
      * @param ConfigLayer4RealLimitRequest $request
@@ -944,15 +1027,15 @@ class Ddoscoo extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ConfigLayer4RealLimit',
-            'version'     => '2020-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ConfigLayer4RealLimit',
+            'version' => '2020-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return ConfigLayer4RealLimitResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -965,6 +1048,7 @@ class Ddoscoo extends OpenApiClient
      * Specifies a threshold for the clean bandwidth of an Anti-DDoS Pro or Anti-DDoS premium instance. If the threshold is reached, rate limiting is triggered.
      *
      * @param request - ConfigLayer4RealLimitRequest
+     *
      * @returns ConfigLayer4RealLimitResponse
      *
      * @param ConfigLayer4RealLimitRequest $request
@@ -983,6 +1067,7 @@ class Ddoscoo extends OpenApiClient
      *
      * @param request - ConfigLayer4RemarkRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ConfigLayer4RemarkResponse
      *
      * @param ConfigLayer4RemarkRequest $request
@@ -1002,15 +1087,15 @@ class Ddoscoo extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ConfigLayer4Remark',
-            'version'     => '2020-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ConfigLayer4Remark',
+            'version' => '2020-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return ConfigLayer4RemarkResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -1023,6 +1108,7 @@ class Ddoscoo extends OpenApiClient
      * Adds a description to a port forwarding rule.
      *
      * @param request - ConfigLayer4RemarkRequest
+     *
      * @returns ConfigLayer4RemarkResponse
      *
      * @param ConfigLayer4RemarkRequest $request
@@ -1041,6 +1127,7 @@ class Ddoscoo extends OpenApiClient
      *
      * @param request - ConfigLayer4RuleBakModeRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ConfigLayer4RuleBakModeResponse
      *
      * @param ConfigLayer4RuleBakModeRequest $request
@@ -1064,15 +1151,15 @@ class Ddoscoo extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ConfigLayer4RuleBakMode',
-            'version'     => '2020-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ConfigLayer4RuleBakMode',
+            'version' => '2020-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return ConfigLayer4RuleBakModeResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -1085,6 +1172,7 @@ class Ddoscoo extends OpenApiClient
      * Enables or disables the origin redundancy mode for a port forwarding rule.
      *
      * @param request - ConfigLayer4RuleBakModeRequest
+     *
      * @returns ConfigLayer4RuleBakModeResponse
      *
      * @param ConfigLayer4RuleBakModeRequest $request
@@ -1103,6 +1191,7 @@ class Ddoscoo extends OpenApiClient
      *
      * @param request - ConfigLayer4RulePolicyRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ConfigLayer4RulePolicyResponse
      *
      * @param ConfigLayer4RulePolicyRequest $request
@@ -1122,15 +1211,15 @@ class Ddoscoo extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ConfigLayer4RulePolicy',
-            'version'     => '2020-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ConfigLayer4RulePolicy',
+            'version' => '2020-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return ConfigLayer4RulePolicyResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -1143,6 +1232,7 @@ class Ddoscoo extends OpenApiClient
      * Configures the IP addresses of the primary and secondary origin servers for a port forwarding rule.
      *
      * @param request - ConfigLayer4RulePolicyRequest
+     *
      * @returns ConfigLayer4RulePolicyResponse
      *
      * @param ConfigLayer4RulePolicyRequest $request
@@ -1161,6 +1251,7 @@ class Ddoscoo extends OpenApiClient
      *
      * @param request - ConfigNetworkRegionBlockRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ConfigNetworkRegionBlockResponse
      *
      * @param ConfigNetworkRegionBlockRequest $request
@@ -1184,15 +1275,15 @@ class Ddoscoo extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ConfigNetworkRegionBlock',
-            'version'     => '2020-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ConfigNetworkRegionBlock',
+            'version' => '2020-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return ConfigNetworkRegionBlockResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -1205,6 +1296,7 @@ class Ddoscoo extends OpenApiClient
      * Configures blocked locations for an Anti-DDoS Proxy instance.
      *
      * @param request - ConfigNetworkRegionBlockRequest
+     *
      * @returns ConfigNetworkRegionBlockResponse
      *
      * @param ConfigNetworkRegionBlockRequest $request
@@ -1223,6 +1315,7 @@ class Ddoscoo extends OpenApiClient
      *
      * @param request - ConfigNetworkRulesRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ConfigNetworkRulesResponse
      *
      * @param ConfigNetworkRulesRequest $request
@@ -1242,15 +1335,15 @@ class Ddoscoo extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ConfigNetworkRules',
-            'version'     => '2020-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ConfigNetworkRules',
+            'version' => '2020-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return ConfigNetworkRulesResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -1263,6 +1356,7 @@ class Ddoscoo extends OpenApiClient
      * Modifies the IP addresses of the origin server that is configured in a port forwarding rule.
      *
      * @param request - ConfigNetworkRulesRequest
+     *
      * @returns ConfigNetworkRulesResponse
      *
      * @param ConfigNetworkRulesRequest $request
@@ -1286,6 +1380,7 @@ class Ddoscoo extends OpenApiClient
      *
      * @param request - ConfigUdpReflectRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ConfigUdpReflectResponse
      *
      * @param ConfigUdpReflectRequest $request
@@ -1313,15 +1408,15 @@ class Ddoscoo extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ConfigUdpReflect',
-            'version'     => '2020-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ConfigUdpReflect',
+            'version' => '2020-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return ConfigUdpReflectResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -1339,6 +1434,7 @@ class Ddoscoo extends OpenApiClient
      * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
      *
      * @param request - ConfigUdpReflectRequest
+     *
      * @returns ConfigUdpReflectResponse
      *
      * @param ConfigUdpReflectRequest $request
@@ -1357,6 +1453,7 @@ class Ddoscoo extends OpenApiClient
      *
      * @param request - ConfigWebCCRuleV2Request
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ConfigWebCCRuleV2Response
      *
      * @param ConfigWebCCRuleV2Request $request
@@ -1384,15 +1481,15 @@ class Ddoscoo extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ConfigWebCCRuleV2',
-            'version'     => '2020-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ConfigWebCCRuleV2',
+            'version' => '2020-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return ConfigWebCCRuleV2Response::fromMap($this->callApi($params, $req, $runtime));
@@ -1405,6 +1502,7 @@ class Ddoscoo extends OpenApiClient
      * 配置新版基于匹配条件的cc规则.
      *
      * @param request - ConfigWebCCRuleV2Request
+     *
      * @returns ConfigWebCCRuleV2Response
      *
      * @param ConfigWebCCRuleV2Request $request
@@ -1423,6 +1521,7 @@ class Ddoscoo extends OpenApiClient
      *
      * @param request - ConfigWebCCTemplateRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ConfigWebCCTemplateResponse
      *
      * @param ConfigWebCCTemplateRequest $request
@@ -1450,15 +1549,15 @@ class Ddoscoo extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ConfigWebCCTemplate',
-            'version'     => '2020-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ConfigWebCCTemplate',
+            'version' => '2020-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return ConfigWebCCTemplateResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -1471,6 +1570,7 @@ class Ddoscoo extends OpenApiClient
      * Configures the mode of the Frequency Control policy for a website.
      *
      * @param request - ConfigWebCCTemplateRequest
+     *
      * @returns ConfigWebCCTemplateResponse
      *
      * @param ConfigWebCCTemplateRequest $request
@@ -1489,6 +1589,7 @@ class Ddoscoo extends OpenApiClient
      *
      * @param request - ConfigWebIpSetRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ConfigWebIpSetResponse
      *
      * @param ConfigWebIpSetRequest $request
@@ -1520,15 +1621,15 @@ class Ddoscoo extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ConfigWebIpSet',
-            'version'     => '2020-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ConfigWebIpSet',
+            'version' => '2020-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return ConfigWebIpSetResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -1541,6 +1642,7 @@ class Ddoscoo extends OpenApiClient
      * Configures the IP address whitelist and blacklist for a website.
      *
      * @param request - ConfigWebIpSetRequest
+     *
      * @returns ConfigWebIpSetResponse
      *
      * @param ConfigWebIpSetRequest $request
@@ -1559,6 +1661,7 @@ class Ddoscoo extends OpenApiClient
      *
      * @param request - CreateAsyncTaskRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns CreateAsyncTaskResponse
      *
      * @param CreateAsyncTaskRequest $request
@@ -1586,15 +1689,15 @@ class Ddoscoo extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'CreateAsyncTask',
-            'version'     => '2020-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CreateAsyncTask',
+            'version' => '2020-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return CreateAsyncTaskResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -1607,6 +1710,7 @@ class Ddoscoo extends OpenApiClient
      * Creates an asynchronous export task to export forwarding rules for websites, port forwarding rules, session persistence and health check settings, DDoS mitigation policies, the IP address blacklist, or the IP address whitelist.
      *
      * @param request - CreateAsyncTaskRequest
+     *
      * @returns CreateAsyncTaskResponse
      *
      * @param CreateAsyncTaskRequest $request
@@ -1625,6 +1729,7 @@ class Ddoscoo extends OpenApiClient
      *
      * @param request - CreateDomainResourceRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns CreateDomainResourceResponse
      *
      * @param CreateDomainResourceRequest $request
@@ -1664,15 +1769,15 @@ class Ddoscoo extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'CreateDomainResource',
-            'version'     => '2020-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CreateDomainResource',
+            'version' => '2020-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return CreateDomainResourceResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -1685,6 +1790,7 @@ class Ddoscoo extends OpenApiClient
      * Creates a forwarding rule for a website.
      *
      * @param request - CreateDomainResourceRequest
+     *
      * @returns CreateDomainResourceResponse
      *
      * @param CreateDomainResourceRequest $request
@@ -1703,6 +1809,7 @@ class Ddoscoo extends OpenApiClient
      *
      * @param request - CreateNetworkRulesRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns CreateNetworkRulesResponse
      *
      * @param CreateNetworkRulesRequest $request
@@ -1722,15 +1829,15 @@ class Ddoscoo extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'CreateNetworkRules',
-            'version'     => '2020-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CreateNetworkRules',
+            'version' => '2020-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return CreateNetworkRulesResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -1743,6 +1850,7 @@ class Ddoscoo extends OpenApiClient
      * Creates a port forwarding rule.
      *
      * @param request - CreateNetworkRulesRequest
+     *
      * @returns CreateNetworkRulesResponse
      *
      * @param CreateNetworkRulesRequest $request
@@ -1764,6 +1872,7 @@ class Ddoscoo extends OpenApiClient
      *
      * @param request - CreatePortRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns CreatePortResponse
      *
      * @param CreatePortRequest $request
@@ -1803,15 +1912,15 @@ class Ddoscoo extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'CreatePort',
-            'version'     => '2020-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CreatePort',
+            'version' => '2020-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return CreatePortResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -1827,6 +1936,7 @@ class Ddoscoo extends OpenApiClient
      * You can call this operation by using Terraform. For more information about Terraform, see [What is Terraform?](https://help.aliyun.com/document_detail/95820.html).
      *
      * @param request - CreatePortRequest
+     *
      * @returns CreatePortResponse
      *
      * @param CreatePortRequest $request
@@ -1845,6 +1955,7 @@ class Ddoscoo extends OpenApiClient
      *
      * @param request - CreateSceneDefensePolicyRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns CreateSceneDefensePolicyResponse
      *
      * @param CreateSceneDefensePolicyRequest $request
@@ -1876,15 +1987,15 @@ class Ddoscoo extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'CreateSceneDefensePolicy',
-            'version'     => '2020-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CreateSceneDefensePolicy',
+            'version' => '2020-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return CreateSceneDefensePolicyResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -1897,6 +2008,7 @@ class Ddoscoo extends OpenApiClient
      * Creates a scenario-specific custom policy.
      *
      * @param request - CreateSceneDefensePolicyRequest
+     *
      * @returns CreateSceneDefensePolicyResponse
      *
      * @param CreateSceneDefensePolicyRequest $request
@@ -1915,6 +2027,7 @@ class Ddoscoo extends OpenApiClient
      *
      * @param request - CreateSchedulerRuleRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns CreateSchedulerRuleResponse
      *
      * @param CreateSchedulerRuleRequest $request
@@ -1950,15 +2063,15 @@ class Ddoscoo extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'CreateSchedulerRule',
-            'version'     => '2020-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CreateSchedulerRule',
+            'version' => '2020-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return CreateSchedulerRuleResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -1971,6 +2084,7 @@ class Ddoscoo extends OpenApiClient
      * Creates a scheduling rule for Sec-Traffic Manager.
      *
      * @param request - CreateSchedulerRuleRequest
+     *
      * @returns CreateSchedulerRuleResponse
      *
      * @param CreateSchedulerRuleRequest $request
@@ -1994,6 +2108,7 @@ class Ddoscoo extends OpenApiClient
      *
      * @param request - CreateTagResourcesRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns CreateTagResourcesResponse
      *
      * @param CreateTagResourcesRequest $request
@@ -2029,15 +2144,15 @@ class Ddoscoo extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'CreateTagResources',
-            'version'     => '2020-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CreateTagResources',
+            'version' => '2020-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return CreateTagResourcesResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -2055,6 +2170,7 @@ class Ddoscoo extends OpenApiClient
      * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
      *
      * @param request - CreateTagResourcesRequest
+     *
      * @returns CreateTagResourcesResponse
      *
      * @param CreateTagResourcesRequest $request
@@ -2069,7 +2185,6 @@ class Ddoscoo extends OpenApiClient
     }
 
     // Deprecated
-
     /**
      * Creates a custom frequency control rule for a website.
      *
@@ -2077,6 +2192,7 @@ class Ddoscoo extends OpenApiClient
      *
      * @param request - CreateWebCCRuleRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns CreateWebCCRuleResponse
      *
      * @param CreateWebCCRuleRequest $request
@@ -2128,15 +2244,15 @@ class Ddoscoo extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'CreateWebCCRule',
-            'version'     => '2020-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CreateWebCCRule',
+            'version' => '2020-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return CreateWebCCRuleResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -2146,13 +2262,13 @@ class Ddoscoo extends OpenApiClient
     }
 
     // Deprecated
-
     /**
      * Creates a custom frequency control rule for a website.
      *
      * @deprecated openAPI CreateWebCCRule is deprecated, please use ddoscoo::2020-01-01::ConfigWebCCRuleV2 instead
      *
      * @param request - CreateWebCCRuleRequest
+     *
      * @returns CreateWebCCRuleResponse
      *
      * @param CreateWebCCRuleRequest $request
@@ -2171,6 +2287,7 @@ class Ddoscoo extends OpenApiClient
      *
      * @param request - CreateWebRuleRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns CreateWebRuleResponse
      *
      * @param CreateWebRuleRequest $request
@@ -2214,15 +2331,15 @@ class Ddoscoo extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'CreateWebRule',
-            'version'     => '2020-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CreateWebRule',
+            'version' => '2020-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return CreateWebRuleResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -2235,6 +2352,7 @@ class Ddoscoo extends OpenApiClient
      * Creates a forwarding rule for a website.
      *
      * @param request - CreateWebRuleRequest
+     *
      * @returns CreateWebRuleResponse
      *
      * @param CreateWebRuleRequest $request
@@ -2253,6 +2371,7 @@ class Ddoscoo extends OpenApiClient
      *
      * @param request - DeleteAsyncTaskRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DeleteAsyncTaskResponse
      *
      * @param DeleteAsyncTaskRequest $request
@@ -2276,15 +2395,15 @@ class Ddoscoo extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DeleteAsyncTask',
-            'version'     => '2020-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DeleteAsyncTask',
+            'version' => '2020-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DeleteAsyncTaskResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -2297,6 +2416,7 @@ class Ddoscoo extends OpenApiClient
      * Deletes an asynchronous export task.
      *
      * @param request - DeleteAsyncTaskRequest
+     *
      * @returns DeleteAsyncTaskResponse
      *
      * @param DeleteAsyncTaskRequest $request
@@ -2315,6 +2435,7 @@ class Ddoscoo extends OpenApiClient
      *
      * @param request - DeleteAutoCcBlacklistRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DeleteAutoCcBlacklistResponse
      *
      * @param DeleteAutoCcBlacklistRequest $request
@@ -2342,15 +2463,15 @@ class Ddoscoo extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DeleteAutoCcBlacklist',
-            'version'     => '2020-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DeleteAutoCcBlacklist',
+            'version' => '2020-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DeleteAutoCcBlacklistResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -2363,6 +2484,7 @@ class Ddoscoo extends OpenApiClient
      * Removes IP addresses from the IP address blacklist of an Anti-DDoS Pro or Anti-DDoS Premium instance.
      *
      * @param request - DeleteAutoCcBlacklistRequest
+     *
      * @returns DeleteAutoCcBlacklistResponse
      *
      * @param DeleteAutoCcBlacklistRequest $request
@@ -2377,10 +2499,11 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * Removes IP addresses from the IP address whitelist of an Anti-DDoS Pro or Anti-DDoS Premium instance.
+     * Removes IP addresses from the IP address whitelist of an Anti-DDoS Proxy instance.
      *
      * @param request - DeleteAutoCcWhitelistRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DeleteAutoCcWhitelistResponse
      *
      * @param DeleteAutoCcWhitelistRequest $request
@@ -2404,15 +2527,15 @@ class Ddoscoo extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DeleteAutoCcWhitelist',
-            'version'     => '2020-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DeleteAutoCcWhitelist',
+            'version' => '2020-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DeleteAutoCcWhitelistResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -2422,9 +2545,10 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * Removes IP addresses from the IP address whitelist of an Anti-DDoS Pro or Anti-DDoS Premium instance.
+     * Removes IP addresses from the IP address whitelist of an Anti-DDoS Proxy instance.
      *
      * @param request - DeleteAutoCcWhitelistRequest
+     *
      * @returns DeleteAutoCcWhitelistResponse
      *
      * @param DeleteAutoCcWhitelistRequest $request
@@ -2443,6 +2567,7 @@ class Ddoscoo extends OpenApiClient
      *
      * @param request - DeleteDomainResourceRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DeleteDomainResourceResponse
      *
      * @param DeleteDomainResourceRequest $request
@@ -2462,15 +2587,15 @@ class Ddoscoo extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DeleteDomainResource',
-            'version'     => '2020-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DeleteDomainResource',
+            'version' => '2020-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DeleteDomainResourceResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -2483,6 +2608,7 @@ class Ddoscoo extends OpenApiClient
      * Deletes a specified forwarding rule of a website.
      *
      * @param request - DeleteDomainResourceRequest
+     *
      * @returns DeleteDomainResourceResponse
      *
      * @param DeleteDomainResourceRequest $request
@@ -2501,6 +2627,7 @@ class Ddoscoo extends OpenApiClient
      *
      * @param request - DeleteNetworkRuleRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DeleteNetworkRuleResponse
      *
      * @param DeleteNetworkRuleRequest $request
@@ -2520,15 +2647,15 @@ class Ddoscoo extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DeleteNetworkRule',
-            'version'     => '2020-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DeleteNetworkRule',
+            'version' => '2020-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DeleteNetworkRuleResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -2541,6 +2668,7 @@ class Ddoscoo extends OpenApiClient
      * Deletes a port forwarding rule. You can delete only one port forwarding rule at a time.
      *
      * @param request - DeleteNetworkRuleRequest
+     *
      * @returns DeleteNetworkRuleResponse
      *
      * @param DeleteNetworkRuleRequest $request
@@ -2563,6 +2691,7 @@ class Ddoscoo extends OpenApiClient
      *
      * @param request - DeletePortRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DeletePortResponse
      *
      * @param DeletePortRequest $request
@@ -2598,15 +2727,15 @@ class Ddoscoo extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DeletePort',
-            'version'     => '2020-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DeletePort',
+            'version' => '2020-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DeletePortResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -2623,6 +2752,7 @@ class Ddoscoo extends OpenApiClient
      * > You can call this operation by using Terraform. For more information about Terraform, see [What is Terraform?](https://help.aliyun.com/document_detail/95820.html).
      *
      * @param request - DeletePortRequest
+     *
      * @returns DeletePortResponse
      *
      * @param DeletePortRequest $request
@@ -2641,6 +2771,7 @@ class Ddoscoo extends OpenApiClient
      *
      * @param request - DeleteSceneDefensePolicyRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DeleteSceneDefensePolicyResponse
      *
      * @param DeleteSceneDefensePolicyRequest $request
@@ -2660,15 +2791,15 @@ class Ddoscoo extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DeleteSceneDefensePolicy',
-            'version'     => '2020-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DeleteSceneDefensePolicy',
+            'version' => '2020-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DeleteSceneDefensePolicyResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -2681,6 +2812,7 @@ class Ddoscoo extends OpenApiClient
      * Deletes a scenario-specific custom policy.
      *
      * @param request - DeleteSceneDefensePolicyRequest
+     *
      * @returns DeleteSceneDefensePolicyResponse
      *
      * @param DeleteSceneDefensePolicyRequest $request
@@ -2699,6 +2831,7 @@ class Ddoscoo extends OpenApiClient
      *
      * @param request - DeleteSchedulerRuleRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DeleteSchedulerRuleResponse
      *
      * @param DeleteSchedulerRuleRequest $request
@@ -2722,15 +2855,15 @@ class Ddoscoo extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DeleteSchedulerRule',
-            'version'     => '2020-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DeleteSchedulerRule',
+            'version' => '2020-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DeleteSchedulerRuleResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -2743,6 +2876,7 @@ class Ddoscoo extends OpenApiClient
      * Deletes a scheduling rule of Sec-Traffic Manager.
      *
      * @param request - DeleteSchedulerRuleRequest
+     *
      * @returns DeleteSchedulerRuleResponse
      *
      * @param DeleteSchedulerRuleRequest $request
@@ -2767,6 +2901,7 @@ class Ddoscoo extends OpenApiClient
      *
      * @param request - DeleteTagResourcesRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DeleteTagResourcesResponse
      *
      * @param DeleteTagResourcesRequest $request
@@ -2806,15 +2941,15 @@ class Ddoscoo extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DeleteTagResources',
-            'version'     => '2020-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DeleteTagResources',
+            'version' => '2020-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DeleteTagResourcesResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -2833,6 +2968,7 @@ class Ddoscoo extends OpenApiClient
      * You can call this operation up to 10 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
      *
      * @param request - DeleteTagResourcesRequest
+     *
      * @returns DeleteTagResourcesResponse
      *
      * @param DeleteTagResourcesRequest $request
@@ -2847,7 +2983,6 @@ class Ddoscoo extends OpenApiClient
     }
 
     // Deprecated
-
     /**
      * Deletes a custom frequency control rule of a website.
      *
@@ -2855,6 +2990,7 @@ class Ddoscoo extends OpenApiClient
      *
      * @param request - DeleteWebCCRuleRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DeleteWebCCRuleResponse
      *
      * @param DeleteWebCCRuleRequest $request
@@ -2882,15 +3018,15 @@ class Ddoscoo extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DeleteWebCCRule',
-            'version'     => '2020-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DeleteWebCCRule',
+            'version' => '2020-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DeleteWebCCRuleResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -2900,13 +3036,13 @@ class Ddoscoo extends OpenApiClient
     }
 
     // Deprecated
-
     /**
      * Deletes a custom frequency control rule of a website.
      *
      * @deprecated openAPI DeleteWebCCRule is deprecated, please use ddoscoo::2020-01-01::DeleteWebCCRuleV2 instead
      *
      * @param request - DeleteWebCCRuleRequest
+     *
      * @returns DeleteWebCCRuleResponse
      *
      * @param DeleteWebCCRuleRequest $request
@@ -2925,6 +3061,7 @@ class Ddoscoo extends OpenApiClient
      *
      * @param request - DeleteWebCCRuleV2Request
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DeleteWebCCRuleV2Response
      *
      * @param DeleteWebCCRuleV2Request $request
@@ -2952,15 +3089,15 @@ class Ddoscoo extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DeleteWebCCRuleV2',
-            'version'     => '2020-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DeleteWebCCRuleV2',
+            'version' => '2020-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DeleteWebCCRuleV2Response::fromMap($this->callApi($params, $req, $runtime));
@@ -2973,6 +3110,7 @@ class Ddoscoo extends OpenApiClient
      * Deletes custom frequency control rules of a website.
      *
      * @param request - DeleteWebCCRuleV2Request
+     *
      * @returns DeleteWebCCRuleV2Response
      *
      * @param DeleteWebCCRuleV2Request $request
@@ -2996,6 +3134,7 @@ class Ddoscoo extends OpenApiClient
      *
      * @param request - DeleteWebCacheCustomRuleRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DeleteWebCacheCustomRuleResponse
      *
      * @param DeleteWebCacheCustomRuleRequest $request
@@ -3023,15 +3162,15 @@ class Ddoscoo extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DeleteWebCacheCustomRule',
-            'version'     => '2020-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DeleteWebCacheCustomRule',
+            'version' => '2020-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DeleteWebCacheCustomRuleResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -3049,6 +3188,7 @@ class Ddoscoo extends OpenApiClient
      * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
      *
      * @param request - DeleteWebCacheCustomRuleRequest
+     *
      * @returns DeleteWebCacheCustomRuleResponse
      *
      * @param DeleteWebCacheCustomRuleRequest $request
@@ -3067,6 +3207,7 @@ class Ddoscoo extends OpenApiClient
      *
      * @param request - DeleteWebPreciseAccessRuleRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DeleteWebPreciseAccessRuleResponse
      *
      * @param DeleteWebPreciseAccessRuleRequest $request
@@ -3094,15 +3235,15 @@ class Ddoscoo extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DeleteWebPreciseAccessRule',
-            'version'     => '2020-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DeleteWebPreciseAccessRule',
+            'version' => '2020-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DeleteWebPreciseAccessRuleResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -3115,6 +3256,7 @@ class Ddoscoo extends OpenApiClient
      * Deletes the accurate access control rules that are created for a website.
      *
      * @param request - DeleteWebPreciseAccessRuleRequest
+     *
      * @returns DeleteWebPreciseAccessRuleResponse
      *
      * @param DeleteWebPreciseAccessRuleRequest $request
@@ -3133,6 +3275,7 @@ class Ddoscoo extends OpenApiClient
      *
      * @param request - DeleteWebRuleRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DeleteWebRuleResponse
      *
      * @param DeleteWebRuleRequest $request
@@ -3156,15 +3299,15 @@ class Ddoscoo extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DeleteWebRule',
-            'version'     => '2020-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DeleteWebRule',
+            'version' => '2020-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DeleteWebRuleResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -3177,6 +3320,7 @@ class Ddoscoo extends OpenApiClient
      * Deletes a forwarding rule of a website.
      *
      * @param request - DeleteWebRuleRequest
+     *
      * @returns DeleteWebRuleResponse
      *
      * @param DeleteWebRuleRequest $request
@@ -3200,6 +3344,7 @@ class Ddoscoo extends OpenApiClient
      *
      * @param request - DescribeAsyncTasksRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribeAsyncTasksResponse
      *
      * @param DescribeAsyncTasksRequest $request
@@ -3227,15 +3372,15 @@ class Ddoscoo extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeAsyncTasks',
-            'version'     => '2020-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeAsyncTasks',
+            'version' => '2020-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DescribeAsyncTasksResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -3253,6 +3398,7 @@ class Ddoscoo extends OpenApiClient
      * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
      *
      * @param request - DescribeAsyncTasksRequest
+     *
      * @returns DescribeAsyncTasksResponse
      *
      * @param DescribeAsyncTasksRequest $request
@@ -3271,6 +3417,7 @@ class Ddoscoo extends OpenApiClient
      *
      * @param request - DescribeAttackAnalysisMaxQpsRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribeAttackAnalysisMaxQpsResponse
      *
      * @param DescribeAttackAnalysisMaxQpsRequest $request
@@ -3294,15 +3441,15 @@ class Ddoscoo extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeAttackAnalysisMaxQps',
-            'version'     => '2020-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeAttackAnalysisMaxQps',
+            'version' => '2020-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DescribeAttackAnalysisMaxQpsResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -3315,6 +3462,7 @@ class Ddoscoo extends OpenApiClient
      * Queries the peak QPS of DDoS attacks within the specific period of time.
      *
      * @param request - DescribeAttackAnalysisMaxQpsRequest
+     *
      * @returns DescribeAttackAnalysisMaxQpsResponse
      *
      * @param DescribeAttackAnalysisMaxQpsRequest $request
@@ -3333,6 +3481,7 @@ class Ddoscoo extends OpenApiClient
      *
      * @param request - DescribeAutoCcBlacklistRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribeAutoCcBlacklistResponse
      *
      * @param DescribeAutoCcBlacklistRequest $request
@@ -3368,15 +3517,15 @@ class Ddoscoo extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeAutoCcBlacklist',
-            'version'     => '2020-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeAutoCcBlacklist',
+            'version' => '2020-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DescribeAutoCcBlacklistResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -3389,6 +3538,7 @@ class Ddoscoo extends OpenApiClient
      * Queries IP addresses in the IP address blacklist of an Anti-DDoS Pro or Anti-DDoS Premium instance.
      *
      * @param request - DescribeAutoCcBlacklistRequest
+     *
      * @returns DescribeAutoCcBlacklistResponse
      *
      * @param DescribeAutoCcBlacklistRequest $request
@@ -3403,10 +3553,11 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * Queries the numbers of IP addresses in the IP address whitelist and IP address blacklist of an Anti-DDoS Pro or Anti-DDoS Premium instance.
+     * Queries the numbers of IP addresses in the IP address whitelist and IP address blacklist of an Anti-DDoS Proxy instance.
      *
      * @param request - DescribeAutoCcListCountRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribeAutoCcListCountResponse
      *
      * @param DescribeAutoCcListCountRequest $request
@@ -3430,15 +3581,15 @@ class Ddoscoo extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeAutoCcListCount',
-            'version'     => '2020-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeAutoCcListCount',
+            'version' => '2020-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DescribeAutoCcListCountResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -3448,9 +3599,10 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * Queries the numbers of IP addresses in the IP address whitelist and IP address blacklist of an Anti-DDoS Pro or Anti-DDoS Premium instance.
+     * Queries the numbers of IP addresses in the IP address whitelist and IP address blacklist of an Anti-DDoS Proxy instance.
      *
      * @param request - DescribeAutoCcListCountRequest
+     *
      * @returns DescribeAutoCcListCountResponse
      *
      * @param DescribeAutoCcListCountRequest $request
@@ -3465,10 +3617,11 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * Queries IP addresses in the IP address whitelist of an Anti-DDoS Pro or Anti-DDoS Premium instance.
+     * Queries IP addresses in the IP address whitelist of an Anti-DDoS Proxy instance.
      *
      * @param request - DescribeAutoCcWhitelistRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribeAutoCcWhitelistResponse
      *
      * @param DescribeAutoCcWhitelistRequest $request
@@ -3500,15 +3653,15 @@ class Ddoscoo extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeAutoCcWhitelist',
-            'version'     => '2020-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeAutoCcWhitelist',
+            'version' => '2020-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DescribeAutoCcWhitelistResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -3518,9 +3671,10 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * Queries IP addresses in the IP address whitelist of an Anti-DDoS Pro or Anti-DDoS Premium instance.
+     * Queries IP addresses in the IP address whitelist of an Anti-DDoS Proxy instance.
      *
      * @param request - DescribeAutoCcWhitelistRequest
+     *
      * @returns DescribeAutoCcWhitelistResponse
      *
      * @param DescribeAutoCcWhitelistRequest $request
@@ -3539,6 +3693,7 @@ class Ddoscoo extends OpenApiClient
      *
      * @param request - DescribeBackSourceCidrRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribeBackSourceCidrResponse
      *
      * @param DescribeBackSourceCidrRequest $request
@@ -3566,15 +3721,15 @@ class Ddoscoo extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeBackSourceCidr',
-            'version'     => '2020-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeBackSourceCidr',
+            'version' => '2020-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DescribeBackSourceCidrResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -3587,6 +3742,7 @@ class Ddoscoo extends OpenApiClient
      * Queries the back-to-origin CIDR blocks of Anti-DDoS Proxy.
      *
      * @param request - DescribeBackSourceCidrRequest
+     *
      * @returns DescribeBackSourceCidrResponse
      *
      * @param DescribeBackSourceCidrRequest $request
@@ -3605,6 +3761,7 @@ class Ddoscoo extends OpenApiClient
      *
      * @param request - DescribeBlackholeStatusRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribeBlackholeStatusResponse
      *
      * @param DescribeBlackholeStatusRequest $request
@@ -3624,15 +3781,15 @@ class Ddoscoo extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeBlackholeStatus',
-            'version'     => '2020-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeBlackholeStatus',
+            'version' => '2020-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DescribeBlackholeStatusResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -3645,6 +3802,7 @@ class Ddoscoo extends OpenApiClient
      * Queries the blackhole filtering status of one or more Anti-DDoS Pro or Anti-DDoS Premium instances.
      *
      * @param request - DescribeBlackholeStatusRequest
+     *
      * @returns DescribeBlackholeStatusResponse
      *
      * @param DescribeBlackholeStatusRequest $request
@@ -3669,6 +3827,7 @@ class Ddoscoo extends OpenApiClient
      *
      * @param request - DescribeBlockStatusRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribeBlockStatusResponse
      *
      * @param DescribeBlockStatusRequest $request
@@ -3692,15 +3851,15 @@ class Ddoscoo extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeBlockStatus',
-            'version'     => '2020-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeBlockStatus',
+            'version' => '2020-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DescribeBlockStatusResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -3719,6 +3878,7 @@ class Ddoscoo extends OpenApiClient
      * You can call this operation up to 10 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
      *
      * @param request - DescribeBlockStatusRequest
+     *
      * @returns DescribeBlockStatusResponse
      *
      * @param DescribeBlockStatusRequest $request
@@ -3733,10 +3893,15 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * Queries information about all certificates that can be associated with the current domain name instead of the certificate currently in use. To query the information about the certificate that is currently in use, you can call the DescribeWebRules operation and view the values of the CertName and CertRegion response parameters.
+     * Queries information about all certificates that can be associated with the current domain name instead of the certificate currently in use.
+     *
+     * @remarks
+     * This operation is used to query all applicable certificates of a domain name that you want to add to Anti-DDoS Proxy. Multiple certificates may be queried for a domain name. You can use an exact domain name to query exact-domain certificates or wildcard-domain certificates.
+     * >  If you want to query the certificate that is in use for the current domain name, you can call the [DescribeWebRules](https://help.aliyun.com/document_detail/473610.html) operation to obtain the values of the CertName and CertRegion parameters. Then, you can call the [ListUserCertificateOrder](https://help.aliyun.com/document_detail/411733.html) operation of Certificate Management Service to query the ID and other details of the certificate by using the value of the CertName parameter.
      *
      * @param request - DescribeCertsRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribeCertsResponse
      *
      * @param DescribeCertsRequest $request
@@ -3760,15 +3925,15 @@ class Ddoscoo extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeCerts',
-            'version'     => '2020-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeCerts',
+            'version' => '2020-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DescribeCertsResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -3778,9 +3943,14 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * Queries information about all certificates that can be associated with the current domain name instead of the certificate currently in use. To query the information about the certificate that is currently in use, you can call the DescribeWebRules operation and view the values of the CertName and CertRegion response parameters.
+     * Queries information about all certificates that can be associated with the current domain name instead of the certificate currently in use.
+     *
+     * @remarks
+     * This operation is used to query all applicable certificates of a domain name that you want to add to Anti-DDoS Proxy. Multiple certificates may be queried for a domain name. You can use an exact domain name to query exact-domain certificates or wildcard-domain certificates.
+     * >  If you want to query the certificate that is in use for the current domain name, you can call the [DescribeWebRules](https://help.aliyun.com/document_detail/473610.html) operation to obtain the values of the CertName and CertRegion parameters. Then, you can call the [ListUserCertificateOrder](https://help.aliyun.com/document_detail/411733.html) operation of Certificate Management Service to query the ID and other details of the certificate by using the value of the CertName parameter.
      *
      * @param request - DescribeCertsRequest
+     *
      * @returns DescribeCertsResponse
      *
      * @param DescribeCertsRequest $request
@@ -3797,6 +3967,7 @@ class Ddoscoo extends OpenApiClient
     /**
      * @param request - DescribeCnameReusesRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribeCnameReusesResponse
      *
      * @param DescribeCnameReusesRequest $request
@@ -3820,15 +3991,15 @@ class Ddoscoo extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeCnameReuses',
-            'version'     => '2020-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeCnameReuses',
+            'version' => '2020-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DescribeCnameReusesResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -3839,6 +4010,7 @@ class Ddoscoo extends OpenApiClient
 
     /**
      * @param request - DescribeCnameReusesRequest
+     *
      * @returns DescribeCnameReusesResponse
      *
      * @param DescribeCnameReusesRequest $request
@@ -3857,6 +4029,7 @@ class Ddoscoo extends OpenApiClient
      *
      * @param request - DescribeDDoSEventsRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribeDDoSEventsResponse
      *
      * @param DescribeDDoSEventsRequest $request
@@ -3896,15 +4069,15 @@ class Ddoscoo extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeDDoSEvents',
-            'version'     => '2020-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeDDoSEvents',
+            'version' => '2020-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DescribeDDoSEventsResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -3917,6 +4090,7 @@ class Ddoscoo extends OpenApiClient
      * Queries the attack events launched against one or more Anti-DDoS Proxy instances.
      *
      * @param request - DescribeDDoSEventsRequest
+     *
      * @returns DescribeDDoSEventsResponse
      *
      * @param DescribeDDoSEventsRequest $request
@@ -3931,7 +4105,7 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * Query DDoS attacks by IP address.
+     * Queries DDoS attack events.
      *
      * @remarks
      * You can call the DescribeDDosAllEventList operation to query DDoS attack events within a specific time range by page. The information about a DDoS attack event includes the start time and end time of the attack, attack event type, attacked object, peak bandwidth of attack traffic, and peak packet forwarding rate.
@@ -3940,6 +4114,7 @@ class Ddoscoo extends OpenApiClient
      *
      * @param request - DescribeDDosAllEventListRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribeDDosAllEventListResponse
      *
      * @param DescribeDDosAllEventListRequest $request
@@ -3975,15 +4150,15 @@ class Ddoscoo extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeDDosAllEventList',
-            'version'     => '2020-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeDDosAllEventList',
+            'version' => '2020-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DescribeDDosAllEventListResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -3993,7 +4168,7 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * Query DDoS attacks by IP address.
+     * Queries DDoS attack events.
      *
      * @remarks
      * You can call the DescribeDDosAllEventList operation to query DDoS attack events within a specific time range by page. The information about a DDoS attack event includes the start time and end time of the attack, attack event type, attacked object, peak bandwidth of attack traffic, and peak packet forwarding rate.
@@ -4001,6 +4176,7 @@ class Ddoscoo extends OpenApiClient
      * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
      *
      * @param request - DescribeDDosAllEventListRequest
+     *
      * @returns DescribeDDosAllEventListResponse
      *
      * @param DescribeDDosAllEventListRequest $request
@@ -4022,6 +4198,7 @@ class Ddoscoo extends OpenApiClient
      *
      * @param request - DescribeDDosEventAreaRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribeDDosEventAreaResponse
      *
      * @param DescribeDDosEventAreaRequest $request
@@ -4053,15 +4230,15 @@ class Ddoscoo extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeDDosEventArea',
-            'version'     => '2020-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeDDosEventArea',
+            'version' => '2020-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DescribeDDosEventAreaResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -4077,6 +4254,7 @@ class Ddoscoo extends OpenApiClient
      * > This operation is suitable only for volumetric attacks.
      *
      * @param request - DescribeDDosEventAreaRequest
+     *
      * @returns DescribeDDosEventAreaResponse
      *
      * @param DescribeDDosEventAreaRequest $request
@@ -4098,6 +4276,7 @@ class Ddoscoo extends OpenApiClient
      *
      * @param request - DescribeDDosEventAttackTypeRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribeDDosEventAttackTypeResponse
      *
      * @param DescribeDDosEventAttackTypeRequest $request
@@ -4125,15 +4304,15 @@ class Ddoscoo extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeDDosEventAttackType',
-            'version'     => '2020-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeDDosEventAttackType',
+            'version' => '2020-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DescribeDDosEventAttackTypeResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -4149,6 +4328,7 @@ class Ddoscoo extends OpenApiClient
      * > This operation is suitable only for volumetric attacks.
      *
      * @param request - DescribeDDosEventAttackTypeRequest
+     *
      * @returns DescribeDDosEventAttackTypeResponse
      *
      * @param DescribeDDosEventAttackTypeRequest $request
@@ -4170,6 +4350,7 @@ class Ddoscoo extends OpenApiClient
      *
      * @param request - DescribeDDosEventIspRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribeDDosEventIspResponse
      *
      * @param DescribeDDosEventIspRequest $request
@@ -4201,15 +4382,15 @@ class Ddoscoo extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeDDosEventIsp',
-            'version'     => '2020-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeDDosEventIsp',
+            'version' => '2020-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DescribeDDosEventIspResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -4225,6 +4406,7 @@ class Ddoscoo extends OpenApiClient
      * > This operation is suitable only for volumetric attacks.
      *
      * @param request - DescribeDDosEventIspRequest
+     *
      * @returns DescribeDDosEventIspResponse
      *
      * @param DescribeDDosEventIspRequest $request
@@ -4243,6 +4425,7 @@ class Ddoscoo extends OpenApiClient
      *
      * @param request - DescribeDDosEventMaxRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribeDDosEventMaxResponse
      *
      * @param DescribeDDosEventMaxRequest $request
@@ -4266,15 +4449,15 @@ class Ddoscoo extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeDDosEventMax',
-            'version'     => '2020-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeDDosEventMax',
+            'version' => '2020-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DescribeDDosEventMaxResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -4287,6 +4470,7 @@ class Ddoscoo extends OpenApiClient
      * Queries the peaks of volumetric attacks (bit/s), connection flood attacks (CPS), and resource exhaustion attacks on websites (QPS).
      *
      * @param request - DescribeDDosEventMaxRequest
+     *
      * @returns DescribeDDosEventMaxResponse
      *
      * @param DescribeDDosEventMaxRequest $request
@@ -4308,6 +4492,7 @@ class Ddoscoo extends OpenApiClient
      *
      * @param request - DescribeDDosEventSrcIpRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribeDDosEventSrcIpResponse
      *
      * @param DescribeDDosEventSrcIpRequest $request
@@ -4339,15 +4524,15 @@ class Ddoscoo extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeDDosEventSrcIp',
-            'version'     => '2020-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeDDosEventSrcIp',
+            'version' => '2020-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DescribeDDosEventSrcIpResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -4363,6 +4548,7 @@ class Ddoscoo extends OpenApiClient
      * > This operation is suitable only for volumetric attacks.
      *
      * @param request - DescribeDDosEventSrcIpRequest
+     *
      * @returns DescribeDDosEventSrcIpResponse
      *
      * @param DescribeDDosEventSrcIpRequest $request
@@ -4387,6 +4573,7 @@ class Ddoscoo extends OpenApiClient
      *
      * @param request - DescribeDefenseCountStatisticsRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribeDefenseCountStatisticsResponse
      *
      * @param DescribeDefenseCountStatisticsRequest $request
@@ -4406,15 +4593,15 @@ class Ddoscoo extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeDefenseCountStatistics',
-            'version'     => '2020-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeDefenseCountStatistics',
+            'version' => '2020-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DescribeDefenseCountStatisticsResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -4433,6 +4620,7 @@ class Ddoscoo extends OpenApiClient
      * You can call this operation up to 10 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
      *
      * @param request - DescribeDefenseCountStatisticsRequest
+     *
      * @returns DescribeDefenseCountStatisticsResponse
      *
      * @param DescribeDefenseCountStatisticsRequest $request
@@ -4447,13 +4635,14 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * Queries the advanced mitigation logs of Anti-DDoS Premium.
+     * Queries the advanced mitigation logs of an Anti-DDoS Proxy (Outside Chinese Mainland) instance.
      *
      * @remarks
      * > This operation is suitable only for Anti-DDoS Premium.
      *
      * @param request - DescribeDefenseRecordsRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribeDefenseRecordsResponse
      *
      * @param DescribeDefenseRecordsRequest $request
@@ -4493,15 +4682,15 @@ class Ddoscoo extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeDefenseRecords',
-            'version'     => '2020-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeDefenseRecords',
+            'version' => '2020-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DescribeDefenseRecordsResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -4511,12 +4700,13 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * Queries the advanced mitigation logs of Anti-DDoS Premium.
+     * Queries the advanced mitigation logs of an Anti-DDoS Proxy (Outside Chinese Mainland) instance.
      *
      * @remarks
      * > This operation is suitable only for Anti-DDoS Premium.
      *
      * @param request - DescribeDefenseRecordsRequest
+     *
      * @returns DescribeDefenseRecordsResponse
      *
      * @param DescribeDefenseRecordsRequest $request
@@ -4535,6 +4725,7 @@ class Ddoscoo extends OpenApiClient
      *
      * @param request - DescribeDestinationPortEventRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribeDestinationPortEventResponse
      *
      * @param DescribeDestinationPortEventRequest $request
@@ -4570,15 +4761,15 @@ class Ddoscoo extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeDestinationPortEvent',
-            'version'     => '2020-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeDestinationPortEvent',
+            'version' => '2020-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DescribeDestinationPortEventResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -4591,6 +4782,7 @@ class Ddoscoo extends OpenApiClient
      * Queries the number of request packets received by the destination ports of the attacked IP address that is protected by Anti-DDoS Proxy.
      *
      * @param request - DescribeDestinationPortEventRequest
+     *
      * @returns DescribeDestinationPortEventResponse
      *
      * @param DescribeDestinationPortEventRequest $request
@@ -4609,6 +4801,7 @@ class Ddoscoo extends OpenApiClient
      *
      * @param request - DescribeDomainAttackEventsRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribeDomainAttackEventsResponse
      *
      * @param DescribeDomainAttackEventsRequest $request
@@ -4648,15 +4841,15 @@ class Ddoscoo extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeDomainAttackEvents',
-            'version'     => '2020-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeDomainAttackEvents',
+            'version' => '2020-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DescribeDomainAttackEventsResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -4669,6 +4862,7 @@ class Ddoscoo extends OpenApiClient
      * Queries the attack events launched against a website.
      *
      * @param request - DescribeDomainAttackEventsRequest
+     *
      * @returns DescribeDomainAttackEventsResponse
      *
      * @param DescribeDomainAttackEventsRequest $request
@@ -4687,6 +4881,7 @@ class Ddoscoo extends OpenApiClient
      *
      * @param request - DescribeDomainBpsRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribeDomainBpsResponse
      *
      * @param DescribeDomainBpsRequest $request
@@ -4722,15 +4917,15 @@ class Ddoscoo extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeDomainBps',
-            'version'     => '2020-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeDomainBps',
+            'version' => '2020-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DescribeDomainBpsResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -4743,6 +4938,7 @@ class Ddoscoo extends OpenApiClient
      * Queries the bandwidths of a website.
      *
      * @param request - DescribeDomainBpsRequest
+     *
      * @returns DescribeDomainBpsResponse
      *
      * @param DescribeDomainBpsRequest $request
@@ -4761,6 +4957,7 @@ class Ddoscoo extends OpenApiClient
      *
      * @param request - DescribeDomainH2FingerprintRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribeDomainH2FingerprintResponse
      *
      * @param DescribeDomainH2FingerprintRequest $request
@@ -4792,15 +4989,15 @@ class Ddoscoo extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeDomainH2Fingerprint',
-            'version'     => '2020-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeDomainH2Fingerprint',
+            'version' => '2020-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DescribeDomainH2FingerprintResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -4813,6 +5010,7 @@ class Ddoscoo extends OpenApiClient
      * Queries the information about HTTP/2 fingerprints of a website.
      *
      * @param request - DescribeDomainH2FingerprintRequest
+     *
      * @returns DescribeDomainH2FingerprintResponse
      *
      * @param DescribeDomainH2FingerprintRequest $request
@@ -4831,6 +5029,7 @@ class Ddoscoo extends OpenApiClient
      *
      * @param request - DescribeDomainOverviewRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribeDomainOverviewResponse
      *
      * @param DescribeDomainOverviewRequest $request
@@ -4862,15 +5061,15 @@ class Ddoscoo extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeDomainOverview',
-            'version'     => '2020-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeDomainOverview',
+            'version' => '2020-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DescribeDomainOverviewResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -4883,6 +5082,7 @@ class Ddoscoo extends OpenApiClient
      * Queries the attack overview of a website, such as the peak HTTP and HTTPS traffic.
      *
      * @param request - DescribeDomainOverviewRequest
+     *
      * @returns DescribeDomainOverviewResponse
      *
      * @param DescribeDomainOverviewRequest $request
@@ -4901,6 +5101,7 @@ class Ddoscoo extends OpenApiClient
      *
      * @param request - DescribeDomainQPSListRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribeDomainQPSListResponse
      *
      * @param DescribeDomainQPSListRequest $request
@@ -4936,15 +5137,15 @@ class Ddoscoo extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeDomainQPSList',
-            'version'     => '2020-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeDomainQPSList',
+            'version' => '2020-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DescribeDomainQPSListResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -4957,6 +5158,7 @@ class Ddoscoo extends OpenApiClient
      * Queries the statistics on the queries per second (QPS) of a website.
      *
      * @param request - DescribeDomainQPSListRequest
+     *
      * @returns DescribeDomainQPSListResponse
      *
      * @param DescribeDomainQPSListRequest $request
@@ -4981,6 +5183,7 @@ class Ddoscoo extends OpenApiClient
      *
      * @param request - DescribeDomainResourceRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribeDomainResourceResponse
      *
      * @param DescribeDomainResourceRequest $request
@@ -5016,15 +5219,15 @@ class Ddoscoo extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeDomainResource',
-            'version'     => '2020-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeDomainResource',
+            'version' => '2020-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DescribeDomainResourceResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -5043,6 +5246,7 @@ class Ddoscoo extends OpenApiClient
      * You can call this operation up to 50 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
      *
      * @param request - DescribeDomainResourceRequest
+     *
      * @returns DescribeDomainResourceResponse
      *
      * @param DescribeDomainResourceRequest $request
@@ -5061,6 +5265,7 @@ class Ddoscoo extends OpenApiClient
      *
      * @param request - DescribeDomainSecurityProfileRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribeDomainSecurityProfileResponse
      *
      * @param DescribeDomainSecurityProfileRequest $request
@@ -5080,15 +5285,15 @@ class Ddoscoo extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeDomainSecurityProfile',
-            'version'     => '2020-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeDomainSecurityProfile',
+            'version' => '2020-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DescribeDomainSecurityProfileResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -5101,6 +5306,7 @@ class Ddoscoo extends OpenApiClient
      * Queries the global mitigation policy for a domain name.
      *
      * @param request - DescribeDomainSecurityProfileRequest
+     *
      * @returns DescribeDomainSecurityProfileResponse
      *
      * @param DescribeDomainSecurityProfileRequest $request
@@ -5119,6 +5325,7 @@ class Ddoscoo extends OpenApiClient
      *
      * @param request - DescribeDomainStatusCodeCountRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribeDomainStatusCodeCountResponse
      *
      * @param DescribeDomainStatusCodeCountRequest $request
@@ -5150,15 +5357,15 @@ class Ddoscoo extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeDomainStatusCodeCount',
-            'version'     => '2020-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeDomainStatusCodeCount',
+            'version' => '2020-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DescribeDomainStatusCodeCountResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -5171,6 +5378,7 @@ class Ddoscoo extends OpenApiClient
      * Queries the statistics on HTTP status codes of a website within a specified period of time.
      *
      * @param request - DescribeDomainStatusCodeCountRequest
+     *
      * @returns DescribeDomainStatusCodeCountResponse
      *
      * @param DescribeDomainStatusCodeCountRequest $request
@@ -5189,6 +5397,7 @@ class Ddoscoo extends OpenApiClient
      *
      * @param request - DescribeDomainStatusCodeListRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribeDomainStatusCodeListResponse
      *
      * @param DescribeDomainStatusCodeListRequest $request
@@ -5228,15 +5437,15 @@ class Ddoscoo extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeDomainStatusCodeList',
-            'version'     => '2020-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeDomainStatusCodeList',
+            'version' => '2020-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DescribeDomainStatusCodeListResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -5249,6 +5458,7 @@ class Ddoscoo extends OpenApiClient
      * Queries the statistics on HTTP status codes of a website.
      *
      * @param request - DescribeDomainStatusCodeListRequest
+     *
      * @returns DescribeDomainStatusCodeListResponse
      *
      * @param DescribeDomainStatusCodeListRequest $request
@@ -5267,6 +5477,7 @@ class Ddoscoo extends OpenApiClient
      *
      * @param request - DescribeDomainTopAttackListRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribeDomainTopAttackListResponse
      *
      * @param DescribeDomainTopAttackListRequest $request
@@ -5294,15 +5505,15 @@ class Ddoscoo extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeDomainTopAttackList',
-            'version'     => '2020-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeDomainTopAttackList',
+            'version' => '2020-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DescribeDomainTopAttackListResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -5315,6 +5526,7 @@ class Ddoscoo extends OpenApiClient
      * Queries the peak queries per second (QPS) information about a website, such as the attack QPS and total QPS, within a specific period of time.
      *
      * @param request - DescribeDomainTopAttackListRequest
+     *
      * @returns DescribeDomainTopAttackListResponse
      *
      * @param DescribeDomainTopAttackListRequest $request
@@ -5333,6 +5545,7 @@ class Ddoscoo extends OpenApiClient
      *
      * @param request - DescribeDomainTopFingerprintRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribeDomainTopFingerprintResponse
      *
      * @param DescribeDomainTopFingerprintRequest $request
@@ -5372,15 +5585,15 @@ class Ddoscoo extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeDomainTopFingerprint',
-            'version'     => '2020-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeDomainTopFingerprint',
+            'version' => '2020-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DescribeDomainTopFingerprintResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -5393,6 +5606,7 @@ class Ddoscoo extends OpenApiClient
      * Queries the information about the fingerprints of top N clients that access a website.
      *
      * @param request - DescribeDomainTopFingerprintRequest
+     *
      * @returns DescribeDomainTopFingerprintResponse
      *
      * @param DescribeDomainTopFingerprintRequest $request
@@ -5411,6 +5625,7 @@ class Ddoscoo extends OpenApiClient
      *
      * @param request - DescribeDomainTopHttpMethodRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribeDomainTopHttpMethodResponse
      *
      * @param DescribeDomainTopHttpMethodRequest $request
@@ -5446,15 +5661,15 @@ class Ddoscoo extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeDomainTopHttpMethod',
-            'version'     => '2020-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeDomainTopHttpMethod',
+            'version' => '2020-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DescribeDomainTopHttpMethodResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -5467,6 +5682,7 @@ class Ddoscoo extends OpenApiClient
      * Queries the information about top N HTTP methods of a website.
      *
      * @param request - DescribeDomainTopHttpMethodRequest
+     *
      * @returns DescribeDomainTopHttpMethodResponse
      *
      * @param DescribeDomainTopHttpMethodRequest $request
@@ -5485,6 +5701,7 @@ class Ddoscoo extends OpenApiClient
      *
      * @param request - DescribeDomainTopRefererRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribeDomainTopRefererResponse
      *
      * @param DescribeDomainTopRefererRequest $request
@@ -5520,15 +5737,15 @@ class Ddoscoo extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeDomainTopReferer',
-            'version'     => '2020-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeDomainTopReferer',
+            'version' => '2020-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DescribeDomainTopRefererResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -5541,6 +5758,7 @@ class Ddoscoo extends OpenApiClient
      * Queries the information about top N referers of a website.
      *
      * @param request - DescribeDomainTopRefererRequest
+     *
      * @returns DescribeDomainTopRefererResponse
      *
      * @param DescribeDomainTopRefererRequest $request
@@ -5559,6 +5777,7 @@ class Ddoscoo extends OpenApiClient
      *
      * @param request - DescribeDomainTopUserAgentRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribeDomainTopUserAgentResponse
      *
      * @param DescribeDomainTopUserAgentRequest $request
@@ -5594,15 +5813,15 @@ class Ddoscoo extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeDomainTopUserAgent',
-            'version'     => '2020-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeDomainTopUserAgent',
+            'version' => '2020-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DescribeDomainTopUserAgentResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -5615,6 +5834,7 @@ class Ddoscoo extends OpenApiClient
      * Queries the information about top user agents of a website.
      *
      * @param request - DescribeDomainTopUserAgentRequest
+     *
      * @returns DescribeDomainTopUserAgentResponse
      *
      * @param DescribeDomainTopUserAgentRequest $request
@@ -5633,6 +5853,7 @@ class Ddoscoo extends OpenApiClient
      *
      * @param request - DescribeDomainViewSourceCountriesRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribeDomainViewSourceCountriesResponse
      *
      * @param DescribeDomainViewSourceCountriesRequest $request
@@ -5664,15 +5885,15 @@ class Ddoscoo extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeDomainViewSourceCountries',
-            'version'     => '2020-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeDomainViewSourceCountries',
+            'version' => '2020-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DescribeDomainViewSourceCountriesResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -5685,6 +5906,7 @@ class Ddoscoo extends OpenApiClient
      * Queries the areas and countries from which requests are sent to a website within a specified period of time.
      *
      * @param request - DescribeDomainViewSourceCountriesRequest
+     *
      * @returns DescribeDomainViewSourceCountriesResponse
      *
      * @param DescribeDomainViewSourceCountriesRequest $request
@@ -5703,6 +5925,7 @@ class Ddoscoo extends OpenApiClient
      *
      * @param request - DescribeDomainViewSourceProvincesRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribeDomainViewSourceProvincesResponse
      *
      * @param DescribeDomainViewSourceProvincesRequest $request
@@ -5734,15 +5957,15 @@ class Ddoscoo extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeDomainViewSourceProvinces',
-            'version'     => '2020-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeDomainViewSourceProvinces',
+            'version' => '2020-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DescribeDomainViewSourceProvincesResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -5755,6 +5978,7 @@ class Ddoscoo extends OpenApiClient
      * Queries the administrative regions in China from which requests are sent to a website within a specified period of time.
      *
      * @param request - DescribeDomainViewSourceProvincesRequest
+     *
      * @returns DescribeDomainViewSourceProvincesResponse
      *
      * @param DescribeDomainViewSourceProvincesRequest $request
@@ -5773,6 +5997,7 @@ class Ddoscoo extends OpenApiClient
      *
      * @param request - DescribeDomainViewTopCostTimeRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribeDomainViewTopCostTimeResponse
      *
      * @param DescribeDomainViewTopCostTimeRequest $request
@@ -5808,15 +6033,15 @@ class Ddoscoo extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeDomainViewTopCostTime',
-            'version'     => '2020-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeDomainViewTopCostTime',
+            'version' => '2020-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DescribeDomainViewTopCostTimeResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -5829,6 +6054,7 @@ class Ddoscoo extends OpenApiClient
      * Queries the top N URLs that require the longest time to respond to requests within a specified period of time.
      *
      * @param request - DescribeDomainViewTopCostTimeRequest
+     *
      * @returns DescribeDomainViewTopCostTimeResponse
      *
      * @param DescribeDomainViewTopCostTimeRequest $request
@@ -5847,6 +6073,7 @@ class Ddoscoo extends OpenApiClient
      *
      * @param request - DescribeDomainViewTopUrlRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribeDomainViewTopUrlResponse
      *
      * @param DescribeDomainViewTopUrlRequest $request
@@ -5866,6 +6093,10 @@ class Ddoscoo extends OpenApiClient
             @$query['EndTime'] = $request->endTime;
         }
 
+        if (null !== $request->inerval) {
+            @$query['Inerval'] = $request->inerval;
+        }
+
         if (null !== $request->resourceGroupId) {
             @$query['ResourceGroupId'] = $request->resourceGroupId;
         }
@@ -5882,15 +6113,15 @@ class Ddoscoo extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeDomainViewTopUrl',
-            'version'     => '2020-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeDomainViewTopUrl',
+            'version' => '2020-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DescribeDomainViewTopUrlResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -5903,6 +6134,7 @@ class Ddoscoo extends OpenApiClient
      * Queries the top N URLs that receive the most requests within a specified period of time.
      *
      * @param request - DescribeDomainViewTopUrlRequest
+     *
      * @returns DescribeDomainViewTopUrlResponse
      *
      * @param DescribeDomainViewTopUrlRequest $request
@@ -5921,6 +6153,7 @@ class Ddoscoo extends OpenApiClient
      *
      * @param request - DescribeDomainsRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribeDomainsResponse
      *
      * @param DescribeDomainsRequest $request
@@ -5944,15 +6177,15 @@ class Ddoscoo extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeDomains',
-            'version'     => '2020-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeDomains',
+            'version' => '2020-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DescribeDomainsResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -5965,6 +6198,7 @@ class Ddoscoo extends OpenApiClient
      * Queries domain names for which forwarding rules are created.
      *
      * @param request - DescribeDomainsRequest
+     *
      * @returns DescribeDomainsResponse
      *
      * @param DescribeDomainsRequest $request
@@ -5986,6 +6220,7 @@ class Ddoscoo extends OpenApiClient
      *
      * @param request - DescribeElasticBandwidthSpecRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribeElasticBandwidthSpecResponse
      *
      * @param DescribeElasticBandwidthSpecRequest $request
@@ -6005,15 +6240,15 @@ class Ddoscoo extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeElasticBandwidthSpec',
-            'version'     => '2020-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeElasticBandwidthSpec',
+            'version' => '2020-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DescribeElasticBandwidthSpecResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -6029,6 +6264,7 @@ class Ddoscoo extends OpenApiClient
      * >  This operation is suitable only for Anti-DDoS Proxy (Chinese Mainland).
      *
      * @param request - DescribeElasticBandwidthSpecRequest
+     *
      * @returns DescribeElasticBandwidthSpecResponse
      *
      * @param DescribeElasticBandwidthSpecRequest $request
@@ -6047,6 +6283,7 @@ class Ddoscoo extends OpenApiClient
      *
      * @param request - DescribeElasticQpsRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribeElasticQpsResponse
      *
      * @param DescribeElasticQpsRequest $request
@@ -6082,15 +6319,15 @@ class Ddoscoo extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeElasticQps',
-            'version'     => '2020-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeElasticQps',
+            'version' => '2020-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DescribeElasticQpsResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -6103,6 +6340,7 @@ class Ddoscoo extends OpenApiClient
      * Queries the line chart of the bills for the burstable QPS of an Anti-DDoS Proxy instance.
      *
      * @param request - DescribeElasticQpsRequest
+     *
      * @returns DescribeElasticQpsResponse
      *
      * @param DescribeElasticQpsRequest $request
@@ -6121,6 +6359,7 @@ class Ddoscoo extends OpenApiClient
      *
      * @param request - DescribeElasticQpsRecordRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribeElasticQpsRecordResponse
      *
      * @param DescribeElasticQpsRecordRequest $request
@@ -6148,15 +6387,15 @@ class Ddoscoo extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeElasticQpsRecord',
-            'version'     => '2020-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeElasticQpsRecord',
+            'version' => '2020-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DescribeElasticQpsRecordResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -6169,6 +6408,7 @@ class Ddoscoo extends OpenApiClient
      * Queries the burstable QPS details of an Anti-DDoS Proxy instance.
      *
      * @param request - DescribeElasticQpsRecordRequest
+     *
      * @returns DescribeElasticQpsRecordResponse
      *
      * @param DescribeElasticQpsRecordRequest $request
@@ -6187,6 +6427,7 @@ class Ddoscoo extends OpenApiClient
      *
      * @param request - DescribeHeadersRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribeHeadersResponse
      *
      * @param DescribeHeadersRequest $request
@@ -6210,15 +6451,15 @@ class Ddoscoo extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeHeaders',
-            'version'     => '2020-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeHeaders',
+            'version' => '2020-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DescribeHeadersResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -6231,6 +6472,7 @@ class Ddoscoo extends OpenApiClient
      * Queries the custom header that is specified for a domain name.
      *
      * @param request - DescribeHeadersRequest
+     *
      * @returns DescribeHeadersResponse
      *
      * @param DescribeHeadersRequest $request
@@ -6249,6 +6491,7 @@ class Ddoscoo extends OpenApiClient
      *
      * @param request - DescribeHealthCheckListRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribeHealthCheckListResponse
      *
      * @param DescribeHealthCheckListRequest $request
@@ -6268,15 +6511,15 @@ class Ddoscoo extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeHealthCheckList',
-            'version'     => '2020-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeHealthCheckList',
+            'version' => '2020-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DescribeHealthCheckListResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -6289,6 +6532,7 @@ class Ddoscoo extends OpenApiClient
      * Queries the Layer 4 or Layer 7 health check configurations of a port forwarding rule.
      *
      * @param request - DescribeHealthCheckListRequest
+     *
      * @returns DescribeHealthCheckListResponse
      *
      * @param DescribeHealthCheckListRequest $request
@@ -6307,6 +6551,7 @@ class Ddoscoo extends OpenApiClient
      *
      * @param request - DescribeHealthCheckStatusRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribeHealthCheckStatusResponse
      *
      * @param DescribeHealthCheckStatusRequest $request
@@ -6326,15 +6571,15 @@ class Ddoscoo extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeHealthCheckStatus',
-            'version'     => '2020-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeHealthCheckStatus',
+            'version' => '2020-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DescribeHealthCheckStatusResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -6347,6 +6592,7 @@ class Ddoscoo extends OpenApiClient
      * Queries the health status of an origin server.
      *
      * @param request - DescribeHealthCheckStatusRequest
+     *
      * @returns DescribeHealthCheckStatusResponse
      *
      * @param DescribeHealthCheckStatusRequest $request
@@ -6370,6 +6616,7 @@ class Ddoscoo extends OpenApiClient
      *
      * @param request - DescribeInstanceDetailsRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribeInstanceDetailsResponse
      *
      * @param DescribeInstanceDetailsRequest $request
@@ -6389,15 +6636,15 @@ class Ddoscoo extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeInstanceDetails',
-            'version'     => '2020-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeInstanceDetails',
+            'version' => '2020-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DescribeInstanceDetailsResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -6415,6 +6662,7 @@ class Ddoscoo extends OpenApiClient
      * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
      *
      * @param request - DescribeInstanceDetailsRequest
+     *
      * @returns DescribeInstanceDetailsResponse
      *
      * @param DescribeInstanceDetailsRequest $request
@@ -6433,6 +6681,7 @@ class Ddoscoo extends OpenApiClient
      *
      * @param request - DescribeInstanceExtRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribeInstanceExtResponse
      *
      * @param DescribeInstanceExtRequest $request
@@ -6460,15 +6709,15 @@ class Ddoscoo extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeInstanceExt',
-            'version'     => '2020-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeInstanceExt',
+            'version' => '2020-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DescribeInstanceExtResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -6481,6 +6730,7 @@ class Ddoscoo extends OpenApiClient
      * Queries the information about Anti-DDoS Pro and Anti-DDoS Premium instances.
      *
      * @param request - DescribeInstanceExtRequest
+     *
      * @returns DescribeInstanceExtResponse
      *
      * @param DescribeInstanceExtRequest $request
@@ -6499,6 +6749,7 @@ class Ddoscoo extends OpenApiClient
      *
      * @param request - DescribeInstanceIdsRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribeInstanceIdsResponse
      *
      * @param DescribeInstanceIdsRequest $request
@@ -6526,15 +6777,15 @@ class Ddoscoo extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeInstanceIds',
-            'version'     => '2020-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeInstanceIds',
+            'version' => '2020-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DescribeInstanceIdsResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -6547,6 +6798,7 @@ class Ddoscoo extends OpenApiClient
      * The description of the instance.
      *
      * @param request - DescribeInstanceIdsRequest
+     *
      * @returns DescribeInstanceIdsResponse
      *
      * @param DescribeInstanceIdsRequest $request
@@ -6570,6 +6822,7 @@ class Ddoscoo extends OpenApiClient
      *
      * @param request - DescribeInstanceSpecsRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribeInstanceSpecsResponse
      *
      * @param DescribeInstanceSpecsRequest $request
@@ -6589,15 +6842,15 @@ class Ddoscoo extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeInstanceSpecs',
-            'version'     => '2020-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeInstanceSpecs',
+            'version' => '2020-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DescribeInstanceSpecsResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -6615,6 +6868,7 @@ class Ddoscoo extends OpenApiClient
      * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
      *
      * @param request - DescribeInstanceSpecsRequest
+     *
      * @returns DescribeInstanceSpecsResponse
      *
      * @param DescribeInstanceSpecsRequest $request
@@ -6633,6 +6887,7 @@ class Ddoscoo extends OpenApiClient
      *
      * @param request - DescribeInstanceStatisticsRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribeInstanceStatisticsResponse
      *
      * @param DescribeInstanceStatisticsRequest $request
@@ -6652,15 +6907,15 @@ class Ddoscoo extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeInstanceStatistics',
-            'version'     => '2020-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeInstanceStatistics',
+            'version' => '2020-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DescribeInstanceStatisticsResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -6673,6 +6928,7 @@ class Ddoscoo extends OpenApiClient
      * Queries the statistics on one or more Anti-DDoS Proxy instances, such as the numbers of protected domain names and ports.
      *
      * @param request - DescribeInstanceStatisticsRequest
+     *
      * @returns DescribeInstanceStatisticsResponse
      *
      * @param DescribeInstanceStatisticsRequest $request
@@ -6691,6 +6947,7 @@ class Ddoscoo extends OpenApiClient
      *
      * @param request - DescribeInstanceStatusRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribeInstanceStatusResponse
      *
      * @param DescribeInstanceStatusRequest $request
@@ -6714,15 +6971,15 @@ class Ddoscoo extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeInstanceStatus',
-            'version'     => '2020-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeInstanceStatus',
+            'version' => '2020-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DescribeInstanceStatusResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -6735,6 +6992,7 @@ class Ddoscoo extends OpenApiClient
      * Queries the status of a specified Anti-DDoS Proxy instance.
      *
      * @param request - DescribeInstanceStatusRequest
+     *
      * @returns DescribeInstanceStatusResponse
      *
      * @param DescribeInstanceStatusRequest $request
@@ -6749,11 +7007,14 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
+     * 查询实例列表.
+     *
      * @remarks
      * You can call the DescribeInstances operation to query the details of Anti-DDoS Pro or Anti-DDoS Premium instances within the Alibaba Cloud account by page. The details include the ID, mitigation plan, expiration time, and forwarding status.
      *
      * @param request - DescribeInstancesRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribeInstancesResponse
      *
      * @param DescribeInstancesRequest $request
@@ -6817,15 +7078,15 @@ class Ddoscoo extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeInstances',
-            'version'     => '2020-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeInstances',
+            'version' => '2020-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DescribeInstancesResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -6835,10 +7096,13 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
+     * 查询实例列表.
+     *
      * @remarks
      * You can call the DescribeInstances operation to query the details of Anti-DDoS Pro or Anti-DDoS Premium instances within the Alibaba Cloud account by page. The details include the ID, mitigation plan, expiration time, and forwarding status.
      *
      * @param request - DescribeInstancesRequest
+     *
      * @returns DescribeInstancesResponse
      *
      * @param DescribeInstancesRequest $request
@@ -6853,10 +7117,75 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
+     * 展示全局模板规则.
+     *
+     * @param request - DescribeL7GlobalRuleRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeL7GlobalRuleResponse
+     *
+     * @param DescribeL7GlobalRuleRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return DescribeL7GlobalRuleResponse
+     */
+    public function describeL7GlobalRuleWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->domain) {
+            @$query['Domain'] = $request->domain;
+        }
+
+        if (null !== $request->lang) {
+            @$query['Lang'] = $request->lang;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DescribeL7GlobalRule',
+            'version' => '2020-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DescribeL7GlobalRuleResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
+
+        return DescribeL7GlobalRuleResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * 展示全局模板规则.
+     *
+     * @param request - DescribeL7GlobalRuleRequest
+     *
+     * @returns DescribeL7GlobalRuleResponse
+     *
+     * @param DescribeL7GlobalRuleRequest $request
+     *
+     * @return DescribeL7GlobalRuleResponse
+     */
+    public function describeL7GlobalRule($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeL7GlobalRuleWithOptions($request, $runtime);
+    }
+
+    /**
      * Queries the back-to-origin policies for the forwarding rule of a website.
      *
      * @param request - DescribeL7RsPolicyRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribeL7RsPolicyResponse
      *
      * @param DescribeL7RsPolicyRequest $request
@@ -6884,15 +7213,15 @@ class Ddoscoo extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeL7RsPolicy',
-            'version'     => '2020-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeL7RsPolicy',
+            'version' => '2020-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DescribeL7RsPolicyResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -6905,6 +7234,7 @@ class Ddoscoo extends OpenApiClient
      * Queries the back-to-origin policies for the forwarding rule of a website.
      *
      * @param request - DescribeL7RsPolicyRequest
+     *
      * @returns DescribeL7RsPolicyResponse
      *
      * @param DescribeL7RsPolicyRequest $request
@@ -6923,6 +7253,7 @@ class Ddoscoo extends OpenApiClient
      *
      * @param request - DescribeL7UsKeepaliveRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribeL7UsKeepaliveResponse
      *
      * @param DescribeL7UsKeepaliveRequest $request
@@ -6942,15 +7273,15 @@ class Ddoscoo extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeL7UsKeepalive',
-            'version'     => '2020-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeL7UsKeepalive',
+            'version' => '2020-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DescribeL7UsKeepaliveResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -6963,6 +7294,7 @@ class Ddoscoo extends OpenApiClient
      * Queries the configuration of back-to-origin persistent connections of a domain name.
      *
      * @param request - DescribeL7UsKeepaliveRequest
+     *
      * @returns DescribeL7UsKeepaliveResponse
      *
      * @param DescribeL7UsKeepaliveRequest $request
@@ -6981,6 +7313,7 @@ class Ddoscoo extends OpenApiClient
      *
      * @param request - DescribeLayer4RulePolicyRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribeLayer4RulePolicyResponse
      *
      * @param DescribeLayer4RulePolicyRequest $request
@@ -7000,15 +7333,15 @@ class Ddoscoo extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeLayer4RulePolicy',
-            'version'     => '2020-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeLayer4RulePolicy',
+            'version' => '2020-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DescribeLayer4RulePolicyResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -7021,6 +7354,7 @@ class Ddoscoo extends OpenApiClient
      * Queries the back-to-origin settings of a port forwarding rule.
      *
      * @param request - DescribeLayer4RulePolicyRequest
+     *
      * @returns DescribeLayer4RulePolicyResponse
      *
      * @param DescribeLayer4RulePolicyRequest $request
@@ -7035,10 +7369,11 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * Checks whether a Logstore is created for Anti-DDoS Pro or Anti-DDoS Premium.
+     * Checks whether a Logstore is created for Anti-DDoS Proxy.
      *
      * @param request - DescribeLogStoreExistStatusRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribeLogStoreExistStatusResponse
      *
      * @param DescribeLogStoreExistStatusRequest $request
@@ -7058,15 +7393,15 @@ class Ddoscoo extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeLogStoreExistStatus',
-            'version'     => '2020-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeLogStoreExistStatus',
+            'version' => '2020-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DescribeLogStoreExistStatusResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -7076,9 +7411,10 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * Checks whether a Logstore is created for Anti-DDoS Pro or Anti-DDoS Premium.
+     * Checks whether a Logstore is created for Anti-DDoS Proxy.
      *
      * @param request - DescribeLogStoreExistStatusRequest
+     *
      * @returns DescribeLogStoreExistStatusResponse
      *
      * @param DescribeLogStoreExistStatusRequest $request
@@ -7097,6 +7433,7 @@ class Ddoscoo extends OpenApiClient
      *
      * @param request - DescribeNetworkRegionBlockRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribeNetworkRegionBlockResponse
      *
      * @param DescribeNetworkRegionBlockRequest $request
@@ -7116,15 +7453,15 @@ class Ddoscoo extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeNetworkRegionBlock',
-            'version'     => '2020-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeNetworkRegionBlock',
+            'version' => '2020-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DescribeNetworkRegionBlockResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -7137,6 +7474,7 @@ class Ddoscoo extends OpenApiClient
      * Queries the blocked locations that are configured for an Anti-DDoS Pro or Anti-DDoS Premium instance.
      *
      * @param request - DescribeNetworkRegionBlockRequest
+     *
      * @returns DescribeNetworkRegionBlockResponse
      *
      * @param DescribeNetworkRegionBlockRequest $request
@@ -7155,6 +7493,7 @@ class Ddoscoo extends OpenApiClient
      *
      * @param request - DescribeNetworkRuleAttributesRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribeNetworkRuleAttributesResponse
      *
      * @param DescribeNetworkRuleAttributesRequest $request
@@ -7174,15 +7513,15 @@ class Ddoscoo extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeNetworkRuleAttributes',
-            'version'     => '2020-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeNetworkRuleAttributes',
+            'version' => '2020-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DescribeNetworkRuleAttributesResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -7195,6 +7534,7 @@ class Ddoscoo extends OpenApiClient
      * Queries the mitigation settings of the port forwarding rule for a non-website service. The mitigation settings include session persistence and DDoS mitigation policies.
      *
      * @param request - DescribeNetworkRuleAttributesRequest
+     *
      * @returns DescribeNetworkRuleAttributesResponse
      *
      * @param DescribeNetworkRuleAttributesRequest $request
@@ -7213,6 +7553,7 @@ class Ddoscoo extends OpenApiClient
      *
      * @param request - DescribeNetworkRulesRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribeNetworkRulesResponse
      *
      * @param DescribeNetworkRulesRequest $request
@@ -7248,15 +7589,15 @@ class Ddoscoo extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeNetworkRules',
-            'version'     => '2020-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeNetworkRules',
+            'version' => '2020-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DescribeNetworkRulesResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -7269,6 +7610,7 @@ class Ddoscoo extends OpenApiClient
      * Queries port forwarding rules.
      *
      * @param request - DescribeNetworkRulesRequest
+     *
      * @returns DescribeNetworkRulesResponse
      *
      * @param DescribeNetworkRulesRequest $request
@@ -7291,6 +7633,7 @@ class Ddoscoo extends OpenApiClient
      *
      * @param request - DescribeOpEntitiesRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribeOpEntitiesResponse
      *
      * @param DescribeOpEntitiesRequest $request
@@ -7334,15 +7677,15 @@ class Ddoscoo extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeOpEntities',
-            'version'     => '2020-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeOpEntities',
+            'version' => '2020-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DescribeOpEntitiesResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -7359,6 +7702,7 @@ class Ddoscoo extends OpenApiClient
      * You can query operations performed on Anti-DDoS Proxy (Chinese Mainland), such as configuring the burstable protection bandwidth, deactivating blackhole filtering, configuring the near-origin traffic diversion feature, using Anti-DDoS plans, changing the IP addresses of Elastic Compute Service (ECS) instances, and clearing all logs.
      *
      * @param request - DescribeOpEntitiesRequest
+     *
      * @returns DescribeOpEntitiesResponse
      *
      * @param DescribeOpEntitiesRequest $request
@@ -7380,6 +7724,7 @@ class Ddoscoo extends OpenApiClient
      *
      * @param request - DescribePortRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribePortResponse
      *
      * @param DescribePortRequest $request
@@ -7415,15 +7760,15 @@ class Ddoscoo extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribePort',
-            'version'     => '2020-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribePort',
+            'version' => '2020-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DescribePortResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -7439,6 +7784,7 @@ class Ddoscoo extends OpenApiClient
      * You can call this operation by using Terraform. For more information about Terraform, see [What is Terraform?](https://help.aliyun.com/document_detail/95820.html).
      *
      * @param request - DescribePortRequest
+     *
      * @returns DescribePortResponse
      *
      * @param DescribePortRequest $request
@@ -7462,6 +7808,7 @@ class Ddoscoo extends OpenApiClient
      *
      * @param request - DescribePortAttackMaxFlowRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribePortAttackMaxFlowResponse
      *
      * @param DescribePortAttackMaxFlowRequest $request
@@ -7493,15 +7840,15 @@ class Ddoscoo extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribePortAttackMaxFlow',
-            'version'     => '2020-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribePortAttackMaxFlow',
+            'version' => '2020-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DescribePortAttackMaxFlowResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -7519,6 +7866,7 @@ class Ddoscoo extends OpenApiClient
      * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
      *
      * @param request - DescribePortAttackMaxFlowRequest
+     *
      * @returns DescribePortAttackMaxFlowResponse
      *
      * @param DescribePortAttackMaxFlowRequest $request
@@ -7537,6 +7885,7 @@ class Ddoscoo extends OpenApiClient
      *
      * @param request - DescribePortAutoCcStatusRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribePortAutoCcStatusResponse
      *
      * @param DescribePortAutoCcStatusRequest $request
@@ -7556,15 +7905,15 @@ class Ddoscoo extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribePortAutoCcStatus',
-            'version'     => '2020-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribePortAutoCcStatus',
+            'version' => '2020-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DescribePortAutoCcStatusResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -7577,6 +7926,7 @@ class Ddoscoo extends OpenApiClient
      * Queries the configurations of the Intelligent Protection policy for non-website services.
      *
      * @param request - DescribePortAutoCcStatusRequest
+     *
      * @returns DescribePortAutoCcStatusResponse
      *
      * @param DescribePortAutoCcStatusRequest $request
@@ -7595,6 +7945,7 @@ class Ddoscoo extends OpenApiClient
      *
      * @param request - DescribePortCcAttackTopIPRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribePortCcAttackTopIPResponse
      *
      * @param DescribePortCcAttackTopIPRequest $request
@@ -7626,15 +7977,15 @@ class Ddoscoo extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribePortCcAttackTopIP',
-            'version'     => '2020-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribePortCcAttackTopIP',
+            'version' => '2020-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DescribePortCcAttackTopIPResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -7647,6 +7998,7 @@ class Ddoscoo extends OpenApiClient
      * Queries the top source IP addresses of the volumetric attack events for the Anti-DDoS Pro or Anti-DDoS Premium instance.
      *
      * @param request - DescribePortCcAttackTopIPRequest
+     *
      * @returns DescribePortCcAttackTopIPResponse
      *
      * @param DescribePortCcAttackTopIPRequest $request
@@ -7665,6 +8017,7 @@ class Ddoscoo extends OpenApiClient
      *
      * @param request - DescribePortConnsCountRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribePortConnsCountResponse
      *
      * @param DescribePortConnsCountRequest $request
@@ -7700,15 +8053,15 @@ class Ddoscoo extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribePortConnsCount',
-            'version'     => '2020-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribePortConnsCount',
+            'version' => '2020-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DescribePortConnsCountResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -7721,6 +8074,7 @@ class Ddoscoo extends OpenApiClient
      * The statistics on the connections established over the ports of one or more Anti-DDoS Pro or Anti-DDoS Premium instances are queried.
      *
      * @param request - DescribePortConnsCountRequest
+     *
      * @returns DescribePortConnsCountResponse
      *
      * @param DescribePortConnsCountRequest $request
@@ -7739,6 +8093,7 @@ class Ddoscoo extends OpenApiClient
      *
      * @param request - DescribePortConnsListRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribePortConnsListResponse
      *
      * @param DescribePortConnsListRequest $request
@@ -7778,15 +8133,15 @@ class Ddoscoo extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribePortConnsList',
-            'version'     => '2020-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribePortConnsList',
+            'version' => '2020-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DescribePortConnsListResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -7799,6 +8154,7 @@ class Ddoscoo extends OpenApiClient
      * Queries the connections established over the ports of one or more Anti-DDoS Proxy instances.
      *
      * @param request - DescribePortConnsListRequest
+     *
      * @returns DescribePortConnsListResponse
      *
      * @param DescribePortConnsListRequest $request
@@ -7817,6 +8173,7 @@ class Ddoscoo extends OpenApiClient
      *
      * @param request - DescribePortFlowListRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribePortFlowListResponse
      *
      * @param DescribePortFlowListRequest $request
@@ -7852,15 +8209,15 @@ class Ddoscoo extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribePortFlowList',
-            'version'     => '2020-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribePortFlowList',
+            'version' => '2020-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DescribePortFlowListResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -7873,6 +8230,7 @@ class Ddoscoo extends OpenApiClient
      * Queries the traffic data of one or more Anti-DDoS Pro or Anti-DDoS Premium instances.
      *
      * @param request - DescribePortFlowListRequest
+     *
      * @returns DescribePortFlowListResponse
      *
      * @param DescribePortFlowListRequest $request
@@ -7887,10 +8245,11 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * Queries the maximum number of connections that can be established over the ports of one or more Anti-DDoS Pro or Anti-DDoS Premium instances.
+     * Queries the maximum number of connections that can be established over the ports of one or more Anti-DDoS Proxy instances.
      *
      * @param request - DescribePortMaxConnsRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribePortMaxConnsResponse
      *
      * @param DescribePortMaxConnsRequest $request
@@ -7922,15 +8281,15 @@ class Ddoscoo extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribePortMaxConns',
-            'version'     => '2020-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribePortMaxConns',
+            'version' => '2020-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DescribePortMaxConnsResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -7940,9 +8299,10 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * Queries the maximum number of connections that can be established over the ports of one or more Anti-DDoS Pro or Anti-DDoS Premium instances.
+     * Queries the maximum number of connections that can be established over the ports of one or more Anti-DDoS Proxy instances.
      *
      * @param request - DescribePortMaxConnsRequest
+     *
      * @returns DescribePortMaxConnsResponse
      *
      * @param DescribePortMaxConnsRequest $request
@@ -7961,6 +8321,7 @@ class Ddoscoo extends OpenApiClient
      *
      * @param request - DescribePortViewSourceCountriesRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribePortViewSourceCountriesResponse
      *
      * @param DescribePortViewSourceCountriesRequest $request
@@ -7992,15 +8353,15 @@ class Ddoscoo extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribePortViewSourceCountries',
-            'version'     => '2020-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribePortViewSourceCountries',
+            'version' => '2020-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DescribePortViewSourceCountriesResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -8013,6 +8374,7 @@ class Ddoscoo extends OpenApiClient
      * Queries the areas and countries from which requests are sent to one or more Anti-DDoS Pro or Anti-DDoS Premium instances within the specified period of time.
      *
      * @param request - DescribePortViewSourceCountriesRequest
+     *
      * @returns DescribePortViewSourceCountriesResponse
      *
      * @param DescribePortViewSourceCountriesRequest $request
@@ -8037,6 +8399,7 @@ class Ddoscoo extends OpenApiClient
      *
      * @param request - DescribePortViewSourceIspsRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribePortViewSourceIspsResponse
      *
      * @param DescribePortViewSourceIspsRequest $request
@@ -8068,15 +8431,15 @@ class Ddoscoo extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribePortViewSourceIsps',
-            'version'     => '2020-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribePortViewSourceIsps',
+            'version' => '2020-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DescribePortViewSourceIspsResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -8095,6 +8458,7 @@ class Ddoscoo extends OpenApiClient
      * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
      *
      * @param request - DescribePortViewSourceIspsRequest
+     *
      * @returns DescribePortViewSourceIspsResponse
      *
      * @param DescribePortViewSourceIspsRequest $request
@@ -8113,6 +8477,7 @@ class Ddoscoo extends OpenApiClient
      *
      * @param request - DescribePortViewSourceProvincesRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribePortViewSourceProvincesResponse
      *
      * @param DescribePortViewSourceProvincesRequest $request
@@ -8144,15 +8509,15 @@ class Ddoscoo extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribePortViewSourceProvinces',
-            'version'     => '2020-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribePortViewSourceProvinces',
+            'version' => '2020-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DescribePortViewSourceProvincesResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -8165,6 +8530,7 @@ class Ddoscoo extends OpenApiClient
      * Queries the administrative regions in China from which requests are sent to one or more Anti-DDoS Pro or Anti-DDoS Premium instances within a specified period of time.
      *
      * @param request - DescribePortViewSourceProvincesRequest
+     *
      * @returns DescribePortViewSourceProvincesResponse
      *
      * @param DescribePortViewSourceProvincesRequest $request
@@ -8189,6 +8555,7 @@ class Ddoscoo extends OpenApiClient
      *
      * @param request - DescribeSceneDefenseObjectsRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribeSceneDefenseObjectsResponse
      *
      * @param DescribeSceneDefenseObjectsRequest $request
@@ -8212,15 +8579,15 @@ class Ddoscoo extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeSceneDefenseObjects',
-            'version'     => '2020-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeSceneDefenseObjects',
+            'version' => '2020-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DescribeSceneDefenseObjectsResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -8239,6 +8606,7 @@ class Ddoscoo extends OpenApiClient
      * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
      *
      * @param request - DescribeSceneDefenseObjectsRequest
+     *
      * @returns DescribeSceneDefenseObjectsResponse
      *
      * @param DescribeSceneDefenseObjectsRequest $request
@@ -8262,6 +8630,7 @@ class Ddoscoo extends OpenApiClient
      *
      * @param request - DescribeSceneDefensePoliciesRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribeSceneDefensePoliciesResponse
      *
      * @param DescribeSceneDefensePoliciesRequest $request
@@ -8289,15 +8658,15 @@ class Ddoscoo extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeSceneDefensePolicies',
-            'version'     => '2020-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeSceneDefensePolicies',
+            'version' => '2020-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DescribeSceneDefensePoliciesResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -8315,6 +8684,7 @@ class Ddoscoo extends OpenApiClient
      * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
      *
      * @param request - DescribeSceneDefensePoliciesRequest
+     *
      * @returns DescribeSceneDefensePoliciesResponse
      *
      * @param DescribeSceneDefensePoliciesRequest $request
@@ -8331,6 +8701,7 @@ class Ddoscoo extends OpenApiClient
     /**
      * @param request - DescribeSchedulerRulesRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribeSchedulerRulesResponse
      *
      * @param DescribeSchedulerRulesRequest $request
@@ -8362,15 +8733,15 @@ class Ddoscoo extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeSchedulerRules',
-            'version'     => '2020-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeSchedulerRules',
+            'version' => '2020-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DescribeSchedulerRulesResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -8381,6 +8752,7 @@ class Ddoscoo extends OpenApiClient
 
     /**
      * @param request - DescribeSchedulerRulesRequest
+     *
      * @returns DescribeSchedulerRulesResponse
      *
      * @param DescribeSchedulerRulesRequest $request
@@ -8399,6 +8771,7 @@ class Ddoscoo extends OpenApiClient
      *
      * @param request - DescribeSlaEventListRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribeSlaEventListResponse
      *
      * @param DescribeSlaEventListRequest $request
@@ -8438,15 +8811,15 @@ class Ddoscoo extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeSlaEventList',
-            'version'     => '2020-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeSlaEventList',
+            'version' => '2020-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DescribeSlaEventListResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -8459,6 +8832,7 @@ class Ddoscoo extends OpenApiClient
      * Queries the destination rate limit events.
      *
      * @param request - DescribeSlaEventListRequest
+     *
      * @returns DescribeSlaEventListResponse
      *
      * @param DescribeSlaEventListRequest $request
@@ -8473,10 +8847,11 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * Queries whether Anti-DDoS Pro or Anti-DDoS Premium is authorized to access Log Service.
+     * Queries whether Anti-DDoS Proxy is authorized to access Simple Log Service.
      *
      * @param request - DescribeSlsAuthStatusRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribeSlsAuthStatusResponse
      *
      * @param DescribeSlsAuthStatusRequest $request
@@ -8496,15 +8871,15 @@ class Ddoscoo extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeSlsAuthStatus',
-            'version'     => '2020-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeSlsAuthStatus',
+            'version' => '2020-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DescribeSlsAuthStatusResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -8514,9 +8889,10 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * Queries whether Anti-DDoS Pro or Anti-DDoS Premium is authorized to access Log Service.
+     * Queries whether Anti-DDoS Proxy is authorized to access Simple Log Service.
      *
      * @param request - DescribeSlsAuthStatusRequest
+     *
      * @returns DescribeSlsAuthStatusResponse
      *
      * @param DescribeSlsAuthStatusRequest $request
@@ -8531,10 +8907,11 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * Queries the information about the Logstore of the Anti-DDoS Pro or Anti-DDoS Premium instance, such as the log storage capacity and log storage duration.
+     * Queries information about the Logstore of the Anti-DDoS Proxy instance, such as the log storage capacity and log storage duration.
      *
      * @param request - DescribeSlsLogstoreInfoRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribeSlsLogstoreInfoResponse
      *
      * @param DescribeSlsLogstoreInfoRequest $request
@@ -8554,15 +8931,15 @@ class Ddoscoo extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeSlsLogstoreInfo',
-            'version'     => '2020-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeSlsLogstoreInfo',
+            'version' => '2020-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DescribeSlsLogstoreInfoResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -8572,9 +8949,10 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * Queries the information about the Logstore of the Anti-DDoS Pro or Anti-DDoS Premium instance, such as the log storage capacity and log storage duration.
+     * Queries information about the Logstore of the Anti-DDoS Proxy instance, such as the log storage capacity and log storage duration.
      *
      * @param request - DescribeSlsLogstoreInfoRequest
+     *
      * @returns DescribeSlsLogstoreInfoResponse
      *
      * @param DescribeSlsLogstoreInfoRequest $request
@@ -8589,10 +8967,11 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * Checks whether Log Service is activated.
+     * Checks whether Simple Log Service is activated.
      *
      * @param request - DescribeSlsOpenStatusRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribeSlsOpenStatusResponse
      *
      * @param DescribeSlsOpenStatusRequest $request
@@ -8612,15 +8991,15 @@ class Ddoscoo extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeSlsOpenStatus',
-            'version'     => '2020-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeSlsOpenStatus',
+            'version' => '2020-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DescribeSlsOpenStatusResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -8630,9 +9009,10 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * Checks whether Log Service is activated.
+     * Checks whether Simple Log Service is activated.
      *
      * @param request - DescribeSlsOpenStatusRequest
+     *
      * @returns DescribeSlsOpenStatusResponse
      *
      * @param DescribeSlsOpenStatusRequest $request
@@ -8656,6 +9036,7 @@ class Ddoscoo extends OpenApiClient
      *
      * @param request - DescribeStsGrantStatusRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribeStsGrantStatusResponse
      *
      * @param DescribeStsGrantStatusRequest $request
@@ -8679,15 +9060,15 @@ class Ddoscoo extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeStsGrantStatus',
-            'version'     => '2020-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeStsGrantStatus',
+            'version' => '2020-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DescribeStsGrantStatusResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -8705,6 +9086,7 @@ class Ddoscoo extends OpenApiClient
      * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
      *
      * @param request - DescribeStsGrantStatusRequest
+     *
      * @returns DescribeStsGrantStatusResponse
      *
      * @param DescribeStsGrantStatusRequest $request
@@ -8729,6 +9111,7 @@ class Ddoscoo extends OpenApiClient
      *
      * @param request - DescribeSystemLogRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribeSystemLogResponse
      *
      * @param DescribeSystemLogRequest $request
@@ -8768,15 +9151,15 @@ class Ddoscoo extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeSystemLog',
-            'version'     => '2020-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeSystemLog',
+            'version' => '2020-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DescribeSystemLogResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -8795,6 +9178,7 @@ class Ddoscoo extends OpenApiClient
      * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
      *
      * @param request - DescribeSystemLogRequest
+     *
      * @returns DescribeSystemLogResponse
      *
      * @param DescribeSystemLogRequest $request
@@ -8819,6 +9203,7 @@ class Ddoscoo extends OpenApiClient
      *
      * @param request - DescribeTagKeysRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribeTagKeysResponse
      *
      * @param DescribeTagKeysRequest $request
@@ -8854,15 +9239,15 @@ class Ddoscoo extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeTagKeys',
-            'version'     => '2020-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeTagKeys',
+            'version' => '2020-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DescribeTagKeysResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -8881,6 +9266,7 @@ class Ddoscoo extends OpenApiClient
      * You can call this operation up to 10 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
      *
      * @param request - DescribeTagKeysRequest
+     *
      * @returns DescribeTagKeysResponse
      *
      * @param DescribeTagKeysRequest $request
@@ -8905,6 +9291,7 @@ class Ddoscoo extends OpenApiClient
      *
      * @param request - DescribeTagResourcesRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribeTagResourcesResponse
      *
      * @param DescribeTagResourcesRequest $request
@@ -8944,15 +9331,15 @@ class Ddoscoo extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeTagResources',
-            'version'     => '2020-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeTagResources',
+            'version' => '2020-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DescribeTagResourcesResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -8971,6 +9358,7 @@ class Ddoscoo extends OpenApiClient
      * You can call this operation up to 10 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
      *
      * @param request - DescribeTagResourcesRequest
+     *
      * @returns DescribeTagResourcesResponse
      *
      * @param DescribeTagResourcesRequest $request
@@ -8989,6 +9377,7 @@ class Ddoscoo extends OpenApiClient
      *
      * @param request - DescribeTotalAttackMaxFlowRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribeTotalAttackMaxFlowResponse
      *
      * @param DescribeTotalAttackMaxFlowRequest $request
@@ -9020,15 +9409,15 @@ class Ddoscoo extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeTotalAttackMaxFlow',
-            'version'     => '2020-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeTotalAttackMaxFlow',
+            'version' => '2020-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DescribeTotalAttackMaxFlowResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -9041,6 +9430,7 @@ class Ddoscoo extends OpenApiClient
      * Queries the peak bandwidth and peak packet rates of attack traffic on one or more Anti-DDoS Pro or Anti-DDoS Premium instances within a specific period of time.
      *
      * @param request - DescribeTotalAttackMaxFlowRequest
+     *
      * @returns DescribeTotalAttackMaxFlowResponse
      *
      * @param DescribeTotalAttackMaxFlowRequest $request
@@ -9059,6 +9449,7 @@ class Ddoscoo extends OpenApiClient
      *
      * @param request - DescribeUdpReflectRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribeUdpReflectResponse
      *
      * @param DescribeUdpReflectRequest $request
@@ -9082,15 +9473,15 @@ class Ddoscoo extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeUdpReflect',
-            'version'     => '2020-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeUdpReflect',
+            'version' => '2020-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DescribeUdpReflectResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -9103,6 +9494,7 @@ class Ddoscoo extends OpenApiClient
      * Queries the source ports of UDP traffic that are filtered out by the filtering policies for UDP reflection attacks on an Anti-DDoS Pro or Anti-DDoS Premium instance.
      *
      * @param request - DescribeUdpReflectRequest
+     *
      * @returns DescribeUdpReflectResponse
      *
      * @param DescribeUdpReflectRequest $request
@@ -9117,10 +9509,11 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * Queries the total quota and remaining quota that allow you to deactivate blackhole filtering.
+     * Queries the total quota and remaining quota for blackhole filtering deactivation.
      *
      * @param request - DescribeUnBlackholeCountRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribeUnBlackholeCountResponse
      *
      * @param DescribeUnBlackholeCountRequest $request
@@ -9140,15 +9533,15 @@ class Ddoscoo extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeUnBlackholeCount',
-            'version'     => '2020-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeUnBlackholeCount',
+            'version' => '2020-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DescribeUnBlackholeCountResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -9158,9 +9551,10 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * Queries the total quota and remaining quota that allow you to deactivate blackhole filtering.
+     * Queries the total quota and remaining quota for blackhole filtering deactivation.
      *
      * @param request - DescribeUnBlackholeCountRequest
+     *
      * @returns DescribeUnBlackholeCountResponse
      *
      * @param DescribeUnBlackholeCountRequest $request
@@ -9182,6 +9576,7 @@ class Ddoscoo extends OpenApiClient
      *
      * @param request - DescribeUnBlockCountRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribeUnBlockCountResponse
      *
      * @param DescribeUnBlockCountRequest $request
@@ -9201,15 +9596,15 @@ class Ddoscoo extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeUnBlockCount',
-            'version'     => '2020-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeUnBlockCount',
+            'version' => '2020-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DescribeUnBlockCountResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -9225,6 +9620,7 @@ class Ddoscoo extends OpenApiClient
      * >  This operation is suitable only for Anti-DDoS Proxy (Chinese Mainland).
      *
      * @param request - DescribeUnBlockCountRequest
+     *
      * @returns DescribeUnBlockCountResponse
      *
      * @param DescribeUnBlockCountRequest $request
@@ -9248,6 +9644,7 @@ class Ddoscoo extends OpenApiClient
      *
      * @param request - DescribeWebAccessLogDispatchStatusRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribeWebAccessLogDispatchStatusResponse
      *
      * @param DescribeWebAccessLogDispatchStatusRequest $request
@@ -9275,15 +9672,15 @@ class Ddoscoo extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeWebAccessLogDispatchStatus',
-            'version'     => '2020-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeWebAccessLogDispatchStatus',
+            'version' => '2020-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DescribeWebAccessLogDispatchStatusResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -9301,6 +9698,7 @@ class Ddoscoo extends OpenApiClient
      * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
      *
      * @param request - DescribeWebAccessLogDispatchStatusRequest
+     *
      * @returns DescribeWebAccessLogDispatchStatusResponse
      *
      * @param DescribeWebAccessLogDispatchStatusRequest $request
@@ -9319,6 +9717,7 @@ class Ddoscoo extends OpenApiClient
      *
      * @param request - DescribeWebAccessLogEmptyCountRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribeWebAccessLogEmptyCountResponse
      *
      * @param DescribeWebAccessLogEmptyCountRequest $request
@@ -9338,15 +9737,15 @@ class Ddoscoo extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeWebAccessLogEmptyCount',
-            'version'     => '2020-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeWebAccessLogEmptyCount',
+            'version' => '2020-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DescribeWebAccessLogEmptyCountResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -9359,6 +9758,7 @@ class Ddoscoo extends OpenApiClient
      * Queries the remaining quota that allows you to clear the Logstore.
      *
      * @param request - DescribeWebAccessLogEmptyCountRequest
+     *
      * @returns DescribeWebAccessLogEmptyCountResponse
      *
      * @param DescribeWebAccessLogEmptyCountRequest $request
@@ -9373,10 +9773,11 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * Queries the information about the Log Analysis feature for a website, such as the feature status and the Log Service project and Logstore that are used.
+     * Queries the information about the log analysis feature for a website, such as the feature status and the Simple Log Service project and Logstore that are used.
      *
      * @param request - DescribeWebAccessLogStatusRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribeWebAccessLogStatusResponse
      *
      * @param DescribeWebAccessLogStatusRequest $request
@@ -9400,15 +9801,15 @@ class Ddoscoo extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeWebAccessLogStatus',
-            'version'     => '2020-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeWebAccessLogStatus',
+            'version' => '2020-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DescribeWebAccessLogStatusResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -9418,9 +9819,10 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * Queries the information about the Log Analysis feature for a website, such as the feature status and the Log Service project and Logstore that are used.
+     * Queries the information about the log analysis feature for a website, such as the feature status and the Simple Log Service project and Logstore that are used.
      *
      * @param request - DescribeWebAccessLogStatusRequest
+     *
      * @returns DescribeWebAccessLogStatusResponse
      *
      * @param DescribeWebAccessLogStatusRequest $request
@@ -9439,6 +9841,7 @@ class Ddoscoo extends OpenApiClient
      *
      * @param request - DescribeWebAccessModeRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribeWebAccessModeResponse
      *
      * @param DescribeWebAccessModeRequest $request
@@ -9458,15 +9861,15 @@ class Ddoscoo extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeWebAccessMode',
-            'version'     => '2020-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeWebAccessMode',
+            'version' => '2020-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DescribeWebAccessModeResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -9479,6 +9882,7 @@ class Ddoscoo extends OpenApiClient
      * Queries the mode in which a website service is added to Anti-DDoS Pro or Anti-DDoS Premium.
      *
      * @param request - DescribeWebAccessModeRequest
+     *
      * @returns DescribeWebAccessModeResponse
      *
      * @param DescribeWebAccessModeRequest $request
@@ -9497,6 +9901,7 @@ class Ddoscoo extends OpenApiClient
      *
      * @param request - DescribeWebAreaBlockConfigsRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribeWebAreaBlockConfigsResponse
      *
      * @param DescribeWebAreaBlockConfigsRequest $request
@@ -9520,15 +9925,15 @@ class Ddoscoo extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeWebAreaBlockConfigs',
-            'version'     => '2020-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeWebAreaBlockConfigs',
+            'version' => '2020-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DescribeWebAreaBlockConfigsResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -9541,6 +9946,7 @@ class Ddoscoo extends OpenApiClient
      * Queries the Location Blacklist (Domain Names) configurations for websites.
      *
      * @param request - DescribeWebAreaBlockConfigsRequest
+     *
      * @returns DescribeWebAreaBlockConfigsResponse
      *
      * @param DescribeWebAreaBlockConfigsRequest $request
@@ -9555,7 +9961,6 @@ class Ddoscoo extends OpenApiClient
     }
 
     // Deprecated
-
     /**
      * Queries the custom frequency control rules that are created for a website.
      *
@@ -9563,6 +9968,7 @@ class Ddoscoo extends OpenApiClient
      *
      * @param request - DescribeWebCCRulesRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribeWebCCRulesResponse
      *
      * @param DescribeWebCCRulesRequest $request
@@ -9594,15 +10000,15 @@ class Ddoscoo extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeWebCCRules',
-            'version'     => '2020-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeWebCCRules',
+            'version' => '2020-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DescribeWebCCRulesResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -9612,13 +10018,13 @@ class Ddoscoo extends OpenApiClient
     }
 
     // Deprecated
-
     /**
      * Queries the custom frequency control rules that are created for a website.
      *
      * @deprecated openAPI DescribeWebCCRules is deprecated, please use ddoscoo::2020-01-01::ConfigWebCCRuleV2 instead
      *
      * @param request - DescribeWebCCRulesRequest
+     *
      * @returns DescribeWebCCRulesResponse
      *
      * @param DescribeWebCCRulesRequest $request
@@ -9637,6 +10043,7 @@ class Ddoscoo extends OpenApiClient
      *
      * @param request - DescribeWebCCRulesV2Request
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribeWebCCRulesV2Response
      *
      * @param DescribeWebCCRulesV2Request $request
@@ -9668,15 +10075,15 @@ class Ddoscoo extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeWebCCRulesV2',
-            'version'     => '2020-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeWebCCRulesV2',
+            'version' => '2020-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DescribeWebCCRulesV2Response::fromMap($this->callApi($params, $req, $runtime));
@@ -9689,6 +10096,7 @@ class Ddoscoo extends OpenApiClient
      * Queries the custom frequency control rules that are created for a website.
      *
      * @param request - DescribeWebCCRulesV2Request
+     *
      * @returns DescribeWebCCRulesV2Response
      *
      * @param DescribeWebCCRulesV2Request $request
@@ -9712,6 +10120,7 @@ class Ddoscoo extends OpenApiClient
      *
      * @param request - DescribeWebCacheConfigsRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribeWebCacheConfigsResponse
      *
      * @param DescribeWebCacheConfigsRequest $request
@@ -9735,15 +10144,15 @@ class Ddoscoo extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeWebCacheConfigs',
-            'version'     => '2020-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeWebCacheConfigs',
+            'version' => '2020-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DescribeWebCacheConfigsResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -9761,6 +10170,7 @@ class Ddoscoo extends OpenApiClient
      * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
      *
      * @param request - DescribeWebCacheConfigsRequest
+     *
      * @returns DescribeWebCacheConfigsResponse
      *
      * @param DescribeWebCacheConfigsRequest $request
@@ -9779,6 +10189,7 @@ class Ddoscoo extends OpenApiClient
      *
      * @param request - DescribeWebCcProtectSwitchRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribeWebCcProtectSwitchResponse
      *
      * @param DescribeWebCcProtectSwitchRequest $request
@@ -9802,15 +10213,15 @@ class Ddoscoo extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeWebCcProtectSwitch',
-            'version'     => '2020-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeWebCcProtectSwitch',
+            'version' => '2020-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DescribeWebCcProtectSwitchResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -9823,6 +10234,7 @@ class Ddoscoo extends OpenApiClient
      * Queries the status of each mitigation policy for a website.
      *
      * @param request - DescribeWebCcProtectSwitchRequest
+     *
      * @returns DescribeWebCcProtectSwitchResponse
      *
      * @param DescribeWebCcProtectSwitchRequest $request
@@ -9841,6 +10253,7 @@ class Ddoscoo extends OpenApiClient
      *
      * @param request - DescribeWebCustomPortsRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribeWebCustomPortsResponse
      *
      * @param DescribeWebCustomPortsRequest $request
@@ -9860,15 +10273,15 @@ class Ddoscoo extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeWebCustomPorts',
-            'version'     => '2020-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeWebCustomPorts',
+            'version' => '2020-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DescribeWebCustomPortsResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -9881,6 +10294,7 @@ class Ddoscoo extends OpenApiClient
      * Queries the supported custom ports of a website.
      *
      * @param request - DescribeWebCustomPortsRequest
+     *
      * @returns DescribeWebCustomPortsResponse
      *
      * @param DescribeWebCustomPortsRequest $request
@@ -9899,6 +10313,7 @@ class Ddoscoo extends OpenApiClient
      *
      * @param request - DescribeWebInstanceRelationsRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribeWebInstanceRelationsResponse
      *
      * @param DescribeWebInstanceRelationsRequest $request
@@ -9922,15 +10337,15 @@ class Ddoscoo extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeWebInstanceRelations',
-            'version'     => '2020-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeWebInstanceRelations',
+            'version' => '2020-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DescribeWebInstanceRelationsResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -9943,6 +10358,7 @@ class Ddoscoo extends OpenApiClient
      * Queries the information about Anti-DDoS Pro or Anti-DDoS Premium instances to which a website service is added.
      *
      * @param request - DescribeWebInstanceRelationsRequest
+     *
      * @returns DescribeWebInstanceRelationsResponse
      *
      * @param DescribeWebInstanceRelationsRequest $request
@@ -9961,6 +10377,7 @@ class Ddoscoo extends OpenApiClient
      *
      * @param request - DescribeWebPreciseAccessRuleRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribeWebPreciseAccessRuleResponse
      *
      * @param DescribeWebPreciseAccessRuleRequest $request
@@ -9984,15 +10401,15 @@ class Ddoscoo extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeWebPreciseAccessRule',
-            'version'     => '2020-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeWebPreciseAccessRule',
+            'version' => '2020-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DescribeWebPreciseAccessRuleResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -10005,6 +10422,7 @@ class Ddoscoo extends OpenApiClient
      * Queries the accurate access control rules that are created for websites.
      *
      * @param request - DescribeWebPreciseAccessRuleRequest
+     *
      * @returns DescribeWebPreciseAccessRuleResponse
      *
      * @param DescribeWebPreciseAccessRuleRequest $request
@@ -10023,6 +10441,7 @@ class Ddoscoo extends OpenApiClient
      *
      * @param request - DescribeWebReportTopIpRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribeWebReportTopIpResponse
      *
      * @param DescribeWebReportTopIpRequest $request
@@ -10062,15 +10481,15 @@ class Ddoscoo extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeWebReportTopIp',
-            'version'     => '2020-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeWebReportTopIp',
+            'version' => '2020-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DescribeWebReportTopIpResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -10083,6 +10502,7 @@ class Ddoscoo extends OpenApiClient
      * Queries the top source IP addresses of the web resource exhaustion attacks for the Anti-DDoS Proxy instance.
      *
      * @param request - DescribeWebReportTopIpRequest
+     *
      * @returns DescribeWebReportTopIpResponse
      *
      * @param DescribeWebReportTopIpRequest $request
@@ -10107,6 +10527,7 @@ class Ddoscoo extends OpenApiClient
      *
      * @param request - DescribeWebRulesRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribeWebRulesResponse
      *
      * @param DescribeWebRulesRequest $request
@@ -10150,15 +10571,15 @@ class Ddoscoo extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeWebRules',
-            'version'     => '2020-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeWebRules',
+            'version' => '2020-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DescribeWebRulesResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -10177,6 +10598,7 @@ class Ddoscoo extends OpenApiClient
      * The per-user QPS limit for this interface is 50 times/second. Exceeding this limit will result in API calls being throttled, which may impact your business; please use it reasonably.
      *
      * @param request - DescribeWebRulesRequest
+     *
      * @returns DescribeWebRulesResponse
      *
      * @param DescribeWebRulesRequest $request
@@ -10195,6 +10617,7 @@ class Ddoscoo extends OpenApiClient
      *
      * @param request - DetachSceneDefenseObjectRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DetachSceneDefenseObjectResponse
      *
      * @param DetachSceneDefenseObjectRequest $request
@@ -10222,15 +10645,15 @@ class Ddoscoo extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DetachSceneDefenseObject',
-            'version'     => '2020-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DetachSceneDefenseObject',
+            'version' => '2020-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DetachSceneDefenseObjectResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -10243,6 +10666,7 @@ class Ddoscoo extends OpenApiClient
      * Removes a protected object from a scenario-specific custom policy.
      *
      * @param request - DetachSceneDefenseObjectRequest
+     *
      * @returns DetachSceneDefenseObjectResponse
      *
      * @param DetachSceneDefenseObjectRequest $request
@@ -10261,6 +10685,7 @@ class Ddoscoo extends OpenApiClient
      *
      * @param request - DisableSceneDefensePolicyRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DisableSceneDefensePolicyResponse
      *
      * @param DisableSceneDefensePolicyRequest $request
@@ -10280,15 +10705,15 @@ class Ddoscoo extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DisableSceneDefensePolicy',
-            'version'     => '2020-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DisableSceneDefensePolicy',
+            'version' => '2020-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DisableSceneDefensePolicyResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -10301,6 +10726,7 @@ class Ddoscoo extends OpenApiClient
      * Disables a scenario-specific custom policy.
      *
      * @param request - DisableSceneDefensePolicyRequest
+     *
      * @returns DisableSceneDefensePolicyResponse
      *
      * @param DisableSceneDefensePolicyRequest $request
@@ -10319,6 +10745,7 @@ class Ddoscoo extends OpenApiClient
      *
      * @param request - DisableWebAccessLogConfigRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DisableWebAccessLogConfigResponse
      *
      * @param DisableWebAccessLogConfigRequest $request
@@ -10342,15 +10769,15 @@ class Ddoscoo extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DisableWebAccessLogConfig',
-            'version'     => '2020-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DisableWebAccessLogConfig',
+            'version' => '2020-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DisableWebAccessLogConfigResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -10363,6 +10790,7 @@ class Ddoscoo extends OpenApiClient
      * Disables the log analysis feature for a website.
      *
      * @param request - DisableWebAccessLogConfigRequest
+     *
      * @returns DisableWebAccessLogConfigResponse
      *
      * @param DisableWebAccessLogConfigRequest $request
@@ -10381,6 +10809,7 @@ class Ddoscoo extends OpenApiClient
      *
      * @param request - DisableWebCCRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DisableWebCCResponse
      *
      * @param DisableWebCCRequest $request
@@ -10404,15 +10833,15 @@ class Ddoscoo extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DisableWebCC',
-            'version'     => '2020-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DisableWebCC',
+            'version' => '2020-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DisableWebCCResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -10425,6 +10854,7 @@ class Ddoscoo extends OpenApiClient
      * Disables frequency control for a website.
      *
      * @param request - DisableWebCCRequest
+     *
      * @returns DisableWebCCResponse
      *
      * @param DisableWebCCRequest $request
@@ -10443,6 +10873,7 @@ class Ddoscoo extends OpenApiClient
      *
      * @param request - DisableWebCCRuleRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DisableWebCCRuleResponse
      *
      * @param DisableWebCCRuleRequest $request
@@ -10466,15 +10897,15 @@ class Ddoscoo extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DisableWebCCRule',
-            'version'     => '2020-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DisableWebCCRule',
+            'version' => '2020-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DisableWebCCRuleResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -10487,6 +10918,7 @@ class Ddoscoo extends OpenApiClient
      * Disables custom frequency control rules for a website.
      *
      * @param request - DisableWebCCRuleRequest
+     *
      * @returns DisableWebCCRuleResponse
      *
      * @param DisableWebCCRuleRequest $request
@@ -10505,6 +10937,7 @@ class Ddoscoo extends OpenApiClient
      *
      * @param request - EmptyAutoCcBlacklistRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns EmptyAutoCcBlacklistResponse
      *
      * @param EmptyAutoCcBlacklistRequest $request
@@ -10524,15 +10957,15 @@ class Ddoscoo extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'EmptyAutoCcBlacklist',
-            'version'     => '2020-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'EmptyAutoCcBlacklist',
+            'version' => '2020-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return EmptyAutoCcBlacklistResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -10545,6 +10978,7 @@ class Ddoscoo extends OpenApiClient
      * Clears the IP address blacklist of an Anti-DDoS Pro or Anti-DDoS Premium instance.
      *
      * @param request - EmptyAutoCcBlacklistRequest
+     *
      * @returns EmptyAutoCcBlacklistResponse
      *
      * @param EmptyAutoCcBlacklistRequest $request
@@ -10563,6 +10997,7 @@ class Ddoscoo extends OpenApiClient
      *
      * @param request - EmptyAutoCcWhitelistRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns EmptyAutoCcWhitelistResponse
      *
      * @param EmptyAutoCcWhitelistRequest $request
@@ -10582,15 +11017,15 @@ class Ddoscoo extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'EmptyAutoCcWhitelist',
-            'version'     => '2020-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'EmptyAutoCcWhitelist',
+            'version' => '2020-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return EmptyAutoCcWhitelistResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -10603,6 +11038,7 @@ class Ddoscoo extends OpenApiClient
      * Clears the IP address whitelist of an Anti-DDoS Pro or Anti-DDoS Premium instance.
      *
      * @param request - EmptyAutoCcWhitelistRequest
+     *
      * @returns EmptyAutoCcWhitelistResponse
      *
      * @param EmptyAutoCcWhitelistRequest $request
@@ -10621,6 +11057,7 @@ class Ddoscoo extends OpenApiClient
      *
      * @param request - EmptySlsLogstoreRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns EmptySlsLogstoreResponse
      *
      * @param EmptySlsLogstoreRequest $request
@@ -10640,15 +11077,15 @@ class Ddoscoo extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'EmptySlsLogstore',
-            'version'     => '2020-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'EmptySlsLogstore',
+            'version' => '2020-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return EmptySlsLogstoreResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -10661,6 +11098,7 @@ class Ddoscoo extends OpenApiClient
      * Clears the Logstore of Anti-DDoS Pro or Anti-DDoS Premium.
      *
      * @param request - EmptySlsLogstoreRequest
+     *
      * @returns EmptySlsLogstoreResponse
      *
      * @param EmptySlsLogstoreRequest $request
@@ -10679,6 +11117,7 @@ class Ddoscoo extends OpenApiClient
      *
      * @param request - EnableSceneDefensePolicyRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns EnableSceneDefensePolicyResponse
      *
      * @param EnableSceneDefensePolicyRequest $request
@@ -10698,15 +11137,15 @@ class Ddoscoo extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'EnableSceneDefensePolicy',
-            'version'     => '2020-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'EnableSceneDefensePolicy',
+            'version' => '2020-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return EnableSceneDefensePolicyResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -10719,6 +11158,7 @@ class Ddoscoo extends OpenApiClient
      * Enables a scenario-specific custom policy.
      *
      * @param request - EnableSceneDefensePolicyRequest
+     *
      * @returns EnableSceneDefensePolicyResponse
      *
      * @param EnableSceneDefensePolicyRequest $request
@@ -10737,6 +11177,7 @@ class Ddoscoo extends OpenApiClient
      *
      * @param request - EnableWebAccessLogConfigRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns EnableWebAccessLogConfigResponse
      *
      * @param EnableWebAccessLogConfigRequest $request
@@ -10760,15 +11201,15 @@ class Ddoscoo extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'EnableWebAccessLogConfig',
-            'version'     => '2020-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'EnableWebAccessLogConfig',
+            'version' => '2020-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return EnableWebAccessLogConfigResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -10781,6 +11222,7 @@ class Ddoscoo extends OpenApiClient
      * Enables the log analysis feature for a website.
      *
      * @param request - EnableWebAccessLogConfigRequest
+     *
      * @returns EnableWebAccessLogConfigResponse
      *
      * @param EnableWebAccessLogConfigRequest $request
@@ -10799,6 +11241,7 @@ class Ddoscoo extends OpenApiClient
      *
      * @param request - EnableWebCCRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns EnableWebCCResponse
      *
      * @param EnableWebCCRequest $request
@@ -10822,15 +11265,15 @@ class Ddoscoo extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'EnableWebCC',
-            'version'     => '2020-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'EnableWebCC',
+            'version' => '2020-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return EnableWebCCResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -10843,6 +11286,7 @@ class Ddoscoo extends OpenApiClient
      * Enables the Frequency Control policy for a website.
      *
      * @param request - EnableWebCCRequest
+     *
      * @returns EnableWebCCResponse
      *
      * @param EnableWebCCRequest $request
@@ -10861,6 +11305,7 @@ class Ddoscoo extends OpenApiClient
      *
      * @param request - EnableWebCCRuleRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns EnableWebCCRuleResponse
      *
      * @param EnableWebCCRuleRequest $request
@@ -10884,15 +11329,15 @@ class Ddoscoo extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'EnableWebCCRule',
-            'version'     => '2020-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'EnableWebCCRule',
+            'version' => '2020-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return EnableWebCCRuleResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -10905,6 +11350,7 @@ class Ddoscoo extends OpenApiClient
      * Enables custom frequency control rules for a website.
      *
      * @param request - EnableWebCCRuleRequest
+     *
      * @returns EnableWebCCRuleResponse
      *
      * @param EnableWebCCRuleRequest $request
@@ -10926,6 +11372,7 @@ class Ddoscoo extends OpenApiClient
      *
      * @param request - ModifyBizBandWidthModeRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ModifyBizBandWidthModeResponse
      *
      * @param ModifyBizBandWidthModeRequest $request
@@ -10949,15 +11396,15 @@ class Ddoscoo extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ModifyBizBandWidthMode',
-            'version'     => '2020-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ModifyBizBandWidthMode',
+            'version' => '2020-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return ModifyBizBandWidthModeResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -10973,6 +11420,7 @@ class Ddoscoo extends OpenApiClient
      * You can switch between the metering methods of the burstable clean bandwidth feature. The new metering method takes effect from 00:00 on the first day of the next month. You can change the metering method up to three times each calendar month. The most recent metering method that you select takes effect in the next month. You cannot change the metering method on the last day of each calendar month.
      *
      * @param request - ModifyBizBandWidthModeRequest
+     *
      * @returns ModifyBizBandWidthModeResponse
      *
      * @param ModifyBizBandWidthModeRequest $request
@@ -10991,6 +11439,7 @@ class Ddoscoo extends OpenApiClient
      *
      * @param request - ModifyBlackholeStatusRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ModifyBlackholeStatusResponse
      *
      * @param ModifyBlackholeStatusRequest $request
@@ -11014,15 +11463,15 @@ class Ddoscoo extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ModifyBlackholeStatus',
-            'version'     => '2020-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ModifyBlackholeStatus',
+            'version' => '2020-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return ModifyBlackholeStatusResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -11035,6 +11484,7 @@ class Ddoscoo extends OpenApiClient
      * Deactivates blackhole filtering that is triggered on an instance.
      *
      * @param request - ModifyBlackholeStatusRequest
+     *
      * @returns ModifyBlackholeStatusResponse
      *
      * @param ModifyBlackholeStatusRequest $request
@@ -11056,6 +11506,7 @@ class Ddoscoo extends OpenApiClient
      *
      * @param request - ModifyBlockStatusRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ModifyBlockStatusResponse
      *
      * @param ModifyBlockStatusRequest $request
@@ -11087,15 +11538,15 @@ class Ddoscoo extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ModifyBlockStatus',
-            'version'     => '2020-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ModifyBlockStatus',
+            'version' => '2020-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return ModifyBlockStatusResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -11111,6 +11562,7 @@ class Ddoscoo extends OpenApiClient
      * >  This operation is suitable only for Anti-DDoS Proxy (Chinese Mainland).
      *
      * @param request - ModifyBlockStatusRequest
+     *
      * @returns ModifyBlockStatusResponse
      *
      * @param ModifyBlockStatusRequest $request
@@ -11132,6 +11584,7 @@ class Ddoscoo extends OpenApiClient
      *
      * @param request - ModifyCnameReuseRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ModifyCnameReuseResponse
      *
      * @param ModifyCnameReuseRequest $request
@@ -11163,15 +11616,15 @@ class Ddoscoo extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ModifyCnameReuse',
-            'version'     => '2020-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ModifyCnameReuse',
+            'version' => '2020-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return ModifyCnameReuseResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -11187,6 +11640,7 @@ class Ddoscoo extends OpenApiClient
      * > This operation is suitable only for Anti-DDoS Premium.
      *
      * @param request - ModifyCnameReuseRequest
+     *
      * @returns ModifyCnameReuseResponse
      *
      * @param ModifyCnameReuseRequest $request
@@ -11205,6 +11659,7 @@ class Ddoscoo extends OpenApiClient
      *
      * @param request - ModifyDomainResourceRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ModifyDomainResourceResponse
      *
      * @param ModifyDomainResourceRequest $request
@@ -11244,15 +11699,15 @@ class Ddoscoo extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ModifyDomainResource',
-            'version'     => '2020-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ModifyDomainResource',
+            'version' => '2020-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return ModifyDomainResourceResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -11265,6 +11720,7 @@ class Ddoscoo extends OpenApiClient
      * Modifies the forwarding rule of a website.
      *
      * @param request - ModifyDomainResourceRequest
+     *
      * @returns ModifyDomainResourceResponse
      *
      * @param ModifyDomainResourceRequest $request
@@ -11286,6 +11742,7 @@ class Ddoscoo extends OpenApiClient
      *
      * @param request - ModifyElasticBandWidthRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ModifyElasticBandWidthResponse
      *
      * @param ModifyElasticBandWidthRequest $request
@@ -11309,15 +11766,15 @@ class Ddoscoo extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ModifyElasticBandWidth',
-            'version'     => '2020-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ModifyElasticBandWidth',
+            'version' => '2020-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return ModifyElasticBandWidthResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -11333,6 +11790,7 @@ class Ddoscoo extends OpenApiClient
      * >  This operation is suitable only for Anti-DDoS Proxy (Chinese Mainland).
      *
      * @param request - ModifyElasticBandWidthRequest
+     *
      * @returns ModifyElasticBandWidthResponse
      *
      * @param ModifyElasticBandWidthRequest $request
@@ -11354,6 +11812,7 @@ class Ddoscoo extends OpenApiClient
      *
      * @param request - ModifyElasticBizBandWidthRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ModifyElasticBizBandWidthResponse
      *
      * @param ModifyElasticBizBandWidthRequest $request
@@ -11381,15 +11840,15 @@ class Ddoscoo extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ModifyElasticBizBandWidth',
-            'version'     => '2020-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ModifyElasticBizBandWidth',
+            'version' => '2020-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return ModifyElasticBizBandWidthResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -11405,6 +11864,7 @@ class Ddoscoo extends OpenApiClient
      * Before you call this operation, make sure that you have fully understood the billing method and [pricing](https://help.aliyun.com/document_detail/283754.html) of the burstable clean bandwidth feature. After you call this operation for the first time, the modification immediately takes effect.
      *
      * @param request - ModifyElasticBizBandWidthRequest
+     *
      * @returns ModifyElasticBizBandWidthResponse
      *
      * @param ModifyElasticBizBandWidthRequest $request
@@ -11426,6 +11886,7 @@ class Ddoscoo extends OpenApiClient
      *
      * @param request - ModifyElasticBizQpsRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ModifyElasticBizQpsResponse
      *
      * @param ModifyElasticBizQpsRequest $request
@@ -11453,15 +11914,15 @@ class Ddoscoo extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ModifyElasticBizQps',
-            'version'     => '2020-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ModifyElasticBizQps',
+            'version' => '2020-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return ModifyElasticBizQpsResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -11477,6 +11938,7 @@ class Ddoscoo extends OpenApiClient
      * You can enable burstable QPS only for IPv4 instances.
      *
      * @param request - ModifyElasticBizQpsRequest
+     *
      * @returns ModifyElasticBizQpsResponse
      *
      * @param ModifyElasticBizQpsRequest $request
@@ -11495,6 +11957,7 @@ class Ddoscoo extends OpenApiClient
      *
      * @param request - ModifyFullLogTtlRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ModifyFullLogTtlResponse
      *
      * @param ModifyFullLogTtlRequest $request
@@ -11518,15 +11981,15 @@ class Ddoscoo extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ModifyFullLogTtl',
-            'version'     => '2020-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ModifyFullLogTtl',
+            'version' => '2020-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return ModifyFullLogTtlResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -11539,6 +12002,7 @@ class Ddoscoo extends OpenApiClient
      * Modifies the log storage duration for Anti-DDoS Proxy.
      *
      * @param request - ModifyFullLogTtlRequest
+     *
      * @returns ModifyFullLogTtlResponse
      *
      * @param ModifyFullLogTtlRequest $request
@@ -11557,6 +12021,7 @@ class Ddoscoo extends OpenApiClient
      *
      * @param request - ModifyHeadersRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ModifyHeadersResponse
      *
      * @param ModifyHeadersRequest $request
@@ -11584,15 +12049,15 @@ class Ddoscoo extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ModifyHeaders',
-            'version'     => '2020-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ModifyHeaders',
+            'version' => '2020-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return ModifyHeadersResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -11605,6 +12070,7 @@ class Ddoscoo extends OpenApiClient
      * Modifies the custom header of a domain name that is added to an Anti-DDoS Pro or Anti-DDoS Premium instance.
      *
      * @param request - ModifyHeadersRequest
+     *
      * @returns ModifyHeadersResponse
      *
      * @param ModifyHeadersRequest $request
@@ -11623,6 +12089,7 @@ class Ddoscoo extends OpenApiClient
      *
      * @param request - ModifyHealthCheckConfigRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ModifyHealthCheckConfigResponse
      *
      * @param ModifyHealthCheckConfigRequest $request
@@ -11654,15 +12121,15 @@ class Ddoscoo extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ModifyHealthCheckConfig',
-            'version'     => '2020-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ModifyHealthCheckConfig',
+            'version' => '2020-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return ModifyHealthCheckConfigResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -11675,6 +12142,7 @@ class Ddoscoo extends OpenApiClient
      * Modifies the Layer 4 or Layer 7 health check configuration of a port forwarding rule.
      *
      * @param request - ModifyHealthCheckConfigRequest
+     *
      * @returns ModifyHealthCheckConfigResponse
      *
      * @param ModifyHealthCheckConfigRequest $request
@@ -11696,6 +12164,7 @@ class Ddoscoo extends OpenApiClient
      *
      * @param request - ModifyHttp2EnableRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ModifyHttp2EnableResponse
      *
      * @param ModifyHttp2EnableRequest $request
@@ -11723,15 +12192,15 @@ class Ddoscoo extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ModifyHttp2Enable',
-            'version'     => '2020-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ModifyHttp2Enable',
+            'version' => '2020-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return ModifyHttp2EnableResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -11747,6 +12216,7 @@ class Ddoscoo extends OpenApiClient
      * >  This operation is suitable only for Anti-DDoS Proxy (Chinese Mainland).
      *
      * @param request - ModifyHttp2EnableRequest
+     *
      * @returns ModifyHttp2EnableResponse
      *
      * @param ModifyHttp2EnableRequest $request
@@ -11761,10 +12231,11 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * 实例变配  类似bss的变配.
+     * Instance adjustment, similar to BSS adjustment.
      *
      * @param request - ModifyInstanceRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ModifyInstanceResponse
      *
      * @param ModifyInstanceRequest $request
@@ -11840,15 +12311,15 @@ class Ddoscoo extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ModifyInstance',
-            'version'     => '2020-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ModifyInstance',
+            'version' => '2020-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return ModifyInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -11858,9 +12329,10 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * 实例变配  类似bss的变配.
+     * Instance adjustment, similar to BSS adjustment.
      *
      * @param request - ModifyInstanceRequest
+     *
      * @returns ModifyInstanceResponse
      *
      * @param ModifyInstanceRequest $request
@@ -11875,10 +12347,11 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * Modifies the description of an Anti-DDoS Pro or Anti-DDoS Premium instance.
+     * Modifies the description of an Anti-DDoS Proxy instance.
      *
      * @param request - ModifyInstanceRemarkRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ModifyInstanceRemarkResponse
      *
      * @param ModifyInstanceRemarkRequest $request
@@ -11902,15 +12375,15 @@ class Ddoscoo extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ModifyInstanceRemark',
-            'version'     => '2020-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ModifyInstanceRemark',
+            'version' => '2020-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return ModifyInstanceRemarkResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -11920,9 +12393,10 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * Modifies the description of an Anti-DDoS Pro or Anti-DDoS Premium instance.
+     * Modifies the description of an Anti-DDoS Proxy instance.
      *
      * @param request - ModifyInstanceRemarkRequest
+     *
      * @returns ModifyInstanceRemarkResponse
      *
      * @param ModifyInstanceRemarkRequest $request
@@ -11941,6 +12415,7 @@ class Ddoscoo extends OpenApiClient
      *
      * @param request - ModifyNetworkRuleAttributeRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ModifyNetworkRuleAttributeResponse
      *
      * @param ModifyNetworkRuleAttributeRequest $request
@@ -11972,15 +12447,15 @@ class Ddoscoo extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ModifyNetworkRuleAttribute',
-            'version'     => '2020-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ModifyNetworkRuleAttribute',
+            'version' => '2020-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return ModifyNetworkRuleAttributeResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -11993,6 +12468,7 @@ class Ddoscoo extends OpenApiClient
      * Modifies the session persistence and DDoS mitigation policy settings of a port forwarding rule.
      *
      * @param request - ModifyNetworkRuleAttributeRequest
+     *
      * @returns ModifyNetworkRuleAttributeResponse
      *
      * @param ModifyNetworkRuleAttributeRequest $request
@@ -12014,6 +12490,7 @@ class Ddoscoo extends OpenApiClient
      *
      * @param request - ModifyOcspStatusRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ModifyOcspStatusResponse
      *
      * @param ModifyOcspStatusRequest $request
@@ -12037,15 +12514,15 @@ class Ddoscoo extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ModifyOcspStatus',
-            'version'     => '2020-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ModifyOcspStatus',
+            'version' => '2020-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return ModifyOcspStatusResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -12061,6 +12538,7 @@ class Ddoscoo extends OpenApiClient
      * This feature is available only for a website that supports HTTPS. If HTTPS is selected for Protocol, we recommend that you enable this feature.
      *
      * @param request - ModifyOcspStatusRequest
+     *
      * @returns ModifyOcspStatusResponse
      *
      * @param ModifyOcspStatusRequest $request
@@ -12082,6 +12560,7 @@ class Ddoscoo extends OpenApiClient
      *
      * @param request - ModifyPortRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ModifyPortResponse
      *
      * @param ModifyPortRequest $request
@@ -12121,15 +12600,15 @@ class Ddoscoo extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ModifyPort',
-            'version'     => '2020-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ModifyPort',
+            'version' => '2020-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return ModifyPortResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -12145,6 +12624,7 @@ class Ddoscoo extends OpenApiClient
      * You can call the ModifyPort operation by using Terraform. For more information about Terraform, see [What is Terraform?](https://help.aliyun.com/document_detail/95820.html).
      *
      * @param request - ModifyPortRequest
+     *
      * @returns ModifyPortResponse
      *
      * @param ModifyPortRequest $request
@@ -12163,6 +12643,7 @@ class Ddoscoo extends OpenApiClient
      *
      * @param request - ModifyPortAutoCcStatusRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ModifyPortAutoCcStatusResponse
      *
      * @param ModifyPortAutoCcStatusRequest $request
@@ -12190,15 +12671,15 @@ class Ddoscoo extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ModifyPortAutoCcStatus',
-            'version'     => '2020-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ModifyPortAutoCcStatus',
+            'version' => '2020-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return ModifyPortAutoCcStatusResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -12211,6 +12692,7 @@ class Ddoscoo extends OpenApiClient
      * Modifies the Intelligent Protection configuration of a non-website service.
      *
      * @param request - ModifyPortAutoCcStatusRequest
+     *
      * @returns ModifyPortAutoCcStatusResponse
      *
      * @param ModifyPortAutoCcStatusRequest $request
@@ -12229,6 +12711,7 @@ class Ddoscoo extends OpenApiClient
      *
      * @param request - ModifyQpsModeRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ModifyQpsModeResponse
      *
      * @param ModifyQpsModeRequest $request
@@ -12252,15 +12735,15 @@ class Ddoscoo extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ModifyQpsMode',
-            'version'     => '2020-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ModifyQpsMode',
+            'version' => '2020-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return ModifyQpsModeResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -12273,6 +12756,7 @@ class Ddoscoo extends OpenApiClient
      * Switches between the metering methods of the burstable clean bandwidth feature.
      *
      * @param request - ModifyQpsModeRequest
+     *
      * @returns ModifyQpsModeResponse
      *
      * @param ModifyQpsModeRequest $request
@@ -12291,6 +12775,7 @@ class Ddoscoo extends OpenApiClient
      *
      * @param request - ModifySceneDefensePolicyRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ModifySceneDefensePolicyResponse
      *
      * @param ModifySceneDefensePolicyRequest $request
@@ -12326,15 +12811,15 @@ class Ddoscoo extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ModifySceneDefensePolicy',
-            'version'     => '2020-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ModifySceneDefensePolicy',
+            'version' => '2020-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return ModifySceneDefensePolicyResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -12347,6 +12832,7 @@ class Ddoscoo extends OpenApiClient
      * Modifies a scenario-specific custom policy.
      *
      * @param request - ModifySceneDefensePolicyRequest
+     *
      * @returns ModifySceneDefensePolicyResponse
      *
      * @param ModifySceneDefensePolicyRequest $request
@@ -12365,6 +12851,7 @@ class Ddoscoo extends OpenApiClient
      *
      * @param request - ModifySchedulerRuleRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ModifySchedulerRuleResponse
      *
      * @param ModifySchedulerRuleRequest $request
@@ -12400,15 +12887,15 @@ class Ddoscoo extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ModifySchedulerRule',
-            'version'     => '2020-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ModifySchedulerRule',
+            'version' => '2020-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return ModifySchedulerRuleResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -12421,6 +12908,7 @@ class Ddoscoo extends OpenApiClient
      * Modifies the scheduling rule of Sec-Traffic Manager.
      *
      * @param request - ModifySchedulerRuleRequest
+     *
      * @returns ModifySchedulerRuleResponse
      *
      * @param ModifySchedulerRuleRequest $request
@@ -12439,6 +12927,7 @@ class Ddoscoo extends OpenApiClient
      *
      * @param request - ModifyTlsConfigRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ModifyTlsConfigResponse
      *
      * @param ModifyTlsConfigRequest $request
@@ -12466,15 +12955,15 @@ class Ddoscoo extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ModifyTlsConfig',
-            'version'     => '2020-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ModifyTlsConfig',
+            'version' => '2020-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return ModifyTlsConfigResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -12487,6 +12976,7 @@ class Ddoscoo extends OpenApiClient
      * Modifies the Transport Layer Security (TLS) policy configuration for the forwarding rule of a website.
      *
      * @param request - ModifyTlsConfigRequest
+     *
      * @returns ModifyTlsConfigResponse
      *
      * @param ModifyTlsConfigRequest $request
@@ -12505,6 +12995,7 @@ class Ddoscoo extends OpenApiClient
      *
      * @param request - ModifyWebAIProtectModeRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ModifyWebAIProtectModeResponse
      *
      * @param ModifyWebAIProtectModeRequest $request
@@ -12532,15 +13023,15 @@ class Ddoscoo extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ModifyWebAIProtectMode',
-            'version'     => '2020-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ModifyWebAIProtectMode',
+            'version' => '2020-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return ModifyWebAIProtectModeResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -12553,6 +13044,7 @@ class Ddoscoo extends OpenApiClient
      * Changes the mode of the intelligent protection feature for a website.
      *
      * @param request - ModifyWebAIProtectModeRequest
+     *
      * @returns ModifyWebAIProtectModeResponse
      *
      * @param ModifyWebAIProtectModeRequest $request
@@ -12571,6 +13063,7 @@ class Ddoscoo extends OpenApiClient
      *
      * @param request - ModifyWebAIProtectSwitchRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ModifyWebAIProtectSwitchResponse
      *
      * @param ModifyWebAIProtectSwitchRequest $request
@@ -12598,15 +13091,15 @@ class Ddoscoo extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ModifyWebAIProtectSwitch',
-            'version'     => '2020-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ModifyWebAIProtectSwitch',
+            'version' => '2020-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return ModifyWebAIProtectSwitchResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -12619,6 +13112,7 @@ class Ddoscoo extends OpenApiClient
      * Enables or disables the Intelligent Protection policy for a website.
      *
      * @param request - ModifyWebAIProtectSwitchRequest
+     *
      * @returns ModifyWebAIProtectSwitchResponse
      *
      * @param ModifyWebAIProtectSwitchRequest $request
@@ -12637,6 +13131,7 @@ class Ddoscoo extends OpenApiClient
      *
      * @param request - ModifyWebAccessModeRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ModifyWebAccessModeResponse
      *
      * @param ModifyWebAccessModeRequest $request
@@ -12660,15 +13155,15 @@ class Ddoscoo extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ModifyWebAccessMode',
-            'version'     => '2020-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ModifyWebAccessMode',
+            'version' => '2020-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return ModifyWebAccessModeResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -12681,6 +13176,7 @@ class Ddoscoo extends OpenApiClient
      * Changes the mode in which a website service is added to Anti-DDoS Pro or Anti-DDoS Premium.
      *
      * @param request - ModifyWebAccessModeRequest
+     *
      * @returns ModifyWebAccessModeResponse
      *
      * @param ModifyWebAccessModeRequest $request
@@ -12699,6 +13195,7 @@ class Ddoscoo extends OpenApiClient
      *
      * @param request - ModifyWebAreaBlockRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ModifyWebAreaBlockResponse
      *
      * @param ModifyWebAreaBlockRequest $request
@@ -12726,15 +13223,15 @@ class Ddoscoo extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ModifyWebAreaBlock',
-            'version'     => '2020-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ModifyWebAreaBlock',
+            'version' => '2020-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return ModifyWebAreaBlockResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -12747,6 +13244,7 @@ class Ddoscoo extends OpenApiClient
      * Modifies the blocked locations that are configured in the Location Blacklist (Domain Names) policy for a website.
      *
      * @param request - ModifyWebAreaBlockRequest
+     *
      * @returns ModifyWebAreaBlockResponse
      *
      * @param ModifyWebAreaBlockRequest $request
@@ -12770,6 +13268,7 @@ class Ddoscoo extends OpenApiClient
      *
      * @param request - ModifyWebAreaBlockSwitchRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ModifyWebAreaBlockSwitchResponse
      *
      * @param ModifyWebAreaBlockSwitchRequest $request
@@ -12797,15 +13296,15 @@ class Ddoscoo extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ModifyWebAreaBlockSwitch',
-            'version'     => '2020-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ModifyWebAreaBlockSwitch',
+            'version' => '2020-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return ModifyWebAreaBlockSwitchResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -12823,6 +13322,7 @@ class Ddoscoo extends OpenApiClient
      * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
      *
      * @param request - ModifyWebAreaBlockSwitchRequest
+     *
      * @returns ModifyWebAreaBlockSwitchResponse
      *
      * @param ModifyWebAreaBlockSwitchRequest $request
@@ -12841,6 +13341,7 @@ class Ddoscoo extends OpenApiClient
      *
      * @param request - ModifyWebCCGlobalSwitchRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ModifyWebCCGlobalSwitchResponse
      *
      * @param ModifyWebCCGlobalSwitchRequest $request
@@ -12864,15 +13365,15 @@ class Ddoscoo extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ModifyWebCCGlobalSwitch',
-            'version'     => '2020-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ModifyWebCCGlobalSwitch',
+            'version' => '2020-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return ModifyWebCCGlobalSwitchResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -12885,6 +13386,7 @@ class Ddoscoo extends OpenApiClient
      * Enables or disables the HTTP flood mitigation feature for a website.
      *
      * @param request - ModifyWebCCGlobalSwitchRequest
+     *
      * @returns ModifyWebCCGlobalSwitchResponse
      *
      * @param ModifyWebCCGlobalSwitchRequest $request
@@ -12899,7 +13401,6 @@ class Ddoscoo extends OpenApiClient
     }
 
     // Deprecated
-
     /**
      * Modifies the custom frequency control rule of a website.
      *
@@ -12907,6 +13408,7 @@ class Ddoscoo extends OpenApiClient
      *
      * @param request - ModifyWebCCRuleRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ModifyWebCCRuleResponse
      *
      * @param ModifyWebCCRuleRequest $request
@@ -12958,15 +13460,15 @@ class Ddoscoo extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ModifyWebCCRule',
-            'version'     => '2020-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ModifyWebCCRule',
+            'version' => '2020-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return ModifyWebCCRuleResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -12976,13 +13478,13 @@ class Ddoscoo extends OpenApiClient
     }
 
     // Deprecated
-
     /**
      * Modifies the custom frequency control rule of a website.
      *
      * @deprecated openAPI ModifyWebCCRule is deprecated, please use ddoscoo::2020-01-01::ConfigWebCCRuleV2 instead
      *
      * @param request - ModifyWebCCRuleRequest
+     *
      * @returns ModifyWebCCRuleResponse
      *
      * @param ModifyWebCCRuleRequest $request
@@ -13001,6 +13503,7 @@ class Ddoscoo extends OpenApiClient
      *
      * @param request - ModifyWebCacheCustomRuleRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ModifyWebCacheCustomRuleResponse
      *
      * @param ModifyWebCacheCustomRuleRequest $request
@@ -13028,15 +13531,15 @@ class Ddoscoo extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ModifyWebCacheCustomRule',
-            'version'     => '2020-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ModifyWebCacheCustomRule',
+            'version' => '2020-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return ModifyWebCacheCustomRuleResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -13049,6 +13552,7 @@ class Ddoscoo extends OpenApiClient
      * Modifies the custom rule of the Static Page Caching policy for a website.
      *
      * @param request - ModifyWebCacheCustomRuleRequest
+     *
      * @returns ModifyWebCacheCustomRuleResponse
      *
      * @param ModifyWebCacheCustomRuleRequest $request
@@ -13067,6 +13571,7 @@ class Ddoscoo extends OpenApiClient
      *
      * @param request - ModifyWebCacheModeRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ModifyWebCacheModeResponse
      *
      * @param ModifyWebCacheModeRequest $request
@@ -13094,15 +13599,15 @@ class Ddoscoo extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ModifyWebCacheMode',
-            'version'     => '2020-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ModifyWebCacheMode',
+            'version' => '2020-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return ModifyWebCacheModeResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -13115,6 +13620,7 @@ class Ddoscoo extends OpenApiClient
      * Changes the cache mode of the Static Page Caching policy for a website.
      *
      * @param request - ModifyWebCacheModeRequest
+     *
      * @returns ModifyWebCacheModeResponse
      *
      * @param ModifyWebCacheModeRequest $request
@@ -13138,6 +13644,7 @@ class Ddoscoo extends OpenApiClient
      *
      * @param request - ModifyWebCacheSwitchRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ModifyWebCacheSwitchResponse
      *
      * @param ModifyWebCacheSwitchRequest $request
@@ -13165,15 +13672,15 @@ class Ddoscoo extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ModifyWebCacheSwitch',
-            'version'     => '2020-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ModifyWebCacheSwitch',
+            'version' => '2020-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return ModifyWebCacheSwitchResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -13191,6 +13698,7 @@ class Ddoscoo extends OpenApiClient
      * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
      *
      * @param request - ModifyWebCacheSwitchRequest
+     *
      * @returns ModifyWebCacheSwitchResponse
      *
      * @param ModifyWebCacheSwitchRequest $request
@@ -13209,6 +13717,7 @@ class Ddoscoo extends OpenApiClient
      *
      * @param request - ModifyWebIpSetSwitchRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ModifyWebIpSetSwitchResponse
      *
      * @param ModifyWebIpSetSwitchRequest $request
@@ -13236,15 +13745,15 @@ class Ddoscoo extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ModifyWebIpSetSwitch',
-            'version'     => '2020-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ModifyWebIpSetSwitch',
+            'version' => '2020-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return ModifyWebIpSetSwitchResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -13257,6 +13766,7 @@ class Ddoscoo extends OpenApiClient
      * Enables or disables the Black Lists and White Lists (Domain Names) policy for a domain name.
      *
      * @param request - ModifyWebIpSetSwitchRequest
+     *
      * @returns ModifyWebIpSetSwitchResponse
      *
      * @param ModifyWebIpSetSwitchRequest $request
@@ -13275,6 +13785,7 @@ class Ddoscoo extends OpenApiClient
      *
      * @param request - ModifyWebPreciseAccessRuleRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ModifyWebPreciseAccessRuleResponse
      *
      * @param ModifyWebPreciseAccessRuleRequest $request
@@ -13306,15 +13817,15 @@ class Ddoscoo extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ModifyWebPreciseAccessRule',
-            'version'     => '2020-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ModifyWebPreciseAccessRule',
+            'version' => '2020-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return ModifyWebPreciseAccessRuleResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -13327,6 +13838,7 @@ class Ddoscoo extends OpenApiClient
      * Creates or modifies an accurate access control rule of a website.
      *
      * @param request - ModifyWebPreciseAccessRuleRequest
+     *
      * @returns ModifyWebPreciseAccessRuleResponse
      *
      * @param ModifyWebPreciseAccessRuleRequest $request
@@ -13345,6 +13857,7 @@ class Ddoscoo extends OpenApiClient
      *
      * @param request - ModifyWebPreciseAccessSwitchRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ModifyWebPreciseAccessSwitchResponse
      *
      * @param ModifyWebPreciseAccessSwitchRequest $request
@@ -13372,15 +13885,15 @@ class Ddoscoo extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ModifyWebPreciseAccessSwitch',
-            'version'     => '2020-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ModifyWebPreciseAccessSwitch',
+            'version' => '2020-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return ModifyWebPreciseAccessSwitchResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -13393,6 +13906,7 @@ class Ddoscoo extends OpenApiClient
      * Enables or disables accurate access control for a website.
      *
      * @param request - ModifyWebPreciseAccessSwitchRequest
+     *
      * @returns ModifyWebPreciseAccessSwitchResponse
      *
      * @param ModifyWebPreciseAccessSwitchRequest $request
@@ -13407,8 +13921,15 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
+     * Modifies the forwarding rule of a website.
+     *
+     * @remarks
+     * ## Debugging
+     * [OpenAPI Explorer automatically calculates the signature value. For your convenience, we recommend that you call this operation in OpenAPI Explorer. OpenAPI Explorer dynamically generates the sample code of the operation for different SDKs.](https://api.aliyun.com/#product=ddoscoo\\&api=ModifyWebRule\\&type=RPC\\&version=2020-01-01)
+     *
      * @param request - ModifyWebRuleRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ModifyWebRuleResponse
      *
      * @param ModifyWebRuleRequest $request
@@ -13452,15 +13973,15 @@ class Ddoscoo extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ModifyWebRule',
-            'version'     => '2020-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ModifyWebRule',
+            'version' => '2020-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return ModifyWebRuleResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -13470,7 +13991,14 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
+     * Modifies the forwarding rule of a website.
+     *
+     * @remarks
+     * ## Debugging
+     * [OpenAPI Explorer automatically calculates the signature value. For your convenience, we recommend that you call this operation in OpenAPI Explorer. OpenAPI Explorer dynamically generates the sample code of the operation for different SDKs.](https://api.aliyun.com/#product=ddoscoo\\&api=ModifyWebRule\\&type=RPC\\&version=2020-01-01)
+     *
      * @param request - ModifyWebRuleRequest
+     *
      * @returns ModifyWebRuleResponse
      *
      * @param ModifyWebRuleRequest $request
@@ -13493,6 +14021,7 @@ class Ddoscoo extends OpenApiClient
      *
      * @param request - ReleaseInstanceRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ReleaseInstanceResponse
      *
      * @param ReleaseInstanceRequest $request
@@ -13512,15 +14041,15 @@ class Ddoscoo extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ReleaseInstance',
-            'version'     => '2020-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ReleaseInstance',
+            'version' => '2020-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return ReleaseInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -13537,6 +14066,7 @@ class Ddoscoo extends OpenApiClient
      * The ID of the request, which is used to locate and troubleshoot issues.
      *
      * @param request - ReleaseInstanceRequest
+     *
      * @returns ReleaseInstanceResponse
      *
      * @param ReleaseInstanceRequest $request
@@ -13561,6 +14091,7 @@ class Ddoscoo extends OpenApiClient
      *
      * @param request - SwitchSchedulerRuleRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns SwitchSchedulerRuleResponse
      *
      * @param SwitchSchedulerRuleRequest $request
@@ -13588,15 +14119,15 @@ class Ddoscoo extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'SwitchSchedulerRule',
-            'version'     => '2020-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'SwitchSchedulerRule',
+            'version' => '2020-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return SwitchSchedulerRuleResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -13615,6 +14146,7 @@ class Ddoscoo extends OpenApiClient
      * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
      *
      * @param request - SwitchSchedulerRuleRequest
+     *
      * @returns SwitchSchedulerRuleResponse
      *
      * @param SwitchSchedulerRuleRequest $request

@@ -12,18 +12,20 @@ class instanceDetails extends Model
      * @var string[]
      */
     public $eipList;
+
     /**
      * @var string
      */
     public $functionVersion;
+
     /**
      * @var string
      */
     public $instanceId;
     protected $_name = [
-        'eipList'         => 'EipList',
+        'eipList' => 'EipList',
         'functionVersion' => 'FunctionVersion',
-        'instanceId'      => 'InstanceId',
+        'instanceId' => 'InstanceId',
     ];
 
     public function validate()
@@ -40,7 +42,7 @@ class instanceDetails extends Model
         if (null !== $this->eipList) {
             if (\is_array($this->eipList)) {
                 $res['EipList'] = [];
-                $n1             = 0;
+                $n1 = 0;
                 foreach ($this->eipList as $item1) {
                     $res['EipList'][$n1++] = $item1;
                 }
@@ -69,7 +71,7 @@ class instanceDetails extends Model
         if (isset($map['EipList'])) {
             if (!empty($map['EipList'])) {
                 $model->eipList = [];
-                $n1             = 0;
+                $n1 = 0;
                 foreach ($map['EipList'] as $item1) {
                     $model->eipList[$n1++] = $item1;
                 }

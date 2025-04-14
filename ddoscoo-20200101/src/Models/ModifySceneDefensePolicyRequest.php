@@ -12,28 +12,32 @@ class ModifySceneDefensePolicyRequest extends Model
      * @var int
      */
     public $endTime;
+
     /**
      * @var string
      */
     public $name;
+
     /**
      * @var string
      */
     public $policyId;
+
     /**
      * @var int
      */
     public $startTime;
+
     /**
      * @var string
      */
     public $template;
     protected $_name = [
-        'endTime'   => 'EndTime',
-        'name'      => 'Name',
-        'policyId'  => 'PolicyId',
+        'endTime' => 'EndTime',
+        'name' => 'Name',
+        'policyId' => 'PolicyId',
         'startTime' => 'StartTime',
-        'template'  => 'Template',
+        'template' => 'Template',
     ];
 
     public function validate()

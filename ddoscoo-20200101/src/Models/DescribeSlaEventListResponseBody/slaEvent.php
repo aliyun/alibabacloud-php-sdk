@@ -12,22 +12,25 @@ class slaEvent extends Model
      * @var int
      */
     public $endTime;
+
     /**
      * @var string
      */
     public $ip;
+
     /**
      * @var string
      */
     public $region;
+
     /**
      * @var int
      */
     public $startTime;
     protected $_name = [
-        'endTime'   => 'EndTime',
-        'ip'        => 'Ip',
-        'region'    => 'Region',
+        'endTime' => 'EndTime',
+        'ip' => 'Ip',
+        'region' => 'Region',
         'startTime' => 'StartTime',
     ];
 

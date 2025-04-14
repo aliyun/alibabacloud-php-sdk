@@ -12,58 +12,68 @@ class protectSwitchList extends Model
      * @var string
      */
     public $aiMode;
+
     /**
      * @var int
      */
     public $aiRuleEnable;
+
     /**
      * @var string
      */
     public $aiTemplate;
+
     /**
      * @var int
      */
     public $blackWhiteListEnable;
+
     /**
      * @var int
      */
     public $ccCustomRuleEnable;
+
     /**
      * @var int
      */
     public $ccEnable;
+
     /**
      * @var string
      */
     public $ccGlobalSwitch;
+
     /**
      * @var string
      */
     public $ccTemplate;
+
     /**
      * @var string
      */
     public $domain;
+
     /**
      * @var int
      */
     public $preciseRuleEnable;
+
     /**
      * @var int
      */
     public $regionBlockEnable;
     protected $_name = [
-        'aiMode'               => 'AiMode',
-        'aiRuleEnable'         => 'AiRuleEnable',
-        'aiTemplate'           => 'AiTemplate',
+        'aiMode' => 'AiMode',
+        'aiRuleEnable' => 'AiRuleEnable',
+        'aiTemplate' => 'AiTemplate',
         'blackWhiteListEnable' => 'BlackWhiteListEnable',
-        'ccCustomRuleEnable'   => 'CcCustomRuleEnable',
-        'ccEnable'             => 'CcEnable',
-        'ccGlobalSwitch'       => 'CcGlobalSwitch',
-        'ccTemplate'           => 'CcTemplate',
-        'domain'               => 'Domain',
-        'preciseRuleEnable'    => 'PreciseRuleEnable',
-        'regionBlockEnable'    => 'RegionBlockEnable',
+        'ccCustomRuleEnable' => 'CcCustomRuleEnable',
+        'ccEnable' => 'CcEnable',
+        'ccGlobalSwitch' => 'CcGlobalSwitch',
+        'ccTemplate' => 'CcTemplate',
+        'domain' => 'Domain',
+        'preciseRuleEnable' => 'PreciseRuleEnable',
+        'regionBlockEnable' => 'RegionBlockEnable',
     ];
 
     public function validate()

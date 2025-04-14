@@ -12,17 +12,19 @@ class ModifyWebAreaBlockRequest extends Model
      * @var string
      */
     public $domain;
+
     /**
      * @var string[]
      */
     public $regions;
+
     /**
      * @var string
      */
     public $resourceGroupId;
     protected $_name = [
-        'domain'          => 'Domain',
-        'regions'         => 'Regions',
+        'domain' => 'Domain',
+        'regions' => 'Regions',
         'resourceGroupId' => 'ResourceGroupId',
     ];
 
@@ -44,7 +46,7 @@ class ModifyWebAreaBlockRequest extends Model
         if (null !== $this->regions) {
             if (\is_array($this->regions)) {
                 $res['Regions'] = [];
-                $n1             = 0;
+                $n1 = 0;
                 foreach ($this->regions as $item1) {
                     $res['Regions'][$n1++] = $item1;
                 }
@@ -73,7 +75,7 @@ class ModifyWebAreaBlockRequest extends Model
         if (isset($map['Regions'])) {
             if (!empty($map['Regions'])) {
                 $model->regions = [];
-                $n1             = 0;
+                $n1 = 0;
                 foreach ($map['Regions'] as $item1) {
                     $model->regions[$n1++] = $item1;
                 }

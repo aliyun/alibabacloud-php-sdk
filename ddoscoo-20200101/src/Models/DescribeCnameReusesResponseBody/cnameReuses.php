@@ -12,16 +12,18 @@ class cnameReuses extends Model
      * @var string
      */
     public $cname;
+
     /**
      * @var string
      */
     public $domain;
+
     /**
      * @var int
      */
     public $enable;
     protected $_name = [
-        'cname'  => 'Cname',
+        'cname' => 'Cname',
         'domain' => 'Domain',
         'enable' => 'Enable',
     ];

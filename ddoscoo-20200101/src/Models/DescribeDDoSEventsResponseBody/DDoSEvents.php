@@ -12,42 +12,49 @@ class DDoSEvents extends Model
      * @var int
      */
     public $bps;
+
     /**
      * @var int
      */
     public $endTime;
+
     /**
      * @var string
      */
     public $eventType;
+
     /**
      * @var string
      */
     public $ip;
+
     /**
      * @var string
      */
     public $port;
+
     /**
      * @var int
      */
     public $pps;
+
     /**
      * @var string
      */
     public $region;
+
     /**
      * @var int
      */
     public $startTime;
     protected $_name = [
-        'bps'       => 'Bps',
-        'endTime'   => 'EndTime',
+        'bps' => 'Bps',
+        'endTime' => 'EndTime',
         'eventType' => 'EventType',
-        'ip'        => 'Ip',
-        'port'      => 'Port',
-        'pps'       => 'Pps',
-        'region'    => 'Region',
+        'ip' => 'Ip',
+        'port' => 'Port',
+        'pps' => 'Pps',
+        'region' => 'Region',
         'startTime' => 'StartTime',
     ];
 

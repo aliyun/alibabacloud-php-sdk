@@ -12,22 +12,25 @@ class ModifyCnameReuseRequest extends Model
      * @var string
      */
     public $cname;
+
     /**
      * @var string
      */
     public $domain;
+
     /**
      * @var int
      */
     public $enable;
+
     /**
      * @var string
      */
     public $resourceGroupId;
     protected $_name = [
-        'cname'           => 'Cname',
-        'domain'          => 'Domain',
-        'enable'          => 'Enable',
+        'cname' => 'Cname',
+        'domain' => 'Domain',
+        'enable' => 'Enable',
         'resourceGroupId' => 'ResourceGroupId',
     ];
 

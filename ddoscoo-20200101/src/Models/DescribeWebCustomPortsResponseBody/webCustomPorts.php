@@ -12,13 +12,14 @@ class webCustomPorts extends Model
      * @var string[]
      */
     public $proxyPorts;
+
     /**
      * @var string
      */
     public $proxyType;
     protected $_name = [
         'proxyPorts' => 'ProxyPorts',
-        'proxyType'  => 'ProxyType',
+        'proxyType' => 'ProxyType',
     ];
 
     public function validate()
@@ -35,7 +36,7 @@ class webCustomPorts extends Model
         if (null !== $this->proxyPorts) {
             if (\is_array($this->proxyPorts)) {
                 $res['ProxyPorts'] = [];
-                $n1                = 0;
+                $n1 = 0;
                 foreach ($this->proxyPorts as $item1) {
                     $res['ProxyPorts'][$n1++] = $item1;
                 }
@@ -60,7 +61,7 @@ class webCustomPorts extends Model
         if (isset($map['ProxyPorts'])) {
             if (!empty($map['ProxyPorts'])) {
                 $model->proxyPorts = [];
-                $n1                = 0;
+                $n1 = 0;
                 foreach ($map['ProxyPorts'] as $item1) {
                     $model->proxyPorts[$n1++] = $item1;
                 }

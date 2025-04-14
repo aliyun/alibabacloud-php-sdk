@@ -13,13 +13,14 @@ class DescribeWebCcProtectSwitchResponseBody extends Model
      * @var protectSwitchList[]
      */
     public $protectSwitchList;
+
     /**
      * @var string
      */
     public $requestId;
     protected $_name = [
         'protectSwitchList' => 'ProtectSwitchList',
-        'requestId'         => 'RequestId',
+        'requestId' => 'RequestId',
     ];
 
     public function validate()
@@ -36,7 +37,7 @@ class DescribeWebCcProtectSwitchResponseBody extends Model
         if (null !== $this->protectSwitchList) {
             if (\is_array($this->protectSwitchList)) {
                 $res['ProtectSwitchList'] = [];
-                $n1                       = 0;
+                $n1 = 0;
                 foreach ($this->protectSwitchList as $item1) {
                     $res['ProtectSwitchList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -61,7 +62,7 @@ class DescribeWebCcProtectSwitchResponseBody extends Model
         if (isset($map['ProtectSwitchList'])) {
             if (!empty($map['ProtectSwitchList'])) {
                 $model->protectSwitchList = [];
-                $n1                       = 0;
+                $n1 = 0;
                 foreach ($map['ProtectSwitchList'] as $item1) {
                     $model->protectSwitchList[$n1++] = protectSwitchList::fromMap($item1);
                 }

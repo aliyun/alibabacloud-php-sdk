@@ -13,12 +13,13 @@ class DescribeDestinationPortEventResponseBody extends Model
      * @var portList[]
      */
     public $portList;
+
     /**
      * @var string
      */
     public $requestId;
     protected $_name = [
-        'portList'  => 'PortList',
+        'portList' => 'PortList',
         'requestId' => 'RequestId',
     ];
 
@@ -36,7 +37,7 @@ class DescribeDestinationPortEventResponseBody extends Model
         if (null !== $this->portList) {
             if (\is_array($this->portList)) {
                 $res['PortList'] = [];
-                $n1              = 0;
+                $n1 = 0;
                 foreach ($this->portList as $item1) {
                     $res['PortList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -61,7 +62,7 @@ class DescribeDestinationPortEventResponseBody extends Model
         if (isset($map['PortList'])) {
             if (!empty($map['PortList'])) {
                 $model->portList = [];
-                $n1              = 0;
+                $n1 = 0;
                 foreach ($map['PortList'] as $item1) {
                     $model->portList[$n1++] = portList::fromMap($item1);
                 }

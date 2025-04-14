@@ -12,22 +12,25 @@ class DescribeDomainH2FingerprintRequest extends Model
      * @var string
      */
     public $domain;
+
     /**
      * @var int
      */
     public $endTime;
+
     /**
      * @var int
      */
     public $limit;
+
     /**
      * @var int
      */
     public $startTime;
     protected $_name = [
-        'domain'    => 'Domain',
-        'endTime'   => 'EndTime',
-        'limit'     => 'Limit',
+        'domain' => 'Domain',
+        'endTime' => 'EndTime',
+        'limit' => 'Limit',
         'startTime' => 'StartTime',
     ];
 

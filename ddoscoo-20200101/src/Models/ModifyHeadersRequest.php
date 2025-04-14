@@ -12,17 +12,19 @@ class ModifyHeadersRequest extends Model
      * @var string
      */
     public $customHeaders;
+
     /**
      * @var string
      */
     public $domain;
+
     /**
      * @var string
      */
     public $resourceGroupId;
     protected $_name = [
-        'customHeaders'   => 'CustomHeaders',
-        'domain'          => 'Domain',
+        'customHeaders' => 'CustomHeaders',
+        'domain' => 'Domain',
         'resourceGroupId' => 'ResourceGroupId',
     ];
 

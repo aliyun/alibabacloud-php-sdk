@@ -12,23 +12,26 @@ class DescribeWebAccessLogStatusResponseBody extends Model
      * @var string
      */
     public $requestId;
+
     /**
      * @var string
      */
     public $slsLogstore;
+
     /**
      * @var string
      */
     public $slsProject;
+
     /**
      * @var bool
      */
     public $slsStatus;
     protected $_name = [
-        'requestId'   => 'RequestId',
+        'requestId' => 'RequestId',
         'slsLogstore' => 'SlsLogstore',
-        'slsProject'  => 'SlsProject',
-        'slsStatus'   => 'SlsStatus',
+        'slsProject' => 'SlsProject',
+        'slsStatus' => 'SlsStatus',
     ];
 
     public function validate()

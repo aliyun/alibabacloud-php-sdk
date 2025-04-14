@@ -13,13 +13,14 @@ class DescribeDomainQPSListResponseBody extends Model
      * @var domainQPSList[]
      */
     public $domainQPSList;
+
     /**
      * @var string
      */
     public $requestId;
     protected $_name = [
         'domainQPSList' => 'DomainQPSList',
-        'requestId'     => 'RequestId',
+        'requestId' => 'RequestId',
     ];
 
     public function validate()
@@ -36,7 +37,7 @@ class DescribeDomainQPSListResponseBody extends Model
         if (null !== $this->domainQPSList) {
             if (\is_array($this->domainQPSList)) {
                 $res['DomainQPSList'] = [];
-                $n1                   = 0;
+                $n1 = 0;
                 foreach ($this->domainQPSList as $item1) {
                     $res['DomainQPSList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -61,7 +62,7 @@ class DescribeDomainQPSListResponseBody extends Model
         if (isset($map['DomainQPSList'])) {
             if (!empty($map['DomainQPSList'])) {
                 $model->domainQPSList = [];
-                $n1                   = 0;
+                $n1 = 0;
                 foreach ($map['DomainQPSList'] as $item1) {
                     $model->domainQPSList[$n1++] = domainQPSList::fromMap($item1);
                 }

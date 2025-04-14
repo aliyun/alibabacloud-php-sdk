@@ -12,17 +12,19 @@ class attackList extends Model
      * @var int
      */
     public $attack;
+
     /**
      * @var int
      */
     public $count;
+
     /**
      * @var string
      */
     public $domain;
     protected $_name = [
         'attack' => 'Attack',
-        'count'  => 'Count',
+        'count' => 'Count',
         'domain' => 'Domain',
     ];
 

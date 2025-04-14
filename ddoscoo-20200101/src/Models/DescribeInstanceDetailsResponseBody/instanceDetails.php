@@ -13,18 +13,20 @@ class instanceDetails extends Model
      * @var eipInfos[]
      */
     public $eipInfos;
+
     /**
      * @var string
      */
     public $instanceId;
+
     /**
      * @var string
      */
     public $line;
     protected $_name = [
-        'eipInfos'   => 'EipInfos',
+        'eipInfos' => 'EipInfos',
         'instanceId' => 'InstanceId',
-        'line'       => 'Line',
+        'line' => 'Line',
     ];
 
     public function validate()
@@ -41,7 +43,7 @@ class instanceDetails extends Model
         if (null !== $this->eipInfos) {
             if (\is_array($this->eipInfos)) {
                 $res['EipInfos'] = [];
-                $n1              = 0;
+                $n1 = 0;
                 foreach ($this->eipInfos as $item1) {
                     $res['EipInfos'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -70,7 +72,7 @@ class instanceDetails extends Model
         if (isset($map['EipInfos'])) {
             if (!empty($map['EipInfos'])) {
                 $model->eipInfos = [];
-                $n1              = 0;
+                $n1 = 0;
                 foreach ($map['EipInfos'] as $item1) {
                     $model->eipInfos[$n1++] = eipInfos::fromMap($item1);
                 }

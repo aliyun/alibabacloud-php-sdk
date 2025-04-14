@@ -12,23 +12,26 @@ class sblack extends Model
      * @var int
      */
     public $cnt;
+
     /**
      * @var int
      */
     public $during;
+
     /**
      * @var int
      */
     public $expires;
+
     /**
      * @var int
      */
     public $type;
     protected $_name = [
-        'cnt'     => 'Cnt',
-        'during'  => 'During',
+        'cnt' => 'Cnt',
+        'during' => 'During',
         'expires' => 'Expires',
-        'type'    => 'Type',
+        'type' => 'Type',
     ];
 
     public function validate()

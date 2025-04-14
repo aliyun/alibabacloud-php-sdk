@@ -13,13 +13,14 @@ class DescribePortMaxConnsResponseBody extends Model
      * @var portMaxConns[]
      */
     public $portMaxConns;
+
     /**
      * @var string
      */
     public $requestId;
     protected $_name = [
         'portMaxConns' => 'PortMaxConns',
-        'requestId'    => 'RequestId',
+        'requestId' => 'RequestId',
     ];
 
     public function validate()
@@ -36,7 +37,7 @@ class DescribePortMaxConnsResponseBody extends Model
         if (null !== $this->portMaxConns) {
             if (\is_array($this->portMaxConns)) {
                 $res['PortMaxConns'] = [];
-                $n1                  = 0;
+                $n1 = 0;
                 foreach ($this->portMaxConns as $item1) {
                     $res['PortMaxConns'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -61,7 +62,7 @@ class DescribePortMaxConnsResponseBody extends Model
         if (isset($map['PortMaxConns'])) {
             if (!empty($map['PortMaxConns'])) {
                 $model->portMaxConns = [];
-                $n1                  = 0;
+                $n1 = 0;
                 foreach ($map['PortMaxConns'] as $item1) {
                     $model->portMaxConns[$n1++] = portMaxConns::fromMap($item1);
                 }

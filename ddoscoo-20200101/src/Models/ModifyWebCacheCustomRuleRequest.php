@@ -12,18 +12,20 @@ class ModifyWebCacheCustomRuleRequest extends Model
      * @var string
      */
     public $domain;
+
     /**
      * @var string
      */
     public $resourceGroupId;
+
     /**
      * @var string
      */
     public $rules;
     protected $_name = [
-        'domain'          => 'Domain',
+        'domain' => 'Domain',
         'resourceGroupId' => 'ResourceGroupId',
-        'rules'           => 'Rules',
+        'rules' => 'Rules',
     ];
 
     public function validate()

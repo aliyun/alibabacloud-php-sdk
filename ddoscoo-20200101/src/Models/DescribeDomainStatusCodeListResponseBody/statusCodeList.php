@@ -12,68 +12,83 @@ class statusCodeList extends Model
      * @var int
      */
     public $index;
+
     /**
      * @var int
      */
     public $status200;
+
     /**
      * @var int
      */
     public $status2XX;
+
     /**
      * @var int
      */
     public $status3XX;
+
     /**
      * @var int
      */
     public $status403;
+
     /**
      * @var int
      */
     public $status404;
+
     /**
      * @var int
      */
     public $status405;
+
     /**
      * @var int
      */
     public $status410;
+
     /**
      * @var int
      */
     public $status499;
+
     /**
      * @var int
      */
     public $status4XX;
+
     /**
      * @var int
      */
     public $status501;
+
     /**
      * @var int
      */
     public $status502;
+
     /**
      * @var int
      */
     public $status503;
+
     /**
      * @var int
      */
     public $status504;
+
     /**
      * @var int
      */
     public $status5XX;
+
     /**
      * @var int
      */
     public $time;
     protected $_name = [
-        'index'     => 'Index',
+        'index' => 'Index',
         'status200' => 'Status200',
         'status2XX' => 'Status2XX',
         'status3XX' => 'Status3XX',
@@ -88,7 +103,7 @@ class statusCodeList extends Model
         'status503' => 'Status503',
         'status504' => 'Status504',
         'status5XX' => 'Status5XX',
-        'time'      => 'Time',
+        'time' => 'Time',
     ];
 
     public function validate()

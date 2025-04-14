@@ -12,48 +12,56 @@ class domainQPSList extends Model
      * @var int
      */
     public $attackQps;
+
     /**
      * @var int
      */
     public $cacheHits;
+
     /**
      * @var int
      */
     public $index;
+
     /**
      * @var int
      */
     public $maxAttackQps;
+
     /**
      * @var int
      */
     public $maxNormalQps;
+
     /**
      * @var int
      */
     public $maxQps;
+
     /**
      * @var int
      */
     public $time;
+
     /**
      * @var int
      */
     public $totalCount;
+
     /**
      * @var int
      */
     public $totalQps;
     protected $_name = [
-        'attackQps'    => 'AttackQps',
-        'cacheHits'    => 'CacheHits',
-        'index'        => 'Index',
+        'attackQps' => 'AttackQps',
+        'cacheHits' => 'CacheHits',
+        'index' => 'Index',
         'maxAttackQps' => 'MaxAttackQps',
         'maxNormalQps' => 'MaxNormalQps',
-        'maxQps'       => 'MaxQps',
-        'time'         => 'Time',
-        'totalCount'   => 'TotalCount',
-        'totalQps'     => 'TotalQps',
+        'maxQps' => 'MaxQps',
+        'time' => 'Time',
+        'totalCount' => 'TotalCount',
+        'totalQps' => 'TotalQps',
     ];
 
     public function validate()

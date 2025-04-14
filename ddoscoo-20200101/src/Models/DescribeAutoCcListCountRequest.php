@@ -12,13 +12,14 @@ class DescribeAutoCcListCountRequest extends Model
      * @var string
      */
     public $instanceId;
+
     /**
      * @var string
      */
     public $queryType;
     protected $_name = [
         'instanceId' => 'InstanceId',
-        'queryType'  => 'QueryType',
+        'queryType' => 'QueryType',
     ];
 
     public function validate()

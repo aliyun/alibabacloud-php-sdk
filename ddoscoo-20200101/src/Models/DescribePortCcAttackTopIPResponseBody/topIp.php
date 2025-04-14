@@ -12,18 +12,20 @@ class topIp extends Model
      * @var string
      */
     public $areaId;
+
     /**
      * @var int
      */
     public $pv;
+
     /**
      * @var string
      */
     public $srcIp;
     protected $_name = [
         'areaId' => 'AreaId',
-        'pv'     => 'Pv',
-        'srcIp'  => 'SrcIp',
+        'pv' => 'Pv',
+        'srcIp' => 'SrcIp',
     ];
 
     public function validate()

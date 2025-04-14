@@ -16,58 +16,68 @@ class ruleDetail extends Model
      * @var string
      */
     public $action;
+
     /**
      * @var condition[]
      */
     public $condition;
+
     /**
      * @var int
      */
     public $count;
+
     /**
      * @var int
      */
     public $interval;
+
     /**
      * @var string
      */
     public $mode;
+
     /**
      * @var string
      */
     public $name;
+
     /**
      * @var rateLimit
      */
     public $rateLimit;
+
     /**
      * @var statistics
      */
     public $statistics;
+
     /**
      * @var statusCode
      */
     public $statusCode;
+
     /**
      * @var int
      */
     public $ttl;
+
     /**
      * @var string
      */
     public $uri;
     protected $_name = [
-        'action'     => 'Action',
-        'condition'  => 'Condition',
-        'count'      => 'Count',
-        'interval'   => 'Interval',
-        'mode'       => 'Mode',
-        'name'       => 'Name',
-        'rateLimit'  => 'RateLimit',
+        'action' => 'Action',
+        'condition' => 'Condition',
+        'count' => 'Count',
+        'interval' => 'Interval',
+        'mode' => 'Mode',
+        'name' => 'Name',
+        'rateLimit' => 'RateLimit',
         'statistics' => 'Statistics',
         'statusCode' => 'StatusCode',
-        'ttl'        => 'Ttl',
-        'uri'        => 'Uri',
+        'ttl' => 'Ttl',
+        'uri' => 'Uri',
     ];
 
     public function validate()
@@ -97,7 +107,7 @@ class ruleDetail extends Model
         if (null !== $this->condition) {
             if (\is_array($this->condition)) {
                 $res['Condition'] = [];
-                $n1               = 0;
+                $n1 = 0;
                 foreach ($this->condition as $item1) {
                     $res['Condition'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -158,7 +168,7 @@ class ruleDetail extends Model
         if (isset($map['Condition'])) {
             if (!empty($map['Condition'])) {
                 $model->condition = [];
-                $n1               = 0;
+                $n1 = 0;
                 foreach ($map['Condition'] as $item1) {
                     $model->condition[$n1++] = condition::fromMap($item1);
                 }

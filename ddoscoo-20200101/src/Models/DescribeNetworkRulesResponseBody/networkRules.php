@@ -12,53 +12,62 @@ class networkRules extends Model
      * @var int
      */
     public $backendPort;
+
     /**
      * @var int
      */
     public $frontendPort;
+
     /**
      * @var string
      */
     public $instanceId;
+
     /**
      * @var bool
      */
     public $isAutoCreate;
+
     /**
      * @var int
      */
     public $payloadRuleEnable;
+
     /**
      * @var string
      */
     public $protocol;
+
     /**
      * @var int
      */
     public $proxyEnable;
+
     /**
      * @var string
      */
     public $proxyStatus;
+
     /**
      * @var string[]
      */
     public $realServers;
+
     /**
      * @var string
      */
     public $remark;
     protected $_name = [
-        'backendPort'       => 'BackendPort',
-        'frontendPort'      => 'FrontendPort',
-        'instanceId'        => 'InstanceId',
-        'isAutoCreate'      => 'IsAutoCreate',
+        'backendPort' => 'BackendPort',
+        'frontendPort' => 'FrontendPort',
+        'instanceId' => 'InstanceId',
+        'isAutoCreate' => 'IsAutoCreate',
         'payloadRuleEnable' => 'PayloadRuleEnable',
-        'protocol'          => 'Protocol',
-        'proxyEnable'       => 'ProxyEnable',
-        'proxyStatus'       => 'ProxyStatus',
-        'realServers'       => 'RealServers',
-        'remark'            => 'Remark',
+        'protocol' => 'Protocol',
+        'proxyEnable' => 'ProxyEnable',
+        'proxyStatus' => 'ProxyStatus',
+        'realServers' => 'RealServers',
+        'remark' => 'Remark',
     ];
 
     public function validate()
@@ -107,7 +116,7 @@ class networkRules extends Model
         if (null !== $this->realServers) {
             if (\is_array($this->realServers)) {
                 $res['RealServers'] = [];
-                $n1                 = 0;
+                $n1 = 0;
                 foreach ($this->realServers as $item1) {
                     $res['RealServers'][$n1++] = $item1;
                 }
@@ -164,7 +173,7 @@ class networkRules extends Model
         if (isset($map['RealServers'])) {
             if (!empty($map['RealServers'])) {
                 $model->realServers = [];
-                $n1                 = 0;
+                $n1 = 0;
                 foreach ($map['RealServers'] as $item1) {
                     $model->realServers[$n1++] = $item1;
                 }

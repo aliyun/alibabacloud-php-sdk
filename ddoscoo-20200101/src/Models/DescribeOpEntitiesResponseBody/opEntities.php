@@ -12,33 +12,38 @@ class opEntities extends Model
      * @var string
      */
     public $entityObject;
+
     /**
      * @var int
      */
     public $entityType;
+
     /**
      * @var int
      */
     public $gmtCreate;
+
     /**
      * @var string
      */
     public $opAccount;
+
     /**
      * @var int
      */
     public $opAction;
+
     /**
      * @var string
      */
     public $opDesc;
     protected $_name = [
         'entityObject' => 'EntityObject',
-        'entityType'   => 'EntityType',
-        'gmtCreate'    => 'GmtCreate',
-        'opAccount'    => 'OpAccount',
-        'opAction'     => 'OpAction',
-        'opDesc'       => 'OpDesc',
+        'entityType' => 'EntityType',
+        'gmtCreate' => 'GmtCreate',
+        'opAccount' => 'OpAccount',
+        'opAction' => 'OpAction',
+        'opDesc' => 'OpDesc',
     ];
 
     public function validate()

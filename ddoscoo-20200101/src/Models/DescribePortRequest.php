@@ -12,28 +12,32 @@ class DescribePortRequest extends Model
      * @var int
      */
     public $frontendPort;
+
     /**
      * @var string
      */
     public $frontendProtocol;
+
     /**
      * @var string
      */
     public $instanceId;
+
     /**
      * @var int
      */
     public $pageNumber;
+
     /**
      * @var int
      */
     public $pageSize;
     protected $_name = [
-        'frontendPort'     => 'FrontendPort',
+        'frontendPort' => 'FrontendPort',
         'frontendProtocol' => 'FrontendProtocol',
-        'instanceId'       => 'InstanceId',
-        'pageNumber'       => 'PageNumber',
-        'pageSize'         => 'PageSize',
+        'instanceId' => 'InstanceId',
+        'pageNumber' => 'PageNumber',
+        'pageSize' => 'PageSize',
     ];
 
     public function validate()

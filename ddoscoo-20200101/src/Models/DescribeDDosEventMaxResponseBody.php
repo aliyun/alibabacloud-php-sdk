@@ -12,22 +12,25 @@ class DescribeDDosEventMaxResponseBody extends Model
      * @var int
      */
     public $cps;
+
     /**
      * @var int
      */
     public $mbps;
+
     /**
      * @var int
      */
     public $qps;
+
     /**
      * @var string
      */
     public $requestId;
     protected $_name = [
-        'cps'       => 'Cps',
-        'mbps'      => 'Mbps',
-        'qps'       => 'Qps',
+        'cps' => 'Cps',
+        'mbps' => 'Mbps',
+        'qps' => 'Qps',
         'requestId' => 'RequestId',
     ];
 

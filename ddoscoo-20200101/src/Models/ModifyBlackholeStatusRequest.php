@@ -12,13 +12,14 @@ class ModifyBlackholeStatusRequest extends Model
      * @var string
      */
     public $blackholeStatus;
+
     /**
      * @var string
      */
     public $instanceId;
     protected $_name = [
         'blackholeStatus' => 'BlackholeStatus',
-        'instanceId'      => 'InstanceId',
+        'instanceId' => 'InstanceId',
     ];
 
     public function validate()

@@ -12,32 +12,37 @@ class DescribeSlaEventListRequest extends Model
      * @var int
      */
     public $endTime;
+
     /**
      * @var string
      */
     public $ip;
+
     /**
      * @var int
      */
     public $page;
+
     /**
      * @var int
      */
     public $pageSize;
+
     /**
      * @var string
      */
     public $region;
+
     /**
      * @var int
      */
     public $startTime;
     protected $_name = [
-        'endTime'   => 'EndTime',
-        'ip'        => 'Ip',
-        'page'      => 'Page',
-        'pageSize'  => 'PageSize',
-        'region'    => 'Region',
+        'endTime' => 'EndTime',
+        'ip' => 'Ip',
+        'page' => 'Page',
+        'pageSize' => 'PageSize',
+        'region' => 'Region',
         'startTime' => 'StartTime',
     ];
 

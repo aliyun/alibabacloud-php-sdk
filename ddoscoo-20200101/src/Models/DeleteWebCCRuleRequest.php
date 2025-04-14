@@ -12,17 +12,19 @@ class DeleteWebCCRuleRequest extends Model
      * @var string
      */
     public $domain;
+
     /**
      * @var string
      */
     public $name;
+
     /**
      * @var string
      */
     public $resourceGroupId;
     protected $_name = [
-        'domain'          => 'Domain',
-        'name'            => 'Name',
+        'domain' => 'Domain',
+        'name' => 'Name',
         'resourceGroupId' => 'ResourceGroupId',
     ];
 

@@ -12,18 +12,20 @@ class AttachSceneDefenseObjectRequest extends Model
      * @var string
      */
     public $objectType;
+
     /**
      * @var string
      */
     public $objects;
+
     /**
      * @var string
      */
     public $policyId;
     protected $_name = [
         'objectType' => 'ObjectType',
-        'objects'    => 'Objects',
-        'policyId'   => 'PolicyId',
+        'objects' => 'Objects',
+        'policyId' => 'PolicyId',
     ];
 
     public function validate()

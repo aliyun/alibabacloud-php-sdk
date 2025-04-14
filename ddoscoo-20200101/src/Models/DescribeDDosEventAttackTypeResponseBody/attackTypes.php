@@ -12,13 +12,14 @@ class attackTypes extends Model
      * @var string
      */
     public $attackType;
+
     /**
      * @var int
      */
     public $inPkts;
     protected $_name = [
         'attackType' => 'AttackType',
-        'inPkts'     => 'InPkts',
+        'inPkts' => 'InPkts',
     ];
 
     public function validate()

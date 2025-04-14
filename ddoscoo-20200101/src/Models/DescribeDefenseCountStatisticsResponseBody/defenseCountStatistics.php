@@ -12,23 +12,26 @@ class defenseCountStatistics extends Model
      * @var int
      */
     public $defenseCountTotalUsageOfCurrentMonth;
+
     /**
      * @var int
      */
     public $flowPackCountRemain;
+
     /**
      * @var int
      */
     public $maxUsableDefenseCountCurrentMonth;
+
     /**
      * @var int
      */
     public $secHighSpeedCountRemain;
     protected $_name = [
         'defenseCountTotalUsageOfCurrentMonth' => 'DefenseCountTotalUsageOfCurrentMonth',
-        'flowPackCountRemain'                  => 'FlowPackCountRemain',
-        'maxUsableDefenseCountCurrentMonth'    => 'MaxUsableDefenseCountCurrentMonth',
-        'secHighSpeedCountRemain'              => 'SecHighSpeedCountRemain',
+        'flowPackCountRemain' => 'FlowPackCountRemain',
+        'maxUsableDefenseCountCurrentMonth' => 'MaxUsableDefenseCountCurrentMonth',
+        'secHighSpeedCountRemain' => 'SecHighSpeedCountRemain',
     ];
 
     public function validate()

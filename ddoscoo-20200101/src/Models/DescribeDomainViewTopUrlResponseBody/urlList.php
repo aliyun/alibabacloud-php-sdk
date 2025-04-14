@@ -12,18 +12,20 @@ class urlList extends Model
      * @var int
      */
     public $count;
+
     /**
      * @var string
      */
     public $domain;
+
     /**
      * @var string
      */
     public $url;
     protected $_name = [
-        'count'  => 'Count',
+        'count' => 'Count',
         'domain' => 'Domain',
-        'url'    => 'Url',
+        'url' => 'Url',
     ];
 
     public function validate()

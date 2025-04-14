@@ -12,17 +12,19 @@ class ModifyElasticBizQpsRequest extends Model
      * @var string
      */
     public $instanceId;
+
     /**
      * @var string
      */
     public $mode;
+
     /**
      * @var int
      */
     public $opsElasticQps;
     protected $_name = [
-        'instanceId'    => 'InstanceId',
-        'mode'          => 'Mode',
+        'instanceId' => 'InstanceId',
+        'mode' => 'Mode',
         'opsElasticQps' => 'OpsElasticQps',
     ];
 

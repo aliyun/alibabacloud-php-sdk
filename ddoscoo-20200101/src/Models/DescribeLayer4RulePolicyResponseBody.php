@@ -14,48 +14,56 @@ class DescribeLayer4RulePolicyResponseBody extends Model
      * @var int
      */
     public $backendPort;
+
     /**
      * @var string
      */
     public $bakMode;
+
     /**
      * @var int
      */
     public $currentIndex;
+
     /**
      * @var string
      */
     public $forwardProtocol;
+
     /**
      * @var int
      */
     public $frontendPort;
+
     /**
      * @var string
      */
     public $instanceId;
+
     /**
      * @var priRealServers[]
      */
     public $priRealServers;
+
     /**
      * @var string
      */
     public $requestId;
+
     /**
      * @var secRealServers[]
      */
     public $secRealServers;
     protected $_name = [
-        'backendPort'     => 'BackendPort',
-        'bakMode'         => 'BakMode',
-        'currentIndex'    => 'CurrentIndex',
+        'backendPort' => 'BackendPort',
+        'bakMode' => 'BakMode',
+        'currentIndex' => 'CurrentIndex',
         'forwardProtocol' => 'ForwardProtocol',
-        'frontendPort'    => 'FrontendPort',
-        'instanceId'      => 'InstanceId',
-        'priRealServers'  => 'PriRealServers',
-        'requestId'       => 'RequestId',
-        'secRealServers'  => 'SecRealServers',
+        'frontendPort' => 'FrontendPort',
+        'instanceId' => 'InstanceId',
+        'priRealServers' => 'PriRealServers',
+        'requestId' => 'RequestId',
+        'secRealServers' => 'SecRealServers',
     ];
 
     public function validate()
@@ -99,7 +107,7 @@ class DescribeLayer4RulePolicyResponseBody extends Model
         if (null !== $this->priRealServers) {
             if (\is_array($this->priRealServers)) {
                 $res['PriRealServers'] = [];
-                $n1                    = 0;
+                $n1 = 0;
                 foreach ($this->priRealServers as $item1) {
                     $res['PriRealServers'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -113,7 +121,7 @@ class DescribeLayer4RulePolicyResponseBody extends Model
         if (null !== $this->secRealServers) {
             if (\is_array($this->secRealServers)) {
                 $res['SecRealServers'] = [];
-                $n1                    = 0;
+                $n1 = 0;
                 foreach ($this->secRealServers as $item1) {
                     $res['SecRealServers'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -158,7 +166,7 @@ class DescribeLayer4RulePolicyResponseBody extends Model
         if (isset($map['PriRealServers'])) {
             if (!empty($map['PriRealServers'])) {
                 $model->priRealServers = [];
-                $n1                    = 0;
+                $n1 = 0;
                 foreach ($map['PriRealServers'] as $item1) {
                     $model->priRealServers[$n1++] = priRealServers::fromMap($item1);
                 }
@@ -172,7 +180,7 @@ class DescribeLayer4RulePolicyResponseBody extends Model
         if (isset($map['SecRealServers'])) {
             if (!empty($map['SecRealServers'])) {
                 $model->secRealServers = [];
-                $n1                    = 0;
+                $n1 = 0;
                 foreach ($map['SecRealServers'] as $item1) {
                     $model->secRealServers[$n1++] = secRealServers::fromMap($item1);
                 }

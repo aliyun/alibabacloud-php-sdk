@@ -12,6 +12,7 @@ class ModifyOcspStatusRequest extends Model
      * @var string
      */
     public $domain;
+
     /**
      * @var int
      */

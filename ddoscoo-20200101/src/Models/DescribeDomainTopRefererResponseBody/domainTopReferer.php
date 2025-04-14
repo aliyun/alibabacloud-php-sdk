@@ -12,17 +12,19 @@ class domainTopReferer extends Model
      * @var string
      */
     public $domain;
+
     /**
      * @var int
      */
     public $pv;
+
     /**
      * @var string
      */
     public $referer;
     protected $_name = [
-        'domain'  => 'Domain',
-        'pv'      => 'Pv',
+        'domain' => 'Domain',
+        'pv' => 'Pv',
         'referer' => 'Referer',
     ];
 

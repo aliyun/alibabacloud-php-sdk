@@ -12,12 +12,13 @@ class DescribeAttackAnalysisMaxQpsResponseBody extends Model
      * @var int
      */
     public $qps;
+
     /**
      * @var string
      */
     public $requestId;
     protected $_name = [
-        'qps'       => 'Qps',
+        'qps' => 'Qps',
         'requestId' => 'RequestId',
     ];
 

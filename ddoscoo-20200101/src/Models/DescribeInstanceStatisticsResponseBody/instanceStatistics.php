@@ -12,28 +12,32 @@ class instanceStatistics extends Model
      * @var int
      */
     public $defenseCountUsage;
+
     /**
      * @var int
      */
     public $domainUsage;
+
     /**
      * @var string
      */
     public $instanceId;
+
     /**
      * @var int
      */
     public $portUsage;
+
     /**
      * @var int
      */
     public $siteUsage;
     protected $_name = [
         'defenseCountUsage' => 'DefenseCountUsage',
-        'domainUsage'       => 'DomainUsage',
-        'instanceId'        => 'InstanceId',
-        'portUsage'         => 'PortUsage',
-        'siteUsage'         => 'SiteUsage',
+        'domainUsage' => 'DomainUsage',
+        'instanceId' => 'InstanceId',
+        'portUsage' => 'PortUsage',
+        'siteUsage' => 'SiteUsage',
     ];
 
     public function validate()

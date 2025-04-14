@@ -12,12 +12,13 @@ class DescribeBackSourceCidrResponseBody extends Model
      * @var string[]
      */
     public $cidrs;
+
     /**
      * @var string
      */
     public $requestId;
     protected $_name = [
-        'cidrs'     => 'Cidrs',
+        'cidrs' => 'Cidrs',
         'requestId' => 'RequestId',
     ];
 
@@ -35,7 +36,7 @@ class DescribeBackSourceCidrResponseBody extends Model
         if (null !== $this->cidrs) {
             if (\is_array($this->cidrs)) {
                 $res['Cidrs'] = [];
-                $n1           = 0;
+                $n1 = 0;
                 foreach ($this->cidrs as $item1) {
                     $res['Cidrs'][$n1++] = $item1;
                 }
@@ -60,7 +61,7 @@ class DescribeBackSourceCidrResponseBody extends Model
         if (isset($map['Cidrs'])) {
             if (!empty($map['Cidrs'])) {
                 $model->cidrs = [];
-                $n1           = 0;
+                $n1 = 0;
                 foreach ($map['Cidrs'] as $item1) {
                     $model->cidrs[$n1++] = $item1;
                 }

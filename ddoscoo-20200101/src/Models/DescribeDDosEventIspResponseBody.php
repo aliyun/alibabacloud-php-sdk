@@ -13,12 +13,13 @@ class DescribeDDosEventIspResponseBody extends Model
      * @var isps[]
      */
     public $isps;
+
     /**
      * @var string
      */
     public $requestId;
     protected $_name = [
-        'isps'      => 'Isps',
+        'isps' => 'Isps',
         'requestId' => 'RequestId',
     ];
 
@@ -36,7 +37,7 @@ class DescribeDDosEventIspResponseBody extends Model
         if (null !== $this->isps) {
             if (\is_array($this->isps)) {
                 $res['Isps'] = [];
-                $n1          = 0;
+                $n1 = 0;
                 foreach ($this->isps as $item1) {
                     $res['Isps'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -61,7 +62,7 @@ class DescribeDDosEventIspResponseBody extends Model
         if (isset($map['Isps'])) {
             if (!empty($map['Isps'])) {
                 $model->isps = [];
-                $n1          = 0;
+                $n1 = 0;
                 foreach ($map['Isps'] as $item1) {
                     $model->isps[$n1++] = isps::fromMap($item1);
                 }

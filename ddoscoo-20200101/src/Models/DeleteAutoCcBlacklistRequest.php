@@ -12,18 +12,20 @@ class DeleteAutoCcBlacklistRequest extends Model
      * @var string
      */
     public $blacklist;
+
     /**
      * @var string
      */
     public $instanceId;
+
     /**
      * @var string
      */
     public $queryType;
     protected $_name = [
-        'blacklist'  => 'Blacklist',
+        'blacklist' => 'Blacklist',
         'instanceId' => 'InstanceId',
-        'queryType'  => 'QueryType',
+        'queryType' => 'QueryType',
     ];
 
     public function validate()

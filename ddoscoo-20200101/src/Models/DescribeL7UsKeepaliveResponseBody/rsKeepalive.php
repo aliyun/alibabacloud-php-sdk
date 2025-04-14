@@ -12,18 +12,20 @@ class rsKeepalive extends Model
      * @var bool
      */
     public $enabled;
+
     /**
      * @var int
      */
     public $keepaliveRequests;
+
     /**
      * @var int
      */
     public $keepaliveTimeout;
     protected $_name = [
-        'enabled'           => 'Enabled',
+        'enabled' => 'Enabled',
         'keepaliveRequests' => 'KeepaliveRequests',
-        'keepaliveTimeout'  => 'KeepaliveTimeout',
+        'keepaliveTimeout' => 'KeepaliveTimeout',
     ];
 
     public function validate()

@@ -13,12 +13,13 @@ class DescribeWebCustomPortsResponseBody extends Model
      * @var string
      */
     public $requestId;
+
     /**
      * @var webCustomPorts[]
      */
     public $webCustomPorts;
     protected $_name = [
-        'requestId'      => 'RequestId',
+        'requestId' => 'RequestId',
         'webCustomPorts' => 'WebCustomPorts',
     ];
 
@@ -40,7 +41,7 @@ class DescribeWebCustomPortsResponseBody extends Model
         if (null !== $this->webCustomPorts) {
             if (\is_array($this->webCustomPorts)) {
                 $res['WebCustomPorts'] = [];
-                $n1                    = 0;
+                $n1 = 0;
                 foreach ($this->webCustomPorts as $item1) {
                     $res['WebCustomPorts'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -65,7 +66,7 @@ class DescribeWebCustomPortsResponseBody extends Model
         if (isset($map['WebCustomPorts'])) {
             if (!empty($map['WebCustomPorts'])) {
                 $model->webCustomPorts = [];
-                $n1                    = 0;
+                $n1 = 0;
                 foreach ($map['WebCustomPorts'] as $item1) {
                     $model->webCustomPorts[$n1++] = webCustomPorts::fromMap($item1);
                 }

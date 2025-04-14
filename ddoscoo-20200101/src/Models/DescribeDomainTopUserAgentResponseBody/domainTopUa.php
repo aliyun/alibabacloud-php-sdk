@@ -12,17 +12,19 @@ class domainTopUa extends Model
      * @var string
      */
     public $domain;
+
     /**
      * @var int
      */
     public $pv;
+
     /**
      * @var string
      */
     public $userAgent;
     protected $_name = [
-        'domain'    => 'Domain',
-        'pv'        => 'Pv',
+        'domain' => 'Domain',
+        'pv' => 'Pv',
         'userAgent' => 'UserAgent',
     ];
 

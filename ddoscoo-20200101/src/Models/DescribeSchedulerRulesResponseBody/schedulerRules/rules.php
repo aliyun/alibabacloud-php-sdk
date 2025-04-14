@@ -12,43 +12,50 @@ class rules extends Model
      * @var string
      */
     public $line;
+
     /**
      * @var int
      */
     public $priority;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var int
      */
     public $restoreDelay;
+
     /**
      * @var int
      */
     public $status;
+
     /**
      * @var string
      */
     public $type;
+
     /**
      * @var string
      */
     public $value;
+
     /**
      * @var int
      */
     public $valueType;
     protected $_name = [
-        'line'         => 'Line',
-        'priority'     => 'Priority',
-        'regionId'     => 'RegionId',
+        'line' => 'Line',
+        'priority' => 'Priority',
+        'regionId' => 'RegionId',
         'restoreDelay' => 'RestoreDelay',
-        'status'       => 'Status',
-        'type'         => 'Type',
-        'value'        => 'Value',
-        'valueType'    => 'ValueType',
+        'status' => 'Status',
+        'type' => 'Type',
+        'value' => 'Value',
+        'valueType' => 'ValueType',
     ];
 
     public function validate()

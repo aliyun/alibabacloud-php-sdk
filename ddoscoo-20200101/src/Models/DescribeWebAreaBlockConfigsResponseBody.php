@@ -13,13 +13,14 @@ class DescribeWebAreaBlockConfigsResponseBody extends Model
      * @var areaBlockConfigs[]
      */
     public $areaBlockConfigs;
+
     /**
      * @var string
      */
     public $requestId;
     protected $_name = [
         'areaBlockConfigs' => 'AreaBlockConfigs',
-        'requestId'        => 'RequestId',
+        'requestId' => 'RequestId',
     ];
 
     public function validate()
@@ -36,7 +37,7 @@ class DescribeWebAreaBlockConfigsResponseBody extends Model
         if (null !== $this->areaBlockConfigs) {
             if (\is_array($this->areaBlockConfigs)) {
                 $res['AreaBlockConfigs'] = [];
-                $n1                      = 0;
+                $n1 = 0;
                 foreach ($this->areaBlockConfigs as $item1) {
                     $res['AreaBlockConfigs'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -61,7 +62,7 @@ class DescribeWebAreaBlockConfigsResponseBody extends Model
         if (isset($map['AreaBlockConfigs'])) {
             if (!empty($map['AreaBlockConfigs'])) {
                 $model->areaBlockConfigs = [];
-                $n1                      = 0;
+                $n1 = 0;
                 foreach ($map['AreaBlockConfigs'] as $item1) {
                     $model->areaBlockConfigs[$n1++] = areaBlockConfigs::fromMap($item1);
                 }

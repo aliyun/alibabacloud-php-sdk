@@ -12,10 +12,12 @@ class DescribeInstanceExtRequest extends Model
      * @var string
      */
     public $instanceId;
+
     /**
      * @var string
      */
     public $pageNumber;
+
     /**
      * @var string
      */
@@ -23,7 +25,7 @@ class DescribeInstanceExtRequest extends Model
     protected $_name = [
         'instanceId' => 'InstanceId',
         'pageNumber' => 'PageNumber',
-        'pageSize'   => 'PageSize',
+        'pageSize' => 'PageSize',
     ];
 
     public function validate()

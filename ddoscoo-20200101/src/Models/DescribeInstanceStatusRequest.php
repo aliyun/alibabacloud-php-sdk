@@ -12,12 +12,13 @@ class DescribeInstanceStatusRequest extends Model
      * @var string
      */
     public $instanceId;
+
     /**
      * @var int
      */
     public $productType;
     protected $_name = [
-        'instanceId'  => 'InstanceId',
+        'instanceId' => 'InstanceId',
         'productType' => 'ProductType',
     ];
 

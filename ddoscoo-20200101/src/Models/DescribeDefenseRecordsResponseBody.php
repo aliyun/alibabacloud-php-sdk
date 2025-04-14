@@ -13,18 +13,20 @@ class DescribeDefenseRecordsResponseBody extends Model
      * @var defenseRecords[]
      */
     public $defenseRecords;
+
     /**
      * @var string
      */
     public $requestId;
+
     /**
      * @var int
      */
     public $totalCount;
     protected $_name = [
         'defenseRecords' => 'DefenseRecords',
-        'requestId'      => 'RequestId',
-        'totalCount'     => 'TotalCount',
+        'requestId' => 'RequestId',
+        'totalCount' => 'TotalCount',
     ];
 
     public function validate()
@@ -41,7 +43,7 @@ class DescribeDefenseRecordsResponseBody extends Model
         if (null !== $this->defenseRecords) {
             if (\is_array($this->defenseRecords)) {
                 $res['DefenseRecords'] = [];
-                $n1                    = 0;
+                $n1 = 0;
                 foreach ($this->defenseRecords as $item1) {
                     $res['DefenseRecords'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -70,7 +72,7 @@ class DescribeDefenseRecordsResponseBody extends Model
         if (isset($map['DefenseRecords'])) {
             if (!empty($map['DefenseRecords'])) {
                 $model->defenseRecords = [];
-                $n1                    = 0;
+                $n1 = 0;
                 foreach ($map['DefenseRecords'] as $item1) {
                     $model->defenseRecords[$n1++] = defenseRecords::fromMap($item1);
                 }

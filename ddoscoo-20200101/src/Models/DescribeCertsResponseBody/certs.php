@@ -12,43 +12,50 @@ class certs extends Model
      * @var string
      */
     public $certIdentifier;
+
     /**
      * @var string
      */
     public $common;
+
     /**
      * @var bool
      */
     public $domainRelated;
+
     /**
      * @var string
      */
     public $endDate;
+
     /**
      * @var int
      */
     public $id;
+
     /**
      * @var string
      */
     public $issuer;
+
     /**
      * @var string
      */
     public $name;
+
     /**
      * @var string
      */
     public $startDate;
     protected $_name = [
         'certIdentifier' => 'CertIdentifier',
-        'common'         => 'Common',
-        'domainRelated'  => 'DomainRelated',
-        'endDate'        => 'EndDate',
-        'id'             => 'Id',
-        'issuer'         => 'Issuer',
-        'name'           => 'Name',
-        'startDate'      => 'StartDate',
+        'common' => 'Common',
+        'domainRelated' => 'DomainRelated',
+        'endDate' => 'EndDate',
+        'id' => 'Id',
+        'issuer' => 'Issuer',
+        'name' => 'Name',
+        'startDate' => 'StartDate',
     ];
 
     public function validate()

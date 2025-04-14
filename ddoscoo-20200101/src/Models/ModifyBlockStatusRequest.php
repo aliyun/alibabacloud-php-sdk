@@ -12,23 +12,26 @@ class ModifyBlockStatusRequest extends Model
      * @var int
      */
     public $duration;
+
     /**
      * @var string
      */
     public $instanceId;
+
     /**
      * @var string[]
      */
     public $lines;
+
     /**
      * @var string
      */
     public $status;
     protected $_name = [
-        'duration'   => 'Duration',
+        'duration' => 'Duration',
         'instanceId' => 'InstanceId',
-        'lines'      => 'Lines',
-        'status'     => 'Status',
+        'lines' => 'Lines',
+        'status' => 'Status',
     ];
 
     public function validate()
@@ -53,7 +56,7 @@ class ModifyBlockStatusRequest extends Model
         if (null !== $this->lines) {
             if (\is_array($this->lines)) {
                 $res['Lines'] = [];
-                $n1           = 0;
+                $n1 = 0;
                 foreach ($this->lines as $item1) {
                     $res['Lines'][$n1++] = $item1;
                 }
@@ -86,7 +89,7 @@ class ModifyBlockStatusRequest extends Model
         if (isset($map['Lines'])) {
             if (!empty($map['Lines'])) {
                 $model->lines = [];
-                $n1           = 0;
+                $n1 = 0;
                 foreach ($map['Lines'] as $item1) {
                     $model->lines[$n1++] = $item1;
                 }

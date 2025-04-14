@@ -12,13 +12,14 @@ class ModifyQpsModeRequest extends Model
      * @var string
      */
     public $instanceId;
+
     /**
      * @var string
      */
     public $mode;
     protected $_name = [
         'instanceId' => 'InstanceId',
-        'mode'       => 'Mode',
+        'mode' => 'Mode',
     ];
 
     public function validate()

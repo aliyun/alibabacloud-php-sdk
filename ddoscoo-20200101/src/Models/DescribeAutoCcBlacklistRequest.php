@@ -12,28 +12,32 @@ class DescribeAutoCcBlacklistRequest extends Model
      * @var string
      */
     public $instanceId;
+
     /**
      * @var string
      */
     public $keyWord;
+
     /**
      * @var int
      */
     public $pageNumber;
+
     /**
      * @var int
      */
     public $pageSize;
+
     /**
      * @var string
      */
     public $queryType;
     protected $_name = [
         'instanceId' => 'InstanceId',
-        'keyWord'    => 'KeyWord',
+        'keyWord' => 'KeyWord',
         'pageNumber' => 'PageNumber',
-        'pageSize'   => 'PageSize',
-        'queryType'  => 'QueryType',
+        'pageSize' => 'PageSize',
+        'queryType' => 'QueryType',
     ];
 
     public function validate()

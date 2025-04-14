@@ -12,43 +12,50 @@ class healthCheck extends Model
      * @var string
      */
     public $domain;
+
     /**
      * @var int
      */
     public $down;
+
     /**
      * @var int
      */
     public $interval;
+
     /**
      * @var int
      */
     public $port;
+
     /**
      * @var int
      */
     public $timeout;
+
     /**
      * @var string
      */
     public $type;
+
     /**
      * @var int
      */
     public $up;
+
     /**
      * @var string
      */
     public $uri;
     protected $_name = [
-        'domain'   => 'Domain',
-        'down'     => 'Down',
+        'domain' => 'Domain',
+        'down' => 'Down',
         'interval' => 'Interval',
-        'port'     => 'Port',
-        'timeout'  => 'Timeout',
-        'type'     => 'Type',
-        'up'       => 'Up',
-        'uri'      => 'Uri',
+        'port' => 'Port',
+        'timeout' => 'Timeout',
+        'type' => 'Type',
+        'up' => 'Up',
+        'uri' => 'Uri',
     ];
 
     public function validate()

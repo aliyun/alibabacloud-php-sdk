@@ -12,13 +12,14 @@ class tagKeys extends Model
      * @var int
      */
     public $tagCount;
+
     /**
      * @var string
      */
     public $tagKey;
     protected $_name = [
         'tagCount' => 'TagCount',
-        'tagKey'   => 'TagKey',
+        'tagKey' => 'TagKey',
     ];
 
     public function validate()

@@ -12,13 +12,14 @@ class isps extends Model
      * @var int
      */
     public $inPkts;
+
     /**
      * @var string
      */
     public $isp;
     protected $_name = [
         'inPkts' => 'InPkts',
-        'isp'    => 'Isp',
+        'isp' => 'Isp',
     ];
 
     public function validate()

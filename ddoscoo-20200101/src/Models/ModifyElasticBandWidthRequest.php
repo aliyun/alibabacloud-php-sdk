@@ -12,13 +12,14 @@ class ModifyElasticBandWidthRequest extends Model
      * @var int
      */
     public $elasticBandwidth;
+
     /**
      * @var string
      */
     public $instanceId;
     protected $_name = [
         'elasticBandwidth' => 'ElasticBandwidth',
-        'instanceId'       => 'InstanceId',
+        'instanceId' => 'InstanceId',
     ];
 
     public function validate()

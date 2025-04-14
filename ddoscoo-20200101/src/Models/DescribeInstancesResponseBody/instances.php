@@ -12,68 +12,80 @@ class instances extends Model
      * @var int
      */
     public $createTime;
+
     /**
      * @var int
      */
     public $debtStatus;
+
     /**
      * @var int
      */
     public $edition;
+
     /**
      * @var int
      */
     public $enabled;
+
     /**
      * @var int
      */
     public $expireTime;
+
     /**
      * @var string
      */
     public $instanceId;
+
     /**
      * @var string
      */
     public $ip;
+
     /**
      * @var string
      */
     public $ipMode;
+
     /**
      * @var string
      */
     public $ipVersion;
+
     /**
      * @var int
      */
     public $isFirstOpenBw;
+
     /**
      * @var int
      */
     public $isFirstOpenQps;
+
     /**
      * @var string
      */
     public $remark;
+
     /**
      * @var int
      */
     public $status;
     protected $_name = [
-        'createTime'     => 'CreateTime',
-        'debtStatus'     => 'DebtStatus',
-        'edition'        => 'Edition',
-        'enabled'        => 'Enabled',
-        'expireTime'     => 'ExpireTime',
-        'instanceId'     => 'InstanceId',
-        'ip'             => 'Ip',
-        'ipMode'         => 'IpMode',
-        'ipVersion'      => 'IpVersion',
-        'isFirstOpenBw'  => 'IsFirstOpenBw',
+        'createTime' => 'CreateTime',
+        'debtStatus' => 'DebtStatus',
+        'edition' => 'Edition',
+        'enabled' => 'Enabled',
+        'expireTime' => 'ExpireTime',
+        'instanceId' => 'InstanceId',
+        'ip' => 'Ip',
+        'ipMode' => 'IpMode',
+        'ipVersion' => 'IpVersion',
+        'isFirstOpenBw' => 'IsFirstOpenBw',
         'isFirstOpenQps' => 'IsFirstOpenQps',
-        'remark'         => 'Remark',
-        'status'         => 'Status',
+        'remark' => 'Remark',
+        'status' => 'Status',
     ];
 
     public function validate()

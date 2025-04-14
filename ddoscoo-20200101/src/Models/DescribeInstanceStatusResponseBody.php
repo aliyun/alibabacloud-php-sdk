@@ -12,18 +12,20 @@ class DescribeInstanceStatusResponseBody extends Model
      * @var string
      */
     public $instanceId;
+
     /**
      * @var int
      */
     public $instanceStatus;
+
     /**
      * @var string
      */
     public $requestId;
     protected $_name = [
-        'instanceId'     => 'InstanceId',
+        'instanceId' => 'InstanceId',
         'instanceStatus' => 'InstanceStatus',
-        'requestId'      => 'RequestId',
+        'requestId' => 'RequestId',
     ];
 
     public function validate()

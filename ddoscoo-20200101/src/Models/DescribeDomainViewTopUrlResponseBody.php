@@ -13,13 +13,14 @@ class DescribeDomainViewTopUrlResponseBody extends Model
      * @var string
      */
     public $requestId;
+
     /**
      * @var urlList[]
      */
     public $urlList;
     protected $_name = [
         'requestId' => 'RequestId',
-        'urlList'   => 'UrlList',
+        'urlList' => 'UrlList',
     ];
 
     public function validate()
@@ -40,7 +41,7 @@ class DescribeDomainViewTopUrlResponseBody extends Model
         if (null !== $this->urlList) {
             if (\is_array($this->urlList)) {
                 $res['UrlList'] = [];
-                $n1             = 0;
+                $n1 = 0;
                 foreach ($this->urlList as $item1) {
                     $res['UrlList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -65,7 +66,7 @@ class DescribeDomainViewTopUrlResponseBody extends Model
         if (isset($map['UrlList'])) {
             if (!empty($map['UrlList'])) {
                 $model->urlList = [];
-                $n1             = 0;
+                $n1 = 0;
                 foreach ($map['UrlList'] as $item1) {
                     $model->urlList[$n1++] = urlList::fromMap($item1);
                 }

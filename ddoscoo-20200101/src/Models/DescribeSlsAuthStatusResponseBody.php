@@ -12,12 +12,13 @@ class DescribeSlsAuthStatusResponseBody extends Model
      * @var string
      */
     public $requestId;
+
     /**
      * @var bool
      */
     public $slsAuthStatus;
     protected $_name = [
-        'requestId'     => 'RequestId',
+        'requestId' => 'RequestId',
         'slsAuthStatus' => 'SlsAuthStatus',
     ];
 

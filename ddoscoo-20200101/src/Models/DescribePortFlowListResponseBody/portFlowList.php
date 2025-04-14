@@ -12,88 +12,104 @@ class portFlowList extends Model
      * @var int
      */
     public $attackBps;
+
     /**
      * @var int
      */
     public $attackPps;
+
     /**
      * @var int
      */
     public $inBps;
+
     /**
      * @var int
      */
     public $inPps;
+
     /**
      * @var int
      */
     public $index;
+
     /**
      * @var int
      */
     public $outBps;
+
     /**
      * @var int
      */
     public $outPps;
+
     /**
      * @var string
      */
     public $region;
+
     /**
      * @var int
      */
     public $slaBpsDropBps;
+
     /**
      * @var int
      */
     public $slaBpsDropPps;
+
     /**
      * @var int
      */
     public $slaConnDropBps;
+
     /**
      * @var int
      */
     public $slaConnDropPps;
+
     /**
      * @var int
      */
     public $slaCpsDropBps;
+
     /**
      * @var int
      */
     public $slaCpsDropPps;
+
     /**
      * @var int
      */
     public $slaPpsDropBps;
+
     /**
      * @var int
      */
     public $slaPpsDropPps;
+
     /**
      * @var int
      */
     public $time;
     protected $_name = [
-        'attackBps'      => 'AttackBps',
-        'attackPps'      => 'AttackPps',
-        'inBps'          => 'InBps',
-        'inPps'          => 'InPps',
-        'index'          => 'Index',
-        'outBps'         => 'OutBps',
-        'outPps'         => 'OutPps',
-        'region'         => 'Region',
-        'slaBpsDropBps'  => 'SlaBpsDropBps',
-        'slaBpsDropPps'  => 'SlaBpsDropPps',
+        'attackBps' => 'AttackBps',
+        'attackPps' => 'AttackPps',
+        'inBps' => 'InBps',
+        'inPps' => 'InPps',
+        'index' => 'Index',
+        'outBps' => 'OutBps',
+        'outPps' => 'OutPps',
+        'region' => 'Region',
+        'slaBpsDropBps' => 'SlaBpsDropBps',
+        'slaBpsDropPps' => 'SlaBpsDropPps',
         'slaConnDropBps' => 'SlaConnDropBps',
         'slaConnDropPps' => 'SlaConnDropPps',
-        'slaCpsDropBps'  => 'SlaCpsDropBps',
-        'slaCpsDropPps'  => 'SlaCpsDropPps',
-        'slaPpsDropBps'  => 'SlaPpsDropBps',
-        'slaPpsDropPps'  => 'SlaPpsDropPps',
-        'time'           => 'Time',
+        'slaCpsDropBps' => 'SlaCpsDropBps',
+        'slaCpsDropPps' => 'SlaCpsDropPps',
+        'slaPpsDropBps' => 'SlaPpsDropBps',
+        'slaPpsDropPps' => 'SlaPpsDropPps',
+        'time' => 'Time',
     ];
 
     public function validate()

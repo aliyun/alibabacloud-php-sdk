@@ -13,13 +13,14 @@ class DescribePortFlowListResponseBody extends Model
      * @var portFlowList[]
      */
     public $portFlowList;
+
     /**
      * @var string
      */
     public $requestId;
     protected $_name = [
         'portFlowList' => 'PortFlowList',
-        'requestId'    => 'RequestId',
+        'requestId' => 'RequestId',
     ];
 
     public function validate()
@@ -36,7 +37,7 @@ class DescribePortFlowListResponseBody extends Model
         if (null !== $this->portFlowList) {
             if (\is_array($this->portFlowList)) {
                 $res['PortFlowList'] = [];
-                $n1                  = 0;
+                $n1 = 0;
                 foreach ($this->portFlowList as $item1) {
                     $res['PortFlowList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -61,7 +62,7 @@ class DescribePortFlowListResponseBody extends Model
         if (isset($map['PortFlowList'])) {
             if (!empty($map['PortFlowList'])) {
                 $model->portFlowList = [];
-                $n1                  = 0;
+                $n1 = 0;
                 foreach ($map['PortFlowList'] as $item1) {
                     $model->portFlowList[$n1++] = portFlowList::fromMap($item1);
                 }

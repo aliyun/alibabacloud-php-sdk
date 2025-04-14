@@ -12,27 +12,31 @@ class DescribeElasticQpsRequest extends Model
      * @var int
      */
     public $endTime;
+
     /**
      * @var string
      */
     public $interval;
+
     /**
      * @var string
      */
     public $ip;
+
     /**
      * @var string
      */
     public $region;
+
     /**
      * @var int
      */
     public $startTime;
     protected $_name = [
-        'endTime'   => 'EndTime',
-        'interval'  => 'Interval',
-        'ip'        => 'Ip',
-        'region'    => 'Region',
+        'endTime' => 'EndTime',
+        'interval' => 'Interval',
+        'ip' => 'Ip',
+        'region' => 'Region',
         'startTime' => 'StartTime',
     ];
 

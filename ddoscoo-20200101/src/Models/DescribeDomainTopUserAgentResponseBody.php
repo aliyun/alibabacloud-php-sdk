@@ -13,13 +13,14 @@ class DescribeDomainTopUserAgentResponseBody extends Model
      * @var domainTopUa[]
      */
     public $domainTopUa;
+
     /**
      * @var string
      */
     public $requestId;
     protected $_name = [
         'domainTopUa' => 'DomainTopUa',
-        'requestId'   => 'RequestId',
+        'requestId' => 'RequestId',
     ];
 
     public function validate()
@@ -36,7 +37,7 @@ class DescribeDomainTopUserAgentResponseBody extends Model
         if (null !== $this->domainTopUa) {
             if (\is_array($this->domainTopUa)) {
                 $res['DomainTopUa'] = [];
-                $n1                 = 0;
+                $n1 = 0;
                 foreach ($this->domainTopUa as $item1) {
                     $res['DomainTopUa'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -61,7 +62,7 @@ class DescribeDomainTopUserAgentResponseBody extends Model
         if (isset($map['DomainTopUa'])) {
             if (!empty($map['DomainTopUa'])) {
                 $model->domainTopUa = [];
-                $n1                 = 0;
+                $n1 = 0;
                 foreach ($map['DomainTopUa'] as $item1) {
                     $model->domainTopUa[$n1++] = domainTopUa::fromMap($item1);
                 }

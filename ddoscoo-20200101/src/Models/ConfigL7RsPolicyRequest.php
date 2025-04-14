@@ -12,23 +12,26 @@ class ConfigL7RsPolicyRequest extends Model
      * @var string
      */
     public $domain;
+
     /**
      * @var string
      */
     public $policy;
+
     /**
      * @var string
      */
     public $resourceGroupId;
+
     /**
      * @var int
      */
     public $upstreamRetry;
     protected $_name = [
-        'domain'          => 'Domain',
-        'policy'          => 'Policy',
+        'domain' => 'Domain',
+        'policy' => 'Policy',
         'resourceGroupId' => 'ResourceGroupId',
-        'upstreamRetry'   => 'UpstreamRetry',
+        'upstreamRetry' => 'UpstreamRetry',
     ];
 
     public function validate()

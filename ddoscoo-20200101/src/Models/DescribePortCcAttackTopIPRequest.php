@@ -12,22 +12,25 @@ class DescribePortCcAttackTopIPRequest extends Model
      * @var string
      */
     public $ip;
+
     /**
      * @var int
      */
     public $limit;
+
     /**
      * @var string
      */
     public $port;
+
     /**
      * @var int
      */
     public $startTimestamp;
     protected $_name = [
-        'ip'             => 'Ip',
-        'limit'          => 'Limit',
-        'port'           => 'Port',
+        'ip' => 'Ip',
+        'limit' => 'Limit',
+        'port' => 'Port',
         'startTimestamp' => 'StartTimestamp',
     ];
 

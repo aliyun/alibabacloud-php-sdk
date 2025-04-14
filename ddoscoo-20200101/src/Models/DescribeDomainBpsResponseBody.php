@@ -13,6 +13,7 @@ class DescribeDomainBpsResponseBody extends Model
      * @var domainBps[]
      */
     public $domainBps;
+
     /**
      * @var string
      */
@@ -36,7 +37,7 @@ class DescribeDomainBpsResponseBody extends Model
         if (null !== $this->domainBps) {
             if (\is_array($this->domainBps)) {
                 $res['DomainBps'] = [];
-                $n1               = 0;
+                $n1 = 0;
                 foreach ($this->domainBps as $item1) {
                     $res['DomainBps'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -61,7 +62,7 @@ class DescribeDomainBpsResponseBody extends Model
         if (isset($map['DomainBps'])) {
             if (!empty($map['DomainBps'])) {
                 $model->domainBps = [];
-                $n1               = 0;
+                $n1 = 0;
                 foreach ($map['DomainBps'] as $item1) {
                     $model->domainBps[$n1++] = domainBps::fromMap($item1);
                 }

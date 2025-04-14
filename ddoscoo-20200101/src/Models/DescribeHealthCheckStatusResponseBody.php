@@ -13,13 +13,14 @@ class DescribeHealthCheckStatusResponseBody extends Model
      * @var healthCheckStatus[]
      */
     public $healthCheckStatus;
+
     /**
      * @var string
      */
     public $requestId;
     protected $_name = [
         'healthCheckStatus' => 'HealthCheckStatus',
-        'requestId'         => 'RequestId',
+        'requestId' => 'RequestId',
     ];
 
     public function validate()
@@ -36,7 +37,7 @@ class DescribeHealthCheckStatusResponseBody extends Model
         if (null !== $this->healthCheckStatus) {
             if (\is_array($this->healthCheckStatus)) {
                 $res['HealthCheckStatus'] = [];
-                $n1                       = 0;
+                $n1 = 0;
                 foreach ($this->healthCheckStatus as $item1) {
                     $res['HealthCheckStatus'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -61,7 +62,7 @@ class DescribeHealthCheckStatusResponseBody extends Model
         if (isset($map['HealthCheckStatus'])) {
             if (!empty($map['HealthCheckStatus'])) {
                 $model->healthCheckStatus = [];
-                $n1                       = 0;
+                $n1 = 0;
                 foreach ($map['HealthCheckStatus'] as $item1) {
                     $model->healthCheckStatus[$n1++] = healthCheckStatus::fromMap($item1);
                 }

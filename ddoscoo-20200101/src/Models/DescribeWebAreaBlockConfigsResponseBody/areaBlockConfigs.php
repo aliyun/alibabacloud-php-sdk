@@ -13,12 +13,13 @@ class areaBlockConfigs extends Model
      * @var string
      */
     public $domain;
+
     /**
      * @var regionList[]
      */
     public $regionList;
     protected $_name = [
-        'domain'     => 'Domain',
+        'domain' => 'Domain',
         'regionList' => 'RegionList',
     ];
 
@@ -40,7 +41,7 @@ class areaBlockConfigs extends Model
         if (null !== $this->regionList) {
             if (\is_array($this->regionList)) {
                 $res['RegionList'] = [];
-                $n1                = 0;
+                $n1 = 0;
                 foreach ($this->regionList as $item1) {
                     $res['RegionList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -65,7 +66,7 @@ class areaBlockConfigs extends Model
         if (isset($map['RegionList'])) {
             if (!empty($map['RegionList'])) {
                 $model->regionList = [];
-                $n1                = 0;
+                $n1 = 0;
                 foreach ($map['RegionList'] as $item1) {
                     $model->regionList[$n1++] = regionList::fromMap($item1);
                 }

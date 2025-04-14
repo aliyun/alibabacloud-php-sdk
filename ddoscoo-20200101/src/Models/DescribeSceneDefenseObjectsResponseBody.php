@@ -13,18 +13,20 @@ class DescribeSceneDefenseObjectsResponseBody extends Model
      * @var objects[]
      */
     public $objects;
+
     /**
      * @var string
      */
     public $requestId;
+
     /**
      * @var bool
      */
     public $success;
     protected $_name = [
-        'objects'   => 'Objects',
+        'objects' => 'Objects',
         'requestId' => 'RequestId',
-        'success'   => 'Success',
+        'success' => 'Success',
     ];
 
     public function validate()
@@ -41,7 +43,7 @@ class DescribeSceneDefenseObjectsResponseBody extends Model
         if (null !== $this->objects) {
             if (\is_array($this->objects)) {
                 $res['Objects'] = [];
-                $n1             = 0;
+                $n1 = 0;
                 foreach ($this->objects as $item1) {
                     $res['Objects'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -70,7 +72,7 @@ class DescribeSceneDefenseObjectsResponseBody extends Model
         if (isset($map['Objects'])) {
             if (!empty($map['Objects'])) {
                 $model->objects = [];
-                $n1             = 0;
+                $n1 = 0;
                 foreach ($map['Objects'] as $item1) {
                     $model->objects[$n1++] = objects::fromMap($item1);
                 }

@@ -12,13 +12,14 @@ class DeleteAutoCcWhitelistRequest extends Model
      * @var string
      */
     public $instanceId;
+
     /**
      * @var string
      */
     public $whitelist;
     protected $_name = [
         'instanceId' => 'InstanceId',
-        'whitelist'  => 'Whitelist',
+        'whitelist' => 'Whitelist',
     ];
 
     public function validate()

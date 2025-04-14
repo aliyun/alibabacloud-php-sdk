@@ -12,17 +12,19 @@ class ModifyWebAIProtectSwitchRequest extends Model
      * @var string
      */
     public $config;
+
     /**
      * @var string
      */
     public $domain;
+
     /**
      * @var string
      */
     public $resourceGroupId;
     protected $_name = [
-        'config'          => 'Config',
-        'domain'          => 'Domain',
+        'config' => 'Config',
+        'domain' => 'Domain',
         'resourceGroupId' => 'ResourceGroupId',
     ];
 

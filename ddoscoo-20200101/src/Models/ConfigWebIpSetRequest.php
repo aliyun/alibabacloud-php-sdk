@@ -12,23 +12,26 @@ class ConfigWebIpSetRequest extends Model
      * @var string[]
      */
     public $blackList;
+
     /**
      * @var string
      */
     public $domain;
+
     /**
      * @var string
      */
     public $resourceGroupId;
+
     /**
      * @var string[]
      */
     public $whiteList;
     protected $_name = [
-        'blackList'       => 'BlackList',
-        'domain'          => 'Domain',
+        'blackList' => 'BlackList',
+        'domain' => 'Domain',
         'resourceGroupId' => 'ResourceGroupId',
-        'whiteList'       => 'WhiteList',
+        'whiteList' => 'WhiteList',
     ];
 
     public function validate()
@@ -48,7 +51,7 @@ class ConfigWebIpSetRequest extends Model
         if (null !== $this->blackList) {
             if (\is_array($this->blackList)) {
                 $res['BlackList'] = [];
-                $n1               = 0;
+                $n1 = 0;
                 foreach ($this->blackList as $item1) {
                     $res['BlackList'][$n1++] = $item1;
                 }
@@ -66,7 +69,7 @@ class ConfigWebIpSetRequest extends Model
         if (null !== $this->whiteList) {
             if (\is_array($this->whiteList)) {
                 $res['WhiteList'] = [];
-                $n1               = 0;
+                $n1 = 0;
                 foreach ($this->whiteList as $item1) {
                     $res['WhiteList'][$n1++] = $item1;
                 }
@@ -87,7 +90,7 @@ class ConfigWebIpSetRequest extends Model
         if (isset($map['BlackList'])) {
             if (!empty($map['BlackList'])) {
                 $model->blackList = [];
-                $n1               = 0;
+                $n1 = 0;
                 foreach ($map['BlackList'] as $item1) {
                     $model->blackList[$n1++] = $item1;
                 }
@@ -105,7 +108,7 @@ class ConfigWebIpSetRequest extends Model
         if (isset($map['WhiteList'])) {
             if (!empty($map['WhiteList'])) {
                 $model->whiteList = [];
-                $n1               = 0;
+                $n1 = 0;
                 foreach ($map['WhiteList'] as $item1) {
                     $model->whiteList[$n1++] = $item1;
                 }

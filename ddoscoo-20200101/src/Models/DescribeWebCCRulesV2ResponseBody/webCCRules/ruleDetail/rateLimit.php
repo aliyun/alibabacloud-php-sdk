@@ -12,28 +12,32 @@ class rateLimit extends Model
      * @var int
      */
     public $interval;
+
     /**
      * @var string
      */
     public $subKey;
+
     /**
      * @var string
      */
     public $target;
+
     /**
      * @var int
      */
     public $threshold;
+
     /**
      * @var int
      */
     public $ttl;
     protected $_name = [
-        'interval'  => 'Interval',
-        'subKey'    => 'SubKey',
-        'target'    => 'Target',
+        'interval' => 'Interval',
+        'subKey' => 'SubKey',
+        'target' => 'Target',
         'threshold' => 'Threshold',
-        'ttl'       => 'Ttl',
+        'ttl' => 'Ttl',
     ];
 
     public function validate()

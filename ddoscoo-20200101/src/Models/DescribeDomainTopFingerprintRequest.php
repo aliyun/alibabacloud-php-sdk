@@ -12,32 +12,37 @@ class DescribeDomainTopFingerprintRequest extends Model
      * @var string
      */
     public $domain;
+
     /**
      * @var int
      */
     public $endTime;
+
     /**
      * @var int
      */
     public $interval;
+
     /**
      * @var int
      */
     public $limit;
+
     /**
      * @var string
      */
     public $region;
+
     /**
      * @var int
      */
     public $startTime;
     protected $_name = [
-        'domain'    => 'Domain',
-        'endTime'   => 'EndTime',
-        'interval'  => 'Interval',
-        'limit'     => 'Limit',
-        'region'    => 'Region',
+        'domain' => 'Domain',
+        'endTime' => 'EndTime',
+        'interval' => 'Interval',
+        'limit' => 'Limit',
+        'region' => 'Region',
         'startTime' => 'StartTime',
     ];
 

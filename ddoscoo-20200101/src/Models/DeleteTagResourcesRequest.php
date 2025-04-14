@@ -12,33 +12,38 @@ class DeleteTagResourcesRequest extends Model
      * @var bool
      */
     public $all;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $resourceGroupId;
+
     /**
      * @var string[]
      */
     public $resourceIds;
+
     /**
      * @var string
      */
     public $resourceType;
+
     /**
      * @var string[]
      */
     public $tagKey;
     protected $_name = [
-        'all'             => 'All',
-        'regionId'        => 'RegionId',
+        'all' => 'All',
+        'regionId' => 'RegionId',
         'resourceGroupId' => 'ResourceGroupId',
-        'resourceIds'     => 'ResourceIds',
-        'resourceType'    => 'ResourceType',
-        'tagKey'          => 'TagKey',
+        'resourceIds' => 'ResourceIds',
+        'resourceType' => 'ResourceType',
+        'tagKey' => 'TagKey',
     ];
 
     public function validate()
@@ -70,7 +75,7 @@ class DeleteTagResourcesRequest extends Model
         if (null !== $this->resourceIds) {
             if (\is_array($this->resourceIds)) {
                 $res['ResourceIds'] = [];
-                $n1                 = 0;
+                $n1 = 0;
                 foreach ($this->resourceIds as $item1) {
                     $res['ResourceIds'][$n1++] = $item1;
                 }
@@ -84,7 +89,7 @@ class DeleteTagResourcesRequest extends Model
         if (null !== $this->tagKey) {
             if (\is_array($this->tagKey)) {
                 $res['TagKey'] = [];
-                $n1            = 0;
+                $n1 = 0;
                 foreach ($this->tagKey as $item1) {
                     $res['TagKey'][$n1++] = $item1;
                 }
@@ -117,7 +122,7 @@ class DeleteTagResourcesRequest extends Model
         if (isset($map['ResourceIds'])) {
             if (!empty($map['ResourceIds'])) {
                 $model->resourceIds = [];
-                $n1                 = 0;
+                $n1 = 0;
                 foreach ($map['ResourceIds'] as $item1) {
                     $model->resourceIds[$n1++] = $item1;
                 }
@@ -131,7 +136,7 @@ class DeleteTagResourcesRequest extends Model
         if (isset($map['TagKey'])) {
             if (!empty($map['TagKey'])) {
                 $model->tagKey = [];
-                $n1            = 0;
+                $n1 = 0;
                 foreach ($map['TagKey'] as $item1) {
                     $model->tagKey[$n1++] = $item1;
                 }

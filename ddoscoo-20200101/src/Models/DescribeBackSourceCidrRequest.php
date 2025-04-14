@@ -12,17 +12,19 @@ class DescribeBackSourceCidrRequest extends Model
      * @var string
      */
     public $ipVersion;
+
     /**
      * @var string
      */
     public $line;
+
     /**
      * @var string
      */
     public $resourceGroupId;
     protected $_name = [
-        'ipVersion'       => 'IpVersion',
-        'line'            => 'Line',
+        'ipVersion' => 'IpVersion',
+        'line' => 'Line',
         'resourceGroupId' => 'ResourceGroupId',
     ];
 

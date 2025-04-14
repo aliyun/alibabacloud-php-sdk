@@ -13,28 +13,32 @@ class DescribeL7RsPolicyResponseBody extends Model
      * @var attributes[]
      */
     public $attributes;
+
     /**
      * @var string
      */
     public $proxyMode;
+
     /**
      * @var string
      */
     public $requestId;
+
     /**
      * @var int
      */
     public $rsAttrRwTimeoutMax;
+
     /**
      * @var int
      */
     public $upstreamRetry;
     protected $_name = [
-        'attributes'         => 'Attributes',
-        'proxyMode'          => 'ProxyMode',
-        'requestId'          => 'RequestId',
+        'attributes' => 'Attributes',
+        'proxyMode' => 'ProxyMode',
+        'requestId' => 'RequestId',
         'rsAttrRwTimeoutMax' => 'RsAttrRwTimeoutMax',
-        'upstreamRetry'      => 'UpstreamRetry',
+        'upstreamRetry' => 'UpstreamRetry',
     ];
 
     public function validate()
@@ -51,7 +55,7 @@ class DescribeL7RsPolicyResponseBody extends Model
         if (null !== $this->attributes) {
             if (\is_array($this->attributes)) {
                 $res['Attributes'] = [];
-                $n1                = 0;
+                $n1 = 0;
                 foreach ($this->attributes as $item1) {
                     $res['Attributes'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -88,7 +92,7 @@ class DescribeL7RsPolicyResponseBody extends Model
         if (isset($map['Attributes'])) {
             if (!empty($map['Attributes'])) {
                 $model->attributes = [];
-                $n1                = 0;
+                $n1 = 0;
                 foreach ($map['Attributes'] as $item1) {
                     $model->attributes[$n1++] = attributes::fromMap($item1);
                 }

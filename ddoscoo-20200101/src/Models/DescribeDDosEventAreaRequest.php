@@ -12,22 +12,25 @@ class DescribeDDosEventAreaRequest extends Model
      * @var string
      */
     public $eventType;
+
     /**
      * @var string
      */
     public $ip;
+
     /**
      * @var int
      */
     public $range;
+
     /**
      * @var int
      */
     public $startTime;
     protected $_name = [
         'eventType' => 'EventType',
-        'ip'        => 'Ip',
-        'range'     => 'Range',
+        'ip' => 'Ip',
+        'range' => 'Range',
         'startTime' => 'StartTime',
     ];
 

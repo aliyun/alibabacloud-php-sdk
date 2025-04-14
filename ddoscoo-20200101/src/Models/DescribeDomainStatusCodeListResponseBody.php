@@ -13,12 +13,13 @@ class DescribeDomainStatusCodeListResponseBody extends Model
      * @var string
      */
     public $requestId;
+
     /**
      * @var statusCodeList[]
      */
     public $statusCodeList;
     protected $_name = [
-        'requestId'      => 'RequestId',
+        'requestId' => 'RequestId',
         'statusCodeList' => 'StatusCodeList',
     ];
 
@@ -40,7 +41,7 @@ class DescribeDomainStatusCodeListResponseBody extends Model
         if (null !== $this->statusCodeList) {
             if (\is_array($this->statusCodeList)) {
                 $res['StatusCodeList'] = [];
-                $n1                    = 0;
+                $n1 = 0;
                 foreach ($this->statusCodeList as $item1) {
                     $res['StatusCodeList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -65,7 +66,7 @@ class DescribeDomainStatusCodeListResponseBody extends Model
         if (isset($map['StatusCodeList'])) {
             if (!empty($map['StatusCodeList'])) {
                 $model->statusCodeList = [];
-                $n1                    = 0;
+                $n1 = 0;
                 foreach ($map['StatusCodeList'] as $item1) {
                     $model->statusCodeList[$n1++] = statusCodeList::fromMap($item1);
                 }

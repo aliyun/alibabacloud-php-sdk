@@ -12,13 +12,14 @@ class ModifyInstanceRemarkRequest extends Model
      * @var string
      */
     public $instanceId;
+
     /**
      * @var string
      */
     public $remark;
     protected $_name = [
         'instanceId' => 'InstanceId',
-        'remark'     => 'Remark',
+        'remark' => 'Remark',
     ];
 
     public function validate()

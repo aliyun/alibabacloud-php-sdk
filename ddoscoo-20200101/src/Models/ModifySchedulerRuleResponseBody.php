@@ -12,18 +12,20 @@ class ModifySchedulerRuleResponseBody extends Model
      * @var string
      */
     public $cname;
+
     /**
      * @var string
      */
     public $requestId;
+
     /**
      * @var string
      */
     public $ruleName;
     protected $_name = [
-        'cname'     => 'Cname',
+        'cname' => 'Cname',
         'requestId' => 'RequestId',
-        'ruleName'  => 'RuleName',
+        'ruleName' => 'RuleName',
     ];
 
     public function validate()

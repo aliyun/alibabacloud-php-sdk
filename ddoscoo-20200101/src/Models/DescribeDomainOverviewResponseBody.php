@@ -12,17 +12,19 @@ class DescribeDomainOverviewResponseBody extends Model
      * @var int
      */
     public $maxHttp;
+
     /**
      * @var int
      */
     public $maxHttps;
+
     /**
      * @var string
      */
     public $requestId;
     protected $_name = [
-        'maxHttp'   => 'MaxHttp',
-        'maxHttps'  => 'MaxHttps',
+        'maxHttp' => 'MaxHttp',
+        'maxHttps' => 'MaxHttps',
         'requestId' => 'RequestId',
     ];
 

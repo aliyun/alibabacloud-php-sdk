@@ -12,23 +12,26 @@ class autoCcBlacklist extends Model
      * @var string
      */
     public $destIp;
+
     /**
      * @var int
      */
     public $endTime;
+
     /**
      * @var string
      */
     public $sourceIp;
+
     /**
      * @var string
      */
     public $type;
     protected $_name = [
-        'destIp'   => 'DestIp',
-        'endTime'  => 'EndTime',
+        'destIp' => 'DestIp',
+        'endTime' => 'EndTime',
         'sourceIp' => 'SourceIp',
-        'type'     => 'Type',
+        'type' => 'Type',
     ];
 
     public function validate()

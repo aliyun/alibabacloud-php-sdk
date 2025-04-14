@@ -12,17 +12,19 @@ class DescribeTotalAttackMaxFlowResponseBody extends Model
      * @var int
      */
     public $bps;
+
     /**
      * @var int
      */
     public $pps;
+
     /**
      * @var string
      */
     public $requestId;
     protected $_name = [
-        'bps'       => 'Bps',
-        'pps'       => 'Pps',
+        'bps' => 'Bps',
+        'pps' => 'Pps',
         'requestId' => 'RequestId',
     ];
 

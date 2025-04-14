@@ -12,43 +12,50 @@ class systemLog extends Model
      * @var string
      */
     public $entityObject;
+
     /**
      * @var int
      */
     public $entityType;
+
     /**
      * @var int
      */
     public $gmtCreate;
+
     /**
      * @var int
      */
     public $gmtModified;
+
     /**
      * @var string
      */
     public $opAccount;
+
     /**
      * @var int
      */
     public $opAction;
+
     /**
      * @var string
      */
     public $opDesc;
+
     /**
      * @var int
      */
     public $status;
     protected $_name = [
         'entityObject' => 'EntityObject',
-        'entityType'   => 'EntityType',
-        'gmtCreate'    => 'GmtCreate',
-        'gmtModified'  => 'GmtModified',
-        'opAccount'    => 'OpAccount',
-        'opAction'     => 'OpAction',
-        'opDesc'       => 'OpDesc',
-        'status'       => 'Status',
+        'entityType' => 'EntityType',
+        'gmtCreate' => 'GmtCreate',
+        'gmtModified' => 'GmtModified',
+        'opAccount' => 'OpAccount',
+        'opAction' => 'OpAction',
+        'opDesc' => 'OpDesc',
+        'status' => 'Status',
     ];
 
     public function validate()

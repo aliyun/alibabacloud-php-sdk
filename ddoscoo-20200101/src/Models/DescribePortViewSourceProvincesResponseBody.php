@@ -13,12 +13,13 @@ class DescribePortViewSourceProvincesResponseBody extends Model
      * @var string
      */
     public $requestId;
+
     /**
      * @var sourceProvinces[]
      */
     public $sourceProvinces;
     protected $_name = [
-        'requestId'       => 'RequestId',
+        'requestId' => 'RequestId',
         'sourceProvinces' => 'SourceProvinces',
     ];
 
@@ -40,7 +41,7 @@ class DescribePortViewSourceProvincesResponseBody extends Model
         if (null !== $this->sourceProvinces) {
             if (\is_array($this->sourceProvinces)) {
                 $res['SourceProvinces'] = [];
-                $n1                     = 0;
+                $n1 = 0;
                 foreach ($this->sourceProvinces as $item1) {
                     $res['SourceProvinces'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -65,7 +66,7 @@ class DescribePortViewSourceProvincesResponseBody extends Model
         if (isset($map['SourceProvinces'])) {
             if (!empty($map['SourceProvinces'])) {
                 $model->sourceProvinces = [];
-                $n1                     = 0;
+                $n1 = 0;
                 foreach ($map['SourceProvinces'] as $item1) {
                     $model->sourceProvinces[$n1++] = sourceProvinces::fromMap($item1);
                 }

@@ -13,13 +13,14 @@ class DescribeInstanceDetailsResponseBody extends Model
      * @var instanceDetails[]
      */
     public $instanceDetails;
+
     /**
      * @var string
      */
     public $requestId;
     protected $_name = [
         'instanceDetails' => 'InstanceDetails',
-        'requestId'       => 'RequestId',
+        'requestId' => 'RequestId',
     ];
 
     public function validate()
@@ -36,7 +37,7 @@ class DescribeInstanceDetailsResponseBody extends Model
         if (null !== $this->instanceDetails) {
             if (\is_array($this->instanceDetails)) {
                 $res['InstanceDetails'] = [];
-                $n1                     = 0;
+                $n1 = 0;
                 foreach ($this->instanceDetails as $item1) {
                     $res['InstanceDetails'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -61,7 +62,7 @@ class DescribeInstanceDetailsResponseBody extends Model
         if (isset($map['InstanceDetails'])) {
             if (!empty($map['InstanceDetails'])) {
                 $model->instanceDetails = [];
-                $n1                     = 0;
+                $n1 = 0;
                 foreach ($map['InstanceDetails'] as $item1) {
                     $model->instanceDetails[$n1++] = instanceDetails::fromMap($item1);
                 }

@@ -12,18 +12,20 @@ class statistics extends Model
      * @var string
      */
     public $field;
+
     /**
      * @var string
      */
     public $headerName;
+
     /**
      * @var string
      */
     public $mode;
     protected $_name = [
-        'field'      => 'Field',
+        'field' => 'Field',
         'headerName' => 'HeaderName',
-        'mode'       => 'Mode',
+        'mode' => 'Mode',
     ];
 
     public function validate()

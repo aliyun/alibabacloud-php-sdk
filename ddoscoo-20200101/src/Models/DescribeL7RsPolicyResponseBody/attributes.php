@@ -13,18 +13,20 @@ class attributes extends Model
      * @var attribute
      */
     public $attribute;
+
     /**
      * @var string
      */
     public $realServer;
+
     /**
      * @var int
      */
     public $rsType;
     protected $_name = [
-        'attribute'  => 'Attribute',
+        'attribute' => 'Attribute',
         'realServer' => 'RealServer',
-        'rsType'     => 'RsType',
+        'rsType' => 'RsType',
     ];
 
     public function validate()

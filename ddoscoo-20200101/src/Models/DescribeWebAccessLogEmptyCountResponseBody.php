@@ -12,13 +12,14 @@ class DescribeWebAccessLogEmptyCountResponseBody extends Model
      * @var int
      */
     public $availableCount;
+
     /**
      * @var string
      */
     public $requestId;
     protected $_name = [
         'availableCount' => 'AvailableCount',
-        'requestId'      => 'RequestId',
+        'requestId' => 'RequestId',
     ];
 
     public function validate()

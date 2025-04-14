@@ -12,23 +12,26 @@ class DescribeDomainOverviewRequest extends Model
      * @var string
      */
     public $domain;
+
     /**
      * @var int
      */
     public $endTime;
+
     /**
      * @var string
      */
     public $resourceGroupId;
+
     /**
      * @var int
      */
     public $startTime;
     protected $_name = [
-        'domain'          => 'Domain',
-        'endTime'         => 'EndTime',
+        'domain' => 'Domain',
+        'endTime' => 'EndTime',
         'resourceGroupId' => 'ResourceGroupId',
-        'startTime'       => 'StartTime',
+        'startTime' => 'StartTime',
     ];
 
     public function validate()

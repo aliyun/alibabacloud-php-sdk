@@ -12,12 +12,13 @@ class areas extends Model
      * @var string
      */
     public $area;
+
     /**
      * @var int
      */
     public $inPkts;
     protected $_name = [
-        'area'   => 'Area',
+        'area' => 'Area',
         'inPkts' => 'InPkts',
     ];
 

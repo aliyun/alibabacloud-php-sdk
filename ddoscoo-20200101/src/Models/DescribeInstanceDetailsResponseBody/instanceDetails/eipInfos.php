@@ -12,43 +12,50 @@ class eipInfos extends Model
      * @var bool
      */
     public $certConfigured;
+
     /**
      * @var string
      */
     public $eip;
+
     /**
      * @var string
      */
     public $functionVersion;
+
     /**
      * @var string
      */
     public $ipMode;
+
     /**
      * @var string
      */
     public $ipVersion;
+
     /**
      * @var bool
      */
     public $ssl13Enabled;
+
     /**
      * @var string
      */
     public $status;
+
     /**
      * @var string
      */
     public $tlsVersion;
     protected $_name = [
-        'certConfigured'  => 'CertConfigured',
-        'eip'             => 'Eip',
+        'certConfigured' => 'CertConfigured',
+        'eip' => 'Eip',
         'functionVersion' => 'FunctionVersion',
-        'ipMode'          => 'IpMode',
-        'ipVersion'       => 'IpVersion',
-        'ssl13Enabled'    => 'Ssl13Enabled',
-        'status'          => 'Status',
-        'tlsVersion'      => 'TlsVersion',
+        'ipMode' => 'IpMode',
+        'ipVersion' => 'IpVersion',
+        'ssl13Enabled' => 'Ssl13Enabled',
+        'status' => 'Status',
+        'tlsVersion' => 'TlsVersion',
     ];
 
     public function validate()

@@ -13,33 +13,38 @@ class DescribeTagResourcesRequest extends Model
      * @var string
      */
     public $nextToken;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $resourceGroupId;
+
     /**
      * @var string[]
      */
     public $resourceIds;
+
     /**
      * @var string
      */
     public $resourceType;
+
     /**
      * @var tags[]
      */
     public $tags;
     protected $_name = [
-        'nextToken'       => 'NextToken',
-        'regionId'        => 'RegionId',
+        'nextToken' => 'NextToken',
+        'regionId' => 'RegionId',
         'resourceGroupId' => 'ResourceGroupId',
-        'resourceIds'     => 'ResourceIds',
-        'resourceType'    => 'ResourceType',
-        'tags'            => 'Tags',
+        'resourceIds' => 'ResourceIds',
+        'resourceType' => 'ResourceType',
+        'tags' => 'Tags',
     ];
 
     public function validate()
@@ -71,7 +76,7 @@ class DescribeTagResourcesRequest extends Model
         if (null !== $this->resourceIds) {
             if (\is_array($this->resourceIds)) {
                 $res['ResourceIds'] = [];
-                $n1                 = 0;
+                $n1 = 0;
                 foreach ($this->resourceIds as $item1) {
                     $res['ResourceIds'][$n1++] = $item1;
                 }
@@ -85,7 +90,7 @@ class DescribeTagResourcesRequest extends Model
         if (null !== $this->tags) {
             if (\is_array($this->tags)) {
                 $res['Tags'] = [];
-                $n1          = 0;
+                $n1 = 0;
                 foreach ($this->tags as $item1) {
                     $res['Tags'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -118,7 +123,7 @@ class DescribeTagResourcesRequest extends Model
         if (isset($map['ResourceIds'])) {
             if (!empty($map['ResourceIds'])) {
                 $model->resourceIds = [];
-                $n1                 = 0;
+                $n1 = 0;
                 foreach ($map['ResourceIds'] as $item1) {
                     $model->resourceIds[$n1++] = $item1;
                 }
@@ -132,7 +137,7 @@ class DescribeTagResourcesRequest extends Model
         if (isset($map['Tags'])) {
             if (!empty($map['Tags'])) {
                 $model->tags = [];
-                $n1          = 0;
+                $n1 = 0;
                 foreach ($map['Tags'] as $item1) {
                     $model->tags[$n1++] = tags::fromMap($item1);
                 }

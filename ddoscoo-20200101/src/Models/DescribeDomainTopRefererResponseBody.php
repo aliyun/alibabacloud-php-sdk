@@ -13,13 +13,14 @@ class DescribeDomainTopRefererResponseBody extends Model
      * @var domainTopReferer[]
      */
     public $domainTopReferer;
+
     /**
      * @var string
      */
     public $requestId;
     protected $_name = [
         'domainTopReferer' => 'DomainTopReferer',
-        'requestId'        => 'RequestId',
+        'requestId' => 'RequestId',
     ];
 
     public function validate()
@@ -36,7 +37,7 @@ class DescribeDomainTopRefererResponseBody extends Model
         if (null !== $this->domainTopReferer) {
             if (\is_array($this->domainTopReferer)) {
                 $res['DomainTopReferer'] = [];
-                $n1                      = 0;
+                $n1 = 0;
                 foreach ($this->domainTopReferer as $item1) {
                     $res['DomainTopReferer'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -61,7 +62,7 @@ class DescribeDomainTopRefererResponseBody extends Model
         if (isset($map['DomainTopReferer'])) {
             if (!empty($map['DomainTopReferer'])) {
                 $model->domainTopReferer = [];
-                $n1                      = 0;
+                $n1 = 0;
                 foreach ($map['DomainTopReferer'] as $item1) {
                     $model->domainTopReferer[$n1++] = domainTopReferer::fromMap($item1);
                 }

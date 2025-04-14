@@ -12,28 +12,32 @@ class DescribeDDosAllEventListRequest extends Model
      * @var int
      */
     public $endTime;
+
     /**
      * @var string
      */
     public $eventType;
+
     /**
      * @var int
      */
     public $pageNumber;
+
     /**
      * @var int
      */
     public $pageSize;
+
     /**
      * @var int
      */
     public $startTime;
     protected $_name = [
-        'endTime'    => 'EndTime',
-        'eventType'  => 'EventType',
+        'endTime' => 'EndTime',
+        'eventType' => 'EventType',
         'pageNumber' => 'PageNumber',
-        'pageSize'   => 'PageSize',
-        'startTime'  => 'StartTime',
+        'pageSize' => 'PageSize',
+        'startTime' => 'StartTime',
     ];
 
     public function validate()

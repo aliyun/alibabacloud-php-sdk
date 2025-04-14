@@ -12,17 +12,19 @@ class domainBps extends Model
      * @var int
      */
     public $inBps;
+
     /**
      * @var int
      */
     public $index;
+
     /**
      * @var int
      */
     public $outBps;
     protected $_name = [
-        'inBps'  => 'InBps',
-        'index'  => 'Index',
+        'inBps' => 'InBps',
+        'index' => 'Index',
         'outBps' => 'OutBps',
     ];
 

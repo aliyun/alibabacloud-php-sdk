@@ -12,38 +12,44 @@ class asyncTasks extends Model
      * @var int
      */
     public $endTime;
+
     /**
      * @var int
      */
     public $startTime;
+
     /**
      * @var int
      */
     public $taskId;
+
     /**
      * @var string
      */
     public $taskParams;
+
     /**
      * @var string
      */
     public $taskResult;
+
     /**
      * @var int
      */
     public $taskStatus;
+
     /**
      * @var int
      */
     public $taskType;
     protected $_name = [
-        'endTime'    => 'EndTime',
-        'startTime'  => 'StartTime',
-        'taskId'     => 'TaskId',
+        'endTime' => 'EndTime',
+        'startTime' => 'StartTime',
+        'taskId' => 'TaskId',
         'taskParams' => 'TaskParams',
         'taskResult' => 'TaskResult',
         'taskStatus' => 'TaskStatus',
-        'taskType'   => 'TaskType',
+        'taskType' => 'TaskType',
     ];
 
     public function validate()

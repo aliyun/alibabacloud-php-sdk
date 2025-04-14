@@ -12,48 +12,56 @@ class elasticQps extends Model
      * @var int
      */
     public $index;
+
     /**
      * @var int
      */
     public $maxNormalQps;
+
     /**
      * @var int
      */
     public $maxQps;
+
     /**
      * @var int
      */
     public $pv;
+
     /**
      * @var int
      */
     public $status2;
+
     /**
      * @var int
      */
     public $status3;
+
     /**
      * @var int
      */
     public $status4;
+
     /**
      * @var int
      */
     public $status5;
+
     /**
      * @var int
      */
     public $ups;
     protected $_name = [
-        'index'        => 'Index',
+        'index' => 'Index',
         'maxNormalQps' => 'MaxNormalQps',
-        'maxQps'       => 'MaxQps',
-        'pv'           => 'Pv',
-        'status2'      => 'Status2',
-        'status3'      => 'Status3',
-        'status4'      => 'Status4',
-        'status5'      => 'Status5',
-        'ups'          => 'Ups',
+        'maxQps' => 'MaxQps',
+        'pv' => 'Pv',
+        'status2' => 'Status2',
+        'status3' => 'Status3',
+        'status4' => 'Status4',
+        'status5' => 'Status5',
+        'ups' => 'Ups',
     ];
 
     public function validate()

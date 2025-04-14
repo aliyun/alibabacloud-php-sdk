@@ -12,18 +12,20 @@ class ModifyPortAutoCcStatusRequest extends Model
      * @var string
      */
     public $instanceId;
+
     /**
      * @var string
      */
     public $mode;
+
     /**
      * @var string
      */
     public $switch;
     protected $_name = [
         'instanceId' => 'InstanceId',
-        'mode'       => 'Mode',
-        'switch'     => 'Switch',
+        'mode' => 'Mode',
+        'switch' => 'Switch',
     ];
 
     public function validate()

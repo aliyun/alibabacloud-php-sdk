@@ -13,16 +13,18 @@ class DescribeWebCCRulesResponseBody extends Model
      * @var string
      */
     public $requestId;
+
     /**
      * @var int
      */
     public $totalCount;
+
     /**
      * @var webCCRules[]
      */
     public $webCCRules;
     protected $_name = [
-        'requestId'  => 'RequestId',
+        'requestId' => 'RequestId',
         'totalCount' => 'TotalCount',
         'webCCRules' => 'WebCCRules',
     ];
@@ -49,7 +51,7 @@ class DescribeWebCCRulesResponseBody extends Model
         if (null !== $this->webCCRules) {
             if (\is_array($this->webCCRules)) {
                 $res['WebCCRules'] = [];
-                $n1                = 0;
+                $n1 = 0;
                 foreach ($this->webCCRules as $item1) {
                     $res['WebCCRules'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -78,7 +80,7 @@ class DescribeWebCCRulesResponseBody extends Model
         if (isset($map['WebCCRules'])) {
             if (!empty($map['WebCCRules'])) {
                 $model->webCCRules = [];
-                $n1                = 0;
+                $n1 = 0;
                 foreach ($map['WebCCRules'] as $item1) {
                     $model->webCCRules[$n1++] = webCCRules::fromMap($item1);
                 }

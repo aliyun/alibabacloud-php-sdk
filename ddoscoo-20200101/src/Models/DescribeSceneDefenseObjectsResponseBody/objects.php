@@ -12,18 +12,20 @@ class objects extends Model
      * @var string
      */
     public $domain;
+
     /**
      * @var string
      */
     public $policyId;
+
     /**
      * @var string
      */
     public $vip;
     protected $_name = [
-        'domain'   => 'Domain',
+        'domain' => 'Domain',
         'policyId' => 'PolicyId',
-        'vip'      => 'Vip',
+        'vip' => 'Vip',
     ];
 
     public function validate()

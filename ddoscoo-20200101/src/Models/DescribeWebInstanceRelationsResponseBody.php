@@ -13,12 +13,13 @@ class DescribeWebInstanceRelationsResponseBody extends Model
      * @var string
      */
     public $requestId;
+
     /**
      * @var webInstanceRelations[]
      */
     public $webInstanceRelations;
     protected $_name = [
-        'requestId'            => 'RequestId',
+        'requestId' => 'RequestId',
         'webInstanceRelations' => 'WebInstanceRelations',
     ];
 
@@ -40,7 +41,7 @@ class DescribeWebInstanceRelationsResponseBody extends Model
         if (null !== $this->webInstanceRelations) {
             if (\is_array($this->webInstanceRelations)) {
                 $res['WebInstanceRelations'] = [];
-                $n1                          = 0;
+                $n1 = 0;
                 foreach ($this->webInstanceRelations as $item1) {
                     $res['WebInstanceRelations'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -65,7 +66,7 @@ class DescribeWebInstanceRelationsResponseBody extends Model
         if (isset($map['WebInstanceRelations'])) {
             if (!empty($map['WebInstanceRelations'])) {
                 $model->webInstanceRelations = [];
-                $n1                          = 0;
+                $n1 = 0;
                 foreach ($map['WebInstanceRelations'] as $item1) {
                     $model->webInstanceRelations[$n1++] = webInstanceRelations::fromMap($item1);
                 }

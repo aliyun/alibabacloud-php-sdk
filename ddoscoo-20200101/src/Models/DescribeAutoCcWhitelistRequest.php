@@ -12,23 +12,26 @@ class DescribeAutoCcWhitelistRequest extends Model
      * @var string
      */
     public $instanceId;
+
     /**
      * @var string
      */
     public $keyWord;
+
     /**
      * @var int
      */
     public $pageNumber;
+
     /**
      * @var int
      */
     public $pageSize;
     protected $_name = [
         'instanceId' => 'InstanceId',
-        'keyWord'    => 'KeyWord',
+        'keyWord' => 'KeyWord',
         'pageNumber' => 'PageNumber',
-        'pageSize'   => 'PageSize',
+        'pageSize' => 'PageSize',
     ];
 
     public function validate()

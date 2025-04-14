@@ -12,23 +12,26 @@ class blockStatusList extends Model
      * @var string
      */
     public $blockStatus;
+
     /**
      * @var int
      */
     public $endTime;
+
     /**
      * @var string
      */
     public $line;
+
     /**
      * @var int
      */
     public $startTime;
     protected $_name = [
         'blockStatus' => 'BlockStatus',
-        'endTime'     => 'EndTime',
-        'line'        => 'Line',
-        'startTime'   => 'StartTime',
+        'endTime' => 'EndTime',
+        'line' => 'Line',
+        'startTime' => 'StartTime',
     ];
 
     public function validate()

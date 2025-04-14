@@ -12,12 +12,13 @@ class customHeader extends Model
      * @var string
      */
     public $domain;
+
     /**
      * @var string
      */
     public $headers;
     protected $_name = [
-        'domain'  => 'Domain',
+        'domain' => 'Domain',
         'headers' => 'Headers',
     ];
 

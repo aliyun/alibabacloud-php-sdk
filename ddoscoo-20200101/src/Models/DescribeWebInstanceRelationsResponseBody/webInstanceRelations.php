@@ -13,12 +13,13 @@ class webInstanceRelations extends Model
      * @var string
      */
     public $domain;
+
     /**
      * @var instanceDetails[]
      */
     public $instanceDetails;
     protected $_name = [
-        'domain'          => 'Domain',
+        'domain' => 'Domain',
         'instanceDetails' => 'InstanceDetails',
     ];
 
@@ -40,7 +41,7 @@ class webInstanceRelations extends Model
         if (null !== $this->instanceDetails) {
             if (\is_array($this->instanceDetails)) {
                 $res['InstanceDetails'] = [];
-                $n1                     = 0;
+                $n1 = 0;
                 foreach ($this->instanceDetails as $item1) {
                     $res['InstanceDetails'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -65,7 +66,7 @@ class webInstanceRelations extends Model
         if (isset($map['InstanceDetails'])) {
             if (!empty($map['InstanceDetails'])) {
                 $model->instanceDetails = [];
-                $n1                     = 0;
+                $n1 = 0;
                 foreach ($map['InstanceDetails'] as $item1) {
                     $model->instanceDetails[$n1++] = instanceDetails::fromMap($item1);
                 }

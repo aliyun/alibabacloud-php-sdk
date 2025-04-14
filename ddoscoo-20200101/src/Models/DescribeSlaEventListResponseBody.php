@@ -13,18 +13,20 @@ class DescribeSlaEventListResponseBody extends Model
      * @var string
      */
     public $requestId;
+
     /**
      * @var slaEvent[]
      */
     public $slaEvent;
+
     /**
      * @var int
      */
     public $total;
     protected $_name = [
         'requestId' => 'RequestId',
-        'slaEvent'  => 'SlaEvent',
-        'total'     => 'Total',
+        'slaEvent' => 'SlaEvent',
+        'total' => 'Total',
     ];
 
     public function validate()
@@ -45,7 +47,7 @@ class DescribeSlaEventListResponseBody extends Model
         if (null !== $this->slaEvent) {
             if (\is_array($this->slaEvent)) {
                 $res['SlaEvent'] = [];
-                $n1              = 0;
+                $n1 = 0;
                 foreach ($this->slaEvent as $item1) {
                     $res['SlaEvent'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -74,7 +76,7 @@ class DescribeSlaEventListResponseBody extends Model
         if (isset($map['SlaEvent'])) {
             if (!empty($map['SlaEvent'])) {
                 $model->slaEvent = [];
-                $n1              = 0;
+                $n1 = 0;
                 foreach ($map['SlaEvent'] as $item1) {
                     $model->slaEvent[$n1++] = slaEvent::fromMap($item1);
                 }

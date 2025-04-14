@@ -12,18 +12,20 @@ class ips extends Model
      * @var string
      */
     public $areaId;
+
     /**
      * @var string
      */
     public $isp;
+
     /**
      * @var string
      */
     public $srcIp;
     protected $_name = [
         'areaId' => 'AreaId',
-        'isp'    => 'Isp',
-        'srcIp'  => 'SrcIp',
+        'isp' => 'Isp',
+        'srcIp' => 'SrcIp',
     ];
 
     public function validate()

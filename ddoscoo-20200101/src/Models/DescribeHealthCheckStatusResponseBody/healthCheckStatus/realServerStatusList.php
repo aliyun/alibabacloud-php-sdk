@@ -12,13 +12,14 @@ class realServerStatusList extends Model
      * @var string
      */
     public $address;
+
     /**
      * @var string
      */
     public $status;
     protected $_name = [
         'address' => 'Address',
-        'status'  => 'Status',
+        'status' => 'Status',
     ];
 
     public function validate()

@@ -12,17 +12,19 @@ class SwitchSchedulerRuleRequest extends Model
      * @var string
      */
     public $ruleName;
+
     /**
      * @var int
      */
     public $ruleType;
+
     /**
      * @var string
      */
     public $switchData;
     protected $_name = [
-        'ruleName'   => 'RuleName',
-        'ruleType'   => 'RuleType',
+        'ruleName' => 'RuleName',
+        'ruleType' => 'RuleType',
         'switchData' => 'SwitchData',
     ];
 

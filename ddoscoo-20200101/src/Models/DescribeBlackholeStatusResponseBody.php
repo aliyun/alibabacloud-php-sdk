@@ -13,13 +13,14 @@ class DescribeBlackholeStatusResponseBody extends Model
      * @var blackholeStatus[]
      */
     public $blackholeStatus;
+
     /**
      * @var string
      */
     public $requestId;
     protected $_name = [
         'blackholeStatus' => 'BlackholeStatus',
-        'requestId'       => 'RequestId',
+        'requestId' => 'RequestId',
     ];
 
     public function validate()
@@ -36,7 +37,7 @@ class DescribeBlackholeStatusResponseBody extends Model
         if (null !== $this->blackholeStatus) {
             if (\is_array($this->blackholeStatus)) {
                 $res['BlackholeStatus'] = [];
-                $n1                     = 0;
+                $n1 = 0;
                 foreach ($this->blackholeStatus as $item1) {
                     $res['BlackholeStatus'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -61,7 +62,7 @@ class DescribeBlackholeStatusResponseBody extends Model
         if (isset($map['BlackholeStatus'])) {
             if (!empty($map['BlackholeStatus'])) {
                 $model->blackholeStatus = [];
-                $n1                     = 0;
+                $n1 = 0;
                 foreach ($map['BlackholeStatus'] as $item1) {
                     $model->blackholeStatus[$n1++] = blackholeStatus::fromMap($item1);
                 }

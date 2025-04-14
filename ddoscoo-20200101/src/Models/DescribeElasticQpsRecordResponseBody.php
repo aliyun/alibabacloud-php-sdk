@@ -13,13 +13,14 @@ class DescribeElasticQpsRecordResponseBody extends Model
      * @var elasticQpsList[]
      */
     public $elasticQpsList;
+
     /**
      * @var string
      */
     public $requestId;
     protected $_name = [
         'elasticQpsList' => 'ElasticQpsList',
-        'requestId'      => 'RequestId',
+        'requestId' => 'RequestId',
     ];
 
     public function validate()
@@ -36,7 +37,7 @@ class DescribeElasticQpsRecordResponseBody extends Model
         if (null !== $this->elasticQpsList) {
             if (\is_array($this->elasticQpsList)) {
                 $res['ElasticQpsList'] = [];
-                $n1                    = 0;
+                $n1 = 0;
                 foreach ($this->elasticQpsList as $item1) {
                     $res['ElasticQpsList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -61,7 +62,7 @@ class DescribeElasticQpsRecordResponseBody extends Model
         if (isset($map['ElasticQpsList'])) {
             if (!empty($map['ElasticQpsList'])) {
                 $model->elasticQpsList = [];
-                $n1                    = 0;
+                $n1 = 0;
                 foreach ($map['ElasticQpsList'] as $item1) {
                     $model->elasticQpsList[$n1++] = elasticQpsList::fromMap($item1);
                 }

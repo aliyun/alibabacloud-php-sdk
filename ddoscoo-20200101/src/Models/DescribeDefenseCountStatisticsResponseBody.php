@@ -13,13 +13,14 @@ class DescribeDefenseCountStatisticsResponseBody extends Model
      * @var defenseCountStatistics
      */
     public $defenseCountStatistics;
+
     /**
      * @var string
      */
     public $requestId;
     protected $_name = [
         'defenseCountStatistics' => 'DefenseCountStatistics',
-        'requestId'              => 'RequestId',
+        'requestId' => 'RequestId',
     ];
 
     public function validate()

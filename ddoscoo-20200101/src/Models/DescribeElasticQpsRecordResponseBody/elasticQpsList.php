@@ -12,48 +12,56 @@ class elasticQpsList extends Model
      * @var int
      */
     public $date;
+
     /**
      * @var string
      */
     public $instanceId;
+
     /**
      * @var string
      */
     public $ip;
+
     /**
      * @var int
      */
     public $opsElasticQps;
+
     /**
      * @var int
      */
     public $opsQps;
+
     /**
      * @var int
      */
     public $originQps;
+
     /**
      * @var int
      */
     public $qps;
+
     /**
      * @var int
      */
     public $qpsPeak;
+
     /**
      * @var int
      */
     public $status;
     protected $_name = [
-        'date'          => 'Date',
-        'instanceId'    => 'InstanceId',
-        'ip'            => 'Ip',
+        'date' => 'Date',
+        'instanceId' => 'InstanceId',
+        'ip' => 'Ip',
         'opsElasticQps' => 'OpsElasticQps',
-        'opsQps'        => 'OpsQps',
-        'originQps'     => 'OriginQps',
-        'qps'           => 'Qps',
-        'qpsPeak'       => 'QpsPeak',
-        'status'        => 'Status',
+        'opsQps' => 'OpsQps',
+        'originQps' => 'OriginQps',
+        'qps' => 'Qps',
+        'qpsPeak' => 'QpsPeak',
+        'status' => 'Status',
     ];
 
     public function validate()

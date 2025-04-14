@@ -12,23 +12,26 @@ class customRules extends Model
      * @var int
      */
     public $cacheTtl;
+
     /**
      * @var string
      */
     public $mode;
+
     /**
      * @var string
      */
     public $name;
+
     /**
      * @var string
      */
     public $uri;
     protected $_name = [
         'cacheTtl' => 'CacheTtl',
-        'mode'     => 'Mode',
-        'name'     => 'Name',
-        'uri'      => 'Uri',
+        'mode' => 'Mode',
+        'name' => 'Name',
+        'uri' => 'Uri',
     ];
 
     public function validate()

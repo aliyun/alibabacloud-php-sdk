@@ -12,28 +12,32 @@ class DescribePortConnsCountResponseBody extends Model
      * @var int
      */
     public $actConns;
+
     /**
      * @var int
      */
     public $conns;
+
     /**
      * @var int
      */
     public $cps;
+
     /**
      * @var int
      */
     public $inActConns;
+
     /**
      * @var string
      */
     public $requestId;
     protected $_name = [
-        'actConns'   => 'ActConns',
-        'conns'      => 'Conns',
-        'cps'        => 'Cps',
+        'actConns' => 'ActConns',
+        'conns' => 'Conns',
+        'cps' => 'Cps',
         'inActConns' => 'InActConns',
-        'requestId'  => 'RequestId',
+        'requestId' => 'RequestId',
     ];
 
     public function validate()

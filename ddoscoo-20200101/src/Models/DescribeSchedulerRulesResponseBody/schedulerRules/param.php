@@ -13,6 +13,7 @@ class param extends Model
      * @var paramData
      */
     public $paramData;
+
     /**
      * @var string
      */

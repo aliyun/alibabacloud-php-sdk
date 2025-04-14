@@ -12,6 +12,7 @@ class DescribeUdpReflectResponseBody extends Model
      * @var string
      */
     public $requestId;
+
     /**
      * @var string[]
      */
@@ -39,7 +40,7 @@ class DescribeUdpReflectResponseBody extends Model
         if (null !== $this->udpSports) {
             if (\is_array($this->udpSports)) {
                 $res['UdpSports'] = [];
-                $n1               = 0;
+                $n1 = 0;
                 foreach ($this->udpSports as $item1) {
                     $res['UdpSports'][$n1++] = $item1;
                 }
@@ -64,7 +65,7 @@ class DescribeUdpReflectResponseBody extends Model
         if (isset($map['UdpSports'])) {
             if (!empty($map['UdpSports'])) {
                 $model->udpSports = [];
-                $n1               = 0;
+                $n1 = 0;
                 foreach ($map['UdpSports'] as $item1) {
                     $model->udpSports[$n1++] = $item1;
                 }

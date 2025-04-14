@@ -12,48 +12,56 @@ class ModifyWebCCRuleRequest extends Model
      * @var string
      */
     public $act;
+
     /**
      * @var int
      */
     public $count;
+
     /**
      * @var string
      */
     public $domain;
+
     /**
      * @var int
      */
     public $interval;
+
     /**
      * @var string
      */
     public $mode;
+
     /**
      * @var string
      */
     public $name;
+
     /**
      * @var string
      */
     public $resourceGroupId;
+
     /**
      * @var int
      */
     public $ttl;
+
     /**
      * @var string
      */
     public $uri;
     protected $_name = [
-        'act'             => 'Act',
-        'count'           => 'Count',
-        'domain'          => 'Domain',
-        'interval'        => 'Interval',
-        'mode'            => 'Mode',
-        'name'            => 'Name',
+        'act' => 'Act',
+        'count' => 'Count',
+        'domain' => 'Domain',
+        'interval' => 'Interval',
+        'mode' => 'Mode',
+        'name' => 'Name',
         'resourceGroupId' => 'ResourceGroupId',
-        'ttl'             => 'Ttl',
-        'uri'             => 'Uri',
+        'ttl' => 'Ttl',
+        'uri' => 'Uri',
     ];
 
     public function validate()

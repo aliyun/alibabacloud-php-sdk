@@ -13,13 +13,14 @@ class DescribeDomainTopAttackListResponseBody extends Model
      * @var attackList[]
      */
     public $attackList;
+
     /**
      * @var string
      */
     public $requestId;
     protected $_name = [
         'attackList' => 'AttackList',
-        'requestId'  => 'RequestId',
+        'requestId' => 'RequestId',
     ];
 
     public function validate()
@@ -36,7 +37,7 @@ class DescribeDomainTopAttackListResponseBody extends Model
         if (null !== $this->attackList) {
             if (\is_array($this->attackList)) {
                 $res['AttackList'] = [];
-                $n1                = 0;
+                $n1 = 0;
                 foreach ($this->attackList as $item1) {
                     $res['AttackList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -61,7 +62,7 @@ class DescribeDomainTopAttackListResponseBody extends Model
         if (isset($map['AttackList'])) {
             if (!empty($map['AttackList'])) {
                 $model->attackList = [];
-                $n1                = 0;
+                $n1 = 0;
                 foreach ($map['AttackList'] as $item1) {
                     $model->attackList[$n1++] = attackList::fromMap($item1);
                 }

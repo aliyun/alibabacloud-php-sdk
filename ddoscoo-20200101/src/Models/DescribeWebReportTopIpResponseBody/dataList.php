@@ -12,22 +12,25 @@ class dataList extends Model
      * @var string
      */
     public $areaId;
+
     /**
      * @var int
      */
     public $count;
+
     /**
      * @var string
      */
     public $isp;
+
     /**
      * @var string
      */
     public $sourceIp;
     protected $_name = [
-        'areaId'   => 'AreaId',
-        'count'    => 'Count',
-        'isp'      => 'Isp',
+        'areaId' => 'AreaId',
+        'count' => 'Count',
+        'isp' => 'Isp',
         'sourceIp' => 'SourceIp',
     ];
 

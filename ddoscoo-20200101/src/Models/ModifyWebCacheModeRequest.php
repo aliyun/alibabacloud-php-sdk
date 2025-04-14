@@ -12,17 +12,19 @@ class ModifyWebCacheModeRequest extends Model
      * @var string
      */
     public $domain;
+
     /**
      * @var string
      */
     public $mode;
+
     /**
      * @var string
      */
     public $resourceGroupId;
     protected $_name = [
-        'domain'          => 'Domain',
-        'mode'            => 'Mode',
+        'domain' => 'Domain',
+        'mode' => 'Mode',
         'resourceGroupId' => 'ResourceGroupId',
     ];
 

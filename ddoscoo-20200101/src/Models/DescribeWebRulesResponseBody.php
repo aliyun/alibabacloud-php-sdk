@@ -13,18 +13,20 @@ class DescribeWebRulesResponseBody extends Model
      * @var string
      */
     public $requestId;
+
     /**
      * @var int
      */
     public $totalCount;
+
     /**
      * @var webRules[]
      */
     public $webRules;
     protected $_name = [
-        'requestId'  => 'RequestId',
+        'requestId' => 'RequestId',
         'totalCount' => 'TotalCount',
-        'webRules'   => 'WebRules',
+        'webRules' => 'WebRules',
     ];
 
     public function validate()
@@ -49,7 +51,7 @@ class DescribeWebRulesResponseBody extends Model
         if (null !== $this->webRules) {
             if (\is_array($this->webRules)) {
                 $res['WebRules'] = [];
-                $n1              = 0;
+                $n1 = 0;
                 foreach ($this->webRules as $item1) {
                     $res['WebRules'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -78,7 +80,7 @@ class DescribeWebRulesResponseBody extends Model
         if (isset($map['WebRules'])) {
             if (!empty($map['WebRules'])) {
                 $model->webRules = [];
-                $n1              = 0;
+                $n1 = 0;
                 foreach ($map['WebRules'] as $item1) {
                     $model->webRules[$n1++] = webRules::fromMap($item1);
                 }

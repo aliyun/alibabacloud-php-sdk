@@ -12,17 +12,19 @@ class config extends Model
      * @var int[]
      */
     public $countries;
+
     /**
      * @var int[]
      */
     public $provinces;
+
     /**
      * @var string
      */
     public $regionBlockSwitch;
     protected $_name = [
-        'countries'         => 'Countries',
-        'provinces'         => 'Provinces',
+        'countries' => 'Countries',
+        'provinces' => 'Provinces',
         'regionBlockSwitch' => 'RegionBlockSwitch',
     ];
 
@@ -43,7 +45,7 @@ class config extends Model
         if (null !== $this->countries) {
             if (\is_array($this->countries)) {
                 $res['Countries'] = [];
-                $n1               = 0;
+                $n1 = 0;
                 foreach ($this->countries as $item1) {
                     $res['Countries'][$n1++] = $item1;
                 }
@@ -53,7 +55,7 @@ class config extends Model
         if (null !== $this->provinces) {
             if (\is_array($this->provinces)) {
                 $res['Provinces'] = [];
-                $n1               = 0;
+                $n1 = 0;
                 foreach ($this->provinces as $item1) {
                     $res['Provinces'][$n1++] = $item1;
                 }
@@ -78,7 +80,7 @@ class config extends Model
         if (isset($map['Countries'])) {
             if (!empty($map['Countries'])) {
                 $model->countries = [];
-                $n1               = 0;
+                $n1 = 0;
                 foreach ($map['Countries'] as $item1) {
                     $model->countries[$n1++] = $item1;
                 }
@@ -88,7 +90,7 @@ class config extends Model
         if (isset($map['Provinces'])) {
             if (!empty($map['Provinces'])) {
                 $model->provinces = [];
-                $n1               = 0;
+                $n1 = 0;
                 foreach ($map['Provinces'] as $item1) {
                     $model->provinces[$n1++] = $item1;
                 }

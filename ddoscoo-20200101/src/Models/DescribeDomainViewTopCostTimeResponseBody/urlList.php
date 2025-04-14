@@ -12,18 +12,20 @@ class urlList extends Model
      * @var float
      */
     public $costTime;
+
     /**
      * @var string
      */
     public $domain;
+
     /**
      * @var string
      */
     public $url;
     protected $_name = [
         'costTime' => 'CostTime',
-        'domain'   => 'Domain',
-        'url'      => 'Url',
+        'domain' => 'Domain',
+        'url' => 'Url',
     ];
 
     public function validate()

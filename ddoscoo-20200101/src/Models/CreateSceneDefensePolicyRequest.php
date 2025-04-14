@@ -12,23 +12,26 @@ class CreateSceneDefensePolicyRequest extends Model
      * @var int
      */
     public $endTime;
+
     /**
      * @var string
      */
     public $name;
+
     /**
      * @var int
      */
     public $startTime;
+
     /**
      * @var string
      */
     public $template;
     protected $_name = [
-        'endTime'   => 'EndTime',
-        'name'      => 'Name',
+        'endTime' => 'EndTime',
+        'name' => 'Name',
         'startTime' => 'StartTime',
-        'template'  => 'Template',
+        'template' => 'Template',
     ];
 
     public function validate()

@@ -13,12 +13,13 @@ class DescribeL7UsKeepaliveResponseBody extends Model
      * @var string
      */
     public $requestId;
+
     /**
      * @var rsKeepalive
      */
     public $rsKeepalive;
     protected $_name = [
-        'requestId'   => 'RequestId',
+        'requestId' => 'RequestId',
         'rsKeepalive' => 'RsKeepalive',
     ];
 

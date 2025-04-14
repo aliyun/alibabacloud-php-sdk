@@ -13,18 +13,20 @@ class DescribeInstanceExtResponseBody extends Model
      * @var instanceExtSpecs[]
      */
     public $instanceExtSpecs;
+
     /**
      * @var string
      */
     public $requestId;
+
     /**
      * @var int
      */
     public $totalCount;
     protected $_name = [
         'instanceExtSpecs' => 'InstanceExtSpecs',
-        'requestId'        => 'RequestId',
-        'totalCount'       => 'TotalCount',
+        'requestId' => 'RequestId',
+        'totalCount' => 'TotalCount',
     ];
 
     public function validate()
@@ -41,7 +43,7 @@ class DescribeInstanceExtResponseBody extends Model
         if (null !== $this->instanceExtSpecs) {
             if (\is_array($this->instanceExtSpecs)) {
                 $res['InstanceExtSpecs'] = [];
-                $n1                      = 0;
+                $n1 = 0;
                 foreach ($this->instanceExtSpecs as $item1) {
                     $res['InstanceExtSpecs'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -70,7 +72,7 @@ class DescribeInstanceExtResponseBody extends Model
         if (isset($map['InstanceExtSpecs'])) {
             if (!empty($map['InstanceExtSpecs'])) {
                 $model->instanceExtSpecs = [];
-                $n1                      = 0;
+                $n1 = 0;
                 foreach ($map['InstanceExtSpecs'] as $item1) {
                     $model->instanceExtSpecs[$n1++] = instanceExtSpecs::fromMap($item1);
                 }

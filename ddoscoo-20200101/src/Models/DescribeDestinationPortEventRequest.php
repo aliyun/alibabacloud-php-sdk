@@ -12,27 +12,31 @@ class DescribeDestinationPortEventRequest extends Model
      * @var string
      */
     public $eventType;
+
     /**
      * @var string
      */
     public $ip;
+
     /**
      * @var int
      */
     public $range;
+
     /**
      * @var string
      */
     public $region;
+
     /**
      * @var int
      */
     public $startTime;
     protected $_name = [
         'eventType' => 'EventType',
-        'ip'        => 'Ip',
-        'range'     => 'Range',
-        'region'    => 'Region',
+        'ip' => 'Ip',
+        'range' => 'Range',
+        'region' => 'Region',
         'startTime' => 'StartTime',
     ];
 

@@ -13,23 +13,26 @@ class healthCheckList extends Model
      * @var int
      */
     public $frontendPort;
+
     /**
      * @var healthCheck
      */
     public $healthCheck;
+
     /**
      * @var string
      */
     public $instanceId;
+
     /**
      * @var string
      */
     public $protocol;
     protected $_name = [
         'frontendPort' => 'FrontendPort',
-        'healthCheck'  => 'HealthCheck',
-        'instanceId'   => 'InstanceId',
-        'protocol'     => 'Protocol',
+        'healthCheck' => 'HealthCheck',
+        'instanceId' => 'InstanceId',
+        'protocol' => 'Protocol',
     ];
 
     public function validate()

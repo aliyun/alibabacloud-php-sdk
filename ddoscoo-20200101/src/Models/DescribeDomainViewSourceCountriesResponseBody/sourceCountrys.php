@@ -12,12 +12,13 @@ class sourceCountrys extends Model
      * @var int
      */
     public $count;
+
     /**
      * @var string
      */
     public $countryId;
     protected $_name = [
-        'count'     => 'Count',
+        'count' => 'Count',
         'countryId' => 'CountryId',
     ];
 

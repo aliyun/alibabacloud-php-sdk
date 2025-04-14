@@ -12,58 +12,72 @@ class DescribeDomainStatusCodeCountResponseBody extends Model
      * @var string
      */
     public $requestId;
+
     /**
      * @var int
      */
     public $status200;
+
     /**
      * @var int
      */
     public $status2XX;
+
     /**
      * @var int
      */
     public $status3XX;
+
     /**
      * @var int
      */
     public $status403;
+
     /**
      * @var int
      */
     public $status404;
+
     /**
      * @var int
      */
     public $status405;
+
     /**
      * @var int
      */
     public $status410;
+
     /**
      * @var int
      */
     public $status499;
+
     /**
      * @var int
      */
     public $status4XX;
+
     /**
      * @var int
      */
     public $status501;
+
     /**
      * @var int
      */
     public $status502;
+
     /**
      * @var int
      */
     public $status503;
+
     /**
      * @var int
      */
     public $status504;
+
     /**
      * @var int
      */

@@ -12,17 +12,19 @@ class DescribeAutoCcListCountResponseBody extends Model
      * @var int
      */
     public $blackCount;
+
     /**
      * @var string
      */
     public $requestId;
+
     /**
      * @var int
      */
     public $whiteCount;
     protected $_name = [
         'blackCount' => 'BlackCount',
-        'requestId'  => 'RequestId',
+        'requestId' => 'RequestId',
         'whiteCount' => 'WhiteCount',
     ];
 

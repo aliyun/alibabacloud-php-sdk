@@ -12,78 +12,92 @@ class ModifyInstanceRequest extends Model
      * @var string
      */
     public $addressType;
+
     /**
      * @var string
      */
     public $bandwidth;
+
     /**
      * @var string
      */
     public $baseBandwidth;
+
     /**
      * @var string
      */
     public $domainCount;
+
     /**
      * @var string
      */
     public $editionSale;
+
     /**
      * @var string
      */
     public $functionVersion;
+
     /**
      * @var string
      */
     public $instanceId;
+
     /**
      * @var string
      */
     public $modifyType;
+
     /**
      * @var string
      */
     public $normalBandwidth;
+
     /**
      * @var string
      */
     public $normalQps;
+
     /**
      * @var string
      */
     public $portCount;
+
     /**
      * @var string
      */
     public $productPlan;
+
     /**
      * @var string
      */
     public $productType;
+
     /**
      * @var string
      */
     public $serviceBandwidth;
+
     /**
      * @var string
      */
     public $servicePartner;
     protected $_name = [
-        'addressType'      => 'AddressType',
-        'bandwidth'        => 'Bandwidth',
-        'baseBandwidth'    => 'BaseBandwidth',
-        'domainCount'      => 'DomainCount',
-        'editionSale'      => 'EditionSale',
-        'functionVersion'  => 'FunctionVersion',
-        'instanceId'       => 'InstanceId',
-        'modifyType'       => 'ModifyType',
-        'normalBandwidth'  => 'NormalBandwidth',
-        'normalQps'        => 'NormalQps',
-        'portCount'        => 'PortCount',
-        'productPlan'      => 'ProductPlan',
-        'productType'      => 'ProductType',
+        'addressType' => 'AddressType',
+        'bandwidth' => 'Bandwidth',
+        'baseBandwidth' => 'BaseBandwidth',
+        'domainCount' => 'DomainCount',
+        'editionSale' => 'EditionSale',
+        'functionVersion' => 'FunctionVersion',
+        'instanceId' => 'InstanceId',
+        'modifyType' => 'ModifyType',
+        'normalBandwidth' => 'NormalBandwidth',
+        'normalQps' => 'NormalQps',
+        'portCount' => 'PortCount',
+        'productPlan' => 'ProductPlan',
+        'productType' => 'ProductType',
         'serviceBandwidth' => 'ServiceBandwidth',
-        'servicePartner'   => 'ServicePartner',
+        'servicePartner' => 'ServicePartner',
     ];
 
     public function validate()

@@ -12,18 +12,20 @@ class DeleteWebCacheCustomRuleRequest extends Model
      * @var string
      */
     public $domain;
+
     /**
      * @var string
      */
     public $resourceGroupId;
+
     /**
      * @var string[]
      */
     public $ruleNames;
     protected $_name = [
-        'domain'          => 'Domain',
+        'domain' => 'Domain',
         'resourceGroupId' => 'ResourceGroupId',
-        'ruleNames'       => 'RuleNames',
+        'ruleNames' => 'RuleNames',
     ];
 
     public function validate()
@@ -48,7 +50,7 @@ class DeleteWebCacheCustomRuleRequest extends Model
         if (null !== $this->ruleNames) {
             if (\is_array($this->ruleNames)) {
                 $res['RuleNames'] = [];
-                $n1               = 0;
+                $n1 = 0;
                 foreach ($this->ruleNames as $item1) {
                     $res['RuleNames'][$n1++] = $item1;
                 }
@@ -77,7 +79,7 @@ class DeleteWebCacheCustomRuleRequest extends Model
         if (isset($map['RuleNames'])) {
             if (!empty($map['RuleNames'])) {
                 $model->ruleNames = [];
-                $n1               = 0;
+                $n1 = 0;
                 foreach ($map['RuleNames'] as $item1) {
                     $model->ruleNames[$n1++] = $item1;
                 }

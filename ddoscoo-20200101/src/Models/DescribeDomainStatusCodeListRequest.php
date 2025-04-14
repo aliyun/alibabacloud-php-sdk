@@ -12,33 +12,38 @@ class DescribeDomainStatusCodeListRequest extends Model
      * @var string
      */
     public $domain;
+
     /**
      * @var int
      */
     public $endTime;
+
     /**
      * @var int
      */
     public $interval;
+
     /**
      * @var string
      */
     public $queryType;
+
     /**
      * @var string
      */
     public $resourceGroupId;
+
     /**
      * @var int
      */
     public $startTime;
     protected $_name = [
-        'domain'          => 'Domain',
-        'endTime'         => 'EndTime',
-        'interval'        => 'Interval',
-        'queryType'       => 'QueryType',
+        'domain' => 'Domain',
+        'endTime' => 'EndTime',
+        'interval' => 'Interval',
+        'queryType' => 'QueryType',
         'resourceGroupId' => 'ResourceGroupId',
-        'startTime'       => 'StartTime',
+        'startTime' => 'StartTime',
     ];
 
     public function validate()

@@ -13,10 +13,12 @@ class DescribeSystemLogResponseBody extends Model
      * @var string
      */
     public $requestId;
+
     /**
      * @var systemLog[]
      */
     public $systemLog;
+
     /**
      * @var int
      */
@@ -24,7 +26,7 @@ class DescribeSystemLogResponseBody extends Model
     protected $_name = [
         'requestId' => 'RequestId',
         'systemLog' => 'SystemLog',
-        'total'     => 'Total',
+        'total' => 'Total',
     ];
 
     public function validate()
@@ -45,7 +47,7 @@ class DescribeSystemLogResponseBody extends Model
         if (null !== $this->systemLog) {
             if (\is_array($this->systemLog)) {
                 $res['SystemLog'] = [];
-                $n1               = 0;
+                $n1 = 0;
                 foreach ($this->systemLog as $item1) {
                     $res['SystemLog'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -74,7 +76,7 @@ class DescribeSystemLogResponseBody extends Model
         if (isset($map['SystemLog'])) {
             if (!empty($map['SystemLog'])) {
                 $model->systemLog = [];
-                $n1               = 0;
+                $n1 = 0;
                 foreach ($map['SystemLog'] as $item1) {
                     $model->systemLog[$n1++] = systemLog::fromMap($item1);
                 }

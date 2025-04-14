@@ -12,18 +12,20 @@ class domainTopMethod extends Model
      * @var string
      */
     public $domain;
+
     /**
      * @var string
      */
     public $httpMethod;
+
     /**
      * @var int
      */
     public $pv;
     protected $_name = [
-        'domain'     => 'Domain',
+        'domain' => 'Domain',
         'httpMethod' => 'HttpMethod',
-        'pv'         => 'Pv',
+        'pv' => 'Pv',
     ];
 
     public function validate()

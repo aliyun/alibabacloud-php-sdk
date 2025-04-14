@@ -12,33 +12,38 @@ class defenseRecords extends Model
      * @var int
      */
     public $attackPeak;
+
     /**
      * @var int
      */
     public $endTime;
+
     /**
      * @var int
      */
     public $eventCount;
+
     /**
      * @var string
      */
     public $instanceId;
+
     /**
      * @var int
      */
     public $startTime;
+
     /**
      * @var int
      */
     public $status;
     protected $_name = [
         'attackPeak' => 'AttackPeak',
-        'endTime'    => 'EndTime',
+        'endTime' => 'EndTime',
         'eventCount' => 'EventCount',
         'instanceId' => 'InstanceId',
-        'startTime'  => 'StartTime',
-        'status'     => 'Status',
+        'startTime' => 'StartTime',
+        'status' => 'Status',
     ];
 
     public function validate()

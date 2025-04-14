@@ -12,28 +12,32 @@ class connsList extends Model
      * @var int
      */
     public $actConns;
+
     /**
      * @var int
      */
     public $conns;
+
     /**
      * @var int
      */
     public $cps;
+
     /**
      * @var int
      */
     public $inActConns;
+
     /**
      * @var int
      */
     public $index;
     protected $_name = [
-        'actConns'   => 'ActConns',
-        'conns'      => 'Conns',
-        'cps'        => 'Cps',
+        'actConns' => 'ActConns',
+        'conns' => 'Conns',
+        'cps' => 'Cps',
         'inActConns' => 'InActConns',
-        'index'      => 'Index',
+        'index' => 'Index',
     ];
 
     public function validate()

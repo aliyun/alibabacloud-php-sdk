@@ -12,17 +12,19 @@ class DescribeL7RsPolicyRequest extends Model
      * @var string
      */
     public $domain;
+
     /**
      * @var string[]
      */
     public $realServers;
+
     /**
      * @var string
      */
     public $resourceGroupId;
     protected $_name = [
-        'domain'          => 'Domain',
-        'realServers'     => 'RealServers',
+        'domain' => 'Domain',
+        'realServers' => 'RealServers',
         'resourceGroupId' => 'ResourceGroupId',
     ];
 
@@ -44,7 +46,7 @@ class DescribeL7RsPolicyRequest extends Model
         if (null !== $this->realServers) {
             if (\is_array($this->realServers)) {
                 $res['RealServers'] = [];
-                $n1                 = 0;
+                $n1 = 0;
                 foreach ($this->realServers as $item1) {
                     $res['RealServers'][$n1++] = $item1;
                 }
@@ -73,7 +75,7 @@ class DescribeL7RsPolicyRequest extends Model
         if (isset($map['RealServers'])) {
             if (!empty($map['RealServers'])) {
                 $model->realServers = [];
-                $n1                 = 0;
+                $n1 = 0;
                 foreach ($map['RealServers'] as $item1) {
                     $model->realServers[$n1++] = $item1;
                 }

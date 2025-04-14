@@ -12,22 +12,25 @@ class DescribeWebCCRulesRequest extends Model
      * @var string
      */
     public $domain;
+
     /**
      * @var int
      */
     public $pageNumber;
+
     /**
      * @var string
      */
     public $pageSize;
+
     /**
      * @var string
      */
     public $resourceGroupId;
     protected $_name = [
-        'domain'          => 'Domain',
-        'pageNumber'      => 'PageNumber',
-        'pageSize'        => 'PageSize',
+        'domain' => 'Domain',
+        'pageNumber' => 'PageNumber',
+        'pageSize' => 'PageSize',
         'resourceGroupId' => 'ResourceGroupId',
     ];
 

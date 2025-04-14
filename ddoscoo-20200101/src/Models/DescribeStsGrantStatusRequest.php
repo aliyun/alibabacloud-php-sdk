@@ -12,13 +12,14 @@ class DescribeStsGrantStatusRequest extends Model
      * @var string
      */
     public $resourceGroupId;
+
     /**
      * @var string
      */
     public $role;
     protected $_name = [
         'resourceGroupId' => 'ResourceGroupId',
-        'role'            => 'Role',
+        'role' => 'Role',
     ];
 
     public function validate()

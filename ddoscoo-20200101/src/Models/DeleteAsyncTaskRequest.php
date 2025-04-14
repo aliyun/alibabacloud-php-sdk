@@ -12,13 +12,14 @@ class DeleteAsyncTaskRequest extends Model
      * @var string
      */
     public $resourceGroupId;
+
     /**
      * @var int
      */
     public $taskId;
     protected $_name = [
         'resourceGroupId' => 'ResourceGroupId',
-        'taskId'          => 'TaskId',
+        'taskId' => 'TaskId',
     ];
 
     public function validate()

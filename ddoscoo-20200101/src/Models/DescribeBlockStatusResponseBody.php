@@ -13,12 +13,13 @@ class DescribeBlockStatusResponseBody extends Model
      * @var string
      */
     public $requestId;
+
     /**
      * @var statusList[]
      */
     public $statusList;
     protected $_name = [
-        'requestId'  => 'RequestId',
+        'requestId' => 'RequestId',
         'statusList' => 'StatusList',
     ];
 
@@ -40,7 +41,7 @@ class DescribeBlockStatusResponseBody extends Model
         if (null !== $this->statusList) {
             if (\is_array($this->statusList)) {
                 $res['StatusList'] = [];
-                $n1                = 0;
+                $n1 = 0;
                 foreach ($this->statusList as $item1) {
                     $res['StatusList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -65,7 +66,7 @@ class DescribeBlockStatusResponseBody extends Model
         if (isset($map['StatusList'])) {
             if (!empty($map['StatusList'])) {
                 $model->statusList = [];
-                $n1                = 0;
+                $n1 = 0;
                 foreach ($map['StatusList'] as $item1) {
                     $model->statusList[$n1++] = statusList::fromMap($item1);
                 }

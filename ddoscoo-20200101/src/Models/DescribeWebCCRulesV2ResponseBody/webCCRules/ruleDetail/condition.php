@@ -12,27 +12,31 @@ class condition extends Model
      * @var string
      */
     public $content;
+
     /**
      * @var string
      */
     public $contentList;
+
     /**
      * @var string
      */
     public $field;
+
     /**
      * @var string
      */
     public $headerName;
+
     /**
      * @var string
      */
     public $matchMethod;
     protected $_name = [
-        'content'     => 'Content',
+        'content' => 'Content',
         'contentList' => 'ContentList',
-        'field'       => 'Field',
-        'headerName'  => 'HeaderName',
+        'field' => 'Field',
+        'headerName' => 'HeaderName',
         'matchMethod' => 'MatchMethod',
     ];
 

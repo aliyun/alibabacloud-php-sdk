@@ -12,23 +12,26 @@ class blackholeStatus extends Model
      * @var string
      */
     public $blackStatus;
+
     /**
      * @var int
      */
     public $endTime;
+
     /**
      * @var string
      */
     public $ip;
+
     /**
      * @var int
      */
     public $startTime;
     protected $_name = [
         'blackStatus' => 'BlackStatus',
-        'endTime'     => 'EndTime',
-        'ip'          => 'Ip',
-        'startTime'   => 'StartTime',
+        'endTime' => 'EndTime',
+        'ip' => 'Ip',
+        'startTime' => 'StartTime',
     ];
 
     public function validate()

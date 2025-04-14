@@ -13,18 +13,20 @@ class DescribeDDoSEventsResponseBody extends Model
      * @var DDoSEvents[]
      */
     public $DDoSEvents;
+
     /**
      * @var string
      */
     public $requestId;
+
     /**
      * @var int
      */
     public $total;
     protected $_name = [
         'DDoSEvents' => 'DDoSEvents',
-        'requestId'  => 'RequestId',
-        'total'      => 'Total',
+        'requestId' => 'RequestId',
+        'total' => 'Total',
     ];
 
     public function validate()
@@ -41,7 +43,7 @@ class DescribeDDoSEventsResponseBody extends Model
         if (null !== $this->DDoSEvents) {
             if (\is_array($this->DDoSEvents)) {
                 $res['DDoSEvents'] = [];
-                $n1                = 0;
+                $n1 = 0;
                 foreach ($this->DDoSEvents as $item1) {
                     $res['DDoSEvents'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -70,7 +72,7 @@ class DescribeDDoSEventsResponseBody extends Model
         if (isset($map['DDoSEvents'])) {
             if (!empty($map['DDoSEvents'])) {
                 $model->DDoSEvents = [];
-                $n1                = 0;
+                $n1 = 0;
                 foreach ($map['DDoSEvents'] as $item1) {
                     $model->DDoSEvents[$n1++] = DDoSEvents::fromMap($item1);
                 }

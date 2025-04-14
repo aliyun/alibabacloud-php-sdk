@@ -12,12 +12,13 @@ class ConfigNetworkRegionBlockRequest extends Model
      * @var string
      */
     public $config;
+
     /**
      * @var string
      */
     public $instanceId;
     protected $_name = [
-        'config'     => 'Config',
+        'config' => 'Config',
         'instanceId' => 'InstanceId',
     ];
 

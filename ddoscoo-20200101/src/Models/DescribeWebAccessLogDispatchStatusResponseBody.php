@@ -13,18 +13,20 @@ class DescribeWebAccessLogDispatchStatusResponseBody extends Model
      * @var string
      */
     public $requestId;
+
     /**
      * @var slsConfigStatus[]
      */
     public $slsConfigStatus;
+
     /**
      * @var int
      */
     public $totalCount;
     protected $_name = [
-        'requestId'       => 'RequestId',
+        'requestId' => 'RequestId',
         'slsConfigStatus' => 'SlsConfigStatus',
-        'totalCount'      => 'TotalCount',
+        'totalCount' => 'TotalCount',
     ];
 
     public function validate()
@@ -45,7 +47,7 @@ class DescribeWebAccessLogDispatchStatusResponseBody extends Model
         if (null !== $this->slsConfigStatus) {
             if (\is_array($this->slsConfigStatus)) {
                 $res['SlsConfigStatus'] = [];
-                $n1                     = 0;
+                $n1 = 0;
                 foreach ($this->slsConfigStatus as $item1) {
                     $res['SlsConfigStatus'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -74,7 +76,7 @@ class DescribeWebAccessLogDispatchStatusResponseBody extends Model
         if (isset($map['SlsConfigStatus'])) {
             if (!empty($map['SlsConfigStatus'])) {
                 $model->slsConfigStatus = [];
-                $n1                     = 0;
+                $n1 = 0;
                 foreach ($map['SlsConfigStatus'] as $item1) {
                     $model->slsConfigStatus[$n1++] = slsConfigStatus::fromMap($item1);
                 }

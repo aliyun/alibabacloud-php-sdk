@@ -12,17 +12,19 @@ class DeleteWebCCRuleV2Request extends Model
      * @var string
      */
     public $domain;
+
     /**
      * @var string
      */
     public $owner;
+
     /**
      * @var string
      */
     public $ruleNames;
     protected $_name = [
-        'domain'    => 'Domain',
-        'owner'     => 'Owner',
+        'domain' => 'Domain',
+        'owner' => 'Owner',
         'ruleNames' => 'RuleNames',
     ];
 

@@ -12,18 +12,20 @@ class DescribeSceneDefensePoliciesRequest extends Model
      * @var string
      */
     public $resourceGroupId;
+
     /**
      * @var string
      */
     public $status;
+
     /**
      * @var string
      */
     public $template;
     protected $_name = [
         'resourceGroupId' => 'ResourceGroupId',
-        'status'          => 'Status',
-        'template'        => 'Template',
+        'status' => 'Status',
+        'template' => 'Template',
     ];
 
     public function validate()

@@ -12,18 +12,20 @@ class CreateAsyncTaskRequest extends Model
      * @var string
      */
     public $resourceGroupId;
+
     /**
      * @var string
      */
     public $taskParams;
+
     /**
      * @var int
      */
     public $taskType;
     protected $_name = [
         'resourceGroupId' => 'ResourceGroupId',
-        'taskParams'      => 'TaskParams',
-        'taskType'        => 'TaskType',
+        'taskParams' => 'TaskParams',
+        'taskType' => 'TaskType',
     ];
 
     public function validate()

@@ -13,13 +13,14 @@ class statusList extends Model
      * @var blockStatusList[]
      */
     public $blockStatusList;
+
     /**
      * @var string
      */
     public $ip;
     protected $_name = [
         'blockStatusList' => 'BlockStatusList',
-        'ip'              => 'Ip',
+        'ip' => 'Ip',
     ];
 
     public function validate()
@@ -36,7 +37,7 @@ class statusList extends Model
         if (null !== $this->blockStatusList) {
             if (\is_array($this->blockStatusList)) {
                 $res['BlockStatusList'] = [];
-                $n1                     = 0;
+                $n1 = 0;
                 foreach ($this->blockStatusList as $item1) {
                     $res['BlockStatusList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -61,7 +62,7 @@ class statusList extends Model
         if (isset($map['BlockStatusList'])) {
             if (!empty($map['BlockStatusList'])) {
                 $model->blockStatusList = [];
-                $n1                     = 0;
+                $n1 = 0;
                 foreach ($map['BlockStatusList'] as $item1) {
                     $model->blockStatusList[$n1++] = blockStatusList::fromMap($item1);
                 }

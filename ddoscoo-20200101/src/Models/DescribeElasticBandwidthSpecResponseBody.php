@@ -12,13 +12,14 @@ class DescribeElasticBandwidthSpecResponseBody extends Model
      * @var string[]
      */
     public $elasticBandwidthSpec;
+
     /**
      * @var string
      */
     public $requestId;
     protected $_name = [
         'elasticBandwidthSpec' => 'ElasticBandwidthSpec',
-        'requestId'            => 'RequestId',
+        'requestId' => 'RequestId',
     ];
 
     public function validate()
@@ -35,7 +36,7 @@ class DescribeElasticBandwidthSpecResponseBody extends Model
         if (null !== $this->elasticBandwidthSpec) {
             if (\is_array($this->elasticBandwidthSpec)) {
                 $res['ElasticBandwidthSpec'] = [];
-                $n1                          = 0;
+                $n1 = 0;
                 foreach ($this->elasticBandwidthSpec as $item1) {
                     $res['ElasticBandwidthSpec'][$n1++] = $item1;
                 }
@@ -60,7 +61,7 @@ class DescribeElasticBandwidthSpecResponseBody extends Model
         if (isset($map['ElasticBandwidthSpec'])) {
             if (!empty($map['ElasticBandwidthSpec'])) {
                 $model->elasticBandwidthSpec = [];
-                $n1                          = 0;
+                $n1 = 0;
                 foreach ($map['ElasticBandwidthSpec'] as $item1) {
                     $model->elasticBandwidthSpec[$n1++] = $item1;
                 }

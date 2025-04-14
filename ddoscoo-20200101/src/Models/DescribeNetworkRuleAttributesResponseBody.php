@@ -13,13 +13,14 @@ class DescribeNetworkRuleAttributesResponseBody extends Model
      * @var networkRuleAttributes[]
      */
     public $networkRuleAttributes;
+
     /**
      * @var string
      */
     public $requestId;
     protected $_name = [
         'networkRuleAttributes' => 'NetworkRuleAttributes',
-        'requestId'             => 'RequestId',
+        'requestId' => 'RequestId',
     ];
 
     public function validate()
@@ -36,7 +37,7 @@ class DescribeNetworkRuleAttributesResponseBody extends Model
         if (null !== $this->networkRuleAttributes) {
             if (\is_array($this->networkRuleAttributes)) {
                 $res['NetworkRuleAttributes'] = [];
-                $n1                           = 0;
+                $n1 = 0;
                 foreach ($this->networkRuleAttributes as $item1) {
                     $res['NetworkRuleAttributes'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -61,7 +62,7 @@ class DescribeNetworkRuleAttributesResponseBody extends Model
         if (isset($map['NetworkRuleAttributes'])) {
             if (!empty($map['NetworkRuleAttributes'])) {
                 $model->networkRuleAttributes = [];
-                $n1                           = 0;
+                $n1 = 0;
                 foreach ($map['NetworkRuleAttributes'] as $item1) {
                     $model->networkRuleAttributes[$n1++] = networkRuleAttributes::fromMap($item1);
                 }

@@ -13,12 +13,13 @@ class DescribeDDosEventAreaResponseBody extends Model
      * @var areas[]
      */
     public $areas;
+
     /**
      * @var string
      */
     public $requestId;
     protected $_name = [
-        'areas'     => 'Areas',
+        'areas' => 'Areas',
         'requestId' => 'RequestId',
     ];
 
@@ -36,7 +37,7 @@ class DescribeDDosEventAreaResponseBody extends Model
         if (null !== $this->areas) {
             if (\is_array($this->areas)) {
                 $res['Areas'] = [];
-                $n1           = 0;
+                $n1 = 0;
                 foreach ($this->areas as $item1) {
                     $res['Areas'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -61,7 +62,7 @@ class DescribeDDosEventAreaResponseBody extends Model
         if (isset($map['Areas'])) {
             if (!empty($map['Areas'])) {
                 $model->areas = [];
-                $n1           = 0;
+                $n1 = 0;
                 foreach ($map['Areas'] as $item1) {
                     $model->areas[$n1++] = areas::fromMap($item1);
                 }

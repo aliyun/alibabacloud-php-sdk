@@ -13,23 +13,26 @@ class networkRuleAttributes extends Model
      * @var config
      */
     public $config;
+
     /**
      * @var int
      */
     public $frontendPort;
+
     /**
      * @var string
      */
     public $instanceId;
+
     /**
      * @var string
      */
     public $protocol;
     protected $_name = [
-        'config'       => 'Config',
+        'config' => 'Config',
         'frontendPort' => 'FrontendPort',
-        'instanceId'   => 'InstanceId',
-        'protocol'     => 'Protocol',
+        'instanceId' => 'InstanceId',
+        'protocol' => 'Protocol',
     ];
 
     public function validate()

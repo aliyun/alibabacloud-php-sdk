@@ -12,28 +12,32 @@ class CreateSchedulerRuleRequest extends Model
      * @var string
      */
     public $param;
+
     /**
      * @var string
      */
     public $resourceGroupId;
+
     /**
      * @var string
      */
     public $ruleName;
+
     /**
      * @var int
      */
     public $ruleType;
+
     /**
      * @var string
      */
     public $rules;
     protected $_name = [
-        'param'           => 'Param',
+        'param' => 'Param',
         'resourceGroupId' => 'ResourceGroupId',
-        'ruleName'        => 'RuleName',
-        'ruleType'        => 'RuleType',
-        'rules'           => 'Rules',
+        'ruleName' => 'RuleName',
+        'ruleType' => 'RuleType',
+        'rules' => 'Rules',
     ];
 
     public function validate()

@@ -12,6 +12,7 @@ class ConfigLayer4RealLimitRequest extends Model
      * @var string
      */
     public $instanceId;
+
     /**
      * @var int
      */

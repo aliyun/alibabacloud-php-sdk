@@ -13,28 +13,32 @@ class healthCheckStatus extends Model
      * @var int
      */
     public $frontendPort;
+
     /**
      * @var string
      */
     public $instanceId;
+
     /**
      * @var string
      */
     public $protocol;
+
     /**
      * @var realServerStatusList[]
      */
     public $realServerStatusList;
+
     /**
      * @var string
      */
     public $status;
     protected $_name = [
-        'frontendPort'         => 'FrontendPort',
-        'instanceId'           => 'InstanceId',
-        'protocol'             => 'Protocol',
+        'frontendPort' => 'FrontendPort',
+        'instanceId' => 'InstanceId',
+        'protocol' => 'Protocol',
         'realServerStatusList' => 'RealServerStatusList',
-        'status'               => 'Status',
+        'status' => 'Status',
     ];
 
     public function validate()
@@ -63,7 +67,7 @@ class healthCheckStatus extends Model
         if (null !== $this->realServerStatusList) {
             if (\is_array($this->realServerStatusList)) {
                 $res['RealServerStatusList'] = [];
-                $n1                          = 0;
+                $n1 = 0;
                 foreach ($this->realServerStatusList as $item1) {
                     $res['RealServerStatusList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -100,7 +104,7 @@ class healthCheckStatus extends Model
         if (isset($map['RealServerStatusList'])) {
             if (!empty($map['RealServerStatusList'])) {
                 $model->realServerStatusList = [];
-                $n1                          = 0;
+                $n1 = 0;
                 foreach ($map['RealServerStatusList'] as $item1) {
                     $model->realServerStatusList[$n1++] = realServerStatusList::fromMap($item1);
                 }

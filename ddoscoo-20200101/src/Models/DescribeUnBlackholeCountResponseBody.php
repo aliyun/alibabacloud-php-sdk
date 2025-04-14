@@ -12,18 +12,20 @@ class DescribeUnBlackholeCountResponseBody extends Model
      * @var int
      */
     public $remainCount;
+
     /**
      * @var string
      */
     public $requestId;
+
     /**
      * @var int
      */
     public $totalCount;
     protected $_name = [
         'remainCount' => 'RemainCount',
-        'requestId'   => 'RequestId',
-        'totalCount'  => 'TotalCount',
+        'requestId' => 'RequestId',
+        'totalCount' => 'TotalCount',
     ];
 
     public function validate()

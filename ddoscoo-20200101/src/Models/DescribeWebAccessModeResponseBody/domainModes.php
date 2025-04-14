@@ -12,13 +12,14 @@ class domainModes extends Model
      * @var int
      */
     public $accessMode;
+
     /**
      * @var string
      */
     public $domain;
     protected $_name = [
         'accessMode' => 'AccessMode',
-        'domain'     => 'Domain',
+        'domain' => 'Domain',
     ];
 
     public function validate()

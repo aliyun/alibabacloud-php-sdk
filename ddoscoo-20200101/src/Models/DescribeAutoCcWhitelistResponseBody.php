@@ -13,18 +13,20 @@ class DescribeAutoCcWhitelistResponseBody extends Model
      * @var autoCcWhitelist[]
      */
     public $autoCcWhitelist;
+
     /**
      * @var string
      */
     public $requestId;
+
     /**
      * @var int
      */
     public $totalCount;
     protected $_name = [
         'autoCcWhitelist' => 'AutoCcWhitelist',
-        'requestId'       => 'RequestId',
-        'totalCount'      => 'TotalCount',
+        'requestId' => 'RequestId',
+        'totalCount' => 'TotalCount',
     ];
 
     public function validate()
@@ -41,7 +43,7 @@ class DescribeAutoCcWhitelistResponseBody extends Model
         if (null !== $this->autoCcWhitelist) {
             if (\is_array($this->autoCcWhitelist)) {
                 $res['AutoCcWhitelist'] = [];
-                $n1                     = 0;
+                $n1 = 0;
                 foreach ($this->autoCcWhitelist as $item1) {
                     $res['AutoCcWhitelist'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -70,7 +72,7 @@ class DescribeAutoCcWhitelistResponseBody extends Model
         if (isset($map['AutoCcWhitelist'])) {
             if (!empty($map['AutoCcWhitelist'])) {
                 $model->autoCcWhitelist = [];
-                $n1                     = 0;
+                $n1 = 0;
                 foreach ($map['AutoCcWhitelist'] as $item1) {
                     $model->autoCcWhitelist[$n1++] = autoCcWhitelist::fromMap($item1);
                 }

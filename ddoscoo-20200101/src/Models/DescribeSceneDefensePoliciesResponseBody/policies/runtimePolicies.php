@@ -12,23 +12,26 @@ class runtimePolicies extends Model
      * @var string
      */
     public $newValue;
+
     /**
      * @var int
      */
     public $policyType;
+
     /**
      * @var int
      */
     public $status;
+
     /**
      * @var string
      */
     public $oldValue;
     protected $_name = [
-        'newValue'   => 'NewValue',
+        'newValue' => 'NewValue',
         'policyType' => 'PolicyType',
-        'status'     => 'Status',
-        'oldValue'   => 'oldValue',
+        'status' => 'Status',
+        'oldValue' => 'oldValue',
     ];
 
     public function validate()

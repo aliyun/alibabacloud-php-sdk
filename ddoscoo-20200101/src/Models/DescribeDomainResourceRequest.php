@@ -12,27 +12,31 @@ class DescribeDomainResourceRequest extends Model
      * @var string
      */
     public $domain;
+
     /**
      * @var string[]
      */
     public $instanceIds;
+
     /**
      * @var int
      */
     public $pageNumber;
+
     /**
      * @var int
      */
     public $pageSize;
+
     /**
      * @var string
      */
     public $queryDomainPattern;
     protected $_name = [
-        'domain'             => 'Domain',
-        'instanceIds'        => 'InstanceIds',
-        'pageNumber'         => 'PageNumber',
-        'pageSize'           => 'PageSize',
+        'domain' => 'Domain',
+        'instanceIds' => 'InstanceIds',
+        'pageNumber' => 'PageNumber',
+        'pageSize' => 'PageSize',
         'queryDomainPattern' => 'QueryDomainPattern',
     ];
 
@@ -54,7 +58,7 @@ class DescribeDomainResourceRequest extends Model
         if (null !== $this->instanceIds) {
             if (\is_array($this->instanceIds)) {
                 $res['InstanceIds'] = [];
-                $n1                 = 0;
+                $n1 = 0;
                 foreach ($this->instanceIds as $item1) {
                     $res['InstanceIds'][$n1++] = $item1;
                 }
@@ -91,7 +95,7 @@ class DescribeDomainResourceRequest extends Model
         if (isset($map['InstanceIds'])) {
             if (!empty($map['InstanceIds'])) {
                 $model->instanceIds = [];
-                $n1                 = 0;
+                $n1 = 0;
                 foreach ($map['InstanceIds'] as $item1) {
                     $model->instanceIds[$n1++] = $item1;
                 }

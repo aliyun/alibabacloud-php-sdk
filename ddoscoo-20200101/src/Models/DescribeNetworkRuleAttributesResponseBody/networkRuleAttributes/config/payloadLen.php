@@ -12,6 +12,7 @@ class payloadLen extends Model
      * @var int
      */
     public $max;
+
     /**
      * @var int
      */

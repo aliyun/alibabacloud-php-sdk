@@ -13,13 +13,14 @@ class DescribeCnameReusesResponseBody extends Model
      * @var cnameReuses[]
      */
     public $cnameReuses;
+
     /**
      * @var string
      */
     public $requestId;
     protected $_name = [
         'cnameReuses' => 'CnameReuses',
-        'requestId'   => 'RequestId',
+        'requestId' => 'RequestId',
     ];
 
     public function validate()
@@ -36,7 +37,7 @@ class DescribeCnameReusesResponseBody extends Model
         if (null !== $this->cnameReuses) {
             if (\is_array($this->cnameReuses)) {
                 $res['CnameReuses'] = [];
-                $n1                 = 0;
+                $n1 = 0;
                 foreach ($this->cnameReuses as $item1) {
                     $res['CnameReuses'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -61,7 +62,7 @@ class DescribeCnameReusesResponseBody extends Model
         if (isset($map['CnameReuses'])) {
             if (!empty($map['CnameReuses'])) {
                 $model->cnameReuses = [];
-                $n1                 = 0;
+                $n1 = 0;
                 foreach ($map['CnameReuses'] as $item1) {
                     $model->cnameReuses[$n1++] = cnameReuses::fromMap($item1);
                 }

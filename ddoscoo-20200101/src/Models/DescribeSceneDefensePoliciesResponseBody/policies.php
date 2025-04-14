@@ -13,48 +13,56 @@ class policies extends Model
      * @var int
      */
     public $done;
+
     /**
      * @var int
      */
     public $endTime;
+
     /**
      * @var string
      */
     public $name;
+
     /**
      * @var int
      */
     public $objectCount;
+
     /**
      * @var string
      */
     public $policyId;
+
     /**
      * @var runtimePolicies[]
      */
     public $runtimePolicies;
+
     /**
      * @var int
      */
     public $startTime;
+
     /**
      * @var int
      */
     public $status;
+
     /**
      * @var string
      */
     public $template;
     protected $_name = [
-        'done'            => 'Done',
-        'endTime'         => 'EndTime',
-        'name'            => 'Name',
-        'objectCount'     => 'ObjectCount',
-        'policyId'        => 'PolicyId',
+        'done' => 'Done',
+        'endTime' => 'EndTime',
+        'name' => 'Name',
+        'objectCount' => 'ObjectCount',
+        'policyId' => 'PolicyId',
         'runtimePolicies' => 'RuntimePolicies',
-        'startTime'       => 'StartTime',
-        'status'          => 'Status',
-        'template'        => 'Template',
+        'startTime' => 'StartTime',
+        'status' => 'Status',
+        'template' => 'Template',
     ];
 
     public function validate()
@@ -91,7 +99,7 @@ class policies extends Model
         if (null !== $this->runtimePolicies) {
             if (\is_array($this->runtimePolicies)) {
                 $res['RuntimePolicies'] = [];
-                $n1                     = 0;
+                $n1 = 0;
                 foreach ($this->runtimePolicies as $item1) {
                     $res['RuntimePolicies'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -144,7 +152,7 @@ class policies extends Model
         if (isset($map['RuntimePolicies'])) {
             if (!empty($map['RuntimePolicies'])) {
                 $model->runtimePolicies = [];
-                $n1                     = 0;
+                $n1 = 0;
                 foreach ($map['RuntimePolicies'] as $item1) {
                     $model->runtimePolicies[$n1++] = runtimePolicies::fromMap($item1);
                 }

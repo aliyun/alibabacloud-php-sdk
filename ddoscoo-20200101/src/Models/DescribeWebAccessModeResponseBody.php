@@ -13,13 +13,14 @@ class DescribeWebAccessModeResponseBody extends Model
      * @var domainModes[]
      */
     public $domainModes;
+
     /**
      * @var string
      */
     public $requestId;
     protected $_name = [
         'domainModes' => 'DomainModes',
-        'requestId'   => 'RequestId',
+        'requestId' => 'RequestId',
     ];
 
     public function validate()
@@ -36,7 +37,7 @@ class DescribeWebAccessModeResponseBody extends Model
         if (null !== $this->domainModes) {
             if (\is_array($this->domainModes)) {
                 $res['DomainModes'] = [];
-                $n1                 = 0;
+                $n1 = 0;
                 foreach ($this->domainModes as $item1) {
                     $res['DomainModes'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -61,7 +62,7 @@ class DescribeWebAccessModeResponseBody extends Model
         if (isset($map['DomainModes'])) {
             if (!empty($map['DomainModes'])) {
                 $model->domainModes = [];
-                $n1                 = 0;
+                $n1 = 0;
                 foreach ($map['DomainModes'] as $item1) {
                     $model->domainModes[$n1++] = domainModes::fromMap($item1);
                 }

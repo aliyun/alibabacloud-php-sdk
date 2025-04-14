@@ -12,23 +12,26 @@ class ModifyNetworkRuleAttributeRequest extends Model
      * @var string
      */
     public $config;
+
     /**
      * @var string
      */
     public $forwardProtocol;
+
     /**
      * @var int
      */
     public $frontendPort;
+
     /**
      * @var string
      */
     public $instanceId;
     protected $_name = [
-        'config'          => 'Config',
+        'config' => 'Config',
         'forwardProtocol' => 'ForwardProtocol',
-        'frontendPort'    => 'FrontendPort',
-        'instanceId'      => 'InstanceId',
+        'frontendPort' => 'FrontendPort',
+        'instanceId' => 'InstanceId',
     ];
 
     public function validate()

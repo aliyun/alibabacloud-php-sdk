@@ -13,13 +13,14 @@ class DescribeDDosEventAttackTypeResponseBody extends Model
      * @var attackTypes[]
      */
     public $attackTypes;
+
     /**
      * @var string
      */
     public $requestId;
     protected $_name = [
         'attackTypes' => 'AttackTypes',
-        'requestId'   => 'RequestId',
+        'requestId' => 'RequestId',
     ];
 
     public function validate()
@@ -36,7 +37,7 @@ class DescribeDDosEventAttackTypeResponseBody extends Model
         if (null !== $this->attackTypes) {
             if (\is_array($this->attackTypes)) {
                 $res['AttackTypes'] = [];
-                $n1                 = 0;
+                $n1 = 0;
                 foreach ($this->attackTypes as $item1) {
                     $res['AttackTypes'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -61,7 +62,7 @@ class DescribeDDosEventAttackTypeResponseBody extends Model
         if (isset($map['AttackTypes'])) {
             if (!empty($map['AttackTypes'])) {
                 $model->attackTypes = [];
-                $n1                 = 0;
+                $n1 = 0;
                 foreach ($map['AttackTypes'] as $item1) {
                     $model->attackTypes[$n1++] = attackTypes::fromMap($item1);
                 }

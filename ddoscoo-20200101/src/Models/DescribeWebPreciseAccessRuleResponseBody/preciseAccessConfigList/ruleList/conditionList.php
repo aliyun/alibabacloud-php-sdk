@@ -12,27 +12,31 @@ class conditionList extends Model
      * @var string
      */
     public $content;
+
     /**
      * @var string[]
      */
     public $contentList;
+
     /**
      * @var string
      */
     public $field;
+
     /**
      * @var string
      */
     public $headerName;
+
     /**
      * @var string
      */
     public $matchMethod;
     protected $_name = [
-        'content'     => 'Content',
+        'content' => 'Content',
         'contentList' => 'ContentList',
-        'field'       => 'Field',
-        'headerName'  => 'HeaderName',
+        'field' => 'Field',
+        'headerName' => 'HeaderName',
         'matchMethod' => 'MatchMethod',
     ];
 
@@ -54,7 +58,7 @@ class conditionList extends Model
         if (null !== $this->contentList) {
             if (\is_array($this->contentList)) {
                 $res['ContentList'] = [];
-                $n1                 = 0;
+                $n1 = 0;
                 foreach ($this->contentList as $item1) {
                     $res['ContentList'][$n1++] = $item1;
                 }
@@ -91,7 +95,7 @@ class conditionList extends Model
         if (isset($map['ContentList'])) {
             if (!empty($map['ContentList'])) {
                 $model->contentList = [];
-                $n1                 = 0;
+                $n1 = 0;
                 foreach ($map['ContentList'] as $item1) {
                     $model->contentList[$n1++] = $item1;
                 }

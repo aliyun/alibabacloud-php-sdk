@@ -13,18 +13,20 @@ class DescribePortResponseBody extends Model
      * @var networkRules[]
      */
     public $networkRules;
+
     /**
      * @var string
      */
     public $requestId;
+
     /**
      * @var int
      */
     public $totalCount;
     protected $_name = [
         'networkRules' => 'NetworkRules',
-        'requestId'    => 'RequestId',
-        'totalCount'   => 'TotalCount',
+        'requestId' => 'RequestId',
+        'totalCount' => 'TotalCount',
     ];
 
     public function validate()
@@ -41,7 +43,7 @@ class DescribePortResponseBody extends Model
         if (null !== $this->networkRules) {
             if (\is_array($this->networkRules)) {
                 $res['NetworkRules'] = [];
-                $n1                  = 0;
+                $n1 = 0;
                 foreach ($this->networkRules as $item1) {
                     $res['NetworkRules'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -70,7 +72,7 @@ class DescribePortResponseBody extends Model
         if (isset($map['NetworkRules'])) {
             if (!empty($map['NetworkRules'])) {
                 $model->networkRules = [];
-                $n1                  = 0;
+                $n1 = 0;
                 foreach ($map['NetworkRules'] as $item1) {
                     $model->networkRules[$n1++] = networkRules::fromMap($item1);
                 }

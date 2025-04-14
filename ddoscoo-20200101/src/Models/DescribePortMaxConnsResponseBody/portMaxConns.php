@@ -12,17 +12,19 @@ class portMaxConns extends Model
      * @var int
      */
     public $cps;
+
     /**
      * @var string
      */
     public $ip;
+
     /**
      * @var string
      */
     public $port;
     protected $_name = [
-        'cps'  => 'Cps',
-        'ip'   => 'Ip',
+        'cps' => 'Cps',
+        'ip' => 'Ip',
         'port' => 'Port',
     ];
 

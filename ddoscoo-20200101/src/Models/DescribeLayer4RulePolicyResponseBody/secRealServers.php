@@ -12,33 +12,38 @@ class secRealServers extends Model
      * @var int
      */
     public $currentIndex;
+
     /**
      * @var string
      */
     public $eip;
+
     /**
      * @var int
      */
     public $frontendPort;
+
     /**
      * @var string
      */
     public $instanceId;
+
     /**
      * @var string
      */
     public $protocol;
+
     /**
      * @var string
      */
     public $realServer;
     protected $_name = [
         'currentIndex' => 'CurrentIndex',
-        'eip'          => 'Eip',
+        'eip' => 'Eip',
         'frontendPort' => 'FrontendPort',
-        'instanceId'   => 'InstanceId',
-        'protocol'     => 'Protocol',
-        'realServer'   => 'RealServer',
+        'instanceId' => 'InstanceId',
+        'protocol' => 'Protocol',
+        'realServer' => 'RealServer',
     ];
 
     public function validate()

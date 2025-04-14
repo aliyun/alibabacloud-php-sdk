@@ -12,10 +12,12 @@ class AddAutoCcWhitelistRequest extends Model
      * @var int
      */
     public $expireTime;
+
     /**
      * @var string
      */
     public $instanceId;
+
     /**
      * @var string
      */
@@ -23,7 +25,7 @@ class AddAutoCcWhitelistRequest extends Model
     protected $_name = [
         'expireTime' => 'ExpireTime',
         'instanceId' => 'InstanceId',
-        'whitelist'  => 'Whitelist',
+        'whitelist' => 'Whitelist',
     ];
 
     public function validate()

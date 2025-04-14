@@ -12,22 +12,25 @@ class domainAttackEvents extends Model
      * @var string
      */
     public $domain;
+
     /**
      * @var int
      */
     public $endTime;
+
     /**
      * @var int
      */
     public $maxQps;
+
     /**
      * @var int
      */
     public $startTime;
     protected $_name = [
-        'domain'    => 'Domain',
-        'endTime'   => 'EndTime',
-        'maxQps'    => 'MaxQps',
+        'domain' => 'Domain',
+        'endTime' => 'EndTime',
+        'maxQps' => 'MaxQps',
         'startTime' => 'StartTime',
     ];
 

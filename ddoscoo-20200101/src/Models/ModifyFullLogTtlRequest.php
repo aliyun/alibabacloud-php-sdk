@@ -12,13 +12,14 @@ class ModifyFullLogTtlRequest extends Model
      * @var string
      */
     public $resourceGroupId;
+
     /**
      * @var int
      */
     public $ttl;
     protected $_name = [
         'resourceGroupId' => 'ResourceGroupId',
-        'ttl'             => 'Ttl',
+        'ttl' => 'Ttl',
     ];
 
     public function validate()

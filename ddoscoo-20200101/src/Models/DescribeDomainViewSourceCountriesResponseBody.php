@@ -13,12 +13,13 @@ class DescribeDomainViewSourceCountriesResponseBody extends Model
      * @var string
      */
     public $requestId;
+
     /**
      * @var sourceCountrys[]
      */
     public $sourceCountrys;
     protected $_name = [
-        'requestId'      => 'RequestId',
+        'requestId' => 'RequestId',
         'sourceCountrys' => 'SourceCountrys',
     ];
 
@@ -40,7 +41,7 @@ class DescribeDomainViewSourceCountriesResponseBody extends Model
         if (null !== $this->sourceCountrys) {
             if (\is_array($this->sourceCountrys)) {
                 $res['SourceCountrys'] = [];
-                $n1                    = 0;
+                $n1 = 0;
                 foreach ($this->sourceCountrys as $item1) {
                     $res['SourceCountrys'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -65,7 +66,7 @@ class DescribeDomainViewSourceCountriesResponseBody extends Model
         if (isset($map['SourceCountrys'])) {
             if (!empty($map['SourceCountrys'])) {
                 $model->sourceCountrys = [];
-                $n1                    = 0;
+                $n1 = 0;
                 foreach ($map['SourceCountrys'] as $item1) {
                     $model->sourceCountrys[$n1++] = sourceCountrys::fromMap($item1);
                 }

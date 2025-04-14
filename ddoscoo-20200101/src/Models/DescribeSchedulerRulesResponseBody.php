@@ -13,18 +13,20 @@ class DescribeSchedulerRulesResponseBody extends Model
      * @var string
      */
     public $requestId;
+
     /**
      * @var schedulerRules[]
      */
     public $schedulerRules;
+
     /**
      * @var string
      */
     public $totalCount;
     protected $_name = [
-        'requestId'      => 'RequestId',
+        'requestId' => 'RequestId',
         'schedulerRules' => 'SchedulerRules',
-        'totalCount'     => 'TotalCount',
+        'totalCount' => 'TotalCount',
     ];
 
     public function validate()
@@ -45,7 +47,7 @@ class DescribeSchedulerRulesResponseBody extends Model
         if (null !== $this->schedulerRules) {
             if (\is_array($this->schedulerRules)) {
                 $res['SchedulerRules'] = [];
-                $n1                    = 0;
+                $n1 = 0;
                 foreach ($this->schedulerRules as $item1) {
                     $res['SchedulerRules'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -74,7 +76,7 @@ class DescribeSchedulerRulesResponseBody extends Model
         if (isset($map['SchedulerRules'])) {
             if (!empty($map['SchedulerRules'])) {
                 $model->schedulerRules = [];
-                $n1                    = 0;
+                $n1 = 0;
                 foreach ($map['SchedulerRules'] as $item1) {
                     $model->schedulerRules[$n1++] = schedulerRules::fromMap($item1);
                 }

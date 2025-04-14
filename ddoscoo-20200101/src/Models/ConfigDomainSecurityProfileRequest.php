@@ -12,18 +12,20 @@ class ConfigDomainSecurityProfileRequest extends Model
      * @var string
      */
     public $cluster;
+
     /**
      * @var string
      */
     public $config;
+
     /**
      * @var string
      */
     public $domain;
     protected $_name = [
         'cluster' => 'Cluster',
-        'config'  => 'Config',
-        'domain'  => 'Domain',
+        'config' => 'Config',
+        'domain' => 'Domain',
     ];
 
     public function validate()

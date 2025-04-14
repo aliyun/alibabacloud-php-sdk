@@ -12,17 +12,19 @@ class ModifyHttp2EnableRequest extends Model
      * @var string
      */
     public $domain;
+
     /**
      * @var int
      */
     public $enable;
+
     /**
      * @var string
      */
     public $resourceGroupId;
     protected $_name = [
-        'domain'          => 'Domain',
-        'enable'          => 'Enable',
+        'domain' => 'Domain',
+        'enable' => 'Enable',
         'resourceGroupId' => 'ResourceGroupId',
     ];
 

@@ -12,13 +12,14 @@ class realServers extends Model
      * @var string
      */
     public $realServer;
+
     /**
      * @var int
      */
     public $rsType;
     protected $_name = [
         'realServer' => 'RealServer',
-        'rsType'     => 'RsType',
+        'rsType' => 'RsType',
     ];
 
     public function validate()

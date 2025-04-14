@@ -12,28 +12,38 @@ class DescribeDomainViewTopUrlRequest extends Model
      * @var string
      */
     public $domain;
+
     /**
      * @var int
      */
     public $endTime;
+
+    /**
+     * @var int
+     */
+    public $inerval;
+
     /**
      * @var string
      */
     public $resourceGroupId;
+
     /**
      * @var int
      */
     public $startTime;
+
     /**
      * @var int
      */
     public $top;
     protected $_name = [
-        'domain'          => 'Domain',
-        'endTime'         => 'EndTime',
+        'domain' => 'Domain',
+        'endTime' => 'EndTime',
+        'inerval' => 'Inerval',
         'resourceGroupId' => 'ResourceGroupId',
-        'startTime'       => 'StartTime',
-        'top'             => 'Top',
+        'startTime' => 'StartTime',
+        'top' => 'Top',
     ];
 
     public function validate()
@@ -50,6 +60,10 @@ class DescribeDomainViewTopUrlRequest extends Model
 
         if (null !== $this->endTime) {
             $res['EndTime'] = $this->endTime;
+        }
+
+        if (null !== $this->inerval) {
+            $res['Inerval'] = $this->inerval;
         }
 
         if (null !== $this->resourceGroupId) {
@@ -81,6 +95,10 @@ class DescribeDomainViewTopUrlRequest extends Model
 
         if (isset($map['EndTime'])) {
             $model->endTime = $map['EndTime'];
+        }
+
+        if (isset($map['Inerval'])) {
+            $model->inerval = $map['Inerval'];
         }
 
         if (isset($map['ResourceGroupId'])) {

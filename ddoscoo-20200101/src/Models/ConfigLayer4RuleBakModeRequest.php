@@ -12,12 +12,13 @@ class ConfigLayer4RuleBakModeRequest extends Model
      * @var string
      */
     public $bakMode;
+
     /**
      * @var string
      */
     public $listeners;
     protected $_name = [
-        'bakMode'   => 'BakMode',
+        'bakMode' => 'BakMode',
         'listeners' => 'Listeners',
     ];
 

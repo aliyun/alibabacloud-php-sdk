@@ -13,63 +13,74 @@ class DescribeInstancesRequest extends Model
      * @var int
      */
     public $edition;
+
     /**
      * @var int
      */
     public $enabled;
+
     /**
      * @var int
      */
     public $expireEndTime;
+
     /**
      * @var int
      */
     public $expireStartTime;
+
     /**
      * @var string[]
      */
     public $instanceIds;
+
     /**
      * @var string
      */
     public $ip;
+
     /**
      * @var string
      */
     public $pageNumber;
+
     /**
      * @var string
      */
     public $pageSize;
+
     /**
      * @var string
      */
     public $remark;
+
     /**
      * @var string
      */
     public $resourceGroupId;
+
     /**
      * @var int[]
      */
     public $status;
+
     /**
      * @var tag[]
      */
     public $tag;
     protected $_name = [
-        'edition'         => 'Edition',
-        'enabled'         => 'Enabled',
-        'expireEndTime'   => 'ExpireEndTime',
+        'edition' => 'Edition',
+        'enabled' => 'Enabled',
+        'expireEndTime' => 'ExpireEndTime',
         'expireStartTime' => 'ExpireStartTime',
-        'instanceIds'     => 'InstanceIds',
-        'ip'              => 'Ip',
-        'pageNumber'      => 'PageNumber',
-        'pageSize'        => 'PageSize',
-        'remark'          => 'Remark',
+        'instanceIds' => 'InstanceIds',
+        'ip' => 'Ip',
+        'pageNumber' => 'PageNumber',
+        'pageSize' => 'PageSize',
+        'remark' => 'Remark',
         'resourceGroupId' => 'ResourceGroupId',
-        'status'          => 'Status',
-        'tag'             => 'Tag',
+        'status' => 'Status',
+        'tag' => 'Tag',
     ];
 
     public function validate()
@@ -108,7 +119,7 @@ class DescribeInstancesRequest extends Model
         if (null !== $this->instanceIds) {
             if (\is_array($this->instanceIds)) {
                 $res['InstanceIds'] = [];
-                $n1                 = 0;
+                $n1 = 0;
                 foreach ($this->instanceIds as $item1) {
                     $res['InstanceIds'][$n1++] = $item1;
                 }
@@ -138,7 +149,7 @@ class DescribeInstancesRequest extends Model
         if (null !== $this->status) {
             if (\is_array($this->status)) {
                 $res['Status'] = [];
-                $n1            = 0;
+                $n1 = 0;
                 foreach ($this->status as $item1) {
                     $res['Status'][$n1++] = $item1;
                 }
@@ -148,7 +159,7 @@ class DescribeInstancesRequest extends Model
         if (null !== $this->tag) {
             if (\is_array($this->tag)) {
                 $res['Tag'] = [];
-                $n1         = 0;
+                $n1 = 0;
                 foreach ($this->tag as $item1) {
                     $res['Tag'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -185,7 +196,7 @@ class DescribeInstancesRequest extends Model
         if (isset($map['InstanceIds'])) {
             if (!empty($map['InstanceIds'])) {
                 $model->instanceIds = [];
-                $n1                 = 0;
+                $n1 = 0;
                 foreach ($map['InstanceIds'] as $item1) {
                     $model->instanceIds[$n1++] = $item1;
                 }
@@ -215,7 +226,7 @@ class DescribeInstancesRequest extends Model
         if (isset($map['Status'])) {
             if (!empty($map['Status'])) {
                 $model->status = [];
-                $n1            = 0;
+                $n1 = 0;
                 foreach ($map['Status'] as $item1) {
                     $model->status[$n1++] = $item1;
                 }
@@ -225,7 +236,7 @@ class DescribeInstancesRequest extends Model
         if (isset($map['Tag'])) {
             if (!empty($map['Tag'])) {
                 $model->tag = [];
-                $n1         = 0;
+                $n1 = 0;
                 foreach ($map['Tag'] as $item1) {
                     $model->tag[$n1++] = tag::fromMap($item1);
                 }

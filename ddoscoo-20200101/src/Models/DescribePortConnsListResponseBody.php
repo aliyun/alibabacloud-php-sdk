@@ -13,6 +13,7 @@ class DescribePortConnsListResponseBody extends Model
      * @var connsList[]
      */
     public $connsList;
+
     /**
      * @var string
      */
@@ -36,7 +37,7 @@ class DescribePortConnsListResponseBody extends Model
         if (null !== $this->connsList) {
             if (\is_array($this->connsList)) {
                 $res['ConnsList'] = [];
-                $n1               = 0;
+                $n1 = 0;
                 foreach ($this->connsList as $item1) {
                     $res['ConnsList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -61,7 +62,7 @@ class DescribePortConnsListResponseBody extends Model
         if (isset($map['ConnsList'])) {
             if (!empty($map['ConnsList'])) {
                 $model->connsList = [];
-                $n1               = 0;
+                $n1 = 0;
                 foreach ($map['ConnsList'] as $item1) {
                     $model->connsList[$n1++] = connsList::fromMap($item1);
                 }

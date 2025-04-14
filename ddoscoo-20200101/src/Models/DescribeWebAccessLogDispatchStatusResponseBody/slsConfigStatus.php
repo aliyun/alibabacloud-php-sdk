@@ -12,6 +12,7 @@ class slsConfigStatus extends Model
      * @var string
      */
     public $domain;
+
     /**
      * @var bool
      */

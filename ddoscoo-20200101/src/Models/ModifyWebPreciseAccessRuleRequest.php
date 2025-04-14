@@ -12,23 +12,26 @@ class ModifyWebPreciseAccessRuleRequest extends Model
      * @var string
      */
     public $domain;
+
     /**
      * @var int
      */
     public $expires;
+
     /**
      * @var string
      */
     public $resourceGroupId;
+
     /**
      * @var string
      */
     public $rules;
     protected $_name = [
-        'domain'          => 'Domain',
-        'expires'         => 'Expires',
+        'domain' => 'Domain',
+        'expires' => 'Expires',
         'resourceGroupId' => 'ResourceGroupId',
-        'rules'           => 'Rules',
+        'rules' => 'Rules',
     ];
 
     public function validate()

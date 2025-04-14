@@ -12,13 +12,14 @@ class DeleteSchedulerRuleRequest extends Model
      * @var string
      */
     public $resourceGroupId;
+
     /**
      * @var string
      */
     public $ruleName;
     protected $_name = [
         'resourceGroupId' => 'ResourceGroupId',
-        'ruleName'        => 'RuleName',
+        'ruleName' => 'RuleName',
     ];
 
     public function validate()

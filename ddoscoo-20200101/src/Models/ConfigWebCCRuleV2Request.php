@@ -12,17 +12,19 @@ class ConfigWebCCRuleV2Request extends Model
      * @var string
      */
     public $domain;
+
     /**
      * @var int
      */
     public $expires;
+
     /**
      * @var string
      */
     public $ruleList;
     protected $_name = [
-        'domain'   => 'Domain',
-        'expires'  => 'Expires',
+        'domain' => 'Domain',
+        'expires' => 'Expires',
         'ruleList' => 'RuleList',
     ];
 

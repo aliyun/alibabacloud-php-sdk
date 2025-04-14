@@ -16,38 +16,44 @@ class config extends Model
      * @var cc
      */
     public $cc;
+
     /**
      * @var string
      */
     public $nodataConn;
+
     /**
      * @var payloadLen
      */
     public $payloadLen;
+
     /**
      * @var int
      */
     public $persistenceTimeout;
+
     /**
      * @var sla
      */
     public $sla;
+
     /**
      * @var slimit
      */
     public $slimit;
+
     /**
      * @var string
      */
     public $synproxy;
     protected $_name = [
-        'cc'                 => 'Cc',
-        'nodataConn'         => 'NodataConn',
-        'payloadLen'         => 'PayloadLen',
+        'cc' => 'Cc',
+        'nodataConn' => 'NodataConn',
+        'payloadLen' => 'PayloadLen',
         'persistenceTimeout' => 'PersistenceTimeout',
-        'sla'                => 'Sla',
-        'slimit'             => 'Slimit',
-        'synproxy'           => 'Synproxy',
+        'sla' => 'Sla',
+        'slimit' => 'Slimit',
+        'synproxy' => 'Synproxy',
     ];
 
     public function validate()

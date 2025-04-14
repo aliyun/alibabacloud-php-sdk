@@ -12,33 +12,38 @@ class DescribeSystemLogRequest extends Model
      * @var int
      */
     public $endTime;
+
     /**
      * @var string
      */
     public $entityObject;
+
     /**
      * @var int
      */
     public $entityType;
+
     /**
      * @var int
      */
     public $pageNumber;
+
     /**
      * @var int
      */
     public $pageSize;
+
     /**
      * @var int
      */
     public $startTime;
     protected $_name = [
-        'endTime'      => 'EndTime',
+        'endTime' => 'EndTime',
         'entityObject' => 'EntityObject',
-        'entityType'   => 'EntityType',
-        'pageNumber'   => 'PageNumber',
-        'pageSize'     => 'PageSize',
-        'startTime'    => 'StartTime',
+        'entityType' => 'EntityType',
+        'pageNumber' => 'PageNumber',
+        'pageSize' => 'PageSize',
+        'startTime' => 'StartTime',
     ];
 
     public function validate()

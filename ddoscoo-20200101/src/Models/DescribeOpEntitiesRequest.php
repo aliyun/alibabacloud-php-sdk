@@ -12,38 +12,44 @@ class DescribeOpEntitiesRequest extends Model
      * @var int
      */
     public $endTime;
+
     /**
      * @var string
      */
     public $entityObject;
+
     /**
      * @var int
      */
     public $entityType;
+
     /**
      * @var int
      */
     public $pageNumber;
+
     /**
      * @var int
      */
     public $pageSize;
+
     /**
      * @var string
      */
     public $resourceGroupId;
+
     /**
      * @var int
      */
     public $startTime;
     protected $_name = [
-        'endTime'         => 'EndTime',
-        'entityObject'    => 'EntityObject',
-        'entityType'      => 'EntityType',
-        'pageNumber'      => 'PageNumber',
-        'pageSize'        => 'PageSize',
+        'endTime' => 'EndTime',
+        'entityObject' => 'EntityObject',
+        'entityType' => 'EntityType',
+        'pageNumber' => 'PageNumber',
+        'pageSize' => 'PageSize',
         'resourceGroupId' => 'ResourceGroupId',
-        'startTime'       => 'StartTime',
+        'startTime' => 'StartTime',
     ];
 
     public function validate()

@@ -12,23 +12,26 @@ class ModifyHealthCheckConfigRequest extends Model
      * @var string
      */
     public $forwardProtocol;
+
     /**
      * @var int
      */
     public $frontendPort;
+
     /**
      * @var string
      */
     public $healthCheck;
+
     /**
      * @var string
      */
     public $instanceId;
     protected $_name = [
         'forwardProtocol' => 'ForwardProtocol',
-        'frontendPort'    => 'FrontendPort',
-        'healthCheck'     => 'HealthCheck',
-        'instanceId'      => 'InstanceId',
+        'frontendPort' => 'FrontendPort',
+        'healthCheck' => 'HealthCheck',
+        'instanceId' => 'InstanceId',
     ];
 
     public function validate()

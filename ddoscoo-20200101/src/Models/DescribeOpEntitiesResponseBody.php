@@ -13,17 +13,19 @@ class DescribeOpEntitiesResponseBody extends Model
      * @var opEntities[]
      */
     public $opEntities;
+
     /**
      * @var string
      */
     public $requestId;
+
     /**
      * @var int
      */
     public $totalCount;
     protected $_name = [
         'opEntities' => 'OpEntities',
-        'requestId'  => 'RequestId',
+        'requestId' => 'RequestId',
         'totalCount' => 'TotalCount',
     ];
 
@@ -41,7 +43,7 @@ class DescribeOpEntitiesResponseBody extends Model
         if (null !== $this->opEntities) {
             if (\is_array($this->opEntities)) {
                 $res['OpEntities'] = [];
-                $n1                = 0;
+                $n1 = 0;
                 foreach ($this->opEntities as $item1) {
                     $res['OpEntities'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -70,7 +72,7 @@ class DescribeOpEntitiesResponseBody extends Model
         if (isset($map['OpEntities'])) {
             if (!empty($map['OpEntities'])) {
                 $model->opEntities = [];
-                $n1                = 0;
+                $n1 = 0;
                 foreach ($map['OpEntities'] as $item1) {
                     $model->opEntities[$n1++] = opEntities::fromMap($item1);
                 }

@@ -13,22 +13,25 @@ class webCCRules extends Model
      * @var int
      */
     public $expires;
+
     /**
      * @var string
      */
     public $name;
+
     /**
      * @var string
      */
     public $owner;
+
     /**
      * @var ruleDetail
      */
     public $ruleDetail;
     protected $_name = [
-        'expires'    => 'Expires',
-        'name'       => 'Name',
-        'owner'      => 'Owner',
+        'expires' => 'Expires',
+        'name' => 'Name',
+        'owner' => 'Owner',
         'ruleDetail' => 'RuleDetail',
     ];
 

@@ -12,38 +12,44 @@ class AssociateWebCertRequest extends Model
      * @var string
      */
     public $cert;
+
     /**
      * @var int
      */
     public $certId;
+
     /**
      * @var string
      */
     public $certIdentifier;
+
     /**
      * @var string
      */
     public $certName;
+
     /**
      * @var string
      */
     public $certRegion;
+
     /**
      * @var string
      */
     public $domain;
+
     /**
      * @var string
      */
     public $key;
     protected $_name = [
-        'cert'           => 'Cert',
-        'certId'         => 'CertId',
+        'cert' => 'Cert',
+        'certId' => 'CertId',
         'certIdentifier' => 'CertIdentifier',
-        'certName'       => 'CertName',
-        'certRegion'     => 'CertRegion',
-        'domain'         => 'Domain',
-        'key'            => 'Key',
+        'certName' => 'CertName',
+        'certRegion' => 'CertRegion',
+        'domain' => 'Domain',
+        'key' => 'Key',
     ];
 
     public function validate()

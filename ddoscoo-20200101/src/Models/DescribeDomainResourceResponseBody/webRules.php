@@ -13,128 +13,152 @@ class webRules extends Model
      * @var string[]
      */
     public $blackList;
+
     /**
      * @var bool
      */
     public $ccEnabled;
+
     /**
      * @var bool
      */
     public $ccRuleEnabled;
+
     /**
      * @var string
      */
     public $ccTemplate;
+
     /**
      * @var string
      */
     public $certName;
+
     /**
      * @var string
      */
     public $cname;
+
     /**
      * @var string[]
      */
     public $customCiphers;
+
     /**
      * @var string
      */
     public $domain;
+
     /**
      * @var bool
      */
     public $http2Enable;
+
     /**
      * @var bool
      */
     public $http2HttpsEnable;
+
     /**
      * @var bool
      */
     public $https2HttpEnable;
+
     /**
      * @var string
      */
     public $httpsExt;
+
     /**
      * @var string[]
      */
     public $instanceIds;
+
     /**
      * @var bool
      */
     public $ocspEnabled;
+
     /**
      * @var string
      */
     public $policyMode;
+
     /**
      * @var bool
      */
     public $proxyEnabled;
+
     /**
      * @var proxyTypes[]
      */
     public $proxyTypes;
+
     /**
      * @var int
      */
     public $punishReason;
+
     /**
      * @var bool
      */
     public $punishStatus;
+
     /**
      * @var string[]
      */
     public $realServers;
+
     /**
      * @var int
      */
     public $rsType;
+
     /**
      * @var bool
      */
     public $ssl13Enabled;
+
     /**
      * @var string
      */
     public $sslCiphers;
+
     /**
      * @var string
      */
     public $sslProtocols;
+
     /**
      * @var string[]
      */
     public $whiteList;
     protected $_name = [
-        'blackList'        => 'BlackList',
-        'ccEnabled'        => 'CcEnabled',
-        'ccRuleEnabled'    => 'CcRuleEnabled',
-        'ccTemplate'       => 'CcTemplate',
-        'certName'         => 'CertName',
-        'cname'            => 'Cname',
-        'customCiphers'    => 'CustomCiphers',
-        'domain'           => 'Domain',
-        'http2Enable'      => 'Http2Enable',
+        'blackList' => 'BlackList',
+        'ccEnabled' => 'CcEnabled',
+        'ccRuleEnabled' => 'CcRuleEnabled',
+        'ccTemplate' => 'CcTemplate',
+        'certName' => 'CertName',
+        'cname' => 'Cname',
+        'customCiphers' => 'CustomCiphers',
+        'domain' => 'Domain',
+        'http2Enable' => 'Http2Enable',
         'http2HttpsEnable' => 'Http2HttpsEnable',
         'https2HttpEnable' => 'Https2HttpEnable',
-        'httpsExt'         => 'HttpsExt',
-        'instanceIds'      => 'InstanceIds',
-        'ocspEnabled'      => 'OcspEnabled',
-        'policyMode'       => 'PolicyMode',
-        'proxyEnabled'     => 'ProxyEnabled',
-        'proxyTypes'       => 'ProxyTypes',
-        'punishReason'     => 'PunishReason',
-        'punishStatus'     => 'PunishStatus',
-        'realServers'      => 'RealServers',
-        'rsType'           => 'RsType',
-        'ssl13Enabled'     => 'Ssl13Enabled',
-        'sslCiphers'       => 'SslCiphers',
-        'sslProtocols'     => 'SslProtocols',
-        'whiteList'        => 'WhiteList',
+        'httpsExt' => 'HttpsExt',
+        'instanceIds' => 'InstanceIds',
+        'ocspEnabled' => 'OcspEnabled',
+        'policyMode' => 'PolicyMode',
+        'proxyEnabled' => 'ProxyEnabled',
+        'proxyTypes' => 'ProxyTypes',
+        'punishReason' => 'PunishReason',
+        'punishStatus' => 'PunishStatus',
+        'realServers' => 'RealServers',
+        'rsType' => 'RsType',
+        'ssl13Enabled' => 'Ssl13Enabled',
+        'sslCiphers' => 'SslCiphers',
+        'sslProtocols' => 'SslProtocols',
+        'whiteList' => 'WhiteList',
     ];
 
     public function validate()
@@ -166,7 +190,7 @@ class webRules extends Model
         if (null !== $this->blackList) {
             if (\is_array($this->blackList)) {
                 $res['BlackList'] = [];
-                $n1               = 0;
+                $n1 = 0;
                 foreach ($this->blackList as $item1) {
                     $res['BlackList'][$n1++] = $item1;
                 }
@@ -196,7 +220,7 @@ class webRules extends Model
         if (null !== $this->customCiphers) {
             if (\is_array($this->customCiphers)) {
                 $res['CustomCiphers'] = [];
-                $n1                   = 0;
+                $n1 = 0;
                 foreach ($this->customCiphers as $item1) {
                     $res['CustomCiphers'][$n1++] = $item1;
                 }
@@ -226,7 +250,7 @@ class webRules extends Model
         if (null !== $this->instanceIds) {
             if (\is_array($this->instanceIds)) {
                 $res['InstanceIds'] = [];
-                $n1                 = 0;
+                $n1 = 0;
                 foreach ($this->instanceIds as $item1) {
                     $res['InstanceIds'][$n1++] = $item1;
                 }
@@ -248,7 +272,7 @@ class webRules extends Model
         if (null !== $this->proxyTypes) {
             if (\is_array($this->proxyTypes)) {
                 $res['ProxyTypes'] = [];
-                $n1                = 0;
+                $n1 = 0;
                 foreach ($this->proxyTypes as $item1) {
                     $res['ProxyTypes'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -266,7 +290,7 @@ class webRules extends Model
         if (null !== $this->realServers) {
             if (\is_array($this->realServers)) {
                 $res['RealServers'] = [];
-                $n1                 = 0;
+                $n1 = 0;
                 foreach ($this->realServers as $item1) {
                     $res['RealServers'][$n1++] = $item1;
                 }
@@ -292,7 +316,7 @@ class webRules extends Model
         if (null !== $this->whiteList) {
             if (\is_array($this->whiteList)) {
                 $res['WhiteList'] = [];
-                $n1               = 0;
+                $n1 = 0;
                 foreach ($this->whiteList as $item1) {
                     $res['WhiteList'][$n1++] = $item1;
                 }
@@ -313,7 +337,7 @@ class webRules extends Model
         if (isset($map['BlackList'])) {
             if (!empty($map['BlackList'])) {
                 $model->blackList = [];
-                $n1               = 0;
+                $n1 = 0;
                 foreach ($map['BlackList'] as $item1) {
                     $model->blackList[$n1++] = $item1;
                 }
@@ -343,7 +367,7 @@ class webRules extends Model
         if (isset($map['CustomCiphers'])) {
             if (!empty($map['CustomCiphers'])) {
                 $model->customCiphers = [];
-                $n1                   = 0;
+                $n1 = 0;
                 foreach ($map['CustomCiphers'] as $item1) {
                     $model->customCiphers[$n1++] = $item1;
                 }
@@ -373,7 +397,7 @@ class webRules extends Model
         if (isset($map['InstanceIds'])) {
             if (!empty($map['InstanceIds'])) {
                 $model->instanceIds = [];
-                $n1                 = 0;
+                $n1 = 0;
                 foreach ($map['InstanceIds'] as $item1) {
                     $model->instanceIds[$n1++] = $item1;
                 }
@@ -395,7 +419,7 @@ class webRules extends Model
         if (isset($map['ProxyTypes'])) {
             if (!empty($map['ProxyTypes'])) {
                 $model->proxyTypes = [];
-                $n1                = 0;
+                $n1 = 0;
                 foreach ($map['ProxyTypes'] as $item1) {
                     $model->proxyTypes[$n1++] = proxyTypes::fromMap($item1);
                 }
@@ -413,7 +437,7 @@ class webRules extends Model
         if (isset($map['RealServers'])) {
             if (!empty($map['RealServers'])) {
                 $model->realServers = [];
-                $n1                 = 0;
+                $n1 = 0;
                 foreach ($map['RealServers'] as $item1) {
                     $model->realServers[$n1++] = $item1;
                 }
@@ -439,7 +463,7 @@ class webRules extends Model
         if (isset($map['WhiteList'])) {
             if (!empty($map['WhiteList'])) {
                 $model->whiteList = [];
-                $n1               = 0;
+                $n1 = 0;
                 foreach ($map['WhiteList'] as $item1) {
                     $model->whiteList[$n1++] = $item1;
                 }

@@ -12,12 +12,13 @@ class DisableWebAccessLogConfigRequest extends Model
      * @var string
      */
     public $domain;
+
     /**
      * @var string
      */
     public $resourceGroupId;
     protected $_name = [
-        'domain'          => 'Domain',
+        'domain' => 'Domain',
         'resourceGroupId' => 'ResourceGroupId',
     ];
 

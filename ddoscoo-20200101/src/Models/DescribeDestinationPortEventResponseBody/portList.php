@@ -12,13 +12,14 @@ class portList extends Model
      * @var string
      */
     public $dstPort;
+
     /**
      * @var int
      */
     public $inPkts;
     protected $_name = [
         'dstPort' => 'DstPort',
-        'inPkts'  => 'InPkts',
+        'inPkts' => 'InPkts',
     ];
 
     public function validate()

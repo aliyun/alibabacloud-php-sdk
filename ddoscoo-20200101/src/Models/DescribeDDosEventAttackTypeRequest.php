@@ -12,17 +12,19 @@ class DescribeDDosEventAttackTypeRequest extends Model
      * @var string
      */
     public $eventType;
+
     /**
      * @var string
      */
     public $ip;
+
     /**
      * @var int
      */
     public $startTime;
     protected $_name = [
         'eventType' => 'EventType',
-        'ip'        => 'Ip',
+        'ip' => 'Ip',
         'startTime' => 'StartTime',
     ];
 

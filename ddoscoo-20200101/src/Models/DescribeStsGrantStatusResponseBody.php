@@ -13,13 +13,14 @@ class DescribeStsGrantStatusResponseBody extends Model
      * @var string
      */
     public $requestId;
+
     /**
      * @var stsGrant
      */
     public $stsGrant;
     protected $_name = [
         'requestId' => 'RequestId',
-        'stsGrant'  => 'StsGrant',
+        'stsGrant' => 'StsGrant',
     ];
 
     public function validate()

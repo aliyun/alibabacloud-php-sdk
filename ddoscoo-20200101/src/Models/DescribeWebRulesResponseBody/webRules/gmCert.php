@@ -12,18 +12,20 @@ class gmCert extends Model
      * @var string
      */
     public $certId;
+
     /**
      * @var int
      */
     public $gmEnable;
+
     /**
      * @var int
      */
     public $gmOnly;
     protected $_name = [
-        'certId'   => 'CertId',
+        'certId' => 'CertId',
         'gmEnable' => 'GmEnable',
-        'gmOnly'   => 'GmOnly',
+        'gmOnly' => 'GmOnly',
     ];
 
     public function validate()

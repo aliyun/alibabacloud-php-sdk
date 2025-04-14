@@ -12,12 +12,13 @@ class DescribeSceneDefenseObjectsRequest extends Model
      * @var string
      */
     public $policyId;
+
     /**
      * @var string
      */
     public $resourceGroupId;
     protected $_name = [
-        'policyId'        => 'PolicyId',
+        'policyId' => 'PolicyId',
         'resourceGroupId' => 'ResourceGroupId',
     ];
 

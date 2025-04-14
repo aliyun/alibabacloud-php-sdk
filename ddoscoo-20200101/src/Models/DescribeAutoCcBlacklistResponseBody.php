@@ -13,18 +13,20 @@ class DescribeAutoCcBlacklistResponseBody extends Model
      * @var autoCcBlacklist[]
      */
     public $autoCcBlacklist;
+
     /**
      * @var string
      */
     public $requestId;
+
     /**
      * @var int
      */
     public $totalCount;
     protected $_name = [
         'autoCcBlacklist' => 'AutoCcBlacklist',
-        'requestId'       => 'RequestId',
-        'totalCount'      => 'TotalCount',
+        'requestId' => 'RequestId',
+        'totalCount' => 'TotalCount',
     ];
 
     public function validate()
@@ -41,7 +43,7 @@ class DescribeAutoCcBlacklistResponseBody extends Model
         if (null !== $this->autoCcBlacklist) {
             if (\is_array($this->autoCcBlacklist)) {
                 $res['AutoCcBlacklist'] = [];
-                $n1                     = 0;
+                $n1 = 0;
                 foreach ($this->autoCcBlacklist as $item1) {
                     $res['AutoCcBlacklist'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -70,7 +72,7 @@ class DescribeAutoCcBlacklistResponseBody extends Model
         if (isset($map['AutoCcBlacklist'])) {
             if (!empty($map['AutoCcBlacklist'])) {
                 $model->autoCcBlacklist = [];
-                $n1                     = 0;
+                $n1 = 0;
                 foreach ($map['AutoCcBlacklist'] as $item1) {
                     $model->autoCcBlacklist[$n1++] = autoCcBlacklist::fromMap($item1);
                 }

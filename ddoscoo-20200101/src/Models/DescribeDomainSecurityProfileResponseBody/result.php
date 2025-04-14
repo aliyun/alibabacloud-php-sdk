@@ -12,13 +12,14 @@ class result extends Model
      * @var bool
      */
     public $globalEnable;
+
     /**
      * @var string
      */
     public $globalMode;
     protected $_name = [
         'globalEnable' => 'GlobalEnable',
-        'globalMode'   => 'GlobalMode',
+        'globalMode' => 'GlobalMode',
     ];
 
     public function validate()

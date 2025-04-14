@@ -12,28 +12,32 @@ class statusCode extends Model
      * @var int
      */
     public $code;
+
     /**
      * @var int
      */
     public $countThreshold;
+
     /**
      * @var bool
      */
     public $enabled;
+
     /**
      * @var int
      */
     public $ratioThreshold;
+
     /**
      * @var bool
      */
     public $useRatio;
     protected $_name = [
-        'code'           => 'Code',
+        'code' => 'Code',
         'countThreshold' => 'CountThreshold',
-        'enabled'        => 'Enabled',
+        'enabled' => 'Enabled',
         'ratioThreshold' => 'RatioThreshold',
-        'useRatio'       => 'UseRatio',
+        'useRatio' => 'UseRatio',
     ];
 
     public function validate()

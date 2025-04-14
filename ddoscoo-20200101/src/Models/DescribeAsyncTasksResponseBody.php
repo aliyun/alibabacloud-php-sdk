@@ -13,17 +13,19 @@ class DescribeAsyncTasksResponseBody extends Model
      * @var asyncTasks[]
      */
     public $asyncTasks;
+
     /**
      * @var string
      */
     public $requestId;
+
     /**
      * @var int
      */
     public $totalCount;
     protected $_name = [
         'asyncTasks' => 'AsyncTasks',
-        'requestId'  => 'RequestId',
+        'requestId' => 'RequestId',
         'totalCount' => 'TotalCount',
     ];
 
@@ -41,7 +43,7 @@ class DescribeAsyncTasksResponseBody extends Model
         if (null !== $this->asyncTasks) {
             if (\is_array($this->asyncTasks)) {
                 $res['AsyncTasks'] = [];
-                $n1                = 0;
+                $n1 = 0;
                 foreach ($this->asyncTasks as $item1) {
                     $res['AsyncTasks'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -70,7 +72,7 @@ class DescribeAsyncTasksResponseBody extends Model
         if (isset($map['AsyncTasks'])) {
             if (!empty($map['AsyncTasks'])) {
                 $model->asyncTasks = [];
-                $n1                = 0;
+                $n1 = 0;
                 foreach ($map['AsyncTasks'] as $item1) {
                     $model->asyncTasks[$n1++] = asyncTasks::fromMap($item1);
                 }

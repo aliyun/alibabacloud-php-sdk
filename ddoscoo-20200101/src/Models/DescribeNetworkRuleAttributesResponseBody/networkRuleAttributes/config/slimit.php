@@ -12,38 +12,44 @@ class slimit extends Model
      * @var int
      */
     public $bps;
+
     /**
      * @var int
      */
     public $cps;
+
     /**
      * @var int
      */
     public $cpsEnable;
+
     /**
      * @var int
      */
     public $cpsMode;
+
     /**
      * @var int
      */
     public $maxconn;
+
     /**
      * @var int
      */
     public $maxconnEnable;
+
     /**
      * @var int
      */
     public $pps;
     protected $_name = [
-        'bps'           => 'Bps',
-        'cps'           => 'Cps',
-        'cpsEnable'     => 'CpsEnable',
-        'cpsMode'       => 'CpsMode',
-        'maxconn'       => 'Maxconn',
+        'bps' => 'Bps',
+        'cps' => 'Cps',
+        'cpsEnable' => 'CpsEnable',
+        'cpsMode' => 'CpsMode',
+        'maxconn' => 'Maxconn',
         'maxconnEnable' => 'MaxconnEnable',
-        'pps'           => 'Pps',
+        'pps' => 'Pps',
     ];
 
     public function validate()

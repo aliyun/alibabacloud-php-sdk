@@ -13,13 +13,14 @@ class DescribeDomainH2FingerprintResponseBody extends Model
      * @var domainH2Fp[]
      */
     public $domainH2Fp;
+
     /**
      * @var string
      */
     public $requestId;
     protected $_name = [
         'domainH2Fp' => 'DomainH2Fp',
-        'requestId'  => 'RequestId',
+        'requestId' => 'RequestId',
     ];
 
     public function validate()
@@ -36,7 +37,7 @@ class DescribeDomainH2FingerprintResponseBody extends Model
         if (null !== $this->domainH2Fp) {
             if (\is_array($this->domainH2Fp)) {
                 $res['DomainH2Fp'] = [];
-                $n1                = 0;
+                $n1 = 0;
                 foreach ($this->domainH2Fp as $item1) {
                     $res['DomainH2Fp'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -61,7 +62,7 @@ class DescribeDomainH2FingerprintResponseBody extends Model
         if (isset($map['DomainH2Fp'])) {
             if (!empty($map['DomainH2Fp'])) {
                 $model->domainH2Fp = [];
-                $n1                = 0;
+                $n1 = 0;
                 foreach ($map['DomainH2Fp'] as $item1) {
                     $model->domainH2Fp[$n1++] = domainH2Fp::fromMap($item1);
                 }

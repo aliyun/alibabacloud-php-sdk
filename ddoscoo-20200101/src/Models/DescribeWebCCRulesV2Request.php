@@ -12,22 +12,25 @@ class DescribeWebCCRulesV2Request extends Model
      * @var string
      */
     public $domain;
+
     /**
      * @var string
      */
     public $offset;
+
     /**
      * @var string
      */
     public $owner;
+
     /**
      * @var string
      */
     public $pageSize;
     protected $_name = [
-        'domain'   => 'Domain',
-        'offset'   => 'Offset',
-        'owner'    => 'Owner',
+        'domain' => 'Domain',
+        'offset' => 'Offset',
+        'owner' => 'Owner',
         'pageSize' => 'PageSize',
     ];
 

@@ -13,13 +13,14 @@ class DescribePortAutoCcStatusResponseBody extends Model
      * @var portAutoCcStatus[]
      */
     public $portAutoCcStatus;
+
     /**
      * @var string
      */
     public $requestId;
     protected $_name = [
         'portAutoCcStatus' => 'PortAutoCcStatus',
-        'requestId'        => 'RequestId',
+        'requestId' => 'RequestId',
     ];
 
     public function validate()
@@ -36,7 +37,7 @@ class DescribePortAutoCcStatusResponseBody extends Model
         if (null !== $this->portAutoCcStatus) {
             if (\is_array($this->portAutoCcStatus)) {
                 $res['PortAutoCcStatus'] = [];
-                $n1                      = 0;
+                $n1 = 0;
                 foreach ($this->portAutoCcStatus as $item1) {
                     $res['PortAutoCcStatus'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -61,7 +62,7 @@ class DescribePortAutoCcStatusResponseBody extends Model
         if (isset($map['PortAutoCcStatus'])) {
             if (!empty($map['PortAutoCcStatus'])) {
                 $model->portAutoCcStatus = [];
-                $n1                      = 0;
+                $n1 = 0;
                 foreach ($map['PortAutoCcStatus'] as $item1) {
                     $model->portAutoCcStatus[$n1++] = portAutoCcStatus::fromMap($item1);
                 }

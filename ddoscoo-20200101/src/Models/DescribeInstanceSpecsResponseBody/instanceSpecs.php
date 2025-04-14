@@ -12,88 +12,104 @@ class instanceSpecs extends Model
      * @var int
      */
     public $bandwidthMbps;
+
     /**
      * @var int
      */
     public $baseBandwidth;
+
     /**
      * @var int
      */
     public $connLimit;
+
     /**
      * @var int
      */
     public $cpsLimit;
+
     /**
      * @var int
      */
     public $defenseCount;
+
     /**
      * @var int
      */
     public $domainLimit;
+
     /**
      * @var int
      */
     public $elasticBandwidth;
+
     /**
      * @var int
      */
     public $elasticBw;
+
     /**
      * @var string
      */
     public $elasticBwModel;
+
     /**
      * @var int
      */
     public $elasticQps;
+
     /**
      * @var string
      */
     public $elasticQpsMode;
+
     /**
      * @var string
      */
     public $functionVersion;
+
     /**
      * @var string
      */
     public $instanceId;
+
     /**
      * @var int
      */
     public $portLimit;
+
     /**
      * @var int
      */
     public $qpsLimit;
+
     /**
      * @var int
      */
     public $realLimitBw;
+
     /**
      * @var int
      */
     public $siteLimit;
     protected $_name = [
-        'bandwidthMbps'    => 'BandwidthMbps',
-        'baseBandwidth'    => 'BaseBandwidth',
-        'connLimit'        => 'ConnLimit',
-        'cpsLimit'         => 'CpsLimit',
-        'defenseCount'     => 'DefenseCount',
-        'domainLimit'      => 'DomainLimit',
+        'bandwidthMbps' => 'BandwidthMbps',
+        'baseBandwidth' => 'BaseBandwidth',
+        'connLimit' => 'ConnLimit',
+        'cpsLimit' => 'CpsLimit',
+        'defenseCount' => 'DefenseCount',
+        'domainLimit' => 'DomainLimit',
         'elasticBandwidth' => 'ElasticBandwidth',
-        'elasticBw'        => 'ElasticBw',
-        'elasticBwModel'   => 'ElasticBwModel',
-        'elasticQps'       => 'ElasticQps',
-        'elasticQpsMode'   => 'ElasticQpsMode',
-        'functionVersion'  => 'FunctionVersion',
-        'instanceId'       => 'InstanceId',
-        'portLimit'        => 'PortLimit',
-        'qpsLimit'         => 'QpsLimit',
-        'realLimitBw'      => 'RealLimitBw',
-        'siteLimit'        => 'SiteLimit',
+        'elasticBw' => 'ElasticBw',
+        'elasticBwModel' => 'ElasticBwModel',
+        'elasticQps' => 'ElasticQps',
+        'elasticQpsMode' => 'ElasticQpsMode',
+        'functionVersion' => 'FunctionVersion',
+        'instanceId' => 'InstanceId',
+        'portLimit' => 'PortLimit',
+        'qpsLimit' => 'QpsLimit',
+        'realLimitBw' => 'RealLimitBw',
+        'siteLimit' => 'SiteLimit',
     ];
 
     public function validate()

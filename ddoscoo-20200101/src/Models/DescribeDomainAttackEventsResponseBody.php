@@ -13,18 +13,20 @@ class DescribeDomainAttackEventsResponseBody extends Model
      * @var domainAttackEvents[]
      */
     public $domainAttackEvents;
+
     /**
      * @var string
      */
     public $requestId;
+
     /**
      * @var int
      */
     public $totalCount;
     protected $_name = [
         'domainAttackEvents' => 'DomainAttackEvents',
-        'requestId'          => 'RequestId',
-        'totalCount'         => 'TotalCount',
+        'requestId' => 'RequestId',
+        'totalCount' => 'TotalCount',
     ];
 
     public function validate()
@@ -41,7 +43,7 @@ class DescribeDomainAttackEventsResponseBody extends Model
         if (null !== $this->domainAttackEvents) {
             if (\is_array($this->domainAttackEvents)) {
                 $res['DomainAttackEvents'] = [];
-                $n1                        = 0;
+                $n1 = 0;
                 foreach ($this->domainAttackEvents as $item1) {
                     $res['DomainAttackEvents'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -70,7 +72,7 @@ class DescribeDomainAttackEventsResponseBody extends Model
         if (isset($map['DomainAttackEvents'])) {
             if (!empty($map['DomainAttackEvents'])) {
                 $model->domainAttackEvents = [];
-                $n1                        = 0;
+                $n1 = 0;
                 foreach ($map['DomainAttackEvents'] as $item1) {
                     $model->domainAttackEvents[$n1++] = domainAttackEvents::fromMap($item1);
                 }

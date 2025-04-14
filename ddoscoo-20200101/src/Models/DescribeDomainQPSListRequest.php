@@ -12,28 +12,32 @@ class DescribeDomainQPSListRequest extends Model
      * @var string
      */
     public $domain;
+
     /**
      * @var int
      */
     public $endTime;
+
     /**
      * @var int
      */
     public $interval;
+
     /**
      * @var string
      */
     public $resourceGroupId;
+
     /**
      * @var int
      */
     public $startTime;
     protected $_name = [
-        'domain'          => 'Domain',
-        'endTime'         => 'EndTime',
-        'interval'        => 'Interval',
+        'domain' => 'Domain',
+        'endTime' => 'EndTime',
+        'interval' => 'Interval',
         'resourceGroupId' => 'ResourceGroupId',
-        'startTime'       => 'StartTime',
+        'startTime' => 'StartTime',
     ];
 
     public function validate()

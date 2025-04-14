@@ -12,38 +12,44 @@ class attribute extends Model
      * @var int
      */
     public $connectTimeout;
+
     /**
      * @var int
      */
     public $failTimeout;
+
     /**
      * @var int
      */
     public $maxFails;
+
     /**
      * @var string
      */
     public $mode;
+
     /**
      * @var int
      */
     public $readTimeout;
+
     /**
      * @var int
      */
     public $sendTimeout;
+
     /**
      * @var int
      */
     public $weight;
     protected $_name = [
         'connectTimeout' => 'ConnectTimeout',
-        'failTimeout'    => 'FailTimeout',
-        'maxFails'       => 'MaxFails',
-        'mode'           => 'Mode',
-        'readTimeout'    => 'ReadTimeout',
-        'sendTimeout'    => 'SendTimeout',
-        'weight'         => 'Weight',
+        'failTimeout' => 'FailTimeout',
+        'maxFails' => 'MaxFails',
+        'mode' => 'Mode',
+        'readTimeout' => 'ReadTimeout',
+        'sendTimeout' => 'SendTimeout',
+        'weight' => 'Weight',
     ];
 
     public function validate()

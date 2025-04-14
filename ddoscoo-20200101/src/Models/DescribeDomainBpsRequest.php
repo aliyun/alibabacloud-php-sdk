@@ -12,27 +12,31 @@ class DescribeDomainBpsRequest extends Model
      * @var string
      */
     public $domain;
+
     /**
      * @var int
      */
     public $endTime;
+
     /**
      * @var int
      */
     public $interval;
+
     /**
      * @var string
      */
     public $region;
+
     /**
      * @var int
      */
     public $startTime;
     protected $_name = [
-        'domain'    => 'Domain',
-        'endTime'   => 'EndTime',
-        'interval'  => 'Interval',
-        'region'    => 'Region',
+        'domain' => 'Domain',
+        'endTime' => 'EndTime',
+        'interval' => 'Interval',
+        'region' => 'Region',
         'startTime' => 'StartTime',
     ];
 

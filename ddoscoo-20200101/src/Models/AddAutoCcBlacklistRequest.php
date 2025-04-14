@@ -12,16 +12,18 @@ class AddAutoCcBlacklistRequest extends Model
      * @var string
      */
     public $blacklist;
+
     /**
      * @var int
      */
     public $expireTime;
+
     /**
      * @var string
      */
     public $instanceId;
     protected $_name = [
-        'blacklist'  => 'Blacklist',
+        'blacklist' => 'Blacklist',
         'expireTime' => 'ExpireTime',
         'instanceId' => 'InstanceId',
     ];

@@ -12,22 +12,25 @@ class portAutoCcStatus extends Model
      * @var string
      */
     public $mode;
+
     /**
      * @var string
      */
     public $switch;
+
     /**
      * @var string
      */
     public $webMode;
+
     /**
      * @var string
      */
     public $webSwitch;
     protected $_name = [
-        'mode'      => 'Mode',
-        'switch'    => 'Switch',
-        'webMode'   => 'WebMode',
+        'mode' => 'Mode',
+        'switch' => 'Switch',
+        'webMode' => 'WebMode',
         'webSwitch' => 'WebSwitch',
     ];
 

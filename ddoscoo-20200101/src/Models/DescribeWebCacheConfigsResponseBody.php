@@ -13,13 +13,14 @@ class DescribeWebCacheConfigsResponseBody extends Model
      * @var domainCacheConfigs[]
      */
     public $domainCacheConfigs;
+
     /**
      * @var string
      */
     public $requestId;
     protected $_name = [
         'domainCacheConfigs' => 'DomainCacheConfigs',
-        'requestId'          => 'RequestId',
+        'requestId' => 'RequestId',
     ];
 
     public function validate()
@@ -36,7 +37,7 @@ class DescribeWebCacheConfigsResponseBody extends Model
         if (null !== $this->domainCacheConfigs) {
             if (\is_array($this->domainCacheConfigs)) {
                 $res['DomainCacheConfigs'] = [];
-                $n1                        = 0;
+                $n1 = 0;
                 foreach ($this->domainCacheConfigs as $item1) {
                     $res['DomainCacheConfigs'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -61,7 +62,7 @@ class DescribeWebCacheConfigsResponseBody extends Model
         if (isset($map['DomainCacheConfigs'])) {
             if (!empty($map['DomainCacheConfigs'])) {
                 $model->domainCacheConfigs = [];
-                $n1                        = 0;
+                $n1 = 0;
                 foreach ($map['DomainCacheConfigs'] as $item1) {
                     $model->domainCacheConfigs[$n1++] = domainCacheConfigs::fromMap($item1);
                 }

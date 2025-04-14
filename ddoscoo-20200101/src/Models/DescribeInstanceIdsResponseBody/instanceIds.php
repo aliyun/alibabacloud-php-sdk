@@ -12,28 +12,32 @@ class instanceIds extends Model
      * @var int
      */
     public $edition;
+
     /**
      * @var string
      */
     public $instanceId;
+
     /**
      * @var string
      */
     public $ipMode;
+
     /**
      * @var string
      */
     public $ipVersion;
+
     /**
      * @var string
      */
     public $remark;
     protected $_name = [
-        'edition'    => 'Edition',
+        'edition' => 'Edition',
         'instanceId' => 'InstanceId',
-        'ipMode'     => 'IpMode',
-        'ipVersion'  => 'IpVersion',
-        'remark'     => 'Remark',
+        'ipMode' => 'IpMode',
+        'ipVersion' => 'IpVersion',
+        'remark' => 'Remark',
     ];
 
     public function validate()

@@ -12,18 +12,20 @@ class DescribeDomainTopAttackListRequest extends Model
      * @var int
      */
     public $endTime;
+
     /**
      * @var string
      */
     public $resourceGroupId;
+
     /**
      * @var int
      */
     public $startTime;
     protected $_name = [
-        'endTime'         => 'EndTime',
+        'endTime' => 'EndTime',
         'resourceGroupId' => 'ResourceGroupId',
-        'startTime'       => 'StartTime',
+        'startTime' => 'StartTime',
     ];
 
     public function validate()

@@ -12,28 +12,32 @@ class DescribeNetworkRulesRequest extends Model
      * @var string
      */
     public $forwardProtocol;
+
     /**
      * @var int
      */
     public $frontendPort;
+
     /**
      * @var string
      */
     public $instanceId;
+
     /**
      * @var int
      */
     public $pageNumber;
+
     /**
      * @var int
      */
     public $pageSize;
     protected $_name = [
         'forwardProtocol' => 'ForwardProtocol',
-        'frontendPort'    => 'FrontendPort',
-        'instanceId'      => 'InstanceId',
-        'pageNumber'      => 'PageNumber',
-        'pageSize'        => 'PageSize',
+        'frontendPort' => 'FrontendPort',
+        'instanceId' => 'InstanceId',
+        'pageNumber' => 'PageNumber',
+        'pageSize' => 'PageSize',
     ];
 
     public function validate()

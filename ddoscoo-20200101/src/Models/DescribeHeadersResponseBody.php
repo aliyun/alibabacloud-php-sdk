@@ -13,13 +13,14 @@ class DescribeHeadersResponseBody extends Model
      * @var customHeader
      */
     public $customHeader;
+
     /**
      * @var string
      */
     public $requestId;
     protected $_name = [
         'customHeader' => 'CustomHeader',
-        'requestId'    => 'RequestId',
+        'requestId' => 'RequestId',
     ];
 
     public function validate()

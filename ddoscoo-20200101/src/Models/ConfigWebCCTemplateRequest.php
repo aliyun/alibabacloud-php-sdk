@@ -12,18 +12,20 @@ class ConfigWebCCTemplateRequest extends Model
      * @var string
      */
     public $domain;
+
     /**
      * @var string
      */
     public $resourceGroupId;
+
     /**
      * @var string
      */
     public $template;
     protected $_name = [
-        'domain'          => 'Domain',
+        'domain' => 'Domain',
         'resourceGroupId' => 'ResourceGroupId',
-        'template'        => 'Template',
+        'template' => 'Template',
     ];
 
     public function validate()
