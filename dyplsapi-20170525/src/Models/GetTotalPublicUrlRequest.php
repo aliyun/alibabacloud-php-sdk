@@ -12,38 +12,44 @@ class GetTotalPublicUrlRequest extends Model
      * @var string
      */
     public $callId;
+
     /**
      * @var string
      */
     public $callTime;
+
     /**
      * @var bool
      */
     public $checkSubs;
+
     /**
      * @var int
      */
     public $ownerId;
+
     /**
      * @var string
      */
     public $partnerKey;
+
     /**
      * @var string
      */
     public $resourceOwnerAccount;
+
     /**
      * @var int
      */
     public $resourceOwnerId;
     protected $_name = [
-        'callId'               => 'CallId',
-        'callTime'             => 'CallTime',
-        'checkSubs'            => 'CheckSubs',
-        'ownerId'              => 'OwnerId',
-        'partnerKey'           => 'PartnerKey',
+        'callId' => 'CallId',
+        'callTime' => 'CallTime',
+        'checkSubs' => 'CheckSubs',
+        'ownerId' => 'OwnerId',
+        'partnerKey' => 'PartnerKey',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
-        'resourceOwnerId'      => 'ResourceOwnerId',
+        'resourceOwnerId' => 'ResourceOwnerId',
     ];
 
     public function validate()

@@ -12,83 +12,98 @@ class CreatePickUpWaybillShrinkRequest extends Model
      * @var string
      */
     public $appointGotEndTime;
+
     /**
      * @var string
      */
     public $appointGotStartTime;
+
     /**
      * @var int
      */
     public $bizType;
+
     /**
      * @var string
      */
     public $consigneeAddressShrink;
+
     /**
      * @var string
      */
     public $consigneeMobile;
+
     /**
      * @var string
      */
     public $consigneeName;
+
     /**
      * @var string
      */
     public $consigneePhone;
+
     /**
      * @var string
      */
     public $cpCode;
+
     /**
      * @var string
      */
     public $goodsInfosShrink;
+
     /**
      * @var string
      */
     public $orderChannels;
+
     /**
      * @var string
      */
     public $outerOrderCode;
+
     /**
      * @var string
      */
     public $remark;
+
     /**
      * @var string
      */
     public $sendAddressShrink;
+
     /**
      * @var string
      */
     public $sendMobile;
+
     /**
      * @var string
      */
     public $sendName;
+
     /**
      * @var string
      */
     public $sendPhone;
     protected $_name = [
-        'appointGotEndTime'      => 'AppointGotEndTime',
-        'appointGotStartTime'    => 'AppointGotStartTime',
-        'bizType'                => 'BizType',
+        'appointGotEndTime' => 'AppointGotEndTime',
+        'appointGotStartTime' => 'AppointGotStartTime',
+        'bizType' => 'BizType',
         'consigneeAddressShrink' => 'ConsigneeAddress',
-        'consigneeMobile'        => 'ConsigneeMobile',
-        'consigneeName'          => 'ConsigneeName',
-        'consigneePhone'         => 'ConsigneePhone',
-        'cpCode'                 => 'CpCode',
-        'goodsInfosShrink'       => 'GoodsInfos',
-        'orderChannels'          => 'OrderChannels',
-        'outerOrderCode'         => 'OuterOrderCode',
-        'remark'                 => 'Remark',
-        'sendAddressShrink'      => 'SendAddress',
-        'sendMobile'             => 'SendMobile',
-        'sendName'               => 'SendName',
-        'sendPhone'              => 'SendPhone',
+        'consigneeMobile' => 'ConsigneeMobile',
+        'consigneeName' => 'ConsigneeName',
+        'consigneePhone' => 'ConsigneePhone',
+        'cpCode' => 'CpCode',
+        'goodsInfosShrink' => 'GoodsInfos',
+        'orderChannels' => 'OrderChannels',
+        'outerOrderCode' => 'OuterOrderCode',
+        'remark' => 'Remark',
+        'sendAddressShrink' => 'SendAddress',
+        'sendMobile' => 'SendMobile',
+        'sendName' => 'SendName',
+        'sendPhone' => 'SendPhone',
     ];
 
     public function validate()

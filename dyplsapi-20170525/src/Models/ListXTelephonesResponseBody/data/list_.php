@@ -12,53 +12,62 @@ class list_ extends Model
      * @var string
      */
     public $authMsg;
+
     /**
      * @var string
      */
     public $bindTime;
+
     /**
      * @var string
      */
     public $buyTime;
+
     /**
      * @var string
      */
     public $customerPoolKey;
+
     /**
      * @var string
      */
     public $customerPoolName;
+
     /**
      * @var string
      */
     public $releaseTime;
+
     /**
      * @var string
      */
     public $smsStatus;
+
     /**
      * @var string
      */
     public $telephone;
+
     /**
      * @var string
      */
     public $telephoneStatus;
+
     /**
      * @var string
      */
     public $unbindTime;
     protected $_name = [
-        'authMsg'          => 'AuthMsg',
-        'bindTime'         => 'BindTime',
-        'buyTime'          => 'BuyTime',
-        'customerPoolKey'  => 'CustomerPoolKey',
+        'authMsg' => 'AuthMsg',
+        'bindTime' => 'BindTime',
+        'buyTime' => 'BuyTime',
+        'customerPoolKey' => 'CustomerPoolKey',
         'customerPoolName' => 'CustomerPoolName',
-        'releaseTime'      => 'ReleaseTime',
-        'smsStatus'        => 'SmsStatus',
-        'telephone'        => 'Telephone',
-        'telephoneStatus'  => 'TelephoneStatus',
-        'unbindTime'       => 'UnbindTime',
+        'releaseTime' => 'ReleaseTime',
+        'smsStatus' => 'SmsStatus',
+        'telephone' => 'Telephone',
+        'telephoneStatus' => 'TelephoneStatus',
+        'unbindTime' => 'UnbindTime',
     ];
 
     public function validate()

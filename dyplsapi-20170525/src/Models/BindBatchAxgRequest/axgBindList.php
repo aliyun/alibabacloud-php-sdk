@@ -12,73 +12,86 @@ class axgBindList extends Model
      * @var string
      */
     public $ASRModelId;
+
     /**
      * @var bool
      */
     public $ASRStatus;
+
     /**
      * @var int
      */
     public $callDisplayType;
+
     /**
      * @var string
      */
     public $callRestrict;
+
     /**
      * @var string
      */
     public $expectCity;
+
     /**
      * @var string
      */
     public $expiration;
+
     /**
      * @var string
      */
     public $groupId;
+
     /**
      * @var bool
      */
     public $isRecordingEnabled;
+
     /**
      * @var string
      */
     public $outId;
+
     /**
      * @var string
      */
     public $outOrderId;
+
     /**
      * @var string
      */
     public $phoneNoA;
+
     /**
      * @var string
      */
     public $phoneNoB;
+
     /**
      * @var string
      */
     public $phoneNoX;
+
     /**
      * @var string
      */
     public $ringConfig;
     protected $_name = [
-        'ASRModelId'         => 'ASRModelId',
-        'ASRStatus'          => 'ASRStatus',
-        'callDisplayType'    => 'CallDisplayType',
-        'callRestrict'       => 'CallRestrict',
-        'expectCity'         => 'ExpectCity',
-        'expiration'         => 'Expiration',
-        'groupId'            => 'GroupId',
+        'ASRModelId' => 'ASRModelId',
+        'ASRStatus' => 'ASRStatus',
+        'callDisplayType' => 'CallDisplayType',
+        'callRestrict' => 'CallRestrict',
+        'expectCity' => 'ExpectCity',
+        'expiration' => 'Expiration',
+        'groupId' => 'GroupId',
         'isRecordingEnabled' => 'IsRecordingEnabled',
-        'outId'              => 'OutId',
-        'outOrderId'         => 'OutOrderId',
-        'phoneNoA'           => 'PhoneNoA',
-        'phoneNoB'           => 'PhoneNoB',
-        'phoneNoX'           => 'PhoneNoX',
-        'ringConfig'         => 'RingConfig',
+        'outId' => 'OutId',
+        'outOrderId' => 'OutOrderId',
+        'phoneNoA' => 'PhoneNoA',
+        'phoneNoB' => 'PhoneNoB',
+        'phoneNoX' => 'PhoneNoX',
+        'ringConfig' => 'RingConfig',
     ];
 
     public function validate()

@@ -12,33 +12,38 @@ class QueryPhoneNoAByTrackNoRequest extends Model
      * @var string
      */
     public $cabinetNo;
+
     /**
      * @var int
      */
     public $ownerId;
+
     /**
      * @var string
      */
     public $phoneNoX;
+
     /**
      * @var string
      */
     public $resourceOwnerAccount;
+
     /**
      * @var int
      */
     public $resourceOwnerId;
+
     /**
      * @var string
      */
     public $trackNo;
     protected $_name = [
-        'cabinetNo'            => 'CabinetNo',
-        'ownerId'              => 'OwnerId',
-        'phoneNoX'             => 'PhoneNoX',
+        'cabinetNo' => 'CabinetNo',
+        'ownerId' => 'OwnerId',
+        'phoneNoX' => 'PhoneNoX',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
-        'resourceOwnerId'      => 'ResourceOwnerId',
-        'trackNo'              => 'trackNo',
+        'resourceOwnerId' => 'ResourceOwnerId',
+        'trackNo' => 'trackNo',
     ];
 
     public function validate()

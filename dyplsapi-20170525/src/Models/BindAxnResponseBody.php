@@ -13,22 +13,25 @@ class BindAxnResponseBody extends Model
      * @var string
      */
     public $code;
+
     /**
      * @var string
      */
     public $message;
+
     /**
      * @var string
      */
     public $requestId;
+
     /**
      * @var secretBindDTO
      */
     public $secretBindDTO;
     protected $_name = [
-        'code'          => 'Code',
-        'message'       => 'Message',
-        'requestId'     => 'RequestId',
+        'code' => 'Code',
+        'message' => 'Message',
+        'requestId' => 'RequestId',
         'secretBindDTO' => 'SecretBindDTO',
     ];
 

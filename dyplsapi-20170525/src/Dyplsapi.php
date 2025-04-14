@@ -33,6 +33,8 @@ use AlibabaCloud\SDK\Dyplsapi\V20170525\Models\ConfigXResponse;
 use AlibabaCloud\SDK\Dyplsapi\V20170525\Models\ConfigXShrinkRequest;
 use AlibabaCloud\SDK\Dyplsapi\V20170525\Models\CreateAxgGroupRequest;
 use AlibabaCloud\SDK\Dyplsapi\V20170525\Models\CreateAxgGroupResponse;
+use AlibabaCloud\SDK\Dyplsapi\V20170525\Models\CreatePhoneNoAReportRequest;
+use AlibabaCloud\SDK\Dyplsapi\V20170525\Models\CreatePhoneNoAReportResponse;
 use AlibabaCloud\SDK\Dyplsapi\V20170525\Models\CreatePickUpWaybillPreQueryRequest;
 use AlibabaCloud\SDK\Dyplsapi\V20170525\Models\CreatePickUpWaybillPreQueryResponse;
 use AlibabaCloud\SDK\Dyplsapi\V20170525\Models\CreatePickUpWaybillPreQueryShrinkRequest;
@@ -45,6 +47,8 @@ use AlibabaCloud\SDK\Dyplsapi\V20170525\Models\DeleteAxgGroupRequest;
 use AlibabaCloud\SDK\Dyplsapi\V20170525\Models\DeleteAxgGroupResponse;
 use AlibabaCloud\SDK\Dyplsapi\V20170525\Models\DeleteSecretBlacklistRequest;
 use AlibabaCloud\SDK\Dyplsapi\V20170525\Models\DeleteSecretBlacklistResponse;
+use AlibabaCloud\SDK\Dyplsapi\V20170525\Models\GetDyplsOSSInfoForUploadFileRequest;
+use AlibabaCloud\SDK\Dyplsapi\V20170525\Models\GetDyplsOSSInfoForUploadFileResponse;
 use AlibabaCloud\SDK\Dyplsapi\V20170525\Models\GetSecretAsrDetailRequest;
 use AlibabaCloud\SDK\Dyplsapi\V20170525\Models\GetSecretAsrDetailResponse;
 use AlibabaCloud\SDK\Dyplsapi\V20170525\Models\GetTotalPublicUrlRequest;
@@ -98,7 +102,7 @@ class Dyplsapi extends OpenApiClient
     {
         parent::__construct($config);
         $this->_signatureAlgorithm = 'v2';
-        $this->_endpointRule       = 'central';
+        $this->_endpointRule = 'central';
         $this->checkConfig($config);
         $this->_endpoint = $this->getEndpoint('dyplsapi', $this->_regionId, $this->_endpointRule, $this->_network, $this->_suffix, $this->_endpointMap, $this->_endpoint);
     }
@@ -136,6 +140,7 @@ class Dyplsapi extends OpenApiClient
      *
      * @param request - AddAxnTrackNoRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns AddAxnTrackNoResponse
      *
      * @param AddAxnTrackNoRequest $request
@@ -179,15 +184,15 @@ class Dyplsapi extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'AddAxnTrackNo',
-            'version'     => '2017-05-25',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'AddAxnTrackNo',
+            'version' => '2017-05-25',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return AddAxnTrackNoResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -204,6 +209,7 @@ class Dyplsapi extends OpenApiClient
      * You can call this operation up to 5,000 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
      *
      * @param request - AddAxnTrackNoRequest
+     *
      * @returns AddAxnTrackNoResponse
      *
      * @param AddAxnTrackNoRequest $request
@@ -226,6 +232,7 @@ class Dyplsapi extends OpenApiClient
      *
      * @param request - AddSecretBlacklistRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns AddSecretBlacklistResponse
      *
      * @param AddSecretBlacklistRequest $request
@@ -261,15 +268,15 @@ class Dyplsapi extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'AddSecretBlacklist',
-            'version'     => '2017-05-25',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'AddSecretBlacklist',
+            'version' => '2017-05-25',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return AddSecretBlacklistResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -286,6 +293,7 @@ class Dyplsapi extends OpenApiClient
      * You can call this operation up to 100 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
      *
      * @param request - AddSecretBlacklistRequest
+     *
      * @returns AddSecretBlacklistResponse
      *
      * @param AddSecretBlacklistRequest $request
@@ -304,6 +312,7 @@ class Dyplsapi extends OpenApiClient
      *
      * @param request - BindAXBCallRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns BindAXBCallResponse
      *
      * @param BindAXBCallRequest $request
@@ -359,15 +368,15 @@ class Dyplsapi extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'BindAXBCall',
-            'version'     => '2017-05-25',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'BindAXBCall',
+            'version' => '2017-05-25',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return BindAXBCallResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -380,6 +389,7 @@ class Dyplsapi extends OpenApiClient
      * 调用本接口向工作号平台请求为员工B的工作号X建立呼叫绑定（B，X，A），允许B通过X呼叫客户A.
      *
      * @param request - BindAXBCallRequest
+     *
      * @returns BindAXBCallResponse
      *
      * @param BindAXBCallRequest $request
@@ -403,6 +413,7 @@ class Dyplsapi extends OpenApiClient
      *
      * @param request - BindAxbRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns BindAxbResponse
      *
      * @param BindAxbRequest $request
@@ -494,15 +505,15 @@ class Dyplsapi extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'BindAxb',
-            'version'     => '2017-05-25',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'BindAxb',
+            'version' => '2017-05-25',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return BindAxbResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -520,6 +531,7 @@ class Dyplsapi extends OpenApiClient
      * You can call this operation up to 5,000 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
      *
      * @param request - BindAxbRequest
+     *
      * @returns BindAxbResponse
      *
      * @param BindAxbRequest $request
@@ -543,6 +555,7 @@ class Dyplsapi extends OpenApiClient
      *
      * @param request - BindAxgRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns BindAxgResponse
      *
      * @param BindAxgRequest $request
@@ -630,15 +643,15 @@ class Dyplsapi extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'BindAxg',
-            'version'     => '2017-05-25',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'BindAxg',
+            'version' => '2017-05-25',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return BindAxgResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -656,6 +669,7 @@ class Dyplsapi extends OpenApiClient
      * You can call this operation up to 5,000 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
      *
      * @param request - BindAxgRequest
+     *
      * @returns BindAxgResponse
      *
      * @param BindAxgRequest $request
@@ -677,6 +691,7 @@ class Dyplsapi extends OpenApiClient
      *
      * @param request - BindAxnRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns BindAxnResponse
      *
      * @param BindAxnRequest $request
@@ -772,15 +787,15 @@ class Dyplsapi extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'BindAxn',
-            'version'     => '2017-05-25',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'BindAxn',
+            'version' => '2017-05-25',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return BindAxnResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -796,6 +811,7 @@ class Dyplsapi extends OpenApiClient
      * >  An AXN private number is a dedicated private number assigned to phone number A. When an N-side number is used to call phone number X, the call is forwarded to phone number A.
      *
      * @param request - BindAxnRequest
+     *
      * @returns BindAxnResponse
      *
      * @param BindAxnRequest $request
@@ -819,6 +835,7 @@ class Dyplsapi extends OpenApiClient
      *
      * @param request - BindAxnExtensionRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns BindAxnExtensionResponse
      *
      * @param BindAxnExtensionRequest $request
@@ -910,15 +927,15 @@ class Dyplsapi extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'BindAxnExtension',
-            'version'     => '2017-05-25',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'BindAxnExtension',
+            'version' => '2017-05-25',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return BindAxnExtensionResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -936,6 +953,7 @@ class Dyplsapi extends OpenApiClient
      * You can call this operation up to 5,000 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
      *
      * @param request - BindAxnExtensionRequest
+     *
      * @returns BindAxnExtensionResponse
      *
      * @param BindAxnExtensionRequest $request
@@ -952,6 +970,7 @@ class Dyplsapi extends OpenApiClient
     /**
      * @param tmpReq - BindBatchAxgRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns BindBatchAxgResponse
      *
      * @param BindBatchAxgRequest $tmpReq
@@ -993,15 +1012,15 @@ class Dyplsapi extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'BindBatchAxg',
-            'version'     => '2017-05-25',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'BindBatchAxg',
+            'version' => '2017-05-25',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return BindBatchAxgResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -1012,6 +1031,7 @@ class Dyplsapi extends OpenApiClient
 
     /**
      * @param request - BindBatchAxgRequest
+     *
      * @returns BindBatchAxgResponse
      *
      * @param BindBatchAxgRequest $request
@@ -1030,6 +1050,7 @@ class Dyplsapi extends OpenApiClient
      *
      * @param request - BindXBRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns BindXBResponse
      *
      * @param BindXBRequest  $request
@@ -1081,15 +1102,15 @@ class Dyplsapi extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'BindXB',
-            'version'     => '2017-05-25',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'BindXB',
+            'version' => '2017-05-25',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return BindXBResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -1102,6 +1123,7 @@ class Dyplsapi extends OpenApiClient
      * 平台指定工作号X 和员工号B建立关联，完成X 实名认证，绑定生效后，所有X 的呼叫都会转接到B.
      *
      * @param request - BindXBRequest
+     *
      * @returns BindXBResponse
      *
      * @param BindXBRequest $request
@@ -1126,6 +1148,7 @@ class Dyplsapi extends OpenApiClient
      *
      * @param request - BuySecretNoRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns BuySecretNoResponse
      *
      * @param BuySecretNoRequest $request
@@ -1173,15 +1196,15 @@ class Dyplsapi extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'BuySecretNo',
-            'version'     => '2017-05-25',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'BuySecretNo',
+            'version' => '2017-05-25',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return BuySecretNoResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -1200,6 +1223,7 @@ class Dyplsapi extends OpenApiClient
      * *   The account used to purchase a phone number must be an enterprise account that has passed real-name verification. For more information about how to perform real-name verification, see [Enterprise verification FAQs](https://help.aliyun.com/document_detail/37172.html).
      *
      * @param request - BuySecretNoRequest
+     *
      * @returns BuySecretNoResponse
      *
      * @param BuySecretNoRequest $request
@@ -1222,6 +1246,7 @@ class Dyplsapi extends OpenApiClient
      *
      * @param request - CancelPickUpWaybillRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns CancelPickUpWaybillResponse
      *
      * @param CancelPickUpWaybillRequest $request
@@ -1257,15 +1282,15 @@ class Dyplsapi extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'CancelPickUpWaybill',
-            'version'     => '2017-05-25',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CancelPickUpWaybill',
+            'version' => '2017-05-25',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return CancelPickUpWaybillResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -1282,6 +1307,7 @@ class Dyplsapi extends OpenApiClient
      * You can call this operation up to 100 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
      *
      * @param request - CancelPickUpWaybillRequest
+     *
      * @returns CancelPickUpWaybillResponse
      *
      * @param CancelPickUpWaybillRequest $request
@@ -1300,6 +1326,7 @@ class Dyplsapi extends OpenApiClient
      *
      * @param tmpReq - ConfigXRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ConfigXResponse
      *
      * @param ConfigXRequest $tmpReq
@@ -1373,15 +1400,15 @@ class Dyplsapi extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ConfigX',
-            'version'     => '2017-05-25',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ConfigX',
+            'version' => '2017-05-25',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return ConfigXResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -1394,6 +1421,7 @@ class Dyplsapi extends OpenApiClient
      * 配置X号码，单独对工作号的话音呼叫、企业名片等通信功能进行配置操作.
      *
      * @param request - ConfigXRequest
+     *
      * @returns ConfigXResponse
      *
      * @param ConfigXRequest $request
@@ -1416,6 +1444,7 @@ class Dyplsapi extends OpenApiClient
      *
      * @param request - CreateAxgGroupRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns CreateAxgGroupResponse
      *
      * @param CreateAxgGroupRequest $request
@@ -1459,15 +1488,15 @@ class Dyplsapi extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'CreateAxgGroup',
-            'version'     => '2017-05-25',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CreateAxgGroup',
+            'version' => '2017-05-25',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return CreateAxgGroupResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -1484,6 +1513,7 @@ class Dyplsapi extends OpenApiClient
      * >  Up to 2,000 number groups G can be added for a single phone number pool.
      *
      * @param request - CreateAxgGroupRequest
+     *
      * @returns CreateAxgGroupResponse
      *
      * @param CreateAxgGroupRequest $request
@@ -1498,6 +1528,110 @@ class Dyplsapi extends OpenApiClient
     }
 
     /**
+     * 通过API收集小号a号码手机号.
+     *
+     * @param request - CreatePhoneNoAReportRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreatePhoneNoAReportResponse
+     *
+     * @param CreatePhoneNoAReportRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return CreatePhoneNoAReportResponse
+     */
+    public function createPhoneNoAReportWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->ANoWhiteGroupId) {
+            @$query['ANoWhiteGroupId'] = $request->ANoWhiteGroupId;
+        }
+
+        if (null !== $request->custName) {
+            @$query['CustName'] = $request->custName;
+        }
+
+        if (null !== $request->documentNumber) {
+            @$query['DocumentNumber'] = $request->documentNumber;
+        }
+
+        if (null !== $request->documentType) {
+            @$query['DocumentType'] = $request->documentType;
+        }
+
+        if (null !== $request->idCardAlivePhoto) {
+            @$query['IdCardAlivePhoto'] = $request->idCardAlivePhoto;
+        }
+
+        if (null !== $request->idCardBackPhoto) {
+            @$query['IdCardBackPhoto'] = $request->idCardBackPhoto;
+        }
+
+        if (null !== $request->idCardFrontPhoto) {
+            @$query['IdCardFrontPhoto'] = $request->idCardFrontPhoto;
+        }
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
+        }
+
+        if (null !== $request->phoneNoA) {
+            @$query['PhoneNoA'] = $request->phoneNoA;
+        }
+
+        if (null !== $request->remark) {
+            @$query['Remark'] = $request->remark;
+        }
+
+        if (null !== $request->resourceOwnerAccount) {
+            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+
+        if (null !== $request->resourceOwnerId) {
+            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'CreatePhoneNoAReport',
+            'version' => '2017-05-25',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return CreatePhoneNoAReportResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
+
+        return CreatePhoneNoAReportResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * 通过API收集小号a号码手机号.
+     *
+     * @param request - CreatePhoneNoAReportRequest
+     *
+     * @returns CreatePhoneNoAReportResponse
+     *
+     * @param CreatePhoneNoAReportRequest $request
+     *
+     * @return CreatePhoneNoAReportResponse
+     */
+    public function createPhoneNoAReport($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createPhoneNoAReportWithOptions($request, $runtime);
+    }
+
+    /**
      * Creates a door-to-door delivery order.
      *
      * @remarks
@@ -1506,6 +1640,7 @@ class Dyplsapi extends OpenApiClient
      *
      * @param tmpReq - CreatePickUpWaybillRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns CreatePickUpWaybillResponse
      *
      * @param CreatePickUpWaybillRequest $tmpReq
@@ -1599,15 +1734,15 @@ class Dyplsapi extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'CreatePickUpWaybill',
-            'version'     => '2017-05-25',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CreatePickUpWaybill',
+            'version' => '2017-05-25',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return CreatePickUpWaybillResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -1624,6 +1759,7 @@ class Dyplsapi extends OpenApiClient
      * You can call this operation up to 100 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
      *
      * @param request - CreatePickUpWaybillRequest
+     *
      * @returns CreatePickUpWaybillResponse
      *
      * @param CreatePickUpWaybillRequest $request
@@ -1646,6 +1782,7 @@ class Dyplsapi extends OpenApiClient
      *
      * @param tmpReq - CreatePickUpWaybillPreQueryRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns CreatePickUpWaybillPreQueryResponse
      *
      * @param CreatePickUpWaybillPreQueryRequest $tmpReq
@@ -1695,15 +1832,15 @@ class Dyplsapi extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'CreatePickUpWaybillPreQuery',
-            'version'     => '2017-05-25',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CreatePickUpWaybillPreQuery',
+            'version' => '2017-05-25',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return CreatePickUpWaybillPreQueryResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -1720,6 +1857,7 @@ class Dyplsapi extends OpenApiClient
      * You can call this operation up to 100 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
      *
      * @param request - CreatePickUpWaybillPreQueryRequest
+     *
      * @returns CreatePickUpWaybillPreQueryResponse
      *
      * @param CreatePickUpWaybillPreQueryRequest $request
@@ -1738,6 +1876,7 @@ class Dyplsapi extends OpenApiClient
      *
      * @param request - CreateSmsSignRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns CreateSmsSignResponse
      *
      * @param CreateSmsSignRequest $request
@@ -1785,15 +1924,15 @@ class Dyplsapi extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'CreateSmsSign',
-            'version'     => '2017-05-25',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CreateSmsSign',
+            'version' => '2017-05-25',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return CreateSmsSignResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -1806,6 +1945,7 @@ class Dyplsapi extends OpenApiClient
      * B向A 发短信，客户端获取“短信标签”，尾部添加“标签”。通过“标签”解析被叫A，发短信到A。
      *
      * @param request - CreateSmsSignRequest
+     *
      * @returns CreateSmsSignResponse
      *
      * @param CreateSmsSignRequest $request
@@ -1822,6 +1962,7 @@ class Dyplsapi extends OpenApiClient
     /**
      * @param request - DeleteAxgGroupRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DeleteAxgGroupResponse
      *
      * @param DeleteAxgGroupRequest $request
@@ -1857,15 +1998,15 @@ class Dyplsapi extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DeleteAxgGroup',
-            'version'     => '2017-05-25',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DeleteAxgGroup',
+            'version' => '2017-05-25',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DeleteAxgGroupResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -1876,6 +2017,7 @@ class Dyplsapi extends OpenApiClient
 
     /**
      * @param request - DeleteAxgGroupRequest
+     *
      * @returns DeleteAxgGroupResponse
      *
      * @param DeleteAxgGroupRequest $request
@@ -1898,6 +2040,7 @@ class Dyplsapi extends OpenApiClient
      *
      * @param request - DeleteSecretBlacklistRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DeleteSecretBlacklistResponse
      *
      * @param DeleteSecretBlacklistRequest $request
@@ -1933,15 +2076,15 @@ class Dyplsapi extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DeleteSecretBlacklist',
-            'version'     => '2017-05-25',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DeleteSecretBlacklist',
+            'version' => '2017-05-25',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DeleteSecretBlacklistResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -1958,6 +2101,7 @@ class Dyplsapi extends OpenApiClient
      * You can call this operation up to 100 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
      *
      * @param request - DeleteSecretBlacklistRequest
+     *
      * @returns DeleteSecretBlacklistResponse
      *
      * @param DeleteSecretBlacklistRequest $request
@@ -1972,6 +2116,78 @@ class Dyplsapi extends OpenApiClient
     }
 
     /**
+     * 隐私号上传文件，获取 OSS 信息.
+     *
+     * @param request - GetDyplsOSSInfoForUploadFileRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetDyplsOSSInfoForUploadFileResponse
+     *
+     * @param GetDyplsOSSInfoForUploadFileRequest $request
+     * @param RuntimeOptions                      $runtime
+     *
+     * @return GetDyplsOSSInfoForUploadFileResponse
+     */
+    public function getDyplsOSSInfoForUploadFileWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->bizType) {
+            @$query['BizType'] = $request->bizType;
+        }
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
+        }
+
+        if (null !== $request->resourceOwnerAccount) {
+            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+
+        if (null !== $request->resourceOwnerId) {
+            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'GetDyplsOSSInfoForUploadFile',
+            'version' => '2017-05-25',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return GetDyplsOSSInfoForUploadFileResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
+
+        return GetDyplsOSSInfoForUploadFileResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * 隐私号上传文件，获取 OSS 信息.
+     *
+     * @param request - GetDyplsOSSInfoForUploadFileRequest
+     *
+     * @returns GetDyplsOSSInfoForUploadFileResponse
+     *
+     * @param GetDyplsOSSInfoForUploadFileRequest $request
+     *
+     * @return GetDyplsOSSInfoForUploadFileResponse
+     */
+    public function getDyplsOSSInfoForUploadFile($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getDyplsOSSInfoForUploadFileWithOptions($request, $runtime);
+    }
+
+    /**
      * Obtains the details of the automatic speech recognition (ASR) result.
      *
      * @remarks
@@ -1981,6 +2197,7 @@ class Dyplsapi extends OpenApiClient
      *
      * @param request - GetSecretAsrDetailRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns GetSecretAsrDetailResponse
      *
      * @param GetSecretAsrDetailRequest $request
@@ -2008,15 +2225,15 @@ class Dyplsapi extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'GetSecretAsrDetail',
-            'version'     => '2017-05-25',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetSecretAsrDetail',
+            'version' => '2017-05-25',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return GetSecretAsrDetailResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -2034,6 +2251,7 @@ class Dyplsapi extends OpenApiClient
      * You can call this operation up to 100 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
      *
      * @param request - GetSecretAsrDetailRequest
+     *
      * @returns GetSecretAsrDetailResponse
      *
      * @param GetSecretAsrDetailRequest $request
@@ -2056,6 +2274,7 @@ class Dyplsapi extends OpenApiClient
      *
      * @param request - GetTotalPublicUrlRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns GetTotalPublicUrlResponse
      *
      * @param GetTotalPublicUrlRequest $request
@@ -2099,15 +2318,15 @@ class Dyplsapi extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'GetTotalPublicUrl',
-            'version'     => '2017-05-25',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetTotalPublicUrl',
+            'version' => '2017-05-25',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return GetTotalPublicUrlResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -2124,6 +2343,7 @@ class Dyplsapi extends OpenApiClient
      * You can call this operation up to 1,000 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
      *
      * @param request - GetTotalPublicUrlRequest
+     *
      * @returns GetTotalPublicUrlResponse
      *
      * @param GetTotalPublicUrlRequest $request
@@ -2142,6 +2362,7 @@ class Dyplsapi extends OpenApiClient
      *
      * @param request - GetXConfigRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns GetXConfigResponse
      *
      * @param GetXConfigRequest $request
@@ -2185,15 +2406,15 @@ class Dyplsapi extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'GetXConfig',
-            'version'     => '2017-05-25',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetXConfig',
+            'version' => '2017-05-25',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return GetXConfigResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -2206,6 +2427,7 @@ class Dyplsapi extends OpenApiClient
      * 获取X号码配置信息.
      *
      * @param request - GetXConfigRequest
+     *
      * @returns GetXConfigResponse
      *
      * @param GetXConfigRequest $request
@@ -2224,6 +2446,7 @@ class Dyplsapi extends OpenApiClient
      *
      * @param request - GetXDefaultConfigRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns GetXDefaultConfigResponse
      *
      * @param GetXDefaultConfigRequest $request
@@ -2267,15 +2490,15 @@ class Dyplsapi extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'GetXDefaultConfig',
-            'version'     => '2017-05-25',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetXDefaultConfig',
+            'version' => '2017-05-25',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return GetXDefaultConfigResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -2288,6 +2511,7 @@ class Dyplsapi extends OpenApiClient
      * 获取X号码默认配置信息.
      *
      * @param request - GetXDefaultConfigRequest
+     *
      * @returns GetXDefaultConfigResponse
      *
      * @param GetXDefaultConfigRequest $request
@@ -2306,6 +2530,7 @@ class Dyplsapi extends OpenApiClient
      *
      * @param request - ListXTelephonesRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ListXTelephonesResponse
      *
      * @param ListXTelephonesRequest $request
@@ -2353,15 +2578,15 @@ class Dyplsapi extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListXTelephones',
-            'version'     => '2017-05-25',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListXTelephones',
+            'version' => '2017-05-25',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return ListXTelephonesResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -2374,6 +2599,7 @@ class Dyplsapi extends OpenApiClient
      * 查询客户名下X号码列表.
      *
      * @param request - ListXTelephonesRequest
+     *
      * @returns ListXTelephonesResponse
      *
      * @param ListXTelephonesRequest $request
@@ -2397,6 +2623,7 @@ class Dyplsapi extends OpenApiClient
      *
      * @param request - LockSecretNoRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns LockSecretNoResponse
      *
      * @param LockSecretNoRequest $request
@@ -2432,15 +2659,15 @@ class Dyplsapi extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'LockSecretNo',
-            'version'     => '2017-05-25',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'LockSecretNo',
+            'version' => '2017-05-25',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return LockSecretNoResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -2458,6 +2685,7 @@ class Dyplsapi extends OpenApiClient
      * You can call this operation up to 500 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
      *
      * @param request - LockSecretNoRequest
+     *
      * @returns LockSecretNoResponse
      *
      * @param LockSecretNoRequest $request
@@ -2481,6 +2709,7 @@ class Dyplsapi extends OpenApiClient
      *
      * @param request - OperateAxgGroupRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns OperateAxgGroupResponse
      *
      * @param OperateAxgGroupRequest $request
@@ -2524,15 +2753,15 @@ class Dyplsapi extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'OperateAxgGroup',
-            'version'     => '2017-05-25',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'OperateAxgGroup',
+            'version' => '2017-05-25',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return OperateAxgGroupResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -2550,6 +2779,7 @@ class Dyplsapi extends OpenApiClient
      * You can call this operation up to 5,000 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
      *
      * @param request - OperateAxgGroupRequest
+     *
      * @returns OperateAxgGroupResponse
      *
      * @param OperateAxgGroupRequest $request
@@ -2573,6 +2803,7 @@ class Dyplsapi extends OpenApiClient
      *
      * @param request - OperateBlackNoRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns OperateBlackNoResponse
      *
      * @param OperateBlackNoRequest $request
@@ -2616,15 +2847,15 @@ class Dyplsapi extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'OperateBlackNo',
-            'version'     => '2017-05-25',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'OperateBlackNo',
+            'version' => '2017-05-25',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return OperateBlackNoResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -2642,6 +2873,7 @@ class Dyplsapi extends OpenApiClient
      * You can call this operation up to 1,000 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
      *
      * @param request - OperateBlackNoRequest
+     *
      * @returns OperateBlackNoResponse
      *
      * @param OperateBlackNoRequest $request
@@ -2664,6 +2896,7 @@ class Dyplsapi extends OpenApiClient
      *
      * @param request - QueryPhoneNoAByTrackNoRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns QueryPhoneNoAByTrackNoResponse
      *
      * @param QueryPhoneNoAByTrackNoRequest $request
@@ -2703,15 +2936,15 @@ class Dyplsapi extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'QueryPhoneNoAByTrackNo',
-            'version'     => '2017-05-25',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'QueryPhoneNoAByTrackNo',
+            'version' => '2017-05-25',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return QueryPhoneNoAByTrackNoResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -2728,6 +2961,7 @@ class Dyplsapi extends OpenApiClient
      * You can call this operation up to 5,000 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
      *
      * @param request - QueryPhoneNoAByTrackNoRequest
+     *
      * @returns QueryPhoneNoAByTrackNoResponse
      *
      * @param QueryPhoneNoAByTrackNoRequest $request
@@ -2757,6 +2991,7 @@ class Dyplsapi extends OpenApiClient
      *
      * @param request - QueryRecordFileDownloadUrlRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns QueryRecordFileDownloadUrlResponse
      *
      * @param QueryRecordFileDownloadUrlRequest $request
@@ -2800,15 +3035,15 @@ class Dyplsapi extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'QueryRecordFileDownloadUrl',
-            'version'     => '2017-05-25',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'QueryRecordFileDownloadUrl',
+            'version' => '2017-05-25',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return QueryRecordFileDownloadUrlResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -2832,6 +3067,7 @@ class Dyplsapi extends OpenApiClient
      * *   The storage period of recording files is 30 days. You can download only the recording files of calls recorded in the last 30 days.
      *
      * @param request - QueryRecordFileDownloadUrlRequest
+     *
      * @returns QueryRecordFileDownloadUrlResponse
      *
      * @param QueryRecordFileDownloadUrlRequest $request
@@ -2854,6 +3090,7 @@ class Dyplsapi extends OpenApiClient
      *
      * @param request - QuerySecretNoDetailRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns QuerySecretNoDetailResponse
      *
      * @param QuerySecretNoDetailRequest $request
@@ -2889,15 +3126,15 @@ class Dyplsapi extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'QuerySecretNoDetail',
-            'version'     => '2017-05-25',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'QuerySecretNoDetail',
+            'version' => '2017-05-25',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return QuerySecretNoDetailResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -2914,6 +3151,7 @@ class Dyplsapi extends OpenApiClient
      * You can call this operation up to 1,000 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. We recommend that you take note of the limit when you call this operation.
      *
      * @param request - QuerySecretNoDetailRequest
+     *
      * @returns QuerySecretNoDetailResponse
      *
      * @param QuerySecretNoDetailRequest $request
@@ -2935,6 +3173,7 @@ class Dyplsapi extends OpenApiClient
      *
      * @param request - QuerySecretNoRemainRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns QuerySecretNoRemainResponse
      *
      * @param QuerySecretNoRemainRequest $request
@@ -2974,15 +3213,15 @@ class Dyplsapi extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'QuerySecretNoRemain',
-            'version'     => '2017-05-25',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'QuerySecretNoRemain',
+            'version' => '2017-05-25',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return QuerySecretNoRemainResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -2998,6 +3237,7 @@ class Dyplsapi extends OpenApiClient
      * When purchasing a phone number, specify the home location. If no sufficient phone numbers are available for purchase in the home location, the purchase of the phone number fails. Before calling the [BuySecretNo](~~BuySecretNo~~) operation to purchase a phone number, call the [QuerySecretNoRemain](~~QuerySecretNoRemain~~) operation to query the quantity of remaining phone numbers available for online purchase.
      *
      * @param request - QuerySecretNoRemainRequest
+     *
      * @returns QuerySecretNoRemainResponse
      *
      * @param QuerySecretNoRemainRequest $request
@@ -3016,6 +3256,7 @@ class Dyplsapi extends OpenApiClient
      *
      * @param request - QuerySoundRecordRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns QuerySoundRecordResponse
      *
      * @param QuerySoundRecordRequest $request
@@ -3059,15 +3300,15 @@ class Dyplsapi extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'QuerySoundRecord',
-            'version'     => '2017-05-25',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'QuerySoundRecord',
+            'version' => '2017-05-25',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return QuerySoundRecordResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -3080,6 +3321,7 @@ class Dyplsapi extends OpenApiClient
      * 查询通话录音链接.
      *
      * @param request - QuerySoundRecordRequest
+     *
      * @returns QuerySoundRecordResponse
      *
      * @param QuerySoundRecordRequest $request
@@ -3101,6 +3343,7 @@ class Dyplsapi extends OpenApiClient
      *
      * @param request - QuerySubsIdRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns QuerySubsIdResponse
      *
      * @param QuerySubsIdRequest $request
@@ -3136,15 +3379,15 @@ class Dyplsapi extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'QuerySubsId',
-            'version'     => '2017-05-25',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'QuerySubsId',
+            'version' => '2017-05-25',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return QuerySubsIdResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -3160,6 +3403,7 @@ class Dyplsapi extends OpenApiClient
      * You can query binding IDs by phone number X. In the AXB product, multiple bindings may exist for the same phone number X. In this case, multiple binding IDs may be obtained for the same phone number X.
      *
      * @param request - QuerySubsIdRequest
+     *
      * @returns QuerySubsIdResponse
      *
      * @param QuerySubsIdRequest $request
@@ -3184,6 +3428,7 @@ class Dyplsapi extends OpenApiClient
      *
      * @param request - QuerySubscriptionDetailRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns QuerySubscriptionDetailResponse
      *
      * @param QuerySubscriptionDetailRequest $request
@@ -3227,15 +3472,15 @@ class Dyplsapi extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'QuerySubscriptionDetail',
-            'version'     => '2017-05-25',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'QuerySubscriptionDetail',
+            'version' => '2017-05-25',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return QuerySubscriptionDetailResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -3254,6 +3499,7 @@ class Dyplsapi extends OpenApiClient
      * You must specify either PoolKey or ProductType. If both parameters are not specified, an error is reported when you call the QuerySubscriptionDetail operation. We recommend that you specify the ProductType parameter for the original key accounts of Alibaba Cloud and the PoolKey parameter for Alibaba Cloud users.
      *
      * @param request - QuerySubscriptionDetailRequest
+     *
      * @returns QuerySubscriptionDetailResponse
      *
      * @param QuerySubscriptionDetailRequest $request
@@ -3276,6 +3522,7 @@ class Dyplsapi extends OpenApiClient
      *
      * @param request - ReleaseSecretNoRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ReleaseSecretNoResponse
      *
      * @param ReleaseSecretNoRequest $request
@@ -3311,15 +3558,15 @@ class Dyplsapi extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ReleaseSecretNo',
-            'version'     => '2017-05-25',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ReleaseSecretNo',
+            'version' => '2017-05-25',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return ReleaseSecretNoResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -3336,6 +3583,7 @@ class Dyplsapi extends OpenApiClient
      * *   Before you release a phone number, log on to the [Phone Number Protection console](https://dypls.console.aliyun.com/dypls.htm#/account) to check whether the phone number is bound to other phone numbers. The phone number can be released only if it is not bound to other phone numbers.
      *
      * @param request - ReleaseSecretNoRequest
+     *
      * @returns ReleaseSecretNoResponse
      *
      * @param ReleaseSecretNoRequest $request
@@ -3354,6 +3602,7 @@ class Dyplsapi extends OpenApiClient
      *
      * @param request - UnBindAXBRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns UnBindAXBResponse
      *
      * @param UnBindAXBRequest $request
@@ -3397,15 +3646,15 @@ class Dyplsapi extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'UnBindAXB',
-            'version'     => '2017-05-25',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'UnBindAXB',
+            'version' => '2017-05-25',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return UnBindAXBResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -3418,6 +3667,7 @@ class Dyplsapi extends OpenApiClient
      * 解除指定的呼叫绑定关系（A，X，B），解决呼叫绑定关系后，员工B不能通过工作号X呼叫到客户A。
      *
      * @param request - UnBindAXBRequest
+     *
      * @returns UnBindAXBResponse
      *
      * @param UnBindAXBRequest $request
@@ -3436,6 +3686,7 @@ class Dyplsapi extends OpenApiClient
      *
      * @param request - UnBindXBRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns UnBindXBResponse
      *
      * @param UnBindXBRequest $request
@@ -3483,15 +3734,15 @@ class Dyplsapi extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'UnBindXB',
-            'version'     => '2017-05-25',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'UnBindXB',
+            'version' => '2017-05-25',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return UnBindXBResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -3504,6 +3755,7 @@ class Dyplsapi extends OpenApiClient
      * 调用本接口可取消工作号X与员工号码B的绑定。绑定解除后，对X的呼叫都不会转接给B。
      *
      * @param request - UnBindXBRequest
+     *
      * @returns UnBindXBResponse
      *
      * @param UnBindXBRequest $request
@@ -3525,6 +3777,7 @@ class Dyplsapi extends OpenApiClient
      *
      * @param request - UnbindSubscriptionRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns UnbindSubscriptionResponse
      *
      * @param UnbindSubscriptionRequest $request
@@ -3568,15 +3821,15 @@ class Dyplsapi extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'UnbindSubscription',
-            'version'     => '2017-05-25',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'UnbindSubscription',
+            'version' => '2017-05-25',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return UnbindSubscriptionResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -3592,6 +3845,7 @@ class Dyplsapi extends OpenApiClient
      * Before releasing a phone number, you must call the UnbindSubscription operation to unbind the phone number.
      *
      * @param request - UnbindSubscriptionRequest
+     *
      * @returns UnbindSubscriptionResponse
      *
      * @param UnbindSubscriptionRequest $request
@@ -3615,6 +3869,7 @@ class Dyplsapi extends OpenApiClient
      *
      * @param request - UnlockSecretNoRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns UnlockSecretNoResponse
      *
      * @param UnlockSecretNoRequest $request
@@ -3650,15 +3905,15 @@ class Dyplsapi extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'UnlockSecretNo',
-            'version'     => '2017-05-25',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'UnlockSecretNo',
+            'version' => '2017-05-25',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return UnlockSecretNoResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -3676,6 +3931,7 @@ class Dyplsapi extends OpenApiClient
      * You can call this operation up to 500 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
      *
      * @param request - UnlockSecretNoRequest
+     *
      * @returns UnlockSecretNoResponse
      *
      * @param UnlockSecretNoRequest $request
@@ -3698,6 +3954,7 @@ class Dyplsapi extends OpenApiClient
      *
      * @param request - UpdateSubscriptionRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns UpdateSubscriptionResponse
      *
      * @param UpdateSubscriptionRequest $request
@@ -3789,15 +4046,15 @@ class Dyplsapi extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'UpdateSubscription',
-            'version'     => '2017-05-25',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'UpdateSubscription',
+            'version' => '2017-05-25',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return UpdateSubscriptionResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -3814,6 +4071,7 @@ class Dyplsapi extends OpenApiClient
      * You can call this operation up to 10,000 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
      *
      * @param request - UpdateSubscriptionRequest
+     *
      * @returns UpdateSubscriptionResponse
      *
      * @param UpdateSubscriptionRequest $request

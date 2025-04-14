@@ -14,43 +14,50 @@ class data extends Model
      * @var string
      */
     public $callAbility;
+
     /**
      * @var string
      */
     public $GNFlag;
+
     /**
      * @var reachJsons[]
      */
     public $reachJsons;
+
     /**
      * @var sequenceCalls[]
      */
     public $sequenceCalls;
+
     /**
      * @var string
      */
     public $sequenceEndTime;
+
     /**
      * @var string
      */
     public $sequenceStartTime;
+
     /**
      * @var string
      */
     public $smsAbility;
+
     /**
      * @var string
      */
     public $smsSignMode;
     protected $_name = [
-        'callAbility'       => 'CallAbility',
-        'GNFlag'            => 'GNFlag',
-        'reachJsons'        => 'ReachJsons',
-        'sequenceCalls'     => 'SequenceCalls',
-        'sequenceEndTime'   => 'SequenceEndTime',
+        'callAbility' => 'CallAbility',
+        'GNFlag' => 'GNFlag',
+        'reachJsons' => 'ReachJsons',
+        'sequenceCalls' => 'SequenceCalls',
+        'sequenceEndTime' => 'SequenceEndTime',
         'sequenceStartTime' => 'SequenceStartTime',
-        'smsAbility'        => 'SmsAbility',
-        'smsSignMode'       => 'SmsSignMode',
+        'smsAbility' => 'SmsAbility',
+        'smsSignMode' => 'SmsSignMode',
     ];
 
     public function validate()
@@ -78,7 +85,7 @@ class data extends Model
         if (null !== $this->reachJsons) {
             if (\is_array($this->reachJsons)) {
                 $res['ReachJsons'] = [];
-                $n1                = 0;
+                $n1 = 0;
                 foreach ($this->reachJsons as $item1) {
                     $res['ReachJsons'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -88,7 +95,7 @@ class data extends Model
         if (null !== $this->sequenceCalls) {
             if (\is_array($this->sequenceCalls)) {
                 $res['SequenceCalls'] = [];
-                $n1                   = 0;
+                $n1 = 0;
                 foreach ($this->sequenceCalls as $item1) {
                     $res['SequenceCalls'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -133,7 +140,7 @@ class data extends Model
         if (isset($map['ReachJsons'])) {
             if (!empty($map['ReachJsons'])) {
                 $model->reachJsons = [];
-                $n1                = 0;
+                $n1 = 0;
                 foreach ($map['ReachJsons'] as $item1) {
                     $model->reachJsons[$n1++] = reachJsons::fromMap($item1);
                 }
@@ -143,7 +150,7 @@ class data extends Model
         if (isset($map['SequenceCalls'])) {
             if (!empty($map['SequenceCalls'])) {
                 $model->sequenceCalls = [];
-                $n1                   = 0;
+                $n1 = 0;
                 foreach ($map['SequenceCalls'] as $item1) {
                     $model->sequenceCalls[$n1++] = sequenceCalls::fromMap($item1);
                 }

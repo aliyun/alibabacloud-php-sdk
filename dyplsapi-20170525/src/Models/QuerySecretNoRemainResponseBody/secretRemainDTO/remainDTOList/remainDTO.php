@@ -12,13 +12,14 @@ class remainDTO extends Model
      * @var int
      */
     public $amount;
+
     /**
      * @var string
      */
     public $city;
     protected $_name = [
         'amount' => 'Amount',
-        'city'   => 'City',
+        'city' => 'City',
     ];
 
     public function validate()

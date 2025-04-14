@@ -12,43 +12,50 @@ class ListXTelephonesRequest extends Model
      * @var int
      */
     public $callerParentId;
+
     /**
      * @var string
      */
     public $customerPoolKey;
+
     /**
      * @var int
      */
     public $ownerId;
+
     /**
      * @var int
      */
     public $pageNo;
+
     /**
      * @var int
      */
     public $pageSize;
+
     /**
      * @var string
      */
     public $reqId;
+
     /**
      * @var string
      */
     public $resourceOwnerAccount;
+
     /**
      * @var int
      */
     public $resourceOwnerId;
     protected $_name = [
-        'callerParentId'       => 'CallerParentId',
-        'customerPoolKey'      => 'CustomerPoolKey',
-        'ownerId'              => 'OwnerId',
-        'pageNo'               => 'PageNo',
-        'pageSize'             => 'PageSize',
-        'reqId'                => 'ReqId',
+        'callerParentId' => 'CallerParentId',
+        'customerPoolKey' => 'CustomerPoolKey',
+        'ownerId' => 'OwnerId',
+        'pageNo' => 'PageNo',
+        'pageSize' => 'PageSize',
+        'reqId' => 'ReqId',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
-        'resourceOwnerId'      => 'ResourceOwnerId',
+        'resourceOwnerId' => 'ResourceOwnerId',
     ];
 
     public function validate()

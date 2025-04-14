@@ -14,33 +14,38 @@ class CreatePickUpWaybillPreQueryRequest extends Model
      * @var consigneeInfo
      */
     public $consigneeInfo;
+
     /**
      * @var string
      */
     public $cpCode;
+
     /**
      * @var string
      */
     public $orderChannels;
+
     /**
      * @var string
      */
     public $outerOrderCode;
+
     /**
      * @var string
      */
     public $preWeight;
+
     /**
      * @var senderInfo
      */
     public $senderInfo;
     protected $_name = [
-        'consigneeInfo'  => 'ConsigneeInfo',
-        'cpCode'         => 'CpCode',
-        'orderChannels'  => 'OrderChannels',
+        'consigneeInfo' => 'ConsigneeInfo',
+        'cpCode' => 'CpCode',
+        'orderChannels' => 'OrderChannels',
         'outerOrderCode' => 'OuterOrderCode',
-        'preWeight'      => 'PreWeight',
-        'senderInfo'     => 'SenderInfo',
+        'preWeight' => 'PreWeight',
+        'senderInfo' => 'SenderInfo',
     ];
 
     public function validate()

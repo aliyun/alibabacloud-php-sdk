@@ -12,23 +12,26 @@ class data extends Model
      * @var string
      */
     public $errorCode;
+
     /**
      * @var string
      */
     public $errorMsg;
+
     /**
      * @var string
      */
     public $message;
+
     /**
      * @var bool
      */
     public $success;
     protected $_name = [
         'errorCode' => 'ErrorCode',
-        'errorMsg'  => 'ErrorMsg',
-        'message'   => 'Message',
-        'success'   => 'Success',
+        'errorMsg' => 'ErrorMsg',
+        'message' => 'Message',
+        'success' => 'Success',
     ];
 
     public function validate()

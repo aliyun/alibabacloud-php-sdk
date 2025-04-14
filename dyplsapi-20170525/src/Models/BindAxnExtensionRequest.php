@@ -12,98 +12,116 @@ class BindAxnExtensionRequest extends Model
      * @var string
      */
     public $ASRModelId;
+
     /**
      * @var bool
      */
     public $ASRStatus;
+
     /**
      * @var int
      */
     public $callDisplayType;
+
     /**
      * @var string
      */
     public $callRestrict;
+
     /**
      * @var string
      */
     public $expectCity;
+
     /**
      * @var string
      */
     public $expiration;
+
     /**
      * @var string
      */
     public $extend;
+
     /**
      * @var string
      */
     public $extension;
+
     /**
      * @var bool
      */
     public $isRecordingEnabled;
+
     /**
      * @var string
      */
     public $outId;
+
     /**
      * @var string
      */
     public $outOrderId;
+
     /**
      * @var int
      */
     public $ownerId;
+
     /**
      * @var string
      */
     public $phoneNoA;
+
     /**
      * @var string
      */
     public $phoneNoB;
+
     /**
      * @var string
      */
     public $phoneNoX;
+
     /**
      * @var string
      */
     public $poolKey;
+
     /**
      * @var string
      */
     public $resourceOwnerAccount;
+
     /**
      * @var int
      */
     public $resourceOwnerId;
+
     /**
      * @var string
      */
     public $ringConfig;
     protected $_name = [
-        'ASRModelId'           => 'ASRModelId',
-        'ASRStatus'            => 'ASRStatus',
-        'callDisplayType'      => 'CallDisplayType',
-        'callRestrict'         => 'CallRestrict',
-        'expectCity'           => 'ExpectCity',
-        'expiration'           => 'Expiration',
-        'extend'               => 'Extend',
-        'extension'            => 'Extension',
-        'isRecordingEnabled'   => 'IsRecordingEnabled',
-        'outId'                => 'OutId',
-        'outOrderId'           => 'OutOrderId',
-        'ownerId'              => 'OwnerId',
-        'phoneNoA'             => 'PhoneNoA',
-        'phoneNoB'             => 'PhoneNoB',
-        'phoneNoX'             => 'PhoneNoX',
-        'poolKey'              => 'PoolKey',
+        'ASRModelId' => 'ASRModelId',
+        'ASRStatus' => 'ASRStatus',
+        'callDisplayType' => 'CallDisplayType',
+        'callRestrict' => 'CallRestrict',
+        'expectCity' => 'ExpectCity',
+        'expiration' => 'Expiration',
+        'extend' => 'Extend',
+        'extension' => 'Extension',
+        'isRecordingEnabled' => 'IsRecordingEnabled',
+        'outId' => 'OutId',
+        'outOrderId' => 'OutOrderId',
+        'ownerId' => 'OwnerId',
+        'phoneNoA' => 'PhoneNoA',
+        'phoneNoB' => 'PhoneNoB',
+        'phoneNoX' => 'PhoneNoX',
+        'poolKey' => 'PoolKey',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
-        'resourceOwnerId'      => 'ResourceOwnerId',
-        'ringConfig'           => 'RingConfig',
+        'resourceOwnerId' => 'ResourceOwnerId',
+        'ringConfig' => 'RingConfig',
     ];
 
     public function validate()

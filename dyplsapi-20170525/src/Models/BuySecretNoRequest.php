@@ -12,43 +12,50 @@ class BuySecretNoRequest extends Model
      * @var string
      */
     public $city;
+
     /**
      * @var bool
      */
     public $displayPool;
+
     /**
      * @var int
      */
     public $ownerId;
+
     /**
      * @var string
      */
     public $poolKey;
+
     /**
      * @var string
      */
     public $resourceOwnerAccount;
+
     /**
      * @var int
      */
     public $resourceOwnerId;
+
     /**
      * @var string
      */
     public $secretNo;
+
     /**
      * @var int
      */
     public $specId;
     protected $_name = [
-        'city'                 => 'City',
-        'displayPool'          => 'DisplayPool',
-        'ownerId'              => 'OwnerId',
-        'poolKey'              => 'PoolKey',
+        'city' => 'City',
+        'displayPool' => 'DisplayPool',
+        'ownerId' => 'OwnerId',
+        'poolKey' => 'PoolKey',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
-        'resourceOwnerId'      => 'ResourceOwnerId',
-        'secretNo'             => 'SecretNo',
-        'specId'               => 'SpecId',
+        'resourceOwnerId' => 'ResourceOwnerId',
+        'secretNo' => 'SecretNo',
+        'specId' => 'SpecId',
     ];
 
     public function validate()

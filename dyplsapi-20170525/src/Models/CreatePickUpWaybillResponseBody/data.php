@@ -12,33 +12,38 @@ class data extends Model
      * @var string
      */
     public $cpCode;
+
     /**
      * @var string
      */
     public $errorCode;
+
     /**
      * @var string
      */
     public $errorMsg;
+
     /**
      * @var string
      */
     public $gotCode;
+
     /**
      * @var string
      */
     public $mailNo;
+
     /**
      * @var string
      */
     public $success;
     protected $_name = [
-        'cpCode'    => 'CpCode',
+        'cpCode' => 'CpCode',
         'errorCode' => 'ErrorCode',
-        'errorMsg'  => 'ErrorMsg',
-        'gotCode'   => 'GotCode',
-        'mailNo'    => 'MailNo',
-        'success'   => 'Success',
+        'errorMsg' => 'ErrorMsg',
+        'gotCode' => 'GotCode',
+        'mailNo' => 'MailNo',
+        'success' => 'Success',
     ];
 
     public function validate()

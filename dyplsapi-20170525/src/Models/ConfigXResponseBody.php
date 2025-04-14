@@ -13,33 +13,38 @@ class ConfigXResponseBody extends Model
      * @var string
      */
     public $accessDeniedDetail;
+
     /**
      * @var string
      */
     public $code;
+
     /**
      * @var data
      */
     public $data;
+
     /**
      * @var string
      */
     public $message;
+
     /**
      * @var string
      */
     public $requestId;
+
     /**
      * @var bool
      */
     public $success;
     protected $_name = [
         'accessDeniedDetail' => 'AccessDeniedDetail',
-        'code'               => 'Code',
-        'data'               => 'Data',
-        'message'            => 'Message',
-        'requestId'          => 'RequestId',
-        'success'            => 'Success',
+        'code' => 'Code',
+        'data' => 'Data',
+        'message' => 'Message',
+        'requestId' => 'RequestId',
+        'success' => 'Success',
     ];
 
     public function validate()

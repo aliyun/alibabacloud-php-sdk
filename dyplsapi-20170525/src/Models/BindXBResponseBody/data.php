@@ -12,13 +12,14 @@ class data extends Model
      * @var string
      */
     public $authId;
+
     /**
      * @var string
      */
     public $telX;
     protected $_name = [
         'authId' => 'AuthId',
-        'telX'   => 'TelX',
+        'telX' => 'TelX',
     ];
 
     public function validate()

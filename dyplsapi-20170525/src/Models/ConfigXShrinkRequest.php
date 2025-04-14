@@ -12,68 +12,80 @@ class ConfigXShrinkRequest extends Model
      * @var string
      */
     public $callAbility;
+
     /**
      * @var int
      */
     public $callerParentId;
+
     /**
      * @var string
      */
     public $customerPoolKey;
+
     /**
      * @var string
      */
     public $GNFlag;
+
     /**
      * @var int
      */
     public $ownerId;
+
     /**
      * @var string
      */
     public $reqId;
+
     /**
      * @var string
      */
     public $resourceOwnerAccount;
+
     /**
      * @var int
      */
     public $resourceOwnerId;
+
     /**
      * @var string
      */
     public $sequenceCallsShrink;
+
     /**
      * @var string
      */
     public $sequenceMode;
+
     /**
      * @var string
      */
     public $smsAbility;
+
     /**
      * @var string
      */
     public $smsSignMode;
+
     /**
      * @var string
      */
     public $telX;
     protected $_name = [
-        'callAbility'          => 'CallAbility',
-        'callerParentId'       => 'CallerParentId',
-        'customerPoolKey'      => 'CustomerPoolKey',
-        'GNFlag'               => 'GNFlag',
-        'ownerId'              => 'OwnerId',
-        'reqId'                => 'ReqId',
+        'callAbility' => 'CallAbility',
+        'callerParentId' => 'CallerParentId',
+        'customerPoolKey' => 'CustomerPoolKey',
+        'GNFlag' => 'GNFlag',
+        'ownerId' => 'OwnerId',
+        'reqId' => 'ReqId',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
-        'resourceOwnerId'      => 'ResourceOwnerId',
-        'sequenceCallsShrink'  => 'SequenceCalls',
-        'sequenceMode'         => 'SequenceMode',
-        'smsAbility'           => 'SmsAbility',
-        'smsSignMode'          => 'SmsSignMode',
-        'telX'                 => 'TelX',
+        'resourceOwnerId' => 'ResourceOwnerId',
+        'sequenceCallsShrink' => 'SequenceCalls',
+        'sequenceMode' => 'SequenceMode',
+        'smsAbility' => 'SmsAbility',
+        'smsSignMode' => 'SmsSignMode',
+        'telX' => 'TelX',
     ];
 
     public function validate()

@@ -12,33 +12,38 @@ class CreatePickUpWaybillPreQueryShrinkRequest extends Model
      * @var string
      */
     public $consigneeInfoShrink;
+
     /**
      * @var string
      */
     public $cpCode;
+
     /**
      * @var string
      */
     public $orderChannels;
+
     /**
      * @var string
      */
     public $outerOrderCode;
+
     /**
      * @var string
      */
     public $preWeight;
+
     /**
      * @var string
      */
     public $senderInfoShrink;
     protected $_name = [
         'consigneeInfoShrink' => 'ConsigneeInfo',
-        'cpCode'              => 'CpCode',
-        'orderChannels'       => 'OrderChannels',
-        'outerOrderCode'      => 'OuterOrderCode',
-        'preWeight'           => 'PreWeight',
-        'senderInfoShrink'    => 'SenderInfo',
+        'cpCode' => 'CpCode',
+        'orderChannels' => 'OrderChannels',
+        'outerOrderCode' => 'OuterOrderCode',
+        'preWeight' => 'PreWeight',
+        'senderInfoShrink' => 'SenderInfo',
     ];
 
     public function validate()

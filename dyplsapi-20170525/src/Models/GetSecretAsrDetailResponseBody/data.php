@@ -13,43 +13,50 @@ class data extends Model
      * @var int
      */
     public $bizDuration;
+
     /**
      * @var string
      */
     public $businessId;
+
     /**
      * @var string
      */
     public $businessKey;
+
     /**
      * @var string
      */
     public $code;
+
     /**
      * @var string
      */
     public $msg;
+
     /**
      * @var string
      */
     public $requestId;
+
     /**
      * @var sentences[]
      */
     public $sentences;
+
     /**
      * @var string
      */
     public $type;
     protected $_name = [
         'bizDuration' => 'BizDuration',
-        'businessId'  => 'BusinessId',
+        'businessId' => 'BusinessId',
         'businessKey' => 'BusinessKey',
-        'code'        => 'Code',
-        'msg'         => 'Msg',
-        'requestId'   => 'RequestId',
-        'sentences'   => 'Sentences',
-        'type'        => 'Type',
+        'code' => 'Code',
+        'msg' => 'Msg',
+        'requestId' => 'RequestId',
+        'sentences' => 'Sentences',
+        'type' => 'Type',
     ];
 
     public function validate()
@@ -90,7 +97,7 @@ class data extends Model
         if (null !== $this->sentences) {
             if (\is_array($this->sentences)) {
                 $res['Sentences'] = [];
-                $n1               = 0;
+                $n1 = 0;
                 foreach ($this->sentences as $item1) {
                     $res['Sentences'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -139,7 +146,7 @@ class data extends Model
         if (isset($map['Sentences'])) {
             if (!empty($map['Sentences'])) {
                 $model->sentences = [];
-                $n1               = 0;
+                $n1 = 0;
                 foreach ($map['Sentences'] as $item1) {
                     $model->sentences[$n1++] = sentences::fromMap($item1);
                 }

@@ -12,28 +12,32 @@ class BindBatchAxgShrinkRequest extends Model
      * @var string
      */
     public $axgBindListShrink;
+
     /**
      * @var int
      */
     public $ownerId;
+
     /**
      * @var string
      */
     public $poolKey;
+
     /**
      * @var string
      */
     public $resourceOwnerAccount;
+
     /**
      * @var int
      */
     public $resourceOwnerId;
     protected $_name = [
-        'axgBindListShrink'    => 'AxgBindList',
-        'ownerId'              => 'OwnerId',
-        'poolKey'              => 'PoolKey',
+        'axgBindListShrink' => 'AxgBindList',
+        'ownerId' => 'OwnerId',
+        'poolKey' => 'PoolKey',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
-        'resourceOwnerId'      => 'ResourceOwnerId',
+        'resourceOwnerId' => 'ResourceOwnerId',
     ];
 
     public function validate()

@@ -12,38 +12,44 @@ class QuerySubscriptionDetailRequest extends Model
      * @var int
      */
     public $ownerId;
+
     /**
      * @var string
      */
     public $phoneNoX;
+
     /**
      * @var string
      */
     public $poolKey;
+
     /**
      * @var string
      */
     public $productType;
+
     /**
      * @var string
      */
     public $resourceOwnerAccount;
+
     /**
      * @var int
      */
     public $resourceOwnerId;
+
     /**
      * @var string
      */
     public $subsId;
     protected $_name = [
-        'ownerId'              => 'OwnerId',
-        'phoneNoX'             => 'PhoneNoX',
-        'poolKey'              => 'PoolKey',
-        'productType'          => 'ProductType',
+        'ownerId' => 'OwnerId',
+        'phoneNoX' => 'PhoneNoX',
+        'poolKey' => 'PoolKey',
+        'productType' => 'ProductType',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
-        'resourceOwnerId'      => 'ResourceOwnerId',
-        'subsId'               => 'SubsId',
+        'resourceOwnerId' => 'ResourceOwnerId',
+        'subsId' => 'SubsId',
     ];
 
     public function validate()

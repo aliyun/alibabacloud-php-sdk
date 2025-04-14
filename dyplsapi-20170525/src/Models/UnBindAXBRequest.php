@@ -12,38 +12,44 @@ class UnBindAXBRequest extends Model
      * @var string
      */
     public $bindId;
+
     /**
      * @var int
      */
     public $callerParentId;
+
     /**
      * @var string
      */
     public $customerPoolKey;
+
     /**
      * @var int
      */
     public $ownerId;
+
     /**
      * @var string
      */
     public $reqId;
+
     /**
      * @var string
      */
     public $resourceOwnerAccount;
+
     /**
      * @var int
      */
     public $resourceOwnerId;
     protected $_name = [
-        'bindId'               => 'BindId',
-        'callerParentId'       => 'CallerParentId',
-        'customerPoolKey'      => 'CustomerPoolKey',
-        'ownerId'              => 'OwnerId',
-        'reqId'                => 'ReqId',
+        'bindId' => 'BindId',
+        'callerParentId' => 'CallerParentId',
+        'customerPoolKey' => 'CustomerPoolKey',
+        'ownerId' => 'OwnerId',
+        'reqId' => 'ReqId',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
-        'resourceOwnerId'      => 'ResourceOwnerId',
+        'resourceOwnerId' => 'ResourceOwnerId',
     ];
 
     public function validate()

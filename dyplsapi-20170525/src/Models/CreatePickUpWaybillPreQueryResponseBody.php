@@ -13,23 +13,26 @@ class CreatePickUpWaybillPreQueryResponseBody extends Model
      * @var data
      */
     public $data;
+
     /**
      * @var int
      */
     public $httpStatusCode;
+
     /**
      * @var string
      */
     public $message;
+
     /**
      * @var string
      */
     public $requestId;
     protected $_name = [
-        'data'           => 'Data',
+        'data' => 'Data',
         'httpStatusCode' => 'HttpStatusCode',
-        'message'        => 'Message',
-        'requestId'      => 'RequestId',
+        'message' => 'Message',
+        'requestId' => 'RequestId',
     ];
 
     public function validate()

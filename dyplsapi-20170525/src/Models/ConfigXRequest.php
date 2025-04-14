@@ -13,68 +13,80 @@ class ConfigXRequest extends Model
      * @var string
      */
     public $callAbility;
+
     /**
      * @var int
      */
     public $callerParentId;
+
     /**
      * @var string
      */
     public $customerPoolKey;
+
     /**
      * @var string
      */
     public $GNFlag;
+
     /**
      * @var int
      */
     public $ownerId;
+
     /**
      * @var string
      */
     public $reqId;
+
     /**
      * @var string
      */
     public $resourceOwnerAccount;
+
     /**
      * @var int
      */
     public $resourceOwnerId;
+
     /**
      * @var sequenceCalls[]
      */
     public $sequenceCalls;
+
     /**
      * @var string
      */
     public $sequenceMode;
+
     /**
      * @var string
      */
     public $smsAbility;
+
     /**
      * @var string
      */
     public $smsSignMode;
+
     /**
      * @var string
      */
     public $telX;
     protected $_name = [
-        'callAbility'          => 'CallAbility',
-        'callerParentId'       => 'CallerParentId',
-        'customerPoolKey'      => 'CustomerPoolKey',
-        'GNFlag'               => 'GNFlag',
-        'ownerId'              => 'OwnerId',
-        'reqId'                => 'ReqId',
+        'callAbility' => 'CallAbility',
+        'callerParentId' => 'CallerParentId',
+        'customerPoolKey' => 'CustomerPoolKey',
+        'GNFlag' => 'GNFlag',
+        'ownerId' => 'OwnerId',
+        'reqId' => 'ReqId',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
-        'resourceOwnerId'      => 'ResourceOwnerId',
-        'sequenceCalls'        => 'SequenceCalls',
-        'sequenceMode'         => 'SequenceMode',
-        'smsAbility'           => 'SmsAbility',
-        'smsSignMode'          => 'SmsSignMode',
-        'telX'                 => 'TelX',
+        'resourceOwnerId' => 'ResourceOwnerId',
+        'sequenceCalls' => 'SequenceCalls',
+        'sequenceMode' => 'SequenceMode',
+        'smsAbility' => 'SmsAbility',
+        'smsSignMode' => 'SmsSignMode',
+        'telX' => 'TelX',
     ];
 
     public function validate()
@@ -123,7 +135,7 @@ class ConfigXRequest extends Model
         if (null !== $this->sequenceCalls) {
             if (\is_array($this->sequenceCalls)) {
                 $res['SequenceCalls'] = [];
-                $n1                   = 0;
+                $n1 = 0;
                 foreach ($this->sequenceCalls as $item1) {
                     $res['SequenceCalls'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -192,7 +204,7 @@ class ConfigXRequest extends Model
         if (isset($map['SequenceCalls'])) {
             if (!empty($map['SequenceCalls'])) {
                 $model->sequenceCalls = [];
-                $n1                   = 0;
+                $n1 = 0;
                 foreach ($map['SequenceCalls'] as $item1) {
                     $model->sequenceCalls[$n1++] = sequenceCalls::fromMap($item1);
                 }

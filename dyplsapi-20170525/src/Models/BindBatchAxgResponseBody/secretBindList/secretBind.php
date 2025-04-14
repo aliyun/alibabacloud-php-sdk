@@ -12,38 +12,44 @@ class secretBind extends Model
      * @var string
      */
     public $code;
+
     /**
      * @var string
      */
     public $extension;
+
     /**
      * @var string
      */
     public $groupId;
+
     /**
      * @var string
      */
     public $message;
+
     /**
      * @var string
      */
     public $phoneNoA;
+
     /**
      * @var string
      */
     public $secretNo;
+
     /**
      * @var string
      */
     public $subsId;
     protected $_name = [
-        'code'      => 'Code',
+        'code' => 'Code',
         'extension' => 'Extension',
-        'groupId'   => 'GroupId',
-        'message'   => 'Message',
-        'phoneNoA'  => 'PhoneNoA',
-        'secretNo'  => 'SecretNo',
-        'subsId'    => 'SubsId',
+        'groupId' => 'GroupId',
+        'message' => 'Message',
+        'phoneNoA' => 'PhoneNoA',
+        'secretNo' => 'SecretNo',
+        'subsId' => 'SubsId',
     ];
 
     public function validate()

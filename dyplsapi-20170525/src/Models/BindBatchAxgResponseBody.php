@@ -13,22 +13,25 @@ class BindBatchAxgResponseBody extends Model
      * @var string
      */
     public $code;
+
     /**
      * @var string
      */
     public $message;
+
     /**
      * @var string
      */
     public $requestId;
+
     /**
      * @var secretBindList
      */
     public $secretBindList;
     protected $_name = [
-        'code'           => 'Code',
-        'message'        => 'Message',
-        'requestId'      => 'RequestId',
+        'code' => 'Code',
+        'message' => 'Message',
+        'requestId' => 'RequestId',
         'secretBindList' => 'SecretBindList',
     ];
 

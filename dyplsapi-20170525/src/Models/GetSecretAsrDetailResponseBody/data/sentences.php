@@ -12,38 +12,44 @@ class sentences extends Model
      * @var int
      */
     public $beginTime;
+
     /**
      * @var int
      */
     public $channelId;
+
     /**
      * @var string
      */
     public $emotionValue;
+
     /**
      * @var int
      */
     public $endTime;
+
     /**
      * @var int
      */
     public $silenceDuration;
+
     /**
      * @var int
      */
     public $speechRate;
+
     /**
      * @var string
      */
     public $text;
     protected $_name = [
-        'beginTime'       => 'BeginTime',
-        'channelId'       => 'ChannelId',
-        'emotionValue'    => 'EmotionValue',
-        'endTime'         => 'EndTime',
+        'beginTime' => 'BeginTime',
+        'channelId' => 'ChannelId',
+        'emotionValue' => 'EmotionValue',
+        'endTime' => 'EndTime',
         'silenceDuration' => 'SilenceDuration',
-        'speechRate'      => 'SpeechRate',
-        'text'            => 'Text',
+        'speechRate' => 'SpeechRate',
+        'text' => 'Text',
     ];
 
     public function validate()

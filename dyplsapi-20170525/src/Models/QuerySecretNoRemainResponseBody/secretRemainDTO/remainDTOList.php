@@ -31,7 +31,7 @@ class remainDTOList extends Model
         if (null !== $this->remainDTO) {
             if (\is_array($this->remainDTO)) {
                 $res['remainDTO'] = [];
-                $n1               = 0;
+                $n1 = 0;
                 foreach ($this->remainDTO as $item1) {
                     $res['remainDTO'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -52,7 +52,7 @@ class remainDTOList extends Model
         if (isset($map['remainDTO'])) {
             if (!empty($map['remainDTO'])) {
                 $model->remainDTO = [];
-                $n1               = 0;
+                $n1 = 0;
                 foreach ($map['remainDTO'] as $item1) {
                     $model->remainDTO[$n1++] = remainDTO::fromMap($item1);
                 }

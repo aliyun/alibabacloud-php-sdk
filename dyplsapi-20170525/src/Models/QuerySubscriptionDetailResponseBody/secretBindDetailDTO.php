@@ -12,68 +12,80 @@ class secretBindDetailDTO extends Model
      * @var string
      */
     public $ASRModelId;
+
     /**
      * @var bool
      */
     public $ASRStatus;
+
     /**
      * @var string
      */
     public $callRestrict;
+
     /**
      * @var string
      */
     public $expireDate;
+
     /**
      * @var string
      */
     public $extension;
+
     /**
      * @var string
      */
     public $gmtCreate;
+
     /**
      * @var int
      */
     public $groupId;
+
     /**
      * @var bool
      */
     public $needRecord;
+
     /**
      * @var string
      */
     public $phoneNoA;
+
     /**
      * @var string
      */
     public $phoneNoB;
+
     /**
      * @var string
      */
     public $phoneNoX;
+
     /**
      * @var int
      */
     public $status;
+
     /**
      * @var string
      */
     public $subsId;
     protected $_name = [
-        'ASRModelId'   => 'ASRModelId',
-        'ASRStatus'    => 'ASRStatus',
+        'ASRModelId' => 'ASRModelId',
+        'ASRStatus' => 'ASRStatus',
         'callRestrict' => 'CallRestrict',
-        'expireDate'   => 'ExpireDate',
-        'extension'    => 'Extension',
-        'gmtCreate'    => 'GmtCreate',
-        'groupId'      => 'GroupId',
-        'needRecord'   => 'NeedRecord',
-        'phoneNoA'     => 'PhoneNoA',
-        'phoneNoB'     => 'PhoneNoB',
-        'phoneNoX'     => 'PhoneNoX',
-        'status'       => 'Status',
-        'subsId'       => 'SubsId',
+        'expireDate' => 'ExpireDate',
+        'extension' => 'Extension',
+        'gmtCreate' => 'GmtCreate',
+        'groupId' => 'GroupId',
+        'needRecord' => 'NeedRecord',
+        'phoneNoA' => 'PhoneNoA',
+        'phoneNoB' => 'PhoneNoB',
+        'phoneNoX' => 'PhoneNoX',
+        'status' => 'Status',
+        'subsId' => 'SubsId',
     ];
 
     public function validate()

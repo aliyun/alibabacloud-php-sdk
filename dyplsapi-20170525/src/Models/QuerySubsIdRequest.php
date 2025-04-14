@@ -12,28 +12,32 @@ class QuerySubsIdRequest extends Model
      * @var int
      */
     public $ownerId;
+
     /**
      * @var string
      */
     public $phoneNoX;
+
     /**
      * @var string
      */
     public $poolKey;
+
     /**
      * @var string
      */
     public $resourceOwnerAccount;
+
     /**
      * @var int
      */
     public $resourceOwnerId;
     protected $_name = [
-        'ownerId'              => 'OwnerId',
-        'phoneNoX'             => 'PhoneNoX',
-        'poolKey'              => 'PoolKey',
+        'ownerId' => 'OwnerId',
+        'phoneNoX' => 'PhoneNoX',
+        'poolKey' => 'PoolKey',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
-        'resourceOwnerId'      => 'ResourceOwnerId',
+        'resourceOwnerId' => 'ResourceOwnerId',
     ];
 
     public function validate()

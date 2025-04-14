@@ -12,18 +12,20 @@ class module extends Model
      * @var string
      */
     public $extension;
+
     /**
      * @var string
      */
     public $phoneNoA;
+
     /**
      * @var string
      */
     public $phoneNoX;
     protected $_name = [
         'extension' => 'Extension',
-        'phoneNoA'  => 'PhoneNoA',
-        'phoneNoX'  => 'PhoneNoX',
+        'phoneNoA' => 'PhoneNoA',
+        'phoneNoX' => 'PhoneNoX',
     ];
 
     public function validate()

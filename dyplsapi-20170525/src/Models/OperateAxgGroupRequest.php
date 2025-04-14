@@ -12,38 +12,44 @@ class OperateAxgGroupRequest extends Model
      * @var int
      */
     public $groupId;
+
     /**
      * @var string
      */
     public $numbers;
+
     /**
      * @var string
      */
     public $operateType;
+
     /**
      * @var int
      */
     public $ownerId;
+
     /**
      * @var string
      */
     public $poolKey;
+
     /**
      * @var string
      */
     public $resourceOwnerAccount;
+
     /**
      * @var int
      */
     public $resourceOwnerId;
     protected $_name = [
-        'groupId'              => 'GroupId',
-        'numbers'              => 'Numbers',
-        'operateType'          => 'OperateType',
-        'ownerId'              => 'OwnerId',
-        'poolKey'              => 'PoolKey',
+        'groupId' => 'GroupId',
+        'numbers' => 'Numbers',
+        'operateType' => 'OperateType',
+        'ownerId' => 'OwnerId',
+        'poolKey' => 'PoolKey',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
-        'resourceOwnerId'      => 'ResourceOwnerId',
+        'resourceOwnerId' => 'ResourceOwnerId',
     ];
 
     public function validate()

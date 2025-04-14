@@ -12,38 +12,44 @@ class QueryRecordFileDownloadUrlRequest extends Model
      * @var string
      */
     public $callId;
+
     /**
      * @var string
      */
     public $callTime;
+
     /**
      * @var int
      */
     public $ownerId;
+
     /**
      * @var string
      */
     public $poolKey;
+
     /**
      * @var string
      */
     public $productType;
+
     /**
      * @var string
      */
     public $resourceOwnerAccount;
+
     /**
      * @var int
      */
     public $resourceOwnerId;
     protected $_name = [
-        'callId'               => 'CallId',
-        'callTime'             => 'CallTime',
-        'ownerId'              => 'OwnerId',
-        'poolKey'              => 'PoolKey',
-        'productType'          => 'ProductType',
+        'callId' => 'CallId',
+        'callTime' => 'CallTime',
+        'ownerId' => 'OwnerId',
+        'poolKey' => 'PoolKey',
+        'productType' => 'ProductType',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
-        'resourceOwnerId'      => 'ResourceOwnerId',
+        'resourceOwnerId' => 'ResourceOwnerId',
     ];
 
     public function validate()

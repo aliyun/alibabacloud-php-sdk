@@ -12,16 +12,18 @@ class data extends Model
      * @var string
      */
     public $code;
+
     /**
      * @var string
      */
     public $message;
+
     /**
      * @var bool
      */
     public $success;
     protected $_name = [
-        'code'    => 'Code',
+        'code' => 'Code',
         'message' => 'Message',
         'success' => 'Success',
     ];

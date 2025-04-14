@@ -12,23 +12,26 @@ class QuerySubsIdResponseBody extends Model
      * @var string
      */
     public $code;
+
     /**
      * @var string
      */
     public $message;
+
     /**
      * @var string
      */
     public $requestId;
+
     /**
      * @var string
      */
     public $subsId;
     protected $_name = [
-        'code'      => 'Code',
-        'message'   => 'Message',
+        'code' => 'Code',
+        'message' => 'Message',
         'requestId' => 'RequestId',
-        'subsId'    => 'SubsId',
+        'subsId' => 'SubsId',
     ];
 
     public function validate()

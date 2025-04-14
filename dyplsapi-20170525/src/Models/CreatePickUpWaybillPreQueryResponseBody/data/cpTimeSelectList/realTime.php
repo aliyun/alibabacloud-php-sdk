@@ -12,18 +12,20 @@ class realTime extends Model
      * @var string
      */
     public $name;
+
     /**
      * @var string
      */
     public $selectDisableTip;
+
     /**
      * @var bool
      */
     public $selectable;
     protected $_name = [
-        'name'             => 'Name',
+        'name' => 'Name',
         'selectDisableTip' => 'SelectDisableTip',
-        'selectable'       => 'Selectable',
+        'selectable' => 'Selectable',
     ];
 
     public function validate()

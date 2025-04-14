@@ -13,17 +13,19 @@ class secretRemainDTO extends Model
      * @var int
      */
     public $amount;
+
     /**
      * @var string
      */
     public $city;
+
     /**
      * @var remainDTOList
      */
     public $remainDTOList;
     protected $_name = [
-        'amount'        => 'Amount',
-        'city'          => 'City',
+        'amount' => 'Amount',
+        'city' => 'City',
         'remainDTOList' => 'RemainDTOList',
     ];
 

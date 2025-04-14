@@ -12,13 +12,14 @@ class data extends Model
      * @var string
      */
     public $phonePublicUrl;
+
     /**
      * @var string
      */
     public $ringPublicUrl;
     protected $_name = [
         'phonePublicUrl' => 'PhonePublicUrl',
-        'ringPublicUrl'  => 'RingPublicUrl',
+        'ringPublicUrl' => 'RingPublicUrl',
     ];
 
     public function validate()

@@ -15,83 +15,98 @@ class CreatePickUpWaybillRequest extends Model
      * @var string
      */
     public $appointGotEndTime;
+
     /**
      * @var string
      */
     public $appointGotStartTime;
+
     /**
      * @var int
      */
     public $bizType;
+
     /**
      * @var consigneeAddress
      */
     public $consigneeAddress;
+
     /**
      * @var string
      */
     public $consigneeMobile;
+
     /**
      * @var string
      */
     public $consigneeName;
+
     /**
      * @var string
      */
     public $consigneePhone;
+
     /**
      * @var string
      */
     public $cpCode;
+
     /**
      * @var goodsInfos[]
      */
     public $goodsInfos;
+
     /**
      * @var string
      */
     public $orderChannels;
+
     /**
      * @var string
      */
     public $outerOrderCode;
+
     /**
      * @var string
      */
     public $remark;
+
     /**
      * @var sendAddress
      */
     public $sendAddress;
+
     /**
      * @var string
      */
     public $sendMobile;
+
     /**
      * @var string
      */
     public $sendName;
+
     /**
      * @var string
      */
     public $sendPhone;
     protected $_name = [
-        'appointGotEndTime'   => 'AppointGotEndTime',
+        'appointGotEndTime' => 'AppointGotEndTime',
         'appointGotStartTime' => 'AppointGotStartTime',
-        'bizType'             => 'BizType',
-        'consigneeAddress'    => 'ConsigneeAddress',
-        'consigneeMobile'     => 'ConsigneeMobile',
-        'consigneeName'       => 'ConsigneeName',
-        'consigneePhone'      => 'ConsigneePhone',
-        'cpCode'              => 'CpCode',
-        'goodsInfos'          => 'GoodsInfos',
-        'orderChannels'       => 'OrderChannels',
-        'outerOrderCode'      => 'OuterOrderCode',
-        'remark'              => 'Remark',
-        'sendAddress'         => 'SendAddress',
-        'sendMobile'          => 'SendMobile',
-        'sendName'            => 'SendName',
-        'sendPhone'           => 'SendPhone',
+        'bizType' => 'BizType',
+        'consigneeAddress' => 'ConsigneeAddress',
+        'consigneeMobile' => 'ConsigneeMobile',
+        'consigneeName' => 'ConsigneeName',
+        'consigneePhone' => 'ConsigneePhone',
+        'cpCode' => 'CpCode',
+        'goodsInfos' => 'GoodsInfos',
+        'orderChannels' => 'OrderChannels',
+        'outerOrderCode' => 'OuterOrderCode',
+        'remark' => 'Remark',
+        'sendAddress' => 'SendAddress',
+        'sendMobile' => 'SendMobile',
+        'sendName' => 'SendName',
+        'sendPhone' => 'SendPhone',
     ];
 
     public function validate()
@@ -146,7 +161,7 @@ class CreatePickUpWaybillRequest extends Model
         if (null !== $this->goodsInfos) {
             if (\is_array($this->goodsInfos)) {
                 $res['GoodsInfos'] = [];
-                $n1                = 0;
+                $n1 = 0;
                 foreach ($this->goodsInfos as $item1) {
                     $res['GoodsInfos'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -227,7 +242,7 @@ class CreatePickUpWaybillRequest extends Model
         if (isset($map['GoodsInfos'])) {
             if (!empty($map['GoodsInfos'])) {
                 $model->goodsInfos = [];
-                $n1                = 0;
+                $n1 = 0;
                 foreach ($map['GoodsInfos'] as $item1) {
                     $model->goodsInfos[$n1++] = goodsInfos::fromMap($item1);
                 }

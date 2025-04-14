@@ -12,18 +12,20 @@ class goodsInfos extends Model
      * @var string
      */
     public $name;
+
     /**
      * @var string
      */
     public $quantity;
+
     /**
      * @var string
      */
     public $weight;
     protected $_name = [
-        'name'     => 'Name',
+        'name' => 'Name',
         'quantity' => 'Quantity',
-        'weight'   => 'Weight',
+        'weight' => 'Weight',
     ];
 
     public function validate()

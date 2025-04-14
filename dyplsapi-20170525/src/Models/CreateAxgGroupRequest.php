@@ -12,38 +12,44 @@ class CreateAxgGroupRequest extends Model
      * @var string
      */
     public $name;
+
     /**
      * @var string
      */
     public $numbers;
+
     /**
      * @var int
      */
     public $ownerId;
+
     /**
      * @var string
      */
     public $poolKey;
+
     /**
      * @var string
      */
     public $remark;
+
     /**
      * @var string
      */
     public $resourceOwnerAccount;
+
     /**
      * @var int
      */
     public $resourceOwnerId;
     protected $_name = [
-        'name'                 => 'Name',
-        'numbers'              => 'Numbers',
-        'ownerId'              => 'OwnerId',
-        'poolKey'              => 'PoolKey',
-        'remark'               => 'Remark',
+        'name' => 'Name',
+        'numbers' => 'Numbers',
+        'ownerId' => 'OwnerId',
+        'poolKey' => 'PoolKey',
+        'remark' => 'Remark',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
-        'resourceOwnerId'      => 'ResourceOwnerId',
+        'resourceOwnerId' => 'ResourceOwnerId',
     ];
 
     public function validate()

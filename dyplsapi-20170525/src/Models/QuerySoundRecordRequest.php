@@ -12,38 +12,44 @@ class QuerySoundRecordRequest extends Model
      * @var string
      */
     public $callId;
+
     /**
      * @var int
      */
     public $callerParentId;
+
     /**
      * @var string
      */
     public $customerPoolKey;
+
     /**
      * @var int
      */
     public $ownerId;
+
     /**
      * @var string
      */
     public $reqId;
+
     /**
      * @var string
      */
     public $resourceOwnerAccount;
+
     /**
      * @var int
      */
     public $resourceOwnerId;
     protected $_name = [
-        'callId'               => 'CallId',
-        'callerParentId'       => 'CallerParentId',
-        'customerPoolKey'      => 'CustomerPoolKey',
-        'ownerId'              => 'OwnerId',
-        'reqId'                => 'ReqId',
+        'callId' => 'CallId',
+        'callerParentId' => 'CallerParentId',
+        'customerPoolKey' => 'CustomerPoolKey',
+        'ownerId' => 'OwnerId',
+        'reqId' => 'ReqId',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
-        'resourceOwnerId'      => 'ResourceOwnerId',
+        'resourceOwnerId' => 'ResourceOwnerId',
     ];
 
     public function validate()

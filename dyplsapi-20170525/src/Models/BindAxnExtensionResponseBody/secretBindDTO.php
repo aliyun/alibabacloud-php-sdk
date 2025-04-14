@@ -12,18 +12,20 @@ class secretBindDTO extends Model
      * @var string
      */
     public $extension;
+
     /**
      * @var string
      */
     public $secretNo;
+
     /**
      * @var string
      */
     public $subsId;
     protected $_name = [
         'extension' => 'Extension',
-        'secretNo'  => 'SecretNo',
-        'subsId'    => 'SubsId',
+        'secretNo' => 'SecretNo',
+        'subsId' => 'SubsId',
     ];
 
     public function validate()

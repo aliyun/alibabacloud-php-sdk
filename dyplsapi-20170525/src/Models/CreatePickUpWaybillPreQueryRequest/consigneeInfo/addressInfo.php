@@ -12,28 +12,32 @@ class addressInfo extends Model
      * @var string
      */
     public $addressDetail;
+
     /**
      * @var string
      */
     public $areaName;
+
     /**
      * @var string
      */
     public $cityName;
+
     /**
      * @var string
      */
     public $provinceName;
+
     /**
      * @var string
      */
     public $townName;
     protected $_name = [
         'addressDetail' => 'AddressDetail',
-        'areaName'      => 'AreaName',
-        'cityName'      => 'CityName',
-        'provinceName'  => 'ProvinceName',
-        'townName'      => 'TownName',
+        'areaName' => 'AreaName',
+        'cityName' => 'CityName',
+        'provinceName' => 'ProvinceName',
+        'townName' => 'TownName',
     ];
 
     public function validate()

@@ -12,38 +12,44 @@ class OperateBlackNoRequest extends Model
      * @var string
      */
     public $blackNo;
+
     /**
      * @var string
      */
     public $operateType;
+
     /**
      * @var int
      */
     public $ownerId;
+
     /**
      * @var string
      */
     public $poolKey;
+
     /**
      * @var string
      */
     public $resourceOwnerAccount;
+
     /**
      * @var int
      */
     public $resourceOwnerId;
+
     /**
      * @var string
      */
     public $tips;
     protected $_name = [
-        'blackNo'              => 'BlackNo',
-        'operateType'          => 'OperateType',
-        'ownerId'              => 'OwnerId',
-        'poolKey'              => 'PoolKey',
+        'blackNo' => 'BlackNo',
+        'operateType' => 'OperateType',
+        'ownerId' => 'OwnerId',
+        'poolKey' => 'PoolKey',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
-        'resourceOwnerId'      => 'ResourceOwnerId',
-        'tips'                 => 'Tips',
+        'resourceOwnerId' => 'ResourceOwnerId',
+        'tips' => 'Tips',
     ];
 
     public function validate()

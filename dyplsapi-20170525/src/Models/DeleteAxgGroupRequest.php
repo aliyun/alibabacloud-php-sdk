@@ -12,28 +12,32 @@ class DeleteAxgGroupRequest extends Model
      * @var int
      */
     public $groupId;
+
     /**
      * @var int
      */
     public $ownerId;
+
     /**
      * @var string
      */
     public $poolKey;
+
     /**
      * @var string
      */
     public $resourceOwnerAccount;
+
     /**
      * @var int
      */
     public $resourceOwnerId;
     protected $_name = [
-        'groupId'              => 'GroupId',
-        'ownerId'              => 'OwnerId',
-        'poolKey'              => 'PoolKey',
+        'groupId' => 'GroupId',
+        'ownerId' => 'OwnerId',
+        'poolKey' => 'PoolKey',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
-        'resourceOwnerId'      => 'ResourceOwnerId',
+        'resourceOwnerId' => 'ResourceOwnerId',
     ];
 
     public function validate()

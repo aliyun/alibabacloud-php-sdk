@@ -12,53 +12,62 @@ class BindAXBCallRequest extends Model
      * @var string
      */
     public $authId;
+
     /**
      * @var int
      */
     public $callerParentId;
+
     /**
      * @var string
      */
     public $customerPoolKey;
+
     /**
      * @var int
      */
     public $expiration;
+
     /**
      * @var int
      */
     public $ownerId;
+
     /**
      * @var string
      */
     public $reqId;
+
     /**
      * @var string
      */
     public $resourceOwnerAccount;
+
     /**
      * @var int
      */
     public $resourceOwnerId;
+
     /**
      * @var string
      */
     public $telA;
+
     /**
      * @var string
      */
     public $userData;
     protected $_name = [
-        'authId'               => 'AuthId',
-        'callerParentId'       => 'CallerParentId',
-        'customerPoolKey'      => 'CustomerPoolKey',
-        'expiration'           => 'Expiration',
-        'ownerId'              => 'OwnerId',
-        'reqId'                => 'ReqId',
+        'authId' => 'AuthId',
+        'callerParentId' => 'CallerParentId',
+        'customerPoolKey' => 'CustomerPoolKey',
+        'expiration' => 'Expiration',
+        'ownerId' => 'OwnerId',
+        'reqId' => 'ReqId',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
-        'resourceOwnerId'      => 'ResourceOwnerId',
-        'telA'                 => 'TelA',
-        'userData'             => 'UserData',
+        'resourceOwnerId' => 'ResourceOwnerId',
+        'telA' => 'TelA',
+        'userData' => 'UserData',
     ];
 
     public function validate()

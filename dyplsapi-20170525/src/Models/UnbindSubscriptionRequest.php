@@ -12,38 +12,44 @@ class UnbindSubscriptionRequest extends Model
      * @var int
      */
     public $ownerId;
+
     /**
      * @var string
      */
     public $poolKey;
+
     /**
      * @var string
      */
     public $productType;
+
     /**
      * @var string
      */
     public $resourceOwnerAccount;
+
     /**
      * @var int
      */
     public $resourceOwnerId;
+
     /**
      * @var string
      */
     public $secretNo;
+
     /**
      * @var string
      */
     public $subsId;
     protected $_name = [
-        'ownerId'              => 'OwnerId',
-        'poolKey'              => 'PoolKey',
-        'productType'          => 'ProductType',
+        'ownerId' => 'OwnerId',
+        'poolKey' => 'PoolKey',
+        'productType' => 'ProductType',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
-        'resourceOwnerId'      => 'ResourceOwnerId',
-        'secretNo'             => 'SecretNo',
-        'subsId'               => 'SubsId',
+        'resourceOwnerId' => 'ResourceOwnerId',
+        'secretNo' => 'SecretNo',
+        'subsId' => 'SubsId',
     ];
 
     public function validate()

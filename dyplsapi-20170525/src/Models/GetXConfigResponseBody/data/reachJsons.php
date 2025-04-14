@@ -12,38 +12,44 @@ class reachJsons extends Model
      * @var string
      */
     public $callDir;
+
     /**
      * @var string
      */
     public $callStatus;
+
     /**
      * @var string
      */
     public $receiveDir;
+
     /**
      * @var string
      */
     public $ruleId;
+
     /**
      * @var string
      */
     public $ruleName;
+
     /**
      * @var string
      */
     public $ruleType;
+
     /**
      * @var string
      */
     public $tempId;
     protected $_name = [
-        'callDir'    => 'CallDir',
+        'callDir' => 'CallDir',
         'callStatus' => 'CallStatus',
         'receiveDir' => 'ReceiveDir',
-        'ruleId'     => 'RuleId',
-        'ruleName'   => 'RuleName',
-        'ruleType'   => 'RuleType',
-        'tempId'     => 'TempId',
+        'ruleId' => 'RuleId',
+        'ruleName' => 'RuleName',
+        'ruleType' => 'RuleType',
+        'tempId' => 'TempId',
     ];
 
     public function validate()

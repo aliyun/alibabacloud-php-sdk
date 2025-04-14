@@ -12,22 +12,25 @@ class UnbindSubscriptionResponseBody extends Model
      * @var string
      */
     public $chargeId;
+
     /**
      * @var string
      */
     public $code;
+
     /**
      * @var string
      */
     public $message;
+
     /**
      * @var string
      */
     public $requestId;
     protected $_name = [
-        'chargeId'  => 'ChargeId',
-        'code'      => 'Code',
-        'message'   => 'Message',
+        'chargeId' => 'ChargeId',
+        'code' => 'Code',
+        'message' => 'Message',
         'requestId' => 'RequestId',
     ];
 

@@ -12,28 +12,32 @@ class UnlockSecretNoRequest extends Model
      * @var int
      */
     public $ownerId;
+
     /**
      * @var string
      */
     public $poolKey;
+
     /**
      * @var string
      */
     public $resourceOwnerAccount;
+
     /**
      * @var int
      */
     public $resourceOwnerId;
+
     /**
      * @var string
      */
     public $secretNo;
     protected $_name = [
-        'ownerId'              => 'OwnerId',
-        'poolKey'              => 'PoolKey',
+        'ownerId' => 'OwnerId',
+        'poolKey' => 'PoolKey',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
-        'resourceOwnerId'      => 'ResourceOwnerId',
-        'secretNo'             => 'SecretNo',
+        'resourceOwnerId' => 'ResourceOwnerId',
+        'secretNo' => 'SecretNo',
     ];
 
     public function validate()

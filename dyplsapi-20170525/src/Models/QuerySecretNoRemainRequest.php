@@ -12,33 +12,38 @@ class QuerySecretNoRemainRequest extends Model
      * @var string
      */
     public $city;
+
     /**
      * @var int
      */
     public $ownerId;
+
     /**
      * @var string
      */
     public $resourceOwnerAccount;
+
     /**
      * @var int
      */
     public $resourceOwnerId;
+
     /**
      * @var string
      */
     public $secretNo;
+
     /**
      * @var int
      */
     public $specId;
     protected $_name = [
-        'city'                 => 'City',
-        'ownerId'              => 'OwnerId',
+        'city' => 'City',
+        'ownerId' => 'OwnerId',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
-        'resourceOwnerId'      => 'ResourceOwnerId',
-        'secretNo'             => 'SecretNo',
-        'specId'               => 'SpecId',
+        'resourceOwnerId' => 'ResourceOwnerId',
+        'secretNo' => 'SecretNo',
+        'specId' => 'SpecId',
     ];
 
     public function validate()

@@ -12,28 +12,32 @@ class CancelPickUpWaybillRequest extends Model
      * @var string
      */
     public $cancelDesc;
+
     /**
      * @var string
      */
     public $outerOrderCode;
+
     /**
      * @var int
      */
     public $ownerId;
+
     /**
      * @var string
      */
     public $resourceOwnerAccount;
+
     /**
      * @var int
      */
     public $resourceOwnerId;
     protected $_name = [
-        'cancelDesc'           => 'CancelDesc',
-        'outerOrderCode'       => 'OuterOrderCode',
-        'ownerId'              => 'OwnerId',
+        'cancelDesc' => 'CancelDesc',
+        'outerOrderCode' => 'OuterOrderCode',
+        'ownerId' => 'OwnerId',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
-        'resourceOwnerId'      => 'ResourceOwnerId',
+        'resourceOwnerId' => 'ResourceOwnerId',
     ];
 
     public function validate()

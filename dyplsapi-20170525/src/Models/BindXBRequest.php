@@ -12,48 +12,56 @@ class BindXBRequest extends Model
      * @var int
      */
     public $callerParentId;
+
     /**
      * @var string
      */
     public $customerPoolKey;
+
     /**
      * @var int
      */
     public $ownerId;
+
     /**
      * @var string
      */
     public $reqId;
+
     /**
      * @var string
      */
     public $resourceOwnerAccount;
+
     /**
      * @var int
      */
     public $resourceOwnerId;
+
     /**
      * @var string
      */
     public $telB;
+
     /**
      * @var string
      */
     public $telX;
+
     /**
      * @var string
      */
     public $userData;
     protected $_name = [
-        'callerParentId'       => 'CallerParentId',
-        'customerPoolKey'      => 'CustomerPoolKey',
-        'ownerId'              => 'OwnerId',
-        'reqId'                => 'ReqId',
+        'callerParentId' => 'CallerParentId',
+        'customerPoolKey' => 'CustomerPoolKey',
+        'ownerId' => 'OwnerId',
+        'reqId' => 'ReqId',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
-        'resourceOwnerId'      => 'ResourceOwnerId',
-        'telB'                 => 'TelB',
-        'telX'                 => 'TelX',
-        'userData'             => 'UserData',
+        'resourceOwnerId' => 'ResourceOwnerId',
+        'telB' => 'TelB',
+        'telX' => 'TelX',
+        'userData' => 'UserData',
     ];
 
     public function validate()

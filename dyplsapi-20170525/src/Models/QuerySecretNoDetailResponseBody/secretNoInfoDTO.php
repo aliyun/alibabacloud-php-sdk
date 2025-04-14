@@ -12,33 +12,38 @@ class secretNoInfoDTO extends Model
      * @var int
      */
     public $certifyStatus;
+
     /**
      * @var string
      */
     public $city;
+
     /**
      * @var string
      */
     public $province;
+
     /**
      * @var string
      */
     public $purchaseTime;
+
     /**
      * @var int
      */
     public $secretStatus;
+
     /**
      * @var int
      */
     public $vendor;
     protected $_name = [
         'certifyStatus' => 'CertifyStatus',
-        'city'          => 'City',
-        'province'      => 'Province',
-        'purchaseTime'  => 'PurchaseTime',
-        'secretStatus'  => 'SecretStatus',
-        'vendor'        => 'Vendor',
+        'city' => 'City',
+        'province' => 'Province',
+        'purchaseTime' => 'PurchaseTime',
+        'secretStatus' => 'SecretStatus',
+        'vendor' => 'Vendor',
     ];
 
     public function validate()

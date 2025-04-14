@@ -13,22 +13,25 @@ class QueryPhoneNoAByTrackNoResponseBody extends Model
      * @var string
      */
     public $code;
+
     /**
      * @var string
      */
     public $message;
+
     /**
      * @var module[]
      */
     public $module;
+
     /**
      * @var string
      */
     public $requestId;
     protected $_name = [
-        'code'      => 'Code',
-        'message'   => 'Message',
-        'module'    => 'Module',
+        'code' => 'Code',
+        'message' => 'Message',
+        'module' => 'Module',
         'requestId' => 'RequestId',
     ];
 
@@ -54,7 +57,7 @@ class QueryPhoneNoAByTrackNoResponseBody extends Model
         if (null !== $this->module) {
             if (\is_array($this->module)) {
                 $res['Module'] = [];
-                $n1            = 0;
+                $n1 = 0;
                 foreach ($this->module as $item1) {
                     $res['Module'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -87,7 +90,7 @@ class QueryPhoneNoAByTrackNoResponseBody extends Model
         if (isset($map['Module'])) {
             if (!empty($map['Module'])) {
                 $model->module = [];
-                $n1            = 0;
+                $n1 = 0;
                 foreach ($map['Module'] as $item1) {
                     $model->module[$n1++] = module::fromMap($item1);
                 }

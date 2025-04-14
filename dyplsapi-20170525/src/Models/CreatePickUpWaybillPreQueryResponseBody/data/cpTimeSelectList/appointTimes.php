@@ -13,18 +13,20 @@ class appointTimes extends Model
      * @var string
      */
     public $date;
+
     /**
      * @var bool
      */
     public $dateSelectable;
+
     /**
      * @var timeList[]
      */
     public $timeList;
     protected $_name = [
-        'date'           => 'Date',
+        'date' => 'Date',
         'dateSelectable' => 'DateSelectable',
-        'timeList'       => 'TimeList',
+        'timeList' => 'TimeList',
     ];
 
     public function validate()
@@ -49,7 +51,7 @@ class appointTimes extends Model
         if (null !== $this->timeList) {
             if (\is_array($this->timeList)) {
                 $res['TimeList'] = [];
-                $n1              = 0;
+                $n1 = 0;
                 foreach ($this->timeList as $item1) {
                     $res['TimeList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -78,7 +80,7 @@ class appointTimes extends Model
         if (isset($map['TimeList'])) {
             if (!empty($map['TimeList'])) {
                 $model->timeList = [];
-                $n1              = 0;
+                $n1 = 0;
                 foreach ($map['TimeList'] as $item1) {
                     $model->timeList[$n1++] = timeList::fromMap($item1);
                 }

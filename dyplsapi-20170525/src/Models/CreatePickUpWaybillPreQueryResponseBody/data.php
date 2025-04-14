@@ -13,33 +13,38 @@ class data extends Model
      * @var string
      */
     public $code;
+
     /**
      * @var cpTimeSelectList[]
      */
     public $cpTimeSelectList;
+
     /**
      * @var string
      */
     public $errorCode;
+
     /**
      * @var string
      */
     public $errorMsg;
+
     /**
      * @var string
      */
     public $message;
+
     /**
      * @var bool
      */
     public $success;
     protected $_name = [
-        'code'             => 'Code',
+        'code' => 'Code',
         'cpTimeSelectList' => 'CpTimeSelectList',
-        'errorCode'        => 'ErrorCode',
-        'errorMsg'         => 'ErrorMsg',
-        'message'          => 'Message',
-        'success'          => 'Success',
+        'errorCode' => 'ErrorCode',
+        'errorMsg' => 'ErrorMsg',
+        'message' => 'Message',
+        'success' => 'Success',
     ];
 
     public function validate()
@@ -60,7 +65,7 @@ class data extends Model
         if (null !== $this->cpTimeSelectList) {
             if (\is_array($this->cpTimeSelectList)) {
                 $res['CpTimeSelectList'] = [];
-                $n1                      = 0;
+                $n1 = 0;
                 foreach ($this->cpTimeSelectList as $item1) {
                     $res['CpTimeSelectList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -101,7 +106,7 @@ class data extends Model
         if (isset($map['CpTimeSelectList'])) {
             if (!empty($map['CpTimeSelectList'])) {
                 $model->cpTimeSelectList = [];
-                $n1                      = 0;
+                $n1 = 0;
                 foreach ($map['CpTimeSelectList'] as $item1) {
                     $model->cpTimeSelectList[$n1++] = cpTimeSelectList::fromMap($item1);
                 }

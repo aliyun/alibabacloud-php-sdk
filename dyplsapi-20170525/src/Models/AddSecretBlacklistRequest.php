@@ -12,27 +12,31 @@ class AddSecretBlacklistRequest extends Model
      * @var string
      */
     public $blackNo;
+
     /**
      * @var string
      */
     public $blackType;
+
     /**
      * @var string
      */
     public $poolKey;
+
     /**
      * @var string
      */
     public $remark;
+
     /**
      * @var string
      */
     public $wayControl;
     protected $_name = [
-        'blackNo'    => 'BlackNo',
-        'blackType'  => 'BlackType',
-        'poolKey'    => 'PoolKey',
-        'remark'     => 'Remark',
+        'blackNo' => 'BlackNo',
+        'blackType' => 'BlackType',
+        'poolKey' => 'PoolKey',
+        'remark' => 'Remark',
         'wayControl' => 'WayControl',
     ];
 

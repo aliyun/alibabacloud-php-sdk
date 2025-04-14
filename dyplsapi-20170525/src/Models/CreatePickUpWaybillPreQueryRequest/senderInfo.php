@@ -13,18 +13,20 @@ class senderInfo extends Model
      * @var addressInfo
      */
     public $addressInfo;
+
     /**
      * @var string
      */
     public $mobile;
+
     /**
      * @var string
      */
     public $name;
     protected $_name = [
         'addressInfo' => 'AddressInfo',
-        'mobile'      => 'Mobile',
-        'name'        => 'Name',
+        'mobile' => 'Mobile',
+        'name' => 'Name',
     ];
 
     public function validate()

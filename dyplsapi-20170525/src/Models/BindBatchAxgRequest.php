@@ -13,28 +13,32 @@ class BindBatchAxgRequest extends Model
      * @var axgBindList[]
      */
     public $axgBindList;
+
     /**
      * @var int
      */
     public $ownerId;
+
     /**
      * @var string
      */
     public $poolKey;
+
     /**
      * @var string
      */
     public $resourceOwnerAccount;
+
     /**
      * @var int
      */
     public $resourceOwnerId;
     protected $_name = [
-        'axgBindList'          => 'AxgBindList',
-        'ownerId'              => 'OwnerId',
-        'poolKey'              => 'PoolKey',
+        'axgBindList' => 'AxgBindList',
+        'ownerId' => 'OwnerId',
+        'poolKey' => 'PoolKey',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
-        'resourceOwnerId'      => 'ResourceOwnerId',
+        'resourceOwnerId' => 'ResourceOwnerId',
     ];
 
     public function validate()
@@ -51,7 +55,7 @@ class BindBatchAxgRequest extends Model
         if (null !== $this->axgBindList) {
             if (\is_array($this->axgBindList)) {
                 $res['AxgBindList'] = [];
-                $n1                 = 0;
+                $n1 = 0;
                 foreach ($this->axgBindList as $item1) {
                     $res['AxgBindList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -88,7 +92,7 @@ class BindBatchAxgRequest extends Model
         if (isset($map['AxgBindList'])) {
             if (!empty($map['AxgBindList'])) {
                 $model->axgBindList = [];
-                $n1                 = 0;
+                $n1 = 0;
                 foreach ($map['AxgBindList'] as $item1) {
                     $model->axgBindList[$n1++] = axgBindList::fromMap($item1);
                 }

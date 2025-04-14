@@ -12,18 +12,20 @@ class GetSecretAsrDetailRequest extends Model
      * @var string
      */
     public $callId;
+
     /**
      * @var string
      */
     public $callTime;
+
     /**
      * @var string
      */
     public $poolKey;
     protected $_name = [
-        'callId'   => 'CallId',
+        'callId' => 'CallId',
         'callTime' => 'CallTime',
-        'poolKey'  => 'PoolKey',
+        'poolKey' => 'PoolKey',
     ];
 
     public function validate()

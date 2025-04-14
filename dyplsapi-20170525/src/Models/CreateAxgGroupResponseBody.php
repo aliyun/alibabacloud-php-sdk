@@ -12,22 +12,25 @@ class CreateAxgGroupResponseBody extends Model
      * @var string
      */
     public $code;
+
     /**
      * @var int
      */
     public $groupId;
+
     /**
      * @var string
      */
     public $message;
+
     /**
      * @var string
      */
     public $requestId;
     protected $_name = [
-        'code'      => 'Code',
-        'groupId'   => 'GroupId',
-        'message'   => 'Message',
+        'code' => 'Code',
+        'groupId' => 'GroupId',
+        'message' => 'Message',
         'requestId' => 'RequestId',
     ];
 

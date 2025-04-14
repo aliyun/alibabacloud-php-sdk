@@ -12,17 +12,19 @@ class sequenceCalls extends Model
      * @var string
      */
     public $sequenceCallNoPlayCode;
+
     /**
      * @var string
      */
     public $sequenceCalledNo;
+
     /**
      * @var string
      */
     public $sequenceCalledPlayCode;
     protected $_name = [
         'sequenceCallNoPlayCode' => 'SequenceCallNoPlayCode',
-        'sequenceCalledNo'       => 'SequenceCalledNo',
+        'sequenceCalledNo' => 'SequenceCalledNo',
         'sequenceCalledPlayCode' => 'SequenceCalledPlayCode',
     ];
 

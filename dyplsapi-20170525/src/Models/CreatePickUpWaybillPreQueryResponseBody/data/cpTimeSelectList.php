@@ -14,18 +14,20 @@ class cpTimeSelectList extends Model
      * @var appointTimes[]
      */
     public $appointTimes;
+
     /**
      * @var string
      */
     public $prePrice;
+
     /**
      * @var realTime
      */
     public $realTime;
     protected $_name = [
         'appointTimes' => 'AppointTimes',
-        'prePrice'     => 'PrePrice',
-        'realTime'     => 'RealTime',
+        'prePrice' => 'PrePrice',
+        'realTime' => 'RealTime',
     ];
 
     public function validate()
@@ -45,7 +47,7 @@ class cpTimeSelectList extends Model
         if (null !== $this->appointTimes) {
             if (\is_array($this->appointTimes)) {
                 $res['AppointTimes'] = [];
-                $n1                  = 0;
+                $n1 = 0;
                 foreach ($this->appointTimes as $item1) {
                     $res['AppointTimes'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -74,7 +76,7 @@ class cpTimeSelectList extends Model
         if (isset($map['AppointTimes'])) {
             if (!empty($map['AppointTimes'])) {
                 $model->appointTimes = [];
-                $n1                  = 0;
+                $n1 = 0;
                 foreach ($map['AppointTimes'] as $item1) {
                     $model->appointTimes[$n1++] = appointTimes::fromMap($item1);
                 }

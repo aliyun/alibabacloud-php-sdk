@@ -12,23 +12,26 @@ class timeList extends Model
      * @var string
      */
     public $endTime;
+
     /**
      * @var string
      */
     public $selectDisableTip;
+
     /**
      * @var bool
      */
     public $selectable;
+
     /**
      * @var string
      */
     public $startTime;
     protected $_name = [
-        'endTime'          => 'EndTime',
+        'endTime' => 'EndTime',
         'selectDisableTip' => 'SelectDisableTip',
-        'selectable'       => 'Selectable',
-        'startTime'        => 'StartTime',
+        'selectable' => 'Selectable',
+        'startTime' => 'StartTime',
     ];
 
     public function validate()
