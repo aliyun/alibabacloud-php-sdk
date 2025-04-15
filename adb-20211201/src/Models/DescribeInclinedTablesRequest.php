@@ -6,7 +6,7 @@ namespace AlibabaCloud\SDK\Adb\V20211201\Models;
 
 use AlibabaCloud\Dara\Model;
 
-class GetViewObjectsRequest extends Model
+class DescribeInclinedTablesRequest extends Model
 {
     /**
      * @var string
@@ -16,22 +16,12 @@ class GetViewObjectsRequest extends Model
     /**
      * @var string
      */
-    public $filterOwner;
+    public $lang;
 
     /**
      * @var string
      */
-    public $filterViewName;
-
-    /**
-     * @var string
-     */
-    public $filterViewType;
-
-    /**
-     * @var string
-     */
-    public $orderBy;
+    public $order;
 
     /**
      * @var int
@@ -51,23 +41,15 @@ class GetViewObjectsRequest extends Model
     /**
      * @var string
      */
-    public $schemaName;
-
-    /**
-     * @var bool
-     */
-    public $showMvBaseTable;
+    public $tableType;
     protected $_name = [
         'DBClusterId' => 'DBClusterId',
-        'filterOwner' => 'FilterOwner',
-        'filterViewName' => 'FilterViewName',
-        'filterViewType' => 'FilterViewType',
-        'orderBy' => 'OrderBy',
+        'lang' => 'Lang',
+        'order' => 'Order',
         'pageNumber' => 'PageNumber',
         'pageSize' => 'PageSize',
         'regionId' => 'RegionId',
-        'schemaName' => 'SchemaName',
-        'showMvBaseTable' => 'ShowMvBaseTable',
+        'tableType' => 'TableType',
     ];
 
     public function validate()
@@ -82,20 +64,12 @@ class GetViewObjectsRequest extends Model
             $res['DBClusterId'] = $this->DBClusterId;
         }
 
-        if (null !== $this->filterOwner) {
-            $res['FilterOwner'] = $this->filterOwner;
+        if (null !== $this->lang) {
+            $res['Lang'] = $this->lang;
         }
 
-        if (null !== $this->filterViewName) {
-            $res['FilterViewName'] = $this->filterViewName;
-        }
-
-        if (null !== $this->filterViewType) {
-            $res['FilterViewType'] = $this->filterViewType;
-        }
-
-        if (null !== $this->orderBy) {
-            $res['OrderBy'] = $this->orderBy;
+        if (null !== $this->order) {
+            $res['Order'] = $this->order;
         }
 
         if (null !== $this->pageNumber) {
@@ -110,12 +84,8 @@ class GetViewObjectsRequest extends Model
             $res['RegionId'] = $this->regionId;
         }
 
-        if (null !== $this->schemaName) {
-            $res['SchemaName'] = $this->schemaName;
-        }
-
-        if (null !== $this->showMvBaseTable) {
-            $res['ShowMvBaseTable'] = $this->showMvBaseTable;
+        if (null !== $this->tableType) {
+            $res['TableType'] = $this->tableType;
         }
 
         return $res;
@@ -133,20 +103,12 @@ class GetViewObjectsRequest extends Model
             $model->DBClusterId = $map['DBClusterId'];
         }
 
-        if (isset($map['FilterOwner'])) {
-            $model->filterOwner = $map['FilterOwner'];
+        if (isset($map['Lang'])) {
+            $model->lang = $map['Lang'];
         }
 
-        if (isset($map['FilterViewName'])) {
-            $model->filterViewName = $map['FilterViewName'];
-        }
-
-        if (isset($map['FilterViewType'])) {
-            $model->filterViewType = $map['FilterViewType'];
-        }
-
-        if (isset($map['OrderBy'])) {
-            $model->orderBy = $map['OrderBy'];
+        if (isset($map['Order'])) {
+            $model->order = $map['Order'];
         }
 
         if (isset($map['PageNumber'])) {
@@ -161,12 +123,8 @@ class GetViewObjectsRequest extends Model
             $model->regionId = $map['RegionId'];
         }
 
-        if (isset($map['SchemaName'])) {
-            $model->schemaName = $map['SchemaName'];
-        }
-
-        if (isset($map['ShowMvBaseTable'])) {
-            $model->showMvBaseTable = $map['ShowMvBaseTable'];
+        if (isset($map['TableType'])) {
+            $model->tableType = $map['TableType'];
         }
 
         return $model;

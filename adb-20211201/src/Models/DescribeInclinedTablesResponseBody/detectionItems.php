@@ -2,17 +2,12 @@
 
 // This file is auto-generated, don't edit it. Thanks.
 
-namespace AlibabaCloud\SDK\Adb\V20211201\Models;
+namespace AlibabaCloud\SDK\Adb\V20211201\Models\DescribeInclinedTablesResponseBody;
 
 use AlibabaCloud\Dara\Model;
 
-class DeleteProcessInstanceResponseBody extends Model
+class detectionItems extends Model
 {
-    /**
-     * @var bool
-     */
-    public $data;
-
     /**
      * @var string
      */
@@ -21,17 +16,16 @@ class DeleteProcessInstanceResponseBody extends Model
     /**
      * @var string
      */
-    public $requestId;
+    public $name;
 
     /**
-     * @var bool
+     * @var string
      */
-    public $success;
+    public $status;
     protected $_name = [
-        'data' => 'Data',
         'message' => 'Message',
-        'requestId' => 'RequestId',
-        'success' => 'Success',
+        'name' => 'Name',
+        'status' => 'Status',
     ];
 
     public function validate()
@@ -42,20 +36,16 @@ class DeleteProcessInstanceResponseBody extends Model
     public function toArray($noStream = false)
     {
         $res = [];
-        if (null !== $this->data) {
-            $res['Data'] = $this->data;
-        }
-
         if (null !== $this->message) {
             $res['Message'] = $this->message;
         }
 
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
+        if (null !== $this->name) {
+            $res['Name'] = $this->name;
         }
 
-        if (null !== $this->success) {
-            $res['Success'] = $this->success;
+        if (null !== $this->status) {
+            $res['Status'] = $this->status;
         }
 
         return $res;
@@ -69,20 +59,16 @@ class DeleteProcessInstanceResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Data'])) {
-            $model->data = $map['Data'];
-        }
-
         if (isset($map['Message'])) {
             $model->message = $map['Message'];
         }
 
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
+        if (isset($map['Name'])) {
+            $model->name = $map['Name'];
         }
 
-        if (isset($map['Success'])) {
-            $model->success = $map['Success'];
+        if (isset($map['Status'])) {
+            $model->status = $map['Status'];
         }
 
         return $model;

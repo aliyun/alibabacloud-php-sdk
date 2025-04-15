@@ -26,16 +26,6 @@ class ModifyDBClusterRequest extends Model
     /**
      * @var string
      */
-    public $ownerAccount;
-
-    /**
-     * @var int
-     */
-    public $ownerId;
-
-    /**
-     * @var string
-     */
     public $productForm;
 
     /**
@@ -56,23 +46,15 @@ class ModifyDBClusterRequest extends Model
     /**
      * @var string
      */
-    public $resourceOwnerAccount;
-
-    /**
-     * @var string
-     */
     public $storageResource;
     protected $_name = [
         'computeResource' => 'ComputeResource',
         'DBClusterId' => 'DBClusterId',
         'enableDefaultResourcePool' => 'EnableDefaultResourcePool',
-        'ownerAccount' => 'OwnerAccount',
-        'ownerId' => 'OwnerId',
         'productForm' => 'ProductForm',
         'regionId' => 'RegionId',
         'reservedNodeCount' => 'ReservedNodeCount',
         'reservedNodeSize' => 'ReservedNodeSize',
-        'resourceOwnerAccount' => 'ResourceOwnerAccount',
         'storageResource' => 'StorageResource',
     ];
 
@@ -96,14 +78,6 @@ class ModifyDBClusterRequest extends Model
             $res['EnableDefaultResourcePool'] = $this->enableDefaultResourcePool;
         }
 
-        if (null !== $this->ownerAccount) {
-            $res['OwnerAccount'] = $this->ownerAccount;
-        }
-
-        if (null !== $this->ownerId) {
-            $res['OwnerId'] = $this->ownerId;
-        }
-
         if (null !== $this->productForm) {
             $res['ProductForm'] = $this->productForm;
         }
@@ -118,10 +92,6 @@ class ModifyDBClusterRequest extends Model
 
         if (null !== $this->reservedNodeSize) {
             $res['ReservedNodeSize'] = $this->reservedNodeSize;
-        }
-
-        if (null !== $this->resourceOwnerAccount) {
-            $res['ResourceOwnerAccount'] = $this->resourceOwnerAccount;
         }
 
         if (null !== $this->storageResource) {
@@ -151,14 +121,6 @@ class ModifyDBClusterRequest extends Model
             $model->enableDefaultResourcePool = $map['EnableDefaultResourcePool'];
         }
 
-        if (isset($map['OwnerAccount'])) {
-            $model->ownerAccount = $map['OwnerAccount'];
-        }
-
-        if (isset($map['OwnerId'])) {
-            $model->ownerId = $map['OwnerId'];
-        }
-
         if (isset($map['ProductForm'])) {
             $model->productForm = $map['ProductForm'];
         }
@@ -173,10 +135,6 @@ class ModifyDBClusterRequest extends Model
 
         if (isset($map['ReservedNodeSize'])) {
             $model->reservedNodeSize = $map['ReservedNodeSize'];
-        }
-
-        if (isset($map['ResourceOwnerAccount'])) {
-            $model->resourceOwnerAccount = $map['ResourceOwnerAccount'];
         }
 
         if (isset($map['StorageResource'])) {

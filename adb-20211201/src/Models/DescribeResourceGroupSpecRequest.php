@@ -6,7 +6,7 @@ namespace AlibabaCloud\SDK\Adb\V20211201\Models;
 
 use AlibabaCloud\Dara\Model;
 
-class DeleteProcessInstanceRequest extends Model
+class DescribeResourceGroupSpecRequest extends Model
 {
     /**
      * @var string
@@ -14,24 +14,18 @@ class DeleteProcessInstanceRequest extends Model
     public $DBClusterId;
 
     /**
-     * @var int
+     * @var string
      */
-    public $processInstanceId;
-
-    /**
-     * @var int
-     */
-    public $projectCode;
+    public $regionId;
 
     /**
      * @var string
      */
-    public $regionId;
+    public $resourceGroupType;
     protected $_name = [
         'DBClusterId' => 'DBClusterId',
-        'processInstanceId' => 'ProcessInstanceId',
-        'projectCode' => 'ProjectCode',
         'regionId' => 'RegionId',
+        'resourceGroupType' => 'ResourceGroupType',
     ];
 
     public function validate()
@@ -46,16 +40,12 @@ class DeleteProcessInstanceRequest extends Model
             $res['DBClusterId'] = $this->DBClusterId;
         }
 
-        if (null !== $this->processInstanceId) {
-            $res['ProcessInstanceId'] = $this->processInstanceId;
-        }
-
-        if (null !== $this->projectCode) {
-            $res['ProjectCode'] = $this->projectCode;
-        }
-
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
+        }
+
+        if (null !== $this->resourceGroupType) {
+            $res['ResourceGroupType'] = $this->resourceGroupType;
         }
 
         return $res;
@@ -73,16 +63,12 @@ class DeleteProcessInstanceRequest extends Model
             $model->DBClusterId = $map['DBClusterId'];
         }
 
-        if (isset($map['ProcessInstanceId'])) {
-            $model->processInstanceId = $map['ProcessInstanceId'];
-        }
-
-        if (isset($map['ProjectCode'])) {
-            $model->projectCode = $map['ProjectCode'];
-        }
-
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
+        }
+
+        if (isset($map['ResourceGroupType'])) {
+            $model->resourceGroupType = $map['ResourceGroupType'];
         }
 
         return $model;

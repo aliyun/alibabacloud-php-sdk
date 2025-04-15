@@ -19,6 +19,11 @@ class TableSummaryModel extends Model
     public $description;
 
     /**
+     * @var OpenStructMvDetailModel
+     */
+    public $mvDetailModel;
+
+    /**
      * @var string
      */
     public $owner;
@@ -55,6 +60,7 @@ class TableSummaryModel extends Model
     protected $_name = [
         'createTime' => 'CreateTime',
         'description' => 'Description',
+        'mvDetailModel' => 'MvDetailModel',
         'owner' => 'Owner',
         'SQL' => 'SQL',
         'schemaName' => 'SchemaName',
@@ -66,6 +72,9 @@ class TableSummaryModel extends Model
 
     public function validate()
     {
+        if (null !== $this->mvDetailModel) {
+            $this->mvDetailModel->validate();
+        }
         parent::validate();
     }
 
@@ -78,6 +87,10 @@ class TableSummaryModel extends Model
 
         if (null !== $this->description) {
             $res['Description'] = $this->description;
+        }
+
+        if (null !== $this->mvDetailModel) {
+            $res['MvDetailModel'] = null !== $this->mvDetailModel ? $this->mvDetailModel->toArray($noStream) : $this->mvDetailModel;
         }
 
         if (null !== $this->owner) {
@@ -125,6 +138,10 @@ class TableSummaryModel extends Model
 
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
+        }
+
+        if (isset($map['MvDetailModel'])) {
+            $model->mvDetailModel = OpenStructMvDetailModel::fromMap($map['MvDetailModel']);
         }
 
         if (isset($map['Owner'])) {

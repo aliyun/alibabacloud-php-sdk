@@ -6,7 +6,7 @@ namespace AlibabaCloud\SDK\Adb\V20211201\Models;
 
 use AlibabaCloud\Dara\Model;
 
-class DeleteProcessInstanceResponse extends Model
+class DescribeResourceGroupSpecResponse extends Model
 {
     /**
      * @var string[]
@@ -19,7 +19,7 @@ class DeleteProcessInstanceResponse extends Model
     public $statusCode;
 
     /**
-     * @var DeleteProcessInstanceResponseBody
+     * @var DescribeResourceGroupSpecResponseBody
      */
     public $body;
     protected $_name = [
@@ -84,7 +84,7 @@ class DeleteProcessInstanceResponse extends Model
         }
 
         if (isset($map['body'])) {
-            $model->body = DeleteProcessInstanceResponseBody::fromMap($map['body']);
+            $model->body = DescribeResourceGroupSpecResponseBody::fromMap($map['body']);
         }
 
         return $model;

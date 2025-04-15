@@ -74,8 +74,6 @@ use AlibabaCloud\SDK\Adb\V20211201\Models\DeleteLakeStorageRequest;
 use AlibabaCloud\SDK\Adb\V20211201\Models\DeleteLakeStorageResponse;
 use AlibabaCloud\SDK\Adb\V20211201\Models\DeletePerformanceViewRequest;
 use AlibabaCloud\SDK\Adb\V20211201\Models\DeletePerformanceViewResponse;
-use AlibabaCloud\SDK\Adb\V20211201\Models\DeleteProcessInstanceRequest;
-use AlibabaCloud\SDK\Adb\V20211201\Models\DeleteProcessInstanceResponse;
 use AlibabaCloud\SDK\Adb\V20211201\Models\DeleteSparkTemplateFileRequest;
 use AlibabaCloud\SDK\Adb\V20211201\Models\DeleteSparkTemplateFileResponse;
 use AlibabaCloud\SDK\Adb\V20211201\Models\DeleteSparkTemplateRequest;
@@ -188,6 +186,8 @@ use AlibabaCloud\SDK\Adb\V20211201\Models\DescribeExecutorDetectionRequest;
 use AlibabaCloud\SDK\Adb\V20211201\Models\DescribeExecutorDetectionResponse;
 use AlibabaCloud\SDK\Adb\V20211201\Models\DescribeInclinedNodesRequest;
 use AlibabaCloud\SDK\Adb\V20211201\Models\DescribeInclinedNodesResponse;
+use AlibabaCloud\SDK\Adb\V20211201\Models\DescribeInclinedTablesRequest;
+use AlibabaCloud\SDK\Adb\V20211201\Models\DescribeInclinedTablesResponse;
 use AlibabaCloud\SDK\Adb\V20211201\Models\DescribeJobResourceUsageRequest;
 use AlibabaCloud\SDK\Adb\V20211201\Models\DescribeJobResourceUsageResponse;
 use AlibabaCloud\SDK\Adb\V20211201\Models\DescribeKernelVersionRequest;
@@ -206,6 +206,8 @@ use AlibabaCloud\SDK\Adb\V20211201\Models\DescribePerformanceViewsRequest;
 use AlibabaCloud\SDK\Adb\V20211201\Models\DescribePerformanceViewsResponse;
 use AlibabaCloud\SDK\Adb\V20211201\Models\DescribeRegionsRequest;
 use AlibabaCloud\SDK\Adb\V20211201\Models\DescribeRegionsResponse;
+use AlibabaCloud\SDK\Adb\V20211201\Models\DescribeResourceGroupSpecRequest;
+use AlibabaCloud\SDK\Adb\V20211201\Models\DescribeResourceGroupSpecResponse;
 use AlibabaCloud\SDK\Adb\V20211201\Models\DescribeSchemasRequest;
 use AlibabaCloud\SDK\Adb\V20211201\Models\DescribeSchemasResponse;
 use AlibabaCloud\SDK\Adb\V20211201\Models\DescribeSparkAppDiagnosisInfoRequest;
@@ -735,7 +737,7 @@ class Adb extends OpenApiClient
     }
 
     /**
-     * The request ID.
+     * Applies optimization suggestions.
      *
      * @param request - BatchApplyAdviceByIdListRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -789,7 +791,7 @@ class Adb extends OpenApiClient
     }
 
     /**
-     * The request ID.
+     * Applies optimization suggestions.
      *
      * @param request - BatchApplyAdviceByIdListRequest
      *
@@ -1023,7 +1025,7 @@ class Adb extends OpenApiClient
     }
 
     /**
-     * 取消一段Spark Batch SQL的状态
+     * Cancels the execution of a Spark SQL statement.
      *
      * @param request - CancelSparkWarehouseBatchSQLRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1073,7 +1075,7 @@ class Adb extends OpenApiClient
     }
 
     /**
-     * 取消一段Spark Batch SQL的状态
+     * Cancels the execution of a Spark SQL statement.
      *
      * @param request - CancelSparkWarehouseBatchSQLRequest
      *
@@ -3420,86 +3422,6 @@ class Adb extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->deletePerformanceViewWithOptions($request, $runtime);
-    }
-
-    /**
-     * Deletes a worflow instance from an AnalyticDB for MySQL Data Lakehouse Edition (V3.0) cluster.
-     *
-     * @remarks
-     *   Regional public endpoint: `adb.<region-id>.aliyuncs.com`. Example: `adb.cn-hangzhou.aliyuncs.com`.
-     * *   Regional Virtual Private Cloud (VPC) endpoint: `adb-vpc.<region-id>.aliyuncs.com`. Example: `adb-vpc.cn-hangzhou.aliyuncs.com`.
-     *
-     * @param request - DeleteProcessInstanceRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns DeleteProcessInstanceResponse
-     *
-     * @param DeleteProcessInstanceRequest $request
-     * @param RuntimeOptions               $runtime
-     *
-     * @return DeleteProcessInstanceResponse
-     */
-    public function deleteProcessInstanceWithOptions($request, $runtime)
-    {
-        $request->validate();
-        $query = [];
-        if (null !== $request->DBClusterId) {
-            @$query['DBClusterId'] = $request->DBClusterId;
-        }
-
-        if (null !== $request->processInstanceId) {
-            @$query['ProcessInstanceId'] = $request->processInstanceId;
-        }
-
-        if (null !== $request->projectCode) {
-            @$query['ProjectCode'] = $request->projectCode;
-        }
-
-        if (null !== $request->regionId) {
-            @$query['RegionId'] = $request->regionId;
-        }
-
-        $req = new OpenApiRequest([
-            'query' => Utils::query($query),
-        ]);
-        $params = new Params([
-            'action' => 'DeleteProcessInstance',
-            'version' => '2021-12-01',
-            'protocol' => 'HTTPS',
-            'pathname' => '/',
-            'method' => 'POST',
-            'authType' => 'AK',
-            'style' => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType' => 'json',
-        ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DeleteProcessInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
-
-        return DeleteProcessInstanceResponse::fromMap($this->execute($params, $req, $runtime));
-    }
-
-    /**
-     * Deletes a worflow instance from an AnalyticDB for MySQL Data Lakehouse Edition (V3.0) cluster.
-     *
-     * @remarks
-     *   Regional public endpoint: `adb.<region-id>.aliyuncs.com`. Example: `adb.cn-hangzhou.aliyuncs.com`.
-     * *   Regional Virtual Private Cloud (VPC) endpoint: `adb-vpc.<region-id>.aliyuncs.com`. Example: `adb-vpc.cn-hangzhou.aliyuncs.com`.
-     *
-     * @param request - DeleteProcessInstanceRequest
-     *
-     * @returns DeleteProcessInstanceResponse
-     *
-     * @param DeleteProcessInstanceRequest $request
-     *
-     * @return DeleteProcessInstanceResponse
-     */
-    public function deleteProcessInstance($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->deleteProcessInstanceWithOptions($request, $runtime);
     }
 
     /**
@@ -7735,7 +7657,7 @@ class Adb extends OpenApiClient
     }
 
     /**
-     * 查询EssdCache配置.
+     * Queries the disk cache size in the query acceleration configuration of an AnalyticDB for MySQL cluster.
      *
      * @param request - DescribeEssdCacheConfigRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -7777,7 +7699,7 @@ class Adb extends OpenApiClient
     }
 
     /**
-     * 查询EssdCache配置.
+     * Queries the disk cache size in the query acceleration configuration of an AnalyticDB for MySQL cluster.
      *
      * @param request - DescribeEssdCacheConfigRequest
      *
@@ -8078,6 +8000,90 @@ class Adb extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->describeInclinedNodesWithOptions($request, $runtime);
+    }
+
+    /**
+     * 查看表倾斜诊断结果.
+     *
+     * @param request - DescribeInclinedTablesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeInclinedTablesResponse
+     *
+     * @param DescribeInclinedTablesRequest $request
+     * @param RuntimeOptions                $runtime
+     *
+     * @return DescribeInclinedTablesResponse
+     */
+    public function describeInclinedTablesWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->DBClusterId) {
+            @$query['DBClusterId'] = $request->DBClusterId;
+        }
+
+        if (null !== $request->lang) {
+            @$query['Lang'] = $request->lang;
+        }
+
+        if (null !== $request->order) {
+            @$query['Order'] = $request->order;
+        }
+
+        if (null !== $request->pageNumber) {
+            @$query['PageNumber'] = $request->pageNumber;
+        }
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        if (null !== $request->tableType) {
+            @$query['TableType'] = $request->tableType;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DescribeInclinedTables',
+            'version' => '2021-12-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DescribeInclinedTablesResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
+
+        return DescribeInclinedTablesResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * 查看表倾斜诊断结果.
+     *
+     * @param request - DescribeInclinedTablesRequest
+     *
+     * @returns DescribeInclinedTablesResponse
+     *
+     * @param DescribeInclinedTablesRequest $request
+     *
+     * @return DescribeInclinedTablesResponse
+     */
+    public function describeInclinedTables($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeInclinedTablesWithOptions($request, $runtime);
     }
 
     /**
@@ -8808,6 +8814,74 @@ class Adb extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->describeRegionsWithOptions($request, $runtime);
+    }
+
+    /**
+     * 查询资源组规格相关信息.
+     *
+     * @param request - DescribeResourceGroupSpecRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeResourceGroupSpecResponse
+     *
+     * @param DescribeResourceGroupSpecRequest $request
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return DescribeResourceGroupSpecResponse
+     */
+    public function describeResourceGroupSpecWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->DBClusterId) {
+            @$query['DBClusterId'] = $request->DBClusterId;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        if (null !== $request->resourceGroupType) {
+            @$query['ResourceGroupType'] = $request->resourceGroupType;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DescribeResourceGroupSpec',
+            'version' => '2021-12-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DescribeResourceGroupSpecResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
+
+        return DescribeResourceGroupSpecResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * 查询资源组规格相关信息.
+     *
+     * @param request - DescribeResourceGroupSpecRequest
+     *
+     * @returns DescribeResourceGroupSpecResponse
+     *
+     * @param DescribeResourceGroupSpecRequest $request
+     *
+     * @return DescribeResourceGroupSpecResponse
+     */
+    public function describeResourceGroupSpec($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeResourceGroupSpecWithOptions($request, $runtime);
     }
 
     /**
@@ -10757,7 +10831,7 @@ class Adb extends OpenApiClient
     }
 
     /**
-     * 执行一段Spark Batch SQL.
+     * Executes Spark SQL statements in batches.
      *
      * @param request - ExecuteSparkWarehouseBatchSQLRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -10827,7 +10901,7 @@ class Adb extends OpenApiClient
     }
 
     /**
-     * 执行一段Spark Batch SQL.
+     * Executes Spark SQL statements in batches.
      *
      * @param request - ExecuteSparkWarehouseBatchSQLRequest
      *
@@ -12269,7 +12343,7 @@ class Adb extends OpenApiClient
     }
 
     /**
-     * 获取一段Spark Batch SQL的状态
+     * Queries the execution result of a Spark SQL statement.
      *
      * @param request - GetSparkWarehouseBatchSQLRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -12319,7 +12393,7 @@ class Adb extends OpenApiClient
     }
 
     /**
-     * 获取一段Spark Batch SQL的状态
+     * Queries the execution result of a Spark SQL statement.
      *
      * @param request - GetSparkWarehouseBatchSQLRequest
      *
@@ -12811,6 +12885,10 @@ class Adb extends OpenApiClient
 
         if (null !== $request->schemaName) {
             @$query['SchemaName'] = $request->schemaName;
+        }
+
+        if (null !== $request->showMvBaseTable) {
+            @$query['ShowMvBaseTable'] = $request->showMvBaseTable;
         }
 
         $req = new OpenApiRequest([
@@ -13919,7 +13997,7 @@ class Adb extends OpenApiClient
     }
 
     /**
-     * 列出提交的的SparkBatchSQL.
+     * Queries a list of Spark SQL statements.
      *
      * @param request - ListSparkWarehouseBatchSQLRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -13973,7 +14051,7 @@ class Adb extends OpenApiClient
     }
 
     /**
-     * 列出提交的的SparkBatchSQL.
+     * Queries a list of Spark SQL statements.
      *
      * @param request - ListSparkWarehouseBatchSQLRequest
      *
@@ -14905,7 +14983,7 @@ class Adb extends OpenApiClient
     }
 
     /**
-     * 开启宽表引擎.
+     * Enables the wide table engine feature for an AnalyticDB for MySQL cluster or modifies the disk cache size of the wide table engine of an AnalyticDB for MySQL cluster for which you enabled the wide table engine feature.
      *
      * @param request - ModifyClickhouseEngineRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -14959,7 +15037,7 @@ class Adb extends OpenApiClient
     }
 
     /**
-     * 开启宽表引擎.
+     * Enables the wide table engine feature for an AnalyticDB for MySQL cluster or modifies the disk cache size of the wide table engine of an AnalyticDB for MySQL cluster for which you enabled the wide table engine feature.
      *
      * @param request - ModifyClickhouseEngineRequest
      *
@@ -15238,14 +15316,6 @@ class Adb extends OpenApiClient
             @$query['EnableDefaultResourcePool'] = $request->enableDefaultResourcePool;
         }
 
-        if (null !== $request->ownerAccount) {
-            @$query['OwnerAccount'] = $request->ownerAccount;
-        }
-
-        if (null !== $request->ownerId) {
-            @$query['OwnerId'] = $request->ownerId;
-        }
-
         if (null !== $request->productForm) {
             @$query['ProductForm'] = $request->productForm;
         }
@@ -15260,10 +15330,6 @@ class Adb extends OpenApiClient
 
         if (null !== $request->reservedNodeSize) {
             @$query['ReservedNodeSize'] = $request->reservedNodeSize;
-        }
-
-        if (null !== $request->resourceOwnerAccount) {
-            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
 
         if (null !== $request->storageResource) {
