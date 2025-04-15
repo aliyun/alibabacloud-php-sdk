@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Cloudauthintl\V20220809\Models\FaceLivenessResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Cloudauthintl\V20220809\Models\FaceLivenessResponseBody\result\extFaceInfo;
-use AlibabaCloud\Tea\Model;
 
 class result extends Model
 {
@@ -15,48 +15,49 @@ class result extends Model
     public $extFaceInfo;
 
     /**
-     * @example N
-     *
      * @var string
      */
     public $passed;
 
     /**
-     * @example 205
-     *
      * @var string
      */
     public $subCode;
 
     /**
-     * @example 08573be80f944d95ac812e019e3655a8
-     *
      * @var string
      */
     public $transactionId;
     protected $_name = [
-        'extFaceInfo'   => 'ExtFaceInfo',
-        'passed'        => 'Passed',
-        'subCode'       => 'SubCode',
+        'extFaceInfo' => 'ExtFaceInfo',
+        'passed' => 'Passed',
+        'subCode' => 'SubCode',
         'transactionId' => 'TransactionId',
     ];
 
     public function validate()
     {
+        if (null !== $this->extFaceInfo) {
+            $this->extFaceInfo->validate();
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->extFaceInfo) {
-            $res['ExtFaceInfo'] = null !== $this->extFaceInfo ? $this->extFaceInfo->toMap() : null;
+            $res['ExtFaceInfo'] = null !== $this->extFaceInfo ? $this->extFaceInfo->toArray($noStream) : $this->extFaceInfo;
         }
+
         if (null !== $this->passed) {
             $res['Passed'] = $this->passed;
         }
+
         if (null !== $this->subCode) {
             $res['SubCode'] = $this->subCode;
         }
+
         if (null !== $this->transactionId) {
             $res['TransactionId'] = $this->transactionId;
         }
@@ -64,23 +65,26 @@ class result extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return result
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ExtFaceInfo'])) {
             $model->extFaceInfo = extFaceInfo::fromMap($map['ExtFaceInfo']);
         }
+
         if (isset($map['Passed'])) {
             $model->passed = $map['Passed'];
         }
+
         if (isset($map['SubCode'])) {
             $model->subCode = $map['SubCode'];
         }
+
         if (isset($map['TransactionId'])) {
             $model->transactionId = $map['TransactionId'];
         }

@@ -5,9 +5,9 @@
 namespace AlibabaCloud\SDK\Cloudauthintl\V20220809\Models;
 
 use AlibabaCloud\Dara\Model;
-use AlibabaCloud\SDK\Cloudauthintl\V20220809\Models\DeleteVerifyResultResponseBody\result;
+use AlibabaCloud\SDK\Cloudauthintl\V20220809\Models\CheckVerifyLogResponseBody\result;
 
-class DeleteVerifyResultResponseBody extends Model
+class CheckVerifyLogResponseBody extends Model
 {
     /**
      * @var string

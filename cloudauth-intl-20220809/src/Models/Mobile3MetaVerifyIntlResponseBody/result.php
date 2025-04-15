@@ -4,27 +4,21 @@
 
 namespace AlibabaCloud\SDK\Cloudauthintl\V20220809\Models\Mobile3MetaVerifyIntlResponseBody;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class result extends Model
 {
     /**
-     * @example 1
-     *
      * @var string
      */
     public $bizCode;
 
     /**
-     * @example CMCC
-     *
      * @var string
      */
     public $ispName;
 
     /**
-     * @example 101
-     *
      * @var string
      */
     public $subCode;
@@ -36,17 +30,20 @@ class result extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->bizCode) {
             $res['BizCode'] = $this->bizCode;
         }
+
         if (null !== $this->ispName) {
             $res['IspName'] = $this->ispName;
         }
+
         if (null !== $this->subCode) {
             $res['SubCode'] = $this->subCode;
         }
@@ -54,20 +51,22 @@ class result extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return result
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['BizCode'])) {
             $model->bizCode = $map['BizCode'];
         }
+
         if (isset($map['IspName'])) {
             $model->ispName = $map['IspName'];
         }
+
         if (isset($map['SubCode'])) {
             $model->subCode = $map['SubCode'];
         }
