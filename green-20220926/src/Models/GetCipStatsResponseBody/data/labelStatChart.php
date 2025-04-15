@@ -6,6 +6,7 @@ namespace AlibabaCloud\SDK\Green\V20220926\Models\GetCipStatsResponseBody\data;
 
 use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Green\V20220926\Models\GetCipStatsResponseBody\data\labelStatChart\imageTreeChar;
+use AlibabaCloud\SDK\Green\V20220926\Models\GetCipStatsResponseBody\data\labelStatChart\textTreeChart;
 use AlibabaCloud\SDK\Green\V20220926\Models\GetCipStatsResponseBody\data\labelStatChart\treeChart;
 use AlibabaCloud\SDK\Green\V20220926\Models\GetCipStatsResponseBody\data\labelStatChart\voiceTreeChart;
 use AlibabaCloud\SDK\Green\V20220926\Models\GetCipStatsResponseBody\data\labelStatChart\y;
@@ -21,6 +22,11 @@ class labelStatChart extends Model
      * @var string
      */
     public $serviceCode;
+
+    /**
+     * @var textTreeChart[]
+     */
+    public $textTreeChart;
 
     /**
      * @var int
@@ -49,6 +55,7 @@ class labelStatChart extends Model
     protected $_name = [
         'imageTreeChar' => 'ImageTreeChar',
         'serviceCode' => 'ServiceCode',
+        'textTreeChart' => 'TextTreeChart',
         'totalCount' => 'TotalCount',
         'treeChart' => 'TreeChart',
         'voiceTreeChart' => 'VoiceTreeChart',
@@ -60,6 +67,9 @@ class labelStatChart extends Model
     {
         if (\is_array($this->imageTreeChar)) {
             Model::validateArray($this->imageTreeChar);
+        }
+        if (\is_array($this->textTreeChart)) {
+            Model::validateArray($this->textTreeChart);
         }
         if (\is_array($this->treeChart)) {
             Model::validateArray($this->treeChart);
@@ -91,6 +101,16 @@ class labelStatChart extends Model
 
         if (null !== $this->serviceCode) {
             $res['ServiceCode'] = $this->serviceCode;
+        }
+
+        if (null !== $this->textTreeChart) {
+            if (\is_array($this->textTreeChart)) {
+                $res['TextTreeChart'] = [];
+                $n1 = 0;
+                foreach ($this->textTreeChart as $item1) {
+                    $res['TextTreeChart'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                }
+            }
         }
 
         if (null !== $this->totalCount) {
@@ -160,6 +180,16 @@ class labelStatChart extends Model
 
         if (isset($map['ServiceCode'])) {
             $model->serviceCode = $map['ServiceCode'];
+        }
+
+        if (isset($map['TextTreeChart'])) {
+            if (!empty($map['TextTreeChart'])) {
+                $model->textTreeChart = [];
+                $n1 = 0;
+                foreach ($map['TextTreeChart'] as $item1) {
+                    $model->textTreeChart[$n1++] = textTreeChart::fromMap($item1);
+                }
+            }
         }
 
         if (isset($map['TotalCount'])) {
