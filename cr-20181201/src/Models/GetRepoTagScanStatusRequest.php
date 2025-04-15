@@ -31,12 +31,18 @@ class GetRepoTagScanStatusRequest extends Model
     /**
      * @var string
      */
+    public $scanType;
+
+    /**
+     * @var string
+     */
     public $tag;
     protected $_name = [
         'digest' => 'Digest',
         'instanceId' => 'InstanceId',
         'repoId' => 'RepoId',
         'scanTaskId' => 'ScanTaskId',
+        'scanType' => 'ScanType',
         'tag' => 'Tag',
     ];
 
@@ -62,6 +68,10 @@ class GetRepoTagScanStatusRequest extends Model
 
         if (null !== $this->scanTaskId) {
             $res['ScanTaskId'] = $this->scanTaskId;
+        }
+
+        if (null !== $this->scanType) {
+            $res['ScanType'] = $this->scanType;
         }
 
         if (null !== $this->tag) {
@@ -93,6 +103,10 @@ class GetRepoTagScanStatusRequest extends Model
 
         if (isset($map['ScanTaskId'])) {
             $model->scanTaskId = $map['ScanTaskId'];
+        }
+
+        if (isset($map['ScanType'])) {
+            $model->scanType = $map['ScanType'];
         }
 
         if (isset($map['Tag'])) {

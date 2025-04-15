@@ -31,12 +31,18 @@ class CreateRepoTagScanTaskRequest extends Model
     /**
      * @var string
      */
+    public $scanType;
+
+    /**
+     * @var string
+     */
     public $tag;
     protected $_name = [
         'digest' => 'Digest',
         'instanceId' => 'InstanceId',
         'repoId' => 'RepoId',
         'scanService' => 'ScanService',
+        'scanType' => 'ScanType',
         'tag' => 'Tag',
     ];
 
@@ -62,6 +68,10 @@ class CreateRepoTagScanTaskRequest extends Model
 
         if (null !== $this->scanService) {
             $res['ScanService'] = $this->scanService;
+        }
+
+        if (null !== $this->scanType) {
+            $res['ScanType'] = $this->scanType;
         }
 
         if (null !== $this->tag) {
@@ -93,6 +103,10 @@ class CreateRepoTagScanTaskRequest extends Model
 
         if (isset($map['ScanService'])) {
             $model->scanService = $map['ScanService'];
+        }
+
+        if (isset($map['ScanType'])) {
+            $model->scanType = $map['ScanType'];
         }
 
         if (isset($map['Tag'])) {
