@@ -15,53 +15,62 @@ class sinkApacheRocketMQCheckpointParameters extends Model
      * @var consumeTimestamp
      */
     public $consumeTimestamp;
+
     /**
      * @var group
      */
     public $group;
+
     /**
      * @var string
      */
     public $instanceEndpoint;
+
     /**
      * @var string
      */
     public $instancePassword;
+
     /**
      * @var string
      */
     public $instanceUsername;
+
     /**
      * @var string
      */
     public $networkType;
+
     /**
      * @var string
      */
     public $securityGroupId;
+
     /**
      * @var topic
      */
     public $topic;
+
     /**
      * @var string
      */
     public $vSwitchId;
+
     /**
      * @var string
      */
     public $vpcId;
     protected $_name = [
         'consumeTimestamp' => 'ConsumeTimestamp',
-        'group'            => 'Group',
+        'group' => 'Group',
         'instanceEndpoint' => 'InstanceEndpoint',
         'instancePassword' => 'InstancePassword',
         'instanceUsername' => 'InstanceUsername',
-        'networkType'      => 'NetworkType',
-        'securityGroupId'  => 'SecurityGroupId',
-        'topic'            => 'Topic',
-        'vSwitchId'        => 'VSwitchId',
-        'vpcId'            => 'VpcId',
+        'networkType' => 'NetworkType',
+        'securityGroupId' => 'SecurityGroupId',
+        'topic' => 'Topic',
+        'vSwitchId' => 'VSwitchId',
+        'vpcId' => 'VpcId',
     ];
 
     public function validate()

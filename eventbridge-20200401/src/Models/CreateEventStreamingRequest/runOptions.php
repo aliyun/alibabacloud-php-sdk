@@ -15,28 +15,32 @@ class runOptions extends Model
      * @var batchWindow
      */
     public $batchWindow;
+
     /**
      * @var deadLetterQueue
      */
     public $deadLetterQueue;
+
     /**
      * @var string
      */
     public $errorsTolerance;
+
     /**
      * @var int
      */
     public $maximumTasks;
+
     /**
      * @var retryStrategy
      */
     public $retryStrategy;
     protected $_name = [
-        'batchWindow'     => 'BatchWindow',
+        'batchWindow' => 'BatchWindow',
         'deadLetterQueue' => 'DeadLetterQueue',
         'errorsTolerance' => 'ErrorsTolerance',
-        'maximumTasks'    => 'MaximumTasks',
-        'retryStrategy'   => 'RetryStrategy',
+        'maximumTasks' => 'MaximumTasks',
+        'retryStrategy' => 'RetryStrategy',
     ];
 
     public function validate()

@@ -27,58 +27,72 @@ class sink extends Model
      * @var sinkApacheRocketMQCheckpointParameters
      */
     public $sinkApacheRocketMQCheckpointParameters;
+
     /**
      * @var sinkCustomizedKafkaConnectorParameters
      */
     public $sinkCustomizedKafkaConnectorParameters;
+
     /**
      * @var sinkCustomizedKafkaParameters
      */
     public $sinkCustomizedKafkaParameters;
+
     /**
      * @var sinkDashVectorParameters
      */
     public $sinkDashVectorParameters;
+
     /**
      * @var sinkDataHubParameters
      */
     public $sinkDataHubParameters;
+
     /**
      * @var sinkFcParameters
      */
     public $sinkFcParameters;
+
     /**
      * @var sinkFnfParameters
      */
     public $sinkFnfParameters;
+
     /**
      * @var sinkKafkaParameters
      */
     public $sinkKafkaParameters;
+
     /**
      * @var sinkMNSParameters
      */
     public $sinkMNSParameters;
+
     /**
      * @var sinkOpenSourceRabbitMQParameters
      */
     public $sinkOpenSourceRabbitMQParameters;
+
     /**
      * @var sinkPrometheusParameters
      */
     public $sinkPrometheusParameters;
+
     /**
      * @var sinkRabbitMQParameters
      */
     public $sinkRabbitMQParameters;
+
     /**
      * @var sinkRocketMQCheckpointParameters
      */
     public $sinkRocketMQCheckpointParameters;
+
     /**
      * @var sinkRocketMQParameters
      */
     public $sinkRocketMQParameters;
+
     /**
      * @var sinkSLSParameters
      */
@@ -86,19 +100,19 @@ class sink extends Model
     protected $_name = [
         'sinkApacheRocketMQCheckpointParameters' => 'SinkApacheRocketMQCheckpointParameters',
         'sinkCustomizedKafkaConnectorParameters' => 'SinkCustomizedKafkaConnectorParameters',
-        'sinkCustomizedKafkaParameters'          => 'SinkCustomizedKafkaParameters',
-        'sinkDashVectorParameters'               => 'SinkDashVectorParameters',
-        'sinkDataHubParameters'                  => 'SinkDataHubParameters',
-        'sinkFcParameters'                       => 'SinkFcParameters',
-        'sinkFnfParameters'                      => 'SinkFnfParameters',
-        'sinkKafkaParameters'                    => 'SinkKafkaParameters',
-        'sinkMNSParameters'                      => 'SinkMNSParameters',
-        'sinkOpenSourceRabbitMQParameters'       => 'SinkOpenSourceRabbitMQParameters',
-        'sinkPrometheusParameters'               => 'SinkPrometheusParameters',
-        'sinkRabbitMQParameters'                 => 'SinkRabbitMQParameters',
-        'sinkRocketMQCheckpointParameters'       => 'SinkRocketMQCheckpointParameters',
-        'sinkRocketMQParameters'                 => 'SinkRocketMQParameters',
-        'sinkSLSParameters'                      => 'SinkSLSParameters',
+        'sinkCustomizedKafkaParameters' => 'SinkCustomizedKafkaParameters',
+        'sinkDashVectorParameters' => 'SinkDashVectorParameters',
+        'sinkDataHubParameters' => 'SinkDataHubParameters',
+        'sinkFcParameters' => 'SinkFcParameters',
+        'sinkFnfParameters' => 'SinkFnfParameters',
+        'sinkKafkaParameters' => 'SinkKafkaParameters',
+        'sinkMNSParameters' => 'SinkMNSParameters',
+        'sinkOpenSourceRabbitMQParameters' => 'SinkOpenSourceRabbitMQParameters',
+        'sinkPrometheusParameters' => 'SinkPrometheusParameters',
+        'sinkRabbitMQParameters' => 'SinkRabbitMQParameters',
+        'sinkRocketMQCheckpointParameters' => 'SinkRocketMQCheckpointParameters',
+        'sinkRocketMQParameters' => 'SinkRocketMQParameters',
+        'sinkSLSParameters' => 'SinkSLSParameters',
     ];
 
     public function validate()

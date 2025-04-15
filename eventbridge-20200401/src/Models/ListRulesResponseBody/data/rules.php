@@ -13,48 +13,56 @@ class rules extends Model
      * @var int
      */
     public $createdTimestamp;
+
     /**
      * @var string
      */
     public $description;
+
     /**
      * @var mixed[]
      */
     public $detailMap;
+
     /**
      * @var string
      */
     public $eventBusName;
+
     /**
      * @var string
      */
     public $filterPattern;
+
     /**
      * @var string
      */
     public $ruleARN;
+
     /**
      * @var string
      */
     public $ruleName;
+
     /**
      * @var string
      */
     public $status;
+
     /**
      * @var targets[]
      */
     public $targets;
     protected $_name = [
         'createdTimestamp' => 'CreatedTimestamp',
-        'description'      => 'Description',
-        'detailMap'        => 'DetailMap',
-        'eventBusName'     => 'EventBusName',
-        'filterPattern'    => 'FilterPattern',
-        'ruleARN'          => 'RuleARN',
-        'ruleName'         => 'RuleName',
-        'status'           => 'Status',
-        'targets'          => 'Targets',
+        'description' => 'Description',
+        'detailMap' => 'DetailMap',
+        'eventBusName' => 'EventBusName',
+        'filterPattern' => 'FilterPattern',
+        'ruleARN' => 'RuleARN',
+        'ruleName' => 'RuleName',
+        'status' => 'Status',
+        'targets' => 'Targets',
     ];
 
     public function validate()
@@ -111,7 +119,7 @@ class rules extends Model
         if (null !== $this->targets) {
             if (\is_array($this->targets)) {
                 $res['Targets'] = [];
-                $n1             = 0;
+                $n1 = 0;
                 foreach ($this->targets as $item1) {
                     $res['Targets'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -169,7 +177,7 @@ class rules extends Model
         if (isset($map['Targets'])) {
             if (!empty($map['Targets'])) {
                 $model->targets = [];
-                $n1             = 0;
+                $n1 = 0;
                 foreach ($map['Targets'] as $item1) {
                     $model->targets[$n1++] = targets::fromMap($item1);
                 }

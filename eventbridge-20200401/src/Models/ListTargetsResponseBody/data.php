@@ -13,18 +13,20 @@ class data extends Model
      * @var string
      */
     public $nextToken;
+
     /**
      * @var targets[]
      */
     public $targets;
+
     /**
      * @var int
      */
     public $total;
     protected $_name = [
         'nextToken' => 'NextToken',
-        'targets'   => 'Targets',
-        'total'     => 'Total',
+        'targets' => 'Targets',
+        'total' => 'Total',
     ];
 
     public function validate()
@@ -45,7 +47,7 @@ class data extends Model
         if (null !== $this->targets) {
             if (\is_array($this->targets)) {
                 $res['Targets'] = [];
-                $n1             = 0;
+                $n1 = 0;
                 foreach ($this->targets as $item1) {
                     $res['Targets'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -74,7 +76,7 @@ class data extends Model
         if (isset($map['Targets'])) {
             if (!empty($map['Targets'])) {
                 $model->targets = [];
-                $n1             = 0;
+                $n1 = 0;
                 foreach ($map['Targets'] as $item1) {
                     $model->targets[$n1++] = targets::fromMap($item1);
                 }

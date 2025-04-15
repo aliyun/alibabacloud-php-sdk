@@ -12,18 +12,20 @@ class orders extends Model
      * @var string
      */
     public $column;
+
     /**
      * @var bool
      */
     public $desc;
+
     /**
      * @var string
      */
     public $op;
     protected $_name = [
         'column' => 'Column',
-        'desc'   => 'Desc',
-        'op'     => 'Op',
+        'desc' => 'Desc',
+        'op' => 'Op',
     ];
 
     public function validate()

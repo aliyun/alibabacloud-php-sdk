@@ -5,6 +5,7 @@
 namespace AlibabaCloud\SDK\Eventbridge\V20200401\Models;
 
 use AlibabaCloud\Dara\Model;
+use AlibabaCloud\SDK\Eventbridge\V20200401\Models\CreateEventStreamingShrinkRequest\tags;
 
 class CreateEventStreamingShrinkRequest extends Model
 {
@@ -12,42 +13,57 @@ class CreateEventStreamingShrinkRequest extends Model
      * @var string
      */
     public $description;
+
     /**
      * @var string
      */
     public $eventStreamingName;
+
     /**
      * @var string
      */
     public $filterPattern;
+
     /**
      * @var string
      */
     public $runOptionsShrink;
+
     /**
      * @var string
      */
     public $sinkShrink;
+
     /**
      * @var string
      */
     public $sourceShrink;
+
+    /**
+     * @var tags[]
+     */
+    public $tags;
+
     /**
      * @var string
      */
     public $transformsShrink;
     protected $_name = [
-        'description'        => 'Description',
+        'description' => 'Description',
         'eventStreamingName' => 'EventStreamingName',
-        'filterPattern'      => 'FilterPattern',
-        'runOptionsShrink'   => 'RunOptions',
-        'sinkShrink'         => 'Sink',
-        'sourceShrink'       => 'Source',
-        'transformsShrink'   => 'Transforms',
+        'filterPattern' => 'FilterPattern',
+        'runOptionsShrink' => 'RunOptions',
+        'sinkShrink' => 'Sink',
+        'sourceShrink' => 'Source',
+        'tags' => 'Tags',
+        'transformsShrink' => 'Transforms',
     ];
 
     public function validate()
     {
+        if (\is_array($this->tags)) {
+            Model::validateArray($this->tags);
+        }
         parent::validate();
     }
 
@@ -76,6 +92,16 @@ class CreateEventStreamingShrinkRequest extends Model
 
         if (null !== $this->sourceShrink) {
             $res['Source'] = $this->sourceShrink;
+        }
+
+        if (null !== $this->tags) {
+            if (\is_array($this->tags)) {
+                $res['Tags'] = [];
+                $n1 = 0;
+                foreach ($this->tags as $item1) {
+                    $res['Tags'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                }
+            }
         }
 
         if (null !== $this->transformsShrink) {
@@ -115,6 +141,16 @@ class CreateEventStreamingShrinkRequest extends Model
 
         if (isset($map['Source'])) {
             $model->sourceShrink = $map['Source'];
+        }
+
+        if (isset($map['Tags'])) {
+            if (!empty($map['Tags'])) {
+                $model->tags = [];
+                $n1 = 0;
+                foreach ($map['Tags'] as $item1) {
+                    $model->tags[$n1++] = tags::fromMap($item1);
+                }
+            }
         }
 
         if (isset($map['Transforms'])) {

@@ -11,54 +11,69 @@ class sourceOpenSourceRabbitMQParameters extends Model
     /**
      * @var string
      */
+    public $authType;
+
+    /**
+     * @var string
+     */
     public $bodyDataType;
+
     /**
      * @var string
      */
     public $endpoint;
+
     /**
      * @var string
      */
     public $networkType;
+
     /**
      * @var string
      */
     public $password;
+
     /**
      * @var string
      */
     public $queueName;
+
     /**
      * @var string
      */
     public $securityGroupId;
+
     /**
      * @var string
      */
     public $username;
+
     /**
      * @var string
      */
     public $vSwitchIds;
+
     /**
      * @var string
      */
     public $virtualHostName;
+
     /**
      * @var string
      */
     public $vpcId;
     protected $_name = [
-        'bodyDataType'    => 'BodyDataType',
-        'endpoint'        => 'Endpoint',
-        'networkType'     => 'NetworkType',
-        'password'        => 'Password',
-        'queueName'       => 'QueueName',
+        'authType' => 'AuthType',
+        'bodyDataType' => 'BodyDataType',
+        'endpoint' => 'Endpoint',
+        'networkType' => 'NetworkType',
+        'password' => 'Password',
+        'queueName' => 'QueueName',
         'securityGroupId' => 'SecurityGroupId',
-        'username'        => 'Username',
-        'vSwitchIds'      => 'VSwitchIds',
+        'username' => 'Username',
+        'vSwitchIds' => 'VSwitchIds',
         'virtualHostName' => 'VirtualHostName',
-        'vpcId'           => 'VpcId',
+        'vpcId' => 'VpcId',
     ];
 
     public function validate()
@@ -69,6 +84,10 @@ class sourceOpenSourceRabbitMQParameters extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->authType) {
+            $res['AuthType'] = $this->authType;
+        }
+
         if (null !== $this->bodyDataType) {
             $res['BodyDataType'] = $this->bodyDataType;
         }
@@ -120,6 +139,10 @@ class sourceOpenSourceRabbitMQParameters extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AuthType'])) {
+            $model->authType = $map['AuthType'];
+        }
+
         if (isset($map['BodyDataType'])) {
             $model->bodyDataType = $map['BodyDataType'];
         }

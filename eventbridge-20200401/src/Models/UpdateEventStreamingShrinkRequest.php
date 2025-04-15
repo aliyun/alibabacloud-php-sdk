@@ -12,38 +12,44 @@ class UpdateEventStreamingShrinkRequest extends Model
      * @var string
      */
     public $description;
+
     /**
      * @var string
      */
     public $eventStreamingName;
+
     /**
      * @var string
      */
     public $filterPattern;
+
     /**
      * @var string
      */
     public $runOptionsShrink;
+
     /**
      * @var string
      */
     public $sinkShrink;
+
     /**
      * @var string
      */
     public $sourceShrink;
+
     /**
      * @var string
      */
     public $transformsShrink;
     protected $_name = [
-        'description'        => 'Description',
+        'description' => 'Description',
         'eventStreamingName' => 'EventStreamingName',
-        'filterPattern'      => 'FilterPattern',
-        'runOptionsShrink'   => 'RunOptions',
-        'sinkShrink'         => 'Sink',
-        'sourceShrink'       => 'Source',
-        'transformsShrink'   => 'Transforms',
+        'filterPattern' => 'FilterPattern',
+        'runOptionsShrink' => 'RunOptions',
+        'sinkShrink' => 'Sink',
+        'sourceShrink' => 'Source',
+        'transformsShrink' => 'Transforms',
     ];
 
     public function validate()

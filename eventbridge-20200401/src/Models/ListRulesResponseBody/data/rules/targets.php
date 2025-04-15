@@ -12,28 +12,32 @@ class targets extends Model
      * @var string
      */
     public $endpoint;
+
     /**
      * @var string
      */
     public $errorsTolerance;
+
     /**
      * @var string
      */
     public $id;
+
     /**
      * @var string
      */
     public $pushSelector;
+
     /**
      * @var string
      */
     public $type;
     protected $_name = [
-        'endpoint'        => 'Endpoint',
+        'endpoint' => 'Endpoint',
         'errorsTolerance' => 'ErrorsTolerance',
-        'id'              => 'Id',
-        'pushSelector'    => 'PushSelector',
-        'type'            => 'Type',
+        'id' => 'Id',
+        'pushSelector' => 'PushSelector',
+        'type' => 'Type',
     ];
 
     public function validate()

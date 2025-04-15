@@ -12,17 +12,19 @@ class DeleteTargetsShrinkRequest extends Model
      * @var string
      */
     public $eventBusName;
+
     /**
      * @var string
      */
     public $ruleName;
+
     /**
      * @var string
      */
     public $targetIdsShrink;
     protected $_name = [
-        'eventBusName'    => 'EventBusName',
-        'ruleName'        => 'RuleName',
+        'eventBusName' => 'EventBusName',
+        'ruleName' => 'RuleName',
         'targetIdsShrink' => 'TargetIds',
     ];
 

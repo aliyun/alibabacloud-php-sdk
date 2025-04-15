@@ -12,28 +12,32 @@ class CreateServiceLinkedRoleForProductResponseBody extends Model
      * @var string
      */
     public $code;
+
     /**
      * @var int
      */
     public $httpCode;
+
     /**
      * @var string
      */
     public $message;
+
     /**
      * @var string
      */
     public $requestId;
+
     /**
      * @var bool
      */
     public $success;
     protected $_name = [
-        'code'      => 'Code',
-        'httpCode'  => 'HttpCode',
-        'message'   => 'Message',
+        'code' => 'Code',
+        'httpCode' => 'HttpCode',
+        'message' => 'Message',
         'requestId' => 'RequestId',
-        'success'   => 'Success',
+        'success' => 'Success',
     ];
 
     public function validate()

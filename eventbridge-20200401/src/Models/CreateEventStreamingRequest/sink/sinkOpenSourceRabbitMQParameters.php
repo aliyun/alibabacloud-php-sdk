@@ -6,90 +6,108 @@ namespace AlibabaCloud\SDK\Eventbridge\V20200401\Models\CreateEventStreamingRequ
 
 use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Eventbridge\V20200401\Models\CreateEventStreamingRequest\sink\sinkOpenSourceRabbitMQParameters\body;
-use AlibabaCloud\SDK\Eventbridge\V20200401\Models\CreateEventStreamingRequest\sink\sinkOpenSourceRabbitMQParameters\exchange;
 use AlibabaCloud\SDK\Eventbridge\V20200401\Models\CreateEventStreamingRequest\sink\sinkOpenSourceRabbitMQParameters\messageId;
 use AlibabaCloud\SDK\Eventbridge\V20200401\Models\CreateEventStreamingRequest\sink\sinkOpenSourceRabbitMQParameters\properties;
-use AlibabaCloud\SDK\Eventbridge\V20200401\Models\CreateEventStreamingRequest\sink\sinkOpenSourceRabbitMQParameters\queueName;
 use AlibabaCloud\SDK\Eventbridge\V20200401\Models\CreateEventStreamingRequest\sink\sinkOpenSourceRabbitMQParameters\routingKey;
 
 class sinkOpenSourceRabbitMQParameters extends Model
 {
     /**
+     * @var string
+     */
+    public $authType;
+
+    /**
      * @var body
      */
     public $body;
+
     /**
      * @var string
      */
     public $endpoint;
+
     /**
-     * @var exchange
+     * @var string
      */
     public $exchange;
+
     /**
      * @var messageId
      */
     public $messageId;
+
     /**
      * @var string
      */
     public $networkType;
+
     /**
      * @var string
      */
     public $password;
+
     /**
      * @var properties
      */
     public $properties;
+
     /**
-     * @var queueName
+     * @var string
      */
     public $queueName;
+
     /**
      * @var routingKey
      */
     public $routingKey;
+
     /**
      * @var string
      */
     public $securityGroupId;
+
     /**
      * @var string
      */
     public $targetType;
+
     /**
      * @var string
      */
     public $username;
+
     /**
      * @var string
      */
     public $vSwitchIds;
+
     /**
      * @var string
      */
     public $virtualHostName;
+
     /**
      * @var string
      */
     public $vpcId;
     protected $_name = [
-        'body'            => 'Body',
-        'endpoint'        => 'Endpoint',
-        'exchange'        => 'Exchange',
-        'messageId'       => 'MessageId',
-        'networkType'     => 'NetworkType',
-        'password'        => 'Password',
-        'properties'      => 'Properties',
-        'queueName'       => 'QueueName',
-        'routingKey'      => 'RoutingKey',
+        'authType' => 'AuthType',
+        'body' => 'Body',
+        'endpoint' => 'Endpoint',
+        'exchange' => 'Exchange',
+        'messageId' => 'MessageId',
+        'networkType' => 'NetworkType',
+        'password' => 'Password',
+        'properties' => 'Properties',
+        'queueName' => 'QueueName',
+        'routingKey' => 'RoutingKey',
         'securityGroupId' => 'SecurityGroupId',
-        'targetType'      => 'TargetType',
-        'username'        => 'Username',
-        'vSwitchIds'      => 'VSwitchIds',
+        'targetType' => 'TargetType',
+        'username' => 'Username',
+        'vSwitchIds' => 'VSwitchIds',
         'virtualHostName' => 'VirtualHostName',
-        'vpcId'           => 'VpcId',
+        'vpcId' => 'VpcId',
     ];
 
     public function validate()
@@ -97,17 +115,11 @@ class sinkOpenSourceRabbitMQParameters extends Model
         if (null !== $this->body) {
             $this->body->validate();
         }
-        if (null !== $this->exchange) {
-            $this->exchange->validate();
-        }
         if (null !== $this->messageId) {
             $this->messageId->validate();
         }
         if (null !== $this->properties) {
             $this->properties->validate();
-        }
-        if (null !== $this->queueName) {
-            $this->queueName->validate();
         }
         if (null !== $this->routingKey) {
             $this->routingKey->validate();
@@ -118,6 +130,10 @@ class sinkOpenSourceRabbitMQParameters extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->authType) {
+            $res['AuthType'] = $this->authType;
+        }
+
         if (null !== $this->body) {
             $res['Body'] = null !== $this->body ? $this->body->toArray($noStream) : $this->body;
         }
@@ -127,7 +143,7 @@ class sinkOpenSourceRabbitMQParameters extends Model
         }
 
         if (null !== $this->exchange) {
-            $res['Exchange'] = null !== $this->exchange ? $this->exchange->toArray($noStream) : $this->exchange;
+            $res['Exchange'] = $this->exchange;
         }
 
         if (null !== $this->messageId) {
@@ -147,7 +163,7 @@ class sinkOpenSourceRabbitMQParameters extends Model
         }
 
         if (null !== $this->queueName) {
-            $res['QueueName'] = null !== $this->queueName ? $this->queueName->toArray($noStream) : $this->queueName;
+            $res['QueueName'] = $this->queueName;
         }
 
         if (null !== $this->routingKey) {
@@ -189,6 +205,10 @@ class sinkOpenSourceRabbitMQParameters extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AuthType'])) {
+            $model->authType = $map['AuthType'];
+        }
+
         if (isset($map['Body'])) {
             $model->body = body::fromMap($map['Body']);
         }
@@ -198,7 +218,7 @@ class sinkOpenSourceRabbitMQParameters extends Model
         }
 
         if (isset($map['Exchange'])) {
-            $model->exchange = exchange::fromMap($map['Exchange']);
+            $model->exchange = $map['Exchange'];
         }
 
         if (isset($map['MessageId'])) {
@@ -218,7 +238,7 @@ class sinkOpenSourceRabbitMQParameters extends Model
         }
 
         if (isset($map['QueueName'])) {
-            $model->queueName = queueName::fromMap($map['QueueName']);
+            $model->queueName = $map['QueueName'];
         }
 
         if (isset($map['RoutingKey'])) {

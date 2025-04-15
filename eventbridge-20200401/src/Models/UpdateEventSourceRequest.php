@@ -19,67 +19,79 @@ class UpdateEventSourceRequest extends Model
      * @var string
      */
     public $description;
+
     /**
      * @var string
      */
     public $eventBusName;
+
     /**
      * @var string
      */
     public $eventSourceName;
+
     /**
      * @var mixed[]
      */
     public $externalSourceConfig;
+
     /**
      * @var string
      */
     public $externalSourceType;
+
     /**
      * @var bool
      */
     public $linkedExternalSource;
+
     /**
      * @var sourceHttpEventParameters
      */
     public $sourceHttpEventParameters;
+
     /**
      * @var sourceKafkaParameters
      */
     public $sourceKafkaParameters;
+
     /**
      * @var sourceMNSParameters
      */
     public $sourceMNSParameters;
+
     /**
      * @var sourceRabbitMQParameters
      */
     public $sourceRabbitMQParameters;
+
     /**
      * @var sourceRocketMQParameters
      */
     public $sourceRocketMQParameters;
+
     /**
      * @var sourceSLSParameters
      */
     public $sourceSLSParameters;
+
     /**
      * @var sourceScheduledEventParameters
      */
     public $sourceScheduledEventParameters;
     protected $_name = [
-        'description'                    => 'Description',
-        'eventBusName'                   => 'EventBusName',
-        'eventSourceName'                => 'EventSourceName',
-        'externalSourceConfig'           => 'ExternalSourceConfig',
-        'externalSourceType'             => 'ExternalSourceType',
-        'linkedExternalSource'           => 'LinkedExternalSource',
-        'sourceHttpEventParameters'      => 'SourceHttpEventParameters',
-        'sourceKafkaParameters'          => 'SourceKafkaParameters',
-        'sourceMNSParameters'            => 'SourceMNSParameters',
-        'sourceRabbitMQParameters'       => 'SourceRabbitMQParameters',
-        'sourceRocketMQParameters'       => 'SourceRocketMQParameters',
-        'sourceSLSParameters'            => 'SourceSLSParameters',
+        'description' => 'Description',
+        'eventBusName' => 'EventBusName',
+        'eventSourceName' => 'EventSourceName',
+        'externalSourceConfig' => 'ExternalSourceConfig',
+        'externalSourceType' => 'ExternalSourceType',
+        'linkedExternalSource' => 'LinkedExternalSource',
+        'sourceHttpEventParameters' => 'SourceHttpEventParameters',
+        'sourceKafkaParameters' => 'SourceKafkaParameters',
+        'sourceMNSParameters' => 'SourceMNSParameters',
+        'sourceRabbitMQParameters' => 'SourceRabbitMQParameters',
+        'sourceRocketMQParameters' => 'SourceRocketMQParameters',
+        'sourceSLSParameters' => 'SourceSLSParameters',
         'sourceScheduledEventParameters' => 'SourceScheduledEventParameters',
     ];
 

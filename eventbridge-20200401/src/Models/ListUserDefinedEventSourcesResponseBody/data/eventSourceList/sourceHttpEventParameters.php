@@ -12,38 +12,44 @@ class sourceHttpEventParameters extends Model
      * @var string[]
      */
     public $ip;
+
     /**
      * @var string[]
      */
     public $method;
+
     /**
      * @var string[]
      */
     public $publicWebHookUrl;
+
     /**
      * @var string[]
      */
     public $referer;
+
     /**
      * @var string
      */
     public $securityConfig;
+
     /**
      * @var string
      */
     public $type;
+
     /**
      * @var string[]
      */
     public $vpcWebHookUrl;
     protected $_name = [
-        'ip'               => 'Ip',
-        'method'           => 'Method',
+        'ip' => 'Ip',
+        'method' => 'Method',
         'publicWebHookUrl' => 'PublicWebHookUrl',
-        'referer'          => 'Referer',
-        'securityConfig'   => 'SecurityConfig',
-        'type'             => 'Type',
-        'vpcWebHookUrl'    => 'VpcWebHookUrl',
+        'referer' => 'Referer',
+        'securityConfig' => 'SecurityConfig',
+        'type' => 'Type',
+        'vpcWebHookUrl' => 'VpcWebHookUrl',
     ];
 
     public function validate()
@@ -72,7 +78,7 @@ class sourceHttpEventParameters extends Model
         if (null !== $this->ip) {
             if (\is_array($this->ip)) {
                 $res['Ip'] = [];
-                $n1        = 0;
+                $n1 = 0;
                 foreach ($this->ip as $item1) {
                     $res['Ip'][$n1++] = $item1;
                 }
@@ -82,7 +88,7 @@ class sourceHttpEventParameters extends Model
         if (null !== $this->method) {
             if (\is_array($this->method)) {
                 $res['Method'] = [];
-                $n1            = 0;
+                $n1 = 0;
                 foreach ($this->method as $item1) {
                     $res['Method'][$n1++] = $item1;
                 }
@@ -92,7 +98,7 @@ class sourceHttpEventParameters extends Model
         if (null !== $this->publicWebHookUrl) {
             if (\is_array($this->publicWebHookUrl)) {
                 $res['PublicWebHookUrl'] = [];
-                $n1                      = 0;
+                $n1 = 0;
                 foreach ($this->publicWebHookUrl as $item1) {
                     $res['PublicWebHookUrl'][$n1++] = $item1;
                 }
@@ -102,7 +108,7 @@ class sourceHttpEventParameters extends Model
         if (null !== $this->referer) {
             if (\is_array($this->referer)) {
                 $res['Referer'] = [];
-                $n1             = 0;
+                $n1 = 0;
                 foreach ($this->referer as $item1) {
                     $res['Referer'][$n1++] = $item1;
                 }
@@ -120,7 +126,7 @@ class sourceHttpEventParameters extends Model
         if (null !== $this->vpcWebHookUrl) {
             if (\is_array($this->vpcWebHookUrl)) {
                 $res['VpcWebHookUrl'] = [];
-                $n1                   = 0;
+                $n1 = 0;
                 foreach ($this->vpcWebHookUrl as $item1) {
                     $res['VpcWebHookUrl'][$n1++] = $item1;
                 }
@@ -141,7 +147,7 @@ class sourceHttpEventParameters extends Model
         if (isset($map['Ip'])) {
             if (!empty($map['Ip'])) {
                 $model->ip = [];
-                $n1        = 0;
+                $n1 = 0;
                 foreach ($map['Ip'] as $item1) {
                     $model->ip[$n1++] = $item1;
                 }
@@ -151,7 +157,7 @@ class sourceHttpEventParameters extends Model
         if (isset($map['Method'])) {
             if (!empty($map['Method'])) {
                 $model->method = [];
-                $n1            = 0;
+                $n1 = 0;
                 foreach ($map['Method'] as $item1) {
                     $model->method[$n1++] = $item1;
                 }
@@ -161,7 +167,7 @@ class sourceHttpEventParameters extends Model
         if (isset($map['PublicWebHookUrl'])) {
             if (!empty($map['PublicWebHookUrl'])) {
                 $model->publicWebHookUrl = [];
-                $n1                      = 0;
+                $n1 = 0;
                 foreach ($map['PublicWebHookUrl'] as $item1) {
                     $model->publicWebHookUrl[$n1++] = $item1;
                 }
@@ -171,7 +177,7 @@ class sourceHttpEventParameters extends Model
         if (isset($map['Referer'])) {
             if (!empty($map['Referer'])) {
                 $model->referer = [];
-                $n1             = 0;
+                $n1 = 0;
                 foreach ($map['Referer'] as $item1) {
                     $model->referer[$n1++] = $item1;
                 }
@@ -189,7 +195,7 @@ class sourceHttpEventParameters extends Model
         if (isset($map['VpcWebHookUrl'])) {
             if (!empty($map['VpcWebHookUrl'])) {
                 $model->vpcWebHookUrl = [];
-                $n1                   = 0;
+                $n1 = 0;
                 foreach ($map['VpcWebHookUrl'] as $item1) {
                     $model->vpcWebHookUrl[$n1++] = $item1;
                 }

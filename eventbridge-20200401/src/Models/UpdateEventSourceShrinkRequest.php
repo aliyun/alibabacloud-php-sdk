@@ -12,67 +12,79 @@ class UpdateEventSourceShrinkRequest extends Model
      * @var string
      */
     public $description;
+
     /**
      * @var string
      */
     public $eventBusName;
+
     /**
      * @var string
      */
     public $eventSourceName;
+
     /**
      * @var string
      */
     public $externalSourceConfigShrink;
+
     /**
      * @var string
      */
     public $externalSourceType;
+
     /**
      * @var bool
      */
     public $linkedExternalSource;
+
     /**
      * @var string
      */
     public $sourceHttpEventParametersShrink;
+
     /**
      * @var string
      */
     public $sourceKafkaParametersShrink;
+
     /**
      * @var string
      */
     public $sourceMNSParametersShrink;
+
     /**
      * @var string
      */
     public $sourceRabbitMQParametersShrink;
+
     /**
      * @var string
      */
     public $sourceRocketMQParametersShrink;
+
     /**
      * @var string
      */
     public $sourceSLSParametersShrink;
+
     /**
      * @var string
      */
     public $sourceScheduledEventParametersShrink;
     protected $_name = [
-        'description'                          => 'Description',
-        'eventBusName'                         => 'EventBusName',
-        'eventSourceName'                      => 'EventSourceName',
-        'externalSourceConfigShrink'           => 'ExternalSourceConfig',
-        'externalSourceType'                   => 'ExternalSourceType',
-        'linkedExternalSource'                 => 'LinkedExternalSource',
-        'sourceHttpEventParametersShrink'      => 'SourceHttpEventParameters',
-        'sourceKafkaParametersShrink'          => 'SourceKafkaParameters',
-        'sourceMNSParametersShrink'            => 'SourceMNSParameters',
-        'sourceRabbitMQParametersShrink'       => 'SourceRabbitMQParameters',
-        'sourceRocketMQParametersShrink'       => 'SourceRocketMQParameters',
-        'sourceSLSParametersShrink'            => 'SourceSLSParameters',
+        'description' => 'Description',
+        'eventBusName' => 'EventBusName',
+        'eventSourceName' => 'EventSourceName',
+        'externalSourceConfigShrink' => 'ExternalSourceConfig',
+        'externalSourceType' => 'ExternalSourceType',
+        'linkedExternalSource' => 'LinkedExternalSource',
+        'sourceHttpEventParametersShrink' => 'SourceHttpEventParameters',
+        'sourceKafkaParametersShrink' => 'SourceKafkaParameters',
+        'sourceMNSParametersShrink' => 'SourceMNSParameters',
+        'sourceRabbitMQParametersShrink' => 'SourceRabbitMQParameters',
+        'sourceRocketMQParametersShrink' => 'SourceRocketMQParameters',
+        'sourceSLSParametersShrink' => 'SourceSLSParameters',
         'sourceScheduledEventParametersShrink' => 'SourceScheduledEventParameters',
     ];
 

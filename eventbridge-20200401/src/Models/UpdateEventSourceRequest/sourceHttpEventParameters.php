@@ -12,28 +12,32 @@ class sourceHttpEventParameters extends Model
      * @var string[]
      */
     public $ip;
+
     /**
      * @var string[]
      */
     public $method;
+
     /**
      * @var string[]
      */
     public $referer;
+
     /**
      * @var string
      */
     public $securityConfig;
+
     /**
      * @var string
      */
     public $type;
     protected $_name = [
-        'ip'             => 'Ip',
-        'method'         => 'Method',
-        'referer'        => 'Referer',
+        'ip' => 'Ip',
+        'method' => 'Method',
+        'referer' => 'Referer',
         'securityConfig' => 'SecurityConfig',
-        'type'           => 'Type',
+        'type' => 'Type',
     ];
 
     public function validate()
@@ -56,7 +60,7 @@ class sourceHttpEventParameters extends Model
         if (null !== $this->ip) {
             if (\is_array($this->ip)) {
                 $res['Ip'] = [];
-                $n1        = 0;
+                $n1 = 0;
                 foreach ($this->ip as $item1) {
                     $res['Ip'][$n1++] = $item1;
                 }
@@ -66,7 +70,7 @@ class sourceHttpEventParameters extends Model
         if (null !== $this->method) {
             if (\is_array($this->method)) {
                 $res['Method'] = [];
-                $n1            = 0;
+                $n1 = 0;
                 foreach ($this->method as $item1) {
                     $res['Method'][$n1++] = $item1;
                 }
@@ -76,7 +80,7 @@ class sourceHttpEventParameters extends Model
         if (null !== $this->referer) {
             if (\is_array($this->referer)) {
                 $res['Referer'] = [];
-                $n1             = 0;
+                $n1 = 0;
                 foreach ($this->referer as $item1) {
                     $res['Referer'][$n1++] = $item1;
                 }
@@ -105,7 +109,7 @@ class sourceHttpEventParameters extends Model
         if (isset($map['Ip'])) {
             if (!empty($map['Ip'])) {
                 $model->ip = [];
-                $n1        = 0;
+                $n1 = 0;
                 foreach ($map['Ip'] as $item1) {
                     $model->ip[$n1++] = $item1;
                 }
@@ -115,7 +119,7 @@ class sourceHttpEventParameters extends Model
         if (isset($map['Method'])) {
             if (!empty($map['Method'])) {
                 $model->method = [];
-                $n1            = 0;
+                $n1 = 0;
                 foreach ($map['Method'] as $item1) {
                     $model->method[$n1++] = $item1;
                 }
@@ -125,7 +129,7 @@ class sourceHttpEventParameters extends Model
         if (isset($map['Referer'])) {
             if (!empty($map['Referer'])) {
                 $model->referer = [];
-                $n1             = 0;
+                $n1 = 0;
                 foreach ($map['Referer'] as $item1) {
                     $model->referer[$n1++] = $item1;
                 }

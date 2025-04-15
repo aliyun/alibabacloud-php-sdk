@@ -12,23 +12,26 @@ class detailedStatus extends Model
      * @var int
      */
     public $delayTime;
+
     /**
      * @var int
      */
     public $diffOffset;
+
     /**
      * @var mixed[]
      */
     public $extensions;
+
     /**
      * @var float
      */
     public $TPS;
     protected $_name = [
-        'delayTime'  => 'DelayTime',
+        'delayTime' => 'DelayTime',
         'diffOffset' => 'DiffOffset',
         'extensions' => 'Extensions',
-        'TPS'        => 'TPS',
+        'TPS' => 'TPS',
     ];
 
     public function validate()

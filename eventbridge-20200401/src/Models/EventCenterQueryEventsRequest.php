@@ -13,23 +13,26 @@ class EventCenterQueryEventsRequest extends Model
      * @var body
      */
     public $body;
+
     /**
      * @var string
      */
     public $busName;
+
     /**
      * @var int
      */
     public $maxResults;
+
     /**
      * @var string
      */
     public $nextToken;
     protected $_name = [
-        'body'       => 'Body',
-        'busName'    => 'BusName',
+        'body' => 'Body',
+        'busName' => 'BusName',
         'maxResults' => 'MaxResults',
-        'nextToken'  => 'NextToken',
+        'nextToken' => 'NextToken',
     ];
 
     public function validate()

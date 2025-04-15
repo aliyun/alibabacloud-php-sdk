@@ -12,13 +12,14 @@ class batchWindow extends Model
      * @var int
      */
     public $countBasedWindow;
+
     /**
      * @var int
      */
     public $timeBasedWindow;
     protected $_name = [
         'countBasedWindow' => 'CountBasedWindow',
-        'timeBasedWindow'  => 'TimeBasedWindow',
+        'timeBasedWindow' => 'TimeBasedWindow',
     ];
 
     public function validate()

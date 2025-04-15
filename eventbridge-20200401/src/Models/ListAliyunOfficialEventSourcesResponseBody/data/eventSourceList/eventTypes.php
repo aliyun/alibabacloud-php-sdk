@@ -12,23 +12,26 @@ class eventTypes extends Model
      * @var string
      */
     public $eventSourceName;
+
     /**
      * @var string
      */
     public $groupName;
+
     /**
      * @var string
      */
     public $name;
+
     /**
      * @var string
      */
     public $shortName;
     protected $_name = [
         'eventSourceName' => 'EventSourceName',
-        'groupName'       => 'GroupName',
-        'name'            => 'Name',
-        'shortName'       => 'ShortName',
+        'groupName' => 'GroupName',
+        'name' => 'Name',
+        'shortName' => 'ShortName',
     ];
 
     public function validate()

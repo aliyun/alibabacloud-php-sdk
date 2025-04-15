@@ -12,23 +12,26 @@ class networkParameters extends Model
      * @var string
      */
     public $networkType;
+
     /**
      * @var string
      */
     public $securityGroupId;
+
     /**
      * @var string
      */
     public $vpcId;
+
     /**
      * @var string
      */
     public $vswitcheId;
     protected $_name = [
-        'networkType'     => 'NetworkType',
+        'networkType' => 'NetworkType',
         'securityGroupId' => 'SecurityGroupId',
-        'vpcId'           => 'VpcId',
-        'vswitcheId'      => 'VswitcheId',
+        'vpcId' => 'VpcId',
+        'vswitcheId' => 'VswitcheId',
     ];
 
     public function validate()

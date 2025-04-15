@@ -13,22 +13,25 @@ class CreateApiDestinationResponseBody extends Model
      * @var string
      */
     public $code;
+
     /**
      * @var date
      */
     public $date;
+
     /**
      * @var string
      */
     public $message;
+
     /**
      * @var string
      */
     public $requestId;
     protected $_name = [
-        'code'      => 'Code',
-        'date'      => 'Date',
-        'message'   => 'Message',
+        'code' => 'Code',
+        'date' => 'Date',
+        'message' => 'Message',
         'requestId' => 'RequestId',
     ];
 

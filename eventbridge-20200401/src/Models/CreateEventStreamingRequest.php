@@ -8,6 +8,7 @@ use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Eventbridge\V20200401\Models\CreateEventStreamingRequest\runOptions;
 use AlibabaCloud\SDK\Eventbridge\V20200401\Models\CreateEventStreamingRequest\sink;
 use AlibabaCloud\SDK\Eventbridge\V20200401\Models\CreateEventStreamingRequest\source;
+use AlibabaCloud\SDK\Eventbridge\V20200401\Models\CreateEventStreamingRequest\tags;
 use AlibabaCloud\SDK\Eventbridge\V20200401\Models\CreateEventStreamingRequest\transforms;
 
 class CreateEventStreamingRequest extends Model
@@ -16,38 +17,50 @@ class CreateEventStreamingRequest extends Model
      * @var string
      */
     public $description;
+
     /**
      * @var string
      */
     public $eventStreamingName;
+
     /**
      * @var string
      */
     public $filterPattern;
+
     /**
      * @var runOptions
      */
     public $runOptions;
+
     /**
      * @var sink
      */
     public $sink;
+
     /**
      * @var source
      */
     public $source;
+
+    /**
+     * @var tags[]
+     */
+    public $tags;
+
     /**
      * @var transforms[]
      */
     public $transforms;
     protected $_name = [
-        'description'        => 'Description',
+        'description' => 'Description',
         'eventStreamingName' => 'EventStreamingName',
-        'filterPattern'      => 'FilterPattern',
-        'runOptions'         => 'RunOptions',
-        'sink'               => 'Sink',
-        'source'             => 'Source',
-        'transforms'         => 'Transforms',
+        'filterPattern' => 'FilterPattern',
+        'runOptions' => 'RunOptions',
+        'sink' => 'Sink',
+        'source' => 'Source',
+        'tags' => 'Tags',
+        'transforms' => 'Transforms',
     ];
 
     public function validate()
@@ -60,6 +73,9 @@ class CreateEventStreamingRequest extends Model
         }
         if (null !== $this->source) {
             $this->source->validate();
+        }
+        if (\is_array($this->tags)) {
+            Model::validateArray($this->tags);
         }
         if (\is_array($this->transforms)) {
             Model::validateArray($this->transforms);
@@ -94,10 +110,20 @@ class CreateEventStreamingRequest extends Model
             $res['Source'] = null !== $this->source ? $this->source->toArray($noStream) : $this->source;
         }
 
+        if (null !== $this->tags) {
+            if (\is_array($this->tags)) {
+                $res['Tags'] = [];
+                $n1 = 0;
+                foreach ($this->tags as $item1) {
+                    $res['Tags'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                }
+            }
+        }
+
         if (null !== $this->transforms) {
             if (\is_array($this->transforms)) {
                 $res['Transforms'] = [];
-                $n1                = 0;
+                $n1 = 0;
                 foreach ($this->transforms as $item1) {
                     $res['Transforms'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -139,10 +165,20 @@ class CreateEventStreamingRequest extends Model
             $model->source = source::fromMap($map['Source']);
         }
 
+        if (isset($map['Tags'])) {
+            if (!empty($map['Tags'])) {
+                $model->tags = [];
+                $n1 = 0;
+                foreach ($map['Tags'] as $item1) {
+                    $model->tags[$n1++] = tags::fromMap($item1);
+                }
+            }
+        }
+
         if (isset($map['Transforms'])) {
             if (!empty($map['Transforms'])) {
                 $model->transforms = [];
-                $n1                = 0;
+                $n1 = 0;
                 foreach ($map['Transforms'] as $item1) {
                     $model->transforms[$n1++] = transforms::fromMap($item1);
                 }

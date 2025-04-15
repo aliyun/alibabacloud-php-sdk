@@ -12,13 +12,14 @@ class timeSeries extends Model
      * @var mixed[]
      */
     public $rowData;
+
     /**
      * @var string
      */
     public $time;
     protected $_name = [
         'rowData' => 'RowData',
-        'time'    => 'Time',
+        'time' => 'Time',
     ];
 
     public function validate()

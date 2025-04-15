@@ -13,28 +13,32 @@ class filters extends Model
      * @var string
      */
     public $column;
+
     /**
      * @var string
      */
     public $nestedFilterCombination;
+
     /**
      * @var nestedFilters[]
      */
     public $nestedFilters;
+
     /**
      * @var string
      */
     public $op;
+
     /**
      * @var string[]
      */
     public $values;
     protected $_name = [
-        'column'                  => 'Column',
+        'column' => 'Column',
         'nestedFilterCombination' => 'NestedFilterCombination',
-        'nestedFilters'           => 'NestedFilters',
-        'op'                      => 'Op',
-        'values'                  => 'Values',
+        'nestedFilters' => 'NestedFilters',
+        'op' => 'Op',
+        'values' => 'Values',
     ];
 
     public function validate()
@@ -62,7 +66,7 @@ class filters extends Model
         if (null !== $this->nestedFilters) {
             if (\is_array($this->nestedFilters)) {
                 $res['NestedFilters'] = [];
-                $n1                   = 0;
+                $n1 = 0;
                 foreach ($this->nestedFilters as $item1) {
                     $res['NestedFilters'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -76,7 +80,7 @@ class filters extends Model
         if (null !== $this->values) {
             if (\is_array($this->values)) {
                 $res['Values'] = [];
-                $n1            = 0;
+                $n1 = 0;
                 foreach ($this->values as $item1) {
                     $res['Values'][$n1++] = $item1;
                 }
@@ -105,7 +109,7 @@ class filters extends Model
         if (isset($map['NestedFilters'])) {
             if (!empty($map['NestedFilters'])) {
                 $model->nestedFilters = [];
-                $n1                   = 0;
+                $n1 = 0;
                 foreach ($map['NestedFilters'] as $item1) {
                     $model->nestedFilters[$n1++] = nestedFilters::fromMap($item1);
                 }
@@ -119,7 +123,7 @@ class filters extends Model
         if (isset($map['Values'])) {
             if (!empty($map['Values'])) {
                 $model->values = [];
-                $n1            = 0;
+                $n1 = 0;
                 foreach ($map['Values'] as $item1) {
                     $model->values[$n1++] = $item1;
                 }

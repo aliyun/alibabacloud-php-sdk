@@ -12,23 +12,26 @@ class EventCenterQueryEventsShrinkRequest extends Model
      * @var string
      */
     public $bodyShrink;
+
     /**
      * @var string
      */
     public $busName;
+
     /**
      * @var int
      */
     public $maxResults;
+
     /**
      * @var string
      */
     public $nextToken;
     protected $_name = [
         'bodyShrink' => 'Body',
-        'busName'    => 'BusName',
+        'busName' => 'BusName',
         'maxResults' => 'MaxResults',
-        'nextToken'  => 'NextToken',
+        'nextToken' => 'NextToken',
     ];
 
     public function validate()

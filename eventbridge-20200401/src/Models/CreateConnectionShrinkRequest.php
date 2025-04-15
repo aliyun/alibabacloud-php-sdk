@@ -12,22 +12,25 @@ class CreateConnectionShrinkRequest extends Model
      * @var string
      */
     public $authParametersShrink;
+
     /**
      * @var string
      */
     public $connectionName;
+
     /**
      * @var string
      */
     public $description;
+
     /**
      * @var string
      */
     public $networkParametersShrink;
     protected $_name = [
-        'authParametersShrink'    => 'AuthParameters',
-        'connectionName'          => 'ConnectionName',
-        'description'             => 'Description',
+        'authParametersShrink' => 'AuthParameters',
+        'connectionName' => 'ConnectionName',
+        'description' => 'Description',
         'networkParametersShrink' => 'NetworkParameters',
     ];
 

@@ -17,28 +17,32 @@ class sinkKafkaParameters extends Model
      * @var acks
      */
     public $acks;
+
     /**
      * @var instanceId
      */
     public $instanceId;
+
     /**
      * @var key
      */
     public $key;
+
     /**
      * @var topic
      */
     public $topic;
+
     /**
      * @var value
      */
     public $value;
     protected $_name = [
-        'acks'       => 'Acks',
+        'acks' => 'Acks',
         'instanceId' => 'InstanceId',
-        'key'        => 'Key',
-        'topic'      => 'Topic',
-        'value'      => 'Value',
+        'key' => 'Key',
+        'topic' => 'Topic',
+        'value' => 'Value',
     ];
 
     public function validate()

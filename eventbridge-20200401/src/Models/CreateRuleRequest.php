@@ -13,33 +13,38 @@ class CreateRuleRequest extends Model
      * @var string
      */
     public $description;
+
     /**
      * @var string
      */
     public $eventBusName;
+
     /**
      * @var eventTargets[]
      */
     public $eventTargets;
+
     /**
      * @var string
      */
     public $filterPattern;
+
     /**
      * @var string
      */
     public $ruleName;
+
     /**
      * @var string
      */
     public $status;
     protected $_name = [
-        'description'   => 'Description',
-        'eventBusName'  => 'EventBusName',
-        'eventTargets'  => 'EventTargets',
+        'description' => 'Description',
+        'eventBusName' => 'EventBusName',
+        'eventTargets' => 'EventTargets',
         'filterPattern' => 'FilterPattern',
-        'ruleName'      => 'RuleName',
-        'status'        => 'Status',
+        'ruleName' => 'RuleName',
+        'status' => 'Status',
     ];
 
     public function validate()
@@ -64,7 +69,7 @@ class CreateRuleRequest extends Model
         if (null !== $this->eventTargets) {
             if (\is_array($this->eventTargets)) {
                 $res['EventTargets'] = [];
-                $n1                  = 0;
+                $n1 = 0;
                 foreach ($this->eventTargets as $item1) {
                     $res['EventTargets'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -105,7 +110,7 @@ class CreateRuleRequest extends Model
         if (isset($map['EventTargets'])) {
             if (!empty($map['EventTargets'])) {
                 $model->eventTargets = [];
-                $n1                  = 0;
+                $n1 = 0;
                 foreach ($map['EventTargets'] as $item1) {
                     $model->eventTargets[$n1++] = eventTargets::fromMap($item1);
                 }

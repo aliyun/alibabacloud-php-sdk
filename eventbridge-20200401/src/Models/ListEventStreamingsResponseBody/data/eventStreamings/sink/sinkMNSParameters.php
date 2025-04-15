@@ -15,18 +15,20 @@ class sinkMNSParameters extends Model
      * @var body
      */
     public $body;
+
     /**
      * @var isBase64Encode
      */
     public $isBase64Encode;
+
     /**
      * @var queueName
      */
     public $queueName;
     protected $_name = [
-        'body'           => 'Body',
+        'body' => 'Body',
         'isBase64Encode' => 'IsBase64Encode',
-        'queueName'      => 'QueueName',
+        'queueName' => 'QueueName',
     ];
 
     public function validate()

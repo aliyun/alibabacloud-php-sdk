@@ -13,48 +13,56 @@ class eventSourceList extends Model
      * @var string
      */
     public $arn;
+
     /**
      * @var float
      */
     public $ctime;
+
     /**
      * @var string
      */
     public $description;
+
     /**
      * @var string
      */
     public $eventBusName;
+
     /**
      * @var eventTypes[]
      */
     public $eventTypes;
+
     /**
      * @var string
      */
     public $fullName;
+
     /**
      * @var string
      */
     public $name;
+
     /**
      * @var string
      */
     public $status;
+
     /**
      * @var string
      */
     public $type;
     protected $_name = [
-        'arn'          => 'Arn',
-        'ctime'        => 'Ctime',
-        'description'  => 'Description',
+        'arn' => 'Arn',
+        'ctime' => 'Ctime',
+        'description' => 'Description',
         'eventBusName' => 'EventBusName',
-        'eventTypes'   => 'EventTypes',
-        'fullName'     => 'FullName',
-        'name'         => 'Name',
-        'status'       => 'Status',
-        'type'         => 'Type',
+        'eventTypes' => 'EventTypes',
+        'fullName' => 'FullName',
+        'name' => 'Name',
+        'status' => 'Status',
+        'type' => 'Type',
     ];
 
     public function validate()
@@ -87,7 +95,7 @@ class eventSourceList extends Model
         if (null !== $this->eventTypes) {
             if (\is_array($this->eventTypes)) {
                 $res['EventTypes'] = [];
-                $n1                = 0;
+                $n1 = 0;
                 foreach ($this->eventTypes as $item1) {
                     $res['EventTypes'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -140,7 +148,7 @@ class eventSourceList extends Model
         if (isset($map['EventTypes'])) {
             if (!empty($map['EventTypes'])) {
                 $model->eventTypes = [];
-                $n1                = 0;
+                $n1 = 0;
                 foreach ($map['EventTypes'] as $item1) {
                     $model->eventTypes[$n1++] = eventTypes::fromMap($item1);
                 }

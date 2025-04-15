@@ -12,83 +12,98 @@ class sourceRocketMQParameters extends Model
      * @var string
      */
     public $authType;
+
     /**
      * @var string
      */
     public $groupID;
+
     /**
      * @var string
      */
     public $instanceEndpoint;
+
     /**
      * @var string
      */
     public $instanceId;
+
     /**
      * @var string
      */
     public $instanceNetwork;
+
     /**
      * @var string
      */
     public $instancePassword;
+
     /**
      * @var string
      */
     public $instanceSecurityGroupId;
+
     /**
      * @var string
      */
     public $instanceType;
+
     /**
      * @var string
      */
     public $instanceUsername;
+
     /**
      * @var string
      */
     public $instanceVSwitchIds;
+
     /**
      * @var string
      */
     public $instanceVpcId;
+
     /**
      * @var string
      */
     public $offset;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $tag;
+
     /**
      * @var int
      */
     public $timestamp;
+
     /**
      * @var string
      */
     public $topic;
     protected $_name = [
-        'authType'                => 'AuthType',
-        'groupID'                 => 'GroupID',
-        'instanceEndpoint'        => 'InstanceEndpoint',
-        'instanceId'              => 'InstanceId',
-        'instanceNetwork'         => 'InstanceNetwork',
-        'instancePassword'        => 'InstancePassword',
+        'authType' => 'AuthType',
+        'groupID' => 'GroupID',
+        'instanceEndpoint' => 'InstanceEndpoint',
+        'instanceId' => 'InstanceId',
+        'instanceNetwork' => 'InstanceNetwork',
+        'instancePassword' => 'InstancePassword',
         'instanceSecurityGroupId' => 'InstanceSecurityGroupId',
-        'instanceType'            => 'InstanceType',
-        'instanceUsername'        => 'InstanceUsername',
-        'instanceVSwitchIds'      => 'InstanceVSwitchIds',
-        'instanceVpcId'           => 'InstanceVpcId',
-        'offset'                  => 'Offset',
-        'regionId'                => 'RegionId',
-        'tag'                     => 'Tag',
-        'timestamp'               => 'Timestamp',
-        'topic'                   => 'Topic',
+        'instanceType' => 'InstanceType',
+        'instanceUsername' => 'InstanceUsername',
+        'instanceVSwitchIds' => 'InstanceVSwitchIds',
+        'instanceVpcId' => 'InstanceVpcId',
+        'offset' => 'Offset',
+        'regionId' => 'RegionId',
+        'tag' => 'Tag',
+        'timestamp' => 'Timestamp',
+        'topic' => 'Topic',
     ];
 
     public function validate()

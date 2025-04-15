@@ -13,28 +13,32 @@ class data extends Model
      * @var string
      */
     public $apiDestinationName;
+
     /**
      * @var string
      */
     public $connectionName;
+
     /**
      * @var string
      */
     public $description;
+
     /**
      * @var int
      */
     public $gmtCreate;
+
     /**
      * @var httpApiParameters
      */
     public $httpApiParameters;
     protected $_name = [
         'apiDestinationName' => 'ApiDestinationName',
-        'connectionName'     => 'ConnectionName',
-        'description'        => 'Description',
-        'gmtCreate'          => 'GmtCreate',
-        'httpApiParameters'  => 'HttpApiParameters',
+        'connectionName' => 'ConnectionName',
+        'description' => 'Description',
+        'gmtCreate' => 'GmtCreate',
+        'httpApiParameters' => 'HttpApiParameters',
     ];
 
     public function validate()

@@ -13,6 +13,7 @@ use AlibabaCloud\SDK\Eventbridge\V20200401\Models\UpdateEventStreamingRequest\so
 use AlibabaCloud\SDK\Eventbridge\V20200401\Models\UpdateEventStreamingRequest\source\sourceKafkaParameters;
 use AlibabaCloud\SDK\Eventbridge\V20200401\Models\UpdateEventStreamingRequest\source\sourceMNSParameters;
 use AlibabaCloud\SDK\Eventbridge\V20200401\Models\UpdateEventStreamingRequest\source\sourceMQTTParameters;
+use AlibabaCloud\SDK\Eventbridge\V20200401\Models\UpdateEventStreamingRequest\source\sourceOpenSourceRabbitMQParameters;
 use AlibabaCloud\SDK\Eventbridge\V20200401\Models\UpdateEventStreamingRequest\source\sourceOSSParameters;
 use AlibabaCloud\SDK\Eventbridge\V20200401\Models\UpdateEventStreamingRequest\source\sourcePrometheusParameters;
 use AlibabaCloud\SDK\Eventbridge\V20200401\Models\UpdateEventStreamingRequest\source\sourceRabbitMQParameters;
@@ -26,54 +27,72 @@ class source extends Model
      * @var sourceApacheRocketMQCheckpointParameters
      */
     public $sourceApacheRocketMQCheckpointParameters;
+
     /**
      * @var sourceCustomizedKafkaConnectorParameters
      */
     public $sourceCustomizedKafkaConnectorParameters;
+
     /**
      * @var sourceCustomizedKafkaParameters
      */
     public $sourceCustomizedKafkaParameters;
+
     /**
      * @var sourceDTSParameters
      */
     public $sourceDTSParameters;
+
     /**
      * @var sourceEventBusParameters
      */
     public $sourceEventBusParameters;
+
     /**
      * @var sourceKafkaParameters
      */
     public $sourceKafkaParameters;
+
     /**
      * @var sourceMNSParameters
      */
     public $sourceMNSParameters;
+
     /**
      * @var sourceMQTTParameters
      */
     public $sourceMQTTParameters;
+
     /**
      * @var sourceOSSParameters
      */
     public $sourceOSSParameters;
+
+    /**
+     * @var sourceOpenSourceRabbitMQParameters
+     */
+    public $sourceOpenSourceRabbitMQParameters;
+
     /**
      * @var sourcePrometheusParameters
      */
     public $sourcePrometheusParameters;
+
     /**
      * @var sourceRabbitMQParameters
      */
     public $sourceRabbitMQParameters;
+
     /**
      * @var sourceRocketMQCheckpointParameters
      */
     public $sourceRocketMQCheckpointParameters;
+
     /**
      * @var sourceRocketMQParameters
      */
     public $sourceRocketMQParameters;
+
     /**
      * @var sourceSLSParameters
      */
@@ -81,18 +100,19 @@ class source extends Model
     protected $_name = [
         'sourceApacheRocketMQCheckpointParameters' => 'SourceApacheRocketMQCheckpointParameters',
         'sourceCustomizedKafkaConnectorParameters' => 'SourceCustomizedKafkaConnectorParameters',
-        'sourceCustomizedKafkaParameters'          => 'SourceCustomizedKafkaParameters',
-        'sourceDTSParameters'                      => 'SourceDTSParameters',
-        'sourceEventBusParameters'                 => 'SourceEventBusParameters',
-        'sourceKafkaParameters'                    => 'SourceKafkaParameters',
-        'sourceMNSParameters'                      => 'SourceMNSParameters',
-        'sourceMQTTParameters'                     => 'SourceMQTTParameters',
-        'sourceOSSParameters'                      => 'SourceOSSParameters',
-        'sourcePrometheusParameters'               => 'SourcePrometheusParameters',
-        'sourceRabbitMQParameters'                 => 'SourceRabbitMQParameters',
-        'sourceRocketMQCheckpointParameters'       => 'SourceRocketMQCheckpointParameters',
-        'sourceRocketMQParameters'                 => 'SourceRocketMQParameters',
-        'sourceSLSParameters'                      => 'SourceSLSParameters',
+        'sourceCustomizedKafkaParameters' => 'SourceCustomizedKafkaParameters',
+        'sourceDTSParameters' => 'SourceDTSParameters',
+        'sourceEventBusParameters' => 'SourceEventBusParameters',
+        'sourceKafkaParameters' => 'SourceKafkaParameters',
+        'sourceMNSParameters' => 'SourceMNSParameters',
+        'sourceMQTTParameters' => 'SourceMQTTParameters',
+        'sourceOSSParameters' => 'SourceOSSParameters',
+        'sourceOpenSourceRabbitMQParameters' => 'SourceOpenSourceRabbitMQParameters',
+        'sourcePrometheusParameters' => 'SourcePrometheusParameters',
+        'sourceRabbitMQParameters' => 'SourceRabbitMQParameters',
+        'sourceRocketMQCheckpointParameters' => 'SourceRocketMQCheckpointParameters',
+        'sourceRocketMQParameters' => 'SourceRocketMQParameters',
+        'sourceSLSParameters' => 'SourceSLSParameters',
     ];
 
     public function validate()
@@ -123,6 +143,9 @@ class source extends Model
         }
         if (null !== $this->sourceOSSParameters) {
             $this->sourceOSSParameters->validate();
+        }
+        if (null !== $this->sourceOpenSourceRabbitMQParameters) {
+            $this->sourceOpenSourceRabbitMQParameters->validate();
         }
         if (null !== $this->sourcePrometheusParameters) {
             $this->sourcePrometheusParameters->validate();
@@ -179,6 +202,10 @@ class source extends Model
 
         if (null !== $this->sourceOSSParameters) {
             $res['SourceOSSParameters'] = null !== $this->sourceOSSParameters ? $this->sourceOSSParameters->toArray($noStream) : $this->sourceOSSParameters;
+        }
+
+        if (null !== $this->sourceOpenSourceRabbitMQParameters) {
+            $res['SourceOpenSourceRabbitMQParameters'] = null !== $this->sourceOpenSourceRabbitMQParameters ? $this->sourceOpenSourceRabbitMQParameters->toArray($noStream) : $this->sourceOpenSourceRabbitMQParameters;
         }
 
         if (null !== $this->sourcePrometheusParameters) {
@@ -246,6 +273,10 @@ class source extends Model
 
         if (isset($map['SourceOSSParameters'])) {
             $model->sourceOSSParameters = sourceOSSParameters::fromMap($map['SourceOSSParameters']);
+        }
+
+        if (isset($map['SourceOpenSourceRabbitMQParameters'])) {
+            $model->sourceOpenSourceRabbitMQParameters = sourceOpenSourceRabbitMQParameters::fromMap($map['SourceOpenSourceRabbitMQParameters']);
         }
 
         if (isset($map['SourcePrometheusParameters'])) {

@@ -14,6 +14,7 @@ use AlibabaCloud\SDK\Eventbridge\V20200401\Models\UpdateEventStreamingRequest\si
 use AlibabaCloud\SDK\Eventbridge\V20200401\Models\UpdateEventStreamingRequest\sink\sinkFnfParameters;
 use AlibabaCloud\SDK\Eventbridge\V20200401\Models\UpdateEventStreamingRequest\sink\sinkKafkaParameters;
 use AlibabaCloud\SDK\Eventbridge\V20200401\Models\UpdateEventStreamingRequest\sink\sinkMNSParameters;
+use AlibabaCloud\SDK\Eventbridge\V20200401\Models\UpdateEventStreamingRequest\sink\sinkOpenSourceRabbitMQParameters;
 use AlibabaCloud\SDK\Eventbridge\V20200401\Models\UpdateEventStreamingRequest\sink\sinkPrometheusParameters;
 use AlibabaCloud\SDK\Eventbridge\V20200401\Models\UpdateEventStreamingRequest\sink\sinkRabbitMQParameters;
 use AlibabaCloud\SDK\Eventbridge\V20200401\Models\UpdateEventStreamingRequest\sink\sinkRocketMQCheckpointParameters;
@@ -26,54 +27,72 @@ class sink extends Model
      * @var sinkApacheRocketMQCheckpointParameters
      */
     public $sinkApacheRocketMQCheckpointParameters;
+
     /**
      * @var sinkCustomizedKafkaConnectorParameters
      */
     public $sinkCustomizedKafkaConnectorParameters;
+
     /**
      * @var sinkCustomizedKafkaParameters
      */
     public $sinkCustomizedKafkaParameters;
+
     /**
      * @var sinkDashVectorParameters
      */
     public $sinkDashVectorParameters;
+
     /**
      * @var sinkDataHubParameters
      */
     public $sinkDataHubParameters;
+
     /**
      * @var sinkFcParameters
      */
     public $sinkFcParameters;
+
     /**
      * @var sinkFnfParameters
      */
     public $sinkFnfParameters;
+
     /**
      * @var sinkKafkaParameters
      */
     public $sinkKafkaParameters;
+
     /**
      * @var sinkMNSParameters
      */
     public $sinkMNSParameters;
+
+    /**
+     * @var sinkOpenSourceRabbitMQParameters
+     */
+    public $sinkOpenSourceRabbitMQParameters;
+
     /**
      * @var sinkPrometheusParameters
      */
     public $sinkPrometheusParameters;
+
     /**
      * @var sinkRabbitMQParameters
      */
     public $sinkRabbitMQParameters;
+
     /**
      * @var sinkRocketMQCheckpointParameters
      */
     public $sinkRocketMQCheckpointParameters;
+
     /**
      * @var sinkRocketMQParameters
      */
     public $sinkRocketMQParameters;
+
     /**
      * @var sinkSLSParameters
      */
@@ -81,18 +100,19 @@ class sink extends Model
     protected $_name = [
         'sinkApacheRocketMQCheckpointParameters' => 'SinkApacheRocketMQCheckpointParameters',
         'sinkCustomizedKafkaConnectorParameters' => 'SinkCustomizedKafkaConnectorParameters',
-        'sinkCustomizedKafkaParameters'          => 'SinkCustomizedKafkaParameters',
-        'sinkDashVectorParameters'               => 'SinkDashVectorParameters',
-        'sinkDataHubParameters'                  => 'SinkDataHubParameters',
-        'sinkFcParameters'                       => 'SinkFcParameters',
-        'sinkFnfParameters'                      => 'SinkFnfParameters',
-        'sinkKafkaParameters'                    => 'SinkKafkaParameters',
-        'sinkMNSParameters'                      => 'SinkMNSParameters',
-        'sinkPrometheusParameters'               => 'SinkPrometheusParameters',
-        'sinkRabbitMQParameters'                 => 'SinkRabbitMQParameters',
-        'sinkRocketMQCheckpointParameters'       => 'SinkRocketMQCheckpointParameters',
-        'sinkRocketMQParameters'                 => 'SinkRocketMQParameters',
-        'sinkSLSParameters'                      => 'SinkSLSParameters',
+        'sinkCustomizedKafkaParameters' => 'SinkCustomizedKafkaParameters',
+        'sinkDashVectorParameters' => 'SinkDashVectorParameters',
+        'sinkDataHubParameters' => 'SinkDataHubParameters',
+        'sinkFcParameters' => 'SinkFcParameters',
+        'sinkFnfParameters' => 'SinkFnfParameters',
+        'sinkKafkaParameters' => 'SinkKafkaParameters',
+        'sinkMNSParameters' => 'SinkMNSParameters',
+        'sinkOpenSourceRabbitMQParameters' => 'SinkOpenSourceRabbitMQParameters',
+        'sinkPrometheusParameters' => 'SinkPrometheusParameters',
+        'sinkRabbitMQParameters' => 'SinkRabbitMQParameters',
+        'sinkRocketMQCheckpointParameters' => 'SinkRocketMQCheckpointParameters',
+        'sinkRocketMQParameters' => 'SinkRocketMQParameters',
+        'sinkSLSParameters' => 'SinkSLSParameters',
     ];
 
     public function validate()
@@ -123,6 +143,9 @@ class sink extends Model
         }
         if (null !== $this->sinkMNSParameters) {
             $this->sinkMNSParameters->validate();
+        }
+        if (null !== $this->sinkOpenSourceRabbitMQParameters) {
+            $this->sinkOpenSourceRabbitMQParameters->validate();
         }
         if (null !== $this->sinkPrometheusParameters) {
             $this->sinkPrometheusParameters->validate();
@@ -179,6 +202,10 @@ class sink extends Model
 
         if (null !== $this->sinkMNSParameters) {
             $res['SinkMNSParameters'] = null !== $this->sinkMNSParameters ? $this->sinkMNSParameters->toArray($noStream) : $this->sinkMNSParameters;
+        }
+
+        if (null !== $this->sinkOpenSourceRabbitMQParameters) {
+            $res['SinkOpenSourceRabbitMQParameters'] = null !== $this->sinkOpenSourceRabbitMQParameters ? $this->sinkOpenSourceRabbitMQParameters->toArray($noStream) : $this->sinkOpenSourceRabbitMQParameters;
         }
 
         if (null !== $this->sinkPrometheusParameters) {
@@ -246,6 +273,10 @@ class sink extends Model
 
         if (isset($map['SinkMNSParameters'])) {
             $model->sinkMNSParameters = sinkMNSParameters::fromMap($map['SinkMNSParameters']);
+        }
+
+        if (isset($map['SinkOpenSourceRabbitMQParameters'])) {
+            $model->sinkOpenSourceRabbitMQParameters = sinkOpenSourceRabbitMQParameters::fromMap($map['SinkOpenSourceRabbitMQParameters']);
         }
 
         if (isset($map['SinkPrometheusParameters'])) {

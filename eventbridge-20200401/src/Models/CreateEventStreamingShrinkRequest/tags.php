@@ -2,28 +2,24 @@
 
 // This file is auto-generated, don't edit it. Thanks.
 
-namespace AlibabaCloud\SDK\Eventbridge\V20200401\Models\ListEventStreamingsResponseBody\data\eventStreamings\sink\sinkOpenSourceRabbitMQParameters;
+namespace AlibabaCloud\SDK\Eventbridge\V20200401\Models\CreateEventStreamingShrinkRequest;
 
 use AlibabaCloud\Dara\Model;
 
-class queueName extends Model
+class tags extends Model
 {
     /**
      * @var string
      */
-    public $form;
-    /**
-     * @var string
-     */
-    public $template;
+    public $key;
+
     /**
      * @var string
      */
     public $value;
     protected $_name = [
-        'form'     => 'Form',
-        'template' => 'Template',
-        'value'    => 'Value',
+        'key' => 'Key',
+        'value' => 'Value',
     ];
 
     public function validate()
@@ -34,12 +30,8 @@ class queueName extends Model
     public function toArray($noStream = false)
     {
         $res = [];
-        if (null !== $this->form) {
-            $res['Form'] = $this->form;
-        }
-
-        if (null !== $this->template) {
-            $res['Template'] = $this->template;
+        if (null !== $this->key) {
+            $res['Key'] = $this->key;
         }
 
         if (null !== $this->value) {
@@ -57,12 +49,8 @@ class queueName extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Form'])) {
-            $model->form = $map['Form'];
-        }
-
-        if (isset($map['Template'])) {
-            $model->template = $map['Template'];
+        if (isset($map['Key'])) {
+            $model->key = $map['Key'];
         }
 
         if (isset($map['Value'])) {

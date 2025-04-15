@@ -12,6 +12,7 @@ class basicAuthParameters extends Model
      * @var string
      */
     public $password;
+
     /**
      * @var string
      */

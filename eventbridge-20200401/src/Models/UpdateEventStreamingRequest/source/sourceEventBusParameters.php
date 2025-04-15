@@ -12,12 +12,13 @@ class sourceEventBusParameters extends Model
      * @var string
      */
     public $eventBusName;
+
     /**
      * @var string
      */
     public $eventRuleName;
     protected $_name = [
-        'eventBusName'  => 'EventBusName',
+        'eventBusName' => 'EventBusName',
         'eventRuleName' => 'EventRuleName',
     ];
 

@@ -12,17 +12,19 @@ class errorEntries extends Model
      * @var string
      */
     public $entryId;
+
     /**
      * @var string
      */
     public $errorCode;
+
     /**
      * @var string
      */
     public $errorMessage;
     protected $_name = [
-        'entryId'      => 'EntryId',
-        'errorCode'    => 'ErrorCode',
+        'entryId' => 'EntryId',
+        'errorCode' => 'ErrorCode',
         'errorMessage' => 'ErrorMessage',
     ];
 

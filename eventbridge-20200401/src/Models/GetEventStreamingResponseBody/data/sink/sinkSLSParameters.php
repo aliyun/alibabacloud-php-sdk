@@ -19,38 +19,44 @@ class sinkSLSParameters extends Model
      * @var body
      */
     public $body;
+
     /**
      * @var contentSchema
      */
     public $contentSchema;
+
     /**
      * @var contentType
      */
     public $contentType;
+
     /**
      * @var logStore
      */
     public $logStore;
+
     /**
      * @var project
      */
     public $project;
+
     /**
      * @var roleName
      */
     public $roleName;
+
     /**
      * @var topic
      */
     public $topic;
     protected $_name = [
-        'body'          => 'Body',
+        'body' => 'Body',
         'contentSchema' => 'ContentSchema',
-        'contentType'   => 'ContentType',
-        'logStore'      => 'LogStore',
-        'project'       => 'Project',
-        'roleName'      => 'RoleName',
-        'topic'         => 'Topic',
+        'contentType' => 'ContentType',
+        'logStore' => 'LogStore',
+        'project' => 'Project',
+        'roleName' => 'RoleName',
+        'topic' => 'Topic',
     ];
 
     public function validate()

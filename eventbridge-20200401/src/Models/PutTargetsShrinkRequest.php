@@ -12,17 +12,19 @@ class PutTargetsShrinkRequest extends Model
      * @var string
      */
     public $eventBusName;
+
     /**
      * @var string
      */
     public $ruleName;
+
     /**
      * @var string
      */
     public $targetsShrink;
     protected $_name = [
-        'eventBusName'  => 'EventBusName',
-        'ruleName'      => 'RuleName',
+        'eventBusName' => 'EventBusName',
+        'ruleName' => 'RuleName',
         'targetsShrink' => 'Targets',
     ];
 

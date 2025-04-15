@@ -12,13 +12,14 @@ class DisableRuleRequest extends Model
      * @var string
      */
     public $eventBusName;
+
     /**
      * @var string
      */
     public $ruleName;
     protected $_name = [
         'eventBusName' => 'EventBusName',
-        'ruleName'     => 'RuleName',
+        'ruleName' => 'RuleName',
     ];
 
     public function validate()

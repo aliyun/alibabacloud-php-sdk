@@ -12,18 +12,20 @@ class DeleteTargetsRequest extends Model
      * @var string
      */
     public $eventBusName;
+
     /**
      * @var string
      */
     public $ruleName;
+
     /**
      * @var string[]
      */
     public $targetIds;
     protected $_name = [
         'eventBusName' => 'EventBusName',
-        'ruleName'     => 'RuleName',
-        'targetIds'    => 'TargetIds',
+        'ruleName' => 'RuleName',
+        'targetIds' => 'TargetIds',
     ];
 
     public function validate()
@@ -48,7 +50,7 @@ class DeleteTargetsRequest extends Model
         if (null !== $this->targetIds) {
             if (\is_array($this->targetIds)) {
                 $res['TargetIds'] = [];
-                $n1               = 0;
+                $n1 = 0;
                 foreach ($this->targetIds as $item1) {
                     $res['TargetIds'][$n1++] = $item1;
                 }
@@ -77,7 +79,7 @@ class DeleteTargetsRequest extends Model
         if (isset($map['TargetIds'])) {
             if (!empty($map['TargetIds'])) {
                 $model->targetIds = [];
-                $n1               = 0;
+                $n1 = 0;
                 foreach ($map['TargetIds'] as $item1) {
                     $model->targetIds[$n1++] = $item1;
                 }

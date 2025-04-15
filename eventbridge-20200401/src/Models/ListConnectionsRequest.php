@@ -12,18 +12,20 @@ class ListConnectionsRequest extends Model
      * @var string
      */
     public $connectionNamePrefix;
+
     /**
      * @var int
      */
     public $maxResults;
+
     /**
      * @var string
      */
     public $nextToken;
     protected $_name = [
         'connectionNamePrefix' => 'ConnectionNamePrefix',
-        'maxResults'           => 'MaxResults',
-        'nextToken'            => 'NextToken',
+        'maxResults' => 'MaxResults',
+        'nextToken' => 'NextToken',
     ];
 
     public function validate()

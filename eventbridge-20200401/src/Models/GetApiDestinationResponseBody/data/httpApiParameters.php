@@ -12,13 +12,14 @@ class httpApiParameters extends Model
      * @var string
      */
     public $endpoint;
+
     /**
      * @var string
      */
     public $method;
     protected $_name = [
         'endpoint' => 'Endpoint',
-        'method'   => 'Method',
+        'method' => 'Method',
     ];
 
     public function validate()

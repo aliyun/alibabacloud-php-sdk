@@ -12,63 +12,74 @@ class data extends Model
      * @var string
      */
     public $action;
+
     /**
      * @var int
      */
     public $actionTime;
+
     /**
      * @var string
      */
     public $endpoint;
+
     /**
      * @var string
      */
     public $eventBusName;
+
     /**
      * @var string
      */
     public $eventId;
+
     /**
      * @var string
      */
     public $eventSource;
+
     /**
      * @var string
      */
     public $notifyLatency;
+
     /**
      * @var string
      */
     public $notifyStatus;
+
     /**
      * @var int
      */
     public $notifyTime;
+
     /**
      * @var int
      */
     public $receivedTime;
+
     /**
      * @var string
      */
     public $ruleMatchingTime;
+
     /**
      * @var string
      */
     public $ruleName;
     protected $_name = [
-        'action'           => 'Action',
-        'actionTime'       => 'ActionTime',
-        'endpoint'         => 'Endpoint',
-        'eventBusName'     => 'EventBusName',
-        'eventId'          => 'EventId',
-        'eventSource'      => 'EventSource',
-        'notifyLatency'    => 'NotifyLatency',
-        'notifyStatus'     => 'NotifyStatus',
-        'notifyTime'       => 'NotifyTime',
-        'receivedTime'     => 'ReceivedTime',
+        'action' => 'Action',
+        'actionTime' => 'ActionTime',
+        'endpoint' => 'Endpoint',
+        'eventBusName' => 'EventBusName',
+        'eventId' => 'EventId',
+        'eventSource' => 'EventSource',
+        'notifyLatency' => 'NotifyLatency',
+        'notifyStatus' => 'NotifyStatus',
+        'notifyTime' => 'NotifyTime',
+        'receivedTime' => 'ReceivedTime',
         'ruleMatchingTime' => 'RuleMatchingTime',
-        'ruleName'         => 'RuleName',
+        'ruleName' => 'RuleName',
     ];
 
     public function validate()

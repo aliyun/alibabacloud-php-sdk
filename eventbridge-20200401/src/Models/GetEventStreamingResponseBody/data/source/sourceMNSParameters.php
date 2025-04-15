@@ -12,18 +12,20 @@ class sourceMNSParameters extends Model
      * @var bool
      */
     public $isBase64Decode;
+
     /**
      * @var string
      */
     public $queueName;
+
     /**
      * @var string
      */
     public $regionId;
     protected $_name = [
         'isBase64Decode' => 'IsBase64Decode',
-        'queueName'      => 'QueueName',
-        'regionId'       => 'RegionId',
+        'queueName' => 'QueueName',
+        'regionId' => 'RegionId',
     ];
 
     public function validate()

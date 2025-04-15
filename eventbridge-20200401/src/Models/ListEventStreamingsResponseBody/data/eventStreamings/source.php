@@ -27,58 +27,72 @@ class source extends Model
      * @var sourceApacheRocketMQCheckpointParameters
      */
     public $sourceApacheRocketMQCheckpointParameters;
+
     /**
      * @var sourceCustomizedKafkaConnectorParameters
      */
     public $sourceCustomizedKafkaConnectorParameters;
+
     /**
      * @var sourceCustomizedKafkaParameters
      */
     public $sourceCustomizedKafkaParameters;
+
     /**
      * @var sourceDTSParameters
      */
     public $sourceDTSParameters;
+
     /**
      * @var sourceEventBusParameters
      */
     public $sourceEventBusParameters;
+
     /**
      * @var sourceKafkaParameters
      */
     public $sourceKafkaParameters;
+
     /**
      * @var sourceMNSParameters
      */
     public $sourceMNSParameters;
+
     /**
      * @var sourceMQTTParameters
      */
     public $sourceMQTTParameters;
+
     /**
      * @var sourceOSSParameters
      */
     public $sourceOSSParameters;
+
     /**
      * @var sourceOpenSourceRabbitMQParameters
      */
     public $sourceOpenSourceRabbitMQParameters;
+
     /**
      * @var sourcePrometheusParameters
      */
     public $sourcePrometheusParameters;
+
     /**
      * @var sourceRabbitMQParameters
      */
     public $sourceRabbitMQParameters;
+
     /**
      * @var sourceRocketMQCheckpointParameters
      */
     public $sourceRocketMQCheckpointParameters;
+
     /**
      * @var sourceRocketMQParameters
      */
     public $sourceRocketMQParameters;
+
     /**
      * @var sourceSLSParameters
      */
@@ -86,19 +100,19 @@ class source extends Model
     protected $_name = [
         'sourceApacheRocketMQCheckpointParameters' => 'SourceApacheRocketMQCheckpointParameters',
         'sourceCustomizedKafkaConnectorParameters' => 'SourceCustomizedKafkaConnectorParameters',
-        'sourceCustomizedKafkaParameters'          => 'SourceCustomizedKafkaParameters',
-        'sourceDTSParameters'                      => 'SourceDTSParameters',
-        'sourceEventBusParameters'                 => 'SourceEventBusParameters',
-        'sourceKafkaParameters'                    => 'SourceKafkaParameters',
-        'sourceMNSParameters'                      => 'SourceMNSParameters',
-        'sourceMQTTParameters'                     => 'SourceMQTTParameters',
-        'sourceOSSParameters'                      => 'SourceOSSParameters',
-        'sourceOpenSourceRabbitMQParameters'       => 'SourceOpenSourceRabbitMQParameters',
-        'sourcePrometheusParameters'               => 'SourcePrometheusParameters',
-        'sourceRabbitMQParameters'                 => 'SourceRabbitMQParameters',
-        'sourceRocketMQCheckpointParameters'       => 'SourceRocketMQCheckpointParameters',
-        'sourceRocketMQParameters'                 => 'SourceRocketMQParameters',
-        'sourceSLSParameters'                      => 'SourceSLSParameters',
+        'sourceCustomizedKafkaParameters' => 'SourceCustomizedKafkaParameters',
+        'sourceDTSParameters' => 'SourceDTSParameters',
+        'sourceEventBusParameters' => 'SourceEventBusParameters',
+        'sourceKafkaParameters' => 'SourceKafkaParameters',
+        'sourceMNSParameters' => 'SourceMNSParameters',
+        'sourceMQTTParameters' => 'SourceMQTTParameters',
+        'sourceOSSParameters' => 'SourceOSSParameters',
+        'sourceOpenSourceRabbitMQParameters' => 'SourceOpenSourceRabbitMQParameters',
+        'sourcePrometheusParameters' => 'SourcePrometheusParameters',
+        'sourceRabbitMQParameters' => 'SourceRabbitMQParameters',
+        'sourceRocketMQCheckpointParameters' => 'SourceRocketMQCheckpointParameters',
+        'sourceRocketMQParameters' => 'SourceRocketMQParameters',
+        'sourceSLSParameters' => 'SourceSLSParameters',
     ];
 
     public function validate()

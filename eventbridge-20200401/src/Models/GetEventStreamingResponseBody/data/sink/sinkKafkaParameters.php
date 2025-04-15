@@ -6,6 +6,7 @@ namespace AlibabaCloud\SDK\Eventbridge\V20200401\Models\GetEventStreamingRespons
 
 use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Eventbridge\V20200401\Models\GetEventStreamingResponseBody\data\sink\sinkKafkaParameters\acks;
+use AlibabaCloud\SDK\Eventbridge\V20200401\Models\GetEventStreamingResponseBody\data\sink\sinkKafkaParameters\headers;
 use AlibabaCloud\SDK\Eventbridge\V20200401\Models\GetEventStreamingResponseBody\data\sink\sinkKafkaParameters\instanceId;
 use AlibabaCloud\SDK\Eventbridge\V20200401\Models\GetEventStreamingResponseBody\data\sink\sinkKafkaParameters\key;
 use AlibabaCloud\SDK\Eventbridge\V20200401\Models\GetEventStreamingResponseBody\data\sink\sinkKafkaParameters\topic;
@@ -17,34 +18,47 @@ class sinkKafkaParameters extends Model
      * @var acks
      */
     public $acks;
+
+    /**
+     * @var headers
+     */
+    public $headers;
+
     /**
      * @var instanceId
      */
     public $instanceId;
+
     /**
      * @var key
      */
     public $key;
+
     /**
      * @var topic
      */
     public $topic;
+
     /**
      * @var value
      */
     public $value;
     protected $_name = [
-        'acks'       => 'Acks',
+        'acks' => 'Acks',
+        'headers' => 'Headers',
         'instanceId' => 'InstanceId',
-        'key'        => 'Key',
-        'topic'      => 'Topic',
-        'value'      => 'Value',
+        'key' => 'Key',
+        'topic' => 'Topic',
+        'value' => 'Value',
     ];
 
     public function validate()
     {
         if (null !== $this->acks) {
             $this->acks->validate();
+        }
+        if (null !== $this->headers) {
+            $this->headers->validate();
         }
         if (null !== $this->instanceId) {
             $this->instanceId->validate();
@@ -66,6 +80,10 @@ class sinkKafkaParameters extends Model
         $res = [];
         if (null !== $this->acks) {
             $res['Acks'] = null !== $this->acks ? $this->acks->toArray($noStream) : $this->acks;
+        }
+
+        if (null !== $this->headers) {
+            $res['Headers'] = null !== $this->headers ? $this->headers->toArray($noStream) : $this->headers;
         }
 
         if (null !== $this->instanceId) {
@@ -97,6 +115,10 @@ class sinkKafkaParameters extends Model
         $model = new self();
         if (isset($map['Acks'])) {
             $model->acks = acks::fromMap($map['Acks']);
+        }
+
+        if (isset($map['Headers'])) {
+            $model->headers = headers::fromMap($map['Headers']);
         }
 
         if (isset($map['InstanceId'])) {

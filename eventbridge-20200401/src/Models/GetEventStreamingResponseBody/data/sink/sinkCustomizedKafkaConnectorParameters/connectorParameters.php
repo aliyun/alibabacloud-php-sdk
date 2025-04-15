@@ -12,13 +12,14 @@ class connectorParameters extends Model
      * @var mixed[]
      */
     public $config;
+
     /**
      * @var string
      */
     public $name;
     protected $_name = [
         'config' => 'Config',
-        'name'   => 'Name',
+        'name' => 'Name',
     ];
 
     public function validate()

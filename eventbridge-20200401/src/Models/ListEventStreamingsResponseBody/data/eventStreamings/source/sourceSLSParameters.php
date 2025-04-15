@@ -12,28 +12,32 @@ class sourceSLSParameters extends Model
      * @var string
      */
     public $consumePosition;
+
     /**
      * @var string
      */
     public $consumerGroup;
+
     /**
      * @var string
      */
     public $logStore;
+
     /**
      * @var string
      */
     public $project;
+
     /**
      * @var string
      */
     public $roleName;
     protected $_name = [
         'consumePosition' => 'ConsumePosition',
-        'consumerGroup'   => 'ConsumerGroup',
-        'logStore'        => 'LogStore',
-        'project'         => 'Project',
-        'roleName'        => 'RoleName',
+        'consumerGroup' => 'ConsumerGroup',
+        'logStore' => 'LogStore',
+        'project' => 'Project',
+        'roleName' => 'RoleName',
     ];
 
     public function validate()

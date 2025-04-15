@@ -12,18 +12,20 @@ class ListEventBusesRequest extends Model
      * @var int
      */
     public $limit;
+
     /**
      * @var string
      */
     public $namePrefix;
+
     /**
      * @var string
      */
     public $nextToken;
     protected $_name = [
-        'limit'      => 'Limit',
+        'limit' => 'Limit',
         'namePrefix' => 'NamePrefix',
-        'nextToken'  => 'NextToken',
+        'nextToken' => 'NextToken',
     ];
 
     public function validate()

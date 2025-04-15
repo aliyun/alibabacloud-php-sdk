@@ -16,38 +16,44 @@ class UpdateEventStreamingRequest extends Model
      * @var string
      */
     public $description;
+
     /**
      * @var string
      */
     public $eventStreamingName;
+
     /**
      * @var string
      */
     public $filterPattern;
+
     /**
      * @var runOptions
      */
     public $runOptions;
+
     /**
      * @var sink
      */
     public $sink;
+
     /**
      * @var source
      */
     public $source;
+
     /**
      * @var transforms[]
      */
     public $transforms;
     protected $_name = [
-        'description'        => 'Description',
+        'description' => 'Description',
         'eventStreamingName' => 'EventStreamingName',
-        'filterPattern'      => 'FilterPattern',
-        'runOptions'         => 'RunOptions',
-        'sink'               => 'Sink',
-        'source'             => 'Source',
-        'transforms'         => 'Transforms',
+        'filterPattern' => 'FilterPattern',
+        'runOptions' => 'RunOptions',
+        'sink' => 'Sink',
+        'source' => 'Source',
+        'transforms' => 'Transforms',
     ];
 
     public function validate()
@@ -97,7 +103,7 @@ class UpdateEventStreamingRequest extends Model
         if (null !== $this->transforms) {
             if (\is_array($this->transforms)) {
                 $res['Transforms'] = [];
-                $n1                = 0;
+                $n1 = 0;
                 foreach ($this->transforms as $item1) {
                     $res['Transforms'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -142,7 +148,7 @@ class UpdateEventStreamingRequest extends Model
         if (isset($map['Transforms'])) {
             if (!empty($map['Transforms'])) {
                 $model->transforms = [];
-                $n1                = 0;
+                $n1 = 0;
                 foreach ($map['Transforms'] as $item1) {
                     $model->transforms[$n1++] = transforms::fromMap($item1);
                 }

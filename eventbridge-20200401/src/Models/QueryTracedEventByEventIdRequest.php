@@ -12,18 +12,20 @@ class QueryTracedEventByEventIdRequest extends Model
      * @var string
      */
     public $eventBusName;
+
     /**
      * @var string
      */
     public $eventId;
+
     /**
      * @var string
      */
     public $eventSource;
     protected $_name = [
         'eventBusName' => 'EventBusName',
-        'eventId'      => 'EventId',
-        'eventSource'  => 'EventSource',
+        'eventId' => 'EventId',
+        'eventSource' => 'EventSource',
     ];
 
     public function validate()

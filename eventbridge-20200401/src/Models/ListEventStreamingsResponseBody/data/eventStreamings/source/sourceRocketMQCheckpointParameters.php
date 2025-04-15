@@ -12,23 +12,26 @@ class sourceRocketMQCheckpointParameters extends Model
      * @var string
      */
     public $instanceId;
+
     /**
      * @var string
      */
     public $instanceType;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string[]
      */
     public $topics;
     protected $_name = [
-        'instanceId'   => 'InstanceId',
+        'instanceId' => 'InstanceId',
         'instanceType' => 'InstanceType',
-        'regionId'     => 'RegionId',
-        'topics'       => 'Topics',
+        'regionId' => 'RegionId',
+        'topics' => 'Topics',
     ];
 
     public function validate()
@@ -57,7 +60,7 @@ class sourceRocketMQCheckpointParameters extends Model
         if (null !== $this->topics) {
             if (\is_array($this->topics)) {
                 $res['Topics'] = [];
-                $n1            = 0;
+                $n1 = 0;
                 foreach ($this->topics as $item1) {
                     $res['Topics'][$n1++] = $item1;
                 }
@@ -90,7 +93,7 @@ class sourceRocketMQCheckpointParameters extends Model
         if (isset($map['Topics'])) {
             if (!empty($map['Topics'])) {
                 $model->topics = [];
-                $n1            = 0;
+                $n1 = 0;
                 foreach ($map['Topics'] as $item1) {
                     $model->topics[$n1++] = $item1;
                 }

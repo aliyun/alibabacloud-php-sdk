@@ -5,6 +5,7 @@
 namespace AlibabaCloud\SDK\Eventbridge\V20200401\Models;
 
 use AlibabaCloud\Dara\Model;
+use AlibabaCloud\SDK\Eventbridge\V20200401\Models\ListEventStreamingsRequest\tags;
 
 class ListEventStreamingsRequest extends Model
 {
@@ -12,32 +13,45 @@ class ListEventStreamingsRequest extends Model
      * @var int
      */
     public $limit;
+
     /**
      * @var string
      */
     public $namePrefix;
+
     /**
      * @var string
      */
     public $nextToken;
+
     /**
      * @var string
      */
     public $sinkArn;
+
     /**
      * @var string
      */
     public $sourceArn;
+
+    /**
+     * @var tags[]
+     */
+    public $tags;
     protected $_name = [
-        'limit'      => 'Limit',
+        'limit' => 'Limit',
         'namePrefix' => 'NamePrefix',
-        'nextToken'  => 'NextToken',
-        'sinkArn'    => 'SinkArn',
-        'sourceArn'  => 'SourceArn',
+        'nextToken' => 'NextToken',
+        'sinkArn' => 'SinkArn',
+        'sourceArn' => 'SourceArn',
+        'tags' => 'Tags',
     ];
 
     public function validate()
     {
+        if (\is_array($this->tags)) {
+            Model::validateArray($this->tags);
+        }
         parent::validate();
     }
 
@@ -62,6 +76,16 @@ class ListEventStreamingsRequest extends Model
 
         if (null !== $this->sourceArn) {
             $res['SourceArn'] = $this->sourceArn;
+        }
+
+        if (null !== $this->tags) {
+            if (\is_array($this->tags)) {
+                $res['Tags'] = [];
+                $n1 = 0;
+                foreach ($this->tags as $item1) {
+                    $res['Tags'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                }
+            }
         }
 
         return $res;
@@ -93,6 +117,16 @@ class ListEventStreamingsRequest extends Model
 
         if (isset($map['SourceArn'])) {
             $model->sourceArn = $map['SourceArn'];
+        }
+
+        if (isset($map['Tags'])) {
+            if (!empty($map['Tags'])) {
+                $model->tags = [];
+                $n1 = 0;
+                foreach ($map['Tags'] as $item1) {
+                    $model->tags[$n1++] = tags::fromMap($item1);
+                }
+            }
         }
 
         return $model;

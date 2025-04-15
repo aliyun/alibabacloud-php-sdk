@@ -12,18 +12,20 @@ class retryStrategy extends Model
      * @var float
      */
     public $maximumEventAgeInSeconds;
+
     /**
      * @var float
      */
     public $maximumRetryAttempts;
+
     /**
      * @var string
      */
     public $pushRetryStrategy;
     protected $_name = [
         'maximumEventAgeInSeconds' => 'MaximumEventAgeInSeconds',
-        'maximumRetryAttempts'     => 'MaximumRetryAttempts',
-        'pushRetryStrategy'        => 'PushRetryStrategy',
+        'maximumRetryAttempts' => 'MaximumRetryAttempts',
+        'pushRetryStrategy' => 'PushRetryStrategy',
     ];
 
     public function validate()

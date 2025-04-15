@@ -12,33 +12,38 @@ class sourceOSSParameters extends Model
      * @var string
      */
     public $bucketName;
+
     /**
      * @var string
      */
     public $delimiter;
+
     /**
      * @var string
      */
     public $loadFormat;
+
     /**
      * @var string
      */
     public $loadMode;
+
     /**
      * @var string
      */
     public $prefix;
+
     /**
      * @var string
      */
     public $roleName;
     protected $_name = [
         'bucketName' => 'BucketName',
-        'delimiter'  => 'Delimiter',
+        'delimiter' => 'Delimiter',
         'loadFormat' => 'LoadFormat',
-        'loadMode'   => 'LoadMode',
-        'prefix'     => 'Prefix',
-        'roleName'   => 'RoleName',
+        'loadMode' => 'LoadMode',
+        'prefix' => 'Prefix',
+        'roleName' => 'RoleName',
     ];
 
     public function validate()

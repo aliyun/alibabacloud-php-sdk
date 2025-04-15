@@ -15,23 +15,26 @@ class authParameters extends Model
      * @var apiKeyAuthParameters
      */
     public $apiKeyAuthParameters;
+
     /**
      * @var string
      */
     public $authorizationType;
+
     /**
      * @var basicAuthParameters
      */
     public $basicAuthParameters;
+
     /**
      * @var OAuthParameters
      */
     public $OAuthParameters;
     protected $_name = [
         'apiKeyAuthParameters' => 'ApiKeyAuthParameters',
-        'authorizationType'    => 'AuthorizationType',
-        'basicAuthParameters'  => 'BasicAuthParameters',
-        'OAuthParameters'      => 'OAuthParameters',
+        'authorizationType' => 'AuthorizationType',
+        'basicAuthParameters' => 'BasicAuthParameters',
+        'OAuthParameters' => 'OAuthParameters',
     ];
 
     public function validate()

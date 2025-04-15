@@ -19,73 +19,86 @@ class eventSourceList extends Model
      * @var string
      */
     public $arn;
+
     /**
      * @var float
      */
     public $ctime;
+
     /**
      * @var string
      */
     public $eventBusName;
+
     /**
      * @var string
      */
     public $externalSourceType;
+
     /**
      * @var string
      */
     public $name;
+
     /**
      * @var sourceHttpEventParameters
      */
     public $sourceHttpEventParameters;
+
     /**
      * @var sourceKafkaParameters
      */
     public $sourceKafkaParameters;
+
     /**
      * @var sourceMNSParameters
      */
     public $sourceMNSParameters;
+
     /**
      * @var sourceRabbitMQParameters
      */
     public $sourceRabbitMQParameters;
+
     /**
      * @var sourceRocketMQParameters
      */
     public $sourceRocketMQParameters;
+
     /**
      * @var sourceSLSParameters
      */
     public $sourceSLSParameters;
+
     /**
      * @var sourceScheduledEventParameters
      */
     public $sourceScheduledEventParameters;
+
     /**
      * @var string
      */
     public $status;
+
     /**
      * @var string
      */
     public $type;
     protected $_name = [
-        'arn'                            => 'Arn',
-        'ctime'                          => 'Ctime',
-        'eventBusName'                   => 'EventBusName',
-        'externalSourceType'             => 'ExternalSourceType',
-        'name'                           => 'Name',
-        'sourceHttpEventParameters'      => 'SourceHttpEventParameters',
-        'sourceKafkaParameters'          => 'SourceKafkaParameters',
-        'sourceMNSParameters'            => 'SourceMNSParameters',
-        'sourceRabbitMQParameters'       => 'SourceRabbitMQParameters',
-        'sourceRocketMQParameters'       => 'SourceRocketMQParameters',
-        'sourceSLSParameters'            => 'SourceSLSParameters',
+        'arn' => 'Arn',
+        'ctime' => 'Ctime',
+        'eventBusName' => 'EventBusName',
+        'externalSourceType' => 'ExternalSourceType',
+        'name' => 'Name',
+        'sourceHttpEventParameters' => 'SourceHttpEventParameters',
+        'sourceKafkaParameters' => 'SourceKafkaParameters',
+        'sourceMNSParameters' => 'SourceMNSParameters',
+        'sourceRabbitMQParameters' => 'SourceRabbitMQParameters',
+        'sourceRocketMQParameters' => 'SourceRocketMQParameters',
+        'sourceSLSParameters' => 'SourceSLSParameters',
         'sourceScheduledEventParameters' => 'SourceScheduledEventParameters',
-        'status'                         => 'Status',
-        'type'                           => 'Type',
+        'status' => 'Status',
+        'type' => 'Type',
     ];
 
     public function validate()

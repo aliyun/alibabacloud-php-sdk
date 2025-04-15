@@ -12,118 +12,140 @@ class sourceRocketMQParameters extends Model
      * @var string
      */
     public $authType;
+
     /**
      * @var string
      */
     public $bodyDataType;
+
     /**
      * @var string
      */
     public $filterSql;
+
     /**
      * @var string
      */
     public $filterType;
+
     /**
      * @var string
      */
     public $groupID;
+
     /**
      * @var string
      */
     public $instanceEndpoint;
+
     /**
      * @var string
      */
     public $instanceId;
+
     /**
      * @var string
      */
     public $instanceNetwork;
+
     /**
      * @var string
      */
     public $instancePassword;
+
     /**
      * @var string
      */
     public $instanceSecurityGroupId;
+
     /**
      * @var string
      */
     public $instanceType;
+
     /**
      * @var string
      */
     public $instanceUsername;
+
     /**
      * @var string
      */
     public $instanceVSwitchIds;
+
     /**
      * @var string
      */
     public $instanceVpcId;
+
     /**
      * @var string
      */
     public $network;
+
     /**
      * @var string
      */
     public $offset;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $securityGroupId;
+
     /**
      * @var string
      */
     public $tag;
+
     /**
      * @var int
      */
     public $timestamp;
+
     /**
      * @var string
      */
     public $topic;
+
     /**
      * @var string
      */
     public $vSwitchIds;
+
     /**
      * @var string
      */
     public $vpcId;
     protected $_name = [
-        'authType'                => 'AuthType',
-        'bodyDataType'            => 'BodyDataType',
-        'filterSql'               => 'FilterSql',
-        'filterType'              => 'FilterType',
-        'groupID'                 => 'GroupID',
-        'instanceEndpoint'        => 'InstanceEndpoint',
-        'instanceId'              => 'InstanceId',
-        'instanceNetwork'         => 'InstanceNetwork',
-        'instancePassword'        => 'InstancePassword',
+        'authType' => 'AuthType',
+        'bodyDataType' => 'BodyDataType',
+        'filterSql' => 'FilterSql',
+        'filterType' => 'FilterType',
+        'groupID' => 'GroupID',
+        'instanceEndpoint' => 'InstanceEndpoint',
+        'instanceId' => 'InstanceId',
+        'instanceNetwork' => 'InstanceNetwork',
+        'instancePassword' => 'InstancePassword',
         'instanceSecurityGroupId' => 'InstanceSecurityGroupId',
-        'instanceType'            => 'InstanceType',
-        'instanceUsername'        => 'InstanceUsername',
-        'instanceVSwitchIds'      => 'InstanceVSwitchIds',
-        'instanceVpcId'           => 'InstanceVpcId',
-        'network'                 => 'Network',
-        'offset'                  => 'Offset',
-        'regionId'                => 'RegionId',
-        'securityGroupId'         => 'SecurityGroupId',
-        'tag'                     => 'Tag',
-        'timestamp'               => 'Timestamp',
-        'topic'                   => 'Topic',
-        'vSwitchIds'              => 'VSwitchIds',
-        'vpcId'                   => 'VpcId',
+        'instanceType' => 'InstanceType',
+        'instanceUsername' => 'InstanceUsername',
+        'instanceVSwitchIds' => 'InstanceVSwitchIds',
+        'instanceVpcId' => 'InstanceVpcId',
+        'network' => 'Network',
+        'offset' => 'Offset',
+        'regionId' => 'RegionId',
+        'securityGroupId' => 'SecurityGroupId',
+        'tag' => 'Tag',
+        'timestamp' => 'Timestamp',
+        'topic' => 'Topic',
+        'vSwitchIds' => 'VSwitchIds',
+        'vpcId' => 'VpcId',
     ];
 
     public function validate()

@@ -12,53 +12,62 @@ class sourceKafkaParameters extends Model
      * @var string
      */
     public $consumerGroup;
+
     /**
      * @var string
      */
     public $instanceId;
+
     /**
      * @var string
      */
     public $network;
+
     /**
      * @var string
      */
     public $offsetReset;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $securityGroupId;
+
     /**
      * @var string
      */
     public $topic;
+
     /**
      * @var string
      */
     public $vSwitchIds;
+
     /**
      * @var string
      */
     public $valueDataType;
+
     /**
      * @var string
      */
     public $vpcId;
     protected $_name = [
-        'consumerGroup'   => 'ConsumerGroup',
-        'instanceId'      => 'InstanceId',
-        'network'         => 'Network',
-        'offsetReset'     => 'OffsetReset',
-        'regionId'        => 'RegionId',
+        'consumerGroup' => 'ConsumerGroup',
+        'instanceId' => 'InstanceId',
+        'network' => 'Network',
+        'offsetReset' => 'OffsetReset',
+        'regionId' => 'RegionId',
         'securityGroupId' => 'SecurityGroupId',
-        'topic'           => 'Topic',
-        'vSwitchIds'      => 'VSwitchIds',
-        'valueDataType'   => 'ValueDataType',
-        'vpcId'           => 'VpcId',
+        'topic' => 'Topic',
+        'vSwitchIds' => 'VSwitchIds',
+        'valueDataType' => 'ValueDataType',
+        'vpcId' => 'VpcId',
     ];
 
     public function validate()

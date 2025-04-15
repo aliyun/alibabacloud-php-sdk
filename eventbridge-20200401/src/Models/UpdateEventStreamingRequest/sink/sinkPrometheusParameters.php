@@ -22,53 +22,62 @@ class sinkPrometheusParameters extends Model
      * @var authorizationType
      */
     public $authorizationType;
+
     /**
      * @var data
      */
     public $data;
+
     /**
      * @var headerParameters
      */
     public $headerParameters;
+
     /**
      * @var networkType
      */
     public $networkType;
+
     /**
      * @var password
      */
     public $password;
+
     /**
      * @var securityGroupId
      */
     public $securityGroupId;
+
     /**
      * @var URL
      */
     public $URL;
+
     /**
      * @var username
      */
     public $username;
+
     /**
      * @var vSwitchId
      */
     public $vSwitchId;
+
     /**
      * @var vpcId
      */
     public $vpcId;
     protected $_name = [
         'authorizationType' => 'AuthorizationType',
-        'data'              => 'Data',
-        'headerParameters'  => 'HeaderParameters',
-        'networkType'       => 'NetworkType',
-        'password'          => 'Password',
-        'securityGroupId'   => 'SecurityGroupId',
-        'URL'               => 'URL',
-        'username'          => 'Username',
-        'vSwitchId'         => 'VSwitchId',
-        'vpcId'             => 'VpcId',
+        'data' => 'Data',
+        'headerParameters' => 'HeaderParameters',
+        'networkType' => 'NetworkType',
+        'password' => 'Password',
+        'securityGroupId' => 'SecurityGroupId',
+        'URL' => 'URL',
+        'username' => 'Username',
+        'vSwitchId' => 'VSwitchId',
+        'vpcId' => 'VpcId',
     ];
 
     public function validate()

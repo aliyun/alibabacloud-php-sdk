@@ -12,12 +12,13 @@ class DeleteEventSourceRequest extends Model
      * @var string
      */
     public $eventBusName;
+
     /**
      * @var string
      */
     public $eventSourceName;
     protected $_name = [
-        'eventBusName'    => 'EventBusName',
+        'eventBusName' => 'EventBusName',
         'eventSourceName' => 'EventSourceName',
     ];
 

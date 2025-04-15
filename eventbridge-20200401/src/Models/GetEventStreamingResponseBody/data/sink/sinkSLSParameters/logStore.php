@@ -12,18 +12,20 @@ class logStore extends Model
      * @var string
      */
     public $form;
+
     /**
      * @var string
      */
     public $template;
+
     /**
      * @var string
      */
     public $value;
     protected $_name = [
-        'form'     => 'Form',
+        'form' => 'Form',
         'template' => 'Template',
-        'value'    => 'Value',
+        'value' => 'Value',
     ];
 
     public function validate()

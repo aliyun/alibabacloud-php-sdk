@@ -16,48 +16,56 @@ class sinkDashVectorParameters extends Model
      * @var string
      */
     public $apiKey;
+
     /**
      * @var string
      */
     public $collection;
+
     /**
      * @var dashVectorSchemaParameters
      */
     public $dashVectorSchemaParameters;
+
     /**
      * @var string
      */
     public $instanceId;
+
     /**
      * @var string
      */
     public $network;
+
     /**
      * @var string
      */
     public $operation;
+
     /**
      * @var partition
      */
     public $partition;
+
     /**
      * @var primaryKeyId
      */
     public $primaryKeyId;
+
     /**
      * @var vector
      */
     public $vector;
     protected $_name = [
-        'apiKey'                     => 'ApiKey',
-        'collection'                 => 'Collection',
+        'apiKey' => 'ApiKey',
+        'collection' => 'Collection',
         'dashVectorSchemaParameters' => 'DashVectorSchemaParameters',
-        'instanceId'                 => 'InstanceId',
-        'network'                    => 'Network',
-        'operation'                  => 'Operation',
-        'partition'                  => 'Partition',
-        'primaryKeyId'               => 'PrimaryKeyId',
-        'vector'                     => 'Vector',
+        'instanceId' => 'InstanceId',
+        'network' => 'Network',
+        'operation' => 'Operation',
+        'partition' => 'Partition',
+        'primaryKeyId' => 'PrimaryKeyId',
+        'vector' => 'Vector',
     ];
 
     public function validate()

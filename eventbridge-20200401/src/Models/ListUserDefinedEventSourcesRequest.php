@@ -12,23 +12,26 @@ class ListUserDefinedEventSourcesRequest extends Model
      * @var string
      */
     public $eventBusName;
+
     /**
      * @var int
      */
     public $limit;
+
     /**
      * @var string
      */
     public $namePrefix;
+
     /**
      * @var string
      */
     public $nextToken;
     protected $_name = [
         'eventBusName' => 'EventBusName',
-        'limit'        => 'Limit',
-        'namePrefix'   => 'NamePrefix',
-        'nextToken'    => 'NextToken',
+        'limit' => 'Limit',
+        'namePrefix' => 'NamePrefix',
+        'nextToken' => 'NextToken',
     ];
 
     public function validate()

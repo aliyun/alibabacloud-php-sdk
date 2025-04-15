@@ -12,12 +12,13 @@ class clientParameters extends Model
      * @var string
      */
     public $clientID;
+
     /**
      * @var string
      */
     public $clientSecret;
     protected $_name = [
-        'clientID'     => 'ClientID',
+        'clientID' => 'ClientID',
         'clientSecret' => 'ClientSecret',
     ];
 

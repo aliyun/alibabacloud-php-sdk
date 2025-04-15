@@ -12,23 +12,26 @@ class data extends Model
      * @var int
      */
     public $createTimestamp;
+
     /**
      * @var string
      */
     public $description;
+
     /**
      * @var string
      */
     public $eventBusARN;
+
     /**
      * @var string
      */
     public $eventBusName;
     protected $_name = [
         'createTimestamp' => 'CreateTimestamp',
-        'description'     => 'Description',
-        'eventBusARN'     => 'EventBusARN',
-        'eventBusName'    => 'EventBusName',
+        'description' => 'Description',
+        'eventBusARN' => 'EventBusARN',
+        'eventBusName' => 'EventBusName',
     ];
 
     public function validate()

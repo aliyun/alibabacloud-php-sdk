@@ -12,23 +12,26 @@ class paramList extends Model
      * @var string
      */
     public $form;
+
     /**
      * @var string
      */
     public $resourceKey;
+
     /**
      * @var string
      */
     public $template;
+
     /**
      * @var string
      */
     public $value;
     protected $_name = [
-        'form'        => 'Form',
+        'form' => 'Form',
         'resourceKey' => 'ResourceKey',
-        'template'    => 'Template',
-        'value'       => 'Value',
+        'template' => 'Template',
+        'value' => 'Value',
     ];
 
     public function validate()

@@ -14,23 +14,26 @@ class OAuthParameters extends Model
      * @var string
      */
     public $authorizationEndpoint;
+
     /**
      * @var clientParameters
      */
     public $clientParameters;
+
     /**
      * @var string
      */
     public $httpMethod;
+
     /**
      * @var OAuthHttpParameters
      */
     public $OAuthHttpParameters;
     protected $_name = [
         'authorizationEndpoint' => 'AuthorizationEndpoint',
-        'clientParameters'      => 'ClientParameters',
-        'httpMethod'            => 'HttpMethod',
-        'OAuthHttpParameters'   => 'OAuthHttpParameters',
+        'clientParameters' => 'ClientParameters',
+        'httpMethod' => 'HttpMethod',
+        'OAuthHttpParameters' => 'OAuthHttpParameters',
     ];
 
     public function validate()

@@ -28,83 +28,98 @@ class sinkRocketMQParameters extends Model
      * @var body
      */
     public $body;
+
     /**
      * @var deliveryOrderType
      */
     public $deliveryOrderType;
+
     /**
      * @var instanceEndpoint
      */
     public $instanceEndpoint;
+
     /**
      * @var instanceId
      */
     public $instanceId;
+
     /**
      * @var instancePassword
      */
     public $instancePassword;
+
     /**
      * @var instanceType
      */
     public $instanceType;
+
     /**
      * @var instanceUsername
      */
     public $instanceUsername;
+
     /**
      * @var keys
      */
     public $keys;
+
     /**
      * @var network
      */
     public $network;
+
     /**
      * @var properties
      */
     public $properties;
+
     /**
      * @var securityGroupId
      */
     public $securityGroupId;
+
     /**
      * @var shardingKey
      */
     public $shardingKey;
+
     /**
      * @var tags
      */
     public $tags;
+
     /**
      * @var topic
      */
     public $topic;
+
     /**
      * @var vSwitchIds
      */
     public $vSwitchIds;
+
     /**
      * @var vpcId
      */
     public $vpcId;
     protected $_name = [
-        'body'              => 'Body',
+        'body' => 'Body',
         'deliveryOrderType' => 'DeliveryOrderType',
-        'instanceEndpoint'  => 'InstanceEndpoint',
-        'instanceId'        => 'InstanceId',
-        'instancePassword'  => 'InstancePassword',
-        'instanceType'      => 'InstanceType',
-        'instanceUsername'  => 'InstanceUsername',
-        'keys'              => 'Keys',
-        'network'           => 'Network',
-        'properties'        => 'Properties',
-        'securityGroupId'   => 'SecurityGroupId',
-        'shardingKey'       => 'ShardingKey',
-        'tags'              => 'Tags',
-        'topic'             => 'Topic',
-        'vSwitchIds'        => 'VSwitchIds',
-        'vpcId'             => 'VpcId',
+        'instanceEndpoint' => 'InstanceEndpoint',
+        'instanceId' => 'InstanceId',
+        'instancePassword' => 'InstancePassword',
+        'instanceType' => 'InstanceType',
+        'instanceUsername' => 'InstanceUsername',
+        'keys' => 'Keys',
+        'network' => 'Network',
+        'properties' => 'Properties',
+        'securityGroupId' => 'SecurityGroupId',
+        'shardingKey' => 'ShardingKey',
+        'tags' => 'Tags',
+        'topic' => 'Topic',
+        'vSwitchIds' => 'VSwitchIds',
+        'vpcId' => 'VpcId',
     ];
 
     public function validate()

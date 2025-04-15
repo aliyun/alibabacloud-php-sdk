@@ -13,10 +13,12 @@ class sourceCustomizedKafkaConnectorParameters extends Model
      * @var string
      */
     public $connectorPackageUrl;
+
     /**
      * @var connectorParameters
      */
     public $connectorParameters;
+
     /**
      * @var mixed[]
      */
@@ -24,7 +26,7 @@ class sourceCustomizedKafkaConnectorParameters extends Model
     protected $_name = [
         'connectorPackageUrl' => 'ConnectorPackageUrl',
         'connectorParameters' => 'ConnectorParameters',
-        'workerParameters'    => 'WorkerParameters',
+        'workerParameters' => 'WorkerParameters',
     ];
 
     public function validate()

@@ -15,43 +15,50 @@ class targets extends Model
      * @var concurrentConfig
      */
     public $concurrentConfig;
+
     /**
      * @var deadLetterQueue
      */
     public $deadLetterQueue;
+
     /**
      * @var string
      */
     public $endpoint;
+
     /**
      * @var string
      */
     public $errorsTolerance;
+
     /**
      * @var string
      */
     public $id;
+
     /**
      * @var paramList[]
      */
     public $paramList;
+
     /**
      * @var string
      */
     public $pushRetryStrategy;
+
     /**
      * @var string
      */
     public $type;
     protected $_name = [
-        'concurrentConfig'  => 'ConcurrentConfig',
-        'deadLetterQueue'   => 'DeadLetterQueue',
-        'endpoint'          => 'Endpoint',
-        'errorsTolerance'   => 'ErrorsTolerance',
-        'id'                => 'Id',
-        'paramList'         => 'ParamList',
+        'concurrentConfig' => 'ConcurrentConfig',
+        'deadLetterQueue' => 'DeadLetterQueue',
+        'endpoint' => 'Endpoint',
+        'errorsTolerance' => 'ErrorsTolerance',
+        'id' => 'Id',
+        'paramList' => 'ParamList',
         'pushRetryStrategy' => 'PushRetryStrategy',
-        'type'              => 'Type',
+        'type' => 'Type',
     ];
 
     public function validate()
@@ -94,7 +101,7 @@ class targets extends Model
         if (null !== $this->paramList) {
             if (\is_array($this->paramList)) {
                 $res['ParamList'] = [];
-                $n1               = 0;
+                $n1 = 0;
                 foreach ($this->paramList as $item1) {
                     $res['ParamList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -143,7 +150,7 @@ class targets extends Model
         if (isset($map['ParamList'])) {
             if (!empty($map['ParamList'])) {
                 $model->paramList = [];
-                $n1               = 0;
+                $n1 = 0;
                 foreach ($map['ParamList'] as $item1) {
                     $model->paramList[$n1++] = paramList::fromMap($item1);
                 }

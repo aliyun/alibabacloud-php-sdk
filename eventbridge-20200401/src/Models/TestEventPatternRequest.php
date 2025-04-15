@@ -12,12 +12,13 @@ class TestEventPatternRequest extends Model
      * @var string
      */
     public $event;
+
     /**
      * @var string
      */
     public $eventPattern;
     protected $_name = [
-        'event'        => 'Event',
+        'event' => 'Event',
         'eventPattern' => 'EventPattern',
     ];
 

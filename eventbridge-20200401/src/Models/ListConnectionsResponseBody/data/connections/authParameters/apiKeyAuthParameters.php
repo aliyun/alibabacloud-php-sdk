@@ -12,12 +12,13 @@ class apiKeyAuthParameters extends Model
      * @var string
      */
     public $apiKeyName;
+
     /**
      * @var string
      */
     public $apiKeyValue;
     protected $_name = [
-        'apiKeyName'  => 'ApiKeyName',
+        'apiKeyName' => 'ApiKeyName',
         'apiKeyValue' => 'ApiKeyValue',
     ];
 

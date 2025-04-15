@@ -12,23 +12,26 @@ class ListApiDestinationsRequest extends Model
      * @var string
      */
     public $apiDestinationNamePrefix;
+
     /**
      * @var string
      */
     public $connectionName;
+
     /**
      * @var int
      */
     public $maxResults;
+
     /**
      * @var string
      */
     public $nextToken;
     protected $_name = [
         'apiDestinationNamePrefix' => 'ApiDestinationNamePrefix',
-        'connectionName'           => 'ConnectionName',
-        'maxResults'               => 'MaxResults',
-        'nextToken'                => 'NextToken',
+        'connectionName' => 'ConnectionName',
+        'maxResults' => 'MaxResults',
+        'nextToken' => 'NextToken',
     ];
 
     public function validate()

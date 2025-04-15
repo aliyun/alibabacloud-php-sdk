@@ -12,38 +12,44 @@ class sourceDTSParameters extends Model
      * @var string
      */
     public $brokerUrl;
+
     /**
      * @var int
      */
     public $initCheckPoint;
+
     /**
      * @var string
      */
     public $password;
+
     /**
      * @var string
      */
     public $sid;
+
     /**
      * @var string
      */
     public $taskId;
+
     /**
      * @var string
      */
     public $topic;
+
     /**
      * @var string
      */
     public $username;
     protected $_name = [
-        'brokerUrl'      => 'BrokerUrl',
+        'brokerUrl' => 'BrokerUrl',
         'initCheckPoint' => 'InitCheckPoint',
-        'password'       => 'Password',
-        'sid'            => 'Sid',
-        'taskId'         => 'TaskId',
-        'topic'          => 'Topic',
-        'username'       => 'Username',
+        'password' => 'Password',
+        'sid' => 'Sid',
+        'taskId' => 'TaskId',
+        'topic' => 'Topic',
+        'username' => 'Username',
     ];
 
     public function validate()

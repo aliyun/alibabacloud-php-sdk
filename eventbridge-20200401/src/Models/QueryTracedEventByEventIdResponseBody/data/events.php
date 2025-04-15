@@ -12,28 +12,32 @@ class events extends Model
      * @var string
      */
     public $eventBusName;
+
     /**
      * @var string
      */
     public $eventId;
+
     /**
      * @var int
      */
     public $eventReceivedTime;
+
     /**
      * @var string
      */
     public $eventSource;
+
     /**
      * @var string
      */
     public $eventType;
     protected $_name = [
-        'eventBusName'      => 'EventBusName',
-        'eventId'           => 'EventId',
+        'eventBusName' => 'EventBusName',
+        'eventId' => 'EventId',
         'eventReceivedTime' => 'EventReceivedTime',
-        'eventSource'       => 'EventSource',
-        'eventType'         => 'EventType',
+        'eventSource' => 'EventSource',
+        'eventType' => 'EventType',
     ];
 
     public function validate()

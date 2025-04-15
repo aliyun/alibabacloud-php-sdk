@@ -12,13 +12,14 @@ class calculations extends Model
      * @var string
      */
     public $column;
+
     /**
      * @var string
      */
     public $op;
     protected $_name = [
         'column' => 'Column',
-        'op'     => 'Op',
+        'op' => 'Op',
     ];
 
     public function validate()

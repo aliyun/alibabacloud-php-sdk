@@ -12,34 +12,42 @@ class sourceApacheRocketMQCheckpointParameters extends Model
      * @var string
      */
     public $instanceEndpoint;
+
     /**
      * @var string
      */
     public $instancePassword;
+
     /**
      * @var string
      */
     public $instanceUsername;
+
     /**
      * @var string
      */
     public $networkType;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $securityGroupId;
+
     /**
      * @var string[]
      */
     public $topics;
+
     /**
      * @var string
      */
     public $vSwitchId;
+
     /**
      * @var string
      */
@@ -48,12 +56,12 @@ class sourceApacheRocketMQCheckpointParameters extends Model
         'instanceEndpoint' => 'InstanceEndpoint',
         'instancePassword' => 'InstancePassword',
         'instanceUsername' => 'InstanceUsername',
-        'networkType'      => 'NetworkType',
-        'regionId'         => 'RegionId',
-        'securityGroupId'  => 'SecurityGroupId',
-        'topics'           => 'Topics',
-        'vSwitchId'        => 'VSwitchId',
-        'vpcId'            => 'VpcId',
+        'networkType' => 'NetworkType',
+        'regionId' => 'RegionId',
+        'securityGroupId' => 'SecurityGroupId',
+        'topics' => 'Topics',
+        'vSwitchId' => 'VSwitchId',
+        'vpcId' => 'VpcId',
     ];
 
     public function validate()
@@ -94,7 +102,7 @@ class sourceApacheRocketMQCheckpointParameters extends Model
         if (null !== $this->topics) {
             if (\is_array($this->topics)) {
                 $res['Topics'] = [];
-                $n1            = 0;
+                $n1 = 0;
                 foreach ($this->topics as $item1) {
                     $res['Topics'][$n1++] = $item1;
                 }
@@ -147,7 +155,7 @@ class sourceApacheRocketMQCheckpointParameters extends Model
         if (isset($map['Topics'])) {
             if (!empty($map['Topics'])) {
                 $model->topics = [];
-                $n1            = 0;
+                $n1 = 0;
                 foreach ($map['Topics'] as $item1) {
                     $model->topics[$n1++] = $item1;
                 }

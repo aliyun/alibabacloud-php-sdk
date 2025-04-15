@@ -19,38 +19,44 @@ class sinkFcParameters extends Model
      * @var body
      */
     public $body;
+
     /**
      * @var concurrency
      */
     public $concurrency;
+
     /**
      * @var dataFormat
      */
     public $dataFormat;
+
     /**
      * @var functionName
      */
     public $functionName;
+
     /**
      * @var invocationType
      */
     public $invocationType;
+
     /**
      * @var qualifier
      */
     public $qualifier;
+
     /**
      * @var serviceName
      */
     public $serviceName;
     protected $_name = [
-        'body'           => 'Body',
-        'concurrency'    => 'Concurrency',
-        'dataFormat'     => 'DataFormat',
-        'functionName'   => 'FunctionName',
+        'body' => 'Body',
+        'concurrency' => 'Concurrency',
+        'dataFormat' => 'DataFormat',
+        'functionName' => 'FunctionName',
         'invocationType' => 'InvocationType',
-        'qualifier'      => 'Qualifier',
-        'serviceName'    => 'ServiceName',
+        'qualifier' => 'Qualifier',
+        'serviceName' => 'ServiceName',
     ];
 
     public function validate()

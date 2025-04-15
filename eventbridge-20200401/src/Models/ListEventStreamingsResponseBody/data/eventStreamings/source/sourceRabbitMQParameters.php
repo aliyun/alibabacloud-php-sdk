@@ -12,22 +12,25 @@ class sourceRabbitMQParameters extends Model
      * @var string
      */
     public $instanceId;
+
     /**
      * @var string
      */
     public $queueName;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $virtualHostName;
     protected $_name = [
-        'instanceId'      => 'InstanceId',
-        'queueName'       => 'QueueName',
-        'regionId'        => 'RegionId',
+        'instanceId' => 'InstanceId',
+        'queueName' => 'QueueName',
+        'regionId' => 'RegionId',
         'virtualHostName' => 'VirtualHostName',
     ];
 

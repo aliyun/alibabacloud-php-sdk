@@ -12,28 +12,32 @@ class ListTargetsRequest extends Model
      * @var string
      */
     public $arn;
+
     /**
      * @var string
      */
     public $eventBusName;
+
     /**
      * @var int
      */
     public $limit;
+
     /**
      * @var string
      */
     public $nextToken;
+
     /**
      * @var string
      */
     public $ruleName;
     protected $_name = [
-        'arn'          => 'Arn',
+        'arn' => 'Arn',
         'eventBusName' => 'EventBusName',
-        'limit'        => 'Limit',
-        'nextToken'    => 'NextToken',
-        'ruleName'     => 'RuleName',
+        'limit' => 'Limit',
+        'nextToken' => 'NextToken',
+        'ruleName' => 'RuleName',
     ];
 
     public function validate()

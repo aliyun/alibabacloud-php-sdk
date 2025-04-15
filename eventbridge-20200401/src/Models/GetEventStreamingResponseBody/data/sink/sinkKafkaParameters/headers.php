@@ -2,28 +2,30 @@
 
 // This file is auto-generated, don't edit it. Thanks.
 
-namespace AlibabaCloud\SDK\Eventbridge\V20200401\Models\CreateEventStreamingRequest\sink\sinkOpenSourceRabbitMQParameters;
+namespace AlibabaCloud\SDK\Eventbridge\V20200401\Models\GetEventStreamingResponseBody\data\sink\sinkKafkaParameters;
 
 use AlibabaCloud\Dara\Model;
 
-class exchange extends Model
+class headers extends Model
 {
     /**
      * @var string
      */
     public $form;
+
     /**
      * @var string
      */
     public $template;
+
     /**
      * @var string
      */
     public $value;
     protected $_name = [
-        'form'     => 'Form',
+        'form' => 'Form',
         'template' => 'Template',
-        'value'    => 'Value',
+        'value' => 'Value',
     ];
 
     public function validate()

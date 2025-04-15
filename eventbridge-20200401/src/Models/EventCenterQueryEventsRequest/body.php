@@ -13,18 +13,20 @@ class body extends Model
      * @var parameters
      */
     public $parameters;
+
     /**
      * @var string
      */
     public $queryType;
+
     /**
      * @var string
      */
     public $schemaId;
     protected $_name = [
         'parameters' => 'Parameters',
-        'queryType'  => 'QueryType',
-        'schemaId'   => 'SchemaId',
+        'queryType' => 'QueryType',
+        'schemaId' => 'SchemaId',
     ];
 
     public function validate()

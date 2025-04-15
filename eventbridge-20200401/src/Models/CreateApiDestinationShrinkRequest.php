@@ -12,22 +12,25 @@ class CreateApiDestinationShrinkRequest extends Model
      * @var string
      */
     public $apiDestinationName;
+
     /**
      * @var string
      */
     public $connectionName;
+
     /**
      * @var string
      */
     public $description;
+
     /**
      * @var string
      */
     public $httpApiParametersShrink;
     protected $_name = [
-        'apiDestinationName'      => 'ApiDestinationName',
-        'connectionName'          => 'ConnectionName',
-        'description'             => 'Description',
+        'apiDestinationName' => 'ApiDestinationName',
+        'connectionName' => 'ConnectionName',
+        'description' => 'Description',
         'httpApiParametersShrink' => 'HttpApiParameters',
     ];
 

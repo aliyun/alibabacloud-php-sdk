@@ -14,43 +14,50 @@ class targets extends Model
      * @var concurrentConfig
      */
     public $concurrentConfig;
+
     /**
      * @var string
      */
     public $endpoint;
+
     /**
      * @var string
      */
     public $errorsTolerance;
+
     /**
      * @var string
      */
     public $eventBusName;
+
     /**
      * @var string
      */
     public $id;
+
     /**
      * @var paramList[]
      */
     public $paramList;
+
     /**
      * @var string
      */
     public $ruleName;
+
     /**
      * @var string
      */
     public $type;
     protected $_name = [
         'concurrentConfig' => 'ConcurrentConfig',
-        'endpoint'         => 'Endpoint',
-        'errorsTolerance'  => 'ErrorsTolerance',
-        'eventBusName'     => 'EventBusName',
-        'id'               => 'Id',
-        'paramList'        => 'ParamList',
-        'ruleName'         => 'RuleName',
-        'type'             => 'Type',
+        'endpoint' => 'Endpoint',
+        'errorsTolerance' => 'ErrorsTolerance',
+        'eventBusName' => 'EventBusName',
+        'id' => 'Id',
+        'paramList' => 'ParamList',
+        'ruleName' => 'RuleName',
+        'type' => 'Type',
     ];
 
     public function validate()
@@ -90,7 +97,7 @@ class targets extends Model
         if (null !== $this->paramList) {
             if (\is_array($this->paramList)) {
                 $res['ParamList'] = [];
-                $n1               = 0;
+                $n1 = 0;
                 foreach ($this->paramList as $item1) {
                     $res['ParamList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -139,7 +146,7 @@ class targets extends Model
         if (isset($map['ParamList'])) {
             if (!empty($map['ParamList'])) {
                 $model->paramList = [];
-                $n1               = 0;
+                $n1 = 0;
                 foreach ($map['ParamList'] as $item1) {
                     $model->paramList[$n1++] = paramList::fromMap($item1);
                 }

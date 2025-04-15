@@ -13,18 +13,20 @@ class PutTargetsRequest extends Model
      * @var string
      */
     public $eventBusName;
+
     /**
      * @var string
      */
     public $ruleName;
+
     /**
      * @var targets[]
      */
     public $targets;
     protected $_name = [
         'eventBusName' => 'EventBusName',
-        'ruleName'     => 'RuleName',
-        'targets'      => 'Targets',
+        'ruleName' => 'RuleName',
+        'targets' => 'Targets',
     ];
 
     public function validate()
@@ -49,7 +51,7 @@ class PutTargetsRequest extends Model
         if (null !== $this->targets) {
             if (\is_array($this->targets)) {
                 $res['Targets'] = [];
-                $n1             = 0;
+                $n1 = 0;
                 foreach ($this->targets as $item1) {
                     $res['Targets'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -78,7 +80,7 @@ class PutTargetsRequest extends Model
         if (isset($map['Targets'])) {
             if (!empty($map['Targets'])) {
                 $model->targets = [];
-                $n1             = 0;
+                $n1 = 0;
                 foreach ($map['Targets'] as $item1) {
                     $model->targets[$n1++] = targets::fromMap($item1);
                 }

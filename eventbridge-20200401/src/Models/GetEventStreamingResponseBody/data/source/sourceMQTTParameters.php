@@ -12,23 +12,26 @@ class sourceMQTTParameters extends Model
      * @var string
      */
     public $bodyDataType;
+
     /**
      * @var string
      */
     public $instanceId;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $topic;
     protected $_name = [
         'bodyDataType' => 'BodyDataType',
-        'instanceId'   => 'InstanceId',
-        'regionId'     => 'RegionId',
-        'topic'        => 'Topic',
+        'instanceId' => 'InstanceId',
+        'regionId' => 'RegionId',
+        'topic' => 'Topic',
     ];
 
     public function validate()

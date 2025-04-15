@@ -15,28 +15,32 @@ class sinkRocketMQCheckpointParameters extends Model
      * @var consumeTimestamp
      */
     public $consumeTimestamp;
+
     /**
      * @var group
      */
     public $group;
+
     /**
      * @var string
      */
     public $instanceId;
+
     /**
      * @var string
      */
     public $instanceType;
+
     /**
      * @var topic
      */
     public $topic;
     protected $_name = [
         'consumeTimestamp' => 'ConsumeTimestamp',
-        'group'            => 'Group',
-        'instanceId'       => 'InstanceId',
-        'instanceType'     => 'InstanceType',
-        'topic'            => 'Topic',
+        'group' => 'Group',
+        'instanceId' => 'InstanceId',
+        'instanceType' => 'InstanceType',
+        'topic' => 'Topic',
     ];
 
     public function validate()

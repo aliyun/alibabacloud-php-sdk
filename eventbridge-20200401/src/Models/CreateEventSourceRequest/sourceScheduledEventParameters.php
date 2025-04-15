@@ -12,10 +12,12 @@ class sourceScheduledEventParameters extends Model
      * @var string
      */
     public $schedule;
+
     /**
      * @var string
      */
     public $timeZone;
+
     /**
      * @var string
      */

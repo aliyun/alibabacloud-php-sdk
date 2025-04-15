@@ -14,32 +14,37 @@ class connections extends Model
      * @var authParameters
      */
     public $authParameters;
+
     /**
      * @var string
      */
     public $connectionName;
+
     /**
      * @var string
      */
     public $description;
+
     /**
      * @var int
      */
     public $gmtCreate;
+
     /**
      * @var int
      */
     public $id;
+
     /**
      * @var networkParameters
      */
     public $networkParameters;
     protected $_name = [
-        'authParameters'    => 'AuthParameters',
-        'connectionName'    => 'ConnectionName',
-        'description'       => 'Description',
-        'gmtCreate'         => 'GmtCreate',
-        'id'                => 'Id',
+        'authParameters' => 'AuthParameters',
+        'connectionName' => 'ConnectionName',
+        'description' => 'Description',
+        'gmtCreate' => 'GmtCreate',
+        'id' => 'Id',
         'networkParameters' => 'NetworkParameters',
     ];
 

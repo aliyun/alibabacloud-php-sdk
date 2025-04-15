@@ -16,23 +16,26 @@ class sinkFnfParameters extends Model
      * @var executionName
      */
     public $executionName;
+
     /**
      * @var flowName
      */
     public $flowName;
+
     /**
      * @var input
      */
     public $input;
+
     /**
      * @var roleName
      */
     public $roleName;
     protected $_name = [
         'executionName' => 'ExecutionName',
-        'flowName'      => 'FlowName',
-        'input'         => 'Input',
-        'roleName'      => 'RoleName',
+        'flowName' => 'FlowName',
+        'input' => 'Input',
+        'roleName' => 'RoleName',
     ];
 
     public function validate()

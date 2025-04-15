@@ -12,33 +12,38 @@ class CreateRuleShrinkRequest extends Model
      * @var string
      */
     public $description;
+
     /**
      * @var string
      */
     public $eventBusName;
+
     /**
      * @var string
      */
     public $eventTargetsShrink;
+
     /**
      * @var string
      */
     public $filterPattern;
+
     /**
      * @var string
      */
     public $ruleName;
+
     /**
      * @var string
      */
     public $status;
     protected $_name = [
-        'description'        => 'Description',
-        'eventBusName'       => 'EventBusName',
+        'description' => 'Description',
+        'eventBusName' => 'EventBusName',
         'eventTargetsShrink' => 'EventTargets',
-        'filterPattern'      => 'FilterPattern',
-        'ruleName'           => 'RuleName',
-        'status'             => 'Status',
+        'filterPattern' => 'FilterPattern',
+        'ruleName' => 'RuleName',
+        'status' => 'Status',
     ];
 
     public function validate()

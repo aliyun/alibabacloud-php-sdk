@@ -12,22 +12,25 @@ class ListRulesRequest extends Model
      * @var string
      */
     public $eventBusName;
+
     /**
      * @var int
      */
     public $limit;
+
     /**
      * @var string
      */
     public $nextToken;
+
     /**
      * @var string
      */
     public $ruleNamePrefix;
     protected $_name = [
-        'eventBusName'   => 'EventBusName',
-        'limit'          => 'Limit',
-        'nextToken'      => 'NextToken',
+        'eventBusName' => 'EventBusName',
+        'limit' => 'Limit',
+        'nextToken' => 'NextToken',
         'ruleNamePrefix' => 'RuleNamePrefix',
     ];
 

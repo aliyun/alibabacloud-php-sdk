@@ -12,28 +12,32 @@ class UpdateRuleRequest extends Model
      * @var string
      */
     public $description;
+
     /**
      * @var string
      */
     public $eventBusName;
+
     /**
      * @var string
      */
     public $filterPattern;
+
     /**
      * @var string
      */
     public $ruleName;
+
     /**
      * @var string
      */
     public $status;
     protected $_name = [
-        'description'   => 'Description',
-        'eventBusName'  => 'EventBusName',
+        'description' => 'Description',
+        'eventBusName' => 'EventBusName',
         'filterPattern' => 'FilterPattern',
-        'ruleName'      => 'RuleName',
-        'status'        => 'Status',
+        'ruleName' => 'RuleName',
+        'status' => 'Status',
     ];
 
     public function validate()

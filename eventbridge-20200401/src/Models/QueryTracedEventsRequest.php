@@ -12,43 +12,50 @@ class QueryTracedEventsRequest extends Model
      * @var int
      */
     public $endTime;
+
     /**
      * @var string
      */
     public $eventBusName;
+
     /**
      * @var string
      */
     public $eventSource;
+
     /**
      * @var string
      */
     public $eventType;
+
     /**
      * @var int
      */
     public $limit;
+
     /**
      * @var string
      */
     public $matchedRule;
+
     /**
      * @var string
      */
     public $nextToken;
+
     /**
      * @var int
      */
     public $startTime;
     protected $_name = [
-        'endTime'      => 'EndTime',
+        'endTime' => 'EndTime',
         'eventBusName' => 'EventBusName',
-        'eventSource'  => 'EventSource',
-        'eventType'    => 'EventType',
-        'limit'        => 'Limit',
-        'matchedRule'  => 'MatchedRule',
-        'nextToken'    => 'NextToken',
-        'startTime'    => 'StartTime',
+        'eventSource' => 'EventSource',
+        'eventType' => 'EventType',
+        'limit' => 'Limit',
+        'matchedRule' => 'MatchedRule',
+        'nextToken' => 'NextToken',
+        'startTime' => 'StartTime',
     ];
 
     public function validate()

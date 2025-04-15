@@ -14,22 +14,25 @@ class UpdateConnectionRequest extends Model
      * @var authParameters
      */
     public $authParameters;
+
     /**
      * @var string
      */
     public $connectionName;
+
     /**
      * @var string
      */
     public $description;
+
     /**
      * @var networkParameters
      */
     public $networkParameters;
     protected $_name = [
-        'authParameters'    => 'AuthParameters',
-        'connectionName'    => 'ConnectionName',
-        'description'       => 'Description',
+        'authParameters' => 'AuthParameters',
+        'connectionName' => 'ConnectionName',
+        'description' => 'Description',
         'networkParameters' => 'NetworkParameters',
     ];
 

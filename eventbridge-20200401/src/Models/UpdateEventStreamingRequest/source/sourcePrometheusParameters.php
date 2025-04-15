@@ -12,33 +12,38 @@ class sourcePrometheusParameters extends Model
      * @var string
      */
     public $clusterId;
+
     /**
      * @var string
      */
     public $dataType;
+
     /**
      * @var string
      */
     public $externalLabels;
+
     /**
      * @var string
      */
     public $labels;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $roleName;
     protected $_name = [
-        'clusterId'      => 'ClusterId',
-        'dataType'       => 'DataType',
+        'clusterId' => 'ClusterId',
+        'dataType' => 'DataType',
         'externalLabels' => 'ExternalLabels',
-        'labels'         => 'Labels',
-        'regionId'       => 'RegionId',
-        'roleName'       => 'RoleName',
+        'labels' => 'Labels',
+        'regionId' => 'RegionId',
+        'roleName' => 'RoleName',
     ];
 
     public function validate()

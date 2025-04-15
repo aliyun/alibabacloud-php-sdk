@@ -12,18 +12,20 @@ class headerParameters extends Model
      * @var string
      */
     public $isValueSecret;
+
     /**
      * @var string
      */
     public $key;
+
     /**
      * @var string
      */
     public $value;
     protected $_name = [
         'isValueSecret' => 'IsValueSecret',
-        'key'           => 'Key',
-        'value'         => 'Value',
+        'key' => 'Key',
+        'value' => 'Value',
     ];
 
     public function validate()

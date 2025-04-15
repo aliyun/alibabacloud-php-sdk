@@ -12,12 +12,13 @@ class UpdateEventBusRequest extends Model
      * @var string
      */
     public $description;
+
     /**
      * @var string
      */
     public $eventBusName;
     protected $_name = [
-        'description'  => 'Description',
+        'description' => 'Description',
         'eventBusName' => 'EventBusName',
     ];
 

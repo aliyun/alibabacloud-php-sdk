@@ -14,26 +14,30 @@ class data extends Model
      * @var int
      */
     public $maxResults;
+
     /**
      * @var string
      */
     public $nextToken;
+
     /**
      * @var table[]
      */
     public $table;
+
     /**
      * @var timeSeries[]
      */
     public $timeSeries;
+
     /**
      * @var int
      */
     public $totalCount;
     protected $_name = [
         'maxResults' => 'MaxResults',
-        'nextToken'  => 'NextToken',
-        'table'      => 'Table',
+        'nextToken' => 'NextToken',
+        'table' => 'Table',
         'timeSeries' => 'TimeSeries',
         'totalCount' => 'TotalCount',
     ];
@@ -63,7 +67,7 @@ class data extends Model
         if (null !== $this->table) {
             if (\is_array($this->table)) {
                 $res['Table'] = [];
-                $n1           = 0;
+                $n1 = 0;
                 foreach ($this->table as $item1) {
                     $res['Table'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -73,7 +77,7 @@ class data extends Model
         if (null !== $this->timeSeries) {
             if (\is_array($this->timeSeries)) {
                 $res['TimeSeries'] = [];
-                $n1                = 0;
+                $n1 = 0;
                 foreach ($this->timeSeries as $item1) {
                     $res['TimeSeries'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -106,7 +110,7 @@ class data extends Model
         if (isset($map['Table'])) {
             if (!empty($map['Table'])) {
                 $model->table = [];
-                $n1           = 0;
+                $n1 = 0;
                 foreach ($map['Table'] as $item1) {
                     $model->table[$n1++] = table::fromMap($item1);
                 }
@@ -116,7 +120,7 @@ class data extends Model
         if (isset($map['TimeSeries'])) {
             if (!empty($map['TimeSeries'])) {
                 $model->timeSeries = [];
-                $n1                = 0;
+                $n1 = 0;
                 foreach ($map['TimeSeries'] as $item1) {
                     $model->timeSeries[$n1++] = timeSeries::fromMap($item1);
                 }

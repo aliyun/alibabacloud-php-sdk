@@ -13,12 +13,13 @@ class data extends Model
      * @var errorEntries[]
      */
     public $errorEntries;
+
     /**
      * @var int
      */
     public $errorEntriesCount;
     protected $_name = [
-        'errorEntries'      => 'ErrorEntries',
+        'errorEntries' => 'ErrorEntries',
         'errorEntriesCount' => 'ErrorEntriesCount',
     ];
 
@@ -36,7 +37,7 @@ class data extends Model
         if (null !== $this->errorEntries) {
             if (\is_array($this->errorEntries)) {
                 $res['ErrorEntries'] = [];
-                $n1                  = 0;
+                $n1 = 0;
                 foreach ($this->errorEntries as $item1) {
                     $res['ErrorEntries'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -61,7 +62,7 @@ class data extends Model
         if (isset($map['ErrorEntries'])) {
             if (!empty($map['ErrorEntries'])) {
                 $model->errorEntries = [];
-                $n1                  = 0;
+                $n1 = 0;
                 foreach ($map['ErrorEntries'] as $item1) {
                     $model->errorEntries[$n1++] = errorEntries::fromMap($item1);
                 }

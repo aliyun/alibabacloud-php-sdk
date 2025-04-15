@@ -13,27 +13,31 @@ class GetConnectionResponseBody extends Model
      * @var string
      */
     public $code;
+
     /**
      * @var data
      */
     public $data;
+
     /**
      * @var int
      */
     public $httpCode;
+
     /**
      * @var string
      */
     public $message;
+
     /**
      * @var string
      */
     public $requestId;
     protected $_name = [
-        'code'      => 'Code',
-        'data'      => 'Data',
-        'httpCode'  => 'HttpCode',
-        'message'   => 'Message',
+        'code' => 'Code',
+        'data' => 'Data',
+        'httpCode' => 'HttpCode',
+        'message' => 'Message',
         'requestId' => 'RequestId',
     ];
 

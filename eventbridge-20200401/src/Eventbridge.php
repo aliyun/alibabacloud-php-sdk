@@ -151,6 +151,7 @@ class Eventbridge extends OpenApiClient
      *
      * @param tmpReq - CreateApiDestinationRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns CreateApiDestinationResponse
      *
      * @param CreateApiDestinationRequest $tmpReq
@@ -188,15 +189,15 @@ class Eventbridge extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'CreateApiDestination',
-            'version'     => '2020-04-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CreateApiDestination',
+            'version' => '2020-04-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return CreateApiDestinationResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -212,6 +213,7 @@ class Eventbridge extends OpenApiClient
      * You can call this API operation to create an API destination.
      *
      * @param request - CreateApiDestinationRequest
+     *
      * @returns CreateApiDestinationResponse
      *
      * @param CreateApiDestinationRequest $request
@@ -233,6 +235,7 @@ class Eventbridge extends OpenApiClient
      *
      * @param tmpReq - CreateConnectionRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns CreateConnectionResponse
      *
      * @param CreateConnectionRequest $tmpReq
@@ -274,15 +277,15 @@ class Eventbridge extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'CreateConnection',
-            'version'     => '2020-04-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CreateConnection',
+            'version' => '2020-04-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return CreateConnectionResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -298,6 +301,7 @@ class Eventbridge extends OpenApiClient
      * You can call this API operation to create a connection.
      *
      * @param request - CreateConnectionRequest
+     *
      * @returns CreateConnectionResponse
      *
      * @param CreateConnectionRequest $request
@@ -319,6 +323,7 @@ class Eventbridge extends OpenApiClient
      *
      * @param request - CreateEventBusRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns CreateEventBusResponse
      *
      * @param CreateEventBusRequest $request
@@ -342,15 +347,15 @@ class Eventbridge extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'CreateEventBus',
-            'version'     => '2020-04-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CreateEventBus',
+            'version' => '2020-04-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return CreateEventBusResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -366,6 +371,7 @@ class Eventbridge extends OpenApiClient
      * Creates an event bus.
      *
      * @param request - CreateEventBusRequest
+     *
      * @returns CreateEventBusResponse
      *
      * @param CreateEventBusRequest $request
@@ -387,6 +393,7 @@ class Eventbridge extends OpenApiClient
      *
      * @param tmpReq - CreateEventSourceRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns CreateEventSourceResponse
      *
      * @param CreateEventSourceRequest $tmpReq
@@ -488,15 +495,15 @@ class Eventbridge extends OpenApiClient
             'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'CreateEventSource',
-            'version'     => '2020-04-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CreateEventSource',
+            'version' => '2020-04-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return CreateEventSourceResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -512,6 +519,7 @@ class Eventbridge extends OpenApiClient
      * You can call this operation to create an event source.
      *
      * @param request - CreateEventSourceRequest
+     *
      * @returns CreateEventSourceResponse
      *
      * @param CreateEventSourceRequest $request
@@ -533,6 +541,7 @@ class Eventbridge extends OpenApiClient
      *
      * @param tmpReq - CreateEventStreamingRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns CreateEventStreamingResponse
      *
      * @param CreateEventStreamingRequest $tmpReq
@@ -586,6 +595,10 @@ class Eventbridge extends OpenApiClient
             @$body['Source'] = $request->sourceShrink;
         }
 
+        if (null !== $request->tags) {
+            @$body['Tags'] = $request->tags;
+        }
+
         if (null !== $request->transformsShrink) {
             @$body['Transforms'] = $request->transformsShrink;
         }
@@ -594,15 +607,15 @@ class Eventbridge extends OpenApiClient
             'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'CreateEventStreaming',
-            'version'     => '2020-04-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CreateEventStreaming',
+            'version' => '2020-04-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return CreateEventStreamingResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -618,6 +631,7 @@ class Eventbridge extends OpenApiClient
      * You can call this API operation to create an event stream.
      *
      * @param request - CreateEventStreamingRequest
+     *
      * @returns CreateEventStreamingResponse
      *
      * @param CreateEventStreamingRequest $request
@@ -639,6 +653,7 @@ class Eventbridge extends OpenApiClient
      *
      * @param tmpReq - CreateRuleRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns CreateRuleResponse
      *
      * @param CreateRuleRequest $tmpReq
@@ -684,15 +699,15 @@ class Eventbridge extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'CreateRule',
-            'version'     => '2020-04-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CreateRule',
+            'version' => '2020-04-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return CreateRuleResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -708,6 +723,7 @@ class Eventbridge extends OpenApiClient
      * You can call this API operation to create an event rule.
      *
      * @param request - CreateRuleRequest
+     *
      * @returns CreateRuleResponse
      *
      * @param CreateRuleRequest $request
@@ -729,6 +745,7 @@ class Eventbridge extends OpenApiClient
      *
      * @param request - CreateServiceLinkedRoleForProductRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns CreateServiceLinkedRoleForProductResponse
      *
      * @param CreateServiceLinkedRoleForProductRequest $request
@@ -748,15 +765,15 @@ class Eventbridge extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'CreateServiceLinkedRoleForProduct',
-            'version'     => '2020-04-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CreateServiceLinkedRoleForProduct',
+            'version' => '2020-04-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return CreateServiceLinkedRoleForProductResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -772,6 +789,7 @@ class Eventbridge extends OpenApiClient
      * You can call this API operation to create a service-linked role for your cloud service.
      *
      * @param request - CreateServiceLinkedRoleForProductRequest
+     *
      * @returns CreateServiceLinkedRoleForProductResponse
      *
      * @param CreateServiceLinkedRoleForProductRequest $request
@@ -793,6 +811,7 @@ class Eventbridge extends OpenApiClient
      *
      * @param request - DeleteApiDestinationRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DeleteApiDestinationResponse
      *
      * @param DeleteApiDestinationRequest $request
@@ -812,15 +831,15 @@ class Eventbridge extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DeleteApiDestination',
-            'version'     => '2020-04-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DeleteApiDestination',
+            'version' => '2020-04-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DeleteApiDestinationResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -836,6 +855,7 @@ class Eventbridge extends OpenApiClient
      * You can call this API operation to delete an API destination.
      *
      * @param request - DeleteApiDestinationRequest
+     *
      * @returns DeleteApiDestinationResponse
      *
      * @param DeleteApiDestinationRequest $request
@@ -857,6 +877,7 @@ class Eventbridge extends OpenApiClient
      *
      * @param request - DeleteConnectionRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DeleteConnectionResponse
      *
      * @param DeleteConnectionRequest $request
@@ -876,15 +897,15 @@ class Eventbridge extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DeleteConnection',
-            'version'     => '2020-04-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DeleteConnection',
+            'version' => '2020-04-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DeleteConnectionResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -900,6 +921,7 @@ class Eventbridge extends OpenApiClient
      * You can call this API operation to delete a connection.
      *
      * @param request - DeleteConnectionRequest
+     *
      * @returns DeleteConnectionResponse
      *
      * @param DeleteConnectionRequest $request
@@ -921,6 +943,7 @@ class Eventbridge extends OpenApiClient
      *
      * @param request - DeleteEventBusRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DeleteEventBusResponse
      *
      * @param DeleteEventBusRequest $request
@@ -940,15 +963,15 @@ class Eventbridge extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DeleteEventBus',
-            'version'     => '2020-04-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DeleteEventBus',
+            'version' => '2020-04-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DeleteEventBusResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -964,6 +987,7 @@ class Eventbridge extends OpenApiClient
      * You can call this API operation to delete an event bus.
      *
      * @param request - DeleteEventBusRequest
+     *
      * @returns DeleteEventBusResponse
      *
      * @param DeleteEventBusRequest $request
@@ -985,6 +1009,7 @@ class Eventbridge extends OpenApiClient
      *
      * @param request - DeleteEventSourceRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DeleteEventSourceResponse
      *
      * @param DeleteEventSourceRequest $request
@@ -1008,15 +1033,15 @@ class Eventbridge extends OpenApiClient
             'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'DeleteEventSource',
-            'version'     => '2020-04-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DeleteEventSource',
+            'version' => '2020-04-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DeleteEventSourceResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -1032,6 +1057,7 @@ class Eventbridge extends OpenApiClient
      * You can call this API operation to delete an event source.
      *
      * @param request - DeleteEventSourceRequest
+     *
      * @returns DeleteEventSourceResponse
      *
      * @param DeleteEventSourceRequest $request
@@ -1053,6 +1079,7 @@ class Eventbridge extends OpenApiClient
      *
      * @param request - DeleteEventStreamingRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DeleteEventStreamingResponse
      *
      * @param DeleteEventStreamingRequest $request
@@ -1072,15 +1099,15 @@ class Eventbridge extends OpenApiClient
             'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'DeleteEventStreaming',
-            'version'     => '2020-04-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DeleteEventStreaming',
+            'version' => '2020-04-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DeleteEventStreamingResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -1096,6 +1123,7 @@ class Eventbridge extends OpenApiClient
      * You can call this API operation to delete an event stream.
      *
      * @param request - DeleteEventStreamingRequest
+     *
      * @returns DeleteEventStreamingResponse
      *
      * @param DeleteEventStreamingRequest $request
@@ -1117,6 +1145,7 @@ class Eventbridge extends OpenApiClient
      *
      * @param request - DeleteRuleRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DeleteRuleResponse
      *
      * @param DeleteRuleRequest $request
@@ -1140,15 +1169,15 @@ class Eventbridge extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DeleteRule',
-            'version'     => '2020-04-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DeleteRule',
+            'version' => '2020-04-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DeleteRuleResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -1164,6 +1193,7 @@ class Eventbridge extends OpenApiClient
      * You can call this API operation to delete an event rule.
      *
      * @param request - DeleteRuleRequest
+     *
      * @returns DeleteRuleResponse
      *
      * @param DeleteRuleRequest $request
@@ -1185,6 +1215,7 @@ class Eventbridge extends OpenApiClient
      *
      * @param tmpReq - DeleteTargetsRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DeleteTargetsResponse
      *
      * @param DeleteTargetsRequest $tmpReq
@@ -1218,15 +1249,15 @@ class Eventbridge extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DeleteTargets',
-            'version'     => '2020-04-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DeleteTargets',
+            'version' => '2020-04-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DeleteTargetsResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -1242,6 +1273,7 @@ class Eventbridge extends OpenApiClient
      * You can call this API operation to delete one or more event targets of an event rule.
      *
      * @param request - DeleteTargetsRequest
+     *
      * @returns DeleteTargetsResponse
      *
      * @param DeleteTargetsRequest $request
@@ -1263,6 +1295,7 @@ class Eventbridge extends OpenApiClient
      *
      * @param request - DisableRuleRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DisableRuleResponse
      *
      * @param DisableRuleRequest $request
@@ -1286,15 +1319,15 @@ class Eventbridge extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DisableRule',
-            'version'     => '2020-04-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DisableRule',
+            'version' => '2020-04-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DisableRuleResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -1310,6 +1343,7 @@ class Eventbridge extends OpenApiClient
      * You can call this API operation to disable an event rule.
      *
      * @param request - DisableRuleRequest
+     *
      * @returns DisableRuleResponse
      *
      * @param DisableRuleRequest $request
@@ -1331,6 +1365,7 @@ class Eventbridge extends OpenApiClient
      *
      * @param request - EnableRuleRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns EnableRuleResponse
      *
      * @param EnableRuleRequest $request
@@ -1354,15 +1389,15 @@ class Eventbridge extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'EnableRule',
-            'version'     => '2020-04-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'EnableRule',
+            'version' => '2020-04-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return EnableRuleResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -1378,6 +1413,7 @@ class Eventbridge extends OpenApiClient
      * You can call this API operation to enable an event rule.
      *
      * @param request - EnableRuleRequest
+     *
      * @returns EnableRuleResponse
      *
      * @param EnableRuleRequest $request
@@ -1396,6 +1432,7 @@ class Eventbridge extends OpenApiClient
      *
      * @param tmpReq - EventCenterQueryEventsRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns EventCenterQueryEventsResponse
      *
      * @param EventCenterQueryEventsRequest $tmpReq
@@ -1432,18 +1469,18 @@ class Eventbridge extends OpenApiClient
 
         $req = new OpenApiRequest([
             'query' => Utils::query($query),
-            'body'  => Utils::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'EventCenterQueryEvents',
-            'version'     => '2020-04-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'EventCenterQueryEvents',
+            'version' => '2020-04-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return EventCenterQueryEventsResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -1456,6 +1493,7 @@ class Eventbridge extends OpenApiClient
      * EventCenterQueryEvents.
      *
      * @param request - EventCenterQueryEventsRequest
+     *
      * @returns EventCenterQueryEventsResponse
      *
      * @param EventCenterQueryEventsRequest $request
@@ -1477,6 +1515,7 @@ class Eventbridge extends OpenApiClient
      *
      * @param request - GetApiDestinationRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns GetApiDestinationResponse
      *
      * @param GetApiDestinationRequest $request
@@ -1496,15 +1535,15 @@ class Eventbridge extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'GetApiDestination',
-            'version'     => '2020-04-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetApiDestination',
+            'version' => '2020-04-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return GetApiDestinationResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -1520,6 +1559,7 @@ class Eventbridge extends OpenApiClient
      * You can call this API operation to query the information about an API destination.
      *
      * @param request - GetApiDestinationRequest
+     *
      * @returns GetApiDestinationResponse
      *
      * @param GetApiDestinationRequest $request
@@ -1541,6 +1581,7 @@ class Eventbridge extends OpenApiClient
      *
      * @param request - GetConnectionRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns GetConnectionResponse
      *
      * @param GetConnectionRequest $request
@@ -1560,15 +1601,15 @@ class Eventbridge extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'GetConnection',
-            'version'     => '2020-04-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetConnection',
+            'version' => '2020-04-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return GetConnectionResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -1584,6 +1625,7 @@ class Eventbridge extends OpenApiClient
      * You can call this API operation to query the configurations of a connection.
      *
      * @param request - GetConnectionRequest
+     *
      * @returns GetConnectionResponse
      *
      * @param GetConnectionRequest $request
@@ -1605,6 +1647,7 @@ class Eventbridge extends OpenApiClient
      *
      * @param request - GetEventBusRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns GetEventBusResponse
      *
      * @param GetEventBusRequest $request
@@ -1624,15 +1667,15 @@ class Eventbridge extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'GetEventBus',
-            'version'     => '2020-04-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetEventBus',
+            'version' => '2020-04-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return GetEventBusResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -1648,6 +1691,7 @@ class Eventbridge extends OpenApiClient
      * You can call this API operation to query the detailed information about an event bus.
      *
      * @param request - GetEventBusRequest
+     *
      * @returns GetEventBusResponse
      *
      * @param GetEventBusRequest $request
@@ -1669,6 +1713,7 @@ class Eventbridge extends OpenApiClient
      *
      * @param request - GetEventStreamingRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns GetEventStreamingResponse
      *
      * @param GetEventStreamingRequest $request
@@ -1688,15 +1733,15 @@ class Eventbridge extends OpenApiClient
             'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'GetEventStreaming',
-            'version'     => '2020-04-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetEventStreaming',
+            'version' => '2020-04-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return GetEventStreamingResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -1712,6 +1757,7 @@ class Eventbridge extends OpenApiClient
      * You can call this API operation to query the details of an event stream.
      *
      * @param request - GetEventStreamingRequest
+     *
      * @returns GetEventStreamingResponse
      *
      * @param GetEventStreamingRequest $request
@@ -1733,6 +1779,7 @@ class Eventbridge extends OpenApiClient
      *
      * @param request - GetRuleRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns GetRuleResponse
      *
      * @param GetRuleRequest $request
@@ -1756,15 +1803,15 @@ class Eventbridge extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'GetRule',
-            'version'     => '2020-04-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetRule',
+            'version' => '2020-04-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return GetRuleResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -1780,6 +1827,7 @@ class Eventbridge extends OpenApiClient
      * You can call this API operation to query the details of an event rule.
      *
      * @param request - GetRuleRequest
+     *
      * @returns GetRuleResponse
      *
      * @param GetRuleRequest $request
@@ -1801,6 +1849,7 @@ class Eventbridge extends OpenApiClient
      *
      * @param request - ListAliyunOfficialEventSourcesRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ListAliyunOfficialEventSourcesResponse
      *
      * @param RuntimeOptions $runtime
@@ -1809,17 +1858,17 @@ class Eventbridge extends OpenApiClient
      */
     public function listAliyunOfficialEventSourcesWithOptions($runtime)
     {
-        $req    = new OpenApiRequest([]);
+        $req = new OpenApiRequest([]);
         $params = new Params([
-            'action'      => 'ListAliyunOfficialEventSources',
-            'version'     => '2020-04-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListAliyunOfficialEventSources',
+            'version' => '2020-04-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return ListAliyunOfficialEventSourcesResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -1833,6 +1882,7 @@ class Eventbridge extends OpenApiClient
      *
      * @remarks
      * You can call this API operation to query all Alibaba Cloud service event sources.
+     *
      * @returns ListAliyunOfficialEventSourcesResponse
      *
      * @return ListAliyunOfficialEventSourcesResponse
@@ -1852,6 +1902,7 @@ class Eventbridge extends OpenApiClient
      *
      * @param request - ListApiDestinationsRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ListApiDestinationsResponse
      *
      * @param ListApiDestinationsRequest $request
@@ -1883,15 +1934,15 @@ class Eventbridge extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListApiDestinations',
-            'version'     => '2020-04-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListApiDestinations',
+            'version' => '2020-04-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return ListApiDestinationsResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -1907,6 +1958,7 @@ class Eventbridge extends OpenApiClient
      * You can use this API operation to query a list of API destinations.
      *
      * @param request - ListApiDestinationsRequest
+     *
      * @returns ListApiDestinationsResponse
      *
      * @param ListApiDestinationsRequest $request
@@ -1928,6 +1980,7 @@ class Eventbridge extends OpenApiClient
      *
      * @param request - ListConnectionsRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ListConnectionsResponse
      *
      * @param ListConnectionsRequest $request
@@ -1955,15 +2008,15 @@ class Eventbridge extends OpenApiClient
             'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'ListConnections',
-            'version'     => '2020-04-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListConnections',
+            'version' => '2020-04-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return ListConnectionsResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -1979,6 +2032,7 @@ class Eventbridge extends OpenApiClient
      * You can call this API operation to query connections.
      *
      * @param request - ListConnectionsRequest
+     *
      * @returns ListConnectionsResponse
      *
      * @param ListConnectionsRequest $request
@@ -2000,6 +2054,7 @@ class Eventbridge extends OpenApiClient
      *
      * @param request - ListEventBusesRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ListEventBusesResponse
      *
      * @param ListEventBusesRequest $request
@@ -2027,15 +2082,15 @@ class Eventbridge extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListEventBuses',
-            'version'     => '2020-04-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListEventBuses',
+            'version' => '2020-04-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return ListEventBusesResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -2051,6 +2106,7 @@ class Eventbridge extends OpenApiClient
      * You can call this API operation to query all event buses.
      *
      * @param request - ListEventBusesRequest
+     *
      * @returns ListEventBusesResponse
      *
      * @param ListEventBusesRequest $request
@@ -2072,6 +2128,7 @@ class Eventbridge extends OpenApiClient
      *
      * @param request - ListEventStreamingsRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ListEventStreamingsResponse
      *
      * @param ListEventStreamingsRequest $request
@@ -2103,19 +2160,23 @@ class Eventbridge extends OpenApiClient
             @$body['SourceArn'] = $request->sourceArn;
         }
 
+        if (null !== $request->tags) {
+            @$body['Tags'] = $request->tags;
+        }
+
         $req = new OpenApiRequest([
             'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'ListEventStreamings',
-            'version'     => '2020-04-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListEventStreamings',
+            'version' => '2020-04-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return ListEventStreamingsResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -2131,6 +2192,7 @@ class Eventbridge extends OpenApiClient
      * You can call this API operation to query event streams.
      *
      * @param request - ListEventStreamingsRequest
+     *
      * @returns ListEventStreamingsResponse
      *
      * @param ListEventStreamingsRequest $request
@@ -2152,6 +2214,7 @@ class Eventbridge extends OpenApiClient
      *
      * @param request - ListRulesRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ListRulesResponse
      *
      * @param ListRulesRequest $request
@@ -2183,15 +2246,15 @@ class Eventbridge extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListRules',
-            'version'     => '2020-04-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListRules',
+            'version' => '2020-04-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return ListRulesResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -2207,6 +2270,7 @@ class Eventbridge extends OpenApiClient
      * You can call this API operation to query all rules of an event bus.
      *
      * @param request - ListRulesRequest
+     *
      * @returns ListRulesResponse
      *
      * @param ListRulesRequest $request
@@ -2225,6 +2289,7 @@ class Eventbridge extends OpenApiClient
      *
      * @param request - ListTargetsRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ListTargetsResponse
      *
      * @param ListTargetsRequest $request
@@ -2260,15 +2325,15 @@ class Eventbridge extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListTargets',
-            'version'     => '2020-04-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListTargets',
+            'version' => '2020-04-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return ListTargetsResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -2281,6 +2346,7 @@ class Eventbridge extends OpenApiClient
      * Queries all event targets of an event rule.
      *
      * @param request - ListTargetsRequest
+     *
      * @returns ListTargetsResponse
      *
      * @param ListTargetsRequest $request
@@ -2302,6 +2368,7 @@ class Eventbridge extends OpenApiClient
      *
      * @param request - ListUserDefinedEventSourcesRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ListUserDefinedEventSourcesResponse
      *
      * @param ListUserDefinedEventSourcesRequest $request
@@ -2333,15 +2400,15 @@ class Eventbridge extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListUserDefinedEventSources',
-            'version'     => '2020-04-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListUserDefinedEventSources',
+            'version' => '2020-04-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return ListUserDefinedEventSourcesResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -2357,6 +2424,7 @@ class Eventbridge extends OpenApiClient
      * You can call this API operation to query custom event sources.
      *
      * @param request - ListUserDefinedEventSourcesRequest
+     *
      * @returns ListUserDefinedEventSourcesResponse
      *
      * @param ListUserDefinedEventSourcesRequest $request
@@ -2378,6 +2446,7 @@ class Eventbridge extends OpenApiClient
      *
      * @param request - PauseEventStreamingRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns PauseEventStreamingResponse
      *
      * @param PauseEventStreamingRequest $request
@@ -2397,15 +2466,15 @@ class Eventbridge extends OpenApiClient
             'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'PauseEventStreaming',
-            'version'     => '2020-04-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'PauseEventStreaming',
+            'version' => '2020-04-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return PauseEventStreamingResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -2421,6 +2490,7 @@ class Eventbridge extends OpenApiClient
      * You can call this API operation to stop an event stream that is running.
      *
      * @param request - PauseEventStreamingRequest
+     *
      * @returns PauseEventStreamingResponse
      *
      * @param PauseEventStreamingRequest $request
@@ -2442,6 +2512,7 @@ class Eventbridge extends OpenApiClient
      *
      * @param tmpReq - PutTargetsRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns PutTargetsResponse
      *
      * @param PutTargetsRequest $tmpReq
@@ -2475,15 +2546,15 @@ class Eventbridge extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'PutTargets',
-            'version'     => '2020-04-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'PutTargets',
+            'version' => '2020-04-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return PutTargetsResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -2499,6 +2570,7 @@ class Eventbridge extends OpenApiClient
      * You can call this API operation to create or update event targets under a rule.
      *
      * @param request - PutTargetsRequest
+     *
      * @returns PutTargetsResponse
      *
      * @param PutTargetsRequest $request
@@ -2520,6 +2592,7 @@ class Eventbridge extends OpenApiClient
      *
      * @param request - QueryEventRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns QueryEventResponse
      *
      * @param QueryEventRequest $request
@@ -2547,15 +2620,15 @@ class Eventbridge extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'QueryEvent',
-            'version'     => '2020-04-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'QueryEvent',
+            'version' => '2020-04-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return QueryEventResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -2571,6 +2644,7 @@ class Eventbridge extends OpenApiClient
      * You can call this API operation to query the content of an event.
      *
      * @param request - QueryEventRequest
+     *
      * @returns QueryEventResponse
      *
      * @param QueryEventRequest $request
@@ -2592,6 +2666,7 @@ class Eventbridge extends OpenApiClient
      *
      * @param request - QueryEventTracesRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns QueryEventTracesResponse
      *
      * @param QueryEventTracesRequest $request
@@ -2615,15 +2690,15 @@ class Eventbridge extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'QueryEventTraces',
-            'version'     => '2020-04-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'QueryEventTraces',
+            'version' => '2020-04-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return QueryEventTracesResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -2639,6 +2714,7 @@ class Eventbridge extends OpenApiClient
      * You can call this API operation to query event traces.
      *
      * @param request - QueryEventTracesRequest
+     *
      * @returns QueryEventTracesResponse
      *
      * @param QueryEventTracesRequest $request
@@ -2660,6 +2736,7 @@ class Eventbridge extends OpenApiClient
      *
      * @param request - QueryTracedEventByEventIdRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns QueryTracedEventByEventIdResponse
      *
      * @param QueryTracedEventByEventIdRequest $request
@@ -2687,15 +2764,15 @@ class Eventbridge extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'QueryTracedEventByEventId',
-            'version'     => '2020-04-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'QueryTracedEventByEventId',
+            'version' => '2020-04-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return QueryTracedEventByEventIdResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -2711,6 +2788,7 @@ class Eventbridge extends OpenApiClient
      * You can call this API operation to query event traces by event ID.
      *
      * @param request - QueryTracedEventByEventIdRequest
+     *
      * @returns QueryTracedEventByEventIdResponse
      *
      * @param QueryTracedEventByEventIdRequest $request
@@ -2732,6 +2810,7 @@ class Eventbridge extends OpenApiClient
      *
      * @param request - QueryTracedEventsRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns QueryTracedEventsResponse
      *
      * @param QueryTracedEventsRequest $request
@@ -2779,15 +2858,15 @@ class Eventbridge extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'QueryTracedEvents',
-            'version'     => '2020-04-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'QueryTracedEvents',
+            'version' => '2020-04-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return QueryTracedEventsResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -2803,6 +2882,7 @@ class Eventbridge extends OpenApiClient
      * You can call this API operation to query event traces by time range.
      *
      * @param request - QueryTracedEventsRequest
+     *
      * @returns QueryTracedEventsResponse
      *
      * @param QueryTracedEventsRequest $request
@@ -2824,6 +2904,7 @@ class Eventbridge extends OpenApiClient
      *
      * @param request - StartEventStreamingRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns StartEventStreamingResponse
      *
      * @param StartEventStreamingRequest $request
@@ -2843,15 +2924,15 @@ class Eventbridge extends OpenApiClient
             'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'StartEventStreaming',
-            'version'     => '2020-04-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'StartEventStreaming',
+            'version' => '2020-04-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return StartEventStreamingResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -2867,6 +2948,7 @@ class Eventbridge extends OpenApiClient
      * You can call this API operation to enable a created or deactivated event stream.
      *
      * @param request - StartEventStreamingRequest
+     *
      * @returns StartEventStreamingResponse
      *
      * @param StartEventStreamingRequest $request
@@ -2888,6 +2970,7 @@ class Eventbridge extends OpenApiClient
      *
      * @param request - TestEventPatternRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns TestEventPatternResponse
      *
      * @param TestEventPatternRequest $request
@@ -2911,15 +2994,15 @@ class Eventbridge extends OpenApiClient
             'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'TestEventPattern',
-            'version'     => '2020-04-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'TestEventPattern',
+            'version' => '2020-04-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return TestEventPatternResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -2935,6 +3018,7 @@ class Eventbridge extends OpenApiClient
      * You can call this API operation to check whether the event pattern matches the provided JSON format.
      *
      * @param request - TestEventPatternRequest
+     *
      * @returns TestEventPatternResponse
      *
      * @param TestEventPatternRequest $request
@@ -2956,6 +3040,7 @@ class Eventbridge extends OpenApiClient
      *
      * @param tmpReq - UpdateApiDestinationRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns UpdateApiDestinationResponse
      *
      * @param UpdateApiDestinationRequest $tmpReq
@@ -2993,15 +3078,15 @@ class Eventbridge extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'UpdateApiDestination',
-            'version'     => '2020-04-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'UpdateApiDestination',
+            'version' => '2020-04-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return UpdateApiDestinationResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -3017,6 +3102,7 @@ class Eventbridge extends OpenApiClient
      * You can call this API operation to update an API destination.
      *
      * @param request - UpdateApiDestinationRequest
+     *
      * @returns UpdateApiDestinationResponse
      *
      * @param UpdateApiDestinationRequest $request
@@ -3038,6 +3124,7 @@ class Eventbridge extends OpenApiClient
      *
      * @param tmpReq - UpdateConnectionRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns UpdateConnectionResponse
      *
      * @param UpdateConnectionRequest $tmpReq
@@ -3079,15 +3166,15 @@ class Eventbridge extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'UpdateConnection',
-            'version'     => '2020-04-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'UpdateConnection',
+            'version' => '2020-04-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return UpdateConnectionResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -3103,6 +3190,7 @@ class Eventbridge extends OpenApiClient
      * You can call this API operation to update a connection.
      *
      * @param request - UpdateConnectionRequest
+     *
      * @returns UpdateConnectionResponse
      *
      * @param UpdateConnectionRequest $request
@@ -3124,6 +3212,7 @@ class Eventbridge extends OpenApiClient
      *
      * @param request - UpdateEventBusRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns UpdateEventBusResponse
      *
      * @param UpdateEventBusRequest $request
@@ -3147,15 +3236,15 @@ class Eventbridge extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'UpdateEventBus',
-            'version'     => '2020-04-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'UpdateEventBus',
+            'version' => '2020-04-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return UpdateEventBusResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -3171,6 +3260,7 @@ class Eventbridge extends OpenApiClient
      * You can call this operation to update an event bus.
      *
      * @param request - UpdateEventBusRequest
+     *
      * @returns UpdateEventBusResponse
      *
      * @param UpdateEventBusRequest $request
@@ -3192,6 +3282,7 @@ class Eventbridge extends OpenApiClient
      *
      * @param tmpReq - UpdateEventSourceRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns UpdateEventSourceResponse
      *
      * @param UpdateEventSourceRequest $tmpReq
@@ -3293,15 +3384,15 @@ class Eventbridge extends OpenApiClient
             'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'UpdateEventSource',
-            'version'     => '2020-04-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'UpdateEventSource',
+            'version' => '2020-04-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return UpdateEventSourceResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -3317,6 +3408,7 @@ class Eventbridge extends OpenApiClient
      * You can call this API operation to update an event source.
      *
      * @param request - UpdateEventSourceRequest
+     *
      * @returns UpdateEventSourceResponse
      *
      * @param UpdateEventSourceRequest $request
@@ -3338,6 +3430,7 @@ class Eventbridge extends OpenApiClient
      *
      * @param tmpReq - UpdateEventStreamingRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns UpdateEventStreamingResponse
      *
      * @param UpdateEventStreamingRequest $tmpReq
@@ -3399,15 +3492,15 @@ class Eventbridge extends OpenApiClient
             'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'UpdateEventStreaming',
-            'version'     => '2020-04-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'UpdateEventStreaming',
+            'version' => '2020-04-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return UpdateEventStreamingResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -3423,6 +3516,7 @@ class Eventbridge extends OpenApiClient
      * You can call this API operation to modify the information about an event stream, such as the basic information and the information about the event source, event filtering rule, and event target.
      *
      * @param request - UpdateEventStreamingRequest
+     *
      * @returns UpdateEventStreamingResponse
      *
      * @param UpdateEventStreamingRequest $request
@@ -3444,6 +3538,7 @@ class Eventbridge extends OpenApiClient
      *
      * @param request - UpdateRuleRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns UpdateRuleResponse
      *
      * @param UpdateRuleRequest $request
@@ -3479,15 +3574,15 @@ class Eventbridge extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'UpdateRule',
-            'version'     => '2020-04-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'UpdateRule',
+            'version' => '2020-04-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return UpdateRuleResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -3503,6 +3598,7 @@ class Eventbridge extends OpenApiClient
      * You can call this API operation to update the configurations of an event rule.
      *
      * @param request - UpdateRuleRequest
+     *
      * @returns UpdateRuleResponse
      *
      * @param UpdateRuleRequest $request

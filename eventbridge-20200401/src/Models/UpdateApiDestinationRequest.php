@@ -13,23 +13,26 @@ class UpdateApiDestinationRequest extends Model
      * @var string
      */
     public $apiDestinationName;
+
     /**
      * @var string
      */
     public $connectionName;
+
     /**
      * @var string
      */
     public $description;
+
     /**
      * @var httpApiParameters
      */
     public $httpApiParameters;
     protected $_name = [
         'apiDestinationName' => 'ApiDestinationName',
-        'connectionName'     => 'ConnectionName',
-        'description'        => 'Description',
-        'httpApiParameters'  => 'HttpApiParameters',
+        'connectionName' => 'ConnectionName',
+        'description' => 'Description',
+        'httpApiParameters' => 'HttpApiParameters',
     ];
 
     public function validate()

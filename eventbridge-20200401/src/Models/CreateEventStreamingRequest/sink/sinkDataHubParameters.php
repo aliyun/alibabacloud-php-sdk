@@ -18,33 +18,38 @@ class sinkDataHubParameters extends Model
      * @var body
      */
     public $body;
+
     /**
      * @var project
      */
     public $project;
+
     /**
      * @var roleName
      */
     public $roleName;
+
     /**
      * @var topic
      */
     public $topic;
+
     /**
      * @var topicSchema
      */
     public $topicSchema;
+
     /**
      * @var topicType
      */
     public $topicType;
     protected $_name = [
-        'body'        => 'Body',
-        'project'     => 'Project',
-        'roleName'    => 'RoleName',
-        'topic'       => 'Topic',
+        'body' => 'Body',
+        'project' => 'Project',
+        'roleName' => 'RoleName',
+        'topic' => 'Topic',
         'topicSchema' => 'TopicSchema',
-        'topicType'   => 'TopicType',
+        'topicType' => 'TopicType',
     ];
 
     public function validate()

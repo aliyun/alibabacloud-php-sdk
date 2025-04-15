@@ -13,23 +13,26 @@ class data extends Model
      * @var apiDestinations[]
      */
     public $apiDestinations;
+
     /**
      * @var float
      */
     public $maxResults;
+
     /**
      * @var string
      */
     public $nextToken;
+
     /**
      * @var float
      */
     public $total;
     protected $_name = [
         'apiDestinations' => 'ApiDestinations',
-        'maxResults'      => 'MaxResults',
-        'nextToken'       => 'NextToken',
-        'total'           => 'Total',
+        'maxResults' => 'MaxResults',
+        'nextToken' => 'NextToken',
+        'total' => 'Total',
     ];
 
     public function validate()
@@ -46,7 +49,7 @@ class data extends Model
         if (null !== $this->apiDestinations) {
             if (\is_array($this->apiDestinations)) {
                 $res['ApiDestinations'] = [];
-                $n1                     = 0;
+                $n1 = 0;
                 foreach ($this->apiDestinations as $item1) {
                     $res['ApiDestinations'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -79,7 +82,7 @@ class data extends Model
         if (isset($map['ApiDestinations'])) {
             if (!empty($map['ApiDestinations'])) {
                 $model->apiDestinations = [];
-                $n1                     = 0;
+                $n1 = 0;
                 foreach ($map['ApiDestinations'] as $item1) {
                     $model->apiDestinations[$n1++] = apiDestinations::fromMap($item1);
                 }

@@ -21,47 +21,55 @@ class sinkRabbitMQParameters extends Model
      * @var body
      */
     public $body;
+
     /**
      * @var exchange
      */
     public $exchange;
+
     /**
      * @var instanceId
      */
     public $instanceId;
+
     /**
      * @var messageId
      */
     public $messageId;
+
     /**
      * @var properties
      */
     public $properties;
+
     /**
      * @var queueName
      */
     public $queueName;
+
     /**
      * @var routingKey
      */
     public $routingKey;
+
     /**
      * @var targetType
      */
     public $targetType;
+
     /**
      * @var virtualHostName
      */
     public $virtualHostName;
     protected $_name = [
-        'body'            => 'Body',
-        'exchange'        => 'Exchange',
-        'instanceId'      => 'InstanceId',
-        'messageId'       => 'MessageId',
-        'properties'      => 'Properties',
-        'queueName'       => 'QueueName',
-        'routingKey'      => 'RoutingKey',
-        'targetType'      => 'TargetType',
+        'body' => 'Body',
+        'exchange' => 'Exchange',
+        'instanceId' => 'InstanceId',
+        'messageId' => 'MessageId',
+        'properties' => 'Properties',
+        'queueName' => 'QueueName',
+        'routingKey' => 'RoutingKey',
+        'targetType' => 'TargetType',
         'virtualHostName' => 'VirtualHostName',
     ];
 
