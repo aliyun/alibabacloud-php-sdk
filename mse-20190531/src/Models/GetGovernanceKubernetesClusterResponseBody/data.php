@@ -42,12 +42,22 @@ class data extends Model
     /**
      * @var string
      */
+    public $pilotVersion;
+
+    /**
+     * @var string
+     */
     public $region;
 
     /**
      * @var string
      */
     public $updateTime;
+
+    /**
+     * @var string
+     */
+    public $versionLifeCycle;
     protected $_name = [
         'clusterId' => 'ClusterId',
         'clusterName' => 'ClusterName',
@@ -55,8 +65,10 @@ class data extends Model
         'namespaceInfos' => 'NamespaceInfos',
         'namespaces' => 'Namespaces',
         'pilotStartTime' => 'PilotStartTime',
+        'pilotVersion' => 'PilotVersion',
         'region' => 'Region',
         'updateTime' => 'UpdateTime',
+        'versionLifeCycle' => 'VersionLifeCycle',
     ];
 
     public function validate()
@@ -100,12 +112,20 @@ class data extends Model
             $res['PilotStartTime'] = $this->pilotStartTime;
         }
 
+        if (null !== $this->pilotVersion) {
+            $res['PilotVersion'] = $this->pilotVersion;
+        }
+
         if (null !== $this->region) {
             $res['Region'] = $this->region;
         }
 
         if (null !== $this->updateTime) {
             $res['UpdateTime'] = $this->updateTime;
+        }
+
+        if (null !== $this->versionLifeCycle) {
+            $res['VersionLifeCycle'] = $this->versionLifeCycle;
         }
 
         return $res;
@@ -149,12 +169,20 @@ class data extends Model
             $model->pilotStartTime = $map['PilotStartTime'];
         }
 
+        if (isset($map['PilotVersion'])) {
+            $model->pilotVersion = $map['PilotVersion'];
+        }
+
         if (isset($map['Region'])) {
             $model->region = $map['Region'];
         }
 
         if (isset($map['UpdateTime'])) {
             $model->updateTime = $map['UpdateTime'];
+        }
+
+        if (isset($map['VersionLifeCycle'])) {
+            $model->versionLifeCycle = $map['VersionLifeCycle'];
         }
 
         return $model;
