@@ -12,17 +12,19 @@ class DeleteAppRecordTemplateShrinkRequest extends Model
      * @var string
      */
     public $appId;
+
     /**
      * @var string
      */
     public $clientToken;
+
     /**
      * @var string
      */
     public $templateShrink;
     protected $_name = [
-        'appId'          => 'AppId',
-        'clientToken'    => 'ClientToken',
+        'appId' => 'AppId',
+        'clientToken' => 'ClientToken',
         'templateShrink' => 'Template',
     ];
 

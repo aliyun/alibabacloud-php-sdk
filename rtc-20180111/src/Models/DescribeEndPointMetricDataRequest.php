@@ -12,43 +12,50 @@ class DescribeEndPointMetricDataRequest extends Model
      * @var string
      */
     public $appId;
+
     /**
      * @var string
      */
     public $channelId;
+
     /**
      * @var int
      */
     public $createdTs;
+
     /**
      * @var int
      */
     public $destroyedTs;
+
     /**
      * @var string
      */
     public $metrics;
+
     /**
      * @var string
      */
     public $pubCallIdList;
+
     /**
      * @var string
      */
     public $pubUserId;
+
     /**
      * @var string
      */
     public $subUserId;
     protected $_name = [
-        'appId'         => 'AppId',
-        'channelId'     => 'ChannelId',
-        'createdTs'     => 'CreatedTs',
-        'destroyedTs'   => 'DestroyedTs',
-        'metrics'       => 'Metrics',
+        'appId' => 'AppId',
+        'channelId' => 'ChannelId',
+        'createdTs' => 'CreatedTs',
+        'destroyedTs' => 'DestroyedTs',
+        'metrics' => 'Metrics',
         'pubCallIdList' => 'PubCallIdList',
-        'pubUserId'     => 'PubUserId',
-        'subUserId'     => 'SubUserId',
+        'pubUserId' => 'PubUserId',
+        'subUserId' => 'SubUserId',
     ];
 
     public function validate()

@@ -12,43 +12,50 @@ class recordFiles extends Model
      * @var string
      */
     public $appId;
+
     /**
      * @var string
      */
     public $channelId;
+
     /**
      * @var string
      */
     public $createTime;
+
     /**
      * @var float
      */
     public $duration;
+
     /**
      * @var string
      */
     public $startTime;
+
     /**
      * @var string
      */
     public $stopTime;
+
     /**
      * @var string
      */
     public $taskId;
+
     /**
      * @var string
      */
     public $url;
     protected $_name = [
-        'appId'      => 'AppId',
-        'channelId'  => 'ChannelId',
+        'appId' => 'AppId',
+        'channelId' => 'ChannelId',
         'createTime' => 'CreateTime',
-        'duration'   => 'Duration',
-        'startTime'  => 'StartTime',
-        'stopTime'   => 'StopTime',
-        'taskId'     => 'TaskId',
-        'url'        => 'Url',
+        'duration' => 'Duration',
+        'startTime' => 'StartTime',
+        'stopTime' => 'StopTime',
+        'taskId' => 'TaskId',
+        'url' => 'Url',
     ];
 
     public function validate()

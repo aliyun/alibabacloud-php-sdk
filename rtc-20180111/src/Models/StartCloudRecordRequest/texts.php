@@ -14,63 +14,74 @@ class texts extends Model
      * @var float
      */
     public $alpha;
+
     /**
      * @var float
      */
     public $boxAlpha;
+
     /**
      * @var int
      */
     public $boxBorderw;
+
     /**
      * @var boxColor
      */
     public $boxColor;
+
     /**
      * @var int
      */
     public $font;
+
     /**
      * @var fontColor
      */
     public $fontColor;
+
     /**
      * @var int
      */
     public $fontSize;
+
     /**
      * @var bool
      */
     public $hasBox;
+
     /**
      * @var int
      */
     public $layer;
+
     /**
      * @var string
      */
     public $texture;
+
     /**
      * @var float
      */
     public $x;
+
     /**
      * @var float
      */
     public $y;
     protected $_name = [
-        'alpha'      => 'Alpha',
-        'boxAlpha'   => 'BoxAlpha',
+        'alpha' => 'Alpha',
+        'boxAlpha' => 'BoxAlpha',
         'boxBorderw' => 'BoxBorderw',
-        'boxColor'   => 'BoxColor',
-        'font'       => 'Font',
-        'fontColor'  => 'FontColor',
-        'fontSize'   => 'FontSize',
-        'hasBox'     => 'HasBox',
-        'layer'      => 'Layer',
-        'texture'    => 'Texture',
-        'x'          => 'X',
-        'y'          => 'Y',
+        'boxColor' => 'BoxColor',
+        'font' => 'Font',
+        'fontColor' => 'FontColor',
+        'fontSize' => 'FontSize',
+        'hasBox' => 'HasBox',
+        'layer' => 'Layer',
+        'texture' => 'Texture',
+        'x' => 'X',
+        'y' => 'Y',
     ];
 
     public function validate()

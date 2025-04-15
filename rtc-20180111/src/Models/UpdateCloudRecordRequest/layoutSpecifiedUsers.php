@@ -12,12 +12,13 @@ class layoutSpecifiedUsers extends Model
      * @var string[]
      */
     public $ids;
+
     /**
      * @var string
      */
     public $type;
     protected $_name = [
-        'ids'  => 'Ids',
+        'ids' => 'Ids',
         'type' => 'Type',
     ];
 
@@ -35,7 +36,7 @@ class layoutSpecifiedUsers extends Model
         if (null !== $this->ids) {
             if (\is_array($this->ids)) {
                 $res['Ids'] = [];
-                $n1         = 0;
+                $n1 = 0;
                 foreach ($this->ids as $item1) {
                     $res['Ids'][$n1++] = $item1;
                 }
@@ -60,7 +61,7 @@ class layoutSpecifiedUsers extends Model
         if (isset($map['Ids'])) {
             if (!empty($map['Ids'])) {
                 $model->ids = [];
-                $n1         = 0;
+                $n1 = 0;
                 foreach ($map['Ids'] as $item1) {
                     $model->ids[$n1++] = $item1;
                 }

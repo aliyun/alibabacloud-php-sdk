@@ -12,17 +12,19 @@ class DeleteRecordTemplateRequest extends Model
      * @var string
      */
     public $appId;
+
     /**
      * @var int
      */
     public $ownerId;
+
     /**
      * @var string
      */
     public $templateId;
     protected $_name = [
-        'appId'      => 'AppId',
-        'ownerId'    => 'OwnerId',
+        'appId' => 'AppId',
+        'ownerId' => 'OwnerId',
         'templateId' => 'TemplateId',
     ];
 

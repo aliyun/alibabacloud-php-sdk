@@ -12,43 +12,50 @@ class DescribeFaultDiagnosisUserListRequest extends Model
      * @var string
      */
     public $appId;
+
     /**
      * @var string
      */
     public $channelId;
+
     /**
      * @var int
      */
     public $endTs;
+
     /**
      * @var string
      */
     public $faultTypes;
+
     /**
      * @var int
      */
     public $pageNo;
+
     /**
      * @var int
      */
     public $pageSize;
+
     /**
      * @var int
      */
     public $startTs;
+
     /**
      * @var string
      */
     public $userId;
     protected $_name = [
-        'appId'      => 'AppId',
-        'channelId'  => 'ChannelId',
-        'endTs'      => 'EndTs',
+        'appId' => 'AppId',
+        'channelId' => 'ChannelId',
+        'endTs' => 'EndTs',
         'faultTypes' => 'FaultTypes',
-        'pageNo'     => 'PageNo',
-        'pageSize'   => 'PageSize',
-        'startTs'    => 'StartTs',
-        'userId'     => 'UserId',
+        'pageNo' => 'PageNo',
+        'pageSize' => 'PageSize',
+        'startTs' => 'StartTs',
+        'userId' => 'UserId',
     ];
 
     public function validate()

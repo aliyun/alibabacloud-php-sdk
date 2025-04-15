@@ -12,38 +12,44 @@ class callbacks extends Model
      * @var string
      */
     public $category;
+
     /**
      * @var string
      */
     public $checkStatus;
+
     /**
      * @var string
      */
     public $code;
+
     /**
      * @var string
      */
     public $conf;
+
     /**
      * @var string
      */
     public $msg;
+
     /**
      * @var int
      */
     public $status;
+
     /**
      * @var int[]
      */
     public $subEvent;
     protected $_name = [
-        'category'    => 'Category',
+        'category' => 'Category',
         'checkStatus' => 'CheckStatus',
-        'code'        => 'Code',
-        'conf'        => 'Conf',
-        'msg'         => 'Msg',
-        'status'      => 'Status',
-        'subEvent'    => 'SubEvent',
+        'code' => 'Code',
+        'conf' => 'Conf',
+        'msg' => 'Msg',
+        'status' => 'Status',
+        'subEvent' => 'SubEvent',
     ];
 
     public function validate()
@@ -84,7 +90,7 @@ class callbacks extends Model
         if (null !== $this->subEvent) {
             if (\is_array($this->subEvent)) {
                 $res['SubEvent'] = [];
-                $n1              = 0;
+                $n1 = 0;
                 foreach ($this->subEvent as $item1) {
                     $res['SubEvent'][$n1++] = $item1;
                 }
@@ -129,7 +135,7 @@ class callbacks extends Model
         if (isset($map['SubEvent'])) {
             if (!empty($map['SubEvent'])) {
                 $model->subEvent = [];
-                $n1              = 0;
+                $n1 = 0;
                 foreach ($map['SubEvent'] as $item1) {
                     $model->subEvent[$n1++] = $item1;
                 }

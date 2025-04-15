@@ -12,28 +12,32 @@ class DescribeQoeMetricDataRequest extends Model
      * @var string
      */
     public $appId;
+
     /**
      * @var string
      */
     public $channelId;
+
     /**
      * @var int
      */
     public $createdTs;
+
     /**
      * @var int
      */
     public $destroyedTs;
+
     /**
      * @var string
      */
     public $userId;
     protected $_name = [
-        'appId'       => 'AppId',
-        'channelId'   => 'ChannelId',
-        'createdTs'   => 'CreatedTs',
+        'appId' => 'AppId',
+        'channelId' => 'ChannelId',
+        'createdTs' => 'CreatedTs',
         'destroyedTs' => 'DestroyedTs',
-        'userId'      => 'UserId',
+        'userId' => 'UserId',
     ];
 
     public function validate()

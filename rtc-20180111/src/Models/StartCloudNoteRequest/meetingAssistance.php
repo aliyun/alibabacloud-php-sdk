@@ -12,12 +12,13 @@ class meetingAssistance extends Model
      * @var bool
      */
     public $enabled;
+
     /**
      * @var string[]
      */
     public $meetingAssistanceType;
     protected $_name = [
-        'enabled'               => 'Enabled',
+        'enabled' => 'Enabled',
         'meetingAssistanceType' => 'MeetingAssistanceType',
     ];
 
@@ -39,7 +40,7 @@ class meetingAssistance extends Model
         if (null !== $this->meetingAssistanceType) {
             if (\is_array($this->meetingAssistanceType)) {
                 $res['MeetingAssistanceType'] = [];
-                $n1                           = 0;
+                $n1 = 0;
                 foreach ($this->meetingAssistanceType as $item1) {
                     $res['MeetingAssistanceType'][$n1++] = $item1;
                 }
@@ -64,7 +65,7 @@ class meetingAssistance extends Model
         if (isset($map['MeetingAssistanceType'])) {
             if (!empty($map['MeetingAssistanceType'])) {
                 $model->meetingAssistanceType = [];
-                $n1                           = 0;
+                $n1 = 0;
                 foreach ($map['MeetingAssistanceType'] as $item1) {
                     $model->meetingAssistanceType[$n1++] = $item1;
                 }

@@ -12,22 +12,27 @@ class panes extends Model
      * @var float
      */
     public $height;
+
     /**
      * @var int
      */
     public $paneId;
+
     /**
      * @var float
      */
     public $width;
+
     /**
      * @var float
      */
     public $x;
+
     /**
      * @var float
      */
     public $y;
+
     /**
      * @var int
      */
@@ -35,9 +40,9 @@ class panes extends Model
     protected $_name = [
         'height' => 'Height',
         'paneId' => 'PaneId',
-        'width'  => 'Width',
-        'x'      => 'X',
-        'y'      => 'Y',
+        'width' => 'Width',
+        'x' => 'X',
+        'y' => 'Y',
         'ZOrder' => 'ZOrder',
     ];
 

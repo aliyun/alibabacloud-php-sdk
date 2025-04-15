@@ -12,22 +12,25 @@ class RemoveTerminalsRequest extends Model
      * @var string
      */
     public $appId;
+
     /**
      * @var string
      */
     public $channelId;
+
     /**
      * @var int
      */
     public $ownerId;
+
     /**
      * @var string[]
      */
     public $terminalIds;
     protected $_name = [
-        'appId'       => 'AppId',
-        'channelId'   => 'ChannelId',
-        'ownerId'     => 'OwnerId',
+        'appId' => 'AppId',
+        'channelId' => 'ChannelId',
+        'ownerId' => 'OwnerId',
         'terminalIds' => 'TerminalIds',
     ];
 
@@ -57,7 +60,7 @@ class RemoveTerminalsRequest extends Model
         if (null !== $this->terminalIds) {
             if (\is_array($this->terminalIds)) {
                 $res['TerminalIds'] = [];
-                $n1                 = 0;
+                $n1 = 0;
                 foreach ($this->terminalIds as $item1) {
                     $res['TerminalIds'][$n1++] = $item1;
                 }
@@ -90,7 +93,7 @@ class RemoveTerminalsRequest extends Model
         if (isset($map['TerminalIds'])) {
             if (!empty($map['TerminalIds'])) {
                 $model->terminalIds = [];
-                $n1                 = 0;
+                $n1 = 0;
                 foreach ($map['TerminalIds'] as $item1) {
                     $model->terminalIds[$n1++] = $item1;
                 }

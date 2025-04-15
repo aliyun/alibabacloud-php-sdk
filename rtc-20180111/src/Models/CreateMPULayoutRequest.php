@@ -13,28 +13,32 @@ class CreateMPULayoutRequest extends Model
      * @var string
      */
     public $appId;
+
     /**
      * @var int
      */
     public $audioMixCount;
+
     /**
      * @var string
      */
     public $name;
+
     /**
      * @var int
      */
     public $ownerId;
+
     /**
      * @var panes[]
      */
     public $panes;
     protected $_name = [
-        'appId'         => 'AppId',
+        'appId' => 'AppId',
         'audioMixCount' => 'AudioMixCount',
-        'name'          => 'Name',
-        'ownerId'       => 'OwnerId',
-        'panes'         => 'Panes',
+        'name' => 'Name',
+        'ownerId' => 'OwnerId',
+        'panes' => 'Panes',
     ];
 
     public function validate()
@@ -67,7 +71,7 @@ class CreateMPULayoutRequest extends Model
         if (null !== $this->panes) {
             if (\is_array($this->panes)) {
                 $res['Panes'] = [];
-                $n1           = 0;
+                $n1 = 0;
                 foreach ($this->panes as $item1) {
                     $res['Panes'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -104,7 +108,7 @@ class CreateMPULayoutRequest extends Model
         if (isset($map['Panes'])) {
             if (!empty($map['Panes'])) {
                 $model->panes = [];
-                $n1           = 0;
+                $n1 = 0;
                 foreach ($map['Panes'] as $item1) {
                     $model->panes[$n1++] = panes::fromMap($item1);
                 }

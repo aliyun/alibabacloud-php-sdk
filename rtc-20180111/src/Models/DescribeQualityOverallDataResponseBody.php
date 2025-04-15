@@ -13,13 +13,14 @@ class DescribeQualityOverallDataResponseBody extends Model
      * @var qualityOverallData[]
      */
     public $qualityOverallData;
+
     /**
      * @var string
      */
     public $requestId;
     protected $_name = [
         'qualityOverallData' => 'QualityOverallData',
-        'requestId'          => 'RequestId',
+        'requestId' => 'RequestId',
     ];
 
     public function validate()
@@ -36,7 +37,7 @@ class DescribeQualityOverallDataResponseBody extends Model
         if (null !== $this->qualityOverallData) {
             if (\is_array($this->qualityOverallData)) {
                 $res['QualityOverallData'] = [];
-                $n1                        = 0;
+                $n1 = 0;
                 foreach ($this->qualityOverallData as $item1) {
                     $res['QualityOverallData'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -61,7 +62,7 @@ class DescribeQualityOverallDataResponseBody extends Model
         if (isset($map['QualityOverallData'])) {
             if (!empty($map['QualityOverallData'])) {
                 $model->qualityOverallData = [];
-                $n1                        = 0;
+                $n1 = 0;
                 foreach ($map['QualityOverallData'] as $item1) {
                     $model->qualityOverallData[$n1++] = qualityOverallData::fromMap($item1);
                 }

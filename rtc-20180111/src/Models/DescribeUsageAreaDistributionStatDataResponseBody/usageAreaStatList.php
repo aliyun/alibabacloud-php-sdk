@@ -12,21 +12,24 @@ class usageAreaStatList extends Model
      * @var int
      */
     public $audioCallDuration;
+
     /**
      * @var string
      */
     public $name;
+
     /**
      * @var int
      */
     public $totalCallDuration;
+
     /**
      * @var int
      */
     public $videoCallDuration;
     protected $_name = [
         'audioCallDuration' => 'AudioCallDuration',
-        'name'              => 'Name',
+        'name' => 'Name',
         'totalCallDuration' => 'TotalCallDuration',
         'videoCallDuration' => 'VideoCallDuration',
     ];

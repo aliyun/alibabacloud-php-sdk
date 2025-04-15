@@ -12,25 +12,29 @@ class overallData extends Model
      * @var float
      */
     public $connAvgTime;
+
     /**
      * @var float
      */
     public $fiveSecJoinRate;
+
     /**
      * @var float
      */
     public $totalAudioStuckRate;
+
     /**
      * @var float
      */
     public $totalVideoStuckRate;
+
     /**
      * @var float
      */
     public $totalVideoVagueRate;
     protected $_name = [
-        'connAvgTime'         => 'ConnAvgTime',
-        'fiveSecJoinRate'     => 'FiveSecJoinRate',
+        'connAvgTime' => 'ConnAvgTime',
+        'fiveSecJoinRate' => 'FiveSecJoinRate',
         'totalAudioStuckRate' => 'TotalAudioStuckRate',
         'totalVideoStuckRate' => 'TotalVideoStuckRate',
         'totalVideoVagueRate' => 'TotalVideoVagueRate',

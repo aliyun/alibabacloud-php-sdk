@@ -13,12 +13,13 @@ class DescribeChannelTopPubUserListResponseBody extends Model
      * @var string
      */
     public $requestId;
+
     /**
      * @var topPubUserDetailList[]
      */
     public $topPubUserDetailList;
     protected $_name = [
-        'requestId'            => 'RequestId',
+        'requestId' => 'RequestId',
         'topPubUserDetailList' => 'TopPubUserDetailList',
     ];
 
@@ -40,7 +41,7 @@ class DescribeChannelTopPubUserListResponseBody extends Model
         if (null !== $this->topPubUserDetailList) {
             if (\is_array($this->topPubUserDetailList)) {
                 $res['TopPubUserDetailList'] = [];
-                $n1                          = 0;
+                $n1 = 0;
                 foreach ($this->topPubUserDetailList as $item1) {
                     $res['TopPubUserDetailList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -65,7 +66,7 @@ class DescribeChannelTopPubUserListResponseBody extends Model
         if (isset($map['TopPubUserDetailList'])) {
             if (!empty($map['TopPubUserDetailList'])) {
                 $model->topPubUserDetailList = [];
-                $n1                          = 0;
+                $n1 = 0;
                 foreach ($map['TopPubUserDetailList'] as $item1) {
                     $model->topPubUserDetailList[$n1++] = topPubUserDetailList::fromMap($item1);
                 }

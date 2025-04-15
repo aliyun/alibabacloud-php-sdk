@@ -12,12 +12,13 @@ class StopCategoryCallbackShrinkRequest extends Model
      * @var string
      */
     public $appId;
+
     /**
      * @var string
      */
     public $callbackShrink;
     protected $_name = [
-        'appId'          => 'AppId',
+        'appId' => 'AppId',
         'callbackShrink' => 'Callback',
     ];
 

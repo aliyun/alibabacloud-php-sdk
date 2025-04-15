@@ -13,33 +13,38 @@ class userList extends Model
      * @var int
      */
     public $channelCreatedTs;
+
     /**
      * @var string
      */
     public $channelId;
+
     /**
      * @var int
      */
     public $createdTs;
+
     /**
      * @var int
      */
     public $destroyedTs;
+
     /**
      * @var faultList[]
      */
     public $faultList;
+
     /**
      * @var string
      */
     public $userId;
     protected $_name = [
         'channelCreatedTs' => 'ChannelCreatedTs',
-        'channelId'        => 'ChannelId',
-        'createdTs'        => 'CreatedTs',
-        'destroyedTs'      => 'DestroyedTs',
-        'faultList'        => 'FaultList',
-        'userId'           => 'UserId',
+        'channelId' => 'ChannelId',
+        'createdTs' => 'CreatedTs',
+        'destroyedTs' => 'DestroyedTs',
+        'faultList' => 'FaultList',
+        'userId' => 'UserId',
     ];
 
     public function validate()
@@ -72,7 +77,7 @@ class userList extends Model
         if (null !== $this->faultList) {
             if (\is_array($this->faultList)) {
                 $res['FaultList'] = [];
-                $n1               = 0;
+                $n1 = 0;
                 foreach ($this->faultList as $item1) {
                     $res['FaultList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -113,7 +118,7 @@ class userList extends Model
         if (isset($map['FaultList'])) {
             if (!empty($map['FaultList'])) {
                 $model->faultList = [];
-                $n1               = 0;
+                $n1 = 0;
                 foreach ($map['FaultList'] as $item1) {
                     $model->faultList[$n1++] = faultList::fromMap($item1);
                 }

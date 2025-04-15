@@ -12,23 +12,26 @@ class DescribeUsageAreaDistributionStatDataRequest extends Model
      * @var string
      */
     public $appId;
+
     /**
      * @var string
      */
     public $endDate;
+
     /**
      * @var string
      */
     public $parentArea;
+
     /**
      * @var string
      */
     public $startDate;
     protected $_name = [
-        'appId'      => 'AppId',
-        'endDate'    => 'EndDate',
+        'appId' => 'AppId',
+        'endDate' => 'EndDate',
         'parentArea' => 'ParentArea',
-        'startDate'  => 'StartDate',
+        'startDate' => 'StartDate',
     ];
 
     public function validate()

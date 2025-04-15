@@ -13,13 +13,14 @@ class DescribeRtcDurationDataResponseBody extends Model
      * @var durationDataPerInterval
      */
     public $durationDataPerInterval;
+
     /**
      * @var string
      */
     public $requestId;
     protected $_name = [
         'durationDataPerInterval' => 'DurationDataPerInterval',
-        'requestId'               => 'RequestId',
+        'requestId' => 'RequestId',
     ];
 
     public function validate()

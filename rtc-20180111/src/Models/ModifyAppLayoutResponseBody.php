@@ -12,12 +12,13 @@ class ModifyAppLayoutResponseBody extends Model
      * @var string
      */
     public $layoutId;
+
     /**
      * @var string
      */
     public $requestId;
     protected $_name = [
-        'layoutId'  => 'LayoutId',
+        'layoutId' => 'LayoutId',
         'requestId' => 'RequestId',
     ];
 

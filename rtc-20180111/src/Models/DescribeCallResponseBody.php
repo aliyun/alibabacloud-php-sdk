@@ -14,17 +14,19 @@ class DescribeCallResponseBody extends Model
      * @var callInfo
      */
     public $callInfo;
+
     /**
      * @var string
      */
     public $requestId;
+
     /**
      * @var userDetailList[]
      */
     public $userDetailList;
     protected $_name = [
-        'callInfo'       => 'CallInfo',
-        'requestId'      => 'RequestId',
+        'callInfo' => 'CallInfo',
+        'requestId' => 'RequestId',
         'userDetailList' => 'UserDetailList',
     ];
 
@@ -53,7 +55,7 @@ class DescribeCallResponseBody extends Model
         if (null !== $this->userDetailList) {
             if (\is_array($this->userDetailList)) {
                 $res['UserDetailList'] = [];
-                $n1                    = 0;
+                $n1 = 0;
                 foreach ($this->userDetailList as $item1) {
                     $res['UserDetailList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -82,7 +84,7 @@ class DescribeCallResponseBody extends Model
         if (isset($map['UserDetailList'])) {
             if (!empty($map['UserDetailList'])) {
                 $model->userDetailList = [];
-                $n1                    = 0;
+                $n1 = 0;
                 foreach ($map['UserDetailList'] as $item1) {
                     $model->userDetailList[$n1++] = userDetailList::fromMap($item1);
                 }

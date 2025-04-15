@@ -13,28 +13,32 @@ class DescribeCloudNotesResponseBody extends Model
      * @var items[]
      */
     public $items;
+
     /**
      * @var int
      */
     public $pageNo;
+
     /**
      * @var int
      */
     public $pageSize;
+
     /**
      * @var string
      */
     public $requestId;
+
     /**
      * @var int
      */
     public $totalCnt;
     protected $_name = [
-        'items'     => 'Items',
-        'pageNo'    => 'PageNo',
-        'pageSize'  => 'PageSize',
+        'items' => 'Items',
+        'pageNo' => 'PageNo',
+        'pageSize' => 'PageSize',
         'requestId' => 'RequestId',
-        'totalCnt'  => 'TotalCnt',
+        'totalCnt' => 'TotalCnt',
     ];
 
     public function validate()
@@ -51,7 +55,7 @@ class DescribeCloudNotesResponseBody extends Model
         if (null !== $this->items) {
             if (\is_array($this->items)) {
                 $res['Items'] = [];
-                $n1           = 0;
+                $n1 = 0;
                 foreach ($this->items as $item1) {
                     $res['Items'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -88,7 +92,7 @@ class DescribeCloudNotesResponseBody extends Model
         if (isset($map['Items'])) {
             if (!empty($map['Items'])) {
                 $model->items = [];
-                $n1           = 0;
+                $n1 = 0;
                 foreach ($map['Items'] as $item1) {
                     $model->items[$n1++] = items::fromMap($item1);
                 }

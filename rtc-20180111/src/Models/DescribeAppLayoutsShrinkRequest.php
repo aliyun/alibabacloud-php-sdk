@@ -12,23 +12,26 @@ class DescribeAppLayoutsShrinkRequest extends Model
      * @var string
      */
     public $appId;
+
     /**
      * @var string
      */
     public $conditionShrink;
+
     /**
      * @var int
      */
     public $pageNum;
+
     /**
      * @var int
      */
     public $pageSize;
     protected $_name = [
-        'appId'           => 'AppId',
+        'appId' => 'AppId',
         'conditionShrink' => 'Condition',
-        'pageNum'         => 'PageNum',
-        'pageSize'        => 'PageSize',
+        'pageNum' => 'PageNum',
+        'pageSize' => 'PageSize',
     ];
 
     public function validate()

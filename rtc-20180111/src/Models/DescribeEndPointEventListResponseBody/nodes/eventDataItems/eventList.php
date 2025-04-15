@@ -12,14 +12,17 @@ class eventList extends Model
      * @var string
      */
     public $eventName;
+
     /**
      * @var string
      */
     public $eventType;
+
     /**
      * @var int
      */
     public $ts;
+
     /**
      * @var string
      */
@@ -27,8 +30,8 @@ class eventList extends Model
     protected $_name = [
         'eventName' => 'EventName',
         'eventType' => 'EventType',
-        'ts'        => 'Ts',
-        'tsInMs'    => 'TsInMs',
+        'ts' => 'Ts',
+        'tsInMs' => 'TsInMs',
     ];
 
     public function validate()

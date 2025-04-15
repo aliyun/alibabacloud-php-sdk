@@ -12,12 +12,13 @@ class DeleteAppStreamingOutTemplateShrinkRequest extends Model
      * @var string
      */
     public $appId;
+
     /**
      * @var string
      */
     public $streamingOutTemplateShrink;
     protected $_name = [
-        'appId'                      => 'AppId',
+        'appId' => 'AppId',
         'streamingOutTemplateShrink' => 'StreamingOutTemplate',
     ];
 

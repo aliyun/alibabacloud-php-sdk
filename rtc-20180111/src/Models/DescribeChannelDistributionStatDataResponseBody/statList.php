@@ -12,10 +12,12 @@ class statList extends Model
      * @var int
      */
     public $callUserCount;
+
     /**
      * @var string
      */
     public $callUserRatio;
+
     /**
      * @var string
      */
@@ -23,7 +25,7 @@ class statList extends Model
     protected $_name = [
         'callUserCount' => 'CallUserCount',
         'callUserRatio' => 'CallUserRatio',
-        'name'          => 'Name',
+        'name' => 'Name',
     ];
 
     public function validate()

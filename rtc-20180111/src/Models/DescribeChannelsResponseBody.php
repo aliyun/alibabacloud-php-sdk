@@ -12,28 +12,32 @@ class DescribeChannelsResponseBody extends Model
      * @var int
      */
     public $pageNo;
+
     /**
      * @var int
      */
     public $pageSize;
+
     /**
      * @var string[]
      */
     public $records;
+
     /**
      * @var string
      */
     public $requestId;
+
     /**
      * @var int
      */
     public $totalCnt;
     protected $_name = [
-        'pageNo'    => 'PageNo',
-        'pageSize'  => 'PageSize',
-        'records'   => 'Records',
+        'pageNo' => 'PageNo',
+        'pageSize' => 'PageSize',
+        'records' => 'Records',
         'requestId' => 'RequestId',
-        'totalCnt'  => 'TotalCnt',
+        'totalCnt' => 'TotalCnt',
     ];
 
     public function validate()
@@ -58,7 +62,7 @@ class DescribeChannelsResponseBody extends Model
         if (null !== $this->records) {
             if (\is_array($this->records)) {
                 $res['Records'] = [];
-                $n1             = 0;
+                $n1 = 0;
                 foreach ($this->records as $item1) {
                     $res['Records'][$n1++] = $item1;
                 }
@@ -95,7 +99,7 @@ class DescribeChannelsResponseBody extends Model
         if (isset($map['Records'])) {
             if (!empty($map['Records'])) {
                 $model->records = [];
-                $n1             = 0;
+                $n1 = 0;
                 foreach ($map['Records'] as $item1) {
                     $model->records[$n1++] = $item1;
                 }

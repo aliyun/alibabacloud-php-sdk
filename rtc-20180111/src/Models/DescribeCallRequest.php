@@ -12,32 +12,37 @@ class DescribeCallRequest extends Model
      * @var string
      */
     public $appId;
+
     /**
      * @var string
      */
     public $channelId;
+
     /**
      * @var int
      */
     public $createdTs;
+
     /**
      * @var int
      */
     public $destroyedTs;
+
     /**
      * @var string
      */
     public $extDataType;
+
     /**
      * @var bool
      */
     public $queryExpInfo;
     protected $_name = [
-        'appId'        => 'AppId',
-        'channelId'    => 'ChannelId',
-        'createdTs'    => 'CreatedTs',
-        'destroyedTs'  => 'DestroyedTs',
-        'extDataType'  => 'ExtDataType',
+        'appId' => 'AppId',
+        'channelId' => 'ChannelId',
+        'createdTs' => 'CreatedTs',
+        'destroyedTs' => 'DestroyedTs',
+        'extDataType' => 'ExtDataType',
         'queryExpInfo' => 'QueryExpInfo',
     ];
 

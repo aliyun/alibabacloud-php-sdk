@@ -13,12 +13,13 @@ class DescribeUsageAreaDistributionStatDataResponseBody extends Model
      * @var string
      */
     public $requestId;
+
     /**
      * @var usageAreaStatList[]
      */
     public $usageAreaStatList;
     protected $_name = [
-        'requestId'         => 'RequestId',
+        'requestId' => 'RequestId',
         'usageAreaStatList' => 'UsageAreaStatList',
     ];
 
@@ -40,7 +41,7 @@ class DescribeUsageAreaDistributionStatDataResponseBody extends Model
         if (null !== $this->usageAreaStatList) {
             if (\is_array($this->usageAreaStatList)) {
                 $res['UsageAreaStatList'] = [];
-                $n1                       = 0;
+                $n1 = 0;
                 foreach ($this->usageAreaStatList as $item1) {
                     $res['UsageAreaStatList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -65,7 +66,7 @@ class DescribeUsageAreaDistributionStatDataResponseBody extends Model
         if (isset($map['UsageAreaStatList'])) {
             if (!empty($map['UsageAreaStatList'])) {
                 $model->usageAreaStatList = [];
-                $n1                       = 0;
+                $n1 = 0;
                 foreach ($map['UsageAreaStatList'] as $item1) {
                     $model->usageAreaStatList[$n1++] = usageAreaStatList::fromMap($item1);
                 }

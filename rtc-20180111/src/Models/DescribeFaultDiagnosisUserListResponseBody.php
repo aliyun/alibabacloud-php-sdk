@@ -13,28 +13,32 @@ class DescribeFaultDiagnosisUserListResponseBody extends Model
      * @var int
      */
     public $pageNo;
+
     /**
      * @var int
      */
     public $pageSize;
+
     /**
      * @var string
      */
     public $requestId;
+
     /**
      * @var int
      */
     public $totalCnt;
+
     /**
      * @var userList[]
      */
     public $userList;
     protected $_name = [
-        'pageNo'    => 'PageNo',
-        'pageSize'  => 'PageSize',
+        'pageNo' => 'PageNo',
+        'pageSize' => 'PageSize',
         'requestId' => 'RequestId',
-        'totalCnt'  => 'TotalCnt',
-        'userList'  => 'UserList',
+        'totalCnt' => 'TotalCnt',
+        'userList' => 'UserList',
     ];
 
     public function validate()
@@ -67,7 +71,7 @@ class DescribeFaultDiagnosisUserListResponseBody extends Model
         if (null !== $this->userList) {
             if (\is_array($this->userList)) {
                 $res['UserList'] = [];
-                $n1              = 0;
+                $n1 = 0;
                 foreach ($this->userList as $item1) {
                     $res['UserList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -104,7 +108,7 @@ class DescribeFaultDiagnosisUserListResponseBody extends Model
         if (isset($map['UserList'])) {
             if (!empty($map['UserList'])) {
                 $model->userList = [];
-                $n1              = 0;
+                $n1 = 0;
                 foreach ($map['UserList'] as $item1) {
                     $model->userList[$n1++] = userList::fromMap($item1);
                 }

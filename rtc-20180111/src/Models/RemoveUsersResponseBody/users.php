@@ -12,18 +12,20 @@ class users extends Model
      * @var int
      */
     public $code;
+
     /**
      * @var string
      */
     public $message;
+
     /**
      * @var string
      */
     public $userId;
     protected $_name = [
-        'code'    => 'Code',
+        'code' => 'Code',
         'message' => 'Message',
-        'userId'  => 'UserId',
+        'userId' => 'UserId',
     ];
 
     public function validate()

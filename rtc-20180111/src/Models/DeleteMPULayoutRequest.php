@@ -12,18 +12,20 @@ class DeleteMPULayoutRequest extends Model
      * @var string
      */
     public $appId;
+
     /**
      * @var int
      */
     public $layoutId;
+
     /**
      * @var int
      */
     public $ownerId;
     protected $_name = [
-        'appId'    => 'AppId',
+        'appId' => 'AppId',
         'layoutId' => 'LayoutId',
-        'ownerId'  => 'OwnerId',
+        'ownerId' => 'OwnerId',
     ];
 
     public function validate()

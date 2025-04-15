@@ -12,21 +12,24 @@ class DescribeFaultDiagnosisOverallDataRequest extends Model
      * @var string
      */
     public $appId;
+
     /**
      * @var int
      */
     public $endTs;
+
     /**
      * @var int
      */
     public $startTs;
+
     /**
      * @var string
      */
     public $statDim;
     protected $_name = [
-        'appId'   => 'AppId',
-        'endTs'   => 'EndTs',
+        'appId' => 'AppId',
+        'endTs' => 'EndTs',
         'startTs' => 'StartTs',
         'statDim' => 'StatDim',
     ];

@@ -12,18 +12,20 @@ class peakChannelCntModule extends Model
      * @var int
      */
     public $activeChannelPeak;
+
     /**
      * @var string
      */
     public $activeChannelPeakTime;
+
     /**
      * @var string
      */
     public $timeStamp;
     protected $_name = [
-        'activeChannelPeak'     => 'ActiveChannelPeak',
+        'activeChannelPeak' => 'ActiveChannelPeak',
         'activeChannelPeakTime' => 'ActiveChannelPeakTime',
-        'timeStamp'             => 'TimeStamp',
+        'timeStamp' => 'TimeStamp',
     ];
 
     public function validate()

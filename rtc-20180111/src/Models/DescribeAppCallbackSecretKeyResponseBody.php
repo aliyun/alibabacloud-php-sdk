@@ -12,13 +12,14 @@ class DescribeAppCallbackSecretKeyResponseBody extends Model
      * @var string
      */
     public $callbackSecretKey;
+
     /**
      * @var string
      */
     public $requestId;
     protected $_name = [
         'callbackSecretKey' => 'CallbackSecretKey',
-        'requestId'         => 'RequestId',
+        'requestId' => 'RequestId',
     ];
 
     public function validate()

@@ -13,12 +13,13 @@ class DescribeRtcUserCntDataResponseBody extends Model
      * @var string
      */
     public $requestId;
+
     /**
      * @var userCntDataPerInterval
      */
     public $userCntDataPerInterval;
     protected $_name = [
-        'requestId'              => 'RequestId',
+        'requestId' => 'RequestId',
         'userCntDataPerInterval' => 'UserCntDataPerInterval',
     ];
 

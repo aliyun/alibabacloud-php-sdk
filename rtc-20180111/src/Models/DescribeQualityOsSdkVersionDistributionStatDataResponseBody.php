@@ -13,13 +13,14 @@ class DescribeQualityOsSdkVersionDistributionStatDataResponseBody extends Model
      * @var qualityOsSdkVersionStatDataList[]
      */
     public $qualityOsSdkVersionStatDataList;
+
     /**
      * @var string
      */
     public $requestId;
     protected $_name = [
         'qualityOsSdkVersionStatDataList' => 'QualityOsSdkVersionStatDataList',
-        'requestId'                       => 'RequestId',
+        'requestId' => 'RequestId',
     ];
 
     public function validate()
@@ -36,7 +37,7 @@ class DescribeQualityOsSdkVersionDistributionStatDataResponseBody extends Model
         if (null !== $this->qualityOsSdkVersionStatDataList) {
             if (\is_array($this->qualityOsSdkVersionStatDataList)) {
                 $res['QualityOsSdkVersionStatDataList'] = [];
-                $n1                                     = 0;
+                $n1 = 0;
                 foreach ($this->qualityOsSdkVersionStatDataList as $item1) {
                     $res['QualityOsSdkVersionStatDataList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -61,7 +62,7 @@ class DescribeQualityOsSdkVersionDistributionStatDataResponseBody extends Model
         if (isset($map['QualityOsSdkVersionStatDataList'])) {
             if (!empty($map['QualityOsSdkVersionStatDataList'])) {
                 $model->qualityOsSdkVersionStatDataList = [];
-                $n1                                     = 0;
+                $n1 = 0;
                 foreach ($map['QualityOsSdkVersionStatDataList'] as $item1) {
                     $model->qualityOsSdkVersionStatDataList[$n1++] = qualityOsSdkVersionStatDataList::fromMap($item1);
                 }

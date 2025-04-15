@@ -272,6 +272,7 @@ class Rtc extends OpenApiClient
     /**
      * @param request - AddRecordTemplateRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns AddRecordTemplateResponse
      *
      * @param AddRecordTemplateRequest $request
@@ -363,25 +364,23 @@ class Rtc extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'AddRecordTemplate',
-            'version'     => '2018-01-11',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'AddRecordTemplate',
+            'version' => '2018-01-11',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return AddRecordTemplateResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return AddRecordTemplateResponse::fromMap($this->execute($params, $req, $runtime));
+        return AddRecordTemplateResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * @param request - AddRecordTemplateRequest
+     *
      * @returns AddRecordTemplateResponse
      *
      * @param AddRecordTemplateRequest $request
@@ -400,6 +399,7 @@ class Rtc extends OpenApiClient
      *
      * @param tmpReq - CreateAppLayoutRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns CreateAppLayoutResponse
      *
      * @param CreateAppLayoutRequest $tmpReq
@@ -433,27 +433,25 @@ class Rtc extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'CreateAppLayout',
-            'version'     => '2018-01-11',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CreateAppLayout',
+            'version' => '2018-01-11',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return CreateAppLayoutResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return CreateAppLayoutResponse::fromMap($this->execute($params, $req, $runtime));
+        return CreateAppLayoutResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * 新增app自定义布局
      *
      * @param request - CreateAppLayoutRequest
+     *
      * @returns CreateAppLayoutResponse
      *
      * @param CreateAppLayoutRequest $request
@@ -472,6 +470,7 @@ class Rtc extends OpenApiClient
      *
      * @param tmpReq - CreateAppRecordTemplateRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns CreateAppRecordTemplateResponse
      *
      * @param CreateAppRecordTemplateRequest $tmpReq
@@ -505,27 +504,25 @@ class Rtc extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'CreateAppRecordTemplate',
-            'version'     => '2018-01-11',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CreateAppRecordTemplate',
+            'version' => '2018-01-11',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return CreateAppRecordTemplateResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return CreateAppRecordTemplateResponse::fromMap($this->execute($params, $req, $runtime));
+        return CreateAppRecordTemplateResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * 增加应用录制模版.
      *
      * @param request - CreateAppRecordTemplateRequest
+     *
      * @returns CreateAppRecordTemplateResponse
      *
      * @param CreateAppRecordTemplateRequest $request
@@ -544,6 +541,7 @@ class Rtc extends OpenApiClient
      *
      * @param tmpReq - CreateAppStreamingOutTemplateRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns CreateAppStreamingOutTemplateResponse
      *
      * @param CreateAppStreamingOutTemplateRequest $tmpReq
@@ -573,27 +571,25 @@ class Rtc extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'CreateAppStreamingOutTemplate',
-            'version'     => '2018-01-11',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CreateAppStreamingOutTemplate',
+            'version' => '2018-01-11',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return CreateAppStreamingOutTemplateResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return CreateAppStreamingOutTemplateResponse::fromMap($this->execute($params, $req, $runtime));
+        return CreateAppStreamingOutTemplateResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * 创建应用推流模版.
      *
      * @param request - CreateAppStreamingOutTemplateRequest
+     *
      * @returns CreateAppStreamingOutTemplateResponse
      *
      * @param CreateAppStreamingOutTemplateRequest $request
@@ -610,6 +606,7 @@ class Rtc extends OpenApiClient
     /**
      * @param request - CreateAutoLiveStreamRuleRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns CreateAutoLiveStreamRuleResponse
      *
      * @param CreateAutoLiveStreamRuleRequest $request
@@ -657,25 +654,23 @@ class Rtc extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'CreateAutoLiveStreamRule',
-            'version'     => '2018-01-11',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CreateAutoLiveStreamRule',
+            'version' => '2018-01-11',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return CreateAutoLiveStreamRuleResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return CreateAutoLiveStreamRuleResponse::fromMap($this->execute($params, $req, $runtime));
+        return CreateAutoLiveStreamRuleResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * @param request - CreateAutoLiveStreamRuleRequest
+     *
      * @returns CreateAutoLiveStreamRuleResponse
      *
      * @param CreateAutoLiveStreamRuleRequest $request
@@ -692,6 +687,7 @@ class Rtc extends OpenApiClient
     /**
      * @param request - CreateEventSubscribeRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns CreateEventSubscribeResponse
      *
      * @param CreateEventSubscribeRequest $request
@@ -743,25 +739,23 @@ class Rtc extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'CreateEventSubscribe',
-            'version'     => '2018-01-11',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CreateEventSubscribe',
+            'version' => '2018-01-11',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return CreateEventSubscribeResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return CreateEventSubscribeResponse::fromMap($this->execute($params, $req, $runtime));
+        return CreateEventSubscribeResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * @param request - CreateEventSubscribeRequest
+     *
      * @returns CreateEventSubscribeResponse
      *
      * @param CreateEventSubscribeRequest $request
@@ -778,6 +772,7 @@ class Rtc extends OpenApiClient
     /**
      * @param request - CreateMPULayoutRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns CreateMPULayoutResponse
      *
      * @param CreateMPULayoutRequest $request
@@ -813,25 +808,23 @@ class Rtc extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'CreateMPULayout',
-            'version'     => '2018-01-11',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CreateMPULayout',
+            'version' => '2018-01-11',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return CreateMPULayoutResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return CreateMPULayoutResponse::fromMap($this->execute($params, $req, $runtime));
+        return CreateMPULayoutResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * @param request - CreateMPULayoutRequest
+     *
      * @returns CreateMPULayoutResponse
      *
      * @param CreateMPULayoutRequest $request
@@ -850,6 +843,7 @@ class Rtc extends OpenApiClient
      *
      * @param tmpReq - DeleteAppLayoutRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DeleteAppLayoutResponse
      *
      * @param DeleteAppLayoutRequest $tmpReq
@@ -883,27 +877,25 @@ class Rtc extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DeleteAppLayout',
-            'version'     => '2018-01-11',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DeleteAppLayout',
+            'version' => '2018-01-11',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DeleteAppLayoutResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DeleteAppLayoutResponse::fromMap($this->execute($params, $req, $runtime));
+        return DeleteAppLayoutResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * 删除app自定义布局
      *
      * @param request - DeleteAppLayoutRequest
+     *
      * @returns DeleteAppLayoutResponse
      *
      * @param DeleteAppLayoutRequest $request
@@ -922,6 +914,7 @@ class Rtc extends OpenApiClient
      *
      * @param tmpReq - DeleteAppRecordTemplateRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DeleteAppRecordTemplateResponse
      *
      * @param DeleteAppRecordTemplateRequest $tmpReq
@@ -955,27 +948,25 @@ class Rtc extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DeleteAppRecordTemplate',
-            'version'     => '2018-01-11',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DeleteAppRecordTemplate',
+            'version' => '2018-01-11',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DeleteAppRecordTemplateResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DeleteAppRecordTemplateResponse::fromMap($this->execute($params, $req, $runtime));
+        return DeleteAppRecordTemplateResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * 删除应用录制模版.
      *
      * @param request - DeleteAppRecordTemplateRequest
+     *
      * @returns DeleteAppRecordTemplateResponse
      *
      * @param DeleteAppRecordTemplateRequest $request
@@ -994,6 +985,7 @@ class Rtc extends OpenApiClient
      *
      * @param tmpReq - DeleteAppStreamingOutTemplateRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DeleteAppStreamingOutTemplateResponse
      *
      * @param DeleteAppStreamingOutTemplateRequest $tmpReq
@@ -1023,27 +1015,25 @@ class Rtc extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DeleteAppStreamingOutTemplate',
-            'version'     => '2018-01-11',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DeleteAppStreamingOutTemplate',
+            'version' => '2018-01-11',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DeleteAppStreamingOutTemplateResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DeleteAppStreamingOutTemplateResponse::fromMap($this->execute($params, $req, $runtime));
+        return DeleteAppStreamingOutTemplateResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * 删除应用推流模版.
      *
      * @param request - DeleteAppStreamingOutTemplateRequest
+     *
      * @returns DeleteAppStreamingOutTemplateResponse
      *
      * @param DeleteAppStreamingOutTemplateRequest $request
@@ -1060,6 +1050,7 @@ class Rtc extends OpenApiClient
     /**
      * @param request - DeleteAutoLiveStreamRuleRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DeleteAutoLiveStreamRuleResponse
      *
      * @param DeleteAutoLiveStreamRuleRequest $request
@@ -1087,25 +1078,23 @@ class Rtc extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DeleteAutoLiveStreamRule',
-            'version'     => '2018-01-11',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DeleteAutoLiveStreamRule',
+            'version' => '2018-01-11',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DeleteAutoLiveStreamRuleResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DeleteAutoLiveStreamRuleResponse::fromMap($this->execute($params, $req, $runtime));
+        return DeleteAutoLiveStreamRuleResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * @param request - DeleteAutoLiveStreamRuleRequest
+     *
      * @returns DeleteAutoLiveStreamRuleResponse
      *
      * @param DeleteAutoLiveStreamRuleRequest $request
@@ -1122,6 +1111,7 @@ class Rtc extends OpenApiClient
     /**
      * @param request - DeleteChannelRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DeleteChannelResponse
      *
      * @param DeleteChannelRequest $request
@@ -1149,25 +1139,23 @@ class Rtc extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DeleteChannel',
-            'version'     => '2018-01-11',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DeleteChannel',
+            'version' => '2018-01-11',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DeleteChannelResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DeleteChannelResponse::fromMap($this->execute($params, $req, $runtime));
+        return DeleteChannelResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * @param request - DeleteChannelRequest
+     *
      * @returns DeleteChannelResponse
      *
      * @param DeleteChannelRequest $request
@@ -1184,6 +1172,7 @@ class Rtc extends OpenApiClient
     /**
      * @param request - DeleteEventSubscribeRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DeleteEventSubscribeResponse
      *
      * @param DeleteEventSubscribeRequest $request
@@ -1211,25 +1200,23 @@ class Rtc extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DeleteEventSubscribe',
-            'version'     => '2018-01-11',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DeleteEventSubscribe',
+            'version' => '2018-01-11',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DeleteEventSubscribeResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DeleteEventSubscribeResponse::fromMap($this->execute($params, $req, $runtime));
+        return DeleteEventSubscribeResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * @param request - DeleteEventSubscribeRequest
+     *
      * @returns DeleteEventSubscribeResponse
      *
      * @param DeleteEventSubscribeRequest $request
@@ -1246,6 +1233,7 @@ class Rtc extends OpenApiClient
     /**
      * @param request - DeleteMPULayoutRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DeleteMPULayoutResponse
      *
      * @param DeleteMPULayoutRequest $request
@@ -1273,25 +1261,23 @@ class Rtc extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DeleteMPULayout',
-            'version'     => '2018-01-11',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DeleteMPULayout',
+            'version' => '2018-01-11',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DeleteMPULayoutResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DeleteMPULayoutResponse::fromMap($this->execute($params, $req, $runtime));
+        return DeleteMPULayoutResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * @param request - DeleteMPULayoutRequest
+     *
      * @returns DeleteMPULayoutResponse
      *
      * @param DeleteMPULayoutRequest $request
@@ -1308,6 +1294,7 @@ class Rtc extends OpenApiClient
     /**
      * @param request - DeleteRecordTemplateRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DeleteRecordTemplateResponse
      *
      * @param DeleteRecordTemplateRequest $request
@@ -1335,25 +1322,23 @@ class Rtc extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DeleteRecordTemplate',
-            'version'     => '2018-01-11',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DeleteRecordTemplate',
+            'version' => '2018-01-11',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DeleteRecordTemplateResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DeleteRecordTemplateResponse::fromMap($this->execute($params, $req, $runtime));
+        return DeleteRecordTemplateResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * @param request - DeleteRecordTemplateRequest
+     *
      * @returns DeleteRecordTemplateResponse
      *
      * @param DeleteRecordTemplateRequest $request
@@ -1372,6 +1357,7 @@ class Rtc extends OpenApiClient
      *
      * @param request - DescribeAllCallbackRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribeAllCallbackResponse
      *
      * @param RuntimeOptions $runtime
@@ -1380,23 +1366,20 @@ class Rtc extends OpenApiClient
      */
     public function describeAllCallbackWithOptions($runtime)
     {
-        $req    = new OpenApiRequest([]);
+        $req = new OpenApiRequest([]);
         $params = new Params([
-            'action'      => 'DescribeAllCallback',
-            'version'     => '2018-01-11',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeAllCallback',
+            'version' => '2018-01-11',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribeAllCallbackResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeAllCallbackResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeAllCallbackResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1418,6 +1401,7 @@ class Rtc extends OpenApiClient
      *
      * @param request - DescribeAppCallStatusRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribeAppCallStatusResponse
      *
      * @param DescribeAppCallStatusRequest $request
@@ -1437,27 +1421,25 @@ class Rtc extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeAppCallStatus',
-            'version'     => '2018-01-11',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeAppCallStatus',
+            'version' => '2018-01-11',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribeAppCallStatusResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeAppCallStatusResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeAppCallStatusResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * 查看app回调开关.
      *
      * @param request - DescribeAppCallStatusRequest
+     *
      * @returns DescribeAppCallStatusResponse
      *
      * @param DescribeAppCallStatusRequest $request
@@ -1476,6 +1458,7 @@ class Rtc extends OpenApiClient
      *
      * @param request - DescribeAppCallbackSecretKeyRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribeAppCallbackSecretKeyResponse
      *
      * @param DescribeAppCallbackSecretKeyRequest $request
@@ -1495,27 +1478,25 @@ class Rtc extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeAppCallbackSecretKey',
-            'version'     => '2018-01-11',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeAppCallbackSecretKey',
+            'version' => '2018-01-11',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribeAppCallbackSecretKeyResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeAppCallbackSecretKeyResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeAppCallbackSecretKeyResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * 获取app回调密钥.
      *
      * @param request - DescribeAppCallbackSecretKeyRequest
+     *
      * @returns DescribeAppCallbackSecretKeyResponse
      *
      * @param DescribeAppCallbackSecretKeyRequest $request
@@ -1534,6 +1515,7 @@ class Rtc extends OpenApiClient
      *
      * @param request - DescribeAppKeyRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribeAppKeyResponse
      *
      * @param DescribeAppKeyRequest $request
@@ -1557,27 +1539,25 @@ class Rtc extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeAppKey',
-            'version'     => '2018-01-11',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeAppKey',
+            'version' => '2018-01-11',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribeAppKeyResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeAppKeyResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeAppKeyResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * 查看AppKey.
      *
      * @param request - DescribeAppKeyRequest
+     *
      * @returns DescribeAppKeyResponse
      *
      * @param DescribeAppKeyRequest $request
@@ -1596,6 +1576,7 @@ class Rtc extends OpenApiClient
      *
      * @param tmpReq - DescribeAppLayoutsRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribeAppLayoutsResponse
      *
      * @param DescribeAppLayoutsRequest $tmpReq
@@ -1613,31 +1594,29 @@ class Rtc extends OpenApiClient
         }
 
         $query = Utils::query($request->toMap());
-        $req   = new OpenApiRequest([
+        $req = new OpenApiRequest([
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeAppLayouts',
-            'version'     => '2018-01-11',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeAppLayouts',
+            'version' => '2018-01-11',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribeAppLayoutsResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeAppLayoutsResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeAppLayoutsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * 查询app自定义布局
      *
      * @param request - DescribeAppLayoutsRequest
+     *
      * @returns DescribeAppLayoutsResponse
      *
      * @param DescribeAppLayoutsRequest $request
@@ -1656,6 +1635,7 @@ class Rtc extends OpenApiClient
      *
      * @param request - DescribeAppLiveStreamStatusRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribeAppLiveStreamStatusResponse
      *
      * @param DescribeAppLiveStreamStatusRequest $request
@@ -1667,31 +1647,29 @@ class Rtc extends OpenApiClient
     {
         $request->validate();
         $query = Utils::query($request->toMap());
-        $req   = new OpenApiRequest([
+        $req = new OpenApiRequest([
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeAppLiveStreamStatus',
-            'version'     => '2018-01-11',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeAppLiveStreamStatus',
+            'version' => '2018-01-11',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribeAppLiveStreamStatusResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeAppLiveStreamStatusResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeAppLiveStreamStatusResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * 查看应用旁路开关.
      *
      * @param request - DescribeAppLiveStreamStatusRequest
+     *
      * @returns DescribeAppLiveStreamStatusResponse
      *
      * @param DescribeAppLiveStreamStatusRequest $request
@@ -1710,6 +1688,7 @@ class Rtc extends OpenApiClient
      *
      * @param request - DescribeAppRecordStatusRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribeAppRecordStatusResponse
      *
      * @param DescribeAppRecordStatusRequest $request
@@ -1721,31 +1700,29 @@ class Rtc extends OpenApiClient
     {
         $request->validate();
         $query = Utils::query($request->toMap());
-        $req   = new OpenApiRequest([
+        $req = new OpenApiRequest([
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeAppRecordStatus',
-            'version'     => '2018-01-11',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeAppRecordStatus',
+            'version' => '2018-01-11',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribeAppRecordStatusResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeAppRecordStatusResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeAppRecordStatusResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * 查询应用录制开关.
      *
      * @param request - DescribeAppRecordStatusRequest
+     *
      * @returns DescribeAppRecordStatusResponse
      *
      * @param DescribeAppRecordStatusRequest $request
@@ -1764,6 +1741,7 @@ class Rtc extends OpenApiClient
      *
      * @param tmpReq - DescribeAppRecordTemplatesRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribeAppRecordTemplatesResponse
      *
      * @param DescribeAppRecordTemplatesRequest $tmpReq
@@ -1781,31 +1759,29 @@ class Rtc extends OpenApiClient
         }
 
         $query = Utils::query($request->toMap());
-        $req   = new OpenApiRequest([
+        $req = new OpenApiRequest([
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeAppRecordTemplates',
-            'version'     => '2018-01-11',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeAppRecordTemplates',
+            'version' => '2018-01-11',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribeAppRecordTemplatesResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeAppRecordTemplatesResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeAppRecordTemplatesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * 应用录制模版列表.
      *
      * @param request - DescribeAppRecordTemplatesRequest
+     *
      * @returns DescribeAppRecordTemplatesResponse
      *
      * @param DescribeAppRecordTemplatesRequest $request
@@ -1824,6 +1800,7 @@ class Rtc extends OpenApiClient
      *
      * @param tmpReq - DescribeAppRecordingFilesRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribeAppRecordingFilesResponse
      *
      * @param DescribeAppRecordingFilesRequest $tmpReq
@@ -1841,31 +1818,29 @@ class Rtc extends OpenApiClient
         }
 
         $query = Utils::query($request->toMap());
-        $req   = new OpenApiRequest([
+        $req = new OpenApiRequest([
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeAppRecordingFiles',
-            'version'     => '2018-01-11',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeAppRecordingFiles',
+            'version' => '2018-01-11',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribeAppRecordingFilesResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeAppRecordingFilesResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeAppRecordingFilesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * 查询录制列表.
      *
      * @param request - DescribeAppRecordingFilesRequest
+     *
      * @returns DescribeAppRecordingFilesResponse
      *
      * @param DescribeAppRecordingFilesRequest $request
@@ -1884,6 +1859,7 @@ class Rtc extends OpenApiClient
      *
      * @param tmpReq - DescribeAppStreamingOutTemplatesRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribeAppStreamingOutTemplatesResponse
      *
      * @param DescribeAppStreamingOutTemplatesRequest $tmpReq
@@ -1921,27 +1897,25 @@ class Rtc extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeAppStreamingOutTemplates',
-            'version'     => '2018-01-11',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeAppStreamingOutTemplates',
+            'version' => '2018-01-11',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribeAppStreamingOutTemplatesResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeAppStreamingOutTemplatesResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeAppStreamingOutTemplatesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * 应用推流模版列表.
      *
      * @param request - DescribeAppStreamingOutTemplatesRequest
+     *
      * @returns DescribeAppStreamingOutTemplatesResponse
      *
      * @param DescribeAppStreamingOutTemplatesRequest $request
@@ -1960,6 +1934,7 @@ class Rtc extends OpenApiClient
      *
      * @param request - DescribeAppsRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribeAppsResponse
      *
      * @param DescribeAppsRequest $request
@@ -2003,27 +1978,25 @@ class Rtc extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeApps',
-            'version'     => '2018-01-11',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeApps',
+            'version' => '2018-01-11',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribeAppsResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeAppsResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeAppsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * App列表.
      *
      * @param request - DescribeAppsRequest
+     *
      * @returns DescribeAppsResponse
      *
      * @param DescribeAppsRequest $request
@@ -2040,6 +2013,7 @@ class Rtc extends OpenApiClient
     /**
      * @param request - DescribeAutoLiveStreamRuleRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribeAutoLiveStreamRuleResponse
      *
      * @param DescribeAutoLiveStreamRuleRequest $request
@@ -2063,25 +2037,23 @@ class Rtc extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeAutoLiveStreamRule',
-            'version'     => '2018-01-11',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeAutoLiveStreamRule',
+            'version' => '2018-01-11',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribeAutoLiveStreamRuleResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeAutoLiveStreamRuleResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeAutoLiveStreamRuleResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * @param request - DescribeAutoLiveStreamRuleRequest
+     *
      * @returns DescribeAutoLiveStreamRuleResponse
      *
      * @param DescribeAutoLiveStreamRuleRequest $request
@@ -2100,6 +2072,7 @@ class Rtc extends OpenApiClient
      *
      * @param request - DescribeCallRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribeCallResponse
      *
      * @param DescribeCallRequest $request
@@ -2139,27 +2112,25 @@ class Rtc extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeCall',
-            'version'     => '2018-01-11',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeCall',
+            'version' => '2018-01-11',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribeCallResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeCallResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeCallResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * 调用DescribeCall获取单次通信详情。
      *
      * @param request - DescribeCallRequest
+     *
      * @returns DescribeCallResponse
      *
      * @param DescribeCallRequest $request
@@ -2178,6 +2149,7 @@ class Rtc extends OpenApiClient
      *
      * @param request - DescribeCallListRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribeCallListResponse
      *
      * @param DescribeCallListRequest $request
@@ -2233,27 +2205,25 @@ class Rtc extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeCallList',
-            'version'     => '2018-01-11',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeCallList',
+            'version' => '2018-01-11',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribeCallListResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeCallListResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeCallListResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * 调用DescribeCallList分页查询时间范围内创建的通信信息。
      *
      * @param request - DescribeCallListRequest
+     *
      * @returns DescribeCallListResponse
      *
      * @param DescribeCallListRequest $request
@@ -2272,6 +2242,7 @@ class Rtc extends OpenApiClient
      *
      * @param request - DescribeCallbacksRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribeCallbacksResponse
      *
      * @param DescribeCallbacksRequest $request
@@ -2291,27 +2262,25 @@ class Rtc extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeCallbacks',
-            'version'     => '2018-01-11',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeCallbacks',
+            'version' => '2018-01-11',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribeCallbacksResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeCallbacksResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeCallbacksResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * app事件回调列表.
      *
      * @param request - DescribeCallbacksRequest
+     *
      * @returns DescribeCallbacksResponse
      *
      * @param DescribeCallbacksRequest $request
@@ -2330,6 +2299,7 @@ class Rtc extends OpenApiClient
      *
      * @param request - DescribeChannelRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribeChannelResponse
      *
      * @param DescribeChannelRequest $request
@@ -2353,27 +2323,25 @@ class Rtc extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeChannel',
-            'version'     => '2018-01-11',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeChannel',
+            'version' => '2018-01-11',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribeChannelResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeChannelResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeChannelResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * DescribeChannel.
      *
      * @param request - DescribeChannelRequest
+     *
      * @returns DescribeChannelResponse
      *
      * @param DescribeChannelRequest $request
@@ -2392,6 +2360,7 @@ class Rtc extends OpenApiClient
      *
      * @param request - DescribeChannelAllUsersRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribeChannelAllUsersResponse
      *
      * @param DescribeChannelAllUsersRequest $request
@@ -2415,27 +2384,25 @@ class Rtc extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeChannelAllUsers',
-            'version'     => '2018-01-11',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeChannelAllUsers',
+            'version' => '2018-01-11',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribeChannelAllUsersResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeChannelAllUsersResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeChannelAllUsersResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * 查询频道的所有参会者.
      *
      * @param request - DescribeChannelAllUsersRequest
+     *
      * @returns DescribeChannelAllUsersResponse
      *
      * @param DescribeChannelAllUsersRequest $request
@@ -2454,6 +2421,7 @@ class Rtc extends OpenApiClient
      *
      * @param request - DescribeChannelAreaDistributionStatDataRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribeChannelAreaDistributionStatDataResponse
      *
      * @param DescribeChannelAreaDistributionStatDataRequest $request
@@ -2489,27 +2457,25 @@ class Rtc extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeChannelAreaDistributionStatData',
-            'version'     => '2018-01-11',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeChannelAreaDistributionStatData',
+            'version' => '2018-01-11',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribeChannelAreaDistributionStatDataResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeChannelAreaDistributionStatDataResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeChannelAreaDistributionStatDataResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * 调用DescribeChannelAreaDistributionStatData获取频道地区分布统计数据。
      *
      * @param request - DescribeChannelAreaDistributionStatDataRequest
+     *
      * @returns DescribeChannelAreaDistributionStatDataResponse
      *
      * @param DescribeChannelAreaDistributionStatDataRequest $request
@@ -2528,6 +2494,7 @@ class Rtc extends OpenApiClient
      *
      * @param request - DescribeChannelDistributionStatDataRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribeChannelDistributionStatDataResponse
      *
      * @param DescribeChannelDistributionStatDataRequest $request
@@ -2563,27 +2530,25 @@ class Rtc extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeChannelDistributionStatData',
-            'version'     => '2018-01-11',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeChannelDistributionStatData',
+            'version' => '2018-01-11',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribeChannelDistributionStatDataResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeChannelDistributionStatDataResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeChannelDistributionStatDataResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * 调用DescribeChannelDistributionStatData获取频道分布统计数据。
      *
      * @param request - DescribeChannelDistributionStatDataRequest
+     *
      * @returns DescribeChannelDistributionStatDataResponse
      *
      * @param DescribeChannelDistributionStatDataRequest $request
@@ -2602,6 +2567,7 @@ class Rtc extends OpenApiClient
      *
      * @param request - DescribeChannelOverallDataRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribeChannelOverallDataResponse
      *
      * @param DescribeChannelOverallDataRequest $request
@@ -2633,27 +2599,25 @@ class Rtc extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeChannelOverallData',
-            'version'     => '2018-01-11',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeChannelOverallData',
+            'version' => '2018-01-11',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribeChannelOverallDataResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeChannelOverallDataResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeChannelOverallDataResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * 调用DescribeChannelOverallData查询频道概览数据。
      *
      * @param request - DescribeChannelOverallDataRequest
+     *
      * @returns DescribeChannelOverallDataResponse
      *
      * @param DescribeChannelOverallDataRequest $request
@@ -2670,6 +2634,7 @@ class Rtc extends OpenApiClient
     /**
      * @param request - DescribeChannelParticipantsRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribeChannelParticipantsResponse
      *
      * @param DescribeChannelParticipantsRequest $request
@@ -2709,25 +2674,23 @@ class Rtc extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeChannelParticipants',
-            'version'     => '2018-01-11',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeChannelParticipants',
+            'version' => '2018-01-11',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribeChannelParticipantsResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeChannelParticipantsResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeChannelParticipantsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * @param request - DescribeChannelParticipantsRequest
+     *
      * @returns DescribeChannelParticipantsResponse
      *
      * @param DescribeChannelParticipantsRequest $request
@@ -2746,6 +2709,7 @@ class Rtc extends OpenApiClient
      *
      * @param request - DescribeChannelTopPubUserListRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribeChannelTopPubUserListResponse
      *
      * @param DescribeChannelTopPubUserListRequest $request
@@ -2777,27 +2741,25 @@ class Rtc extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeChannelTopPubUserList',
-            'version'     => '2018-01-11',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeChannelTopPubUserList',
+            'version' => '2018-01-11',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribeChannelTopPubUserListResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeChannelTopPubUserListResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeChannelTopPubUserListResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * 调用DescribeChannelTopPubUserList获取频道内发布端的用户列表（按用户在线时长降序）。
      *
      * @param request - DescribeChannelTopPubUserListRequest
+     *
      * @returns DescribeChannelTopPubUserListResponse
      *
      * @param DescribeChannelTopPubUserListRequest $request
@@ -2816,6 +2778,7 @@ class Rtc extends OpenApiClient
      *
      * @param request - DescribeChannelUserRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribeChannelUserResponse
      *
      * @param DescribeChannelUserRequest $request
@@ -2843,27 +2806,25 @@ class Rtc extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeChannelUser',
-            'version'     => '2018-01-11',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeChannelUser',
+            'version' => '2018-01-11',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribeChannelUserResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeChannelUserResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeChannelUserResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * DescribeChannelUser.
      *
      * @param request - DescribeChannelUserRequest
+     *
      * @returns DescribeChannelUserResponse
      *
      * @param DescribeChannelUserRequest $request
@@ -2882,6 +2843,7 @@ class Rtc extends OpenApiClient
      *
      * @param request - DescribeChannelUserMetricsRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribeChannelUserMetricsResponse
      *
      * @param DescribeChannelUserMetricsRequest $request
@@ -2913,27 +2875,25 @@ class Rtc extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeChannelUserMetrics',
-            'version'     => '2018-01-11',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeChannelUserMetrics',
+            'version' => '2018-01-11',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribeChannelUserMetricsResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeChannelUserMetricsResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeChannelUserMetricsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * 调用DescribeChannelUserMetrics查询频道总览中的用户数据。
      *
      * @param request - DescribeChannelUserMetricsRequest
+     *
      * @returns DescribeChannelUserMetricsResponse
      *
      * @param DescribeChannelUserMetricsRequest $request
@@ -2950,6 +2910,7 @@ class Rtc extends OpenApiClient
     /**
      * @param request - DescribeChannelUsersRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribeChannelUsersResponse
      *
      * @param DescribeChannelUsersRequest $request
@@ -2977,25 +2938,23 @@ class Rtc extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeChannelUsers',
-            'version'     => '2018-01-11',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeChannelUsers',
+            'version' => '2018-01-11',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribeChannelUsersResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeChannelUsersResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeChannelUsersResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * @param request - DescribeChannelUsersRequest
+     *
      * @returns DescribeChannelUsersResponse
      *
      * @param DescribeChannelUsersRequest $request
@@ -3014,6 +2973,7 @@ class Rtc extends OpenApiClient
      *
      * @param request - DescribeChannelsRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribeChannelsResponse
      *
      * @param DescribeChannelsRequest $request
@@ -3025,31 +2985,29 @@ class Rtc extends OpenApiClient
     {
         $request->validate();
         $query = Utils::query($request->toMap());
-        $req   = new OpenApiRequest([
+        $req = new OpenApiRequest([
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeChannels',
-            'version'     => '2018-01-11',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeChannels',
+            'version' => '2018-01-11',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribeChannelsResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeChannelsResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeChannelsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * 查询在线频道列表.
      *
      * @param request - DescribeChannelsRequest
+     *
      * @returns DescribeChannelsResponse
      *
      * @param DescribeChannelsRequest $request
@@ -3068,6 +3026,7 @@ class Rtc extends OpenApiClient
      *
      * @param tmpReq - DescribeCloudNotesRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribeCloudNotesResponse
      *
      * @param DescribeCloudNotesRequest $tmpReq
@@ -3085,31 +3044,29 @@ class Rtc extends OpenApiClient
         }
 
         $query = Utils::query($request->toMap());
-        $req   = new OpenApiRequest([
+        $req = new OpenApiRequest([
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeCloudNotes',
-            'version'     => '2018-01-11',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeCloudNotes',
+            'version' => '2018-01-11',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribeCloudNotesResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeCloudNotesResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeCloudNotesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * 纪要列表.
      *
      * @param request - DescribeCloudNotesRequest
+     *
      * @returns DescribeCloudNotesResponse
      *
      * @param DescribeCloudNotesRequest $request
@@ -3128,6 +3085,7 @@ class Rtc extends OpenApiClient
      *
      * @param request - DescribeEndPointEventListRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribeEndPointEventListResponse
      *
      * @param DescribeEndPointEventListRequest $request
@@ -3163,27 +3121,25 @@ class Rtc extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeEndPointEventList',
-            'version'     => '2018-01-11',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeEndPointEventList',
+            'version' => '2018-01-11',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribeEndPointEventListResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeEndPointEventListResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeEndPointEventListResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * 调用DescribeEndPointEventList获取端对端用户事件列表。
      *
      * @param request - DescribeEndPointEventListRequest
+     *
      * @returns DescribeEndPointEventListResponse
      *
      * @param DescribeEndPointEventListRequest $request
@@ -3202,6 +3158,7 @@ class Rtc extends OpenApiClient
      *
      * @param request - DescribeEndPointMetricDataRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribeEndPointMetricDataResponse
      *
      * @param DescribeEndPointMetricDataRequest $request
@@ -3249,27 +3206,25 @@ class Rtc extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeEndPointMetricData',
-            'version'     => '2018-01-11',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeEndPointMetricData',
+            'version' => '2018-01-11',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribeEndPointMetricDataResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeEndPointMetricDataResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeEndPointMetricDataResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * 调用DescribeEndPointMetricData获取端对端指标数据。
      *
      * @param request - DescribeEndPointMetricDataRequest
+     *
      * @returns DescribeEndPointMetricDataResponse
      *
      * @param DescribeEndPointMetricDataRequest $request
@@ -3288,6 +3243,7 @@ class Rtc extends OpenApiClient
      *
      * @param request - DescribeFaultDiagnosisFactorDistributionStatRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribeFaultDiagnosisFactorDistributionStatResponse
      *
      * @param DescribeFaultDiagnosisFactorDistributionStatRequest $request
@@ -3315,27 +3271,25 @@ class Rtc extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeFaultDiagnosisFactorDistributionStat',
-            'version'     => '2018-01-11',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeFaultDiagnosisFactorDistributionStat',
+            'version' => '2018-01-11',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribeFaultDiagnosisFactorDistributionStatResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeFaultDiagnosisFactorDistributionStatResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeFaultDiagnosisFactorDistributionStatResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * 获取异常诊断影响因素分布.
      *
      * @param request - DescribeFaultDiagnosisFactorDistributionStatRequest
+     *
      * @returns DescribeFaultDiagnosisFactorDistributionStatResponse
      *
      * @param DescribeFaultDiagnosisFactorDistributionStatRequest $request
@@ -3354,6 +3308,7 @@ class Rtc extends OpenApiClient
      *
      * @param request - DescribeFaultDiagnosisOverallDataRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribeFaultDiagnosisOverallDataResponse
      *
      * @param DescribeFaultDiagnosisOverallDataRequest $request
@@ -3385,27 +3340,25 @@ class Rtc extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeFaultDiagnosisOverallData',
-            'version'     => '2018-01-11',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeFaultDiagnosisOverallData',
+            'version' => '2018-01-11',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribeFaultDiagnosisOverallDataResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeFaultDiagnosisOverallDataResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeFaultDiagnosisOverallDataResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * 获取异常诊断总览数据.
      *
      * @param request - DescribeFaultDiagnosisOverallDataRequest
+     *
      * @returns DescribeFaultDiagnosisOverallDataResponse
      *
      * @param DescribeFaultDiagnosisOverallDataRequest $request
@@ -3424,6 +3377,7 @@ class Rtc extends OpenApiClient
      *
      * @param request - DescribeFaultDiagnosisUserDetailRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribeFaultDiagnosisUserDetailResponse
      *
      * @param DescribeFaultDiagnosisUserDetailRequest $request
@@ -3463,27 +3417,25 @@ class Rtc extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeFaultDiagnosisUserDetail',
-            'version'     => '2018-01-11',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeFaultDiagnosisUserDetail',
+            'version' => '2018-01-11',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribeFaultDiagnosisUserDetailResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeFaultDiagnosisUserDetailResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeFaultDiagnosisUserDetailResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * 获取异常诊断用户详情.
      *
      * @param request - DescribeFaultDiagnosisUserDetailRequest
+     *
      * @returns DescribeFaultDiagnosisUserDetailResponse
      *
      * @param DescribeFaultDiagnosisUserDetailRequest $request
@@ -3502,6 +3454,7 @@ class Rtc extends OpenApiClient
      *
      * @param request - DescribeFaultDiagnosisUserListRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribeFaultDiagnosisUserListResponse
      *
      * @param DescribeFaultDiagnosisUserListRequest $request
@@ -3549,27 +3502,25 @@ class Rtc extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeFaultDiagnosisUserList',
-            'version'     => '2018-01-11',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeFaultDiagnosisUserList',
+            'version' => '2018-01-11',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribeFaultDiagnosisUserListResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeFaultDiagnosisUserListResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeFaultDiagnosisUserListResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * 获取异常诊断用户明细列表.
      *
      * @param request - DescribeFaultDiagnosisUserListRequest
+     *
      * @returns DescribeFaultDiagnosisUserListResponse
      *
      * @param DescribeFaultDiagnosisUserListRequest $request
@@ -3586,6 +3537,7 @@ class Rtc extends OpenApiClient
     /**
      * @param request - DescribeMPULayoutInfoListRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribeMPULayoutInfoListResponse
      *
      * @param DescribeMPULayoutInfoListRequest $request
@@ -3625,25 +3577,23 @@ class Rtc extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeMPULayoutInfoList',
-            'version'     => '2018-01-11',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeMPULayoutInfoList',
+            'version' => '2018-01-11',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribeMPULayoutInfoListResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeMPULayoutInfoListResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeMPULayoutInfoListResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * @param request - DescribeMPULayoutInfoListRequest
+     *
      * @returns DescribeMPULayoutInfoListResponse
      *
      * @param DescribeMPULayoutInfoListRequest $request
@@ -3662,6 +3612,7 @@ class Rtc extends OpenApiClient
      *
      * @param request - DescribePubUserListBySubUserRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribePubUserListBySubUserResponse
      *
      * @param DescribePubUserListBySubUserRequest $request
@@ -3697,27 +3648,25 @@ class Rtc extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribePubUserListBySubUser',
-            'version'     => '2018-01-11',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribePubUserListBySubUser',
+            'version' => '2018-01-11',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribePubUserListBySubUserResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribePubUserListBySubUserResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribePubUserListBySubUserResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * 调用DescribePubUserListBySubUser根据订阅端获取通信中发布端用户列表。
      *
      * @param request - DescribePubUserListBySubUserRequest
+     *
      * @returns DescribePubUserListBySubUserResponse
      *
      * @param DescribePubUserListBySubUserRequest $request
@@ -3736,6 +3685,7 @@ class Rtc extends OpenApiClient
      *
      * @param request - DescribeQoeMetricDataRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribeQoeMetricDataResponse
      *
      * @param DescribeQoeMetricDataRequest $request
@@ -3771,27 +3721,25 @@ class Rtc extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeQoeMetricData',
-            'version'     => '2018-01-11',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeQoeMetricData',
+            'version' => '2018-01-11',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribeQoeMetricDataResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeQoeMetricDataResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeQoeMetricDataResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * 调用DescribeQoeMetricData获取单次通信中用户的下行体验质量指标。
      *
      * @param request - DescribeQoeMetricDataRequest
+     *
      * @returns DescribeQoeMetricDataResponse
      *
      * @param DescribeQoeMetricDataRequest $request
@@ -3810,6 +3758,7 @@ class Rtc extends OpenApiClient
      *
      * @param request - DescribeQualityAreaDistributionStatDataRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribeQualityAreaDistributionStatDataResponse
      *
      * @param DescribeQualityAreaDistributionStatDataRequest $request
@@ -3841,27 +3790,25 @@ class Rtc extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeQualityAreaDistributionStatData',
-            'version'     => '2018-01-11',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeQualityAreaDistributionStatData',
+            'version' => '2018-01-11',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribeQualityAreaDistributionStatDataResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeQualityAreaDistributionStatDataResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeQualityAreaDistributionStatDataResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * 获取质量统计区域分布统计数据.
      *
      * @param request - DescribeQualityAreaDistributionStatDataRequest
+     *
      * @returns DescribeQualityAreaDistributionStatDataResponse
      *
      * @param DescribeQualityAreaDistributionStatDataRequest $request
@@ -3880,6 +3827,7 @@ class Rtc extends OpenApiClient
      *
      * @param request - DescribeQualityDistributionStatDataRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribeQualityDistributionStatDataResponse
      *
      * @param DescribeQualityDistributionStatDataRequest $request
@@ -3911,27 +3859,25 @@ class Rtc extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeQualityDistributionStatData',
-            'version'     => '2018-01-11',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeQualityDistributionStatData',
+            'version' => '2018-01-11',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribeQualityDistributionStatDataResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeQualityDistributionStatDataResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeQualityDistributionStatDataResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * 获取质量统计分布数据.
      *
      * @param request - DescribeQualityDistributionStatDataRequest
+     *
      * @returns DescribeQualityDistributionStatDataResponse
      *
      * @param DescribeQualityDistributionStatDataRequest $request
@@ -3950,6 +3896,7 @@ class Rtc extends OpenApiClient
      *
      * @param request - DescribeQualityOsSdkVersionDistributionStatDataRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribeQualityOsSdkVersionDistributionStatDataResponse
      *
      * @param DescribeQualityOsSdkVersionDistributionStatDataRequest $request
@@ -3977,27 +3924,25 @@ class Rtc extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeQualityOsSdkVersionDistributionStatData',
-            'version'     => '2018-01-11',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeQualityOsSdkVersionDistributionStatData',
+            'version' => '2018-01-11',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribeQualityOsSdkVersionDistributionStatDataResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeQualityOsSdkVersionDistributionStatDataResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeQualityOsSdkVersionDistributionStatDataResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * 获取质量统计各操作系统下SDK版本分布数据.
      *
      * @param request - DescribeQualityOsSdkVersionDistributionStatDataRequest
+     *
      * @returns DescribeQualityOsSdkVersionDistributionStatDataResponse
      *
      * @param DescribeQualityOsSdkVersionDistributionStatDataRequest $request
@@ -4016,6 +3961,7 @@ class Rtc extends OpenApiClient
      *
      * @param request - DescribeQualityOverallDataRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribeQualityOverallDataResponse
      *
      * @param DescribeQualityOverallDataRequest $request
@@ -4047,27 +3993,25 @@ class Rtc extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeQualityOverallData',
-            'version'     => '2018-01-11',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeQualityOverallData',
+            'version' => '2018-01-11',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribeQualityOverallDataResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeQualityOverallDataResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeQualityOverallDataResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * 获取质量统计概览数据.
      *
      * @param request - DescribeQualityOverallDataRequest
+     *
      * @returns DescribeQualityOverallDataResponse
      *
      * @param DescribeQualityOverallDataRequest $request
@@ -4084,6 +4028,7 @@ class Rtc extends OpenApiClient
     /**
      * @param request - DescribeRecordFilesRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribeRecordFilesResponse
      *
      * @param DescribeRecordFilesRequest $request
@@ -4131,25 +4076,23 @@ class Rtc extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeRecordFiles',
-            'version'     => '2018-01-11',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeRecordFiles',
+            'version' => '2018-01-11',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribeRecordFilesResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeRecordFilesResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeRecordFilesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * @param request - DescribeRecordFilesRequest
+     *
      * @returns DescribeRecordFilesResponse
      *
      * @param DescribeRecordFilesRequest $request
@@ -4166,6 +4109,7 @@ class Rtc extends OpenApiClient
     /**
      * @param request - DescribeRecordTemplatesRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribeRecordTemplatesResponse
      *
      * @param DescribeRecordTemplatesRequest $request
@@ -4201,25 +4145,23 @@ class Rtc extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeRecordTemplates',
-            'version'     => '2018-01-11',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeRecordTemplates',
+            'version' => '2018-01-11',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribeRecordTemplatesResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeRecordTemplatesResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeRecordTemplatesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * @param request - DescribeRecordTemplatesRequest
+     *
      * @returns DescribeRecordTemplatesResponse
      *
      * @param DescribeRecordTemplatesRequest $request
@@ -4236,6 +4178,7 @@ class Rtc extends OpenApiClient
     /**
      * @param request - DescribeRtcChannelListRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribeRtcChannelListResponse
      *
      * @param DescribeRtcChannelListRequest $request
@@ -4287,25 +4230,23 @@ class Rtc extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeRtcChannelList',
-            'version'     => '2018-01-11',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeRtcChannelList',
+            'version' => '2018-01-11',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribeRtcChannelListResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeRtcChannelListResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeRtcChannelListResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * @param request - DescribeRtcChannelListRequest
+     *
      * @returns DescribeRtcChannelListResponse
      *
      * @param DescribeRtcChannelListRequest $request
@@ -4322,6 +4263,7 @@ class Rtc extends OpenApiClient
     /**
      * @param request - DescribeRtcChannelMetricRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribeRtcChannelMetricResponse
      *
      * @param DescribeRtcChannelMetricRequest $request
@@ -4353,25 +4295,23 @@ class Rtc extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeRtcChannelMetric',
-            'version'     => '2018-01-11',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeRtcChannelMetric',
+            'version' => '2018-01-11',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribeRtcChannelMetricResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeRtcChannelMetricResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeRtcChannelMetricResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * @param request - DescribeRtcChannelMetricRequest
+     *
      * @returns DescribeRtcChannelMetricResponse
      *
      * @param DescribeRtcChannelMetricRequest $request
@@ -4388,6 +4328,7 @@ class Rtc extends OpenApiClient
     /**
      * @param request - DescribeRtcDurationDataRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribeRtcDurationDataResponse
      *
      * @param DescribeRtcDurationDataRequest $request
@@ -4427,25 +4368,23 @@ class Rtc extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeRtcDurationData',
-            'version'     => '2018-01-11',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeRtcDurationData',
+            'version' => '2018-01-11',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribeRtcDurationDataResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeRtcDurationDataResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeRtcDurationDataResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * @param request - DescribeRtcDurationDataRequest
+     *
      * @returns DescribeRtcDurationDataResponse
      *
      * @param DescribeRtcDurationDataRequest $request
@@ -4462,6 +4401,7 @@ class Rtc extends OpenApiClient
     /**
      * @param request - DescribeRtcPeakChannelCntDataRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribeRtcPeakChannelCntDataResponse
      *
      * @param DescribeRtcPeakChannelCntDataRequest $request
@@ -4501,25 +4441,23 @@ class Rtc extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeRtcPeakChannelCntData',
-            'version'     => '2018-01-11',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeRtcPeakChannelCntData',
+            'version' => '2018-01-11',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribeRtcPeakChannelCntDataResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeRtcPeakChannelCntDataResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeRtcPeakChannelCntDataResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * @param request - DescribeRtcPeakChannelCntDataRequest
+     *
      * @returns DescribeRtcPeakChannelCntDataResponse
      *
      * @param DescribeRtcPeakChannelCntDataRequest $request
@@ -4536,6 +4474,7 @@ class Rtc extends OpenApiClient
     /**
      * @param request - DescribeRtcUserCntDataRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribeRtcUserCntDataResponse
      *
      * @param DescribeRtcUserCntDataRequest $request
@@ -4575,25 +4514,23 @@ class Rtc extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeRtcUserCntData',
-            'version'     => '2018-01-11',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeRtcUserCntData',
+            'version' => '2018-01-11',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribeRtcUserCntDataResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeRtcUserCntDataResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeRtcUserCntDataResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * @param request - DescribeRtcUserCntDataRequest
+     *
      * @returns DescribeRtcUserCntDataResponse
      *
      * @param DescribeRtcUserCntDataRequest $request
@@ -4612,6 +4549,7 @@ class Rtc extends OpenApiClient
      *
      * @param request - DescribeStreamingOutStatusRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribeStreamingOutStatusResponse
      *
      * @param DescribeStreamingOutStatusRequest $request
@@ -4639,27 +4577,25 @@ class Rtc extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeStreamingOutStatus',
-            'version'     => '2018-01-11',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeStreamingOutStatus',
+            'version' => '2018-01-11',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribeStreamingOutStatusResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeStreamingOutStatusResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeStreamingOutStatusResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * 查询旁路推流状态
      *
      * @param request - DescribeStreamingOutStatusRequest
+     *
      * @returns DescribeStreamingOutStatusResponse
      *
      * @param DescribeStreamingOutStatusRequest $request
@@ -4678,6 +4614,7 @@ class Rtc extends OpenApiClient
      *
      * @param request - DescribeSystemLayoutListRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribeSystemLayoutListResponse
      *
      * @param DescribeSystemLayoutListRequest $request
@@ -4705,27 +4642,25 @@ class Rtc extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeSystemLayoutList',
-            'version'     => '2018-01-11',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeSystemLayoutList',
+            'version' => '2018-01-11',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribeSystemLayoutListResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeSystemLayoutListResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeSystemLayoutListResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * 系统内置布局
      *
      * @param request - DescribeSystemLayoutListRequest
+     *
      * @returns DescribeSystemLayoutListResponse
      *
      * @param DescribeSystemLayoutListRequest $request
@@ -4744,6 +4679,7 @@ class Rtc extends OpenApiClient
      *
      * @param request - DescribeUsageAreaDistributionStatDataRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribeUsageAreaDistributionStatDataResponse
      *
      * @param DescribeUsageAreaDistributionStatDataRequest $request
@@ -4775,27 +4711,25 @@ class Rtc extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeUsageAreaDistributionStatData',
-            'version'     => '2018-01-11',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeUsageAreaDistributionStatData',
+            'version' => '2018-01-11',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribeUsageAreaDistributionStatDataResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeUsageAreaDistributionStatDataResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeUsageAreaDistributionStatDataResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * 获取用量统计地域分布数据.
      *
      * @param request - DescribeUsageAreaDistributionStatDataRequest
+     *
      * @returns DescribeUsageAreaDistributionStatDataResponse
      *
      * @param DescribeUsageAreaDistributionStatDataRequest $request
@@ -4814,6 +4748,7 @@ class Rtc extends OpenApiClient
      *
      * @param request - DescribeUsageDistributionStatDataRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribeUsageDistributionStatDataResponse
      *
      * @param DescribeUsageDistributionStatDataRequest $request
@@ -4845,27 +4780,25 @@ class Rtc extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeUsageDistributionStatData',
-            'version'     => '2018-01-11',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeUsageDistributionStatData',
+            'version' => '2018-01-11',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribeUsageDistributionStatDataResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeUsageDistributionStatDataResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeUsageDistributionStatDataResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * 获取用量统计分布数据.
      *
      * @param request - DescribeUsageDistributionStatDataRequest
+     *
      * @returns DescribeUsageDistributionStatDataResponse
      *
      * @param DescribeUsageDistributionStatDataRequest $request
@@ -4884,6 +4817,7 @@ class Rtc extends OpenApiClient
      *
      * @param request - DescribeUsageOsSdkVersionDistributionStatDataRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribeUsageOsSdkVersionDistributionStatDataResponse
      *
      * @param DescribeUsageOsSdkVersionDistributionStatDataRequest $request
@@ -4911,27 +4845,25 @@ class Rtc extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeUsageOsSdkVersionDistributionStatData',
-            'version'     => '2018-01-11',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeUsageOsSdkVersionDistributionStatData',
+            'version' => '2018-01-11',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribeUsageOsSdkVersionDistributionStatDataResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeUsageOsSdkVersionDistributionStatDataResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeUsageOsSdkVersionDistributionStatDataResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * 获取用量统计各操作系统下SDK版本分布数据.
      *
      * @param request - DescribeUsageOsSdkVersionDistributionStatDataRequest
+     *
      * @returns DescribeUsageOsSdkVersionDistributionStatDataResponse
      *
      * @param DescribeUsageOsSdkVersionDistributionStatDataRequest $request
@@ -4950,6 +4882,7 @@ class Rtc extends OpenApiClient
      *
      * @param request - DescribeUsageOverallDataRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribeUsageOverallDataResponse
      *
      * @param DescribeUsageOverallDataRequest $request
@@ -4981,27 +4914,25 @@ class Rtc extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeUsageOverallData',
-            'version'     => '2018-01-11',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeUsageOverallData',
+            'version' => '2018-01-11',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribeUsageOverallDataResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeUsageOverallDataResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeUsageOverallDataResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * 获取用量统计概览数据.
      *
      * @param request - DescribeUsageOverallDataRequest
+     *
      * @returns DescribeUsageOverallDataResponse
      *
      * @param DescribeUsageOverallDataRequest $request
@@ -5018,6 +4949,7 @@ class Rtc extends OpenApiClient
     /**
      * @param request - DescribeUserInfoInChannelRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribeUserInfoInChannelResponse
      *
      * @param DescribeUserInfoInChannelRequest $request
@@ -5049,25 +4981,23 @@ class Rtc extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeUserInfoInChannel',
-            'version'     => '2018-01-11',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeUserInfoInChannel',
+            'version' => '2018-01-11',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribeUserInfoInChannelResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeUserInfoInChannelResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeUserInfoInChannelResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * @param request - DescribeUserInfoInChannelRequest
+     *
      * @returns DescribeUserInfoInChannelResponse
      *
      * @param DescribeUserInfoInChannelRequest $request
@@ -5084,6 +5014,7 @@ class Rtc extends OpenApiClient
     /**
      * @param request - DisableAutoLiveStreamRuleRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DisableAutoLiveStreamRuleResponse
      *
      * @param DisableAutoLiveStreamRuleRequest $request
@@ -5111,25 +5042,23 @@ class Rtc extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DisableAutoLiveStreamRule',
-            'version'     => '2018-01-11',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DisableAutoLiveStreamRule',
+            'version' => '2018-01-11',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DisableAutoLiveStreamRuleResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DisableAutoLiveStreamRuleResponse::fromMap($this->execute($params, $req, $runtime));
+        return DisableAutoLiveStreamRuleResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * @param request - DisableAutoLiveStreamRuleRequest
+     *
      * @returns DisableAutoLiveStreamRuleResponse
      *
      * @param DisableAutoLiveStreamRuleRequest $request
@@ -5146,6 +5075,7 @@ class Rtc extends OpenApiClient
     /**
      * @param request - EnableAutoLiveStreamRuleRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns EnableAutoLiveStreamRuleResponse
      *
      * @param EnableAutoLiveStreamRuleRequest $request
@@ -5173,25 +5103,23 @@ class Rtc extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'EnableAutoLiveStreamRule',
-            'version'     => '2018-01-11',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'EnableAutoLiveStreamRule',
+            'version' => '2018-01-11',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return EnableAutoLiveStreamRuleResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return EnableAutoLiveStreamRuleResponse::fromMap($this->execute($params, $req, $runtime));
+        return EnableAutoLiveStreamRuleResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * @param request - EnableAutoLiveStreamRuleRequest
+     *
      * @returns EnableAutoLiveStreamRuleResponse
      *
      * @param EnableAutoLiveStreamRuleRequest $request
@@ -5208,6 +5136,7 @@ class Rtc extends OpenApiClient
     /**
      * @param request - GetMPUTaskStatusRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns GetMPUTaskStatusResponse
      *
      * @param GetMPUTaskStatusRequest $request
@@ -5235,25 +5164,23 @@ class Rtc extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'GetMPUTaskStatus',
-            'version'     => '2018-01-11',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetMPUTaskStatus',
+            'version' => '2018-01-11',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return GetMPUTaskStatusResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetMPUTaskStatusResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetMPUTaskStatusResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * @param request - GetMPUTaskStatusRequest
+     *
      * @returns GetMPUTaskStatusResponse
      *
      * @param GetMPUTaskStatusRequest $request
@@ -5272,6 +5199,7 @@ class Rtc extends OpenApiClient
      *
      * @param request - ModifyAppRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ModifyAppResponse
      *
      * @param ModifyAppRequest $request
@@ -5299,27 +5227,25 @@ class Rtc extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ModifyApp',
-            'version'     => '2018-01-11',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ModifyApp',
+            'version' => '2018-01-11',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ModifyAppResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ModifyAppResponse::fromMap($this->execute($params, $req, $runtime));
+        return ModifyAppResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * 修改App信息.
      *
      * @param request - ModifyAppRequest
+     *
      * @returns ModifyAppResponse
      *
      * @param ModifyAppRequest $request
@@ -5338,6 +5264,7 @@ class Rtc extends OpenApiClient
      *
      * @param request - ModifyAppCallbackStatusRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ModifyAppCallbackStatusResponse
      *
      * @param ModifyAppCallbackStatusRequest $request
@@ -5357,27 +5284,25 @@ class Rtc extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ModifyAppCallbackStatus',
-            'version'     => '2018-01-11',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ModifyAppCallbackStatus',
+            'version' => '2018-01-11',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ModifyAppCallbackStatusResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ModifyAppCallbackStatusResponse::fromMap($this->execute($params, $req, $runtime));
+        return ModifyAppCallbackStatusResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * 更新app回调事件开关.
      *
      * @param request - ModifyAppCallbackStatusRequest
+     *
      * @returns ModifyAppCallbackStatusResponse
      *
      * @param ModifyAppCallbackStatusRequest $request
@@ -5396,6 +5321,7 @@ class Rtc extends OpenApiClient
      *
      * @param tmpReq - ModifyAppLayoutRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ModifyAppLayoutResponse
      *
      * @param ModifyAppLayoutRequest $tmpReq
@@ -5429,27 +5355,25 @@ class Rtc extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ModifyAppLayout',
-            'version'     => '2018-01-11',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ModifyAppLayout',
+            'version' => '2018-01-11',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ModifyAppLayoutResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ModifyAppLayoutResponse::fromMap($this->execute($params, $req, $runtime));
+        return ModifyAppLayoutResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * 修改app自定义布局
      *
      * @param request - ModifyAppLayoutRequest
+     *
      * @returns ModifyAppLayoutResponse
      *
      * @param ModifyAppLayoutRequest $request
@@ -5468,6 +5392,7 @@ class Rtc extends OpenApiClient
      *
      * @param request - ModifyAppLiveStreamStatusRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ModifyAppLiveStreamStatusResponse
      *
      * @param ModifyAppLiveStreamStatusRequest $request
@@ -5491,27 +5416,25 @@ class Rtc extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ModifyAppLiveStreamStatus',
-            'version'     => '2018-01-11',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ModifyAppLiveStreamStatus',
+            'version' => '2018-01-11',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ModifyAppLiveStreamStatusResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ModifyAppLiveStreamStatusResponse::fromMap($this->execute($params, $req, $runtime));
+        return ModifyAppLiveStreamStatusResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * 修改应用旁路开关.
      *
      * @param request - ModifyAppLiveStreamStatusRequest
+     *
      * @returns ModifyAppLiveStreamStatusResponse
      *
      * @param ModifyAppLiveStreamStatusRequest $request
@@ -5530,6 +5453,7 @@ class Rtc extends OpenApiClient
      *
      * @param request - ModifyAppRecordStatusRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ModifyAppRecordStatusResponse
      *
      * @param ModifyAppRecordStatusRequest $request
@@ -5553,27 +5477,25 @@ class Rtc extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ModifyAppRecordStatus',
-            'version'     => '2018-01-11',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ModifyAppRecordStatus',
+            'version' => '2018-01-11',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ModifyAppRecordStatusResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ModifyAppRecordStatusResponse::fromMap($this->execute($params, $req, $runtime));
+        return ModifyAppRecordStatusResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * 修改应用录制开关.
      *
      * @param request - ModifyAppRecordStatusRequest
+     *
      * @returns ModifyAppRecordStatusResponse
      *
      * @param ModifyAppRecordStatusRequest $request
@@ -5592,6 +5514,7 @@ class Rtc extends OpenApiClient
      *
      * @param tmpReq - ModifyAppRecordTemplateRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ModifyAppRecordTemplateResponse
      *
      * @param ModifyAppRecordTemplateRequest $tmpReq
@@ -5625,27 +5548,25 @@ class Rtc extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ModifyAppRecordTemplate',
-            'version'     => '2018-01-11',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ModifyAppRecordTemplate',
+            'version' => '2018-01-11',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ModifyAppRecordTemplateResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ModifyAppRecordTemplateResponse::fromMap($this->execute($params, $req, $runtime));
+        return ModifyAppRecordTemplateResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * 修改应用录制模版.
      *
      * @param request - ModifyAppRecordTemplateRequest
+     *
      * @returns ModifyAppRecordTemplateResponse
      *
      * @param ModifyAppRecordTemplateRequest $request
@@ -5664,6 +5585,7 @@ class Rtc extends OpenApiClient
      *
      * @param tmpReq - ModifyAppStreamingOutTemplateRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ModifyAppStreamingOutTemplateResponse
      *
      * @param ModifyAppStreamingOutTemplateRequest $tmpReq
@@ -5693,27 +5615,25 @@ class Rtc extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ModifyAppStreamingOutTemplate',
-            'version'     => '2018-01-11',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ModifyAppStreamingOutTemplate',
+            'version' => '2018-01-11',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ModifyAppStreamingOutTemplateResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ModifyAppStreamingOutTemplateResponse::fromMap($this->execute($params, $req, $runtime));
+        return ModifyAppStreamingOutTemplateResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * 更新应用推流模版.
      *
      * @param request - ModifyAppStreamingOutTemplateRequest
+     *
      * @returns ModifyAppStreamingOutTemplateResponse
      *
      * @param ModifyAppStreamingOutTemplateRequest $request
@@ -5732,6 +5652,7 @@ class Rtc extends OpenApiClient
      *
      * @param tmpReq - ModifyCallbackMetaRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ModifyCallbackMetaResponse
      *
      * @param ModifyCallbackMetaRequest $tmpReq
@@ -5765,27 +5686,25 @@ class Rtc extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ModifyCallbackMeta',
-            'version'     => '2018-01-11',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ModifyCallbackMeta',
+            'version' => '2018-01-11',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ModifyCallbackMetaResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ModifyCallbackMetaResponse::fromMap($this->execute($params, $req, $runtime));
+        return ModifyCallbackMetaResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * 更新app回调.
      *
      * @param request - ModifyCallbackMetaRequest
+     *
      * @returns ModifyCallbackMetaResponse
      *
      * @param ModifyCallbackMetaRequest $request
@@ -5802,6 +5721,7 @@ class Rtc extends OpenApiClient
     /**
      * @param request - ModifyMPULayoutRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ModifyMPULayoutResponse
      *
      * @param ModifyMPULayoutRequest $request
@@ -5841,25 +5761,23 @@ class Rtc extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ModifyMPULayout',
-            'version'     => '2018-01-11',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ModifyMPULayout',
+            'version' => '2018-01-11',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ModifyMPULayoutResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ModifyMPULayoutResponse::fromMap($this->execute($params, $req, $runtime));
+        return ModifyMPULayoutResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * @param request - ModifyMPULayoutRequest
+     *
      * @returns ModifyMPULayoutResponse
      *
      * @param ModifyMPULayoutRequest $request
@@ -5876,6 +5794,7 @@ class Rtc extends OpenApiClient
     /**
      * @param request - RemoveTerminalsRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns RemoveTerminalsResponse
      *
      * @param RemoveTerminalsRequest $request
@@ -5907,25 +5826,23 @@ class Rtc extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'RemoveTerminals',
-            'version'     => '2018-01-11',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'RemoveTerminals',
+            'version' => '2018-01-11',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return RemoveTerminalsResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return RemoveTerminalsResponse::fromMap($this->execute($params, $req, $runtime));
+        return RemoveTerminalsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * @param request - RemoveTerminalsRequest
+     *
      * @returns RemoveTerminalsResponse
      *
      * @param RemoveTerminalsRequest $request
@@ -5944,6 +5861,7 @@ class Rtc extends OpenApiClient
      *
      * @param request - RemoveUsersRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns RemoveUsersResponse
      *
      * @param RemoveUsersRequest $request
@@ -5971,27 +5889,25 @@ class Rtc extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'RemoveUsers',
-            'version'     => '2018-01-11',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'RemoveUsers',
+            'version' => '2018-01-11',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return RemoveUsersResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return RemoveUsersResponse::fromMap($this->execute($params, $req, $runtime));
+        return RemoveUsersResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * RemoveUsers.
      *
      * @param request - RemoveUsersRequest
+     *
      * @returns RemoveUsersResponse
      *
      * @param RemoveUsersRequest $request
@@ -6010,6 +5926,7 @@ class Rtc extends OpenApiClient
      *
      * @param tmpReq - StartCategoryCallbackRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns StartCategoryCallbackResponse
      *
      * @param StartCategoryCallbackRequest $tmpReq
@@ -6039,27 +5956,25 @@ class Rtc extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'StartCategoryCallback',
-            'version'     => '2018-01-11',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'StartCategoryCallback',
+            'version' => '2018-01-11',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return StartCategoryCallbackResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return StartCategoryCallbackResponse::fromMap($this->execute($params, $req, $runtime));
+        return StartCategoryCallbackResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * 开启某个事件回调.
      *
      * @param request - StartCategoryCallbackRequest
+     *
      * @returns StartCategoryCallbackResponse
      *
      * @param StartCategoryCallbackRequest $request
@@ -6078,6 +5993,7 @@ class Rtc extends OpenApiClient
      *
      * @param tmpReq - StartCloudNoteRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns StartCloudNoteResponse
      *
      * @param StartCloudNoteRequest $tmpReq
@@ -6102,6 +6018,10 @@ class Rtc extends OpenApiClient
             $request->meetingAssistanceShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->meetingAssistance, 'MeetingAssistance', 'json');
         }
 
+        if (null !== $tmpReq->realtimeSubtitle) {
+            $request->realtimeSubtitleShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->realtimeSubtitle, 'RealtimeSubtitle', 'json');
+        }
+
         if (null !== $tmpReq->serviceInspection) {
             $request->serviceInspectionShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->serviceInspection, 'ServiceInspection', 'json');
         }
@@ -6112,6 +6032,10 @@ class Rtc extends OpenApiClient
 
         if (null !== $tmpReq->textPolish) {
             $request->textPolishShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->textPolish, 'TextPolish', 'json');
+        }
+
+        if (null !== $tmpReq->transcription) {
+            $request->transcriptionShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->transcription, 'Transcription', 'json');
         }
 
         $query = [];
@@ -6139,6 +6063,10 @@ class Rtc extends OpenApiClient
             @$query['MeetingAssistance'] = $request->meetingAssistanceShrink;
         }
 
+        if (null !== $request->realtimeSubtitleShrink) {
+            @$query['RealtimeSubtitle'] = $request->realtimeSubtitleShrink;
+        }
+
         if (null !== $request->serviceInspectionShrink) {
             @$query['ServiceInspection'] = $request->serviceInspectionShrink;
         }
@@ -6163,31 +6091,33 @@ class Rtc extends OpenApiClient
             @$query['TextPolish'] = $request->textPolishShrink;
         }
 
+        if (null !== $request->transcriptionShrink) {
+            @$query['Transcription'] = $request->transcriptionShrink;
+        }
+
         $req = new OpenApiRequest([
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'StartCloudNote',
-            'version'     => '2018-01-11',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'StartCloudNote',
+            'version' => '2018-01-11',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return StartCloudNoteResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return StartCloudNoteResponse::fromMap($this->execute($params, $req, $runtime));
+        return StartCloudNoteResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * 开启智能纪要
      *
      * @param request - StartCloudNoteRequest
+     *
      * @returns StartCloudNoteResponse
      *
      * @param StartCloudNoteRequest $request
@@ -6206,6 +6136,7 @@ class Rtc extends OpenApiClient
      *
      * @param tmpReq - StartCloudRecordRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns StartCloudRecordResponse
      *
      * @param StartCloudRecordRequest $tmpReq
@@ -6263,6 +6194,10 @@ class Rtc extends OpenApiClient
             @$query['ReservePaneForNoCameraUser'] = $request->reservePaneForNoCameraUser;
         }
 
+        if (null !== $request->showDefaultBackgroundOnMute) {
+            @$query['ShowDefaultBackgroundOnMute'] = $request->showDefaultBackgroundOnMute;
+        }
+
         if (null !== $request->storageConfig) {
             @$query['StorageConfig'] = $request->storageConfig;
         }
@@ -6283,27 +6218,25 @@ class Rtc extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'StartCloudRecord',
-            'version'     => '2018-01-11',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'StartCloudRecord',
+            'version' => '2018-01-11',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return StartCloudRecordResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return StartCloudRecordResponse::fromMap($this->execute($params, $req, $runtime));
+        return StartCloudRecordResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * StartCloudRecord.
      *
      * @param request - StartCloudRecordRequest
+     *
      * @returns StartCloudRecordResponse
      *
      * @param StartCloudRecordRequest $request
@@ -6320,6 +6253,7 @@ class Rtc extends OpenApiClient
     /**
      * @param request - StartMPUTaskRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns StartMPUTaskResponse
      *
      * @param StartMPUTaskRequest $request
@@ -6447,7 +6381,7 @@ class Rtc extends OpenApiClient
             @$query['Watermarks'] = $request->watermarks;
         }
 
-        $body     = [];
+        $body = [];
         $bodyFlat = [];
         if (null !== $request->enhancedParam) {
             @$bodyFlat['EnhancedParam'] = $request->enhancedParam;
@@ -6457,28 +6391,26 @@ class Rtc extends OpenApiClient
         ], $body, Utils::query($bodyFlat));
         $req = new OpenApiRequest([
             'query' => Utils::query($query),
-            'body'  => Utils::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'StartMPUTask',
-            'version'     => '2018-01-11',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'StartMPUTask',
+            'version' => '2018-01-11',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return StartMPUTaskResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return StartMPUTaskResponse::fromMap($this->execute($params, $req, $runtime));
+        return StartMPUTaskResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * @param request - StartMPUTaskRequest
+     *
      * @returns StartMPUTaskResponse
      *
      * @param StartMPUTaskRequest $request
@@ -6495,6 +6427,7 @@ class Rtc extends OpenApiClient
     /**
      * @param request - StartRecordTaskRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns StartRecordTaskResponse
      *
      * @param StartRecordTaskRequest $request
@@ -6590,25 +6523,23 @@ class Rtc extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'StartRecordTask',
-            'version'     => '2018-01-11',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'StartRecordTask',
+            'version' => '2018-01-11',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return StartRecordTaskResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return StartRecordTaskResponse::fromMap($this->execute($params, $req, $runtime));
+        return StartRecordTaskResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * @param request - StartRecordTaskRequest
+     *
      * @returns StartRecordTaskResponse
      *
      * @param StartRecordTaskRequest $request
@@ -6627,6 +6558,7 @@ class Rtc extends OpenApiClient
      *
      * @param tmpReq - StartStreamingOutRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns StartStreamingOutResponse
      *
      * @param StartStreamingOutRequest $tmpReq
@@ -6684,6 +6616,10 @@ class Rtc extends OpenApiClient
             @$query['ReservePaneForNoCameraUser'] = $request->reservePaneForNoCameraUser;
         }
 
+        if (null !== $request->showDefaultBackgroundOnMute) {
+            @$query['ShowDefaultBackgroundOnMute'] = $request->showDefaultBackgroundOnMute;
+        }
+
         if (null !== $request->startWithoutChannel) {
             @$query['StartWithoutChannel'] = $request->startWithoutChannel;
         }
@@ -6712,27 +6648,25 @@ class Rtc extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'StartStreamingOut',
-            'version'     => '2018-01-11',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'StartStreamingOut',
+            'version' => '2018-01-11',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return StartStreamingOutResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return StartStreamingOutResponse::fromMap($this->execute($params, $req, $runtime));
+        return StartStreamingOutResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * StartStreamingOut.
      *
      * @param request - StartStreamingOutRequest
+     *
      * @returns StartStreamingOutResponse
      *
      * @param StartStreamingOutRequest $request
@@ -6751,6 +6685,7 @@ class Rtc extends OpenApiClient
      *
      * @param tmpReq - StopCategoryCallbackRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns StopCategoryCallbackResponse
      *
      * @param StopCategoryCallbackRequest $tmpReq
@@ -6780,27 +6715,25 @@ class Rtc extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'StopCategoryCallback',
-            'version'     => '2018-01-11',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'StopCategoryCallback',
+            'version' => '2018-01-11',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return StopCategoryCallbackResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return StopCategoryCallbackResponse::fromMap($this->execute($params, $req, $runtime));
+        return StopCategoryCallbackResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * 关闭某个事件回调.
      *
      * @param request - StopCategoryCallbackRequest
+     *
      * @returns StopCategoryCallbackResponse
      *
      * @param StopCategoryCallbackRequest $request
@@ -6819,6 +6752,7 @@ class Rtc extends OpenApiClient
      *
      * @param request - StopChannelRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns StopChannelResponse
      *
      * @param StopChannelRequest $request
@@ -6842,27 +6776,25 @@ class Rtc extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'StopChannel',
-            'version'     => '2018-01-11',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'StopChannel',
+            'version' => '2018-01-11',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return StopChannelResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return StopChannelResponse::fromMap($this->execute($params, $req, $runtime));
+        return StopChannelResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * 删除频道.
      *
      * @param request - StopChannelRequest
+     *
      * @returns StopChannelResponse
      *
      * @param StopChannelRequest $request
@@ -6881,6 +6813,7 @@ class Rtc extends OpenApiClient
      *
      * @param request - StopCloudNoteRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns StopCloudNoteResponse
      *
      * @param StopCloudNoteRequest $request
@@ -6912,27 +6845,25 @@ class Rtc extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'StopCloudNote',
-            'version'     => '2018-01-11',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'StopCloudNote',
+            'version' => '2018-01-11',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return StopCloudNoteResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return StopCloudNoteResponse::fromMap($this->execute($params, $req, $runtime));
+        return StopCloudNoteResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * 停止智能纪要
      *
      * @param request - StopCloudNoteRequest
+     *
      * @returns StopCloudNoteResponse
      *
      * @param StopCloudNoteRequest $request
@@ -6951,6 +6882,7 @@ class Rtc extends OpenApiClient
      *
      * @param request - StopCloudRecordRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns StopCloudRecordResponse
      *
      * @param StopCloudRecordRequest $request
@@ -6978,27 +6910,25 @@ class Rtc extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'StopCloudRecord',
-            'version'     => '2018-01-11',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'StopCloudRecord',
+            'version' => '2018-01-11',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return StopCloudRecordResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return StopCloudRecordResponse::fromMap($this->execute($params, $req, $runtime));
+        return StopCloudRecordResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * StopCloudRecord.
      *
      * @param request - StopCloudRecordRequest
+     *
      * @returns StopCloudRecordResponse
      *
      * @param StopCloudRecordRequest $request
@@ -7015,6 +6945,7 @@ class Rtc extends OpenApiClient
     /**
      * @param request - StopMPUTaskRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns StopMPUTaskResponse
      *
      * @param StopMPUTaskRequest $request
@@ -7042,25 +6973,23 @@ class Rtc extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'StopMPUTask',
-            'version'     => '2018-01-11',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'StopMPUTask',
+            'version' => '2018-01-11',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return StopMPUTaskResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return StopMPUTaskResponse::fromMap($this->execute($params, $req, $runtime));
+        return StopMPUTaskResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * @param request - StopMPUTaskRequest
+     *
      * @returns StopMPUTaskResponse
      *
      * @param StopMPUTaskRequest $request
@@ -7077,6 +7006,7 @@ class Rtc extends OpenApiClient
     /**
      * @param request - StopRecordTaskRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns StopRecordTaskResponse
      *
      * @param StopRecordTaskRequest $request
@@ -7104,25 +7034,23 @@ class Rtc extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'StopRecordTask',
-            'version'     => '2018-01-11',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'StopRecordTask',
+            'version' => '2018-01-11',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return StopRecordTaskResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return StopRecordTaskResponse::fromMap($this->execute($params, $req, $runtime));
+        return StopRecordTaskResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * @param request - StopRecordTaskRequest
+     *
      * @returns StopRecordTaskResponse
      *
      * @param StopRecordTaskRequest $request
@@ -7141,6 +7069,7 @@ class Rtc extends OpenApiClient
      *
      * @param request - StopStreamingOutRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns StopStreamingOutResponse
      *
      * @param StopStreamingOutRequest $request
@@ -7168,27 +7097,25 @@ class Rtc extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'StopStreamingOut',
-            'version'     => '2018-01-11',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'StopStreamingOut',
+            'version' => '2018-01-11',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return StopStreamingOutResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return StopStreamingOutResponse::fromMap($this->execute($params, $req, $runtime));
+        return StopStreamingOutResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * StopStreamingOut.
      *
      * @param request - StopStreamingOutRequest
+     *
      * @returns StopStreamingOutResponse
      *
      * @param StopStreamingOutRequest $request
@@ -7205,6 +7132,7 @@ class Rtc extends OpenApiClient
     /**
      * @param request - UpdateAutoLiveStreamRuleRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns UpdateAutoLiveStreamRuleResponse
      *
      * @param UpdateAutoLiveStreamRuleRequest $request
@@ -7256,25 +7184,23 @@ class Rtc extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'UpdateAutoLiveStreamRule',
-            'version'     => '2018-01-11',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'UpdateAutoLiveStreamRule',
+            'version' => '2018-01-11',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return UpdateAutoLiveStreamRuleResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return UpdateAutoLiveStreamRuleResponse::fromMap($this->execute($params, $req, $runtime));
+        return UpdateAutoLiveStreamRuleResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * @param request - UpdateAutoLiveStreamRuleRequest
+     *
      * @returns UpdateAutoLiveStreamRuleResponse
      *
      * @param UpdateAutoLiveStreamRuleRequest $request
@@ -7293,6 +7219,7 @@ class Rtc extends OpenApiClient
      *
      * @param tmpReq - UpdateCloudRecordRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns UpdateCloudRecordResponse
      *
      * @param UpdateCloudRecordRequest $tmpReq
@@ -7354,27 +7281,25 @@ class Rtc extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'UpdateCloudRecord',
-            'version'     => '2018-01-11',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'UpdateCloudRecord',
+            'version' => '2018-01-11',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return UpdateCloudRecordResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return UpdateCloudRecordResponse::fromMap($this->execute($params, $req, $runtime));
+        return UpdateCloudRecordResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * 更新云端录制任务
      *
      * @param request - UpdateCloudRecordRequest
+     *
      * @returns UpdateCloudRecordResponse
      *
      * @param UpdateCloudRecordRequest $request
@@ -7391,6 +7316,7 @@ class Rtc extends OpenApiClient
     /**
      * @param request - UpdateMPUTaskRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns UpdateMPUTaskResponse
      *
      * @param UpdateMPUTaskRequest $request
@@ -7490,25 +7416,23 @@ class Rtc extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'UpdateMPUTask',
-            'version'     => '2018-01-11',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'UpdateMPUTask',
+            'version' => '2018-01-11',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return UpdateMPUTaskResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return UpdateMPUTaskResponse::fromMap($this->execute($params, $req, $runtime));
+        return UpdateMPUTaskResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * @param request - UpdateMPUTaskRequest
+     *
      * @returns UpdateMPUTaskResponse
      *
      * @param UpdateMPUTaskRequest $request
@@ -7525,6 +7449,7 @@ class Rtc extends OpenApiClient
     /**
      * @param request - UpdateRecordTaskRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns UpdateRecordTaskResponse
      *
      * @param UpdateRecordTaskRequest $request
@@ -7608,25 +7533,23 @@ class Rtc extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'UpdateRecordTask',
-            'version'     => '2018-01-11',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'UpdateRecordTask',
+            'version' => '2018-01-11',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return UpdateRecordTaskResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return UpdateRecordTaskResponse::fromMap($this->execute($params, $req, $runtime));
+        return UpdateRecordTaskResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * @param request - UpdateRecordTaskRequest
+     *
      * @returns UpdateRecordTaskResponse
      *
      * @param UpdateRecordTaskRequest $request
@@ -7643,6 +7566,7 @@ class Rtc extends OpenApiClient
     /**
      * @param request - UpdateRecordTemplateRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns UpdateRecordTemplateResponse
      *
      * @param UpdateRecordTemplateRequest $request
@@ -7738,25 +7662,23 @@ class Rtc extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'UpdateRecordTemplate',
-            'version'     => '2018-01-11',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'UpdateRecordTemplate',
+            'version' => '2018-01-11',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return UpdateRecordTemplateResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return UpdateRecordTemplateResponse::fromMap($this->execute($params, $req, $runtime));
+        return UpdateRecordTemplateResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * @param request - UpdateRecordTemplateRequest
+     *
      * @returns UpdateRecordTemplateResponse
      *
      * @param UpdateRecordTemplateRequest $request
@@ -7775,6 +7697,7 @@ class Rtc extends OpenApiClient
      *
      * @param tmpReq - UpdateStreamingOutRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns UpdateStreamingOutResponse
      *
      * @param UpdateStreamingOutRequest $tmpReq
@@ -7836,27 +7759,25 @@ class Rtc extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'UpdateStreamingOut',
-            'version'     => '2018-01-11',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'UpdateStreamingOut',
+            'version' => '2018-01-11',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return UpdateStreamingOutResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return UpdateStreamingOutResponse::fromMap($this->execute($params, $req, $runtime));
+        return UpdateStreamingOutResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * 更新旁路推流任务
      *
      * @param request - UpdateStreamingOutRequest
+     *
      * @returns UpdateStreamingOutResponse
      *
      * @param UpdateStreamingOutRequest $request

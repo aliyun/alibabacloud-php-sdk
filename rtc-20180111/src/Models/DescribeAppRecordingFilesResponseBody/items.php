@@ -12,53 +12,62 @@ class items extends Model
      * @var string
      */
     public $bucket;
+
     /**
      * @var string
      */
     public $channelId;
+
     /**
      * @var int
      */
     public $fileCreateTs;
+
     /**
      * @var int
      */
     public $fileDuration;
+
     /**
      * @var string
      */
     public $filePath;
+
     /**
      * @var int
      */
     public $fileSize;
+
     /**
      * @var int
      */
     public $region;
+
     /**
      * @var int
      */
     public $startTs;
+
     /**
      * @var string
      */
     public $taskId;
+
     /**
      * @var int
      */
     public $vendor;
     protected $_name = [
-        'bucket'       => 'Bucket',
-        'channelId'    => 'ChannelId',
+        'bucket' => 'Bucket',
+        'channelId' => 'ChannelId',
         'fileCreateTs' => 'FileCreateTs',
         'fileDuration' => 'FileDuration',
-        'filePath'     => 'FilePath',
-        'fileSize'     => 'FileSize',
-        'region'       => 'Region',
-        'startTs'      => 'StartTs',
-        'taskId'       => 'TaskId',
-        'vendor'       => 'Vendor',
+        'filePath' => 'FilePath',
+        'fileSize' => 'FileSize',
+        'region' => 'Region',
+        'startTs' => 'StartTs',
+        'taskId' => 'TaskId',
+        'vendor' => 'Vendor',
     ];
 
     public function validate()

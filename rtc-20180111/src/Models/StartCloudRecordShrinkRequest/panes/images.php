@@ -12,43 +12,56 @@ class images extends Model
      * @var float
      */
     public $alpha;
+
+    /**
+     * @var string
+     */
+    public $display;
+
     /**
      * @var float
      */
     public $height;
+
     /**
      * @var int
      */
     public $layer;
+
     /**
      * @var int
      */
     public $paneImageCropMode;
+
     /**
      * @var string
      */
     public $url;
+
     /**
      * @var float
      */
     public $width;
+
     /**
      * @var float
      */
     public $x;
+
     /**
      * @var float
      */
     public $y;
     protected $_name = [
-        'alpha'             => 'Alpha',
-        'height'            => 'Height',
-        'layer'             => 'Layer',
+        'alpha' => 'Alpha',
+        'display' => 'Display',
+        'height' => 'Height',
+        'layer' => 'Layer',
         'paneImageCropMode' => 'PaneImageCropMode',
-        'url'               => 'Url',
-        'width'             => 'Width',
-        'x'                 => 'X',
-        'y'                 => 'Y',
+        'url' => 'Url',
+        'width' => 'Width',
+        'x' => 'X',
+        'y' => 'Y',
     ];
 
     public function validate()
@@ -61,6 +74,10 @@ class images extends Model
         $res = [];
         if (null !== $this->alpha) {
             $res['Alpha'] = $this->alpha;
+        }
+
+        if (null !== $this->display) {
+            $res['Display'] = $this->display;
         }
 
         if (null !== $this->height) {
@@ -104,6 +121,10 @@ class images extends Model
         $model = new self();
         if (isset($map['Alpha'])) {
             $model->alpha = $map['Alpha'];
+        }
+
+        if (isset($map['Display'])) {
+            $model->display = $map['Display'];
         }
 
         if (isset($map['Height'])) {

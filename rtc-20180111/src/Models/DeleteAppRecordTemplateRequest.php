@@ -13,18 +13,20 @@ class DeleteAppRecordTemplateRequest extends Model
      * @var string
      */
     public $appId;
+
     /**
      * @var string
      */
     public $clientToken;
+
     /**
      * @var template
      */
     public $template;
     protected $_name = [
-        'appId'       => 'AppId',
+        'appId' => 'AppId',
         'clientToken' => 'ClientToken',
-        'template'    => 'Template',
+        'template' => 'Template',
     ];
 
     public function validate()

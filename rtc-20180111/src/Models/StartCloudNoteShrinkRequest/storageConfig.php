@@ -12,28 +12,32 @@ class storageConfig extends Model
      * @var string
      */
     public $accessKey;
+
     /**
      * @var string
      */
     public $bucket;
+
     /**
      * @var int
      */
     public $region;
+
     /**
      * @var string
      */
     public $secretKey;
+
     /**
      * @var int
      */
     public $vendor;
     protected $_name = [
         'accessKey' => 'AccessKey',
-        'bucket'    => 'Bucket',
-        'region'    => 'Region',
+        'bucket' => 'Bucket',
+        'region' => 'Region',
         'secretKey' => 'SecretKey',
-        'vendor'    => 'Vendor',
+        'vendor' => 'Vendor',
     ];
 
     public function validate()

@@ -12,53 +12,62 @@ class DescribeChannelUsersResponseBody extends Model
      * @var int
      */
     public $channelProfile;
+
     /**
      * @var int
      */
     public $commTotalNum;
+
     /**
      * @var string[]
      */
     public $interactiveUserList;
+
     /**
      * @var int
      */
     public $interactiveUserNum;
+
     /**
      * @var bool
      */
     public $isChannelExist;
+
     /**
      * @var string[]
      */
     public $liveUserList;
+
     /**
      * @var int
      */
     public $liveUserNum;
+
     /**
      * @var string
      */
     public $requestId;
+
     /**
      * @var int
      */
     public $timestamp;
+
     /**
      * @var string[]
      */
     public $userList;
     protected $_name = [
-        'channelProfile'      => 'ChannelProfile',
-        'commTotalNum'        => 'CommTotalNum',
+        'channelProfile' => 'ChannelProfile',
+        'commTotalNum' => 'CommTotalNum',
         'interactiveUserList' => 'InteractiveUserList',
-        'interactiveUserNum'  => 'InteractiveUserNum',
-        'isChannelExist'      => 'IsChannelExist',
-        'liveUserList'        => 'LiveUserList',
-        'liveUserNum'         => 'LiveUserNum',
-        'requestId'           => 'RequestId',
-        'timestamp'           => 'Timestamp',
-        'userList'            => 'UserList',
+        'interactiveUserNum' => 'InteractiveUserNum',
+        'isChannelExist' => 'IsChannelExist',
+        'liveUserList' => 'LiveUserList',
+        'liveUserNum' => 'LiveUserNum',
+        'requestId' => 'RequestId',
+        'timestamp' => 'Timestamp',
+        'userList' => 'UserList',
     ];
 
     public function validate()
@@ -89,7 +98,7 @@ class DescribeChannelUsersResponseBody extends Model
         if (null !== $this->interactiveUserList) {
             if (\is_array($this->interactiveUserList)) {
                 $res['InteractiveUserList'] = [];
-                $n1                         = 0;
+                $n1 = 0;
                 foreach ($this->interactiveUserList as $item1) {
                     $res['InteractiveUserList'][$n1++] = $item1;
                 }
@@ -107,7 +116,7 @@ class DescribeChannelUsersResponseBody extends Model
         if (null !== $this->liveUserList) {
             if (\is_array($this->liveUserList)) {
                 $res['LiveUserList'] = [];
-                $n1                  = 0;
+                $n1 = 0;
                 foreach ($this->liveUserList as $item1) {
                     $res['LiveUserList'][$n1++] = $item1;
                 }
@@ -129,7 +138,7 @@ class DescribeChannelUsersResponseBody extends Model
         if (null !== $this->userList) {
             if (\is_array($this->userList)) {
                 $res['UserList'] = [];
-                $n1              = 0;
+                $n1 = 0;
                 foreach ($this->userList as $item1) {
                     $res['UserList'][$n1++] = $item1;
                 }
@@ -158,7 +167,7 @@ class DescribeChannelUsersResponseBody extends Model
         if (isset($map['InteractiveUserList'])) {
             if (!empty($map['InteractiveUserList'])) {
                 $model->interactiveUserList = [];
-                $n1                         = 0;
+                $n1 = 0;
                 foreach ($map['InteractiveUserList'] as $item1) {
                     $model->interactiveUserList[$n1++] = $item1;
                 }
@@ -176,7 +185,7 @@ class DescribeChannelUsersResponseBody extends Model
         if (isset($map['LiveUserList'])) {
             if (!empty($map['LiveUserList'])) {
                 $model->liveUserList = [];
-                $n1                  = 0;
+                $n1 = 0;
                 foreach ($map['LiveUserList'] as $item1) {
                     $model->liveUserList[$n1++] = $item1;
                 }
@@ -198,7 +207,7 @@ class DescribeChannelUsersResponseBody extends Model
         if (isset($map['UserList'])) {
             if (!empty($map['UserList'])) {
                 $model->userList = [];
-                $n1              = 0;
+                $n1 = 0;
                 foreach ($map['UserList'] as $item1) {
                     $model->userList[$n1++] = $item1;
                 }

@@ -13,28 +13,32 @@ class DescribeRtcChannelListResponseBody extends Model
      * @var channelList
      */
     public $channelList;
+
     /**
      * @var int
      */
     public $pageNo;
+
     /**
      * @var int
      */
     public $pageSize;
+
     /**
      * @var string
      */
     public $requestId;
+
     /**
      * @var int
      */
     public $totalCnt;
     protected $_name = [
         'channelList' => 'ChannelList',
-        'pageNo'      => 'PageNo',
-        'pageSize'    => 'PageSize',
-        'requestId'   => 'RequestId',
-        'totalCnt'    => 'TotalCnt',
+        'pageNo' => 'PageNo',
+        'pageSize' => 'PageSize',
+        'requestId' => 'RequestId',
+        'totalCnt' => 'TotalCnt',
     ];
 
     public function validate()

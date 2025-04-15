@@ -13,18 +13,20 @@ class DescribeChannelResponseBody extends Model
      * @var channel
      */
     public $channel;
+
     /**
      * @var bool
      */
     public $channelExist;
+
     /**
      * @var string
      */
     public $requestId;
     protected $_name = [
-        'channel'      => 'Channel',
+        'channel' => 'Channel',
         'channelExist' => 'ChannelExist',
-        'requestId'    => 'RequestId',
+        'requestId' => 'RequestId',
     ];
 
     public function validate()

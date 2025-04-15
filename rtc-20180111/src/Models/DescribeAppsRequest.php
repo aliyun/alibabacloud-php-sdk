@@ -12,38 +12,44 @@ class DescribeAppsRequest extends Model
      * @var string
      */
     public $appId;
+
     /**
      * @var string
      */
     public $appVersion;
+
     /**
      * @var string
      */
     public $order;
+
     /**
      * @var int
      */
     public $ownerId;
+
     /**
      * @var int
      */
     public $pageNum;
+
     /**
      * @var int
      */
     public $pageSize;
+
     /**
      * @var string
      */
     public $status;
     protected $_name = [
-        'appId'      => 'AppId',
+        'appId' => 'AppId',
         'appVersion' => 'AppVersion',
-        'order'      => 'Order',
-        'ownerId'    => 'OwnerId',
-        'pageNum'    => 'PageNum',
-        'pageSize'   => 'PageSize',
-        'status'     => 'Status',
+        'order' => 'Order',
+        'ownerId' => 'OwnerId',
+        'pageNum' => 'PageNum',
+        'pageSize' => 'PageSize',
+        'status' => 'Status',
     ];
 
     public function validate()

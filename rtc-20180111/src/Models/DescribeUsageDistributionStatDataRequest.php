@@ -12,23 +12,26 @@ class DescribeUsageDistributionStatDataRequest extends Model
      * @var string
      */
     public $appId;
+
     /**
      * @var int
      */
     public $endDate;
+
     /**
      * @var int
      */
     public $startDate;
+
     /**
      * @var string
      */
     public $statDim;
     protected $_name = [
-        'appId'     => 'AppId',
-        'endDate'   => 'EndDate',
+        'appId' => 'AppId',
+        'endDate' => 'EndDate',
         'startDate' => 'StartDate',
-        'statDim'   => 'StatDim',
+        'statDim' => 'StatDim',
     ];
 
     public function validate()

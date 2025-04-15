@@ -13,12 +13,13 @@ class DescribeUsageOsSdkVersionDistributionStatDataResponseBody extends Model
      * @var string
      */
     public $requestId;
+
     /**
      * @var usageOsSdkVersionStatList[]
      */
     public $usageOsSdkVersionStatList;
     protected $_name = [
-        'requestId'                 => 'RequestId',
+        'requestId' => 'RequestId',
         'usageOsSdkVersionStatList' => 'UsageOsSdkVersionStatList',
     ];
 
@@ -40,7 +41,7 @@ class DescribeUsageOsSdkVersionDistributionStatDataResponseBody extends Model
         if (null !== $this->usageOsSdkVersionStatList) {
             if (\is_array($this->usageOsSdkVersionStatList)) {
                 $res['UsageOsSdkVersionStatList'] = [];
-                $n1                               = 0;
+                $n1 = 0;
                 foreach ($this->usageOsSdkVersionStatList as $item1) {
                     $res['UsageOsSdkVersionStatList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -65,7 +66,7 @@ class DescribeUsageOsSdkVersionDistributionStatDataResponseBody extends Model
         if (isset($map['UsageOsSdkVersionStatList'])) {
             if (!empty($map['UsageOsSdkVersionStatList'])) {
                 $model->usageOsSdkVersionStatList = [];
-                $n1                               = 0;
+                $n1 = 0;
                 foreach ($map['UsageOsSdkVersionStatList'] as $item1) {
                     $model->usageOsSdkVersionStatList[$n1++] = usageOsSdkVersionStatList::fromMap($item1);
                 }

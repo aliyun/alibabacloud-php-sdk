@@ -12,18 +12,20 @@ class nodes extends Model
      * @var mixed[]
      */
     public $ext;
+
     /**
      * @var string
      */
     public $x;
+
     /**
      * @var string
      */
     public $y;
     protected $_name = [
         'ext' => 'Ext',
-        'x'   => 'X',
-        'y'   => 'Y',
+        'x' => 'X',
+        'y' => 'Y',
     ];
 
     public function validate()

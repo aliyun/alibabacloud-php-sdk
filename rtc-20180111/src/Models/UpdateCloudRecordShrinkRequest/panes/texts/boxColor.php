@@ -12,10 +12,12 @@ class boxColor extends Model
      * @var int
      */
     public $b;
+
     /**
      * @var int
      */
     public $g;
+
     /**
      * @var int
      */

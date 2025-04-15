@@ -12,53 +12,62 @@ class DescribeCallListRequest extends Model
      * @var string
      */
     public $appId;
+
     /**
      * @var string
      */
     public $callStatus;
+
     /**
      * @var string
      */
     public $channelId;
+
     /**
      * @var int
      */
     public $endTs;
+
     /**
      * @var string
      */
     public $orderBy;
+
     /**
      * @var int
      */
     public $pageNo;
+
     /**
      * @var int
      */
     public $pageSize;
+
     /**
      * @var string
      */
     public $queryMode;
+
     /**
      * @var int
      */
     public $startTs;
+
     /**
      * @var string
      */
     public $userId;
     protected $_name = [
-        'appId'      => 'AppId',
+        'appId' => 'AppId',
         'callStatus' => 'CallStatus',
-        'channelId'  => 'ChannelId',
-        'endTs'      => 'EndTs',
-        'orderBy'    => 'OrderBy',
-        'pageNo'     => 'PageNo',
-        'pageSize'   => 'PageSize',
-        'queryMode'  => 'QueryMode',
-        'startTs'    => 'StartTs',
-        'userId'     => 'UserId',
+        'channelId' => 'ChannelId',
+        'endTs' => 'EndTs',
+        'orderBy' => 'OrderBy',
+        'pageNo' => 'PageNo',
+        'pageSize' => 'PageSize',
+        'queryMode' => 'QueryMode',
+        'startTs' => 'StartTs',
+        'userId' => 'UserId',
     ];
 
     public function validate()

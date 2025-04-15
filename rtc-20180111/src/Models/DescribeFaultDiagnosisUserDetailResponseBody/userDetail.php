@@ -13,53 +13,62 @@ class userDetail extends Model
      * @var int
      */
     public $createdTs;
+
     /**
      * @var int
      */
     public $destroyedTs;
+
     /**
      * @var int
      */
     public $duration;
+
     /**
      * @var string
      */
     public $location;
+
     /**
      * @var string
      */
     public $network;
+
     /**
      * @var int
      */
     public $onlineDuration;
+
     /**
      * @var onlinePeriods[]
      */
     public $onlinePeriods;
+
     /**
      * @var string
      */
     public $os;
+
     /**
      * @var string
      */
     public $sdkVersion;
+
     /**
      * @var string
      */
     public $userId;
     protected $_name = [
-        'createdTs'      => 'CreatedTs',
-        'destroyedTs'    => 'DestroyedTs',
-        'duration'       => 'Duration',
-        'location'       => 'Location',
-        'network'        => 'Network',
+        'createdTs' => 'CreatedTs',
+        'destroyedTs' => 'DestroyedTs',
+        'duration' => 'Duration',
+        'location' => 'Location',
+        'network' => 'Network',
         'onlineDuration' => 'OnlineDuration',
-        'onlinePeriods'  => 'OnlinePeriods',
-        'os'             => 'Os',
-        'sdkVersion'     => 'SdkVersion',
-        'userId'         => 'UserId',
+        'onlinePeriods' => 'OnlinePeriods',
+        'os' => 'Os',
+        'sdkVersion' => 'SdkVersion',
+        'userId' => 'UserId',
     ];
 
     public function validate()
@@ -100,7 +109,7 @@ class userDetail extends Model
         if (null !== $this->onlinePeriods) {
             if (\is_array($this->onlinePeriods)) {
                 $res['OnlinePeriods'] = [];
-                $n1                   = 0;
+                $n1 = 0;
                 foreach ($this->onlinePeriods as $item1) {
                     $res['OnlinePeriods'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -157,7 +166,7 @@ class userDetail extends Model
         if (isset($map['OnlinePeriods'])) {
             if (!empty($map['OnlinePeriods'])) {
                 $model->onlinePeriods = [];
-                $n1                   = 0;
+                $n1 = 0;
                 foreach ($map['OnlinePeriods'] as $item1) {
                     $model->onlinePeriods[$n1++] = onlinePeriods::fromMap($item1);
                 }

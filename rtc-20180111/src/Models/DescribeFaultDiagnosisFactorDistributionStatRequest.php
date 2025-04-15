@@ -12,17 +12,19 @@ class DescribeFaultDiagnosisFactorDistributionStatRequest extends Model
      * @var string
      */
     public $appId;
+
     /**
      * @var int
      */
     public $endTs;
+
     /**
      * @var int
      */
     public $startTs;
     protected $_name = [
-        'appId'   => 'AppId',
-        'endTs'   => 'EndTs',
+        'appId' => 'AppId',
+        'endTs' => 'EndTs',
         'startTs' => 'StartTs',
     ];
 

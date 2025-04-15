@@ -12,48 +12,56 @@ class DescribeRtcChannelListRequest extends Model
      * @var string
      */
     public $appId;
+
     /**
      * @var string
      */
     public $channelId;
+
     /**
      * @var int
      */
     public $ownerId;
+
     /**
      * @var int
      */
     public $pageNo;
+
     /**
      * @var int
      */
     public $pageSize;
+
     /**
      * @var string
      */
     public $serviceArea;
+
     /**
      * @var string
      */
     public $sortType;
+
     /**
      * @var string
      */
     public $timePoint;
+
     /**
      * @var string
      */
     public $userId;
     protected $_name = [
-        'appId'       => 'AppId',
-        'channelId'   => 'ChannelId',
-        'ownerId'     => 'OwnerId',
-        'pageNo'      => 'PageNo',
-        'pageSize'    => 'PageSize',
+        'appId' => 'AppId',
+        'channelId' => 'ChannelId',
+        'ownerId' => 'OwnerId',
+        'pageNo' => 'PageNo',
+        'pageSize' => 'PageSize',
         'serviceArea' => 'ServiceArea',
-        'sortType'    => 'SortType',
-        'timePoint'   => 'TimePoint',
-        'userId'      => 'UserId',
+        'sortType' => 'SortType',
+        'timePoint' => 'TimePoint',
+        'userId' => 'UserId',
     ];
 
     public function validate()

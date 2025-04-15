@@ -14,28 +14,32 @@ class userPanes extends Model
      * @var images[]
      */
     public $images;
+
     /**
      * @var int
      */
     public $paneId;
+
     /**
      * @var string
      */
     public $sourceType;
+
     /**
      * @var texts[]
      */
     public $texts;
+
     /**
      * @var string
      */
     public $userId;
     protected $_name = [
-        'images'     => 'Images',
-        'paneId'     => 'PaneId',
+        'images' => 'Images',
+        'paneId' => 'PaneId',
         'sourceType' => 'SourceType',
-        'texts'      => 'Texts',
-        'userId'     => 'UserId',
+        'texts' => 'Texts',
+        'userId' => 'UserId',
     ];
 
     public function validate()
@@ -55,7 +59,7 @@ class userPanes extends Model
         if (null !== $this->images) {
             if (\is_array($this->images)) {
                 $res['Images'] = [];
-                $n1            = 0;
+                $n1 = 0;
                 foreach ($this->images as $item1) {
                     $res['Images'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -73,7 +77,7 @@ class userPanes extends Model
         if (null !== $this->texts) {
             if (\is_array($this->texts)) {
                 $res['Texts'] = [];
-                $n1           = 0;
+                $n1 = 0;
                 foreach ($this->texts as $item1) {
                     $res['Texts'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -98,7 +102,7 @@ class userPanes extends Model
         if (isset($map['Images'])) {
             if (!empty($map['Images'])) {
                 $model->images = [];
-                $n1            = 0;
+                $n1 = 0;
                 foreach ($map['Images'] as $item1) {
                     $model->images[$n1++] = images::fromMap($item1);
                 }
@@ -116,7 +120,7 @@ class userPanes extends Model
         if (isset($map['Texts'])) {
             if (!empty($map['Texts'])) {
                 $model->texts = [];
-                $n1           = 0;
+                $n1 = 0;
                 foreach ($map['Texts'] as $item1) {
                     $model->texts[$n1++] = texts::fromMap($item1);
                 }

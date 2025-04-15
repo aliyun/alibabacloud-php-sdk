@@ -13,23 +13,26 @@ class layout extends Model
      * @var int
      */
     public $audioMixCount;
+
     /**
      * @var int
      */
     public $layoutId;
+
     /**
      * @var string
      */
     public $name;
+
     /**
      * @var panes
      */
     public $panes;
     protected $_name = [
         'audioMixCount' => 'AudioMixCount',
-        'layoutId'      => 'LayoutId',
-        'name'          => 'Name',
-        'panes'         => 'Panes',
+        'layoutId' => 'LayoutId',
+        'name' => 'Name',
+        'panes' => 'Panes',
     ];
 
     public function validate()

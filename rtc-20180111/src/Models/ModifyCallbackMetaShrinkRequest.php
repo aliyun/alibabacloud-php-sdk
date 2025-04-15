@@ -12,18 +12,20 @@ class ModifyCallbackMetaShrinkRequest extends Model
      * @var string
      */
     public $appId;
+
     /**
      * @var string
      */
     public $callbackShrink;
+
     /**
      * @var int
      */
     public $ownerId;
     protected $_name = [
-        'appId'          => 'AppId',
+        'appId' => 'AppId',
         'callbackShrink' => 'Callback',
-        'ownerId'        => 'OwnerId',
+        'ownerId' => 'OwnerId',
     ];
 
     public function validate()

@@ -12,12 +12,13 @@ class DescribeAutoLiveStreamRuleRequest extends Model
      * @var string
      */
     public $appId;
+
     /**
      * @var int
      */
     public $ownerId;
     protected $_name = [
-        'appId'   => 'AppId',
+        'appId' => 'AppId',
         'ownerId' => 'OwnerId',
     ];
 

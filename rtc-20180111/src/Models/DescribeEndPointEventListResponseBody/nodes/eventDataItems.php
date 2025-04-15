@@ -13,13 +13,14 @@ class eventDataItems extends Model
      * @var eventList[]
      */
     public $eventList;
+
     /**
      * @var int
      */
     public $ts;
     protected $_name = [
         'eventList' => 'EventList',
-        'ts'        => 'Ts',
+        'ts' => 'Ts',
     ];
 
     public function validate()
@@ -36,7 +37,7 @@ class eventDataItems extends Model
         if (null !== $this->eventList) {
             if (\is_array($this->eventList)) {
                 $res['EventList'] = [];
-                $n1               = 0;
+                $n1 = 0;
                 foreach ($this->eventList as $item1) {
                     $res['EventList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -61,7 +62,7 @@ class eventDataItems extends Model
         if (isset($map['EventList'])) {
             if (!empty($map['EventList'])) {
                 $model->eventList = [];
-                $n1               = 0;
+                $n1 = 0;
                 foreach ($map['EventList'] as $item1) {
                     $model->eventList[$n1++] = eventList::fromMap($item1);
                 }

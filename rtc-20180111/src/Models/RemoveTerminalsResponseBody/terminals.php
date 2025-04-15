@@ -31,7 +31,7 @@ class terminals extends Model
         if (null !== $this->terminal) {
             if (\is_array($this->terminal)) {
                 $res['Terminal'] = [];
-                $n1              = 0;
+                $n1 = 0;
                 foreach ($this->terminal as $item1) {
                     $res['Terminal'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -52,7 +52,7 @@ class terminals extends Model
         if (isset($map['Terminal'])) {
             if (!empty($map['Terminal'])) {
                 $model->terminal = [];
-                $n1              = 0;
+                $n1 = 0;
                 foreach ($map['Terminal'] as $item1) {
                     $model->terminal[$n1++] = terminal::fromMap($item1);
                 }

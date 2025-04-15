@@ -12,33 +12,38 @@ class DescribeRtcUserCntDataRequest extends Model
      * @var string
      */
     public $appId;
+
     /**
      * @var string
      */
     public $endTime;
+
     /**
      * @var string
      */
     public $interval;
+
     /**
      * @var int
      */
     public $ownerId;
+
     /**
      * @var string
      */
     public $serviceArea;
+
     /**
      * @var string
      */
     public $startTime;
     protected $_name = [
-        'appId'       => 'AppId',
-        'endTime'     => 'EndTime',
-        'interval'    => 'Interval',
-        'ownerId'     => 'OwnerId',
+        'appId' => 'AppId',
+        'endTime' => 'EndTime',
+        'interval' => 'Interval',
+        'ownerId' => 'OwnerId',
         'serviceArea' => 'ServiceArea',
-        'startTime'   => 'StartTime',
+        'startTime' => 'StartTime',
     ];
 
     public function validate()

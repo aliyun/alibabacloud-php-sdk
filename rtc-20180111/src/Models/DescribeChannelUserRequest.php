@@ -12,18 +12,20 @@ class DescribeChannelUserRequest extends Model
      * @var string
      */
     public $appId;
+
     /**
      * @var string
      */
     public $channelId;
+
     /**
      * @var string
      */
     public $userId;
     protected $_name = [
-        'appId'     => 'AppId',
+        'appId' => 'AppId',
         'channelId' => 'ChannelId',
-        'userId'    => 'UserId',
+        'userId' => 'UserId',
     ];
 
     public function validate()

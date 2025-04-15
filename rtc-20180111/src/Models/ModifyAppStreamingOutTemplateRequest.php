@@ -13,12 +13,13 @@ class ModifyAppStreamingOutTemplateRequest extends Model
      * @var string
      */
     public $appId;
+
     /**
      * @var streamingOutTemplate
      */
     public $streamingOutTemplate;
     protected $_name = [
-        'appId'                => 'AppId',
+        'appId' => 'AppId',
         'streamingOutTemplate' => 'StreamingOutTemplate',
     ];
 

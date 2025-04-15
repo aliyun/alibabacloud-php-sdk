@@ -13,18 +13,22 @@ class DescribeChannelParticipantsResponseBody extends Model
      * @var string
      */
     public $requestId;
+
     /**
      * @var int
      */
     public $timestamp;
+
     /**
      * @var int
      */
     public $totalNum;
+
     /**
      * @var int
      */
     public $totalPage;
+
     /**
      * @var userList
      */
@@ -32,9 +36,9 @@ class DescribeChannelParticipantsResponseBody extends Model
     protected $_name = [
         'requestId' => 'RequestId',
         'timestamp' => 'Timestamp',
-        'totalNum'  => 'TotalNum',
+        'totalNum' => 'TotalNum',
         'totalPage' => 'TotalPage',
-        'userList'  => 'UserList',
+        'userList' => 'UserList',
     ];
 
     public function validate()

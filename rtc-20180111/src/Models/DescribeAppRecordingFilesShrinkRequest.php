@@ -12,37 +12,43 @@ class DescribeAppRecordingFilesShrinkRequest extends Model
      * @var string
      */
     public $appId;
+
     /**
      * @var string
      */
     public $channelId;
+
     /**
      * @var int
      */
     public $endTs;
+
     /**
      * @var int
      */
     public $pageNo;
+
     /**
      * @var int
      */
     public $pageSize;
+
     /**
      * @var int
      */
     public $startTs;
+
     /**
      * @var string
      */
     public $taskIdsShrink;
     protected $_name = [
-        'appId'         => 'AppId',
-        'channelId'     => 'ChannelId',
-        'endTs'         => 'EndTs',
-        'pageNo'        => 'PageNo',
-        'pageSize'      => 'PageSize',
-        'startTs'       => 'StartTs',
+        'appId' => 'AppId',
+        'channelId' => 'ChannelId',
+        'endTs' => 'EndTs',
+        'pageNo' => 'PageNo',
+        'pageSize' => 'PageSize',
+        'startTs' => 'StartTs',
         'taskIdsShrink' => 'TaskIds',
     ];
 

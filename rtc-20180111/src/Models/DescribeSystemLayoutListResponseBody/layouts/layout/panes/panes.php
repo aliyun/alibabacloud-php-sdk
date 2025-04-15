@@ -12,38 +12,44 @@ class panes extends Model
      * @var float
      */
     public $height;
+
     /**
      * @var int
      */
     public $majorPane;
+
     /**
      * @var int
      */
     public $paneId;
+
     /**
      * @var float
      */
     public $width;
+
     /**
      * @var float
      */
     public $x;
+
     /**
      * @var float
      */
     public $y;
+
     /**
      * @var int
      */
     public $ZOrder;
     protected $_name = [
-        'height'    => 'Height',
+        'height' => 'Height',
         'majorPane' => 'MajorPane',
-        'paneId'    => 'PaneId',
-        'width'     => 'Width',
-        'x'         => 'X',
-        'y'         => 'Y',
-        'ZOrder'    => 'ZOrder',
+        'paneId' => 'PaneId',
+        'width' => 'Width',
+        'x' => 'X',
+        'y' => 'Y',
+        'ZOrder' => 'ZOrder',
     ];
 
     public function validate()

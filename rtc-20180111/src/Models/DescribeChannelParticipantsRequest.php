@@ -12,33 +12,38 @@ class DescribeChannelParticipantsRequest extends Model
      * @var string
      */
     public $appId;
+
     /**
      * @var string
      */
     public $channelId;
+
     /**
      * @var string
      */
     public $order;
+
     /**
      * @var int
      */
     public $ownerId;
+
     /**
      * @var int
      */
     public $pageNum;
+
     /**
      * @var int
      */
     public $pageSize;
     protected $_name = [
-        'appId'     => 'AppId',
+        'appId' => 'AppId',
         'channelId' => 'ChannelId',
-        'order'     => 'Order',
-        'ownerId'   => 'OwnerId',
-        'pageNum'   => 'PageNum',
-        'pageSize'  => 'PageSize',
+        'order' => 'Order',
+        'ownerId' => 'OwnerId',
+        'pageNum' => 'PageNum',
+        'pageSize' => 'PageSize',
     ];
 
     public function validate()

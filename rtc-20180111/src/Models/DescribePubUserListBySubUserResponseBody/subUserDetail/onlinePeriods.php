@@ -12,12 +12,13 @@ class onlinePeriods extends Model
      * @var int
      */
     public $joinTs;
+
     /**
      * @var int
      */
     public $leaveTs;
     protected $_name = [
-        'joinTs'  => 'JoinTs',
+        'joinTs' => 'JoinTs',
         'leaveTs' => 'LeaveTs',
     ];
 

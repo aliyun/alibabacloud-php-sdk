@@ -12,12 +12,13 @@ class DescribeChannelRequest extends Model
      * @var string
      */
     public $appId;
+
     /**
      * @var string
      */
     public $channelId;
     protected $_name = [
-        'appId'     => 'AppId',
+        'appId' => 'AppId',
         'channelId' => 'ChannelId',
     ];
 

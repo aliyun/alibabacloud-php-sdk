@@ -12,43 +12,50 @@ class backgrounds extends Model
      * @var float
      */
     public $alpha;
+
     /**
      * @var int
      */
     public $backgroundCropMode;
+
     /**
      * @var float
      */
     public $height;
+
     /**
      * @var int
      */
     public $layer;
+
     /**
      * @var string
      */
     public $url;
+
     /**
      * @var float
      */
     public $width;
+
     /**
      * @var float
      */
     public $x;
+
     /**
      * @var float
      */
     public $y;
     protected $_name = [
-        'alpha'              => 'Alpha',
+        'alpha' => 'Alpha',
         'backgroundCropMode' => 'BackgroundCropMode',
-        'height'             => 'Height',
-        'layer'              => 'Layer',
-        'url'                => 'Url',
-        'width'              => 'Width',
-        'x'                  => 'X',
-        'y'                  => 'Y',
+        'height' => 'Height',
+        'layer' => 'Layer',
+        'url' => 'Url',
+        'width' => 'Width',
+        'x' => 'X',
+        'y' => 'Y',
     ];
 
     public function validate()

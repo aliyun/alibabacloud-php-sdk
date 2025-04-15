@@ -12,28 +12,32 @@ class overallData extends Model
      * @var int
      */
     public $totalBadExpNum;
+
     /**
      * @var int
      */
     public $totalJoinFailNum;
+
     /**
      * @var int
      */
     public $totalPubUserNum;
+
     /**
      * @var int
      */
     public $totalSubUserNum;
+
     /**
      * @var int
      */
     public $totalUserNum;
     protected $_name = [
-        'totalBadExpNum'   => 'TotalBadExpNum',
+        'totalBadExpNum' => 'TotalBadExpNum',
         'totalJoinFailNum' => 'TotalJoinFailNum',
-        'totalPubUserNum'  => 'TotalPubUserNum',
-        'totalSubUserNum'  => 'TotalSubUserNum',
-        'totalUserNum'     => 'TotalUserNum',
+        'totalPubUserNum' => 'TotalPubUserNum',
+        'totalSubUserNum' => 'TotalSubUserNum',
+        'totalUserNum' => 'TotalUserNum',
     ];
 
     public function validate()

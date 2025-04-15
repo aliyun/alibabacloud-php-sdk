@@ -14,17 +14,19 @@ class DescribeEndPointMetricDataResponseBody extends Model
      * @var pubMetrics[]
      */
     public $pubMetrics;
+
     /**
      * @var string
      */
     public $requestId;
+
     /**
      * @var subMetrics[]
      */
     public $subMetrics;
     protected $_name = [
         'pubMetrics' => 'PubMetrics',
-        'requestId'  => 'RequestId',
+        'requestId' => 'RequestId',
         'subMetrics' => 'SubMetrics',
     ];
 
@@ -45,7 +47,7 @@ class DescribeEndPointMetricDataResponseBody extends Model
         if (null !== $this->pubMetrics) {
             if (\is_array($this->pubMetrics)) {
                 $res['PubMetrics'] = [];
-                $n1                = 0;
+                $n1 = 0;
                 foreach ($this->pubMetrics as $item1) {
                     $res['PubMetrics'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -59,7 +61,7 @@ class DescribeEndPointMetricDataResponseBody extends Model
         if (null !== $this->subMetrics) {
             if (\is_array($this->subMetrics)) {
                 $res['SubMetrics'] = [];
-                $n1                = 0;
+                $n1 = 0;
                 foreach ($this->subMetrics as $item1) {
                     $res['SubMetrics'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -80,7 +82,7 @@ class DescribeEndPointMetricDataResponseBody extends Model
         if (isset($map['PubMetrics'])) {
             if (!empty($map['PubMetrics'])) {
                 $model->pubMetrics = [];
-                $n1                = 0;
+                $n1 = 0;
                 foreach ($map['PubMetrics'] as $item1) {
                     $model->pubMetrics[$n1++] = pubMetrics::fromMap($item1);
                 }
@@ -94,7 +96,7 @@ class DescribeEndPointMetricDataResponseBody extends Model
         if (isset($map['SubMetrics'])) {
             if (!empty($map['SubMetrics'])) {
                 $model->subMetrics = [];
-                $n1                = 0;
+                $n1 = 0;
                 foreach ($map['SubMetrics'] as $item1) {
                     $model->subMetrics[$n1++] = subMetrics::fromMap($item1);
                 }

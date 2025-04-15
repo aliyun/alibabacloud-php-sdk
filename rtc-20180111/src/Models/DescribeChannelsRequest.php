@@ -12,17 +12,19 @@ class DescribeChannelsRequest extends Model
      * @var string
      */
     public $appId;
+
     /**
      * @var int
      */
     public $pageNo;
+
     /**
      * @var int
      */
     public $pageSize;
     protected $_name = [
-        'appId'    => 'AppId',
-        'pageNo'   => 'PageNo',
+        'appId' => 'AppId',
+        'pageNo' => 'PageNo',
         'pageSize' => 'PageSize',
     ];
 

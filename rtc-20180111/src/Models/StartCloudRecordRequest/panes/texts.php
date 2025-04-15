@@ -14,63 +14,80 @@ class texts extends Model
      * @var float
      */
     public $alpha;
+
     /**
      * @var float
      */
     public $boxAlpha;
+
     /**
      * @var int
      */
     public $boxBorderw;
+
     /**
      * @var boxColor
      */
     public $boxColor;
+
+    /**
+     * @var string
+     */
+    public $display;
+
     /**
      * @var int
      */
     public $font;
+
     /**
      * @var fontColor
      */
     public $fontColor;
+
     /**
      * @var int
      */
     public $fontSize;
+
     /**
      * @var bool
      */
     public $hasBox;
+
     /**
      * @var int
      */
     public $layer;
+
     /**
      * @var string
      */
     public $texture;
+
     /**
      * @var float
      */
     public $x;
+
     /**
      * @var float
      */
     public $y;
     protected $_name = [
-        'alpha'      => 'Alpha',
-        'boxAlpha'   => 'BoxAlpha',
+        'alpha' => 'Alpha',
+        'boxAlpha' => 'BoxAlpha',
         'boxBorderw' => 'BoxBorderw',
-        'boxColor'   => 'BoxColor',
-        'font'       => 'Font',
-        'fontColor'  => 'FontColor',
-        'fontSize'   => 'FontSize',
-        'hasBox'     => 'HasBox',
-        'layer'      => 'Layer',
-        'texture'    => 'Texture',
-        'x'          => 'X',
-        'y'          => 'Y',
+        'boxColor' => 'BoxColor',
+        'display' => 'Display',
+        'font' => 'Font',
+        'fontColor' => 'FontColor',
+        'fontSize' => 'FontSize',
+        'hasBox' => 'HasBox',
+        'layer' => 'Layer',
+        'texture' => 'Texture',
+        'x' => 'X',
+        'y' => 'Y',
     ];
 
     public function validate()
@@ -101,6 +118,10 @@ class texts extends Model
 
         if (null !== $this->boxColor) {
             $res['BoxColor'] = null !== $this->boxColor ? $this->boxColor->toArray($noStream) : $this->boxColor;
+        }
+
+        if (null !== $this->display) {
+            $res['Display'] = $this->display;
         }
 
         if (null !== $this->font) {
@@ -160,6 +181,10 @@ class texts extends Model
 
         if (isset($map['BoxColor'])) {
             $model->boxColor = boxColor::fromMap($map['BoxColor']);
+        }
+
+        if (isset($map['Display'])) {
+            $model->display = $map['Display'];
         }
 
         if (isset($map['Font'])) {

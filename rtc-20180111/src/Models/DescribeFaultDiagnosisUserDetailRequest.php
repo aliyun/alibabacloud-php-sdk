@@ -12,33 +12,38 @@ class DescribeFaultDiagnosisUserDetailRequest extends Model
      * @var string
      */
     public $appId;
+
     /**
      * @var string
      */
     public $channelId;
+
     /**
      * @var int
      */
     public $createdTs;
+
     /**
      * @var string
      */
     public $faultType;
+
     /**
      * @var bool
      */
     public $queryCallUserInfo;
+
     /**
      * @var string
      */
     public $userId;
     protected $_name = [
-        'appId'             => 'AppId',
-        'channelId'         => 'ChannelId',
-        'createdTs'         => 'CreatedTs',
-        'faultType'         => 'FaultType',
+        'appId' => 'AppId',
+        'channelId' => 'ChannelId',
+        'createdTs' => 'CreatedTs',
+        'faultType' => 'FaultType',
         'queryCallUserInfo' => 'QueryCallUserInfo',
-        'userId'            => 'UserId',
+        'userId' => 'UserId',
     ];
 
     public function validate()

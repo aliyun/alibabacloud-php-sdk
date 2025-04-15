@@ -12,68 +12,80 @@ class texts extends Model
      * @var float
      */
     public $alpha;
+
     /**
      * @var int
      */
     public $borderColor;
+
     /**
      * @var int
      */
     public $borderWidth;
+
     /**
      * @var bool
      */
     public $box;
+
     /**
      * @var int
      */
     public $boxBorderWidth;
+
     /**
      * @var int
      */
     public $boxColor;
+
     /**
      * @var int
      */
     public $fontColor;
+
     /**
      * @var int
      */
     public $fontSize;
+
     /**
      * @var int
      */
     public $fontType;
+
     /**
      * @var string
      */
     public $text;
+
     /**
      * @var float
      */
     public $x;
+
     /**
      * @var float
      */
     public $y;
+
     /**
      * @var int
      */
     public $ZOrder;
     protected $_name = [
-        'alpha'          => 'Alpha',
-        'borderColor'    => 'BorderColor',
-        'borderWidth'    => 'BorderWidth',
-        'box'            => 'Box',
+        'alpha' => 'Alpha',
+        'borderColor' => 'BorderColor',
+        'borderWidth' => 'BorderWidth',
+        'box' => 'Box',
         'boxBorderWidth' => 'BoxBorderWidth',
-        'boxColor'       => 'BoxColor',
-        'fontColor'      => 'FontColor',
-        'fontSize'       => 'FontSize',
-        'fontType'       => 'FontType',
-        'text'           => 'Text',
-        'x'              => 'X',
-        'y'              => 'Y',
-        'ZOrder'         => 'ZOrder',
+        'boxColor' => 'BoxColor',
+        'fontColor' => 'FontColor',
+        'fontSize' => 'FontSize',
+        'fontType' => 'FontType',
+        'text' => 'Text',
+        'x' => 'X',
+        'y' => 'Y',
+        'ZOrder' => 'ZOrder',
     ];
 
     public function validate()

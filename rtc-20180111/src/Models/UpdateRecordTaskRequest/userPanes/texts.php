@@ -12,38 +12,44 @@ class texts extends Model
      * @var int
      */
     public $fontColor;
+
     /**
      * @var int
      */
     public $fontSize;
+
     /**
      * @var int
      */
     public $fontType;
+
     /**
      * @var string
      */
     public $text;
+
     /**
      * @var float
      */
     public $x;
+
     /**
      * @var float
      */
     public $y;
+
     /**
      * @var int
      */
     public $ZOrder;
     protected $_name = [
         'fontColor' => 'FontColor',
-        'fontSize'  => 'FontSize',
-        'fontType'  => 'FontType',
-        'text'      => 'Text',
-        'x'         => 'X',
-        'y'         => 'Y',
-        'ZOrder'    => 'ZOrder',
+        'fontSize' => 'FontSize',
+        'fontType' => 'FontType',
+        'text' => 'Text',
+        'x' => 'X',
+        'y' => 'Y',
+        'ZOrder' => 'ZOrder',
     ];
 
     public function validate()

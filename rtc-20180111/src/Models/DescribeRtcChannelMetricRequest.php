@@ -12,22 +12,25 @@ class DescribeRtcChannelMetricRequest extends Model
      * @var string
      */
     public $appId;
+
     /**
      * @var string
      */
     public $channelId;
+
     /**
      * @var int
      */
     public $ownerId;
+
     /**
      * @var string
      */
     public $timePoint;
     protected $_name = [
-        'appId'     => 'AppId',
+        'appId' => 'AppId',
         'channelId' => 'ChannelId',
-        'ownerId'   => 'OwnerId',
+        'ownerId' => 'OwnerId',
         'timePoint' => 'TimePoint',
     ];
 

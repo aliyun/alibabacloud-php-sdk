@@ -12,18 +12,22 @@ class usageStatList extends Model
      * @var int
      */
     public $audioCallDuration;
+
     /**
      * @var string
      */
     public $callDurationRatio;
+
     /**
      * @var string
      */
     public $name;
+
     /**
      * @var int
      */
     public $totalCallDuration;
+
     /**
      * @var int
      */
@@ -31,7 +35,7 @@ class usageStatList extends Model
     protected $_name = [
         'audioCallDuration' => 'AudioCallDuration',
         'callDurationRatio' => 'CallDurationRatio',
-        'name'              => 'Name',
+        'name' => 'Name',
         'totalCallDuration' => 'TotalCallDuration',
         'videoCallDuration' => 'VideoCallDuration',
     ];

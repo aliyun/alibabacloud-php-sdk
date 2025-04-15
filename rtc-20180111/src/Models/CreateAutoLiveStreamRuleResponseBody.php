@@ -12,13 +12,14 @@ class CreateAutoLiveStreamRuleResponseBody extends Model
      * @var string
      */
     public $requestId;
+
     /**
      * @var int
      */
     public $ruleId;
     protected $_name = [
         'requestId' => 'RequestId',
-        'ruleId'    => 'RuleId',
+        'ruleId' => 'RuleId',
     ];
 
     public function validate()

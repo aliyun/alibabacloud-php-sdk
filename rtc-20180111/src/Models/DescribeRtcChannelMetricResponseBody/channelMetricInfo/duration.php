@@ -14,6 +14,7 @@ class duration extends Model
      * @var pubDuration
      */
     public $pubDuration;
+
     /**
      * @var subDuration
      */

@@ -12,12 +12,13 @@ class condition extends Model
      * @var string
      */
     public $name;
+
     /**
      * @var string
      */
     public $templateId;
     protected $_name = [
-        'name'       => 'Name',
+        'name' => 'Name',
         'templateId' => 'TemplateId',
     ];
 

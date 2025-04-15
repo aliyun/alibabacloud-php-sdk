@@ -30,7 +30,7 @@ class serviceAreas extends Model
         if (null !== $this->serviceArea) {
             if (\is_array($this->serviceArea)) {
                 $res['ServiceArea'] = [];
-                $n1                 = 0;
+                $n1 = 0;
                 foreach ($this->serviceArea as $item1) {
                     $res['ServiceArea'][$n1++] = $item1;
                 }
@@ -51,7 +51,7 @@ class serviceAreas extends Model
         if (isset($map['ServiceArea'])) {
             if (!empty($map['ServiceArea'])) {
                 $model->serviceArea = [];
-                $n1                 = 0;
+                $n1 = 0;
                 foreach ($map['ServiceArea'] as $item1) {
                     $model->serviceArea[$n1++] = $item1;
                 }

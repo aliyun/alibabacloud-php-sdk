@@ -13,18 +13,20 @@ class ModifyCallbackMetaRequest extends Model
      * @var string
      */
     public $appId;
+
     /**
-     * @var callback
+     * @var callable
      */
     public $callback;
+
     /**
      * @var int
      */
     public $ownerId;
     protected $_name = [
-        'appId'    => 'AppId',
+        'appId' => 'AppId',
         'callback' => 'Callback',
-        'ownerId'  => 'OwnerId',
+        'ownerId' => 'OwnerId',
     ];
 
     public function validate()

@@ -12,18 +12,20 @@ class DeleteAutoLiveStreamRuleRequest extends Model
      * @var string
      */
     public $appId;
+
     /**
      * @var int
      */
     public $ownerId;
+
     /**
      * @var int
      */
     public $ruleId;
     protected $_name = [
-        'appId'   => 'AppId',
+        'appId' => 'AppId',
         'ownerId' => 'OwnerId',
-        'ruleId'  => 'RuleId',
+        'ruleId' => 'RuleId',
     ];
 
     public function validate()

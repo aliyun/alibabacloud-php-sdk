@@ -31,7 +31,7 @@ class peakChannelCntDataPerInterval extends Model
         if (null !== $this->peakChannelCntModule) {
             if (\is_array($this->peakChannelCntModule)) {
                 $res['PeakChannelCntModule'] = [];
-                $n1                          = 0;
+                $n1 = 0;
                 foreach ($this->peakChannelCntModule as $item1) {
                     $res['PeakChannelCntModule'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -52,7 +52,7 @@ class peakChannelCntDataPerInterval extends Model
         if (isset($map['PeakChannelCntModule'])) {
             if (!empty($map['PeakChannelCntModule'])) {
                 $model->peakChannelCntModule = [];
-                $n1                          = 0;
+                $n1 = 0;
                 foreach ($map['PeakChannelCntModule'] as $item1) {
                     $model->peakChannelCntModule[$n1++] = peakChannelCntModule::fromMap($item1);
                 }

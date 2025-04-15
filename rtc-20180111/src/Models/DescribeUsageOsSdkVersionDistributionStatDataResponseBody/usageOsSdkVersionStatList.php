@@ -12,22 +12,27 @@ class usageOsSdkVersionStatList extends Model
      * @var int
      */
     public $audioCallDuration;
+
     /**
      * @var string
      */
     public $callDurationRatio;
+
     /**
      * @var string
      */
     public $name;
+
     /**
      * @var string
      */
     public $os;
+
     /**
      * @var int
      */
     public $totalCallDuration;
+
     /**
      * @var int
      */
@@ -35,8 +40,8 @@ class usageOsSdkVersionStatList extends Model
     protected $_name = [
         'audioCallDuration' => 'AudioCallDuration',
         'callDurationRatio' => 'CallDurationRatio',
-        'name'              => 'Name',
-        'os'                => 'Os',
+        'name' => 'Name',
+        'os' => 'Os',
         'totalCallDuration' => 'TotalCallDuration',
         'videoCallDuration' => 'VideoCallDuration',
     ];

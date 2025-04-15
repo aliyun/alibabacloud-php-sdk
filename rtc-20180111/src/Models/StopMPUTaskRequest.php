@@ -12,18 +12,20 @@ class StopMPUTaskRequest extends Model
      * @var string
      */
     public $appId;
+
     /**
      * @var int
      */
     public $ownerId;
+
     /**
      * @var string
      */
     public $taskId;
     protected $_name = [
-        'appId'   => 'AppId',
+        'appId' => 'AppId',
         'ownerId' => 'OwnerId',
-        'taskId'  => 'TaskId',
+        'taskId' => 'TaskId',
     ];
 
     public function validate()

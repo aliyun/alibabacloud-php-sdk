@@ -14,18 +14,20 @@ class DescribeFaultDiagnosisOverallDataResponseBody extends Model
      * @var metricData
      */
     public $metricData;
+
     /**
      * @var overallData
      */
     public $overallData;
+
     /**
      * @var string
      */
     public $requestId;
     protected $_name = [
-        'metricData'  => 'MetricData',
+        'metricData' => 'MetricData',
         'overallData' => 'OverallData',
-        'requestId'   => 'RequestId',
+        'requestId' => 'RequestId',
     ];
 
     public function validate()

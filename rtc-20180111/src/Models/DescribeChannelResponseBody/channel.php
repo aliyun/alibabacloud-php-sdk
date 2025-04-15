@@ -12,6 +12,7 @@ class channel extends Model
      * @var string
      */
     public $channelId;
+
     /**
      * @var int
      */

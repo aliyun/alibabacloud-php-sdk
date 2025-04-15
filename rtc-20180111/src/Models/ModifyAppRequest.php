@@ -12,16 +12,18 @@ class ModifyAppRequest extends Model
      * @var string
      */
     public $appId;
+
     /**
      * @var string
      */
     public $appName;
+
     /**
      * @var int
      */
     public $ownerId;
     protected $_name = [
-        'appId'   => 'AppId',
+        'appId' => 'AppId',
         'appName' => 'AppName',
         'ownerId' => 'OwnerId',
     ];

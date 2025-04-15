@@ -5,6 +5,7 @@
 namespace AlibabaCloud\SDK\Rtc\V20180111\Models\StartStreamingOutRequest;
 
 use AlibabaCloud\Dara\Model;
+use AlibabaCloud\SDK\Rtc\V20180111\Models\StartStreamingOutRequest\panes\backgrounds;
 use AlibabaCloud\SDK\Rtc\V20180111\Models\StartStreamingOutRequest\panes\images;
 use AlibabaCloud\SDK\Rtc\V20180111\Models\StartStreamingOutRequest\panes\texts;
 use AlibabaCloud\SDK\Rtc\V20180111\Models\StartStreamingOutRequest\panes\whiteboard;
@@ -12,55 +13,72 @@ use AlibabaCloud\SDK\Rtc\V20180111\Models\StartStreamingOutRequest\panes\whitebo
 class panes extends Model
 {
     /**
+     * @var backgrounds[]
+     */
+    public $backgrounds;
+
+    /**
      * @var images[]
      */
     public $images;
+
     /**
      * @var int
      */
     public $paneCropMode;
+
     /**
      * @var string
      */
     public $paneId;
+
     /**
      * @var bool
      */
     public $reservePaneForOfflineUser;
+
     /**
      * @var string
      */
     public $source;
+
     /**
      * @var string
      */
     public $sourceType;
+
     /**
      * @var texts[]
      */
     public $texts;
+
     /**
      * @var string
      */
     public $videoOrder;
+
     /**
      * @var whiteboard
      */
     public $whiteboard;
     protected $_name = [
-        'images'                    => 'Images',
-        'paneCropMode'              => 'PaneCropMode',
-        'paneId'                    => 'PaneId',
+        'backgrounds' => 'Backgrounds',
+        'images' => 'Images',
+        'paneCropMode' => 'PaneCropMode',
+        'paneId' => 'PaneId',
         'reservePaneForOfflineUser' => 'ReservePaneForOfflineUser',
-        'source'                    => 'Source',
-        'sourceType'                => 'SourceType',
-        'texts'                     => 'Texts',
-        'videoOrder'                => 'VideoOrder',
-        'whiteboard'                => 'Whiteboard',
+        'source' => 'Source',
+        'sourceType' => 'SourceType',
+        'texts' => 'Texts',
+        'videoOrder' => 'VideoOrder',
+        'whiteboard' => 'Whiteboard',
     ];
 
     public function validate()
     {
+        if (\is_array($this->backgrounds)) {
+            Model::validateArray($this->backgrounds);
+        }
         if (\is_array($this->images)) {
             Model::validateArray($this->images);
         }
@@ -76,10 +94,20 @@ class panes extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->backgrounds) {
+            if (\is_array($this->backgrounds)) {
+                $res['Backgrounds'] = [];
+                $n1 = 0;
+                foreach ($this->backgrounds as $item1) {
+                    $res['Backgrounds'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                }
+            }
+        }
+
         if (null !== $this->images) {
             if (\is_array($this->images)) {
                 $res['Images'] = [];
-                $n1            = 0;
+                $n1 = 0;
                 foreach ($this->images as $item1) {
                     $res['Images'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -109,7 +137,7 @@ class panes extends Model
         if (null !== $this->texts) {
             if (\is_array($this->texts)) {
                 $res['Texts'] = [];
-                $n1           = 0;
+                $n1 = 0;
                 foreach ($this->texts as $item1) {
                     $res['Texts'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -135,10 +163,20 @@ class panes extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['Backgrounds'])) {
+            if (!empty($map['Backgrounds'])) {
+                $model->backgrounds = [];
+                $n1 = 0;
+                foreach ($map['Backgrounds'] as $item1) {
+                    $model->backgrounds[$n1++] = backgrounds::fromMap($item1);
+                }
+            }
+        }
+
         if (isset($map['Images'])) {
             if (!empty($map['Images'])) {
                 $model->images = [];
-                $n1            = 0;
+                $n1 = 0;
                 foreach ($map['Images'] as $item1) {
                     $model->images[$n1++] = images::fromMap($item1);
                 }
@@ -168,7 +206,7 @@ class panes extends Model
         if (isset($map['Texts'])) {
             if (!empty($map['Texts'])) {
                 $model->texts = [];
-                $n1           = 0;
+                $n1 = 0;
                 foreach ($map['Texts'] as $item1) {
                     $model->texts[$n1++] = texts::fromMap($item1);
                 }

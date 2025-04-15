@@ -12,17 +12,19 @@ class property extends Model
      * @var int
      */
     public $join;
+
     /**
      * @var int
      */
     public $role;
+
     /**
      * @var string
      */
     public $session;
     protected $_name = [
-        'join'    => 'Join',
-        'role'    => 'Role',
+        'join' => 'Join',
+        'role' => 'Role',
         'session' => 'Session',
     ];
 

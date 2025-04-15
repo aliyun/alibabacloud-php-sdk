@@ -12,43 +12,50 @@ class callList extends Model
      * @var string
      */
     public $appId;
+
     /**
      * @var int
      */
     public $badExpUserCnt;
+
     /**
      * @var string
      */
     public $callStatus;
+
     /**
      * @var string
      */
     public $channelId;
+
     /**
      * @var int
      */
     public $createdTs;
+
     /**
      * @var int
      */
     public $destroyedTs;
+
     /**
      * @var int
      */
     public $duration;
+
     /**
      * @var int
      */
     public $userCnt;
     protected $_name = [
-        'appId'         => 'AppId',
+        'appId' => 'AppId',
         'badExpUserCnt' => 'BadExpUserCnt',
-        'callStatus'    => 'CallStatus',
-        'channelId'     => 'ChannelId',
-        'createdTs'     => 'CreatedTs',
-        'destroyedTs'   => 'DestroyedTs',
-        'duration'      => 'Duration',
-        'userCnt'       => 'UserCnt',
+        'callStatus' => 'CallStatus',
+        'channelId' => 'ChannelId',
+        'createdTs' => 'CreatedTs',
+        'destroyedTs' => 'DestroyedTs',
+        'duration' => 'Duration',
+        'userCnt' => 'UserCnt',
     ];
 
     public function validate()

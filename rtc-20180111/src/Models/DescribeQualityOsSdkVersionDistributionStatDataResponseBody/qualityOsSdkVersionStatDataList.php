@@ -12,63 +12,74 @@ class qualityOsSdkVersionStatDataList extends Model
      * @var int
      */
     public $audioDelay;
+
     /**
      * @var string
      */
     public $audioHighQualityTransmissionRate;
+
     /**
      * @var string
      */
     public $audioStuckRate;
+
     /**
      * @var string
      */
     public $callDurationRatio;
+
     /**
      * @var string
      */
     public $joinChannelSucFiveSecRate;
+
     /**
      * @var string
      */
     public $joinChannelSucRate;
+
     /**
      * @var string
      */
     public $name;
+
     /**
      * @var string
      */
     public $os;
+
     /**
      * @var int
      */
     public $videoDelay;
+
     /**
      * @var int
      */
     public $videoFirstPicDuration;
+
     /**
      * @var string
      */
     public $videoHighQualityTransmissionRate;
+
     /**
      * @var string
      */
     public $videoStuckRate;
     protected $_name = [
-        'audioDelay'                       => 'AudioDelay',
+        'audioDelay' => 'AudioDelay',
         'audioHighQualityTransmissionRate' => 'AudioHighQualityTransmissionRate',
-        'audioStuckRate'                   => 'AudioStuckRate',
-        'callDurationRatio'                => 'CallDurationRatio',
-        'joinChannelSucFiveSecRate'        => 'JoinChannelSucFiveSecRate',
-        'joinChannelSucRate'               => 'JoinChannelSucRate',
-        'name'                             => 'Name',
-        'os'                               => 'Os',
-        'videoDelay'                       => 'VideoDelay',
-        'videoFirstPicDuration'            => 'VideoFirstPicDuration',
+        'audioStuckRate' => 'AudioStuckRate',
+        'callDurationRatio' => 'CallDurationRatio',
+        'joinChannelSucFiveSecRate' => 'JoinChannelSucFiveSecRate',
+        'joinChannelSucRate' => 'JoinChannelSucRate',
+        'name' => 'Name',
+        'os' => 'Os',
+        'videoDelay' => 'VideoDelay',
+        'videoFirstPicDuration' => 'VideoFirstPicDuration',
         'videoHighQualityTransmissionRate' => 'VideoHighQualityTransmissionRate',
-        'videoStuckRate'                   => 'VideoStuckRate',
+        'videoStuckRate' => 'VideoStuckRate',
     ];
 
     public function validate()

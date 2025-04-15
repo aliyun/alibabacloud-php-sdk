@@ -12,43 +12,50 @@ class images extends Model
      * @var float
      */
     public $alpha;
+
     /**
      * @var float
      */
     public $height;
+
     /**
      * @var int
      */
     public $imageCropMode;
+
     /**
      * @var int
      */
     public $layer;
+
     /**
      * @var string
      */
     public $url;
+
     /**
      * @var float
      */
     public $width;
+
     /**
      * @var float
      */
     public $x;
+
     /**
      * @var float
      */
     public $y;
     protected $_name = [
-        'alpha'         => 'Alpha',
-        'height'        => 'Height',
+        'alpha' => 'Alpha',
+        'height' => 'Height',
         'imageCropMode' => 'ImageCropMode',
-        'layer'         => 'Layer',
-        'url'           => 'Url',
-        'width'         => 'Width',
-        'x'             => 'X',
-        'y'             => 'Y',
+        'layer' => 'Layer',
+        'url' => 'Url',
+        'width' => 'Width',
+        'x' => 'X',
+        'y' => 'Y',
     ];
 
     public function validate()

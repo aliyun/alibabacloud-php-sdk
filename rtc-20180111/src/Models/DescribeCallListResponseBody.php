@@ -13,28 +13,32 @@ class DescribeCallListResponseBody extends Model
      * @var callList[]
      */
     public $callList;
+
     /**
      * @var int
      */
     public $pageNo;
+
     /**
      * @var int
      */
     public $pageSize;
+
     /**
      * @var string
      */
     public $requestId;
+
     /**
      * @var int
      */
     public $totalCnt;
     protected $_name = [
-        'callList'  => 'CallList',
-        'pageNo'    => 'PageNo',
-        'pageSize'  => 'PageSize',
+        'callList' => 'CallList',
+        'pageNo' => 'PageNo',
+        'pageSize' => 'PageSize',
         'requestId' => 'RequestId',
-        'totalCnt'  => 'TotalCnt',
+        'totalCnt' => 'TotalCnt',
     ];
 
     public function validate()
@@ -51,7 +55,7 @@ class DescribeCallListResponseBody extends Model
         if (null !== $this->callList) {
             if (\is_array($this->callList)) {
                 $res['CallList'] = [];
-                $n1              = 0;
+                $n1 = 0;
                 foreach ($this->callList as $item1) {
                     $res['CallList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -88,7 +92,7 @@ class DescribeCallListResponseBody extends Model
         if (isset($map['CallList'])) {
             if (!empty($map['CallList'])) {
                 $model->callList = [];
-                $n1              = 0;
+                $n1 = 0;
                 foreach ($map['CallList'] as $item1) {
                     $model->callList[$n1++] = callList::fromMap($item1);
                 }

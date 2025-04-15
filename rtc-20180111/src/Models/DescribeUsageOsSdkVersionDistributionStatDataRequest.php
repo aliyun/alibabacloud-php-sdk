@@ -12,17 +12,19 @@ class DescribeUsageOsSdkVersionDistributionStatDataRequest extends Model
      * @var string
      */
     public $appId;
+
     /**
      * @var int
      */
     public $endDate;
+
     /**
      * @var int
      */
     public $startDate;
     protected $_name = [
-        'appId'     => 'AppId',
-        'endDate'   => 'EndDate',
+        'appId' => 'AppId',
+        'endDate' => 'EndDate',
         'startDate' => 'StartDate',
     ];
 

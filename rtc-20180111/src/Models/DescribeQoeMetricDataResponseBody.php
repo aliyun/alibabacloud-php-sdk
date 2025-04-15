@@ -14,10 +14,12 @@ class DescribeQoeMetricDataResponseBody extends Model
      * @var audioData[]
      */
     public $audioData;
+
     /**
      * @var string
      */
     public $requestId;
+
     /**
      * @var videoData[]
      */
@@ -45,7 +47,7 @@ class DescribeQoeMetricDataResponseBody extends Model
         if (null !== $this->audioData) {
             if (\is_array($this->audioData)) {
                 $res['AudioData'] = [];
-                $n1               = 0;
+                $n1 = 0;
                 foreach ($this->audioData as $item1) {
                     $res['AudioData'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -59,7 +61,7 @@ class DescribeQoeMetricDataResponseBody extends Model
         if (null !== $this->videoData) {
             if (\is_array($this->videoData)) {
                 $res['VideoData'] = [];
-                $n1               = 0;
+                $n1 = 0;
                 foreach ($this->videoData as $item1) {
                     $res['VideoData'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -80,7 +82,7 @@ class DescribeQoeMetricDataResponseBody extends Model
         if (isset($map['AudioData'])) {
             if (!empty($map['AudioData'])) {
                 $model->audioData = [];
-                $n1               = 0;
+                $n1 = 0;
                 foreach ($map['AudioData'] as $item1) {
                     $model->audioData[$n1++] = audioData::fromMap($item1);
                 }
@@ -94,7 +96,7 @@ class DescribeQoeMetricDataResponseBody extends Model
         if (isset($map['VideoData'])) {
             if (!empty($map['VideoData'])) {
                 $model->videoData = [];
-                $n1               = 0;
+                $n1 = 0;
                 foreach ($map['VideoData'] as $item1) {
                     $model->videoData[$n1++] = videoData::fromMap($item1);
                 }

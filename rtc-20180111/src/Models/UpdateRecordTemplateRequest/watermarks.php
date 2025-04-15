@@ -12,43 +12,50 @@ class watermarks extends Model
      * @var float
      */
     public $alpha;
+
     /**
      * @var int
      */
     public $display;
+
     /**
      * @var float
      */
     public $height;
+
     /**
      * @var string
      */
     public $url;
+
     /**
      * @var float
      */
     public $width;
+
     /**
      * @var float
      */
     public $x;
+
     /**
      * @var float
      */
     public $y;
+
     /**
      * @var int
      */
     public $ZOrder;
     protected $_name = [
-        'alpha'   => 'Alpha',
+        'alpha' => 'Alpha',
         'display' => 'Display',
-        'height'  => 'Height',
-        'url'     => 'Url',
-        'width'   => 'Width',
-        'x'       => 'X',
-        'y'       => 'Y',
-        'ZOrder'  => 'ZOrder',
+        'height' => 'Height',
+        'url' => 'Url',
+        'width' => 'Width',
+        'x' => 'X',
+        'y' => 'Y',
+        'ZOrder' => 'ZOrder',
     ];
 
     public function validate()

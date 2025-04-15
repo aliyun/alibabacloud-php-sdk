@@ -13,12 +13,13 @@ class DescribeUsageOverallDataResponseBody extends Model
      * @var string
      */
     public $requestId;
+
     /**
      * @var usageOverallData[]
      */
     public $usageOverallData;
     protected $_name = [
-        'requestId'        => 'RequestId',
+        'requestId' => 'RequestId',
         'usageOverallData' => 'UsageOverallData',
     ];
 
@@ -40,7 +41,7 @@ class DescribeUsageOverallDataResponseBody extends Model
         if (null !== $this->usageOverallData) {
             if (\is_array($this->usageOverallData)) {
                 $res['UsageOverallData'] = [];
-                $n1                      = 0;
+                $n1 = 0;
                 foreach ($this->usageOverallData as $item1) {
                     $res['UsageOverallData'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -65,7 +66,7 @@ class DescribeUsageOverallDataResponseBody extends Model
         if (isset($map['UsageOverallData'])) {
             if (!empty($map['UsageOverallData'])) {
                 $model->usageOverallData = [];
-                $n1                      = 0;
+                $n1 = 0;
                 foreach ($map['UsageOverallData'] as $item1) {
                     $model->usageOverallData[$n1++] = usageOverallData::fromMap($item1);
                 }

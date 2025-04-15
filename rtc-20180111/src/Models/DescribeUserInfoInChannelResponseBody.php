@@ -13,28 +13,32 @@ class DescribeUserInfoInChannelResponseBody extends Model
      * @var bool
      */
     public $isChannelExist;
+
     /**
      * @var bool
      */
     public $isInChannel;
+
     /**
      * @var property[]
      */
     public $property;
+
     /**
      * @var string
      */
     public $requestId;
+
     /**
      * @var int
      */
     public $timestamp;
     protected $_name = [
         'isChannelExist' => 'IsChannelExist',
-        'isInChannel'    => 'IsInChannel',
-        'property'       => 'Property',
-        'requestId'      => 'RequestId',
-        'timestamp'      => 'Timestamp',
+        'isInChannel' => 'IsInChannel',
+        'property' => 'Property',
+        'requestId' => 'RequestId',
+        'timestamp' => 'Timestamp',
     ];
 
     public function validate()
@@ -59,7 +63,7 @@ class DescribeUserInfoInChannelResponseBody extends Model
         if (null !== $this->property) {
             if (\is_array($this->property)) {
                 $res['Property'] = [];
-                $n1              = 0;
+                $n1 = 0;
                 foreach ($this->property as $item1) {
                     $res['Property'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -96,7 +100,7 @@ class DescribeUserInfoInChannelResponseBody extends Model
         if (isset($map['Property'])) {
             if (!empty($map['Property'])) {
                 $model->property = [];
-                $n1              = 0;
+                $n1 = 0;
                 foreach ($map['Property'] as $item1) {
                     $model->property[$n1++] = property::fromMap($item1);
                 }

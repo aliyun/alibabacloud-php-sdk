@@ -13,43 +13,50 @@ class app extends Model
      * @var string
      */
     public $appId;
+
     /**
      * @var string
      */
     public $appName;
+
     /**
      * @var string
      */
     public $appType;
+
     /**
      * @var string
      */
     public $billType;
+
     /**
      * @var string
      */
     public $createTime;
+
     /**
      * @var serviceAreas
      */
     public $serviceAreas;
+
     /**
      * @var int
      */
     public $status;
+
     /**
      * @var string
      */
     public $version;
     protected $_name = [
-        'appId'        => 'AppId',
-        'appName'      => 'AppName',
-        'appType'      => 'AppType',
-        'billType'     => 'BillType',
-        'createTime'   => 'CreateTime',
+        'appId' => 'AppId',
+        'appName' => 'AppName',
+        'appType' => 'AppType',
+        'billType' => 'BillType',
+        'createTime' => 'CreateTime',
         'serviceAreas' => 'ServiceAreas',
-        'status'       => 'Status',
-        'version'      => 'Version',
+        'status' => 'Status',
+        'version' => 'Version',
     ];
 
     public function validate()

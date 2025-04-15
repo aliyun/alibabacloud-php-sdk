@@ -13,23 +13,26 @@ class DescribeAppStreamingOutTemplatesRequest extends Model
      * @var string
      */
     public $appId;
+
     /**
      * @var condition
      */
     public $condition;
+
     /**
      * @var int
      */
     public $pageNum;
+
     /**
      * @var int
      */
     public $pageSize;
     protected $_name = [
-        'appId'     => 'AppId',
+        'appId' => 'AppId',
         'condition' => 'Condition',
-        'pageNum'   => 'PageNum',
-        'pageSize'  => 'PageSize',
+        'pageNum' => 'PageNum',
+        'pageSize' => 'PageSize',
     ];
 
     public function validate()

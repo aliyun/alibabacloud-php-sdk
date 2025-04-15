@@ -12,12 +12,13 @@ class CreateAppStreamingOutTemplateResponseBody extends Model
      * @var string
      */
     public $requestId;
+
     /**
      * @var string
      */
     public $templateId;
     protected $_name = [
-        'requestId'  => 'RequestId',
+        'requestId' => 'RequestId',
         'templateId' => 'TemplateId',
     ];
 

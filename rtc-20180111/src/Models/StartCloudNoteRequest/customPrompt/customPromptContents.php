@@ -12,22 +12,25 @@ class customPromptContents extends Model
      * @var string
      */
     public $model;
+
     /**
      * @var string
      */
     public $name;
+
     /**
      * @var string
      */
     public $prompt;
+
     /**
      * @var string
      */
     public $transType;
     protected $_name = [
-        'model'     => 'Model',
-        'name'      => 'Name',
-        'prompt'    => 'Prompt',
+        'model' => 'Model',
+        'name' => 'Name',
+        'prompt' => 'Prompt',
         'transType' => 'TransType',
     ];
 

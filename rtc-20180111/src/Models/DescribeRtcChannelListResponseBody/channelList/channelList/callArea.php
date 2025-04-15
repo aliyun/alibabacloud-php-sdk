@@ -30,7 +30,7 @@ class callArea extends Model
         if (null !== $this->callArea) {
             if (\is_array($this->callArea)) {
                 $res['CallArea'] = [];
-                $n1              = 0;
+                $n1 = 0;
                 foreach ($this->callArea as $item1) {
                     $res['CallArea'][$n1++] = $item1;
                 }
@@ -51,7 +51,7 @@ class callArea extends Model
         if (isset($map['CallArea'])) {
             if (!empty($map['CallArea'])) {
                 $model->callArea = [];
-                $n1              = 0;
+                $n1 = 0;
                 foreach ($map['CallArea'] as $item1) {
                     $model->callArea[$n1++] = $item1;
                 }

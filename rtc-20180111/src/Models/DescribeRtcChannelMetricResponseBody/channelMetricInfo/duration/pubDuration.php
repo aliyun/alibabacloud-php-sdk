@@ -12,28 +12,32 @@ class pubDuration extends Model
      * @var int
      */
     public $audio;
+
     /**
      * @var int
      */
     public $content;
+
     /**
      * @var int
      */
     public $video1080;
+
     /**
      * @var int
      */
     public $video360;
+
     /**
      * @var int
      */
     public $video720;
     protected $_name = [
-        'audio'     => 'Audio',
-        'content'   => 'Content',
+        'audio' => 'Audio',
+        'content' => 'Content',
         'video1080' => 'Video1080',
-        'video360'  => 'Video360',
-        'video720'  => 'Video720',
+        'video360' => 'Video360',
+        'video720' => 'Video720',
     ];
 
     public function validate()

@@ -12,33 +12,38 @@ class channelMetric extends Model
      * @var string
      */
     public $channelId;
+
     /**
      * @var string
      */
     public $endTime;
+
     /**
      * @var int
      */
     public $pubUserCount;
+
     /**
      * @var string
      */
     public $startTime;
+
     /**
      * @var int
      */
     public $subUserCount;
+
     /**
      * @var int
      */
     public $userCount;
     protected $_name = [
-        'channelId'    => 'ChannelId',
-        'endTime'      => 'EndTime',
+        'channelId' => 'ChannelId',
+        'endTime' => 'EndTime',
         'pubUserCount' => 'PubUserCount',
-        'startTime'    => 'StartTime',
+        'startTime' => 'StartTime',
         'subUserCount' => 'SubUserCount',
-        'userCount'    => 'UserCount',
+        'userCount' => 'UserCount',
     ];
 
     public function validate()

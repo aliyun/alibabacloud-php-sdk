@@ -13,18 +13,20 @@ class ModifyAppLayoutRequest extends Model
      * @var string
      */
     public $appId;
+
     /**
      * @var string
      */
     public $clientToken;
+
     /**
      * @var layout
      */
     public $layout;
     protected $_name = [
-        'appId'       => 'AppId',
+        'appId' => 'AppId',
         'clientToken' => 'ClientToken',
-        'layout'      => 'Layout',
+        'layout' => 'Layout',
     ];
 
     public function validate()

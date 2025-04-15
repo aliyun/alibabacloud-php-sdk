@@ -12,17 +12,19 @@ class DeleteAppLayoutShrinkRequest extends Model
      * @var string
      */
     public $appId;
+
     /**
      * @var string
      */
     public $clientToken;
+
     /**
      * @var string
      */
     public $layoutShrink;
     protected $_name = [
-        'appId'        => 'AppId',
-        'clientToken'  => 'ClientToken',
+        'appId' => 'AppId',
+        'clientToken' => 'ClientToken',
         'layoutShrink' => 'Layout',
     ];
 

@@ -12,17 +12,19 @@ class ModifyAppRecordTemplateShrinkRequest extends Model
      * @var string
      */
     public $appId;
+
     /**
      * @var string
      */
     public $clientToken;
+
     /**
      * @var string
      */
     public $recordTemplateShrink;
     protected $_name = [
-        'appId'                => 'AppId',
-        'clientToken'          => 'ClientToken',
+        'appId' => 'AppId',
+        'clientToken' => 'ClientToken',
         'recordTemplateShrink' => 'RecordTemplate',
     ];
 

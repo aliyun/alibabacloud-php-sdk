@@ -12,18 +12,20 @@ class sessions extends Model
      * @var int
      */
     public $joined;
+
     /**
      * @var string
      */
     public $sessionId;
+
     /**
      * @var string
      */
     public $userId;
     protected $_name = [
-        'joined'    => 'Joined',
+        'joined' => 'Joined',
         'sessionId' => 'SessionId',
-        'userId'    => 'UserId',
+        'userId' => 'UserId',
     ];
 
     public function validate()

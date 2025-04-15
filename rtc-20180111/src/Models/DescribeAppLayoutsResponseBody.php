@@ -13,22 +13,25 @@ class DescribeAppLayoutsResponseBody extends Model
      * @var layouts[]
      */
     public $layouts;
+
     /**
      * @var string
      */
     public $requestId;
+
     /**
      * @var int
      */
     public $totalNum;
+
     /**
      * @var int
      */
     public $totalPage;
     protected $_name = [
-        'layouts'   => 'Layouts',
+        'layouts' => 'Layouts',
         'requestId' => 'RequestId',
-        'totalNum'  => 'TotalNum',
+        'totalNum' => 'TotalNum',
         'totalPage' => 'TotalPage',
     ];
 
@@ -46,7 +49,7 @@ class DescribeAppLayoutsResponseBody extends Model
         if (null !== $this->layouts) {
             if (\is_array($this->layouts)) {
                 $res['Layouts'] = [];
-                $n1             = 0;
+                $n1 = 0;
                 foreach ($this->layouts as $item1) {
                     $res['Layouts'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -79,7 +82,7 @@ class DescribeAppLayoutsResponseBody extends Model
         if (isset($map['Layouts'])) {
             if (!empty($map['Layouts'])) {
                 $model->layouts = [];
-                $n1             = 0;
+                $n1 = 0;
                 foreach ($map['Layouts'] as $item1) {
                     $model->layouts[$n1++] = layouts::fromMap($item1);
                 }

@@ -12,28 +12,32 @@ class DescribeEndPointEventListRequest extends Model
      * @var string
      */
     public $appId;
+
     /**
      * @var string
      */
     public $channelId;
+
     /**
      * @var int
      */
     public $createdTs;
+
     /**
      * @var int
      */
     public $destroyedTs;
+
     /**
      * @var string
      */
     public $userIdList;
     protected $_name = [
-        'appId'       => 'AppId',
-        'channelId'   => 'ChannelId',
-        'createdTs'   => 'CreatedTs',
+        'appId' => 'AppId',
+        'channelId' => 'ChannelId',
+        'createdTs' => 'CreatedTs',
         'destroyedTs' => 'DestroyedTs',
-        'userIdList'  => 'UserIdList',
+        'userIdList' => 'UserIdList',
     ];
 
     public function validate()

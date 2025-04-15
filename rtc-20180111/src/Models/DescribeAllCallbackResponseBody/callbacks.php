@@ -13,17 +13,19 @@ class callbacks extends Model
      * @var string
      */
     public $category;
+
     /**
      * @var string
      */
     public $name;
+
     /**
      * @var subEvent[]
      */
     public $subEvent;
     protected $_name = [
         'category' => 'Category',
-        'name'     => 'Name',
+        'name' => 'Name',
         'subEvent' => 'SubEvent',
     ];
 
@@ -49,7 +51,7 @@ class callbacks extends Model
         if (null !== $this->subEvent) {
             if (\is_array($this->subEvent)) {
                 $res['SubEvent'] = [];
-                $n1              = 0;
+                $n1 = 0;
                 foreach ($this->subEvent as $item1) {
                     $res['SubEvent'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -78,7 +80,7 @@ class callbacks extends Model
         if (isset($map['SubEvent'])) {
             if (!empty($map['SubEvent'])) {
                 $model->subEvent = [];
-                $n1              = 0;
+                $n1 = 0;
                 foreach ($map['SubEvent'] as $item1) {
                     $model->subEvent[$n1++] = subEvent::fromMap($item1);
                 }

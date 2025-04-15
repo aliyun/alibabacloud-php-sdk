@@ -12,18 +12,20 @@ class DeleteChannelRequest extends Model
      * @var string
      */
     public $appId;
+
     /**
      * @var string
      */
     public $channelId;
+
     /**
      * @var int
      */
     public $ownerId;
     protected $_name = [
-        'appId'     => 'AppId',
+        'appId' => 'AppId',
         'channelId' => 'ChannelId',
-        'ownerId'   => 'OwnerId',
+        'ownerId' => 'OwnerId',
     ];
 
     public function validate()

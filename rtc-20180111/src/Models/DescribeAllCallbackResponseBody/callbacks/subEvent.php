@@ -12,18 +12,20 @@ class subEvent extends Model
      * @var int
      */
     public $event;
+
     /**
      * @var string
      */
     public $eventName;
+
     /**
      * @var int
      */
     public $type;
     protected $_name = [
-        'event'     => 'Event',
+        'event' => 'Event',
         'eventName' => 'EventName',
-        'type'      => 'Type',
+        'type' => 'Type',
     ];
 
     public function validate()

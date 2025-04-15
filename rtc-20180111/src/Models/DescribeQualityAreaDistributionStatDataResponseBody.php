@@ -13,13 +13,14 @@ class DescribeQualityAreaDistributionStatDataResponseBody extends Model
      * @var qualityStatDataList[]
      */
     public $qualityStatDataList;
+
     /**
      * @var string
      */
     public $requestId;
     protected $_name = [
         'qualityStatDataList' => 'QualityStatDataList',
-        'requestId'           => 'RequestId',
+        'requestId' => 'RequestId',
     ];
 
     public function validate()
@@ -36,7 +37,7 @@ class DescribeQualityAreaDistributionStatDataResponseBody extends Model
         if (null !== $this->qualityStatDataList) {
             if (\is_array($this->qualityStatDataList)) {
                 $res['QualityStatDataList'] = [];
-                $n1                         = 0;
+                $n1 = 0;
                 foreach ($this->qualityStatDataList as $item1) {
                     $res['QualityStatDataList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -61,7 +62,7 @@ class DescribeQualityAreaDistributionStatDataResponseBody extends Model
         if (isset($map['QualityStatDataList'])) {
             if (!empty($map['QualityStatDataList'])) {
                 $model->qualityStatDataList = [];
-                $n1                         = 0;
+                $n1 = 0;
                 foreach ($map['QualityStatDataList'] as $item1) {
                     $model->qualityStatDataList[$n1++] = qualityStatDataList::fromMap($item1);
                 }

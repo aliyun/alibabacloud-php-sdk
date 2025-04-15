@@ -12,27 +12,31 @@ class DescribeRecordTemplatesRequest extends Model
      * @var string
      */
     public $appId;
+
     /**
      * @var int
      */
     public $ownerId;
+
     /**
      * @var int
      */
     public $pageNum;
+
     /**
      * @var int
      */
     public $pageSize;
+
     /**
      * @var string[]
      */
     public $templateIds;
     protected $_name = [
-        'appId'       => 'AppId',
-        'ownerId'     => 'OwnerId',
-        'pageNum'     => 'PageNum',
-        'pageSize'    => 'PageSize',
+        'appId' => 'AppId',
+        'ownerId' => 'OwnerId',
+        'pageNum' => 'PageNum',
+        'pageSize' => 'PageSize',
         'templateIds' => 'TemplateIds',
     ];
 
@@ -66,7 +70,7 @@ class DescribeRecordTemplatesRequest extends Model
         if (null !== $this->templateIds) {
             if (\is_array($this->templateIds)) {
                 $res['TemplateIds'] = [];
-                $n1                 = 0;
+                $n1 = 0;
                 foreach ($this->templateIds as $item1) {
                     $res['TemplateIds'][$n1++] = $item1;
                 }
@@ -103,7 +107,7 @@ class DescribeRecordTemplatesRequest extends Model
         if (isset($map['TemplateIds'])) {
             if (!empty($map['TemplateIds'])) {
                 $model->templateIds = [];
-                $n1                 = 0;
+                $n1 = 0;
                 foreach ($map['TemplateIds'] as $item1) {
                     $model->templateIds[$n1++] = $item1;
                 }

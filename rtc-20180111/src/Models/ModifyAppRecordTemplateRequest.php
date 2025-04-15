@@ -13,17 +13,19 @@ class ModifyAppRecordTemplateRequest extends Model
      * @var string
      */
     public $appId;
+
     /**
      * @var string
      */
     public $clientToken;
+
     /**
      * @var recordTemplate
      */
     public $recordTemplate;
     protected $_name = [
-        'appId'          => 'AppId',
-        'clientToken'    => 'ClientToken',
+        'appId' => 'AppId',
+        'clientToken' => 'ClientToken',
         'recordTemplate' => 'RecordTemplate',
     ];
 

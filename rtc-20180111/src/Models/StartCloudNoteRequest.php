@@ -8,10 +8,12 @@ use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Rtc\V20180111\Models\StartCloudNoteRequest\autoChapters;
 use AlibabaCloud\SDK\Rtc\V20180111\Models\StartCloudNoteRequest\customPrompt;
 use AlibabaCloud\SDK\Rtc\V20180111\Models\StartCloudNoteRequest\meetingAssistance;
+use AlibabaCloud\SDK\Rtc\V20180111\Models\StartCloudNoteRequest\realtimeSubtitle;
 use AlibabaCloud\SDK\Rtc\V20180111\Models\StartCloudNoteRequest\serviceInspection;
 use AlibabaCloud\SDK\Rtc\V20180111\Models\StartCloudNoteRequest\storageConfig;
 use AlibabaCloud\SDK\Rtc\V20180111\Models\StartCloudNoteRequest\summarization;
 use AlibabaCloud\SDK\Rtc\V20180111\Models\StartCloudNoteRequest\textPolish;
+use AlibabaCloud\SDK\Rtc\V20180111\Models\StartCloudNoteRequest\transcription;
 
 class StartCloudNoteRequest extends Model
 {
@@ -19,63 +21,86 @@ class StartCloudNoteRequest extends Model
      * @var string
      */
     public $appId;
+
     /**
      * @var autoChapters
      */
     public $autoChapters;
+
     /**
      * @var string
      */
     public $channelId;
+
     /**
      * @var customPrompt
      */
     public $customPrompt;
+
     /**
      * @var string[]
      */
     public $languageHints;
+
     /**
      * @var meetingAssistance
      */
     public $meetingAssistance;
+
+    /**
+     * @var realtimeSubtitle
+     */
+    public $realtimeSubtitle;
+
     /**
      * @var serviceInspection
      */
     public $serviceInspection;
+
     /**
      * @var string
      */
     public $sourceLanguage;
+
     /**
      * @var storageConfig
      */
     public $storageConfig;
+
     /**
      * @var summarization
      */
     public $summarization;
+
     /**
      * @var string
      */
     public $taskId;
+
     /**
      * @var textPolish
      */
     public $textPolish;
+
+    /**
+     * @var transcription
+     */
+    public $transcription;
     protected $_name = [
-        'appId'             => 'AppId',
-        'autoChapters'      => 'AutoChapters',
-        'channelId'         => 'ChannelId',
-        'customPrompt'      => 'CustomPrompt',
-        'languageHints'     => 'LanguageHints',
+        'appId' => 'AppId',
+        'autoChapters' => 'AutoChapters',
+        'channelId' => 'ChannelId',
+        'customPrompt' => 'CustomPrompt',
+        'languageHints' => 'LanguageHints',
         'meetingAssistance' => 'MeetingAssistance',
+        'realtimeSubtitle' => 'RealtimeSubtitle',
         'serviceInspection' => 'ServiceInspection',
-        'sourceLanguage'    => 'SourceLanguage',
-        'storageConfig'     => 'StorageConfig',
-        'summarization'     => 'Summarization',
-        'taskId'            => 'TaskId',
-        'textPolish'        => 'TextPolish',
+        'sourceLanguage' => 'SourceLanguage',
+        'storageConfig' => 'StorageConfig',
+        'summarization' => 'Summarization',
+        'taskId' => 'TaskId',
+        'textPolish' => 'TextPolish',
+        'transcription' => 'Transcription',
     ];
 
     public function validate()
@@ -92,6 +117,9 @@ class StartCloudNoteRequest extends Model
         if (null !== $this->meetingAssistance) {
             $this->meetingAssistance->validate();
         }
+        if (null !== $this->realtimeSubtitle) {
+            $this->realtimeSubtitle->validate();
+        }
         if (null !== $this->serviceInspection) {
             $this->serviceInspection->validate();
         }
@@ -103,6 +131,9 @@ class StartCloudNoteRequest extends Model
         }
         if (null !== $this->textPolish) {
             $this->textPolish->validate();
+        }
+        if (null !== $this->transcription) {
+            $this->transcription->validate();
         }
         parent::validate();
     }
@@ -129,7 +160,7 @@ class StartCloudNoteRequest extends Model
         if (null !== $this->languageHints) {
             if (\is_array($this->languageHints)) {
                 $res['LanguageHints'] = [];
-                $n1                   = 0;
+                $n1 = 0;
                 foreach ($this->languageHints as $item1) {
                     $res['LanguageHints'][$n1++] = $item1;
                 }
@@ -138,6 +169,10 @@ class StartCloudNoteRequest extends Model
 
         if (null !== $this->meetingAssistance) {
             $res['MeetingAssistance'] = null !== $this->meetingAssistance ? $this->meetingAssistance->toArray($noStream) : $this->meetingAssistance;
+        }
+
+        if (null !== $this->realtimeSubtitle) {
+            $res['RealtimeSubtitle'] = null !== $this->realtimeSubtitle ? $this->realtimeSubtitle->toArray($noStream) : $this->realtimeSubtitle;
         }
 
         if (null !== $this->serviceInspection) {
@@ -162,6 +197,10 @@ class StartCloudNoteRequest extends Model
 
         if (null !== $this->textPolish) {
             $res['TextPolish'] = null !== $this->textPolish ? $this->textPolish->toArray($noStream) : $this->textPolish;
+        }
+
+        if (null !== $this->transcription) {
+            $res['Transcription'] = null !== $this->transcription ? $this->transcription->toArray($noStream) : $this->transcription;
         }
 
         return $res;
@@ -194,7 +233,7 @@ class StartCloudNoteRequest extends Model
         if (isset($map['LanguageHints'])) {
             if (!empty($map['LanguageHints'])) {
                 $model->languageHints = [];
-                $n1                   = 0;
+                $n1 = 0;
                 foreach ($map['LanguageHints'] as $item1) {
                     $model->languageHints[$n1++] = $item1;
                 }
@@ -203,6 +242,10 @@ class StartCloudNoteRequest extends Model
 
         if (isset($map['MeetingAssistance'])) {
             $model->meetingAssistance = meetingAssistance::fromMap($map['MeetingAssistance']);
+        }
+
+        if (isset($map['RealtimeSubtitle'])) {
+            $model->realtimeSubtitle = realtimeSubtitle::fromMap($map['RealtimeSubtitle']);
         }
 
         if (isset($map['ServiceInspection'])) {
@@ -227,6 +270,10 @@ class StartCloudNoteRequest extends Model
 
         if (isset($map['TextPolish'])) {
             $model->textPolish = textPolish::fromMap($map['TextPolish']);
+        }
+
+        if (isset($map['Transcription'])) {
+            $model->transcription = transcription::fromMap($map['Transcription']);
         }
 
         return $model;

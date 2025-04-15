@@ -13,22 +13,25 @@ class DescribeMPULayoutInfoListResponseBody extends Model
      * @var layouts
      */
     public $layouts;
+
     /**
      * @var string
      */
     public $requestId;
+
     /**
      * @var int
      */
     public $totalNum;
+
     /**
      * @var int
      */
     public $totalPage;
     protected $_name = [
-        'layouts'   => 'Layouts',
+        'layouts' => 'Layouts',
         'requestId' => 'RequestId',
-        'totalNum'  => 'TotalNum',
+        'totalNum' => 'TotalNum',
         'totalPage' => 'TotalPage',
     ];
 

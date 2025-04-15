@@ -12,12 +12,13 @@ class CreateEventSubscribeResponseBody extends Model
      * @var string
      */
     public $requestId;
+
     /**
      * @var string
      */
     public $subscribeId;
     protected $_name = [
-        'requestId'   => 'RequestId',
+        'requestId' => 'RequestId',
         'subscribeId' => 'SubscribeId',
     ];
 

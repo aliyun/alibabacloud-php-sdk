@@ -13,18 +13,20 @@ class relatedEventDatas extends Model
      * @var eventDataItems[]
      */
     public $eventDataItems;
+
     /**
      * @var string
      */
     public $role;
+
     /**
      * @var string
      */
     public $userId;
     protected $_name = [
         'eventDataItems' => 'EventDataItems',
-        'role'           => 'Role',
-        'userId'         => 'UserId',
+        'role' => 'Role',
+        'userId' => 'UserId',
     ];
 
     public function validate()
@@ -41,7 +43,7 @@ class relatedEventDatas extends Model
         if (null !== $this->eventDataItems) {
             if (\is_array($this->eventDataItems)) {
                 $res['EventDataItems'] = [];
-                $n1                    = 0;
+                $n1 = 0;
                 foreach ($this->eventDataItems as $item1) {
                     $res['EventDataItems'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -70,7 +72,7 @@ class relatedEventDatas extends Model
         if (isset($map['EventDataItems'])) {
             if (!empty($map['EventDataItems'])) {
                 $model->eventDataItems = [];
-                $n1                    = 0;
+                $n1 = 0;
                 foreach ($map['EventDataItems'] as $item1) {
                     $model->eventDataItems[$n1++] = eventDataItems::fromMap($item1);
                 }

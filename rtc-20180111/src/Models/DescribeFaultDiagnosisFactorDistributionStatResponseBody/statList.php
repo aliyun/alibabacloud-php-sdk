@@ -12,16 +12,18 @@ class statList extends Model
      * @var string
      */
     public $factorId;
+
     /**
      * @var int
      */
     public $userCount;
+
     /**
      * @var float
      */
     public $userRatio;
     protected $_name = [
-        'factorId'  => 'FactorId',
+        'factorId' => 'FactorId',
         'userCount' => 'UserCount',
         'userRatio' => 'UserRatio',
     ];

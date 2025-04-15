@@ -12,22 +12,25 @@ class DescribeChannelOverallDataRequest extends Model
      * @var string
      */
     public $appId;
+
     /**
      * @var string
      */
     public $channelId;
+
     /**
      * @var int
      */
     public $createdTs;
+
     /**
      * @var int
      */
     public $destroyedTs;
     protected $_name = [
-        'appId'       => 'AppId',
-        'channelId'   => 'ChannelId',
-        'createdTs'   => 'CreatedTs',
+        'appId' => 'AppId',
+        'channelId' => 'ChannelId',
+        'createdTs' => 'CreatedTs',
         'destroyedTs' => 'DestroyedTs',
     ];
 

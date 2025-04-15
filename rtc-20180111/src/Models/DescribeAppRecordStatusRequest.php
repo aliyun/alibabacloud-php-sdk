@@ -12,12 +12,13 @@ class DescribeAppRecordStatusRequest extends Model
      * @var string
      */
     public $appId;
+
     /**
      * @var string
      */
     public $clientToken;
     protected $_name = [
-        'appId'       => 'AppId',
+        'appId' => 'AppId',
         'clientToken' => 'ClientToken',
     ];
 

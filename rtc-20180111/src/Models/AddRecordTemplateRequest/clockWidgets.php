@@ -12,33 +12,38 @@ class clockWidgets extends Model
      * @var int
      */
     public $fontColor;
+
     /**
      * @var int
      */
     public $fontSize;
+
     /**
      * @var int
      */
     public $fontType;
+
     /**
      * @var float
      */
     public $x;
+
     /**
      * @var float
      */
     public $y;
+
     /**
      * @var int
      */
     public $ZOrder;
     protected $_name = [
         'fontColor' => 'FontColor',
-        'fontSize'  => 'FontSize',
-        'fontType'  => 'FontType',
-        'x'         => 'X',
-        'y'         => 'Y',
-        'ZOrder'    => 'ZOrder',
+        'fontSize' => 'FontSize',
+        'fontType' => 'FontType',
+        'x' => 'X',
+        'y' => 'Y',
+        'ZOrder' => 'ZOrder',
     ];
 
     public function validate()

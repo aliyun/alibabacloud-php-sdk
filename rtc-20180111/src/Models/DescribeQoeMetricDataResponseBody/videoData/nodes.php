@@ -12,6 +12,7 @@ class nodes extends Model
      * @var string
      */
     public $x;
+
     /**
      * @var string
      */

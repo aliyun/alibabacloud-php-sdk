@@ -14,23 +14,26 @@ class DescribePubUserListBySubUserResponseBody extends Model
      * @var string
      */
     public $callStatus;
+
     /**
      * @var pubUserDetailList[]
      */
     public $pubUserDetailList;
+
     /**
      * @var string
      */
     public $requestId;
+
     /**
      * @var subUserDetail
      */
     public $subUserDetail;
     protected $_name = [
-        'callStatus'        => 'CallStatus',
+        'callStatus' => 'CallStatus',
         'pubUserDetailList' => 'PubUserDetailList',
-        'requestId'         => 'RequestId',
-        'subUserDetail'     => 'SubUserDetail',
+        'requestId' => 'RequestId',
+        'subUserDetail' => 'SubUserDetail',
     ];
 
     public function validate()
@@ -54,7 +57,7 @@ class DescribePubUserListBySubUserResponseBody extends Model
         if (null !== $this->pubUserDetailList) {
             if (\is_array($this->pubUserDetailList)) {
                 $res['PubUserDetailList'] = [];
-                $n1                       = 0;
+                $n1 = 0;
                 foreach ($this->pubUserDetailList as $item1) {
                     $res['PubUserDetailList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -87,7 +90,7 @@ class DescribePubUserListBySubUserResponseBody extends Model
         if (isset($map['PubUserDetailList'])) {
             if (!empty($map['PubUserDetailList'])) {
                 $model->pubUserDetailList = [];
-                $n1                       = 0;
+                $n1 = 0;
                 foreach ($map['PubUserDetailList'] as $item1) {
                     $model->pubUserDetailList[$n1++] = pubUserDetailList::fromMap($item1);
                 }

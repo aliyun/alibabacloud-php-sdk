@@ -13,13 +13,14 @@ class DescribeRtcChannelMetricResponseBody extends Model
      * @var channelMetricInfo
      */
     public $channelMetricInfo;
+
     /**
      * @var string
      */
     public $requestId;
     protected $_name = [
         'channelMetricInfo' => 'ChannelMetricInfo',
-        'requestId'         => 'RequestId',
+        'requestId' => 'RequestId',
     ];
 
     public function validate()

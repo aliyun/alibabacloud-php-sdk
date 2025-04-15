@@ -12,23 +12,26 @@ class StopCloudNoteRequest extends Model
      * @var string
      */
     public $appId;
+
     /**
      * @var string
      */
     public $channelId;
+
     /**
      * @var string
      */
     public $clientToken;
+
     /**
      * @var string
      */
     public $taskId;
     protected $_name = [
-        'appId'       => 'AppId',
-        'channelId'   => 'ChannelId',
+        'appId' => 'AppId',
+        'channelId' => 'ChannelId',
         'clientToken' => 'ClientToken',
-        'taskId'      => 'TaskId',
+        'taskId' => 'TaskId',
     ];
 
     public function validate()

@@ -12,13 +12,14 @@ class summarization extends Model
      * @var bool
      */
     public $enabled;
+
     /**
      * @var string[]
      */
     public $type;
     protected $_name = [
         'enabled' => 'Enabled',
-        'type'    => 'Type',
+        'type' => 'Type',
     ];
 
     public function validate()
@@ -39,7 +40,7 @@ class summarization extends Model
         if (null !== $this->type) {
             if (\is_array($this->type)) {
                 $res['Type'] = [];
-                $n1          = 0;
+                $n1 = 0;
                 foreach ($this->type as $item1) {
                     $res['Type'][$n1++] = $item1;
                 }
@@ -64,7 +65,7 @@ class summarization extends Model
         if (isset($map['Type'])) {
             if (!empty($map['Type'])) {
                 $model->type = [];
-                $n1          = 0;
+                $n1 = 0;
                 foreach ($map['Type'] as $item1) {
                     $model->type[$n1++] = $item1;
                 }

@@ -12,48 +12,56 @@ class UpdateAutoLiveStreamRuleRequest extends Model
      * @var string
      */
     public $appId;
+
     /**
      * @var string
      */
     public $callBack;
+
     /**
      * @var string[]
      */
     public $channelIdPrefixes;
+
     /**
      * @var string[]
      */
     public $channelIds;
+
     /**
      * @var int
      */
     public $mediaEncode;
+
     /**
      * @var int
      */
     public $ownerId;
+
     /**
      * @var string
      */
     public $playDomain;
+
     /**
      * @var int
      */
     public $ruleId;
+
     /**
      * @var string
      */
     public $ruleName;
     protected $_name = [
-        'appId'             => 'AppId',
-        'callBack'          => 'CallBack',
+        'appId' => 'AppId',
+        'callBack' => 'CallBack',
         'channelIdPrefixes' => 'ChannelIdPrefixes',
-        'channelIds'        => 'ChannelIds',
-        'mediaEncode'       => 'MediaEncode',
-        'ownerId'           => 'OwnerId',
-        'playDomain'        => 'PlayDomain',
-        'ruleId'            => 'RuleId',
-        'ruleName'          => 'RuleName',
+        'channelIds' => 'ChannelIds',
+        'mediaEncode' => 'MediaEncode',
+        'ownerId' => 'OwnerId',
+        'playDomain' => 'PlayDomain',
+        'ruleId' => 'RuleId',
+        'ruleName' => 'RuleName',
     ];
 
     public function validate()
@@ -81,7 +89,7 @@ class UpdateAutoLiveStreamRuleRequest extends Model
         if (null !== $this->channelIdPrefixes) {
             if (\is_array($this->channelIdPrefixes)) {
                 $res['ChannelIdPrefixes'] = [];
-                $n1                       = 0;
+                $n1 = 0;
                 foreach ($this->channelIdPrefixes as $item1) {
                     $res['ChannelIdPrefixes'][$n1++] = $item1;
                 }
@@ -91,7 +99,7 @@ class UpdateAutoLiveStreamRuleRequest extends Model
         if (null !== $this->channelIds) {
             if (\is_array($this->channelIds)) {
                 $res['ChannelIds'] = [];
-                $n1                = 0;
+                $n1 = 0;
                 foreach ($this->channelIds as $item1) {
                     $res['ChannelIds'][$n1++] = $item1;
                 }
@@ -140,7 +148,7 @@ class UpdateAutoLiveStreamRuleRequest extends Model
         if (isset($map['ChannelIdPrefixes'])) {
             if (!empty($map['ChannelIdPrefixes'])) {
                 $model->channelIdPrefixes = [];
-                $n1                       = 0;
+                $n1 = 0;
                 foreach ($map['ChannelIdPrefixes'] as $item1) {
                     $model->channelIdPrefixes[$n1++] = $item1;
                 }
@@ -150,7 +158,7 @@ class UpdateAutoLiveStreamRuleRequest extends Model
         if (isset($map['ChannelIds'])) {
             if (!empty($map['ChannelIds'])) {
                 $model->channelIds = [];
-                $n1                = 0;
+                $n1 = 0;
                 foreach ($map['ChannelIds'] as $item1) {
                     $model->channelIds[$n1++] = $item1;
                 }

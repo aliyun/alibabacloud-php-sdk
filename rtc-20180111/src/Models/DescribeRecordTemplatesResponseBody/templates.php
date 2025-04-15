@@ -15,93 +15,110 @@ class templates extends Model
      * @var int
      */
     public $backgroundColor;
+
     /**
      * @var backgrounds[]
      */
     public $backgrounds;
+
     /**
      * @var clockWidgets[]
      */
     public $clockWidgets;
+
     /**
      * @var string
      */
     public $createTime;
+
     /**
      * @var int
      */
     public $delayStopTime;
+
     /**
      * @var bool
      */
     public $enableM3u8DateTime;
+
     /**
      * @var int
      */
     public $fileSplitInterval;
+
     /**
      * @var string[]
      */
     public $formats;
+
     /**
      * @var string
      */
     public $httpCallbackUrl;
+
     /**
      * @var int[]
      */
     public $layoutIds;
+
     /**
      * @var int
      */
     public $mediaEncode;
+
     /**
      * @var string
      */
     public $mnsQueue;
+
     /**
      * @var string
      */
     public $name;
+
     /**
      * @var string
      */
     public $ossBucket;
+
     /**
      * @var string
      */
     public $ossFilePrefix;
+
     /**
      * @var string
      */
     public $taskProfile;
+
     /**
      * @var string
      */
     public $templateId;
+
     /**
      * @var watermarks[]
      */
     public $watermarks;
     protected $_name = [
-        'backgroundColor'    => 'BackgroundColor',
-        'backgrounds'        => 'Backgrounds',
-        'clockWidgets'       => 'ClockWidgets',
-        'createTime'         => 'CreateTime',
-        'delayStopTime'      => 'DelayStopTime',
+        'backgroundColor' => 'BackgroundColor',
+        'backgrounds' => 'Backgrounds',
+        'clockWidgets' => 'ClockWidgets',
+        'createTime' => 'CreateTime',
+        'delayStopTime' => 'DelayStopTime',
         'enableM3u8DateTime' => 'EnableM3u8DateTime',
-        'fileSplitInterval'  => 'FileSplitInterval',
-        'formats'            => 'Formats',
-        'httpCallbackUrl'    => 'HttpCallbackUrl',
-        'layoutIds'          => 'LayoutIds',
-        'mediaEncode'        => 'MediaEncode',
-        'mnsQueue'           => 'MnsQueue',
-        'name'               => 'Name',
-        'ossBucket'          => 'OssBucket',
-        'ossFilePrefix'      => 'OssFilePrefix',
-        'taskProfile'        => 'TaskProfile',
-        'templateId'         => 'TemplateId',
-        'watermarks'         => 'Watermarks',
+        'fileSplitInterval' => 'FileSplitInterval',
+        'formats' => 'Formats',
+        'httpCallbackUrl' => 'HttpCallbackUrl',
+        'layoutIds' => 'LayoutIds',
+        'mediaEncode' => 'MediaEncode',
+        'mnsQueue' => 'MnsQueue',
+        'name' => 'Name',
+        'ossBucket' => 'OssBucket',
+        'ossFilePrefix' => 'OssFilePrefix',
+        'taskProfile' => 'TaskProfile',
+        'templateId' => 'TemplateId',
+        'watermarks' => 'Watermarks',
     ];
 
     public function validate()
@@ -134,7 +151,7 @@ class templates extends Model
         if (null !== $this->backgrounds) {
             if (\is_array($this->backgrounds)) {
                 $res['Backgrounds'] = [];
-                $n1                 = 0;
+                $n1 = 0;
                 foreach ($this->backgrounds as $item1) {
                     $res['Backgrounds'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -144,7 +161,7 @@ class templates extends Model
         if (null !== $this->clockWidgets) {
             if (\is_array($this->clockWidgets)) {
                 $res['ClockWidgets'] = [];
-                $n1                  = 0;
+                $n1 = 0;
                 foreach ($this->clockWidgets as $item1) {
                     $res['ClockWidgets'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -170,7 +187,7 @@ class templates extends Model
         if (null !== $this->formats) {
             if (\is_array($this->formats)) {
                 $res['Formats'] = [];
-                $n1             = 0;
+                $n1 = 0;
                 foreach ($this->formats as $item1) {
                     $res['Formats'][$n1++] = $item1;
                 }
@@ -184,7 +201,7 @@ class templates extends Model
         if (null !== $this->layoutIds) {
             if (\is_array($this->layoutIds)) {
                 $res['LayoutIds'] = [];
-                $n1               = 0;
+                $n1 = 0;
                 foreach ($this->layoutIds as $item1) {
                     $res['LayoutIds'][$n1++] = $item1;
                 }
@@ -222,7 +239,7 @@ class templates extends Model
         if (null !== $this->watermarks) {
             if (\is_array($this->watermarks)) {
                 $res['Watermarks'] = [];
-                $n1                = 0;
+                $n1 = 0;
                 foreach ($this->watermarks as $item1) {
                     $res['Watermarks'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -247,7 +264,7 @@ class templates extends Model
         if (isset($map['Backgrounds'])) {
             if (!empty($map['Backgrounds'])) {
                 $model->backgrounds = [];
-                $n1                 = 0;
+                $n1 = 0;
                 foreach ($map['Backgrounds'] as $item1) {
                     $model->backgrounds[$n1++] = backgrounds::fromMap($item1);
                 }
@@ -257,7 +274,7 @@ class templates extends Model
         if (isset($map['ClockWidgets'])) {
             if (!empty($map['ClockWidgets'])) {
                 $model->clockWidgets = [];
-                $n1                  = 0;
+                $n1 = 0;
                 foreach ($map['ClockWidgets'] as $item1) {
                     $model->clockWidgets[$n1++] = clockWidgets::fromMap($item1);
                 }
@@ -283,7 +300,7 @@ class templates extends Model
         if (isset($map['Formats'])) {
             if (!empty($map['Formats'])) {
                 $model->formats = [];
-                $n1             = 0;
+                $n1 = 0;
                 foreach ($map['Formats'] as $item1) {
                     $model->formats[$n1++] = $item1;
                 }
@@ -297,7 +314,7 @@ class templates extends Model
         if (isset($map['LayoutIds'])) {
             if (!empty($map['LayoutIds'])) {
                 $model->layoutIds = [];
-                $n1               = 0;
+                $n1 = 0;
                 foreach ($map['LayoutIds'] as $item1) {
                     $model->layoutIds[$n1++] = $item1;
                 }
@@ -335,7 +352,7 @@ class templates extends Model
         if (isset($map['Watermarks'])) {
             if (!empty($map['Watermarks'])) {
                 $model->watermarks = [];
-                $n1                = 0;
+                $n1 = 0;
                 foreach ($map['Watermarks'] as $item1) {
                     $model->watermarks[$n1++] = watermarks::fromMap($item1);
                 }

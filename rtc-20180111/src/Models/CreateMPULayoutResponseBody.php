@@ -12,12 +12,13 @@ class CreateMPULayoutResponseBody extends Model
      * @var int
      */
     public $layoutId;
+
     /**
      * @var string
      */
     public $requestId;
     protected $_name = [
-        'layoutId'  => 'LayoutId',
+        'layoutId' => 'LayoutId',
         'requestId' => 'RequestId',
     ];
 

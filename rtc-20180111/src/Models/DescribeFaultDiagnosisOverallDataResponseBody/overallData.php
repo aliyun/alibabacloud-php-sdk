@@ -12,10 +12,12 @@ class overallData extends Model
      * @var int
      */
     public $faultUserCount;
+
     /**
      * @var float
      */
     public $faultUserRatio;
+
     /**
      * @var int
      */

@@ -12,28 +12,32 @@ class DescribeChannelAreaDistributionStatDataRequest extends Model
      * @var string
      */
     public $appId;
+
     /**
      * @var string
      */
     public $channelId;
+
     /**
      * @var int
      */
     public $createdTs;
+
     /**
      * @var int
      */
     public $destroyedTs;
+
     /**
      * @var string
      */
     public $parentArea;
     protected $_name = [
-        'appId'       => 'AppId',
-        'channelId'   => 'ChannelId',
-        'createdTs'   => 'CreatedTs',
+        'appId' => 'AppId',
+        'channelId' => 'ChannelId',
+        'createdTs' => 'CreatedTs',
         'destroyedTs' => 'DestroyedTs',
-        'parentArea'  => 'ParentArea',
+        'parentArea' => 'ParentArea',
     ];
 
     public function validate()

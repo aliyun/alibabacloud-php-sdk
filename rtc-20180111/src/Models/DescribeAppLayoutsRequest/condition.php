@@ -12,13 +12,14 @@ class condition extends Model
      * @var string
      */
     public $layoutId;
+
     /**
      * @var string
      */
     public $name;
     protected $_name = [
         'layoutId' => 'LayoutId',
-        'name'     => 'Name',
+        'name' => 'Name',
     ];
 
     public function validate()

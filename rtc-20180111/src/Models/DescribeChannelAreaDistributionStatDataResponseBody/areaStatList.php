@@ -12,28 +12,32 @@ class areaStatList extends Model
      * @var string
      */
     public $areaName;
+
     /**
      * @var int
      */
     public $callUserCount;
+
     /**
      * @var string
      */
     public $highQualityTransmissionRate;
+
     /**
      * @var int
      */
     public $pubUserCount;
+
     /**
      * @var int
      */
     public $subUserCount;
     protected $_name = [
-        'areaName'                    => 'AreaName',
-        'callUserCount'               => 'CallUserCount',
+        'areaName' => 'AreaName',
+        'callUserCount' => 'CallUserCount',
         'highQualityTransmissionRate' => 'HighQualityTransmissionRate',
-        'pubUserCount'                => 'PubUserCount',
-        'subUserCount'                => 'SubUserCount',
+        'pubUserCount' => 'PubUserCount',
+        'subUserCount' => 'SubUserCount',
     ];
 
     public function validate()

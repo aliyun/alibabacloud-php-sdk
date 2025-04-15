@@ -12,68 +12,80 @@ class items extends Model
      * @var string
      */
     public $autoChaptersFilePath;
+
     /**
      * @var string
      */
     public $bucket;
+
     /**
      * @var string
      */
     public $channelId;
+
     /**
      * @var string
      */
     public $customPromptFilePath;
+
     /**
      * @var string
      */
     public $meetingAssistanceFilePath;
+
     /**
      * @var int
      */
     public $region;
+
     /**
      * @var string
      */
     public $serviceInspectionFilePath;
+
     /**
      * @var int
      */
     public $startTs;
+
     /**
      * @var string
      */
     public $summarizationFilePath;
+
     /**
      * @var string
      */
     public $taskId;
+
     /**
      * @var string
      */
     public $textPolishFilePath;
+
     /**
      * @var string
      */
     public $transcriptionFilePath;
+
     /**
      * @var int
      */
     public $vendor;
     protected $_name = [
-        'autoChaptersFilePath'      => 'AutoChaptersFilePath',
-        'bucket'                    => 'Bucket',
-        'channelId'                 => 'ChannelId',
-        'customPromptFilePath'      => 'CustomPromptFilePath',
+        'autoChaptersFilePath' => 'AutoChaptersFilePath',
+        'bucket' => 'Bucket',
+        'channelId' => 'ChannelId',
+        'customPromptFilePath' => 'CustomPromptFilePath',
         'meetingAssistanceFilePath' => 'MeetingAssistanceFilePath',
-        'region'                    => 'Region',
+        'region' => 'Region',
         'serviceInspectionFilePath' => 'ServiceInspectionFilePath',
-        'startTs'                   => 'StartTs',
-        'summarizationFilePath'     => 'SummarizationFilePath',
-        'taskId'                    => 'TaskId',
-        'textPolishFilePath'        => 'TextPolishFilePath',
-        'transcriptionFilePath'     => 'TranscriptionFilePath',
-        'vendor'                    => 'Vendor',
+        'startTs' => 'StartTs',
+        'summarizationFilePath' => 'SummarizationFilePath',
+        'taskId' => 'TaskId',
+        'textPolishFilePath' => 'TextPolishFilePath',
+        'transcriptionFilePath' => 'TranscriptionFilePath',
+        'vendor' => 'Vendor',
     ];
 
     public function validate()

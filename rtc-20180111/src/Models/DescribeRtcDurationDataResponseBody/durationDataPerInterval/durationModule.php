@@ -12,38 +12,44 @@ class durationModule extends Model
      * @var int
      */
     public $audioDuration;
+
     /**
      * @var int
      */
     public $contentDuration;
+
     /**
      * @var string
      */
     public $timeStamp;
+
     /**
      * @var int
      */
     public $totalDuration;
+
     /**
      * @var int
      */
     public $v1080Duration;
+
     /**
      * @var int
      */
     public $v360Duration;
+
     /**
      * @var int
      */
     public $v720Duration;
     protected $_name = [
-        'audioDuration'   => 'AudioDuration',
+        'audioDuration' => 'AudioDuration',
         'contentDuration' => 'ContentDuration',
-        'timeStamp'       => 'TimeStamp',
-        'totalDuration'   => 'TotalDuration',
-        'v1080Duration'   => 'V1080Duration',
-        'v360Duration'    => 'V360Duration',
-        'v720Duration'    => 'V720Duration',
+        'timeStamp' => 'TimeStamp',
+        'totalDuration' => 'TotalDuration',
+        'v1080Duration' => 'V1080Duration',
+        'v360Duration' => 'V360Duration',
+        'v720Duration' => 'V720Duration',
     ];
 
     public function validate()

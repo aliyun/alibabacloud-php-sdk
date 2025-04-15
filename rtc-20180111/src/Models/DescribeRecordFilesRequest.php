@@ -12,43 +12,50 @@ class DescribeRecordFilesRequest extends Model
      * @var string
      */
     public $appId;
+
     /**
      * @var string
      */
     public $channelId;
+
     /**
      * @var string
      */
     public $endTime;
+
     /**
      * @var int
      */
     public $ownerId;
+
     /**
      * @var int
      */
     public $pageNum;
+
     /**
      * @var int
      */
     public $pageSize;
+
     /**
      * @var string
      */
     public $startTime;
+
     /**
      * @var string[]
      */
     public $taskIds;
     protected $_name = [
-        'appId'     => 'AppId',
+        'appId' => 'AppId',
         'channelId' => 'ChannelId',
-        'endTime'   => 'EndTime',
-        'ownerId'   => 'OwnerId',
-        'pageNum'   => 'PageNum',
-        'pageSize'  => 'PageSize',
+        'endTime' => 'EndTime',
+        'ownerId' => 'OwnerId',
+        'pageNum' => 'PageNum',
+        'pageSize' => 'PageSize',
         'startTime' => 'StartTime',
-        'taskIds'   => 'TaskIds',
+        'taskIds' => 'TaskIds',
     ];
 
     public function validate()
@@ -93,7 +100,7 @@ class DescribeRecordFilesRequest extends Model
         if (null !== $this->taskIds) {
             if (\is_array($this->taskIds)) {
                 $res['TaskIds'] = [];
-                $n1             = 0;
+                $n1 = 0;
                 foreach ($this->taskIds as $item1) {
                     $res['TaskIds'][$n1++] = $item1;
                 }
@@ -142,7 +149,7 @@ class DescribeRecordFilesRequest extends Model
         if (isset($map['TaskIds'])) {
             if (!empty($map['TaskIds'])) {
                 $model->taskIds = [];
-                $n1             = 0;
+                $n1 = 0;
                 foreach ($map['TaskIds'] as $item1) {
                     $model->taskIds[$n1++] = $item1;
                 }

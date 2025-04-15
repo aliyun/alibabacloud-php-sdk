@@ -13,6 +13,7 @@ class DescribeCallbacksResponseBody extends Model
      * @var callbacks[]
      */
     public $callbacks;
+
     /**
      * @var string
      */
@@ -36,7 +37,7 @@ class DescribeCallbacksResponseBody extends Model
         if (null !== $this->callbacks) {
             if (\is_array($this->callbacks)) {
                 $res['Callbacks'] = [];
-                $n1               = 0;
+                $n1 = 0;
                 foreach ($this->callbacks as $item1) {
                     $res['Callbacks'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -61,7 +62,7 @@ class DescribeCallbacksResponseBody extends Model
         if (isset($map['Callbacks'])) {
             if (!empty($map['Callbacks'])) {
                 $model->callbacks = [];
-                $n1               = 0;
+                $n1 = 0;
                 foreach ($map['Callbacks'] as $item1) {
                     $model->callbacks[$n1++] = callbacks::fromMap($item1);
                 }

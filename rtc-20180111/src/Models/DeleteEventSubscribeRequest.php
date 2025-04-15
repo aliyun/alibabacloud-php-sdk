@@ -12,17 +12,19 @@ class DeleteEventSubscribeRequest extends Model
      * @var string
      */
     public $appId;
+
     /**
      * @var int
      */
     public $ownerId;
+
     /**
      * @var string
      */
     public $subscribeId;
     protected $_name = [
-        'appId'       => 'AppId',
-        'ownerId'     => 'OwnerId',
+        'appId' => 'AppId',
+        'ownerId' => 'OwnerId',
         'subscribeId' => 'SubscribeId',
     ];
 

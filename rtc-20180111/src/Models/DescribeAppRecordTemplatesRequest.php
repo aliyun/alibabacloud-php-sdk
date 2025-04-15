@@ -13,28 +13,32 @@ class DescribeAppRecordTemplatesRequest extends Model
      * @var string
      */
     public $appId;
+
     /**
      * @var string
      */
     public $clientToken;
+
     /**
      * @var condition
      */
     public $condition;
+
     /**
      * @var int
      */
     public $pageNum;
+
     /**
      * @var int
      */
     public $pageSize;
     protected $_name = [
-        'appId'       => 'AppId',
+        'appId' => 'AppId',
         'clientToken' => 'ClientToken',
-        'condition'   => 'Condition',
-        'pageNum'     => 'PageNum',
-        'pageSize'    => 'PageSize',
+        'condition' => 'Condition',
+        'pageNum' => 'PageNum',
+        'pageSize' => 'PageSize',
     ];
 
     public function validate()

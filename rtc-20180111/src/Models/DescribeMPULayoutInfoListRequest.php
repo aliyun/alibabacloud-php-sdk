@@ -12,32 +12,37 @@ class DescribeMPULayoutInfoListRequest extends Model
      * @var string
      */
     public $appId;
+
     /**
      * @var int
      */
     public $layoutId;
+
     /**
      * @var string
      */
     public $name;
+
     /**
      * @var int
      */
     public $ownerId;
+
     /**
      * @var int
      */
     public $pageNum;
+
     /**
      * @var int
      */
     public $pageSize;
     protected $_name = [
-        'appId'    => 'AppId',
+        'appId' => 'AppId',
         'layoutId' => 'LayoutId',
-        'name'     => 'Name',
-        'ownerId'  => 'OwnerId',
-        'pageNum'  => 'PageNum',
+        'name' => 'Name',
+        'ownerId' => 'OwnerId',
+        'pageNum' => 'PageNum',
         'pageSize' => 'PageSize',
     ];
 

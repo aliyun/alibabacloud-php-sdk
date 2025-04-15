@@ -13,22 +13,25 @@ class DescribeAppsResponseBody extends Model
      * @var appList
      */
     public $appList;
+
     /**
      * @var string
      */
     public $requestId;
+
     /**
      * @var int
      */
     public $totalNum;
+
     /**
      * @var int
      */
     public $totalPage;
     protected $_name = [
-        'appList'   => 'AppList',
+        'appList' => 'AppList',
         'requestId' => 'RequestId',
-        'totalNum'  => 'TotalNum',
+        'totalNum' => 'TotalNum',
         'totalPage' => 'TotalPage',
     ];
 

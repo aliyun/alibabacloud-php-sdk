@@ -12,17 +12,19 @@ class terminal extends Model
      * @var int
      */
     public $code;
+
     /**
      * @var string
      */
     public $id;
+
     /**
      * @var string
      */
     public $message;
     protected $_name = [
-        'code'    => 'Code',
-        'id'      => 'Id',
+        'code' => 'Code',
+        'id' => 'Id',
         'message' => 'Message',
     ];
 

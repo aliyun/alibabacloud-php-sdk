@@ -12,28 +12,32 @@ class templates extends Model
      * @var string
      */
     public $createTime;
+
     /**
      * @var string[]
      */
     public $layoutIds;
+
     /**
      * @var int
      */
     public $mediaEncode;
+
     /**
      * @var string
      */
     public $name;
+
     /**
      * @var string
      */
     public $templateId;
     protected $_name = [
-        'createTime'  => 'CreateTime',
-        'layoutIds'   => 'LayoutIds',
+        'createTime' => 'CreateTime',
+        'layoutIds' => 'LayoutIds',
         'mediaEncode' => 'MediaEncode',
-        'name'        => 'Name',
-        'templateId'  => 'TemplateId',
+        'name' => 'Name',
+        'templateId' => 'TemplateId',
     ];
 
     public function validate()
@@ -54,7 +58,7 @@ class templates extends Model
         if (null !== $this->layoutIds) {
             if (\is_array($this->layoutIds)) {
                 $res['LayoutIds'] = [];
-                $n1               = 0;
+                $n1 = 0;
                 foreach ($this->layoutIds as $item1) {
                     $res['LayoutIds'][$n1++] = $item1;
                 }
@@ -91,7 +95,7 @@ class templates extends Model
         if (isset($map['LayoutIds'])) {
             if (!empty($map['LayoutIds'])) {
                 $model->layoutIds = [];
-                $n1               = 0;
+                $n1 = 0;
                 foreach ($map['LayoutIds'] as $item1) {
                     $model->layoutIds[$n1++] = $item1;
                 }

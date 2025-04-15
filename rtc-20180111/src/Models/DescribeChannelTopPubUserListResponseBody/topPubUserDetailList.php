@@ -13,38 +13,44 @@ class topPubUserDetailList extends Model
      * @var int
      */
     public $createdTs;
+
     /**
      * @var int
      */
     public $destroyedTs;
+
     /**
      * @var int
      */
     public $duration;
+
     /**
      * @var string
      */
     public $location;
+
     /**
      * @var int
      */
     public $onlineDuration;
+
     /**
      * @var onlinePeriods[]
      */
     public $onlinePeriods;
+
     /**
      * @var string
      */
     public $userId;
     protected $_name = [
-        'createdTs'      => 'CreatedTs',
-        'destroyedTs'    => 'DestroyedTs',
-        'duration'       => 'Duration',
-        'location'       => 'Location',
+        'createdTs' => 'CreatedTs',
+        'destroyedTs' => 'DestroyedTs',
+        'duration' => 'Duration',
+        'location' => 'Location',
         'onlineDuration' => 'OnlineDuration',
-        'onlinePeriods'  => 'OnlinePeriods',
-        'userId'         => 'UserId',
+        'onlinePeriods' => 'OnlinePeriods',
+        'userId' => 'UserId',
     ];
 
     public function validate()
@@ -81,7 +87,7 @@ class topPubUserDetailList extends Model
         if (null !== $this->onlinePeriods) {
             if (\is_array($this->onlinePeriods)) {
                 $res['OnlinePeriods'] = [];
-                $n1                   = 0;
+                $n1 = 0;
                 foreach ($this->onlinePeriods as $item1) {
                     $res['OnlinePeriods'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -126,7 +132,7 @@ class topPubUserDetailList extends Model
         if (isset($map['OnlinePeriods'])) {
             if (!empty($map['OnlinePeriods'])) {
                 $model->onlinePeriods = [];
-                $n1                   = 0;
+                $n1 = 0;
                 foreach ($map['OnlinePeriods'] as $item1) {
                     $model->onlinePeriods[$n1++] = onlinePeriods::fromMap($item1);
                 }

@@ -13,13 +13,14 @@ class DescribeRtcPeakChannelCntDataResponseBody extends Model
      * @var peakChannelCntDataPerInterval
      */
     public $peakChannelCntDataPerInterval;
+
     /**
      * @var string
      */
     public $requestId;
     protected $_name = [
         'peakChannelCntDataPerInterval' => 'PeakChannelCntDataPerInterval',
-        'requestId'                     => 'RequestId',
+        'requestId' => 'RequestId',
     ];
 
     public function validate()

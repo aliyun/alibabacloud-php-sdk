@@ -14,10 +14,12 @@ class DescribeChannelUserMetricsResponseBody extends Model
      * @var metricDatas[]
      */
     public $metricDatas;
+
     /**
      * @var overallData
      */
     public $overallData;
+
     /**
      * @var string
      */
@@ -25,7 +27,7 @@ class DescribeChannelUserMetricsResponseBody extends Model
     protected $_name = [
         'metricDatas' => 'MetricDatas',
         'overallData' => 'OverallData',
-        'requestId'   => 'RequestId',
+        'requestId' => 'RequestId',
     ];
 
     public function validate()
@@ -45,7 +47,7 @@ class DescribeChannelUserMetricsResponseBody extends Model
         if (null !== $this->metricDatas) {
             if (\is_array($this->metricDatas)) {
                 $res['MetricDatas'] = [];
-                $n1                 = 0;
+                $n1 = 0;
                 foreach ($this->metricDatas as $item1) {
                     $res['MetricDatas'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -74,7 +76,7 @@ class DescribeChannelUserMetricsResponseBody extends Model
         if (isset($map['MetricDatas'])) {
             if (!empty($map['MetricDatas'])) {
                 $model->metricDatas = [];
-                $n1                 = 0;
+                $n1 = 0;
                 foreach ($map['MetricDatas'] as $item1) {
                     $model->metricDatas[$n1++] = metricDatas::fromMap($item1);
                 }

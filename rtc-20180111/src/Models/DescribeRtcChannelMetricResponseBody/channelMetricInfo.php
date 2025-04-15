@@ -14,13 +14,14 @@ class channelMetricInfo extends Model
      * @var channelMetric
      */
     public $channelMetric;
+
     /**
      * @var duration
      */
     public $duration;
     protected $_name = [
         'channelMetric' => 'ChannelMetric',
-        'duration'      => 'Duration',
+        'duration' => 'Duration',
     ];
 
     public function validate()

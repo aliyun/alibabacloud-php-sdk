@@ -12,23 +12,26 @@ class DescribeQualityOverallDataRequest extends Model
      * @var string
      */
     public $appId;
+
     /**
      * @var int
      */
     public $endDate;
+
     /**
      * @var int
      */
     public $startDate;
+
     /**
      * @var string
      */
     public $types;
     protected $_name = [
-        'appId'     => 'AppId',
-        'endDate'   => 'EndDate',
+        'appId' => 'AppId',
+        'endDate' => 'EndDate',
         'startDate' => 'StartDate',
-        'types'     => 'Types',
+        'types' => 'Types',
     ];
 
     public function validate()

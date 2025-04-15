@@ -12,12 +12,13 @@ class DescribeAppKeyResponseBody extends Model
      * @var string
      */
     public $appKey;
+
     /**
      * @var string
      */
     public $requestId;
     protected $_name = [
-        'appKey'    => 'AppKey',
+        'appKey' => 'AppKey',
         'requestId' => 'RequestId',
     ];
 

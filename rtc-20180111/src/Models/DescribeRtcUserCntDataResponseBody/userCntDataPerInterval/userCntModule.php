@@ -12,13 +12,14 @@ class userCntModule extends Model
      * @var int
      */
     public $activeUserCnt;
+
     /**
      * @var string
      */
     public $timeStamp;
     protected $_name = [
         'activeUserCnt' => 'ActiveUserCnt',
-        'timeStamp'     => 'TimeStamp',
+        'timeStamp' => 'TimeStamp',
     ];
 
     public function validate()

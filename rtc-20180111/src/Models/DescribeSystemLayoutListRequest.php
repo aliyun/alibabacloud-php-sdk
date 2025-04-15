@@ -12,17 +12,19 @@ class DescribeSystemLayoutListRequest extends Model
      * @var int
      */
     public $ownerId;
+
     /**
      * @var int
      */
     public $pageNum;
+
     /**
      * @var int
      */
     public $pageSize;
     protected $_name = [
-        'ownerId'  => 'OwnerId',
-        'pageNum'  => 'PageNum',
+        'ownerId' => 'OwnerId',
+        'pageNum' => 'PageNum',
         'pageSize' => 'PageSize',
     ];
 

@@ -13,13 +13,14 @@ class DescribeChannelAreaDistributionStatDataResponseBody extends Model
      * @var areaStatList[]
      */
     public $areaStatList;
+
     /**
      * @var string
      */
     public $requestId;
     protected $_name = [
         'areaStatList' => 'AreaStatList',
-        'requestId'    => 'RequestId',
+        'requestId' => 'RequestId',
     ];
 
     public function validate()
@@ -36,7 +37,7 @@ class DescribeChannelAreaDistributionStatDataResponseBody extends Model
         if (null !== $this->areaStatList) {
             if (\is_array($this->areaStatList)) {
                 $res['AreaStatList'] = [];
-                $n1                  = 0;
+                $n1 = 0;
                 foreach ($this->areaStatList as $item1) {
                     $res['AreaStatList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -61,7 +62,7 @@ class DescribeChannelAreaDistributionStatDataResponseBody extends Model
         if (isset($map['AreaStatList'])) {
             if (!empty($map['AreaStatList'])) {
                 $model->areaStatList = [];
-                $n1                  = 0;
+                $n1 = 0;
                 foreach ($map['AreaStatList'] as $item1) {
                     $model->areaStatList[$n1++] = areaStatList::fromMap($item1);
                 }

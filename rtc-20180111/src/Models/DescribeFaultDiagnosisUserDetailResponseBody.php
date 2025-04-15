@@ -16,33 +16,38 @@ class DescribeFaultDiagnosisUserDetailResponseBody extends Model
      * @var callInfo
      */
     public $callInfo;
+
     /**
      * @var factorList[]
      */
     public $factorList;
+
     /**
      * @var faultMetricData
      */
     public $faultMetricData;
+
     /**
      * @var string[]
      */
     public $networkOperators;
+
     /**
      * @var string
      */
     public $requestId;
+
     /**
      * @var userDetail
      */
     public $userDetail;
     protected $_name = [
-        'callInfo'         => 'CallInfo',
-        'factorList'       => 'FactorList',
-        'faultMetricData'  => 'FaultMetricData',
+        'callInfo' => 'CallInfo',
+        'factorList' => 'FactorList',
+        'faultMetricData' => 'FaultMetricData',
         'networkOperators' => 'NetworkOperators',
-        'requestId'        => 'RequestId',
-        'userDetail'       => 'UserDetail',
+        'requestId' => 'RequestId',
+        'userDetail' => 'UserDetail',
     ];
 
     public function validate()
@@ -75,7 +80,7 @@ class DescribeFaultDiagnosisUserDetailResponseBody extends Model
         if (null !== $this->factorList) {
             if (\is_array($this->factorList)) {
                 $res['FactorList'] = [];
-                $n1                = 0;
+                $n1 = 0;
                 foreach ($this->factorList as $item1) {
                     $res['FactorList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -89,7 +94,7 @@ class DescribeFaultDiagnosisUserDetailResponseBody extends Model
         if (null !== $this->networkOperators) {
             if (\is_array($this->networkOperators)) {
                 $res['NetworkOperators'] = [];
-                $n1                      = 0;
+                $n1 = 0;
                 foreach ($this->networkOperators as $item1) {
                     $res['NetworkOperators'][$n1++] = $item1;
                 }
@@ -122,7 +127,7 @@ class DescribeFaultDiagnosisUserDetailResponseBody extends Model
         if (isset($map['FactorList'])) {
             if (!empty($map['FactorList'])) {
                 $model->factorList = [];
-                $n1                = 0;
+                $n1 = 0;
                 foreach ($map['FactorList'] as $item1) {
                     $model->factorList[$n1++] = factorList::fromMap($item1);
                 }
@@ -136,7 +141,7 @@ class DescribeFaultDiagnosisUserDetailResponseBody extends Model
         if (isset($map['NetworkOperators'])) {
             if (!empty($map['NetworkOperators'])) {
                 $model->networkOperators = [];
-                $n1                      = 0;
+                $n1 = 0;
                 foreach ($map['NetworkOperators'] as $item1) {
                     $model->networkOperators[$n1++] = $item1;
                 }

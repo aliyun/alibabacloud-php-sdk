@@ -12,13 +12,14 @@ class inspectionContents extends Model
      * @var string
      */
     public $content;
+
     /**
      * @var string
      */
     public $title;
     protected $_name = [
         'content' => 'Content',
-        'title'   => 'Title',
+        'title' => 'Title',
     ];
 
     public function validate()

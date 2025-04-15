@@ -13,27 +13,31 @@ class channelList extends Model
      * @var callArea
      */
     public $callArea;
+
     /**
      * @var string
      */
     public $channelId;
+
     /**
      * @var string
      */
     public $endTime;
+
     /**
      * @var string
      */
     public $startTime;
+
     /**
      * @var int
      */
     public $totalUserCnt;
     protected $_name = [
-        'callArea'     => 'CallArea',
-        'channelId'    => 'ChannelId',
-        'endTime'      => 'EndTime',
-        'startTime'    => 'StartTime',
+        'callArea' => 'CallArea',
+        'channelId' => 'ChannelId',
+        'endTime' => 'EndTime',
+        'startTime' => 'StartTime',
         'totalUserCnt' => 'TotalUserCnt',
     ];
 

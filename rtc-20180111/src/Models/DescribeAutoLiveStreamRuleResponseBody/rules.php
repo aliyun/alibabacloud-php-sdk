@@ -12,48 +12,56 @@ class rules extends Model
      * @var string
      */
     public $callBack;
+
     /**
      * @var string[]
      */
     public $channelIdPrefixes;
+
     /**
      * @var string[]
      */
     public $channelIds;
+
     /**
      * @var string
      */
     public $createTime;
+
     /**
      * @var int
      */
     public $mediaEncode;
+
     /**
      * @var string
      */
     public $playDomain;
+
     /**
      * @var int
      */
     public $ruleId;
+
     /**
      * @var string
      */
     public $ruleName;
+
     /**
      * @var string
      */
     public $status;
     protected $_name = [
-        'callBack'          => 'CallBack',
+        'callBack' => 'CallBack',
         'channelIdPrefixes' => 'ChannelIdPrefixes',
-        'channelIds'        => 'ChannelIds',
-        'createTime'        => 'CreateTime',
-        'mediaEncode'       => 'MediaEncode',
-        'playDomain'        => 'PlayDomain',
-        'ruleId'            => 'RuleId',
-        'ruleName'          => 'RuleName',
-        'status'            => 'Status',
+        'channelIds' => 'ChannelIds',
+        'createTime' => 'CreateTime',
+        'mediaEncode' => 'MediaEncode',
+        'playDomain' => 'PlayDomain',
+        'ruleId' => 'RuleId',
+        'ruleName' => 'RuleName',
+        'status' => 'Status',
     ];
 
     public function validate()
@@ -77,7 +85,7 @@ class rules extends Model
         if (null !== $this->channelIdPrefixes) {
             if (\is_array($this->channelIdPrefixes)) {
                 $res['ChannelIdPrefixes'] = [];
-                $n1                       = 0;
+                $n1 = 0;
                 foreach ($this->channelIdPrefixes as $item1) {
                     $res['ChannelIdPrefixes'][$n1++] = $item1;
                 }
@@ -87,7 +95,7 @@ class rules extends Model
         if (null !== $this->channelIds) {
             if (\is_array($this->channelIds)) {
                 $res['ChannelIds'] = [];
-                $n1                = 0;
+                $n1 = 0;
                 foreach ($this->channelIds as $item1) {
                     $res['ChannelIds'][$n1++] = $item1;
                 }
@@ -136,7 +144,7 @@ class rules extends Model
         if (isset($map['ChannelIdPrefixes'])) {
             if (!empty($map['ChannelIdPrefixes'])) {
                 $model->channelIdPrefixes = [];
-                $n1                       = 0;
+                $n1 = 0;
                 foreach ($map['ChannelIdPrefixes'] as $item1) {
                     $model->channelIdPrefixes[$n1++] = $item1;
                 }
@@ -146,7 +154,7 @@ class rules extends Model
         if (isset($map['ChannelIds'])) {
             if (!empty($map['ChannelIds'])) {
                 $model->channelIds = [];
-                $n1                = 0;
+                $n1 = 0;
                 foreach ($map['ChannelIds'] as $item1) {
                     $model->channelIds[$n1++] = $item1;
                 }

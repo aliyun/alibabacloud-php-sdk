@@ -13,12 +13,13 @@ class StartCategoryCallbackRequest extends Model
      * @var string
      */
     public $appId;
+
     /**
-     * @var callback
+     * @var callable
      */
     public $callback;
     protected $_name = [
-        'appId'    => 'AppId',
+        'appId' => 'AppId',
         'callback' => 'Callback',
     ];
 

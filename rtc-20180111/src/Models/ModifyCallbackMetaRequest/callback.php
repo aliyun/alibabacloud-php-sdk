@@ -12,17 +12,19 @@ class callback extends Model
      * @var string
      */
     public $category;
+
     /**
      * @var string
      */
     public $conf;
+
     /**
      * @var int[]
      */
     public $subEvent;
     protected $_name = [
         'category' => 'Category',
-        'conf'     => 'Conf',
+        'conf' => 'Conf',
         'subEvent' => 'SubEvent',
     ];
 
@@ -48,7 +50,7 @@ class callback extends Model
         if (null !== $this->subEvent) {
             if (\is_array($this->subEvent)) {
                 $res['SubEvent'] = [];
-                $n1              = 0;
+                $n1 = 0;
                 foreach ($this->subEvent as $item1) {
                     $res['SubEvent'][$n1++] = $item1;
                 }
@@ -77,7 +79,7 @@ class callback extends Model
         if (isset($map['SubEvent'])) {
             if (!empty($map['SubEvent'])) {
                 $model->subEvent = [];
-                $n1              = 0;
+                $n1 = 0;
                 foreach ($map['SubEvent'] as $item1) {
                     $model->subEvent[$n1++] = $item1;
                 }

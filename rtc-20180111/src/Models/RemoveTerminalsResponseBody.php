@@ -13,6 +13,7 @@ class RemoveTerminalsResponseBody extends Model
      * @var string
      */
     public $requestId;
+
     /**
      * @var terminals
      */

@@ -12,52 +12,61 @@ class durMetricStatData extends Model
      * @var int
      */
     public $pubAudio;
+
     /**
      * @var int
      */
     public $pubVideo1080;
+
     /**
      * @var int
      */
     public $pubVideo360;
+
     /**
      * @var int
      */
     public $pubVideo720;
+
     /**
      * @var int
      */
     public $pubVideoScreenShare;
+
     /**
      * @var int
      */
     public $subAudio;
+
     /**
      * @var int
      */
     public $subVideo1080;
+
     /**
      * @var int
      */
     public $subVideo360;
+
     /**
      * @var int
      */
     public $subVideo720;
+
     /**
      * @var int
      */
     public $subVideoScreenShare;
     protected $_name = [
-        'pubAudio'            => 'PubAudio',
-        'pubVideo1080'        => 'PubVideo1080',
-        'pubVideo360'         => 'PubVideo360',
-        'pubVideo720'         => 'PubVideo720',
+        'pubAudio' => 'PubAudio',
+        'pubVideo1080' => 'PubVideo1080',
+        'pubVideo360' => 'PubVideo360',
+        'pubVideo720' => 'PubVideo720',
         'pubVideoScreenShare' => 'PubVideoScreenShare',
-        'subAudio'            => 'SubAudio',
-        'subVideo1080'        => 'SubVideo1080',
-        'subVideo360'         => 'SubVideo360',
-        'subVideo720'         => 'SubVideo720',
+        'subAudio' => 'SubAudio',
+        'subVideo1080' => 'SubVideo1080',
+        'subVideo360' => 'SubVideo360',
+        'subVideo720' => 'SubVideo720',
         'subVideoScreenShare' => 'SubVideoScreenShare',
     ];
 

@@ -13,13 +13,14 @@ class DescribeFaultDiagnosisFactorDistributionStatResponseBody extends Model
      * @var string
      */
     public $requestId;
+
     /**
      * @var statList[]
      */
     public $statList;
     protected $_name = [
         'requestId' => 'RequestId',
-        'statList'  => 'StatList',
+        'statList' => 'StatList',
     ];
 
     public function validate()
@@ -40,7 +41,7 @@ class DescribeFaultDiagnosisFactorDistributionStatResponseBody extends Model
         if (null !== $this->statList) {
             if (\is_array($this->statList)) {
                 $res['StatList'] = [];
-                $n1              = 0;
+                $n1 = 0;
                 foreach ($this->statList as $item1) {
                     $res['StatList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -65,7 +66,7 @@ class DescribeFaultDiagnosisFactorDistributionStatResponseBody extends Model
         if (isset($map['StatList'])) {
             if (!empty($map['StatList'])) {
                 $model->statList = [];
-                $n1              = 0;
+                $n1 = 0;
                 foreach ($map['StatList'] as $item1) {
                     $model->statList[$n1++] = statList::fromMap($item1);
                 }
