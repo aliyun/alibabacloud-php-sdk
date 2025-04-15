@@ -21,10 +21,16 @@ class requestHeaderModification extends Model
     /**
      * @var string
      */
+    public $type;
+
+    /**
+     * @var string
+     */
     public $value;
     protected $_name = [
         'name' => 'Name',
         'operation' => 'Operation',
+        'type' => 'Type',
         'value' => 'Value',
     ];
 
@@ -42,6 +48,10 @@ class requestHeaderModification extends Model
 
         if (null !== $this->operation) {
             $res['Operation'] = $this->operation;
+        }
+
+        if (null !== $this->type) {
+            $res['Type'] = $this->type;
         }
 
         if (null !== $this->value) {
@@ -65,6 +75,10 @@ class requestHeaderModification extends Model
 
         if (isset($map['Operation'])) {
             $model->operation = $map['Operation'];
+        }
+
+        if (isset($map['Type'])) {
+            $model->type = $map['Type'];
         }
 
         if (isset($map['Value'])) {

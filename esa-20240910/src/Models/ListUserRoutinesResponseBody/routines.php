@@ -2,12 +2,17 @@
 
 // This file is auto-generated, don't edit it. Thanks.
 
-namespace AlibabaCloud\SDK\ESA\V20240910\Models;
+namespace AlibabaCloud\SDK\ESA\V20240910\Models\ListUserRoutinesResponseBody;
 
 use AlibabaCloud\Dara\Model;
 
-class CreateRoutineRequest extends Model
+class routines extends Model
 {
+    /**
+     * @var string
+     */
+    public $createTime;
+
     /**
      * @var string
      */
@@ -16,10 +21,11 @@ class CreateRoutineRequest extends Model
     /**
      * @var string
      */
-    public $name;
+    public $routineName;
     protected $_name = [
+        'createTime' => 'CreateTime',
         'description' => 'Description',
-        'name' => 'Name',
+        'routineName' => 'RoutineName',
     ];
 
     public function validate()
@@ -30,12 +36,16 @@ class CreateRoutineRequest extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->createTime) {
+            $res['CreateTime'] = $this->createTime;
+        }
+
         if (null !== $this->description) {
             $res['Description'] = $this->description;
         }
 
-        if (null !== $this->name) {
-            $res['Name'] = $this->name;
+        if (null !== $this->routineName) {
+            $res['RoutineName'] = $this->routineName;
         }
 
         return $res;
@@ -49,12 +59,16 @@ class CreateRoutineRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['CreateTime'])) {
+            $model->createTime = $map['CreateTime'];
+        }
+
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
         }
 
-        if (isset($map['Name'])) {
-            $model->name = $map['Name'];
+        if (isset($map['RoutineName'])) {
+            $model->routineName = $map['RoutineName'];
         }
 
         return $model;

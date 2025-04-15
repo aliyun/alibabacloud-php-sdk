@@ -2,11 +2,11 @@
 
 // This file is auto-generated, don't edit it. Thanks.
 
-namespace AlibabaCloud\SDK\ESA\V20240910\Models\GetHttpResponseHeaderModificationRuleResponseBody;
+namespace AlibabaCloud\SDK\ESA\V20240910\Models;
 
 use AlibabaCloud\Dara\Model;
 
-class responseHeaderModification extends Model
+class ListRoutineRelatedRecordsRequest extends Model
 {
     /**
      * @var string
@@ -14,24 +14,24 @@ class responseHeaderModification extends Model
     public $name;
 
     /**
-     * @var string
+     * @var int
      */
-    public $operation;
+    public $pageNumber;
+
+    /**
+     * @var int
+     */
+    public $pageSize;
 
     /**
      * @var string
      */
-    public $type;
-
-    /**
-     * @var string
-     */
-    public $value;
+    public $searchKeyWord;
     protected $_name = [
         'name' => 'Name',
-        'operation' => 'Operation',
-        'type' => 'Type',
-        'value' => 'Value',
+        'pageNumber' => 'PageNumber',
+        'pageSize' => 'PageSize',
+        'searchKeyWord' => 'SearchKeyWord',
     ];
 
     public function validate()
@@ -46,16 +46,16 @@ class responseHeaderModification extends Model
             $res['Name'] = $this->name;
         }
 
-        if (null !== $this->operation) {
-            $res['Operation'] = $this->operation;
+        if (null !== $this->pageNumber) {
+            $res['PageNumber'] = $this->pageNumber;
         }
 
-        if (null !== $this->type) {
-            $res['Type'] = $this->type;
+        if (null !== $this->pageSize) {
+            $res['PageSize'] = $this->pageSize;
         }
 
-        if (null !== $this->value) {
-            $res['Value'] = $this->value;
+        if (null !== $this->searchKeyWord) {
+            $res['SearchKeyWord'] = $this->searchKeyWord;
         }
 
         return $res;
@@ -73,16 +73,16 @@ class responseHeaderModification extends Model
             $model->name = $map['Name'];
         }
 
-        if (isset($map['Operation'])) {
-            $model->operation = $map['Operation'];
+        if (isset($map['PageNumber'])) {
+            $model->pageNumber = $map['PageNumber'];
         }
 
-        if (isset($map['Type'])) {
-            $model->type = $map['Type'];
+        if (isset($map['PageSize'])) {
+            $model->pageSize = $map['PageSize'];
         }
 
-        if (isset($map['Value'])) {
-            $model->value = $map['Value'];
+        if (isset($map['SearchKeyWord'])) {
+            $model->searchKeyWord = $map['SearchKeyWord'];
         }
 
         return $model;

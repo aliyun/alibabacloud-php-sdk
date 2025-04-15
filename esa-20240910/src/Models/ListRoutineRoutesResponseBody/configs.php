@@ -54,7 +54,7 @@ class configs extends Model
     public $sequence;
 
     /**
-     * @var string
+     * @var int
      */
     public $siteId;
 

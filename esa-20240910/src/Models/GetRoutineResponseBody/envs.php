@@ -27,17 +27,11 @@ class envs extends Model
      * @var string
      */
     public $env;
-
-    /**
-     * @var string
-     */
-    public $specName;
     protected $_name = [
         'canaryAreaList' => 'CanaryAreaList',
         'canaryCodeVersion' => 'CanaryCodeVersion',
         'codeVersion' => 'CodeVersion',
         'env' => 'Env',
-        'specName' => 'SpecName',
     ];
 
     public function validate()
@@ -73,10 +67,6 @@ class envs extends Model
             $res['Env'] = $this->env;
         }
 
-        if (null !== $this->specName) {
-            $res['SpecName'] = $this->specName;
-        }
-
         return $res;
     }
 
@@ -108,10 +98,6 @@ class envs extends Model
 
         if (isset($map['Env'])) {
             $model->env = $map['Env'];
-        }
-
-        if (isset($map['SpecName'])) {
-            $model->specName = $map['SpecName'];
         }
 
         return $model;

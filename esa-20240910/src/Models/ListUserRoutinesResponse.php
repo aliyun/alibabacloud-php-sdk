@@ -6,7 +6,7 @@ namespace AlibabaCloud\SDK\ESA\V20240910\Models;
 
 use AlibabaCloud\Dara\Model;
 
-class ListRoutineOptionalSpecsResponse extends Model
+class ListUserRoutinesResponse extends Model
 {
     /**
      * @var string[]
@@ -19,7 +19,7 @@ class ListRoutineOptionalSpecsResponse extends Model
     public $statusCode;
 
     /**
-     * @var ListRoutineOptionalSpecsResponseBody
+     * @var ListUserRoutinesResponseBody
      */
     public $body;
     protected $_name = [
@@ -84,7 +84,7 @@ class ListRoutineOptionalSpecsResponse extends Model
         }
 
         if (isset($map['body'])) {
-            $model->body = ListRoutineOptionalSpecsResponseBody::fromMap($map['body']);
+            $model->body = ListUserRoutinesResponseBody::fromMap($map['body']);
         }
 
         return $model;

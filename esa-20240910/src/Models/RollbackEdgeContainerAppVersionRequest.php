@@ -14,9 +14,19 @@ class RollbackEdgeContainerAppVersionRequest extends Model
     public $appId;
 
     /**
+     * @var int
+     */
+    public $percentage;
+
+    /**
      * @var string
      */
     public $remarks;
+
+    /**
+     * @var bool
+     */
+    public $usedPercent;
 
     /**
      * @var string
@@ -24,7 +34,9 @@ class RollbackEdgeContainerAppVersionRequest extends Model
     public $versionId;
     protected $_name = [
         'appId' => 'AppId',
+        'percentage' => 'Percentage',
         'remarks' => 'Remarks',
+        'usedPercent' => 'UsedPercent',
         'versionId' => 'VersionId',
     ];
 
@@ -40,8 +52,16 @@ class RollbackEdgeContainerAppVersionRequest extends Model
             $res['AppId'] = $this->appId;
         }
 
+        if (null !== $this->percentage) {
+            $res['Percentage'] = $this->percentage;
+        }
+
         if (null !== $this->remarks) {
             $res['Remarks'] = $this->remarks;
+        }
+
+        if (null !== $this->usedPercent) {
+            $res['UsedPercent'] = $this->usedPercent;
         }
 
         if (null !== $this->versionId) {
@@ -63,8 +83,16 @@ class RollbackEdgeContainerAppVersionRequest extends Model
             $model->appId = $map['AppId'];
         }
 
+        if (isset($map['Percentage'])) {
+            $model->percentage = $map['Percentage'];
+        }
+
         if (isset($map['Remarks'])) {
             $model->remarks = $map['Remarks'];
+        }
+
+        if (isset($map['UsedPercent'])) {
+            $model->usedPercent = $map['UsedPercent'];
         }
 
         if (isset($map['VersionId'])) {

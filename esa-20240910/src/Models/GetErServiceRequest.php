@@ -6,20 +6,20 @@ namespace AlibabaCloud\SDK\ESA\V20240910\Models;
 
 use AlibabaCloud\Dara\Model;
 
-class CreateRoutineRequest extends Model
+class GetErServiceRequest extends Model
 {
     /**
-     * @var string
+     * @var int
      */
-    public $description;
+    public $ownerId;
 
     /**
      * @var string
      */
-    public $name;
+    public $securityToken;
     protected $_name = [
-        'description' => 'Description',
-        'name' => 'Name',
+        'ownerId' => 'OwnerId',
+        'securityToken' => 'SecurityToken',
     ];
 
     public function validate()
@@ -30,12 +30,12 @@ class CreateRoutineRequest extends Model
     public function toArray($noStream = false)
     {
         $res = [];
-        if (null !== $this->description) {
-            $res['Description'] = $this->description;
+        if (null !== $this->ownerId) {
+            $res['OwnerId'] = $this->ownerId;
         }
 
-        if (null !== $this->name) {
-            $res['Name'] = $this->name;
+        if (null !== $this->securityToken) {
+            $res['SecurityToken'] = $this->securityToken;
         }
 
         return $res;
@@ -49,12 +49,12 @@ class CreateRoutineRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Description'])) {
-            $model->description = $map['Description'];
+        if (isset($map['OwnerId'])) {
+            $model->ownerId = $map['OwnerId'];
         }
 
-        if (isset($map['Name'])) {
-            $model->name = $map['Name'];
+        if (isset($map['SecurityToken'])) {
+            $model->securityToken = $map['SecurityToken'];
         }
 
         return $model;

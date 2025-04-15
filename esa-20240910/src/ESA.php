@@ -306,6 +306,8 @@ use AlibabaCloud\SDK\ESA\V20240910\Models\GetEdgeContainerStagingDeployStatusReq
 use AlibabaCloud\SDK\ESA\V20240910\Models\GetEdgeContainerStagingDeployStatusResponse;
 use AlibabaCloud\SDK\ESA\V20240910\Models\GetEdgeContainerTerminalRequest;
 use AlibabaCloud\SDK\ESA\V20240910\Models\GetEdgeContainerTerminalResponse;
+use AlibabaCloud\SDK\ESA\V20240910\Models\GetErServiceRequest;
+use AlibabaCloud\SDK\ESA\V20240910\Models\GetErServiceResponse;
 use AlibabaCloud\SDK\ESA\V20240910\Models\GetHttpRequestHeaderModificationRuleRequest;
 use AlibabaCloud\SDK\ESA\V20240910\Models\GetHttpRequestHeaderModificationRuleResponse;
 use AlibabaCloud\SDK\ESA\V20240910\Models\GetHttpResponseHeaderModificationRuleRequest;
@@ -406,6 +408,8 @@ use AlibabaCloud\SDK\ESA\V20240910\Models\ListCacheReserveInstancesRequest;
 use AlibabaCloud\SDK\ESA\V20240910\Models\ListCacheReserveInstancesResponse;
 use AlibabaCloud\SDK\ESA\V20240910\Models\ListCacheRulesRequest;
 use AlibabaCloud\SDK\ESA\V20240910\Models\ListCacheRulesResponse;
+use AlibabaCloud\SDK\ESA\V20240910\Models\ListCertificatesByRecordRequest;
+use AlibabaCloud\SDK\ESA\V20240910\Models\ListCertificatesByRecordResponse;
 use AlibabaCloud\SDK\ESA\V20240910\Models\ListCertificatesRequest;
 use AlibabaCloud\SDK\ESA\V20240910\Models\ListCertificatesResponse;
 use AlibabaCloud\SDK\ESA\V20240910\Models\ListCiphersRequest;
@@ -474,7 +478,8 @@ use AlibabaCloud\SDK\ESA\V20240910\Models\ListRedirectRulesResponse;
 use AlibabaCloud\SDK\ESA\V20240910\Models\ListRewriteUrlRulesRequest;
 use AlibabaCloud\SDK\ESA\V20240910\Models\ListRewriteUrlRulesResponse;
 use AlibabaCloud\SDK\ESA\V20240910\Models\ListRoutineCanaryAreasResponse;
-use AlibabaCloud\SDK\ESA\V20240910\Models\ListRoutineOptionalSpecsResponse;
+use AlibabaCloud\SDK\ESA\V20240910\Models\ListRoutineRelatedRecordsRequest;
+use AlibabaCloud\SDK\ESA\V20240910\Models\ListRoutineRelatedRecordsResponse;
 use AlibabaCloud\SDK\ESA\V20240910\Models\ListRoutineRoutesRequest;
 use AlibabaCloud\SDK\ESA\V20240910\Models\ListRoutineRoutesResponse;
 use AlibabaCloud\SDK\ESA\V20240910\Models\ListScheduledPreloadExecutionsRequest;
@@ -496,6 +501,8 @@ use AlibabaCloud\SDK\ESA\V20240910\Models\ListUserDeliveryTasksRequest;
 use AlibabaCloud\SDK\ESA\V20240910\Models\ListUserDeliveryTasksResponse;
 use AlibabaCloud\SDK\ESA\V20240910\Models\ListUserRatePlanInstancesRequest;
 use AlibabaCloud\SDK\ESA\V20240910\Models\ListUserRatePlanInstancesResponse;
+use AlibabaCloud\SDK\ESA\V20240910\Models\ListUserRoutinesRequest;
+use AlibabaCloud\SDK\ESA\V20240910\Models\ListUserRoutinesResponse;
 use AlibabaCloud\SDK\ESA\V20240910\Models\ListWafManagedRulesRequest;
 use AlibabaCloud\SDK\ESA\V20240910\Models\ListWafManagedRulesResponse;
 use AlibabaCloud\SDK\ESA\V20240910\Models\ListWafManagedRulesShrinkRequest;
@@ -526,7 +533,6 @@ use AlibabaCloud\SDK\ESA\V20240910\Models\PublishEdgeContainerAppVersionResponse
 use AlibabaCloud\SDK\ESA\V20240910\Models\PublishEdgeContainerAppVersionShrinkRequest;
 use AlibabaCloud\SDK\ESA\V20240910\Models\PublishRoutineCodeVersionRequest;
 use AlibabaCloud\SDK\ESA\V20240910\Models\PublishRoutineCodeVersionResponse;
-use AlibabaCloud\SDK\ESA\V20240910\Models\PublishRoutineCodeVersionShrinkRequest;
 use AlibabaCloud\SDK\ESA\V20240910\Models\PurchaseCacheReserveRequest;
 use AlibabaCloud\SDK\ESA\V20240910\Models\PurchaseCacheReserveResponse;
 use AlibabaCloud\SDK\ESA\V20240910\Models\PurchaseRatePlanRequest;
@@ -4415,10 +4421,6 @@ class ESA extends OpenApiClient
 
         if (null !== $request->name) {
             @$body['Name'] = $request->name;
-        }
-
-        if (null !== $request->specName) {
-            @$body['SpecName'] = $request->specName;
         }
 
         $req = new OpenApiRequest([
@@ -11020,6 +11022,62 @@ class ESA extends OpenApiClient
     }
 
     /**
+     * Checks the status of Edge Routine.
+     *
+     * @param request - GetErServiceRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetErServiceResponse
+     *
+     * @param GetErServiceRequest $request
+     * @param RuntimeOptions      $runtime
+     *
+     * @return GetErServiceResponse
+     */
+    public function getErServiceWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = Utils::query($request->toMap());
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'GetErService',
+            'version' => '2024-09-10',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return GetErServiceResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
+
+        return GetErServiceResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * Checks the status of Edge Routine.
+     *
+     * @param request - GetErServiceRequest
+     *
+     * @returns GetErServiceResponse
+     *
+     * @param GetErServiceRequest $request
+     *
+     * @return GetErServiceResponse
+     */
+    public function getErService($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getErServiceWithOptions($request, $runtime);
+    }
+
+    /**
      * Query HTTP Request Header Rule Details.
      *
      * @param request - GetHttpRequestHeaderModificationRuleRequest
@@ -14088,6 +14146,62 @@ class ESA extends OpenApiClient
     }
 
     /**
+     * 查询匹配记录名的站点证书列表.
+     *
+     * @param request - ListCertificatesByRecordRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListCertificatesByRecordResponse
+     *
+     * @param ListCertificatesByRecordRequest $request
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return ListCertificatesByRecordResponse
+     */
+    public function listCertificatesByRecordWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = Utils::query($request->toMap());
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListCertificatesByRecord',
+            'version' => '2024-09-10',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ListCertificatesByRecordResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
+
+        return ListCertificatesByRecordResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * 查询匹配记录名的站点证书列表.
+     *
+     * @param request - ListCertificatesByRecordRequest
+     *
+     * @returns ListCertificatesByRecordResponse
+     *
+     * @param ListCertificatesByRecordRequest $request
+     *
+     * @return ListCertificatesByRecordResponse
+     */
+    public function listCertificatesByRecord($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listCertificatesByRecordWithOptions($request, $runtime);
+    }
+
+    /**
      * Query TLS Cipher Suite List.
      *
      * @param request - ListCiphersRequest
@@ -16018,25 +16132,43 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * Queries the specifications that you can select for a routine based on the plan type. The response contains all specifications that you can select for a routine. The IsAvailable parameter indicates whether a specification is available.
+     * 查询函数关联域名列表.
      *
-     * @remarks
-     * You can call this operation to query the specifications that you can select for a routine.
-     *
-     * @param request - ListRoutineOptionalSpecsRequest
+     * @param request - ListRoutineRelatedRecordsRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
-     * @returns ListRoutineOptionalSpecsResponse
+     * @returns ListRoutineRelatedRecordsResponse
      *
-     * @param RuntimeOptions $runtime
+     * @param ListRoutineRelatedRecordsRequest $request
+     * @param RuntimeOptions                   $runtime
      *
-     * @return ListRoutineOptionalSpecsResponse
+     * @return ListRoutineRelatedRecordsResponse
      */
-    public function listRoutineOptionalSpecsWithOptions($runtime)
+    public function listRoutineRelatedRecordsWithOptions($request, $runtime)
     {
-        $req = new OpenApiRequest([]);
+        $request->validate();
+        $body = [];
+        if (null !== $request->name) {
+            @$body['Name'] = $request->name;
+        }
+
+        if (null !== $request->pageNumber) {
+            @$body['PageNumber'] = $request->pageNumber;
+        }
+
+        if (null !== $request->pageSize) {
+            @$body['PageSize'] = $request->pageSize;
+        }
+
+        if (null !== $request->searchKeyWord) {
+            @$body['SearchKeyWord'] = $request->searchKeyWord;
+        }
+
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
         $params = new Params([
-            'action' => 'ListRoutineOptionalSpecs',
+            'action' => 'ListRoutineRelatedRecords',
             'version' => '2024-09-10',
             'protocol' => 'HTTPS',
             'pathname' => '/',
@@ -16047,27 +16179,28 @@ class ESA extends OpenApiClient
             'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ListRoutineOptionalSpecsResponse::fromMap($this->callApi($params, $req, $runtime));
+            return ListRoutineRelatedRecordsResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
-        return ListRoutineOptionalSpecsResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListRoutineRelatedRecordsResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * Queries the specifications that you can select for a routine based on the plan type. The response contains all specifications that you can select for a routine. The IsAvailable parameter indicates whether a specification is available.
+     * 查询函数关联域名列表.
      *
-     * @remarks
-     * You can call this operation to query the specifications that you can select for a routine.
+     * @param request - ListRoutineRelatedRecordsRequest
      *
-     * @returns ListRoutineOptionalSpecsResponse
+     * @returns ListRoutineRelatedRecordsResponse
      *
-     * @return ListRoutineOptionalSpecsResponse
+     * @param ListRoutineRelatedRecordsRequest $request
+     *
+     * @return ListRoutineRelatedRecordsResponse
      */
-    public function listRoutineOptionalSpecs()
+    public function listRoutineRelatedRecords($request)
     {
         $runtime = new RuntimeOptions([]);
 
-        return $this->listRoutineOptionalSpecsWithOptions($runtime);
+        return $this->listRoutineRelatedRecordsWithOptions($request, $runtime);
     }
 
     /**
@@ -16702,6 +16835,74 @@ class ESA extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->listUserRatePlanInstancesWithOptions($request, $runtime);
+    }
+
+    /**
+     * 查询用户的Routine列表.
+     *
+     * @param request - ListUserRoutinesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListUserRoutinesResponse
+     *
+     * @param ListUserRoutinesRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return ListUserRoutinesResponse
+     */
+    public function listUserRoutinesWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->pageNumber) {
+            @$query['PageNumber'] = $request->pageNumber;
+        }
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
+        }
+
+        if (null !== $request->searchKeyWord) {
+            @$query['SearchKeyWord'] = $request->searchKeyWord;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListUserRoutines',
+            'version' => '2024-09-10',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ListUserRoutinesResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
+
+        return ListUserRoutinesResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * 查询用户的Routine列表.
+     *
+     * @param request - ListUserRoutinesRequest
+     *
+     * @returns ListUserRoutinesResponse
+     *
+     * @param ListUserRoutinesRequest $request
+     *
+     * @return ListUserRoutinesResponse
+     */
+    public function listUserRoutines($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listUserRoutinesWithOptions($request, $runtime);
     }
 
     /**
@@ -17543,34 +17744,20 @@ class ESA extends OpenApiClient
     /**
      * Releases a code version of a routine to the staging, canary, or production environment. You can specify the regions where the canary environment is deployed to release your code.
      *
-     * @param tmpReq - PublishRoutineCodeVersionRequest
+     * @param request - PublishRoutineCodeVersionRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns PublishRoutineCodeVersionResponse
      *
-     * @param PublishRoutineCodeVersionRequest $tmpReq
+     * @param PublishRoutineCodeVersionRequest $request
      * @param RuntimeOptions                   $runtime
      *
      * @return PublishRoutineCodeVersionResponse
      */
-    public function publishRoutineCodeVersionWithOptions($tmpReq, $runtime)
+    public function publishRoutineCodeVersionWithOptions($request, $runtime)
     {
-        $tmpReq->validate();
-        $request = new PublishRoutineCodeVersionShrinkRequest([]);
-        Utils::convert($tmpReq, $request);
-        if (null !== $tmpReq->canaryAreaList) {
-            $request->canaryAreaListShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->canaryAreaList, 'CanaryAreaList', 'json');
-        }
-
+        $request->validate();
         $body = [];
-        if (null !== $request->canaryAreaListShrink) {
-            @$body['CanaryAreaList'] = $request->canaryAreaListShrink;
-        }
-
-        if (null !== $request->canaryCodeVersion) {
-            @$body['CanaryCodeVersion'] = $request->canaryCodeVersion;
-        }
-
         if (null !== $request->codeVersion) {
             @$body['CodeVersion'] = $request->codeVersion;
         }
@@ -18388,6 +18575,14 @@ class ESA extends OpenApiClient
     {
         $request->validate();
         $query = [];
+        if (null !== $request->percentage) {
+            @$query['Percentage'] = $request->percentage;
+        }
+
+        if (null !== $request->usedPercent) {
+            @$query['UsedPercent'] = $request->usedPercent;
+        }
+
         if (null !== $request->versionId) {
             @$query['VersionId'] = $request->versionId;
         }
