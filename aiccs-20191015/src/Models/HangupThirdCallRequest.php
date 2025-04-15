@@ -12,33 +12,38 @@ class HangupThirdCallRequest extends Model
      * @var string
      */
     public $accountName;
+
     /**
      * @var string
      */
     public $callId;
+
     /**
      * @var string
      */
     public $clientToken;
+
     /**
      * @var string
      */
     public $connectionId;
+
     /**
      * @var string
      */
     public $instanceId;
+
     /**
      * @var string
      */
     public $jobId;
     protected $_name = [
-        'accountName'  => 'AccountName',
-        'callId'       => 'CallId',
-        'clientToken'  => 'ClientToken',
+        'accountName' => 'AccountName',
+        'callId' => 'CallId',
+        'clientToken' => 'ClientToken',
         'connectionId' => 'ConnectionId',
-        'instanceId'   => 'InstanceId',
-        'jobId'        => 'JobId',
+        'instanceId' => 'InstanceId',
+        'jobId' => 'JobId',
     ];
 
     public function validate()

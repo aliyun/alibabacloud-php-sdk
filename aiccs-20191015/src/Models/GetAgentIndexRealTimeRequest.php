@@ -12,28 +12,32 @@ class GetAgentIndexRealTimeRequest extends Model
      * @var int
      */
     public $currentPage;
+
     /**
      * @var int[]
      */
     public $depIds;
+
     /**
      * @var int[]
      */
     public $groupIds;
+
     /**
      * @var string
      */
     public $instanceId;
+
     /**
      * @var int
      */
     public $pageSize;
     protected $_name = [
         'currentPage' => 'CurrentPage',
-        'depIds'      => 'DepIds',
-        'groupIds'    => 'GroupIds',
-        'instanceId'  => 'InstanceId',
-        'pageSize'    => 'PageSize',
+        'depIds' => 'DepIds',
+        'groupIds' => 'GroupIds',
+        'instanceId' => 'InstanceId',
+        'pageSize' => 'PageSize',
     ];
 
     public function validate()
@@ -57,7 +61,7 @@ class GetAgentIndexRealTimeRequest extends Model
         if (null !== $this->depIds) {
             if (\is_array($this->depIds)) {
                 $res['DepIds'] = [];
-                $n1            = 0;
+                $n1 = 0;
                 foreach ($this->depIds as $item1) {
                     $res['DepIds'][$n1++] = $item1;
                 }
@@ -67,7 +71,7 @@ class GetAgentIndexRealTimeRequest extends Model
         if (null !== $this->groupIds) {
             if (\is_array($this->groupIds)) {
                 $res['GroupIds'] = [];
-                $n1              = 0;
+                $n1 = 0;
                 foreach ($this->groupIds as $item1) {
                     $res['GroupIds'][$n1++] = $item1;
                 }
@@ -100,7 +104,7 @@ class GetAgentIndexRealTimeRequest extends Model
         if (isset($map['DepIds'])) {
             if (!empty($map['DepIds'])) {
                 $model->depIds = [];
-                $n1            = 0;
+                $n1 = 0;
                 foreach ($map['DepIds'] as $item1) {
                     $model->depIds[$n1++] = $item1;
                 }
@@ -110,7 +114,7 @@ class GetAgentIndexRealTimeRequest extends Model
         if (isset($map['GroupIds'])) {
             if (!empty($map['GroupIds'])) {
                 $model->groupIds = [];
-                $n1              = 0;
+                $n1 = 0;
                 foreach ($map['GroupIds'] as $item1) {
                     $model->groupIds[$n1++] = $item1;
                 }

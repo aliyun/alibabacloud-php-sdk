@@ -12,48 +12,56 @@ class extAttrs extends Model
      * @var string
      */
     public $ani;
+
     /**
      * @var string
      */
     public $dnis;
+
     /**
      * @var int
      */
     public $evaluationLevel;
+
     /**
      * @var int
      */
     public $evaluationScore;
+
     /**
      * @var int
      */
     public $evaluationSolution;
+
     /**
      * @var int
      */
     public $evaluationStatus;
+
     /**
      * @var int
      */
     public $onlineJoinRespInterval;
+
     /**
      * @var int
      */
     public $onlineSessionSource;
+
     /**
      * @var string
      */
     public $outCallRouteNumber;
     protected $_name = [
-        'ani'                    => 'Ani',
-        'dnis'                   => 'Dnis',
-        'evaluationLevel'        => 'EvaluationLevel',
-        'evaluationScore'        => 'EvaluationScore',
-        'evaluationSolution'     => 'EvaluationSolution',
-        'evaluationStatus'       => 'EvaluationStatus',
+        'ani' => 'Ani',
+        'dnis' => 'Dnis',
+        'evaluationLevel' => 'EvaluationLevel',
+        'evaluationScore' => 'EvaluationScore',
+        'evaluationSolution' => 'EvaluationSolution',
+        'evaluationStatus' => 'EvaluationStatus',
         'onlineJoinRespInterval' => 'OnlineJoinRespInterval',
-        'onlineSessionSource'    => 'OnlineSessionSource',
-        'outCallRouteNumber'     => 'OutCallRouteNumber',
+        'onlineSessionSource' => 'OnlineSessionSource',
+        'outCallRouteNumber' => 'OutCallRouteNumber',
     ];
 
     public function validate()

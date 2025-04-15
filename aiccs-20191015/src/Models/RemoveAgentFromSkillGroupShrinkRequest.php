@@ -12,18 +12,20 @@ class RemoveAgentFromSkillGroupShrinkRequest extends Model
      * @var string
      */
     public $agentIdsShrink;
+
     /**
      * @var string
      */
     public $instanceId;
+
     /**
      * @var int
      */
     public $skillGroupId;
     protected $_name = [
         'agentIdsShrink' => 'AgentIds',
-        'instanceId'     => 'InstanceId',
-        'skillGroupId'   => 'SkillGroupId',
+        'instanceId' => 'InstanceId',
+        'skillGroupId' => 'SkillGroupId',
     ];
 
     public function validate()

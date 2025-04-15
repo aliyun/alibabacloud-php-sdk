@@ -12,148 +12,176 @@ class callDetailRecord extends Model
      * @var string
      */
     public $acid;
+
     /**
      * @var string
      */
     public $activeTransferId;
+
     /**
      * @var int
      */
     public $callContinueTime;
+
     /**
      * @var string
      */
     public $callResult;
+
     /**
      * @var int
      */
     public $callType;
+
     /**
      * @var string
      */
     public $calledNumber;
+
     /**
      * @var string
      */
     public $callingNumber;
+
     /**
      * @var string
      */
     public $createTime;
+
     /**
      * @var int
      */
     public $evaluationLevel;
+
     /**
      * @var int
      */
     public $evaluationScore;
+
     /**
      * @var int
      */
     public $groupId;
+
     /**
      * @var string
      */
     public $groupName;
+
     /**
      * @var string
      */
     public $hangUpRole;
+
     /**
      * @var string
      */
     public $hangUpTime;
+
     /**
      * @var string
      */
     public $id;
+
     /**
      * @var string
      */
     public $inQueueTime;
+
     /**
      * @var string
      */
     public $memberId;
+
     /**
      * @var string
      */
     public $memberName;
+
     /**
      * @var string
      */
     public $outQueueTime;
+
     /**
      * @var string
      */
     public $passiveTransferId;
+
     /**
      * @var string
      */
     public $passiveTransferIdType;
+
     /**
      * @var string
      */
     public $pickUpTime;
+
     /**
      * @var int
      */
     public $queueUpContinueTime;
+
     /**
      * @var int
      */
     public $ringContinueTime;
+
     /**
      * @var string
      */
     public $ringEndTime;
+
     /**
      * @var string
      */
     public $ringStartTime;
+
     /**
      * @var string
      */
     public $servicerId;
+
     /**
      * @var string
      */
     public $servicerName;
+
     /**
      * @var string
      */
     public $trunkCall;
     protected $_name = [
-        'acid'                  => 'Acid',
-        'activeTransferId'      => 'ActiveTransferId',
-        'callContinueTime'      => 'CallContinueTime',
-        'callResult'            => 'CallResult',
-        'callType'              => 'CallType',
-        'calledNumber'          => 'CalledNumber',
-        'callingNumber'         => 'CallingNumber',
-        'createTime'            => 'CreateTime',
-        'evaluationLevel'       => 'EvaluationLevel',
-        'evaluationScore'       => 'EvaluationScore',
-        'groupId'               => 'GroupId',
-        'groupName'             => 'GroupName',
-        'hangUpRole'            => 'HangUpRole',
-        'hangUpTime'            => 'HangUpTime',
-        'id'                    => 'Id',
-        'inQueueTime'           => 'InQueueTime',
-        'memberId'              => 'MemberId',
-        'memberName'            => 'MemberName',
-        'outQueueTime'          => 'OutQueueTime',
-        'passiveTransferId'     => 'PassiveTransferId',
+        'acid' => 'Acid',
+        'activeTransferId' => 'ActiveTransferId',
+        'callContinueTime' => 'CallContinueTime',
+        'callResult' => 'CallResult',
+        'callType' => 'CallType',
+        'calledNumber' => 'CalledNumber',
+        'callingNumber' => 'CallingNumber',
+        'createTime' => 'CreateTime',
+        'evaluationLevel' => 'EvaluationLevel',
+        'evaluationScore' => 'EvaluationScore',
+        'groupId' => 'GroupId',
+        'groupName' => 'GroupName',
+        'hangUpRole' => 'HangUpRole',
+        'hangUpTime' => 'HangUpTime',
+        'id' => 'Id',
+        'inQueueTime' => 'InQueueTime',
+        'memberId' => 'MemberId',
+        'memberName' => 'MemberName',
+        'outQueueTime' => 'OutQueueTime',
+        'passiveTransferId' => 'PassiveTransferId',
         'passiveTransferIdType' => 'PassiveTransferIdType',
-        'pickUpTime'            => 'PickUpTime',
-        'queueUpContinueTime'   => 'QueueUpContinueTime',
-        'ringContinueTime'      => 'RingContinueTime',
-        'ringEndTime'           => 'RingEndTime',
-        'ringStartTime'         => 'RingStartTime',
-        'servicerId'            => 'ServicerId',
-        'servicerName'          => 'ServicerName',
-        'trunkCall'             => 'TrunkCall',
+        'pickUpTime' => 'PickUpTime',
+        'queueUpContinueTime' => 'QueueUpContinueTime',
+        'ringContinueTime' => 'RingContinueTime',
+        'ringEndTime' => 'RingEndTime',
+        'ringStartTime' => 'RingStartTime',
+        'servicerId' => 'ServicerId',
+        'servicerName' => 'ServicerName',
+        'trunkCall' => 'TrunkCall',
     ];
 
     public function validate()

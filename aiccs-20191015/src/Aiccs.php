@@ -250,6 +250,9 @@ use AlibabaCloud\SDK\Aiccs\V20191015\Models\ListTaskDetailRequest;
 use AlibabaCloud\SDK\Aiccs\V20191015\Models\ListTaskDetailResponse;
 use AlibabaCloud\SDK\Aiccs\V20191015\Models\ListTaskRequest;
 use AlibabaCloud\SDK\Aiccs\V20191015\Models\ListTaskResponse;
+use AlibabaCloud\SDK\Aiccs\V20191015\Models\LlmSmartCallEncryptRequest;
+use AlibabaCloud\SDK\Aiccs\V20191015\Models\LlmSmartCallEncryptResponse;
+use AlibabaCloud\SDK\Aiccs\V20191015\Models\LlmSmartCallEncryptShrinkRequest;
 use AlibabaCloud\SDK\Aiccs\V20191015\Models\LlmSmartCallRequest;
 use AlibabaCloud\SDK\Aiccs\V20191015\Models\LlmSmartCallResponse;
 use AlibabaCloud\SDK\Aiccs\V20191015\Models\LlmSmartCallShrinkRequest;
@@ -372,6 +375,7 @@ class Aiccs extends OpenApiClient
      *
      * @param tmpReq - AddHotlineNumberRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns AddHotlineNumberResponse
      *
      * @param AddHotlineNumberRequest $tmpReq
@@ -437,27 +441,25 @@ class Aiccs extends OpenApiClient
             'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'AddHotlineNumber',
-            'version'     => '2019-10-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'AddHotlineNumber',
+            'version' => '2019-10-15',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return AddHotlineNumberResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return AddHotlineNumberResponse::fromMap($this->execute($params, $req, $runtime));
+        return AddHotlineNumberResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * 新增热线号码
      *
      * @param request - AddHotlineNumberRequest
+     *
      * @returns AddHotlineNumberResponse
      *
      * @param AddHotlineNumberRequest $request
@@ -474,6 +476,7 @@ class Aiccs extends OpenApiClient
     /**
      * @param request - AddOuterAccountRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns AddOuterAccountResponse
      *
      * @param AddOuterAccountRequest $request
@@ -485,29 +488,27 @@ class Aiccs extends OpenApiClient
     {
         $request->validate();
         $query = Utils::query($request->toMap());
-        $req   = new OpenApiRequest([
+        $req = new OpenApiRequest([
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'AddOuterAccount',
-            'version'     => '2019-10-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'AddOuterAccount',
+            'version' => '2019-10-15',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return AddOuterAccountResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return AddOuterAccountResponse::fromMap($this->execute($params, $req, $runtime));
+        return AddOuterAccountResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * @param request - AddOuterAccountRequest
+     *
      * @returns AddOuterAccountResponse
      *
      * @param AddOuterAccountRequest $request
@@ -524,6 +525,7 @@ class Aiccs extends OpenApiClient
     /**
      * @param request - AddSkillGroupRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns AddSkillGroupResponse
      *
      * @param AddSkillGroupRequest $request
@@ -535,29 +537,27 @@ class Aiccs extends OpenApiClient
     {
         $request->validate();
         $query = Utils::query($request->toMap());
-        $req   = new OpenApiRequest([
+        $req = new OpenApiRequest([
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'AddSkillGroup',
-            'version'     => '2019-10-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'AddSkillGroup',
+            'version' => '2019-10-15',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return AddSkillGroupResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return AddSkillGroupResponse::fromMap($this->execute($params, $req, $runtime));
+        return AddSkillGroupResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * @param request - AddSkillGroupRequest
+     *
      * @returns AddSkillGroupResponse
      *
      * @param AddSkillGroupRequest $request
@@ -574,6 +574,7 @@ class Aiccs extends OpenApiClient
     /**
      * @param request - AiccsSmartCallRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns AiccsSmartCallResponse
      *
      * @param AiccsSmartCallRequest $request
@@ -717,25 +718,23 @@ class Aiccs extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'AiccsSmartCall',
-            'version'     => '2019-10-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'AiccsSmartCall',
+            'version' => '2019-10-15',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return AiccsSmartCallResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return AiccsSmartCallResponse::fromMap($this->execute($params, $req, $runtime));
+        return AiccsSmartCallResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * @param request - AiccsSmartCallRequest
+     *
      * @returns AiccsSmartCallResponse
      *
      * @param AiccsSmartCallRequest $request
@@ -752,6 +751,7 @@ class Aiccs extends OpenApiClient
     /**
      * @param request - AiccsSmartCallOperateRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns AiccsSmartCallOperateResponse
      *
      * @param AiccsSmartCallOperateRequest $request
@@ -795,25 +795,23 @@ class Aiccs extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'AiccsSmartCallOperate',
-            'version'     => '2019-10-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'AiccsSmartCallOperate',
+            'version' => '2019-10-15',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return AiccsSmartCallOperateResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return AiccsSmartCallOperateResponse::fromMap($this->execute($params, $req, $runtime));
+        return AiccsSmartCallOperateResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * @param request - AiccsSmartCallOperateRequest
+     *
      * @returns AiccsSmartCallOperateResponse
      *
      * @param AiccsSmartCallOperateRequest $request
@@ -830,6 +828,7 @@ class Aiccs extends OpenApiClient
     /**
      * @param request - AnswerCallRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns AnswerCallResponse
      *
      * @param AnswerCallRequest $request
@@ -869,25 +868,23 @@ class Aiccs extends OpenApiClient
             'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'AnswerCall',
-            'version'     => '2019-10-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'AnswerCall',
+            'version' => '2019-10-15',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return AnswerCallResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return AnswerCallResponse::fromMap($this->execute($params, $req, $runtime));
+        return AnswerCallResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * @param request - AnswerCallRequest
+     *
      * @returns AnswerCallResponse
      *
      * @param AnswerCallRequest $request
@@ -906,6 +903,7 @@ class Aiccs extends OpenApiClient
      *
      * @param request - AttachTaskRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns AttachTaskResponse
      *
      * @param AttachTaskRequest $request
@@ -941,27 +939,25 @@ class Aiccs extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'AttachTask',
-            'version'     => '2019-10-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'AttachTask',
+            'version' => '2019-10-15',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return AttachTaskResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return AttachTaskResponse::fromMap($this->execute($params, $req, $runtime));
+        return AttachTaskResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * 追加任务明细.
      *
      * @param request - AttachTaskRequest
+     *
      * @returns AttachTaskResponse
      *
      * @param AttachTaskRequest $request
@@ -978,6 +974,7 @@ class Aiccs extends OpenApiClient
     /**
      * @param request - BatchCreateQualityProjectsRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns BatchCreateQualityProjectsResponse
      *
      * @param BatchCreateQualityProjectsRequest $request
@@ -1021,25 +1018,23 @@ class Aiccs extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'BatchCreateQualityProjects',
-            'version'     => '2019-10-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'BatchCreateQualityProjects',
+            'version' => '2019-10-15',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return BatchCreateQualityProjectsResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return BatchCreateQualityProjectsResponse::fromMap($this->execute($params, $req, $runtime));
+        return BatchCreateQualityProjectsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * @param request - BatchCreateQualityProjectsRequest
+     *
      * @returns BatchCreateQualityProjectsResponse
      *
      * @param BatchCreateQualityProjectsRequest $request
@@ -1058,6 +1053,7 @@ class Aiccs extends OpenApiClient
      *
      * @param request - CancelTaskRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns CancelTaskResponse
      *
      * @param CancelTaskRequest $request
@@ -1089,27 +1085,25 @@ class Aiccs extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'CancelTask',
-            'version'     => '2019-10-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CancelTask',
+            'version' => '2019-10-15',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return CancelTaskResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return CancelTaskResponse::fromMap($this->execute($params, $req, $runtime));
+        return CancelTaskResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * 删除智能外呼任务
      *
      * @param request - CancelTaskRequest
+     *
      * @returns CancelTaskResponse
      *
      * @param CancelTaskRequest $request
@@ -1128,6 +1122,7 @@ class Aiccs extends OpenApiClient
      *
      * @param request - ChangeChatAgentStatusRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ChangeChatAgentStatusResponse
      *
      * @param ChangeChatAgentStatusRequest $request
@@ -1159,27 +1154,25 @@ class Aiccs extends OpenApiClient
             'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'ChangeChatAgentStatus',
-            'version'     => '2019-10-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ChangeChatAgentStatus',
+            'version' => '2019-10-15',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ChangeChatAgentStatusResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ChangeChatAgentStatusResponse::fromMap($this->execute($params, $req, $runtime));
+        return ChangeChatAgentStatusResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * 修改在线客服状态
      *
      * @param request - ChangeChatAgentStatusRequest
+     *
      * @returns ChangeChatAgentStatusResponse
      *
      * @param ChangeChatAgentStatusRequest $request
@@ -1196,6 +1189,7 @@ class Aiccs extends OpenApiClient
     /**
      * @param request - ChangeQualityProjectStatusRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ChangeQualityProjectStatusResponse
      *
      * @param ChangeQualityProjectStatusRequest $request
@@ -1223,25 +1217,23 @@ class Aiccs extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ChangeQualityProjectStatus',
-            'version'     => '2019-10-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ChangeQualityProjectStatus',
+            'version' => '2019-10-15',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ChangeQualityProjectStatusResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ChangeQualityProjectStatusResponse::fromMap($this->execute($params, $req, $runtime));
+        return ChangeQualityProjectStatusResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * @param request - ChangeQualityProjectStatusRequest
+     *
      * @returns ChangeQualityProjectStatusResponse
      *
      * @param ChangeQualityProjectStatusRequest $request
@@ -1258,6 +1250,7 @@ class Aiccs extends OpenApiClient
     /**
      * @param request - CreateAgentRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns CreateAgentResponse
      *
      * @param CreateAgentRequest $request
@@ -1300,25 +1293,23 @@ class Aiccs extends OpenApiClient
             'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'CreateAgent',
-            'version'     => '2019-10-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CreateAgent',
+            'version' => '2019-10-15',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return CreateAgentResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return CreateAgentResponse::fromMap($this->execute($params, $req, $runtime));
+        return CreateAgentResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * @param request - CreateAgentRequest
+     *
      * @returns CreateAgentResponse
      *
      * @param CreateAgentRequest $request
@@ -1337,6 +1328,7 @@ class Aiccs extends OpenApiClient
      *
      * @param tmpReq - CreateAiOutboundTaskRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns CreateAiOutboundTaskResponse
      *
      * @param CreateAiOutboundTaskRequest $tmpReq
@@ -1406,27 +1398,25 @@ class Aiccs extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'CreateAiOutboundTask',
-            'version'     => '2019-10-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CreateAiOutboundTask',
+            'version' => '2019-10-15',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return CreateAiOutboundTaskResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return CreateAiOutboundTaskResponse::fromMap($this->execute($params, $req, $runtime));
+        return CreateAiOutboundTaskResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * 创建智能外呼任务（预测式外呼、自动外呼）.
      *
      * @param request - CreateAiOutboundTaskRequest
+     *
      * @returns CreateAiOutboundTaskResponse
      *
      * @param CreateAiOutboundTaskRequest $request
@@ -1445,6 +1435,7 @@ class Aiccs extends OpenApiClient
      *
      * @param request - CreateAiOutboundTaskBatchRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns CreateAiOutboundTaskBatchResponse
      *
      * @param CreateAiOutboundTaskBatchRequest $request
@@ -1468,27 +1459,25 @@ class Aiccs extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'CreateAiOutboundTaskBatch',
-            'version'     => '2019-10-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CreateAiOutboundTaskBatch',
+            'version' => '2019-10-15',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return CreateAiOutboundTaskBatchResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return CreateAiOutboundTaskBatchResponse::fromMap($this->execute($params, $req, $runtime));
+        return CreateAiOutboundTaskBatchResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * 创建智能外呼任务批次
      *
      * @param request - CreateAiOutboundTaskBatchRequest
+     *
      * @returns CreateAiOutboundTaskBatchResponse
      *
      * @param CreateAiOutboundTaskBatchRequest $request
@@ -1507,6 +1496,7 @@ class Aiccs extends OpenApiClient
      *
      * @param request - CreateDepartmentRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns CreateDepartmentResponse
      *
      * @param CreateDepartmentRequest $request
@@ -1530,27 +1520,25 @@ class Aiccs extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'CreateDepartment',
-            'version'     => '2019-10-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CreateDepartment',
+            'version' => '2019-10-15',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return CreateDepartmentResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return CreateDepartmentResponse::fromMap($this->execute($params, $req, $runtime));
+        return CreateDepartmentResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * 创建部门信息.
      *
      * @param request - CreateDepartmentRequest
+     *
      * @returns CreateDepartmentResponse
      *
      * @param CreateDepartmentRequest $request
@@ -1567,6 +1555,7 @@ class Aiccs extends OpenApiClient
     /**
      * @param request - CreateOutboundTaskRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns CreateOutboundTaskResponse
      *
      * @param CreateOutboundTaskRequest $request
@@ -1650,25 +1639,23 @@ class Aiccs extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'CreateOutboundTask',
-            'version'     => '2019-10-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CreateOutboundTask',
+            'version' => '2019-10-15',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return CreateOutboundTaskResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return CreateOutboundTaskResponse::fromMap($this->execute($params, $req, $runtime));
+        return CreateOutboundTaskResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * @param request - CreateOutboundTaskRequest
+     *
      * @returns CreateOutboundTaskResponse
      *
      * @param CreateOutboundTaskRequest $request
@@ -1685,6 +1672,7 @@ class Aiccs extends OpenApiClient
     /**
      * @param request - CreateQualityProjectRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns CreateQualityProjectResponse
      *
      * @param CreateQualityProjectRequest $request
@@ -1744,25 +1732,23 @@ class Aiccs extends OpenApiClient
             'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'CreateQualityProject',
-            'version'     => '2019-10-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CreateQualityProject',
+            'version' => '2019-10-15',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return CreateQualityProjectResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return CreateQualityProjectResponse::fromMap($this->execute($params, $req, $runtime));
+        return CreateQualityProjectResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * @param request - CreateQualityProjectRequest
+     *
      * @returns CreateQualityProjectResponse
      *
      * @param CreateQualityProjectRequest $request
@@ -1779,6 +1765,7 @@ class Aiccs extends OpenApiClient
     /**
      * @param request - CreateQualityRuleRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns CreateQualityRuleResponse
      *
      * @param CreateQualityRuleRequest $request
@@ -1814,25 +1801,23 @@ class Aiccs extends OpenApiClient
             'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'CreateQualityRule',
-            'version'     => '2019-10-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CreateQualityRule',
+            'version' => '2019-10-15',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return CreateQualityRuleResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return CreateQualityRuleResponse::fromMap($this->execute($params, $req, $runtime));
+        return CreateQualityRuleResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * @param request - CreateQualityRuleRequest
+     *
      * @returns CreateQualityRuleResponse
      *
      * @param CreateQualityRuleRequest $request
@@ -1849,6 +1834,7 @@ class Aiccs extends OpenApiClient
     /**
      * @param request - CreateSkillGroupRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns CreateSkillGroupResponse
      *
      * @param CreateSkillGroupRequest $request
@@ -1892,25 +1878,23 @@ class Aiccs extends OpenApiClient
             'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'CreateSkillGroup',
-            'version'     => '2019-10-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CreateSkillGroup',
+            'version' => '2019-10-15',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return CreateSkillGroupResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return CreateSkillGroupResponse::fromMap($this->execute($params, $req, $runtime));
+        return CreateSkillGroupResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * @param request - CreateSkillGroupRequest
+     *
      * @returns CreateSkillGroupResponse
      *
      * @param CreateSkillGroupRequest $request
@@ -1929,6 +1913,7 @@ class Aiccs extends OpenApiClient
      *
      * @param request - CreateTaskRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns CreateTaskResponse
      *
      * @param CreateTaskRequest $request
@@ -2008,27 +1993,25 @@ class Aiccs extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'CreateTask',
-            'version'     => '2019-10-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CreateTask',
+            'version' => '2019-10-15',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return CreateTaskResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return CreateTaskResponse::fromMap($this->execute($params, $req, $runtime));
+        return CreateTaskResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * 创建外呼任务
      *
      * @param request - CreateTaskRequest
+     *
      * @returns CreateTaskResponse
      *
      * @param CreateTaskRequest $request
@@ -2047,6 +2030,7 @@ class Aiccs extends OpenApiClient
      *
      * @param request - CreateThirdSsoAgentRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns CreateThirdSsoAgentResponse
      *
      * @param CreateThirdSsoAgentRequest $request
@@ -2097,27 +2081,25 @@ class Aiccs extends OpenApiClient
             'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'CreateThirdSsoAgent',
-            'version'     => '2019-10-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CreateThirdSsoAgent',
+            'version' => '2019-10-15',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return CreateThirdSsoAgentResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return CreateThirdSsoAgentResponse::fromMap($this->execute($params, $req, $runtime));
+        return CreateThirdSsoAgentResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * 创建坐席并开通sso登录能力.
      *
      * @param request - CreateThirdSsoAgentRequest
+     *
      * @returns CreateThirdSsoAgentResponse
      *
      * @param CreateThirdSsoAgentRequest $request
@@ -2136,6 +2118,7 @@ class Aiccs extends OpenApiClient
      *
      * @param request - DeleteAgentRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DeleteAgentResponse
      *
      * @param DeleteAgentRequest $request
@@ -2163,27 +2146,25 @@ class Aiccs extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DeleteAgent',
-            'version'     => '2019-10-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'DELETE',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DeleteAgent',
+            'version' => '2019-10-15',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'DELETE',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DeleteAgentResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DeleteAgentResponse::fromMap($this->execute($params, $req, $runtime));
+        return DeleteAgentResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * 删除坐席账号.
      *
      * @param request - DeleteAgentRequest
+     *
      * @returns DeleteAgentResponse
      *
      * @param DeleteAgentRequest $request
@@ -2202,6 +2183,7 @@ class Aiccs extends OpenApiClient
      *
      * @param request - DeleteAiOutboundTaskRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DeleteAiOutboundTaskResponse
      *
      * @param DeleteAiOutboundTaskRequest $request
@@ -2225,27 +2207,25 @@ class Aiccs extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DeleteAiOutboundTask',
-            'version'     => '2019-10-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DeleteAiOutboundTask',
+            'version' => '2019-10-15',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DeleteAiOutboundTaskResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DeleteAiOutboundTaskResponse::fromMap($this->execute($params, $req, $runtime));
+        return DeleteAiOutboundTaskResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * 删除智能外呼任务
      *
      * @param request - DeleteAiOutboundTaskRequest
+     *
      * @returns DeleteAiOutboundTaskResponse
      *
      * @param DeleteAiOutboundTaskRequest $request
@@ -2264,6 +2244,7 @@ class Aiccs extends OpenApiClient
      *
      * @param request - DeleteDepartmentRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DeleteDepartmentResponse
      *
      * @param DeleteDepartmentRequest $request
@@ -2287,27 +2268,25 @@ class Aiccs extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DeleteDepartment',
-            'version'     => '2019-10-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DeleteDepartment',
+            'version' => '2019-10-15',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DeleteDepartmentResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DeleteDepartmentResponse::fromMap($this->execute($params, $req, $runtime));
+        return DeleteDepartmentResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * 删除部门信息.
      *
      * @param request - DeleteDepartmentRequest
+     *
      * @returns DeleteDepartmentResponse
      *
      * @param DeleteDepartmentRequest $request
@@ -2326,6 +2305,7 @@ class Aiccs extends OpenApiClient
      *
      * @param request - DeleteHotlineNumberRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DeleteHotlineNumberResponse
      *
      * @param DeleteHotlineNumberRequest $request
@@ -2349,27 +2329,25 @@ class Aiccs extends OpenApiClient
             'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'DeleteHotlineNumber',
-            'version'     => '2019-10-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DeleteHotlineNumber',
+            'version' => '2019-10-15',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DeleteHotlineNumberResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DeleteHotlineNumberResponse::fromMap($this->execute($params, $req, $runtime));
+        return DeleteHotlineNumberResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * 删除热线号码
      *
      * @param request - DeleteHotlineNumberRequest
+     *
      * @returns DeleteHotlineNumberResponse
      *
      * @param DeleteHotlineNumberRequest $request
@@ -2386,6 +2364,7 @@ class Aiccs extends OpenApiClient
     /**
      * @param request - DeleteOutboundTaskRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DeleteOutboundTaskResponse
      *
      * @param DeleteOutboundTaskRequest $request
@@ -2409,25 +2388,23 @@ class Aiccs extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DeleteOutboundTask',
-            'version'     => '2019-10-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DeleteOutboundTask',
+            'version' => '2019-10-15',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DeleteOutboundTaskResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DeleteOutboundTaskResponse::fromMap($this->execute($params, $req, $runtime));
+        return DeleteOutboundTaskResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * @param request - DeleteOutboundTaskRequest
+     *
      * @returns DeleteOutboundTaskResponse
      *
      * @param DeleteOutboundTaskRequest $request
@@ -2444,6 +2421,7 @@ class Aiccs extends OpenApiClient
     /**
      * @param request - DeleteOuterAccountRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DeleteOuterAccountResponse
      *
      * @param DeleteOuterAccountRequest $request
@@ -2455,29 +2433,27 @@ class Aiccs extends OpenApiClient
     {
         $request->validate();
         $query = Utils::query($request->toMap());
-        $req   = new OpenApiRequest([
+        $req = new OpenApiRequest([
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DeleteOuterAccount',
-            'version'     => '2019-10-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DeleteOuterAccount',
+            'version' => '2019-10-15',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DeleteOuterAccountResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DeleteOuterAccountResponse::fromMap($this->execute($params, $req, $runtime));
+        return DeleteOuterAccountResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * @param request - DeleteOuterAccountRequest
+     *
      * @returns DeleteOuterAccountResponse
      *
      * @param DeleteOuterAccountRequest $request
@@ -2494,6 +2470,7 @@ class Aiccs extends OpenApiClient
     /**
      * @param request - DeleteQualityProjectRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DeleteQualityProjectResponse
      *
      * @param DeleteQualityProjectRequest $request
@@ -2517,25 +2494,23 @@ class Aiccs extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DeleteQualityProject',
-            'version'     => '2019-10-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DeleteQualityProject',
+            'version' => '2019-10-15',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DeleteQualityProjectResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DeleteQualityProjectResponse::fromMap($this->execute($params, $req, $runtime));
+        return DeleteQualityProjectResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * @param request - DeleteQualityProjectRequest
+     *
      * @returns DeleteQualityProjectResponse
      *
      * @param DeleteQualityProjectRequest $request
@@ -2552,6 +2527,7 @@ class Aiccs extends OpenApiClient
     /**
      * @param request - DeleteQualityRuleRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DeleteQualityRuleResponse
      *
      * @param DeleteQualityRuleRequest $request
@@ -2575,25 +2551,23 @@ class Aiccs extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DeleteQualityRule',
-            'version'     => '2019-10-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DeleteQualityRule',
+            'version' => '2019-10-15',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DeleteQualityRuleResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DeleteQualityRuleResponse::fromMap($this->execute($params, $req, $runtime));
+        return DeleteQualityRuleResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * @param request - DeleteQualityRuleRequest
+     *
      * @returns DeleteQualityRuleResponse
      *
      * @param DeleteQualityRuleRequest $request
@@ -2610,6 +2584,7 @@ class Aiccs extends OpenApiClient
     /**
      * @param request - DeleteSkillGroupRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DeleteSkillGroupResponse
      *
      * @param DeleteSkillGroupRequest $request
@@ -2621,29 +2596,27 @@ class Aiccs extends OpenApiClient
     {
         $request->validate();
         $query = Utils::query($request->toMap());
-        $req   = new OpenApiRequest([
+        $req = new OpenApiRequest([
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DeleteSkillGroup',
-            'version'     => '2019-10-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DeleteSkillGroup',
+            'version' => '2019-10-15',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DeleteSkillGroupResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DeleteSkillGroupResponse::fromMap($this->execute($params, $req, $runtime));
+        return DeleteSkillGroupResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * @param request - DeleteSkillGroupRequest
+     *
      * @returns DeleteSkillGroupResponse
      *
      * @param DeleteSkillGroupRequest $request
@@ -2660,6 +2633,7 @@ class Aiccs extends OpenApiClient
     /**
      * @param request - DescribeRecordDataRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribeRecordDataResponse
      *
      * @param DescribeRecordDataRequest $request
@@ -2707,25 +2681,23 @@ class Aiccs extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeRecordData',
-            'version'     => '2019-10-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeRecordData',
+            'version' => '2019-10-15',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribeRecordDataResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeRecordDataResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeRecordDataResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * @param request - DescribeRecordDataRequest
+     *
      * @returns DescribeRecordDataResponse
      *
      * @param DescribeRecordDataRequest $request
@@ -2742,6 +2714,7 @@ class Aiccs extends OpenApiClient
     /**
      * @param request - EditQualityProjectRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns EditQualityProjectResponse
      *
      * @param EditQualityProjectRequest $request
@@ -2808,28 +2781,26 @@ class Aiccs extends OpenApiClient
 
         $req = new OpenApiRequest([
             'query' => Utils::query($query),
-            'body'  => Utils::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'EditQualityProject',
-            'version'     => '2019-10-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'EditQualityProject',
+            'version' => '2019-10-15',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return EditQualityProjectResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return EditQualityProjectResponse::fromMap($this->execute($params, $req, $runtime));
+        return EditQualityProjectResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * @param request - EditQualityProjectRequest
+     *
      * @returns EditQualityProjectResponse
      *
      * @param EditQualityProjectRequest $request
@@ -2846,6 +2817,7 @@ class Aiccs extends OpenApiClient
     /**
      * @param request - EditQualityRuleRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns EditQualityRuleResponse
      *
      * @param EditQualityRuleRequest $request
@@ -2885,25 +2857,23 @@ class Aiccs extends OpenApiClient
             'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'EditQualityRule',
-            'version'     => '2019-10-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'EditQualityRule',
+            'version' => '2019-10-15',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return EditQualityRuleResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return EditQualityRuleResponse::fromMap($this->execute($params, $req, $runtime));
+        return EditQualityRuleResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * @param request - EditQualityRuleRequest
+     *
      * @returns EditQualityRuleResponse
      *
      * @param EditQualityRuleRequest $request
@@ -2920,6 +2890,7 @@ class Aiccs extends OpenApiClient
     /**
      * @param request - EditQualityRuleTagRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns EditQualityRuleTagResponse
      *
      * @param EditQualityRuleTagRequest $request
@@ -2943,25 +2914,23 @@ class Aiccs extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'EditQualityRuleTag',
-            'version'     => '2019-10-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'EditQualityRuleTag',
+            'version' => '2019-10-15',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return EditQualityRuleTagResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return EditQualityRuleTagResponse::fromMap($this->execute($params, $req, $runtime));
+        return EditQualityRuleTagResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * @param request - EditQualityRuleTagRequest
+     *
      * @returns EditQualityRuleTagResponse
      *
      * @param EditQualityRuleTagRequest $request
@@ -2980,6 +2949,7 @@ class Aiccs extends OpenApiClient
      *
      * @param request - EncryptPhoneNumRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns EncryptPhoneNumResponse
      *
      * @param EncryptPhoneNumRequest $request
@@ -2991,31 +2961,29 @@ class Aiccs extends OpenApiClient
     {
         $request->validate();
         $query = Utils::query($request->toMap());
-        $req   = new OpenApiRequest([
+        $req = new OpenApiRequest([
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'EncryptPhoneNum',
-            'version'     => '2019-10-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'EncryptPhoneNum',
+            'version' => '2019-10-15',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return EncryptPhoneNumResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return EncryptPhoneNumResponse::fromMap($this->execute($params, $req, $runtime));
+        return EncryptPhoneNumResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * 热线号码加密.
      *
      * @param request - EncryptPhoneNumRequest
+     *
      * @returns EncryptPhoneNumResponse
      *
      * @param EncryptPhoneNumRequest $request
@@ -3032,6 +3000,7 @@ class Aiccs extends OpenApiClient
     /**
      * @param request - FetchCallRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns FetchCallResponse
      *
      * @param FetchCallRequest $request
@@ -3075,25 +3044,23 @@ class Aiccs extends OpenApiClient
             'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'FetchCall',
-            'version'     => '2019-10-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'FetchCall',
+            'version' => '2019-10-15',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return FetchCallResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return FetchCallResponse::fromMap($this->execute($params, $req, $runtime));
+        return FetchCallResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * @param request - FetchCallRequest
+     *
      * @returns FetchCallResponse
      *
      * @param FetchCallRequest $request
@@ -3110,6 +3077,7 @@ class Aiccs extends OpenApiClient
     /**
      * @param request - FinishHotlineServiceRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns FinishHotlineServiceResponse
      *
      * @param FinishHotlineServiceRequest $request
@@ -3137,25 +3105,23 @@ class Aiccs extends OpenApiClient
             'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'FinishHotlineService',
-            'version'     => '2019-10-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'FinishHotlineService',
+            'version' => '2019-10-15',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return FinishHotlineServiceResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return FinishHotlineServiceResponse::fromMap($this->execute($params, $req, $runtime));
+        return FinishHotlineServiceResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * @param request - FinishHotlineServiceRequest
+     *
      * @returns FinishHotlineServiceResponse
      *
      * @param FinishHotlineServiceRequest $request
@@ -3172,6 +3138,7 @@ class Aiccs extends OpenApiClient
     /**
      * @param request - GenerateWebSocketSignRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns GenerateWebSocketSignResponse
      *
      * @param GenerateWebSocketSignRequest $request
@@ -3199,25 +3166,23 @@ class Aiccs extends OpenApiClient
             'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'GenerateWebSocketSign',
-            'version'     => '2019-10-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GenerateWebSocketSign',
+            'version' => '2019-10-15',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return GenerateWebSocketSignResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GenerateWebSocketSignResponse::fromMap($this->execute($params, $req, $runtime));
+        return GenerateWebSocketSignResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * @param request - GenerateWebSocketSignRequest
+     *
      * @returns GenerateWebSocketSignResponse
      *
      * @param GenerateWebSocketSignRequest $request
@@ -3234,6 +3199,7 @@ class Aiccs extends OpenApiClient
     /**
      * @param request - GetAgentRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns GetAgentResponse
      *
      * @param GetAgentRequest $request
@@ -3245,29 +3211,27 @@ class Aiccs extends OpenApiClient
     {
         $request->validate();
         $query = Utils::query($request->toMap());
-        $req   = new OpenApiRequest([
+        $req = new OpenApiRequest([
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'GetAgent',
-            'version'     => '2019-10-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetAgent',
+            'version' => '2019-10-15',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return GetAgentResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetAgentResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetAgentResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * @param request - GetAgentRequest
+     *
      * @returns GetAgentResponse
      *
      * @param GetAgentRequest $request
@@ -3286,6 +3250,7 @@ class Aiccs extends OpenApiClient
      *
      * @param tmpReq - GetAgentBasisStatusRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns GetAgentBasisStatusResponse
      *
      * @param GetAgentBasisStatusRequest $tmpReq
@@ -3307,31 +3272,29 @@ class Aiccs extends OpenApiClient
         }
 
         $query = Utils::query($request->toMap());
-        $req   = new OpenApiRequest([
+        $req = new OpenApiRequest([
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'GetAgentBasisStatus',
-            'version'     => '2019-10-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetAgentBasisStatus',
+            'version' => '2019-10-15',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return GetAgentBasisStatusResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetAgentBasisStatusResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetAgentBasisStatusResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * 坐席纬度基础状态量.
      *
      * @param request - GetAgentBasisStatusRequest
+     *
      * @returns GetAgentBasisStatusResponse
      *
      * @param GetAgentBasisStatusRequest $request
@@ -3348,6 +3311,7 @@ class Aiccs extends OpenApiClient
     /**
      * @param request - GetAgentByIdRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns GetAgentByIdResponse
      *
      * @param GetAgentByIdRequest $request
@@ -3371,25 +3335,23 @@ class Aiccs extends OpenApiClient
             'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'GetAgentById',
-            'version'     => '2019-10-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetAgentById',
+            'version' => '2019-10-15',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return GetAgentByIdResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetAgentByIdResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetAgentByIdResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * @param request - GetAgentByIdRequest
+     *
      * @returns GetAgentByIdResponse
      *
      * @param GetAgentByIdRequest $request
@@ -3408,6 +3370,7 @@ class Aiccs extends OpenApiClient
      *
      * @param tmpReq - GetAgentDetailReportRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns GetAgentDetailReportResponse
      *
      * @param GetAgentDetailReportRequest $tmpReq
@@ -3429,31 +3392,29 @@ class Aiccs extends OpenApiClient
         }
 
         $query = Utils::query($request->toMap());
-        $req   = new OpenApiRequest([
+        $req = new OpenApiRequest([
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'GetAgentDetailReport',
-            'version'     => '2019-10-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetAgentDetailReport',
+            'version' => '2019-10-15',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return GetAgentDetailReportResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetAgentDetailReportResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetAgentDetailReportResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * 热线坐席纬度详情汇总.
      *
      * @param request - GetAgentDetailReportRequest
+     *
      * @returns GetAgentDetailReportResponse
      *
      * @param GetAgentDetailReportRequest $request
@@ -3470,6 +3431,7 @@ class Aiccs extends OpenApiClient
     /**
      * @param request - GetAgentIndexRealTimeRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns GetAgentIndexRealTimeResponse
      *
      * @param GetAgentIndexRealTimeRequest $request
@@ -3505,25 +3467,23 @@ class Aiccs extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'GetAgentIndexRealTime',
-            'version'     => '2019-10-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetAgentIndexRealTime',
+            'version' => '2019-10-15',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return GetAgentIndexRealTimeResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetAgentIndexRealTimeResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetAgentIndexRealTimeResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * @param request - GetAgentIndexRealTimeRequest
+     *
      * @returns GetAgentIndexRealTimeResponse
      *
      * @param GetAgentIndexRealTimeRequest $request
@@ -3542,6 +3502,7 @@ class Aiccs extends OpenApiClient
      *
      * @param tmpReq - GetAgentServiceStatusRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns GetAgentServiceStatusResponse
      *
      * @param GetAgentServiceStatusRequest $tmpReq
@@ -3563,31 +3524,29 @@ class Aiccs extends OpenApiClient
         }
 
         $query = Utils::query($request->toMap());
-        $req   = new OpenApiRequest([
+        $req = new OpenApiRequest([
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'GetAgentServiceStatus',
-            'version'     => '2019-10-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetAgentServiceStatus',
+            'version' => '2019-10-15',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return GetAgentServiceStatusResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetAgentServiceStatusResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetAgentServiceStatusResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * 坐席服务状态量.
      *
      * @param request - GetAgentServiceStatusRequest
+     *
      * @returns GetAgentServiceStatusResponse
      *
      * @param GetAgentServiceStatusRequest $request
@@ -3606,6 +3565,7 @@ class Aiccs extends OpenApiClient
      *
      * @param tmpReq - GetAgentStatisticsRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns GetAgentStatisticsResponse
      *
      * @param GetAgentStatisticsRequest $tmpReq
@@ -3627,31 +3587,29 @@ class Aiccs extends OpenApiClient
         }
 
         $query = Utils::query($request->toMap());
-        $req   = new OpenApiRequest([
+        $req = new OpenApiRequest([
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'GetAgentStatistics',
-            'version'     => '2019-10-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetAgentStatistics',
+            'version' => '2019-10-15',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return GetAgentStatisticsResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetAgentStatisticsResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetAgentStatisticsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * 坐席纬度统计量.
      *
      * @param request - GetAgentStatisticsRequest
+     *
      * @returns GetAgentStatisticsResponse
      *
      * @param GetAgentStatisticsRequest $request
@@ -3670,6 +3628,7 @@ class Aiccs extends OpenApiClient
      *
      * @param request - GetAiOutboundTaskBizDataRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns GetAiOutboundTaskBizDataResponse
      *
      * @param GetAiOutboundTaskBizDataRequest $request
@@ -3681,31 +3640,29 @@ class Aiccs extends OpenApiClient
     {
         $request->validate();
         $query = Utils::query($request->toMap());
-        $req   = new OpenApiRequest([
+        $req = new OpenApiRequest([
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'GetAiOutboundTaskBizData',
-            'version'     => '2019-10-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetAiOutboundTaskBizData',
+            'version' => '2019-10-15',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return GetAiOutboundTaskBizDataResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetAiOutboundTaskBizDataResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetAiOutboundTaskBizDataResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * 获取智能外呼任务业务自定义信息.
      *
      * @param request - GetAiOutboundTaskBizDataRequest
+     *
      * @returns GetAiOutboundTaskBizDataResponse
      *
      * @param GetAiOutboundTaskBizDataRequest $request
@@ -3724,6 +3681,7 @@ class Aiccs extends OpenApiClient
      *
      * @param request - GetAiOutboundTaskDetailRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns GetAiOutboundTaskDetailResponse
      *
      * @param GetAiOutboundTaskDetailRequest $request
@@ -3735,31 +3693,29 @@ class Aiccs extends OpenApiClient
     {
         $request->validate();
         $query = Utils::query($request->toMap());
-        $req   = new OpenApiRequest([
+        $req = new OpenApiRequest([
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'GetAiOutboundTaskDetail',
-            'version'     => '2019-10-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetAiOutboundTaskDetail',
+            'version' => '2019-10-15',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return GetAiOutboundTaskDetailResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetAiOutboundTaskDetailResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetAiOutboundTaskDetailResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * 智能外呼任务配置详情查询.
      *
      * @param request - GetAiOutboundTaskDetailRequest
+     *
      * @returns GetAiOutboundTaskDetailResponse
      *
      * @param GetAiOutboundTaskDetailRequest $request
@@ -3778,6 +3734,7 @@ class Aiccs extends OpenApiClient
      *
      * @param request - GetAiOutboundTaskExecDetailRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns GetAiOutboundTaskExecDetailResponse
      *
      * @param GetAiOutboundTaskExecDetailRequest $request
@@ -3789,31 +3746,29 @@ class Aiccs extends OpenApiClient
     {
         $request->validate();
         $query = Utils::query($request->toMap());
-        $req   = new OpenApiRequest([
+        $req = new OpenApiRequest([
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'GetAiOutboundTaskExecDetail',
-            'version'     => '2019-10-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetAiOutboundTaskExecDetail',
+            'version' => '2019-10-15',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return GetAiOutboundTaskExecDetailResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetAiOutboundTaskExecDetailResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetAiOutboundTaskExecDetailResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * 智能外呼任务执行详情.
      *
      * @param request - GetAiOutboundTaskExecDetailRequest
+     *
      * @returns GetAiOutboundTaskExecDetailResponse
      *
      * @param GetAiOutboundTaskExecDetailRequest $request
@@ -3832,6 +3787,7 @@ class Aiccs extends OpenApiClient
      *
      * @param request - GetAiOutboundTaskListRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns GetAiOutboundTaskListResponse
      *
      * @param GetAiOutboundTaskListRequest $request
@@ -3843,31 +3799,29 @@ class Aiccs extends OpenApiClient
     {
         $request->validate();
         $query = Utils::query($request->toMap());
-        $req   = new OpenApiRequest([
+        $req = new OpenApiRequest([
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'GetAiOutboundTaskList',
-            'version'     => '2019-10-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetAiOutboundTaskList',
+            'version' => '2019-10-15',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return GetAiOutboundTaskListResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetAiOutboundTaskListResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetAiOutboundTaskListResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * 智能外呼任务列表查询.
      *
      * @param request - GetAiOutboundTaskListRequest
+     *
      * @returns GetAiOutboundTaskListResponse
      *
      * @param GetAiOutboundTaskListRequest $request
@@ -3886,6 +3840,7 @@ class Aiccs extends OpenApiClient
      *
      * @param request - GetAiOutboundTaskProgressRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns GetAiOutboundTaskProgressResponse
      *
      * @param GetAiOutboundTaskProgressRequest $request
@@ -3897,31 +3852,29 @@ class Aiccs extends OpenApiClient
     {
         $request->validate();
         $query = Utils::query($request->toMap());
-        $req   = new OpenApiRequest([
+        $req = new OpenApiRequest([
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'GetAiOutboundTaskProgress',
-            'version'     => '2019-10-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetAiOutboundTaskProgress',
+            'version' => '2019-10-15',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return GetAiOutboundTaskProgressResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetAiOutboundTaskProgressResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetAiOutboundTaskProgressResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * 智能外呼任务执行进度.
      *
      * @param request - GetAiOutboundTaskProgressRequest
+     *
      * @returns GetAiOutboundTaskProgressResponse
      *
      * @param GetAiOutboundTaskProgressRequest $request
@@ -3940,6 +3893,7 @@ class Aiccs extends OpenApiClient
      *
      * @param request - GetAllDepartmentRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns GetAllDepartmentResponse
      *
      * @param GetAllDepartmentRequest $request
@@ -3951,31 +3905,29 @@ class Aiccs extends OpenApiClient
     {
         $request->validate();
         $query = Utils::query($request->toMap());
-        $req   = new OpenApiRequest([
+        $req = new OpenApiRequest([
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'GetAllDepartment',
-            'version'     => '2019-10-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetAllDepartment',
+            'version' => '2019-10-15',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return GetAllDepartmentResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetAllDepartmentResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetAllDepartmentResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * getAllDepartment.
      *
      * @param request - GetAllDepartmentRequest
+     *
      * @returns GetAllDepartmentResponse
      *
      * @param GetAllDepartmentRequest $request
@@ -3994,6 +3946,7 @@ class Aiccs extends OpenApiClient
      *
      * @param request - GetCallSoundRecordRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns GetCallSoundRecordResponse
      *
      * @param GetCallSoundRecordRequest $request
@@ -4029,27 +3982,25 @@ class Aiccs extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'GetCallSoundRecord',
-            'version'     => '2019-10-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetCallSoundRecord',
+            'version' => '2019-10-15',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return GetCallSoundRecordResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetCallSoundRecordResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetCallSoundRecordResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * 获取通话录音文件.
      *
      * @param request - GetCallSoundRecordRequest
+     *
      * @returns GetCallSoundRecordResponse
      *
      * @param GetCallSoundRecordRequest $request
@@ -4068,6 +4019,7 @@ class Aiccs extends OpenApiClient
      *
      * @param request - GetConfigNumListRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns GetConfigNumListResponse
      *
      * @param GetConfigNumListRequest $request
@@ -4079,31 +4031,29 @@ class Aiccs extends OpenApiClient
     {
         $request->validate();
         $query = Utils::query($request->toMap());
-        $req   = new OpenApiRequest([
+        $req = new OpenApiRequest([
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'GetConfigNumList',
-            'version'     => '2019-10-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetConfigNumList',
+            'version' => '2019-10-15',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return GetConfigNumListResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetConfigNumListResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetConfigNumListResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * 获取热线配置号码列表.
      *
      * @param request - GetConfigNumListRequest
+     *
      * @returns GetConfigNumListResponse
      *
      * @param GetConfigNumListRequest $request
@@ -4122,6 +4072,7 @@ class Aiccs extends OpenApiClient
      *
      * @param request - GetCustomerInfoRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns GetCustomerInfoResponse
      *
      * @param GetCustomerInfoRequest $request
@@ -4133,31 +4084,29 @@ class Aiccs extends OpenApiClient
     {
         $request->validate();
         $query = Utils::query($request->toMap());
-        $req   = new OpenApiRequest([
+        $req = new OpenApiRequest([
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'GetCustomerInfo',
-            'version'     => '2019-10-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetCustomerInfo',
+            'version' => '2019-10-15',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return GetCustomerInfoResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetCustomerInfoResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetCustomerInfoResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * 获取会员信息.
      *
      * @param request - GetCustomerInfoRequest
+     *
      * @returns GetCustomerInfoResponse
      *
      * @param GetCustomerInfoRequest $request
@@ -4176,6 +4125,7 @@ class Aiccs extends OpenApiClient
      *
      * @param request - GetDepGroupTreeDataRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns GetDepGroupTreeDataResponse
      *
      * @param GetDepGroupTreeDataRequest $request
@@ -4187,31 +4137,29 @@ class Aiccs extends OpenApiClient
     {
         $request->validate();
         $query = Utils::query($request->toMap());
-        $req   = new OpenApiRequest([
+        $req = new OpenApiRequest([
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'GetDepGroupTreeData',
-            'version'     => '2019-10-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetDepGroupTreeData',
+            'version' => '2019-10-15',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return GetDepGroupTreeDataResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetDepGroupTreeDataResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetDepGroupTreeDataResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * 获取技能组分组.
      *
      * @param request - GetDepGroupTreeDataRequest
+     *
      * @returns GetDepGroupTreeDataResponse
      *
      * @param GetDepGroupTreeDataRequest $request
@@ -4230,6 +4178,7 @@ class Aiccs extends OpenApiClient
      *
      * @param tmpReq - GetDepartmentalLatitudeAgentStatusRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns GetDepartmentalLatitudeAgentStatusResponse
      *
      * @param GetDepartmentalLatitudeAgentStatusRequest $tmpReq
@@ -4247,31 +4196,29 @@ class Aiccs extends OpenApiClient
         }
 
         $query = Utils::query($request->toMap());
-        $req   = new OpenApiRequest([
+        $req = new OpenApiRequest([
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'GetDepartmentalLatitudeAgentStatus',
-            'version'     => '2019-10-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetDepartmentalLatitudeAgentStatus',
+            'version' => '2019-10-15',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return GetDepartmentalLatitudeAgentStatusResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetDepartmentalLatitudeAgentStatusResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetDepartmentalLatitudeAgentStatusResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * 部门纬度坐席状态量.
      *
      * @param request - GetDepartmentalLatitudeAgentStatusRequest
+     *
      * @returns GetDepartmentalLatitudeAgentStatusResponse
      *
      * @param GetDepartmentalLatitudeAgentStatusRequest $request
@@ -4288,6 +4235,7 @@ class Aiccs extends OpenApiClient
     /**
      * @param request - GetHotlineAgentDetailRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns GetHotlineAgentDetailResponse
      *
      * @param GetHotlineAgentDetailRequest $request
@@ -4299,29 +4247,27 @@ class Aiccs extends OpenApiClient
     {
         $request->validate();
         $query = Utils::query($request->toMap());
-        $req   = new OpenApiRequest([
+        $req = new OpenApiRequest([
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'GetHotlineAgentDetail',
-            'version'     => '2019-10-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetHotlineAgentDetail',
+            'version' => '2019-10-15',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return GetHotlineAgentDetailResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetHotlineAgentDetailResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetHotlineAgentDetailResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * @param request - GetHotlineAgentDetailRequest
+     *
      * @returns GetHotlineAgentDetailResponse
      *
      * @param GetHotlineAgentDetailRequest $request
@@ -4338,6 +4284,7 @@ class Aiccs extends OpenApiClient
     /**
      * @param request - GetHotlineAgentDetailReportRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns GetHotlineAgentDetailReportResponse
      *
      * @param GetHotlineAgentDetailReportRequest $request
@@ -4381,25 +4328,23 @@ class Aiccs extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'GetHotlineAgentDetailReport',
-            'version'     => '2019-10-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetHotlineAgentDetailReport',
+            'version' => '2019-10-15',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return GetHotlineAgentDetailReportResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetHotlineAgentDetailReportResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetHotlineAgentDetailReportResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * @param request - GetHotlineAgentDetailReportRequest
+     *
      * @returns GetHotlineAgentDetailReportResponse
      *
      * @param GetHotlineAgentDetailReportRequest $request
@@ -4416,6 +4361,7 @@ class Aiccs extends OpenApiClient
     /**
      * @param request - GetHotlineAgentStatusRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns GetHotlineAgentStatusResponse
      *
      * @param GetHotlineAgentStatusRequest $request
@@ -4439,25 +4385,23 @@ class Aiccs extends OpenApiClient
             'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'GetHotlineAgentStatus',
-            'version'     => '2019-10-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetHotlineAgentStatus',
+            'version' => '2019-10-15',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return GetHotlineAgentStatusResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetHotlineAgentStatusResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetHotlineAgentStatusResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * @param request - GetHotlineAgentStatusRequest
+     *
      * @returns GetHotlineAgentStatusResponse
      *
      * @param GetHotlineAgentStatusRequest $request
@@ -4476,6 +4420,7 @@ class Aiccs extends OpenApiClient
      *
      * @param request - GetHotlineCallActionRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns GetHotlineCallActionResponse
      *
      * @param GetHotlineCallActionRequest $request
@@ -4519,27 +4464,25 @@ class Aiccs extends OpenApiClient
             'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'GetHotlineCallAction',
-            'version'     => '2019-10-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetHotlineCallAction',
+            'version' => '2019-10-15',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return GetHotlineCallActionResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetHotlineCallActionResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetHotlineCallActionResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * 查询话务动作结果数据.
      *
      * @param request - GetHotlineCallActionRequest
+     *
      * @returns GetHotlineCallActionResponse
      *
      * @param GetHotlineCallActionRequest $request
@@ -4556,6 +4499,7 @@ class Aiccs extends OpenApiClient
     /**
      * @param request - GetHotlineGroupDetailReportRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns GetHotlineGroupDetailReportResponse
      *
      * @param GetHotlineGroupDetailReportRequest $request
@@ -4599,25 +4543,23 @@ class Aiccs extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'GetHotlineGroupDetailReport',
-            'version'     => '2019-10-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetHotlineGroupDetailReport',
+            'version' => '2019-10-15',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return GetHotlineGroupDetailReportResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetHotlineGroupDetailReportResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetHotlineGroupDetailReportResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * @param request - GetHotlineGroupDetailReportRequest
+     *
      * @returns GetHotlineGroupDetailReportResponse
      *
      * @param GetHotlineGroupDetailReportRequest $request
@@ -4636,6 +4578,7 @@ class Aiccs extends OpenApiClient
      *
      * @param request - GetHotlineMessageLogRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns GetHotlineMessageLogResponse
      *
      * @param GetHotlineMessageLogRequest $request
@@ -4647,31 +4590,29 @@ class Aiccs extends OpenApiClient
     {
         $request->validate();
         $query = Utils::query($request->toMap());
-        $req   = new OpenApiRequest([
+        $req = new OpenApiRequest([
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'GetHotlineMessageLog',
-            'version'     => '2019-10-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetHotlineMessageLog',
+            'version' => '2019-10-15',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return GetHotlineMessageLogResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetHotlineMessageLogResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetHotlineMessageLogResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * 获取热线聊天记录.
      *
      * @param request - GetHotlineMessageLogRequest
+     *
      * @returns GetHotlineMessageLogResponse
      *
      * @param GetHotlineMessageLogRequest $request
@@ -4690,6 +4631,7 @@ class Aiccs extends OpenApiClient
      *
      * @param request - GetHotlineRuntimeInfoRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns GetHotlineRuntimeInfoResponse
      *
      * @param GetHotlineRuntimeInfoRequest $request
@@ -4701,31 +4643,29 @@ class Aiccs extends OpenApiClient
     {
         $request->validate();
         $query = Utils::query($request->toMap());
-        $req   = new OpenApiRequest([
+        $req = new OpenApiRequest([
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'GetHotlineRuntimeInfo',
-            'version'     => '2019-10-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetHotlineRuntimeInfo',
+            'version' => '2019-10-15',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return GetHotlineRuntimeInfoResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetHotlineRuntimeInfoResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetHotlineRuntimeInfoResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * 获取热线当前信息.
      *
      * @param request - GetHotlineRuntimeInfoRequest
+     *
      * @returns GetHotlineRuntimeInfoResponse
      *
      * @param GetHotlineRuntimeInfoRequest $request
@@ -4744,6 +4684,7 @@ class Aiccs extends OpenApiClient
      *
      * @param tmpReq - GetHotlineServiceStatisticsRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns GetHotlineServiceStatisticsResponse
      *
      * @param GetHotlineServiceStatisticsRequest $tmpReq
@@ -4769,31 +4710,29 @@ class Aiccs extends OpenApiClient
         }
 
         $query = Utils::query($request->toMap());
-        $req   = new OpenApiRequest([
+        $req = new OpenApiRequest([
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'GetHotlineServiceStatistics',
-            'version'     => '2019-10-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetHotlineServiceStatistics',
+            'version' => '2019-10-15',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return GetHotlineServiceStatisticsResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetHotlineServiceStatisticsResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetHotlineServiceStatisticsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * 服务统计量数据.
      *
      * @param request - GetHotlineServiceStatisticsRequest
+     *
      * @returns GetHotlineServiceStatisticsResponse
      *
      * @param GetHotlineServiceStatisticsRequest $request
@@ -4810,6 +4749,7 @@ class Aiccs extends OpenApiClient
     /**
      * @param request - GetHotlineWaitingNumberRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns GetHotlineWaitingNumberResponse
      *
      * @param GetHotlineWaitingNumberRequest $request
@@ -4821,29 +4761,27 @@ class Aiccs extends OpenApiClient
     {
         $request->validate();
         $query = Utils::query($request->toMap());
-        $req   = new OpenApiRequest([
+        $req = new OpenApiRequest([
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'GetHotlineWaitingNumber',
-            'version'     => '2019-10-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetHotlineWaitingNumber',
+            'version' => '2019-10-15',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return GetHotlineWaitingNumberResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetHotlineWaitingNumberResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetHotlineWaitingNumberResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * @param request - GetHotlineWaitingNumberRequest
+     *
      * @returns GetHotlineWaitingNumberResponse
      *
      * @param GetHotlineWaitingNumberRequest $request
@@ -4860,6 +4798,7 @@ class Aiccs extends OpenApiClient
     /**
      * @param request - GetIndexCurrentValueRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns GetIndexCurrentValueResponse
      *
      * @param GetIndexCurrentValueRequest $request
@@ -4887,25 +4826,23 @@ class Aiccs extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'GetIndexCurrentValue',
-            'version'     => '2019-10-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetIndexCurrentValue',
+            'version' => '2019-10-15',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return GetIndexCurrentValueResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetIndexCurrentValueResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetIndexCurrentValueResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * @param request - GetIndexCurrentValueRequest
+     *
      * @returns GetIndexCurrentValueResponse
      *
      * @param GetIndexCurrentValueRequest $request
@@ -4922,6 +4859,7 @@ class Aiccs extends OpenApiClient
     /**
      * @param request - GetInstanceListRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns GetInstanceListResponse
      *
      * @param GetInstanceListRequest $request
@@ -4949,25 +4887,23 @@ class Aiccs extends OpenApiClient
             'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'GetInstanceList',
-            'version'     => '2019-10-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetInstanceList',
+            'version' => '2019-10-15',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return GetInstanceListResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetInstanceListResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetInstanceListResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * @param request - GetInstanceListRequest
+     *
      * @returns GetInstanceListResponse
      *
      * @param GetInstanceListRequest $request
@@ -4986,6 +4922,7 @@ class Aiccs extends OpenApiClient
      *
      * @param request - GetMcuLvsIpRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns GetMcuLvsIpResponse
      *
      * @param GetMcuLvsIpRequest $request
@@ -4997,31 +4934,29 @@ class Aiccs extends OpenApiClient
     {
         $request->validate();
         $query = Utils::query($request->toMap());
-        $req   = new OpenApiRequest([
+        $req = new OpenApiRequest([
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'GetMcuLvsIp',
-            'version'     => '2019-10-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetMcuLvsIp',
+            'version' => '2019-10-15',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return GetMcuLvsIpResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetMcuLvsIpResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetMcuLvsIpResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * 热线检测获取mcu ip地址
      *
      * @param request - GetMcuLvsIpRequest
+     *
      * @returns GetMcuLvsIpResponse
      *
      * @param GetMcuLvsIpRequest $request
@@ -5038,6 +4973,7 @@ class Aiccs extends OpenApiClient
     /**
      * @param request - GetNumLocationRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns GetNumLocationResponse
      *
      * @param GetNumLocationRequest $request
@@ -5049,29 +4985,27 @@ class Aiccs extends OpenApiClient
     {
         $request->validate();
         $query = Utils::query($request->toMap());
-        $req   = new OpenApiRequest([
+        $req = new OpenApiRequest([
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'GetNumLocation',
-            'version'     => '2019-10-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetNumLocation',
+            'version' => '2019-10-15',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return GetNumLocationResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetNumLocationResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetNumLocationResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * @param request - GetNumLocationRequest
+     *
      * @returns GetNumLocationResponse
      *
      * @param GetNumLocationRequest $request
@@ -5090,6 +5024,7 @@ class Aiccs extends OpenApiClient
      *
      * @param tmpReq - GetOnlineSeatInformationRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns GetOnlineSeatInformationResponse
      *
      * @param GetOnlineSeatInformationRequest $tmpReq
@@ -5111,31 +5046,29 @@ class Aiccs extends OpenApiClient
         }
 
         $query = Utils::query($request->toMap());
-        $req   = new OpenApiRequest([
+        $req = new OpenApiRequest([
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'GetOnlineSeatInformation',
-            'version'     => '2019-10-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetOnlineSeatInformation',
+            'version' => '2019-10-15',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return GetOnlineSeatInformationResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetOnlineSeatInformationResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetOnlineSeatInformationResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * 在线坐席信息.
      *
      * @param request - GetOnlineSeatInformationRequest
+     *
      * @returns GetOnlineSeatInformationResponse
      *
      * @param GetOnlineSeatInformationRequest $request
@@ -5154,6 +5087,7 @@ class Aiccs extends OpenApiClient
      *
      * @param tmpReq - GetOnlineServiceVolumeRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns GetOnlineServiceVolumeResponse
      *
      * @param GetOnlineServiceVolumeRequest $tmpReq
@@ -5179,31 +5113,29 @@ class Aiccs extends OpenApiClient
         }
 
         $query = Utils::query($request->toMap());
-        $req   = new OpenApiRequest([
+        $req = new OpenApiRequest([
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'GetOnlineServiceVolume',
-            'version'     => '2019-10-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetOnlineServiceVolume',
+            'version' => '2019-10-15',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return GetOnlineServiceVolumeResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetOnlineServiceVolumeResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetOnlineServiceVolumeResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * 在线服务总量.
      *
      * @param request - GetOnlineServiceVolumeRequest
+     *
      * @returns GetOnlineServiceVolumeResponse
      *
      * @param GetOnlineServiceVolumeRequest $request
@@ -5220,6 +5152,7 @@ class Aiccs extends OpenApiClient
     /**
      * @param request - GetOutbounNumListRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns GetOutbounNumListResponse
      *
      * @param GetOutbounNumListRequest $request
@@ -5247,25 +5180,23 @@ class Aiccs extends OpenApiClient
             'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'GetOutbounNumList',
-            'version'     => '2019-10-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetOutbounNumList',
+            'version' => '2019-10-15',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return GetOutbounNumListResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetOutbounNumListResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetOutbounNumListResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * @param request - GetOutbounNumListRequest
+     *
      * @returns GetOutbounNumListResponse
      *
      * @param GetOutbounNumListRequest $request
@@ -5282,6 +5213,7 @@ class Aiccs extends OpenApiClient
     /**
      * @param request - GetQualityProjectDetailRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns GetQualityProjectDetailResponse
      *
      * @param GetQualityProjectDetailRequest $request
@@ -5305,25 +5237,23 @@ class Aiccs extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'GetQualityProjectDetail',
-            'version'     => '2019-10-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetQualityProjectDetail',
+            'version' => '2019-10-15',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return GetQualityProjectDetailResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetQualityProjectDetailResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetQualityProjectDetailResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * @param request - GetQualityProjectDetailRequest
+     *
      * @returns GetQualityProjectDetailResponse
      *
      * @param GetQualityProjectDetailRequest $request
@@ -5340,6 +5270,7 @@ class Aiccs extends OpenApiClient
     /**
      * @param request - GetQualityProjectListRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns GetQualityProjectListResponse
      *
      * @param GetQualityProjectListRequest $request
@@ -5383,25 +5314,23 @@ class Aiccs extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'GetQualityProjectList',
-            'version'     => '2019-10-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetQualityProjectList',
+            'version' => '2019-10-15',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return GetQualityProjectListResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetQualityProjectListResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetQualityProjectListResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * @param request - GetQualityProjectListRequest
+     *
      * @returns GetQualityProjectListResponse
      *
      * @param GetQualityProjectListRequest $request
@@ -5418,6 +5347,7 @@ class Aiccs extends OpenApiClient
     /**
      * @param request - GetQualityProjectLogRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns GetQualityProjectLogResponse
      *
      * @param GetQualityProjectLogRequest $request
@@ -5441,25 +5371,23 @@ class Aiccs extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'GetQualityProjectLog',
-            'version'     => '2019-10-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetQualityProjectLog',
+            'version' => '2019-10-15',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return GetQualityProjectLogResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetQualityProjectLogResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetQualityProjectLogResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * @param request - GetQualityProjectLogRequest
+     *
      * @returns GetQualityProjectLogResponse
      *
      * @param GetQualityProjectLogRequest $request
@@ -5476,6 +5404,7 @@ class Aiccs extends OpenApiClient
     /**
      * @param request - GetQualityResultRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns GetQualityResultResponse
      *
      * @param GetQualityResultRequest $request
@@ -5531,25 +5460,23 @@ class Aiccs extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'GetQualityResult',
-            'version'     => '2019-10-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetQualityResult',
+            'version' => '2019-10-15',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return GetQualityResultResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetQualityResultResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetQualityResultResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * @param request - GetQualityResultRequest
+     *
      * @returns GetQualityResultResponse
      *
      * @param GetQualityResultRequest $request
@@ -5566,6 +5493,7 @@ class Aiccs extends OpenApiClient
     /**
      * @param request - GetQualityRuleDetailRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns GetQualityRuleDetailResponse
      *
      * @param GetQualityRuleDetailRequest $request
@@ -5589,25 +5517,23 @@ class Aiccs extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'GetQualityRuleDetail',
-            'version'     => '2019-10-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetQualityRuleDetail',
+            'version' => '2019-10-15',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return GetQualityRuleDetailResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetQualityRuleDetailResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetQualityRuleDetailResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * @param request - GetQualityRuleDetailRequest
+     *
      * @returns GetQualityRuleDetailResponse
      *
      * @param GetQualityRuleDetailRequest $request
@@ -5624,6 +5550,7 @@ class Aiccs extends OpenApiClient
     /**
      * @param request - GetQualityRuleListRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns GetQualityRuleListResponse
      *
      * @param GetQualityRuleListRequest $request
@@ -5651,25 +5578,23 @@ class Aiccs extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'GetQualityRuleList',
-            'version'     => '2019-10-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetQualityRuleList',
+            'version' => '2019-10-15',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return GetQualityRuleListResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetQualityRuleListResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetQualityRuleListResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * @param request - GetQualityRuleListRequest
+     *
      * @returns GetQualityRuleListResponse
      *
      * @param GetQualityRuleListRequest $request
@@ -5686,6 +5611,7 @@ class Aiccs extends OpenApiClient
     /**
      * @param request - GetQualityRuleTagListRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns GetQualityRuleTagListResponse
      *
      * @param GetQualityRuleTagListRequest $request
@@ -5705,25 +5631,23 @@ class Aiccs extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'GetQualityRuleTagList',
-            'version'     => '2019-10-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetQualityRuleTagList',
+            'version' => '2019-10-15',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return GetQualityRuleTagListResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetQualityRuleTagListResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetQualityRuleTagListResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * @param request - GetQualityRuleTagListRequest
+     *
      * @returns GetQualityRuleTagListResponse
      *
      * @param GetQualityRuleTagListRequest $request
@@ -5742,6 +5666,7 @@ class Aiccs extends OpenApiClient
      *
      * @param tmpReq - GetQueueInformationRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns GetQueueInformationResponse
      *
      * @param GetQueueInformationRequest $tmpReq
@@ -5763,31 +5688,29 @@ class Aiccs extends OpenApiClient
         }
 
         $query = Utils::query($request->toMap());
-        $req   = new OpenApiRequest([
+        $req = new OpenApiRequest([
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'GetQueueInformation',
-            'version'     => '2019-10-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetQueueInformation',
+            'version' => '2019-10-15',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return GetQueueInformationResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetQueueInformationResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetQueueInformationResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * 技能组纬度队列信息.
      *
      * @param request - GetQueueInformationRequest
+     *
      * @returns GetQueueInformationResponse
      *
      * @param GetQueueInformationRequest $request
@@ -5804,6 +5727,7 @@ class Aiccs extends OpenApiClient
     /**
      * @param request - GetRecordDataRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns GetRecordDataResponse
      *
      * @param GetRecordDataRequest $request
@@ -5827,25 +5751,23 @@ class Aiccs extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'GetRecordData',
-            'version'     => '2019-10-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetRecordData',
+            'version' => '2019-10-15',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return GetRecordDataResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetRecordDataResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetRecordDataResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * @param request - GetRecordDataRequest
+     *
      * @returns GetRecordDataResponse
      *
      * @param GetRecordDataRequest $request
@@ -5864,6 +5786,7 @@ class Aiccs extends OpenApiClient
      *
      * @param request - GetRecordUrlRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns GetRecordUrlResponse
      *
      * @param GetRecordUrlRequest $request
@@ -5875,31 +5798,29 @@ class Aiccs extends OpenApiClient
     {
         $request->validate();
         $query = Utils::query($request->toMap());
-        $req   = new OpenApiRequest([
+        $req = new OpenApiRequest([
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'GetRecordUrl',
-            'version'     => '2019-10-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetRecordUrl',
+            'version' => '2019-10-15',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return GetRecordUrlResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetRecordUrlResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetRecordUrlResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * 获取录音链接.
      *
      * @param request - GetRecordUrlRequest
+     *
      * @returns GetRecordUrlResponse
      *
      * @param GetRecordUrlRequest $request
@@ -5918,6 +5839,7 @@ class Aiccs extends OpenApiClient
      *
      * @param request - GetRtcTokenRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns GetRtcTokenResponse
      *
      * @param GetRtcTokenRequest $request
@@ -5929,31 +5851,29 @@ class Aiccs extends OpenApiClient
     {
         $request->validate();
         $query = Utils::query($request->toMap());
-        $req   = new OpenApiRequest([
+        $req = new OpenApiRequest([
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'GetRtcToken',
-            'version'     => '2019-10-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetRtcToken',
+            'version' => '2019-10-15',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return GetRtcTokenResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetRtcTokenResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetRtcTokenResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * 获取RtcToken.
      *
      * @param request - GetRtcTokenRequest
+     *
      * @returns GetRtcTokenResponse
      *
      * @param GetRtcTokenRequest $request
@@ -5972,6 +5892,7 @@ class Aiccs extends OpenApiClient
      *
      * @param tmpReq - GetSeatInformationRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns GetSeatInformationResponse
      *
      * @param GetSeatInformationRequest $tmpReq
@@ -5989,31 +5910,29 @@ class Aiccs extends OpenApiClient
         }
 
         $query = Utils::query($request->toMap());
-        $req   = new OpenApiRequest([
+        $req = new OpenApiRequest([
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'GetSeatInformation',
-            'version'     => '2019-10-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetSeatInformation',
+            'version' => '2019-10-15',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return GetSeatInformationResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetSeatInformationResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetSeatInformationResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * 部门纬度坐席信息数据.
      *
      * @param request - GetSeatInformationRequest
+     *
      * @returns GetSeatInformationResponse
      *
      * @param GetSeatInformationRequest $request
@@ -6032,6 +5951,7 @@ class Aiccs extends OpenApiClient
      *
      * @param tmpReq - GetSkillGroupAgentStatusDetailsRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns GetSkillGroupAgentStatusDetailsResponse
      *
      * @param GetSkillGroupAgentStatusDetailsRequest $tmpReq
@@ -6053,31 +5973,29 @@ class Aiccs extends OpenApiClient
         }
 
         $query = Utils::query($request->toMap());
-        $req   = new OpenApiRequest([
+        $req = new OpenApiRequest([
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'GetSkillGroupAgentStatusDetails',
-            'version'     => '2019-10-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetSkillGroupAgentStatusDetails',
+            'version' => '2019-10-15',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return GetSkillGroupAgentStatusDetailsResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetSkillGroupAgentStatusDetailsResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetSkillGroupAgentStatusDetailsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * 技能组坐席状态详情.
      *
      * @param request - GetSkillGroupAgentStatusDetailsRequest
+     *
      * @returns GetSkillGroupAgentStatusDetailsResponse
      *
      * @param GetSkillGroupAgentStatusDetailsRequest $request
@@ -6096,6 +6014,7 @@ class Aiccs extends OpenApiClient
      *
      * @param tmpReq - GetSkillGroupAndAgentStatusSummaryRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns GetSkillGroupAndAgentStatusSummaryResponse
      *
      * @param GetSkillGroupAndAgentStatusSummaryRequest $tmpReq
@@ -6117,31 +6036,29 @@ class Aiccs extends OpenApiClient
         }
 
         $query = Utils::query($request->toMap());
-        $req   = new OpenApiRequest([
+        $req = new OpenApiRequest([
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'GetSkillGroupAndAgentStatusSummary',
-            'version'     => '2019-10-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetSkillGroupAndAgentStatusSummary',
+            'version' => '2019-10-15',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return GetSkillGroupAndAgentStatusSummaryResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetSkillGroupAndAgentStatusSummaryResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetSkillGroupAndAgentStatusSummaryResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * 技能组坐席汇总状态量.
      *
      * @param request - GetSkillGroupAndAgentStatusSummaryRequest
+     *
      * @returns GetSkillGroupAndAgentStatusSummaryResponse
      *
      * @param GetSkillGroupAndAgentStatusSummaryRequest $request
@@ -6160,6 +6077,7 @@ class Aiccs extends OpenApiClient
      *
      * @param tmpReq - GetSkillGroupLatitudeStateRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns GetSkillGroupLatitudeStateResponse
      *
      * @param GetSkillGroupLatitudeStateRequest $tmpReq
@@ -6181,31 +6099,29 @@ class Aiccs extends OpenApiClient
         }
 
         $query = Utils::query($request->toMap());
-        $req   = new OpenApiRequest([
+        $req = new OpenApiRequest([
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'GetSkillGroupLatitudeState',
-            'version'     => '2019-10-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetSkillGroupLatitudeState',
+            'version' => '2019-10-15',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return GetSkillGroupLatitudeStateResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetSkillGroupLatitudeStateResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetSkillGroupLatitudeStateResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * 技能组纬度状态量.
      *
      * @param request - GetSkillGroupLatitudeStateRequest
+     *
      * @returns GetSkillGroupLatitudeStateResponse
      *
      * @param GetSkillGroupLatitudeStateRequest $request
@@ -6224,6 +6140,7 @@ class Aiccs extends OpenApiClient
      *
      * @param tmpReq - GetSkillGroupServiceCapabilityRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns GetSkillGroupServiceCapabilityResponse
      *
      * @param GetSkillGroupServiceCapabilityRequest $tmpReq
@@ -6245,31 +6162,29 @@ class Aiccs extends OpenApiClient
         }
 
         $query = Utils::query($request->toMap());
-        $req   = new OpenApiRequest([
+        $req = new OpenApiRequest([
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'GetSkillGroupServiceCapability',
-            'version'     => '2019-10-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetSkillGroupServiceCapability',
+            'version' => '2019-10-15',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return GetSkillGroupServiceCapabilityResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetSkillGroupServiceCapabilityResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetSkillGroupServiceCapabilityResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * 技能组纬度服务能力.
      *
      * @param request - GetSkillGroupServiceCapabilityRequest
+     *
      * @returns GetSkillGroupServiceCapabilityResponse
      *
      * @param GetSkillGroupServiceCapabilityRequest $request
@@ -6288,6 +6203,7 @@ class Aiccs extends OpenApiClient
      *
      * @param tmpReq - GetSkillGroupServiceStatusRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns GetSkillGroupServiceStatusResponse
      *
      * @param GetSkillGroupServiceStatusRequest $tmpReq
@@ -6313,31 +6229,29 @@ class Aiccs extends OpenApiClient
         }
 
         $query = Utils::query($request->toMap());
-        $req   = new OpenApiRequest([
+        $req = new OpenApiRequest([
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'GetSkillGroupServiceStatus',
-            'version'     => '2019-10-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetSkillGroupServiceStatus',
+            'version' => '2019-10-15',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return GetSkillGroupServiceStatusResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetSkillGroupServiceStatusResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetSkillGroupServiceStatusResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * 技能组服务状态量.
      *
      * @param request - GetSkillGroupServiceStatusRequest
+     *
      * @returns GetSkillGroupServiceStatusResponse
      *
      * @param GetSkillGroupServiceStatusRequest $request
@@ -6356,6 +6270,7 @@ class Aiccs extends OpenApiClient
      *
      * @param tmpReq - GetSkillGroupStatusTotalRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns GetSkillGroupStatusTotalResponse
      *
      * @param GetSkillGroupStatusTotalRequest $tmpReq
@@ -6381,31 +6296,29 @@ class Aiccs extends OpenApiClient
         }
 
         $query = Utils::query($request->toMap());
-        $req   = new OpenApiRequest([
+        $req = new OpenApiRequest([
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'GetSkillGroupStatusTotal',
-            'version'     => '2019-10-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetSkillGroupStatusTotal',
+            'version' => '2019-10-15',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return GetSkillGroupStatusTotalResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetSkillGroupStatusTotalResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetSkillGroupStatusTotalResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * 技能组状态总量.
      *
      * @param request - GetSkillGroupStatusTotalRequest
+     *
      * @returns GetSkillGroupStatusTotalResponse
      *
      * @param GetSkillGroupStatusTotalRequest $request
@@ -6424,6 +6337,7 @@ class Aiccs extends OpenApiClient
      *
      * @param request - HangUpDoubleCallRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns HangUpDoubleCallResponse
      *
      * @param HangUpDoubleCallRequest $request
@@ -6447,27 +6361,25 @@ class Aiccs extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'HangUpDoubleCall',
-            'version'     => '2019-10-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'HangUpDoubleCall',
+            'version' => '2019-10-15',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return HangUpDoubleCallResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return HangUpDoubleCallResponse::fromMap($this->execute($params, $req, $runtime));
+        return HangUpDoubleCallResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * 移动端呼叫挂断.
      *
      * @param request - HangUpDoubleCallRequest
+     *
      * @returns HangUpDoubleCallResponse
      *
      * @param HangUpDoubleCallRequest $request
@@ -6484,6 +6396,7 @@ class Aiccs extends OpenApiClient
     /**
      * @param request - HangupCallRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns HangupCallResponse
      *
      * @param HangupCallRequest $request
@@ -6523,25 +6436,23 @@ class Aiccs extends OpenApiClient
             'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'HangupCall',
-            'version'     => '2019-10-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'HangupCall',
+            'version' => '2019-10-15',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return HangupCallResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return HangupCallResponse::fromMap($this->execute($params, $req, $runtime));
+        return HangupCallResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * @param request - HangupCallRequest
+     *
      * @returns HangupCallResponse
      *
      * @param HangupCallRequest $request
@@ -6560,6 +6471,7 @@ class Aiccs extends OpenApiClient
      *
      * @param request - HangupOperateRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns HangupOperateResponse
      *
      * @param HangupOperateRequest $request
@@ -6583,27 +6495,25 @@ class Aiccs extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'HangupOperate',
-            'version'     => '2019-10-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'HangupOperate',
+            'version' => '2019-10-15',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return HangupOperateResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return HangupOperateResponse::fromMap($this->execute($params, $req, $runtime));
+        return HangupOperateResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * 通信智能引擎中主动挂断通话.
      *
      * @param request - HangupOperateRequest
+     *
      * @returns HangupOperateResponse
      *
      * @param HangupOperateRequest $request
@@ -6620,6 +6530,7 @@ class Aiccs extends OpenApiClient
     /**
      * @param request - HangupThirdCallRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns HangupThirdCallResponse
      *
      * @param HangupThirdCallRequest $request
@@ -6659,25 +6570,23 @@ class Aiccs extends OpenApiClient
             'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'HangupThirdCall',
-            'version'     => '2019-10-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'HangupThirdCall',
+            'version' => '2019-10-15',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return HangupThirdCallResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return HangupThirdCallResponse::fromMap($this->execute($params, $req, $runtime));
+        return HangupThirdCallResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * @param request - HangupThirdCallRequest
+     *
      * @returns HangupThirdCallResponse
      *
      * @param HangupThirdCallRequest $request
@@ -6694,6 +6603,7 @@ class Aiccs extends OpenApiClient
     /**
      * @param request - HoldCallRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns HoldCallResponse
      *
      * @param HoldCallRequest $request
@@ -6733,25 +6643,23 @@ class Aiccs extends OpenApiClient
             'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'HoldCall',
-            'version'     => '2019-10-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'HoldCall',
+            'version' => '2019-10-15',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return HoldCallResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return HoldCallResponse::fromMap($this->execute($params, $req, $runtime));
+        return HoldCallResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * @param request - HoldCallRequest
+     *
      * @returns HoldCallResponse
      *
      * @param HoldCallRequest $request
@@ -6768,6 +6676,7 @@ class Aiccs extends OpenApiClient
     /**
      * @param request - HotlineSessionQueryRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns HotlineSessionQueryResponse
      *
      * @param HotlineSessionQueryRequest $request
@@ -6891,25 +6800,23 @@ class Aiccs extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'HotlineSessionQuery',
-            'version'     => '2019-10-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'HotlineSessionQuery',
+            'version' => '2019-10-15',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return HotlineSessionQueryResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return HotlineSessionQueryResponse::fromMap($this->execute($params, $req, $runtime));
+        return HotlineSessionQueryResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * @param request - HotlineSessionQueryRequest
+     *
      * @returns HotlineSessionQueryResponse
      *
      * @param HotlineSessionQueryRequest $request
@@ -6928,6 +6835,7 @@ class Aiccs extends OpenApiClient
      *
      * @param tmpReq - InsertAiOutboundPhoneNumsRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns InsertAiOutboundPhoneNumsResponse
      *
      * @param InsertAiOutboundPhoneNumsRequest $tmpReq
@@ -6965,27 +6873,25 @@ class Aiccs extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'InsertAiOutboundPhoneNums',
-            'version'     => '2019-10-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'InsertAiOutboundPhoneNums',
+            'version' => '2019-10-15',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return InsertAiOutboundPhoneNumsResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return InsertAiOutboundPhoneNumsResponse::fromMap($this->execute($params, $req, $runtime));
+        return InsertAiOutboundPhoneNumsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * 智能外呼任务导入号码
      *
      * @param request - InsertAiOutboundPhoneNumsRequest
+     *
      * @returns InsertAiOutboundPhoneNumsResponse
      *
      * @param InsertAiOutboundPhoneNumsRequest $request
@@ -7002,6 +6908,7 @@ class Aiccs extends OpenApiClient
     /**
      * @param request - InsertTaskDetailRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns InsertTaskDetailResponse
      *
      * @param InsertTaskDetailRequest $request
@@ -7029,25 +6936,23 @@ class Aiccs extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'InsertTaskDetail',
-            'version'     => '2019-10-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'InsertTaskDetail',
+            'version' => '2019-10-15',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return InsertTaskDetailResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return InsertTaskDetailResponse::fromMap($this->execute($params, $req, $runtime));
+        return InsertTaskDetailResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * @param request - InsertTaskDetailRequest
+     *
      * @returns InsertTaskDetailResponse
      *
      * @param InsertTaskDetailRequest $request
@@ -7064,6 +6969,7 @@ class Aiccs extends OpenApiClient
     /**
      * @param request - JoinThirdCallRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns JoinThirdCallResponse
      *
      * @param JoinThirdCallRequest $request
@@ -7107,25 +7013,23 @@ class Aiccs extends OpenApiClient
             'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'JoinThirdCall',
-            'version'     => '2019-10-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'JoinThirdCall',
+            'version' => '2019-10-15',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return JoinThirdCallResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return JoinThirdCallResponse::fromMap($this->execute($params, $req, $runtime));
+        return JoinThirdCallResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * @param request - JoinThirdCallRequest
+     *
      * @returns JoinThirdCallResponse
      *
      * @param JoinThirdCallRequest $request
@@ -7142,6 +7046,7 @@ class Aiccs extends OpenApiClient
     /**
      * @param request - ListAgentBySkillGroupIdRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ListAgentBySkillGroupIdResponse
      *
      * @param ListAgentBySkillGroupIdRequest $request
@@ -7153,29 +7058,27 @@ class Aiccs extends OpenApiClient
     {
         $request->validate();
         $query = Utils::query($request->toMap());
-        $req   = new OpenApiRequest([
+        $req = new OpenApiRequest([
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListAgentBySkillGroupId',
-            'version'     => '2019-10-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListAgentBySkillGroupId',
+            'version' => '2019-10-15',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ListAgentBySkillGroupIdResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListAgentBySkillGroupIdResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListAgentBySkillGroupIdResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * @param request - ListAgentBySkillGroupIdRequest
+     *
      * @returns ListAgentBySkillGroupIdResponse
      *
      * @param ListAgentBySkillGroupIdRequest $request
@@ -7194,6 +7097,7 @@ class Aiccs extends OpenApiClient
      *
      * @param request - ListAiccsRobotRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ListAiccsRobotResponse
      *
      * @param ListAiccsRobotRequest $request
@@ -7225,27 +7129,25 @@ class Aiccs extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListAiccsRobot',
-            'version'     => '2019-10-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListAiccsRobot',
+            'version' => '2019-10-15',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ListAiccsRobotResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListAiccsRobotResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListAiccsRobotResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * 查询所有机器人列表.
      *
      * @param request - ListAiccsRobotRequest
+     *
      * @returns ListAiccsRobotResponse
      *
      * @param ListAiccsRobotRequest $request
@@ -7264,6 +7166,7 @@ class Aiccs extends OpenApiClient
      *
      * @param request - ListChatRecordDetailRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ListChatRecordDetailResponse
      *
      * @param ListChatRecordDetailRequest $request
@@ -7275,31 +7178,29 @@ class Aiccs extends OpenApiClient
     {
         $request->validate();
         $query = Utils::query($request->toMap());
-        $req   = new OpenApiRequest([
+        $req = new OpenApiRequest([
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListChatRecordDetail',
-            'version'     => '2019-10-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListChatRecordDetail',
+            'version' => '2019-10-15',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ListChatRecordDetailResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListChatRecordDetailResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListChatRecordDetailResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * 根据时间段查询在线会话详情，包含会话内容，时间段范围最长不超过1天.
      *
      * @param request - ListChatRecordDetailRequest
+     *
      * @returns ListChatRecordDetailResponse
      *
      * @param ListChatRecordDetailRequest $request
@@ -7318,6 +7219,7 @@ class Aiccs extends OpenApiClient
      *
      * @param request - ListDialogRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ListDialogResponse
      *
      * @param ListDialogRequest $request
@@ -7353,27 +7255,25 @@ class Aiccs extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListDialog',
-            'version'     => '2019-10-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListDialog',
+            'version' => '2019-10-15',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ListDialogResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListDialogResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListDialogResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * 查看对话记录.
      *
      * @param request - ListDialogRequest
+     *
      * @returns ListDialogResponse
      *
      * @param ListDialogRequest $request
@@ -7390,6 +7290,7 @@ class Aiccs extends OpenApiClient
     /**
      * @param request - ListHotlineRecordRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ListHotlineRecordResponse
      *
      * @param ListHotlineRecordRequest $request
@@ -7401,29 +7302,27 @@ class Aiccs extends OpenApiClient
     {
         $request->validate();
         $query = Utils::query($request->toMap());
-        $req   = new OpenApiRequest([
+        $req = new OpenApiRequest([
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListHotlineRecord',
-            'version'     => '2019-10-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListHotlineRecord',
+            'version' => '2019-10-15',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ListHotlineRecordResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListHotlineRecordResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListHotlineRecordResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * @param request - ListHotlineRecordRequest
+     *
      * @returns ListHotlineRecordResponse
      *
      * @param ListHotlineRecordRequest $request
@@ -7442,6 +7341,7 @@ class Aiccs extends OpenApiClient
      *
      * @param request - ListHotlineRecordDetailRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ListHotlineRecordDetailResponse
      *
      * @param ListHotlineRecordDetailRequest $request
@@ -7453,31 +7353,29 @@ class Aiccs extends OpenApiClient
     {
         $request->validate();
         $query = Utils::query($request->toMap());
-        $req   = new OpenApiRequest([
+        $req = new OpenApiRequest([
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListHotlineRecordDetail',
-            'version'     => '2019-10-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListHotlineRecordDetail',
+            'version' => '2019-10-15',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ListHotlineRecordDetailResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListHotlineRecordDetailResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListHotlineRecordDetailResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * 根据时间段查询热线详情列表，包含热线通话信息，时间段范围最长不超过1天.
      *
      * @param request - ListHotlineRecordDetailRequest
+     *
      * @returns ListHotlineRecordDetailResponse
      *
      * @param ListHotlineRecordDetailRequest $request
@@ -7494,6 +7392,7 @@ class Aiccs extends OpenApiClient
     /**
      * @param request - ListOutboundPhoneNumberRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ListOutboundPhoneNumberResponse
      *
      * @param ListOutboundPhoneNumberRequest $request
@@ -7505,29 +7404,27 @@ class Aiccs extends OpenApiClient
     {
         $request->validate();
         $query = Utils::query($request->toMap());
-        $req   = new OpenApiRequest([
+        $req = new OpenApiRequest([
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListOutboundPhoneNumber',
-            'version'     => '2019-10-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListOutboundPhoneNumber',
+            'version' => '2019-10-15',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ListOutboundPhoneNumberResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListOutboundPhoneNumberResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListOutboundPhoneNumberResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * @param request - ListOutboundPhoneNumberRequest
+     *
      * @returns ListOutboundPhoneNumberResponse
      *
      * @param ListOutboundPhoneNumberRequest $request
@@ -7546,6 +7443,7 @@ class Aiccs extends OpenApiClient
      *
      * @param request - ListRobotCallDialogRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ListRobotCallDialogResponse
      *
      * @param ListRobotCallDialogRequest $request
@@ -7581,27 +7479,25 @@ class Aiccs extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListRobotCallDialog',
-            'version'     => '2019-10-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListRobotCallDialog',
+            'version' => '2019-10-15',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ListRobotCallDialogResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListRobotCallDialogResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListRobotCallDialogResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * 查看对话记录.
      *
      * @param request - ListRobotCallDialogRequest
+     *
      * @returns ListRobotCallDialogResponse
      *
      * @param ListRobotCallDialogRequest $request
@@ -7620,6 +7516,7 @@ class Aiccs extends OpenApiClient
      *
      * @param request - ListRobotNodeRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ListRobotNodeResponse
      *
      * @param ListRobotNodeRequest $request
@@ -7651,27 +7548,25 @@ class Aiccs extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListRobotNode',
-            'version'     => '2019-10-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListRobotNode',
+            'version' => '2019-10-15',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ListRobotNodeResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListRobotNodeResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListRobotNodeResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * 查询机器人输出列表.
      *
      * @param request - ListRobotNodeRequest
+     *
      * @returns ListRobotNodeResponse
      *
      * @param ListRobotNodeRequest $request
@@ -7690,6 +7585,7 @@ class Aiccs extends OpenApiClient
      *
      * @param request - ListRobotParamsRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ListRobotParamsResponse
      *
      * @param ListRobotParamsRequest $request
@@ -7721,27 +7617,25 @@ class Aiccs extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListRobotParams',
-            'version'     => '2019-10-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListRobotParams',
+            'version' => '2019-10-15',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ListRobotParamsResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListRobotParamsResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListRobotParamsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * 查询参数列表.
      *
      * @param request - ListRobotParamsRequest
+     *
      * @returns ListRobotParamsResponse
      *
      * @param ListRobotParamsRequest $request
@@ -7760,6 +7654,7 @@ class Aiccs extends OpenApiClient
      *
      * @param request - ListRolesRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ListRolesResponse
      *
      * @param ListRolesRequest $request
@@ -7771,31 +7666,29 @@ class Aiccs extends OpenApiClient
     {
         $request->validate();
         $query = Utils::query($request->toMap());
-        $req   = new OpenApiRequest([
+        $req = new OpenApiRequest([
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListRoles',
-            'version'     => '2019-10-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListRoles',
+            'version' => '2019-10-15',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ListRolesResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListRolesResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListRolesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * 获取租户下的所有角色.
      *
      * @param request - ListRolesRequest
+     *
      * @returns ListRolesResponse
      *
      * @param ListRolesRequest $request
@@ -7812,6 +7705,7 @@ class Aiccs extends OpenApiClient
     /**
      * @param request - ListSkillGroupRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ListSkillGroupResponse
      *
      * @param ListSkillGroupRequest $request
@@ -7823,29 +7717,27 @@ class Aiccs extends OpenApiClient
     {
         $request->validate();
         $query = Utils::query($request->toMap());
-        $req   = new OpenApiRequest([
+        $req = new OpenApiRequest([
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListSkillGroup',
-            'version'     => '2019-10-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListSkillGroup',
+            'version' => '2019-10-15',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ListSkillGroupResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListSkillGroupResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListSkillGroupResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * @param request - ListSkillGroupRequest
+     *
      * @returns ListSkillGroupResponse
      *
      * @param ListSkillGroupRequest $request
@@ -7864,6 +7756,7 @@ class Aiccs extends OpenApiClient
      *
      * @param request - ListTaskRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ListTaskResponse
      *
      * @param ListTaskRequest $request
@@ -7915,27 +7808,25 @@ class Aiccs extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListTask',
-            'version'     => '2019-10-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListTask',
+            'version' => '2019-10-15',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ListTaskResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListTaskResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListTaskResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * 查询任务列表.
      *
      * @param request - ListTaskRequest
+     *
      * @returns ListTaskResponse
      *
      * @param ListTaskRequest $request
@@ -7954,6 +7845,7 @@ class Aiccs extends OpenApiClient
      *
      * @param request - ListTaskDetailRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ListTaskDetailResponse
      *
      * @param ListTaskDetailRequest $request
@@ -8009,27 +7901,25 @@ class Aiccs extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListTaskDetail',
-            'version'     => '2019-10-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListTaskDetail',
+            'version' => '2019-10-15',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ListTaskDetailResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListTaskDetailResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListTaskDetailResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * 任务详情查看通话列表.
      *
      * @param request - ListTaskDetailRequest
+     *
      * @returns ListTaskDetailResponse
      *
      * @param ListTaskDetailRequest $request
@@ -8048,6 +7938,7 @@ class Aiccs extends OpenApiClient
      *
      * @param tmpReq - LlmSmartCallRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns LlmSmartCallResponse
      *
      * @param LlmSmartCallRequest $tmpReq
@@ -8097,27 +7988,25 @@ class Aiccs extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'LlmSmartCall',
-            'version'     => '2019-10-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'LlmSmartCall',
+            'version' => '2019-10-15',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return LlmSmartCallResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return LlmSmartCallResponse::fromMap($this->execute($params, $req, $runtime));
+        return LlmSmartCallResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * 基于大模型的智能外呼
      *
      * @param request - LlmSmartCallRequest
+     *
      * @returns LlmSmartCallResponse
      *
      * @param LlmSmartCallRequest $request
@@ -8132,8 +8021,108 @@ class Aiccs extends OpenApiClient
     }
 
     /**
+     * 大模型外呼加密号码接口.
+     *
+     * @param tmpReq - LlmSmartCallEncryptRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns LlmSmartCallEncryptResponse
+     *
+     * @param LlmSmartCallEncryptRequest $tmpReq
+     * @param RuntimeOptions             $runtime
+     *
+     * @return LlmSmartCallEncryptResponse
+     */
+    public function llmSmartCallEncryptWithOptions($tmpReq, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new LlmSmartCallEncryptShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->promptParam) {
+            $request->promptParamShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->promptParam, 'PromptParam', 'json');
+        }
+
+        if (null !== $tmpReq->startWordParam) {
+            $request->startWordParamShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->startWordParam, 'StartWordParam', 'json');
+        }
+
+        $query = [];
+        if (null !== $request->applicationCode) {
+            @$query['ApplicationCode'] = $request->applicationCode;
+        }
+
+        if (null !== $request->callerNumber) {
+            @$query['CallerNumber'] = $request->callerNumber;
+        }
+
+        if (null !== $request->encryptCalledNumber) {
+            @$query['EncryptCalledNumber'] = $request->encryptCalledNumber;
+        }
+
+        if (null !== $request->outId) {
+            @$query['OutId'] = $request->outId;
+        }
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
+        }
+
+        if (null !== $request->promptParamShrink) {
+            @$query['PromptParam'] = $request->promptParamShrink;
+        }
+
+        if (null !== $request->resourceOwnerAccount) {
+            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+
+        if (null !== $request->resourceOwnerId) {
+            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+
+        if (null !== $request->startWordParamShrink) {
+            @$query['StartWordParam'] = $request->startWordParamShrink;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'LlmSmartCallEncrypt',
+            'version' => '2019-10-15',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return LlmSmartCallEncryptResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 大模型外呼加密号码接口.
+     *
+     * @param request - LlmSmartCallEncryptRequest
+     *
+     * @returns LlmSmartCallEncryptResponse
+     *
+     * @param LlmSmartCallEncryptRequest $request
+     *
+     * @return LlmSmartCallEncryptResponse
+     */
+    public function llmSmartCallEncrypt($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->llmSmartCallEncryptWithOptions($request, $runtime);
+    }
+
+    /**
      * @param request - MakeCallRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns MakeCallResponse
      *
      * @param MakeCallRequest $request
@@ -8173,25 +8162,23 @@ class Aiccs extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'MakeCall',
-            'version'     => '2019-10-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'MakeCall',
+            'version' => '2019-10-15',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return MakeCallResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return MakeCallResponse::fromMap($this->execute($params, $req, $runtime));
+        return MakeCallResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * @param request - MakeCallRequest
+     *
      * @returns MakeCallResponse
      *
      * @param MakeCallRequest $request
@@ -8210,6 +8197,7 @@ class Aiccs extends OpenApiClient
      *
      * @param request - MakeDoubleCallRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns MakeDoubleCallResponse
      *
      * @param MakeDoubleCallRequest $request
@@ -8249,27 +8237,25 @@ class Aiccs extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'MakeDoubleCall',
-            'version'     => '2019-10-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'MakeDoubleCall',
+            'version' => '2019-10-15',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return MakeDoubleCallResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return MakeDoubleCallResponse::fromMap($this->execute($params, $req, $runtime));
+        return MakeDoubleCallResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * 移动端发起呼叫.
      *
      * @param request - MakeDoubleCallRequest
+     *
      * @returns MakeDoubleCallResponse
      *
      * @param MakeDoubleCallRequest $request
@@ -8286,6 +8272,7 @@ class Aiccs extends OpenApiClient
     /**
      * @param request - QueryHotlineInQueueRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns QueryHotlineInQueueResponse
      *
      * @param QueryHotlineInQueueRequest $request
@@ -8297,29 +8284,27 @@ class Aiccs extends OpenApiClient
     {
         $request->validate();
         $query = Utils::query($request->toMap());
-        $req   = new OpenApiRequest([
+        $req = new OpenApiRequest([
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'QueryHotlineInQueue',
-            'version'     => '2019-10-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'QueryHotlineInQueue',
+            'version' => '2019-10-15',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return QueryHotlineInQueueResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return QueryHotlineInQueueResponse::fromMap($this->execute($params, $req, $runtime));
+        return QueryHotlineInQueueResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * @param request - QueryHotlineInQueueRequest
+     *
      * @returns QueryHotlineInQueueResponse
      *
      * @param QueryHotlineInQueueRequest $request
@@ -8338,6 +8323,7 @@ class Aiccs extends OpenApiClient
      *
      * @param tmpReq - QueryHotlineNumberRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns QueryHotlineNumberResponse
      *
      * @param QueryHotlineNumberRequest $tmpReq
@@ -8355,31 +8341,29 @@ class Aiccs extends OpenApiClient
         }
 
         $query = Utils::query($request->toMap());
-        $req   = new OpenApiRequest([
+        $req = new OpenApiRequest([
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'QueryHotlineNumber',
-            'version'     => '2019-10-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'QueryHotlineNumber',
+            'version' => '2019-10-15',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return QueryHotlineNumberResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return QueryHotlineNumberResponse::fromMap($this->execute($params, $req, $runtime));
+        return QueryHotlineNumberResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * 查询热线号码配置.
      *
      * @param request - QueryHotlineNumberRequest
+     *
      * @returns QueryHotlineNumberResponse
      *
      * @param QueryHotlineNumberRequest $request
@@ -8396,6 +8380,7 @@ class Aiccs extends OpenApiClient
     /**
      * @param request - QueryOutboundTaskRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns QueryOutboundTaskResponse
      *
      * @param QueryOutboundTaskRequest $request
@@ -8471,25 +8456,23 @@ class Aiccs extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'QueryOutboundTask',
-            'version'     => '2019-10-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'QueryOutboundTask',
+            'version' => '2019-10-15',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return QueryOutboundTaskResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return QueryOutboundTaskResponse::fromMap($this->execute($params, $req, $runtime));
+        return QueryOutboundTaskResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * @param request - QueryOutboundTaskRequest
+     *
      * @returns QueryOutboundTaskResponse
      *
      * @param QueryOutboundTaskRequest $request
@@ -8506,6 +8489,7 @@ class Aiccs extends OpenApiClient
     /**
      * @param request - QuerySkillGroupsRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns QuerySkillGroupsResponse
      *
      * @param QuerySkillGroupsRequest $request
@@ -8545,25 +8529,23 @@ class Aiccs extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'QuerySkillGroups',
-            'version'     => '2019-10-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'QuerySkillGroups',
+            'version' => '2019-10-15',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return QuerySkillGroupsResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return QuerySkillGroupsResponse::fromMap($this->execute($params, $req, $runtime));
+        return QuerySkillGroupsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * @param request - QuerySkillGroupsRequest
+     *
      * @returns QuerySkillGroupsResponse
      *
      * @param QuerySkillGroupsRequest $request
@@ -8580,6 +8562,7 @@ class Aiccs extends OpenApiClient
     /**
      * @param request - QueryTaskDetailRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns QueryTaskDetailResponse
      *
      * @param QueryTaskDetailRequest $request
@@ -8655,25 +8638,23 @@ class Aiccs extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'QueryTaskDetail',
-            'version'     => '2019-10-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'QueryTaskDetail',
+            'version' => '2019-10-15',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return QueryTaskDetailResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return QueryTaskDetailResponse::fromMap($this->execute($params, $req, $runtime));
+        return QueryTaskDetailResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * @param request - QueryTaskDetailRequest
+     *
      * @returns QueryTaskDetailResponse
      *
      * @param QueryTaskDetailRequest $request
@@ -8690,6 +8671,7 @@ class Aiccs extends OpenApiClient
     /**
      * @param tmpReq - QueryTicketsRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns QueryTicketsResponse
      *
      * @param QueryTicketsRequest $tmpReq
@@ -8763,25 +8745,23 @@ class Aiccs extends OpenApiClient
             'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'QueryTickets',
-            'version'     => '2019-10-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'QueryTickets',
+            'version' => '2019-10-15',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return QueryTicketsResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return QueryTicketsResponse::fromMap($this->execute($params, $req, $runtime));
+        return QueryTicketsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * @param request - QueryTicketsRequest
+     *
      * @returns QueryTicketsResponse
      *
      * @param QueryTicketsRequest $request
@@ -8798,6 +8778,7 @@ class Aiccs extends OpenApiClient
     /**
      * @param request - QueryTouchListRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns QueryTouchListResponse
      *
      * @param QueryTouchListRequest $request
@@ -8889,25 +8870,23 @@ class Aiccs extends OpenApiClient
             'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'QueryTouchList',
-            'version'     => '2019-10-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'QueryTouchList',
+            'version' => '2019-10-15',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return QueryTouchListResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return QueryTouchListResponse::fromMap($this->execute($params, $req, $runtime));
+        return QueryTouchListResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * @param request - QueryTouchListRequest
+     *
      * @returns QueryTouchListResponse
      *
      * @param QueryTouchListRequest $request
@@ -8926,6 +8905,7 @@ class Aiccs extends OpenApiClient
      *
      * @param tmpReq - RemoveAgentFromSkillGroupRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns RemoveAgentFromSkillGroupResponse
      *
      * @param RemoveAgentFromSkillGroupRequest $tmpReq
@@ -8959,27 +8939,25 @@ class Aiccs extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'RemoveAgentFromSkillGroup',
-            'version'     => '2019-10-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'RemoveAgentFromSkillGroup',
+            'version' => '2019-10-15',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return RemoveAgentFromSkillGroupResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return RemoveAgentFromSkillGroupResponse::fromMap($this->execute($params, $req, $runtime));
+        return RemoveAgentFromSkillGroupResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * 从技能组中移除坐席.
      *
      * @param request - RemoveAgentFromSkillGroupRequest
+     *
      * @returns RemoveAgentFromSkillGroupResponse
      *
      * @param RemoveAgentFromSkillGroupRequest $request
@@ -8996,6 +8974,7 @@ class Aiccs extends OpenApiClient
     /**
      * @param request - RemoveSkillGroupRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns RemoveSkillGroupResponse
      *
      * @param RemoveSkillGroupRequest $request
@@ -9023,25 +9002,23 @@ class Aiccs extends OpenApiClient
             'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'RemoveSkillGroup',
-            'version'     => '2019-10-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'RemoveSkillGroup',
+            'version' => '2019-10-15',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return RemoveSkillGroupResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return RemoveSkillGroupResponse::fromMap($this->execute($params, $req, $runtime));
+        return RemoveSkillGroupResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * @param request - RemoveSkillGroupRequest
+     *
      * @returns RemoveSkillGroupResponse
      *
      * @param RemoveSkillGroupRequest $request
@@ -9060,6 +9037,7 @@ class Aiccs extends OpenApiClient
      *
      * @param tmpReq - ResetHotlineNumberRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ResetHotlineNumberResponse
      *
      * @param ResetHotlineNumberRequest $tmpReq
@@ -9125,27 +9103,25 @@ class Aiccs extends OpenApiClient
             'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'ResetHotlineNumber',
-            'version'     => '2019-10-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ResetHotlineNumber',
+            'version' => '2019-10-15',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ResetHotlineNumberResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ResetHotlineNumberResponse::fromMap($this->execute($params, $req, $runtime));
+        return ResetHotlineNumberResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * 重置热线号码
      *
      * @param request - ResetHotlineNumberRequest
+     *
      * @returns ResetHotlineNumberResponse
      *
      * @param ResetHotlineNumberRequest $request
@@ -9162,6 +9138,7 @@ class Aiccs extends OpenApiClient
     /**
      * @param request - RestartOutboundTaskRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns RestartOutboundTaskResponse
      *
      * @param RestartOutboundTaskRequest $request
@@ -9185,25 +9162,23 @@ class Aiccs extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'RestartOutboundTask',
-            'version'     => '2019-10-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'RestartOutboundTask',
+            'version' => '2019-10-15',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return RestartOutboundTaskResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return RestartOutboundTaskResponse::fromMap($this->execute($params, $req, $runtime));
+        return RestartOutboundTaskResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * @param request - RestartOutboundTaskRequest
+     *
      * @returns RestartOutboundTaskResponse
      *
      * @param RestartOutboundTaskRequest $request
@@ -9220,6 +9195,7 @@ class Aiccs extends OpenApiClient
     /**
      * @param request - RobotCallRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns RobotCallResponse
      *
      * @param RobotCallRequest $request
@@ -9275,25 +9251,23 @@ class Aiccs extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'RobotCall',
-            'version'     => '2019-10-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'RobotCall',
+            'version' => '2019-10-15',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return RobotCallResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return RobotCallResponse::fromMap($this->execute($params, $req, $runtime));
+        return RobotCallResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * @param request - RobotCallRequest
+     *
      * @returns RobotCallResponse
      *
      * @param RobotCallRequest $request
@@ -9310,6 +9284,7 @@ class Aiccs extends OpenApiClient
     /**
      * @param request - SendCcoSmartCallRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns SendCcoSmartCallResponse
      *
      * @param SendCcoSmartCallRequest $request
@@ -9453,25 +9428,23 @@ class Aiccs extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'SendCcoSmartCall',
-            'version'     => '2019-10-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'SendCcoSmartCall',
+            'version' => '2019-10-15',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return SendCcoSmartCallResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return SendCcoSmartCallResponse::fromMap($this->execute($params, $req, $runtime));
+        return SendCcoSmartCallResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * @param request - SendCcoSmartCallRequest
+     *
      * @returns SendCcoSmartCallResponse
      *
      * @param SendCcoSmartCallRequest $request
@@ -9488,6 +9461,7 @@ class Aiccs extends OpenApiClient
     /**
      * @param request - SendCcoSmartCallOperateRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns SendCcoSmartCallOperateResponse
      *
      * @param SendCcoSmartCallOperateRequest $request
@@ -9531,25 +9505,23 @@ class Aiccs extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'SendCcoSmartCallOperate',
-            'version'     => '2019-10-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'SendCcoSmartCallOperate',
+            'version' => '2019-10-15',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return SendCcoSmartCallOperateResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return SendCcoSmartCallOperateResponse::fromMap($this->execute($params, $req, $runtime));
+        return SendCcoSmartCallOperateResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * @param request - SendCcoSmartCallOperateRequest
+     *
      * @returns SendCcoSmartCallOperateResponse
      *
      * @param SendCcoSmartCallOperateRequest $request
@@ -9566,6 +9538,7 @@ class Aiccs extends OpenApiClient
     /**
      * @param request - SendHotlineHeartBeatRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns SendHotlineHeartBeatResponse
      *
      * @param SendHotlineHeartBeatRequest $request
@@ -9597,25 +9570,23 @@ class Aiccs extends OpenApiClient
             'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'SendHotlineHeartBeat',
-            'version'     => '2019-10-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'SendHotlineHeartBeat',
+            'version' => '2019-10-15',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return SendHotlineHeartBeatResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return SendHotlineHeartBeatResponse::fromMap($this->execute($params, $req, $runtime));
+        return SendHotlineHeartBeatResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * @param request - SendHotlineHeartBeatRequest
+     *
      * @returns SendHotlineHeartBeatResponse
      *
      * @param SendHotlineHeartBeatRequest $request
@@ -9634,6 +9605,7 @@ class Aiccs extends OpenApiClient
      *
      * @param request - StartAiOutboundTaskRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns StartAiOutboundTaskResponse
      *
      * @param StartAiOutboundTaskRequest $request
@@ -9657,27 +9629,25 @@ class Aiccs extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'StartAiOutboundTask',
-            'version'     => '2019-10-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'StartAiOutboundTask',
+            'version' => '2019-10-15',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return StartAiOutboundTaskResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return StartAiOutboundTaskResponse::fromMap($this->execute($params, $req, $runtime));
+        return StartAiOutboundTaskResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * 启动智能外呼任务
      *
      * @param request - StartAiOutboundTaskRequest
+     *
      * @returns StartAiOutboundTaskResponse
      *
      * @param StartAiOutboundTaskRequest $request
@@ -9694,6 +9664,7 @@ class Aiccs extends OpenApiClient
     /**
      * @param request - StartCallRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns StartCallResponse
      *
      * @param StartCallRequest $request
@@ -9729,25 +9700,23 @@ class Aiccs extends OpenApiClient
             'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'StartCall',
-            'version'     => '2019-10-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'StartCall',
+            'version' => '2019-10-15',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return StartCallResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return StartCallResponse::fromMap($this->execute($params, $req, $runtime));
+        return StartCallResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * @param request - StartCallRequest
+     *
      * @returns StartCallResponse
      *
      * @param StartCallRequest $request
@@ -9764,6 +9733,7 @@ class Aiccs extends OpenApiClient
     /**
      * @param request - StartCallV2Request
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns StartCallV2Response
      *
      * @param StartCallV2Request $request
@@ -9803,25 +9773,23 @@ class Aiccs extends OpenApiClient
             'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'StartCallV2',
-            'version'     => '2019-10-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'StartCallV2',
+            'version' => '2019-10-15',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return StartCallV2Response::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return StartCallV2Response::fromMap($this->execute($params, $req, $runtime));
+        return StartCallV2Response::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * @param request - StartCallV2Request
+     *
      * @returns StartCallV2Response
      *
      * @param StartCallV2Request $request
@@ -9840,6 +9808,7 @@ class Aiccs extends OpenApiClient
      *
      * @param request - StartChatWorkRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns StartChatWorkResponse
      *
      * @param StartChatWorkRequest $request
@@ -9863,27 +9832,25 @@ class Aiccs extends OpenApiClient
             'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'StartChatWork',
-            'version'     => '2019-10-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'StartChatWork',
+            'version' => '2019-10-15',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return StartChatWorkResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return StartChatWorkResponse::fromMap($this->execute($params, $req, $runtime));
+        return StartChatWorkResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * 修改在线客服为上班状态
      *
      * @param request - StartChatWorkRequest
+     *
      * @returns StartChatWorkResponse
      *
      * @param StartChatWorkRequest $request
@@ -9900,6 +9867,7 @@ class Aiccs extends OpenApiClient
     /**
      * @param request - StartHotlineServiceRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns StartHotlineServiceResponse
      *
      * @param StartHotlineServiceRequest $request
@@ -9927,25 +9895,23 @@ class Aiccs extends OpenApiClient
             'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'StartHotlineService',
-            'version'     => '2019-10-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'StartHotlineService',
+            'version' => '2019-10-15',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return StartHotlineServiceResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return StartHotlineServiceResponse::fromMap($this->execute($params, $req, $runtime));
+        return StartHotlineServiceResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * @param request - StartHotlineServiceRequest
+     *
      * @returns StartHotlineServiceResponse
      *
      * @param StartHotlineServiceRequest $request
@@ -9962,6 +9928,7 @@ class Aiccs extends OpenApiClient
     /**
      * @param request - StartMicroOutboundRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns StartMicroOutboundResponse
      *
      * @param StartMicroOutboundRequest $request
@@ -10021,25 +9988,23 @@ class Aiccs extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'StartMicroOutbound',
-            'version'     => '2019-10-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'StartMicroOutbound',
+            'version' => '2019-10-15',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return StartMicroOutboundResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return StartMicroOutboundResponse::fromMap($this->execute($params, $req, $runtime));
+        return StartMicroOutboundResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * @param request - StartMicroOutboundRequest
+     *
      * @returns StartMicroOutboundResponse
      *
      * @param StartMicroOutboundRequest $request
@@ -10058,6 +10023,7 @@ class Aiccs extends OpenApiClient
      *
      * @param request - StartTaskRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns StartTaskResponse
      *
      * @param StartTaskRequest $request
@@ -10093,27 +10059,25 @@ class Aiccs extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'StartTask',
-            'version'     => '2019-10-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'StartTask',
+            'version' => '2019-10-15',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return StartTaskResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return StartTaskResponse::fromMap($this->execute($params, $req, $runtime));
+        return StartTaskResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * 立即或定时启动智能外呼任务
      *
      * @param request - StartTaskRequest
+     *
      * @returns StartTaskResponse
      *
      * @param StartTaskRequest $request
@@ -10132,6 +10096,7 @@ class Aiccs extends OpenApiClient
      *
      * @param request - StopAiOutboundTaskRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns StopAiOutboundTaskResponse
      *
      * @param StopAiOutboundTaskRequest $request
@@ -10155,27 +10120,25 @@ class Aiccs extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'StopAiOutboundTask',
-            'version'     => '2019-10-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'StopAiOutboundTask',
+            'version' => '2019-10-15',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return StopAiOutboundTaskResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return StopAiOutboundTaskResponse::fromMap($this->execute($params, $req, $runtime));
+        return StopAiOutboundTaskResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * 手动暂停智能外呼任务
      *
      * @param request - StopAiOutboundTaskRequest
+     *
      * @returns StopAiOutboundTaskResponse
      *
      * @param StopAiOutboundTaskRequest $request
@@ -10194,6 +10157,7 @@ class Aiccs extends OpenApiClient
      *
      * @param request - StopTaskRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns StopTaskResponse
      *
      * @param StopTaskRequest $request
@@ -10225,27 +10189,25 @@ class Aiccs extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'StopTask',
-            'version'     => '2019-10-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'StopTask',
+            'version' => '2019-10-15',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return StopTaskResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return StopTaskResponse::fromMap($this->execute($params, $req, $runtime));
+        return StopTaskResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * 暂停外呼任务
      *
      * @param request - StopTaskRequest
+     *
      * @returns StopTaskResponse
      *
      * @param StopTaskRequest $request
@@ -10262,6 +10224,7 @@ class Aiccs extends OpenApiClient
     /**
      * @param request - SuspendHotlineServiceRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns SuspendHotlineServiceResponse
      *
      * @param SuspendHotlineServiceRequest $request
@@ -10293,25 +10256,23 @@ class Aiccs extends OpenApiClient
             'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'SuspendHotlineService',
-            'version'     => '2019-10-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'SuspendHotlineService',
+            'version' => '2019-10-15',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return SuspendHotlineServiceResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return SuspendHotlineServiceResponse::fromMap($this->execute($params, $req, $runtime));
+        return SuspendHotlineServiceResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * @param request - SuspendHotlineServiceRequest
+     *
      * @returns SuspendHotlineServiceResponse
      *
      * @param SuspendHotlineServiceRequest $request
@@ -10328,6 +10289,7 @@ class Aiccs extends OpenApiClient
     /**
      * @param request - SuspendOutboundTaskRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns SuspendOutboundTaskResponse
      *
      * @param SuspendOutboundTaskRequest $request
@@ -10351,25 +10313,23 @@ class Aiccs extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'SuspendOutboundTask',
-            'version'     => '2019-10-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'SuspendOutboundTask',
+            'version' => '2019-10-15',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return SuspendOutboundTaskResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return SuspendOutboundTaskResponse::fromMap($this->execute($params, $req, $runtime));
+        return SuspendOutboundTaskResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * @param request - SuspendOutboundTaskRequest
+     *
      * @returns SuspendOutboundTaskResponse
      *
      * @param SuspendOutboundTaskRequest $request
@@ -10388,6 +10348,7 @@ class Aiccs extends OpenApiClient
      *
      * @param request - TerminateAiOutboundTaskRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns TerminateAiOutboundTaskResponse
      *
      * @param TerminateAiOutboundTaskRequest $request
@@ -10411,27 +10372,25 @@ class Aiccs extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'TerminateAiOutboundTask',
-            'version'     => '2019-10-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'TerminateAiOutboundTask',
+            'version' => '2019-10-15',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return TerminateAiOutboundTaskResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return TerminateAiOutboundTaskResponse::fromMap($this->execute($params, $req, $runtime));
+        return TerminateAiOutboundTaskResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * 终止智能外呼任务
      *
      * @param request - TerminateAiOutboundTaskRequest
+     *
      * @returns TerminateAiOutboundTaskResponse
      *
      * @param TerminateAiOutboundTaskRequest $request
@@ -10448,6 +10407,7 @@ class Aiccs extends OpenApiClient
     /**
      * @param request - TransferCallToSkillGroupRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns TransferCallToSkillGroupResponse
      *
      * @param TransferCallToSkillGroupRequest $request
@@ -10503,25 +10463,23 @@ class Aiccs extends OpenApiClient
             'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'TransferCallToSkillGroup',
-            'version'     => '2019-10-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'TransferCallToSkillGroup',
+            'version' => '2019-10-15',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return TransferCallToSkillGroupResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return TransferCallToSkillGroupResponse::fromMap($this->execute($params, $req, $runtime));
+        return TransferCallToSkillGroupResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * @param request - TransferCallToSkillGroupRequest
+     *
      * @returns TransferCallToSkillGroupResponse
      *
      * @param TransferCallToSkillGroupRequest $request
@@ -10538,6 +10496,7 @@ class Aiccs extends OpenApiClient
     /**
      * @param request - UpdateAgentRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns UpdateAgentResponse
      *
      * @param UpdateAgentRequest $request
@@ -10577,25 +10536,23 @@ class Aiccs extends OpenApiClient
             'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'UpdateAgent',
-            'version'     => '2019-10-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'PUT',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'UpdateAgent',
+            'version' => '2019-10-15',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'PUT',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return UpdateAgentResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return UpdateAgentResponse::fromMap($this->execute($params, $req, $runtime));
+        return UpdateAgentResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * @param request - UpdateAgentRequest
+     *
      * @returns UpdateAgentResponse
      *
      * @param UpdateAgentRequest $request
@@ -10614,6 +10571,7 @@ class Aiccs extends OpenApiClient
      *
      * @param tmpReq - UpdateAiOutboundTaskRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns UpdateAiOutboundTaskResponse
      *
      * @param UpdateAiOutboundTaskRequest $tmpReq
@@ -10683,27 +10641,25 @@ class Aiccs extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'UpdateAiOutboundTask',
-            'version'     => '2019-10-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'UpdateAiOutboundTask',
+            'version' => '2019-10-15',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return UpdateAiOutboundTaskResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return UpdateAiOutboundTaskResponse::fromMap($this->execute($params, $req, $runtime));
+        return UpdateAiOutboundTaskResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * 更新智能外呼任务（预测式外呼、自动外呼）.
      *
      * @param request - UpdateAiOutboundTaskRequest
+     *
      * @returns UpdateAiOutboundTaskResponse
      *
      * @param UpdateAiOutboundTaskRequest $request
@@ -10722,6 +10678,7 @@ class Aiccs extends OpenApiClient
      *
      * @param request - UpdateDepartmentRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns UpdateDepartmentResponse
      *
      * @param UpdateDepartmentRequest $request
@@ -10749,27 +10706,25 @@ class Aiccs extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'UpdateDepartment',
-            'version'     => '2019-10-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'UpdateDepartment',
+            'version' => '2019-10-15',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return UpdateDepartmentResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return UpdateDepartmentResponse::fromMap($this->execute($params, $req, $runtime));
+        return UpdateDepartmentResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * 更新部门信息.
      *
      * @param request - UpdateDepartmentRequest
+     *
      * @returns UpdateDepartmentResponse
      *
      * @param UpdateDepartmentRequest $request
@@ -10786,6 +10741,7 @@ class Aiccs extends OpenApiClient
     /**
      * @param request - UpdateOuterAccountRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns UpdateOuterAccountResponse
      *
      * @param UpdateOuterAccountRequest $request
@@ -10797,29 +10753,27 @@ class Aiccs extends OpenApiClient
     {
         $request->validate();
         $query = Utils::query($request->toMap());
-        $req   = new OpenApiRequest([
+        $req = new OpenApiRequest([
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'UpdateOuterAccount',
-            'version'     => '2019-10-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'UpdateOuterAccount',
+            'version' => '2019-10-15',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return UpdateOuterAccountResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return UpdateOuterAccountResponse::fromMap($this->execute($params, $req, $runtime));
+        return UpdateOuterAccountResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * @param request - UpdateOuterAccountRequest
+     *
      * @returns UpdateOuterAccountResponse
      *
      * @param UpdateOuterAccountRequest $request
@@ -10836,6 +10790,7 @@ class Aiccs extends OpenApiClient
     /**
      * @param request - UpdateSkillGroupRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns UpdateSkillGroupResponse
      *
      * @param UpdateSkillGroupRequest $request
@@ -10875,25 +10830,23 @@ class Aiccs extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'UpdateSkillGroup',
-            'version'     => '2019-10-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'UpdateSkillGroup',
+            'version' => '2019-10-15',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return UpdateSkillGroupResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return UpdateSkillGroupResponse::fromMap($this->execute($params, $req, $runtime));
+        return UpdateSkillGroupResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * @param request - UpdateSkillGroupRequest
+     *
      * @returns UpdateSkillGroupResponse
      *
      * @param UpdateSkillGroupRequest $request

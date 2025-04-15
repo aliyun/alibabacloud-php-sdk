@@ -13,33 +13,38 @@ class data extends Model
      * @var string
      */
     public $accountName;
+
     /**
      * @var int
      */
     public $agentId;
+
     /**
      * @var string
      */
     public $displayName;
+
     /**
      * @var groupList[]
      */
     public $groupList;
+
     /**
      * @var int
      */
     public $status;
+
     /**
      * @var int
      */
     public $tenantId;
     protected $_name = [
         'accountName' => 'AccountName',
-        'agentId'     => 'AgentId',
+        'agentId' => 'AgentId',
         'displayName' => 'DisplayName',
-        'groupList'   => 'GroupList',
-        'status'      => 'Status',
-        'tenantId'    => 'TenantId',
+        'groupList' => 'GroupList',
+        'status' => 'Status',
+        'tenantId' => 'TenantId',
     ];
 
     public function validate()
@@ -68,7 +73,7 @@ class data extends Model
         if (null !== $this->groupList) {
             if (\is_array($this->groupList)) {
                 $res['GroupList'] = [];
-                $n1               = 0;
+                $n1 = 0;
                 foreach ($this->groupList as $item1) {
                     $res['GroupList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -109,7 +114,7 @@ class data extends Model
         if (isset($map['GroupList'])) {
             if (!empty($map['GroupList'])) {
                 $model->groupList = [];
-                $n1               = 0;
+                $n1 = 0;
                 foreach ($map['GroupList'] as $item1) {
                     $model->groupList[$n1++] = groupList::fromMap($item1);
                 }

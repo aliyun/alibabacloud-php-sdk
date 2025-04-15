@@ -12,33 +12,38 @@ class LlmSmartCallRequest extends Model
      * @var string
      */
     public $applicationCode;
+
     /**
      * @var string
      */
     public $calledNumber;
+
     /**
      * @var string
      */
     public $callerNumber;
+
     /**
      * @var string
      */
     public $outId;
+
     /**
      * @var mixed[]
      */
     public $promptParam;
+
     /**
      * @var mixed[]
      */
     public $startWordParam;
     protected $_name = [
         'applicationCode' => 'ApplicationCode',
-        'calledNumber'    => 'CalledNumber',
-        'callerNumber'    => 'CallerNumber',
-        'outId'           => 'OutId',
-        'promptParam'     => 'PromptParam',
-        'startWordParam'  => 'StartWordParam',
+        'calledNumber' => 'CalledNumber',
+        'callerNumber' => 'CallerNumber',
+        'outId' => 'OutId',
+        'promptParam' => 'PromptParam',
+        'startWordParam' => 'StartWordParam',
     ];
 
     public function validate()

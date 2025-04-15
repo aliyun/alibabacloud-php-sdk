@@ -12,33 +12,38 @@ class StartMicroOutboundResponseBody extends Model
      * @var string
      */
     public $code;
+
     /**
      * @var string
      */
     public $customerInfo;
+
     /**
      * @var string
      */
     public $invokeCmdId;
+
     /**
      * @var string
      */
     public $invokeCreateTime;
+
     /**
      * @var string
      */
     public $message;
+
     /**
      * @var string
      */
     public $requestId;
     protected $_name = [
-        'code'             => 'Code',
-        'customerInfo'     => 'CustomerInfo',
-        'invokeCmdId'      => 'InvokeCmdId',
+        'code' => 'Code',
+        'customerInfo' => 'CustomerInfo',
+        'invokeCmdId' => 'InvokeCmdId',
         'invokeCreateTime' => 'InvokeCreateTime',
-        'message'          => 'Message',
-        'requestId'        => 'RequestId',
+        'message' => 'Message',
+        'requestId' => 'RequestId',
     ];
 
     public function validate()

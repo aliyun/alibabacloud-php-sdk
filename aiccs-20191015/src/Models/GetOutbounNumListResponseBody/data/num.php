@@ -12,18 +12,20 @@ class num extends Model
      * @var string
      */
     public $description;
+
     /**
      * @var int
      */
     public $type;
+
     /**
      * @var string
      */
     public $value;
     protected $_name = [
         'description' => 'Description',
-        'type'        => 'Type',
-        'value'       => 'Value',
+        'type' => 'Type',
+        'value' => 'Value',
     ];
 
     public function validate()

@@ -12,33 +12,38 @@ class qualityRuleList extends Model
      * @var string[]
      */
     public $keyWords;
+
     /**
      * @var int
      */
     public $matchType;
+
     /**
      * @var string
      */
     public $name;
+
     /**
      * @var string
      */
     public $ruleCreateTime;
+
     /**
      * @var int
      */
     public $ruleId;
+
     /**
      * @var int
      */
     public $ruleTag;
     protected $_name = [
-        'keyWords'       => 'KeyWords',
-        'matchType'      => 'MatchType',
-        'name'           => 'Name',
+        'keyWords' => 'KeyWords',
+        'matchType' => 'MatchType',
+        'name' => 'Name',
         'ruleCreateTime' => 'RuleCreateTime',
-        'ruleId'         => 'RuleId',
-        'ruleTag'        => 'RuleTag',
+        'ruleId' => 'RuleId',
+        'ruleTag' => 'RuleTag',
     ];
 
     public function validate()
@@ -55,7 +60,7 @@ class qualityRuleList extends Model
         if (null !== $this->keyWords) {
             if (\is_array($this->keyWords)) {
                 $res['KeyWords'] = [];
-                $n1              = 0;
+                $n1 = 0;
                 foreach ($this->keyWords as $item1) {
                     $res['KeyWords'][$n1++] = $item1;
                 }
@@ -96,7 +101,7 @@ class qualityRuleList extends Model
         if (isset($map['KeyWords'])) {
             if (!empty($map['KeyWords'])) {
                 $model->keyWords = [];
-                $n1              = 0;
+                $n1 = 0;
                 foreach ($map['KeyWords'] as $item1) {
                     $model->keyWords[$n1++] = $item1;
                 }

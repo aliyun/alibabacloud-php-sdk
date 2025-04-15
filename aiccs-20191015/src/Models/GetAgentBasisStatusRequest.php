@@ -12,38 +12,44 @@ class GetAgentBasisStatusRequest extends Model
      * @var int[]
      */
     public $agentIds;
+
     /**
      * @var int
      */
     public $currentPage;
+
     /**
      * @var int[]
      */
     public $depIds;
+
     /**
      * @var int
      */
     public $endDate;
+
     /**
      * @var string
      */
     public $instanceId;
+
     /**
      * @var int
      */
     public $pageSize;
+
     /**
      * @var int
      */
     public $startDate;
     protected $_name = [
-        'agentIds'    => 'AgentIds',
+        'agentIds' => 'AgentIds',
         'currentPage' => 'CurrentPage',
-        'depIds'      => 'DepIds',
-        'endDate'     => 'EndDate',
-        'instanceId'  => 'InstanceId',
-        'pageSize'    => 'PageSize',
-        'startDate'   => 'StartDate',
+        'depIds' => 'DepIds',
+        'endDate' => 'EndDate',
+        'instanceId' => 'InstanceId',
+        'pageSize' => 'PageSize',
+        'startDate' => 'StartDate',
     ];
 
     public function validate()
@@ -63,7 +69,7 @@ class GetAgentBasisStatusRequest extends Model
         if (null !== $this->agentIds) {
             if (\is_array($this->agentIds)) {
                 $res['AgentIds'] = [];
-                $n1              = 0;
+                $n1 = 0;
                 foreach ($this->agentIds as $item1) {
                     $res['AgentIds'][$n1++] = $item1;
                 }
@@ -77,7 +83,7 @@ class GetAgentBasisStatusRequest extends Model
         if (null !== $this->depIds) {
             if (\is_array($this->depIds)) {
                 $res['DepIds'] = [];
-                $n1            = 0;
+                $n1 = 0;
                 foreach ($this->depIds as $item1) {
                     $res['DepIds'][$n1++] = $item1;
                 }
@@ -114,7 +120,7 @@ class GetAgentBasisStatusRequest extends Model
         if (isset($map['AgentIds'])) {
             if (!empty($map['AgentIds'])) {
                 $model->agentIds = [];
-                $n1              = 0;
+                $n1 = 0;
                 foreach ($map['AgentIds'] as $item1) {
                     $model->agentIds[$n1++] = $item1;
                 }
@@ -128,7 +134,7 @@ class GetAgentBasisStatusRequest extends Model
         if (isset($map['DepIds'])) {
             if (!empty($map['DepIds'])) {
                 $model->depIds = [];
-                $n1            = 0;
+                $n1 = 0;
                 foreach ($map['DepIds'] as $item1) {
                     $model->depIds[$n1++] = $item1;
                 }

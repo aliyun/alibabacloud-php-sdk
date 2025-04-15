@@ -13,23 +13,26 @@ class InsertAiOutboundPhoneNumsRequest extends Model
      * @var int
      */
     public $batchVersion;
+
     /**
      * @var details[]
      */
     public $details;
+
     /**
      * @var string
      */
     public $instanceId;
+
     /**
      * @var int
      */
     public $taskId;
     protected $_name = [
         'batchVersion' => 'BatchVersion',
-        'details'      => 'Details',
-        'instanceId'   => 'InstanceId',
-        'taskId'       => 'TaskId',
+        'details' => 'Details',
+        'instanceId' => 'InstanceId',
+        'taskId' => 'TaskId',
     ];
 
     public function validate()
@@ -50,7 +53,7 @@ class InsertAiOutboundPhoneNumsRequest extends Model
         if (null !== $this->details) {
             if (\is_array($this->details)) {
                 $res['Details'] = [];
-                $n1             = 0;
+                $n1 = 0;
                 foreach ($this->details as $item1) {
                     $res['Details'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -83,7 +86,7 @@ class InsertAiOutboundPhoneNumsRequest extends Model
         if (isset($map['Details'])) {
             if (!empty($map['Details'])) {
                 $model->details = [];
-                $n1             = 0;
+                $n1 = 0;
                 foreach ($map['Details'] as $item1) {
                     $model->details[$n1++] = details::fromMap($item1);
                 }

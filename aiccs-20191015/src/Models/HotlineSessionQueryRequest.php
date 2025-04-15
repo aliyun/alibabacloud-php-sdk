@@ -12,138 +12,164 @@ class HotlineSessionQueryRequest extends Model
      * @var string
      */
     public $acid;
+
     /**
      * @var string[]
      */
     public $acidList;
+
     /**
      * @var string
      */
     public $callResult;
+
     /**
      * @var string[]
      */
     public $callResultList;
+
     /**
      * @var int
      */
     public $callType;
+
     /**
      * @var int[]
      */
     public $callTypeList;
+
     /**
      * @var string
      */
     public $calledNumber;
+
     /**
      * @var string[]
      */
     public $calledNumberList;
+
     /**
      * @var string
      */
     public $callingNumber;
+
     /**
      * @var string[]
      */
     public $callingNumberList;
+
     /**
      * @var int
      */
     public $groupId;
+
     /**
      * @var int[]
      */
     public $groupIdList;
+
     /**
      * @var string
      */
     public $groupName;
+
     /**
      * @var string
      */
     public $id;
+
     /**
      * @var string
      */
     public $instanceId;
+
     /**
      * @var string
      */
     public $memberId;
+
     /**
      * @var string[]
      */
     public $memberIdList;
+
     /**
      * @var string
      */
     public $memberName;
+
     /**
      * @var int
      */
     public $pageNo;
+
     /**
      * @var int
      */
     public $pageSize;
+
     /**
      * @var string
      */
     public $params;
+
     /**
      * @var int
      */
     public $queryEndTime;
+
     /**
      * @var int
      */
     public $queryStartTime;
+
     /**
      * @var string
      */
     public $requestId;
+
     /**
      * @var string
      */
     public $servicerId;
+
     /**
      * @var string[]
      */
     public $servicerIdList;
+
     /**
      * @var string
      */
     public $servicerName;
     protected $_name = [
-        'acid'              => 'Acid',
-        'acidList'          => 'AcidList',
-        'callResult'        => 'CallResult',
-        'callResultList'    => 'CallResultList',
-        'callType'          => 'CallType',
-        'callTypeList'      => 'CallTypeList',
-        'calledNumber'      => 'CalledNumber',
-        'calledNumberList'  => 'CalledNumberList',
-        'callingNumber'     => 'CallingNumber',
+        'acid' => 'Acid',
+        'acidList' => 'AcidList',
+        'callResult' => 'CallResult',
+        'callResultList' => 'CallResultList',
+        'callType' => 'CallType',
+        'callTypeList' => 'CallTypeList',
+        'calledNumber' => 'CalledNumber',
+        'calledNumberList' => 'CalledNumberList',
+        'callingNumber' => 'CallingNumber',
         'callingNumberList' => 'CallingNumberList',
-        'groupId'           => 'GroupId',
-        'groupIdList'       => 'GroupIdList',
-        'groupName'         => 'GroupName',
-        'id'                => 'Id',
-        'instanceId'        => 'InstanceId',
-        'memberId'          => 'MemberId',
-        'memberIdList'      => 'MemberIdList',
-        'memberName'        => 'MemberName',
-        'pageNo'            => 'PageNo',
-        'pageSize'          => 'PageSize',
-        'params'            => 'Params',
-        'queryEndTime'      => 'QueryEndTime',
-        'queryStartTime'    => 'QueryStartTime',
-        'requestId'         => 'RequestId',
-        'servicerId'        => 'ServicerId',
-        'servicerIdList'    => 'ServicerIdList',
-        'servicerName'      => 'ServicerName',
+        'groupId' => 'GroupId',
+        'groupIdList' => 'GroupIdList',
+        'groupName' => 'GroupName',
+        'id' => 'Id',
+        'instanceId' => 'InstanceId',
+        'memberId' => 'MemberId',
+        'memberIdList' => 'MemberIdList',
+        'memberName' => 'MemberName',
+        'pageNo' => 'PageNo',
+        'pageSize' => 'PageSize',
+        'params' => 'Params',
+        'queryEndTime' => 'QueryEndTime',
+        'queryStartTime' => 'QueryStartTime',
+        'requestId' => 'RequestId',
+        'servicerId' => 'ServicerId',
+        'servicerIdList' => 'ServicerIdList',
+        'servicerName' => 'ServicerName',
     ];
 
     public function validate()
@@ -185,7 +211,7 @@ class HotlineSessionQueryRequest extends Model
         if (null !== $this->acidList) {
             if (\is_array($this->acidList)) {
                 $res['AcidList'] = [];
-                $n1              = 0;
+                $n1 = 0;
                 foreach ($this->acidList as $item1) {
                     $res['AcidList'][$n1++] = $item1;
                 }
@@ -199,7 +225,7 @@ class HotlineSessionQueryRequest extends Model
         if (null !== $this->callResultList) {
             if (\is_array($this->callResultList)) {
                 $res['CallResultList'] = [];
-                $n1                    = 0;
+                $n1 = 0;
                 foreach ($this->callResultList as $item1) {
                     $res['CallResultList'][$n1++] = $item1;
                 }
@@ -213,7 +239,7 @@ class HotlineSessionQueryRequest extends Model
         if (null !== $this->callTypeList) {
             if (\is_array($this->callTypeList)) {
                 $res['CallTypeList'] = [];
-                $n1                  = 0;
+                $n1 = 0;
                 foreach ($this->callTypeList as $item1) {
                     $res['CallTypeList'][$n1++] = $item1;
                 }
@@ -227,7 +253,7 @@ class HotlineSessionQueryRequest extends Model
         if (null !== $this->calledNumberList) {
             if (\is_array($this->calledNumberList)) {
                 $res['CalledNumberList'] = [];
-                $n1                      = 0;
+                $n1 = 0;
                 foreach ($this->calledNumberList as $item1) {
                     $res['CalledNumberList'][$n1++] = $item1;
                 }
@@ -241,7 +267,7 @@ class HotlineSessionQueryRequest extends Model
         if (null !== $this->callingNumberList) {
             if (\is_array($this->callingNumberList)) {
                 $res['CallingNumberList'] = [];
-                $n1                       = 0;
+                $n1 = 0;
                 foreach ($this->callingNumberList as $item1) {
                     $res['CallingNumberList'][$n1++] = $item1;
                 }
@@ -255,7 +281,7 @@ class HotlineSessionQueryRequest extends Model
         if (null !== $this->groupIdList) {
             if (\is_array($this->groupIdList)) {
                 $res['GroupIdList'] = [];
-                $n1                 = 0;
+                $n1 = 0;
                 foreach ($this->groupIdList as $item1) {
                     $res['GroupIdList'][$n1++] = $item1;
                 }
@@ -281,7 +307,7 @@ class HotlineSessionQueryRequest extends Model
         if (null !== $this->memberIdList) {
             if (\is_array($this->memberIdList)) {
                 $res['MemberIdList'] = [];
-                $n1                  = 0;
+                $n1 = 0;
                 foreach ($this->memberIdList as $item1) {
                     $res['MemberIdList'][$n1++] = $item1;
                 }
@@ -323,7 +349,7 @@ class HotlineSessionQueryRequest extends Model
         if (null !== $this->servicerIdList) {
             if (\is_array($this->servicerIdList)) {
                 $res['ServicerIdList'] = [];
-                $n1                    = 0;
+                $n1 = 0;
                 foreach ($this->servicerIdList as $item1) {
                     $res['ServicerIdList'][$n1++] = $item1;
                 }
@@ -352,7 +378,7 @@ class HotlineSessionQueryRequest extends Model
         if (isset($map['AcidList'])) {
             if (!empty($map['AcidList'])) {
                 $model->acidList = [];
-                $n1              = 0;
+                $n1 = 0;
                 foreach ($map['AcidList'] as $item1) {
                     $model->acidList[$n1++] = $item1;
                 }
@@ -366,7 +392,7 @@ class HotlineSessionQueryRequest extends Model
         if (isset($map['CallResultList'])) {
             if (!empty($map['CallResultList'])) {
                 $model->callResultList = [];
-                $n1                    = 0;
+                $n1 = 0;
                 foreach ($map['CallResultList'] as $item1) {
                     $model->callResultList[$n1++] = $item1;
                 }
@@ -380,7 +406,7 @@ class HotlineSessionQueryRequest extends Model
         if (isset($map['CallTypeList'])) {
             if (!empty($map['CallTypeList'])) {
                 $model->callTypeList = [];
-                $n1                  = 0;
+                $n1 = 0;
                 foreach ($map['CallTypeList'] as $item1) {
                     $model->callTypeList[$n1++] = $item1;
                 }
@@ -394,7 +420,7 @@ class HotlineSessionQueryRequest extends Model
         if (isset($map['CalledNumberList'])) {
             if (!empty($map['CalledNumberList'])) {
                 $model->calledNumberList = [];
-                $n1                      = 0;
+                $n1 = 0;
                 foreach ($map['CalledNumberList'] as $item1) {
                     $model->calledNumberList[$n1++] = $item1;
                 }
@@ -408,7 +434,7 @@ class HotlineSessionQueryRequest extends Model
         if (isset($map['CallingNumberList'])) {
             if (!empty($map['CallingNumberList'])) {
                 $model->callingNumberList = [];
-                $n1                       = 0;
+                $n1 = 0;
                 foreach ($map['CallingNumberList'] as $item1) {
                     $model->callingNumberList[$n1++] = $item1;
                 }
@@ -422,7 +448,7 @@ class HotlineSessionQueryRequest extends Model
         if (isset($map['GroupIdList'])) {
             if (!empty($map['GroupIdList'])) {
                 $model->groupIdList = [];
-                $n1                 = 0;
+                $n1 = 0;
                 foreach ($map['GroupIdList'] as $item1) {
                     $model->groupIdList[$n1++] = $item1;
                 }
@@ -448,7 +474,7 @@ class HotlineSessionQueryRequest extends Model
         if (isset($map['MemberIdList'])) {
             if (!empty($map['MemberIdList'])) {
                 $model->memberIdList = [];
-                $n1                  = 0;
+                $n1 = 0;
                 foreach ($map['MemberIdList'] as $item1) {
                     $model->memberIdList[$n1++] = $item1;
                 }
@@ -490,7 +516,7 @@ class HotlineSessionQueryRequest extends Model
         if (isset($map['ServicerIdList'])) {
             if (!empty($map['ServicerIdList'])) {
                 $model->servicerIdList = [];
-                $n1                    = 0;
+                $n1 = 0;
                 foreach ($map['ServicerIdList'] as $item1) {
                     $model->servicerIdList[$n1++] = $item1;
                 }

@@ -12,33 +12,38 @@ class QuerySkillGroupsRequest extends Model
      * @var int
      */
     public $channelType;
+
     /**
      * @var string
      */
     public $clientToken;
+
     /**
      * @var int
      */
     public $departmentId;
+
     /**
      * @var string
      */
     public $instanceId;
+
     /**
      * @var int
      */
     public $pageNo;
+
     /**
      * @var int
      */
     public $pageSize;
     protected $_name = [
-        'channelType'  => 'ChannelType',
-        'clientToken'  => 'ClientToken',
+        'channelType' => 'ChannelType',
+        'clientToken' => 'ClientToken',
         'departmentId' => 'DepartmentId',
-        'instanceId'   => 'InstanceId',
-        'pageNo'       => 'PageNo',
-        'pageSize'     => 'PageSize',
+        'instanceId' => 'InstanceId',
+        'pageNo' => 'PageNo',
+        'pageSize' => 'PageSize',
     ];
 
     public function validate()

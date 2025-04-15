@@ -12,12 +12,13 @@ class columns extends Model
      * @var string
      */
     public $key;
+
     /**
      * @var string
      */
     public $title;
     protected $_name = [
-        'key'   => 'Key',
+        'key' => 'Key',
         'title' => 'Title',
     ];
 

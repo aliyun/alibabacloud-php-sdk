@@ -12,53 +12,62 @@ class TransferCallToSkillGroupRequest extends Model
      * @var string
      */
     public $accountName;
+
     /**
      * @var string
      */
     public $callId;
+
     /**
      * @var string
      */
     public $clientToken;
+
     /**
      * @var string
      */
     public $connectionId;
+
     /**
      * @var string
      */
     public $holdConnectionId;
+
     /**
      * @var string
      */
     public $instanceId;
+
     /**
      * @var bool
      */
     public $isSingleTransfer;
+
     /**
      * @var string
      */
     public $jobId;
+
     /**
      * @var int
      */
     public $skillGroupId;
+
     /**
      * @var int
      */
     public $type;
     protected $_name = [
-        'accountName'      => 'AccountName',
-        'callId'           => 'CallId',
-        'clientToken'      => 'ClientToken',
-        'connectionId'     => 'ConnectionId',
+        'accountName' => 'AccountName',
+        'callId' => 'CallId',
+        'clientToken' => 'ClientToken',
+        'connectionId' => 'ConnectionId',
         'holdConnectionId' => 'HoldConnectionId',
-        'instanceId'       => 'InstanceId',
+        'instanceId' => 'InstanceId',
         'isSingleTransfer' => 'IsSingleTransfer',
-        'jobId'            => 'JobId',
-        'skillGroupId'     => 'SkillGroupId',
-        'type'             => 'Type',
+        'jobId' => 'JobId',
+        'skillGroupId' => 'SkillGroupId',
+        'type' => 'Type',
     ];
 
     public function validate()

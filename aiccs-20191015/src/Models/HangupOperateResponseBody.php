@@ -12,23 +12,26 @@ class HangupOperateResponseBody extends Model
      * @var string
      */
     public $code;
+
     /**
      * @var string
      */
     public $mesage;
+
     /**
      * @var string
      */
     public $requestId;
+
     /**
      * @var bool
      */
     public $result;
     protected $_name = [
-        'code'      => 'Code',
-        'mesage'    => 'Mesage',
+        'code' => 'Code',
+        'mesage' => 'Mesage',
         'requestId' => 'RequestId',
-        'result'    => 'Result',
+        'result' => 'Result',
     ];
 
     public function validate()

@@ -12,12 +12,13 @@ class data extends Model
      * @var int
      */
     public $ruleTagId;
+
     /**
      * @var string
      */
     public $ruleTagName;
     protected $_name = [
-        'ruleTagId'   => 'RuleTagId',
+        'ruleTagId' => 'RuleTagId',
         'ruleTagName' => 'RuleTagName',
     ];
 

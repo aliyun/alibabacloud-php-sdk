@@ -12,43 +12,50 @@ class DescribeRecordDataRequest extends Model
      * @var string
      */
     public $accountId;
+
     /**
      * @var string
      */
     public $accountType;
+
     /**
      * @var string
      */
     public $acid;
+
     /**
      * @var int
      */
     public $ownerId;
+
     /**
      * @var string
      */
     public $prodCode;
+
     /**
      * @var string
      */
     public $resourceOwnerAccount;
+
     /**
      * @var int
      */
     public $resourceOwnerId;
+
     /**
      * @var int
      */
     public $secLevel;
     protected $_name = [
-        'accountId'            => 'AccountId',
-        'accountType'          => 'AccountType',
-        'acid'                 => 'Acid',
-        'ownerId'              => 'OwnerId',
-        'prodCode'             => 'ProdCode',
+        'accountId' => 'AccountId',
+        'accountType' => 'AccountType',
+        'acid' => 'Acid',
+        'ownerId' => 'OwnerId',
+        'prodCode' => 'ProdCode',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
-        'resourceOwnerId'      => 'ResourceOwnerId',
-        'secLevel'             => 'SecLevel',
+        'resourceOwnerId' => 'ResourceOwnerId',
+        'secLevel' => 'SecLevel',
     ];
 
     public function validate()

@@ -12,12 +12,13 @@ class GetDepGroupTreeDataRequest extends Model
      * @var int
      */
     public $agentId;
+
     /**
      * @var string
      */
     public $instanceId;
     protected $_name = [
-        'agentId'    => 'AgentId',
+        'agentId' => 'AgentId',
         'instanceId' => 'InstanceId',
     ];
 

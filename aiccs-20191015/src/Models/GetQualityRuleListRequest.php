@@ -12,18 +12,20 @@ class GetQualityRuleListRequest extends Model
      * @var string
      */
     public $instanceId;
+
     /**
      * @var int
      */
     public $pageNo;
+
     /**
      * @var int
      */
     public $pageSize;
     protected $_name = [
         'instanceId' => 'InstanceId',
-        'pageNo'     => 'PageNo',
-        'pageSize'   => 'PageSize',
+        'pageNo' => 'PageNo',
+        'pageSize' => 'PageSize',
     ];
 
     public function validate()

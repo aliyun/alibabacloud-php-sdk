@@ -12,12 +12,13 @@ class HangupOperateRequest extends Model
      * @var string
      */
     public $callId;
+
     /**
      * @var bool
      */
     public $immediateHangup;
     protected $_name = [
-        'callId'          => 'CallId',
+        'callId' => 'CallId',
         'immediateHangup' => 'ImmediateHangup',
     ];
 

@@ -12,63 +12,74 @@ class list_ extends Model
      * @var int
      */
     public $concurrentRate;
+
     /**
      * @var int
      */
     public $createTime;
+
     /**
      * @var string
      */
     public $description;
+
     /**
      * @var int
      */
     public $finishCount;
+
     /**
      * @var float
      */
     public $finishRate;
+
     /**
      * @var int
      */
     public $handlerId;
+
     /**
      * @var string
      */
     public $handlerName;
+
     /**
      * @var string
      */
     public $name;
+
     /**
      * @var int
      */
     public $status;
+
     /**
      * @var string
      */
     public $statusDesc;
+
     /**
      * @var int
      */
     public $taskId;
+
     /**
      * @var int
      */
     public $totalCount;
     protected $_name = [
         'concurrentRate' => 'ConcurrentRate',
-        'createTime'     => 'CreateTime',
-        'description'    => 'Description',
-        'finishCount'    => 'FinishCount',
-        'finishRate'     => 'FinishRate',
-        'handlerId'      => 'HandlerId',
-        'handlerName'    => 'HandlerName',
-        'name'           => 'Name',
-        'status'         => 'Status',
-        'statusDesc'     => 'StatusDesc',
-        'taskId'         => 'TaskId',
-        'totalCount'     => 'TotalCount',
+        'createTime' => 'CreateTime',
+        'description' => 'Description',
+        'finishCount' => 'FinishCount',
+        'finishRate' => 'FinishRate',
+        'handlerId' => 'HandlerId',
+        'handlerName' => 'HandlerName',
+        'name' => 'Name',
+        'status' => 'Status',
+        'statusDesc' => 'StatusDesc',
+        'taskId' => 'TaskId',
+        'totalCount' => 'TotalCount',
     ];
 
     public function validate()

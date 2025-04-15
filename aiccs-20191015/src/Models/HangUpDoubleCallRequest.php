@@ -12,12 +12,13 @@ class HangUpDoubleCallRequest extends Model
      * @var string
      */
     public $acid;
+
     /**
      * @var string
      */
     public $instanceId;
     protected $_name = [
-        'acid'       => 'Acid',
+        'acid' => 'Acid',
         'instanceId' => 'InstanceId',
     ];
 

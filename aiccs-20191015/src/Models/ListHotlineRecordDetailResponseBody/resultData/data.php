@@ -12,23 +12,26 @@ class data extends Model
      * @var int
      */
     public $endTime;
+
     /**
      * @var string
      */
     public $ossUrl;
+
     /**
      * @var string
      */
     public $servicerName;
+
     /**
      * @var int
      */
     public $startTime;
     protected $_name = [
-        'endTime'      => 'EndTime',
-        'ossUrl'       => 'OssUrl',
+        'endTime' => 'EndTime',
+        'ossUrl' => 'OssUrl',
         'servicerName' => 'ServicerName',
-        'startTime'    => 'StartTime',
+        'startTime' => 'StartTime',
     ];
 
     public function validate()

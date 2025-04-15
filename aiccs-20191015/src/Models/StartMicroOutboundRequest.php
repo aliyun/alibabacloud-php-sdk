@@ -12,58 +12,68 @@ class StartMicroOutboundRequest extends Model
      * @var string
      */
     public $accountId;
+
     /**
      * @var string
      */
     public $accountType;
+
     /**
      * @var string
      */
     public $appName;
+
     /**
      * @var string
      */
     public $calledNumber;
+
     /**
      * @var string
      */
     public $callingNumber;
+
     /**
      * @var string
      */
     public $commandCode;
+
     /**
      * @var string
      */
     public $extInfo;
+
     /**
      * @var int
      */
     public $ownerId;
+
     /**
      * @var string
      */
     public $prodCode;
+
     /**
      * @var string
      */
     public $resourceOwnerAccount;
+
     /**
      * @var int
      */
     public $resourceOwnerId;
     protected $_name = [
-        'accountId'            => 'AccountId',
-        'accountType'          => 'AccountType',
-        'appName'              => 'AppName',
-        'calledNumber'         => 'CalledNumber',
-        'callingNumber'        => 'CallingNumber',
-        'commandCode'          => 'CommandCode',
-        'extInfo'              => 'ExtInfo',
-        'ownerId'              => 'OwnerId',
-        'prodCode'             => 'ProdCode',
+        'accountId' => 'AccountId',
+        'accountType' => 'AccountType',
+        'appName' => 'AppName',
+        'calledNumber' => 'CalledNumber',
+        'callingNumber' => 'CallingNumber',
+        'commandCode' => 'CommandCode',
+        'extInfo' => 'ExtInfo',
+        'ownerId' => 'OwnerId',
+        'prodCode' => 'ProdCode',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
-        'resourceOwnerId'      => 'ResourceOwnerId',
+        'resourceOwnerId' => 'ResourceOwnerId',
     ];
 
     public function validate()

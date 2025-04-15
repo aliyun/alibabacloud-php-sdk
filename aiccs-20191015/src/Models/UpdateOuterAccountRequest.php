@@ -12,53 +12,62 @@ class UpdateOuterAccountRequest extends Model
      * @var string
      */
     public $avatar;
+
     /**
      * @var string
      */
     public $ext;
+
     /**
      * @var string
      */
     public $outerAccountId;
+
     /**
      * @var string
      */
     public $outerAccountName;
+
     /**
      * @var string
      */
     public $outerAccountType;
+
     /**
      * @var string
      */
     public $outerDepartmentId;
+
     /**
      * @var string
      */
     public $outerDepartmentType;
+
     /**
      * @var string
      */
     public $outerGroupIds;
+
     /**
      * @var string
      */
     public $outerGroupType;
+
     /**
      * @var string
      */
     public $realName;
     protected $_name = [
-        'avatar'              => 'Avatar',
-        'ext'                 => 'Ext',
-        'outerAccountId'      => 'OuterAccountId',
-        'outerAccountName'    => 'OuterAccountName',
-        'outerAccountType'    => 'OuterAccountType',
-        'outerDepartmentId'   => 'OuterDepartmentId',
+        'avatar' => 'Avatar',
+        'ext' => 'Ext',
+        'outerAccountId' => 'OuterAccountId',
+        'outerAccountName' => 'OuterAccountName',
+        'outerAccountType' => 'OuterAccountType',
+        'outerDepartmentId' => 'OuterDepartmentId',
         'outerDepartmentType' => 'OuterDepartmentType',
-        'outerGroupIds'       => 'OuterGroupIds',
-        'outerGroupType'      => 'OuterGroupType',
-        'realName'            => 'RealName',
+        'outerGroupIds' => 'OuterGroupIds',
+        'outerGroupType' => 'OuterGroupType',
+        'realName' => 'RealName',
     ];
 
     public function validate()

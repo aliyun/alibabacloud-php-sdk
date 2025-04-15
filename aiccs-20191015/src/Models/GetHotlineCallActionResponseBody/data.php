@@ -12,88 +12,104 @@ class data extends Model
      * @var int
      */
     public $actionId;
+
     /**
      * @var int
      */
     public $buId;
+
     /**
      * @var int
      */
     public $calloutId;
+
     /**
      * @var string
      */
     public $calloutName;
+
     /**
      * @var int
      */
     public $caseId;
+
     /**
      * @var string
      */
     public $channelId;
+
     /**
      * @var int
      */
     public $channelType;
+
     /**
      * @var int
      */
     public $depId;
+
     /**
      * @var string
      */
     public $isTransfer;
+
     /**
      * @var int
      */
     public $memberId;
+
     /**
      * @var string
      */
     public $memberList;
+
     /**
      * @var string
      */
     public $memberName;
+
     /**
      * @var int
      */
     public $servicerId;
+
     /**
      * @var string
      */
     public $servicerName;
+
     /**
      * @var int
      */
     public $subTouchId;
+
     /**
      * @var int
      */
     public $taskId;
+
     /**
      * @var int
      */
     public $touchId;
     protected $_name = [
-        'actionId'     => 'ActionId',
-        'buId'         => 'BuId',
-        'calloutId'    => 'CalloutId',
-        'calloutName'  => 'CalloutName',
-        'caseId'       => 'CaseId',
-        'channelId'    => 'ChannelId',
-        'channelType'  => 'ChannelType',
-        'depId'        => 'DepId',
-        'isTransfer'   => 'IsTransfer',
-        'memberId'     => 'MemberId',
-        'memberList'   => 'MemberList',
-        'memberName'   => 'MemberName',
-        'servicerId'   => 'ServicerId',
+        'actionId' => 'ActionId',
+        'buId' => 'BuId',
+        'calloutId' => 'CalloutId',
+        'calloutName' => 'CalloutName',
+        'caseId' => 'CaseId',
+        'channelId' => 'ChannelId',
+        'channelType' => 'ChannelType',
+        'depId' => 'DepId',
+        'isTransfer' => 'IsTransfer',
+        'memberId' => 'MemberId',
+        'memberList' => 'MemberList',
+        'memberName' => 'MemberName',
+        'servicerId' => 'ServicerId',
         'servicerName' => 'ServicerName',
-        'subTouchId'   => 'SubTouchId',
-        'taskId'       => 'TaskId',
-        'touchId'      => 'TouchId',
+        'subTouchId' => 'SubTouchId',
+        'taskId' => 'TaskId',
+        'touchId' => 'TouchId',
     ];
 
     public function validate()

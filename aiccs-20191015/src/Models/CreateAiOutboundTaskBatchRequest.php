@@ -12,13 +12,14 @@ class CreateAiOutboundTaskBatchRequest extends Model
      * @var string
      */
     public $instanceId;
+
     /**
      * @var int
      */
     public $taskId;
     protected $_name = [
         'instanceId' => 'InstanceId',
-        'taskId'     => 'TaskId',
+        'taskId' => 'TaskId',
     ];
 
     public function validate()

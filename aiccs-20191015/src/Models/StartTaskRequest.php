@@ -12,28 +12,32 @@ class StartTaskRequest extends Model
      * @var int
      */
     public $ownerId;
+
     /**
      * @var string
      */
     public $resourceOwnerAccount;
+
     /**
      * @var int
      */
     public $resourceOwnerId;
+
     /**
      * @var bool
      */
     public $startNow;
+
     /**
      * @var int
      */
     public $taskId;
     protected $_name = [
-        'ownerId'              => 'OwnerId',
+        'ownerId' => 'OwnerId',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
-        'resourceOwnerId'      => 'ResourceOwnerId',
-        'startNow'             => 'StartNow',
-        'taskId'               => 'TaskId',
+        'resourceOwnerId' => 'ResourceOwnerId',
+        'startNow' => 'StartNow',
+        'taskId' => 'TaskId',
     ];
 
     public function validate()

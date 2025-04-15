@@ -12,68 +12,80 @@ class QueryTicketsRequest extends Model
      * @var int
      */
     public $caseId;
+
     /**
      * @var int
      */
     public $caseStatus;
+
     /**
      * @var int
      */
     public $caseType;
+
     /**
      * @var string
      */
     public $channelId;
+
     /**
      * @var int
      */
     public $channelType;
+
     /**
      * @var int
      */
     public $currentPage;
+
     /**
      * @var int
      */
     public $dealId;
+
     /**
      * @var mixed[]
      */
     public $extra;
+
     /**
      * @var string
      */
     public $instanceId;
+
     /**
      * @var int
      */
     public $pageSize;
+
     /**
      * @var int
      */
     public $srType;
+
     /**
      * @var int
      */
     public $taskStatus;
+
     /**
      * @var int
      */
     public $touchId;
     protected $_name = [
-        'caseId'      => 'CaseId',
-        'caseStatus'  => 'CaseStatus',
-        'caseType'    => 'CaseType',
-        'channelId'   => 'ChannelId',
+        'caseId' => 'CaseId',
+        'caseStatus' => 'CaseStatus',
+        'caseType' => 'CaseType',
+        'channelId' => 'ChannelId',
         'channelType' => 'ChannelType',
         'currentPage' => 'CurrentPage',
-        'dealId'      => 'DealId',
-        'extra'       => 'Extra',
-        'instanceId'  => 'InstanceId',
-        'pageSize'    => 'PageSize',
-        'srType'      => 'SrType',
-        'taskStatus'  => 'TaskStatus',
-        'touchId'     => 'TouchId',
+        'dealId' => 'DealId',
+        'extra' => 'Extra',
+        'instanceId' => 'InstanceId',
+        'pageSize' => 'PageSize',
+        'srType' => 'SrType',
+        'taskStatus' => 'TaskStatus',
+        'touchId' => 'TouchId',
     ];
 
     public function validate()

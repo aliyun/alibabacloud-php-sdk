@@ -13,33 +13,38 @@ class GetQualityResultResponseBody extends Model
      * @var string
      */
     public $channelTypeName;
+
     /**
      * @var string
      */
     public $code;
+
     /**
      * @var data
      */
     public $data;
+
     /**
      * @var string
      */
     public $message;
+
     /**
      * @var string
      */
     public $requestId;
+
     /**
      * @var bool
      */
     public $success;
     protected $_name = [
         'channelTypeName' => 'ChannelTypeName',
-        'code'            => 'Code',
-        'data'            => 'Data',
-        'message'         => 'Message',
-        'requestId'       => 'RequestId',
-        'success'         => 'Success',
+        'code' => 'Code',
+        'data' => 'Data',
+        'message' => 'Message',
+        'requestId' => 'RequestId',
+        'success' => 'Success',
     ];
 
     public function validate()

@@ -12,28 +12,32 @@ class ListDialogRequest extends Model
      * @var string
      */
     public $called;
+
     /**
      * @var int
      */
     public $ownerId;
+
     /**
      * @var string
      */
     public $resourceOwnerAccount;
+
     /**
      * @var int
      */
     public $resourceOwnerId;
+
     /**
      * @var int
      */
     public $taskId;
     protected $_name = [
-        'called'               => 'Called',
-        'ownerId'              => 'OwnerId',
+        'called' => 'Called',
+        'ownerId' => 'OwnerId',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
-        'resourceOwnerId'      => 'ResourceOwnerId',
-        'taskId'               => 'TaskId',
+        'resourceOwnerId' => 'ResourceOwnerId',
+        'taskId' => 'TaskId',
     ];
 
     public function validate()

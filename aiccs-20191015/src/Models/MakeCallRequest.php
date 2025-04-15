@@ -12,32 +12,37 @@ class MakeCallRequest extends Model
      * @var string
      */
     public $calledNumber;
+
     /**
      * @var string
      */
     public $callingNumber;
+
     /**
      * @var string
      */
     public $commandCode;
+
     /**
      * @var string
      */
     public $extInfo;
+
     /**
      * @var string
      */
     public $outerAccountId;
+
     /**
      * @var string
      */
     public $outerAccountType;
     protected $_name = [
-        'calledNumber'     => 'CalledNumber',
-        'callingNumber'    => 'CallingNumber',
-        'commandCode'      => 'CommandCode',
-        'extInfo'          => 'ExtInfo',
-        'outerAccountId'   => 'OuterAccountId',
+        'calledNumber' => 'CalledNumber',
+        'callingNumber' => 'CallingNumber',
+        'commandCode' => 'CommandCode',
+        'extInfo' => 'ExtInfo',
+        'outerAccountId' => 'OuterAccountId',
         'outerAccountType' => 'OuterAccountType',
     ];
 

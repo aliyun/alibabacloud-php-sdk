@@ -12,33 +12,38 @@ class ListChatRecordDetailRequest extends Model
      * @var string
      */
     public $clientToken;
+
     /**
      * @var int
      */
     public $closeTimeEnd;
+
     /**
      * @var int
      */
     public $closeTimeStart;
+
     /**
      * @var int
      */
     public $currentPage;
+
     /**
      * @var string
      */
     public $instanceId;
+
     /**
      * @var int
      */
     public $pageSize;
     protected $_name = [
-        'clientToken'    => 'ClientToken',
-        'closeTimeEnd'   => 'CloseTimeEnd',
+        'clientToken' => 'ClientToken',
+        'closeTimeEnd' => 'CloseTimeEnd',
         'closeTimeStart' => 'CloseTimeStart',
-        'currentPage'    => 'CurrentPage',
-        'instanceId'     => 'InstanceId',
-        'pageSize'       => 'PageSize',
+        'currentPage' => 'CurrentPage',
+        'instanceId' => 'InstanceId',
+        'pageSize' => 'PageSize',
     ];
 
     public function validate()

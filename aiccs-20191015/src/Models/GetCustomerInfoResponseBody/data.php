@@ -12,33 +12,38 @@ class data extends Model
      * @var mixed[]
      */
     public $customizeFields;
+
     /**
      * @var string
      */
     public $nick;
+
     /**
      * @var string
      */
     public $outerId;
+
     /**
      * @var string
      */
     public $photo;
+
     /**
      * @var string
      */
     public $realName;
+
     /**
      * @var int
      */
     public $userId;
     protected $_name = [
         'customizeFields' => 'CustomizeFields',
-        'nick'            => 'Nick',
-        'outerId'         => 'OuterId',
-        'photo'           => 'Photo',
-        'realName'        => 'RealName',
-        'userId'          => 'UserId',
+        'nick' => 'Nick',
+        'outerId' => 'OuterId',
+        'photo' => 'Photo',
+        'realName' => 'RealName',
+        'userId' => 'UserId',
     ];
 
     public function validate()

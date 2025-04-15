@@ -12,32 +12,37 @@ class UpdateSkillGroupRequest extends Model
      * @var string
      */
     public $clientToken;
+
     /**
      * @var string
      */
     public $description;
+
     /**
      * @var string
      */
     public $displayName;
+
     /**
      * @var string
      */
     public $instanceId;
+
     /**
      * @var int
      */
     public $skillGroupId;
+
     /**
      * @var string
      */
     public $skillGroupName;
     protected $_name = [
-        'clientToken'    => 'ClientToken',
-        'description'    => 'Description',
-        'displayName'    => 'DisplayName',
-        'instanceId'     => 'InstanceId',
-        'skillGroupId'   => 'SkillGroupId',
+        'clientToken' => 'ClientToken',
+        'description' => 'Description',
+        'displayName' => 'DisplayName',
+        'instanceId' => 'InstanceId',
+        'skillGroupId' => 'SkillGroupId',
         'skillGroupName' => 'SkillGroupName',
     ];
 

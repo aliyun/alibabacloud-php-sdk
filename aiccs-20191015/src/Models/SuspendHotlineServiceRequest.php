@@ -12,14 +12,17 @@ class SuspendHotlineServiceRequest extends Model
      * @var string
      */
     public $accountName;
+
     /**
      * @var string
      */
     public $clientToken;
+
     /**
      * @var string
      */
     public $instanceId;
+
     /**
      * @var int
      */
@@ -27,8 +30,8 @@ class SuspendHotlineServiceRequest extends Model
     protected $_name = [
         'accountName' => 'AccountName',
         'clientToken' => 'ClientToken',
-        'instanceId'  => 'InstanceId',
-        'type'        => 'Type',
+        'instanceId' => 'InstanceId',
+        'type' => 'Type',
     ];
 
     public function validate()

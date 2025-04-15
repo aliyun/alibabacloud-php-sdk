@@ -13,23 +13,26 @@ class data extends Model
      * @var int
      */
     public $currentPage;
+
     /**
      * @var hotlineNumList[]
      */
     public $hotlineNumList;
+
     /**
      * @var int
      */
     public $pageSize;
+
     /**
      * @var int
      */
     public $totalCount;
     protected $_name = [
-        'currentPage'    => 'CurrentPage',
+        'currentPage' => 'CurrentPage',
         'hotlineNumList' => 'HotlineNumList',
-        'pageSize'       => 'PageSize',
-        'totalCount'     => 'TotalCount',
+        'pageSize' => 'PageSize',
+        'totalCount' => 'TotalCount',
     ];
 
     public function validate()
@@ -50,7 +53,7 @@ class data extends Model
         if (null !== $this->hotlineNumList) {
             if (\is_array($this->hotlineNumList)) {
                 $res['HotlineNumList'] = [];
-                $n1                    = 0;
+                $n1 = 0;
                 foreach ($this->hotlineNumList as $item1) {
                     $res['HotlineNumList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -83,7 +86,7 @@ class data extends Model
         if (isset($map['HotlineNumList'])) {
             if (!empty($map['HotlineNumList'])) {
                 $model->hotlineNumList = [];
-                $n1                    = 0;
+                $n1 = 0;
                 foreach ($map['HotlineNumList'] as $item1) {
                     $model->hotlineNumList[$n1++] = hotlineNumList::fromMap($item1);
                 }

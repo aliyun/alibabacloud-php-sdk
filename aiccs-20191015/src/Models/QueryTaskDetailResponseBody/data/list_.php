@@ -12,98 +12,116 @@ class list_ extends Model
      * @var string
      */
     public $ani;
+
     /**
      * @var int
      */
     public $buId;
+
     /**
      * @var int
      */
     public $departmentId;
+
     /**
      * @var string
      */
     public $dnis;
+
     /**
      * @var int
      */
     public $endReason;
+
     /**
      * @var string
      */
     public $extAttrs;
+
     /**
      * @var int
      */
     public $gmtCreate;
+
     /**
      * @var int
      */
     public $gmtModified;
+
     /**
      * @var int
      */
     public $id;
+
     /**
      * @var int
      */
     public $memberId;
+
     /**
      * @var string
      */
     public $memberName;
+
     /**
      * @var int
      */
     public $outboundNum;
+
     /**
      * @var int
      */
     public $outboundTaskId;
+
     /**
      * @var int
      */
     public $priority;
+
     /**
      * @var string
      */
     public $retryTime;
+
     /**
      * @var int
      */
     public $servicerId;
+
     /**
      * @var string
      */
     public $servicerName;
+
     /**
      * @var int
      */
     public $skillGroup;
+
     /**
      * @var int
      */
     public $status;
     protected $_name = [
-        'ani'            => 'Ani',
-        'buId'           => 'BuId',
-        'departmentId'   => 'DepartmentId',
-        'dnis'           => 'Dnis',
-        'endReason'      => 'EndReason',
-        'extAttrs'       => 'ExtAttrs',
-        'gmtCreate'      => 'GmtCreate',
-        'gmtModified'    => 'GmtModified',
-        'id'             => 'Id',
-        'memberId'       => 'MemberId',
-        'memberName'     => 'MemberName',
-        'outboundNum'    => 'OutboundNum',
+        'ani' => 'Ani',
+        'buId' => 'BuId',
+        'departmentId' => 'DepartmentId',
+        'dnis' => 'Dnis',
+        'endReason' => 'EndReason',
+        'extAttrs' => 'ExtAttrs',
+        'gmtCreate' => 'GmtCreate',
+        'gmtModified' => 'GmtModified',
+        'id' => 'Id',
+        'memberId' => 'MemberId',
+        'memberName' => 'MemberName',
+        'outboundNum' => 'OutboundNum',
         'outboundTaskId' => 'OutboundTaskId',
-        'priority'       => 'Priority',
-        'retryTime'      => 'RetryTime',
-        'servicerId'     => 'ServicerId',
-        'servicerName'   => 'ServicerName',
-        'skillGroup'     => 'SkillGroup',
-        'status'         => 'Status',
+        'priority' => 'Priority',
+        'retryTime' => 'RetryTime',
+        'servicerId' => 'ServicerId',
+        'servicerName' => 'ServicerName',
+        'skillGroup' => 'SkillGroup',
+        'status' => 'Status',
     ];
 
     public function validate()

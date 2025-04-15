@@ -13,58 +13,68 @@ class ResetHotlineNumberRequest extends Model
      * @var string
      */
     public $description;
+
     /**
      * @var bool
      */
     public $enableInbound;
+
     /**
      * @var bool
      */
     public $enableInboundEvaluation;
+
     /**
      * @var bool
      */
     public $enableOutbound;
+
     /**
      * @var bool
      */
     public $enableOutboundEvaluation;
+
     /**
      * @var int
      */
     public $evaluationLevel;
+
     /**
      * @var string
      */
     public $hotlineNumber;
+
     /**
      * @var int
      */
     public $inboundFlowId;
+
     /**
      * @var string
      */
     public $instanceId;
+
     /**
      * @var bool
      */
     public $outboundAllDepart;
+
     /**
      * @var outboundRangeList[]
      */
     public $outboundRangeList;
     protected $_name = [
-        'description'              => 'Description',
-        'enableInbound'            => 'EnableInbound',
-        'enableInboundEvaluation'  => 'EnableInboundEvaluation',
-        'enableOutbound'           => 'EnableOutbound',
+        'description' => 'Description',
+        'enableInbound' => 'EnableInbound',
+        'enableInboundEvaluation' => 'EnableInboundEvaluation',
+        'enableOutbound' => 'EnableOutbound',
         'enableOutboundEvaluation' => 'EnableOutboundEvaluation',
-        'evaluationLevel'          => 'EvaluationLevel',
-        'hotlineNumber'            => 'HotlineNumber',
-        'inboundFlowId'            => 'InboundFlowId',
-        'instanceId'               => 'InstanceId',
-        'outboundAllDepart'        => 'OutboundAllDepart',
-        'outboundRangeList'        => 'OutboundRangeList',
+        'evaluationLevel' => 'EvaluationLevel',
+        'hotlineNumber' => 'HotlineNumber',
+        'inboundFlowId' => 'InboundFlowId',
+        'instanceId' => 'InstanceId',
+        'outboundAllDepart' => 'OutboundAllDepart',
+        'outboundRangeList' => 'OutboundRangeList',
     ];
 
     public function validate()
@@ -121,7 +131,7 @@ class ResetHotlineNumberRequest extends Model
         if (null !== $this->outboundRangeList) {
             if (\is_array($this->outboundRangeList)) {
                 $res['OutboundRangeList'] = [];
-                $n1                       = 0;
+                $n1 = 0;
                 foreach ($this->outboundRangeList as $item1) {
                     $res['OutboundRangeList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -182,7 +192,7 @@ class ResetHotlineNumberRequest extends Model
         if (isset($map['OutboundRangeList'])) {
             if (!empty($map['OutboundRangeList'])) {
                 $model->outboundRangeList = [];
-                $n1                       = 0;
+                $n1 = 0;
                 foreach ($map['OutboundRangeList'] as $item1) {
                     $model->outboundRangeList[$n1++] = outboundRangeList::fromMap($item1);
                 }

@@ -12,38 +12,44 @@ class GetSeatInformationShrinkRequest extends Model
      * @var string
      */
     public $instanceId;
+
     /**
      * @var int
      */
     public $currentPage;
+
     /**
      * @var string
      */
     public $depIdsShrink;
+
     /**
      * @var int
      */
     public $endDate;
+
     /**
      * @var bool
      */
     public $existDepartmentGrouping;
+
     /**
      * @var int
      */
     public $pageSize;
+
     /**
      * @var int
      */
     public $startDate;
     protected $_name = [
-        'instanceId'              => 'InstanceId',
-        'currentPage'             => 'currentPage',
-        'depIdsShrink'            => 'depIds',
-        'endDate'                 => 'endDate',
+        'instanceId' => 'InstanceId',
+        'currentPage' => 'currentPage',
+        'depIdsShrink' => 'depIds',
+        'endDate' => 'endDate',
         'existDepartmentGrouping' => 'existDepartmentGrouping',
-        'pageSize'                => 'pageSize',
-        'startDate'               => 'startDate',
+        'pageSize' => 'pageSize',
+        'startDate' => 'startDate',
     ];
 
     public function validate()

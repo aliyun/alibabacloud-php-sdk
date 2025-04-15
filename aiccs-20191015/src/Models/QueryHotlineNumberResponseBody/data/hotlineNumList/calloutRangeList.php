@@ -13,18 +13,20 @@ class calloutRangeList extends Model
      * @var int
      */
     public $departmentId;
+
     /**
      * @var string
      */
     public $departmentName;
+
     /**
      * @var groupDOList[]
      */
     public $groupDOList;
     protected $_name = [
-        'departmentId'   => 'DepartmentId',
+        'departmentId' => 'DepartmentId',
         'departmentName' => 'DepartmentName',
-        'groupDOList'    => 'GroupDOList',
+        'groupDOList' => 'GroupDOList',
     ];
 
     public function validate()
@@ -49,7 +51,7 @@ class calloutRangeList extends Model
         if (null !== $this->groupDOList) {
             if (\is_array($this->groupDOList)) {
                 $res['GroupDOList'] = [];
-                $n1                 = 0;
+                $n1 = 0;
                 foreach ($this->groupDOList as $item1) {
                     $res['GroupDOList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -78,7 +80,7 @@ class calloutRangeList extends Model
         if (isset($map['GroupDOList'])) {
             if (!empty($map['GroupDOList'])) {
                 $model->groupDOList = [];
-                $n1                 = 0;
+                $n1 = 0;
                 foreach ($map['GroupDOList'] as $item1) {
                     $model->groupDOList[$n1++] = groupDOList::fromMap($item1);
                 }

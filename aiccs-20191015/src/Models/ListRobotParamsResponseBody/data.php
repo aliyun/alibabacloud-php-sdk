@@ -12,16 +12,18 @@ class data extends Model
      * @var int
      */
     public $isEmpty;
+
     /**
      * @var string
      */
     public $paramCode;
+
     /**
      * @var string
      */
     public $paramName;
     protected $_name = [
-        'isEmpty'   => 'IsEmpty',
+        'isEmpty' => 'IsEmpty',
         'paramCode' => 'ParamCode',
         'paramName' => 'ParamName',
     ];

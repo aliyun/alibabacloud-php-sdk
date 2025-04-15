@@ -12,13 +12,14 @@ class outboundRangeList extends Model
      * @var int
      */
     public $departmentId;
+
     /**
      * @var int[]
      */
     public $groupIdList;
     protected $_name = [
         'departmentId' => 'DepartmentId',
-        'groupIdList'  => 'GroupIdList',
+        'groupIdList' => 'GroupIdList',
     ];
 
     public function validate()
@@ -39,7 +40,7 @@ class outboundRangeList extends Model
         if (null !== $this->groupIdList) {
             if (\is_array($this->groupIdList)) {
                 $res['GroupIdList'] = [];
-                $n1                 = 0;
+                $n1 = 0;
                 foreach ($this->groupIdList as $item1) {
                     $res['GroupIdList'][$n1++] = $item1;
                 }
@@ -64,7 +65,7 @@ class outboundRangeList extends Model
         if (isset($map['GroupIdList'])) {
             if (!empty($map['GroupIdList'])) {
                 $model->groupIdList = [];
-                $n1                 = 0;
+                $n1 = 0;
                 foreach ($map['GroupIdList'] as $item1) {
                     $model->groupIdList[$n1++] = $item1;
                 }

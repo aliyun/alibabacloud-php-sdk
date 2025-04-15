@@ -12,53 +12,62 @@ class RobotCallRequest extends Model
      * @var string
      */
     public $calledNumber;
+
     /**
      * @var string
      */
     public $calledShowNumber;
+
     /**
      * @var bool
      */
     public $earlyMediaAsr;
+
     /**
      * @var string
      */
     public $outId;
+
     /**
      * @var int
      */
     public $ownerId;
+
     /**
      * @var string
      */
     public $params;
+
     /**
      * @var bool
      */
     public $recordFlag;
+
     /**
      * @var string
      */
     public $resourceOwnerAccount;
+
     /**
      * @var int
      */
     public $resourceOwnerId;
+
     /**
      * @var int
      */
     public $robotId;
     protected $_name = [
-        'calledNumber'         => 'CalledNumber',
-        'calledShowNumber'     => 'CalledShowNumber',
-        'earlyMediaAsr'        => 'EarlyMediaAsr',
-        'outId'                => 'OutId',
-        'ownerId'              => 'OwnerId',
-        'params'               => 'Params',
-        'recordFlag'           => 'RecordFlag',
+        'calledNumber' => 'CalledNumber',
+        'calledShowNumber' => 'CalledShowNumber',
+        'earlyMediaAsr' => 'EarlyMediaAsr',
+        'outId' => 'OutId',
+        'ownerId' => 'OwnerId',
+        'params' => 'Params',
+        'recordFlag' => 'RecordFlag',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
-        'resourceOwnerId'      => 'ResourceOwnerId',
-        'robotId'              => 'RobotId',
+        'resourceOwnerId' => 'ResourceOwnerId',
+        'robotId' => 'RobotId',
     ];
 
     public function validate()

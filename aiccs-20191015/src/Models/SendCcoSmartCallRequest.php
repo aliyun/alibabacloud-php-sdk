@@ -12,163 +12,194 @@ class SendCcoSmartCallRequest extends Model
      * @var bool
      */
     public $actionCodeBreak;
+
     /**
      * @var int
      */
     public $actionCodeTimeBreak;
+
     /**
      * @var string
      */
     public $asrAlsAmId;
+
     /**
      * @var string
      */
     public $asrBaseId;
+
     /**
      * @var string
      */
     public $asrModelId;
+
     /**
      * @var string
      */
     public $asrVocabularyId;
+
     /**
      * @var string
      */
     public $backgroundFileCode;
+
     /**
      * @var int
      */
     public $backgroundSpeed;
+
     /**
      * @var int
      */
     public $backgroundVolume;
+
     /**
      * @var string
      */
     public $calledNumber;
+
     /**
      * @var string
      */
     public $calledShowNumber;
+
     /**
      * @var string
      */
     public $dynamicId;
+
     /**
      * @var bool
      */
     public $earlyMediaAsr;
+
     /**
      * @var bool
      */
     public $enableITN;
+
     /**
      * @var int
      */
     public $muteTime;
+
     /**
      * @var string
      */
     public $outId;
+
     /**
      * @var int
      */
     public $ownerId;
+
     /**
      * @var int
      */
     public $pauseTime;
+
     /**
      * @var int
      */
     public $playTimes;
+
     /**
      * @var string
      */
     public $prodCode;
+
     /**
      * @var bool
      */
     public $recordFlag;
+
     /**
      * @var string
      */
     public $resourceOwnerAccount;
+
     /**
      * @var int
      */
     public $resourceOwnerId;
+
     /**
      * @var int
      */
     public $sessionTimeout;
+
     /**
      * @var int
      */
     public $speed;
+
     /**
      * @var bool
      */
     public $ttsConf;
+
     /**
      * @var int
      */
     public $ttsSpeed;
+
     /**
      * @var string
      */
     public $ttsStyle;
+
     /**
      * @var int
      */
     public $ttsVolume;
+
     /**
      * @var string
      */
     public $voiceCode;
+
     /**
      * @var string
      */
     public $voiceCodeParam;
+
     /**
      * @var int
      */
     public $volume;
     protected $_name = [
-        'actionCodeBreak'      => 'ActionCodeBreak',
-        'actionCodeTimeBreak'  => 'ActionCodeTimeBreak',
-        'asrAlsAmId'           => 'AsrAlsAmId',
-        'asrBaseId'            => 'AsrBaseId',
-        'asrModelId'           => 'AsrModelId',
-        'asrVocabularyId'      => 'AsrVocabularyId',
-        'backgroundFileCode'   => 'BackgroundFileCode',
-        'backgroundSpeed'      => 'BackgroundSpeed',
-        'backgroundVolume'     => 'BackgroundVolume',
-        'calledNumber'         => 'CalledNumber',
-        'calledShowNumber'     => 'CalledShowNumber',
-        'dynamicId'            => 'DynamicId',
-        'earlyMediaAsr'        => 'EarlyMediaAsr',
-        'enableITN'            => 'EnableITN',
-        'muteTime'             => 'MuteTime',
-        'outId'                => 'OutId',
-        'ownerId'              => 'OwnerId',
-        'pauseTime'            => 'PauseTime',
-        'playTimes'            => 'PlayTimes',
-        'prodCode'             => 'ProdCode',
-        'recordFlag'           => 'RecordFlag',
+        'actionCodeBreak' => 'ActionCodeBreak',
+        'actionCodeTimeBreak' => 'ActionCodeTimeBreak',
+        'asrAlsAmId' => 'AsrAlsAmId',
+        'asrBaseId' => 'AsrBaseId',
+        'asrModelId' => 'AsrModelId',
+        'asrVocabularyId' => 'AsrVocabularyId',
+        'backgroundFileCode' => 'BackgroundFileCode',
+        'backgroundSpeed' => 'BackgroundSpeed',
+        'backgroundVolume' => 'BackgroundVolume',
+        'calledNumber' => 'CalledNumber',
+        'calledShowNumber' => 'CalledShowNumber',
+        'dynamicId' => 'DynamicId',
+        'earlyMediaAsr' => 'EarlyMediaAsr',
+        'enableITN' => 'EnableITN',
+        'muteTime' => 'MuteTime',
+        'outId' => 'OutId',
+        'ownerId' => 'OwnerId',
+        'pauseTime' => 'PauseTime',
+        'playTimes' => 'PlayTimes',
+        'prodCode' => 'ProdCode',
+        'recordFlag' => 'RecordFlag',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
-        'resourceOwnerId'      => 'ResourceOwnerId',
-        'sessionTimeout'       => 'SessionTimeout',
-        'speed'                => 'Speed',
-        'ttsConf'              => 'TtsConf',
-        'ttsSpeed'             => 'TtsSpeed',
-        'ttsStyle'             => 'TtsStyle',
-        'ttsVolume'            => 'TtsVolume',
-        'voiceCode'            => 'VoiceCode',
-        'voiceCodeParam'       => 'VoiceCodeParam',
-        'volume'               => 'Volume',
+        'resourceOwnerId' => 'ResourceOwnerId',
+        'sessionTimeout' => 'SessionTimeout',
+        'speed' => 'Speed',
+        'ttsConf' => 'TtsConf',
+        'ttsSpeed' => 'TtsSpeed',
+        'ttsStyle' => 'TtsStyle',
+        'ttsVolume' => 'TtsVolume',
+        'voiceCode' => 'VoiceCode',
+        'voiceCodeParam' => 'VoiceCodeParam',
+        'volume' => 'Volume',
     ];
 
     public function validate()

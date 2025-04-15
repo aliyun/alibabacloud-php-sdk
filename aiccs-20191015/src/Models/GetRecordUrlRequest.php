@@ -12,16 +12,18 @@ class GetRecordUrlRequest extends Model
      * @var string
      */
     public $acid;
+
     /**
      * @var string
      */
     public $instanceId;
+
     /**
      * @var string
      */
     public $recordType;
     protected $_name = [
-        'acid'       => 'Acid',
+        'acid' => 'Acid',
         'instanceId' => 'InstanceId',
         'recordType' => 'RecordType',
     ];

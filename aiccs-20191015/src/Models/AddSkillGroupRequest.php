@@ -12,28 +12,32 @@ class AddSkillGroupRequest extends Model
      * @var string
      */
     public $outerDepartmentId;
+
     /**
      * @var string
      */
     public $outerDepartmentType;
+
     /**
      * @var string
      */
     public $outerGroupId;
+
     /**
      * @var string
      */
     public $outerGroupName;
+
     /**
      * @var string
      */
     public $outerGroupType;
     protected $_name = [
-        'outerDepartmentId'   => 'OuterDepartmentId',
+        'outerDepartmentId' => 'OuterDepartmentId',
         'outerDepartmentType' => 'OuterDepartmentType',
-        'outerGroupId'        => 'OuterGroupId',
-        'outerGroupName'      => 'OuterGroupName',
-        'outerGroupType'      => 'OuterGroupType',
+        'outerGroupId' => 'OuterGroupId',
+        'outerGroupName' => 'OuterGroupName',
+        'outerGroupType' => 'OuterGroupType',
     ];
 
     public function validate()

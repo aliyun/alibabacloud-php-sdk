@@ -12,38 +12,44 @@ class SendCcoSmartCallOperateRequest extends Model
      * @var string
      */
     public $callId;
+
     /**
      * @var string
      */
     public $command;
+
     /**
      * @var int
      */
     public $ownerId;
+
     /**
      * @var string
      */
     public $param;
+
     /**
      * @var string
      */
     public $prodCode;
+
     /**
      * @var string
      */
     public $resourceOwnerAccount;
+
     /**
      * @var int
      */
     public $resourceOwnerId;
     protected $_name = [
-        'callId'               => 'CallId',
-        'command'              => 'Command',
-        'ownerId'              => 'OwnerId',
-        'param'                => 'Param',
-        'prodCode'             => 'ProdCode',
+        'callId' => 'CallId',
+        'command' => 'Command',
+        'ownerId' => 'OwnerId',
+        'param' => 'Param',
+        'prodCode' => 'ProdCode',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
-        'resourceOwnerId'      => 'ResourceOwnerId',
+        'resourceOwnerId' => 'ResourceOwnerId',
     ];
 
     public function validate()

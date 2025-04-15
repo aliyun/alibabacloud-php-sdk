@@ -12,12 +12,13 @@ class RestartOutboundTaskRequest extends Model
      * @var string
      */
     public $instanceId;
+
     /**
      * @var int
      */
     public $outboundTaskId;
     protected $_name = [
-        'instanceId'     => 'InstanceId',
+        'instanceId' => 'InstanceId',
         'outboundTaskId' => 'OutboundTaskId',
     ];
 

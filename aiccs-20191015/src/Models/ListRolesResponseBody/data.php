@@ -12,43 +12,50 @@ class data extends Model
      * @var int
      */
     public $buId;
+
     /**
      * @var string
      */
     public $code;
+
     /**
      * @var string
      */
     public $createTime;
+
     /**
      * @var string
      */
     public $description;
+
     /**
      * @var int
      */
     public $roleGroupId;
+
     /**
      * @var string
      */
     public $roleGroupName;
+
     /**
      * @var int
      */
     public $roleId;
+
     /**
      * @var string
      */
     public $title;
     protected $_name = [
-        'buId'          => 'BuId',
-        'code'          => 'Code',
-        'createTime'    => 'CreateTime',
-        'description'   => 'Description',
-        'roleGroupId'   => 'RoleGroupId',
+        'buId' => 'BuId',
+        'code' => 'Code',
+        'createTime' => 'CreateTime',
+        'description' => 'Description',
+        'roleGroupId' => 'RoleGroupId',
         'roleGroupName' => 'RoleGroupName',
-        'roleId'        => 'RoleId',
-        'title'         => 'Title',
+        'roleId' => 'RoleId',
+        'title' => 'Title',
     ];
 
     public function validate()

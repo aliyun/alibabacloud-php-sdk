@@ -12,28 +12,32 @@ class data extends Model
      * @var string
      */
     public $callId;
+
     /**
      * @var string
      */
     public $connectionId;
+
     /**
      * @var int
      */
     public $endTime;
+
     /**
      * @var int
      */
     public $startTime;
+
     /**
      * @var string
      */
     public $url;
     protected $_name = [
-        'callId'       => 'CallId',
+        'callId' => 'CallId',
         'connectionId' => 'ConnectionId',
-        'endTime'      => 'EndTime',
-        'startTime'    => 'StartTime',
-        'url'          => 'Url',
+        'endTime' => 'EndTime',
+        'startTime' => 'StartTime',
+        'url' => 'Url',
     ];
 
     public function validate()

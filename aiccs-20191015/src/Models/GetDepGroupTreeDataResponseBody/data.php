@@ -13,18 +13,20 @@ class data extends Model
      * @var string
      */
     public $depGroupId;
+
     /**
      * @var string
      */
     public $depGroupName;
+
     /**
      * @var groupDTOS[]
      */
     public $groupDTOS;
     protected $_name = [
-        'depGroupId'   => 'DepGroupId',
+        'depGroupId' => 'DepGroupId',
         'depGroupName' => 'DepGroupName',
-        'groupDTOS'    => 'GroupDTOS',
+        'groupDTOS' => 'GroupDTOS',
     ];
 
     public function validate()
@@ -49,7 +51,7 @@ class data extends Model
         if (null !== $this->groupDTOS) {
             if (\is_array($this->groupDTOS)) {
                 $res['GroupDTOS'] = [];
-                $n1               = 0;
+                $n1 = 0;
                 foreach ($this->groupDTOS as $item1) {
                     $res['GroupDTOS'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -78,7 +80,7 @@ class data extends Model
         if (isset($map['GroupDTOS'])) {
             if (!empty($map['GroupDTOS'])) {
                 $model->groupDTOS = [];
-                $n1               = 0;
+                $n1 = 0;
                 foreach ($map['GroupDTOS'] as $item1) {
                     $model->groupDTOS[$n1++] = groupDTOS::fromMap($item1);
                 }

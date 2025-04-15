@@ -13,73 +13,86 @@ class data extends Model
      * @var int
      */
     public $concurrentRate;
+
     /**
      * @var string
      */
     public $description;
+
     /**
      * @var string
      */
     public $executionTime;
+
     /**
      * @var float
      */
     public $forecastCallRate;
+
     /**
      * @var int
      */
     public $handlerId;
+
     /**
      * @var string
      */
     public $handlerName;
+
     /**
      * @var string
      */
     public $name;
+
     /**
      * @var int
      */
     public $numRepeated;
+
     /**
      * @var string[]
      */
     public $outboundNums;
+
     /**
      * @var recallRule
      */
     public $recallRule;
+
     /**
      * @var int
      */
     public $status;
+
     /**
      * @var string
      */
     public $statusDesc;
+
     /**
      * @var int
      */
     public $taskId;
+
     /**
      * @var int
      */
     public $type;
     protected $_name = [
-        'concurrentRate'   => 'ConcurrentRate',
-        'description'      => 'Description',
-        'executionTime'    => 'ExecutionTime',
+        'concurrentRate' => 'ConcurrentRate',
+        'description' => 'Description',
+        'executionTime' => 'ExecutionTime',
         'forecastCallRate' => 'ForecastCallRate',
-        'handlerId'        => 'HandlerId',
-        'handlerName'      => 'HandlerName',
-        'name'             => 'Name',
-        'numRepeated'      => 'NumRepeated',
-        'outboundNums'     => 'OutboundNums',
-        'recallRule'       => 'RecallRule',
-        'status'           => 'Status',
-        'statusDesc'       => 'StatusDesc',
-        'taskId'           => 'TaskId',
-        'type'             => 'Type',
+        'handlerId' => 'HandlerId',
+        'handlerName' => 'HandlerName',
+        'name' => 'Name',
+        'numRepeated' => 'NumRepeated',
+        'outboundNums' => 'OutboundNums',
+        'recallRule' => 'RecallRule',
+        'status' => 'Status',
+        'statusDesc' => 'StatusDesc',
+        'taskId' => 'TaskId',
+        'type' => 'Type',
     ];
 
     public function validate()
@@ -131,7 +144,7 @@ class data extends Model
         if (null !== $this->outboundNums) {
             if (\is_array($this->outboundNums)) {
                 $res['OutboundNums'] = [];
-                $n1                  = 0;
+                $n1 = 0;
                 foreach ($this->outboundNums as $item1) {
                     $res['OutboundNums'][$n1++] = $item1;
                 }
@@ -204,7 +217,7 @@ class data extends Model
         if (isset($map['OutboundNums'])) {
             if (!empty($map['OutboundNums'])) {
                 $model->outboundNums = [];
-                $n1                  = 0;
+                $n1 = 0;
                 foreach ($map['OutboundNums'] as $item1) {
                     $model->outboundNums[$n1++] = $item1;
                 }

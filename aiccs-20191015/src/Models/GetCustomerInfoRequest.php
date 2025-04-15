@@ -12,13 +12,14 @@ class GetCustomerInfoRequest extends Model
      * @var string
      */
     public $instanceId;
+
     /**
      * @var int
      */
     public $memberId;
     protected $_name = [
         'instanceId' => 'InstanceId',
-        'memberId'   => 'MemberId',
+        'memberId' => 'MemberId',
     ];
 
     public function validate()

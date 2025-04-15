@@ -13,58 +13,68 @@ class hotlineNumList extends Model
      * @var bool
      */
     public $calloutAllDepartment;
+
     /**
      * @var calloutRangeList[]
      */
     public $calloutRangeList;
+
     /**
      * @var string
      */
     public $description;
+
     /**
      * @var int
      */
     public $evaluationStatus;
+
     /**
      * @var int
      */
     public $flowId;
+
     /**
      * @var string
      */
     public $flowName;
+
     /**
      * @var string
      */
     public $hotlineNumber;
+
     /**
      * @var bool
      */
     public $inBoundEnabled;
+
     /**
      * @var string
      */
     public $location;
+
     /**
      * @var bool
      */
     public $outboundEnabled;
+
     /**
      * @var string
      */
     public $sp;
     protected $_name = [
         'calloutAllDepartment' => 'CalloutAllDepartment',
-        'calloutRangeList'     => 'CalloutRangeList',
-        'description'          => 'Description',
-        'evaluationStatus'     => 'EvaluationStatus',
-        'flowId'               => 'FlowId',
-        'flowName'             => 'FlowName',
-        'hotlineNumber'        => 'HotlineNumber',
-        'inBoundEnabled'       => 'InBoundEnabled',
-        'location'             => 'Location',
-        'outboundEnabled'      => 'OutboundEnabled',
-        'sp'                   => 'Sp',
+        'calloutRangeList' => 'CalloutRangeList',
+        'description' => 'Description',
+        'evaluationStatus' => 'EvaluationStatus',
+        'flowId' => 'FlowId',
+        'flowName' => 'FlowName',
+        'hotlineNumber' => 'HotlineNumber',
+        'inBoundEnabled' => 'InBoundEnabled',
+        'location' => 'Location',
+        'outboundEnabled' => 'OutboundEnabled',
+        'sp' => 'Sp',
     ];
 
     public function validate()
@@ -85,7 +95,7 @@ class hotlineNumList extends Model
         if (null !== $this->calloutRangeList) {
             if (\is_array($this->calloutRangeList)) {
                 $res['CalloutRangeList'] = [];
-                $n1                      = 0;
+                $n1 = 0;
                 foreach ($this->calloutRangeList as $item1) {
                     $res['CalloutRangeList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -146,7 +156,7 @@ class hotlineNumList extends Model
         if (isset($map['CalloutRangeList'])) {
             if (!empty($map['CalloutRangeList'])) {
                 $model->calloutRangeList = [];
-                $n1                      = 0;
+                $n1 = 0;
                 foreach ($map['CalloutRangeList'] as $item1) {
                     $model->calloutRangeList[$n1++] = calloutRangeList::fromMap($item1);
                 }

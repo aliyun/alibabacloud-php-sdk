@@ -12,38 +12,44 @@ class GetHotlineCallActionRequest extends Model
      * @var string
      */
     public $acc;
+
     /**
      * @var string
      */
     public $accountName;
+
     /**
      * @var int
      */
     public $act;
+
     /**
      * @var string
      */
     public $biz;
+
     /**
      * @var string
      */
     public $clientToken;
+
     /**
      * @var string
      */
     public $fromSource;
+
     /**
      * @var string
      */
     public $instanceId;
     protected $_name = [
-        'acc'         => 'Acc',
+        'acc' => 'Acc',
         'accountName' => 'AccountName',
-        'act'         => 'Act',
-        'biz'         => 'Biz',
+        'act' => 'Act',
+        'biz' => 'Biz',
         'clientToken' => 'ClientToken',
-        'fromSource'  => 'FromSource',
-        'instanceId'  => 'InstanceId',
+        'fromSource' => 'FromSource',
+        'instanceId' => 'InstanceId',
     ];
 
     public function validate()

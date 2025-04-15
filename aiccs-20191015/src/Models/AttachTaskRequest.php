@@ -12,28 +12,32 @@ class AttachTaskRequest extends Model
      * @var string
      */
     public $callString;
+
     /**
      * @var int
      */
     public $ownerId;
+
     /**
      * @var string
      */
     public $resourceOwnerAccount;
+
     /**
      * @var int
      */
     public $resourceOwnerId;
+
     /**
      * @var int
      */
     public $taskId;
     protected $_name = [
-        'callString'           => 'CallString',
-        'ownerId'              => 'OwnerId',
+        'callString' => 'CallString',
+        'ownerId' => 'OwnerId',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
-        'resourceOwnerId'      => 'ResourceOwnerId',
-        'taskId'               => 'TaskId',
+        'resourceOwnerId' => 'ResourceOwnerId',
+        'taskId' => 'TaskId',
     ];
 
     public function validate()

@@ -12,78 +12,92 @@ class QueryTaskDetailRequest extends Model
      * @var string
      */
     public $ani;
+
     /**
      * @var int
      */
     public $currentPage;
+
     /**
      * @var string
      */
     public $departmentIdList;
+
     /**
      * @var string
      */
     public $dnis;
+
     /**
      * @var string
      */
     public $endReasonList;
+
     /**
      * @var string
      */
     public $instanceId;
+
     /**
      * @var string
      */
     public $outboundTaskId;
+
     /**
      * @var int
      */
     public $pageSize;
+
     /**
      * @var string
      */
     public $priorityList;
+
     /**
      * @var string
      */
     public $servicerId;
+
     /**
      * @var string
      */
     public $servicerName;
+
     /**
      * @var string
      */
     public $sid;
+
     /**
      * @var string
      */
     public $skillGroup;
+
     /**
      * @var string
      */
     public $statusList;
+
     /**
      * @var int
      */
     public $taskId;
     protected $_name = [
-        'ani'              => 'Ani',
-        'currentPage'      => 'CurrentPage',
+        'ani' => 'Ani',
+        'currentPage' => 'CurrentPage',
         'departmentIdList' => 'DepartmentIdList',
-        'dnis'             => 'Dnis',
-        'endReasonList'    => 'EndReasonList',
-        'instanceId'       => 'InstanceId',
-        'outboundTaskId'   => 'OutboundTaskId',
-        'pageSize'         => 'PageSize',
-        'priorityList'     => 'PriorityList',
-        'servicerId'       => 'ServicerId',
-        'servicerName'     => 'ServicerName',
-        'sid'              => 'Sid',
-        'skillGroup'       => 'SkillGroup',
-        'statusList'       => 'StatusList',
-        'taskId'           => 'TaskId',
+        'dnis' => 'Dnis',
+        'endReasonList' => 'EndReasonList',
+        'instanceId' => 'InstanceId',
+        'outboundTaskId' => 'OutboundTaskId',
+        'pageSize' => 'PageSize',
+        'priorityList' => 'PriorityList',
+        'servicerId' => 'ServicerId',
+        'servicerName' => 'ServicerName',
+        'sid' => 'Sid',
+        'skillGroup' => 'SkillGroup',
+        'statusList' => 'StatusList',
+        'taskId' => 'TaskId',
     ];
 
     public function validate()

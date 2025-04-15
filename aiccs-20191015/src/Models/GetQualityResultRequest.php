@@ -12,52 +12,61 @@ class GetQualityResultRequest extends Model
      * @var string
      */
     public $channelType;
+
     /**
      * @var int[]
      */
     public $groupIds;
+
     /**
      * @var int
      */
     public $hitStatus;
+
     /**
      * @var string
      */
     public $instanceId;
+
     /**
      * @var int
      */
     public $pageNo;
+
     /**
      * @var int
      */
     public $pageSize;
+
     /**
      * @var int[]
      */
     public $projectIds;
+
     /**
      * @var int[]
      */
     public $qualityRuleIds;
+
     /**
      * @var string
      */
     public $touchEndTime;
+
     /**
      * @var string
      */
     public $touchStartTime;
     protected $_name = [
-        'channelType'    => 'ChannelType',
-        'groupIds'       => 'GroupIds',
-        'hitStatus'      => 'HitStatus',
-        'instanceId'     => 'InstanceId',
-        'pageNo'         => 'PageNo',
-        'pageSize'       => 'PageSize',
-        'projectIds'     => 'ProjectIds',
+        'channelType' => 'ChannelType',
+        'groupIds' => 'GroupIds',
+        'hitStatus' => 'HitStatus',
+        'instanceId' => 'InstanceId',
+        'pageNo' => 'PageNo',
+        'pageSize' => 'PageSize',
+        'projectIds' => 'ProjectIds',
         'qualityRuleIds' => 'QualityRuleIds',
-        'touchEndTime'   => 'TouchEndTime',
+        'touchEndTime' => 'TouchEndTime',
         'touchStartTime' => 'TouchStartTime',
     ];
 
@@ -85,7 +94,7 @@ class GetQualityResultRequest extends Model
         if (null !== $this->groupIds) {
             if (\is_array($this->groupIds)) {
                 $res['GroupIds'] = [];
-                $n1              = 0;
+                $n1 = 0;
                 foreach ($this->groupIds as $item1) {
                     $res['GroupIds'][$n1++] = $item1;
                 }
@@ -111,7 +120,7 @@ class GetQualityResultRequest extends Model
         if (null !== $this->projectIds) {
             if (\is_array($this->projectIds)) {
                 $res['ProjectIds'] = [];
-                $n1                = 0;
+                $n1 = 0;
                 foreach ($this->projectIds as $item1) {
                     $res['ProjectIds'][$n1++] = $item1;
                 }
@@ -121,7 +130,7 @@ class GetQualityResultRequest extends Model
         if (null !== $this->qualityRuleIds) {
             if (\is_array($this->qualityRuleIds)) {
                 $res['QualityRuleIds'] = [];
-                $n1                    = 0;
+                $n1 = 0;
                 foreach ($this->qualityRuleIds as $item1) {
                     $res['QualityRuleIds'][$n1++] = $item1;
                 }
@@ -154,7 +163,7 @@ class GetQualityResultRequest extends Model
         if (isset($map['GroupIds'])) {
             if (!empty($map['GroupIds'])) {
                 $model->groupIds = [];
-                $n1              = 0;
+                $n1 = 0;
                 foreach ($map['GroupIds'] as $item1) {
                     $model->groupIds[$n1++] = $item1;
                 }
@@ -180,7 +189,7 @@ class GetQualityResultRequest extends Model
         if (isset($map['ProjectIds'])) {
             if (!empty($map['ProjectIds'])) {
                 $model->projectIds = [];
-                $n1                = 0;
+                $n1 = 0;
                 foreach ($map['ProjectIds'] as $item1) {
                     $model->projectIds[$n1++] = $item1;
                 }
@@ -190,7 +199,7 @@ class GetQualityResultRequest extends Model
         if (isset($map['QualityRuleIds'])) {
             if (!empty($map['QualityRuleIds'])) {
                 $model->qualityRuleIds = [];
-                $n1                    = 0;
+                $n1 = 0;
                 foreach ($map['QualityRuleIds'] as $item1) {
                     $model->qualityRuleIds[$n1++] = $item1;
                 }

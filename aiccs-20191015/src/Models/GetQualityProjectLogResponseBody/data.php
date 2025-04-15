@@ -12,28 +12,32 @@ class data extends Model
      * @var string
      */
     public $actionData;
+
     /**
      * @var string
      */
     public $actionTime;
+
     /**
      * @var string
      */
     public $actionType;
+
     /**
      * @var string
      */
     public $projectCreateTime;
+
     /**
      * @var int
      */
     public $projectId;
     protected $_name = [
-        'actionData'        => 'ActionData',
-        'actionTime'        => 'ActionTime',
-        'actionType'        => 'ActionType',
+        'actionData' => 'ActionData',
+        'actionTime' => 'ActionTime',
+        'actionType' => 'ActionType',
         'projectCreateTime' => 'ProjectCreateTime',
-        'projectId'         => 'ProjectId',
+        'projectId' => 'ProjectId',
     ];
 
     public function validate()

@@ -13,18 +13,20 @@ class data extends Model
      * @var failInfo[]
      */
     public $failInfo;
+
     /**
      * @var int
      */
     public $successCount;
+
     /**
      * @var int
      */
     public $totalCount;
     protected $_name = [
-        'failInfo'     => 'FailInfo',
+        'failInfo' => 'FailInfo',
         'successCount' => 'SuccessCount',
-        'totalCount'   => 'TotalCount',
+        'totalCount' => 'TotalCount',
     ];
 
     public function validate()
@@ -41,7 +43,7 @@ class data extends Model
         if (null !== $this->failInfo) {
             if (\is_array($this->failInfo)) {
                 $res['FailInfo'] = [];
-                $n1              = 0;
+                $n1 = 0;
                 foreach ($this->failInfo as $item1) {
                     $res['FailInfo'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -70,7 +72,7 @@ class data extends Model
         if (isset($map['FailInfo'])) {
             if (!empty($map['FailInfo'])) {
                 $model->failInfo = [];
-                $n1              = 0;
+                $n1 = 0;
                 foreach ($map['FailInfo'] as $item1) {
                     $model->failInfo[$n1++] = failInfo::fromMap($item1);
                 }

@@ -12,18 +12,20 @@ class ChangeQualityProjectStatusRequest extends Model
      * @var string
      */
     public $instanceId;
+
     /**
      * @var int
      */
     public $projectId;
+
     /**
      * @var int
      */
     public $status;
     protected $_name = [
         'instanceId' => 'InstanceId',
-        'projectId'  => 'ProjectId',
-        'status'     => 'Status',
+        'projectId' => 'ProjectId',
+        'status' => 'Status',
     ];
 
     public function validate()

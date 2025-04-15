@@ -12,26 +12,30 @@ class messageList extends Model
      * @var string
      */
     public $content;
+
     /**
      * @var int
      */
     public $createTime;
+
     /**
      * @var string
      */
     public $msgType;
+
     /**
      * @var string
      */
     public $senderName;
+
     /**
      * @var int
      */
     public $senderType;
     protected $_name = [
-        'content'    => 'Content',
+        'content' => 'Content',
         'createTime' => 'CreateTime',
-        'msgType'    => 'MsgType',
+        'msgType' => 'MsgType',
         'senderName' => 'SenderName',
         'senderType' => 'SenderType',
     ];

@@ -12,17 +12,19 @@ class RemoveSkillGroupRequest extends Model
      * @var string
      */
     public $clientToken;
+
     /**
      * @var string
      */
     public $instanceId;
+
     /**
      * @var string
      */
     public $skillGroupId;
     protected $_name = [
-        'clientToken'  => 'ClientToken',
-        'instanceId'   => 'InstanceId',
+        'clientToken' => 'ClientToken',
+        'instanceId' => 'InstanceId',
         'skillGroupId' => 'SkillGroupId',
     ];
 

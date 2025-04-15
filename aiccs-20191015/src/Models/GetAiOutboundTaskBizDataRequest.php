@@ -12,12 +12,13 @@ class GetAiOutboundTaskBizDataRequest extends Model
      * @var string
      */
     public $channelId;
+
     /**
      * @var string
      */
     public $instanceId;
     protected $_name = [
-        'channelId'  => 'ChannelId',
+        'channelId' => 'ChannelId',
         'instanceId' => 'InstanceId',
     ];
 

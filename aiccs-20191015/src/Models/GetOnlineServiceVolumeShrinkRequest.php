@@ -12,63 +12,74 @@ class GetOnlineServiceVolumeShrinkRequest extends Model
      * @var string
      */
     public $agentIdsShrink;
+
     /**
      * @var int
      */
     public $currentPage;
+
     /**
      * @var string
      */
     public $depIdsShrink;
+
     /**
      * @var int
      */
     public $endDate;
+
     /**
      * @var bool
      */
     public $existAgentGrouping;
+
     /**
      * @var bool
      */
     public $existDepartmentGrouping;
+
     /**
      * @var bool
      */
     public $existSkillGroupGrouping;
+
     /**
      * @var string
      */
     public $groupIdsShrink;
+
     /**
      * @var string
      */
     public $instanceId;
+
     /**
      * @var int
      */
     public $pageSize;
+
     /**
      * @var int
      */
     public $startDate;
+
     /**
      * @var string
      */
     public $timeLatitudeType;
     protected $_name = [
-        'agentIdsShrink'          => 'AgentIds',
-        'currentPage'             => 'CurrentPage',
-        'depIdsShrink'            => 'DepIds',
-        'endDate'                 => 'EndDate',
-        'existAgentGrouping'      => 'ExistAgentGrouping',
+        'agentIdsShrink' => 'AgentIds',
+        'currentPage' => 'CurrentPage',
+        'depIdsShrink' => 'DepIds',
+        'endDate' => 'EndDate',
+        'existAgentGrouping' => 'ExistAgentGrouping',
         'existDepartmentGrouping' => 'ExistDepartmentGrouping',
         'existSkillGroupGrouping' => 'ExistSkillGroupGrouping',
-        'groupIdsShrink'          => 'GroupIds',
-        'instanceId'              => 'InstanceId',
-        'pageSize'                => 'PageSize',
-        'startDate'               => 'StartDate',
-        'timeLatitudeType'        => 'TimeLatitudeType',
+        'groupIdsShrink' => 'GroupIds',
+        'instanceId' => 'InstanceId',
+        'pageSize' => 'PageSize',
+        'startDate' => 'StartDate',
+        'timeLatitudeType' => 'TimeLatitudeType',
     ];
 
     public function validate()

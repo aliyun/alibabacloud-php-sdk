@@ -12,53 +12,62 @@ class ListTaskDetailRequest extends Model
      * @var string
      */
     public $called;
+
     /**
      * @var int
      */
     public $id;
+
     /**
      * @var int
      */
     public $ownerId;
+
     /**
      * @var int
      */
     public $pageNo;
+
     /**
      * @var int
      */
     public $pageSize;
+
     /**
      * @var string
      */
     public $resourceOwnerAccount;
+
     /**
      * @var int
      */
     public $resourceOwnerId;
+
     /**
      * @var string
      */
     public $status;
+
     /**
      * @var string
      */
     public $statusCode;
+
     /**
      * @var int
      */
     public $taskId;
     protected $_name = [
-        'called'               => 'Called',
-        'id'                   => 'Id',
-        'ownerId'              => 'OwnerId',
-        'pageNo'               => 'PageNo',
-        'pageSize'             => 'PageSize',
+        'called' => 'Called',
+        'id' => 'Id',
+        'ownerId' => 'OwnerId',
+        'pageNo' => 'PageNo',
+        'pageSize' => 'PageSize',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
-        'resourceOwnerId'      => 'ResourceOwnerId',
-        'status'               => 'Status',
-        'statusCode'           => 'StatusCode',
-        'taskId'               => 'TaskId',
+        'resourceOwnerId' => 'ResourceOwnerId',
+        'status' => 'Status',
+        'statusCode' => 'StatusCode',
+        'taskId' => 'TaskId',
     ];
 
     public function validate()

@@ -12,10 +12,12 @@ class DeleteAgentRequest extends Model
      * @var string
      */
     public $accountName;
+
     /**
      * @var string
      */
     public $clientToken;
+
     /**
      * @var string
      */
@@ -23,7 +25,7 @@ class DeleteAgentRequest extends Model
     protected $_name = [
         'accountName' => 'AccountName',
         'clientToken' => 'ClientToken',
-        'instanceId'  => 'InstanceId',
+        'instanceId' => 'InstanceId',
     ];
 
     public function validate()

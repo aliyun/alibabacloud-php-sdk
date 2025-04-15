@@ -12,12 +12,13 @@ class groupDOList extends Model
      * @var int
      */
     public $groupId;
+
     /**
      * @var string
      */
     public $groupName;
     protected $_name = [
-        'groupId'   => 'GroupId',
+        'groupId' => 'GroupId',
         'groupName' => 'GroupName',
     ];
 

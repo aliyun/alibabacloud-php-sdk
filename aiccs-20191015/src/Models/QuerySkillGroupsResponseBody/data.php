@@ -12,27 +12,31 @@ class data extends Model
      * @var int
      */
     public $channelType;
+
     /**
      * @var string
      */
     public $description;
+
     /**
      * @var string
      */
     public $displayName;
+
     /**
      * @var int
      */
     public $skillGroupId;
+
     /**
      * @var string
      */
     public $skillGroupName;
     protected $_name = [
-        'channelType'    => 'ChannelType',
-        'description'    => 'Description',
-        'displayName'    => 'DisplayName',
-        'skillGroupId'   => 'SkillGroupId',
+        'channelType' => 'ChannelType',
+        'description' => 'Description',
+        'displayName' => 'DisplayName',
+        'skillGroupId' => 'SkillGroupId',
         'skillGroupName' => 'SkillGroupName',
     ];
 

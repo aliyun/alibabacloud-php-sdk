@@ -12,38 +12,44 @@ class GetAgentBasisStatusShrinkRequest extends Model
      * @var string
      */
     public $agentIdsShrink;
+
     /**
      * @var int
      */
     public $currentPage;
+
     /**
      * @var string
      */
     public $depIdsShrink;
+
     /**
      * @var int
      */
     public $endDate;
+
     /**
      * @var string
      */
     public $instanceId;
+
     /**
      * @var int
      */
     public $pageSize;
+
     /**
      * @var int
      */
     public $startDate;
     protected $_name = [
         'agentIdsShrink' => 'AgentIds',
-        'currentPage'    => 'CurrentPage',
-        'depIdsShrink'   => 'DepIds',
-        'endDate'        => 'EndDate',
-        'instanceId'     => 'InstanceId',
-        'pageSize'       => 'PageSize',
-        'startDate'      => 'StartDate',
+        'currentPage' => 'CurrentPage',
+        'depIdsShrink' => 'DepIds',
+        'endDate' => 'EndDate',
+        'instanceId' => 'InstanceId',
+        'pageSize' => 'PageSize',
+        'startDate' => 'StartDate',
     ];
 
     public function validate()

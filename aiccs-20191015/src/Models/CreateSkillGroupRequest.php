@@ -12,37 +12,43 @@ class CreateSkillGroupRequest extends Model
      * @var int
      */
     public $channelType;
+
     /**
      * @var string
      */
     public $clientToken;
+
     /**
      * @var int
      */
     public $departmentId;
+
     /**
      * @var string
      */
     public $description;
+
     /**
      * @var string
      */
     public $displayName;
+
     /**
      * @var string
      */
     public $instanceId;
+
     /**
      * @var string
      */
     public $skillGroupName;
     protected $_name = [
-        'channelType'    => 'ChannelType',
-        'clientToken'    => 'ClientToken',
-        'departmentId'   => 'DepartmentId',
-        'description'    => 'Description',
-        'displayName'    => 'DisplayName',
-        'instanceId'     => 'InstanceId',
+        'channelType' => 'ChannelType',
+        'clientToken' => 'ClientToken',
+        'departmentId' => 'DepartmentId',
+        'description' => 'Description',
+        'displayName' => 'DisplayName',
+        'instanceId' => 'InstanceId',
         'skillGroupName' => 'SkillGroupName',
     ];
 

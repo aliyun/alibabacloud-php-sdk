@@ -13,28 +13,32 @@ class data extends Model
      * @var columns[]
      */
     public $columns;
+
     /**
      * @var int
      */
     public $page;
+
     /**
      * @var int
      */
     public $pageSize;
+
     /**
      * @var mixed[][]
      */
     public $rows;
+
     /**
      * @var int
      */
     public $total;
     protected $_name = [
-        'columns'  => 'Columns',
-        'page'     => 'Page',
+        'columns' => 'Columns',
+        'page' => 'Page',
         'pageSize' => 'PageSize',
-        'rows'     => 'Rows',
-        'total'    => 'Total',
+        'rows' => 'Rows',
+        'total' => 'Total',
     ];
 
     public function validate()
@@ -54,7 +58,7 @@ class data extends Model
         if (null !== $this->columns) {
             if (\is_array($this->columns)) {
                 $res['Columns'] = [];
-                $n1             = 0;
+                $n1 = 0;
                 foreach ($this->columns as $item1) {
                     $res['Columns'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -72,7 +76,7 @@ class data extends Model
         if (null !== $this->rows) {
             if (\is_array($this->rows)) {
                 $res['Rows'] = [];
-                $n1          = 0;
+                $n1 = 0;
                 foreach ($this->rows as $item1) {
                     if (\is_array($item1)) {
                         $res['Rows'][$n1++] = [];
@@ -102,7 +106,7 @@ class data extends Model
         if (isset($map['Columns'])) {
             if (!empty($map['Columns'])) {
                 $model->columns = [];
-                $n1             = 0;
+                $n1 = 0;
                 foreach ($map['Columns'] as $item1) {
                     $model->columns[$n1++] = columns::fromMap($item1);
                 }
@@ -120,7 +124,7 @@ class data extends Model
         if (isset($map['Rows'])) {
             if (!empty($map['Rows'])) {
                 $model->rows = [];
-                $n1          = 0;
+                $n1 = 0;
                 foreach ($map['Rows'] as $item1) {
                     if (!empty($item1)) {
                         $model->rows[$n1++] = [];

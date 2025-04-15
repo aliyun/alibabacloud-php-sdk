@@ -12,33 +12,38 @@ class QueryHotlineNumberRequest extends Model
      * @var int
      */
     public $currentPage;
+
     /**
      * @var int
      */
     public $departmentId;
+
     /**
      * @var int[]
      */
     public $groupIds;
+
     /**
      * @var string
      */
     public $hotlineNumber;
+
     /**
      * @var string
      */
     public $instanceId;
+
     /**
      * @var int
      */
     public $pageSize;
     protected $_name = [
-        'currentPage'   => 'CurrentPage',
-        'departmentId'  => 'DepartmentId',
-        'groupIds'      => 'GroupIds',
+        'currentPage' => 'CurrentPage',
+        'departmentId' => 'DepartmentId',
+        'groupIds' => 'GroupIds',
         'hotlineNumber' => 'HotlineNumber',
-        'instanceId'    => 'InstanceId',
-        'pageSize'      => 'PageSize',
+        'instanceId' => 'InstanceId',
+        'pageSize' => 'PageSize',
     ];
 
     public function validate()
@@ -63,7 +68,7 @@ class QueryHotlineNumberRequest extends Model
         if (null !== $this->groupIds) {
             if (\is_array($this->groupIds)) {
                 $res['GroupIds'] = [];
-                $n1              = 0;
+                $n1 = 0;
                 foreach ($this->groupIds as $item1) {
                     $res['GroupIds'][$n1++] = $item1;
                 }
@@ -104,7 +109,7 @@ class QueryHotlineNumberRequest extends Model
         if (isset($map['GroupIds'])) {
             if (!empty($map['GroupIds'])) {
                 $model->groupIds = [];
-                $n1              = 0;
+                $n1 = 0;
                 foreach ($map['GroupIds'] as $item1) {
                     $model->groupIds[$n1++] = $item1;
                 }

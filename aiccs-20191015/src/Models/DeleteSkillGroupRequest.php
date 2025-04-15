@@ -12,12 +12,13 @@ class DeleteSkillGroupRequest extends Model
      * @var string
      */
     public $outerGroupId;
+
     /**
      * @var string
      */
     public $outerGroupType;
     protected $_name = [
-        'outerGroupId'   => 'OuterGroupId',
+        'outerGroupId' => 'OuterGroupId',
         'outerGroupType' => 'OuterGroupType',
     ];
 

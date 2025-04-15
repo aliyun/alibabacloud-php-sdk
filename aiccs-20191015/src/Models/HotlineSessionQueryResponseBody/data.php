@@ -13,23 +13,26 @@ class data extends Model
      * @var callDetailRecord[]
      */
     public $callDetailRecord;
+
     /**
      * @var int
      */
     public $pageNumber;
+
     /**
      * @var int
      */
     public $pageSize;
+
     /**
      * @var int
      */
     public $totalCount;
     protected $_name = [
         'callDetailRecord' => 'CallDetailRecord',
-        'pageNumber'       => 'PageNumber',
-        'pageSize'         => 'PageSize',
-        'totalCount'       => 'TotalCount',
+        'pageNumber' => 'PageNumber',
+        'pageSize' => 'PageSize',
+        'totalCount' => 'TotalCount',
     ];
 
     public function validate()
@@ -46,7 +49,7 @@ class data extends Model
         if (null !== $this->callDetailRecord) {
             if (\is_array($this->callDetailRecord)) {
                 $res['CallDetailRecord'] = [];
-                $n1                      = 0;
+                $n1 = 0;
                 foreach ($this->callDetailRecord as $item1) {
                     $res['CallDetailRecord'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -79,7 +82,7 @@ class data extends Model
         if (isset($map['CallDetailRecord'])) {
             if (!empty($map['CallDetailRecord'])) {
                 $model->callDetailRecord = [];
-                $n1                      = 0;
+                $n1 = 0;
                 foreach ($map['CallDetailRecord'] as $item1) {
                     $model->callDetailRecord[$n1++] = callDetailRecord::fromMap($item1);
                 }

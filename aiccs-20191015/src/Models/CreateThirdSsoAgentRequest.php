@@ -12,42 +12,49 @@ class CreateThirdSsoAgentRequest extends Model
      * @var string
      */
     public $accountId;
+
     /**
      * @var string
      */
     public $accountName;
+
     /**
      * @var string
      */
     public $clientId;
+
     /**
      * @var string
      */
     public $clientToken;
+
     /**
      * @var string
      */
     public $displayName;
+
     /**
      * @var string
      */
     public $instanceId;
+
     /**
      * @var int[]
      */
     public $roleIds;
+
     /**
      * @var int[]
      */
     public $skillGroupIds;
     protected $_name = [
-        'accountId'     => 'AccountId',
-        'accountName'   => 'AccountName',
-        'clientId'      => 'ClientId',
-        'clientToken'   => 'ClientToken',
-        'displayName'   => 'DisplayName',
-        'instanceId'    => 'InstanceId',
-        'roleIds'       => 'RoleIds',
+        'accountId' => 'AccountId',
+        'accountName' => 'AccountName',
+        'clientId' => 'ClientId',
+        'clientToken' => 'ClientToken',
+        'displayName' => 'DisplayName',
+        'instanceId' => 'InstanceId',
+        'roleIds' => 'RoleIds',
         'skillGroupIds' => 'SkillGroupIds',
     ];
 
@@ -92,7 +99,7 @@ class CreateThirdSsoAgentRequest extends Model
         if (null !== $this->roleIds) {
             if (\is_array($this->roleIds)) {
                 $res['RoleIds'] = [];
-                $n1             = 0;
+                $n1 = 0;
                 foreach ($this->roleIds as $item1) {
                     $res['RoleIds'][$n1++] = $item1;
                 }
@@ -102,7 +109,7 @@ class CreateThirdSsoAgentRequest extends Model
         if (null !== $this->skillGroupIds) {
             if (\is_array($this->skillGroupIds)) {
                 $res['SkillGroupIds'] = [];
-                $n1                   = 0;
+                $n1 = 0;
                 foreach ($this->skillGroupIds as $item1) {
                     $res['SkillGroupIds'][$n1++] = $item1;
                 }
@@ -147,7 +154,7 @@ class CreateThirdSsoAgentRequest extends Model
         if (isset($map['RoleIds'])) {
             if (!empty($map['RoleIds'])) {
                 $model->roleIds = [];
-                $n1             = 0;
+                $n1 = 0;
                 foreach ($map['RoleIds'] as $item1) {
                     $model->roleIds[$n1++] = $item1;
                 }
@@ -157,7 +164,7 @@ class CreateThirdSsoAgentRequest extends Model
         if (isset($map['SkillGroupIds'])) {
             if (!empty($map['SkillGroupIds'])) {
                 $model->skillGroupIds = [];
-                $n1                   = 0;
+                $n1 = 0;
                 foreach ($map['SkillGroupIds'] as $item1) {
                     $model->skillGroupIds[$n1++] = $item1;
                 }

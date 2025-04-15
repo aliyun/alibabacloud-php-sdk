@@ -12,12 +12,13 @@ class GetQualityRuleDetailRequest extends Model
      * @var string
      */
     public $instanceId;
+
     /**
      * @var int
      */
     public $qualityRuleId;
     protected $_name = [
-        'instanceId'    => 'InstanceId',
+        'instanceId' => 'InstanceId',
         'qualityRuleId' => 'QualityRuleId',
     ];
 

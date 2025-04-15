@@ -12,17 +12,19 @@ class failInfo extends Model
      * @var string
      */
     public $bizData;
+
     /**
      * @var string
      */
     public $msg;
+
     /**
      * @var string
      */
     public $phoneNum;
     protected $_name = [
-        'bizData'  => 'BizData',
-        'msg'      => 'Msg',
+        'bizData' => 'BizData',
+        'msg' => 'Msg',
         'phoneNum' => 'PhoneNum',
     ];
 

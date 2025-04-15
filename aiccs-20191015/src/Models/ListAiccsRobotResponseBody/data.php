@@ -12,28 +12,32 @@ class data extends Model
      * @var string
      */
     public $atProfession;
+
     /**
      * @var string
      */
     public $atSence;
+
     /**
      * @var int
      */
     public $id;
+
     /**
      * @var string
      */
     public $robotName;
+
     /**
      * @var string
      */
     public $robotType;
     protected $_name = [
         'atProfession' => 'AtProfession',
-        'atSence'      => 'AtSence',
-        'id'           => 'Id',
-        'robotName'    => 'RobotName',
-        'robotType'    => 'RobotType',
+        'atSence' => 'AtSence',
+        'id' => 'Id',
+        'robotName' => 'RobotName',
+        'robotType' => 'RobotType',
     ];
 
     public function validate()

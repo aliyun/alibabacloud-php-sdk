@@ -12,83 +12,98 @@ class CreateTaskRequest extends Model
      * @var string
      */
     public $callString;
+
     /**
      * @var string
      */
     public $callStringType;
+
     /**
      * @var string
      */
     public $caller;
+
     /**
      * @var int
      */
     public $ownerId;
+
     /**
      * @var string
      */
     public $resourceOwnerAccount;
+
     /**
      * @var int
      */
     public $resourceOwnerId;
+
     /**
      * @var int
      */
     public $retryCount;
+
     /**
      * @var int
      */
     public $retryFlag;
+
     /**
      * @var int
      */
     public $retryInterval;
+
     /**
      * @var string
      */
     public $retryStatusCode;
+
     /**
      * @var string
      */
     public $robotId;
+
     /**
      * @var string
      */
     public $seatCount;
+
     /**
      * @var bool
      */
     public $startNow;
+
     /**
      * @var string
      */
     public $taskName;
+
     /**
      * @var string
      */
     public $workDay;
+
     /**
      * @var string
      */
     public $workTimeList;
     protected $_name = [
-        'callString'           => 'CallString',
-        'callStringType'       => 'CallStringType',
-        'caller'               => 'Caller',
-        'ownerId'              => 'OwnerId',
+        'callString' => 'CallString',
+        'callStringType' => 'CallStringType',
+        'caller' => 'Caller',
+        'ownerId' => 'OwnerId',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
-        'resourceOwnerId'      => 'ResourceOwnerId',
-        'retryCount'           => 'RetryCount',
-        'retryFlag'            => 'RetryFlag',
-        'retryInterval'        => 'RetryInterval',
-        'retryStatusCode'      => 'RetryStatusCode',
-        'robotId'              => 'RobotId',
-        'seatCount'            => 'SeatCount',
-        'startNow'             => 'StartNow',
-        'taskName'             => 'TaskName',
-        'workDay'              => 'WorkDay',
-        'workTimeList'         => 'WorkTimeList',
+        'resourceOwnerId' => 'ResourceOwnerId',
+        'retryCount' => 'RetryCount',
+        'retryFlag' => 'RetryFlag',
+        'retryInterval' => 'RetryInterval',
+        'retryStatusCode' => 'RetryStatusCode',
+        'robotId' => 'RobotId',
+        'seatCount' => 'SeatCount',
+        'startNow' => 'StartNow',
+        'taskName' => 'TaskName',
+        'workDay' => 'WorkDay',
+        'workTimeList' => 'WorkTimeList',
     ];
 
     public function validate()

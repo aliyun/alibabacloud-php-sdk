@@ -12,43 +12,50 @@ class GetAiOutboundTaskListRequest extends Model
      * @var int
      */
     public $createTimeEnd;
+
     /**
      * @var int
      */
     public $createTimeStart;
+
     /**
      * @var int
      */
     public $currentPage;
+
     /**
      * @var string
      */
     public $instanceId;
+
     /**
      * @var int
      */
     public $pageSize;
+
     /**
      * @var string
      */
     public $searchKey;
+
     /**
      * @var int
      */
     public $status;
+
     /**
      * @var int
      */
     public $type;
     protected $_name = [
-        'createTimeEnd'   => 'CreateTimeEnd',
+        'createTimeEnd' => 'CreateTimeEnd',
         'createTimeStart' => 'CreateTimeStart',
-        'currentPage'     => 'CurrentPage',
-        'instanceId'      => 'InstanceId',
-        'pageSize'        => 'PageSize',
-        'searchKey'       => 'SearchKey',
-        'status'          => 'Status',
-        'type'            => 'Type',
+        'currentPage' => 'CurrentPage',
+        'instanceId' => 'InstanceId',
+        'pageSize' => 'PageSize',
+        'searchKey' => 'SearchKey',
+        'status' => 'Status',
+        'type' => 'Type',
     ];
 
     public function validate()

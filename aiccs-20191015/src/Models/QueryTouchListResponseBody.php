@@ -13,28 +13,32 @@ class QueryTouchListResponseBody extends Model
      * @var string
      */
     public $code;
+
     /**
      * @var string
      */
     public $message;
+
     /**
      * @var string
      */
     public $requestId;
+
     /**
      * @var resultData
      */
     public $resultData;
+
     /**
      * @var bool
      */
     public $success;
     protected $_name = [
-        'code'       => 'Code',
-        'message'    => 'Message',
-        'requestId'  => 'RequestId',
+        'code' => 'Code',
+        'message' => 'Message',
+        'requestId' => 'RequestId',
         'resultData' => 'ResultData',
-        'success'    => 'Success',
+        'success' => 'Success',
     ];
 
     public function validate()

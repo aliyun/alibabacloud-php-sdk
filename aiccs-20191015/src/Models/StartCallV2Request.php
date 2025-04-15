@@ -12,33 +12,38 @@ class StartCallV2Request extends Model
      * @var string
      */
     public $accountName;
+
     /**
      * @var string
      */
     public $callee;
+
     /**
      * @var string
      */
     public $caller;
+
     /**
      * @var int
      */
     public $callerType;
+
     /**
      * @var string
      */
     public $clientToken;
+
     /**
      * @var string
      */
     public $instanceId;
     protected $_name = [
         'accountName' => 'AccountName',
-        'callee'      => 'Callee',
-        'caller'      => 'Caller',
-        'callerType'  => 'CallerType',
+        'callee' => 'Callee',
+        'caller' => 'Caller',
+        'callerType' => 'CallerType',
         'clientToken' => 'ClientToken',
-        'instanceId'  => 'InstanceId',
+        'instanceId' => 'InstanceId',
     ];
 
     public function validate()

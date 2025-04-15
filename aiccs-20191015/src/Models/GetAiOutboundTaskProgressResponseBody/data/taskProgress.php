@@ -12,68 +12,80 @@ class taskProgress extends Model
      * @var int
      */
     public $callingCount;
+
     /**
      * @var int
      */
     public $connectCount;
+
     /**
      * @var float
      */
     public $connectRate;
+
     /**
      * @var int
      */
     public $finishCount;
+
     /**
      * @var float
      */
     public $finishRate;
+
     /**
      * @var int
      */
     public $servicerPickupCount;
+
     /**
      * @var float
      */
     public $servicerPickupRate;
+
     /**
      * @var int
      */
     public $terminateCount;
+
     /**
      * @var int
      */
     public $totalCount;
+
     /**
      * @var int
      */
     public $userPickupCount;
+
     /**
      * @var float
      */
     public $userPickupRate;
+
     /**
      * @var int
      */
     public $waitingCallCount;
+
     /**
      * @var int
      */
     public $waitingRecallCount;
     protected $_name = [
-        'callingCount'        => 'CallingCount',
-        'connectCount'        => 'ConnectCount',
-        'connectRate'         => 'ConnectRate',
-        'finishCount'         => 'FinishCount',
-        'finishRate'          => 'FinishRate',
+        'callingCount' => 'CallingCount',
+        'connectCount' => 'ConnectCount',
+        'connectRate' => 'ConnectRate',
+        'finishCount' => 'FinishCount',
+        'finishRate' => 'FinishRate',
         'servicerPickupCount' => 'ServicerPickupCount',
-        'servicerPickupRate'  => 'ServicerPickupRate',
-        'terminateCount'      => 'TerminateCount',
-        'totalCount'          => 'TotalCount',
-        'userPickupCount'     => 'UserPickupCount',
-        'userPickupRate'      => 'UserPickupRate',
-        'waitingCallCount'    => 'WaitingCallCount',
-        'waitingRecallCount'  => 'WaitingRecallCount',
+        'servicerPickupRate' => 'ServicerPickupRate',
+        'terminateCount' => 'TerminateCount',
+        'totalCount' => 'TotalCount',
+        'userPickupCount' => 'UserPickupCount',
+        'userPickupRate' => 'UserPickupRate',
+        'waitingCallCount' => 'WaitingCallCount',
+        'waitingRecallCount' => 'WaitingRecallCount',
     ];
 
     public function validate()

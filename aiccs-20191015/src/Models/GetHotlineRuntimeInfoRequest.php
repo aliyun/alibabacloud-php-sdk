@@ -12,13 +12,14 @@ class GetHotlineRuntimeInfoRequest extends Model
      * @var string
      */
     public $accountName;
+
     /**
      * @var string
      */
     public $instanceId;
     protected $_name = [
         'accountName' => 'AccountName',
-        'instanceId'  => 'InstanceId',
+        'instanceId' => 'InstanceId',
     ];
 
     public function validate()

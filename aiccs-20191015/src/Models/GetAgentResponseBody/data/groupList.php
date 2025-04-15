@@ -12,27 +12,31 @@ class groupList extends Model
      * @var int
      */
     public $channelType;
+
     /**
      * @var string
      */
     public $description;
+
     /**
      * @var string
      */
     public $displayName;
+
     /**
      * @var string
      */
     public $name;
+
     /**
      * @var int
      */
     public $skillGroupId;
     protected $_name = [
-        'channelType'  => 'ChannelType',
-        'description'  => 'Description',
-        'displayName'  => 'DisplayName',
-        'name'         => 'Name',
+        'channelType' => 'ChannelType',
+        'description' => 'Description',
+        'displayName' => 'DisplayName',
+        'name' => 'Name',
         'skillGroupId' => 'SkillGroupId',
     ];
 

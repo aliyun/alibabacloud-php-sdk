@@ -12,28 +12,32 @@ class data extends Model
      * @var int
      */
     public $isOutput;
+
     /**
      * @var string
      */
     public $modelName;
+
     /**
      * @var string
      */
     public $nodeIdentifier;
+
     /**
      * @var string
      */
     public $nodeName;
+
     /**
      * @var string
      */
     public $processName;
     protected $_name = [
-        'isOutput'       => 'IsOutput',
-        'modelName'      => 'ModelName',
+        'isOutput' => 'IsOutput',
+        'modelName' => 'ModelName',
         'nodeIdentifier' => 'NodeIdentifier',
-        'nodeName'       => 'NodeName',
-        'processName'    => 'ProcessName',
+        'nodeName' => 'NodeName',
+        'processName' => 'ProcessName',
     ];
 
     public function validate()

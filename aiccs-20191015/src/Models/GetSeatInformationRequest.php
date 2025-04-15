@@ -12,38 +12,44 @@ class GetSeatInformationRequest extends Model
      * @var string
      */
     public $instanceId;
+
     /**
      * @var int
      */
     public $currentPage;
+
     /**
      * @var int[]
      */
     public $depIds;
+
     /**
      * @var int
      */
     public $endDate;
+
     /**
      * @var bool
      */
     public $existDepartmentGrouping;
+
     /**
      * @var int
      */
     public $pageSize;
+
     /**
      * @var int
      */
     public $startDate;
     protected $_name = [
-        'instanceId'              => 'InstanceId',
-        'currentPage'             => 'currentPage',
-        'depIds'                  => 'depIds',
-        'endDate'                 => 'endDate',
+        'instanceId' => 'InstanceId',
+        'currentPage' => 'currentPage',
+        'depIds' => 'depIds',
+        'endDate' => 'endDate',
         'existDepartmentGrouping' => 'existDepartmentGrouping',
-        'pageSize'                => 'pageSize',
-        'startDate'               => 'startDate',
+        'pageSize' => 'pageSize',
+        'startDate' => 'startDate',
     ];
 
     public function validate()
@@ -68,7 +74,7 @@ class GetSeatInformationRequest extends Model
         if (null !== $this->depIds) {
             if (\is_array($this->depIds)) {
                 $res['depIds'] = [];
-                $n1            = 0;
+                $n1 = 0;
                 foreach ($this->depIds as $item1) {
                     $res['depIds'][$n1++] = $item1;
                 }
@@ -113,7 +119,7 @@ class GetSeatInformationRequest extends Model
         if (isset($map['depIds'])) {
             if (!empty($map['depIds'])) {
                 $model->depIds = [];
-                $n1            = 0;
+                $n1 = 0;
                 foreach ($map['depIds'] as $item1) {
                     $model->depIds[$n1++] = $item1;
                 }

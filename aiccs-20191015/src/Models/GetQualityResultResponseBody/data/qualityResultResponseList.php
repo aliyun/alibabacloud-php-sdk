@@ -12,83 +12,98 @@ class qualityResultResponseList extends Model
      * @var string
      */
     public $channelType;
+
     /**
      * @var string
      */
     public $channelTypeName;
+
     /**
      * @var string
      */
     public $groupId;
+
     /**
      * @var string
      */
     public $groupName;
+
     /**
      * @var string
      */
     public $hitDetail;
+
     /**
      * @var bool
      */
     public $hitStatus;
+
     /**
      * @var string
      */
     public $instanceName;
+
     /**
      * @var string
      */
     public $memberName;
+
     /**
      * @var string
      */
     public $projectId;
+
     /**
      * @var string
      */
     public $projectName;
+
     /**
      * @var string
      */
     public $ruleId;
+
     /**
      * @var string
      */
     public $ruleName;
+
     /**
      * @var string
      */
     public $servicerId;
+
     /**
      * @var string
      */
     public $servicerName;
+
     /**
      * @var string
      */
     public $touchId;
+
     /**
      * @var string
      */
     public $touchStartTime;
     protected $_name = [
-        'channelType'     => 'ChannelType',
+        'channelType' => 'ChannelType',
         'channelTypeName' => 'ChannelTypeName',
-        'groupId'         => 'GroupId',
-        'groupName'       => 'GroupName',
-        'hitDetail'       => 'HitDetail',
-        'hitStatus'       => 'HitStatus',
-        'instanceName'    => 'InstanceName',
-        'memberName'      => 'MemberName',
-        'projectId'       => 'ProjectId',
-        'projectName'     => 'ProjectName',
-        'ruleId'          => 'RuleId',
-        'ruleName'        => 'RuleName',
-        'servicerId'      => 'ServicerId',
-        'servicerName'    => 'ServicerName',
-        'touchId'         => 'TouchId',
-        'touchStartTime'  => 'TouchStartTime',
+        'groupId' => 'GroupId',
+        'groupName' => 'GroupName',
+        'hitDetail' => 'HitDetail',
+        'hitStatus' => 'HitStatus',
+        'instanceName' => 'InstanceName',
+        'memberName' => 'MemberName',
+        'projectId' => 'ProjectId',
+        'projectName' => 'ProjectName',
+        'ruleId' => 'RuleId',
+        'ruleName' => 'RuleName',
+        'servicerId' => 'ServicerId',
+        'servicerName' => 'ServicerName',
+        'touchId' => 'TouchId',
+        'touchStartTime' => 'TouchStartTime',
     ];
 
     public function validate()

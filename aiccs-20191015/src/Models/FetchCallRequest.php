@@ -12,38 +12,44 @@ class FetchCallRequest extends Model
      * @var string
      */
     public $accountName;
+
     /**
      * @var string
      */
     public $callId;
+
     /**
      * @var string
      */
     public $clientToken;
+
     /**
      * @var string
      */
     public $connectionId;
+
     /**
      * @var string
      */
     public $holdConnectionId;
+
     /**
      * @var string
      */
     public $instanceId;
+
     /**
      * @var string
      */
     public $jobId;
     protected $_name = [
-        'accountName'      => 'AccountName',
-        'callId'           => 'CallId',
-        'clientToken'      => 'ClientToken',
-        'connectionId'     => 'ConnectionId',
+        'accountName' => 'AccountName',
+        'callId' => 'CallId',
+        'clientToken' => 'ClientToken',
+        'connectionId' => 'ConnectionId',
         'holdConnectionId' => 'HoldConnectionId',
-        'instanceId'       => 'InstanceId',
-        'jobId'            => 'JobId',
+        'instanceId' => 'InstanceId',
+        'jobId' => 'JobId',
     ];
 
     public function validate()

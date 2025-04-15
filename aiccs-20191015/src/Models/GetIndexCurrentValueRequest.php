@@ -12,17 +12,19 @@ class GetIndexCurrentValueRequest extends Model
      * @var string
      */
     public $depIds;
+
     /**
      * @var string
      */
     public $groupIds;
+
     /**
      * @var string
      */
     public $instanceId;
     protected $_name = [
-        'depIds'     => 'DepIds',
-        'groupIds'   => 'GroupIds',
+        'depIds' => 'DepIds',
+        'groupIds' => 'GroupIds',
         'instanceId' => 'InstanceId',
     ];
 

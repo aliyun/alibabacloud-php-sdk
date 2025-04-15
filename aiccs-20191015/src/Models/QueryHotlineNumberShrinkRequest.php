@@ -12,33 +12,38 @@ class QueryHotlineNumberShrinkRequest extends Model
      * @var int
      */
     public $currentPage;
+
     /**
      * @var int
      */
     public $departmentId;
+
     /**
      * @var string
      */
     public $groupIdsShrink;
+
     /**
      * @var string
      */
     public $hotlineNumber;
+
     /**
      * @var string
      */
     public $instanceId;
+
     /**
      * @var int
      */
     public $pageSize;
     protected $_name = [
-        'currentPage'    => 'CurrentPage',
-        'departmentId'   => 'DepartmentId',
+        'currentPage' => 'CurrentPage',
+        'departmentId' => 'DepartmentId',
         'groupIdsShrink' => 'GroupIds',
-        'hotlineNumber'  => 'HotlineNumber',
-        'instanceId'     => 'InstanceId',
-        'pageSize'       => 'PageSize',
+        'hotlineNumber' => 'HotlineNumber',
+        'instanceId' => 'InstanceId',
+        'pageSize' => 'PageSize',
     ];
 
     public function validate()

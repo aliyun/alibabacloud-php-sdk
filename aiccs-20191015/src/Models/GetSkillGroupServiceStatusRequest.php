@@ -12,73 +12,86 @@ class GetSkillGroupServiceStatusRequest extends Model
      * @var int[]
      */
     public $agentIds;
+
     /**
      * @var int
      */
     public $currentPage;
+
     /**
      * @var int[]
      */
     public $depIds;
+
     /**
      * @var int
      */
     public $endDate;
+
     /**
      * @var bool
      */
     public $existAgentGrouping;
+
     /**
      * @var bool
      */
     public $existChannelInstanceGrouping;
+
     /**
      * @var bool
      */
     public $existDepartmentGrouping;
+
     /**
      * @var bool
      */
     public $existRobotInstanceGrouping;
+
     /**
      * @var bool
      */
     public $existSkillGroupGrouping;
+
     /**
      * @var int[]
      */
     public $groupIds;
+
     /**
      * @var string
      */
     public $instanceId;
+
     /**
      * @var int
      */
     public $pageSize;
+
     /**
      * @var int
      */
     public $startDate;
+
     /**
      * @var string
      */
     public $timeLatitudeType;
     protected $_name = [
-        'agentIds'                     => 'AgentIds',
-        'currentPage'                  => 'CurrentPage',
-        'depIds'                       => 'DepIds',
-        'endDate'                      => 'EndDate',
-        'existAgentGrouping'           => 'ExistAgentGrouping',
+        'agentIds' => 'AgentIds',
+        'currentPage' => 'CurrentPage',
+        'depIds' => 'DepIds',
+        'endDate' => 'EndDate',
+        'existAgentGrouping' => 'ExistAgentGrouping',
         'existChannelInstanceGrouping' => 'ExistChannelInstanceGrouping',
-        'existDepartmentGrouping'      => 'ExistDepartmentGrouping',
-        'existRobotInstanceGrouping'   => 'ExistRobotInstanceGrouping',
-        'existSkillGroupGrouping'      => 'ExistSkillGroupGrouping',
-        'groupIds'                     => 'GroupIds',
-        'instanceId'                   => 'InstanceId',
-        'pageSize'                     => 'PageSize',
-        'startDate'                    => 'StartDate',
-        'timeLatitudeType'             => 'TimeLatitudeType',
+        'existDepartmentGrouping' => 'ExistDepartmentGrouping',
+        'existRobotInstanceGrouping' => 'ExistRobotInstanceGrouping',
+        'existSkillGroupGrouping' => 'ExistSkillGroupGrouping',
+        'groupIds' => 'GroupIds',
+        'instanceId' => 'InstanceId',
+        'pageSize' => 'PageSize',
+        'startDate' => 'StartDate',
+        'timeLatitudeType' => 'TimeLatitudeType',
     ];
 
     public function validate()
@@ -101,7 +114,7 @@ class GetSkillGroupServiceStatusRequest extends Model
         if (null !== $this->agentIds) {
             if (\is_array($this->agentIds)) {
                 $res['AgentIds'] = [];
-                $n1              = 0;
+                $n1 = 0;
                 foreach ($this->agentIds as $item1) {
                     $res['AgentIds'][$n1++] = $item1;
                 }
@@ -115,7 +128,7 @@ class GetSkillGroupServiceStatusRequest extends Model
         if (null !== $this->depIds) {
             if (\is_array($this->depIds)) {
                 $res['DepIds'] = [];
-                $n1            = 0;
+                $n1 = 0;
                 foreach ($this->depIds as $item1) {
                     $res['DepIds'][$n1++] = $item1;
                 }
@@ -149,7 +162,7 @@ class GetSkillGroupServiceStatusRequest extends Model
         if (null !== $this->groupIds) {
             if (\is_array($this->groupIds)) {
                 $res['GroupIds'] = [];
-                $n1              = 0;
+                $n1 = 0;
                 foreach ($this->groupIds as $item1) {
                     $res['GroupIds'][$n1++] = $item1;
                 }
@@ -186,7 +199,7 @@ class GetSkillGroupServiceStatusRequest extends Model
         if (isset($map['AgentIds'])) {
             if (!empty($map['AgentIds'])) {
                 $model->agentIds = [];
-                $n1              = 0;
+                $n1 = 0;
                 foreach ($map['AgentIds'] as $item1) {
                     $model->agentIds[$n1++] = $item1;
                 }
@@ -200,7 +213,7 @@ class GetSkillGroupServiceStatusRequest extends Model
         if (isset($map['DepIds'])) {
             if (!empty($map['DepIds'])) {
                 $model->depIds = [];
-                $n1            = 0;
+                $n1 = 0;
                 foreach ($map['DepIds'] as $item1) {
                     $model->depIds[$n1++] = $item1;
                 }
@@ -234,7 +247,7 @@ class GetSkillGroupServiceStatusRequest extends Model
         if (isset($map['GroupIds'])) {
             if (!empty($map['GroupIds'])) {
                 $model->groupIds = [];
-                $n1              = 0;
+                $n1 = 0;
                 foreach ($map['GroupIds'] as $item1) {
                     $model->groupIds[$n1++] = $item1;
                 }

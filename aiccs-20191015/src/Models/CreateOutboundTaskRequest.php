@@ -12,88 +12,104 @@ class CreateOutboundTaskRequest extends Model
      * @var string
      */
     public $ani;
+
     /**
      * @var string
      */
     public $callInfos;
+
     /**
      * @var int
      */
     public $departmentId;
+
     /**
      * @var string
      */
     public $description;
+
     /**
      * @var string
      */
     public $endDate;
+
     /**
      * @var string
      */
     public $endTime;
+
     /**
      * @var string
      */
     public $extAttrs;
+
     /**
      * @var string
      */
     public $groupName;
+
     /**
      * @var string
      */
     public $instanceId;
+
     /**
      * @var int
      */
     public $model;
+
     /**
      * @var int
      */
     public $retryInterval;
+
     /**
      * @var int
      */
     public $retryTime;
+
     /**
      * @var int
      */
     public $skillGroup;
+
     /**
      * @var string
      */
     public $startDate;
+
     /**
      * @var string
      */
     public $startTime;
+
     /**
      * @var string
      */
     public $taskName;
+
     /**
      * @var int
      */
     public $taskType;
     protected $_name = [
-        'ani'           => 'Ani',
-        'callInfos'     => 'CallInfos',
-        'departmentId'  => 'DepartmentId',
-        'description'   => 'Description',
-        'endDate'       => 'EndDate',
-        'endTime'       => 'EndTime',
-        'extAttrs'      => 'ExtAttrs',
-        'groupName'     => 'GroupName',
-        'instanceId'    => 'InstanceId',
-        'model'         => 'Model',
+        'ani' => 'Ani',
+        'callInfos' => 'CallInfos',
+        'departmentId' => 'DepartmentId',
+        'description' => 'Description',
+        'endDate' => 'EndDate',
+        'endTime' => 'EndTime',
+        'extAttrs' => 'ExtAttrs',
+        'groupName' => 'GroupName',
+        'instanceId' => 'InstanceId',
+        'model' => 'Model',
         'retryInterval' => 'RetryInterval',
-        'retryTime'     => 'RetryTime',
-        'skillGroup'    => 'SkillGroup',
-        'startDate'     => 'StartDate',
-        'startTime'     => 'StartTime',
-        'taskName'      => 'TaskName',
-        'taskType'      => 'TaskType',
+        'retryTime' => 'RetryTime',
+        'skillGroup' => 'SkillGroup',
+        'startDate' => 'StartDate',
+        'startTime' => 'StartTime',
+        'taskName' => 'TaskName',
+        'taskType' => 'TaskType',
     ];
 
     public function validate()

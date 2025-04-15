@@ -12,18 +12,20 @@ class UpdateDepartmentRequest extends Model
      * @var int
      */
     public $departmentId;
+
     /**
      * @var string
      */
     public $departmentName;
+
     /**
      * @var string
      */
     public $instanceId;
     protected $_name = [
-        'departmentId'   => 'DepartmentId',
+        'departmentId' => 'DepartmentId',
         'departmentName' => 'DepartmentName',
-        'instanceId'     => 'InstanceId',
+        'instanceId' => 'InstanceId',
     ];
 
     public function validate()

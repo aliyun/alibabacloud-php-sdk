@@ -12,28 +12,32 @@ class GetCallSoundRecordRequest extends Model
      * @var string
      */
     public $callId;
+
     /**
      * @var string
      */
     public $createTime;
+
     /**
      * @var int
      */
     public $ownerId;
+
     /**
      * @var string
      */
     public $resourceOwnerAccount;
+
     /**
      * @var int
      */
     public $resourceOwnerId;
     protected $_name = [
-        'callId'               => 'CallId',
-        'createTime'           => 'CreateTime',
-        'ownerId'              => 'OwnerId',
+        'callId' => 'CallId',
+        'createTime' => 'CreateTime',
+        'ownerId' => 'OwnerId',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
-        'resourceOwnerId'      => 'ResourceOwnerId',
+        'resourceOwnerId' => 'ResourceOwnerId',
     ];
 
     public function validate()

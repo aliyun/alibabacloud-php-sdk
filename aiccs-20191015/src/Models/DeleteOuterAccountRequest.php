@@ -12,12 +12,13 @@ class DeleteOuterAccountRequest extends Model
      * @var string
      */
     public $outerAccountId;
+
     /**
      * @var string
      */
     public $outerAccountType;
     protected $_name = [
-        'outerAccountId'   => 'OuterAccountId',
+        'outerAccountId' => 'OuterAccountId',
         'outerAccountType' => 'OuterAccountType',
     ];
 

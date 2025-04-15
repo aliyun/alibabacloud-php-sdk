@@ -12,13 +12,14 @@ class EncryptPhoneNumRequest extends Model
      * @var string
      */
     public $instanceId;
+
     /**
      * @var string
      */
     public $phoneNum;
     protected $_name = [
         'instanceId' => 'InstanceId',
-        'phoneNum'   => 'PhoneNum',
+        'phoneNum' => 'PhoneNum',
     ];
 
     public function validate()

@@ -12,38 +12,44 @@ class GetDepartmentalLatitudeAgentStatusRequest extends Model
      * @var int
      */
     public $currentPage;
+
     /**
      * @var int[]
      */
     public $depIds;
+
     /**
      * @var int
      */
     public $endDate;
+
     /**
      * @var bool
      */
     public $existDepartmentGrouping;
+
     /**
      * @var string
      */
     public $instanceId;
+
     /**
      * @var int
      */
     public $pageSize;
+
     /**
      * @var int
      */
     public $startDate;
     protected $_name = [
-        'currentPage'             => 'CurrentPage',
-        'depIds'                  => 'DepIds',
-        'endDate'                 => 'EndDate',
+        'currentPage' => 'CurrentPage',
+        'depIds' => 'DepIds',
+        'endDate' => 'EndDate',
         'existDepartmentGrouping' => 'ExistDepartmentGrouping',
-        'instanceId'              => 'InstanceId',
-        'pageSize'                => 'PageSize',
-        'startDate'               => 'StartDate',
+        'instanceId' => 'InstanceId',
+        'pageSize' => 'PageSize',
+        'startDate' => 'StartDate',
     ];
 
     public function validate()
@@ -64,7 +70,7 @@ class GetDepartmentalLatitudeAgentStatusRequest extends Model
         if (null !== $this->depIds) {
             if (\is_array($this->depIds)) {
                 $res['DepIds'] = [];
-                $n1            = 0;
+                $n1 = 0;
                 foreach ($this->depIds as $item1) {
                     $res['DepIds'][$n1++] = $item1;
                 }
@@ -109,7 +115,7 @@ class GetDepartmentalLatitudeAgentStatusRequest extends Model
         if (isset($map['DepIds'])) {
             if (!empty($map['DepIds'])) {
                 $model->depIds = [];
-                $n1            = 0;
+                $n1 = 0;
                 foreach ($map['DepIds'] as $item1) {
                     $model->depIds[$n1++] = $item1;
                 }

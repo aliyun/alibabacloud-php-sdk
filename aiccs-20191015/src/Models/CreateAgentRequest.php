@@ -12,32 +12,37 @@ class CreateAgentRequest extends Model
      * @var string
      */
     public $accountName;
+
     /**
      * @var string
      */
     public $clientToken;
+
     /**
      * @var string
      */
     public $displayName;
+
     /**
      * @var string
      */
     public $instanceId;
+
     /**
      * @var int[]
      */
     public $skillGroupId;
+
     /**
      * @var int[]
      */
     public $skillGroupIdList;
     protected $_name = [
-        'accountName'      => 'AccountName',
-        'clientToken'      => 'ClientToken',
-        'displayName'      => 'DisplayName',
-        'instanceId'       => 'InstanceId',
-        'skillGroupId'     => 'SkillGroupId',
+        'accountName' => 'AccountName',
+        'clientToken' => 'ClientToken',
+        'displayName' => 'DisplayName',
+        'instanceId' => 'InstanceId',
+        'skillGroupId' => 'SkillGroupId',
         'skillGroupIdList' => 'SkillGroupIdList',
     ];
 
@@ -74,7 +79,7 @@ class CreateAgentRequest extends Model
         if (null !== $this->skillGroupId) {
             if (\is_array($this->skillGroupId)) {
                 $res['SkillGroupId'] = [];
-                $n1                  = 0;
+                $n1 = 0;
                 foreach ($this->skillGroupId as $item1) {
                     $res['SkillGroupId'][$n1++] = $item1;
                 }
@@ -84,7 +89,7 @@ class CreateAgentRequest extends Model
         if (null !== $this->skillGroupIdList) {
             if (\is_array($this->skillGroupIdList)) {
                 $res['SkillGroupIdList'] = [];
-                $n1                      = 0;
+                $n1 = 0;
                 foreach ($this->skillGroupIdList as $item1) {
                     $res['SkillGroupIdList'][$n1++] = $item1;
                 }
@@ -121,7 +126,7 @@ class CreateAgentRequest extends Model
         if (isset($map['SkillGroupId'])) {
             if (!empty($map['SkillGroupId'])) {
                 $model->skillGroupId = [];
-                $n1                  = 0;
+                $n1 = 0;
                 foreach ($map['SkillGroupId'] as $item1) {
                     $model->skillGroupId[$n1++] = $item1;
                 }
@@ -131,7 +136,7 @@ class CreateAgentRequest extends Model
         if (isset($map['SkillGroupIdList'])) {
             if (!empty($map['SkillGroupIdList'])) {
                 $model->skillGroupIdList = [];
-                $n1                      = 0;
+                $n1 = 0;
                 foreach ($map['SkillGroupIdList'] as $item1) {
                     $model->skillGroupIdList[$n1++] = $item1;
                 }

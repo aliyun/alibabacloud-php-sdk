@@ -12,32 +12,37 @@ class DescribeRecordDataResponseBody extends Model
      * @var string
      */
     public $acid;
+
     /**
      * @var string
      */
     public $agentId;
+
     /**
      * @var string
      */
     public $code;
+
     /**
      * @var string
      */
     public $message;
+
     /**
      * @var string
      */
     public $ossLink;
+
     /**
      * @var string
      */
     public $requestId;
     protected $_name = [
-        'acid'      => 'Acid',
-        'agentId'   => 'AgentId',
-        'code'      => 'Code',
-        'message'   => 'Message',
-        'ossLink'   => 'OssLink',
+        'acid' => 'Acid',
+        'agentId' => 'AgentId',
+        'code' => 'Code',
+        'message' => 'Message',
+        'ossLink' => 'OssLink',
         'requestId' => 'RequestId',
     ];
 

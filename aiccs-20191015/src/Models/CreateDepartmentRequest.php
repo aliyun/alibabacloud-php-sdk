@@ -12,13 +12,14 @@ class CreateDepartmentRequest extends Model
      * @var string
      */
     public $departmentName;
+
     /**
      * @var string
      */
     public $instanceId;
     protected $_name = [
         'departmentName' => 'DepartmentName',
-        'instanceId'     => 'InstanceId',
+        'instanceId' => 'InstanceId',
     ];
 
     public function validate()

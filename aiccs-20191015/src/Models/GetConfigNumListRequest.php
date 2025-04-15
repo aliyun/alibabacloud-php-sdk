@@ -12,18 +12,20 @@ class GetConfigNumListRequest extends Model
      * @var string
      */
     public $accountName;
+
     /**
      * @var int
      */
     public $departmentId;
+
     /**
      * @var string
      */
     public $instanceId;
     protected $_name = [
-        'accountName'  => 'AccountName',
+        'accountName' => 'AccountName',
         'departmentId' => 'DepartmentId',
-        'instanceId'   => 'InstanceId',
+        'instanceId' => 'InstanceId',
     ];
 
     public function validate()

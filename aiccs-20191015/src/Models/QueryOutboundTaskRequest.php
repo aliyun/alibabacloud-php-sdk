@@ -12,78 +12,92 @@ class QueryOutboundTaskRequest extends Model
      * @var string
      */
     public $ani;
+
     /**
      * @var int
      */
     public $currentPage;
+
     /**
      * @var string
      */
     public $departmentId;
+
     /**
      * @var string
      */
     public $endDate;
+
     /**
      * @var string
      */
     public $endTime;
+
     /**
      * @var string
      */
     public $groupName;
+
     /**
      * @var string
      */
     public $instanceId;
+
     /**
      * @var int
      */
     public $pageSize;
+
     /**
      * @var int
      */
     public $skillGroup;
+
     /**
      * @var string
      */
     public $startDate;
+
     /**
      * @var string
      */
     public $startTime;
+
     /**
      * @var string
      */
     public $status;
+
     /**
      * @var int
      */
     public $taskId;
+
     /**
      * @var string
      */
     public $taskName;
+
     /**
      * @var int
      */
     public $taskType;
     protected $_name = [
-        'ani'          => 'Ani',
-        'currentPage'  => 'CurrentPage',
+        'ani' => 'Ani',
+        'currentPage' => 'CurrentPage',
         'departmentId' => 'DepartmentId',
-        'endDate'      => 'EndDate',
-        'endTime'      => 'EndTime',
-        'groupName'    => 'GroupName',
-        'instanceId'   => 'InstanceId',
-        'pageSize'     => 'PageSize',
-        'skillGroup'   => 'SkillGroup',
-        'startDate'    => 'StartDate',
-        'startTime'    => 'StartTime',
-        'status'       => 'Status',
-        'taskId'       => 'TaskId',
-        'taskName'     => 'TaskName',
-        'taskType'     => 'TaskType',
+        'endDate' => 'EndDate',
+        'endTime' => 'EndTime',
+        'groupName' => 'GroupName',
+        'instanceId' => 'InstanceId',
+        'pageSize' => 'PageSize',
+        'skillGroup' => 'SkillGroup',
+        'startDate' => 'StartDate',
+        'startTime' => 'StartTime',
+        'status' => 'Status',
+        'taskId' => 'TaskId',
+        'taskName' => 'TaskName',
+        'taskType' => 'TaskType',
     ];
 
     public function validate()

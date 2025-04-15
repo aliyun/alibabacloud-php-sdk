@@ -12,12 +12,13 @@ class recallRule extends Model
      * @var int
      */
     public $count;
+
     /**
      * @var int
      */
     public $interval;
     protected $_name = [
-        'count'    => 'Count',
+        'count' => 'Count',
         'interval' => 'Interval',
     ];
 

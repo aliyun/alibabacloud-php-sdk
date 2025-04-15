@@ -12,12 +12,13 @@ class groupDTOS extends Model
      * @var string
      */
     public $name;
+
     /**
      * @var int
      */
     public $skillGroupId;
     protected $_name = [
-        'name'         => 'Name',
+        'name' => 'Name',
         'skillGroupId' => 'SkillGroupId',
     ];
 

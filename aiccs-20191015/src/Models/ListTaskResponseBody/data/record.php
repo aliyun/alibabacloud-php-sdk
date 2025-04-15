@@ -12,48 +12,56 @@ class record extends Model
      * @var int
      */
     public $completeCount;
+
     /**
      * @var string
      */
     public $fireTime;
+
     /**
      * @var string
      */
     public $gmtCreate;
+
     /**
      * @var int
      */
     public $id;
+
     /**
      * @var int
      */
     public $robotId;
+
     /**
      * @var string
      */
     public $robotName;
+
     /**
      * @var string
      */
     public $status;
+
     /**
      * @var string
      */
     public $taskName;
+
     /**
      * @var int
      */
     public $totalCount;
     protected $_name = [
         'completeCount' => 'CompleteCount',
-        'fireTime'      => 'FireTime',
-        'gmtCreate'     => 'GmtCreate',
-        'id'            => 'Id',
-        'robotId'       => 'RobotId',
-        'robotName'     => 'RobotName',
-        'status'        => 'Status',
-        'taskName'      => 'TaskName',
-        'totalCount'    => 'TotalCount',
+        'fireTime' => 'FireTime',
+        'gmtCreate' => 'GmtCreate',
+        'id' => 'Id',
+        'robotId' => 'RobotId',
+        'robotName' => 'RobotName',
+        'status' => 'Status',
+        'taskName' => 'TaskName',
+        'totalCount' => 'TotalCount',
     ];
 
     public function validate()

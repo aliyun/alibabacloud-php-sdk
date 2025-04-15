@@ -13,23 +13,26 @@ class data extends Model
      * @var int
      */
     public $endTime;
+
     /**
      * @var messageList[]
      */
     public $messageList;
+
     /**
      * @var string
      */
     public $servicerName;
+
     /**
      * @var int
      */
     public $startTime;
     protected $_name = [
-        'endTime'      => 'EndTime',
-        'messageList'  => 'MessageList',
+        'endTime' => 'EndTime',
+        'messageList' => 'MessageList',
         'servicerName' => 'ServicerName',
-        'startTime'    => 'StartTime',
+        'startTime' => 'StartTime',
     ];
 
     public function validate()
@@ -50,7 +53,7 @@ class data extends Model
         if (null !== $this->messageList) {
             if (\is_array($this->messageList)) {
                 $res['MessageList'] = [];
-                $n1                 = 0;
+                $n1 = 0;
                 foreach ($this->messageList as $item1) {
                     $res['MessageList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -83,7 +86,7 @@ class data extends Model
         if (isset($map['MessageList'])) {
             if (!empty($map['MessageList'])) {
                 $model->messageList = [];
-                $n1                 = 0;
+                $n1 = 0;
                 foreach ($map['MessageList'] as $item1) {
                     $model->messageList[$n1++] = messageList::fromMap($item1);
                 }

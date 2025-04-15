@@ -12,12 +12,13 @@ class DeleteQualityRuleRequest extends Model
      * @var int
      */
     public $id;
+
     /**
      * @var string
      */
     public $instanceId;
     protected $_name = [
-        'id'         => 'Id',
+        'id' => 'Id',
         'instanceId' => 'InstanceId',
     ];
 

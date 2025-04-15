@@ -12,38 +12,44 @@ class data extends Model
      * @var int
      */
     public $agentId;
+
     /**
      * @var string
      */
     public $createUserName;
+
     /**
      * @var string
      */
     public $foreignKey;
+
     /**
      * @var string
      */
     public $foreignNick;
+
     /**
      * @var string
      */
     public $realName;
+
     /**
      * @var int
      */
     public $servicerType;
+
     /**
      * @var string
      */
     public $showName;
     protected $_name = [
-        'agentId'        => 'AgentId',
+        'agentId' => 'AgentId',
         'createUserName' => 'CreateUserName',
-        'foreignKey'     => 'ForeignKey',
-        'foreignNick'    => 'ForeignNick',
-        'realName'       => 'RealName',
-        'servicerType'   => 'ServicerType',
-        'showName'       => 'ShowName',
+        'foreignKey' => 'ForeignKey',
+        'foreignNick' => 'ForeignNick',
+        'realName' => 'RealName',
+        'servicerType' => 'ServicerType',
+        'showName' => 'ShowName',
     ];
 
     public function validate()

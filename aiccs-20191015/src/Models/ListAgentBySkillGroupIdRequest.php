@@ -12,17 +12,19 @@ class ListAgentBySkillGroupIdRequest extends Model
      * @var string
      */
     public $clientToken;
+
     /**
      * @var string
      */
     public $instanceId;
+
     /**
      * @var int
      */
     public $skillGroupId;
     protected $_name = [
-        'clientToken'  => 'ClientToken',
-        'instanceId'   => 'InstanceId',
+        'clientToken' => 'ClientToken',
+        'instanceId' => 'InstanceId',
         'skillGroupId' => 'SkillGroupId',
     ];
 

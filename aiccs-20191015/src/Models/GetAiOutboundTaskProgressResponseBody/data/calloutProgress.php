@@ -12,48 +12,56 @@ class calloutProgress extends Model
      * @var int
      */
     public $callLossCount;
+
     /**
      * @var float
      */
     public $callLossRate;
+
     /**
      * @var int
      */
     public $callOutConnectCount;
+
     /**
      * @var float
      */
     public $callOutConnectRate;
+
     /**
      * @var int
      */
     public $callOutCount;
+
     /**
      * @var int
      */
     public $callOutServicerPickupCount;
+
     /**
      * @var float
      */
     public $callOutServicerPickupRate;
+
     /**
      * @var int
      */
     public $callOutUserPickupCount;
+
     /**
      * @var float
      */
     public $callOutUserPickupRate;
     protected $_name = [
-        'callLossCount'              => 'CallLossCount',
-        'callLossRate'               => 'CallLossRate',
-        'callOutConnectCount'        => 'CallOutConnectCount',
-        'callOutConnectRate'         => 'CallOutConnectRate',
-        'callOutCount'               => 'CallOutCount',
+        'callLossCount' => 'CallLossCount',
+        'callLossRate' => 'CallLossRate',
+        'callOutConnectCount' => 'CallOutConnectCount',
+        'callOutConnectRate' => 'CallOutConnectRate',
+        'callOutCount' => 'CallOutCount',
         'callOutServicerPickupCount' => 'CallOutServicerPickupCount',
-        'callOutServicerPickupRate'  => 'CallOutServicerPickupRate',
-        'callOutUserPickupCount'     => 'CallOutUserPickupCount',
-        'callOutUserPickupRate'      => 'CallOutUserPickupRate',
+        'callOutServicerPickupRate' => 'CallOutServicerPickupRate',
+        'callOutUserPickupCount' => 'CallOutUserPickupCount',
+        'callOutUserPickupRate' => 'CallOutUserPickupRate',
     ];
 
     public function validate()

@@ -12,18 +12,20 @@ class data extends Model
      * @var string
      */
     public $instanceId;
+
     /**
      * @var int
      */
     public $projectId;
+
     /**
      * @var int
      */
     public $version;
     protected $_name = [
         'instanceId' => 'InstanceId',
-        'projectId'  => 'ProjectId',
-        'version'    => 'Version',
+        'projectId' => 'ProjectId',
+        'version' => 'Version',
     ];
 
     public function validate()

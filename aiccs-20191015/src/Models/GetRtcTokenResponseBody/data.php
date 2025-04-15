@@ -12,18 +12,20 @@ class data extends Model
      * @var string
      */
     public $accountName;
+
     /**
      * @var string
      */
     public $rtcId;
+
     /**
      * @var string
      */
     public $token;
     protected $_name = [
         'accountName' => 'AccountName',
-        'rtcId'       => 'RtcId',
-        'token'       => 'Token',
+        'rtcId' => 'RtcId',
+        'token' => 'Token',
     ];
 
     public function validate()

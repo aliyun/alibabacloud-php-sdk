@@ -13,143 +13,170 @@ class data extends Model
      * @var int
      */
     public $buId;
+
     /**
      * @var string
      */
     public $channelId;
+
     /**
      * @var int
      */
     public $channelType;
+
     /**
      * @var int
      */
     public $closeTime;
+
     /**
      * @var string
      */
     public $commonQueueName;
+
     /**
      * @var int
      */
     public $depId;
+
     /**
      * @var extAttrs
      */
     public $extAttrs;
+
     /**
      * @var mixed[]
      */
     public $extAttrsString;
+
     /**
      * @var string
      */
     public $feedback;
+
     /**
      * @var int
      */
     public $firstTime;
+
     /**
      * @var int
      */
     public $fromId;
+
     /**
      * @var int
      */
     public $gmtCreate;
+
     /**
      * @var int
      */
     public $gmtModified;
+
     /**
      * @var int
      */
     public $memberId;
+
     /**
      * @var string
      */
     public $memberName;
+
     /**
      * @var int
      */
     public $parentTouchId;
+
     /**
      * @var int
      */
     public $queueId;
+
     /**
      * @var int
      */
     public $servicerId;
+
     /**
      * @var string
      */
     public $servicerName;
+
     /**
      * @var int
      */
     public $status;
+
     /**
      * @var string
      */
     public $switchUser;
+
     /**
      * @var int
      */
     public $toId;
+
     /**
      * @var string
      */
     public $touchContent;
+
     /**
      * @var int
      */
     public $touchEndReason;
+
     /**
      * @var string
      */
     public $touchId;
+
     /**
      * @var string
      */
     public $touchTime;
+
     /**
      * @var int
      */
     public $touchType;
+
     /**
      * @var int
      */
     public $userTouchId;
     protected $_name = [
-        'buId'            => 'BuId',
-        'channelId'       => 'ChannelId',
-        'channelType'     => 'ChannelType',
-        'closeTime'       => 'CloseTime',
+        'buId' => 'BuId',
+        'channelId' => 'ChannelId',
+        'channelType' => 'ChannelType',
+        'closeTime' => 'CloseTime',
         'commonQueueName' => 'CommonQueueName',
-        'depId'           => 'DepId',
-        'extAttrs'        => 'ExtAttrs',
-        'extAttrsString'  => 'ExtAttrsString',
-        'feedback'        => 'Feedback',
-        'firstTime'       => 'FirstTime',
-        'fromId'          => 'FromId',
-        'gmtCreate'       => 'GmtCreate',
-        'gmtModified'     => 'GmtModified',
-        'memberId'        => 'MemberId',
-        'memberName'      => 'MemberName',
-        'parentTouchId'   => 'ParentTouchId',
-        'queueId'         => 'QueueId',
-        'servicerId'      => 'ServicerId',
-        'servicerName'    => 'ServicerName',
-        'status'          => 'Status',
-        'switchUser'      => 'SwitchUser',
-        'toId'            => 'ToId',
-        'touchContent'    => 'TouchContent',
-        'touchEndReason'  => 'TouchEndReason',
-        'touchId'         => 'TouchId',
-        'touchTime'       => 'TouchTime',
-        'touchType'       => 'TouchType',
-        'userTouchId'     => 'UserTouchId',
+        'depId' => 'DepId',
+        'extAttrs' => 'ExtAttrs',
+        'extAttrsString' => 'ExtAttrsString',
+        'feedback' => 'Feedback',
+        'firstTime' => 'FirstTime',
+        'fromId' => 'FromId',
+        'gmtCreate' => 'GmtCreate',
+        'gmtModified' => 'GmtModified',
+        'memberId' => 'MemberId',
+        'memberName' => 'MemberName',
+        'parentTouchId' => 'ParentTouchId',
+        'queueId' => 'QueueId',
+        'servicerId' => 'ServicerId',
+        'servicerName' => 'ServicerName',
+        'status' => 'Status',
+        'switchUser' => 'SwitchUser',
+        'toId' => 'ToId',
+        'touchContent' => 'TouchContent',
+        'touchEndReason' => 'TouchEndReason',
+        'touchId' => 'TouchId',
+        'touchTime' => 'TouchTime',
+        'touchType' => 'TouchType',
+        'userTouchId' => 'UserTouchId',
     ];
 
     public function validate()

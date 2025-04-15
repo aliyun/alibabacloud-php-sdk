@@ -12,17 +12,19 @@ class InsertTaskDetailRequest extends Model
      * @var string
      */
     public $callInfos;
+
     /**
      * @var string
      */
     public $instanceId;
+
     /**
      * @var int
      */
     public $outboundTaskId;
     protected $_name = [
-        'callInfos'      => 'CallInfos',
-        'instanceId'     => 'InstanceId',
+        'callInfos' => 'CallInfos',
+        'instanceId' => 'InstanceId',
         'outboundTaskId' => 'OutboundTaskId',
     ];
 

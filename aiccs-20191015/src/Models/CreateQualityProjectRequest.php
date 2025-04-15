@@ -12,58 +12,68 @@ class CreateQualityProjectRequest extends Model
      * @var int[]
      */
     public $analysisIds;
+
     /**
      * @var int[]
      */
     public $channelTouchType;
+
     /**
      * @var int
      */
     public $checkFreqType;
+
     /**
      * @var int[]
      */
     public $depList;
+
     /**
      * @var int[]
      */
     public $groupList;
+
     /**
      * @var string
      */
     public $instanceId;
+
     /**
      * @var string
      */
     public $projectName;
+
     /**
      * @var int
      */
     public $scopeType;
+
     /**
      * @var string[]
      */
     public $servicerList;
+
     /**
      * @var string
      */
     public $timeRangeEnd;
+
     /**
      * @var string
      */
     public $timeRangeStart;
     protected $_name = [
-        'analysisIds'      => 'AnalysisIds',
+        'analysisIds' => 'AnalysisIds',
         'channelTouchType' => 'ChannelTouchType',
-        'checkFreqType'    => 'CheckFreqType',
-        'depList'          => 'DepList',
-        'groupList'        => 'GroupList',
-        'instanceId'       => 'InstanceId',
-        'projectName'      => 'ProjectName',
-        'scopeType'        => 'ScopeType',
-        'servicerList'     => 'ServicerList',
-        'timeRangeEnd'     => 'TimeRangeEnd',
-        'timeRangeStart'   => 'TimeRangeStart',
+        'checkFreqType' => 'CheckFreqType',
+        'depList' => 'DepList',
+        'groupList' => 'GroupList',
+        'instanceId' => 'InstanceId',
+        'projectName' => 'ProjectName',
+        'scopeType' => 'ScopeType',
+        'servicerList' => 'ServicerList',
+        'timeRangeEnd' => 'TimeRangeEnd',
+        'timeRangeStart' => 'TimeRangeStart',
     ];
 
     public function validate()
@@ -92,7 +102,7 @@ class CreateQualityProjectRequest extends Model
         if (null !== $this->analysisIds) {
             if (\is_array($this->analysisIds)) {
                 $res['AnalysisIds'] = [];
-                $n1                 = 0;
+                $n1 = 0;
                 foreach ($this->analysisIds as $item1) {
                     $res['AnalysisIds'][$n1++] = $item1;
                 }
@@ -102,7 +112,7 @@ class CreateQualityProjectRequest extends Model
         if (null !== $this->channelTouchType) {
             if (\is_array($this->channelTouchType)) {
                 $res['ChannelTouchType'] = [];
-                $n1                      = 0;
+                $n1 = 0;
                 foreach ($this->channelTouchType as $item1) {
                     $res['ChannelTouchType'][$n1++] = $item1;
                 }
@@ -116,7 +126,7 @@ class CreateQualityProjectRequest extends Model
         if (null !== $this->depList) {
             if (\is_array($this->depList)) {
                 $res['DepList'] = [];
-                $n1             = 0;
+                $n1 = 0;
                 foreach ($this->depList as $item1) {
                     $res['DepList'][$n1++] = $item1;
                 }
@@ -126,7 +136,7 @@ class CreateQualityProjectRequest extends Model
         if (null !== $this->groupList) {
             if (\is_array($this->groupList)) {
                 $res['GroupList'] = [];
-                $n1               = 0;
+                $n1 = 0;
                 foreach ($this->groupList as $item1) {
                     $res['GroupList'][$n1++] = $item1;
                 }
@@ -148,7 +158,7 @@ class CreateQualityProjectRequest extends Model
         if (null !== $this->servicerList) {
             if (\is_array($this->servicerList)) {
                 $res['ServicerList'] = [];
-                $n1                  = 0;
+                $n1 = 0;
                 foreach ($this->servicerList as $item1) {
                     $res['ServicerList'][$n1++] = $item1;
                 }
@@ -177,7 +187,7 @@ class CreateQualityProjectRequest extends Model
         if (isset($map['AnalysisIds'])) {
             if (!empty($map['AnalysisIds'])) {
                 $model->analysisIds = [];
-                $n1                 = 0;
+                $n1 = 0;
                 foreach ($map['AnalysisIds'] as $item1) {
                     $model->analysisIds[$n1++] = $item1;
                 }
@@ -187,7 +197,7 @@ class CreateQualityProjectRequest extends Model
         if (isset($map['ChannelTouchType'])) {
             if (!empty($map['ChannelTouchType'])) {
                 $model->channelTouchType = [];
-                $n1                      = 0;
+                $n1 = 0;
                 foreach ($map['ChannelTouchType'] as $item1) {
                     $model->channelTouchType[$n1++] = $item1;
                 }
@@ -201,7 +211,7 @@ class CreateQualityProjectRequest extends Model
         if (isset($map['DepList'])) {
             if (!empty($map['DepList'])) {
                 $model->depList = [];
-                $n1             = 0;
+                $n1 = 0;
                 foreach ($map['DepList'] as $item1) {
                     $model->depList[$n1++] = $item1;
                 }
@@ -211,7 +221,7 @@ class CreateQualityProjectRequest extends Model
         if (isset($map['GroupList'])) {
             if (!empty($map['GroupList'])) {
                 $model->groupList = [];
-                $n1               = 0;
+                $n1 = 0;
                 foreach ($map['GroupList'] as $item1) {
                     $model->groupList[$n1++] = $item1;
                 }
@@ -233,7 +243,7 @@ class CreateQualityProjectRequest extends Model
         if (isset($map['ServicerList'])) {
             if (!empty($map['ServicerList'])) {
                 $model->servicerList = [];
-                $n1                  = 0;
+                $n1 = 0;
                 foreach ($map['ServicerList'] as $item1) {
                     $model->servicerList[$n1++] = $item1;
                 }

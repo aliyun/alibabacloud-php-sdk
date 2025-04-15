@@ -12,13 +12,14 @@ class DeleteQualityProjectRequest extends Model
      * @var string
      */
     public $instanceId;
+
     /**
      * @var int
      */
     public $projectId;
     protected $_name = [
         'instanceId' => 'InstanceId',
-        'projectId'  => 'ProjectId',
+        'projectId' => 'ProjectId',
     ];
 
     public function validate()

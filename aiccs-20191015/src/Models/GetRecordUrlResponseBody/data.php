@@ -12,12 +12,13 @@ class data extends Model
      * @var string
      */
     public $acid;
+
     /**
      * @var string
      */
     public $ossLink;
     protected $_name = [
-        'acid'    => 'Acid',
+        'acid' => 'Acid',
         'ossLink' => 'OssLink',
     ];
 

@@ -12,113 +12,134 @@ class list_ extends Model
      * @var int
      */
     public $buId;
+
     /**
      * @var string
      */
     public $callerNum;
+
     /**
      * @var string
      */
     public $creator;
+
     /**
      * @var int
      */
     public $departmentId;
+
     /**
      * @var string
      */
     public $description;
+
     /**
      * @var string
      */
     public $endDate;
+
     /**
      * @var string
      */
     public $endTime;
+
     /**
      * @var string
      */
     public $extAttrs;
+
     /**
      * @var int
      */
     public $gmtCreate;
+
     /**
      * @var int
      */
     public $gmtModified;
+
     /**
      * @var string
      */
     public $groupName;
+
     /**
      * @var int
      */
     public $id;
+
     /**
      * @var int
      */
     public $model;
+
     /**
      * @var string
      */
     public $modifier;
+
     /**
      * @var string
      */
     public $name;
+
     /**
      * @var int
      */
     public $retryInterval;
+
     /**
      * @var int
      */
     public $retryTime;
+
     /**
      * @var int
      */
     public $skillGroup;
+
     /**
      * @var string
      */
     public $startDate;
+
     /**
      * @var string
      */
     public $startTime;
+
     /**
      * @var int
      */
     public $status;
+
     /**
      * @var int
      */
     public $type;
     protected $_name = [
-        'buId'          => 'BuId',
-        'callerNum'     => 'CallerNum',
-        'creator'       => 'Creator',
-        'departmentId'  => 'DepartmentId',
-        'description'   => 'Description',
-        'endDate'       => 'EndDate',
-        'endTime'       => 'EndTime',
-        'extAttrs'      => 'ExtAttrs',
-        'gmtCreate'     => 'GmtCreate',
-        'gmtModified'   => 'GmtModified',
-        'groupName'     => 'GroupName',
-        'id'            => 'Id',
-        'model'         => 'Model',
-        'modifier'      => 'Modifier',
-        'name'          => 'Name',
+        'buId' => 'BuId',
+        'callerNum' => 'CallerNum',
+        'creator' => 'Creator',
+        'departmentId' => 'DepartmentId',
+        'description' => 'Description',
+        'endDate' => 'EndDate',
+        'endTime' => 'EndTime',
+        'extAttrs' => 'ExtAttrs',
+        'gmtCreate' => 'GmtCreate',
+        'gmtModified' => 'GmtModified',
+        'groupName' => 'GroupName',
+        'id' => 'Id',
+        'model' => 'Model',
+        'modifier' => 'Modifier',
+        'name' => 'Name',
         'retryInterval' => 'RetryInterval',
-        'retryTime'     => 'RetryTime',
-        'skillGroup'    => 'SkillGroup',
-        'startDate'     => 'StartDate',
-        'startTime'     => 'StartTime',
-        'status'        => 'Status',
-        'type'          => 'Type',
+        'retryTime' => 'RetryTime',
+        'skillGroup' => 'SkillGroup',
+        'startDate' => 'StartDate',
+        'startTime' => 'StartTime',
+        'status' => 'Status',
+        'type' => 'Type',
     ];
 
     public function validate()

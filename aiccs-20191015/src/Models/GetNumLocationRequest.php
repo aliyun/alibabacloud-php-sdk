@@ -12,18 +12,20 @@ class GetNumLocationRequest extends Model
      * @var string
      */
     public $clientToken;
+
     /**
      * @var string
      */
     public $instanceId;
+
     /**
      * @var string
      */
     public $phoneNum;
     protected $_name = [
         'clientToken' => 'ClientToken',
-        'instanceId'  => 'InstanceId',
-        'phoneNum'    => 'PhoneNum',
+        'instanceId' => 'InstanceId',
+        'phoneNum' => 'PhoneNum',
     ];
 
     public function validate()

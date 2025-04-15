@@ -12,68 +12,80 @@ class record extends Model
      * @var string
      */
     public $called;
+
     /**
      * @var string
      */
     public $caller;
+
     /**
      * @var string
      */
     public $direction;
+
     /**
      * @var int
      */
     public $duration;
+
     /**
      * @var string
      */
     public $endTime;
+
     /**
      * @var int
      */
     public $id;
+
     /**
      * @var int
      */
     public $retryCurTimes;
+
     /**
      * @var int
      */
     public $retryTimes;
+
     /**
      * @var string
      */
     public $startTime;
+
     /**
      * @var string
      */
     public $status;
+
     /**
      * @var string
      */
     public $statusCode;
+
     /**
      * @var string
      */
     public $statusCodeDesc;
+
     /**
      * @var string
      */
     public $tags;
     protected $_name = [
-        'called'         => 'Called',
-        'caller'         => 'Caller',
-        'direction'      => 'Direction',
-        'duration'       => 'Duration',
-        'endTime'        => 'EndTime',
-        'id'             => 'Id',
-        'retryCurTimes'  => 'RetryCurTimes',
-        'retryTimes'     => 'RetryTimes',
-        'startTime'      => 'StartTime',
-        'status'         => 'Status',
-        'statusCode'     => 'StatusCode',
+        'called' => 'Called',
+        'caller' => 'Caller',
+        'direction' => 'Direction',
+        'duration' => 'Duration',
+        'endTime' => 'EndTime',
+        'id' => 'Id',
+        'retryCurTimes' => 'RetryCurTimes',
+        'retryTimes' => 'RetryTimes',
+        'startTime' => 'StartTime',
+        'status' => 'Status',
+        'statusCode' => 'StatusCode',
         'statusCodeDesc' => 'StatusCodeDesc',
-        'tags'           => 'Tags',
+        'tags' => 'Tags',
     ];
 
     public function validate()

@@ -12,53 +12,62 @@ class GetAiOutboundTaskExecDetailRequest extends Model
      * @var int
      */
     public $batchVersion;
+
     /**
      * @var int
      */
     public $caseId;
+
     /**
      * @var int
      */
     public $caseStatus;
+
     /**
      * @var int
      */
     public $createTimeEnd;
+
     /**
      * @var int
      */
     public $createTimeStart;
+
     /**
      * @var int
      */
     public $currentPage;
+
     /**
      * @var string
      */
     public $instanceId;
+
     /**
      * @var int
      */
     public $pageSize;
+
     /**
      * @var string
      */
     public $phoneNum;
+
     /**
      * @var int
      */
     public $taskId;
     protected $_name = [
-        'batchVersion'    => 'BatchVersion',
-        'caseId'          => 'CaseId',
-        'caseStatus'      => 'CaseStatus',
-        'createTimeEnd'   => 'CreateTimeEnd',
+        'batchVersion' => 'BatchVersion',
+        'caseId' => 'CaseId',
+        'caseStatus' => 'CaseStatus',
+        'createTimeEnd' => 'CreateTimeEnd',
         'createTimeStart' => 'CreateTimeStart',
-        'currentPage'     => 'CurrentPage',
-        'instanceId'      => 'InstanceId',
-        'pageSize'        => 'PageSize',
-        'phoneNum'        => 'PhoneNum',
-        'taskId'          => 'TaskId',
+        'currentPage' => 'CurrentPage',
+        'instanceId' => 'InstanceId',
+        'pageSize' => 'PageSize',
+        'phoneNum' => 'PhoneNum',
+        'taskId' => 'TaskId',
     ];
 
     public function validate()

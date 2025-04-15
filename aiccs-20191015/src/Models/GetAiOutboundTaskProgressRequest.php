@@ -12,18 +12,20 @@ class GetAiOutboundTaskProgressRequest extends Model
      * @var int
      */
     public $batchVersion;
+
     /**
      * @var string
      */
     public $instanceId;
+
     /**
      * @var int
      */
     public $taskId;
     protected $_name = [
         'batchVersion' => 'BatchVersion',
-        'instanceId'   => 'InstanceId',
-        'taskId'       => 'TaskId',
+        'instanceId' => 'InstanceId',
+        'taskId' => 'TaskId',
     ];
 
     public function validate()

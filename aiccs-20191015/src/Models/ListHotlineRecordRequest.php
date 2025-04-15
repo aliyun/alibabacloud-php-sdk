@@ -12,18 +12,20 @@ class ListHotlineRecordRequest extends Model
      * @var string
      */
     public $callId;
+
     /**
      * @var string
      */
     public $clientToken;
+
     /**
      * @var string
      */
     public $instanceId;
     protected $_name = [
-        'callId'      => 'CallId',
+        'callId' => 'CallId',
         'clientToken' => 'ClientToken',
-        'instanceId'  => 'InstanceId',
+        'instanceId' => 'InstanceId',
     ];
 
     public function validate()

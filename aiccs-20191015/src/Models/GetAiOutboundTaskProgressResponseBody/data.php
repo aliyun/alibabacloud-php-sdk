@@ -14,23 +14,26 @@ class data extends Model
      * @var calloutProgress
      */
     public $calloutProgress;
+
     /**
      * @var int
      */
     public $taskId;
+
     /**
      * @var taskProgress
      */
     public $taskProgress;
+
     /**
      * @var int
      */
     public $type;
     protected $_name = [
         'calloutProgress' => 'CalloutProgress',
-        'taskId'          => 'TaskId',
-        'taskProgress'    => 'TaskProgress',
-        'type'            => 'Type',
+        'taskId' => 'TaskId',
+        'taskProgress' => 'TaskProgress',
+        'type' => 'Type',
     ];
 
     public function validate()

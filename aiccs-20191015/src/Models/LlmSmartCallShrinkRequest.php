@@ -12,32 +12,37 @@ class LlmSmartCallShrinkRequest extends Model
      * @var string
      */
     public $applicationCode;
+
     /**
      * @var string
      */
     public $calledNumber;
+
     /**
      * @var string
      */
     public $callerNumber;
+
     /**
      * @var string
      */
     public $outId;
+
     /**
      * @var string
      */
     public $promptParamShrink;
+
     /**
      * @var string
      */
     public $startWordParamShrink;
     protected $_name = [
-        'applicationCode'      => 'ApplicationCode',
-        'calledNumber'         => 'CalledNumber',
-        'callerNumber'         => 'CallerNumber',
-        'outId'                => 'OutId',
-        'promptParamShrink'    => 'PromptParam',
+        'applicationCode' => 'ApplicationCode',
+        'calledNumber' => 'CalledNumber',
+        'callerNumber' => 'CallerNumber',
+        'outId' => 'OutId',
+        'promptParamShrink' => 'PromptParam',
         'startWordParamShrink' => 'StartWordParam',
     ];
 

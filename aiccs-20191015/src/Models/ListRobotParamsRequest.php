@@ -12,23 +12,26 @@ class ListRobotParamsRequest extends Model
      * @var int
      */
     public $ownerId;
+
     /**
      * @var string
      */
     public $resourceOwnerAccount;
+
     /**
      * @var int
      */
     public $resourceOwnerId;
+
     /**
      * @var int
      */
     public $robotId;
     protected $_name = [
-        'ownerId'              => 'OwnerId',
+        'ownerId' => 'OwnerId',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
-        'resourceOwnerId'      => 'ResourceOwnerId',
-        'robotId'              => 'RobotId',
+        'resourceOwnerId' => 'ResourceOwnerId',
+        'robotId' => 'RobotId',
     ];
 
     public function validate()

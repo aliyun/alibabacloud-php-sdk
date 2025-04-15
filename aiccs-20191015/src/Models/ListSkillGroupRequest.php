@@ -12,10 +12,12 @@ class ListSkillGroupRequest extends Model
      * @var int
      */
     public $channelType;
+
     /**
      * @var string
      */
     public $clientToken;
+
     /**
      * @var string
      */
@@ -23,7 +25,7 @@ class ListSkillGroupRequest extends Model
     protected $_name = [
         'channelType' => 'ChannelType',
         'clientToken' => 'ClientToken',
-        'instanceId'  => 'InstanceId',
+        'instanceId' => 'InstanceId',
     ];
 
     public function validate()

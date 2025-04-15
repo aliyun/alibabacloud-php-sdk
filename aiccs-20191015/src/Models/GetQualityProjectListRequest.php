@@ -12,37 +12,43 @@ class GetQualityProjectListRequest extends Model
      * @var string
      */
     public $instanceId;
+
     /**
      * @var int
      */
     public $pageNo;
+
     /**
      * @var int
      */
     public $pageSize;
+
     /**
      * @var int
      */
     public $projectId;
+
     /**
      * @var string
      */
     public $projectName;
+
     /**
      * @var int
      */
     public $status;
+
     /**
      * @var int
      */
     public $checkFreqType;
     protected $_name = [
-        'instanceId'    => 'InstanceId',
-        'pageNo'        => 'PageNo',
-        'pageSize'      => 'PageSize',
-        'projectId'     => 'ProjectId',
-        'projectName'   => 'ProjectName',
-        'status'        => 'Status',
+        'instanceId' => 'InstanceId',
+        'pageNo' => 'PageNo',
+        'pageSize' => 'PageSize',
+        'projectId' => 'ProjectId',
+        'projectName' => 'ProjectName',
+        'status' => 'Status',
         'checkFreqType' => 'checkFreqType',
     ];
 

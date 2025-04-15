@@ -12,63 +12,74 @@ class data extends Model
      * @var int
      */
     public $checkFreqType;
+
     /**
      * @var string
      */
     public $createTime;
+
     /**
      * @var int[]
      */
     public $depList;
+
     /**
      * @var int[]
      */
     public $groupList;
+
     /**
      * @var int
      */
     public $id;
+
     /**
      * @var string
      */
     public $modifyTime;
+
     /**
      * @var string
      */
     public $projectName;
+
     /**
      * @var int[]
      */
     public $qualityRuleIds;
+
     /**
      * @var int
      */
     public $qualityType;
+
     /**
      * @var int[]
      */
     public $servicerList;
+
     /**
      * @var int
      */
     public $status;
+
     /**
      * @var int
      */
     public $version;
     protected $_name = [
-        'checkFreqType'  => 'CheckFreqType',
-        'createTime'     => 'CreateTime',
-        'depList'        => 'DepList',
-        'groupList'      => 'GroupList',
-        'id'             => 'Id',
-        'modifyTime'     => 'ModifyTime',
-        'projectName'    => 'ProjectName',
+        'checkFreqType' => 'CheckFreqType',
+        'createTime' => 'CreateTime',
+        'depList' => 'DepList',
+        'groupList' => 'GroupList',
+        'id' => 'Id',
+        'modifyTime' => 'ModifyTime',
+        'projectName' => 'ProjectName',
         'qualityRuleIds' => 'QualityRuleIds',
-        'qualityType'    => 'QualityType',
-        'servicerList'   => 'ServicerList',
-        'status'         => 'Status',
-        'version'        => 'Version',
+        'qualityType' => 'QualityType',
+        'servicerList' => 'ServicerList',
+        'status' => 'Status',
+        'version' => 'Version',
     ];
 
     public function validate()
@@ -102,7 +113,7 @@ class data extends Model
         if (null !== $this->depList) {
             if (\is_array($this->depList)) {
                 $res['DepList'] = [];
-                $n1             = 0;
+                $n1 = 0;
                 foreach ($this->depList as $item1) {
                     $res['DepList'][$n1++] = $item1;
                 }
@@ -112,7 +123,7 @@ class data extends Model
         if (null !== $this->groupList) {
             if (\is_array($this->groupList)) {
                 $res['GroupList'] = [];
-                $n1               = 0;
+                $n1 = 0;
                 foreach ($this->groupList as $item1) {
                     $res['GroupList'][$n1++] = $item1;
                 }
@@ -134,7 +145,7 @@ class data extends Model
         if (null !== $this->qualityRuleIds) {
             if (\is_array($this->qualityRuleIds)) {
                 $res['QualityRuleIds'] = [];
-                $n1                    = 0;
+                $n1 = 0;
                 foreach ($this->qualityRuleIds as $item1) {
                     $res['QualityRuleIds'][$n1++] = $item1;
                 }
@@ -148,7 +159,7 @@ class data extends Model
         if (null !== $this->servicerList) {
             if (\is_array($this->servicerList)) {
                 $res['ServicerList'] = [];
-                $n1                  = 0;
+                $n1 = 0;
                 foreach ($this->servicerList as $item1) {
                     $res['ServicerList'][$n1++] = $item1;
                 }
@@ -185,7 +196,7 @@ class data extends Model
         if (isset($map['DepList'])) {
             if (!empty($map['DepList'])) {
                 $model->depList = [];
-                $n1             = 0;
+                $n1 = 0;
                 foreach ($map['DepList'] as $item1) {
                     $model->depList[$n1++] = $item1;
                 }
@@ -195,7 +206,7 @@ class data extends Model
         if (isset($map['GroupList'])) {
             if (!empty($map['GroupList'])) {
                 $model->groupList = [];
-                $n1               = 0;
+                $n1 = 0;
                 foreach ($map['GroupList'] as $item1) {
                     $model->groupList[$n1++] = $item1;
                 }
@@ -217,7 +228,7 @@ class data extends Model
         if (isset($map['QualityRuleIds'])) {
             if (!empty($map['QualityRuleIds'])) {
                 $model->qualityRuleIds = [];
-                $n1                    = 0;
+                $n1 = 0;
                 foreach ($map['QualityRuleIds'] as $item1) {
                     $model->qualityRuleIds[$n1++] = $item1;
                 }
@@ -231,7 +242,7 @@ class data extends Model
         if (isset($map['ServicerList'])) {
             if (!empty($map['ServicerList'])) {
                 $model->servicerList = [];
-                $n1                  = 0;
+                $n1 = 0;
                 foreach ($map['ServicerList'] as $item1) {
                     $model->servicerList[$n1++] = $item1;
                 }

@@ -12,58 +12,68 @@ class AddHotlineNumberShrinkRequest extends Model
      * @var string
      */
     public $description;
+
     /**
      * @var bool
      */
     public $enableInbound;
+
     /**
      * @var bool
      */
     public $enableInboundEvaluation;
+
     /**
      * @var bool
      */
     public $enableOutbound;
+
     /**
      * @var bool
      */
     public $enableOutboundEvaluation;
+
     /**
      * @var int
      */
     public $evaluationLevel;
+
     /**
      * @var string
      */
     public $hotlineNumber;
+
     /**
      * @var int
      */
     public $inboundFlowId;
+
     /**
      * @var string
      */
     public $instanceId;
+
     /**
      * @var bool
      */
     public $outboundAllDepart;
+
     /**
      * @var string
      */
     public $outboundRangeListShrink;
     protected $_name = [
-        'description'              => 'Description',
-        'enableInbound'            => 'EnableInbound',
-        'enableInboundEvaluation'  => 'EnableInboundEvaluation',
-        'enableOutbound'           => 'EnableOutbound',
+        'description' => 'Description',
+        'enableInbound' => 'EnableInbound',
+        'enableInboundEvaluation' => 'EnableInboundEvaluation',
+        'enableOutbound' => 'EnableOutbound',
         'enableOutboundEvaluation' => 'EnableOutboundEvaluation',
-        'evaluationLevel'          => 'EvaluationLevel',
-        'hotlineNumber'            => 'HotlineNumber',
-        'inboundFlowId'            => 'InboundFlowId',
-        'instanceId'               => 'InstanceId',
-        'outboundAllDepart'        => 'OutboundAllDepart',
-        'outboundRangeListShrink'  => 'OutboundRangeList',
+        'evaluationLevel' => 'EvaluationLevel',
+        'hotlineNumber' => 'HotlineNumber',
+        'inboundFlowId' => 'InboundFlowId',
+        'instanceId' => 'InstanceId',
+        'outboundAllDepart' => 'OutboundAllDepart',
+        'outboundRangeListShrink' => 'OutboundRangeList',
     ];
 
     public function validate()

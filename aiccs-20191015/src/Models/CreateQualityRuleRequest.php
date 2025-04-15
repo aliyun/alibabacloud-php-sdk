@@ -12,28 +12,32 @@ class CreateQualityRuleRequest extends Model
      * @var string
      */
     public $instanceId;
+
     /**
      * @var string[]
      */
     public $keyWords;
+
     /**
      * @var int
      */
     public $matchType;
+
     /**
      * @var string
      */
     public $name;
+
     /**
      * @var int
      */
     public $ruleTag;
     protected $_name = [
         'instanceId' => 'InstanceId',
-        'keyWords'   => 'KeyWords',
-        'matchType'  => 'MatchType',
-        'name'       => 'Name',
-        'ruleTag'    => 'RuleTag',
+        'keyWords' => 'KeyWords',
+        'matchType' => 'MatchType',
+        'name' => 'Name',
+        'ruleTag' => 'RuleTag',
     ];
 
     public function validate()
@@ -54,7 +58,7 @@ class CreateQualityRuleRequest extends Model
         if (null !== $this->keyWords) {
             if (\is_array($this->keyWords)) {
                 $res['KeyWords'] = [];
-                $n1              = 0;
+                $n1 = 0;
                 foreach ($this->keyWords as $item1) {
                     $res['KeyWords'][$n1++] = $item1;
                 }
@@ -91,7 +95,7 @@ class CreateQualityRuleRequest extends Model
         if (isset($map['KeyWords'])) {
             if (!empty($map['KeyWords'])) {
                 $model->keyWords = [];
-                $n1              = 0;
+                $n1 = 0;
                 foreach ($map['KeyWords'] as $item1) {
                     $model->keyWords[$n1++] = $item1;
                 }

@@ -12,33 +12,38 @@ class data extends Model
      * @var string
      */
     public $acid;
+
     /**
      * @var string
      */
     public $content;
+
     /**
      * @var int
      */
     public $endTime;
+
     /**
      * @var string
      */
     public $mid;
+
     /**
      * @var int
      */
     public $senderType;
+
     /**
      * @var int
      */
     public $startTime;
     protected $_name = [
-        'acid'       => 'Acid',
-        'content'    => 'Content',
-        'endTime'    => 'EndTime',
-        'mid'        => 'Mid',
+        'acid' => 'Acid',
+        'content' => 'Content',
+        'endTime' => 'EndTime',
+        'mid' => 'Mid',
         'senderType' => 'SenderType',
-        'startTime'  => 'StartTime',
+        'startTime' => 'StartTime',
     ];
 
     public function validate()

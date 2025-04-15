@@ -12,58 +12,68 @@ class UpdateAiOutboundTaskShrinkRequest extends Model
      * @var int
      */
     public $concurrentRate;
+
     /**
      * @var string
      */
     public $description;
+
     /**
      * @var string
      */
     public $executionTime;
+
     /**
      * @var float
      */
     public $forecastCallRate;
+
     /**
      * @var int
      */
     public $handlerId;
+
     /**
      * @var string
      */
     public $instanceId;
+
     /**
      * @var string
      */
     public $name;
+
     /**
      * @var int
      */
     public $numRepeated;
+
     /**
      * @var string
      */
     public $outboundNumsShrink;
+
     /**
      * @var string
      */
     public $recallRuleShrink;
+
     /**
      * @var int
      */
     public $taskId;
     protected $_name = [
-        'concurrentRate'     => 'ConcurrentRate',
-        'description'        => 'Description',
-        'executionTime'      => 'ExecutionTime',
-        'forecastCallRate'   => 'ForecastCallRate',
-        'handlerId'          => 'HandlerId',
-        'instanceId'         => 'InstanceId',
-        'name'               => 'Name',
-        'numRepeated'        => 'NumRepeated',
+        'concurrentRate' => 'ConcurrentRate',
+        'description' => 'Description',
+        'executionTime' => 'ExecutionTime',
+        'forecastCallRate' => 'ForecastCallRate',
+        'handlerId' => 'HandlerId',
+        'instanceId' => 'InstanceId',
+        'name' => 'Name',
+        'numRepeated' => 'NumRepeated',
         'outboundNumsShrink' => 'OutboundNums',
-        'recallRuleShrink'   => 'RecallRule',
-        'taskId'             => 'TaskId',
+        'recallRuleShrink' => 'RecallRule',
+        'taskId' => 'TaskId',
     ];
 
     public function validate()

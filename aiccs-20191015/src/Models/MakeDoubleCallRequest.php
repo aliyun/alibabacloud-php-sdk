@@ -12,33 +12,38 @@ class MakeDoubleCallRequest extends Model
      * @var string
      */
     public $accountName;
+
     /**
      * @var string
      */
     public $bizData;
+
     /**
      * @var string
      */
     public $instanceId;
+
     /**
      * @var string
      */
     public $memberPhone;
+
     /**
      * @var string
      */
     public $outboundCallNumber;
+
     /**
      * @var string
      */
     public $servicerPhone;
     protected $_name = [
-        'accountName'        => 'AccountName',
-        'bizData'            => 'BizData',
-        'instanceId'         => 'InstanceId',
-        'memberPhone'        => 'MemberPhone',
+        'accountName' => 'AccountName',
+        'bizData' => 'BizData',
+        'instanceId' => 'InstanceId',
+        'memberPhone' => 'MemberPhone',
         'outboundCallNumber' => 'OutboundCallNumber',
-        'servicerPhone'      => 'ServicerPhone',
+        'servicerPhone' => 'ServicerPhone',
     ];
 
     public function validate()

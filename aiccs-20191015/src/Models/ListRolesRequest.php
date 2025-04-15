@@ -12,13 +12,14 @@ class ListRolesRequest extends Model
      * @var string
      */
     public $clientToken;
+
     /**
      * @var string
      */
     public $instanceId;
     protected $_name = [
         'clientToken' => 'ClientToken',
-        'instanceId'  => 'InstanceId',
+        'instanceId' => 'InstanceId',
     ];
 
     public function validate()

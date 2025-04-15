@@ -13,23 +13,26 @@ class data extends Model
      * @var int
      */
     public $pageNo;
+
     /**
      * @var int
      */
     public $pageSize;
+
     /**
      * @var qualityRuleList[]
      */
     public $qualityRuleList;
+
     /**
      * @var int
      */
     public $total;
     protected $_name = [
-        'pageNo'          => 'PageNo',
-        'pageSize'        => 'PageSize',
+        'pageNo' => 'PageNo',
+        'pageSize' => 'PageSize',
         'qualityRuleList' => 'QualityRuleList',
-        'total'           => 'Total',
+        'total' => 'Total',
     ];
 
     public function validate()
@@ -54,7 +57,7 @@ class data extends Model
         if (null !== $this->qualityRuleList) {
             if (\is_array($this->qualityRuleList)) {
                 $res['QualityRuleList'] = [];
-                $n1                     = 0;
+                $n1 = 0;
                 foreach ($this->qualityRuleList as $item1) {
                     $res['QualityRuleList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -87,7 +90,7 @@ class data extends Model
         if (isset($map['QualityRuleList'])) {
             if (!empty($map['QualityRuleList'])) {
                 $model->qualityRuleList = [];
-                $n1                     = 0;
+                $n1 = 0;
                 foreach ($map['QualityRuleList'] as $item1) {
                     $model->qualityRuleList[$n1++] = qualityRuleList::fromMap($item1);
                 }

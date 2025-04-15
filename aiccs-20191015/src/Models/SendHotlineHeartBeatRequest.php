@@ -12,14 +12,17 @@ class SendHotlineHeartBeatRequest extends Model
      * @var string
      */
     public $accountName;
+
     /**
      * @var string
      */
     public $clientToken;
+
     /**
      * @var string
      */
     public $instanceId;
+
     /**
      * @var string
      */
@@ -27,8 +30,8 @@ class SendHotlineHeartBeatRequest extends Model
     protected $_name = [
         'accountName' => 'AccountName',
         'clientToken' => 'ClientToken',
-        'instanceId'  => 'InstanceId',
-        'token'       => 'Token',
+        'instanceId' => 'InstanceId',
+        'token' => 'Token',
     ];
 
     public function validate()

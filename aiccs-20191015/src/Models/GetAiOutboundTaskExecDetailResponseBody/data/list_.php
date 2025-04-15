@@ -12,48 +12,56 @@ class list_ extends Model
      * @var int
      */
     public $batchVersion;
+
     /**
      * @var string
      */
     public $bizData;
+
     /**
      * @var int
      */
     public $callCount;
+
     /**
      * @var int
      */
     public $caseId;
+
     /**
      * @var int
      */
     public $createTime;
+
     /**
      * @var string
      */
     public $lastCallResult;
+
     /**
      * @var string
      */
     public $phoneNum;
+
     /**
      * @var int
      */
     public $status;
+
     /**
      * @var int
      */
     public $statusDesc;
     protected $_name = [
-        'batchVersion'   => 'BatchVersion',
-        'bizData'        => 'BizData',
-        'callCount'      => 'CallCount',
-        'caseId'         => 'CaseId',
-        'createTime'     => 'CreateTime',
+        'batchVersion' => 'BatchVersion',
+        'bizData' => 'BizData',
+        'callCount' => 'CallCount',
+        'caseId' => 'CaseId',
+        'createTime' => 'CreateTime',
         'lastCallResult' => 'LastCallResult',
-        'phoneNum'       => 'PhoneNum',
-        'status'         => 'Status',
-        'statusDesc'     => 'StatusDesc',
+        'phoneNum' => 'PhoneNum',
+        'status' => 'Status',
+        'statusDesc' => 'StatusDesc',
     ];
 
     public function validate()

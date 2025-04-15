@@ -13,27 +13,31 @@ class resultData extends Model
      * @var int
      */
     public $currentPage;
+
     /**
      * @var data[]
      */
     public $data;
+
     /**
      * @var int
      */
     public $onePageSize;
+
     /**
      * @var int
      */
     public $totalPage;
+
     /**
      * @var int
      */
     public $totalResults;
     protected $_name = [
-        'currentPage'  => 'CurrentPage',
-        'data'         => 'Data',
-        'onePageSize'  => 'OnePageSize',
-        'totalPage'    => 'TotalPage',
+        'currentPage' => 'CurrentPage',
+        'data' => 'Data',
+        'onePageSize' => 'OnePageSize',
+        'totalPage' => 'TotalPage',
         'totalResults' => 'TotalResults',
     ];
 
@@ -55,7 +59,7 @@ class resultData extends Model
         if (null !== $this->data) {
             if (\is_array($this->data)) {
                 $res['Data'] = [];
-                $n1          = 0;
+                $n1 = 0;
                 foreach ($this->data as $item1) {
                     $res['Data'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -92,7 +96,7 @@ class resultData extends Model
         if (isset($map['Data'])) {
             if (!empty($map['Data'])) {
                 $model->data = [];
-                $n1          = 0;
+                $n1 = 0;
                 foreach ($map['Data'] as $item1) {
                     $model->data[$n1++] = data::fromMap($item1);
                 }

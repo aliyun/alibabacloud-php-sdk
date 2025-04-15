@@ -12,13 +12,14 @@ class DeleteHotlineNumberRequest extends Model
      * @var string
      */
     public $hotlineNumber;
+
     /**
      * @var string
      */
     public $instanceId;
     protected $_name = [
         'hotlineNumber' => 'HotlineNumber',
-        'instanceId'    => 'InstanceId',
+        'instanceId' => 'InstanceId',
     ];
 
     public function validate()

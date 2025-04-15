@@ -12,23 +12,26 @@ class ListAiccsRobotRequest extends Model
      * @var int
      */
     public $ownerId;
+
     /**
      * @var string
      */
     public $resourceOwnerAccount;
+
     /**
      * @var int
      */
     public $resourceOwnerId;
+
     /**
      * @var string
      */
     public $robotName;
     protected $_name = [
-        'ownerId'              => 'OwnerId',
+        'ownerId' => 'OwnerId',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
-        'resourceOwnerId'      => 'ResourceOwnerId',
-        'robotName'            => 'RobotName',
+        'resourceOwnerId' => 'ResourceOwnerId',
+        'robotName' => 'RobotName',
     ];
 
     public function validate()
