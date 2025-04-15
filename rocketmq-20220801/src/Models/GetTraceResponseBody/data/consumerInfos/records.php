@@ -13,33 +13,38 @@ class records extends Model
      * @var string
      */
     public $clientHost;
+
     /**
      * @var string
      */
     public $consumeStatus;
+
     /**
      * @var bool
      */
     public $fifoEnable;
+
     /**
      * @var operations[]
      */
     public $operations;
+
     /**
      * @var string
      */
     public $popCk;
+
     /**
      * @var string
      */
     public $userName;
     protected $_name = [
-        'clientHost'    => 'clientHost',
+        'clientHost' => 'clientHost',
         'consumeStatus' => 'consumeStatus',
-        'fifoEnable'    => 'fifoEnable',
-        'operations'    => 'operations',
-        'popCk'         => 'popCk',
-        'userName'      => 'userName',
+        'fifoEnable' => 'fifoEnable',
+        'operations' => 'operations',
+        'popCk' => 'popCk',
+        'userName' => 'userName',
     ];
 
     public function validate()
@@ -68,7 +73,7 @@ class records extends Model
         if (null !== $this->operations) {
             if (\is_array($this->operations)) {
                 $res['operations'] = [];
-                $n1                = 0;
+                $n1 = 0;
                 foreach ($this->operations as $item1) {
                     $res['operations'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -109,7 +114,7 @@ class records extends Model
         if (isset($map['operations'])) {
             if (!empty($map['operations'])) {
                 $model->operations = [];
-                $n1                = 0;
+                $n1 = 0;
                 foreach ($map['operations'] as $item1) {
                     $model->operations[$n1++] = operations::fromMap($item1);
                 }

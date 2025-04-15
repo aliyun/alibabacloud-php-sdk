@@ -12,28 +12,32 @@ class UntagResourcesRequest extends Model
      * @var bool
      */
     public $all;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $resourceId;
+
     /**
      * @var string
      */
     public $resourceType;
+
     /**
      * @var string
      */
     public $tagKey;
     protected $_name = [
-        'all'          => 'all',
-        'regionId'     => 'regionId',
-        'resourceId'   => 'resourceId',
+        'all' => 'all',
+        'regionId' => 'regionId',
+        'resourceId' => 'resourceId',
         'resourceType' => 'resourceType',
-        'tagKey'       => 'tagKey',
+        'tagKey' => 'tagKey',
     ];
 
     public function validate()

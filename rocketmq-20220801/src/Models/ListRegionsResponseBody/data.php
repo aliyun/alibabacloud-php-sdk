@@ -13,38 +13,44 @@ class data extends Model
      * @var string
      */
     public $createTime;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $regionName;
+
     /**
      * @var bool
      */
     public $supportRocketmqV4;
+
     /**
      * @var bool
      */
     public $supportRocketmqV5;
+
     /**
      * @var tags[]
      */
     public $tags;
+
     /**
      * @var string
      */
     public $updateTime;
     protected $_name = [
-        'createTime'        => 'createTime',
-        'regionId'          => 'regionId',
-        'regionName'        => 'regionName',
+        'createTime' => 'createTime',
+        'regionId' => 'regionId',
+        'regionName' => 'regionName',
         'supportRocketmqV4' => 'supportRocketmqV4',
         'supportRocketmqV5' => 'supportRocketmqV5',
-        'tags'              => 'tags',
-        'updateTime'        => 'updateTime',
+        'tags' => 'tags',
+        'updateTime' => 'updateTime',
     ];
 
     public function validate()
@@ -81,7 +87,7 @@ class data extends Model
         if (null !== $this->tags) {
             if (\is_array($this->tags)) {
                 $res['tags'] = [];
-                $n1          = 0;
+                $n1 = 0;
                 foreach ($this->tags as $item1) {
                     $res['tags'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -126,7 +132,7 @@ class data extends Model
         if (isset($map['tags'])) {
             if (!empty($map['tags'])) {
                 $model->tags = [];
-                $n1          = 0;
+                $n1 = 0;
                 foreach ($map['tags'] as $item1) {
                     $model->tags[$n1++] = tags::fromMap($item1);
                 }

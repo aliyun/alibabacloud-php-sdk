@@ -12,38 +12,44 @@ class ResetConsumeOffsetResponseBody extends Model
      * @var string
      */
     public $code;
+
     /**
      * @var string
      */
     public $dynamicCode;
+
     /**
      * @var string
      */
     public $dynamicMessage;
+
     /**
      * @var int
      */
     public $httpStatusCode;
+
     /**
      * @var string
      */
     public $message;
+
     /**
      * @var string
      */
     public $requestId;
+
     /**
      * @var bool
      */
     public $success;
     protected $_name = [
-        'code'           => 'code',
-        'dynamicCode'    => 'dynamicCode',
+        'code' => 'code',
+        'dynamicCode' => 'dynamicCode',
         'dynamicMessage' => 'dynamicMessage',
         'httpStatusCode' => 'httpStatusCode',
-        'message'        => 'message',
-        'requestId'      => 'requestId',
-        'success'        => 'success',
+        'message' => 'message',
+        'requestId' => 'requestId',
+        'success' => 'success',
     ];
 
     public function validate()

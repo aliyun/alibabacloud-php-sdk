@@ -12,13 +12,14 @@ class UpdateTopicRequest extends Model
      * @var int
      */
     public $maxSendTps;
+
     /**
      * @var string
      */
     public $remark;
     protected $_name = [
         'maxSendTps' => 'maxSendTps',
-        'remark'     => 'remark',
+        'remark' => 'remark',
     ];
 
     public function validate()

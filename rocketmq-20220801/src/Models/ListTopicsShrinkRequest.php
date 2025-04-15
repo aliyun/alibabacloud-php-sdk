@@ -12,23 +12,26 @@ class ListTopicsShrinkRequest extends Model
      * @var string
      */
     public $filter;
+
     /**
      * @var string
      */
     public $messageTypesShrink;
+
     /**
      * @var int
      */
     public $pageNumber;
+
     /**
      * @var int
      */
     public $pageSize;
     protected $_name = [
-        'filter'             => 'filter',
+        'filter' => 'filter',
         'messageTypesShrink' => 'messageTypes',
-        'pageNumber'         => 'pageNumber',
-        'pageSize'           => 'pageSize',
+        'pageNumber' => 'pageNumber',
+        'pageSize' => 'pageSize',
     ];
 
     public function validate()

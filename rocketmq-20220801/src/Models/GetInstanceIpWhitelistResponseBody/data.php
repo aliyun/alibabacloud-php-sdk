@@ -12,18 +12,20 @@ class data extends Model
      * @var string
      */
     public $instanceId;
+
     /**
      * @var string[]
      */
     public $ipWhitelists;
+
     /**
      * @var string
      */
     public $regionId;
     protected $_name = [
-        'instanceId'   => 'instanceId',
+        'instanceId' => 'instanceId',
         'ipWhitelists' => 'ipWhitelists',
-        'regionId'     => 'regionId',
+        'regionId' => 'regionId',
     ];
 
     public function validate()
@@ -44,7 +46,7 @@ class data extends Model
         if (null !== $this->ipWhitelists) {
             if (\is_array($this->ipWhitelists)) {
                 $res['ipWhitelists'] = [];
-                $n1                  = 0;
+                $n1 = 0;
                 foreach ($this->ipWhitelists as $item1) {
                     $res['ipWhitelists'][$n1++] = $item1;
                 }
@@ -73,7 +75,7 @@ class data extends Model
         if (isset($map['ipWhitelists'])) {
             if (!empty($map['ipWhitelists'])) {
                 $model->ipWhitelists = [];
-                $n1                  = 0;
+                $n1 = 0;
                 foreach ($map['ipWhitelists'] as $item1) {
                     $model->ipWhitelists[$n1++] = $item1;
                 }

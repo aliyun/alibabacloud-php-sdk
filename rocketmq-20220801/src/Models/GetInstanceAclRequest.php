@@ -12,6 +12,7 @@ class GetInstanceAclRequest extends Model
      * @var string
      */
     public $resourceName;
+
     /**
      * @var string
      */

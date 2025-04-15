@@ -12,13 +12,14 @@ class ListMetricMetaRequest extends Model
      * @var int
      */
     public $pageNumber;
+
     /**
      * @var int
      */
     public $pageSize;
     protected $_name = [
         'pageNumber' => 'pageNumber',
-        'pageSize'   => 'pageSize',
+        'pageSize' => 'pageSize',
     ];
 
     public function validate()

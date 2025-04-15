@@ -15,83 +15,98 @@ class CreateInstanceRequest extends Model
      * @var bool
      */
     public $autoRenew;
+
     /**
      * @var int
      */
     public $autoRenewPeriod;
+
     /**
      * @var string
      */
     public $commodityCode;
+
     /**
      * @var string
      */
     public $instanceName;
+
     /**
      * @var networkInfo
      */
     public $networkInfo;
+
     /**
      * @var string
      */
     public $paymentType;
+
     /**
      * @var int
      */
     public $period;
+
     /**
      * @var string
      */
     public $periodUnit;
+
     /**
      * @var productInfo
      */
     public $productInfo;
+
     /**
      * @var string
      */
     public $remark;
+
     /**
      * @var string
      */
     public $resourceGroupId;
+
     /**
      * @var string
      */
     public $seriesCode;
+
     /**
      * @var string
      */
     public $serviceCode;
+
     /**
      * @var string
      */
     public $subSeriesCode;
+
     /**
      * @var tags[]
      */
     public $tags;
+
     /**
      * @var string
      */
     public $clientToken;
     protected $_name = [
-        'autoRenew'       => 'autoRenew',
+        'autoRenew' => 'autoRenew',
         'autoRenewPeriod' => 'autoRenewPeriod',
-        'commodityCode'   => 'commodityCode',
-        'instanceName'    => 'instanceName',
-        'networkInfo'     => 'networkInfo',
-        'paymentType'     => 'paymentType',
-        'period'          => 'period',
-        'periodUnit'      => 'periodUnit',
-        'productInfo'     => 'productInfo',
-        'remark'          => 'remark',
+        'commodityCode' => 'commodityCode',
+        'instanceName' => 'instanceName',
+        'networkInfo' => 'networkInfo',
+        'paymentType' => 'paymentType',
+        'period' => 'period',
+        'periodUnit' => 'periodUnit',
+        'productInfo' => 'productInfo',
+        'remark' => 'remark',
         'resourceGroupId' => 'resourceGroupId',
-        'seriesCode'      => 'seriesCode',
-        'serviceCode'     => 'serviceCode',
-        'subSeriesCode'   => 'subSeriesCode',
-        'tags'            => 'tags',
-        'clientToken'     => 'clientToken',
+        'seriesCode' => 'seriesCode',
+        'serviceCode' => 'serviceCode',
+        'subSeriesCode' => 'subSeriesCode',
+        'tags' => 'tags',
+        'clientToken' => 'clientToken',
     ];
 
     public function validate()
@@ -170,7 +185,7 @@ class CreateInstanceRequest extends Model
         if (null !== $this->tags) {
             if (\is_array($this->tags)) {
                 $res['tags'] = [];
-                $n1          = 0;
+                $n1 = 0;
                 foreach ($this->tags as $item1) {
                     $res['tags'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -251,7 +266,7 @@ class CreateInstanceRequest extends Model
         if (isset($map['tags'])) {
             if (!empty($map['tags'])) {
                 $model->tags = [];
-                $n1          = 0;
+                $n1 = 0;
                 foreach ($map['tags'] as $item1) {
                     $model->tags[$n1++] = tags::fromMap($item1);
                 }

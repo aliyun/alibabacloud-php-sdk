@@ -12,48 +12,56 @@ class extConfig extends Model
      * @var string
      */
     public $aclType;
+
     /**
      * @var bool
      */
     public $autoScaling;
+
     /**
      * @var int
      */
     public $flowOutBandwidth;
+
     /**
      * @var string
      */
     public $flowOutType;
+
     /**
      * @var string
      */
     public $internetSpec;
+
     /**
      * @var int
      */
     public $messageRetentionTime;
+
     /**
      * @var string
      */
     public $msgProcessSpec;
+
     /**
      * @var float
      */
     public $sendReceiveRatio;
+
     /**
      * @var bool
      */
     public $supportAutoScaling;
     protected $_name = [
-        'aclType'              => 'aclType',
-        'autoScaling'          => 'autoScaling',
-        'flowOutBandwidth'     => 'flowOutBandwidth',
-        'flowOutType'          => 'flowOutType',
-        'internetSpec'         => 'internetSpec',
+        'aclType' => 'aclType',
+        'autoScaling' => 'autoScaling',
+        'flowOutBandwidth' => 'flowOutBandwidth',
+        'flowOutType' => 'flowOutType',
+        'internetSpec' => 'internetSpec',
         'messageRetentionTime' => 'messageRetentionTime',
-        'msgProcessSpec'       => 'msgProcessSpec',
-        'sendReceiveRatio'     => 'sendReceiveRatio',
-        'supportAutoScaling'   => 'supportAutoScaling',
+        'msgProcessSpec' => 'msgProcessSpec',
+        'sendReceiveRatio' => 'sendReceiveRatio',
+        'supportAutoScaling' => 'supportAutoScaling',
     ];
 
     public function validate()

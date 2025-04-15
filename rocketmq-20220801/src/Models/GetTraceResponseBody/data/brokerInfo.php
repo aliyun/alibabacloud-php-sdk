@@ -13,23 +13,26 @@ class brokerInfo extends Model
      * @var string
      */
     public $delayStatus;
+
     /**
      * @var operations[]
      */
     public $operations;
+
     /**
      * @var string
      */
     public $presetDelayTime;
+
     /**
      * @var string
      */
     public $recallResult;
     protected $_name = [
-        'delayStatus'     => 'delayStatus',
-        'operations'      => 'operations',
+        'delayStatus' => 'delayStatus',
+        'operations' => 'operations',
         'presetDelayTime' => 'presetDelayTime',
-        'recallResult'    => 'recallResult',
+        'recallResult' => 'recallResult',
     ];
 
     public function validate()
@@ -50,7 +53,7 @@ class brokerInfo extends Model
         if (null !== $this->operations) {
             if (\is_array($this->operations)) {
                 $res['operations'] = [];
-                $n1                = 0;
+                $n1 = 0;
                 foreach ($this->operations as $item1) {
                     $res['operations'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -83,7 +86,7 @@ class brokerInfo extends Model
         if (isset($map['operations'])) {
             if (!empty($map['operations'])) {
                 $model->operations = [];
-                $n1                = 0;
+                $n1 = 0;
                 foreach ($map['operations'] as $item1) {
                     $model->operations[$n1++] = operations::fromMap($item1);
                 }

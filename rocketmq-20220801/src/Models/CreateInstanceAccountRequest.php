@@ -12,6 +12,7 @@ class CreateInstanceAccountRequest extends Model
      * @var string
      */
     public $password;
+
     /**
      * @var string
      */

@@ -12,13 +12,14 @@ class vSwitches extends Model
      * @var string
      */
     public $vSwitchId;
+
     /**
      * @var string
      */
     public $zoneId;
     protected $_name = [
         'vSwitchId' => 'vSwitchId',
-        'zoneId'    => 'zoneId',
+        'zoneId' => 'zoneId',
     ];
 
     public function validate()

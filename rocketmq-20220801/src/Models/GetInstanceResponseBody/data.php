@@ -20,143 +20,170 @@ class data extends Model
      * @var accountInfo
      */
     public $accountInfo;
+
     /**
      * @var aclInfo
      */
     public $aclInfo;
+
     /**
      * @var string
      */
     public $bid;
+
     /**
      * @var string
      */
     public $commodityCode;
+
     /**
      * @var string
      */
     public $createTime;
+
     /**
      * @var string
      */
     public $expireTime;
+
     /**
      * @var extConfig
      */
     public $extConfig;
+
     /**
      * @var int
      */
     public $groupCount;
+
     /**
      * @var string
      */
     public $instanceId;
+
     /**
      * @var string
      */
     public $instanceName;
+
     /**
      * @var instanceQuotas[]
      */
     public $instanceQuotas;
+
     /**
      * @var networkInfo
      */
     public $networkInfo;
+
     /**
      * @var string
      */
     public $paymentType;
+
     /**
      * @var productInfo
      */
     public $productInfo;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $releaseTime;
+
     /**
      * @var string
      */
     public $remark;
+
     /**
      * @var string
      */
     public $resourceGroupId;
+
     /**
      * @var string
      */
     public $seriesCode;
+
     /**
      * @var string
      */
     public $serviceCode;
+
     /**
      * @var software
      */
     public $software;
+
     /**
      * @var string
      */
     public $startTime;
+
     /**
      * @var string
      */
     public $status;
+
     /**
      * @var string
      */
     public $subSeriesCode;
+
     /**
      * @var tags[]
      */
     public $tags;
+
     /**
      * @var int
      */
     public $topicCount;
+
     /**
      * @var string
      */
     public $updateTime;
+
     /**
      * @var string
      */
     public $userId;
     protected $_name = [
-        'accountInfo'     => 'accountInfo',
-        'aclInfo'         => 'aclInfo',
-        'bid'             => 'bid',
-        'commodityCode'   => 'commodityCode',
-        'createTime'      => 'createTime',
-        'expireTime'      => 'expireTime',
-        'extConfig'       => 'extConfig',
-        'groupCount'      => 'groupCount',
-        'instanceId'      => 'instanceId',
-        'instanceName'    => 'instanceName',
-        'instanceQuotas'  => 'instanceQuotas',
-        'networkInfo'     => 'networkInfo',
-        'paymentType'     => 'paymentType',
-        'productInfo'     => 'productInfo',
-        'regionId'        => 'regionId',
-        'releaseTime'     => 'releaseTime',
-        'remark'          => 'remark',
+        'accountInfo' => 'accountInfo',
+        'aclInfo' => 'aclInfo',
+        'bid' => 'bid',
+        'commodityCode' => 'commodityCode',
+        'createTime' => 'createTime',
+        'expireTime' => 'expireTime',
+        'extConfig' => 'extConfig',
+        'groupCount' => 'groupCount',
+        'instanceId' => 'instanceId',
+        'instanceName' => 'instanceName',
+        'instanceQuotas' => 'instanceQuotas',
+        'networkInfo' => 'networkInfo',
+        'paymentType' => 'paymentType',
+        'productInfo' => 'productInfo',
+        'regionId' => 'regionId',
+        'releaseTime' => 'releaseTime',
+        'remark' => 'remark',
         'resourceGroupId' => 'resourceGroupId',
-        'seriesCode'      => 'seriesCode',
-        'serviceCode'     => 'serviceCode',
-        'software'        => 'software',
-        'startTime'       => 'startTime',
-        'status'          => 'status',
-        'subSeriesCode'   => 'subSeriesCode',
-        'tags'            => 'tags',
-        'topicCount'      => 'topicCount',
-        'updateTime'      => 'updateTime',
-        'userId'          => 'userId',
+        'seriesCode' => 'seriesCode',
+        'serviceCode' => 'serviceCode',
+        'software' => 'software',
+        'startTime' => 'startTime',
+        'status' => 'status',
+        'subSeriesCode' => 'subSeriesCode',
+        'tags' => 'tags',
+        'topicCount' => 'topicCount',
+        'updateTime' => 'updateTime',
+        'userId' => 'userId',
     ];
 
     public function validate()
@@ -234,7 +261,7 @@ class data extends Model
         if (null !== $this->instanceQuotas) {
             if (\is_array($this->instanceQuotas)) {
                 $res['instanceQuotas'] = [];
-                $n1                    = 0;
+                $n1 = 0;
                 foreach ($this->instanceQuotas as $item1) {
                     $res['instanceQuotas'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -296,7 +323,7 @@ class data extends Model
         if (null !== $this->tags) {
             if (\is_array($this->tags)) {
                 $res['tags'] = [];
-                $n1          = 0;
+                $n1 = 0;
                 foreach ($this->tags as $item1) {
                     $res['tags'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -369,7 +396,7 @@ class data extends Model
         if (isset($map['instanceQuotas'])) {
             if (!empty($map['instanceQuotas'])) {
                 $model->instanceQuotas = [];
-                $n1                    = 0;
+                $n1 = 0;
                 foreach ($map['instanceQuotas'] as $item1) {
                     $model->instanceQuotas[$n1++] = instanceQuotas::fromMap($item1);
                 }
@@ -431,7 +458,7 @@ class data extends Model
         if (isset($map['tags'])) {
             if (!empty($map['tags'])) {
                 $model->tags = [];
-                $n1          = 0;
+                $n1 = 0;
                 foreach ($map['tags'] as $item1) {
                     $model->tags[$n1++] = tags::fromMap($item1);
                 }

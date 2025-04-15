@@ -12,23 +12,26 @@ class instanceQuotas extends Model
      * @var float
      */
     public $freeCount;
+
     /**
      * @var string
      */
     public $quotaName;
+
     /**
      * @var float
      */
     public $totalCount;
+
     /**
      * @var float
      */
     public $usedCount;
     protected $_name = [
-        'freeCount'  => 'freeCount',
-        'quotaName'  => 'quotaName',
+        'freeCount' => 'freeCount',
+        'quotaName' => 'quotaName',
         'totalCount' => 'totalCount',
-        'usedCount'  => 'usedCount',
+        'usedCount' => 'usedCount',
     ];
 
     public function validate()

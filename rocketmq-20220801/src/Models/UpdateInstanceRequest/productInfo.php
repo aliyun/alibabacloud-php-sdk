@@ -12,23 +12,26 @@ class productInfo extends Model
      * @var bool
      */
     public $autoScaling;
+
     /**
      * @var int
      */
     public $messageRetentionTime;
+
     /**
      * @var float
      */
     public $sendReceiveRatio;
+
     /**
      * @var bool
      */
     public $traceOn;
     protected $_name = [
-        'autoScaling'          => 'autoScaling',
+        'autoScaling' => 'autoScaling',
         'messageRetentionTime' => 'messageRetentionTime',
-        'sendReceiveRatio'     => 'sendReceiveRatio',
-        'traceOn'              => 'traceOn',
+        'sendReceiveRatio' => 'sendReceiveRatio',
+        'traceOn' => 'traceOn',
     ];
 
     public function validate()

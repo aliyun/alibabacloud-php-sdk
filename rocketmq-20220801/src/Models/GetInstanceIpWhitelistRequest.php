@@ -30,7 +30,7 @@ class GetInstanceIpWhitelistRequest extends Model
         if (null !== $this->ipWhitelists) {
             if (\is_array($this->ipWhitelists)) {
                 $res['ipWhitelists'] = [];
-                $n1                  = 0;
+                $n1 = 0;
                 foreach ($this->ipWhitelists as $item1) {
                     $res['ipWhitelists'][$n1++] = $item1;
                 }
@@ -51,7 +51,7 @@ class GetInstanceIpWhitelistRequest extends Model
         if (isset($map['ipWhitelists'])) {
             if (!empty($map['ipWhitelists'])) {
                 $model->ipWhitelists = [];
-                $n1                  = 0;
+                $n1 = 0;
                 foreach ($map['ipWhitelists'] as $item1) {
                     $model->ipWhitelists[$n1++] = $item1;
                 }

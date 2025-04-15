@@ -12,6 +12,7 @@ class ResetConsumeOffsetRequest extends Model
      * @var string
      */
     public $resetTime;
+
     /**
      * @var string
      */

@@ -12,6 +12,7 @@ class operations extends Model
      * @var string
      */
     public $operateTime;
+
     /**
      * @var string
      */

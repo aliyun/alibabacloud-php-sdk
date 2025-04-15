@@ -13,48 +13,56 @@ class ListInstanceAccountResponseBody extends Model
      * @var string
      */
     public $accessDeniedDetail;
+
     /**
      * @var string
      */
     public $code;
+
     /**
      * @var data
      */
     public $data;
+
     /**
      * @var string
      */
     public $dynamicCode;
+
     /**
      * @var string
      */
     public $dynamicMessage;
+
     /**
      * @var int
      */
     public $httpStatusCode;
+
     /**
      * @var string
      */
     public $message;
+
     /**
      * @var string
      */
     public $requestId;
+
     /**
      * @var bool
      */
     public $success;
     protected $_name = [
         'accessDeniedDetail' => 'accessDeniedDetail',
-        'code'               => 'code',
-        'data'               => 'data',
-        'dynamicCode'        => 'dynamicCode',
-        'dynamicMessage'     => 'dynamicMessage',
-        'httpStatusCode'     => 'httpStatusCode',
-        'message'            => 'message',
-        'requestId'          => 'requestId',
-        'success'            => 'success',
+        'code' => 'code',
+        'data' => 'data',
+        'dynamicCode' => 'dynamicCode',
+        'dynamicMessage' => 'dynamicMessage',
+        'httpStatusCode' => 'httpStatusCode',
+        'message' => 'message',
+        'requestId' => 'requestId',
+        'success' => 'success',
     ];
 
     public function validate()

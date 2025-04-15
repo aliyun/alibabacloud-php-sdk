@@ -12,48 +12,56 @@ class list_ extends Model
      * @var string
      */
     public $aclType;
+
     /**
      * @var string[]
      */
     public $actions;
+
     /**
      * @var string
      */
     public $decision;
+
     /**
      * @var string
      */
     public $instanceId;
+
     /**
      * @var string[]
      */
     public $ipWhitelists;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $resourceName;
+
     /**
      * @var string
      */
     public $resourceType;
+
     /**
      * @var string
      */
     public $username;
     protected $_name = [
-        'aclType'      => 'aclType',
-        'actions'      => 'actions',
-        'decision'     => 'decision',
-        'instanceId'   => 'instanceId',
+        'aclType' => 'aclType',
+        'actions' => 'actions',
+        'decision' => 'decision',
+        'instanceId' => 'instanceId',
         'ipWhitelists' => 'ipWhitelists',
-        'regionId'     => 'regionId',
+        'regionId' => 'regionId',
         'resourceName' => 'resourceName',
         'resourceType' => 'resourceType',
-        'username'     => 'username',
+        'username' => 'username',
     ];
 
     public function validate()
@@ -77,7 +85,7 @@ class list_ extends Model
         if (null !== $this->actions) {
             if (\is_array($this->actions)) {
                 $res['actions'] = [];
-                $n1             = 0;
+                $n1 = 0;
                 foreach ($this->actions as $item1) {
                     $res['actions'][$n1++] = $item1;
                 }
@@ -95,7 +103,7 @@ class list_ extends Model
         if (null !== $this->ipWhitelists) {
             if (\is_array($this->ipWhitelists)) {
                 $res['ipWhitelists'] = [];
-                $n1                  = 0;
+                $n1 = 0;
                 foreach ($this->ipWhitelists as $item1) {
                     $res['ipWhitelists'][$n1++] = $item1;
                 }
@@ -136,7 +144,7 @@ class list_ extends Model
         if (isset($map['actions'])) {
             if (!empty($map['actions'])) {
                 $model->actions = [];
-                $n1             = 0;
+                $n1 = 0;
                 foreach ($map['actions'] as $item1) {
                     $model->actions[$n1++] = $item1;
                 }
@@ -154,7 +162,7 @@ class list_ extends Model
         if (isset($map['ipWhitelists'])) {
             if (!empty($map['ipWhitelists'])) {
                 $model->ipWhitelists = [];
-                $n1                  = 0;
+                $n1 = 0;
                 foreach ($map['ipWhitelists'] as $item1) {
                     $model->ipWhitelists[$n1++] = $item1;
                 }

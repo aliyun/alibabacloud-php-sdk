@@ -12,18 +12,20 @@ class CreateTopicRequest extends Model
      * @var int
      */
     public $maxSendTps;
+
     /**
      * @var string
      */
     public $messageType;
+
     /**
      * @var string
      */
     public $remark;
     protected $_name = [
-        'maxSendTps'  => 'maxSendTps',
+        'maxSendTps' => 'maxSendTps',
         'messageType' => 'messageType',
-        'remark'      => 'remark',
+        'remark' => 'remark',
     ];
 
     public function validate()

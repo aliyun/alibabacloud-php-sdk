@@ -13,23 +13,26 @@ class data extends Model
      * @var string
      */
     public $consumerGroupId;
+
     /**
      * @var string
      */
     public $instanceId;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var stacks[]
      */
     public $stacks;
     protected $_name = [
         'consumerGroupId' => 'consumerGroupId',
-        'instanceId'      => 'instanceId',
-        'regionId'        => 'regionId',
-        'stacks'          => 'stacks',
+        'instanceId' => 'instanceId',
+        'regionId' => 'regionId',
+        'stacks' => 'stacks',
     ];
 
     public function validate()
@@ -58,7 +61,7 @@ class data extends Model
         if (null !== $this->stacks) {
             if (\is_array($this->stacks)) {
                 $res['stacks'] = [];
-                $n1            = 0;
+                $n1 = 0;
                 foreach ($this->stacks as $item1) {
                     $res['stacks'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -91,7 +94,7 @@ class data extends Model
         if (isset($map['stacks'])) {
             if (!empty($map['stacks'])) {
                 $model->stacks = [];
-                $n1            = 0;
+                $n1 = 0;
                 foreach ($map['stacks'] as $item1) {
                     $model->stacks[$n1++] = stacks::fromMap($item1);
                 }

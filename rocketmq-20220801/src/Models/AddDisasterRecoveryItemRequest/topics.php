@@ -12,33 +12,38 @@ class topics extends Model
      * @var string
      */
     public $consumerGroupId;
+
     /**
      * @var string
      */
     public $deliveryOrderType;
+
     /**
      * @var string
      */
     public $instanceId;
+
     /**
      * @var string
      */
     public $instanceType;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $topicName;
     protected $_name = [
-        'consumerGroupId'   => 'consumerGroupId',
+        'consumerGroupId' => 'consumerGroupId',
         'deliveryOrderType' => 'deliveryOrderType',
-        'instanceId'        => 'instanceId',
-        'instanceType'      => 'instanceType',
-        'regionId'          => 'regionId',
-        'topicName'         => 'topicName',
+        'instanceId' => 'instanceId',
+        'instanceType' => 'instanceType',
+        'regionId' => 'regionId',
+        'topicName' => 'topicName',
     ];
 
     public function validate()

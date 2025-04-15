@@ -12,48 +12,56 @@ class list_ extends Model
      * @var string
      */
     public $createTime;
+
     /**
      * @var string
      */
     public $instanceId;
+
     /**
      * @var int
      */
     public $maxSendTps;
+
     /**
      * @var string
      */
     public $messageType;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $remark;
+
     /**
      * @var string
      */
     public $status;
+
     /**
      * @var string
      */
     public $topicName;
+
     /**
      * @var string
      */
     public $updateTime;
     protected $_name = [
-        'createTime'  => 'createTime',
-        'instanceId'  => 'instanceId',
-        'maxSendTps'  => 'maxSendTps',
+        'createTime' => 'createTime',
+        'instanceId' => 'instanceId',
+        'maxSendTps' => 'maxSendTps',
         'messageType' => 'messageType',
-        'regionId'    => 'regionId',
-        'remark'      => 'remark',
-        'status'      => 'status',
-        'topicName'   => 'topicName',
-        'updateTime'  => 'updateTime',
+        'regionId' => 'regionId',
+        'remark' => 'remark',
+        'status' => 'status',
+        'topicName' => 'topicName',
+        'updateTime' => 'updateTime',
     ];
 
     public function validate()

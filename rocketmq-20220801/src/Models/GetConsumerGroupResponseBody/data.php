@@ -13,53 +13,62 @@ class data extends Model
      * @var consumeRetryPolicy
      */
     public $consumeRetryPolicy;
+
     /**
      * @var string
      */
     public $consumerGroupId;
+
     /**
      * @var string
      */
     public $createTime;
+
     /**
      * @var string
      */
     public $deliveryOrderType;
+
     /**
      * @var string
      */
     public $instanceId;
+
     /**
      * @var int
      */
     public $maxReceiveTps;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $remark;
+
     /**
      * @var string
      */
     public $status;
+
     /**
      * @var string
      */
     public $updateTime;
     protected $_name = [
         'consumeRetryPolicy' => 'consumeRetryPolicy',
-        'consumerGroupId'    => 'consumerGroupId',
-        'createTime'         => 'createTime',
-        'deliveryOrderType'  => 'deliveryOrderType',
-        'instanceId'         => 'instanceId',
-        'maxReceiveTps'      => 'maxReceiveTps',
-        'regionId'           => 'regionId',
-        'remark'             => 'remark',
-        'status'             => 'status',
-        'updateTime'         => 'updateTime',
+        'consumerGroupId' => 'consumerGroupId',
+        'createTime' => 'createTime',
+        'deliveryOrderType' => 'deliveryOrderType',
+        'instanceId' => 'instanceId',
+        'maxReceiveTps' => 'maxReceiveTps',
+        'regionId' => 'regionId',
+        'remark' => 'remark',
+        'status' => 'status',
+        'updateTime' => 'updateTime',
     ];
 
     public function validate()

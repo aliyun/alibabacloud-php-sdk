@@ -12,13 +12,14 @@ class UpdateInstanceAccountRequest extends Model
      * @var string
      */
     public $accountStatus;
+
     /**
      * @var string
      */
     public $password;
     protected $_name = [
         'accountStatus' => 'accountStatus',
-        'password'      => 'password',
+        'password' => 'password',
     ];
 
     public function validate()

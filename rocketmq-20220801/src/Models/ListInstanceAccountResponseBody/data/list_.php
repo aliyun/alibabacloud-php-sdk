@@ -12,28 +12,32 @@ class list_ extends Model
      * @var string
      */
     public $accountStatus;
+
     /**
      * @var string
      */
     public $accountType;
+
     /**
      * @var string
      */
     public $instanceId;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $username;
     protected $_name = [
         'accountStatus' => 'accountStatus',
-        'accountType'   => 'accountType',
-        'instanceId'    => 'instanceId',
-        'regionId'      => 'regionId',
-        'username'      => 'username',
+        'accountType' => 'accountType',
+        'instanceId' => 'instanceId',
+        'regionId' => 'regionId',
+        'username' => 'username',
     ];
 
     public function validate()

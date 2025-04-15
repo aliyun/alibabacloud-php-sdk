@@ -15,18 +15,20 @@ class networkInfo extends Model
      * @var endpoints[]
      */
     public $endpoints;
+
     /**
      * @var internetInfo
      */
     public $internetInfo;
+
     /**
      * @var vpcInfo
      */
     public $vpcInfo;
     protected $_name = [
-        'endpoints'    => 'endpoints',
+        'endpoints' => 'endpoints',
         'internetInfo' => 'internetInfo',
-        'vpcInfo'      => 'vpcInfo',
+        'vpcInfo' => 'vpcInfo',
     ];
 
     public function validate()
@@ -49,7 +51,7 @@ class networkInfo extends Model
         if (null !== $this->endpoints) {
             if (\is_array($this->endpoints)) {
                 $res['endpoints'] = [];
-                $n1               = 0;
+                $n1 = 0;
                 foreach ($this->endpoints as $item1) {
                     $res['endpoints'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -78,7 +80,7 @@ class networkInfo extends Model
         if (isset($map['endpoints'])) {
             if (!empty($map['endpoints'])) {
                 $model->endpoints = [];
-                $n1               = 0;
+                $n1 = 0;
                 foreach ($map['endpoints'] as $item1) {
                     $model->endpoints[$n1++] = endpoints::fromMap($item1);
                 }

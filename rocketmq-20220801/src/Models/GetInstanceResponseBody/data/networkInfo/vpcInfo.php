@@ -13,23 +13,26 @@ class vpcInfo extends Model
      * @var string
      */
     public $securityGroupIds;
+
     /**
      * @var string
      */
     public $vSwitchId;
+
     /**
      * @var vSwitches[]
      */
     public $vSwitches;
+
     /**
      * @var string
      */
     public $vpcId;
     protected $_name = [
         'securityGroupIds' => 'securityGroupIds',
-        'vSwitchId'        => 'vSwitchId',
-        'vSwitches'        => 'vSwitches',
-        'vpcId'            => 'vpcId',
+        'vSwitchId' => 'vSwitchId',
+        'vSwitches' => 'vSwitches',
+        'vpcId' => 'vpcId',
     ];
 
     public function validate()
@@ -54,7 +57,7 @@ class vpcInfo extends Model
         if (null !== $this->vSwitches) {
             if (\is_array($this->vSwitches)) {
                 $res['vSwitches'] = [];
-                $n1               = 0;
+                $n1 = 0;
                 foreach ($this->vSwitches as $item1) {
                     $res['vSwitches'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -87,7 +90,7 @@ class vpcInfo extends Model
         if (isset($map['vSwitches'])) {
             if (!empty($map['vSwitches'])) {
                 $model->vSwitches = [];
-                $n1               = 0;
+                $n1 = 0;
                 foreach ($map['vSwitches'] as $item1) {
                     $model->vSwitches[$n1++] = vSwitches::fromMap($item1);
                 }

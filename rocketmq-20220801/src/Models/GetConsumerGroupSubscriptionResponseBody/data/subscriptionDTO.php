@@ -12,33 +12,38 @@ class subscriptionDTO extends Model
      * @var string
      */
     public $consumerGroupId;
+
     /**
      * @var string
      */
     public $filterExpression;
+
     /**
      * @var string
      */
     public $filterExpressionType;
+
     /**
      * @var string
      */
     public $messageModel;
+
     /**
      * @var string
      */
     public $subscriptionStatus;
+
     /**
      * @var string
      */
     public $topicName;
     protected $_name = [
-        'consumerGroupId'      => 'consumerGroupId',
-        'filterExpression'     => 'filterExpression',
+        'consumerGroupId' => 'consumerGroupId',
+        'filterExpression' => 'filterExpression',
         'filterExpressionType' => 'filterExpressionType',
-        'messageModel'         => 'messageModel',
-        'subscriptionStatus'   => 'subscriptionStatus',
-        'topicName'            => 'topicName',
+        'messageModel' => 'messageModel',
+        'subscriptionStatus' => 'subscriptionStatus',
+        'topicName' => 'topicName',
     ];
 
     public function validate()

@@ -5,13 +5,15 @@
 namespace AlibabaCloud\SDK\RocketMQ\V20220801;
 
 use AlibabaCloud\Dara\Models\RuntimeOptions;
-use AlibabaCloud\Dara\URL;
+use AlibabaCloud\Dara\Url;
 use AlibabaCloud\SDK\RocketMQ\V20220801\Models\AddDisasterRecoveryItemRequest;
 use AlibabaCloud\SDK\RocketMQ\V20220801\Models\AddDisasterRecoveryItemResponse;
 use AlibabaCloud\SDK\RocketMQ\V20220801\Models\ChangeResourceGroupRequest;
 use AlibabaCloud\SDK\RocketMQ\V20220801\Models\ChangeResourceGroupResponse;
 use AlibabaCloud\SDK\RocketMQ\V20220801\Models\CreateConsumerGroupRequest;
 use AlibabaCloud\SDK\RocketMQ\V20220801\Models\CreateConsumerGroupResponse;
+use AlibabaCloud\SDK\RocketMQ\V20220801\Models\CreateDisasterRecoveryPlanRequest;
+use AlibabaCloud\SDK\RocketMQ\V20220801\Models\CreateDisasterRecoveryPlanResponse;
 use AlibabaCloud\SDK\RocketMQ\V20220801\Models\CreateInstanceAccountRequest;
 use AlibabaCloud\SDK\RocketMQ\V20220801\Models\CreateInstanceAccountResponse;
 use AlibabaCloud\SDK\RocketMQ\V20220801\Models\CreateInstanceAclRequest;
@@ -25,6 +27,7 @@ use AlibabaCloud\SDK\RocketMQ\V20220801\Models\CreateTopicResponse;
 use AlibabaCloud\SDK\RocketMQ\V20220801\Models\DeleteConsumerGroupResponse;
 use AlibabaCloud\SDK\RocketMQ\V20220801\Models\DeleteConsumerGroupSubscriptionRequest;
 use AlibabaCloud\SDK\RocketMQ\V20220801\Models\DeleteConsumerGroupSubscriptionResponse;
+use AlibabaCloud\SDK\RocketMQ\V20220801\Models\DeleteDisasterRecoveryItemResponse;
 use AlibabaCloud\SDK\RocketMQ\V20220801\Models\DeleteDisasterRecoveryPlanResponse;
 use AlibabaCloud\SDK\RocketMQ\V20220801\Models\DeleteInstanceAccountResponse;
 use AlibabaCloud\SDK\RocketMQ\V20220801\Models\DeleteInstanceAclRequest;
@@ -40,6 +43,8 @@ use AlibabaCloud\SDK\RocketMQ\V20220801\Models\GetConsumerGroupResponse;
 use AlibabaCloud\SDK\RocketMQ\V20220801\Models\GetConsumerGroupSubscriptionResponse;
 use AlibabaCloud\SDK\RocketMQ\V20220801\Models\GetConsumerStackRequest;
 use AlibabaCloud\SDK\RocketMQ\V20220801\Models\GetConsumerStackResponse;
+use AlibabaCloud\SDK\RocketMQ\V20220801\Models\GetDisasterRecoveryItemResponse;
+use AlibabaCloud\SDK\RocketMQ\V20220801\Models\GetDisasterRecoveryPlanResponse;
 use AlibabaCloud\SDK\RocketMQ\V20220801\Models\GetInstanceAccountRequest;
 use AlibabaCloud\SDK\RocketMQ\V20220801\Models\GetInstanceAccountResponse;
 use AlibabaCloud\SDK\RocketMQ\V20220801\Models\GetInstanceAclRequest;
@@ -55,7 +60,14 @@ use AlibabaCloud\SDK\RocketMQ\V20220801\Models\ListAvailableZonesResponse;
 use AlibabaCloud\SDK\RocketMQ\V20220801\Models\ListConsumerConnectionsResponse;
 use AlibabaCloud\SDK\RocketMQ\V20220801\Models\ListConsumerGroupsRequest;
 use AlibabaCloud\SDK\RocketMQ\V20220801\Models\ListConsumerGroupsResponse;
+use AlibabaCloud\SDK\RocketMQ\V20220801\Models\ListConsumerGroupSubscriptionsRequest;
 use AlibabaCloud\SDK\RocketMQ\V20220801\Models\ListConsumerGroupSubscriptionsResponse;
+use AlibabaCloud\SDK\RocketMQ\V20220801\Models\ListDisasterRecoveryCheckpointsRequest;
+use AlibabaCloud\SDK\RocketMQ\V20220801\Models\ListDisasterRecoveryCheckpointsResponse;
+use AlibabaCloud\SDK\RocketMQ\V20220801\Models\ListDisasterRecoveryItemsRequest;
+use AlibabaCloud\SDK\RocketMQ\V20220801\Models\ListDisasterRecoveryItemsResponse;
+use AlibabaCloud\SDK\RocketMQ\V20220801\Models\ListDisasterRecoveryPlansRequest;
+use AlibabaCloud\SDK\RocketMQ\V20220801\Models\ListDisasterRecoveryPlansResponse;
 use AlibabaCloud\SDK\RocketMQ\V20220801\Models\ListInstanceAccountRequest;
 use AlibabaCloud\SDK\RocketMQ\V20220801\Models\ListInstanceAccountResponse;
 use AlibabaCloud\SDK\RocketMQ\V20220801\Models\ListInstanceAclRequest;
@@ -82,12 +94,17 @@ use AlibabaCloud\SDK\RocketMQ\V20220801\Models\ResetConsumeOffsetRequest;
 use AlibabaCloud\SDK\RocketMQ\V20220801\Models\ResetConsumeOffsetResponse;
 use AlibabaCloud\SDK\RocketMQ\V20220801\Models\StartDisasterRecoveryItemResponse;
 use AlibabaCloud\SDK\RocketMQ\V20220801\Models\StopDisasterRecoveryItemResponse;
+use AlibabaCloud\SDK\RocketMQ\V20220801\Models\SyncDisasterRecoveryCheckpointResponse;
 use AlibabaCloud\SDK\RocketMQ\V20220801\Models\TagResourcesRequest;
 use AlibabaCloud\SDK\RocketMQ\V20220801\Models\TagResourcesResponse;
 use AlibabaCloud\SDK\RocketMQ\V20220801\Models\UntagResourcesRequest;
 use AlibabaCloud\SDK\RocketMQ\V20220801\Models\UntagResourcesResponse;
 use AlibabaCloud\SDK\RocketMQ\V20220801\Models\UpdateConsumerGroupRequest;
 use AlibabaCloud\SDK\RocketMQ\V20220801\Models\UpdateConsumerGroupResponse;
+use AlibabaCloud\SDK\RocketMQ\V20220801\Models\UpdateDisasterRecoveryItemRequest;
+use AlibabaCloud\SDK\RocketMQ\V20220801\Models\UpdateDisasterRecoveryItemResponse;
+use AlibabaCloud\SDK\RocketMQ\V20220801\Models\UpdateDisasterRecoveryPlanRequest;
+use AlibabaCloud\SDK\RocketMQ\V20220801\Models\UpdateDisasterRecoveryPlanResponse;
 use AlibabaCloud\SDK\RocketMQ\V20220801\Models\UpdateInstanceAccountRequest;
 use AlibabaCloud\SDK\RocketMQ\V20220801\Models\UpdateInstanceAccountResponse;
 use AlibabaCloud\SDK\RocketMQ\V20220801\Models\UpdateInstanceAclRequest;
@@ -140,11 +157,12 @@ class RocketMQ extends OpenApiClient
     }
 
     /**
-     * 添加容灾计划条目.
+     * Add Disaster Recovery Plan Entry.
      *
      * @param request - AddDisasterRecoveryItemRequest
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns AddDisasterRecoveryItemResponse
      *
      * @param string                         $planId
@@ -164,18 +182,18 @@ class RocketMQ extends OpenApiClient
 
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body'    => Utils::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'AddDisasterRecoveryItem',
-            'version'     => '2022-08-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/disaster_recovery/' . URL::percentEncode($planId) . '/items',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'AddDisasterRecoveryItem',
+            'version' => '2022-08-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/disaster_recovery/' . Url::percentEncode($planId) . '/items',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return AddDisasterRecoveryItemResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -185,9 +203,10 @@ class RocketMQ extends OpenApiClient
     }
 
     /**
-     * 添加容灾计划条目.
+     * Add Disaster Recovery Plan Entry.
      *
      * @param request - AddDisasterRecoveryItemRequest
+     *
      * @returns AddDisasterRecoveryItemResponse
      *
      * @param string                         $planId
@@ -209,6 +228,7 @@ class RocketMQ extends OpenApiClient
      * @param request - ChangeResourceGroupRequest
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ChangeResourceGroupResponse
      *
      * @param ChangeResourceGroupRequest $request
@@ -239,18 +259,18 @@ class RocketMQ extends OpenApiClient
 
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query'   => Utils::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ChangeResourceGroup',
-            'version'     => '2022-08-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/resourceGroup/change',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'ChangeResourceGroup',
+            'version' => '2022-08-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/resourceGroup/change',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return ChangeResourceGroupResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -263,6 +283,7 @@ class RocketMQ extends OpenApiClient
      * Changes the resource group to which a ApsaraMQ for RocketMQ instance belongs.
      *
      * @param request - ChangeResourceGroupRequest
+     *
      * @returns ChangeResourceGroupResponse
      *
      * @param ChangeResourceGroupRequest $request
@@ -281,11 +302,16 @@ class RocketMQ extends OpenApiClient
      * Creates a consumer group.
      *
      * @remarks
-     * > API operations provided by Alibaba Cloud are used to manage and query resources of Alibaba Cloud services. We recommend that you integrate these API operations only in management systems. Do not use these API operations in the core system of messaging services. Otherwise, system risks may occur.
+     * The ID of the consumer group. The ID is globally unique and is used to identify a consumer group.
+     * The following limits are imposed on the ID:
+     * *   Character limit: The ID can contain letters, digits, underscores (_), hyphens (-), and percent signs (%).
+     * *   Length limit: The ID must be 1 to 60 characters in length.
+     * For more information about strings that are reserved for the system, see [Limits on parameters](https://help.aliyun.com/document_detail/440347.html).
      *
      * @param request - CreateConsumerGroupRequest
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns CreateConsumerGroupResponse
      *
      * @param string                     $instanceId
@@ -318,18 +344,18 @@ class RocketMQ extends OpenApiClient
 
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body'    => Utils::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'CreateConsumerGroup',
-            'version'     => '2022-08-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/instances/' . URL::percentEncode($instanceId) . '/consumerGroups/' . URL::percentEncode($consumerGroupId) . '',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'CreateConsumerGroup',
+            'version' => '2022-08-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/instances/' . Url::percentEncode($instanceId) . '/consumerGroups/' . Url::percentEncode($consumerGroupId) . '',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return CreateConsumerGroupResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -342,9 +368,14 @@ class RocketMQ extends OpenApiClient
      * Creates a consumer group.
      *
      * @remarks
-     * > API operations provided by Alibaba Cloud are used to manage and query resources of Alibaba Cloud services. We recommend that you integrate these API operations only in management systems. Do not use these API operations in the core system of messaging services. Otherwise, system risks may occur.
+     * The ID of the consumer group. The ID is globally unique and is used to identify a consumer group.
+     * The following limits are imposed on the ID:
+     * *   Character limit: The ID can contain letters, digits, underscores (_), hyphens (-), and percent signs (%).
+     * *   Length limit: The ID must be 1 to 60 characters in length.
+     * For more information about strings that are reserved for the system, see [Limits on parameters](https://help.aliyun.com/document_detail/440347.html).
      *
      * @param request - CreateConsumerGroupRequest
+     *
      * @returns CreateConsumerGroupResponse
      *
      * @param string                     $instanceId
@@ -362,6 +393,90 @@ class RocketMQ extends OpenApiClient
     }
 
     /**
+     * Create Disaster Recovery Plan.
+     *
+     * @param request - CreateDisasterRecoveryPlanRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateDisasterRecoveryPlanResponse
+     *
+     * @param CreateDisasterRecoveryPlanRequest $request
+     * @param string[]                          $headers
+     * @param RuntimeOptions                    $runtime
+     *
+     * @return CreateDisasterRecoveryPlanResponse
+     */
+    public function createDisasterRecoveryPlanWithOptions($request, $headers, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->autoSyncCheckpoint) {
+            @$body['autoSyncCheckpoint'] = $request->autoSyncCheckpoint;
+        }
+
+        if (null !== $request->instances) {
+            @$body['instances'] = $request->instances;
+        }
+
+        if (null !== $request->planDesc) {
+            @$body['planDesc'] = $request->planDesc;
+        }
+
+        if (null !== $request->planName) {
+            @$body['planName'] = $request->planName;
+        }
+
+        if (null !== $request->planType) {
+            @$body['planType'] = $request->planType;
+        }
+
+        if (null !== $request->syncCheckpointEnabled) {
+            @$body['syncCheckpointEnabled'] = $request->syncCheckpointEnabled;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'CreateDisasterRecoveryPlan',
+            'version' => '2022-08-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/disaster_recovery',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return CreateDisasterRecoveryPlanResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
+
+        return CreateDisasterRecoveryPlanResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * Create Disaster Recovery Plan.
+     *
+     * @param request - CreateDisasterRecoveryPlanRequest
+     *
+     * @returns CreateDisasterRecoveryPlanResponse
+     *
+     * @param CreateDisasterRecoveryPlanRequest $request
+     *
+     * @return CreateDisasterRecoveryPlanResponse
+     */
+    public function createDisasterRecoveryPlan($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->createDisasterRecoveryPlanWithOptions($request, $headers, $runtime);
+    }
+
+    /**
      * Creates an ApsaraMQ for RocketMQ 5.x instance.
      *
      * @remarks
@@ -370,6 +485,7 @@ class RocketMQ extends OpenApiClient
      * @param request - CreateInstanceRequest
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns CreateInstanceResponse
      *
      * @param CreateInstanceRequest $request
@@ -449,19 +565,19 @@ class RocketMQ extends OpenApiClient
 
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query'   => Utils::query($query),
-            'body'    => Utils::parseToMap($body),
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'CreateInstance',
-            'version'     => '2022-08-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/instances',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'CreateInstance',
+            'version' => '2022-08-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/instances',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return CreateInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -477,6 +593,7 @@ class RocketMQ extends OpenApiClient
      * > API operations provided by Alibaba Cloud are used to manage and query resources of Alibaba Cloud services. We recommend that you integrate these API operations only in management systems. Do not use these API operations in the core system of messaging services. Otherwise, system risks may occur.
      *
      * @param request - CreateInstanceRequest
+     *
      * @returns CreateInstanceResponse
      *
      * @param CreateInstanceRequest $request
@@ -497,6 +614,7 @@ class RocketMQ extends OpenApiClient
      * @param request - CreateInstanceAccountRequest
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns CreateInstanceAccountResponse
      *
      * @param string                       $instanceId
@@ -520,18 +638,18 @@ class RocketMQ extends OpenApiClient
 
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body'    => Utils::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'CreateInstanceAccount',
-            'version'     => '2022-08-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/instances/' . URL::percentEncode($instanceId) . '/accounts',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'CreateInstanceAccount',
+            'version' => '2022-08-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/instances/' . Url::percentEncode($instanceId) . '/accounts',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return CreateInstanceAccountResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -544,6 +662,7 @@ class RocketMQ extends OpenApiClient
      * Creates an account that is used to access an instance.
      *
      * @param request - CreateInstanceAccountRequest
+     *
      * @returns CreateInstanceAccountResponse
      *
      * @param string                       $instanceId
@@ -565,6 +684,7 @@ class RocketMQ extends OpenApiClient
      * @param request - CreateInstanceAclRequest
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns CreateInstanceAclResponse
      *
      * @param string                   $instanceId
@@ -601,18 +721,18 @@ class RocketMQ extends OpenApiClient
 
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body'    => Utils::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'CreateInstanceAcl',
-            'version'     => '2022-08-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/instances/' . URL::percentEncode($instanceId) . '/acl/account/' . URL::percentEncode($username) . '',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'CreateInstanceAcl',
+            'version' => '2022-08-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/instances/' . Url::percentEncode($instanceId) . '/acl/account/' . Url::percentEncode($username) . '',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return CreateInstanceAclResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -625,6 +745,7 @@ class RocketMQ extends OpenApiClient
      * Creates an access control list (ACL) in a specific instance.
      *
      * @param request - CreateInstanceAclRequest
+     *
      * @returns CreateInstanceAclResponse
      *
      * @param string                   $instanceId
@@ -647,6 +768,7 @@ class RocketMQ extends OpenApiClient
      * @param request - CreateInstanceIpWhitelistRequest
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns CreateInstanceIpWhitelistResponse
      *
      * @param string                           $instanceId
@@ -666,18 +788,18 @@ class RocketMQ extends OpenApiClient
 
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body'    => Utils::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'CreateInstanceIpWhitelist',
-            'version'     => '2022-08-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/instances/' . URL::percentEncode($instanceId) . '/ip/whitelist',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'CreateInstanceIpWhitelist',
+            'version' => '2022-08-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/instances/' . Url::percentEncode($instanceId) . '/ip/whitelist',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return CreateInstanceIpWhitelistResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -690,6 +812,7 @@ class RocketMQ extends OpenApiClient
      * Creates an IP address whitelist.
      *
      * @param request - CreateInstanceIpWhitelistRequest
+     *
      * @returns CreateInstanceIpWhitelistResponse
      *
      * @param string                           $instanceId
@@ -706,11 +829,12 @@ class RocketMQ extends OpenApiClient
     }
 
     /**
-     * Creates a topic.
+     * Create Topic.
      *
      * @param request - CreateTopicRequest
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns CreateTopicResponse
      *
      * @param string             $instanceId
@@ -739,18 +863,18 @@ class RocketMQ extends OpenApiClient
 
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body'    => Utils::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'CreateTopic',
-            'version'     => '2022-08-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/instances/' . URL::percentEncode($instanceId) . '/topics/' . URL::percentEncode($topicName) . '',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'CreateTopic',
+            'version' => '2022-08-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/instances/' . Url::percentEncode($instanceId) . '/topics/' . Url::percentEncode($topicName) . '',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return CreateTopicResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -760,9 +884,10 @@ class RocketMQ extends OpenApiClient
     }
 
     /**
-     * Creates a topic.
+     * Create Topic.
      *
      * @param request - CreateTopicRequest
+     *
      * @returns CreateTopicResponse
      *
      * @param string             $instanceId
@@ -788,6 +913,7 @@ class RocketMQ extends OpenApiClient
      *
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DeleteConsumerGroupResponse
      *
      * @param string         $instanceId
@@ -803,15 +929,15 @@ class RocketMQ extends OpenApiClient
             'headers' => $headers,
         ]);
         $params = new Params([
-            'action'      => 'DeleteConsumerGroup',
-            'version'     => '2022-08-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/instances/' . URL::percentEncode($instanceId) . '/consumerGroups/' . URL::percentEncode($consumerGroupId) . '',
-            'method'      => 'DELETE',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'DeleteConsumerGroup',
+            'version' => '2022-08-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/instances/' . Url::percentEncode($instanceId) . '/consumerGroups/' . Url::percentEncode($consumerGroupId) . '',
+            'method' => 'DELETE',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DeleteConsumerGroupResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -826,6 +952,7 @@ class RocketMQ extends OpenApiClient
      * @remarks
      * > API operations provided by Alibaba Cloud are used to manage and query resources of Alibaba Cloud services. We recommend that you integrate these API operations only in management systems. Do not use these API operations in the core system of messaging services. Otherwise, system risks may occur.
      * After you delete a consumer group, the consumer client associated with the consumer group cannot consume messages. Exercise caution when you call this operation.
+     *
      * @returns DeleteConsumerGroupResponse
      *
      * @param string $instanceId
@@ -847,6 +974,7 @@ class RocketMQ extends OpenApiClient
      * @param request - DeleteConsumerGroupSubscriptionRequest
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DeleteConsumerGroupSubscriptionResponse
      *
      * @param string                                 $instanceId
@@ -875,18 +1003,18 @@ class RocketMQ extends OpenApiClient
 
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query'   => Utils::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DeleteConsumerGroupSubscription',
-            'version'     => '2022-08-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/instances/' . URL::percentEncode($instanceId) . '/consumerGroups/' . URL::percentEncode($consumerGroupId) . '/subscriptions',
-            'method'      => 'DELETE',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'DeleteConsumerGroupSubscription',
+            'version' => '2022-08-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/instances/' . Url::percentEncode($instanceId) . '/consumerGroups/' . Url::percentEncode($consumerGroupId) . '/subscriptions',
+            'method' => 'DELETE',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DeleteConsumerGroupSubscriptionResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -899,6 +1027,7 @@ class RocketMQ extends OpenApiClient
      * Deletes the subscriptions of a consumer group.
      *
      * @param request - DeleteConsumerGroupSubscriptionRequest
+     *
      * @returns DeleteConsumerGroupSubscriptionResponse
      *
      * @param string                                 $instanceId
@@ -916,10 +1045,67 @@ class RocketMQ extends OpenApiClient
     }
 
     /**
-     * 删除容灾计划.
+     * 删除容灾计划条目.
      *
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteDisasterRecoveryItemResponse
+     *
+     * @param string         $planId
+     * @param string         $itemId
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
+     *
+     * @return DeleteDisasterRecoveryItemResponse
+     */
+    public function deleteDisasterRecoveryItemWithOptions($planId, $itemId, $headers, $runtime)
+    {
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+        ]);
+        $params = new Params([
+            'action' => 'DeleteDisasterRecoveryItem',
+            'version' => '2022-08-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/disaster_recovery/' . Url::percentEncode($planId) . '/items/' . Url::percentEncode($itemId) . '',
+            'method' => 'DELETE',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DeleteDisasterRecoveryItemResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
+
+        return DeleteDisasterRecoveryItemResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * 删除容灾计划条目.
+     *
+     * @returns DeleteDisasterRecoveryItemResponse
+     *
+     * @param string $planId
+     * @param string $itemId
+     *
+     * @return DeleteDisasterRecoveryItemResponse
+     */
+    public function deleteDisasterRecoveryItem($planId, $itemId)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->deleteDisasterRecoveryItemWithOptions($planId, $itemId, $headers, $runtime);
+    }
+
+    /**
+     * Deletes a global message backup plan.
+     *
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DeleteDisasterRecoveryPlanResponse
      *
      * @param string         $planId
@@ -934,15 +1120,15 @@ class RocketMQ extends OpenApiClient
             'headers' => $headers,
         ]);
         $params = new Params([
-            'action'      => 'DeleteDisasterRecoveryPlan',
-            'version'     => '2022-08-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/disaster_recovery/' . URL::percentEncode($planId) . '',
-            'method'      => 'DELETE',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'DeleteDisasterRecoveryPlan',
+            'version' => '2022-08-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/disaster_recovery/' . Url::percentEncode($planId) . '',
+            'method' => 'DELETE',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DeleteDisasterRecoveryPlanResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -952,7 +1138,7 @@ class RocketMQ extends OpenApiClient
     }
 
     /**
-     * 删除容灾计划.
+     * Deletes a global message backup plan.
      *
      * @returns DeleteDisasterRecoveryPlanResponse
      *
@@ -978,6 +1164,7 @@ class RocketMQ extends OpenApiClient
      *
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DeleteInstanceResponse
      *
      * @param string         $instanceId
@@ -992,15 +1179,15 @@ class RocketMQ extends OpenApiClient
             'headers' => $headers,
         ]);
         $params = new Params([
-            'action'      => 'DeleteInstance',
-            'version'     => '2022-08-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/instances/' . URL::percentEncode($instanceId) . '',
-            'method'      => 'DELETE',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'DeleteInstance',
+            'version' => '2022-08-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/instances/' . Url::percentEncode($instanceId) . '',
+            'method' => 'DELETE',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DeleteInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -1016,6 +1203,7 @@ class RocketMQ extends OpenApiClient
      * > API operations provided by Alibaba Cloud are used to manage and query resources of Alibaba Cloud services. We recommend that you integrate these API operations only in management systems. Do not use these API operations in the core system of messaging services. Otherwise, system risks may occur.
      * *   After an instance is deleted, the instance cannot be restored. Exercise caution when you call this operation.
      * *   This operation is used to delete a pay-as-you-go instance. A subscription instance is automatically released after it expires. You do not need to manually delete a subscription instance.
+     *
      * @returns DeleteInstanceResponse
      *
      * @param string $instanceId
@@ -1035,6 +1223,7 @@ class RocketMQ extends OpenApiClient
      *
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DeleteInstanceAccountResponse
      *
      * @param string         $instanceId
@@ -1050,15 +1239,15 @@ class RocketMQ extends OpenApiClient
             'headers' => $headers,
         ]);
         $params = new Params([
-            'action'      => 'DeleteInstanceAccount',
-            'version'     => '2022-08-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/instances/' . URL::percentEncode($instanceId) . '/accounts/' . URL::percentEncode($username) . '',
-            'method'      => 'DELETE',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'DeleteInstanceAccount',
+            'version' => '2022-08-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/instances/' . Url::percentEncode($instanceId) . '/accounts/' . Url::percentEncode($username) . '',
+            'method' => 'DELETE',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DeleteInstanceAccountResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -1091,6 +1280,7 @@ class RocketMQ extends OpenApiClient
      * @param request - DeleteInstanceAclRequest
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DeleteInstanceAclResponse
      *
      * @param string                   $instanceId
@@ -1115,18 +1305,18 @@ class RocketMQ extends OpenApiClient
 
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query'   => Utils::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DeleteInstanceAcl',
-            'version'     => '2022-08-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/instances/' . URL::percentEncode($instanceId) . '/acl/account/' . URL::percentEncode($username) . '',
-            'method'      => 'DELETE',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'DeleteInstanceAcl',
+            'version' => '2022-08-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/instances/' . Url::percentEncode($instanceId) . '/acl/account/' . Url::percentEncode($username) . '',
+            'method' => 'DELETE',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DeleteInstanceAclResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -1139,6 +1329,7 @@ class RocketMQ extends OpenApiClient
      * Deletes the permissions of a specific account of an instance.
      *
      * @param request - DeleteInstanceAclRequest
+     *
      * @returns DeleteInstanceAclResponse
      *
      * @param string                   $instanceId
@@ -1161,6 +1352,7 @@ class RocketMQ extends OpenApiClient
      * @param tmpReq - DeleteInstanceIpWhitelistRequest
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DeleteInstanceIpWhitelistResponse
      *
      * @param string                           $instanceId
@@ -1190,18 +1382,18 @@ class RocketMQ extends OpenApiClient
 
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query'   => Utils::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DeleteInstanceIpWhitelist',
-            'version'     => '2022-08-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/instances/' . URL::percentEncode($instanceId) . '/ip/whitelist',
-            'method'      => 'DELETE',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'DeleteInstanceIpWhitelist',
+            'version' => '2022-08-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/instances/' . Url::percentEncode($instanceId) . '/ip/whitelist',
+            'method' => 'DELETE',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DeleteInstanceIpWhitelistResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -1214,6 +1406,7 @@ class RocketMQ extends OpenApiClient
      * Deletes a specific IP address whitelist from an instance.
      *
      * @param request - DeleteInstanceIpWhitelistRequest
+     *
      * @returns DeleteInstanceIpWhitelistResponse
      *
      * @param string                           $instanceId
@@ -1237,6 +1430,7 @@ class RocketMQ extends OpenApiClient
      *
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DeleteTopicResponse
      *
      * @param string         $instanceId
@@ -1252,15 +1446,15 @@ class RocketMQ extends OpenApiClient
             'headers' => $headers,
         ]);
         $params = new Params([
-            'action'      => 'DeleteTopic',
-            'version'     => '2022-08-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/instances/' . URL::percentEncode($instanceId) . '/topics/' . URL::percentEncode($topicName) . '',
-            'method'      => 'DELETE',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'DeleteTopic',
+            'version' => '2022-08-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/instances/' . Url::percentEncode($instanceId) . '/topics/' . Url::percentEncode($topicName) . '',
+            'method' => 'DELETE',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DeleteTopicResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -1274,6 +1468,7 @@ class RocketMQ extends OpenApiClient
      *
      * @remarks
      * If you delete the topic, the publishing and subscription relationships that are established based on the topic are cleared. Exercise caution when you call this operation.
+     *
      * @returns DeleteTopicResponse
      *
      * @param string $instanceId
@@ -1297,6 +1492,7 @@ class RocketMQ extends OpenApiClient
      *
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns GetConsumerGroupResponse
      *
      * @param string         $instanceId
@@ -1312,15 +1508,15 @@ class RocketMQ extends OpenApiClient
             'headers' => $headers,
         ]);
         $params = new Params([
-            'action'      => 'GetConsumerGroup',
-            'version'     => '2022-08-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/instances/' . URL::percentEncode($instanceId) . '/consumerGroups/' . URL::percentEncode($consumerGroupId) . '',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'GetConsumerGroup',
+            'version' => '2022-08-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/instances/' . Url::percentEncode($instanceId) . '/consumerGroups/' . Url::percentEncode($consumerGroupId) . '',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return GetConsumerGroupResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -1334,6 +1530,7 @@ class RocketMQ extends OpenApiClient
      *
      * @remarks
      * > API operations provided by Alibaba Cloud are used to manage and query resources of Alibaba Cloud services. We recommend that you integrate these API operations only in management systems. Do not use these API operations in the core system of messaging services. Otherwise, system risks may occur.
+     *
      * @returns GetConsumerGroupResponse
      *
      * @param string $instanceId
@@ -1355,6 +1552,7 @@ class RocketMQ extends OpenApiClient
      * @param request - GetConsumerGroupLagRequest
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns GetConsumerGroupLagResponse
      *
      * @param string                     $instanceId
@@ -1375,18 +1573,18 @@ class RocketMQ extends OpenApiClient
 
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query'   => Utils::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'GetConsumerGroupLag',
-            'version'     => '2022-08-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/instances/' . URL::percentEncode($instanceId) . '/consumerGroups/' . URL::percentEncode($consumerGroupId) . '/lag',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'GetConsumerGroupLag',
+            'version' => '2022-08-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/instances/' . Url::percentEncode($instanceId) . '/consumerGroups/' . Url::percentEncode($consumerGroupId) . '/lag',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return GetConsumerGroupLagResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -1399,6 +1597,7 @@ class RocketMQ extends OpenApiClient
      * Query Consumer Group Backlog Information.
      *
      * @param request - GetConsumerGroupLagRequest
+     *
      * @returns GetConsumerGroupLagResponse
      *
      * @param string                     $instanceId
@@ -1420,6 +1619,7 @@ class RocketMQ extends OpenApiClient
      *
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns GetConsumerGroupSubscriptionResponse
      *
      * @param string         $instanceId
@@ -1436,15 +1636,15 @@ class RocketMQ extends OpenApiClient
             'headers' => $headers,
         ]);
         $params = new Params([
-            'action'      => 'GetConsumerGroupSubscription',
-            'version'     => '2022-08-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/instances/' . URL::percentEncode($instanceId) . '/consumerGroups/' . URL::percentEncode($consumerGroupId) . '/subscriptions/' . URL::percentEncode($topicName) . '',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'GetConsumerGroupSubscription',
+            'version' => '2022-08-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/instances/' . Url::percentEncode($instanceId) . '/consumerGroups/' . Url::percentEncode($consumerGroupId) . '/subscriptions/' . Url::percentEncode($topicName) . '',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return GetConsumerGroupSubscriptionResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -1478,6 +1678,7 @@ class RocketMQ extends OpenApiClient
      * @param request - GetConsumerStackRequest
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns GetConsumerStackResponse
      *
      * @param string                  $instanceId
@@ -1498,18 +1699,18 @@ class RocketMQ extends OpenApiClient
 
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query'   => Utils::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'GetConsumerStack',
-            'version'     => '2022-08-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/instances/' . URL::percentEncode($instanceId) . '/consumerGroups/' . URL::percentEncode($consumerGroupId) . '/stack',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'GetConsumerStack',
+            'version' => '2022-08-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/instances/' . Url::percentEncode($instanceId) . '/consumerGroups/' . Url::percentEncode($consumerGroupId) . '/stack',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return GetConsumerStackResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -1522,6 +1723,7 @@ class RocketMQ extends OpenApiClient
      * Queries the stack information about a consumer.
      *
      * @param request - GetConsumerStackRequest
+     *
      * @returns GetConsumerStackResponse
      *
      * @param string                  $instanceId
@@ -1539,6 +1741,116 @@ class RocketMQ extends OpenApiClient
     }
 
     /**
+     * 查询容灾计划条目详情.
+     *
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetDisasterRecoveryItemResponse
+     *
+     * @param string         $planId
+     * @param string         $itemId
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
+     *
+     * @return GetDisasterRecoveryItemResponse
+     */
+    public function getDisasterRecoveryItemWithOptions($planId, $itemId, $headers, $runtime)
+    {
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+        ]);
+        $params = new Params([
+            'action' => 'GetDisasterRecoveryItem',
+            'version' => '2022-08-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/disaster_recovery/' . Url::percentEncode($planId) . '/items/' . Url::percentEncode($itemId) . '',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return GetDisasterRecoveryItemResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
+
+        return GetDisasterRecoveryItemResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * 查询容灾计划条目详情.
+     *
+     * @returns GetDisasterRecoveryItemResponse
+     *
+     * @param string $planId
+     * @param string $itemId
+     *
+     * @return GetDisasterRecoveryItemResponse
+     */
+    public function getDisasterRecoveryItem($planId, $itemId)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->getDisasterRecoveryItemWithOptions($planId, $itemId, $headers, $runtime);
+    }
+
+    /**
+     * 查询容灾计划详情.
+     *
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetDisasterRecoveryPlanResponse
+     *
+     * @param string         $planId
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
+     *
+     * @return GetDisasterRecoveryPlanResponse
+     */
+    public function getDisasterRecoveryPlanWithOptions($planId, $headers, $runtime)
+    {
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+        ]);
+        $params = new Params([
+            'action' => 'GetDisasterRecoveryPlan',
+            'version' => '2022-08-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/disaster_recovery/' . Url::percentEncode($planId) . '',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return GetDisasterRecoveryPlanResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
+
+        return GetDisasterRecoveryPlanResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * 查询容灾计划详情.
+     *
+     * @returns GetDisasterRecoveryPlanResponse
+     *
+     * @param string $planId
+     *
+     * @return GetDisasterRecoveryPlanResponse
+     */
+    public function getDisasterRecoveryPlan($planId)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->getDisasterRecoveryPlanWithOptions($planId, $headers, $runtime);
+    }
+
+    /**
      * Queries the detailed information about an instance.
      *
      * @remarks
@@ -1546,6 +1858,7 @@ class RocketMQ extends OpenApiClient
      *
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns GetInstanceResponse
      *
      * @param string         $instanceId
@@ -1560,15 +1873,15 @@ class RocketMQ extends OpenApiClient
             'headers' => $headers,
         ]);
         $params = new Params([
-            'action'      => 'GetInstance',
-            'version'     => '2022-08-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/instances/' . URL::percentEncode($instanceId) . '',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'GetInstance',
+            'version' => '2022-08-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/instances/' . Url::percentEncode($instanceId) . '',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return GetInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -1582,6 +1895,7 @@ class RocketMQ extends OpenApiClient
      *
      * @remarks
      * > API operations provided by Alibaba Cloud are used to manage and query resources of Alibaba Cloud services. We recommend that you integrate these API operations only in management systems. Do not use these API operations in the core system of messaging services. Otherwise, system risks may occur.
+     *
      * @returns GetInstanceResponse
      *
      * @param string $instanceId
@@ -1602,6 +1916,7 @@ class RocketMQ extends OpenApiClient
      * @param request - GetInstanceAccountRequest
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns GetInstanceAccountResponse
      *
      * @param string                    $instanceId
@@ -1621,18 +1936,18 @@ class RocketMQ extends OpenApiClient
 
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query'   => Utils::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'GetInstanceAccount',
-            'version'     => '2022-08-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/instances/' . URL::percentEncode($instanceId) . '/account',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'GetInstanceAccount',
+            'version' => '2022-08-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/instances/' . Url::percentEncode($instanceId) . '/account',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return GetInstanceAccountResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -1645,6 +1960,7 @@ class RocketMQ extends OpenApiClient
      * Obtains the account used to access a specific instance.
      *
      * @param request - GetInstanceAccountRequest
+     *
      * @returns GetInstanceAccountResponse
      *
      * @param string                    $instanceId
@@ -1661,11 +1977,12 @@ class RocketMQ extends OpenApiClient
     }
 
     /**
-     * 获取访问控制acl数据.
+     * Queries information about the access control list (ACL) of an instance.
      *
      * @param request - GetInstanceAclRequest
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns GetInstanceAclResponse
      *
      * @param string                $instanceId
@@ -1690,18 +2007,18 @@ class RocketMQ extends OpenApiClient
 
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query'   => Utils::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'GetInstanceAcl',
-            'version'     => '2022-08-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/instances/' . URL::percentEncode($instanceId) . '/acl/account/' . URL::percentEncode($username) . '',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'GetInstanceAcl',
+            'version' => '2022-08-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/instances/' . Url::percentEncode($instanceId) . '/acl/account/' . Url::percentEncode($username) . '',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return GetInstanceAclResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -1711,9 +2028,10 @@ class RocketMQ extends OpenApiClient
     }
 
     /**
-     * 获取访问控制acl数据.
+     * Queries information about the access control list (ACL) of an instance.
      *
      * @param request - GetInstanceAclRequest
+     *
      * @returns GetInstanceAclResponse
      *
      * @param string                $instanceId
@@ -1731,11 +2049,12 @@ class RocketMQ extends OpenApiClient
     }
 
     /**
-     * 获取实例ip白名单.
+     * Queries the information about the IP address whitelist of an instance.
      *
      * @param tmpReq - GetInstanceIpWhitelistRequest
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns GetInstanceIpWhitelistResponse
      *
      * @param string                        $instanceId
@@ -1761,18 +2080,18 @@ class RocketMQ extends OpenApiClient
 
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query'   => Utils::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'GetInstanceIpWhitelist',
-            'version'     => '2022-08-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/instances/' . URL::percentEncode($instanceId) . '/ip/whitelists',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'GetInstanceIpWhitelist',
+            'version' => '2022-08-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/instances/' . Url::percentEncode($instanceId) . '/ip/whitelists',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return GetInstanceIpWhitelistResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -1782,9 +2101,10 @@ class RocketMQ extends OpenApiClient
     }
 
     /**
-     * 获取实例ip白名单.
+     * Queries the information about the IP address whitelist of an instance.
      *
      * @param request - GetInstanceIpWhitelistRequest
+     *
      * @returns GetInstanceIpWhitelistResponse
      *
      * @param string                        $instanceId
@@ -1805,6 +2125,7 @@ class RocketMQ extends OpenApiClient
      *
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns GetMessageDetailResponse
      *
      * @param string         $instanceId
@@ -1821,15 +2142,15 @@ class RocketMQ extends OpenApiClient
             'headers' => $headers,
         ]);
         $params = new Params([
-            'action'      => 'GetMessageDetail',
-            'version'     => '2022-08-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/instances/' . URL::percentEncode($instanceId) . '/topics/' . URL::percentEncode($topicName) . '/messages/' . URL::percentEncode($messageId) . '',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'GetMessageDetail',
+            'version' => '2022-08-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/instances/' . Url::percentEncode($instanceId) . '/topics/' . Url::percentEncode($topicName) . '/messages/' . Url::percentEncode($messageId) . '',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return GetMessageDetailResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -1858,10 +2179,11 @@ class RocketMQ extends OpenApiClient
     }
 
     /**
-     * Queries the details of a specified topic.
+     * Query Topic Details.
      *
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns GetTopicResponse
      *
      * @param string         $instanceId
@@ -1877,15 +2199,15 @@ class RocketMQ extends OpenApiClient
             'headers' => $headers,
         ]);
         $params = new Params([
-            'action'      => 'GetTopic',
-            'version'     => '2022-08-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/instances/' . URL::percentEncode($instanceId) . '/topics/' . URL::percentEncode($topicName) . '',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'GetTopic',
+            'version' => '2022-08-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/instances/' . Url::percentEncode($instanceId) . '/topics/' . Url::percentEncode($topicName) . '',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return GetTopicResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -1895,7 +2217,7 @@ class RocketMQ extends OpenApiClient
     }
 
     /**
-     * Queries the details of a specified topic.
+     * Query Topic Details.
      *
      * @returns GetTopicResponse
      *
@@ -1917,6 +2239,7 @@ class RocketMQ extends OpenApiClient
      *
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns GetTraceResponse
      *
      * @param string         $instanceId
@@ -1933,15 +2256,15 @@ class RocketMQ extends OpenApiClient
             'headers' => $headers,
         ]);
         $params = new Params([
-            'action'      => 'GetTrace',
-            'version'     => '2022-08-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/instances/' . URL::percentEncode($instanceId) . '/topics/' . URL::percentEncode($topicName) . '/traces/' . URL::percentEncode($messageId) . '',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'GetTrace',
+            'version' => '2022-08-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/instances/' . Url::percentEncode($instanceId) . '/topics/' . Url::percentEncode($topicName) . '/traces/' . Url::percentEncode($messageId) . '',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return GetTraceResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -1974,6 +2297,7 @@ class RocketMQ extends OpenApiClient
      *
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ListAvailableZonesResponse
      *
      * @param string[]       $headers
@@ -1987,15 +2311,15 @@ class RocketMQ extends OpenApiClient
             'headers' => $headers,
         ]);
         $params = new Params([
-            'action'      => 'ListAvailableZones',
-            'version'     => '2022-08-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/zones',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'ListAvailableZones',
+            'version' => '2022-08-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/zones',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return ListAvailableZonesResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -2024,6 +2348,7 @@ class RocketMQ extends OpenApiClient
      *
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ListConsumerConnectionsResponse
      *
      * @param string         $instanceId
@@ -2039,15 +2364,15 @@ class RocketMQ extends OpenApiClient
             'headers' => $headers,
         ]);
         $params = new Params([
-            'action'      => 'ListConsumerConnections',
-            'version'     => '2022-08-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/instances/' . URL::percentEncode($instanceId) . '/consumerGroups/' . URL::percentEncode($consumerGroupId) . '/connections',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'ListConsumerConnections',
+            'version' => '2022-08-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/instances/' . Url::percentEncode($instanceId) . '/consumerGroups/' . Url::percentEncode($consumerGroupId) . '/connections',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return ListConsumerConnectionsResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -2077,32 +2402,42 @@ class RocketMQ extends OpenApiClient
     /**
      * Queries the subscriptions of a specific consumer group.
      *
+     * @param request - ListConsumerGroupSubscriptionsRequest
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ListConsumerGroupSubscriptionsResponse
      *
-     * @param string         $instanceId
-     * @param string         $consumerGroupId
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
+     * @param string                                $instanceId
+     * @param string                                $consumerGroupId
+     * @param ListConsumerGroupSubscriptionsRequest $request
+     * @param string[]                              $headers
+     * @param RuntimeOptions                        $runtime
      *
      * @return ListConsumerGroupSubscriptionsResponse
      */
-    public function listConsumerGroupSubscriptionsWithOptions($instanceId, $consumerGroupId, $headers, $runtime)
+    public function listConsumerGroupSubscriptionsWithOptions($instanceId, $consumerGroupId, $request, $headers, $runtime)
     {
+        $request->validate();
+        $query = [];
+        if (null !== $request->topicName) {
+            @$query['topicName'] = $request->topicName;
+        }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListConsumerGroupSubscriptions',
-            'version'     => '2022-08-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/instances/' . URL::percentEncode($instanceId) . '/consumerGroups/' . URL::percentEncode($consumerGroupId) . '/subscriptions',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'ListConsumerGroupSubscriptions',
+            'version' => '2022-08-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/instances/' . Url::percentEncode($instanceId) . '/consumerGroups/' . Url::percentEncode($consumerGroupId) . '/subscriptions',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return ListConsumerGroupSubscriptionsResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -2114,30 +2449,34 @@ class RocketMQ extends OpenApiClient
     /**
      * Queries the subscriptions of a specific consumer group.
      *
+     * @param request - ListConsumerGroupSubscriptionsRequest
+     *
      * @returns ListConsumerGroupSubscriptionsResponse
      *
-     * @param string $instanceId
-     * @param string $consumerGroupId
+     * @param string                                $instanceId
+     * @param string                                $consumerGroupId
+     * @param ListConsumerGroupSubscriptionsRequest $request
      *
      * @return ListConsumerGroupSubscriptionsResponse
      */
-    public function listConsumerGroupSubscriptions($instanceId, $consumerGroupId)
+    public function listConsumerGroupSubscriptions($instanceId, $consumerGroupId, $request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->listConsumerGroupSubscriptionsWithOptions($instanceId, $consumerGroupId, $headers, $runtime);
+        return $this->listConsumerGroupSubscriptionsWithOptions($instanceId, $consumerGroupId, $request, $headers, $runtime);
     }
 
     /**
-     * Queries the consumer groups in a specified instance.
+     * List Consumer Groups.
      *
      * @remarks
-     * > API operations provided by Alibaba Cloud are used to manage and query resources of Alibaba Cloud services. We recommend that you integrate these API operations only in management systems. Do not use these API operations in the core system of messaging services. Otherwise, system risks may occur.
+     * >Notice: The OpenAPI provided by Alibaba Cloud is a management API used for managing and querying related resources of Alibaba Cloud services. It is recommended to integrate it only in the management chain. Do not rely on OpenAPI implementation in the core data chain for message sending and receiving, as this may lead to risks in the chain.
      *
      * @param request - ListConsumerGroupsRequest
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ListConsumerGroupsResponse
      *
      * @param string                    $instanceId
@@ -2165,18 +2504,18 @@ class RocketMQ extends OpenApiClient
 
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query'   => Utils::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListConsumerGroups',
-            'version'     => '2022-08-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/instances/' . URL::percentEncode($instanceId) . '/consumerGroups',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'ListConsumerGroups',
+            'version' => '2022-08-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/instances/' . Url::percentEncode($instanceId) . '/consumerGroups',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return ListConsumerGroupsResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -2186,12 +2525,13 @@ class RocketMQ extends OpenApiClient
     }
 
     /**
-     * Queries the consumer groups in a specified instance.
+     * List Consumer Groups.
      *
      * @remarks
-     * > API operations provided by Alibaba Cloud are used to manage and query resources of Alibaba Cloud services. We recommend that you integrate these API operations only in management systems. Do not use these API operations in the core system of messaging services. Otherwise, system risks may occur.
+     * >Notice: The OpenAPI provided by Alibaba Cloud is a management API used for managing and querying related resources of Alibaba Cloud services. It is recommended to integrate it only in the management chain. Do not rely on OpenAPI implementation in the core data chain for message sending and receiving, as this may lead to risks in the chain.
      *
      * @param request - ListConsumerGroupsRequest
+     *
      * @returns ListConsumerGroupsResponse
      *
      * @param string                    $instanceId
@@ -2208,11 +2548,246 @@ class RocketMQ extends OpenApiClient
     }
 
     /**
+     * Query disaster recovery plan consumption progress information.
+     *
+     * @param request - ListDisasterRecoveryCheckpointsRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListDisasterRecoveryCheckpointsResponse
+     *
+     * @param string                                 $planId
+     * @param string                                 $itemId
+     * @param ListDisasterRecoveryCheckpointsRequest $request
+     * @param string[]                               $headers
+     * @param RuntimeOptions                         $runtime
+     *
+     * @return ListDisasterRecoveryCheckpointsResponse
+     */
+    public function listDisasterRecoveryCheckpointsWithOptions($planId, $itemId, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->filter) {
+            @$query['filter'] = $request->filter;
+        }
+
+        if (null !== $request->instanceId) {
+            @$query['instanceId'] = $request->instanceId;
+        }
+
+        if (null !== $request->pageNumber) {
+            @$query['pageNumber'] = $request->pageNumber;
+        }
+
+        if (null !== $request->pageSize) {
+            @$query['pageSize'] = $request->pageSize;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListDisasterRecoveryCheckpoints',
+            'version' => '2022-08-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/disaster_recovery/' . Url::percentEncode($planId) . '/items/' . Url::percentEncode($itemId) . '/checkpoints',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ListDisasterRecoveryCheckpointsResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
+
+        return ListDisasterRecoveryCheckpointsResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * Query disaster recovery plan consumption progress information.
+     *
+     * @param request - ListDisasterRecoveryCheckpointsRequest
+     *
+     * @returns ListDisasterRecoveryCheckpointsResponse
+     *
+     * @param string                                 $planId
+     * @param string                                 $itemId
+     * @param ListDisasterRecoveryCheckpointsRequest $request
+     *
+     * @return ListDisasterRecoveryCheckpointsResponse
+     */
+    public function listDisasterRecoveryCheckpoints($planId, $itemId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->listDisasterRecoveryCheckpointsWithOptions($planId, $itemId, $request, $headers, $runtime);
+    }
+
+    /**
+     * Query Disaster Recovery Plan Entry List.
+     *
+     * @param request - ListDisasterRecoveryItemsRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListDisasterRecoveryItemsResponse
+     *
+     * @param string                           $planId
+     * @param ListDisasterRecoveryItemsRequest $request
+     * @param string[]                         $headers
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return ListDisasterRecoveryItemsResponse
+     */
+    public function listDisasterRecoveryItemsWithOptions($planId, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->filter) {
+            @$query['filter'] = $request->filter;
+        }
+
+        if (null !== $request->pageNumber) {
+            @$query['pageNumber'] = $request->pageNumber;
+        }
+
+        if (null !== $request->pageSize) {
+            @$query['pageSize'] = $request->pageSize;
+        }
+
+        if (null !== $request->topicName) {
+            @$query['topicName'] = $request->topicName;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListDisasterRecoveryItems',
+            'version' => '2022-08-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/disaster_recovery/' . Url::percentEncode($planId) . '/items',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ListDisasterRecoveryItemsResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
+
+        return ListDisasterRecoveryItemsResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * Query Disaster Recovery Plan Entry List.
+     *
+     * @param request - ListDisasterRecoveryItemsRequest
+     *
+     * @returns ListDisasterRecoveryItemsResponse
+     *
+     * @param string                           $planId
+     * @param ListDisasterRecoveryItemsRequest $request
+     *
+     * @return ListDisasterRecoveryItemsResponse
+     */
+    public function listDisasterRecoveryItems($planId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->listDisasterRecoveryItemsWithOptions($planId, $request, $headers, $runtime);
+    }
+
+    /**
+     * Query Disaster Recovery Plan List.
+     *
+     * @param request - ListDisasterRecoveryPlansRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListDisasterRecoveryPlansResponse
+     *
+     * @param ListDisasterRecoveryPlansRequest $request
+     * @param string[]                         $headers
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return ListDisasterRecoveryPlansResponse
+     */
+    public function listDisasterRecoveryPlansWithOptions($request, $headers, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->filter) {
+            @$query['filter'] = $request->filter;
+        }
+
+        if (null !== $request->instanceId) {
+            @$query['instanceId'] = $request->instanceId;
+        }
+
+        if (null !== $request->pageNumber) {
+            @$query['pageNumber'] = $request->pageNumber;
+        }
+
+        if (null !== $request->pageSize) {
+            @$query['pageSize'] = $request->pageSize;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListDisasterRecoveryPlans',
+            'version' => '2022-08-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/disaster_recovery',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ListDisasterRecoveryPlansResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
+
+        return ListDisasterRecoveryPlansResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * Query Disaster Recovery Plan List.
+     *
+     * @param request - ListDisasterRecoveryPlansRequest
+     *
+     * @returns ListDisasterRecoveryPlansResponse
+     *
+     * @param ListDisasterRecoveryPlansRequest $request
+     *
+     * @return ListDisasterRecoveryPlansResponse
+     */
+    public function listDisasterRecoveryPlans($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->listDisasterRecoveryPlansWithOptions($request, $headers, $runtime);
+    }
+
+    /**
      * Queries the accounts that are used to access a specific instance.
      *
      * @param request - ListInstanceAccountRequest
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ListInstanceAccountResponse
      *
      * @param string                     $instanceId
@@ -2248,18 +2823,18 @@ class RocketMQ extends OpenApiClient
 
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query'   => Utils::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListInstanceAccount',
-            'version'     => '2022-08-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/instances/' . URL::percentEncode($instanceId) . '/accounts',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'ListInstanceAccount',
+            'version' => '2022-08-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/instances/' . Url::percentEncode($instanceId) . '/accounts',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return ListInstanceAccountResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -2272,6 +2847,7 @@ class RocketMQ extends OpenApiClient
      * Queries the accounts that are used to access a specific instance.
      *
      * @param request - ListInstanceAccountRequest
+     *
      * @returns ListInstanceAccountResponse
      *
      * @param string                     $instanceId
@@ -2293,6 +2869,7 @@ class RocketMQ extends OpenApiClient
      * @param request - ListInstanceAclRequest
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ListInstanceAclResponse
      *
      * @param string                 $instanceId
@@ -2320,18 +2897,18 @@ class RocketMQ extends OpenApiClient
 
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query'   => Utils::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListInstanceAcl',
-            'version'     => '2022-08-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/instances/' . URL::percentEncode($instanceId) . '/acl',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'ListInstanceAcl',
+            'version' => '2022-08-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/instances/' . Url::percentEncode($instanceId) . '/acl',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return ListInstanceAclResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -2344,6 +2921,7 @@ class RocketMQ extends OpenApiClient
      * Queries the access control lists (ACLs) of an instance.
      *
      * @param request - ListInstanceAclRequest
+     *
      * @returns ListInstanceAclResponse
      *
      * @param string                 $instanceId
@@ -2365,6 +2943,7 @@ class RocketMQ extends OpenApiClient
      * @param request - ListInstanceIpWhitelistRequest
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ListInstanceIpWhitelistResponse
      *
      * @param string                         $instanceId
@@ -2392,18 +2971,18 @@ class RocketMQ extends OpenApiClient
 
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query'   => Utils::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListInstanceIpWhitelist',
-            'version'     => '2022-08-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/instances/' . URL::percentEncode($instanceId) . '/ip/whitelist',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'ListInstanceIpWhitelist',
+            'version' => '2022-08-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/instances/' . Url::percentEncode($instanceId) . '/ip/whitelist',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return ListInstanceIpWhitelistResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -2416,6 +2995,7 @@ class RocketMQ extends OpenApiClient
      * Queries the IP address whitelists of an instance.
      *
      * @param request - ListInstanceIpWhitelistRequest
+     *
      * @returns ListInstanceIpWhitelistResponse
      *
      * @param string                         $instanceId
@@ -2440,6 +3020,7 @@ class RocketMQ extends OpenApiClient
      * @param tmpReq - ListInstancesRequest
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ListInstancesResponse
      *
      * @param ListInstancesRequest $tmpReq
@@ -2488,18 +3069,18 @@ class RocketMQ extends OpenApiClient
 
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query'   => Utils::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListInstances',
-            'version'     => '2022-08-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/instances',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'ListInstances',
+            'version' => '2022-08-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/instances',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return ListInstancesResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -2515,6 +3096,7 @@ class RocketMQ extends OpenApiClient
      * > API operations provided by Alibaba Cloud are used to manage and query resources of Alibaba Cloud services. We recommend that you integrate these API operations only in management systems. Do not use these API operations in the core system of messaging services. Otherwise, system risks may occur.
      *
      * @param request - ListInstancesRequest
+     *
      * @returns ListInstancesResponse
      *
      * @param ListInstancesRequest $request
@@ -2535,6 +3117,7 @@ class RocketMQ extends OpenApiClient
      * @param request - ListMessagesRequest
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ListMessagesResponse
      *
      * @param string              $instanceId
@@ -2579,18 +3162,18 @@ class RocketMQ extends OpenApiClient
 
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query'   => Utils::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListMessages',
-            'version'     => '2022-08-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/instances/' . URL::percentEncode($instanceId) . '/topics/' . URL::percentEncode($topicName) . '/messages',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'ListMessages',
+            'version' => '2022-08-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/instances/' . Url::percentEncode($instanceId) . '/topics/' . Url::percentEncode($topicName) . '/messages',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return ListMessagesResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -2603,6 +3186,7 @@ class RocketMQ extends OpenApiClient
      * Queries the list of messages.
      *
      * @param request - ListMessagesRequest
+     *
      * @returns ListMessagesResponse
      *
      * @param string              $instanceId
@@ -2620,11 +3204,12 @@ class RocketMQ extends OpenApiClient
     }
 
     /**
-     * 查询监控项列表.
+     * Query Monitoring Items List.
      *
      * @param request - ListMetricMetaRequest
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ListMetricMetaResponse
      *
      * @param ListMetricMetaRequest $request
@@ -2647,18 +3232,18 @@ class RocketMQ extends OpenApiClient
 
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query'   => Utils::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListMetricMeta',
-            'version'     => '2022-08-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/monitor/metrics/meta',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'ListMetricMeta',
+            'version' => '2022-08-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/monitor/metrics/meta',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return ListMetricMetaResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -2668,9 +3253,10 @@ class RocketMQ extends OpenApiClient
     }
 
     /**
-     * 查询监控项列表.
+     * Query Monitoring Items List.
      *
      * @param request - ListMetricMetaRequest
+     *
      * @returns ListMetricMetaResponse
      *
      * @param ListMetricMetaRequest $request
@@ -2690,6 +3276,7 @@ class RocketMQ extends OpenApiClient
      *
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ListRegionsResponse
      *
      * @param string[]       $headers
@@ -2703,15 +3290,15 @@ class RocketMQ extends OpenApiClient
             'headers' => $headers,
         ]);
         $params = new Params([
-            'action'      => 'ListRegions',
-            'version'     => '2022-08-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/regions',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'ListRegions',
+            'version' => '2022-08-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/regions',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return ListRegionsResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -2741,6 +3328,7 @@ class RocketMQ extends OpenApiClient
      * @param request - ListTagResourcesRequest
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ListTagResourcesResponse
      *
      * @param ListTagResourcesRequest $request
@@ -2779,18 +3367,18 @@ class RocketMQ extends OpenApiClient
 
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query'   => Utils::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListTagResources',
-            'version'     => '2022-08-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/resourceTag/list',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'ListTagResources',
+            'version' => '2022-08-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/resourceTag/list',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return ListTagResourcesResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -2803,6 +3391,7 @@ class RocketMQ extends OpenApiClient
      * Query visible resource tag relationships.
      *
      * @param request - ListTagResourcesRequest
+     *
      * @returns ListTagResourcesResponse
      *
      * @param ListTagResourcesRequest $request
@@ -2822,6 +3411,7 @@ class RocketMQ extends OpenApiClient
      *
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ListTopicSubscriptionsResponse
      *
      * @param string         $instanceId
@@ -2837,15 +3427,15 @@ class RocketMQ extends OpenApiClient
             'headers' => $headers,
         ]);
         $params = new Params([
-            'action'      => 'ListTopicSubscriptions',
-            'version'     => '2022-08-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/instances/' . URL::percentEncode($instanceId) . '/topics/' . URL::percentEncode($topicName) . '/subscriptions',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'ListTopicSubscriptions',
+            'version' => '2022-08-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/instances/' . Url::percentEncode($instanceId) . '/topics/' . Url::percentEncode($topicName) . '/subscriptions',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return ListTopicSubscriptionsResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -2873,11 +3463,12 @@ class RocketMQ extends OpenApiClient
     }
 
     /**
-     * Queries the topics in a specified instance.
+     * Query Topic List.
      *
      * @param tmpReq - ListTopicsRequest
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ListTopicsResponse
      *
      * @param string            $instanceId
@@ -2915,18 +3506,18 @@ class RocketMQ extends OpenApiClient
 
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query'   => Utils::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListTopics',
-            'version'     => '2022-08-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/instances/' . URL::percentEncode($instanceId) . '/topics',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'ListTopics',
+            'version' => '2022-08-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/instances/' . Url::percentEncode($instanceId) . '/topics',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return ListTopicsResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -2936,9 +3527,10 @@ class RocketMQ extends OpenApiClient
     }
 
     /**
-     * Queries the topics in a specified instance.
+     * Query Topic List.
      *
      * @param request - ListTopicsRequest
+     *
      * @returns ListTopicsResponse
      *
      * @param string            $instanceId
@@ -2960,6 +3552,7 @@ class RocketMQ extends OpenApiClient
      * @param request - ListTracesRequest
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ListTracesResponse
      *
      * @param string            $instanceId
@@ -3004,18 +3597,18 @@ class RocketMQ extends OpenApiClient
 
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query'   => Utils::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListTraces',
-            'version'     => '2022-08-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/instances/' . URL::percentEncode($instanceId) . '/topics/' . URL::percentEncode($topicName) . '/traces',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'ListTraces',
+            'version' => '2022-08-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/instances/' . Url::percentEncode($instanceId) . '/topics/' . Url::percentEncode($topicName) . '/traces',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return ListTracesResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -3028,6 +3621,7 @@ class RocketMQ extends OpenApiClient
      * Queries the message traces of a specific topic.
      *
      * @param request - ListTracesRequest
+     *
      * @returns ListTracesResponse
      *
      * @param string            $instanceId
@@ -3050,6 +3644,7 @@ class RocketMQ extends OpenApiClient
      * @param request - ResetConsumeOffsetRequest
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ResetConsumeOffsetResponse
      *
      * @param string                    $instanceId
@@ -3075,18 +3670,18 @@ class RocketMQ extends OpenApiClient
 
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body'    => Utils::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'ResetConsumeOffset',
-            'version'     => '2022-08-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/instances/' . URL::percentEncode($instanceId) . '/consumerGroups/' . URL::percentEncode($consumerGroupId) . '/consumeOffsets/' . URL::percentEncode($topicName) . '',
-            'method'      => 'PATCH',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'ResetConsumeOffset',
+            'version' => '2022-08-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/instances/' . Url::percentEncode($instanceId) . '/consumerGroups/' . Url::percentEncode($consumerGroupId) . '/consumeOffsets/' . Url::percentEncode($topicName) . '',
+            'method' => 'PATCH',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return ResetConsumeOffsetResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -3099,6 +3694,7 @@ class RocketMQ extends OpenApiClient
      * Resets the consumer offset of a consumer group.
      *
      * @param request - ResetConsumeOffsetRequest
+     *
      * @returns ResetConsumeOffsetResponse
      *
      * @param string                    $instanceId
@@ -3117,10 +3713,11 @@ class RocketMQ extends OpenApiClient
     }
 
     /**
-     * 启用容灾计划条目.
+     * Enable Disaster Recovery Plan Entry.
      *
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns StartDisasterRecoveryItemResponse
      *
      * @param string         $planId
@@ -3136,15 +3733,15 @@ class RocketMQ extends OpenApiClient
             'headers' => $headers,
         ]);
         $params = new Params([
-            'action'      => 'StartDisasterRecoveryItem',
-            'version'     => '2022-08-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/disaster_recovery/' . URL::percentEncode($planId) . '/items/' . URL::percentEncode($itemId) . '/start',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'StartDisasterRecoveryItem',
+            'version' => '2022-08-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/disaster_recovery/' . Url::percentEncode($planId) . '/items/' . Url::percentEncode($itemId) . '/start',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return StartDisasterRecoveryItemResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -3154,7 +3751,7 @@ class RocketMQ extends OpenApiClient
     }
 
     /**
-     * 启用容灾计划条目.
+     * Enable Disaster Recovery Plan Entry.
      *
      * @returns StartDisasterRecoveryItemResponse
      *
@@ -3172,10 +3769,11 @@ class RocketMQ extends OpenApiClient
     }
 
     /**
-     * 停用容灾计划条目.
+     * Deactivate Disaster Recovery Plan Entry.
      *
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns StopDisasterRecoveryItemResponse
      *
      * @param string         $planId
@@ -3191,15 +3789,15 @@ class RocketMQ extends OpenApiClient
             'headers' => $headers,
         ]);
         $params = new Params([
-            'action'      => 'StopDisasterRecoveryItem',
-            'version'     => '2022-08-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/disaster_recovery/' . URL::percentEncode($planId) . '/items/' . URL::percentEncode($itemId) . '/stop',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'StopDisasterRecoveryItem',
+            'version' => '2022-08-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/disaster_recovery/' . Url::percentEncode($planId) . '/items/' . Url::percentEncode($itemId) . '/stop',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return StopDisasterRecoveryItemResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -3209,7 +3807,7 @@ class RocketMQ extends OpenApiClient
     }
 
     /**
-     * 停用容灾计划条目.
+     * Deactivate Disaster Recovery Plan Entry.
      *
      * @returns StopDisasterRecoveryItemResponse
      *
@@ -3227,11 +3825,70 @@ class RocketMQ extends OpenApiClient
     }
 
     /**
+     * Synchronize Disaster Recovery Plan Consumption Progress.
+     *
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns SyncDisasterRecoveryCheckpointResponse
+     *
+     * @param string         $planId
+     * @param string         $itemId
+     * @param string         $checkpointId
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
+     *
+     * @return SyncDisasterRecoveryCheckpointResponse
+     */
+    public function syncDisasterRecoveryCheckpointWithOptions($planId, $itemId, $checkpointId, $headers, $runtime)
+    {
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+        ]);
+        $params = new Params([
+            'action' => 'SyncDisasterRecoveryCheckpoint',
+            'version' => '2022-08-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/disaster_recovery/' . Url::percentEncode($planId) . '/items/' . Url::percentEncode($itemId) . '/checkpoints/' . Url::percentEncode($checkpointId) . '',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return SyncDisasterRecoveryCheckpointResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
+
+        return SyncDisasterRecoveryCheckpointResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * Synchronize Disaster Recovery Plan Consumption Progress.
+     *
+     * @returns SyncDisasterRecoveryCheckpointResponse
+     *
+     * @param string $planId
+     * @param string $itemId
+     * @param string $checkpointId
+     *
+     * @return SyncDisasterRecoveryCheckpointResponse
+     */
+    public function syncDisasterRecoveryCheckpoint($planId, $itemId, $checkpointId)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->syncDisasterRecoveryCheckpointWithOptions($planId, $itemId, $checkpointId, $headers, $runtime);
+    }
+
+    /**
      * Creates resource tags.
      *
      * @param request - TagResourcesRequest
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns TagResourcesResponse
      *
      * @param TagResourcesRequest $request
@@ -3262,18 +3919,18 @@ class RocketMQ extends OpenApiClient
 
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query'   => Utils::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'TagResources',
-            'version'     => '2022-08-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/resourceTag/create',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'TagResources',
+            'version' => '2022-08-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/resourceTag/create',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return TagResourcesResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -3286,6 +3943,7 @@ class RocketMQ extends OpenApiClient
      * Creates resource tags.
      *
      * @param request - TagResourcesRequest
+     *
      * @returns TagResourcesResponse
      *
      * @param TagResourcesRequest $request
@@ -3306,6 +3964,7 @@ class RocketMQ extends OpenApiClient
      * @param request - UntagResourcesRequest
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns UntagResourcesResponse
      *
      * @param UntagResourcesRequest $request
@@ -3340,18 +3999,18 @@ class RocketMQ extends OpenApiClient
 
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query'   => Utils::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'UntagResources',
-            'version'     => '2022-08-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/resourceTag/delete',
-            'method'      => 'DELETE',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'UntagResources',
+            'version' => '2022-08-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/resourceTag/delete',
+            'method' => 'DELETE',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return UntagResourcesResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -3364,6 +4023,7 @@ class RocketMQ extends OpenApiClient
      * Removes tags from resources.
      *
      * @param request - UntagResourcesRequest
+     *
      * @returns UntagResourcesResponse
      *
      * @param UntagResourcesRequest $request
@@ -3379,14 +4039,15 @@ class RocketMQ extends OpenApiClient
     }
 
     /**
-     * Updates the basic information about and the consumption retry policy of a consumer group.
+     * Update ConsumerGroup.
      *
      * @remarks
-     * > API operations provided by Alibaba Cloud are used to manage and query resources of Alibaba Cloud services. We recommend that you integrate these API operations only in management systems. Do not use these API operations in the core system of messaging services. Otherwise, system risks may occur.
+     * >Notice: The OpenAPI provided by Alibaba Cloud is a management API used for managing and querying related resources of Alibaba Cloud services. It is recommended to integrate it only in the management chain. It is strictly prohibited to rely on OpenAPI implementation in the core data chain of message sending and receiving, otherwise it may lead to risks in the chain.
      *
      * @param request - UpdateConsumerGroupRequest
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns UpdateConsumerGroupResponse
      *
      * @param string                     $instanceId
@@ -3419,18 +4080,18 @@ class RocketMQ extends OpenApiClient
 
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body'    => Utils::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'UpdateConsumerGroup',
-            'version'     => '2022-08-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/instances/' . URL::percentEncode($instanceId) . '/consumerGroups/' . URL::percentEncode($consumerGroupId) . '',
-            'method'      => 'PATCH',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'UpdateConsumerGroup',
+            'version' => '2022-08-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/instances/' . Url::percentEncode($instanceId) . '/consumerGroups/' . Url::percentEncode($consumerGroupId) . '',
+            'method' => 'PATCH',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return UpdateConsumerGroupResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -3440,12 +4101,13 @@ class RocketMQ extends OpenApiClient
     }
 
     /**
-     * Updates the basic information about and the consumption retry policy of a consumer group.
+     * Update ConsumerGroup.
      *
      * @remarks
-     * > API operations provided by Alibaba Cloud are used to manage and query resources of Alibaba Cloud services. We recommend that you integrate these API operations only in management systems. Do not use these API operations in the core system of messaging services. Otherwise, system risks may occur.
+     * >Notice: The OpenAPI provided by Alibaba Cloud is a management API used for managing and querying related resources of Alibaba Cloud services. It is recommended to integrate it only in the management chain. It is strictly prohibited to rely on OpenAPI implementation in the core data chain of message sending and receiving, otherwise it may lead to risks in the chain.
      *
      * @param request - UpdateConsumerGroupRequest
+     *
      * @returns UpdateConsumerGroupResponse
      *
      * @param string                     $instanceId
@@ -3463,6 +4125,160 @@ class RocketMQ extends OpenApiClient
     }
 
     /**
+     * Updates a topic mapping in a global message backup plan.
+     *
+     * @param request - UpdateDisasterRecoveryItemRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateDisasterRecoveryItemResponse
+     *
+     * @param string                            $planId
+     * @param string                            $itemId
+     * @param UpdateDisasterRecoveryItemRequest $request
+     * @param string[]                          $headers
+     * @param RuntimeOptions                    $runtime
+     *
+     * @return UpdateDisasterRecoveryItemResponse
+     */
+    public function updateDisasterRecoveryItemWithOptions($planId, $itemId, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->topics) {
+            @$body['topics'] = $request->topics;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'UpdateDisasterRecoveryItem',
+            'version' => '2022-08-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/disaster_recovery/' . Url::percentEncode($planId) . '/items/' . Url::percentEncode($itemId) . '',
+            'method' => 'PATCH',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return UpdateDisasterRecoveryItemResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
+
+        return UpdateDisasterRecoveryItemResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * Updates a topic mapping in a global message backup plan.
+     *
+     * @param request - UpdateDisasterRecoveryItemRequest
+     *
+     * @returns UpdateDisasterRecoveryItemResponse
+     *
+     * @param string                            $planId
+     * @param string                            $itemId
+     * @param UpdateDisasterRecoveryItemRequest $request
+     *
+     * @return UpdateDisasterRecoveryItemResponse
+     */
+    public function updateDisasterRecoveryItem($planId, $itemId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->updateDisasterRecoveryItemWithOptions($planId, $itemId, $request, $headers, $runtime);
+    }
+
+    /**
+     * Modifies a global message backup plan.
+     *
+     * @param request - UpdateDisasterRecoveryPlanRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateDisasterRecoveryPlanResponse
+     *
+     * @param string                            $planId
+     * @param UpdateDisasterRecoveryPlanRequest $request
+     * @param string[]                          $headers
+     * @param RuntimeOptions                    $runtime
+     *
+     * @return UpdateDisasterRecoveryPlanResponse
+     */
+    public function updateDisasterRecoveryPlanWithOptions($planId, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->autoSyncCheckpoint) {
+            @$body['autoSyncCheckpoint'] = $request->autoSyncCheckpoint;
+        }
+
+        if (null !== $request->instances) {
+            @$body['instances'] = $request->instances;
+        }
+
+        if (null !== $request->planDesc) {
+            @$body['planDesc'] = $request->planDesc;
+        }
+
+        if (null !== $request->planName) {
+            @$body['planName'] = $request->planName;
+        }
+
+        if (null !== $request->planType) {
+            @$body['planType'] = $request->planType;
+        }
+
+        if (null !== $request->syncCheckpointEnabled) {
+            @$body['syncCheckpointEnabled'] = $request->syncCheckpointEnabled;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'UpdateDisasterRecoveryPlan',
+            'version' => '2022-08-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/disaster_recovery/' . Url::percentEncode($planId) . '',
+            'method' => 'PATCH',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return UpdateDisasterRecoveryPlanResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
+
+        return UpdateDisasterRecoveryPlanResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * Modifies a global message backup plan.
+     *
+     * @param request - UpdateDisasterRecoveryPlanRequest
+     *
+     * @returns UpdateDisasterRecoveryPlanResponse
+     *
+     * @param string                            $planId
+     * @param UpdateDisasterRecoveryPlanRequest $request
+     *
+     * @return UpdateDisasterRecoveryPlanResponse
+     */
+    public function updateDisasterRecoveryPlan($planId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->updateDisasterRecoveryPlanWithOptions($planId, $request, $headers, $runtime);
+    }
+
+    /**
      * Updates the basic information and specifications of an ApsaraMQ for RocketMQ instance.
      *
      * @remarks
@@ -3471,6 +4287,7 @@ class RocketMQ extends OpenApiClient
      * @param request - UpdateInstanceRequest
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns UpdateInstanceResponse
      *
      * @param string                $instanceId
@@ -3506,18 +4323,18 @@ class RocketMQ extends OpenApiClient
 
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body'    => Utils::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'UpdateInstance',
-            'version'     => '2022-08-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/instances/' . URL::percentEncode($instanceId) . '',
-            'method'      => 'PATCH',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'UpdateInstance',
+            'version' => '2022-08-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/instances/' . Url::percentEncode($instanceId) . '',
+            'method' => 'PATCH',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return UpdateInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -3533,6 +4350,7 @@ class RocketMQ extends OpenApiClient
      * > API operations provided by Alibaba Cloud are used to manage and query resources of Alibaba Cloud services. We recommend that you integrate these API operations only in management systems. Do not use these API operations in the core system of messaging services. Otherwise, system risks may occur.
      *
      * @param request - UpdateInstanceRequest
+     *
      * @returns UpdateInstanceResponse
      *
      * @param string                $instanceId
@@ -3554,6 +4372,7 @@ class RocketMQ extends OpenApiClient
      * @param request - UpdateInstanceAccountRequest
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns UpdateInstanceAccountResponse
      *
      * @param string                       $instanceId
@@ -3578,18 +4397,18 @@ class RocketMQ extends OpenApiClient
 
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query'   => Utils::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'UpdateInstanceAccount',
-            'version'     => '2022-08-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/instances/' . URL::percentEncode($instanceId) . '/accounts/' . URL::percentEncode($username) . '',
-            'method'      => 'PATCH',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'UpdateInstanceAccount',
+            'version' => '2022-08-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/instances/' . Url::percentEncode($instanceId) . '/accounts/' . Url::percentEncode($username) . '',
+            'method' => 'PATCH',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return UpdateInstanceAccountResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -3602,6 +4421,7 @@ class RocketMQ extends OpenApiClient
      * Updates the information about a specific account in a specific instance.
      *
      * @param request - UpdateInstanceAccountRequest
+     *
      * @returns UpdateInstanceAccountResponse
      *
      * @param string                       $instanceId
@@ -3624,6 +4444,7 @@ class RocketMQ extends OpenApiClient
      * @param request - UpdateInstanceAclRequest
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns UpdateInstanceAclResponse
      *
      * @param string                   $instanceId
@@ -3660,18 +4481,18 @@ class RocketMQ extends OpenApiClient
 
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body'    => Utils::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'UpdateInstanceAcl',
-            'version'     => '2022-08-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/instances/' . URL::percentEncode($instanceId) . '/acl/account/' . URL::percentEncode($username) . '',
-            'method'      => 'PATCH',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'UpdateInstanceAcl',
+            'version' => '2022-08-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/instances/' . Url::percentEncode($instanceId) . '/acl/account/' . Url::percentEncode($username) . '',
+            'method' => 'PATCH',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return UpdateInstanceAclResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -3684,6 +4505,7 @@ class RocketMQ extends OpenApiClient
      * Updates the permissions on the resources of a specific instance for a specific user.
      *
      * @param request - UpdateInstanceAclRequest
+     *
      * @returns UpdateInstanceAclResponse
      *
      * @param string                   $instanceId
@@ -3701,11 +4523,12 @@ class RocketMQ extends OpenApiClient
     }
 
     /**
-     * Updates the basic information about a topic.
+     * Update Topic.
      *
      * @param request - UpdateTopicRequest
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns UpdateTopicResponse
      *
      * @param string             $instanceId
@@ -3730,18 +4553,18 @@ class RocketMQ extends OpenApiClient
 
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body'    => Utils::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'UpdateTopic',
-            'version'     => '2022-08-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/instances/' . URL::percentEncode($instanceId) . '/topics/' . URL::percentEncode($topicName) . '',
-            'method'      => 'PATCH',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'UpdateTopic',
+            'version' => '2022-08-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/instances/' . Url::percentEncode($instanceId) . '/topics/' . Url::percentEncode($topicName) . '',
+            'method' => 'PATCH',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return UpdateTopicResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -3751,9 +4574,10 @@ class RocketMQ extends OpenApiClient
     }
 
     /**
-     * Updates the basic information about a topic.
+     * Update Topic.
      *
      * @param request - UpdateTopicRequest
+     *
      * @returns UpdateTopicResponse
      *
      * @param string             $instanceId
@@ -3776,6 +4600,7 @@ class RocketMQ extends OpenApiClient
      * @param request - VerifyConsumeMessageRequest
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns VerifyConsumeMessageResponse
      *
      * @param string                      $instanceId
@@ -3801,18 +4626,18 @@ class RocketMQ extends OpenApiClient
 
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query'   => Utils::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'VerifyConsumeMessage',
-            'version'     => '2022-08-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/instances/' . URL::percentEncode($instanceId) . '/topics/' . URL::percentEncode($topicName) . '/messages/' . URL::percentEncode($messageId) . '/action/verifyConsume',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'VerifyConsumeMessage',
+            'version' => '2022-08-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/instances/' . Url::percentEncode($instanceId) . '/topics/' . Url::percentEncode($topicName) . '/messages/' . Url::percentEncode($messageId) . '/action/verifyConsume',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return VerifyConsumeMessageResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -3825,6 +4650,7 @@ class RocketMQ extends OpenApiClient
      * Verifies the consumption status of a message in a specific topic on a specific instance.
      *
      * @param request - VerifyConsumeMessageRequest
+     *
      * @returns VerifyConsumeMessageResponse
      *
      * @param string                      $instanceId
@@ -3848,6 +4674,7 @@ class RocketMQ extends OpenApiClient
      * @param request - VerifySendMessageRequest
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns VerifySendMessageResponse
      *
      * @param string                   $instanceId
@@ -3876,18 +4703,18 @@ class RocketMQ extends OpenApiClient
 
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body'    => Utils::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'VerifySendMessage',
-            'version'     => '2022-08-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/instances/' . URL::percentEncode($instanceId) . '/topics/' . URL::percentEncode($topicName) . '/messages',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'VerifySendMessage',
+            'version' => '2022-08-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/instances/' . Url::percentEncode($instanceId) . '/topics/' . Url::percentEncode($topicName) . '/messages',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return VerifySendMessageResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -3900,6 +4727,7 @@ class RocketMQ extends OpenApiClient
      * Verifies the message sending feature of a specific topic on a specific instance.
      *
      * @param request - VerifySendMessageRequest
+     *
      * @returns VerifySendMessageResponse
      *
      * @param string                   $instanceId

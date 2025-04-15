@@ -12,23 +12,26 @@ class TagResourcesRequest extends Model
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $resourceId;
+
     /**
      * @var string
      */
     public $resourceType;
+
     /**
      * @var string
      */
     public $tag;
     protected $_name = [
-        'regionId'     => 'regionId',
-        'resourceId'   => 'resourceId',
+        'regionId' => 'regionId',
+        'resourceId' => 'resourceId',
         'resourceType' => 'resourceType',
-        'tag'          => 'tag',
+        'tag' => 'tag',
     ];
 
     public function validate()

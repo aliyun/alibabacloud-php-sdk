@@ -14,108 +14,128 @@ class list_ extends Model
      * @var string
      */
     public $commodityCode;
+
     /**
      * @var string
      */
     public $createTime;
+
     /**
      * @var string
      */
     public $expireTime;
+
     /**
      * @var int
      */
     public $groupCount;
+
     /**
      * @var string
      */
     public $instanceId;
+
     /**
      * @var string
      */
     public $instanceName;
+
     /**
      * @var string
      */
     public $paymentType;
+
     /**
      * @var productInfo
      */
     public $productInfo;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $releaseTime;
+
     /**
      * @var string
      */
     public $remark;
+
     /**
      * @var string
      */
     public $resourceGroupId;
+
     /**
      * @var string
      */
     public $seriesCode;
+
     /**
      * @var string
      */
     public $serviceCode;
+
     /**
      * @var string
      */
     public $startTime;
+
     /**
      * @var string
      */
     public $status;
+
     /**
      * @var string
      */
     public $subSeriesCode;
+
     /**
      * @var tags[]
      */
     public $tags;
+
     /**
      * @var int
      */
     public $topicCount;
+
     /**
      * @var string
      */
     public $updateTime;
+
     /**
      * @var string
      */
     public $userId;
     protected $_name = [
-        'commodityCode'   => 'commodityCode',
-        'createTime'      => 'createTime',
-        'expireTime'      => 'expireTime',
-        'groupCount'      => 'groupCount',
-        'instanceId'      => 'instanceId',
-        'instanceName'    => 'instanceName',
-        'paymentType'     => 'paymentType',
-        'productInfo'     => 'productInfo',
-        'regionId'        => 'regionId',
-        'releaseTime'     => 'releaseTime',
-        'remark'          => 'remark',
+        'commodityCode' => 'commodityCode',
+        'createTime' => 'createTime',
+        'expireTime' => 'expireTime',
+        'groupCount' => 'groupCount',
+        'instanceId' => 'instanceId',
+        'instanceName' => 'instanceName',
+        'paymentType' => 'paymentType',
+        'productInfo' => 'productInfo',
+        'regionId' => 'regionId',
+        'releaseTime' => 'releaseTime',
+        'remark' => 'remark',
         'resourceGroupId' => 'resourceGroupId',
-        'seriesCode'      => 'seriesCode',
-        'serviceCode'     => 'serviceCode',
-        'startTime'       => 'startTime',
-        'status'          => 'status',
-        'subSeriesCode'   => 'subSeriesCode',
-        'tags'            => 'tags',
-        'topicCount'      => 'topicCount',
-        'updateTime'      => 'updateTime',
-        'userId'          => 'userId',
+        'seriesCode' => 'seriesCode',
+        'serviceCode' => 'serviceCode',
+        'startTime' => 'startTime',
+        'status' => 'status',
+        'subSeriesCode' => 'subSeriesCode',
+        'tags' => 'tags',
+        'topicCount' => 'topicCount',
+        'updateTime' => 'updateTime',
+        'userId' => 'userId',
     ];
 
     public function validate()
@@ -203,7 +223,7 @@ class list_ extends Model
         if (null !== $this->tags) {
             if (\is_array($this->tags)) {
                 $res['tags'] = [];
-                $n1          = 0;
+                $n1 = 0;
                 foreach ($this->tags as $item1) {
                     $res['tags'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -304,7 +324,7 @@ class list_ extends Model
         if (isset($map['tags'])) {
             if (!empty($map['tags'])) {
                 $model->tags = [];
-                $n1          = 0;
+                $n1 = 0;
                 foreach ($map['tags'] as $item1) {
                     $model->tags[$n1++] = tags::fromMap($item1);
                 }

@@ -12,16 +12,18 @@ class VerifySendMessageRequest extends Model
      * @var string
      */
     public $message;
+
     /**
      * @var string
      */
     public $messageKey;
+
     /**
      * @var string
      */
     public $messageTag;
     protected $_name = [
-        'message'    => 'message',
+        'message' => 'message',
         'messageKey' => 'messageKey',
         'messageTag' => 'messageTag',
     ];

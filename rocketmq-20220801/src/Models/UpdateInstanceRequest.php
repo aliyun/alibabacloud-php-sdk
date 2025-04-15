@@ -15,28 +15,32 @@ class UpdateInstanceRequest extends Model
      * @var aclInfo
      */
     public $aclInfo;
+
     /**
      * @var string
      */
     public $instanceName;
+
     /**
      * @var networkInfo
      */
     public $networkInfo;
+
     /**
      * @var productInfo
      */
     public $productInfo;
+
     /**
      * @var string
      */
     public $remark;
     protected $_name = [
-        'aclInfo'      => 'aclInfo',
+        'aclInfo' => 'aclInfo',
         'instanceName' => 'instanceName',
-        'networkInfo'  => 'networkInfo',
-        'productInfo'  => 'productInfo',
-        'remark'       => 'remark',
+        'networkInfo' => 'networkInfo',
+        'productInfo' => 'productInfo',
+        'remark' => 'remark',
     ];
 
     public function validate()

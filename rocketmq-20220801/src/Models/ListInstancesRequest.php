@@ -12,38 +12,44 @@ class ListInstancesRequest extends Model
      * @var string
      */
     public $filter;
+
     /**
      * @var int
      */
     public $pageNumber;
+
     /**
      * @var int
      */
     public $pageSize;
+
     /**
      * @var string
      */
     public $resourceGroupId;
+
     /**
      * @var string[]
      */
     public $seriesCodes;
+
     /**
      * @var string
      */
     public $storageSecretKey;
+
     /**
      * @var string
      */
     public $tags;
     protected $_name = [
-        'filter'           => 'filter',
-        'pageNumber'       => 'pageNumber',
-        'pageSize'         => 'pageSize',
-        'resourceGroupId'  => 'resourceGroupId',
-        'seriesCodes'      => 'seriesCodes',
+        'filter' => 'filter',
+        'pageNumber' => 'pageNumber',
+        'pageSize' => 'pageSize',
+        'resourceGroupId' => 'resourceGroupId',
+        'seriesCodes' => 'seriesCodes',
         'storageSecretKey' => 'storageSecretKey',
-        'tags'             => 'tags',
+        'tags' => 'tags',
     ];
 
     public function validate()
@@ -76,7 +82,7 @@ class ListInstancesRequest extends Model
         if (null !== $this->seriesCodes) {
             if (\is_array($this->seriesCodes)) {
                 $res['seriesCodes'] = [];
-                $n1                 = 0;
+                $n1 = 0;
                 foreach ($this->seriesCodes as $item1) {
                     $res['seriesCodes'][$n1++] = $item1;
                 }
@@ -121,7 +127,7 @@ class ListInstancesRequest extends Model
         if (isset($map['seriesCodes'])) {
             if (!empty($map['seriesCodes'])) {
                 $model->seriesCodes = [];
-                $n1                 = 0;
+                $n1 = 0;
                 foreach ($map['seriesCodes'] as $item1) {
                     $model->seriesCodes[$n1++] = $item1;
                 }

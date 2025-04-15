@@ -12,18 +12,20 @@ class software extends Model
      * @var string
      */
     public $maintainTime;
+
     /**
      * @var string
      */
     public $softwareVersion;
+
     /**
      * @var string
      */
     public $upgradeMethod;
     protected $_name = [
-        'maintainTime'    => 'maintainTime',
+        'maintainTime' => 'maintainTime',
         'softwareVersion' => 'softwareVersion',
-        'upgradeMethod'   => 'upgradeMethod',
+        'upgradeMethod' => 'upgradeMethod',
     ];
 
     public function validate()

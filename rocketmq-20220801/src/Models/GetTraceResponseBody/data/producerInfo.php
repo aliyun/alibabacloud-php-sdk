@@ -31,7 +31,7 @@ class producerInfo extends Model
         if (null !== $this->records) {
             if (\is_array($this->records)) {
                 $res['records'] = [];
-                $n1             = 0;
+                $n1 = 0;
                 foreach ($this->records as $item1) {
                     $res['records'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -52,7 +52,7 @@ class producerInfo extends Model
         if (isset($map['records'])) {
             if (!empty($map['records'])) {
                 $model->records = [];
-                $n1             = 0;
+                $n1 = 0;
                 foreach ($map['records'] as $item1) {
                     $model->records[$n1++] = records::fromMap($item1);
                 }

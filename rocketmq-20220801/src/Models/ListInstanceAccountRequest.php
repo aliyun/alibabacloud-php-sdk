@@ -12,28 +12,32 @@ class ListInstanceAccountRequest extends Model
      * @var string
      */
     public $accountStatus;
+
     /**
      * @var string
      */
     public $accountType;
+
     /**
      * @var int
      */
     public $pageNumber;
+
     /**
      * @var int
      */
     public $pageSize;
+
     /**
      * @var string
      */
     public $username;
     protected $_name = [
         'accountStatus' => 'accountStatus',
-        'accountType'   => 'accountType',
-        'pageNumber'    => 'pageNumber',
-        'pageSize'      => 'pageSize',
-        'username'      => 'username',
+        'accountType' => 'accountType',
+        'pageNumber' => 'pageNumber',
+        'pageSize' => 'pageSize',
+        'username' => 'username',
     ];
 
     public function validate()

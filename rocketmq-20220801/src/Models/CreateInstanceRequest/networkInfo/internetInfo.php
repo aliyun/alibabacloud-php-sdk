@@ -12,23 +12,26 @@ class internetInfo extends Model
      * @var int
      */
     public $flowOutBandwidth;
+
     /**
      * @var string
      */
     public $flowOutType;
+
     /**
      * @var string
      */
     public $internetSpec;
+
     /**
      * @var string[]
      */
     public $ipWhitelist;
     protected $_name = [
         'flowOutBandwidth' => 'flowOutBandwidth',
-        'flowOutType'      => 'flowOutType',
-        'internetSpec'     => 'internetSpec',
-        'ipWhitelist'      => 'ipWhitelist',
+        'flowOutType' => 'flowOutType',
+        'internetSpec' => 'internetSpec',
+        'ipWhitelist' => 'ipWhitelist',
     ];
 
     public function validate()
@@ -57,7 +60,7 @@ class internetInfo extends Model
         if (null !== $this->ipWhitelist) {
             if (\is_array($this->ipWhitelist)) {
                 $res['ipWhitelist'] = [];
-                $n1                 = 0;
+                $n1 = 0;
                 foreach ($this->ipWhitelist as $item1) {
                     $res['ipWhitelist'][$n1++] = $item1;
                 }
@@ -90,7 +93,7 @@ class internetInfo extends Model
         if (isset($map['ipWhitelist'])) {
             if (!empty($map['ipWhitelist'])) {
                 $model->ipWhitelist = [];
-                $n1                 = 0;
+                $n1 = 0;
                 foreach ($map['ipWhitelist'] as $item1) {
                     $model->ipWhitelist[$n1++] = $item1;
                 }

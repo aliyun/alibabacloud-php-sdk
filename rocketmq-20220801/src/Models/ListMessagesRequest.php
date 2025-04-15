@@ -12,38 +12,44 @@ class ListMessagesRequest extends Model
      * @var string
      */
     public $endTime;
+
     /**
      * @var string
      */
     public $messageId;
+
     /**
      * @var string
      */
     public $messageKey;
+
     /**
      * @var int
      */
     public $pageNumber;
+
     /**
      * @var int
      */
     public $pageSize;
+
     /**
      * @var string
      */
     public $scrollId;
+
     /**
      * @var string
      */
     public $startTime;
     protected $_name = [
-        'endTime'    => 'endTime',
-        'messageId'  => 'messageId',
+        'endTime' => 'endTime',
+        'messageId' => 'messageId',
         'messageKey' => 'messageKey',
         'pageNumber' => 'pageNumber',
-        'pageSize'   => 'pageSize',
-        'scrollId'   => 'scrollId',
-        'startTime'  => 'startTime',
+        'pageSize' => 'pageSize',
+        'scrollId' => 'scrollId',
+        'startTime' => 'startTime',
     ];
 
     public function validate()

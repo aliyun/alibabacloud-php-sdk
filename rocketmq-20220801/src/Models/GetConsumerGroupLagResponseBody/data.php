@@ -14,28 +14,32 @@ class data extends Model
      * @var string
      */
     public $consumerGroupId;
+
     /**
      * @var string
      */
     public $instanceId;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var DataTopicLagMapValue[]
      */
     public $topicLagMap;
+
     /**
      * @var totalLag
      */
     public $totalLag;
     protected $_name = [
         'consumerGroupId' => 'consumerGroupId',
-        'instanceId'      => 'instanceId',
-        'regionId'        => 'regionId',
-        'topicLagMap'     => 'topicLagMap',
-        'totalLag'        => 'totalLag',
+        'instanceId' => 'instanceId',
+        'regionId' => 'regionId',
+        'topicLagMap' => 'topicLagMap',
+        'totalLag' => 'totalLag',
     ];
 
     public function validate()

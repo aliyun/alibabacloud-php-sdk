@@ -12,12 +12,13 @@ class VerifyConsumeMessageRequest extends Model
      * @var string
      */
     public $clientId;
+
     /**
      * @var string
      */
     public $consumerGroupId;
     protected $_name = [
-        'clientId'        => 'clientId',
+        'clientId' => 'clientId',
         'consumerGroupId' => 'consumerGroupId',
     ];
 

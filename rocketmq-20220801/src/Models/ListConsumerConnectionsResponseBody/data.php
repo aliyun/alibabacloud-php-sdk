@@ -13,23 +13,26 @@ class data extends Model
      * @var connections[]
      */
     public $connections;
+
     /**
      * @var string
      */
     public $consumerGroupId;
+
     /**
      * @var string
      */
     public $instanceId;
+
     /**
      * @var string
      */
     public $regionId;
     protected $_name = [
-        'connections'     => 'connections',
+        'connections' => 'connections',
         'consumerGroupId' => 'consumerGroupId',
-        'instanceId'      => 'instanceId',
-        'regionId'        => 'regionId',
+        'instanceId' => 'instanceId',
+        'regionId' => 'regionId',
     ];
 
     public function validate()
@@ -46,7 +49,7 @@ class data extends Model
         if (null !== $this->connections) {
             if (\is_array($this->connections)) {
                 $res['connections'] = [];
-                $n1                 = 0;
+                $n1 = 0;
                 foreach ($this->connections as $item1) {
                     $res['connections'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -79,7 +82,7 @@ class data extends Model
         if (isset($map['connections'])) {
             if (!empty($map['connections'])) {
                 $model->connections = [];
-                $n1                 = 0;
+                $n1 = 0;
                 foreach ($map['connections'] as $item1) {
                     $model->connections[$n1++] = connections::fromMap($item1);
                 }

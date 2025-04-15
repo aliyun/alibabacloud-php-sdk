@@ -12,12 +12,13 @@ class DeleteInstanceIpWhitelistShrinkRequest extends Model
      * @var string
      */
     public $ipWhitelist;
+
     /**
      * @var string
      */
     public $ipWhitelistsShrink;
     protected $_name = [
-        'ipWhitelist'        => 'ipWhitelist',
+        'ipWhitelist' => 'ipWhitelist',
         'ipWhitelistsShrink' => 'ipWhitelists',
     ];
 

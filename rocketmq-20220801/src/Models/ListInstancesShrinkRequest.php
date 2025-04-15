@@ -12,38 +12,44 @@ class ListInstancesShrinkRequest extends Model
      * @var string
      */
     public $filter;
+
     /**
      * @var int
      */
     public $pageNumber;
+
     /**
      * @var int
      */
     public $pageSize;
+
     /**
      * @var string
      */
     public $resourceGroupId;
+
     /**
      * @var string
      */
     public $seriesCodesShrink;
+
     /**
      * @var string
      */
     public $storageSecretKey;
+
     /**
      * @var string
      */
     public $tags;
     protected $_name = [
-        'filter'            => 'filter',
-        'pageNumber'        => 'pageNumber',
-        'pageSize'          => 'pageSize',
-        'resourceGroupId'   => 'resourceGroupId',
+        'filter' => 'filter',
+        'pageNumber' => 'pageNumber',
+        'pageSize' => 'pageSize',
+        'resourceGroupId' => 'resourceGroupId',
         'seriesCodesShrink' => 'seriesCodes',
-        'storageSecretKey'  => 'storageSecretKey',
-        'tags'              => 'tags',
+        'storageSecretKey' => 'storageSecretKey',
+        'tags' => 'tags',
     ];
 
     public function validate()

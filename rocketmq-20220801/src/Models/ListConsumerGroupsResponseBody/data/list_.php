@@ -12,43 +12,50 @@ class list_ extends Model
      * @var string
      */
     public $consumerGroupId;
+
     /**
      * @var string
      */
     public $createTime;
+
     /**
      * @var string
      */
     public $instanceId;
+
     /**
      * @var int
      */
     public $maxReceiveTps;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $remark;
+
     /**
      * @var string
      */
     public $status;
+
     /**
      * @var string
      */
     public $updateTime;
     protected $_name = [
         'consumerGroupId' => 'consumerGroupId',
-        'createTime'      => 'createTime',
-        'instanceId'      => 'instanceId',
-        'maxReceiveTps'   => 'maxReceiveTps',
-        'regionId'        => 'regionId',
-        'remark'          => 'remark',
-        'status'          => 'status',
-        'updateTime'      => 'updateTime',
+        'createTime' => 'createTime',
+        'instanceId' => 'instanceId',
+        'maxReceiveTps' => 'maxReceiveTps',
+        'regionId' => 'regionId',
+        'remark' => 'remark',
+        'status' => 'status',
+        'updateTime' => 'updateTime',
     ];
 
     public function validate()

@@ -12,43 +12,50 @@ class DeleteConsumerGroupResponseBody extends Model
      * @var string
      */
     public $code;
+
     /**
      * @var bool
      */
     public $data;
+
     /**
      * @var string
      */
     public $dynamicCode;
+
     /**
      * @var string
      */
     public $dynamicMessage;
+
     /**
      * @var int
      */
     public $httpStatusCode;
+
     /**
      * @var string
      */
     public $message;
+
     /**
      * @var string
      */
     public $requestId;
+
     /**
      * @var bool
      */
     public $success;
     protected $_name = [
-        'code'           => 'code',
-        'data'           => 'data',
-        'dynamicCode'    => 'dynamicCode',
+        'code' => 'code',
+        'data' => 'data',
+        'dynamicCode' => 'dynamicCode',
         'dynamicMessage' => 'dynamicMessage',
         'httpStatusCode' => 'httpStatusCode',
-        'message'        => 'message',
-        'requestId'      => 'requestId',
-        'success'        => 'success',
+        'message' => 'message',
+        'requestId' => 'requestId',
+        'success' => 'success',
     ];
 
     public function validate()

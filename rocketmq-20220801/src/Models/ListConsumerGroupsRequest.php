@@ -12,18 +12,20 @@ class ListConsumerGroupsRequest extends Model
      * @var string
      */
     public $filter;
+
     /**
      * @var int
      */
     public $pageNumber;
+
     /**
      * @var int
      */
     public $pageSize;
     protected $_name = [
-        'filter'     => 'filter',
+        'filter' => 'filter',
         'pageNumber' => 'pageNumber',
-        'pageSize'   => 'pageSize',
+        'pageSize' => 'pageSize',
     ];
 
     public function validate()

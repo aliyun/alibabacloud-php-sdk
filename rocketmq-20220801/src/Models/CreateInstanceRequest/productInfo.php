@@ -12,33 +12,38 @@ class productInfo extends Model
      * @var bool
      */
     public $autoScaling;
+
     /**
      * @var int
      */
     public $messageRetentionTime;
+
     /**
      * @var string
      */
     public $msgProcessSpec;
+
     /**
      * @var float
      */
     public $sendReceiveRatio;
+
     /**
      * @var bool
      */
     public $storageEncryption;
+
     /**
      * @var string
      */
     public $storageSecretKey;
     protected $_name = [
-        'autoScaling'          => 'autoScaling',
+        'autoScaling' => 'autoScaling',
         'messageRetentionTime' => 'messageRetentionTime',
-        'msgProcessSpec'       => 'msgProcessSpec',
-        'sendReceiveRatio'     => 'sendReceiveRatio',
-        'storageEncryption'    => 'storageEncryption',
-        'storageSecretKey'     => 'storageSecretKey',
+        'msgProcessSpec' => 'msgProcessSpec',
+        'sendReceiveRatio' => 'sendReceiveRatio',
+        'storageEncryption' => 'storageEncryption',
+        'storageSecretKey' => 'storageSecretKey',
     ];
 
     public function validate()

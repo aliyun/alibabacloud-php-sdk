@@ -12,14 +12,17 @@ class data extends Model
      * @var string
      */
     public $createTime;
+
     /**
      * @var string
      */
     public $updateTime;
+
     /**
      * @var string
      */
     public $zoneId;
+
     /**
      * @var string
      */
@@ -27,8 +30,8 @@ class data extends Model
     protected $_name = [
         'createTime' => 'createTime',
         'updateTime' => 'updateTime',
-        'zoneId'     => 'zoneId',
-        'zoneName'   => 'zoneName',
+        'zoneId' => 'zoneId',
+        'zoneName' => 'zoneName',
     ];
 
     public function validate()

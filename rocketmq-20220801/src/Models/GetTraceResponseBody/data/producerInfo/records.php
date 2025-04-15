@@ -12,53 +12,62 @@ class records extends Model
      * @var string
      */
     public $arriveTime;
+
     /**
      * @var string
      */
     public $clientHost;
+
     /**
      * @var string
      */
     public $dlqOriginMessageId;
+
     /**
      * @var string
      */
     public $dlqOriginTopic;
+
     /**
      * @var string
      */
     public $messageSource;
+
     /**
      * @var int
      */
     public $produceDuration;
+
     /**
      * @var string
      */
     public $produceStatus;
+
     /**
      * @var string
      */
     public $produceTime;
+
     /**
      * @var string
      */
     public $recallTime;
+
     /**
      * @var string
      */
     public $userName;
     protected $_name = [
-        'arriveTime'         => 'arriveTime',
-        'clientHost'         => 'clientHost',
+        'arriveTime' => 'arriveTime',
+        'clientHost' => 'clientHost',
         'dlqOriginMessageId' => 'dlqOriginMessageId',
-        'dlqOriginTopic'     => 'dlqOriginTopic',
-        'messageSource'      => 'messageSource',
-        'produceDuration'    => 'produceDuration',
-        'produceStatus'      => 'produceStatus',
-        'produceTime'        => 'produceTime',
-        'recallTime'         => 'recallTime',
-        'userName'           => 'userName',
+        'dlqOriginTopic' => 'dlqOriginTopic',
+        'messageSource' => 'messageSource',
+        'produceDuration' => 'produceDuration',
+        'produceStatus' => 'produceStatus',
+        'produceTime' => 'produceTime',
+        'recallTime' => 'recallTime',
+        'userName' => 'userName',
     ];
 
     public function validate()

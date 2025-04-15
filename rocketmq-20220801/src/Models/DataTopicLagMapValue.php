@@ -12,22 +12,25 @@ class DataTopicLagMapValue extends Model
      * @var int
      */
     public $readyCount;
+
     /**
      * @var int
      */
     public $inflightCount;
+
     /**
      * @var int
      */
     public $deliveryDuration;
+
     /**
      * @var int
      */
     public $lastConsumeTimestamp;
     protected $_name = [
-        'readyCount'           => 'readyCount',
-        'inflightCount'        => 'inflightCount',
-        'deliveryDuration'     => 'deliveryDuration',
+        'readyCount' => 'readyCount',
+        'inflightCount' => 'inflightCount',
+        'deliveryDuration' => 'deliveryDuration',
         'lastConsumeTimestamp' => 'lastConsumeTimestamp',
     ];
 

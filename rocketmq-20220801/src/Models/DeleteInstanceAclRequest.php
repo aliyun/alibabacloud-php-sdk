@@ -12,6 +12,7 @@ class DeleteInstanceAclRequest extends Model
      * @var string
      */
     public $resourceName;
+
     /**
      * @var string
      */

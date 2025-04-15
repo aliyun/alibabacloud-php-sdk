@@ -12,23 +12,26 @@ class totalLag extends Model
      * @var int
      */
     public $deliveryDuration;
+
     /**
      * @var int
      */
     public $inflightCount;
+
     /**
      * @var int
      */
     public $lastConsumeTimestamp;
+
     /**
      * @var int
      */
     public $readyCount;
     protected $_name = [
-        'deliveryDuration'     => 'deliveryDuration',
-        'inflightCount'        => 'inflightCount',
+        'deliveryDuration' => 'deliveryDuration',
+        'inflightCount' => 'inflightCount',
         'lastConsumeTimestamp' => 'lastConsumeTimestamp',
-        'readyCount'           => 'readyCount',
+        'readyCount' => 'readyCount',
     ];
 
     public function validate()

@@ -12,17 +12,19 @@ class aclInfo extends Model
      * @var string
      */
     public $aclType;
+
     /**
      * @var string[]
      */
     public $aclTypes;
+
     /**
      * @var bool
      */
     public $defaultVpcAuthFree;
     protected $_name = [
-        'aclType'            => 'aclType',
-        'aclTypes'           => 'aclTypes',
+        'aclType' => 'aclType',
+        'aclTypes' => 'aclTypes',
         'defaultVpcAuthFree' => 'defaultVpcAuthFree',
     ];
 
@@ -44,7 +46,7 @@ class aclInfo extends Model
         if (null !== $this->aclTypes) {
             if (\is_array($this->aclTypes)) {
                 $res['aclTypes'] = [];
-                $n1              = 0;
+                $n1 = 0;
                 foreach ($this->aclTypes as $item1) {
                     $res['aclTypes'][$n1++] = $item1;
                 }
@@ -73,7 +75,7 @@ class aclInfo extends Model
         if (isset($map['aclTypes'])) {
             if (!empty($map['aclTypes'])) {
                 $model->aclTypes = [];
-                $n1              = 0;
+                $n1 = 0;
                 foreach ($map['aclTypes'] as $item1) {
                     $model->aclTypes[$n1++] = $item1;
                 }

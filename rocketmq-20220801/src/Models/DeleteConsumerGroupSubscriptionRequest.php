@@ -12,18 +12,20 @@ class DeleteConsumerGroupSubscriptionRequest extends Model
      * @var string
      */
     public $filterExpression;
+
     /**
      * @var string
      */
     public $filterType;
+
     /**
      * @var string
      */
     public $topicName;
     protected $_name = [
         'filterExpression' => 'filterExpression',
-        'filterType'       => 'filterType',
-        'topicName'        => 'topicName',
+        'filterType' => 'filterType',
+        'topicName' => 'topicName',
     ];
 
     public function validate()

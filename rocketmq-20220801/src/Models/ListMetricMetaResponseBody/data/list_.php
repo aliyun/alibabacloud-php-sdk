@@ -12,18 +12,20 @@ class list_ extends Model
      * @var string
      */
     public $category;
+
     /**
      * @var string
      */
     public $description;
+
     /**
      * @var string
      */
     public $metricName;
     protected $_name = [
-        'category'    => 'category',
+        'category' => 'category',
         'description' => 'description',
-        'metricName'  => 'metricName',
+        'metricName' => 'metricName',
     ];
 
     public function validate()

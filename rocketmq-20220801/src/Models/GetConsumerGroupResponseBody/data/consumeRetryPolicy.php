@@ -12,18 +12,20 @@ class consumeRetryPolicy extends Model
      * @var string
      */
     public $deadLetterTargetTopic;
+
     /**
      * @var int
      */
     public $maxRetryTimes;
+
     /**
      * @var string
      */
     public $retryPolicy;
     protected $_name = [
         'deadLetterTargetTopic' => 'deadLetterTargetTopic',
-        'maxRetryTimes'         => 'maxRetryTimes',
-        'retryPolicy'           => 'retryPolicy',
+        'maxRetryTimes' => 'maxRetryTimes',
+        'retryPolicy' => 'retryPolicy',
     ];
 
     public function validate()

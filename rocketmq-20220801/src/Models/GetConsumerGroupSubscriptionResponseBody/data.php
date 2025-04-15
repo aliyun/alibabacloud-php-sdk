@@ -14,12 +14,13 @@ class data extends Model
      * @var connectionDTO
      */
     public $connectionDTO;
+
     /**
      * @var subscriptionDTO
      */
     public $subscriptionDTO;
     protected $_name = [
-        'connectionDTO'   => 'connectionDTO',
+        'connectionDTO' => 'connectionDTO',
         'subscriptionDTO' => 'subscriptionDTO',
     ];
 

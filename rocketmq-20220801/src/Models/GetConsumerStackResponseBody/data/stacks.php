@@ -12,6 +12,7 @@ class stacks extends Model
      * @var string
      */
     public $thread;
+
     /**
      * @var string[]
      */
@@ -39,7 +40,7 @@ class stacks extends Model
         if (null !== $this->tracks) {
             if (\is_array($this->tracks)) {
                 $res['tracks'] = [];
-                $n1            = 0;
+                $n1 = 0;
                 foreach ($this->tracks as $item1) {
                     $res['tracks'][$n1++] = $item1;
                 }
@@ -64,7 +65,7 @@ class stacks extends Model
         if (isset($map['tracks'])) {
             if (!empty($map['tracks'])) {
                 $model->tracks = [];
-                $n1            = 0;
+                $n1 = 0;
                 foreach ($map['tracks'] as $item1) {
                     $model->tracks[$n1++] = $item1;
                 }

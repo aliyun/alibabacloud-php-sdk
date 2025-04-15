@@ -13,23 +13,26 @@ class CreateConsumerGroupRequest extends Model
      * @var consumeRetryPolicy
      */
     public $consumeRetryPolicy;
+
     /**
      * @var string
      */
     public $deliveryOrderType;
+
     /**
      * @var int
      */
     public $maxReceiveTps;
+
     /**
      * @var string
      */
     public $remark;
     protected $_name = [
         'consumeRetryPolicy' => 'consumeRetryPolicy',
-        'deliveryOrderType'  => 'deliveryOrderType',
-        'maxReceiveTps'      => 'maxReceiveTps',
-        'remark'             => 'remark',
+        'deliveryOrderType' => 'deliveryOrderType',
+        'maxReceiveTps' => 'maxReceiveTps',
+        'remark' => 'remark',
     ];
 
     public function validate()

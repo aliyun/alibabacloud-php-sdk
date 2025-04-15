@@ -12,10 +12,12 @@ class deadLetterInfo extends Model
      * @var string
      */
     public $messageId;
+
     /**
      * @var string
      */
     public $toDlqTime;
+
     /**
      * @var string
      */

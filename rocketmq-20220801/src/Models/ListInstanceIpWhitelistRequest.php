@@ -12,18 +12,20 @@ class ListInstanceIpWhitelistRequest extends Model
      * @var string
      */
     public $ipWhitelist;
+
     /**
      * @var int
      */
     public $pageNumber;
+
     /**
      * @var int
      */
     public $pageSize;
     protected $_name = [
         'ipWhitelist' => 'ipWhitelist',
-        'pageNumber'  => 'pageNumber',
-        'pageSize'    => 'pageSize',
+        'pageNumber' => 'pageNumber',
+        'pageSize' => 'pageSize',
     ];
 
     public function validate()

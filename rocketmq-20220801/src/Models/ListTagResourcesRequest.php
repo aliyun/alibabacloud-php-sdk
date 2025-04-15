@@ -12,33 +12,38 @@ class ListTagResourcesRequest extends Model
      * @var string
      */
     public $nextToken;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $resourceGroupId;
+
     /**
      * @var string
      */
     public $resourceId;
+
     /**
      * @var string
      */
     public $resourceType;
+
     /**
      * @var string
      */
     public $tag;
     protected $_name = [
-        'nextToken'       => 'nextToken',
-        'regionId'        => 'regionId',
+        'nextToken' => 'nextToken',
+        'regionId' => 'regionId',
         'resourceGroupId' => 'resourceGroupId',
-        'resourceId'      => 'resourceId',
-        'resourceType'    => 'resourceType',
-        'tag'             => 'tag',
+        'resourceId' => 'resourceId',
+        'resourceType' => 'resourceType',
+        'tag' => 'tag',
     ];
 
     public function validate()

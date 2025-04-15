@@ -13,43 +13,50 @@ class ListRegionsResponseBody extends Model
      * @var string
      */
     public $code;
+
     /**
      * @var data[]
      */
     public $data;
+
     /**
      * @var string
      */
     public $dynamicCode;
+
     /**
      * @var string
      */
     public $dynamicMessage;
+
     /**
      * @var int
      */
     public $httpStatusCode;
+
     /**
      * @var string
      */
     public $message;
+
     /**
      * @var string
      */
     public $requestId;
+
     /**
      * @var bool
      */
     public $success;
     protected $_name = [
-        'code'           => 'code',
-        'data'           => 'data',
-        'dynamicCode'    => 'dynamicCode',
+        'code' => 'code',
+        'data' => 'data',
+        'dynamicCode' => 'dynamicCode',
         'dynamicMessage' => 'dynamicMessage',
         'httpStatusCode' => 'httpStatusCode',
-        'message'        => 'message',
-        'requestId'      => 'requestId',
-        'success'        => 'success',
+        'message' => 'message',
+        'requestId' => 'requestId',
+        'success' => 'success',
     ];
 
     public function validate()
@@ -70,7 +77,7 @@ class ListRegionsResponseBody extends Model
         if (null !== $this->data) {
             if (\is_array($this->data)) {
                 $res['data'] = [];
-                $n1          = 0;
+                $n1 = 0;
                 foreach ($this->data as $item1) {
                     $res['data'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -119,7 +126,7 @@ class ListRegionsResponseBody extends Model
         if (isset($map['data'])) {
             if (!empty($map['data'])) {
                 $model->data = [];
-                $n1          = 0;
+                $n1 = 0;
                 foreach ($map['data'] as $item1) {
                     $model->data[$n1++] = data::fromMap($item1);
                 }

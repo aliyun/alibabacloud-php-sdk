@@ -12,23 +12,26 @@ class ListTopicsRequest extends Model
      * @var string
      */
     public $filter;
+
     /**
      * @var string[]
      */
     public $messageTypes;
+
     /**
      * @var int
      */
     public $pageNumber;
+
     /**
      * @var int
      */
     public $pageSize;
     protected $_name = [
-        'filter'       => 'filter',
+        'filter' => 'filter',
         'messageTypes' => 'messageTypes',
-        'pageNumber'   => 'pageNumber',
-        'pageSize'     => 'pageSize',
+        'pageNumber' => 'pageNumber',
+        'pageSize' => 'pageSize',
     ];
 
     public function validate()
@@ -49,7 +52,7 @@ class ListTopicsRequest extends Model
         if (null !== $this->messageTypes) {
             if (\is_array($this->messageTypes)) {
                 $res['messageTypes'] = [];
-                $n1                  = 0;
+                $n1 = 0;
                 foreach ($this->messageTypes as $item1) {
                     $res['messageTypes'][$n1++] = $item1;
                 }
@@ -82,7 +85,7 @@ class ListTopicsRequest extends Model
         if (isset($map['messageTypes'])) {
             if (!empty($map['messageTypes'])) {
                 $model->messageTypes = [];
-                $n1                  = 0;
+                $n1 = 0;
                 foreach ($map['messageTypes'] as $item1) {
                     $model->messageTypes[$n1++] = $item1;
                 }

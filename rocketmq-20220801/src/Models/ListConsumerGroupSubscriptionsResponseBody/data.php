@@ -12,43 +12,50 @@ class data extends Model
      * @var bool
      */
     public $consistency;
+
     /**
      * @var string
      */
     public $consumerGroupId;
+
     /**
      * @var string
      */
     public $filterExpression;
+
     /**
      * @var string
      */
     public $filterExpressionType;
+
     /**
      * @var string
      */
     public $messageModel;
+
     /**
      * @var string
      */
     public $subscriptionStatus;
+
     /**
      * @var bool
      */
     public $topicCreated;
+
     /**
      * @var string
      */
     public $topicName;
     protected $_name = [
-        'consistency'          => 'consistency',
-        'consumerGroupId'      => 'consumerGroupId',
-        'filterExpression'     => 'filterExpression',
+        'consistency' => 'consistency',
+        'consumerGroupId' => 'consumerGroupId',
+        'filterExpression' => 'filterExpression',
         'filterExpressionType' => 'filterExpressionType',
-        'messageModel'         => 'messageModel',
-        'subscriptionStatus'   => 'subscriptionStatus',
-        'topicCreated'         => 'topicCreated',
-        'topicName'            => 'topicName',
+        'messageModel' => 'messageModel',
+        'subscriptionStatus' => 'subscriptionStatus',
+        'topicCreated' => 'topicCreated',
+        'topicName' => 'topicName',
     ];
 
     public function validate()

@@ -12,23 +12,26 @@ class operations extends Model
      * @var bool
      */
     public $deadMessage;
+
     /**
      * @var int
      */
     public $invisibleTime;
+
     /**
      * @var string
      */
     public $operateTime;
+
     /**
      * @var string
      */
     public $operateType;
     protected $_name = [
-        'deadMessage'   => 'deadMessage',
+        'deadMessage' => 'deadMessage',
         'invisibleTime' => 'invisibleTime',
-        'operateTime'   => 'operateTime',
-        'operateType'   => 'operateType',
+        'operateTime' => 'operateTime',
+        'operateType' => 'operateType',
     ];
 
     public function validate()

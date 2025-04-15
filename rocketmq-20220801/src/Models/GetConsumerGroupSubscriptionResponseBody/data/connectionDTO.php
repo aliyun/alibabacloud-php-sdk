@@ -12,33 +12,38 @@ class connectionDTO extends Model
      * @var string
      */
     public $clientId;
+
     /**
      * @var string
      */
     public $egressIp;
+
     /**
      * @var string
      */
     public $hostname;
+
     /**
      * @var string
      */
     public $language;
+
     /**
      * @var string
      */
     public $messageModel;
+
     /**
      * @var string
      */
     public $version;
     protected $_name = [
-        'clientId'     => 'clientId',
-        'egressIp'     => 'egressIp',
-        'hostname'     => 'hostname',
-        'language'     => 'language',
+        'clientId' => 'clientId',
+        'egressIp' => 'egressIp',
+        'hostname' => 'hostname',
+        'language' => 'language',
         'messageModel' => 'messageModel',
-        'version'      => 'version',
+        'version' => 'version',
     ];
 
     public function validate()

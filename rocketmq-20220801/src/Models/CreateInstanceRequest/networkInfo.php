@@ -14,13 +14,14 @@ class networkInfo extends Model
      * @var internetInfo
      */
     public $internetInfo;
+
     /**
      * @var vpcInfo
      */
     public $vpcInfo;
     protected $_name = [
         'internetInfo' => 'internetInfo',
-        'vpcInfo'      => 'vpcInfo',
+        'vpcInfo' => 'vpcInfo',
     ];
 
     public function validate()

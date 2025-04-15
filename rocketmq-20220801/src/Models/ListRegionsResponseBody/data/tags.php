@@ -12,12 +12,13 @@ class tags extends Model
      * @var string
      */
     public $tagCode;
+
     /**
      * @var mixed
      */
     public $tagValue;
     protected $_name = [
-        'tagCode'  => 'tagCode',
+        'tagCode' => 'tagCode',
         'tagValue' => 'tagValue',
     ];
 
