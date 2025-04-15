@@ -30,6 +30,11 @@ class ListFreeNodesRequest extends Model
     public $nextToken;
 
     /**
+     * @var string[]
+     */
+    public $operatingStates;
+
+    /**
      * @var string
      */
     public $resourceGroupId;
@@ -43,12 +48,16 @@ class ListFreeNodesRequest extends Model
         'machineType' => 'MachineType',
         'maxResults' => 'MaxResults',
         'nextToken' => 'NextToken',
+        'operatingStates' => 'OperatingStates',
         'resourceGroupId' => 'ResourceGroupId',
         'tags' => 'Tags',
     ];
 
     public function validate()
     {
+        if (\is_array($this->operatingStates)) {
+            Model::validateArray($this->operatingStates);
+        }
         if (\is_array($this->tags)) {
             Model::validateArray($this->tags);
         }
@@ -72,6 +81,16 @@ class ListFreeNodesRequest extends Model
 
         if (null !== $this->nextToken) {
             $res['NextToken'] = $this->nextToken;
+        }
+
+        if (null !== $this->operatingStates) {
+            if (\is_array($this->operatingStates)) {
+                $res['OperatingStates'] = [];
+                $n1 = 0;
+                foreach ($this->operatingStates as $item1) {
+                    $res['OperatingStates'][$n1++] = $item1;
+                }
+            }
         }
 
         if (null !== $this->resourceGroupId) {
@@ -113,6 +132,16 @@ class ListFreeNodesRequest extends Model
 
         if (isset($map['NextToken'])) {
             $model->nextToken = $map['NextToken'];
+        }
+
+        if (isset($map['OperatingStates'])) {
+            if (!empty($map['OperatingStates'])) {
+                $model->operatingStates = [];
+                $n1 = 0;
+                foreach ($map['OperatingStates'] as $item1) {
+                    $model->operatingStates[$n1++] = $item1;
+                }
+            }
         }
 
         if (isset($map['ResourceGroupId'])) {
