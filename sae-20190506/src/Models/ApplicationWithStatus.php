@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Sae\V20190506\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class ApplicationWithStatus extends Model
 {
@@ -22,32 +22,43 @@ class ApplicationWithStatus extends Model
         'status' => 'status',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (null !== $this->application) {
+            $this->application->validate();
+        }
+        if (null !== $this->status) {
+            $this->status->validate();
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->application) {
-            $res['application'] = null !== $this->application ? $this->application->toMap() : null;
+            $res['application'] = null !== $this->application ? $this->application->toArray($noStream) : $this->application;
         }
+
         if (null !== $this->status) {
-            $res['status'] = null !== $this->status ? $this->status->toMap() : null;
+            $res['status'] = null !== $this->status ? $this->status->toArray($noStream) : $this->status;
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ApplicationWithStatus
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['application'])) {
             $model->application = Application::fromMap($map['application']);
         }
+
         if (isset($map['status'])) {
             $model->status = ApplicationStatus::fromMap($map['status']);
         }

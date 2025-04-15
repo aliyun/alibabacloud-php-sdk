@@ -4,13 +4,11 @@
 
 namespace AlibabaCloud\SDK\Sae\V20190506\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class GetPerRequestLogsInput extends Model
 {
     /**
-     * @description This parameter is required.
-     *
      * @var int
      */
     public $endTime;
@@ -36,15 +34,11 @@ class GetPerRequestLogsInput extends Model
     public $isColdStart;
 
     /**
-     * @description This parameter is required.
-     *
      * @var string
      */
     public $requestID;
 
     /**
-     * @description This parameter is required.
-     *
      * @var int
      */
     public $startTime;
@@ -64,32 +58,42 @@ class GetPerRequestLogsInput extends Model
         'timestamp' => 'timestamp',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->endTime) {
             $res['endTime'] = $this->endTime;
         }
+
         if (null !== $this->errorType) {
             $res['errorType'] = $this->errorType;
         }
+
         if (null !== $this->forwardLine) {
             $res['forwardLine'] = $this->forwardLine;
         }
+
         if (null !== $this->instanceID) {
             $res['instanceID'] = $this->instanceID;
         }
+
         if (null !== $this->isColdStart) {
             $res['isColdStart'] = $this->isColdStart;
         }
+
         if (null !== $this->requestID) {
             $res['requestID'] = $this->requestID;
         }
+
         if (null !== $this->startTime) {
             $res['startTime'] = $this->startTime;
         }
+
         if (null !== $this->timestamp) {
             $res['timestamp'] = $this->timestamp;
         }
@@ -97,35 +101,42 @@ class GetPerRequestLogsInput extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return GetPerRequestLogsInput
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['endTime'])) {
             $model->endTime = $map['endTime'];
         }
+
         if (isset($map['errorType'])) {
             $model->errorType = $map['errorType'];
         }
+
         if (isset($map['forwardLine'])) {
             $model->forwardLine = $map['forwardLine'];
         }
+
         if (isset($map['instanceID'])) {
             $model->instanceID = $map['instanceID'];
         }
+
         if (isset($map['isColdStart'])) {
             $model->isColdStart = $map['isColdStart'];
         }
+
         if (isset($map['requestID'])) {
             $model->requestID = $map['requestID'];
         }
+
         if (isset($map['startTime'])) {
             $model->startTime = $map['startTime'];
         }
+
         if (isset($map['timestamp'])) {
             $model->timestamp = $map['timestamp'];
         }

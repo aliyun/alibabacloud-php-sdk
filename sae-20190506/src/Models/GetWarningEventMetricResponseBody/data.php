@@ -4,42 +4,26 @@
 
 namespace AlibabaCloud\SDK\Sae\V20190506\Models\GetWarningEventMetricResponseBody;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class data extends Model
 {
     /**
-     * @description The details of the application.
-     *
-     * @example 7171a6ca-d1cd-4928-8642-7d5cfe69****
-     *
      * @var string
      */
     public $appId;
 
     /**
-     * @description The application ID.
-     *
-     * @example test
-     *
      * @var string
      */
     public $name;
 
     /**
-     * @description The application name.
-     *
-     * @example cn-hangzhou
-     *
      * @var string
      */
     public $regionId;
 
     /**
-     * @description The namespace ID.
-     *
-     * @example 10
-     *
      * @var int
      */
     public $warningCount;
@@ -50,20 +34,26 @@ class data extends Model
         'warningCount' => 'WarningCount',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->appId) {
             $res['AppId'] = $this->appId;
         }
+
         if (null !== $this->name) {
             $res['Name'] = $this->name;
         }
+
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
+
         if (null !== $this->warningCount) {
             $res['WarningCount'] = $this->warningCount;
         }
@@ -71,23 +61,26 @@ class data extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return data
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AppId'])) {
             $model->appId = $map['AppId'];
         }
+
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
         }
+
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
         }
+
         if (isset($map['WarningCount'])) {
             $model->warningCount = $map['WarningCount'];
         }

@@ -4,28 +4,16 @@
 
 namespace AlibabaCloud\SDK\Sae\V20190506\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DeleteApplicationScalingRuleRequest extends Model
 {
     /**
-     * @description The ID of the request.
-     *
-     * This parameter is required.
-     *
-     * @example 7171a6ca-d1cd-4928-8642-7d5cfe69****
-     *
      * @var string
      */
     public $appId;
 
     /**
-     * @description The ID of the trace. The ID is used to query the details of a request.
-     *
-     * This parameter is required.
-     *
-     * @example timer-0800-2100
-     *
      * @var string
      */
     public $scalingRuleName;
@@ -34,14 +22,18 @@ class DeleteApplicationScalingRuleRequest extends Model
         'scalingRuleName' => 'ScalingRuleName',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->appId) {
             $res['AppId'] = $this->appId;
         }
+
         if (null !== $this->scalingRuleName) {
             $res['ScalingRuleName'] = $this->scalingRuleName;
         }
@@ -49,17 +41,18 @@ class DeleteApplicationScalingRuleRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DeleteApplicationScalingRuleRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AppId'])) {
             $model->appId = $map['AppId'];
         }
+
         if (isset($map['ScalingRuleName'])) {
             $model->scalingRuleName = $map['ScalingRuleName'];
         }

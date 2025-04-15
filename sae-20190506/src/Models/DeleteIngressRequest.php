@@ -4,17 +4,11 @@
 
 namespace AlibabaCloud\SDK\Sae\V20190506\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DeleteIngressRequest extends Model
 {
     /**
-     * @description The ID of the routing rule that you want to delete. You can call the [ListIngresses](https://help.aliyun.com/document_detail/153934.html) operation to obtain the ID of a routing rule.
-     *
-     * This parameter is required.
-     *
-     * @example 87
-     *
      * @var int
      */
     public $ingressId;
@@ -22,9 +16,12 @@ class DeleteIngressRequest extends Model
         'ingressId' => 'IngressId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->ingressId) {
@@ -34,11 +31,11 @@ class DeleteIngressRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DeleteIngressRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

@@ -4,20 +4,11 @@
 
 namespace AlibabaCloud\SDK\Sae\V20190506\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class StopApplicationRequest extends Model
 {
     /**
-     * @description The returned message.
-     *
-     *   **success** is returned when the request succeeds.
-     *   An error code is returned when the request fails.
-     *
-     * This parameter is required.
-     *
-     * @example 0099b7be-5f5b-4512-a7fc-56049ef1****
-     *
      * @var string
      */
     public $appId;
@@ -25,9 +16,12 @@ class StopApplicationRequest extends Model
         'appId' => 'AppId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->appId) {
@@ -37,11 +31,11 @@ class StopApplicationRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return StopApplicationRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

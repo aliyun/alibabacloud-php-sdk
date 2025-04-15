@@ -4,21 +4,17 @@
 
 namespace AlibabaCloud\SDK\Sae\V20190506\Models\ListGreyTagRouteResponseBody\data\result;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Sae\V20190506\Models\ListGreyTagRouteResponseBody\data\result\albRules\items;
-use AlibabaCloud\Tea\Model;
 
 class albRules extends Model
 {
     /**
-     * @example AND
-     *
      * @var string
      */
     public $condition;
 
     /**
-     * @example 23
-     *
      * @var string
      */
     public $ingressId;
@@ -29,8 +25,6 @@ class albRules extends Model
     public $items;
 
     /**
-     * @example s-6366-e3****-99**
-     *
      * @var string
      */
     public $serviceName;
@@ -41,26 +35,35 @@ class albRules extends Model
         'serviceName' => 'serviceName',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->items)) {
+            Model::validateArray($this->items);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->condition) {
             $res['condition'] = $this->condition;
         }
+
         if (null !== $this->ingressId) {
             $res['ingressId'] = $this->ingressId;
         }
+
         if (null !== $this->items) {
-            $res['items'] = [];
-            if (null !== $this->items && \is_array($this->items)) {
-                $n = 0;
-                foreach ($this->items as $item) {
-                    $res['items'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->items)) {
+                $res['items'] = [];
+                $n1 = 0;
+                foreach ($this->items as $item1) {
+                    $res['items'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
+
         if (null !== $this->serviceName) {
             $res['serviceName'] = $this->serviceName;
         }
@@ -68,29 +71,32 @@ class albRules extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return albRules
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['condition'])) {
             $model->condition = $map['condition'];
         }
+
         if (isset($map['ingressId'])) {
             $model->ingressId = $map['ingressId'];
         }
+
         if (isset($map['items'])) {
             if (!empty($map['items'])) {
                 $model->items = [];
-                $n = 0;
-                foreach ($map['items'] as $item) {
-                    $model->items[$n++] = null !== $item ? items::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['items'] as $item1) {
+                    $model->items[$n1++] = items::fromMap($item1);
                 }
             }
         }
+
         if (isset($map['serviceName'])) {
             $model->serviceName = $map['serviceName'];
         }

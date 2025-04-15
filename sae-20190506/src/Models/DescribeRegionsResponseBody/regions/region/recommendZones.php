@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Sae\V20190506\Models\DescribeRegionsResponseBody\regions\region;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class recommendZones extends Model
 {
@@ -16,29 +16,45 @@ class recommendZones extends Model
         'recommendZone' => 'RecommendZone',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->recommendZone)) {
+            Model::validateArray($this->recommendZone);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->recommendZone) {
-            $res['RecommendZone'] = $this->recommendZone;
+            if (\is_array($this->recommendZone)) {
+                $res['RecommendZone'] = [];
+                $n1 = 0;
+                foreach ($this->recommendZone as $item1) {
+                    $res['RecommendZone'][$n1++] = $item1;
+                }
+            }
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return recommendZones
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['RecommendZone'])) {
             if (!empty($map['RecommendZone'])) {
-                $model->recommendZone = $map['RecommendZone'];
+                $model->recommendZone = [];
+                $n1 = 0;
+                foreach ($map['RecommendZone'] as $item1) {
+                    $model->recommendZone[$n1++] = $item1;
+                }
             }
         }
 

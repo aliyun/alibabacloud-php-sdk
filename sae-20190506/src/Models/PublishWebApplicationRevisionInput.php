@@ -4,20 +4,16 @@
 
 namespace AlibabaCloud\SDK\Sae\V20190506\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class PublishWebApplicationRevisionInput extends Model
 {
     /**
-     * @description This parameter is required.
-     *
      * @var Container[]
      */
     public $containers;
 
     /**
-     * @example test version
-     *
      * @var string
      */
     public $description;
@@ -38,26 +34,35 @@ class PublishWebApplicationRevisionInput extends Model
         'takeEffect' => 'TakeEffect',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->containers)) {
+            Model::validateArray($this->containers);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->containers) {
-            $res['Containers'] = [];
-            if (null !== $this->containers && \is_array($this->containers)) {
-                $n = 0;
-                foreach ($this->containers as $item) {
-                    $res['Containers'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->containers)) {
+                $res['Containers'] = [];
+                $n1 = 0;
+                foreach ($this->containers as $item1) {
+                    $res['Containers'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
+
         if (null !== $this->description) {
             $res['Description'] = $this->description;
         }
+
         if (null !== $this->enableArmsMetrics) {
             $res['EnableArmsMetrics'] = $this->enableArmsMetrics;
         }
+
         if (null !== $this->takeEffect) {
             $res['TakeEffect'] = $this->takeEffect;
         }
@@ -65,29 +70,32 @@ class PublishWebApplicationRevisionInput extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return PublishWebApplicationRevisionInput
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Containers'])) {
             if (!empty($map['Containers'])) {
                 $model->containers = [];
-                $n = 0;
-                foreach ($map['Containers'] as $item) {
-                    $model->containers[$n++] = null !== $item ? Container::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['Containers'] as $item1) {
+                    $model->containers[$n1++] = Container::fromMap($item1);
                 }
             }
         }
+
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
         }
+
         if (isset($map['EnableArmsMetrics'])) {
             $model->enableArmsMetrics = $map['EnableArmsMetrics'];
         }
+
         if (isset($map['TakeEffect'])) {
             $model->takeEffect = $map['TakeEffect'];
         }

@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Sae\V20190506\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class SourceCodeRepoBranch extends Model
 {
@@ -22,14 +22,18 @@ class SourceCodeRepoBranch extends Model
         'name' => 'Name',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->commitId) {
             $res['CommitId'] = $this->commitId;
         }
+
         if (null !== $this->name) {
             $res['Name'] = $this->name;
         }
@@ -37,17 +41,18 @@ class SourceCodeRepoBranch extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return SourceCodeRepoBranch
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['CommitId'])) {
             $model->commitId = $map['CommitId'];
         }
+
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
         }

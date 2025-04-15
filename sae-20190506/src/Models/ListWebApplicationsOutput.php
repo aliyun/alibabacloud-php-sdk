@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Sae\V20190506\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class ListWebApplicationsOutput extends Model
 {
@@ -22,20 +22,27 @@ class ListWebApplicationsOutput extends Model
         'webApplicationWithInstanceCount' => 'WebApplicationWithInstanceCount',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->webApplicationWithInstanceCount)) {
+            Model::validateArray($this->webApplicationWithInstanceCount);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->nextToken) {
             $res['NextToken'] = $this->nextToken;
         }
+
         if (null !== $this->webApplicationWithInstanceCount) {
-            $res['WebApplicationWithInstanceCount'] = [];
-            if (null !== $this->webApplicationWithInstanceCount && \is_array($this->webApplicationWithInstanceCount)) {
-                $n = 0;
-                foreach ($this->webApplicationWithInstanceCount as $item) {
-                    $res['WebApplicationWithInstanceCount'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->webApplicationWithInstanceCount)) {
+                $res['WebApplicationWithInstanceCount'] = [];
+                $n1 = 0;
+                foreach ($this->webApplicationWithInstanceCount as $item1) {
+                    $res['WebApplicationWithInstanceCount'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
@@ -43,23 +50,24 @@ class ListWebApplicationsOutput extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ListWebApplicationsOutput
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['NextToken'])) {
             $model->nextToken = $map['NextToken'];
         }
+
         if (isset($map['WebApplicationWithInstanceCount'])) {
             if (!empty($map['WebApplicationWithInstanceCount'])) {
                 $model->webApplicationWithInstanceCount = [];
-                $n = 0;
-                foreach ($map['WebApplicationWithInstanceCount'] as $item) {
-                    $model->webApplicationWithInstanceCount[$n++] = null !== $item ? WebApplicationWithInstanceCount::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['WebApplicationWithInstanceCount'] as $item1) {
+                    $model->webApplicationWithInstanceCount[$n1++] = WebApplicationWithInstanceCount::fromMap($item1);
                 }
             }
         }

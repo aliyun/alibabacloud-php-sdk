@@ -4,17 +4,11 @@
 
 namespace AlibabaCloud\SDK\Sae\V20190506\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DeleteGreyTagRouteRequest extends Model
 {
     /**
-     * @description The rule ID.
-     *
-     * This parameter is required.
-     *
-     * @example 1
-     *
      * @var int
      */
     public $greyTagRouteId;
@@ -22,9 +16,12 @@ class DeleteGreyTagRouteRequest extends Model
         'greyTagRouteId' => 'GreyTagRouteId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->greyTagRouteId) {
@@ -34,11 +31,11 @@ class DeleteGreyTagRouteRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DeleteGreyTagRouteRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

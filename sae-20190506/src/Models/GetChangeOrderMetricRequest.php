@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Sae\V20190506\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class GetChangeOrderMetricRequest extends Model
 {
@@ -14,14 +14,6 @@ class GetChangeOrderMetricRequest extends Model
     public $appId;
 
     /**
-     * @description The SAE application type. Valid values:
-     *
-     *   **micro_service**
-     *   **web**
-     *   **job**
-     *
-     * @example micro_service
-     *
      * @var string
      */
     public $appSource;
@@ -32,55 +24,26 @@ class GetChangeOrderMetricRequest extends Model
     public $coType;
 
     /**
-     * @description The CPU allocation policy. Valid values:
-     *
-     *   **request**: CPU cores are allocated only when a request is initiated.
-     *   **always**: Fixed CPU cores are always allocated.
-     *
-     * @example always
-     *
      * @var string
      */
     public $cpuStrategy;
 
     /**
-     * @description The start time when the change order was created.
-     *
-     * This parameter is required.
-     *
-     * @example 1661152748883
-     *
      * @var string
      */
     public $createTime;
 
     /**
-     * @description The number of entries to return. Valid values: 0 to 100.
-     *
-     * This parameter is required.
-     *
-     * @example 10
-     *
      * @var int
      */
     public $limit;
 
     /**
-     * @description The field based on which you want to sort the returned entries.
-     *
-     * This parameter is required.
-     *
-     * @example errorPercent
-     *
      * @var string
      */
     public $orderBy;
 
     /**
-     * @description The region ID.
-     *
-     * @example cn-hangzhou
-     *
      * @var string
      */
     public $regionId;
@@ -95,32 +58,42 @@ class GetChangeOrderMetricRequest extends Model
         'regionId' => 'RegionId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->appId) {
             $res['AppId'] = $this->appId;
         }
+
         if (null !== $this->appSource) {
             $res['AppSource'] = $this->appSource;
         }
+
         if (null !== $this->coType) {
             $res['CoType'] = $this->coType;
         }
+
         if (null !== $this->cpuStrategy) {
             $res['CpuStrategy'] = $this->cpuStrategy;
         }
+
         if (null !== $this->createTime) {
             $res['CreateTime'] = $this->createTime;
         }
+
         if (null !== $this->limit) {
             $res['Limit'] = $this->limit;
         }
+
         if (null !== $this->orderBy) {
             $res['OrderBy'] = $this->orderBy;
         }
+
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
@@ -128,35 +101,42 @@ class GetChangeOrderMetricRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return GetChangeOrderMetricRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AppId'])) {
             $model->appId = $map['AppId'];
         }
+
         if (isset($map['AppSource'])) {
             $model->appSource = $map['AppSource'];
         }
+
         if (isset($map['CoType'])) {
             $model->coType = $map['CoType'];
         }
+
         if (isset($map['CpuStrategy'])) {
             $model->cpuStrategy = $map['CpuStrategy'];
         }
+
         if (isset($map['CreateTime'])) {
             $model->createTime = $map['CreateTime'];
         }
+
         if (isset($map['Limit'])) {
             $model->limit = $map['Limit'];
         }
+
         if (isset($map['OrderBy'])) {
             $model->orderBy = $map['OrderBy'];
         }
+
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
         }

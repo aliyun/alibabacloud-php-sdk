@@ -4,40 +4,26 @@
 
 namespace AlibabaCloud\SDK\Sae\V20190506\Models\DescribeConfigurationPriceResponseBody\data\trafficPrice;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class order extends Model
 {
     /**
-     * @description The discount amount.
-     *
-     * @example 0.0009259
-     *
      * @var float
      */
     public $discountAmount;
 
     /**
-     * @description The original price of the order.
-     *
-     * @example 0.0046296
-     *
      * @var float
      */
     public $originalAmount;
 
     /**
-     * @description The ID of the discount rule.
-     *
      * @var string[]
      */
     public $ruleIds;
 
     /**
-     * @description The final price of the order.
-     *
-     * @example 0.0037037
-     *
      * @var float
      */
     public $tradeAmount;
@@ -48,20 +34,35 @@ class order extends Model
         'tradeAmount' => 'TradeAmount',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->ruleIds)) {
+            Model::validateArray($this->ruleIds);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->discountAmount) {
             $res['DiscountAmount'] = $this->discountAmount;
         }
+
         if (null !== $this->originalAmount) {
             $res['OriginalAmount'] = $this->originalAmount;
         }
+
         if (null !== $this->ruleIds) {
-            $res['RuleIds'] = $this->ruleIds;
+            if (\is_array($this->ruleIds)) {
+                $res['RuleIds'] = [];
+                $n1 = 0;
+                foreach ($this->ruleIds as $item1) {
+                    $res['RuleIds'][$n1++] = $item1;
+                }
+            }
         }
+
         if (null !== $this->tradeAmount) {
             $res['TradeAmount'] = $this->tradeAmount;
         }
@@ -69,25 +70,32 @@ class order extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return order
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['DiscountAmount'])) {
             $model->discountAmount = $map['DiscountAmount'];
         }
+
         if (isset($map['OriginalAmount'])) {
             $model->originalAmount = $map['OriginalAmount'];
         }
+
         if (isset($map['RuleIds'])) {
             if (!empty($map['RuleIds'])) {
-                $model->ruleIds = $map['RuleIds'];
+                $model->ruleIds = [];
+                $n1 = 0;
+                foreach ($map['RuleIds'] as $item1) {
+                    $model->ruleIds[$n1++] = $item1;
+                }
             }
         }
+
         if (isset($map['TradeAmount'])) {
             $model->tradeAmount = $map['TradeAmount'];
         }

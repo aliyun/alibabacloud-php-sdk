@@ -4,14 +4,12 @@
 
 namespace AlibabaCloud\SDK\Sae\V20190506\Models\ListIngressesResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Sae\V20190506\Models\ListIngressesResponseBody\data\ingressList;
-use AlibabaCloud\Tea\Model;
 
 class data extends Model
 {
     /**
-     * @description The list of routing rules.
-     *
      * @var ingressList[]
      */
     public $ingressList;
@@ -19,17 +17,23 @@ class data extends Model
         'ingressList' => 'IngressList',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->ingressList)) {
+            Model::validateArray($this->ingressList);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->ingressList) {
-            $res['IngressList'] = [];
-            if (null !== $this->ingressList && \is_array($this->ingressList)) {
-                $n = 0;
-                foreach ($this->ingressList as $item) {
-                    $res['IngressList'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->ingressList)) {
+                $res['IngressList'] = [];
+                $n1 = 0;
+                foreach ($this->ingressList as $item1) {
+                    $res['IngressList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
@@ -37,20 +41,20 @@ class data extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return data
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['IngressList'])) {
             if (!empty($map['IngressList'])) {
                 $model->ingressList = [];
-                $n = 0;
-                foreach ($map['IngressList'] as $item) {
-                    $model->ingressList[$n++] = null !== $item ? ingressList::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['IngressList'] as $item1) {
+                    $model->ingressList[$n1++] = ingressList::fromMap($item1);
                 }
             }
         }

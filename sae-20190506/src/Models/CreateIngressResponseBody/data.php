@@ -4,15 +4,11 @@
 
 namespace AlibabaCloud\SDK\Sae\V20190506\Models\CreateIngressResponseBody;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class data extends Model
 {
     /**
-     * @description The ID of the routing rule.
-     *
-     * @example 87
-     *
      * @var int
      */
     public $ingressId;
@@ -20,9 +16,12 @@ class data extends Model
         'ingressId' => 'IngressId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->ingressId) {
@@ -32,11 +31,11 @@ class data extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return data
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

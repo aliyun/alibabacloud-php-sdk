@@ -4,59 +4,32 @@
 
 namespace AlibabaCloud\SDK\Sae\V20190506\Models\DescribePipelineResponseBody\data;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Sae\V20190506\Models\DescribePipelineResponseBody\data\stageList\taskList;
-use AlibabaCloud\Tea\Model;
 
 class stageList extends Model
 {
     /**
-     * @description The execution type of the stage. Valid values:
-     *
-     *   **0**: in sequence.
-     *   **1**: in parallel.
-     *
-     * @example 0
-     *
      * @var int
      */
     public $executorType;
 
     /**
-     * @description The ID of the stage.
-     *
-     * @example c3a55592-4c30-4d84-ac2d-e98c18ec****
-     *
      * @var string
      */
     public $stageId;
 
     /**
-     * @description The name of the stage.
-     *
-     * @example Deploy an application
-     *
      * @var string
      */
     public $stageName;
 
     /**
-     * @description The status of the batch processing stage. Valid values:
-     *
-     *   **0**: The batch is prepared for this processing stage.
-     *   **1**: The task is being executed.
-     *   **2**: successful
-     *   **3**: The processing failed in this stage.
-     *   **6**: The processing stage was terminated.
-     *
-     * @example 2
-     *
      * @var int
      */
     public $status;
 
     /**
-     * @description The list of task statuses.
-     *
      * @var taskList[]
      */
     public $taskList;
@@ -68,29 +41,39 @@ class stageList extends Model
         'taskList' => 'TaskList',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->taskList)) {
+            Model::validateArray($this->taskList);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->executorType) {
             $res['ExecutorType'] = $this->executorType;
         }
+
         if (null !== $this->stageId) {
             $res['StageId'] = $this->stageId;
         }
+
         if (null !== $this->stageName) {
             $res['StageName'] = $this->stageName;
         }
+
         if (null !== $this->status) {
             $res['Status'] = $this->status;
         }
+
         if (null !== $this->taskList) {
-            $res['TaskList'] = [];
-            if (null !== $this->taskList && \is_array($this->taskList)) {
-                $n = 0;
-                foreach ($this->taskList as $item) {
-                    $res['TaskList'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->taskList)) {
+                $res['TaskList'] = [];
+                $n1 = 0;
+                foreach ($this->taskList as $item1) {
+                    $res['TaskList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
@@ -98,32 +81,36 @@ class stageList extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return stageList
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ExecutorType'])) {
             $model->executorType = $map['ExecutorType'];
         }
+
         if (isset($map['StageId'])) {
             $model->stageId = $map['StageId'];
         }
+
         if (isset($map['StageName'])) {
             $model->stageName = $map['StageName'];
         }
+
         if (isset($map['Status'])) {
             $model->status = $map['Status'];
         }
+
         if (isset($map['TaskList'])) {
             if (!empty($map['TaskList'])) {
                 $model->taskList = [];
-                $n = 0;
-                foreach ($map['TaskList'] as $item) {
-                    $model->taskList[$n++] = null !== $item ? taskList::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['TaskList'] as $item1) {
+                    $model->taskList[$n1++] = taskList::fromMap($item1);
                 }
             }
         }

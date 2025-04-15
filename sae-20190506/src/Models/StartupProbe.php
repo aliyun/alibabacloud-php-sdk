@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Sae\V20190506\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class StartupProbe extends Model
 {
@@ -40,23 +40,33 @@ class StartupProbe extends Model
         'timeoutSeconds' => 'TimeoutSeconds',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (null !== $this->probeHandler) {
+            $this->probeHandler->validate();
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->failureThreshold) {
             $res['FailureThreshold'] = $this->failureThreshold;
         }
+
         if (null !== $this->initialDelaySeconds) {
             $res['InitialDelaySeconds'] = $this->initialDelaySeconds;
         }
+
         if (null !== $this->periodSeconds) {
             $res['PeriodSeconds'] = $this->periodSeconds;
         }
+
         if (null !== $this->probeHandler) {
-            $res['ProbeHandler'] = null !== $this->probeHandler ? $this->probeHandler->toMap() : null;
+            $res['ProbeHandler'] = null !== $this->probeHandler ? $this->probeHandler->toArray($noStream) : $this->probeHandler;
         }
+
         if (null !== $this->timeoutSeconds) {
             $res['TimeoutSeconds'] = $this->timeoutSeconds;
         }
@@ -64,26 +74,30 @@ class StartupProbe extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return StartupProbe
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['FailureThreshold'])) {
             $model->failureThreshold = $map['FailureThreshold'];
         }
+
         if (isset($map['InitialDelaySeconds'])) {
             $model->initialDelaySeconds = $map['InitialDelaySeconds'];
         }
+
         if (isset($map['PeriodSeconds'])) {
             $model->periodSeconds = $map['PeriodSeconds'];
         }
+
         if (isset($map['ProbeHandler'])) {
             $model->probeHandler = ProbeHandler::fromMap($map['ProbeHandler']);
         }
+
         if (isset($map['TimeoutSeconds'])) {
             $model->timeoutSeconds = $map['TimeoutSeconds'];
         }

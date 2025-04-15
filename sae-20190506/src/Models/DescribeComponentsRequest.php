@@ -4,29 +4,16 @@
 
 namespace AlibabaCloud\SDK\Sae\V20190506\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DescribeComponentsRequest extends Model
 {
     /**
-     * @description The application ID.
-     *
-     * @example d700e680-aa4d-4ec1-afc2-6566b5ff****
-     *
      * @var string
      */
     public $appId;
 
     /**
-     * @description The type of the supported components. Valid values:
-     *
-     *   **TOMCAT**
-     *   **JDK**
-     *
-     * This parameter is required.
-     *
-     * @example TOMCAT
-     *
      * @var string
      */
     public $type;
@@ -35,14 +22,18 @@ class DescribeComponentsRequest extends Model
         'type' => 'Type',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->appId) {
             $res['AppId'] = $this->appId;
         }
+
         if (null !== $this->type) {
             $res['Type'] = $this->type;
         }
@@ -50,17 +41,18 @@ class DescribeComponentsRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeComponentsRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AppId'])) {
             $model->appId = $map['AppId'];
         }
+
         if (isset($map['Type'])) {
             $model->type = $map['Type'];
         }

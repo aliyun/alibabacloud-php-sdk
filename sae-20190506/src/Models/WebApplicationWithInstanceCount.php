@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Sae\V20190506\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class WebApplicationWithInstanceCount extends Model
 {
@@ -22,32 +22,40 @@ class WebApplicationWithInstanceCount extends Model
         'webApplication' => 'WebApplication',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (null !== $this->webApplication) {
+            $this->webApplication->validate();
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->instanceCount) {
             $res['InstanceCount'] = $this->instanceCount;
         }
+
         if (null !== $this->webApplication) {
-            $res['WebApplication'] = null !== $this->webApplication ? $this->webApplication->toMap() : null;
+            $res['WebApplication'] = null !== $this->webApplication ? $this->webApplication->toArray($noStream) : $this->webApplication;
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return WebApplicationWithInstanceCount
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['InstanceCount'])) {
             $model->instanceCount = $map['InstanceCount'];
         }
+
         if (isset($map['WebApplication'])) {
             $model->webApplication = WebApplication::fromMap($map['WebApplication']);
         }

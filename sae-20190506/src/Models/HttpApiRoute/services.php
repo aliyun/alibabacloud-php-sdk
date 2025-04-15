@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Sae\V20190506\Models\HttpApiRoute;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class services extends Model
 {
@@ -34,15 +34,11 @@ class services extends Model
     public $servicePort;
 
     /**
-     * @example HTTP
-     *
      * @var string
      */
     public $serviceProtocol;
 
     /**
-     * @example 90
-     *
      * @var int
      */
     public $serviceWeight;
@@ -56,29 +52,38 @@ class services extends Model
         'serviceWeight' => 'ServiceWeight',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->appId) {
             $res['AppId'] = $this->appId;
         }
+
         if (null !== $this->appName) {
             $res['AppName'] = $this->appName;
         }
+
         if (null !== $this->serviceId) {
             $res['ServiceId'] = $this->serviceId;
         }
+
         if (null !== $this->serviceName) {
             $res['ServiceName'] = $this->serviceName;
         }
+
         if (null !== $this->servicePort) {
             $res['ServicePort'] = $this->servicePort;
         }
+
         if (null !== $this->serviceProtocol) {
             $res['ServiceProtocol'] = $this->serviceProtocol;
         }
+
         if (null !== $this->serviceWeight) {
             $res['ServiceWeight'] = $this->serviceWeight;
         }
@@ -86,32 +91,38 @@ class services extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return services
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AppId'])) {
             $model->appId = $map['AppId'];
         }
+
         if (isset($map['AppName'])) {
             $model->appName = $map['AppName'];
         }
+
         if (isset($map['ServiceId'])) {
             $model->serviceId = $map['ServiceId'];
         }
+
         if (isset($map['ServiceName'])) {
             $model->serviceName = $map['ServiceName'];
         }
+
         if (isset($map['ServicePort'])) {
             $model->servicePort = $map['ServicePort'];
         }
+
         if (isset($map['ServiceProtocol'])) {
             $model->serviceProtocol = $map['ServiceProtocol'];
         }
+
         if (isset($map['ServiceWeight'])) {
             $model->serviceWeight = $map['ServiceWeight'];
         }

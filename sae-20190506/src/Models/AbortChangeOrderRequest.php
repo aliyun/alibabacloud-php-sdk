@@ -4,17 +4,11 @@
 
 namespace AlibabaCloud\SDK\Sae\V20190506\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class AbortChangeOrderRequest extends Model
 {
     /**
-     * @description The ID of the change order.
-     *
-     * This parameter is required.
-     *
-     * @example be2e1c76-682b-4897-98d3-1d8d6478****
-     *
      * @var string
      */
     public $changeOrderId;
@@ -22,9 +16,12 @@ class AbortChangeOrderRequest extends Model
         'changeOrderId' => 'ChangeOrderId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->changeOrderId) {
@@ -34,11 +31,11 @@ class AbortChangeOrderRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return AbortChangeOrderRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

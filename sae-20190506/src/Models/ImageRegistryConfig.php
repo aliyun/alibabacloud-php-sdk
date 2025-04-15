@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Sae\V20190506\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class ImageRegistryConfig extends Model
 {
@@ -22,32 +22,43 @@ class ImageRegistryConfig extends Model
         'certConfig' => 'CertConfig',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (null !== $this->authConfig) {
+            $this->authConfig->validate();
+        }
+        if (null !== $this->certConfig) {
+            $this->certConfig->validate();
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->authConfig) {
-            $res['AuthConfig'] = null !== $this->authConfig ? $this->authConfig->toMap() : null;
+            $res['AuthConfig'] = null !== $this->authConfig ? $this->authConfig->toArray($noStream) : $this->authConfig;
         }
+
         if (null !== $this->certConfig) {
-            $res['CertConfig'] = null !== $this->certConfig ? $this->certConfig->toMap() : null;
+            $res['CertConfig'] = null !== $this->certConfig ? $this->certConfig->toArray($noStream) : $this->certConfig;
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ImageRegistryConfig
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AuthConfig'])) {
             $model->authConfig = RegistryAuthenticationConfig::fromMap($map['AuthConfig']);
         }
+
         if (isset($map['CertConfig'])) {
             $model->certConfig = RegistryCertificateConfig::fromMap($map['CertConfig']);
         }

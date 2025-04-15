@@ -4,22 +4,16 @@
 
 namespace AlibabaCloud\SDK\Sae\V20190506\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class UpdateWebApplicationScalingConfigInput extends Model
 {
     /**
-     * @description This parameter is required.
-     *
-     * @example 10
-     *
      * @var int
      */
     public $maximumInstanceCount;
 
     /**
-     * @description This parameter is required.
-     *
      * @var int
      */
     public $minimumInstanceCount;
@@ -28,14 +22,18 @@ class UpdateWebApplicationScalingConfigInput extends Model
         'minimumInstanceCount' => 'MinimumInstanceCount',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->maximumInstanceCount) {
             $res['MaximumInstanceCount'] = $this->maximumInstanceCount;
         }
+
         if (null !== $this->minimumInstanceCount) {
             $res['MinimumInstanceCount'] = $this->minimumInstanceCount;
         }
@@ -43,17 +41,18 @@ class UpdateWebApplicationScalingConfigInput extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return UpdateWebApplicationScalingConfigInput
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['MaximumInstanceCount'])) {
             $model->maximumInstanceCount = $map['MaximumInstanceCount'];
         }
+
         if (isset($map['MinimumInstanceCount'])) {
             $model->minimumInstanceCount = $map['MinimumInstanceCount'];
         }

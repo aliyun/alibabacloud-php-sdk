@@ -4,41 +4,27 @@
 
 namespace AlibabaCloud\SDK\Sae\V20190506\Models\ListAppEventsResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Sae\V20190506\Models\ListAppEventsResponseBody\data\appEventEntity;
-use AlibabaCloud\Tea\Model;
 
 class data extends Model
 {
     /**
-     * @description The events.
-     *
      * @var appEventEntity[]
      */
     public $appEventEntity;
 
     /**
-     * @description The number of the returned page.
-     *
-     * @example 1
-     *
      * @var int
      */
     public $currentPage;
 
     /**
-     * @description The number of entries returned per page.
-     *
-     * @example 10
-     *
      * @var int
      */
     public $pageSize;
 
     /**
-     * @description The total number of events that occurred in an application.
-     *
-     * @example 20
-     *
      * @var int
      */
     public $totalSize;
@@ -49,26 +35,35 @@ class data extends Model
         'totalSize' => 'TotalSize',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->appEventEntity)) {
+            Model::validateArray($this->appEventEntity);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->appEventEntity) {
-            $res['AppEventEntity'] = [];
-            if (null !== $this->appEventEntity && \is_array($this->appEventEntity)) {
-                $n = 0;
-                foreach ($this->appEventEntity as $item) {
-                    $res['AppEventEntity'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->appEventEntity)) {
+                $res['AppEventEntity'] = [];
+                $n1 = 0;
+                foreach ($this->appEventEntity as $item1) {
+                    $res['AppEventEntity'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
+
         if (null !== $this->currentPage) {
             $res['CurrentPage'] = $this->currentPage;
         }
+
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
         }
+
         if (null !== $this->totalSize) {
             $res['TotalSize'] = $this->totalSize;
         }
@@ -76,29 +71,32 @@ class data extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return data
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AppEventEntity'])) {
             if (!empty($map['AppEventEntity'])) {
                 $model->appEventEntity = [];
-                $n = 0;
-                foreach ($map['AppEventEntity'] as $item) {
-                    $model->appEventEntity[$n++] = null !== $item ? appEventEntity::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['AppEventEntity'] as $item1) {
+                    $model->appEventEntity[$n1++] = appEventEntity::fromMap($item1);
                 }
             }
         }
+
         if (isset($map['CurrentPage'])) {
             $model->currentPage = $map['CurrentPage'];
         }
+
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
         }
+
         if (isset($map['TotalSize'])) {
             $model->totalSize = $map['TotalSize'];
         }

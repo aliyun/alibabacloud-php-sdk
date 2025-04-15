@@ -4,21 +4,11 @@
 
 namespace AlibabaCloud\SDK\Sae\V20190506\Models\UpdateSecretRequest;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class secretData extends Model
 {
     /**
-     * @description The information about the key-value pairs of the Secret. This parameter is required. The following formats are supported:
-     *
-     * {"Data":"{"k1":"v1", "k2":"v2"}"}
-     *
-     * k specifies a key and v specifies a value. For more information, see [Manage a Kubernetes Secret](https://help.aliyun.com/document_detail/463383.html).
-     *
-     * This parameter is required.
-     *
-     * @example {".dockerconfigjson":"eyJhdXRocyI6eyJyZWdpc3RyeS12cGMuY24tYmVpamluZy5hbGl5dW5jcy5jb20iOnsidXNlcm5hbWUiOiJ1c2VybmFtZSIsInBhc3N3b3JkIjoicGFzc3dvcmQiLCJhdXRoIjoiZFhObGNtNWhiV1U2Y0dGemMzZHZjbVE9In0sInJlZ2lzdHJ5LmNuLWJlaWppbmcuYWxpeXVuY3MuY29tIjp7InVzZXJuYW1lIjoidXNlcm5hbWUiLCJwYXNzd29yZCI6InBhc3N3b3JkIiwiYXV0aCI6ImRYTmxjbTVoYldVNmNHRnpjM2R2Y21RPSJ9fX0="}
-     *
      * @var string
      */
     public $secretData;
@@ -26,9 +16,12 @@ class secretData extends Model
         'secretData' => 'SecretData',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->secretData) {
@@ -38,11 +31,11 @@ class secretData extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return secretData
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

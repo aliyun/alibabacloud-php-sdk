@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Sae\V20190506\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class ListWebCustomDomainOutput extends Model
 {
@@ -22,20 +22,27 @@ class ListWebCustomDomainOutput extends Model
         'webCustomDomains' => 'WebCustomDomains',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->webCustomDomains)) {
+            Model::validateArray($this->webCustomDomains);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->nextToken) {
             $res['NextToken'] = $this->nextToken;
         }
+
         if (null !== $this->webCustomDomains) {
-            $res['WebCustomDomains'] = [];
-            if (null !== $this->webCustomDomains && \is_array($this->webCustomDomains)) {
-                $n = 0;
-                foreach ($this->webCustomDomains as $item) {
-                    $res['WebCustomDomains'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->webCustomDomains)) {
+                $res['WebCustomDomains'] = [];
+                $n1 = 0;
+                foreach ($this->webCustomDomains as $item1) {
+                    $res['WebCustomDomains'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
@@ -43,23 +50,24 @@ class ListWebCustomDomainOutput extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ListWebCustomDomainOutput
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['NextToken'])) {
             $model->nextToken = $map['NextToken'];
         }
+
         if (isset($map['WebCustomDomains'])) {
             if (!empty($map['WebCustomDomains'])) {
                 $model->webCustomDomains = [];
-                $n = 0;
-                foreach ($map['WebCustomDomains'] as $item) {
-                    $model->webCustomDomains[$n++] = null !== $item ? WebCustomDomain::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['WebCustomDomains'] as $item1) {
+                    $model->webCustomDomains[$n1++] = WebCustomDomain::fromMap($item1);
                 }
             }
         }

@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Sae\V20190506\Models\HttpApiRoute;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class domains extends Model
 {
@@ -22,14 +22,18 @@ class domains extends Model
         'domainName' => 'DomainName',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->domainId) {
             $res['DomainId'] = $this->domainId;
         }
+
         if (null !== $this->domainName) {
             $res['DomainName'] = $this->domainName;
         }
@@ -37,17 +41,18 @@ class domains extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return domains
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['DomainId'])) {
             $model->domainId = $map['DomainId'];
         }
+
         if (isset($map['DomainName'])) {
             $model->domainName = $map['DomainName'];
         }

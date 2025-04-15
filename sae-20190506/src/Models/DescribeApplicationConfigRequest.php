@@ -4,26 +4,16 @@
 
 namespace AlibabaCloud\SDK\Sae\V20190506\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DescribeApplicationConfigRequest extends Model
 {
     /**
-     * @description 7171a6ca-d1cd-4928-8642-7d5cfe69\\*\\*\\*\\*
-     *
-     * This parameter is required.
-     *
-     * @example 7171a6ca-d1cd-4928-8642-7d5cfe69****
-     *
      * @var string
      */
     public $appId;
 
     /**
-     * @description 0026ff7f-2b57-4127-bdd0-9bf202bb\\*\\*\\*\\*
-     *
-     * @example 0026ff7f-2b57-4127-bdd0-9bf202bb****
-     *
      * @var string
      */
     public $versionId;
@@ -32,14 +22,18 @@ class DescribeApplicationConfigRequest extends Model
         'versionId' => 'VersionId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->appId) {
             $res['AppId'] = $this->appId;
         }
+
         if (null !== $this->versionId) {
             $res['VersionId'] = $this->versionId;
         }
@@ -47,17 +41,18 @@ class DescribeApplicationConfigRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeApplicationConfigRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AppId'])) {
             $model->appId = $map['AppId'];
         }
+
         if (isset($map['VersionId'])) {
             $model->versionId = $map['VersionId'];
         }
