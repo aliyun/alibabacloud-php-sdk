@@ -6,11 +6,18 @@ namespace AlibabaCloud\SDK\QuanMiaoLightApp\V20240801;
 
 use AlibabaCloud\Dara\Models\RuntimeOptions;
 use AlibabaCloud\Dara\Url;
+use AlibabaCloud\SDK\QuanMiaoLightApp\V20240801\Models\CancelAsyncTaskRequest;
+use AlibabaCloud\SDK\QuanMiaoLightApp\V20240801\Models\CancelAsyncTaskResponse;
+use AlibabaCloud\SDK\QuanMiaoLightApp\V20240801\Models\ExportAnalysisTagDetailByTaskIdRequest;
+use AlibabaCloud\SDK\QuanMiaoLightApp\V20240801\Models\ExportAnalysisTagDetailByTaskIdResponse;
+use AlibabaCloud\SDK\QuanMiaoLightApp\V20240801\Models\ExportAnalysisTagDetailByTaskIdShrinkRequest;
 use AlibabaCloud\SDK\QuanMiaoLightApp\V20240801\Models\GenerateBroadcastNewsRequest;
 use AlibabaCloud\SDK\QuanMiaoLightApp\V20240801\Models\GenerateBroadcastNewsResponse;
 use AlibabaCloud\SDK\QuanMiaoLightApp\V20240801\Models\GenerateOutputFormatRequest;
 use AlibabaCloud\SDK\QuanMiaoLightApp\V20240801\Models\GenerateOutputFormatResponse;
 use AlibabaCloud\SDK\QuanMiaoLightApp\V20240801\Models\GenerateOutputFormatShrinkRequest;
+use AlibabaCloud\SDK\QuanMiaoLightApp\V20240801\Models\GetEnterpriseVocAnalysisTaskRequest;
+use AlibabaCloud\SDK\QuanMiaoLightApp\V20240801\Models\GetEnterpriseVocAnalysisTaskResponse;
 use AlibabaCloud\SDK\QuanMiaoLightApp\V20240801\Models\GetTagMiningAnalysisTaskRequest;
 use AlibabaCloud\SDK\QuanMiaoLightApp\V20240801\Models\GetTagMiningAnalysisTaskResponse;
 use AlibabaCloud\SDK\QuanMiaoLightApp\V20240801\Models\GetVideoAnalysisConfigResponse;
@@ -18,6 +25,9 @@ use AlibabaCloud\SDK\QuanMiaoLightApp\V20240801\Models\GetVideoAnalysisTaskReque
 use AlibabaCloud\SDK\QuanMiaoLightApp\V20240801\Models\GetVideoAnalysisTaskResponse;
 use AlibabaCloud\SDK\QuanMiaoLightApp\V20240801\Models\ListHotTopicSummariesRequest;
 use AlibabaCloud\SDK\QuanMiaoLightApp\V20240801\Models\ListHotTopicSummariesResponse;
+use AlibabaCloud\SDK\QuanMiaoLightApp\V20240801\Models\RunEnterpriseVocAnalysisRequest;
+use AlibabaCloud\SDK\QuanMiaoLightApp\V20240801\Models\RunEnterpriseVocAnalysisResponse;
+use AlibabaCloud\SDK\QuanMiaoLightApp\V20240801\Models\RunEnterpriseVocAnalysisShrinkRequest;
 use AlibabaCloud\SDK\QuanMiaoLightApp\V20240801\Models\RunHotTopicChatRequest;
 use AlibabaCloud\SDK\QuanMiaoLightApp\V20240801\Models\RunHotTopicChatResponse;
 use AlibabaCloud\SDK\QuanMiaoLightApp\V20240801\Models\RunHotTopicChatShrinkRequest;
@@ -49,6 +59,9 @@ use AlibabaCloud\SDK\QuanMiaoLightApp\V20240801\Models\RunTagMiningAnalysisShrin
 use AlibabaCloud\SDK\QuanMiaoLightApp\V20240801\Models\RunVideoAnalysisRequest;
 use AlibabaCloud\SDK\QuanMiaoLightApp\V20240801\Models\RunVideoAnalysisResponse;
 use AlibabaCloud\SDK\QuanMiaoLightApp\V20240801\Models\RunVideoAnalysisShrinkRequest;
+use AlibabaCloud\SDK\QuanMiaoLightApp\V20240801\Models\SubmitEnterpriseVocAnalysisTaskRequest;
+use AlibabaCloud\SDK\QuanMiaoLightApp\V20240801\Models\SubmitEnterpriseVocAnalysisTaskResponse;
+use AlibabaCloud\SDK\QuanMiaoLightApp\V20240801\Models\SubmitEnterpriseVocAnalysisTaskShrinkRequest;
 use AlibabaCloud\SDK\QuanMiaoLightApp\V20240801\Models\SubmitTagMiningAnalysisTaskRequest;
 use AlibabaCloud\SDK\QuanMiaoLightApp\V20240801\Models\SubmitTagMiningAnalysisTaskResponse;
 use AlibabaCloud\SDK\QuanMiaoLightApp\V20240801\Models\SubmitTagMiningAnalysisTaskShrinkRequest;
@@ -97,6 +110,146 @@ class QuanMiaoLightApp extends OpenApiClient
     }
 
     /**
+     * 取消异步任务
+     *
+     * @param request - CancelAsyncTaskRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CancelAsyncTaskResponse
+     *
+     * @param string                 $workspaceId
+     * @param CancelAsyncTaskRequest $request
+     * @param string[]               $headers
+     * @param RuntimeOptions         $runtime
+     *
+     * @return CancelAsyncTaskResponse
+     */
+    public function cancelAsyncTaskWithOptions($workspaceId, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->taskId) {
+            @$body['taskId'] = $request->taskId;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'CancelAsyncTask',
+            'version' => '2024-08-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/' . Url::percentEncode($workspaceId) . '/quanmiao/lightapp/cancelAsyncTask',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return CancelAsyncTaskResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 取消异步任务
+     *
+     * @param request - CancelAsyncTaskRequest
+     *
+     * @returns CancelAsyncTaskResponse
+     *
+     * @param string                 $workspaceId
+     * @param CancelAsyncTaskRequest $request
+     *
+     * @return CancelAsyncTaskResponse
+     */
+    public function cancelAsyncTask($workspaceId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->cancelAsyncTaskWithOptions($workspaceId, $request, $headers, $runtime);
+    }
+
+    /**
+     * 导出挖掘任务明细.
+     *
+     * @param tmpReq - ExportAnalysisTagDetailByTaskIdRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ExportAnalysisTagDetailByTaskIdResponse
+     *
+     * @param string                                 $workspaceId
+     * @param ExportAnalysisTagDetailByTaskIdRequest $tmpReq
+     * @param string[]                               $headers
+     * @param RuntimeOptions                         $runtime
+     *
+     * @return ExportAnalysisTagDetailByTaskIdResponse
+     */
+    public function exportAnalysisTagDetailByTaskIdWithOptions($workspaceId, $tmpReq, $headers, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new ExportAnalysisTagDetailByTaskIdShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->categories) {
+            $request->categoriesShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->categories, 'categories', 'json');
+        }
+
+        $body = [];
+        if (null !== $request->categoriesShrink) {
+            @$body['categories'] = $request->categoriesShrink;
+        }
+
+        if (null !== $request->category) {
+            @$body['category'] = $request->category;
+        }
+
+        if (null !== $request->taskId) {
+            @$body['taskId'] = $request->taskId;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'ExportAnalysisTagDetailByTaskId',
+            'version' => '2024-08-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/' . Url::percentEncode($workspaceId) . '/quanmiao/lightapp/exportAnalysisTagDetailByTaskId',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ExportAnalysisTagDetailByTaskIdResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 导出挖掘任务明细.
+     *
+     * @param request - ExportAnalysisTagDetailByTaskIdRequest
+     *
+     * @returns ExportAnalysisTagDetailByTaskIdResponse
+     *
+     * @param string                                 $workspaceId
+     * @param ExportAnalysisTagDetailByTaskIdRequest $request
+     *
+     * @return ExportAnalysisTagDetailByTaskIdResponse
+     */
+    public function exportAnalysisTagDetailByTaskId($workspaceId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->exportAnalysisTagDetailByTaskIdWithOptions($workspaceId, $request, $headers, $runtime);
+    }
+
+    /**
      * 新闻播报-抽取分类获取播报热点.
      *
      * @param request - GenerateBroadcastNewsRequest
@@ -135,11 +288,8 @@ class QuanMiaoLightApp extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return GenerateBroadcastNewsResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GenerateBroadcastNewsResponse::fromMap($this->execute($params, $req, $runtime));
+        return GenerateBroadcastNewsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -223,11 +373,8 @@ class QuanMiaoLightApp extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return GenerateOutputFormatResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GenerateOutputFormatResponse::fromMap($this->execute($params, $req, $runtime));
+        return GenerateOutputFormatResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -248,6 +395,69 @@ class QuanMiaoLightApp extends OpenApiClient
         $headers = [];
 
         return $this->generateOutputFormatWithOptions($workspaceId, $request, $headers, $runtime);
+    }
+
+    /**
+     * 获取企业VOC分析任务结果.
+     *
+     * @param request - GetEnterpriseVocAnalysisTaskRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetEnterpriseVocAnalysisTaskResponse
+     *
+     * @param string                              $workspaceId
+     * @param GetEnterpriseVocAnalysisTaskRequest $request
+     * @param string[]                            $headers
+     * @param RuntimeOptions                      $runtime
+     *
+     * @return GetEnterpriseVocAnalysisTaskResponse
+     */
+    public function getEnterpriseVocAnalysisTaskWithOptions($workspaceId, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->taskId) {
+            @$query['taskId'] = $request->taskId;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'GetEnterpriseVocAnalysisTask',
+            'version' => '2024-08-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/' . Url::percentEncode($workspaceId) . '/quanmiao/lightapp/getEnterpriseVocAnalysisTask',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return GetEnterpriseVocAnalysisTaskResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 获取企业VOC分析任务结果.
+     *
+     * @param request - GetEnterpriseVocAnalysisTaskRequest
+     *
+     * @returns GetEnterpriseVocAnalysisTaskResponse
+     *
+     * @param string                              $workspaceId
+     * @param GetEnterpriseVocAnalysisTaskRequest $request
+     *
+     * @return GetEnterpriseVocAnalysisTaskResponse
+     */
+    public function getEnterpriseVocAnalysisTask($workspaceId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->getEnterpriseVocAnalysisTaskWithOptions($workspaceId, $request, $headers, $runtime);
     }
 
     /**
@@ -289,11 +499,8 @@ class QuanMiaoLightApp extends OpenApiClient
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return GetTagMiningAnalysisTaskResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetTagMiningAnalysisTaskResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetTagMiningAnalysisTaskResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -346,11 +553,8 @@ class QuanMiaoLightApp extends OpenApiClient
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return GetVideoAnalysisConfigResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetVideoAnalysisConfigResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetVideoAnalysisConfigResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -409,11 +613,8 @@ class QuanMiaoLightApp extends OpenApiClient
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return GetVideoAnalysisTaskResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetVideoAnalysisTaskResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetVideoAnalysisTaskResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -491,11 +692,8 @@ class QuanMiaoLightApp extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ListHotTopicSummariesResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListHotTopicSummariesResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListHotTopicSummariesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -516,6 +714,103 @@ class QuanMiaoLightApp extends OpenApiClient
         $headers = [];
 
         return $this->listHotTopicSummariesWithOptions($workspaceId, $request, $headers, $runtime);
+    }
+
+    /**
+     * 企业VOC分析.
+     *
+     * @param tmpReq - RunEnterpriseVocAnalysisRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns RunEnterpriseVocAnalysisResponse
+     *
+     * @param string                          $workspaceId
+     * @param RunEnterpriseVocAnalysisRequest $tmpReq
+     * @param string[]                        $headers
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return RunEnterpriseVocAnalysisResponse
+     */
+    public function runEnterpriseVocAnalysisWithOptions($workspaceId, $tmpReq, $headers, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new RunEnterpriseVocAnalysisShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->filterTags) {
+            $request->filterTagsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->filterTags, 'filterTags', 'json');
+        }
+
+        if (null !== $tmpReq->tags) {
+            $request->tagsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->tags, 'tags', 'json');
+        }
+
+        $body = [];
+        if (null !== $request->content) {
+            @$body['content'] = $request->content;
+        }
+
+        if (null !== $request->extraInfo) {
+            @$body['extraInfo'] = $request->extraInfo;
+        }
+
+        if (null !== $request->filterTagsShrink) {
+            @$body['filterTags'] = $request->filterTagsShrink;
+        }
+
+        if (null !== $request->modelId) {
+            @$body['modelId'] = $request->modelId;
+        }
+
+        if (null !== $request->outputFormat) {
+            @$body['outputFormat'] = $request->outputFormat;
+        }
+
+        if (null !== $request->tagsShrink) {
+            @$body['tags'] = $request->tagsShrink;
+        }
+
+        if (null !== $request->taskDescription) {
+            @$body['taskDescription'] = $request->taskDescription;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'RunEnterpriseVocAnalysis',
+            'version' => '2024-08-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/' . Url::percentEncode($workspaceId) . '/quanmiao/lightapp/runEnterpriseVocAnalysis',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return RunEnterpriseVocAnalysisResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 企业VOC分析.
+     *
+     * @param request - RunEnterpriseVocAnalysisRequest
+     *
+     * @returns RunEnterpriseVocAnalysisResponse
+     *
+     * @param string                          $workspaceId
+     * @param RunEnterpriseVocAnalysisRequest $request
+     *
+     * @return RunEnterpriseVocAnalysisResponse
+     */
+    public function runEnterpriseVocAnalysis($workspaceId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->runEnterpriseVocAnalysisWithOptions($workspaceId, $request, $headers, $runtime);
     }
 
     /**
@@ -619,11 +914,8 @@ class QuanMiaoLightApp extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return RunHotTopicChatResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return RunHotTopicChatResponse::fromMap($this->execute($params, $req, $runtime));
+        return RunHotTopicChatResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -703,11 +995,8 @@ class QuanMiaoLightApp extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return RunHotTopicSummaryResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return RunHotTopicSummaryResponse::fromMap($this->execute($params, $req, $runtime));
+        return RunHotTopicSummaryResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -787,11 +1076,8 @@ class QuanMiaoLightApp extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return RunMarketingInformationExtractResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return RunMarketingInformationExtractResponse::fromMap($this->execute($params, $req, $runtime));
+        return RunMarketingInformationExtractResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -877,11 +1163,8 @@ class QuanMiaoLightApp extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return RunMarketingInformationWritingResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return RunMarketingInformationWritingResponse::fromMap($this->execute($params, $req, $runtime));
+        return RunMarketingInformationWritingResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -973,11 +1256,8 @@ class QuanMiaoLightApp extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return RunNetworkContentAuditResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return RunNetworkContentAuditResponse::fromMap($this->execute($params, $req, $runtime));
+        return RunNetworkContentAuditResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1043,11 +1323,8 @@ class QuanMiaoLightApp extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return RunScriptChatResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return RunScriptChatResponse::fromMap($this->execute($params, $req, $runtime));
+        return RunScriptChatResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1117,11 +1394,8 @@ class QuanMiaoLightApp extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return RunScriptContinueResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return RunScriptContinueResponse::fromMap($this->execute($params, $req, $runtime));
+        return RunScriptContinueResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1207,11 +1481,8 @@ class QuanMiaoLightApp extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return RunScriptPlanningResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return RunScriptPlanningResponse::fromMap($this->execute($params, $req, $runtime));
+        return RunScriptPlanningResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1273,11 +1544,8 @@ class QuanMiaoLightApp extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return RunScriptRefineResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return RunScriptRefineResponse::fromMap($this->execute($params, $req, $runtime));
+        return RunScriptRefineResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1369,11 +1637,8 @@ class QuanMiaoLightApp extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return RunStyleWritingResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return RunStyleWritingResponse::fromMap($this->execute($params, $req, $runtime));
+        return RunStyleWritingResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1469,11 +1734,8 @@ class QuanMiaoLightApp extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return RunTagMiningAnalysisResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return RunTagMiningAnalysisResponse::fromMap($this->execute($params, $req, $runtime));
+        return RunTagMiningAnalysisResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1629,11 +1891,8 @@ class QuanMiaoLightApp extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return RunVideoAnalysisResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return RunVideoAnalysisResponse::fromMap($this->execute($params, $req, $runtime));
+        return RunVideoAnalysisResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1654,6 +1913,115 @@ class QuanMiaoLightApp extends OpenApiClient
         $headers = [];
 
         return $this->runVideoAnalysisWithOptions($workspaceId, $request, $headers, $runtime);
+    }
+
+    /**
+     * 提交企业VOC异步任务
+     *
+     * @param tmpReq - SubmitEnterpriseVocAnalysisTaskRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns SubmitEnterpriseVocAnalysisTaskResponse
+     *
+     * @param string                                 $workspaceId
+     * @param SubmitEnterpriseVocAnalysisTaskRequest $tmpReq
+     * @param string[]                               $headers
+     * @param RuntimeOptions                         $runtime
+     *
+     * @return SubmitEnterpriseVocAnalysisTaskResponse
+     */
+    public function submitEnterpriseVocAnalysisTaskWithOptions($workspaceId, $tmpReq, $headers, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new SubmitEnterpriseVocAnalysisTaskShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->contents) {
+            $request->contentsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->contents, 'contents', 'json');
+        }
+
+        if (null !== $tmpReq->filterTags) {
+            $request->filterTagsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->filterTags, 'filterTags', 'json');
+        }
+
+        if (null !== $tmpReq->tags) {
+            $request->tagsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->tags, 'tags', 'json');
+        }
+
+        $body = [];
+        if (null !== $request->contentsShrink) {
+            @$body['contents'] = $request->contentsShrink;
+        }
+
+        if (null !== $request->extraInfo) {
+            @$body['extraInfo'] = $request->extraInfo;
+        }
+
+        if (null !== $request->fileKey) {
+            @$body['fileKey'] = $request->fileKey;
+        }
+
+        if (null !== $request->filterTagsShrink) {
+            @$body['filterTags'] = $request->filterTagsShrink;
+        }
+
+        if (null !== $request->modelId) {
+            @$body['modelId'] = $request->modelId;
+        }
+
+        if (null !== $request->outputFormat) {
+            @$body['outputFormat'] = $request->outputFormat;
+        }
+
+        if (null !== $request->tagsShrink) {
+            @$body['tags'] = $request->tagsShrink;
+        }
+
+        if (null !== $request->taskDescription) {
+            @$body['taskDescription'] = $request->taskDescription;
+        }
+
+        if (null !== $request->url) {
+            @$body['url'] = $request->url;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'SubmitEnterpriseVocAnalysisTask',
+            'version' => '2024-08-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/' . Url::percentEncode($workspaceId) . '/quanmiao/lightapp/submitEnterpriseVocAnalysisTask',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return SubmitEnterpriseVocAnalysisTaskResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 提交企业VOC异步任务
+     *
+     * @param request - SubmitEnterpriseVocAnalysisTaskRequest
+     *
+     * @returns SubmitEnterpriseVocAnalysisTaskResponse
+     *
+     * @param string                                 $workspaceId
+     * @param SubmitEnterpriseVocAnalysisTaskRequest $request
+     *
+     * @return SubmitEnterpriseVocAnalysisTaskResponse
+     */
+    public function submitEnterpriseVocAnalysisTask($workspaceId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->submitEnterpriseVocAnalysisTaskWithOptions($workspaceId, $request, $headers, $runtime);
     }
 
     /**
@@ -1737,11 +2105,8 @@ class QuanMiaoLightApp extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return SubmitTagMiningAnalysisTaskResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return SubmitTagMiningAnalysisTaskResponse::fromMap($this->execute($params, $req, $runtime));
+        return SubmitTagMiningAnalysisTaskResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1893,11 +2258,8 @@ class QuanMiaoLightApp extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return SubmitVideoAnalysisTaskResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return SubmitVideoAnalysisTaskResponse::fromMap($this->execute($params, $req, $runtime));
+        return SubmitVideoAnalysisTaskResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1959,11 +2321,8 @@ class QuanMiaoLightApp extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return UpdateVideoAnalysisConfigResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return UpdateVideoAnalysisConfigResponse::fromMap($this->execute($params, $req, $runtime));
+        return UpdateVideoAnalysisConfigResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
