@@ -2,9 +2,9 @@
 
 // This file is auto-generated, don't edit it. Thanks.
 
-namespace AlibabaCloud\SDK\Ecd\V20201001\Models\DescribeDesktopsResponse\desktops;
+namespace AlibabaCloud\SDK\Ecd\V20201001\Models\DescribeDesktopsResponseBody\desktops;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class disks extends Model
 {
@@ -23,27 +23,27 @@ class disks extends Model
      */
     public $diskType;
     protected $_name = [
-        'diskId'   => 'DiskId',
+        'diskId' => 'DiskId',
         'diskSize' => 'DiskSize',
         'diskType' => 'DiskType',
     ];
 
     public function validate()
     {
-        Model::validateRequired('diskId', $this->diskId, true);
-        Model::validateRequired('diskSize', $this->diskSize, true);
-        Model::validateRequired('diskType', $this->diskType, true);
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->diskId) {
             $res['DiskId'] = $this->diskId;
         }
+
         if (null !== $this->diskSize) {
             $res['DiskSize'] = $this->diskSize;
         }
+
         if (null !== $this->diskType) {
             $res['DiskType'] = $this->diskType;
         }
@@ -51,20 +51,22 @@ class disks extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return disks
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['DiskId'])) {
             $model->diskId = $map['DiskId'];
         }
+
         if (isset($map['DiskSize'])) {
             $model->diskSize = $map['DiskSize'];
         }
+
         if (isset($map['DiskType'])) {
             $model->diskType = $map['DiskType'];
         }

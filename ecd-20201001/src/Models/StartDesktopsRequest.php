@@ -6,7 +6,7 @@ namespace AlibabaCloud\SDK\Ecd\V20201001\Models;
 
 use AlibabaCloud\Dara\Model;
 
-class RebootDesktopsRequest extends Model
+class StartDesktopsRequest extends Model
 {
     /**
      * @var string

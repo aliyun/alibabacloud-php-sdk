@@ -4,43 +4,87 @@
 
 namespace AlibabaCloud\SDK\Ecd\V20201001\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class RebootDesktopsResponse extends Model
 {
     /**
-     * @var string
+     * @var string[]
      */
-    public $requestId;
+    public $headers;
+
+    /**
+     * @var int
+     */
+    public $statusCode;
+
+    /**
+     * @var RebootDesktopsResponseBody
+     */
+    public $body;
     protected $_name = [
-        'requestId' => 'RequestId',
+        'headers' => 'headers',
+        'statusCode' => 'statusCode',
+        'body' => 'body',
     ];
 
     public function validate()
     {
-        Model::validateRequired('requestId', $this->requestId, true);
+        if (\is_array($this->headers)) {
+            Model::validateArray($this->headers);
+        }
+        if (null !== $this->body) {
+            $this->body->validate();
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
+        if (null !== $this->headers) {
+            if (\is_array($this->headers)) {
+                $res['headers'] = [];
+                foreach ($this->headers as $key1 => $value1) {
+                    $res['headers'][$key1] = $value1;
+                }
+            }
+        }
+
+        if (null !== $this->statusCode) {
+            $res['statusCode'] = $this->statusCode;
+        }
+
+        if (null !== $this->body) {
+            $res['body'] = null !== $this->body ? $this->body->toArray($noStream) : $this->body;
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return RebootDesktopsResponse
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
+        if (isset($map['headers'])) {
+            if (!empty($map['headers'])) {
+                $model->headers = [];
+                foreach ($map['headers'] as $key1 => $value1) {
+                    $model->headers[$key1] = $value1;
+                }
+            }
+        }
+
+        if (isset($map['statusCode'])) {
+            $model->statusCode = $map['statusCode'];
+        }
+
+        if (isset($map['body'])) {
+            $model->body = RebootDesktopsResponseBody::fromMap($map['body']);
         }
 
         return $model;

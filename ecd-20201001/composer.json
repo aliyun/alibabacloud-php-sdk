@@ -1,20 +1,16 @@
 {
   "name": "alibabacloud/ecd-20201001",
-  "description": "Alibaba Cloud ecd (20201001) SDK Library for PHP",
   "type": "library",
-  "license": "Apache-2.0",
+  "description": "Alibaba Cloud ecd (20201001) SDK Library for PHP",
+  "github": "https://github.com/aliyun/alibabacloud-php-sdk",
+  "main": "src/Client.php",
   "authors": [
     {
       "name": "Alibaba Cloud SDK",
       "email": "sdk-team@alibabacloud.com"
     }
   ],
-  "require": {
-    "php": ">5.5",
-    "alibabacloud/tea-utils": "^0.2.0",
-    "alibabacloud/tea-rpc": "^0.1.5",
-    "alibabacloud/endpoint-util": "^0.1.0"
-  },
+  "license": "Apache-2.0",
   "autoload": {
     "psr-4": {
       "AlibabaCloud\\SDK\\Ecd\\V20201001\\": "src"
@@ -27,6 +23,11 @@
     "sort-packages": true,
     "preferred-install": "dist",
     "optimize-autoloader": true
+  },
+  "require": {
+    "php": ">5.5",
+    "alibabacloud/darabonba": "^1.0.0",
+    "alibabacloud/openapi-core": "^1.0.0"
   },
   "prefer-stable": true
 }

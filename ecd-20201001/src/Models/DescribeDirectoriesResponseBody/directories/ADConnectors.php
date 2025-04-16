@@ -2,9 +2,9 @@
 
 // This file is auto-generated, don't edit it. Thanks.
 
-namespace AlibabaCloud\SDK\Ecd\V20201001\Models\DescribeDirectoriesResponse\directories;
+namespace AlibabaCloud\SDK\Ecd\V20201001\Models\DescribeDirectoriesResponseBody\directories;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class ADConnectors extends Model
 {
@@ -16,57 +16,59 @@ class ADConnectors extends Model
     /**
      * @var string
      */
-    public $vSwitchId;
+    public $connectorStatus;
 
     /**
      * @var string
      */
-    public $connectorStatus;
+    public $vSwitchId;
     protected $_name = [
         'ADConnectorAddress' => 'ADConnectorAddress',
-        'vSwitchId'          => 'VSwitchId',
-        'connectorStatus'    => 'ConnectorStatus',
+        'connectorStatus' => 'ConnectorStatus',
+        'vSwitchId' => 'VSwitchId',
     ];
 
     public function validate()
     {
-        Model::validateRequired('ADConnectorAddress', $this->ADConnectorAddress, true);
-        Model::validateRequired('vSwitchId', $this->vSwitchId, true);
-        Model::validateRequired('connectorStatus', $this->connectorStatus, true);
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->ADConnectorAddress) {
             $res['ADConnectorAddress'] = $this->ADConnectorAddress;
         }
-        if (null !== $this->vSwitchId) {
-            $res['VSwitchId'] = $this->vSwitchId;
-        }
+
         if (null !== $this->connectorStatus) {
             $res['ConnectorStatus'] = $this->connectorStatus;
+        }
+
+        if (null !== $this->vSwitchId) {
+            $res['VSwitchId'] = $this->vSwitchId;
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ADConnectors
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ADConnectorAddress'])) {
             $model->ADConnectorAddress = $map['ADConnectorAddress'];
         }
-        if (isset($map['VSwitchId'])) {
-            $model->vSwitchId = $map['VSwitchId'];
-        }
+
         if (isset($map['ConnectorStatus'])) {
             $model->connectorStatus = $map['ConnectorStatus'];
+        }
+
+        if (isset($map['VSwitchId'])) {
+            $model->vSwitchId = $map['VSwitchId'];
         }
 
         return $model;

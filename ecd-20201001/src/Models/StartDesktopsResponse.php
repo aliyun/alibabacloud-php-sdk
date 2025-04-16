@@ -6,7 +6,7 @@ namespace AlibabaCloud\SDK\Ecd\V20201001\Models;
 
 use AlibabaCloud\Dara\Model;
 
-class DescribeDirectoriesResponse extends Model
+class StartDesktopsResponse extends Model
 {
     /**
      * @var string[]
@@ -19,7 +19,7 @@ class DescribeDirectoriesResponse extends Model
     public $statusCode;
 
     /**
-     * @var DescribeDirectoriesResponseBody
+     * @var StartDesktopsResponseBody
      */
     public $body;
     protected $_name = [
@@ -84,7 +84,7 @@ class DescribeDirectoriesResponse extends Model
         }
 
         if (isset($map['body'])) {
-            $model->body = DescribeDirectoriesResponseBody::fromMap($map['body']);
+            $model->body = StartDesktopsResponseBody::fromMap($map['body']);
         }
 
         return $model;

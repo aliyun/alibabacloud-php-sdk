@@ -4,82 +4,87 @@
 
 namespace AlibabaCloud\SDK\Ecd\V20201001\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class GetConnectionTicketResponse extends Model
 {
     /**
-     * @var string
+     * @var string[]
      */
-    public $requestId;
+    public $headers;
 
     /**
-     * @var string
+     * @var int
      */
-    public $taskId;
+    public $statusCode;
 
     /**
-     * @var string
+     * @var GetConnectionTicketResponseBody
      */
-    public $taskStatus;
-
-    /**
-     * @var string
-     */
-    public $ticket;
+    public $body;
     protected $_name = [
-        'requestId'  => 'RequestId',
-        'taskId'     => 'TaskId',
-        'taskStatus' => 'TaskStatus',
-        'ticket'     => 'Ticket',
+        'headers' => 'headers',
+        'statusCode' => 'statusCode',
+        'body' => 'body',
     ];
 
     public function validate()
     {
-        Model::validateRequired('requestId', $this->requestId, true);
-        Model::validateRequired('taskId', $this->taskId, true);
-        Model::validateRequired('taskStatus', $this->taskStatus, true);
-        Model::validateRequired('ticket', $this->ticket, true);
+        if (\is_array($this->headers)) {
+            Model::validateArray($this->headers);
+        }
+        if (null !== $this->body) {
+            $this->body->validate();
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
+        if (null !== $this->headers) {
+            if (\is_array($this->headers)) {
+                $res['headers'] = [];
+                foreach ($this->headers as $key1 => $value1) {
+                    $res['headers'][$key1] = $value1;
+                }
+            }
         }
-        if (null !== $this->taskId) {
-            $res['TaskId'] = $this->taskId;
+
+        if (null !== $this->statusCode) {
+            $res['statusCode'] = $this->statusCode;
         }
-        if (null !== $this->taskStatus) {
-            $res['TaskStatus'] = $this->taskStatus;
-        }
-        if (null !== $this->ticket) {
-            $res['Ticket'] = $this->ticket;
+
+        if (null !== $this->body) {
+            $res['body'] = null !== $this->body ? $this->body->toArray($noStream) : $this->body;
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return GetConnectionTicketResponse
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
+        if (isset($map['headers'])) {
+            if (!empty($map['headers'])) {
+                $model->headers = [];
+                foreach ($map['headers'] as $key1 => $value1) {
+                    $model->headers[$key1] = $value1;
+                }
+            }
         }
-        if (isset($map['TaskId'])) {
-            $model->taskId = $map['TaskId'];
+
+        if (isset($map['statusCode'])) {
+            $model->statusCode = $map['statusCode'];
         }
-        if (isset($map['TaskStatus'])) {
-            $model->taskStatus = $map['TaskStatus'];
-        }
-        if (isset($map['Ticket'])) {
-            $model->ticket = $map['Ticket'];
+
+        if (isset($map['body'])) {
+            $model->body = GetConnectionTicketResponseBody::fromMap($map['body']);
         }
 
         return $model;

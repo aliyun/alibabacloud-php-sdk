@@ -4,36 +4,26 @@
 
 namespace AlibabaCloud\SDK\Ecd\V20201001\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
-class DeleteDirectoriesResponse extends Model
+class StartDesktopsResponseBody extends Model
 {
-    /**
-     * @var string
-     */
-    public $nextToken;
-
     /**
      * @var string
      */
     public $requestId;
     protected $_name = [
-        'nextToken' => 'NextToken',
         'requestId' => 'RequestId',
     ];
 
     public function validate()
     {
-        Model::validateRequired('nextToken', $this->nextToken, true);
-        Model::validateRequired('requestId', $this->requestId, true);
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
-        if (null !== $this->nextToken) {
-            $res['NextToken'] = $this->nextToken;
-        }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -41,17 +31,14 @@ class DeleteDirectoriesResponse extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DeleteDirectoriesResponse
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['NextToken'])) {
-            $model->nextToken = $map['NextToken'];
-        }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
